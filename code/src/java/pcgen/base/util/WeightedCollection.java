@@ -1,7 +1,6 @@
 /*
  * WeightedCollection.java
  * Copyright 2007 (c) Tom Parker <thpr@users.sourceforge.net>
- *  Derived from WeightedList.java
  *  Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -54,7 +53,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	/**
 	 * The actual list where the data is stored.
 	 */
-	private Collection<WeightedItem<E>> theData;
+	private final Collection<WeightedItem<E>> theData;
 
 	/**
 	 * Default constructor. Creates an empty collection.

@@ -174,7 +174,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				+ getTokenName() + ": " + value, context);
 		}
 
-		String lkString = "GA_CA_" + cat + "_" + natureKey;
+		String lkString = "GA_CA_" + cat + '_' + natureKey;
 		ListKey glk = ListKey.getKeyFor(ChooseSelectionActor.class, lkString);
 		ListKey<ChooseSelectionActor<?>> lk = glk;
 

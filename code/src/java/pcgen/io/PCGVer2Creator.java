@@ -33,8 +33,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
@@ -99,6 +97,8 @@ import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code PCGVer2Creator}<br>
@@ -479,9 +479,9 @@ public final class PCGVer2Creator
 
 	private void appendCampaignLine(StringBuilder buffer)
 	{
-		String del = Constants.EMPTY_STRING;
 		if (campaigns != null)
 		{
+			String del = Constants.EMPTY_STRING;
 			for (CampaignFacade campaign : campaigns)
 			{
 				buffer.append(del);
@@ -850,12 +850,9 @@ public final class PCGVer2Creator
 			List<? extends SpecialAbility> salist = charDisplay.getUserSpecialAbilityList(pcClass);
 			if (salist != null)
 			{
-				for (SpecialAbility sa : salist)
-				{
-					specials.put(pcClass.getKeyName() + IOConstants.TAG_SA + 0, sa
-							.getKeyName());
-					break;
-				}
+				SpecialAbility sa = salist.get(0);
+				specials.put(pcClass.getKeyName() + IOConstants.TAG_SA + 0, sa
+						.getKeyName());
 			}
 
 			for (BonusObj save : thePC.getSaveableBonusList(pcClass))
@@ -2124,7 +2121,6 @@ public final class PCGVer2Creator
 	 */
 	private void appendSpellLines(StringBuilder buffer)
 	{
-		String del;
 
 		for (PCClass pcClass : charDisplay.getClassSet())
 		{
@@ -2186,7 +2182,7 @@ public final class PCGVer2Creator
 						buffer.append('|');
 						buffer.append(IOConstants.TAG_FEATLIST).append(':');
 						buffer.append('[');
-						del = Constants.EMPTY_STRING;
+						String del = Constants.EMPTY_STRING;
 
 						for (Ability feat : metaFeats)
 						{

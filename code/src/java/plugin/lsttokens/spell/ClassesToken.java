@@ -216,7 +216,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 						edge.addPrerequisite(prereq);
 					}
 					context.getObjectContext().addToList(
-						spell, ListKey.SPELL_CLASSLEVEL, token + " " + level);
+						spell, ListKey.SPELL_CLASSLEVEL, token + ' ' + level);
 				}
 			}
 		}

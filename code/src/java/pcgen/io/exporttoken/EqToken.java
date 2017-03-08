@@ -185,10 +185,7 @@ public class EqToken extends Token
 
 			// Get the list of equipment
 			eqList = new ArrayList<>();
-			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))
-			{
-				eqList.add(eq);
-			}
+			eqList.addAll(pc.getEquipmentListInOutputOrder(merge));
 
 			//Begin Not code...
 			while (aTok.hasMoreTokens())
@@ -398,7 +395,7 @@ public class EqToken extends Token
 	 */
 	public static String getAcCheckToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getAcCheckTokenInt(pc, eq) + "";
+		return String.valueOf(getAcCheckTokenInt(pc, eq));
 	}
 
 	/**
@@ -428,7 +425,7 @@ public class EqToken extends Token
 	 */
 	public static String getAcModToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getAcModTokenInt(pc, eq) + "";
+		return String.valueOf(getAcModTokenInt(pc, eq));
 	}
 
 	/**
@@ -439,7 +436,7 @@ public class EqToken extends Token
 	 */
 	public static int getAcModTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getACMod(pc).intValue();
+		return eq.getACMod(pc);
 	}
 
 	/**
@@ -495,7 +492,7 @@ public class EqToken extends Token
 	 */
 	public static String getAttacksToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getAttacksTokenDouble(pc, eq) + "";
+		return String.valueOf(getAttacksTokenDouble(pc, eq));
 	}
 
 	/**
@@ -516,7 +513,7 @@ public class EqToken extends Token
 	 */
 	public static String getCarriedToken(Equipment eq)
 	{
-		return getCarriedTokenFloat(eq) + "";
+		return String.valueOf(getCarriedTokenFloat(eq));
 	}
 
 	/**
@@ -526,7 +523,7 @@ public class EqToken extends Token
 	 */
 	public static float getCarriedTokenFloat(Equipment eq)
 	{
-		return eq.numberCarried().floatValue();
+		return eq.numberCarried();
 	}
 
 	/**
@@ -540,7 +537,7 @@ public class EqToken extends Token
 		int charges = getChargesTokenInt(eq);
 		if (charges >= 0)
 		{
-			retString = charges + "";
+			retString = String.valueOf(charges);
 		}
 		return retString;
 	}
@@ -566,7 +563,7 @@ public class EqToken extends Token
 		int charges = getChargesUsedTokenInt(eq);
 		if (charges >= 0)
 		{
-			retString = charges + "";
+			retString = String.valueOf(charges);
 		}
 		return retString;
 	}
@@ -648,7 +645,7 @@ public class EqToken extends Token
 	 */
 	public static String getContentsNumToken(Equipment eq)
 	{
-		return getContentsNumTokenInt(eq) + "";
+		return String.valueOf(getContentsNumTokenInt(eq));
 	}
 
 	/**
@@ -736,7 +733,7 @@ public class EqToken extends Token
 	 */
 	public static String getEdrToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getEdrTokenInt(pc, eq) + "";
+		return String.valueOf(getEdrTokenInt(pc, eq));
 	}
 
 	/**
@@ -870,7 +867,7 @@ public class EqToken extends Token
 		int charges = getMaxChargesTokenInt(eq);
 		if (charges >= 0)
 		{
-			retString = charges + "";
+			retString = String.valueOf(charges);
 		}
 		return retString;
 	}
@@ -994,7 +991,7 @@ public class EqToken extends Token
 	public static String getRangeToken(Equipment eq, PlayerCharacter pc)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			getRange(pc, eq).intValue())
+				getRange(pc, eq))
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 

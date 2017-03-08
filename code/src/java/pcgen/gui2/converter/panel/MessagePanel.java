@@ -30,7 +30,7 @@ import pcgen.gui2.converter.event.ProgressEvent;
 public class MessagePanel extends ConvertSubPanel
 {
 
-	private int progress;
+	private final int progress;
 	private final JPanel message;
 
 	public MessagePanel(String s, int i)

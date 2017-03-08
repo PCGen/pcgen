@@ -1,5 +1,4 @@
 /*
- * UIFactory.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -295,7 +294,7 @@ public final class LookAndFeelManager
 	public static class LookAndFeelHandler extends AbstractAction
 	{
 
-		private String className;
+		private final String className;
 
 		LookAndFeelHandler(String name, String className, String tooltip)
 		{

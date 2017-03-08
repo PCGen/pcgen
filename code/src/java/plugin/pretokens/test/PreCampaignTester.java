@@ -1,5 +1,4 @@
 /*
- * PreCampaignTester.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -48,7 +47,7 @@ import pcgen.util.Logging;
 public class PreCampaignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -222,7 +221,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		return "CAMPAIGN"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override

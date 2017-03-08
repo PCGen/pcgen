@@ -75,7 +75,7 @@ public class CheckToken extends Token
 		{
 			if (saveModsBuf.length() > 0)
 			{
-				saveModsBuf.append(".");
+				saveModsBuf.append('.');
 			}
 			saveModsBuf.append(aTok.nextToken());
 		}

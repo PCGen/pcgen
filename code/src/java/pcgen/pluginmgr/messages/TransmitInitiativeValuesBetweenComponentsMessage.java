@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/02/2014 8:32:57 am
  *
- * $Id$
  */
 package pcgen.pluginmgr.messages;
 
@@ -29,9 +27,7 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code TransmitInitiativeValuesBetweenComponentsMessage} sends the
  * updated list of initiative participants to all listeners. 
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 @SuppressWarnings("serial")

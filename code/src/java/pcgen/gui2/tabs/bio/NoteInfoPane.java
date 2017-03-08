@@ -1,5 +1,4 @@
 /*
- * NoteInfoPane.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -46,7 +45,6 @@ import pcgen.system.LanguageBundle;
  * The NoteInfoPane displays a named text area that the user can fill in for her
  * character. This allows the creation of custom notes about the character.
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

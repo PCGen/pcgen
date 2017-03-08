@@ -1,5 +1,4 @@
 /**
- * MockDataSetFacade.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -80,7 +79,7 @@ public class MockDataSetFacade implements DataSetFacade
 		classes  = new DefaultListFacade<>();
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getAbilities(pcgen.core.facade.AbilityCategoryFacade)
 	 */
     @Override
@@ -99,7 +98,7 @@ public class MockDataSetFacade implements DataSetFacade
 		abilityMap.putValue(cat, null);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getAlignments()
 	 */
     @Override
@@ -109,7 +108,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getCampaigns()
 	 */
     @Override
@@ -119,7 +118,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getClasses()
 	 */
     @Override
@@ -137,7 +136,7 @@ public class MockDataSetFacade implements DataSetFacade
 		classes.addElement(cls);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getDeities()
 	 */
     @Override
@@ -147,7 +146,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getDomains()
 	 */
 	public ListFacade<DomainFacade> getDomains()
@@ -156,7 +155,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getEquipment()
 	 */
     @Override
@@ -171,7 +170,7 @@ public class MockDataSetFacade implements DataSetFacade
 	{
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getEquipmentLocations()
 	 */
     @Override
@@ -180,7 +179,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return equipmentLoc;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getXPTableNames()
 	 */
     @Override
@@ -190,7 +189,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getCharacterTypes()
 	 */
     @Override
@@ -205,7 +204,7 @@ public class MockDataSetFacade implements DataSetFacade
 		equipmentLoc.addElement(elf);
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getGameMode()
 	 */
     @Override
@@ -214,7 +213,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return game;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getRaces()
 	 */
     @Override
@@ -223,7 +222,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return races;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getSkills()
 	 */
     @Override
@@ -232,7 +231,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return skills;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getSpeakLanguageSkill()
 	 */
     @Override
@@ -242,7 +241,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getStatGenerators()
 	 */
     @Override
@@ -252,7 +251,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getStats()
 	 */
     @Override
@@ -261,7 +260,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return stats;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getTemplates()
 	 */
     @Override

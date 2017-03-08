@@ -43,7 +43,6 @@ import pcgen.util.Logging;
  * The Class {@code PortraitToken} supports the PORTRAIT
  * token and its and PORTRAIT.THUMB variant.
  *
- * <br>
  * 
  */
 public class PortraitToken extends AbstractExportToken

@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractGlobalIntegerTokenTestCase extends
 		AbstractGlobalTokenTestCase
@@ -45,14 +45,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	public void testInvalidInputSet() throws PersistenceLayerException
 	{
 		Integer con;
-		if (isPositiveAllowed())
-		{
-			con = 3;
-		}
-		else
-		{
-			con = -3;
-		}
+		con = isPositiveAllowed() ? 3 : -3;
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
 		assertEquals(con, primaryProf.get(getIntegerKey()));
@@ -237,27 +230,13 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	@Override
 	protected String getLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "1";
-		}
-		else
-		{
-			return "-1";
-		}
+		return isPositiveAllowed() ? "1" : "-1";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "2";
-		}
-		else
-		{
-			return "-2";
-		}
+		return isPositiveAllowed() ? "2" : "-2";
 	}
 
 	@Test

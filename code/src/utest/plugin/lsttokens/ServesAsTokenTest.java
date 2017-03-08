@@ -41,13 +41,6 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-	}
-
-	@Override
 	public CDOMLoader<Skill> getLoader()
 	{
 		return loader;

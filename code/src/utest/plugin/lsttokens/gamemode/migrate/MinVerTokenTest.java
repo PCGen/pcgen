@@ -1,5 +1,4 @@
 /*
- * MinVerTokenTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -61,7 +60,7 @@ public class MinVerTokenTest
 	public void testParseValidVerNumbers()
 	{
 		String[] goodVersions =
-				new String[]{"5.17.12", "6.0.0", "6.0.1 RC2", "6.0.1-RC2",
+				{"5.17.12", "6.0.0", "6.0.1 RC2", "6.0.1-RC2",
 					"6.01.02", "6.01.02-dev"};
 		for (String verString : goodVersions)
 		{
@@ -84,7 +83,7 @@ public class MinVerTokenTest
 	public void testParseInvalidVerFormat()
 	{
 		String[] badVersions =
-				new String[]{"text", "a.b.c", "6.1", "6_0_1", "6.0.1d",
+				{"text", "a.b.c", "6.1", "6_0_1", "6.0.1d",
 					"3.rc2", "6.0.1RC2"};
 		for (String verString : badVersions)
 		{

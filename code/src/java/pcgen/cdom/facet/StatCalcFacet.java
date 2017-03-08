@@ -102,7 +102,7 @@ public class StatCalcFacet
 			}
 		}
 
-		y = (int) (y + bonusCheckingFacet.getBonus(id, "STAT", stat.getKeyName()));
+		y += bonusCheckingFacet.getBonus(id, "STAT", stat.getKeyName());
 
 		y = Math.min(maxStatValue, y);
 		return Math.max(minStatValue, y);

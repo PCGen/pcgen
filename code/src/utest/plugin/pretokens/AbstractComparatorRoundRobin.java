@@ -36,7 +36,7 @@ public abstract class AbstractComparatorRoundRobin extends
 		super.runPositiveRoundRobin("PRE" + getBaseString() + "EQ:" + s);
 		if (isBaseAllowed())
 		{
-			super.runSimpleRoundRobin("PRE" + getBaseString() + ":" + s, "PRE"
+			runSimpleRoundRobin("PRE" + getBaseString() + ":" + s, "PRE"
 					+ getBaseString() + "GTEQ:" + s);
 		}
 	}
@@ -44,21 +44,21 @@ public abstract class AbstractComparatorRoundRobin extends
 	@Override
 	public void runNegativeRoundRobin(String s)
 	{
-		super.runSimpleRoundRobin("!PRE" + getBaseString() + "GT:" + s, "PRE"
+		runSimpleRoundRobin("!PRE" + getBaseString() + "GT:" + s, "PRE"
 				+ getBaseString() + "LTEQ:" + s);
-		super.runSimpleRoundRobin("!PRE" + getBaseString() + "GTEQ:" + s, "PRE"
+		runSimpleRoundRobin("!PRE" + getBaseString() + "GTEQ:" + s, "PRE"
 				+ getBaseString() + "LT:" + s);
-		super.runSimpleRoundRobin("!PRE" + getBaseString() + "LT:" + s, "PRE"
+		runSimpleRoundRobin("!PRE" + getBaseString() + "LT:" + s, "PRE"
 				+ getBaseString() + "GTEQ:" + s);
-		super.runSimpleRoundRobin("!PRE" + getBaseString() + "LTEQ:" + s, "PRE"
+		runSimpleRoundRobin("!PRE" + getBaseString() + "LTEQ:" + s, "PRE"
 				+ getBaseString() + "GT:" + s);
-		super.runSimpleRoundRobin("!PRE" + getBaseString() + "NEQ:" + s, "PRE"
+		runSimpleRoundRobin("!PRE" + getBaseString() + "NEQ:" + s, "PRE"
 				+ getBaseString() + "EQ:" + s);
-		super.runSimpleRoundRobin("!PRE" + getBaseString() + "EQ:" + s, "PRE"
+		runSimpleRoundRobin("!PRE" + getBaseString() + "EQ:" + s, "PRE"
 				+ getBaseString() + "NEQ:" + s);
 		if (isBaseAllowed())
 		{
-			super.runSimpleRoundRobin("!PRE" + getBaseString() + ":" + s, "PRE"
+			runSimpleRoundRobin("!PRE" + getBaseString() + ":" + s, "PRE"
 					+ getBaseString() + "LT:" + s);
 		}
 	}

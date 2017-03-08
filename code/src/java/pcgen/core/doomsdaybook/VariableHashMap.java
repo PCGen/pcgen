@@ -16,7 +16,6 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * VariableHashMap.java
  *
  */
 package pcgen.core.doomsdaybook;
@@ -36,8 +35,8 @@ import java.util.Map;
  */
 public class VariableHashMap extends HashMap<String, String>
 {
-	private List<Operation> initialize = new ArrayList<>();
-	private Map<String, DataElement> dataElements;
+	private final List<Operation> initialize = new ArrayList<>();
+	private final Map<String, DataElement> dataElements;
 
 	/** Creates a new instance of VariableHashMap */
 	public VariableHashMap()

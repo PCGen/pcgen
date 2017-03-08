@@ -1,5 +1,4 @@
 /*
- * KitLangBonus.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -46,7 +45,7 @@ public class KitLangBonus extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient List<Language> theLanguages = new ArrayList<>();
+	private List<Language> theLanguages = new ArrayList<>();
 
 	/**
 	 * Actually applies the bonus languages to this PC.

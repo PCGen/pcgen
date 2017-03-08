@@ -72,7 +72,7 @@ public class DropIntoContext implements Function
 		{
 			semantics.setInvalid("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 3 got " + args.length
-				+ " " + Arrays.asList(args));
+				+ ' ' + Arrays.asList(args));
 			return null;
 		}
 	}

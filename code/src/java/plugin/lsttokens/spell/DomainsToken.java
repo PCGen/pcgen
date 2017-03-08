@@ -207,7 +207,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 						edge.addPrerequisite(prereq);
 					}
 					context.getObjectContext().addToList(
-						spell, ListKey.SPELL_DOMAINLEVEL, token + " " + level);
+						spell, ListKey.SPELL_DOMAINLEVEL, token + ' ' + level);
 				}
 			}
 		}

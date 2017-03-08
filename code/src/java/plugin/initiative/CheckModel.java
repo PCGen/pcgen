@@ -45,7 +45,7 @@ public class CheckModel extends DiceRollModel
 		super(objectString);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

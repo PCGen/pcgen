@@ -66,7 +66,7 @@ public class SpellChoicePanel extends JPanel
 	private CharacterComboBoxModel<String> variantModel;
 	private CharacterComboBoxModel<Integer> casterLevelModel;
 	private CharacterComboBoxModel<String> spellTypeModel;
-	private SpellBuilderFacade spellBuilderFacade;
+	private final SpellBuilderFacade spellBuilderFacade;
 	private MetamagicFeatListModel metamgicModel;
 	
 	/**
@@ -227,7 +227,7 @@ public class SpellChoicePanel extends JPanel
 			CharacterComboBoxModel<String>
 	{
 
-		private JComboBox box;
+		private final JComboBox box;
 
 		DisablingCharacterComboBoxModel(JComboBox box)
 		{

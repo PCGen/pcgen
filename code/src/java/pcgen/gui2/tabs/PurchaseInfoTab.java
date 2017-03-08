@@ -1,5 +1,4 @@
 /*
- * PurchaseInfoTab.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -499,7 +498,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class AddAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddAction(CharacterFacade character)
 		{
@@ -545,7 +544,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class AddCustomAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddCustomAction(CharacterFacade character)
 		{
@@ -585,7 +584,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class DeleteCustomAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public DeleteCustomAction(CharacterFacade character)
 		{
@@ -615,7 +614,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class UseAutoResizeAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public UseAutoResizeAction(CharacterFacade character)
 		{
@@ -639,7 +638,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class RemoveAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public RemoveAction(CharacterFacade character)
 		{
@@ -681,7 +680,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class FundsAddAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public FundsAddAction(CharacterFacade character)
 		{
@@ -710,7 +709,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class FundsSubtractAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public FundsSubtractAction(CharacterFacade character)
 		{
@@ -739,7 +738,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class AllowDebtAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AllowDebtAction(CharacterFacade character)
 		{
@@ -763,7 +762,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class EquipInfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String text;
 		private List<EquipmentFacade> oldList;
 
@@ -834,7 +833,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class CurrencyLabelHandler
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public CurrencyLabelHandler(CharacterFacade character)
 		{
@@ -1170,7 +1169,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class PurchaseTransferHandler extends TransferHandler
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public PurchaseTransferHandler(CharacterFacade character)
 		{
@@ -1225,7 +1224,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class EquipmentTransferHandler extends TransferHandler
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public EquipmentTransferHandler(CharacterFacade character)
 		{

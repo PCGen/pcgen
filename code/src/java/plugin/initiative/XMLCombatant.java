@@ -45,7 +45,7 @@ public class XMLCombatant extends Combatant
 	protected int xp;
 
 	/** The JDOM element from which the combatant was derived. */
-	private Element combatant;
+	private final Element combatant;
 
 	/**
 	 *  Creates new XMLCombatant from a JDOM Element.

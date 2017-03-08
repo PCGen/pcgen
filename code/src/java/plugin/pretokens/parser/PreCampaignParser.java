@@ -114,7 +114,7 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				oper = "(" + oper + ")+" + Integer.toString(modified);
+				oper = '(' + oper + ")+" + Integer.toString(modified);
 			}
 			prereq.setOperand(oper);
 		}

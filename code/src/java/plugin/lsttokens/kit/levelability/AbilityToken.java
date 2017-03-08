@@ -79,7 +79,7 @@ public class AbilityToken extends AbstractToken implements
 		}
 		if (ptc == null)
 		{
-			return new ParseResult.Fail("Error was in " + getTokenName() + " " + value, context);
+			return new ParseResult.Fail("Error was in " + getTokenName() + ' ' + value, context);
 		}
 		kitAbility.setAdd(ptc);
 

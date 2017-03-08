@@ -47,11 +47,11 @@ import pcgen.util.Logging;
  */
 public class EquipmentTableParser
 {
-	private SAXParser theParser;
-	private GameMode theMode;
+	private final SAXParser theParser;
+	private final GameMode theMode;
 	
-	private HashMap<EquipmentItem, String> theLinkTable = new HashMap<>();
-	private HashMap<EqmodItem, String> theEqmodLinkTable = new HashMap<>();
+	private final HashMap<EquipmentItem, String> theLinkTable = new HashMap<>();
+	private final HashMap<EqmodItem, String> theEqmodLinkTable = new HashMap<>();
 	
 	/**
 	 * Creates a new <tt>EquipmentTableParser</tt> for the specified game mode.
@@ -143,7 +143,7 @@ public class EquipmentTableParser
 	 */
 	class EquipmentTableHandler extends DefaultHandler
 	{
-		private List<EquipmentTable> theList;
+		private final List<EquipmentTable> theList;
 		
 		private GameMode theGameMode = null;
 		private boolean theValidFlag = false;

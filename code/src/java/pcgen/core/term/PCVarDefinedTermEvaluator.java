@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCVarDefinedTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -18,7 +17,6 @@
  *
  * Created 09-Aug-2008 13:40:31
  *
- * Current Ver: $Revision:$
  *
  */
 

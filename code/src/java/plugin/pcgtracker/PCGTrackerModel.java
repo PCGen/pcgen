@@ -105,9 +105,9 @@ public class PCGTrackerModel extends DefaultListModel
 			}
 
 			outbuf.append(pcOut.getName()).append(" (");
-			outbuf.append(pcOut.getRaceName()).append(" ");
-			outbuf.append(pcOut.getClasses()).append(" ");
-			outbuf.append(pcOut.getGender()).append(")");
+			outbuf.append(pcOut.getRaceName()).append(' ');
+			outbuf.append(pcOut.getClasses()).append(' ');
+			outbuf.append(pcOut.getGender()).append(')');
 
 			return outbuf.toString();
 		}

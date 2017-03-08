@@ -38,7 +38,7 @@ import java.io.Writer;
 public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -47,7 +47,7 @@ public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 		return "basesize";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -56,7 +56,7 @@ public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
@@ -67,7 +67,7 @@ public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 		{
 			writer.write("PREBASESIZE");
 			writer.write(prereq.getOperator().toString().toUpperCase());
-			writer.write(":" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write(':' + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

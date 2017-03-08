@@ -42,17 +42,16 @@ import pcgen.system.LanguageBundle;
  * the user to select a spell for inclusion in things like custom equipment 
  * items.  
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")
 public class SpellChoiceDialog extends JDialog
 		implements ActionListener
 {
-	private SpellChoicePanel spellChoicePanel;
-	private JPanel buttonPanel;
-	private JButton okButton;
-	private JButton cancelButton;
+	private final SpellChoicePanel spellChoicePanel;
+	private final JPanel buttonPanel;
+	private final JButton okButton;
+	private final JButton cancelButton;
 	private boolean cancelled;
 
 	

@@ -1,5 +1,4 @@
 /*
- * FilterBar.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -47,8 +46,8 @@ import org.apache.commons.lang3.ArrayUtils;
 public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 {
 
-	private JPanel filterPanel = new JPanel(new FilterLayout());
-	private List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<>();
+	private final JPanel filterPanel = new JPanel(new FilterLayout());
+	private final List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<>();
 	private FilterHandler filterHandler;
 
 	public FilterBar()

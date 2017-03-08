@@ -24,7 +24,6 @@ import pcgen.core.character.Follower;
 /**
  * FollowerFacet tracks the list of Followers for Player Characters.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FollowerFacet extends AbstractListFacet<CharID, Follower>
 {

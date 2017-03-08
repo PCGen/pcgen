@@ -1,5 +1,4 @@
 /*
- * HouseRulesPanel.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -55,7 +54,7 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class HouseRulesPanel extends PCGenPrefsPanel
 {
-	private static String in_houseRules =
+	private static final String in_houseRules =
 		LanguageBundle.getString("in_Prefs_houseRules");
 	private final Collection<RuleCheck> ruleCheckList;
 	
@@ -296,7 +295,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -305,7 +304,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		return in_houseRules;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -346,7 +345,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

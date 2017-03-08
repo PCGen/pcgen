@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCStatTotalTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -18,7 +17,6 @@
  *
  * Created 22-Sep-2008 01:12:47
  *
- * Current Ver: $Revision:$
  *
  */
 

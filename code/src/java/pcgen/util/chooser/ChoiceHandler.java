@@ -26,7 +26,6 @@ import pcgen.facade.core.ChooserFacade;
  * This interface indicates that the class can handle making a decision 
  * on a choice request.
  *
- * <br>
  * 
  */
 public interface ChoiceHandler

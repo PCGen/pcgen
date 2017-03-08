@@ -24,7 +24,6 @@ import pcgen.core.Skill;
  * AssociationChangeEvent is an event sent to a AssociationChangeListener when a
  * Association Bonus value changes on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AssociationChangeEvent
 {

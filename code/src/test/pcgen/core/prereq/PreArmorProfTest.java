@@ -1,5 +1,4 @@
 /*
- * PreArmorProfTest.java
  * Copyright 2008 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -319,7 +318,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

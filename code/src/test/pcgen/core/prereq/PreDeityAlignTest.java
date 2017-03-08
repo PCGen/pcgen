@@ -1,5 +1,4 @@
 /*
- * PreDeityAlignTest.java
  *
  * Copyright 2005 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *

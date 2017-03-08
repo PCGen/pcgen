@@ -1,5 +1,4 @@
 /*
- * EquipmentSetFacade.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 18, 2008, 2:00:52 PM
  */
 package pcgen.facade.core;
 
@@ -34,9 +32,7 @@ import pcgen.facade.util.ListFacade;
  * each representing a configuration of equipped gear (e.g. dungeon, boat, 
  * camp).
  *
- * <br>
  *  
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface EquipmentSetFacade
 {
@@ -138,7 +134,7 @@ public interface EquipmentSetFacade
 	public static class EquipmentTreeEvent extends EventObject
 	{
 
-		private EquipNode node;
+		private final EquipNode node;
 
 		public EquipmentTreeEvent(Object source, EquipNode node)
 		{

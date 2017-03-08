@@ -31,7 +31,6 @@ import javax.swing.JList;
 /**
  * The Class {@code JListEx} extends JList to provide double click events.
  *
- * <br>
  * 
  */
 

@@ -43,18 +43,17 @@ import pcgen.system.LanguageBundle;
  * the user to build up custom equipment items by adding equipment modifiers and
  * setting the name, cost etc.  
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")
 public class EquipCustomizerDialog extends JDialog
 		implements ActionListener
 {
-	private EquipCustomPanel equipCustomPanel;
-	private JPanel buttonPanel;
-	private JButton buyButton;
-	private JButton okButton;
-	private JButton cancelButton;
+	private final EquipCustomPanel equipCustomPanel;
+	private final JPanel buttonPanel;
+	private final JButton buyButton;
+	private final JButton okButton;
+	private final JButton cancelButton;
 	private boolean purchase;
 	private boolean cancelled;
 

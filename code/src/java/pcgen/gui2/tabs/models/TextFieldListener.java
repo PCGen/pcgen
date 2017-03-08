@@ -1,5 +1,4 @@
 /**
- * TextFieldListener.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -30,7 +29,6 @@ import javax.swing.text.JTextComponent;
  * though and does not update the text field if the underlying value 
  * changes.
  *
- * <br>
  * 
  */
 public abstract class TextFieldListener implements DocumentListener
@@ -46,7 +44,7 @@ public abstract class TextFieldListener implements DocumentListener
 		this.textField = textField;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see javax.swing.event.DocumentListener#insertUpdate(javax.swing.event.DocumentEvent)
 	 */
 	@Override
@@ -55,7 +53,7 @@ public abstract class TextFieldListener implements DocumentListener
 		textChanged(textField.getText());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see javax.swing.event.DocumentListener#removeUpdate(javax.swing.event.DocumentEvent)
 	 */
 	@Override
@@ -64,7 +62,7 @@ public abstract class TextFieldListener implements DocumentListener
 		textChanged(textField.getText());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see javax.swing.event.DocumentListener#changedUpdate(javax.swing.event.DocumentEvent)
 	 */
 	@Override
