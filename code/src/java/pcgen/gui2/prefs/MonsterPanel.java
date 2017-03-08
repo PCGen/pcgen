@@ -43,10 +43,10 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class MonsterPanel extends PCGenPrefsPanel
 {
-	private static String in_monsters =
+	private static final String in_monsters =
 		LanguageBundle.getString("in_Prefs_monsters");
 //	private JCheckBox hideMonsterClasses = new JCheckBox();
-	private JCheckBox ignoreMonsterHDCap = new JCheckBox();
+	private final JCheckBox ignoreMonsterHDCap = new JCheckBox();
 
 	/**
 	 * Instantiates a new monster panel.

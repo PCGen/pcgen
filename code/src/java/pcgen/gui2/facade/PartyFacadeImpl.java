@@ -40,7 +40,7 @@ import pcgen.io.PCGIOHandler;
 public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implements PartyFacade
 {
 
-	private DefaultReferenceFacade<File> fileRef = new DefaultReferenceFacade<>();
+	private final DefaultReferenceFacade<File> fileRef = new DefaultReferenceFacade<>();
 
 	@Override
 	public void export(ExportHandler theHandler, BufferedWriter buf)

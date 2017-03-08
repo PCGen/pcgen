@@ -249,7 +249,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 	private static class TreeRenderer extends CharacterTreeCellRenderer
 	{
 
-		private Map<String, ImageIcon> iconCache = new HashMap<>();
+		private final Map<String, ImageIcon> iconCache = new HashMap<>();
 
 		@Override
 		public Component getTreeCellRendererComponent(final JTree tree,

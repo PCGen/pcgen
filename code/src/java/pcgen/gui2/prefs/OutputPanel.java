@@ -65,68 +65,68 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public class OutputPanel extends PCGenPrefsPanel
 {
-	private static String in_output =
+	private static final String in_output =
 			LanguageBundle.getString("in_Prefs_output");
 
-	private static String in_alwaysOverwrite =
+	private static final String in_alwaysOverwrite =
 			LanguageBundle.getString("in_Prefs_alwaysOverwrite");
-	private static String in_invalidToHitText =
+	private static final String in_invalidToHitText =
 			LanguageBundle.getString("in_Prefs_invalidToHitText");
-	private static String in_invalidDmgText =
+	private static final String in_invalidDmgText =
 			LanguageBundle.getString("in_Prefs_invalidDmgText");
-	private static String in_outputSheetEqSet =
+	private static final String in_outputSheetEqSet =
 			LanguageBundle.getString("in_Prefs_templateEqSet");
-	private static String in_paperType =
+	private static final String in_paperType =
 			LanguageBundle.getString("in_Prefs_paperType");
-	private static String in_postExportCommandStandard =
+	private static final String in_postExportCommandStandard =
 			LanguageBundle.getString("in_Prefs_postExportCommandStandard");
-	private static String in_postExportCommandPDF =
+	private static final String in_postExportCommandPDF =
 			LanguageBundle.getString("in_Prefs_postExportCommandPDF");
-	private static String in_removeTemp =
+	private static final String in_removeTemp =
 			LanguageBundle.getString("in_Prefs_removeTemp");
-	private static String in_saveOutputSheetWithPC =
+	private static final String in_saveOutputSheetWithPC =
 			LanguageBundle.getString("in_Prefs_saveOutputSheetWithPC");
-	private static String in_showSingleBoxPerBundle =
+	private static final String in_showSingleBoxPerBundle =
 			LanguageBundle.getString("in_Prefs_showSingleBoxPerBundle");
-	private static String in_weaponProfPrintout =
+	private static final String in_weaponProfPrintout =
 			LanguageBundle.getString("in_Prefs_weaponProfPrintout");
-	private static String in_skillFilter =
+	private static final String in_skillFilter =
 			LanguageBundle.getString("in_Prefs_skillFilterLabel");
-	private static String in_choose =
+	private static final String in_choose =
 			LanguageBundle.getString("...");
-	private static String in_generateTempFileWithPdf = LanguageBundle.getString("in_Prefs_generateTempFileWithPdf");
+	private static final String in_generateTempFileWithPdf = LanguageBundle.getString("in_Prefs_generateTempFileWithPdf");
 
-	private JCheckBox printSpellsWithPC = new JCheckBox();
-	private JCheckBox removeTempFiles = new JCheckBox(in_removeTemp);
-	private JCheckBox saveOutputSheetWithPC = new JCheckBox();
-	private JCheckBox generateTempFileWithPdf = new JCheckBox(in_generateTempFileWithPdf);
+	private final JCheckBox printSpellsWithPC = new JCheckBox();
+	private final JCheckBox removeTempFiles = new JCheckBox(in_removeTemp);
+	private final JCheckBox saveOutputSheetWithPC = new JCheckBox();
+	private final JCheckBox generateTempFileWithPdf = new JCheckBox(in_generateTempFileWithPdf);
 
-	private JCheckBox weaponProfPrintout;
-	private JButton outputSheetEqSetButton;
-	private JButton outputSheetHTMLDefaultButton;
-	private JButton outputSheetPDFDefaultButton;
-	private JButton outputSheetSpellsDefaultButton;
+	private final JCheckBox weaponProfPrintout;
+	private final JButton outputSheetEqSetButton;
+	private final JButton outputSheetHTMLDefaultButton;
+	private final JButton outputSheetPDFDefaultButton;
+	private final JButton outputSheetSpellsDefaultButton;
 
-	private JTextField outputSheetEqSet;
-	private JTextField outputSheetHTMLDefault;
-	private JTextField outputSheetPDFDefault;
-	private JTextField outputSheetSpellsDefault;
+	private final JTextField outputSheetEqSet;
+	private final JTextField outputSheetHTMLDefault;
+	private final JTextField outputSheetPDFDefault;
+	private final JTextField outputSheetSpellsDefault;
 
 	private JComboBoxEx paperType = new JComboBoxEx();
-	private JComboBoxEx skillFilter = new JComboBoxEx();
-	private JComboBox exportChoice = new JComboBox(ExportChoices.values());
+	private final JComboBoxEx skillFilter = new JComboBoxEx();
+	private final JComboBox exportChoice = new JComboBox(ExportChoices.values());
 
-	private JTextField postExportCommandStandard;
-	private JTextField postExportCommandPDF;
-	private JTextField invalidToHitText;
-	private JTextField invalidDmgText;
-	private JCheckBox alwaysOverwrite;
-	private JCheckBox showSingleBoxPerBundle;
+	private final JTextField postExportCommandStandard;
+	private final JTextField postExportCommandPDF;
+	private final JTextField invalidToHitText;
+	private final JTextField invalidDmgText;
+	private final JCheckBox alwaysOverwrite;
+	private final JCheckBox showSingleBoxPerBundle;
 
 	private String[] paperNames = null;
 
 	// Listeners
-	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
+	private final PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private final TextFocusLostListener textFieldListener =
 			new TextFocusLostListener();
 

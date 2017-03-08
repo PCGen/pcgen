@@ -96,17 +96,17 @@ public class SourceSelectionDialog extends JDialog
 	private static final String HIDEUNHIDE_COMMAND = "Hide"; //$NON-NLS-1$
 	private static final String INSTALLDATA_COMMAND = "Install"; //$NON-NLS-1$
 	private final PCGenFrame frame;
-	private QuickSourceSelectionPanel basicPanel;
-	private AdvancedSourceSelectionPanel advancedPanel;
-	private JTabbedPane tabs;
-	private JPanel buttonPanel;
-	private JButton loadButton;
-	private JButton cancelButton;
-	private JButton hideunhideButton;
-	private JButton deleteButton;
-	private JButton installDataButton;
-	private JButton saveButton;
-	private JCheckBox alwaysAdvancedCheck;
+	private final QuickSourceSelectionPanel basicPanel;
+	private final AdvancedSourceSelectionPanel advancedPanel;
+	private final JTabbedPane tabs;
+	private final JPanel buttonPanel;
+	private final JButton loadButton;
+	private final JButton cancelButton;
+	private final JButton hideunhideButton;
+	private final JButton deleteButton;
+	private final JButton installDataButton;
+	private final JButton saveButton;
+	private final JCheckBox alwaysAdvancedCheck;
 
 	public SourceSelectionDialog(PCGenFrame frame)
 	{
@@ -412,7 +412,7 @@ public class SourceSelectionDialog extends JDialog
 	private static class SourcesTableModel extends FilteredListFacadeTableModel<SourceSelectionFacade>
 	{
 
-		private List<SourceSelectionFacade> displayedSources;
+		private final List<SourceSelectionFacade> displayedSources;
 
 		public SourcesTableModel()
 		{
@@ -497,9 +497,9 @@ public class SourceSelectionDialog extends JDialog
 	{
 
 		private static final String DEFAULT_SOURCE = "Pathfinder RPG for Players"; //$NON-NLS-1$
-		private JList sourceList;
-		private InfoPane infoPane;
-		private InfoPaneLinkAction linkAction;
+		private final JList sourceList;
+		private final InfoPane infoPane;
+		private final InfoPaneLinkAction linkAction;
 
 		public QuickSourceSelectionPanel()
 		{

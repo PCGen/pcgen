@@ -108,22 +108,22 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 {
 	private final PlayerCharacter pc;
 	private final CharacterDisplay charDisplay;
-	private UIDelegate delegate;
+	private final UIDelegate delegate;
 
-	private DefaultListFacade<SpellNode> availableSpellNodes;
-	private DefaultListFacade<SpellNode> allKnownSpellNodes;
-	private DefaultListFacade<SpellNode> knownSpellNodes;
-	private DefaultListFacade<SpellNode> preparedSpellNodes;
-	private DefaultListFacade<SpellNode> bookSpellNodes;
-	private List<SpellNode> preparedSpellLists;
-	private List<SpellNode> spellBooks;
-	private Map<String, RootNodeImpl> rootNodeMap;
+	private final DefaultListFacade<SpellNode> availableSpellNodes;
+	private final DefaultListFacade<SpellNode> allKnownSpellNodes;
+	private final DefaultListFacade<SpellNode> knownSpellNodes;
+	private final DefaultListFacade<SpellNode> preparedSpellNodes;
+	private final DefaultListFacade<SpellNode> bookSpellNodes;
+	private final List<SpellNode> preparedSpellLists;
+	private final List<SpellNode> spellBooks;
+	private final Map<String, RootNodeImpl> rootNodeMap;
 	private final DataSetFacade dataSet;
 	
-	private DefaultListFacade<String> spellBookNames;
-	private DefaultReferenceFacade<String> defaultSpellBook;
-	private TodoManager todoManager;
-	private CharacterFacadeImpl pcFacade;
+	private final DefaultListFacade<String> spellBookNames;
+	private final DefaultReferenceFacade<String> defaultSpellBook;
+	private final TodoManager todoManager;
+	private final CharacterFacadeImpl pcFacade;
 	private final InfoFactory infoFactory;
 	
 

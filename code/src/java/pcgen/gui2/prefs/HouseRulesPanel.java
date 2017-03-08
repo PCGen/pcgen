@@ -54,7 +54,7 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class HouseRulesPanel extends PCGenPrefsPanel
 {
-	private static String in_houseRules =
+	private static final String in_houseRules =
 		LanguageBundle.getString("in_Prefs_houseRules");
 	private final Collection<RuleCheck> ruleCheckList;
 	

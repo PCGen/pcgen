@@ -53,14 +53,14 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class CopySettingsPanel extends PCGenPrefsPanel
 {
-	private static String in_copy_settings =
+	private static final String in_copy_settings =
 		LanguageBundle.getString("in_Prefs_copy");
 	
-	private JComboBoxEx gameModeSelect = new JComboBoxEx();
-	private JButton copyButton =
+	private final JComboBoxEx gameModeSelect = new JComboBoxEx();
+	private final JButton copyButton =
 			new JButton(LanguageBundle.getString("in_copy"));
 
-	private List<PCGenPrefsPanel> affectedPanels =
+	private final List<PCGenPrefsPanel> affectedPanels =
             new ArrayList<>();
 
 	/**

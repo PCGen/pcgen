@@ -51,9 +51,9 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	private final List<InfoFacade> origSelected;
 	private final int maxNewSelections;
 	
-	private DefaultListFacade<InfoFacade> availableList;
-	private DefaultListFacade<InfoFacade> selectedList;
-	private DefaultReferenceFacade<Integer> numSelectionsRemain;
+	private final DefaultListFacade<InfoFacade> availableList;
+	private final DefaultListFacade<InfoFacade> selectedList;
+	private final DefaultReferenceFacade<Integer> numSelectionsRemain;
 
 	private final String availableTableTypeNameTitle;
 	private final String selectedTableTitle;

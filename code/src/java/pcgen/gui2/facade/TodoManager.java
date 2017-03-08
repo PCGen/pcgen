@@ -31,7 +31,7 @@ import pcgen.facade.util.ListFacade;
 @SuppressWarnings("TodoComment")
 public class TodoManager
 {
-	private DefaultListFacade<TodoFacade> todoList;
+	private final DefaultListFacade<TodoFacade> todoList;
 
 	TodoManager()
 	{

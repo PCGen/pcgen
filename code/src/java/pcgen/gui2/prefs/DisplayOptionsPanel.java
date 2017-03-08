@@ -51,49 +51,49 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public class DisplayOptionsPanel extends PCGenPrefsPanel
 {
-	private static String in_displayOpts =
+	private static final String in_displayOpts =
 			LanguageBundle.getString("in_Prefs_displayOpts"); //$NON-NLS-1$
 
 //	private static String in_useAutoWaitCursor =
 //			LanguageBundle.getString("in_Prefs_useAutoWaitCursor");
-	private static String in_useOutputNamesEquipment =
+	private static final String in_useOutputNamesEquipment =
 			LanguageBundle.getString("in_Prefs_useOutputNamesEquipment"); //$NON-NLS-1$
-	private static String in_useOutputNamesSpells =
+	private static final String in_useOutputNamesSpells =
 			LanguageBundle.getString("in_Prefs_useOutputNamesSpells"); //$NON-NLS-1$
-	private static String in_useOutputNamesOther =
+	private static final String in_useOutputNamesOther =
 			LanguageBundle.getString("in_Prefs_useOutputNamesOther"); //$NON-NLS-1$
 //	private static String in_showMemory =
 //			LanguageBundle.getString("in_Prefs_showMemory");
 //	private static String in_showImagePreview =
 //			LanguageBundle.getString("in_Prefs_showImagePreview");
-	private static String in_showSkillModifierBreakdown =
+	private static final String in_showSkillModifierBreakdown =
 			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown"); //$NON-NLS-1$
-	private static String in_showSkillRanksBreakdown =
+	private static final String in_showSkillRanksBreakdown =
 			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown"); //$NON-NLS-1$
 //	private static String in_showToolBar =
 //			LanguageBundle.getString("in_Prefs_showToolBar");
-	private static String in_singleChoiceOption =
+	private static final String in_singleChoiceOption =
 			LanguageBundle.getString("in_Prefs_singleChoiceOption"); //$NON-NLS-1$
-	private static String in_cmNone =
+	private static final String in_cmNone =
 			LanguageBundle.getString("in_Prefs_cmNone"); //$NON-NLS-1$
-	private static String in_cmSelect =
+	private static final String in_cmSelect =
 			LanguageBundle.getString("in_Prefs_cmSelect"); //$NON-NLS-1$
-	private static String in_cmSelectExit =
+	private static final String in_cmSelectExit =
 			LanguageBundle.getString("in_Prefs_cmSelectExit"); //$NON-NLS-1$
-	private static String[] singleChoiceMethods =
+	private static final String[] singleChoiceMethods =
 			{in_cmNone, in_cmSelect, in_cmSelectExit};
 
 //	private JCheckBox showToolbar = new JCheckBox();
-	private JCheckBox showSkillModifier = new JCheckBox();
-	private JCheckBox showSkillRanks = new JCheckBox();
+	private final JCheckBox showSkillModifier = new JCheckBox();
+	private final JCheckBox showSkillRanks = new JCheckBox();
 //	private JCheckBox showMemory = new JCheckBox();
 //	private JCheckBox showImagePreview = new JCheckBox();
 
-	private JCheckBox useOutputNamesEquipment = new JCheckBox();
-	private JCheckBox useOutputNamesSpells = new JCheckBox();
-	private JCheckBox useOutputNamesOther = new JCheckBox();
+	private final JCheckBox useOutputNamesEquipment = new JCheckBox();
+	private final JCheckBox useOutputNamesSpells = new JCheckBox();
+	private final JCheckBox useOutputNamesOther = new JCheckBox();
 //	private JCheckBox waitCursor = new JCheckBox();
-	private JComboBoxEx cmbChoiceMethods = new JComboBoxEx(singleChoiceMethods);
+	private final JComboBoxEx cmbChoiceMethods = new JComboBoxEx(singleChoiceMethods);
 
 	/**
 	 * Instantiates a new display options panel.

@@ -57,13 +57,13 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 {
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
-	private ChooseDriver source;
-	private String name;
-	private DefaultListFacade<LanguageFacade> availableList;
-	private DefaultListFacade<LanguageFacade> selectedList;
-	private DefaultListFacade<LanguageFacade> originalSelectedList;
-	private DefaultReferenceFacade<Integer> numSelectionsRemain;
-	private CharacterFacadeImpl pcFacade;
+	private final ChooseDriver source;
+	private final String name;
+	private final DefaultListFacade<LanguageFacade> availableList;
+	private final DefaultListFacade<LanguageFacade> selectedList;
+	private final DefaultListFacade<LanguageFacade> originalSelectedList;
+	private final DefaultReferenceFacade<Integer> numSelectionsRemain;
+	private final CharacterFacadeImpl pcFacade;
 	
 	/**
 	 * Create a new LanguageChooserFacadeImpl. This is initially empty but will be 

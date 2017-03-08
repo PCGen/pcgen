@@ -269,7 +269,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private class DomainRenderer extends DefaultTableCellRenderer
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public DomainRenderer(CharacterFacade character)
 		{
@@ -309,7 +309,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private class DeityInfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String text;
 
 		public DeityInfoHandler(CharacterFacade character)
@@ -352,7 +352,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private class DomainInfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String text;
 
 		public DomainInfoHandler(CharacterFacade character)
@@ -400,7 +400,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private class SelectDeityAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public SelectDeityAction(CharacterFacade character)
 		{
@@ -474,7 +474,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private class DomainTableHandler implements FilterHandler
 	{
 
-		private DomainTableModel tableModel;
+		private final DomainTableModel tableModel;
 
 		public DomainTableHandler(CharacterFacade character)
 		{
@@ -516,8 +516,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static class DomainLabelHandler implements ReferenceListener<Integer>
 	{
 
-		private JLabel label;
-		private ReferenceFacade<Integer> ref;
+		private final JLabel label;
+		private final ReferenceFacade<Integer> ref;
 
 		public DomainLabelHandler(CharacterFacade character, JLabel label)
 		{
@@ -550,8 +550,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static class DeityLabelHandler implements ReferenceListener<DeityFacade>
 	{
 
-		private JLabel label;
-		private ReferenceFacade<DeityFacade> ref;
+		private final JLabel label;
+		private final ReferenceFacade<DeityFacade> ref;
 
 		public DeityLabelHandler(CharacterFacade character, JLabel label)
 		{
@@ -705,7 +705,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				new DefaultDataViewColumn("in_favoredWeapon", String.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_sourceLabel", String.class)); //$NON-NLS-1$
 		private final CharacterFacade character;
-		private InfoFactory infoFactory;
+		private final InfoFactory infoFactory;
 
 		public DeityTreeViewModel(CharacterFacade character)
 		{

@@ -186,8 +186,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 
 		private final ListFacade<BiographyField> customFields;
-		private List<BioItem> bioItems = new ArrayList<>();
-		private Map<BiographyField, BioItem> customFieldMap =
+		private final List<BioItem> bioItems = new ArrayList<>();
+		private final Map<BiographyField, BioItem> customFieldMap =
                 new EnumMap<>(
                         BiographyField.class);
 		private final CharacterFacade character;
@@ -344,7 +344,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class GenderItem extends BioItem
 	{
 
-		private CharacterComboBoxModel<GenderFacade> genderModel;
+		private final CharacterComboBoxModel<GenderFacade> genderModel;
 
 		public GenderItem(final CharacterFacade character)
 		{
@@ -376,7 +376,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class HandedItem extends BioItem
 	{
 
-		private CharacterComboBoxModel<HandedFacade> handsModel;
+		private final CharacterComboBoxModel<HandedFacade> handsModel;
 
 		public HandedItem(final CharacterFacade character)
 		{

@@ -181,7 +181,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	{
 
 		private static final int NUM_NON_NOTE_NODES = 3;
-		private ListFacade<NoteFacade> notes;
+		private final ListFacade<NoteFacade> notes;
 		private final DefaultListModel listModel;
 		private final List<NoteInfoPane> notePaneList;
 		private final CharacterFacade character;
@@ -322,11 +322,11 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	private static class PageItem
 	{
 
-		private NoteFacade note;
-		private String name;
-		private String id;
-		private CharacterInfoTab page;
-		private ModelMap data;
+		private final NoteFacade note;
+		private final String name;
+		private final String id;
+		private final CharacterInfoTab page;
+		private final ModelMap data;
 
 		/**
 		 * Create a new instance of PageItem to represent a Note.
