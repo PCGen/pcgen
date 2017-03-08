@@ -42,9 +42,6 @@ public class MinDevVerTokenTest
 	private MinDevVerToken token;
 	private String gameModeName;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
 	@Before
 	public void setUp() throws Exception
 	{
