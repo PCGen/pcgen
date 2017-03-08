@@ -67,7 +67,7 @@ public class RaceTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<Race
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + racetype.toString();
+		return getTokenName() + '=' + racetype.toString();
 	}
 
 	@Override

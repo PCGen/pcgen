@@ -27,7 +27,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code RequestToSavePlayerCharacterMessage} encapsulates a
  * request that PCGen save the specified character.
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

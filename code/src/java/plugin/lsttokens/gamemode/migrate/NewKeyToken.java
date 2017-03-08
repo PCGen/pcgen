@@ -35,7 +35,6 @@ import pcgen.util.Logging;
  * game mode files. The NEWKEY token defines the key that should be used instead 
  * of an old key when loading an older character.  
  *
- * <br>
  * 
  */
 public class NewKeyToken implements MigrationLstToken

@@ -40,7 +40,7 @@ public abstract class AbstractToFactSetToken<T extends Loadable> extends
 	{
 		try
 		{
-			if (!context.processToken(obj, "FACTSET", getTokenName() + "|"
+			if (!context.processToken(obj, "FACTSET", getTokenName() + '|'
 				+ value))
 			{
 				Logging.replayParsedMessages();

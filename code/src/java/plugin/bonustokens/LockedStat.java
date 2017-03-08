@@ -32,7 +32,6 @@ import pcgen.rules.context.LoadContext;
  * This is the class that implements the LockedStat bonuses.
  * BONUS:LOCKEDSTAT|x|y
  * 
- * <br>
  * 
  */
 public final class LockedStat extends BonusObj

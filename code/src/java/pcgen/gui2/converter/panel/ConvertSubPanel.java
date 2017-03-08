@@ -27,7 +27,7 @@ import pcgen.gui2.converter.event.ProgressMonitor;
 
 public abstract class ConvertSubPanel implements ProgressMonitor
 {
-	private ProgressSupport support;
+	private final ProgressSupport support;
 
 	public boolean isLast()
 	{

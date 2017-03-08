@@ -27,7 +27,6 @@ import pcgen.core.SettingsHandler;
  * original SettingsHandler class. It is expected that most settings will be 
  * migrated away to other PropertyContexts as part of the CDOM UI project. 
  *
- * <br>
  * 
  */
 final class LegacySettings extends PropertyContext

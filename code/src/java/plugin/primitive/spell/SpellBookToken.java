@@ -65,7 +65,7 @@ public class SpellBookToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + spellbook;
+		return getTokenName() + '=' + spellbook;
 	}
 
 	@Override

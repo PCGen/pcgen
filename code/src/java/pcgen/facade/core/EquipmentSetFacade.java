@@ -134,7 +134,7 @@ public interface EquipmentSetFacade
 	public static class EquipmentTreeEvent extends EventObject
 	{
 
-		private EquipNode node;
+		private final EquipNode node;
 
 		public EquipmentTreeEvent(Object source, EquipNode node)
 		{

@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.gui2.tabs.spells;
 
@@ -37,9 +35,6 @@ import pcgen.system.LanguageBundle;
  * The Class {@code QualifiedSpellTreeCellRenderer} renders a spell tree
  * cell with colouring indicating if the item can be known by the character. It
  * is heavily based on QualifiedTreeCellRenderer
- *
- * <br>
- *
  */
 public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 {

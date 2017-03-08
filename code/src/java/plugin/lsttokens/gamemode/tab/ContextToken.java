@@ -55,7 +55,7 @@ public class ContextToken implements CDOMPrimaryToken<TabInfo>
 		{
 			Logging.log(Logging.LST_INFO, "Missing Documentation: "
 					+ helpFile.getAbsolutePath() + " in " + ti.getClass()
-					+ " " + ti.getDisplayName() + " from "
+					+ ' ' + ti.getDisplayName() + " from "
 					+ ti.getSourceURI());
 			return ParseResult.SUCCESS;
 		}

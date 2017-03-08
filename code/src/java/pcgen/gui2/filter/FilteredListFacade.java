@@ -32,7 +32,7 @@ import pcgen.facade.util.ListFacade;
 public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements ListListener<E>
 {
 
-	private List<E> data = new ArrayList<>();
+	private final List<E> data = new ArrayList<>();
 	private ListFacade<E> delegate = null;
 	private Filter<? super C, ? super E> filter = null;
 	private C context = null;

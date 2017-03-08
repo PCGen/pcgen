@@ -26,7 +26,6 @@ import java.util.EventListener;
  * The template {@code PCGenMessageHandler} defines an object
  * that can act on a PCGenMessage. 
  *
- * <br>
  * 
  */
 @FunctionalInterface

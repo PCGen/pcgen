@@ -32,7 +32,6 @@ import pcgen.util.Logging;
 /**
  * The Class {@code EquipIconLoader} loads the equipIcon.lst game mode file.
  *
- * <br>
  * 
  */
 public class EquipIconLoader extends LstLineFileLoader

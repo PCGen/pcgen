@@ -57,7 +57,7 @@ import pcgen.util.Logging;
 public class CoreViewFrame extends JFrame
 {
 
-	private JComboBoxEx perspectiveChooser;
+	private final JComboBoxEx perspectiveChooser;
 	private final JTreeViewTable<CoreViewNodeFacade> viewTable;
 
 	public CoreViewFrame(Frame frame, CharacterFacade character)

@@ -94,8 +94,8 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	private boolean errorState = false;
 	private String lastNotifiedFilename = "";
 	private String currFilename = "";
-	private Component statusField;
-	private File changeLogFile;
+	private final Component statusField;
+	private final File changeLogFile;
 
 	public RunConvertPanel(Component statusField)
 	{

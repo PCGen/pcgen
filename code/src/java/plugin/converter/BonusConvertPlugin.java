@@ -118,7 +118,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 			if (output == null || output.isEmpty())
 			{
 				// Uh Oh
-				return ("Unable to unparse: " + key + ":" + value);
+				return ("Unable to unparse: " + key + ':' + value);
 			}
 			boolean needTab = false;
 			for (String s : output)

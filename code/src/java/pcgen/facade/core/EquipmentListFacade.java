@@ -54,7 +54,7 @@ public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 	public static class EquipmentListEvent extends EventObject
 	{
 
-		private EquipmentFacade equipment;
+		private final EquipmentFacade equipment;
 		private final int index;
 
 		public EquipmentListEvent(Object source, EquipmentFacade equipment, int index)

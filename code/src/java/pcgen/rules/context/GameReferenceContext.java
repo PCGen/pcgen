@@ -43,7 +43,6 @@ import pcgen.cdom.reference.UnconstructedValidator;
  * long run, they delegate to another reference of the same general type, though 
  * they can be created before the delegate target is created)
  *
- * <br>
  * 
  */
 public class GameReferenceContext extends AbstractReferenceContext

@@ -1,5 +1,4 @@
 /*
- * PrettyIntegerFormat.java
  * Copyright 2013 (C) Vincent Lhote
  * 
  * This library is free software; you can redistribute it and/or
@@ -27,34 +26,31 @@ import java.text.DecimalFormatSymbols;
  * <p>
  * It will not display big modifiers correctly {@literal (modifiers > 1,000)}, because the thousand separator is locale dependent.
  * This is not really a problem, because their is an ability limit of 1,000 in PCGen.
- * 
  */
-public class PrettyIntegerFormat extends DecimalFormat 
+public final class PrettyIntegerFormat extends DecimalFormat
 {
 
 	private static final long serialVersionUID = 2551454019393922738L;
 
-	private static PrettyIntegerFormat instance;
-
 	/**
 	 * It is usually better to use {@link #getFormat()} to use a single instance of the formatter in the whole program.
 	 */
-	public PrettyIntegerFormat()
+	private PrettyIntegerFormat()
 	{
-		super();
 		// + and - should not need to be internationalized
 		DecimalFormatSymbols decimalFormatSymbols = getDecimalFormatSymbols();
 		decimalFormatSymbols.setMinusSign('\u2212');
 		setDecimalFormatSymbols(decimalFormatSymbols);
 		setPositivePrefix("+"); //$NON-NLS-1$
 	}
-	
+
+	private static final class InstanceHolder
+	{
+		private static final DecimalFormat instance = new PrettyIntegerFormat();
+	}
+
 	public static DecimalFormat getFormat()
 	{
-		if(instance == null)
-		{
-			instance = new PrettyIntegerFormat();
-		}
-		return instance;
+		return InstanceHolder.instance;
 	}
 }

@@ -27,7 +27,6 @@ import pcgen.pluginmgr.PCGenMessageHandler;
  * The Class {@code ComponentAddedMessage} indicates that a plugin has
  * been added to the system. 
  *
- * <br>
  * 
  */
 public class ComponentAddedMessage extends PCGenMessage

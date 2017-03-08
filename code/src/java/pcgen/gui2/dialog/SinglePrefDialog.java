@@ -38,7 +38,7 @@ import pcgen.system.LanguageBundle;
  */
 public class SinglePrefDialog extends JDialog
 {
-	private PCGenPrefsPanel prefsPanel;
+	private final PCGenPrefsPanel prefsPanel;
 	private JPanel controlPanel;
 	
 	/**

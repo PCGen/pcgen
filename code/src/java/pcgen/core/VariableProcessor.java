@@ -57,9 +57,9 @@ public abstract class VariableProcessor
 	private int cachePaused;
 	private int serial;
 
-	private Map<String, CachedVariable<String>> sVariableCache =
+	private final Map<String, CachedVariable<String>> sVariableCache =
             new HashMap<>();
-	private Map<String, CachedVariable<Float>>  fVariableCache =
+	private final Map<String, CachedVariable<Float>>  fVariableCache =
             new HashMap<>();
 
 	protected Float convertToFloat(String element, String foo)

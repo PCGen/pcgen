@@ -45,7 +45,6 @@ import pcgen.system.LanguageBundle;
  * The NoteInfoPane displays a named text area that the user can fill in for her
  * character. This allows the creation of custom notes about the character.
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

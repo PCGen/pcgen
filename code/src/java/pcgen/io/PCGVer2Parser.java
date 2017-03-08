@@ -5820,7 +5820,6 @@ final class PCGVer2Parser implements PCGParser
 
 		/**
 		 * Constructor
-		 * <br>
 		 * @param line           a String to tokenize
 		 * @param delimiters     a FOUR-character String specifying the four needed delimiters:
 		 *                       <ol>

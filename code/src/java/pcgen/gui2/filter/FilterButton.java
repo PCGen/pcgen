@@ -38,7 +38,7 @@ public class FilterButton<C, E> extends JToggleButton
 
 	private FilterHandler filterHandler;
 	private Filter<C, E> filter;
-	private PropertyContext filterContext;
+	private final PropertyContext filterContext;
 
 	public FilterButton(String prefKey)
 	{

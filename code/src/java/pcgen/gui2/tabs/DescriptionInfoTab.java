@@ -1,5 +1,5 @@
 /**
- * DescriptionInfoTab.java Copyright James Dempsey, 2010
+ * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.gui2.tabs;
 
@@ -56,9 +54,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class {@code DescriptionInfoTab} is a placeholder for the yet to be
  * implemented description tab.
- *
- * <br>
- *
  */
 @SuppressWarnings("serial")
 public class DescriptionInfoTab extends FlippingSplitPane implements CharacterInfoTab
@@ -181,7 +176,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	{
 
 		private static final int NUM_NON_NOTE_NODES = 3;
-		private ListFacade<NoteFacade> notes;
+		private final ListFacade<NoteFacade> notes;
 		private final DefaultListModel listModel;
 		private final List<NoteInfoPane> notePaneList;
 		private final CharacterFacade character;
@@ -322,11 +317,11 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	private static class PageItem
 	{
 
-		private NoteFacade note;
-		private String name;
-		private String id;
-		private CharacterInfoTab page;
-		private ModelMap data;
+		private final NoteFacade note;
+		private final String name;
+		private final String id;
+		private final CharacterInfoTab page;
+		private final ModelMap data;
 
 		/**
 		 * Create a new instance of PageItem to represent a Note.

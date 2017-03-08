@@ -1098,8 +1098,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private class HPHandler extends AbstractAction implements ReferenceListener<Integer>
 	{
 
-		private CharacterFacade character;
-		private ReferenceFacade<Integer> ref;
+		private final CharacterFacade character;
+		private final ReferenceFacade<Integer> ref;
 
 		HPHandler(CharacterFacade character)
 		{
@@ -1137,8 +1137,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private class RandomNameAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
-		private JFrame frame;
+		private final CharacterFacade character;
+		private final JFrame frame;
 
 		RandomNameAction(CharacterFacade character, JFrame frame)
 		{
@@ -1170,7 +1170,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private final class GenerateRollsAction extends AbstractAction implements ListListener<CharacterLevelFacade>, ReferenceListener<Integer>
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		GenerateRollsAction(CharacterFacade character)
 		{
@@ -1267,8 +1267,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private class RollMethodAction extends AbstractAction
 	{
 
-		private JFrame parent;
-		private CharacterFacade character;
+		private final JFrame parent;
+		private final CharacterFacade character;
 
 		RollMethodAction(CharacterFacade character, JFrame parent)
 		{
@@ -1313,8 +1313,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private class CreateMonsterAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
-		private JFrame frame;
+		private final CharacterFacade character;
+		private final JFrame frame;
 
 		CreateMonsterAction(CharacterFacade character, JFrame frame)
 		{
@@ -1338,7 +1338,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private class AddLevelsAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		AddLevelsAction(CharacterFacade character)
 		{
@@ -1381,7 +1381,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private class RemoveLevelsAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		RemoveLevelsAction(CharacterFacade character)
 		{
@@ -1405,7 +1405,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private class ExpAddAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		ExpAddAction(CharacterFacade character)
 		{
@@ -1434,7 +1434,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private class ExpSubtractAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		ExpSubtractAction(CharacterFacade character)
 		{
@@ -1467,7 +1467,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	{
 
 		private ReferenceFacade<String> reference = null;
-		private JLabel label;
+		private final JLabel label;
 
 		/**
 		 * Create a new label handler.

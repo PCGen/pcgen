@@ -75,7 +75,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	private final PlayerCharacter character;
 	private final Equipment baseEquipment;
 	private final EnumSet<EquipmentHead> equipHeads;
-	private DefaultReferenceFacade<SizeAdjustmentFacade> sizeRef;
+	private final DefaultReferenceFacade<SizeAdjustmentFacade> sizeRef;
 
 	/**
 	 * Create a new EquipmentBuilderFacadeImpl instance for the customization of 

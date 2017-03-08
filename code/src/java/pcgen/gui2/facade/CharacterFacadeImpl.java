@@ -196,7 +196,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		HitPointListener 
 {
 
-	private static PlayerCharacter DUMMY_PC = new PlayerCharacter();
+	private static final PlayerCharacter DUMMY_PC = new PlayerCharacter();
 	private List<ClassFacade> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
 	private DefaultListFacade<TempBonusFacade> availTempBonuses;
@@ -207,8 +207,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
     private DefaultListFacade<HandedFacade> availHands;
     private DefaultListFacade<GenderFacade> availGenders;
 	private Map<StatFacade, WriteableReferenceFacade<Number>> statScoreMap;
-	private UndoManager undoManager;
-	private DelegatingDataSet dataSet;
+	private final UndoManager undoManager;
+	private final DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<RaceFacade> race;
 	private DefaultReferenceFacade<DeityFacade> deity;
 	private DefaultReferenceFacade<String> tabName;
@@ -221,7 +221,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private EquipmentListFacadeImpl purchasedEquip;
 	private DefaultReferenceFacade<File> file;
 	private DefaultReferenceFacade<HandedFacade> handedness;
-	private UIDelegate delegate;
+	private final UIDelegate delegate;
 	private Set<Language> autoLanguagesCache;
 	private CharacterLevelsFacadeImpl charLevelsFacade;
 	private DefaultReferenceFacade<Integer> currentXP;

@@ -43,7 +43,7 @@ public class AbilityLoader extends BasicLoader<Ability>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
-	private EditorLoadContext context;
+	private final EditorLoadContext context;
 
 	/**
 	 * Create a new AbilityLoader instance.

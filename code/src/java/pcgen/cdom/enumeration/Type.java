@@ -35,7 +35,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static CaseInsensitiveMap<Type> typeMap = new CaseInsensitiveMap<>();
+	private static final CaseInsensitiveMap<Type> typeMap = new CaseInsensitiveMap<>();
 
 	public static final Type NATURAL = getConstant("Natural");
 

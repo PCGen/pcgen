@@ -66,7 +66,7 @@ public class SubSchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + subschool;
+		return getTokenName() + '=' + subschool;
 	}
 
 	@Override

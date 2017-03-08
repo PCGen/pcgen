@@ -82,7 +82,7 @@ public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 		if (min == null || max == null)
 		{
 			context.addWriteMessage("Must have both min and max in "
-					+ getTokenName() + ": " + min + " " + max);
+					+ getTokenName() + ": " + min + ' ' + max);
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
