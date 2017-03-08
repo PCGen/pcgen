@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.gui2.tabs;
 
@@ -70,9 +68,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class {@code TempBonusInfoTab} allows the user to select which
  * temporary bonus should be applied to their character.
- *
- * -0700 (Sat, 17 May 2014) $
- *
  */
 public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
