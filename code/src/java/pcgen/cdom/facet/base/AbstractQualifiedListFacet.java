@@ -358,12 +358,9 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	private Set<Object> getConstructingCachedSetFor(CharID id, T obj)
 	{
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
-		Set<Object> set = map.get(obj);
-		if (set == null)
-		{
-			set = new WrappedMapSet<>(IdentityHashMap.class);
-			map.put(obj, set);
-		}
+		Set<Object> set =
+				map.computeIfAbsent(obj, k -> new WrappedMapSet<>(IdentityHashMap.class));
+
 		return set;
 	}
 

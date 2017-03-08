@@ -110,12 +110,10 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		String name = fo.getListRef().getName();
 		Map<FollowerOption, Set<CDOMObject>> foMap = getConstructingCachedMap(
 				id, name);
-		Set<CDOMObject> set = foMap.get(fo);
-		if (set == null)
-		{
-			set = new WrappedMapSet<>(IdentityHashMap.class);
-			foMap.put(fo, set);
-		}
+		Set<CDOMObject> set = foMap.computeIfAbsent(
+				fo,
+				k -> new WrappedMapSet<>(IdentityHashMap.class)
+		);
 		set.add(cdo);
 	}
 
@@ -191,12 +189,8 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 			componentMap = new CaseInsensitiveMap<>();
 			setCache(id, componentMap);
 		}
-		Map<FollowerOption, Set<CDOMObject>> foMap = componentMap.get(name);
-		if (foMap == null)
-		{
-			foMap = new IdentityHashMap<>();
-			componentMap.put(name, foMap);
-		}
+		Map<FollowerOption, Set<CDOMObject>> foMap =
+				componentMap.computeIfAbsent(name, k -> new IdentityHashMap<>());
 		return foMap;
 	}
 
