@@ -306,7 +306,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		rollAll();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
 	 */
     @Override
@@ -324,7 +324,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.initiative.OpposedSkillBasicModel#addCombatant(gmgen.plugin.PcgCombatant)
 	 */
     @Override
