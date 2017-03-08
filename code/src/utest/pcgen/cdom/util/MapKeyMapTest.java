@@ -57,7 +57,7 @@ public class MapKeyMapTest
 	private Aspect nameAspect;
 	private Aspect breedAspect;
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Before

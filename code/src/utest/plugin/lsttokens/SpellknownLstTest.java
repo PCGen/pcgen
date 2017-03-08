@@ -55,7 +55,7 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 	static CDOMPrimaryToken<CDOMObject> token = new SpellknownLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getLoader()
 	 */
 	@Override
@@ -64,7 +64,7 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 		return loader;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getCDOMClass()
 	 */
 	@Override
@@ -73,7 +73,7 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 		return PCTemplate.class;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getToken()
 	 */
 	@Override
