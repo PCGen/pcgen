@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 public class LevelToken implements LevelLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
@@ -44,7 +44,7 @@ public class LevelToken implements LevelLstToken
 		return "LEVEL";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LevelLstToken#parse(pcgen.core.LevelInfo, java.lang.String)
 	 */
     @Override

@@ -41,7 +41,7 @@ import pcgen.util.Logging;
 public class OutputSheetToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
 	 */
     @Override
