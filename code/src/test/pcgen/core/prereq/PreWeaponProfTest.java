@@ -315,7 +315,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

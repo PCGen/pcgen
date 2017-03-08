@@ -115,7 +115,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

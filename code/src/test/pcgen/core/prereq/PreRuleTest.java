@@ -48,7 +48,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		TestRunner.run(PreRuleTest.class);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -63,7 +63,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		gameMode.getModeContext().getReferenceContext().importObject(preRule);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@Override

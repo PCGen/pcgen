@@ -80,7 +80,7 @@ public final class InstallLoaderTest extends TestCase
 				"PUBNAMELONG:" + PUBNAMELONG, "PUBNAMESHORT:" + PUBNAMESHORT,
 				"PUBNAMEWEB:" + SOURCEWEB};
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
     @Override
@@ -90,7 +90,7 @@ public final class InstallLoaderTest extends TestCase
 		TestHelper.loadPlugins();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
     @Override

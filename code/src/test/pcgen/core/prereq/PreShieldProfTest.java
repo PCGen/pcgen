@@ -316,7 +316,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override
