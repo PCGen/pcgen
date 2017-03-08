@@ -67,14 +67,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		token = tok;
 		target = tgt;
-		if (tgt == null)
-		{
-			qualifier = token;
-		}
-		else
-		{
-			qualifier = token + "=" + target;
-		}
+		qualifier = tgt == null ? token : token + "=" + target;
 	}
 
 	@Override
