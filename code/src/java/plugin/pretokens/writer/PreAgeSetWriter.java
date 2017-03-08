@@ -36,7 +36,7 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -45,7 +45,7 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 		return "AGESET";  //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -57,7 +57,7 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 				PrerequisiteOperator.NEQ};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override

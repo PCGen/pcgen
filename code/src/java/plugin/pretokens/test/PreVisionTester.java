@@ -37,7 +37,7 @@ import pcgen.util.enumeration.VisionType;
 public class PreVisionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
