@@ -43,7 +43,7 @@ public class PCHPTermEvaluator
 		this.originalText = originalText;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.BasePCTermEvaluator#resolve(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -52,7 +52,7 @@ public class PCHPTermEvaluator
 		return (float) pc.hitPoints();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
 	 */
 	@Override
@@ -61,7 +61,7 @@ public class PCHPTermEvaluator
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#isStatic()
 	 */
 	public boolean isStatic()
