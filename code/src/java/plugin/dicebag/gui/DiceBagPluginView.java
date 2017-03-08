@@ -152,7 +152,7 @@ public class DiceBagPluginView implements Observer
 					WindowConstants.DO_NOTHING_ON_CLOSE);
 			}
 			else if ((answer == JOptionPane.NO_OPTION)
-				&& (answer == JOptionPane.YES_OPTION))
+				|| (answer == JOptionPane.YES_OPTION))
 			{
 				e.getInternalFrame().setDefaultCloseOperation(
 					WindowConstants.HIDE_ON_CLOSE);
