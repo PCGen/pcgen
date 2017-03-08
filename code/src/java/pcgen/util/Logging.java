@@ -1,5 +1,4 @@
 /*
- * Logging.java
  * Copyright 2003 (C) Jonas Karlsson <jujutsunerd@sf.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.util;
 
@@ -45,9 +43,8 @@ import pcgen.core.SettingsHandler;
 /**
  * This contains logging functions. It is a proxy for the 
  * Java logging API.
- * 
  */
-public class Logging
+public final class Logging
 {
 	private static boolean debugMode = false;
 	private static final Toolkit s_TOOLKIT = Toolkit.getDefaultToolkit();
@@ -108,6 +105,10 @@ public class Logging
 				.println("Failed to read logging configuration. Error was:");
 			e.printStackTrace();
 		}
+	}
+
+	private Logging()
+	{
 	}
 
 	/**
