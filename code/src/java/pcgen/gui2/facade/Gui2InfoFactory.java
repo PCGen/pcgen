@@ -134,15 +134,14 @@ import pcgen.util.enumeration.Visibility;
  * on various facade objects. The information is displayed to the user via the 
  * new user interface. 
  *
- * <br>
  * 
  */
 public class Gui2InfoFactory implements InfoFactory
 {
 	/** A default return value for an invalid request. */
 	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
-	private static NumberFormat ADJ_FMT = new DecimalFormat("+0;-0"); //$NON-NLS-1$
-	private static NumberFormat COST_FMT = new DecimalFormat("#,##0.##"); //$NON-NLS-1$
+	private static final NumberFormat ADJ_FMT = new DecimalFormat("+0;-0"); //$NON-NLS-1$
+	private static final NumberFormat COST_FMT = new DecimalFormat("#,##0.##"); //$NON-NLS-1$
 
 	/** Constant for 2 spaces in HTML */
 	private static final String TWO_SPACES = " &nbsp;"; //$NON-NLS-1$
@@ -164,7 +163,7 @@ public class Gui2InfoFactory implements InfoFactory
 		this.charDisplay = pc ==  null ? null : pc.getDisplay();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getFavoredClass(pcgen.core.facade.RaceFacade)
 	 */
 	@Override
@@ -179,7 +178,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return StringUtil.join(favClass, ", ");
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.RaceFacade)
 	 */
 	@Override
@@ -285,7 +284,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.ClassFacade, pcgen.core.facade.ClassFacade)
 	 */
 	@Override
@@ -420,7 +419,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return b.toString();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.SkillFacade)
 	 */
 	@Override
@@ -514,7 +513,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.AbilityFacade)
 	 */
 	@Override
@@ -602,7 +601,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.DeityFacade)
 	 */
 	@Override
@@ -669,7 +668,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.DomainFacade)
 	 */
 	@Override
@@ -733,7 +732,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.EquipmentFacade)
 	 */
 	@Override
@@ -1200,7 +1199,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return sRet;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.TemplateFacade)
 	 */
 	@Override
@@ -1564,7 +1563,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getLevelAdjustment(pcgen.core.facade.RaceFacade)
 	 */
 	@Override
@@ -1597,7 +1596,7 @@ public class Gui2InfoFactory implements InfoFactory
 			.intValue();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getPreReqHTML(pcgen.core.facade.RaceFacade)
 	 */
 	@Override
@@ -1611,7 +1610,7 @@ public class Gui2InfoFactory implements InfoFactory
 			((Race) race).getPrerequisiteList(), true);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getStatAdjustments(pcgen.core.facade.RaceFacade)
 	 */
 	@Override
@@ -1653,7 +1652,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return retString.toString();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getVision(pcgen.core.facade.RaceFacade)
 	 */
 	@Override
@@ -1687,7 +1686,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return 0;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getLevelAdjustment(pcgen.core.facade.TemplateFacade)
 	 */
 	@Override
@@ -1702,7 +1701,7 @@ public class Gui2InfoFactory implements InfoFactory
 			.resolve(pc, EMPTY_STRING));
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getModifier(pcgen.core.facade.TemplateFacade)
 	 */
 	@Override
@@ -1716,7 +1715,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return TemplateModifier.modifierString(template, pc);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFactory#getPreReqHTML(pcgen.core.facade.TemplateFacade)
 	 */
 	@Override

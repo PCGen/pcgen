@@ -1,5 +1,4 @@
 /*
- * PreWeaponProfTest.java
  *
  * Copyright 2007 (C) Koen Van Daele <kador@foeffighters.be>
  *
@@ -315,7 +314,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

@@ -25,7 +25,6 @@ package pcgen.util;
  * sort key. That is the text to be used for sorting, which may be different 
  * from the text used to display the item.
  *
- * <br>
  * 
  */
 @FunctionalInterface

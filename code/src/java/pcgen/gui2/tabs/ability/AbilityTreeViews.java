@@ -1,5 +1,4 @@
 /*
- * AbilityTreeViews.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -117,7 +116,7 @@ public class AbilityTreeViews
 	private static class PreReqTreeView implements TreeView<AbilityFacade>
 	{
 
-		private DataSetFacade dataset;
+		private final DataSetFacade dataset;
 
 		public PreReqTreeView(DataSetFacade dataset)
 		{

@@ -188,7 +188,6 @@ public abstract class IOHandler
 	 */
 	public void createBackupForFile(File outFile)
 	{
-		final String BAK_PREFIX = ".bak"; //$NON-NLS-1$
 		// Make a backup of the old file, if it exists and isn't empty
 		if (PCGenSettings.getCreatePcgBackup() && outFile.exists()
 			&& outFile.length() > 0)
@@ -199,6 +198,7 @@ public abstract class IOHandler
 			{
 				backupPcgPath = outFile.getParent();
 			}
+			final String BAK_PREFIX = ".bak"; //$NON-NLS-1$
 			File bakFile = new File(backupPcgPath, file + BAK_PREFIX);
 
 			if (bakFile.exists() && outFile.exists() && outFile.length() > 0)

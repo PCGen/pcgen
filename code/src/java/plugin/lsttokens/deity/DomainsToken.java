@@ -52,7 +52,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
 	@Override

@@ -154,7 +154,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 							dummyCtx.setSourceURI(obj.getSourceURI());
 							Logging.errorPrint(
 								"BONUS: " + bonus + " in "
-									+ obj.getClass().getSimpleName() + " "
+									+ obj.getClass().getSimpleName() + ' '
 									+ obj.getKeyName()
 									+ " contained an invalid AbilityCategory "
 									+ o.toString(), dummyCtx);

@@ -45,7 +45,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * DEFINESTAT:STAT|stat <br>
  * DEFINESTAT:MINVALUE|stat|value
  *
- * <br>
  * 
  */
 public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>

@@ -1,5 +1,4 @@
 /*
- * AbilitiesInfoTab.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -98,7 +97,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		private final CharacterFacade character;
 		private boolean isInstalled = false;
 		private String selectedTitle = null;
-		private ListFacade<AbilityCategoryFacade> activeCategories;
+		private final ListFacade<AbilityCategoryFacade> activeCategories;
 
 		public AbilityTabsModel(CharacterFacade character)
 		{

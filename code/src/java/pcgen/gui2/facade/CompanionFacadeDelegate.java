@@ -41,9 +41,9 @@ public class CompanionFacadeDelegate implements CompanionFacade
 {
 
 	private CompanionFacade delegate;
-	private DelegateReferenceFacade<String> nameDelegate;
-	private DelegateReferenceFacade<File> fileDelegate;
-	private DelegateReferenceFacade<RaceFacade> raceDelegate;
+	private final DelegateReferenceFacade<String> nameDelegate;
+	private final DelegateReferenceFacade<File> fileDelegate;
+	private final DelegateReferenceFacade<RaceFacade> raceDelegate;
 
 	public CompanionFacadeDelegate()
 	{

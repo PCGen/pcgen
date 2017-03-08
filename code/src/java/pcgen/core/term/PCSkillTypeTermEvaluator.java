@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCSkillTypeTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -18,7 +17,6 @@
  *
  * Created 07-Aug-2008 20:27:13
  *
- * Current Ver: $Revision:$
  *
  */
 

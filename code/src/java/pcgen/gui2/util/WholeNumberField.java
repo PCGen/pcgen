@@ -39,7 +39,7 @@ import java.util.Locale;
  */
 public final class WholeNumberField extends JTextField implements Serializable
 {
-	private NumberFormat integerFormatter;
+	private final NumberFormat integerFormatter;
 
 	/**
 	 * Constructor

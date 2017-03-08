@@ -37,7 +37,7 @@ public class PreDamageReductionWriter extends AbstractPrerequisiteWriter
 		implements PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -46,7 +46,7 @@ public class PreDamageReductionWriter extends AbstractPrerequisiteWriter
 		return "DR";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -56,7 +56,7 @@ public class PreDamageReductionWriter extends AbstractPrerequisiteWriter
 			PrerequisiteOperator.LT};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
@@ -73,7 +73,7 @@ public class PreDamageReductionWriter extends AbstractPrerequisiteWriter
 			}
 
 			writer.write("PREDR:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
-			writer.write(prereq.getKey() + "=" + prereq.getOperand());
+			writer.write(prereq.getKey() + '=' + prereq.getOperand());
 		}
 		catch (IOException e)
 		{
@@ -95,7 +95,7 @@ public class PreDamageReductionWriter extends AbstractPrerequisiteWriter
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+		writer.write("PRE" + kindHandled().toUpperCase() + ':'
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
 				: "1");

@@ -29,7 +29,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code CombatHasBeenInitiatedMessage} encapsulates an advisory
  * message that the user has kicked off combat.
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

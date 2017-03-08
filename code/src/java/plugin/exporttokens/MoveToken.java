@@ -96,7 +96,7 @@ public class MoveToken extends AbstractExportToken
 	public static String getMoveXToken(CharacterDisplay display, int moveIndex)
 	{
 		NamedValue move = display.getMovementValues().get(moveIndex);
-		return move.getName() + " "
+		return move.getName() + ' '
 				+ MovementToken.getRateToken(move.getWeight());
 	}
 

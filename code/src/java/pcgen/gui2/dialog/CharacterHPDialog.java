@@ -301,7 +301,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	private class Renderer implements TableCellRenderer
 	{
 
-		private JButton button = new JButton();
+		private final JButton button = new JButton();
 
 		public Renderer()
 		{
@@ -320,7 +320,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
 	{
 
-		private JButton button = new JButton();
+		private final JButton button = new JButton();
 		private int editingRow;
 
 		public Editor()

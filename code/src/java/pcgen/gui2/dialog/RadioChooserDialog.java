@@ -55,7 +55,6 @@ import pcgen.system.LanguageBundle;
  * when the user confirms their choices. The chooser is generally displayed 
  * via a call to UIDelgate.showGeneralChooser.
  *
- * <br>
  */
 @SuppressWarnings("serial")
 public class RadioChooserDialog extends JDialog implements ActionListener

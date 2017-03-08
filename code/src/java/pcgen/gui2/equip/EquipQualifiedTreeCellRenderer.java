@@ -41,8 +41,8 @@ import pcgen.system.LanguageBundle;
 public class EquipQualifiedTreeCellRenderer extends TreeColumnCellRenderer
 {
 
-	private CharacterFacade character;
-	private EquipmentFacade equip;
+	private final CharacterFacade character;
+	private final EquipmentFacade equip;
 
 	/**
 	 * Create a new instance of QualifiedTreeCellRenderer

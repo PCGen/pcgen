@@ -1,5 +1,4 @@
 /**
- * ChronicleEntryFacade.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -16,18 +15,14 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 10/10/2011 1:28:12 PM
  *
- * $Id$
  */
 package pcgen.facade.core;
 
 /**
  * The Class {@code ChronicleEntryFacade} is ...
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface ChronicleEntryFacade
 {

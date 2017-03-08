@@ -44,7 +44,6 @@ import pcgen.cdom.enumeration.ListKey;
  * @param <V>
  *            The class of object stored by the List Key used by this
  *            ListMatchingReference.
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

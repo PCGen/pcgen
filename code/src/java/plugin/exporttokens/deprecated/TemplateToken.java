@@ -252,7 +252,7 @@ public class TemplateToken extends Token
 			{
 				if (NonAbilityDisplay.isNonAbilityForObject(stat, template))
 				{
-					retString.append("*");
+					retString.append('*');
 				}
 				else
 				{

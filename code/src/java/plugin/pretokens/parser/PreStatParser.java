@@ -1,5 +1,4 @@
 /*
- * PreStatParser.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -135,7 +134,7 @@ public class PreStatParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ":" + formula
+				"Unable to parse the prerequisite :'" + kind + ':' + formula
 					+ "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;

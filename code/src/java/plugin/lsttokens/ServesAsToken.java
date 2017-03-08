@@ -81,7 +81,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Cannot use SERVESAS on a " + obj.getClass());
 			cpr.addErrorMessage("   bad use found in "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
+					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 			return cpr;
 		}
 		return super.parseNonEmptyToken(context, obj, value);

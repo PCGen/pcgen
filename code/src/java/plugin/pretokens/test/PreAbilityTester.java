@@ -1,5 +1,4 @@
 /*
- * PreAbilityTester.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -40,7 +39,7 @@ import pcgen.system.LanguageBundle;
 public class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override

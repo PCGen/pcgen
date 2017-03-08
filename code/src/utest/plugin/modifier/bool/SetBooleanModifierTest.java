@@ -56,7 +56,7 @@ public class SetBooleanModifierTest
 		ModifierFactory factory = new SetModifierFactory();
 		Modifier<Boolean> modifier =
 				factory.getModifier(5, "True", new ManagerFactory(){}, null, varScope, booleanManager);
-		assertEquals(5l<<32, modifier.getPriority());
+		assertEquals(5L <<32, modifier.getPriority());
 		assertSame(Boolean.class, modifier.getVariableFormat());
 		assertEquals(Boolean.TRUE, modifier.process(EvalManagerUtilities.getInputEM(Boolean.FALSE)));
 	}

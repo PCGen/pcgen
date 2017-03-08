@@ -30,7 +30,7 @@ import java.util.Set;
 public class DefaultMapFacade<K, V> extends AbstractMapFacade<K, V>
 {
 
-	private Map<K, V> map;
+	private final Map<K, V> map;
 
 	public DefaultMapFacade()
 	{

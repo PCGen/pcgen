@@ -25,8 +25,8 @@ import java.util.List;
 
 public class TableEntry
 {
-	private String theName;
-	private List<Object> theData = new ArrayList<>();
+	private final String theName;
+	private final List<Object> theData = new ArrayList<>();
 	
 	public TableEntry( final String aName )
 	{

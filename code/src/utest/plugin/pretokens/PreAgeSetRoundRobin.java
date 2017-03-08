@@ -1,5 +1,4 @@
 /*
- * PreAgeSetRoundRobin.java
  * Copyright 2008 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -56,7 +55,7 @@ public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 		return new TestSuite(PreAgeSetRoundRobin.class);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -67,7 +66,7 @@ public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 		TokenRegistration.register(new PreAgeSetWriter());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.pretokens.AbstractBasicRoundRobin#getBaseString()
 	 */
 	@Override
@@ -76,7 +75,7 @@ public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 		return "AGESET";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.pretokens.AbstractBasicRoundRobin#isTypeAllowed()
 	 */
 	@Override

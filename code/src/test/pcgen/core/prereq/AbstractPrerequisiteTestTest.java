@@ -1,5 +1,4 @@
 /*
- * AbstractPrerequisiteTestTest.java
  *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *

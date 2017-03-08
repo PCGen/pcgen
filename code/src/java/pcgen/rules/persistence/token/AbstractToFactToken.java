@@ -40,10 +40,10 @@ public abstract class AbstractToFactToken<T extends Loadable> extends
 		Logging.deprecationPrint(getTokenClass().getSimpleName() + " token "
 			+ getTokenName()
 			+ " has been deprecated and replaced by FACT. Token was "
-			+ getTokenName() + ":" + value, context);
+			+ getTokenName() + ':' + value, context);
 		try
 		{
-			if (!context.processToken(obj, "FACT", getTokenName() + "|" + value))
+			if (!context.processToken(obj, "FACT", getTokenName() + '|' + value))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error to FACT");

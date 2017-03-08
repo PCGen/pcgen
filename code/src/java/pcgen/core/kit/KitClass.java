@@ -1,5 +1,4 @@
 /*
- * KitClass.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -47,10 +46,10 @@ public class KitClass extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient PCClass theClass = null;
+	private PCClass theClass = null;
 	private String theOrigSubClass = null;
-	private transient int theLevel = -1;
-	private transient boolean doLevelAbilities = true;
+	private int theLevel = -1;
+	private boolean doLevelAbilities = true;
 
 	@Override
 	public String toString()

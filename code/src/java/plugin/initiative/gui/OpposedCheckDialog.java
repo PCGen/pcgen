@@ -142,7 +142,7 @@ class OpposedCheckDialog extends JDialog
 
 			}
 
-			/* (non-Javadoc)
+			/**
 			 * @see java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.DataFlavor)
 			 */
             @Override
@@ -156,7 +156,7 @@ class OpposedCheckDialog extends JDialog
 				return items;
 			}
 
-			/* (non-Javadoc)
+			/**
 			 * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
 			 */
             @Override
@@ -165,7 +165,7 @@ class OpposedCheckDialog extends JDialog
 				return new DataFlavor[]{combatantFlavor};
 			}
 
-			/* (non-Javadoc)
+			/**
 			 * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.datatransfer.DataFlavor)
 			 */
             @Override
@@ -206,7 +206,7 @@ class OpposedCheckDialog extends JDialog
 			}
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.TransferHandler#canImport(javax.swing.JComponent, java.awt.datatransfer.DataFlavor[])
 		 */
         @Override
@@ -228,7 +228,7 @@ class OpposedCheckDialog extends JDialog
 			return false;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.TransferHandler#createTransferable(javax.swing.JComponent)
 		 */
         @Override
@@ -243,7 +243,7 @@ class OpposedCheckDialog extends JDialog
 			return null;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.TransferHandler#exportDone(javax.swing.JComponent, java.awt.datatransfer.Transferable, int)
 		 */
         @Override
@@ -264,7 +264,7 @@ class OpposedCheckDialog extends JDialog
 			sourceModel = null;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.TransferHandler#getSourceActions(javax.swing.JComponent)
 		 */
         @Override
@@ -273,7 +273,7 @@ class OpposedCheckDialog extends JDialog
 			return TransferHandler.MOVE;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.TransferHandler#importData(javax.swing.JComponent, java.awt.datatransfer.Transferable)
 		 */
         @Override

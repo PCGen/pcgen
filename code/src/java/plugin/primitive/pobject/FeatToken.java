@@ -85,7 +85,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + "]";
+		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + ']';
 	}
 
 	private <R> List<R> getList(PlayerCharacter pc, Ability a)

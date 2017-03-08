@@ -75,7 +75,7 @@ public final class NPCGenerator
 	private Configuration theConfiguration = null;
 
 	// Rule options
-	private int theSubSkillWeightAdd = 10;
+	private final int theSubSkillWeightAdd = 10;
 	
 	private NPCGenerator()
 	{

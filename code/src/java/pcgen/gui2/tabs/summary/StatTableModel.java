@@ -1,5 +1,4 @@
 /*
- * StatTableModel.java
  * Copyright 2010 (C) Connor Petty <cpmeister@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -195,7 +194,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	private static class AbilityHeaderCellRenderer implements TableCellRenderer
 	{
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
 		@Override
@@ -222,7 +221,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 10));
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
 		@Override
@@ -293,7 +292,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
 		@Override

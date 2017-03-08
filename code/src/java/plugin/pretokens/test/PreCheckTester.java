@@ -35,7 +35,7 @@ public class PreCheckTester extends AbstractPrerequisiteTest implements Prerequi
 		return "CHECK"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override

@@ -1,5 +1,4 @@
 /*
- * PreMultTest.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -68,7 +67,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		return new TestSuite(PreMultTest.class);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
     @Override
@@ -88,7 +87,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
     @Override

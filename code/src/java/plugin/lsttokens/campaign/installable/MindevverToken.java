@@ -36,7 +36,7 @@ import pcgen.util.Logging;
 public class MindevverToken implements InstallLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
@@ -45,7 +45,7 @@ public class MindevverToken implements InstallLstToken
 		return "MINDEVVER";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.InstallLstToken#parse(pcgen.core.Campaign, java.lang.String, java.net.URI)
 	 */
     @Override

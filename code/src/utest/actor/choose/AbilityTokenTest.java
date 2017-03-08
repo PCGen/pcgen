@@ -35,9 +35,6 @@ import static org.junit.Assert.*;
 /**
  * The Class {@code AbilityTokenTest} verifies the AbilityToken
  * class is working correctly.
- *
- * <br/>
- * 
  */
 public class AbilityTokenTest
 {

@@ -30,7 +30,7 @@ public abstract class AbstractStringStoringToken<T extends CDOMObject> extends
 		String value)
 	{
 		context.getObjectContext().put(cdo,
-			ObjectKey.getKeyFor(String.class, "*" + getTokenName()), value);
+			ObjectKey.getKeyFor(String.class, '*' + getTokenName()), value);
 		return ParseResult.SUCCESS;
 	}
 
@@ -38,7 +38,7 @@ public abstract class AbstractStringStoringToken<T extends CDOMObject> extends
 	public String[] unparse(LoadContext context, T cdo)
 	{
 		ObjectKey<String> ok =
-				ObjectKey.getKeyFor(String.class, "*" + getTokenName());
+				ObjectKey.getKeyFor(String.class, '*' + getTokenName());
 		String value = context.getObjectContext().getObject(cdo, ok);
 		if (value == null)
 		{

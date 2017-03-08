@@ -1,5 +1,4 @@
 /*
- * PreRule.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -48,7 +47,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 		return "RULE"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
 	@Override
@@ -87,7 +86,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 			targetNumber));
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override

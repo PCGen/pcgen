@@ -39,7 +39,7 @@ public class SourceEntryTest extends TestCase
 	Source source;
 	Campaign campaign;
 	
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override

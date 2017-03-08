@@ -39,7 +39,6 @@ import pcgen.util.Logging;
  * The Class {@code SortKeyLst} implements the global SORTKEY tag, which
  * allows items to be sorted in a custom manner.
  *
- * <br>
  * 
  */
 public class SortKeyLst extends AbstractStringToken<CDOMObject> implements

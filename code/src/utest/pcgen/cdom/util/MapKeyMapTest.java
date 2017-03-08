@@ -1,5 +1,4 @@
 /*
- * MapKeyMapTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -57,7 +56,7 @@ public class MapKeyMapTest
 	private Aspect nameAspect;
 	private Aspect breedAspect;
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Before

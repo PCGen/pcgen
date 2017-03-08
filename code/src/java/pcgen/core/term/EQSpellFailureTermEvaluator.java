@@ -42,7 +42,7 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override

@@ -1,5 +1,4 @@
 /*
- * KitSkill.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -52,14 +51,14 @@ public final class KitSkill extends BaseKit
 {
 	private Boolean free = null;
 	private BigDecimal rank = null;
-	private List<CDOMReference<Skill>> skillList =
+	private final List<CDOMReference<Skill>> skillList =
             new ArrayList<>();
 	private CDOMSingleRef<PCClass> className = null;
 	private Integer choiceCount;
 
-	private List<CDOMSingleRef<Language>> selection =
+	private final List<CDOMSingleRef<Language>> selection =
             new ArrayList<>();
-	private transient List<KitSkillAdd> skillsToAdd;
+	private List<KitSkillAdd> skillsToAdd;
 
 	/**
 	 * Used to make purchasing ranks of this skill not come out of the skill

@@ -157,7 +157,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * The EventListenerList which contains the listeners to this
 	 * AbstractReferenceManufacturer.
 	 */
-	private final transient EventListenerList listenerList = new EventListenerList();
+	private final EventListenerList listenerList = new EventListenerList();
 
 	/**
 	 * Constructs a new AbstractReferenceManufacturer for the given Class.

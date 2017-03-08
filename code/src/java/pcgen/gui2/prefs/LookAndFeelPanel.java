@@ -1,5 +1,4 @@
 /*
- * LookAndFeelPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -56,18 +55,18 @@ import org.apache.commons.lang3.StringUtils;
 @SuppressWarnings("serial")
 public class LookAndFeelPanel extends PCGenPrefsPanel
 {
-	private static String in_lookAndFeel =
+	private static final String in_lookAndFeel =
 		LanguageBundle.getString("in_Prefs_lookAndFeel");
 
-	private static String in_skinnedLAF =
+	private static final String in_skinnedLAF =
 		LanguageBundle.getString("in_Prefs_skinnedLAF");
-	private static String in_choose = "...";
+	private static final String in_choose = "...";
 
-	private JRadioButton[] laf;
-	private JRadioButton skinnedLookFeel = new JRadioButton();
-	private JButton themepack;
-	private JTextField themepackLabel;
-	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
+	private final JRadioButton[] laf;
+	private final JRadioButton skinnedLookFeel = new JRadioButton();
+	private final JButton themepack;
+	private final JTextField themepackLabel;
+	private final PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private String oldLAF;
 	private String oldThemePack;
 	/**
@@ -211,7 +210,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -220,7 +219,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		return in_lookAndFeel;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -246,7 +245,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		return needsRestart;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

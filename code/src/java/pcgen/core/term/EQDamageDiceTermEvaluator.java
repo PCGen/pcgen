@@ -40,7 +40,7 @@ public class EQDamageDiceTermEvaluator extends BaseEQTermEvaluator implements Te
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override

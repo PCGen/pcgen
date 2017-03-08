@@ -742,7 +742,7 @@ public class EncounterPlugin extends MouseAdapter
 			{
 				if (i > 1)
 				{
-					result.add(Constants.EQUIP_LOCATION_SECONDARY + " " + i);
+					result.add(Constants.EQUIP_LOCATION_SECONDARY + ' ' + i);
 				}
 				else
 				{
@@ -856,7 +856,7 @@ public class EncounterPlugin extends MouseAdapter
 		if (crs == null)
 		{
 			Logging.errorPrint("Tables do not match the given parameters ("
-				+ totalEL + ", " + size + ")");
+				+ totalEL + ", " + size + ')');
 
 			return;
 		}

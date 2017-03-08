@@ -130,7 +130,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
 			}
 			catch (NumberFormatException nfe)
 			{
-				oper = "(" + oper + ")+1";
+				oper = '(' + oper + ")+1";
 			}
 			p.setOperand(oper);
 			p.setOperator(PrerequisiteOperator.LT);

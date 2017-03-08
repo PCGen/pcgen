@@ -20,6 +20,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import pcgen.facade.util.AbstractListFacade;
 
@@ -51,11 +52,9 @@ class RecentFileList extends AbstractListFacade<File>
 		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
 
 		List<String> uris = new ArrayList<>(fileList.size());
-		for (final File file : fileList)
-		{
-			URI uri = userdir.relativize(file.toURI());
-			uris.add(uri.toString());
-		}
+		fileList.stream()
+		        .map(file -> userdir.relativize(file.toURI()).toString())
+		        .forEach(uris::add);
 		PCGenSettings.getInstance().setStringArray(contextProp, uris);
 	}
 
@@ -106,13 +105,12 @@ class RecentFileList extends AbstractListFacade<File>
 	{
 		if (element != null)
 		{
-			for (int i = 0; i < fileList.size(); i++)
-			{
-				if (fileList.get(i).getAbsolutePath().equals(element.getAbsolutePath()))
-				{
-					return i;
-				}
-			}
+			return IntStream.range(0, fileList.size())
+			                .filter(i -> fileList.get(i)
+			                                     .getAbsolutePath()
+			                                     .equals(element.getAbsolutePath()))
+			                .findFirst()
+			                .orElse(-1);
 		}
 		return -1;
 	}

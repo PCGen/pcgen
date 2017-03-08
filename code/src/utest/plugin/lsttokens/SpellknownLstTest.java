@@ -1,5 +1,4 @@
 /*
- * SpellknownLstTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -55,7 +54,7 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 	static CDOMPrimaryToken<CDOMObject> token = new SpellknownLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getLoader()
 	 */
 	@Override
@@ -64,7 +63,7 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 		return loader;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getCDOMClass()
 	 */
 	@Override
@@ -73,7 +72,7 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 		return PCTemplate.class;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getToken()
 	 */
 	@Override

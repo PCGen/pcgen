@@ -50,14 +50,12 @@ public final class AbilityMigration
 	                                              String abilityKey, int[] pcgVer, String gameModeName)
 	{
 		List<MigrationRule> abilityChangeList =
-				abilityChangesForVer.get(pcgVer);
-		if (abilityChangeList == null)
-		{
-			abilityChangeList =
-					MigrationUtils.getChangeList(pcgVer, gameModeName,
-						ObjectType.ABILITY);
-			abilityChangesForVer.put(pcgVer, abilityChangeList);
-		}
+				abilityChangesForVer.computeIfAbsent(
+						pcgVer,
+						v -> MigrationUtils.getChangeList(v, gameModeName,
+								ObjectType.ABILITY
+						)
+				);
 
 		for (MigrationRule rule : abilityChangeList)
 		{

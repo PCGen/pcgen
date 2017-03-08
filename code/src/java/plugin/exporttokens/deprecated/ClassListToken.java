@@ -66,7 +66,7 @@ public class ClassListToken extends AbstractExportToken
 		{
 			if (!firstLine)
 			{
-				returnString.append(" ");
+				returnString.append(' ');
 			}
 
 			firstLine = false;

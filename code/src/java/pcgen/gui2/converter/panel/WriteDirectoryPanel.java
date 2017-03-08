@@ -46,7 +46,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 
 	private File path = null;
 
-	private SpringLayout layout = new SpringLayout();
+	private final SpringLayout layout = new SpringLayout();
 
 	private final JLabel fileLabel;
 	private final JLabel warningLabel;
@@ -100,7 +100,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#returnAllowed()
 	 */
 	@Override

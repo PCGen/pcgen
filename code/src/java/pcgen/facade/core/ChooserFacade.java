@@ -1,5 +1,4 @@
 /*
- * ChooserFacade.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 04/01/2012 5:13:13 PM
  *
- * $Id$
  */
 package pcgen.facade.core;
 
@@ -33,9 +30,7 @@ import pcgen.facade.util.ListFacade;
  *  where a dialog is presented to a user asking them to select from a fixed list of 
  *  options.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface ChooserFacade
 {

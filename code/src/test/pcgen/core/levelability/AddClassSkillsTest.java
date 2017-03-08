@@ -1,5 +1,4 @@
 /*
- * LevelAbility.java
  * Copyright 2006 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or

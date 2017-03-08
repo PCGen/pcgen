@@ -60,12 +60,6 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Test
 	public void testValidInputSimple() throws PersistenceLayerException
 	{
 		ListKey<?> listKey = getListKey();

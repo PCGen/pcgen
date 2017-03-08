@@ -25,7 +25,6 @@ package pcgen.util;
  * leading sign in its string representation. It is currently used for displaying 
  * numerically sorted lists of modifiers in choosers.
  *
- * <br>
  * 
  */
 public class SignedInteger extends Number implements Comparable<SignedInteger>

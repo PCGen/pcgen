@@ -1,5 +1,4 @@
 /*
- * SkillCostDisplayTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -54,7 +53,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 	Ability persuasive = new Ability();
 	Skill bluff;
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override
@@ -106,7 +105,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#tearDown()
 	 */
 	@Override

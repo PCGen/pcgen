@@ -1,5 +1,4 @@
 /*
- * PreSkillTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -65,7 +64,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	Skill target = null;
 	Skill target2 = null;
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -139,7 +138,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@Override

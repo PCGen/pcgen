@@ -47,7 +47,7 @@ public class PreSARoundRobin extends AbstractBasicRoundRobin
 		return new TestSuite(PreSARoundRobin.class);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -58,7 +58,7 @@ public class PreSARoundRobin extends AbstractBasicRoundRobin
 		TokenRegistration.register(new PreSpecialAbilityWriter());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.pretokens.AbstractBasicRoundRobin#getBaseString()
 	 */
 	@Override
