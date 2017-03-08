@@ -41,7 +41,7 @@ public class PreTemplateTester extends AbstractDisplayPrereqTest implements Prer
 
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
