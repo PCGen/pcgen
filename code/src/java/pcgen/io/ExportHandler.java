@@ -3658,7 +3658,7 @@ public final class ExportHandler
 				FileAccess.write(out, forParser.startOfLine());
 			}
 
-			PlayerCharacter currPC = (0 <= i && i < PCs.length) ? PCs[i] : null;
+			PlayerCharacter currPC = ((i >= 0) && (i < PCs.length)) ? PCs[i] : null;
 
 			String[] tokens = forParser.tokenString().split("\\\\\\\\");
 
