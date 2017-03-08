@@ -1,5 +1,4 @@
 /*
- *  GMGenSystem.java - main class for GMGen
  *  Copyright (C) 2003 Devon Jones, Emily Smirle
  *
  *  This library is free software; you can redistribute it and/or
@@ -25,7 +24,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.lang.reflect.Method;
 import java.util.EventObject;
 
 import javax.swing.JFrame;
@@ -66,6 +64,7 @@ import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
+import gmgen.util.OSXAdapter;
 import org.apache.commons.lang3.SystemUtils;
 
 
@@ -169,7 +168,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         Utility.configurePlatformUI();
 
         if (SystemUtils.IS_OS_MAC_OSX) {
-            macOSXRegistration();
+            OSXAdapter.initialize(this);
         }
         Utility.setApplicationTitle(APPLICATION_NAME);
 
@@ -228,8 +227,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         editMenu.removeAll();
 
         /*
-         * Preferences on the Macintosh is in the application menu. See
-         * macOSXRegistration()
+         * Preferences on the Macintosh is in the application menu.
          */
         if (!SystemUtils.IS_OS_MAC_OSX)
         {
@@ -306,55 +304,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     public void mPreferencesActionPerformedMac() {
         PreferencesDialog dialog = new PreferencesDialog(this, true, rootNode);
         dialog.setVisible(true);
-    }
-
-    /**
-     * Generic registration with the Mac OS X application menu. Checks the
-     * platform, then attempts to register with the Apple EAWT.
-     * 
-     * This method calls OSXAdapter.registerMacOSXApplication() and
-     * OSXAdapter.enablePrefs(). See OSXAdapter.java for the signatures of these
-     * methods.
-     */
-    private void macOSXRegistration() {
-        try {
-            Class<?> osxAdapter = Class.forName("gmgen.util.OSXAdapter");
-            Class<?>[] defArgs = { GMGenSystem.class };
-            Method registerMethod = osxAdapter.getDeclaredMethod(
-                    "registerMacOSXApplication", defArgs);
-
-            if (registerMethod != null) {
-                Object[] args = { this };
-                registerMethod.invoke(osxAdapter, args);
-            }
-
-            // This is slightly gross. to reflectively access methods with
-            // boolean args,
-            // use "boolean.class", then pass a Boolean object in as the arg,
-            // which apparently
-            // gets converted for you by the reflection system.
-            defArgs[0] = boolean.class;
-
-            Method prefsEnableMethod = osxAdapter.getDeclaredMethod(
-                    "enablePrefs", defArgs);
-
-            if (prefsEnableMethod != null) {
-                Object[] args = { Boolean.TRUE };
-                prefsEnableMethod.invoke(osxAdapter, args);
-            }
-        } catch (NoClassDefFoundError | ClassNotFoundException e) {
-            // This will be thrown first if the OSXAdapter is loaded on a system
-            // without the EAWT
-            // because OSXAdapter extends ApplicationAdapter in its def
-        	// TODO Use Logging
-            System.err
-                    .println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
-                            + e + ")");
-        } catch (Exception e) {
-        	// TODO Use Logging
-            System.err.println("Exception while loading the OSXAdapter = ["
-                    + e.getMessage() + "]");
-        }
     }
 
     /**
@@ -521,7 +470,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         CommonMenuText.name(pasteEditItem, MNU_PASTE);
         editMenu.add(pasteEditItem);
 
-        // Preferences... on MAC OS X is in the application menu. See macOSXRegistration()
+        // Preferences... on MAC OS X is in the application menu.
         if (!SystemUtils.IS_OS_MAC_OSX)
         {
             editMenu.add(editSeparator1);
@@ -561,7 +510,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         fileMenu.add(fileSeparator1);
         createFileSaveMenuItem();
 
-        // Exit is quit on the Macintosh is in the application menu. See macOSXRegistration()
+        // Exit is quit on the Macintosh is in the application menu.
         if (!SystemUtils.IS_OS_MAC_OSX) {
             exitForMacOSX();
         }
