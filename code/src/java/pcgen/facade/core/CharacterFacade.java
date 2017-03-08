@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 12, 2008, 8:27:12 PM
  */
 package pcgen.facade.core;
 
@@ -59,7 +58,6 @@ import pcgen.io.ExportHandler;
  * interested parties to register as listeners for changes to the valiues.
  * @see pcgen.facade.util.ListFacade
  * @see ReferenceFacade
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface CharacterFacade extends CompanionFacade
 {

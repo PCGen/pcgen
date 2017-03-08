@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 13/01/2013 11:51:01 AM
  *
- * $Id$
  */
 package pcgen.facade.core;
 
@@ -30,7 +28,6 @@ import java.util.List;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface CoreViewNodeFacade
 {
