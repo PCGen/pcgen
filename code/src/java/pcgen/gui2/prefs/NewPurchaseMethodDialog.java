@@ -1,5 +1,4 @@
 /*
- * NewPurchaseMethodDialog.java
  *
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
