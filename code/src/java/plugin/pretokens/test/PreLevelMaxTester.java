@@ -36,7 +36,7 @@ public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -59,7 +59,7 @@ public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 		return "LEVELMAX"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#toHtmlString()
 	 */
 	@Override

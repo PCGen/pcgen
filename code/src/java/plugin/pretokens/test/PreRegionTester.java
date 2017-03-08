@@ -49,7 +49,7 @@ public class PreRegionTester extends AbstractDisplayPrereqTest implements Prereq
 		return passes(prereq, display, equipment);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
