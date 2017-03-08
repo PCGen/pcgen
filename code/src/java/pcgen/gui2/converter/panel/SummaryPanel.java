@@ -50,7 +50,7 @@ import pcgen.gui2.util.FontManipulation;
 public class SummaryPanel extends ConvertSubPanel
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -59,7 +59,7 @@ public class SummaryPanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -69,7 +69,7 @@ public class SummaryPanel extends ConvertSubPanel
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#setupDisplay(javax.swing.JPanel, pcgen.cdom.base.CDOMObject)
 	 */
 	@Override

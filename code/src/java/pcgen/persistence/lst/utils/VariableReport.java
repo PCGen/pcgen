@@ -57,7 +57,6 @@ import freemarker.template.TemplateException;
  * The Class {@code VariableReport} produces a report on variable
  * definitions within the PCGen LST data.
  *
- * <br>
  * 
  */
 

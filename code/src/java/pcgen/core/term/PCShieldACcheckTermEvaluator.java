@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCShieldACcheckTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -18,7 +17,6 @@
  *
  * Created 03-Aug-2008 22:38:25
  *
- * Current Ver: $Revision:$
  *
  */
 

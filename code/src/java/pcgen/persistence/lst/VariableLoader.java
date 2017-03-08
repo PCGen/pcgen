@@ -1,6 +1,5 @@
 /*
  * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from LstObjecttFileLoader and GenericLoader
  * Copyright 2008-10 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>

@@ -125,8 +125,9 @@ public class LoadFacet
 			return (float) formulaResolvingFacet.resolve(id,
 					FormulaFactory.getFormulaFor(formula), "").intValue();
 		}
-		return new Float(loadValue.doubleValue() * mult
-				* getLoadMultForSize(id));
+		return (float) (
+				loadValue.doubleValue() * mult
+						* getLoadMultForSize(id));
 	}
 
 	/**

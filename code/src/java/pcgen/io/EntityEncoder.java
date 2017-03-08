@@ -86,11 +86,9 @@ public final class EntityEncoder
 		final StringBuilder buffer = new StringBuilder();
 		final StringTokenizer tokens = new StringTokenizer(s, "&;", true);
 
-		String cToken;
-
 		while (tokens.hasMoreTokens())
 		{
-			cToken = tokens.nextToken();
+			String cToken = tokens.nextToken();
 
 			if ("&".equals(cToken))
 			{

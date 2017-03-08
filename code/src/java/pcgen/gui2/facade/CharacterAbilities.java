@@ -71,7 +71,6 @@ import pcgen.util.enumeration.View;
  * reflect the changes. The lists automatically notify any listeners in the 
  * UI of the changes.
  *   
- * <br>
  * 
  * 
  */
@@ -80,12 +79,12 @@ public class CharacterAbilities
 
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
-	private UIDelegate delegate;
+	private final UIDelegate delegate;
 
 	private Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> abilityListMap;
 	private DefaultListFacade<AbilityCategoryFacade> activeCategories;
 	private CharID charID;
-	private DataSetFacade dataSetFacade;
+	private final DataSetFacade dataSetFacade;
 	private final List<ChangeListener> abilityCatSelectionListeners;
 	private final TodoManager todoManager;
 	private GrantedAbilityChangeHandler grantedAbilityChangeHandler;

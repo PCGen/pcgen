@@ -196,7 +196,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			Logging.errorPrint("New style CHOOSE "
 				+ "and old style CHOOSE both found on "
-				+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
+				+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 			return false;
 		}
 		if (newChoose != null)
@@ -212,7 +212,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 					{
 						Logging.errorPrint("CHOOSE of type "
 							+ chooseClass.getName() + " on "
-							+ obj.getClass().getSimpleName() + " "
+							+ obj.getClass().getSimpleName() + ' '
 							+ obj.getKeyName() + " had an actor from token "
 							+ csa.getSource() + " that was expecting a "
 							+ csa.getChoiceClass().getSimpleName());

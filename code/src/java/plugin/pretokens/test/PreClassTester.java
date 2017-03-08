@@ -26,7 +26,7 @@ import pcgen.system.LanguageBundle;
 public class PreClassTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -42,7 +42,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 		return passes(prereq, aPC, equipment);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -211,7 +211,7 @@ CLASSLIST:		for(PCClass theClass: display.getClassSet())
 		return "CLASS"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override

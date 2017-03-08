@@ -1,5 +1,4 @@
 /*
- * KitFunds.java
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -37,7 +36,7 @@ public final class KitFunds extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient int theQty = 0;
+	private int theQty = 0;
 
 	@Override
 	public String toString()

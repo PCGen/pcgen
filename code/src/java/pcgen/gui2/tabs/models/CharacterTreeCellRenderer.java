@@ -1,5 +1,4 @@
 /*
- * CharacterTreeCellRenderer.java
  * Copyright 2014 Connor
  * 
  * This library is free software; you can redistribute it and/or

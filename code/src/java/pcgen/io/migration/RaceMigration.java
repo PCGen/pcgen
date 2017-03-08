@@ -46,14 +46,12 @@ public final class RaceMigration
 	 */
 	public static String getNewRaceKey(String raceKey, int[] pcgVer, String gameModeName)
 	{
-		List<MigrationRule> raceChangeList = raceChangesForVer.get(pcgVer);
-		if (raceChangeList == null)
-		{
-			raceChangeList =
-					MigrationUtils.getChangeList(pcgVer, gameModeName,
-						ObjectType.RACE);
-			raceChangesForVer.put(pcgVer, raceChangeList);
-		}
+		List<MigrationRule> raceChangeList = raceChangesForVer.computeIfAbsent(
+				pcgVer,
+				v -> MigrationUtils.getChangeList(v, gameModeName,
+						ObjectType.RACE
+				)
+		);
 
 		for (MigrationRule rule : raceChangeList)
 		{

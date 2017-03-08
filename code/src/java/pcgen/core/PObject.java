@@ -15,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core;
@@ -48,8 +46,6 @@ import pcgen.system.PCGenSettings;
  * {@code PObject}<br>
  * This is the base class for several objects in the PCGen database.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @author Joe.Frazier
  *
  */
 public class PObject extends CDOMObject implements Cloneable, Serializable, Comparable<Object>,

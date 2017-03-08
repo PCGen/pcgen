@@ -1,5 +1,4 @@
 /*
- * CDOMChoiceManager.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -44,7 +43,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	protected ChooseController<T> controller = new ChooseController<>();
 	protected final ChooseInformation<T> info;
 
-	private transient int preChooserChoices;
+	private int preChooserChoices;
 
 	public CDOMChoiceManager(ChooseDriver cdo,
 		ChooseInformation<T> chooseType, Integer numChoices,

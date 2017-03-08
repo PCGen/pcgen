@@ -80,7 +80,7 @@ public class BioToken extends AbstractExportToken
 		}
 
 		return beforeValue
-			+ display.getBio().replaceAll("\n", afterValue + "\n" + beforeValue)
+			+ display.getBio().replaceAll("\n", afterValue + '\n' + beforeValue)
 			+ afterValue;
 	}
 }

@@ -29,7 +29,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code CombatantHasBeenUpdatedMessage} encapsulates a
  * message that a specific combatant has been modified.
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

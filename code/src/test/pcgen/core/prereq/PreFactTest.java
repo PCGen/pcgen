@@ -1,5 +1,4 @@
 /*
- * PreFactTest.java
  * Copyright James Dempsey, 2015
  *
  * This library is free software; you can redistribute it and/or

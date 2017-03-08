@@ -1,5 +1,4 @@
 /*
- * pcGenGUIElwoodTest.java
  * Copyright 2015 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or

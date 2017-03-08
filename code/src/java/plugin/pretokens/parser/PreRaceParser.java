@@ -1,5 +1,4 @@
 /*
- * PreRaceParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -107,7 +106,7 @@ public class PreRaceParser extends AbstractPrerequisiteListParser implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				oper = "(" + oper + ")+" + Integer.toString(modified);
+				oper = '(' + oper + ")+" + Integer.toString(modified);
 			}
 			prereq.setOperand(oper);
 		}

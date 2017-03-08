@@ -227,7 +227,7 @@ public class FacadeFactory
 				else
 				{
 					error = true;
-					Logging.log(Logging.WARNING, "'" + campaign + "'" +
+					Logging.log(Logging.WARNING, '\'' + campaign + '\'' +
 							" campaign not found, custom quick source '" + name +
 							"' might not work correctly.");
 				}

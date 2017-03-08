@@ -1,5 +1,4 @@
 /*
- * SearchFilterPanel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -43,7 +42,6 @@ import pcgen.system.LanguageBundle;
  * button. When text is typed into the field the table contents will be 
  * filtered to only those matching the search text.
  *
- * <br>
  * 
  */
 public class SearchFilterPanel extends JPanel
@@ -51,8 +49,8 @@ public class SearchFilterPanel extends JPanel
 {
 
 	private FilterHandler filterHandler;
-	private JTextField searchField = new JTextField();
-	private JButton clearButton = new JButton(Icons.CloseX9.getImageIcon());
+	private final JTextField searchField = new JTextField();
+	private final JButton clearButton = new JButton(Icons.CloseX9.getImageIcon());
 
 	public SearchFilterPanel()
 	{

@@ -33,6 +33,9 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.DeityFacade;
 
+/**
+ * {@code Deity}.
+ */
 public final class Deity extends PObject implements DeityFacade
 {
 	public static final CDOMReference<DomainList> DOMAINLIST;

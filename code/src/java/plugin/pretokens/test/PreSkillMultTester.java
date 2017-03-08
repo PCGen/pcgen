@@ -1,5 +1,4 @@
 /*
- * PreSkillMult.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -38,7 +37,7 @@ import pcgen.system.LanguageBundle;
 public class PreSkillMultTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -132,7 +131,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 		return "SKILLMULT"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override
@@ -141,7 +140,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 		String skillName = prereq.getKey();
 		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
-			skillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$ //$NON-NLS-2$
 
 		}
 

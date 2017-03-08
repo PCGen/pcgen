@@ -49,11 +49,8 @@ import plugin.primitive.spell.SpellTypeToken;
 import plugin.primitive.spell.SubSchoolToken;
 
 /**
- * The Class <code>SpellsTokenTest</code> verifies the parsing and 
+ * The Class {@code SpellsTokenTest} verifies the parsing and
  * unparsing of the CHOOSE:SPELLS subtoken.
- *
- * <br/>
- * 
  */
 public class SpellsTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Spell>

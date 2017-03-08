@@ -34,7 +34,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class MonsterRoleDefaultToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
@@ -43,7 +43,7 @@ public class MonsterRoleDefaultToken implements GameModeLstToken
 		return "MONSTERROLEDEFAULT";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
 	 */
     @Override

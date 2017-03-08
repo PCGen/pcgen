@@ -26,8 +26,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * The Class {@code EQAltPlusTotalTermEvaluator} is responsible for producing
  * the value of the ALTPLUSTOTAL token for use in equipment and eqmod cost formulas. 
- * 
- * 
  */
 public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -51,7 +49,7 @@ public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements 
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	/* (non-Javadoc)

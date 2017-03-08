@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EvaluatorFactoryPCVar.java
  * Copyright 2008 Andrew Wilson
  * <nuance@users.sourceforge.net>.
  *
@@ -19,7 +18,6 @@
  *
  * Created 03 August 2008
  *
- * Current Ver: $Revision:$
  */
 
 package pcgen.core.term;

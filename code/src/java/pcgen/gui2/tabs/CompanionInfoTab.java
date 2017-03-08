@@ -310,8 +310,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		
 		private final HtmlSheetSupport sheetSupport;
 		private int selectedRow;
-		private ListSelectionModel selectionModel;
-		private PCGenFrame frame;
+		private final ListSelectionModel selectionModel;
+		private final PCGenFrame frame;
 		
 		public LoadButtonAndSheetHandler()
 		{
@@ -656,7 +656,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private CharacterFacade character;
 		private String companionType;
 		private CharacterFacade newCompanion;
-		private DefaultListFacade<CompanionTreeView> treeViews = new DefaultListFacade<>(
+		private final DefaultListFacade<CompanionTreeView> treeViews = new DefaultListFacade<>(
                 Arrays.asList(CompanionTreeView.values()));
 		
 		public CompanionDialog()
@@ -838,8 +838,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	private static class CompanionsModel extends AbstractTreeTableModel implements TreeTableModel
 	{
 		
-		private CompanionSupportFacade support;
-		private MapFacade<String, Integer> maxMap;
+		private final CompanionSupportFacade support;
+		private final MapFacade<String, Integer> maxMap;
 		
 		public CompanionsModel(CharacterFacade character)
 		{
@@ -875,7 +875,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private class CompanionNode extends DefaultTreeTableNode
 		{
 			
-			private CompanionFacade companion;
+			private final CompanionFacade companion;
 			
 			public CompanionNode(CompanionFacade companion)
 			{
@@ -903,7 +903,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private class CompanionTypeNode extends DefaultTreeTableNode implements ReferenceListener<String>
 		{
 			
-			private String type;
+			private final String type;
 			
 			public CompanionTypeNode(String type)
 			{
@@ -1019,8 +1019,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		class RootNode extends DefaultTreeTableNode implements MapListener<String, Integer>, ListListener<CompanionFacade>
 		{
 			
-			private List<String> types;
-			private ListFacade<? extends CompanionFacade> companions;
+			private final List<String> types;
+			private final ListFacade<? extends CompanionFacade> companions;
 			
 			public RootNode()
 			{

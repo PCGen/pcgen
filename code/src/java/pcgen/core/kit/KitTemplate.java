@@ -1,5 +1,4 @@
 /*
- * KitTemplate.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -38,7 +37,7 @@ import pcgen.util.chooser.ChooserFactory;
  */
 public class KitTemplate extends BaseKit
 {
-	private HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
+	private final HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
             new HashMapToList<>();
 
 	/**

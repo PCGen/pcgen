@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCEqTypeTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -85,7 +84,7 @@ public class PCEqTypeTermEvaluator
 
 		if (Pattern.matches(fpRegex, sTok))
 		{
-			return convertToFloat(originalText, sTok);
+			return TermUtil.convertToFloat(originalText, sTok);
 		}
 
 		return 0.0f;

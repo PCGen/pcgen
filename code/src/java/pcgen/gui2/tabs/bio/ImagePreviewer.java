@@ -1,5 +1,4 @@
 /*
- * ImagePreviewer.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -38,7 +37,7 @@ class ImagePreviewer extends JComponent
 {
 
 	private static final int SIZE = 200;
-	private static String in_notAnImage = LanguageBundle.getString("in_ImagePreview_notAnImage");
+	private static final String in_notAnImage = LanguageBundle.getString("in_ImagePreview_notAnImage");
 	private BufferedImage image;
 
 	public ImagePreviewer()

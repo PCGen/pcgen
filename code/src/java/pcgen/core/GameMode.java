@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 22, 2002, 4:30 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core;
@@ -70,7 +68,6 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * Handles game modes.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class GameMode implements Comparable<Object>, GameModeFacade
 {

@@ -45,7 +45,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 		QualifyingObject
 {
 
-	private static ChangeProfFacet changeProfFacet = FacetLibrary
+	private static final ChangeProfFacet changeProfFacet = FacetLibrary
 			.getFacet(ChangeProfFacet.class);
 
 	/**

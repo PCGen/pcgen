@@ -350,7 +350,6 @@ final class PCGVer2Parser implements PCGParser
 		String sourceStr = sName.substring(IOConstants.TAG_TEMPBONUS.length() + 1);
 		String targetStr = tName.substring(IOConstants.TAG_TEMPBONUSTARGET.length() + 1);
 		Object oSource = null;
-		Object oTarget = null;
 
 		if (sourceStr.startsWith(IOConstants.TAG_FEAT + '='))
 		{
@@ -432,7 +431,7 @@ final class PCGVer2Parser implements PCGParser
 		}
 		else
 		{
-			oTarget = thePC.getEquipmentNamed(targetStr);
+			Object oTarget = thePC.getEquipmentNamed(targetStr);
 			targetStr = ((CDOMObject) oTarget).getDisplayName();
 		}
 
@@ -1183,9 +1182,9 @@ final class PCGVer2Parser implements PCGParser
 			EquipSetMigration.migrateEquipSets(thePC, pcgenVersion);
 		}
 
-		/**
+		/*
 		 * CALCEQUIPSET line contains the "working" equipment list
-		 **/
+		 */
 		if (cache.containsKey(IOConstants.TAG_CALCEQUIPSET))
 		{
 			for (final String line : cache.get(IOConstants.TAG_CALCEQUIPSET))
@@ -1452,10 +1451,10 @@ final class PCGVer2Parser implements PCGParser
 	{
 
 		final List<Campaign> campaigns = new ArrayList<>();
-		PCGTokenizer tokens;
 
 		for (final String line : lines)
 		{
+			PCGTokenizer tokens;
 			try
 			{
 				tokens = new PCGTokenizer(line);
@@ -1563,7 +1562,6 @@ final class PCGVer2Parser implements PCGParser
 
 		int level = -1;
 		PCClass aPCClass = null;
-		String tag;
 		PCGElement element;
 		PCLevelInfo pcl = null;
 
@@ -1652,13 +1650,10 @@ final class PCGVer2Parser implements PCGParser
 			pcl.setSkillPointsRemaining(0);
 		}
 
-		String specialAbilityName;
-		SpecialAbility specialAbility;
-
 		while (it.hasNext())
 		{
 			element = it.next();
-			tag = element.getName();
+			String tag = element.getName();
 
 			if (IOConstants.TAG_SUBSTITUTIONLEVEL.equals(tag))
 			{
@@ -1755,7 +1750,7 @@ final class PCGVer2Parser implements PCGParser
 			{
 				for (PCGElement child : element.getChildren())
 				{
-					specialAbilityName = EntityEncoder.decode(child.getText());
+					String specialAbilityName = EntityEncoder.decode(child.getText());
 					if (pcgenVersion[0] <= 5 && pcgenVersion[1] <= 5
 						&& pcgenVersion[2] < 6)
 					{
@@ -1770,7 +1765,8 @@ final class PCGVer2Parser implements PCGParser
 							continue;
 						}
 					}
-					specialAbility = new SpecialAbility(specialAbilityName);
+					SpecialAbility specialAbility =
+							new SpecialAbility(specialAbilityName);
 					CDOMObject target = aPCClass;
 					if (level > 0)
 					{
@@ -2449,12 +2445,14 @@ final class PCGVer2Parser implements PCGParser
 	private void parseExperienceLine(final String line)
 		throws PCGParseException
 	{
-		final StringTokenizer stok =
-				new StringTokenizer(
-					line.substring(IOConstants.TAG_EXPERIENCE.length() + 1), IOConstants.TAG_END, false);
 
 		try
 		{
+			final StringTokenizer stok = new StringTokenizer(
+					line.substring(IOConstants.TAG_EXPERIENCE.length() + 1),
+					IOConstants.TAG_END,
+					false
+			);
 			thePC.setXP(Integer.parseInt(stok.nextToken()));
 		}
 		catch (NumberFormatException nfe)
@@ -2519,7 +2517,6 @@ final class PCGVer2Parser implements PCGParser
 		Nature nature = Nature.NORMAL;
 		String abilityCat = null;
 		Ability ability = null;
-		String abilityKey = "";
 		String missingCat = null;
 
 		final Iterator<PCGElement> it = tokens.getElements().iterator();
@@ -2548,7 +2545,6 @@ final class PCGVer2Parser implements PCGParser
 		}
 
 		// The next element will be the ability's innate category
-		AbilityCategory innateCategory = null;
 		if (it.hasNext())
 		{
 			final PCGElement element = it.next();
@@ -2561,14 +2557,14 @@ final class PCGVer2Parser implements PCGParser
 		{
 			final PCGElement element = it.next();
 
-			abilityKey = EntityEncoder.decode(element.getText());
+			String abilityKey = EntityEncoder.decode(element.getText());
 			// Check for an ability that has been updated.
 			CategorisedKey categorisedKey =
 					AbilityMigration.getNewAbilityKey(abilityCat, abilityKey,
 						pcgenVersion, SettingsHandler.getGame().getName());
 			abilityCat = categorisedKey.getCategory();
 			abilityKey = categorisedKey.getKey();
-			innateCategory =
+			AbilityCategory innateCategory =
 					SettingsHandler.getGame().getAbilityCategory(abilityCat);
 			if (innateCategory == null)
 			{
@@ -3174,10 +3170,10 @@ final class PCGVer2Parser implements PCGParser
 			// TODO This if switch currently does nothing?
 		}
 
-		/** final String region = */
+		/* final String region = */
 		stok.nextToken(); //TODO: Is this intended to be thrown away? The value is never used.
 
-		/** final String kit = stok.nextToken(); */
+		/* final String kit = stok.nextToken(); */
 
 		final Kit aKit =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -4780,8 +4776,6 @@ final class PCGVer2Parser implements PCGParser
 			return;
 		}
 
-		Ability anAbility = null;
-
 		final Iterator<PCGElement> it = tokens.getElements().iterator();
 
 		// the first element defines the Feat key name
@@ -4790,9 +4784,13 @@ final class PCGVer2Parser implements PCGParser
 			final PCGElement element = it.next();
 
 			final String abilityKey = EntityEncoder.decode(element.getText());
-			anAbility =
-					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, abilityKey);
+			Ability anAbility = Globals.getContext()
+			                           .getReferenceContext()
+			                           .silentlyGetConstructedCDOMObject(
+					                           Ability.class,
+					                           AbilityCategory.FEAT,
+					                           abilityKey
+			                           );
 
 			if (anAbility == null)
 			{
@@ -4825,7 +4823,7 @@ final class PCGVer2Parser implements PCGParser
 
 		// extract the tokens from the version line
 		String[] tokens =
-				line.substring(IOConstants.TAG_VERSION.length() + 1).split(" |\\.|\\-", 4); //$NON-NLS-1$
+				line.substring(IOConstants.TAG_VERSION.length() + 1).split("[ \\.-]", 4); //$NON-NLS-1$
 
 		for (int idx = 0; idx < 3 && idx < tokens.length; idx++)
 		{
@@ -5010,11 +5008,10 @@ final class PCGVer2Parser implements PCGParser
 					WeaponProf.class, EntityEncoder.decode(aString));
 		if (wp == null)
 		{
-			final String message =
-					"Unable to find Weapon Proficiency in Rules Data:"
-						+ aString;
 			if (Logging.isDebugMode())
 			{
+				final String message = "Unable to find Weapon Proficiency in Rules Data:"
+						+ aString;
 				Logging.debugPrint(message);
 			}
 		}
@@ -5093,7 +5090,6 @@ final class PCGVer2Parser implements PCGParser
 		Equipment aEquip;
 
 		PCGElement element;
-		String tag;
 
 		// the first element defines the item key name
 		element = tokens.getElements().get(0);
@@ -5247,7 +5243,7 @@ final class PCGVer2Parser implements PCGParser
 			.hasNext();)
 		{
 			element = it.next();
-			tag = element.getName();
+			String tag = element.getName();
 
 			if (IOConstants.TAG_QUANTITY.equals(tag))
 			{
@@ -5339,7 +5335,7 @@ final class PCGVer2Parser implements PCGParser
 				}
 				catch (NumberFormatException nfe)
 				{
-					itemQuantity = new Float(0.0f);
+					itemQuantity = 0.0f;
 				}
 			}
 			else if (IOConstants.TAG_NOTE.equals(tag))
@@ -5362,8 +5358,6 @@ final class PCGVer2Parser implements PCGParser
 		}
 
 		final EquipSet aEquipSet;
-		Equipment aEquip;
-		Equipment eqI;
 
 		aEquipSet = new EquipSet(setID, setName);
 
@@ -5375,7 +5369,7 @@ final class PCGVer2Parser implements PCGParser
 		if (itemKey != null)
 		{
 			aEquipSet.setValue(itemKey);
-			eqI = thePC.getEquipmentNamed(itemKey);
+			Equipment eqI = thePC.getEquipmentNamed(itemKey);
 
 			if (eqI == null)
 			{
@@ -5392,7 +5386,7 @@ final class PCGVer2Parser implements PCGParser
 
 				return;
 			}
-			aEquip = eqI.clone();
+			Equipment aEquip = eqI.clone();
 
 			if (itemQuantity != null)
 			{
@@ -5826,7 +5820,6 @@ final class PCGVer2Parser implements PCGParser
 
 		/**
 		 * Constructor
-		 * <br>
 		 * @param line           a String to tokenize
 		 * @param delimiters     a FOUR-character String specifying the four needed delimiters:
 		 *                       <ol>
@@ -6143,9 +6136,8 @@ final class PCGVer2Parser implements PCGParser
 		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
 		boolean foundLang = currentBonusLang > 0;
 
-		Set<Language> foundLanguages = new HashSet<>();
+		Set<Language> foundLanguages = new HashSet<>(thePC.getLanguageSet());
 		//Captures Auto (AUTO:LANG) and Persistent choices (ADD ex ability and CHOOSE)
-		foundLanguages.addAll(thePC.getLanguageSet());
 		cachedLanguages.removeAll(foundLanguages);
 
 		HashMapToList<Language, Object> langSources = new HashMapToList<>();

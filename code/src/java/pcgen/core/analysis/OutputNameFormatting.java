@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -145,7 +144,7 @@ public class OutputNameFormatting
 	private static String getPreFormatedOutputName(String displayName)
 	{
 		//if there are no () to pull from, just return the name
-		if ((displayName.indexOf('(') < 0) || (displayName.indexOf(')') < 0))
+		if (!displayName.contains("(") || !displayName.contains(")"))
 		{
 			return displayName;
 		}
@@ -182,7 +181,8 @@ public class OutputNameFormatting
 		{
 			return displayName;
 		}
-		else if (outputName.equalsIgnoreCase("[BASE]") && displayName.indexOf('(') != -1)
+		else if (outputName.equalsIgnoreCase("[BASE]") && (
+				displayName.contains("(")))
 		{
 			outputName = displayName.substring(0, displayName.indexOf('(')).trim();
 		}

@@ -1,5 +1,4 @@
 /*
- * KitTable.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -30,7 +29,7 @@ import pcgen.core.PlayerCharacter;
 public class KitTable extends BaseKit
 {
 	private String tableName;
-	private List<TableEntry> list = new ArrayList<>();
+	private final List<TableEntry> list = new ArrayList<>();
 
 	public String getTableName()
 	{

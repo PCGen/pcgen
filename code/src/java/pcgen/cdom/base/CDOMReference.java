@@ -121,35 +121,6 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	public abstract void addResolution(T item);
 
 	/**
-	 * Returns true if the given Object is included in the Collection of Objects
-	 * to which this CDOMReference refers.
-	 * 
-	 * Note that the behavior of this class is undefined if the CDOMReference
-	 * has not yet been resolved.
-	 * 
-	 * @param item
-	 *            The object to be tested to see if it is referred to by this
-	 *            CDOMReference.
-	 * @return true if the given Object is included in the Collection of Objects
-	 *         to which this CDOMReference refers; false otherwise.
-	 */
-	@Override
-	public abstract boolean contains(T item);
-
-	/**
-	 * Returns a representation of this CDOMReference, suitable for storing in
-	 * an LST file.
-	 * 
-	 * Note that this will ALWAYS return a comma-delimited list of objects if
-	 * more than one object is present in the CDOMReference.
-	 * 
-	 * @return A representation of this CDOMReference, suitable for storing in
-	 *         an LST file.
-	 */
-	@Override
-	public abstract String getLSTformat(boolean useAny);
-
-	/**
 	 * Returns the count of the number of objects included in the Collection of
 	 * Objects to which this CDOMReference refers.
 	 * 

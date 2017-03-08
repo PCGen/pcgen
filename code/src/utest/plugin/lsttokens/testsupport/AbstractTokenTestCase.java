@@ -58,7 +58,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	public static void classSetUp() throws URISyntaxException
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
 				"file:/Test%20Case"));

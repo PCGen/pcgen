@@ -61,7 +61,6 @@ public class MultiClassFacet
 		PCClass secondClass = null;
 		int maxClassLevel = 0;
 		int secondClassLevel = 0;
-		int xpPenalty = 0;
 		double xpMultiplier = 1.0;
 
 		for (PCClass pcClass : classFacet.getSet(id))
@@ -111,6 +110,7 @@ public class MultiClassFacet
 		{
 			unfavoredClasses.remove(maxClass);
 
+			int xpPenalty = 0;
 			for (PCClass aClass : unfavoredClasses)
 			{
 				if ((maxClassLevel - (classFacet.getLevel(id, aClass))) > 1)

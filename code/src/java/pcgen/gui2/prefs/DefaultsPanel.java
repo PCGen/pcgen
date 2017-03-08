@@ -1,5 +1,4 @@
 /*
- * DefaultsPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -52,10 +51,10 @@ import pcgen.system.LanguageBundle;
 public class DefaultsPanel extends PCGenPrefsPanel
 {
 	private static final String DEFAULT_PREVIEW_SHEET_KEY = "CharacterSheetInfoTab.defaultPreviewSheet.";
-	private static String in_defaults = LanguageBundle.getString("in_Prefs_defaults");
-	private JComboBoxEx xpTableCombo = new JComboBoxEx();
-	private JComboBoxEx characterTypeCombo = new JComboBoxEx();
-	private JComboBoxEx previewSheetCombo = new JComboBoxEx();
+	private static final String in_defaults = LanguageBundle.getString("in_Prefs_defaults");
+	private final JComboBoxEx xpTableCombo = new JComboBoxEx();
+	private final JComboBoxEx characterTypeCombo = new JComboBoxEx();
+	private final JComboBoxEx previewSheetCombo = new JComboBoxEx();
 
 	/**
 	 * Instantiates a new defaults panel.
@@ -115,7 +114,7 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -124,7 +123,7 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		return in_defaults;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -139,7 +138,7 @@ public class DefaultsPanel extends PCGenPrefsPanel
 				DEFAULT_PREVIEW_SHEET_KEY + gameMode.getName(), String.valueOf(previewSheetCombo.getSelectedItem()));
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

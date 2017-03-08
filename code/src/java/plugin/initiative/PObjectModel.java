@@ -146,7 +146,7 @@ public abstract class PObjectModel
 		return returnValue;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

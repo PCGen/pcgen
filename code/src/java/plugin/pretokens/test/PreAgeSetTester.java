@@ -1,5 +1,4 @@
 /*
- * PreAgeSetTester.java
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -34,7 +33,7 @@ import pcgen.system.LanguageBundle;
 public class PreAgeSetTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override

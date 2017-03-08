@@ -1,5 +1,4 @@
 /*
- * SpellProhibitor.java
  * Copyright 2005 (c) Stefan Raderamcher <radermacher@netcologne.de>
  *
  * This library is free software; you can redistribute it and/or

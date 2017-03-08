@@ -56,7 +56,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		return "TYPE"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
 	@Override
@@ -93,7 +93,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		return runningTotal;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -109,7 +109,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		
 		final String requiredType = prereq.getKey();
 		
-		Logging.errorPrint("  PRETYPE value was: " + requiredType + "\n");
+		Logging.errorPrint("  PRETYPE value was: " + requiredType + '\n');
 		
 		final int numRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
@@ -126,7 +126,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override

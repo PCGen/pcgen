@@ -40,7 +40,7 @@ public class SkillModel extends CheckModel
 		super(objectString);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

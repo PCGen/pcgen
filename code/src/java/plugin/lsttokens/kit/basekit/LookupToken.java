@@ -96,7 +96,7 @@ public class LookupToken extends AbstractToken implements
 		List<String> list = new ArrayList<>();
 		for (NamedFormula nf : lookups)
 		{
-			list.add(nf.getName() + "," + nf.getFormula().toString());
+			list.add(nf.getName() + ',' + nf.getFormula().toString());
 		}
 		return list.toArray(new String[list.size()]);
 	}

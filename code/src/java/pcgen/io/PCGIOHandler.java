@@ -433,8 +433,6 @@ public final class PCGIOHandler extends IOHandler
 		// pre-calculate all the bonuses
 		currentPC.calcActiveBonuses();
 
-		int iSides;
-		int iRoll;
 		final int oldHp = currentPC.hitPoints();
 
 		// Recalc the feat pool if required
@@ -477,11 +475,11 @@ public final class PCGIOHandler extends IOHandler
 					//TODO i-1 is strange see CODE-1925
 					PCClassLevel pcl = currentPC.getActiveClassLevel(pcClass, i - 1);
 					Integer hp = currentPC.getHP(pcl);
-					iRoll = hp == null ? 0 : hp;
-					iSides =
-							baseSides
+					int iRoll = hp == null ? 0 : hp;
+					int iSides = baseSides
 							+ (int) pcClass.getBonusTo("HD", "MAX", i,
-													   currentPC);
+							currentPC
+					);
 
 					if (iRoll > iSides)
 					{

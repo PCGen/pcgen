@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
 
@@ -70,14 +69,14 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 			{
 				final Follower follower = aList.get(index);
 
-				for ( PlayerCharacter pc : Globals.getPCList() )
-				{
-					if (follower.getFileName().equals(pc.getFileName())
-							&& follower.getName().equals(pc.getName()))
-					{
-						return pc.getVariableValue(newCount, "");
-					}
-				}
+				return Globals.getPCList()
+				              .stream()
+				              .filter(pc ->
+						              follower.getFileName().equals(pc.getFileName())
+								              && follower.getName().equals(pc.getName()))
+				              .findFirst()
+				              .map(pc -> pc.getVariableValue(newCount, ""))
+				              .orElse(0.0f);
 			}
 		}
 

@@ -28,13 +28,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
-import pcgen.util.Logging;
 
 public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 {
 
 	@Override
-	final public String evaluate(PlayerCharacter pc) {
+	public final String evaluate(PlayerCharacter pc) {
 		return evaluate(pc.getDisplay());
 	}
 
@@ -43,7 +42,7 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 	}
 
 	@Override
-	final public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+	public final String evaluate(PlayerCharacter pc, final Spell aSpell) {
 		return evaluate(pc.getDisplay(), aSpell);	
 	}
 
@@ -52,7 +51,7 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 	}
 
 	@Override
-	final public String evaluate(
+	public final String evaluate(
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
@@ -60,7 +59,7 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 	}
 	
 	@Override
-	final public Float resolve(PlayerCharacter pc)
+	public final Float resolve(PlayerCharacter pc)
 	{
 		return resolve(pc.getDisplay());
 	}
@@ -69,7 +68,7 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 
 	@Override
 	public final Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
-		return convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
+		return TermUtil.convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 
 	@Override
@@ -77,34 +76,6 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
-
-	@Override
-	protected final Float convertToFloat(String element, String foo)
-	{
-		Float d = null;
-		try
-		{
-			d = new Float(foo);
-		}
-		catch (NumberFormatException nfe)
-		{
-			// What we got back was not a number
-		}
-
-		Float retVal = null;
-		if (d != null && !d.isNaN())
-		{
-			retVal = d;
-			if (Logging.isDebugMode())
-			{
-				Logging.debugPrint(new StringBuilder("Export variable for: '")
-					.append(element).append("' = ").append(d).toString());
-			}
-		}
-
-		return retVal;
-	}
-
 }
