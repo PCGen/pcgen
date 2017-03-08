@@ -68,11 +68,11 @@ public class JIcon extends JPanel
 
 		if (name.getName().length() > 18)
 		{
-			label.setText(" " + name.getName().substring(0, 15) + "... ");
+			label.setText(' ' + name.getName().substring(0, 15) + "... ");
 		}
 		else
 		{
-			label.setText(" " + name.getName() + " ");
+			label.setText(' ' + name.getName() + ' ');
 		}
 
 		button.setIcon(getIconForType(name.getName()));

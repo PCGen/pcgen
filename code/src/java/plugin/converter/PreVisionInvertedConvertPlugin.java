@@ -58,7 +58,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		}
 		catch (NumberFormatException nfe)
 		{
-			return "'" + num + "' in " + tpe.getKey()
+			return '\'' + num + "' in " + tpe.getKey()
 					+ " is not a valid integer";
 		}
 
@@ -109,7 +109,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 				int eqLoc = last.indexOf('=');
 				String equal = last.substring(eqLoc + 1);
 				tpe.append(getPrefix(tpe, num));
-				tpe.append(StringUtil.join(list, "=" + equal + ","));
+				tpe.append(StringUtil.join(list, '=' + equal + ','));
 			}
 			else if (withEquals > 0 && withoutEquals)
 			{
@@ -184,7 +184,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 				{
 					String decision = tpe.getDecider().getConversionDecision(
 							"Resolve ambiguity for " + getProcessedToken()
-									+ ":" + formula, descr, choice, 0);
+									+ ':' + formula, descr, choice, 0);
 					tpe.append(decision);
 				}
 			}
@@ -243,7 +243,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 			descr.add(oneChoice + " ... " + SET_ZERO_ONE);
 			descr.add(zeroChoice + " ... " + SET_ZERO_ANY);
 			String decision = tpe.getDecider().getConversionDecision(
-					"Resolve ambiguity for " + getProcessedToken() + ":" + formula,
+					"Resolve ambiguity for " + getProcessedToken() + ':' + formula,
 					descr, choice, 0);
 			tpe.append(decision);
 		}

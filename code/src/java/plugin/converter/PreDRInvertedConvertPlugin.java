@@ -53,7 +53,7 @@ public class PreDRInvertedConvertPlugin implements TokenProcessorPlugin
 		}
 		catch (NumberFormatException nfe)
 		{
-			return "'" + num + "' in " + tpe.getKey()
+			return '\'' + num + "' in " + tpe.getKey()
 					+ " is not a valid integer";
 		}
 

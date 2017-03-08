@@ -125,7 +125,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 				Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
 						.getCDOMCategory();
 				chooseValue.append(parent);
-				chooseValue.append(".");
+				chooseValue.append('.');
 			}
 			chooseValue.append(ref.getLSTformat(false));
 		}

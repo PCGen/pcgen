@@ -619,11 +619,11 @@ public class AttackModel extends PObjectModel
 				{
 					if (i == firstOffHandAttack)
 					{
-						sb.append(";");
+						sb.append(';');
 					}
 					else
 					{
-						sb.append("/");
+						sb.append('/');
 					}
 				}
 
@@ -680,12 +680,12 @@ public class AttackModel extends PObjectModel
 	{
 		String returnValue;
 		returnValue =
-				getName() + " " + getToHit() + " " + getRange() + "/"
-					+ getType() + " (" + getDamage() + " " + getCritRange()
-					+ "/x" + getCritMultiple() + " " + getHand() + " "
+				getName() + ' ' + getToHit() + ' ' + getRange() + '/'
+					+ getType() + " (" + getDamage() + ' ' + getCritRange()
+					+ "/x" + getCritMultiple() + ' ' + getHand() + ' '
 					+ getSize()
 					+ ("".equals(getSpecialProp()) ? "" : getSpecialProp())
-					+ ")";
+					+ ')';
 
 		return returnValue;
 	}

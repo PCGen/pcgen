@@ -94,7 +94,7 @@ public class Revision implements Comparable<Revision>
 	@Override
 	public String toString()
 	{
-		return primarySequence + "." + secondarySequence + "-"
+		return primarySequence + "." + secondarySequence + '-'
 			+ tertiarySequence;
 	}
 

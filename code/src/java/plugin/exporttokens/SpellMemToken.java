@@ -378,11 +378,11 @@ public class SpellMemToken extends Token
 						{
 							if ("No".equals(aSpell.getListAsString(ListKey.SPELL_RESISTANCE)))
 							{
-								retValue.append("N");
+								retValue.append('N');
 							}
 							else
 							{
-								retValue.append("Y");
+								retValue.append('Y');
 							}
 						}
 						else if ("CLASS".equals(aLabel))
@@ -480,7 +480,7 @@ public class SpellMemToken extends Token
 			aBuf.append((an == null) ? "" : an);
 			if (i < featList.size())
 			{
-				aBuf.append(" ");
+				aBuf.append(' ');
 			}
 		}
 		
@@ -601,7 +601,7 @@ public class SpellMemToken extends Token
 
 			String aDescription = sAlt;
 			final String aSearch =
-					sType.toUpperCase() + ":" + sKey + Constants.LINE_SEPARATOR;
+					sType.toUpperCase() + ':' + sKey + Constants.LINE_SEPARATOR;
 			final int pos = aPC.getDescriptionLst().indexOf(aSearch);
 
 			if (pos >= 0)

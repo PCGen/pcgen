@@ -344,7 +344,7 @@ public final class Logging
 		{
 			if (sourceUri != null)
 			{
-				l.log(lvl, " (Source: " + sourceUri + ")");
+				l.log(lvl, " (Source: " + sourceUri + ')');
 			}
 			else
 			{
@@ -459,7 +459,7 @@ public final class Logging
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
 		thr.printStackTrace(ps);
-		errorPrint(s + "\n" + baos.toString());
+		errorPrint(s + '\n' + baos.toString());
 	}
 
 	/**
@@ -526,7 +526,7 @@ public final class Logging
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
 		thr.printStackTrace(ps);
-		errorPrint(LanguageBundle.getString(s) + "\n" + baos.toString());
+		errorPrint(LanguageBundle.getString(s) + '\n' + baos.toString());
 	}
 
 	/**
@@ -614,7 +614,7 @@ public final class Logging
 			{
 				b.append("  ");
 				b.append(element.toString());
-				b.append("\n");
+				b.append('\n');
 			}
 
 		}

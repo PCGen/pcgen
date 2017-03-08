@@ -40,16 +40,20 @@ public class ParameterTree
     private static String leftPatString  = "\\(";
     private static String rightPatString = "\\)";
 
-    static String patString = "(" + leftPatString + "|" + rightPatString+ "|" + orPatString + "|" + andPatString + ")";
+    static String patString =
+		    '(' + leftPatString + '|' + rightPatString+ '|' + orPatString + '|'
+		    + andPatString + ')';
 		
 	static Pattern pat = Pattern.compile(patString);
 
     // the grouping pattern & matcher
-    private static final String  parenString  = "(" + leftPatString + "|" + rightPatString + ")";
+    private static final String  parenString  =
+		    '(' + leftPatString + '|' + rightPatString + ')';
     private static final Pattern parenPattern = Pattern.compile(parenString);
 
     // the opertor pattern & matcher
-    private static final String  operatorString  = "(" + orPatString + "|" + andPatString + ")";
+    private static final String  operatorString  =
+		    '(' + orPatString + '|' + andPatString + ')';
     private static final Pattern operatorPattern = Pattern.compile(operatorString);
 
 
@@ -292,9 +296,9 @@ public class ParameterTree
 	public String toString() {
         final StringBuilder sb = new StringBuilder(200);
 
-        sb.append("[");
+        sb.append('[');
         sb.append(contents);
-        sb.append(" ");
+        sb.append(' ');
 
         if (left != null) {
             sb.append(left.toString());
@@ -304,7 +308,7 @@ public class ParameterTree
             sb.append(right.toString());
         }
 
-        sb.append("]");
+        sb.append(']');
 
         return sb.toString();
     }

@@ -142,7 +142,7 @@ public class AddCombatant extends AbstractDialog
 			for (int i = 1; i <= getIntegerValue(numberField, 1); i++)
 			{
 				XMLCombatant xmlcbt =
-						new XMLCombatant(nameField.getText() + " (" + i + ")",
+						new XMLCombatant(nameField.getText() + " (" + i + ')',
 							playerField.getText(),
 							getIntegerValue(strField, 10), getIntegerValue(
 								dexField, 10), getIntegerValue(conField, 10),
@@ -621,7 +621,7 @@ public class AddCombatant extends AbstractDialog
 		{
 			Logging
 				.debugPrint("Was unable to read CR value, using default of ["
-					+ defaultValue + "]");
+					+ defaultValue + ']');
 		}
 		return returnValue;
 	}

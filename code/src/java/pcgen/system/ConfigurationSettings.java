@@ -194,7 +194,7 @@ public final class ConfigurationSettings extends PropertyContext
 	{
 		if (path.startsWith(SystemUtils.USER_DIR + File.separator))
 		{
-			path = "@" + path.substring(SystemUtils.USER_DIR.length() + 1);
+			path = '@' + path.substring(SystemUtils.USER_DIR.length() + 1);
 		}
 		return path;
 	}
@@ -221,7 +221,7 @@ public final class ConfigurationSettings extends PropertyContext
 			switch (this)
 			{
 				case user:
-					return SystemUtils.USER_HOME + File.separator + "." + APPLICATION; // $NON-NLS-1$
+					return SystemUtils.USER_HOME + File.separator + '.' + APPLICATION; // $NON-NLS-1$
 				case pcgen:
 					return SystemUtils.USER_DIR + File.separator + "settings"; // $NON-NLS-1$
 				case mac_user:

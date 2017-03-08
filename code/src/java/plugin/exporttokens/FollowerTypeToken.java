@@ -115,7 +115,7 @@ public class FollowerTypeToken extends Token
 
 			while (aTok.hasMoreTokens())
 			{
-				restString.append(".").append(aTok.nextToken());
+				restString.append('.').append(aTok.nextToken());
 			}
 
 			if (restString.indexOf(".") == 0)

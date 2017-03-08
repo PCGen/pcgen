@@ -324,7 +324,7 @@ public class BatchExporter
 		{
 			// create a temporary file to view the character output
 			return
-					File.createTempFile(Constants.TEMPORARY_FILE_NAME, "."+extension,
+					File.createTempFile(Constants.TEMPORARY_FILE_NAME, '.' +extension,
 						SettingsHandler.getTempPath());
 		}
 		catch (final IOException ioe)
@@ -577,7 +577,7 @@ public class BatchExporter
 				ExportUtilities.getOutputExtension(exportTemplateFilename,
 					isPdf);
 		String outputName =
-				charname.substring(0, charname.lastIndexOf('.')) + "."
+				charname.substring(0, charname.lastIndexOf('.')) + '.'
 					+ extension;
 		return new File(charFile.getParent(), outputName).getAbsolutePath();
 	}
