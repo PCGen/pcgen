@@ -42,7 +42,6 @@ import pcgen.system.LanguageBundle;
  * the user to add kits to a character. Kits are prepared groups of equipment and 
  * other rules items.  
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

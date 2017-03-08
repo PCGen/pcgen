@@ -101,7 +101,6 @@ import pcgen.util.enumeration.View;
  * character for display in the user interface. It also responds to any actions 
  * by the UI layer on the character's spells.
  *
- * <br>
  * 
  */
 public class SpellSupportFacadeImpl implements SpellSupportFacade,

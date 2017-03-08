@@ -22,7 +22,6 @@ package pcgen.facade.core;
 /**
  * The Class {@code ChronicleEntryFacade} is ...
  *
- * <br>
  * 
  */
 public interface ChronicleEntryFacade

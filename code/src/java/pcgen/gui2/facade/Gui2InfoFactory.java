@@ -134,7 +134,6 @@ import pcgen.util.enumeration.Visibility;
  * on various facade objects. The information is displayed to the user via the 
  * new user interface. 
  *
- * <br>
  * 
  */
 public class Gui2InfoFactory implements InfoFactory

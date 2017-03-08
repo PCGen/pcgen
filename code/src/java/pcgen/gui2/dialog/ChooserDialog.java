@@ -86,7 +86,6 @@ import pcgen.system.PropertyContext;
  * <p>
  * This class is based heavily on Connor Petty's LanguageChooserDialog class.
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

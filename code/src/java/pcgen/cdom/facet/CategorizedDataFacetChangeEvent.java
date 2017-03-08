@@ -30,7 +30,6 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * events to allow the listener to determine the category and nature to which
  * the ability is being applied.
  * 
- * <br>
  * (Mon, 14 Jan 2013) $
  * 
  */

@@ -24,7 +24,6 @@ import java.util.List;
 /**
  * The Class {@code CampaignInfoFactory} is ...
  *
- * <br>
  * 
  */
 public interface CampaignInfoFactory

@@ -30,7 +30,6 @@ import pcgen.facade.util.ListFacade;
  *  where a dialog is presented to a user asking them to select from a fixed list of 
  *  options.
  *
- * <br>
  * 
  */
 public interface ChooserFacade

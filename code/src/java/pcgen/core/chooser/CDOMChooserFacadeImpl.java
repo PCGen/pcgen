@@ -48,7 +48,6 @@ import pcgen.system.LanguageBundle;
  * 
  * @param <T> The type of objects being chosen from. 
  *
- * <br>
  * 
  */
 

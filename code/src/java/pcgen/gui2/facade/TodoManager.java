@@ -26,7 +26,6 @@ import pcgen.facade.util.ListFacade;
  * Each task is a TodoFacade instance which should have enough information to 
  * direct the user to the field where they can achieve the task.  
  *
- * <br>
  * 
  */
 @SuppressWarnings("TodoComment")

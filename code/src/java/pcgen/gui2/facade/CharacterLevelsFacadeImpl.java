@@ -63,7 +63,6 @@ import pcgen.util.enumeration.Tab;
  * the CharacterLevelsFacade interface for the new user interface. It allows 
  * the user interface to work with the class levels of a character.
  *
- * <br>
  * 
  */
 public class CharacterLevelsFacadeImpl extends

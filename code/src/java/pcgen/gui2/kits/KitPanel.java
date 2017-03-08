@@ -64,7 +64,6 @@ import pcgen.system.LanguageBundle;
  * The Class {@code KitPanel} displays an available/selected table pair to
  * allow the allocation of kit to the currently selected character. 
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

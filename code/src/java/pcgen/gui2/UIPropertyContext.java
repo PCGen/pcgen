@@ -235,7 +235,6 @@ public final class UIPropertyContext extends PropertyContext
 	 * This allows for character specific properties such that the key created with this method
 	 * can be used as the key for any of the other PropertyContext methods.
 	 * The following is a typical example of its usage:
-	 * <br>
 	 * <code>
 	 * String charKey = UIPropertyContext.createCharacterPropertyKey(aCharacter, "allowNegativeMoney");<br>
 	 * if(charKey != null){<br>

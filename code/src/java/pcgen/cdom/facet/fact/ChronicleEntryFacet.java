@@ -30,7 +30,6 @@ import pcgen.util.Logging;
  * ChronicleEntryFacet is a Facet that tracks the chronicle entries that have 
  * been entered for a Player Character.
  *
- * <br>
  * 
  */
 public class ChronicleEntryFacet extends

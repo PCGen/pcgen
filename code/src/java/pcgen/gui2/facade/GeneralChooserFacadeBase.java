@@ -39,7 +39,6 @@ import pcgen.system.LanguageBundle;
  * ChooserFacade may be simply implemented. The implementing class need only call 
  * the constructor and implement the commit to process the selections.
  *
- * <br>
  * 
  */
 

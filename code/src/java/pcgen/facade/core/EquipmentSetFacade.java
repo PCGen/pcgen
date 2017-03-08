@@ -32,7 +32,6 @@ import pcgen.facade.util.ListFacade;
  * each representing a configuration of equipped gear (e.g. dungeon, boat, 
  * camp).
  *
- * <br>
  *  
  */
 public interface EquipmentSetFacade

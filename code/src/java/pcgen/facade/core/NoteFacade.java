@@ -23,7 +23,6 @@ package pcgen.facade.core;
  * NoteFacade defines the interface used by the user interface to interact 
  * with a character note.
  *
- * <br>
  * 
  */
 

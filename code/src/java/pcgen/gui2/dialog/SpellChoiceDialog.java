@@ -42,7 +42,6 @@ import pcgen.system.LanguageBundle;
  * the user to select a spell for inclusion in things like custom equipment 
  * items.  
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

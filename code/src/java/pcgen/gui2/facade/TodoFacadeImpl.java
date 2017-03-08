@@ -25,7 +25,6 @@ import pcgen.util.enumeration.Tab;
  * The Class {@code TodoFacadeImpl} represents a task
  * to be done for a character.
  *
- * <br>
  * 
  */
 @SuppressWarnings("TodoComment")

@@ -43,7 +43,6 @@ import pcgen.system.LanguageBundle;
  * The Class {@code RandomNameDialog} is a dialog in which the user can
  * generate a random name for their character.
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

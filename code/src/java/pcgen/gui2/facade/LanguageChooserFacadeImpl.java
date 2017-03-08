@@ -51,7 +51,6 @@ import pcgen.facade.util.ListFacade;
  * LanguageChooserFacade for the gui2 package. It is responsible for managing 
  * details of a possible selection of languages. 
  *
- * <br>
  * 
  */
 public final class LanguageChooserFacadeImpl implements LanguageChooserFacade

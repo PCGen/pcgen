@@ -54,7 +54,6 @@ import pcgen.util.Logging;
  * The Class {@code TempBonusHelper} splits out processing for temporary
  * bonuses from CnaracterFacadeImpl.
  *
- * <br>
  * 
  */
 public class TempBonusHelper
