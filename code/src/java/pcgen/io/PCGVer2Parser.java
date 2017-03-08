@@ -1182,9 +1182,9 @@ final class PCGVer2Parser implements PCGParser
 			EquipSetMigration.migrateEquipSets(thePC, pcgenVersion);
 		}
 
-		/**
+		/*
 		 * CALCEQUIPSET line contains the "working" equipment list
-		 **/
+		 */
 		if (cache.containsKey(IOConstants.TAG_CALCEQUIPSET))
 		{
 			for (final String line : cache.get(IOConstants.TAG_CALCEQUIPSET))
@@ -3170,10 +3170,10 @@ final class PCGVer2Parser implements PCGParser
 			// TODO This if switch currently does nothing?
 		}
 
-		/** final String region = */
+		/* final String region = */
 		stok.nextToken(); //TODO: Is this intended to be thrown away? The value is never used.
 
-		/** final String kit = stok.nextToken(); */
+		/* final String kit = stok.nextToken(); */
 
 		final Kit aKit =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
