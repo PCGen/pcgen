@@ -15,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on July 25, 2005.
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.utils;
 
@@ -26,7 +24,6 @@ import java.util.List;
 import pcgen.cdom.enumeration.ListKey;
 
 /**
- * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  *
  * An object that implements KeyedListContainer safely encapsulates a ListKeyMap
  */
