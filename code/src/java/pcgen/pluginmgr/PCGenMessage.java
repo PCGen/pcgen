@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 15/02/2014 2:40:34 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr;
 
@@ -30,7 +28,6 @@ import java.util.EventObject;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class PCGenMessage extends EventObject

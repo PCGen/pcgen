@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/02/2014 9:19:23 am
  *
- * $Id$
  */
 package pcgen.pluginmgr;
 
@@ -33,7 +31,6 @@ import pcgen.pluginmgr.messages.ComponentRemovedMessage;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class MessageHandlerManager

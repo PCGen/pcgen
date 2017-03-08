@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 19/09/2008 08:49:44
  *
- * $Id: $
  */
 package pcgen.rules.context;
 
@@ -32,7 +30,6 @@ import java.util.Map;
  * can be cleared.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MapChanges<K, V>
 {
