@@ -42,7 +42,7 @@ public class PCCLTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(pc));
+		return TermUtil.convertToFloat(originalText, evaluate(pc));
 	}
 
 	@Override

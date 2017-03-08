@@ -25,7 +25,6 @@ package pcgen.core.term;
 
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
-import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
@@ -41,19 +40,16 @@ public class PCArmourACcheckTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.EQACCHECK))
+		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.EQACCHECK))
 		{
 			Logging.errorPrint(originalText
 				+ " term is deprecated (does not function)"
 				+ " when EQACCHECK CodeControl is used");
 		}
-		int maxCheck = 0;
-
-		for ( Equipment eq : pc.getEquipmentOfType("Armor", 1) )
-		{
-			maxCheck += eq.preFormulaAcCheck(pc);
-		}
+		int maxCheck = pc.getEquipmentOfType("Armor", 1)
+		                 .stream()
+		                 .mapToInt(eq -> eq.preFormulaAcCheck(pc))
+		                 .sum();
 
 		return (float) maxCheck;
 	}
