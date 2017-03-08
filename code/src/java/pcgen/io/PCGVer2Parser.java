@@ -4825,7 +4825,7 @@ final class PCGVer2Parser implements PCGParser
 
 		// extract the tokens from the version line
 		String[] tokens =
-				line.substring(IOConstants.TAG_VERSION.length() + 1).split(" |\\.|\\-", 4); //$NON-NLS-1$
+				line.substring(IOConstants.TAG_VERSION.length() + 1).split("[ \\.-]", 4); //$NON-NLS-1$
 
 		for (int idx = 0; idx < 3 && idx < tokens.length; idx++)
 		{
