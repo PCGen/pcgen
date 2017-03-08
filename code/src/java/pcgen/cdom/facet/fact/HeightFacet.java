@@ -74,7 +74,7 @@ public class HeightFacet extends AbstractItemFacet<CharID, Integer> implements
 	public int getHeight(CharID id)
 	{
 		Integer height = get(id);
-		return (height == null) ? 0 : height.intValue();
+		return (height == null) ? 0 : height;
 	}
 	
 	/**

@@ -436,7 +436,7 @@ public class EqToken extends Token
 	 */
 	public static int getAcModTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getACMod(pc).intValue();
+		return eq.getACMod(pc);
 	}
 
 	/**
@@ -523,7 +523,7 @@ public class EqToken extends Token
 	 */
 	public static float getCarriedTokenFloat(Equipment eq)
 	{
-		return eq.numberCarried().floatValue();
+		return eq.numberCarried();
 	}
 
 	/**
@@ -991,7 +991,7 @@ public class EqToken extends Token
 	public static String getRangeToken(Equipment eq, PlayerCharacter pc)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			getRange(pc, eq).intValue())
+				getRange(pc, eq))
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 

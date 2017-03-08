@@ -5339,7 +5339,7 @@ final class PCGVer2Parser implements PCGParser
 				}
 				catch (NumberFormatException nfe)
 				{
-					itemQuantity = new Float(0.0f);
+					itemQuantity = 0.0f;
 				}
 			}
 			else if (IOConstants.TAG_NOTE.equals(tag))
