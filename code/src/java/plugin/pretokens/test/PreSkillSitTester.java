@@ -157,7 +157,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		String skillName = prereq.getKey();
 		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
-			skillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$ //$NON-NLS-2$
 
 		}
 
@@ -179,7 +179,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 				.intValue();
 			rank +=
 					character.getTotalBonusTo("SITUATION", aSkill.getKeyName()
-						+ "=" + situation);
+						+ '=' + situation);
 			if (prereq.isTotalValues())
 			{
 				runningTotal += rank;

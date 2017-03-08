@@ -67,7 +67,7 @@ public class ClassToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCCl
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + pcclass;
+		return getTokenName() + '=' + pcclass;
 	}
 
 	@Override

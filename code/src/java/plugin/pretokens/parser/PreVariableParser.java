@@ -89,7 +89,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 				if (!ps.hasNext())
 				{
 					throw new PersistenceLayerException(
-							"Unable to parse prerequisite 'PRE" + kind + ":" + formula
+							"Unable to parse prerequisite 'PRE" + kind + ':' + formula
 								+ "'. Incorrect parameter count (must be even)");
 				}
 				String second = ps.next();
@@ -118,7 +118,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse prerequisite 'PRE" + kind + ":" + formula
+				"Unable to parse prerequisite 'PRE" + kind + ':' + formula
 					+ "'. " + pe.getLocalizedMessage());
 		}
 

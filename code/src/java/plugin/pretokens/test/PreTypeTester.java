@@ -109,7 +109,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		
 		final String requiredType = prereq.getKey();
 		
-		Logging.errorPrint("  PRETYPE value was: " + requiredType + "\n");
+		Logging.errorPrint("  PRETYPE value was: " + requiredType + '\n');
 		
 		final int numRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;

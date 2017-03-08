@@ -70,7 +70,7 @@ public class PreFactSetWriter extends AbstractPrerequisiteWriter implements
 			writer.write("PREFACTSET:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
-			writer.write(prereq.getCategoryName() + ",");
+			writer.write(prereq.getCategoryName() + ',');
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)
@@ -121,11 +121,11 @@ public class PreFactSetWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+		writer.write("PRE" + kindHandled().toUpperCase() + ':'
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
 				: "1");
-		writer.write("," + cat);
+		writer.write(',' + cat);
 		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			writer.write(',');
