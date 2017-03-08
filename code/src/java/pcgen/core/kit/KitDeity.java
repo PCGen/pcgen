@@ -46,8 +46,8 @@ public class KitDeity extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient Deity theDeity = null;
-	private transient List<Domain> domainsToAdd = null;
+	private Deity theDeity = null;
+	private List<Domain> domainsToAdd = null;
 
 	/**
 	 * Add the domain

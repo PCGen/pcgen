@@ -52,8 +52,8 @@ public final class KitProf extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient CDOMObject thePObject = null;
-	private transient List<WeaponProf> weaponProfs = null;
+	private CDOMObject thePObject = null;
+	private List<WeaponProf> weaponProfs = null;
 
 	/**
 	 * True if it is a racial proficiency

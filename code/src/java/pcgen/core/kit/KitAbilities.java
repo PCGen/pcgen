@@ -55,7 +55,7 @@ public final class KitAbilities extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient List<CNAbilitySelection> abilitiesToAdd = null;
+	private List<CNAbilitySelection> abilitiesToAdd = null;
 	private CDOMSingleRef<AbilityCategory> catRef;
 
 	/**

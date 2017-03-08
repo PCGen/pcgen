@@ -39,7 +39,7 @@ public class KitAlignment extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient PCAlignment align = null;
+	private PCAlignment align = null;
 
 	/**
 	 * Actually applies the alignment to this PC.

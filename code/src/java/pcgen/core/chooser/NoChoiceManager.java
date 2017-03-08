@@ -37,7 +37,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
             new ChooseController<>();
 	private final ChooseInformation<String> info;
 
-	private transient int preChooserChoices;
+	private int preChooserChoices;
 
 	public NoChoiceManager(ChooseDriver cdo,
 		ChooseInformation<String> chooseType, int cost)

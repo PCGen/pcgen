@@ -40,7 +40,7 @@ public class KitBio extends BaseKit
 	private String theCharacterName = null;
 	private Integer theCharacterAge = null;
 	private List<Gender> theGenders = null;
-	private transient Gender selectedGender = null;
+	private Gender selectedGender = null;
 
 	/**
 	 * Set the character name to set for this kit item.

@@ -59,7 +59,7 @@ public final class KitSkill extends BaseKit
 
 	private List<CDOMSingleRef<Language>> selection =
             new ArrayList<>();
-	private transient List<KitSkillAdd> skillsToAdd;
+	private List<KitSkillAdd> skillsToAdd;
 
 	/**
 	 * Used to make purchasing ranks of this skill not come out of the skill
