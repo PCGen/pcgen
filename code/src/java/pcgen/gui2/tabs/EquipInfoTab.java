@@ -99,7 +99,6 @@ import pcgen.util.enumeration.Tab;
  * character. Each set of distribution information is called an EquipSet.
  * Multiple EquipSets can be managed to reflect different configurations.
  *
- * <br>
  *
  */
 @SuppressWarnings("serial")

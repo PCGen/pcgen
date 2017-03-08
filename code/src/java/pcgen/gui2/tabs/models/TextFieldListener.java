@@ -29,7 +29,6 @@ import javax.swing.text.JTextComponent;
  * though and does not update the text field if the underlying value 
  * changes.
  *
- * <br>
  * 
  */
 public abstract class TextFieldListener implements DocumentListener

@@ -32,7 +32,6 @@ import pcgen.util.Logging;
  * The Class {@code IconToken} is responsible for matching icon
  * paths to equipment types.
  *
- * <br>
  * 
  */
 public class IconToken implements EquipIconLstToken

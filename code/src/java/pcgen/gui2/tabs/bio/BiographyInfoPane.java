@@ -75,7 +75,6 @@ import pcgen.system.LanguageBundle;
  * tab. It contains biography and physical description fields which may be 
  * updated by the user.
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

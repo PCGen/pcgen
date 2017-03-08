@@ -32,8 +32,6 @@ import javax.swing.Icon;
  * have special treatment in the swing UI the SimpleTextIcon can be employed for several unique
  * cases. For instance a SimpleTextIcon can be used to display different texts for a button's
  * rollover event.
- * <br>
- * <br>
  * *Note* The SimpleTextIcon does not treat html text specially so it will be displayed verbatim.
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

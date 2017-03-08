@@ -27,7 +27,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code TransmitInitiativeValuesBetweenComponentsMessage} sends the
  * updated list of initiative participants to all listeners. 
  *
- * <br>
  * 
  */
 

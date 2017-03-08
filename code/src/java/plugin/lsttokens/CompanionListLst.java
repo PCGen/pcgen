@@ -96,7 +96,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * the Special Familiar feat.
  * <p>
  * {@code COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3}
- * <br>
  * An Ape companion to a 4th level Druid gains the benefits normally granted to
  * a companion of a 1st level Druid.
  *

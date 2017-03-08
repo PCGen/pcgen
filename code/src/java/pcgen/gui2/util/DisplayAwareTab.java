@@ -23,7 +23,6 @@ package pcgen.gui2.util;
 /**
  * {@code DisplayAwareTab} identifies a tab that wants to be advised when it is displayed.
  *
- * <br>
  * 
  */
 public interface DisplayAwareTab

@@ -32,7 +32,6 @@ import pcgen.util.Logging;
  * and returns default choices. It is used when PCGen is running in batch mode 
  * without any windows shown.
  *
- * <br>
  * 
  */
 public class ConsoleUIDelegate implements UIDelegate

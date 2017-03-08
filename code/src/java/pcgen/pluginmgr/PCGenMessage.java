@@ -26,7 +26,6 @@ import java.util.EventObject;
  * The Class {@code PCGenMessage} describes an event in PCGen which
  * listeners can respond to. 
  *
- * <br>
  * 
  */
 

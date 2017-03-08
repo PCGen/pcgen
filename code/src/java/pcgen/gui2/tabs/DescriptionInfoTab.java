@@ -57,7 +57,6 @@ import pcgen.util.enumeration.Tab;
  * The Class {@code DescriptionInfoTab} is a placeholder for the yet to be
  * implemented description tab.
  *
- * <br>
  * -0700 (Wed, 29 Sep 2010) $
  *
  */

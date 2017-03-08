@@ -53,7 +53,6 @@ import pcgen.util.Comparators;
  * selected abilities tree table. It lists the abilities held by the 
  * character in a tree structure by category.
  * 
- * <br>
  * 
  */
 public class AbilityTreeTableModel extends AbstractTreeTableModel implements SortableTreeTableModel
