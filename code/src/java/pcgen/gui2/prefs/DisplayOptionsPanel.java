@@ -170,7 +170,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		return line + 1;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -179,7 +179,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		return in_displayOpts;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -206,7 +206,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			showSkillRanks.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

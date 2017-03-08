@@ -199,7 +199,7 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -208,7 +208,7 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		return in_equipment;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -237,7 +237,7 @@ public class EquipmentPanel extends PCGenPrefsPanel
 			autoEquipCreate.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

@@ -480,7 +480,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		this.add(emptyLabel);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -489,7 +489,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		return in_location;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -553,7 +553,7 @@ public class LocationPanel extends PCGenPrefsPanel
 			pcgenPreviewDir.getText());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override
