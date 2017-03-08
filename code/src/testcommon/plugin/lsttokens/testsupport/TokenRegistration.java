@@ -118,11 +118,7 @@ public class TokenRegistration
 		{
 			TokenLibrary.addBonusClass(cl);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
