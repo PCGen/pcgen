@@ -434,7 +434,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		}
 		gbc.insets.bottom = 0;
 		//gbc.ipady = 20;
-		//rightPanel.add(new TitledSeparator("Experience", TitledBorder.CENTER, TitledSeparator.DEFAULT_POSITION, labelFont), gbc);
 		GridBagConstraints leftgbc = new GridBagConstraints();
 		leftgbc.insets = new Insets(0, classPanelInsets.left, 0, 0);
 		leftgbc.gridwidth = 2;
