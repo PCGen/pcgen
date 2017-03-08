@@ -37,7 +37,7 @@ public class PreHPTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override

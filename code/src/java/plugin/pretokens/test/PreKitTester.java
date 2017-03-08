@@ -39,7 +39,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 
 	private static final Class<Kit> KIT_CLASS = Kit.class;
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override

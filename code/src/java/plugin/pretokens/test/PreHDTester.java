@@ -37,7 +37,7 @@ public class PreHDTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -71,7 +71,7 @@ public class PreHDTester extends AbstractDisplayPrereqTest implements
 		return "HD"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override
