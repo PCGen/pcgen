@@ -64,7 +64,7 @@ import pcgen.util.Logging;
 public class DebugDialog extends JDialog
 {
 
-	private static MemoryMXBean memoryBean = ManagementFactory
+	private static final MemoryMXBean memoryBean = ManagementFactory
 		.getMemoryMXBean();
 	private final LogPanel logPanel;
 	private final MemoryPanel memoryPanel;
@@ -413,7 +413,7 @@ public class DebugDialog extends JDialog
 	private static class MemoryTableModel extends AbstractTableModel
 	{
 
-		private static long megaByte = 1024 * 1024;
+		private static final long megaByte = 1024 * 1024;
 
 		@Override
 		public int getRowCount()

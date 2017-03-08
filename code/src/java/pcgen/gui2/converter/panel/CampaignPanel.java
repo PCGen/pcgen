@@ -220,10 +220,10 @@ public class CampaignPanel extends ConvertSubPanel
 	{
 		
 		/** The column names. */
-		private String[] columnNames = {"Campaign", "Location"};
+		private final String[] columnNames = {"Campaign", "Location"};
 		
 		/** The row data. */
-		private Object[][] rowData;
+		private final Object[][] rowData;
 
 		/**
 		 * Instantiates a new campaign table model.

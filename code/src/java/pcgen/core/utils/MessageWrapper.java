@@ -28,10 +28,10 @@ package pcgen.core.utils;
  */
 public class MessageWrapper {
 
-	private Object message;
-	private String title;
-	private MessageType messageType;
-	private Object parent;
+	private final Object message;
+	private final String title;
+	private final MessageType messageType;
+	private final Object parent;
 
 	/**
 	 * Constructor

@@ -99,18 +99,18 @@ public class EquipCustomPanel extends FlippingSplitPane
 	private final InfoPane equipModInfoPane;
 	private final InfoPane equipInfoPane;
 	private final CharacterFacade character;
-	private TreeColumnCellRenderer renderer;
-	private NameAction nameAction;
-	private SPropAction spropAction;
-	private CostAction costAction;
-	private WeightAction weightAction;
-	private DamageAction damageAction;
-	private AddEqmodAction addAction;
-	private RemoveEqmodAction removeAction;
-	private EquipmentBuilderFacade builder;
+	private final TreeColumnCellRenderer renderer;
+	private final NameAction nameAction;
+	private final SPropAction spropAction;
+	private final CostAction costAction;
+	private final WeightAction weightAction;
+	private final DamageAction damageAction;
+	private final AddEqmodAction addAction;
+	private final RemoveEqmodAction removeAction;
+	private final EquipmentBuilderFacade builder;
 	private EquipInfoHandler equipInfoHandler;
 	
-	private ListFacade<EquipmentHead> validHeads; 
+	private final ListFacade<EquipmentHead> validHeads;
 	private HeadBoxModel headBoxModel;
 	private SizeBoxModel sizeBoxModel;
 	private EquipmentHead currentHead = EquipmentHead.PRIMARY;
@@ -316,8 +316,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 	private class EquipInfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
-		private EquipmentBuilderFacade builder2;
+		private final CharacterFacade character;
+		private final EquipmentBuilderFacade builder2;
 
 		public EquipInfoHandler(CharacterFacade character, EquipmentBuilderFacade builder)
 		{
@@ -346,8 +346,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 	private class EquipModInfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
-		private EquipmentBuilderFacade builder;
+		private final CharacterFacade character;
+		private final EquipmentBuilderFacade builder;
 		private EquipModFacade currObj;
 
 		public EquipModInfoHandler(CharacterFacade character, EquipmentBuilderFacade builder)
@@ -569,9 +569,9 @@ public class EquipCustomPanel extends FlippingSplitPane
 				new DefaultListFacade<TreeView<EquipModFacade>>(Arrays.asList(EquipModTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final boolean isAvailModel;
-		private FilteredListFacade<EquipmentBuilderFacade, EquipModFacade> equipMods;
-		private EquipmentBuilderFacade builder;
-		private EquipmentHead head;
+		private final FilteredListFacade<EquipmentBuilderFacade, EquipModFacade> equipMods;
+		private final EquipmentBuilderFacade builder;
+		private final EquipmentHead head;
 
 		public EquipModTreeViewModel(CharacterFacade character,
 			EquipmentBuilderFacade builder, EquipmentHead head, boolean isAvailModel)
@@ -747,7 +747,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 	private class HeadBoxModel extends CharacterComboBoxModel<EquipmentHead>
 	{
 
-		private DefaultReferenceFacade<EquipmentHead> headRef;
+		private final DefaultReferenceFacade<EquipmentHead> headRef;
 
 		public HeadBoxModel()
 		{

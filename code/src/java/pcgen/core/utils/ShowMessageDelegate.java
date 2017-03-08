@@ -27,7 +27,7 @@ import java.util.Observable;
  */
 public final class ShowMessageDelegate extends Observable
 {
-	private static ShowMessageDelegate instance = new ShowMessageDelegate();
+	private static final ShowMessageDelegate instance = new ShowMessageDelegate();
 
 
 	private ShowMessageDelegate()

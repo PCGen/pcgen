@@ -32,7 +32,7 @@ import pcgen.facade.util.event.ReferenceListener;
 public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 {
 
-	private EventListenerList listenerList = new EventListenerList();
+	private final EventListenerList listenerList = new EventListenerList();
 	protected E object;
 
 	public DefaultReferenceFacade()

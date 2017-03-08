@@ -29,7 +29,7 @@ import pcgen.core.PlayerCharacter;
 public class KitTable extends BaseKit
 {
 	private String tableName;
-	private List<TableEntry> list = new ArrayList<>();
+	private final List<TableEntry> list = new ArrayList<>();
 
 	public String getTableName()
 	{

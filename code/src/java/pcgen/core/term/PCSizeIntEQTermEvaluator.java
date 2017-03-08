@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 public class PCSizeIntEQTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
 {
-	private String source;
+	private final String source;
 
 	public PCSizeIntEQTermEvaluator(String expressionString, String source)
 	{
