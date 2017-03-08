@@ -1,5 +1,4 @@
 /*
- * SpecialAbility.java
  * Copyright 2004 (C) Devon Jones
  *
  * This library is free software; you can redistribute it and/or

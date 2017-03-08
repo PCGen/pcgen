@@ -1,5 +1,4 @@
 /*
- * UnitSet.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
