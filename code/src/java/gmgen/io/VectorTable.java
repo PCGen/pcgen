@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * {@code VectorTable} holds 2 dimensional tables.  It is used by GMGen
- * to hold the XML tables that are being loaded<p>
+ * to hold the XML tables that are being loaded
  */
 public class VectorTable extends AbstractList
 {
