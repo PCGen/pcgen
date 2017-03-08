@@ -1,5 +1,4 @@
 /*
- * PreSpellDescriptorParser.java
  *
  * Copyright 2004 (C) Anders Lindgren <blithwyn@yahoo.co.uk>
  *

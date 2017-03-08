@@ -1,5 +1,4 @@
 /*
- * PreSpellDescriptor.java
  * Copyright 2004 (C) Anders Lindgren <blithwyn@yahoo.co.uk>
  *
  * This library is free software; you can redistribute it and/or

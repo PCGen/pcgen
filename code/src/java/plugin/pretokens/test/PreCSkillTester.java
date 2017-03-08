@@ -1,5 +1,4 @@
 /*
- * PreCSkill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2005 (C) Thomas Clegg <TN_Clegg@lycos.com>
  *
