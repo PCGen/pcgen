@@ -78,7 +78,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		return oldList;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.CampaignInfoFactory#getHTMLInfo(pcgen.core.facade.CampaignFacade)
 	 */
 	@Override
