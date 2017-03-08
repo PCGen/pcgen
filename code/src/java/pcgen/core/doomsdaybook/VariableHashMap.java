@@ -35,8 +35,8 @@ import java.util.Map;
  */
 public class VariableHashMap extends HashMap<String, String>
 {
-	private List<Operation> initialize = new ArrayList<>();
-	private Map<String, DataElement> dataElements;
+	private final List<Operation> initialize = new ArrayList<>();
+	private final Map<String, DataElement> dataElements;
 
 	/** Creates a new instance of VariableHashMap */
 	public VariableHashMap()

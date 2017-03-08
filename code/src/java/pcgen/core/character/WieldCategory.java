@@ -46,9 +46,9 @@ public final class WieldCategory implements Loadable
 	private int handsRequired;
 	private boolean isFinessable;
 	private int sizeDifference;
-	private Map<Integer, Float> damageMultiplier = new HashMap<>();
-	private Map<Integer, CDOMSingleRef<WieldCategory>> wcSteps = new HashMap<>();
-	private List<QualifiedObject<CDOMSingleRef<WieldCategory>>> categorySwitches = new ArrayList<>();
+	private final Map<Integer, Float> damageMultiplier = new HashMap<>();
+	private final Map<Integer, CDOMSingleRef<WieldCategory>> wcSteps = new HashMap<>();
+	private final List<QualifiedObject<CDOMSingleRef<WieldCategory>>> categorySwitches = new ArrayList<>();
 
     @Override
 	public URI getSourceURI()

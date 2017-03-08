@@ -34,8 +34,8 @@ import pcgen.facade.core.XPTableFacade;
 @SuppressWarnings("serial")
 public final class XPTable extends PObject implements XPTableFacade
 {
-	private String name;
-	private Map<String, LevelInfo> infoMap;
+	private final String name;
+	private final Map<String, LevelInfo> infoMap;
 	
 	public XPTable()
 	{
