@@ -1,7 +1,7 @@
 # CVS $Revision a.1$ $Author Axxroy$ -- Sun Feb 25 14:45:00 2017 -- reformated by prettylst.pl v1.35 (build 553)
 CAMPAIGN:Legendary - Treasury of the Pharaohs
 GAMEMODE:Pathfinder
-RANK:9
+RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -15,7 +15,15 @@ SOURCESHORT:TotP
 SOURCEWEB:http://www.makeyourgamelegendary.com/
 SOURCEDATE:2015-04
 ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Advanced Player's Guide. Copyright 2010, Paizo Inc.; Author: Jason Bulmahn.
+COPYRIGHT:Pathfinder RPG Ultimate Equipment Copyright 2012, Paizo Inc.; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Ross Byers, Brian J. Cortijo, Ryan Costello, Mike Ferguson, Matt Goetz, Jim Groves, Tracy Hurley, Matt James, Jonathan H. Keith, Michael Kenway, Hal MacLean, Jason Nelson, Tork Shaw, Owen KC Stephens, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. Copyright 2011, Paizo Inc.; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat. Copyright 2011, Paizo Inc.; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
 COPYRIGHT:Treasury of the Pharaohs, Copyright 2015 by Legendary Games
+COPYRIGHT:PCGen dataset conversion for "Treasury of the Pharaohs", Copyright 2017, PCGen Data Team (including, but not limited to, Sam Zimmerman)
 LOGO:@/publisher_logos/Legendary_Games.png
 
 INFOTEXT:Intended for use with the 14th Pathfinder Adventure Path (Issues 79 to 84).
