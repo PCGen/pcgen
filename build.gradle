@@ -226,12 +226,16 @@ task copyToLibs(type: Copy) {
     from configurations.runtime
 }
 
+import org.apache.tools.ant.filters.FixCrLfFilter;
 task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
 
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/release/pcgen.exe"
-    from "$projectDir/code/pcgen.sh"
+    from("$projectDir/code/pcgen.sh") {
+        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
+        fileMode 0755
+    }
     into "$projectDir"
     rename "(.+)-$version(.+)", '$1$2'
 }
