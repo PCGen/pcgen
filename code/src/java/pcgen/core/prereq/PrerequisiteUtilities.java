@@ -304,7 +304,7 @@ public final class PrerequisiteUtilities
 	 * with the character via the subkey, then a count of the number of instances is returned.
 	 *
 	 * Finally,the subkey may specify a wildcard.  If it does, the list of associations
-	 * between the ability object and the PC are checked. A count is returned of teh number
+	 * between the ability object and the PC are checked. A count is returned of the number
 	 * that begin with the wildcard string.
 	 *
 	 * @param prereq The prerequisite to be checked.

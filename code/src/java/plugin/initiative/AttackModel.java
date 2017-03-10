@@ -653,7 +653,7 @@ public class AttackModel extends PObjectModel
 	}
 
 	/**
-	 * <p>Sets teh weapon type.</p>
+	 * <p>Sets the weapon type.</p>
 	 * @param string
 	 */
 	public void setType(String string)
