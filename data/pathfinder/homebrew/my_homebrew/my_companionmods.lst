@@ -57,7 +57,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #
 #The TYPE tag is used to define what the creature is for purposes of display on the resources tab.
 #
-#The tags COPYMASTERBAB, COPYMASTERCHECK, COPYMASTERHP, and USEMASTERSKILL can be used to to define whether the creature uses
+#The tags COPYMASTERBAB, COPYMASTERCHECK, COPYMASTERHP, and USEMASTERSKILL can be used to define whether the creature uses
 #those values based on its master.
 #
 #The SAB tag is holding a text that will be displayed as Special Ability on the output sheet.
