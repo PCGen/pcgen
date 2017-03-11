@@ -20,54 +20,52 @@ package pcgen.output.testsupport;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.io.Writer;
 import java.util.Map;
 
+import junit.framework.TestCase;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.publish.OutputDB;
-
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import org.junit.Before;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
-
-public abstract class AbstractOutputTestCase
+public abstract class AbstractOutputTestCase extends TestCase
 {
 	protected DataSetID dsid;
 	protected CharID id;
 	
-
-	@Before
+	@Override
 	protected void setUp() throws Exception
 	{
+		super.setUp();
 		dsid = DataSetID.getID();
 		FacetLibrary.getFacet(ObjectWrapperFacet.class).initialize(dsid);
 		id = CharID.getID(dsid);
 	}
 
-	protected void processThroughFreeMarker(String testString,
-	                                        String expectedResult)
+	public void processThroughFreeMarker(String testString,
+		String expectedResult)
 	{
 		try
 		{
-			Configuration config = new Configuration(Configuration.VERSION_2_3_0);
-			Template t = new Template("test", testString, config);
+			Configuration c = new Configuration();
+			Template t = new Template("test", testString, c);
 			StringWriter sw = new StringWriter();
-			Writer bw = new BufferedWriter(sw);
+			BufferedWriter bw = new BufferedWriter(sw);
 			Map<String, Object> input = OutputDB.buildDataModel(id);
 			t.process(input, bw);
 			String s = sw.getBuffer().toString();
-			assertThat(s, is(expectedResult));
+			assertEquals(expectedResult, s);
 		}
-		catch (IOException | TemplateException e)
+		catch (IOException e)
+		{
+			e.printStackTrace();
+			fail(e.getLocalizedMessage());
+		}
+		catch (TemplateException e)
 		{
 			e.printStackTrace();
 			fail(e.getLocalizedMessage());
