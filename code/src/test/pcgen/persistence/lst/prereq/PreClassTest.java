@@ -34,9 +34,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreClassParser;
 
-/**
- *
- */
+
 @SuppressWarnings("nls")
 public class PreClassTest extends EnUsLocaleDependentTestCase
 {

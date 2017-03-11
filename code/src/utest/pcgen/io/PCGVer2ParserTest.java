@@ -24,8 +24,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-/**
- */
+
 public class PCGVer2ParserTest
 {
 
