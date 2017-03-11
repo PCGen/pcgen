@@ -353,7 +353,6 @@ public class DiceBagPluginView implements Observer
 
 	/**
 	 * <p>Listener for events on the internal frame children of this view.</p>
-	 *
 	 */
 	private class ChildListener extends InternalFrameAdapter
 	{

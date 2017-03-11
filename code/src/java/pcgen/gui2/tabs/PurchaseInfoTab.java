@@ -579,7 +579,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	/**
 	 * The Class {@code DeleteCustomAction} defines an action to delete a
 	 * custom equipment item.
-	 *
 	 */
 	private class DeleteCustomAction extends AbstractAction
 	{

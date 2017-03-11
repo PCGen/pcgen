@@ -138,7 +138,6 @@ public class EquipmentTableParser
 	 * This is the parsing event handler class.  The methods in this class are
 	 * called by the SAX parser as it finds various elements in the XML file.
 	 * 
-	 *
 	 */
 	class EquipmentTableHandler extends DefaultHandler
 	{

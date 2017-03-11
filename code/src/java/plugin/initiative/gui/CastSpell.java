@@ -140,7 +140,6 @@ public class CastSpell extends StartEvent
 	/**
 	 *
 	 * <p>Initializes the components.</p>
-	 *
 	 */
     @Override
 	protected void initComponents()

@@ -48,7 +48,6 @@ public class AspectTest extends AbstractCharacterTestCase
 
 	/**
 	 * Tests outputting an empty Aspect.
-	 *
 	 */
 	public void testEmptyDesc()
 	{
@@ -66,7 +65,6 @@ public class AspectTest extends AbstractCharacterTestCase
 
 	/**
 	 * Tests outputting a simple Aspect.
-	 *
 	 */
 	public void testSimpleDesc()
 	{

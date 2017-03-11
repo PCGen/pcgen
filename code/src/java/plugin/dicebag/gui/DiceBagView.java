@@ -216,7 +216,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * editing mode.  It sets the size ({@code pack()}) of the
 	 * internal frame, but does <b>not</b> show the frame.</p>
 	 *
-	 *
 	 */
 	private void initComponents()
 	{
@@ -424,7 +423,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * <p>Sets up the rolling mode; first cleans out all components
 	 * and then displays the components for the rolling mode.</p>
 	 *
-	 *
 	 */
 	private void setupRollingMode()
 	{
@@ -496,7 +494,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 	/**
 	 * <p>An action listener for the buttons in the GUI.</p>
-	 *
 	 */
 	private class BagListener implements ActionListener
 	{
@@ -555,7 +552,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * <p>Table model for displaying/editing the dice bag information.
 	 * Basically this overrides enough of {@code AbstracTableModel}
 	 * to make the code useful.</p>
-	 *
 	 *
 	 */
 	private class BagTableModel extends AbstractTableModel

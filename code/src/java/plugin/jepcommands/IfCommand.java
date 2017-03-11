@@ -24,7 +24,6 @@ public class IfCommand extends PCGenCommand
 	 * Initializes the number of parameters to = 3, indicating three number
 	 * of parameters.
 	 * </p>
-	 *
 	 */
 	public IfCommand()
 	{

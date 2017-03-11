@@ -1073,7 +1073,6 @@ public class OverPanel extends javax.swing.JPanel
 
 	/** This method updates the Bottom portions of the UI based on changes in the total cost
 	 *  and number of days.  It sets the value into the total box
-	 *
 	 */
 	private void updateBottomUI()
 	{
@@ -1094,7 +1093,6 @@ public class OverPanel extends javax.swing.JPanel
 
 	/** This method updates the middle portions of the UI based on changes in the daily costs
 	 *  It sets the value into the daily total boxes
-	 *
 	 */
 	private void updateMidUI()
 	{
@@ -1115,7 +1113,6 @@ public class OverPanel extends javax.swing.JPanel
 
 	/** This method updates the top portions of the UI based on changes in number of people or animals
 	 *  or changes in quality of RB.  It sets the values into the daily and weekly cost boxes
-	 *
 	 */
 	private void updateTopUI()
 	{

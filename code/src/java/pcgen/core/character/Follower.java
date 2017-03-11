@@ -41,7 +41,6 @@ public final class Follower implements Comparable<Object>, Cloneable
 	 * String race = race of follower
 	 * int HD = Number of "used" HD
 	 * String fileName = path and file name
-	 *
 	 */
 	private String fileName = Constants.EMPTY_STRING;
 	private String name = Constants.EMPTY_STRING;

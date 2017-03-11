@@ -291,7 +291,6 @@ public class JTreeTable extends JTableEx
 	 * all of the event dispatching support provided by the superclass:
 	 * the AbstractTableModel.
 	 *
-	 *
 	 */
 	private static class TreeTableModelAdapter extends AbstractTableModel
 			implements SortableTableModel, TreeModelListener,

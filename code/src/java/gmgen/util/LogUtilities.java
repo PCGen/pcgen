@@ -37,7 +37,6 @@ public final class LogUtilities implements LogReceiver
 	/**
 	 *  The private constructor. Called by inst to create the singleton instance if
 	 *  it doesn't already exist.
-	 *
 	 */
 	private LogUtilities()
 	{

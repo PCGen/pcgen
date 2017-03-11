@@ -300,7 +300,6 @@ public class TableColumnInformation
 	 * Removes all columns
 	 * </p>
 	 * 
-	 *
 	 */
 	public void removeAll()
 	{
