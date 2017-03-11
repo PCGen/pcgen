@@ -34,9 +34,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 {
 

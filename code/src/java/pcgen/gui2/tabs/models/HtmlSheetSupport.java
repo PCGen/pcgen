@@ -51,9 +51,7 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class HtmlSheetSupport
 {
 

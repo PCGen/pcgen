@@ -58,9 +58,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- */
+
 @SuppressWarnings("serial")
 public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTab
 {

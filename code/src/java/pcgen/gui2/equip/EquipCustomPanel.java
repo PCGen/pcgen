@@ -294,9 +294,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		setResizeWeight(0.75);
 	}
 
-	/**
-	 * 
-	 */
+
 	private void initDefaults()
 	{
 		equipInfoHandler = new EquipInfoHandler(character, builder);

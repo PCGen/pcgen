@@ -330,9 +330,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
         dataSet.detachDelegates();
 	}
 	
-	/**
-	 * 
-	 */
+
 	private void initForCharacter()
 	{
 		// Calculate any active bonuses
@@ -4348,9 +4346,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshStatScores();
 	}
 
-	/**
-	 * 
-	 */
+
 	private void refreshEquipment()
 	{
 		fundsRef.set(theCharacter.getGold());

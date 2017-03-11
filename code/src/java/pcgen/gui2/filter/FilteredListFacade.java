@@ -26,9 +26,7 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.AbstractListFacade;
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- */
+
 public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements ListListener<E>
 {
 

@@ -30,9 +30,7 @@ import javax.swing.UIManager;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 class ImagePreviewer extends JComponent
 {
 
