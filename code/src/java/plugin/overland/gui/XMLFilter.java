@@ -18,8 +18,7 @@
  */
  package plugin.overland.gui;
 
-/**
- */
+
 public class XMLFilter implements java.io.FilenameFilter
 {
 	/** Creates a new instance of XMLFilter */

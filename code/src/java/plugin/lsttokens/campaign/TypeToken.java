@@ -27,9 +27,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- *
- */
+
 public class TypeToken extends AbstractTokenWithSeparator<Campaign> implements
 		CDOMPrimaryToken<Campaign>
 {

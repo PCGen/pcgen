@@ -32,9 +32,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.rules.context.AbstractReferenceContext;
 
-/**
- *
- */
+
 public class PreBaseSizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 

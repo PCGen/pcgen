@@ -94,8 +94,7 @@ import plugin.initiative.SaveModel;
 import plugin.initiative.SpellModel;
 import plugin.initiative.XMLCombatant;
 
-/**
- */
+
 public class Initiative extends javax.swing.JPanel
 {
 	//** End Dynamic Components **

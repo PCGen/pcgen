@@ -32,8 +32,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 
-/**
- */
+
 public class StartEvent extends javax.swing.JDialog
 {
 

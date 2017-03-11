@@ -24,9 +24,7 @@ import javax.swing.JList;
 
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 // TODO Add some gap to buttons. Use icons on buttons?
 public class PCGTrackerView extends javax.swing.JPanel
 {

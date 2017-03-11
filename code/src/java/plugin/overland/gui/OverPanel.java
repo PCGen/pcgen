@@ -54,9 +54,7 @@ import plugin.overland.model.TravelMethodFactory;
 import plugin.overland.model.TravelMethodListener;
 import plugin.overland.model.TravelSpeedEvent;
 
-/**
- *
- */
+
 public class OverPanel extends javax.swing.JPanel
 {
 	// ### Constants ###

@@ -45,9 +45,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
-/**
- * 
- */
+
 public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {

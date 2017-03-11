@@ -58,9 +58,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {

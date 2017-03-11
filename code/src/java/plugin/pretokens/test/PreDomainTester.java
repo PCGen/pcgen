@@ -29,9 +29,7 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class PreDomainTester extends AbstractDisplayPrereqTest
 {
 

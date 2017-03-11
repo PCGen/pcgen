@@ -35,8 +35,7 @@ import org.jdom2.Element;
 
 import pcgen.util.Logging;
 
-/**
- */
+
 public class XMLCombatant extends Combatant
 {
 	/** Challenge rating of the combatant */

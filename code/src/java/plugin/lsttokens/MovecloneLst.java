@@ -32,9 +32,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * 
- */
+
 public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>
 {

@@ -27,9 +27,7 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- *
- */
+
 public class PreCharactertypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
