@@ -31,9 +31,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class PreSkillMultTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 

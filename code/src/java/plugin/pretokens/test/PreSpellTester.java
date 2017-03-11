@@ -38,9 +38,7 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class PreSpellTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {

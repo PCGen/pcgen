@@ -32,8 +32,7 @@ import pcgen.core.character.WieldCategory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
-/**
- */
+
 public class PreEquipTest extends AbstractCharacterTestCase
 {
 

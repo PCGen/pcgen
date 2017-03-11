@@ -31,9 +31,7 @@ import pcgen.system.LanguageBundle;
 
 import java.util.List;
 
-/**
- *
- */
+
 public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {

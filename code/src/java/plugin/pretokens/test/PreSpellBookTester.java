@@ -29,9 +29,7 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- *
- */
+
 public class PreSpellBookTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 

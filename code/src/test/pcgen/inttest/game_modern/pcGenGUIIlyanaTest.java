@@ -32,9 +32,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIIlyanaTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIIlyanaTest()
 	{
 		super("msrd_ilyana");

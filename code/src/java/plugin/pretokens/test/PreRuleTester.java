@@ -31,9 +31,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 
-/**
- *
- */
+
 public class PreRuleTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 

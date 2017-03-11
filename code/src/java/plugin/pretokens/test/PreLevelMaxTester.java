@@ -28,9 +28,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
