@@ -26,8 +26,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
 
-/**
- */
+
 /**
  * Handle the MaxSpellLevel token which outputs the maximum level spell 
  * castable by the character for the specified class. 

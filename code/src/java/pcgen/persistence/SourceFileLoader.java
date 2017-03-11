@@ -119,9 +119,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class SourceFileLoader extends PCGenTask implements Observer
 {
 

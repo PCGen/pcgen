@@ -28,8 +28,7 @@ package pcgen.persistence.lst;
 
 import pcgen.cdom.base.CDOMObject;
 
-/**
- */
+
 
 public interface DeprecatedToken
 {
