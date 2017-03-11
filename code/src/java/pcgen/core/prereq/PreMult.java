@@ -30,9 +30,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTest {
 
 	/* (non-Javadoc)

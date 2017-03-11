@@ -22,9 +22,7 @@ import java.util.List;
 
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- */
+
 public interface GameModeFacade
 {
 

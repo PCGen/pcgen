@@ -22,9 +22,7 @@ import gmgen.plugin.dice.Dice;
 
 import java.util.ArrayList;
 
-/**
- *
- */
+
 public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 {
 	ArrayList<DataValue> retList = new ArrayList<>();

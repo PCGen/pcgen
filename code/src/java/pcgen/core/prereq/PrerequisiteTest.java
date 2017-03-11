@@ -25,9 +25,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
-/**
- *
- */
+
 public interface PrerequisiteTest {
 	public int passes(Prerequisite prereq, PlayerCharacter character, CDOMObject source) throws PrerequisiteException;
 	public int passes(Prerequisite prereq, Equipment equipment, PlayerCharacter aPC) throws PrerequisiteException;

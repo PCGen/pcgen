@@ -18,8 +18,7 @@
  */
  package pcgen.core.doomsdaybook;
 
-/**
- */
+
 public class DataValue
 {
 	private DataSubValue subvalue;

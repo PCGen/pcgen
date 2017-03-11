@@ -27,9 +27,7 @@ package pcgen.core.prereq;
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 
-/**
- * 
- */
+
 public enum PrerequisiteOperator
 {
 	GTEQ

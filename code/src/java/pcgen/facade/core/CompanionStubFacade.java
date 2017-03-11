@@ -20,9 +20,7 @@ package pcgen.facade.core;
 
 import pcgen.facade.util.ReferenceFacade;
 
-/**
- *
- */
+
 public interface CompanionStubFacade
 {
 

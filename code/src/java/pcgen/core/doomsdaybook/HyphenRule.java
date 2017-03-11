@@ -20,9 +20,7 @@
 
 import java.util.ArrayList;
 
-/**
- *
- */
+
 public class HyphenRule implements DataElement
 {
 	ArrayList<DataValue> retList = new ArrayList<>();

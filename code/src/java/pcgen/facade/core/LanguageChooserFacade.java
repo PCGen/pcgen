@@ -21,9 +21,7 @@ package pcgen.facade.core;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- */
+
 public interface LanguageChooserFacade
 {
 
