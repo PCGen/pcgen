@@ -18,10 +18,6 @@
  *
  *
  * @author	Greg Bingleman <byngl@hotmail.com>
- *
- *
- *
- *
  */
 package pcgen.persistence.lst.output.prereq;
 
