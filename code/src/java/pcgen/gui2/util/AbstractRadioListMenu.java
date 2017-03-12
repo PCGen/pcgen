@@ -31,7 +31,6 @@ import javax.swing.JRadioButtonMenuItem;
 import pcgen.facade.util.event.ListEvent;
 
 /**
- *
  */
 public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> implements ItemListener
 {

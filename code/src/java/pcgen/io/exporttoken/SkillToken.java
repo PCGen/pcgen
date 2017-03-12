@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.io.exporttoken;
 
@@ -53,8 +50,6 @@ import pcgen.util.enumeration.View;
  * choosen skill. The format for this tag is SKILL.id.property
  * where id cna be either an index or a skill name and the
  * property is optional. eg SKILL.2.RANK or SKILL.BALANCE
- *
- *
  */
 public class SkillToken extends Token
 {

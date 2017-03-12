@@ -74,7 +74,6 @@ import pcgen.util.ListMap;
  * <br>setTreeTableModel(TreeTableModel)
  * <br>setTableHeader(JTableHeader)
  * <br>setAutoCreateColumnsFromModel(boolean);
- *
  */
 @SuppressWarnings("serial")
 public class JTreeViewTable<T> extends JTreeTable

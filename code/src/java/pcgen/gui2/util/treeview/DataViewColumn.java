@@ -20,7 +20,6 @@
 package pcgen.gui2.util.treeview;
 
 /**
- *
  */
 public interface DataViewColumn
 {

@@ -32,7 +32,6 @@ import javax.swing.MutableComboBoxModel;
 import javax.swing.SwingUtilities;
 
 /**
- *
  */
 public class ComboSelectionBox extends JPanel implements ItemSelectable
 {

@@ -22,7 +22,6 @@ package pcgen.gui2.util;
 import javax.swing.MutableComboBoxModel;
 
 /**
- *
  */
 public interface ComboSelectionDialog
 {

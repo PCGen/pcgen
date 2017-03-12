@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.io;
 
@@ -103,7 +100,6 @@ import freemarker.template.Version;
  * sheet template with the appropriate values from the PC (PCs).  Much of the 
  * code in here deals with replacing tokens and dealing with the FOR and IIF 
  * constructs that can be found in the character sheet templates. 
- *
  */
 public final class ExportHandler
 {

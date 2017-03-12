@@ -22,7 +22,6 @@ package pcgen.gui2.util.treeview;
 import java.util.List;
 
 /**
- *
  */
 public interface TreeView<E>
 {

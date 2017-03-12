@@ -31,7 +31,6 @@ import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
 
 /**
- *
  */
 public class FacadeComboBoxModel<E> extends AbstractListModel
 		implements ComboBoxModel, ListListener<E>, ReferenceListener<E>

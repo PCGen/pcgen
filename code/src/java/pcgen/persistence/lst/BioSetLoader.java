@@ -40,7 +40,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- *
  */
 public final class BioSetLoader extends LstLineFileLoader
 {

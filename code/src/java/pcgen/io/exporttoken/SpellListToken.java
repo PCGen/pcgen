@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.io.exporttoken;
 
@@ -26,8 +23,6 @@ import java.util.StringTokenizer;
 /**
  * {@code SpellListToken} is the base class for the SPELLLIST
  * family of tokens.
- *
- *
  */
 public abstract class SpellListToken extends Token
 {

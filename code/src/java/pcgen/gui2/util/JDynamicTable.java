@@ -38,7 +38,6 @@ import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 
 /**
- *
  */
 public class JDynamicTable extends JTableEx
 {

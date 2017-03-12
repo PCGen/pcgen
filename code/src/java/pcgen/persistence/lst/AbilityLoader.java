@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * this code was moved and changed from FeatLoader.java
- *
- *
  */
 package pcgen.persistence.lst;
 

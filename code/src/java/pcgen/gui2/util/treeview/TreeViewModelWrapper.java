@@ -24,7 +24,6 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 
 /**
- *
  */
 public class TreeViewModelWrapper<E> implements TreeViewModel<E>
 {

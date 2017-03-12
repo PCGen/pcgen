@@ -27,7 +27,6 @@ import java.util.StringTokenizer;
 import javax.swing.Icon;
 
 /**
- *
  */
 public class MultiLineTextIcon implements Icon
 {

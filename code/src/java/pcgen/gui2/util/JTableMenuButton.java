@@ -38,7 +38,6 @@ import javax.swing.table.TableColumn;
  * rendered in certain Look and Feels (mainly Nimbus); the JButton sometimes has
  * round corners which look ill suited in the square corner. We use a
  * JTableHeader so that the button looks like an additional table column.
- *
  */
 public class JTableMenuButton extends JTableHeader
 {

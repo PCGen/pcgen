@@ -30,7 +30,6 @@ import javax.swing.UIManager;
  * This class contains a lot of code taken from
  * javax.swing.plaf.basic.BasicArrowButton. As such this icon draws the arrow
  * that you find on arrow buttons.
- *
  */
 public class ArrowIcon implements Icon
 {

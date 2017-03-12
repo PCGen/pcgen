@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.persistence;
 
@@ -30,7 +28,6 @@ import pcgen.core.GameMode;
  * the implementation details of the actual loader.  The initialize method
  * creates an instance of the underlying loader and calls abstract methods to
  * do the loading of system files.
- *
  */
 public interface SystemLoader
 {

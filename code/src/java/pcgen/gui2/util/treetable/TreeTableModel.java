@@ -15,7 +15,6 @@
  * PURPOSE, OR NON-INFRINGEMENT. SUN SHALL NOT BE LIABLE FOR ANY DAMAGES
  * SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
  * THIS SOFTWARE OR ITS DERIVATIVES.
- *
  */
 package pcgen.gui2.util.treetable;
 
@@ -28,7 +27,6 @@ import javax.swing.tree.TreeModel;
  * a TableModel, has a name and a type associated with it. Each node in
  * the TreeTableModel can return a value for each of the columns and
  * set that value if isCellEditable() returns true.
- *
  */
 public interface TreeTableModel extends TreeModel
 {

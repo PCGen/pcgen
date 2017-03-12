@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA.
- *
  */
 package pcgen.gui2.tools; // hm.binkley.gui;
 
@@ -69,7 +68,6 @@ import pcgen.system.PropertyContext;
  * <p>{@code FlippingSplitPane} also supports "locking": a locked pane renders
  * the divider unmovable, and the popup menu only has an "Unlocked" item.
  * Locking is also recursive for {@code FlippingSplitPane} components.
- *
  */
 public class FlippingSplitPane extends JSplitPane
 {

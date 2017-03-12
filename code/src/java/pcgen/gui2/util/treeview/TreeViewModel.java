@@ -22,7 +22,6 @@ package pcgen.gui2.util.treeview;
 import pcgen.facade.util.ListFacade;
 
 /**
- *
  */
 public interface TreeViewModel<E>
 {
