@@ -15,8 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.doomsdaybook;
 
@@ -30,8 +28,6 @@ import java.util.Map;
  * pairs) and DataElements optimised for quick lookup and updating. Note
  * there are three structures here, the principle map of variables, a
  * secondary map of DataElement objects and a list of Operation objects.
- *
- *
  */
 public class VariableHashMap extends HashMap<String, String>
 {
