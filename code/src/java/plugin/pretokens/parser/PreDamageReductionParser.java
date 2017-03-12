@@ -16,11 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -34,7 +29,6 @@ import java.util.StringTokenizer;
 
 /**
  * A prerequisite parser class that handles the parsing of pre damage reduction tokens.
- *
  */
 public class PreDamageReductionParser extends AbstractPrerequisiteParser
 		implements PrerequisiteParserInterface
