@@ -158,6 +158,11 @@ public class EquipmentModels
 		this.unequipButton = unequipButton;
 		this.moveUpButton = moveUpButton;
 		this.moveDownButton = moveDownButton;
+
+		Font curFont = equipmentTable.getFont();
+		FontMetrics ftMetrics = equipmentTable.getFontMetrics(curFont);
+		int ftHeight = ftMetrics.getHeight();
+		equipmentTable.setRowHeight(ftHeight);
 	}
 
 	public void install()
@@ -368,9 +373,9 @@ public class EquipmentModels
 				table.setDefaultEditor(Integer.class, new SpinnerEditor(equipSet.getEquippedItems()));
 				
 
-				JPanel panel = new JPanel(new BorderLayout());
-				Font curFont = panel.getFont();
-				FontMetrics ftMetrics = panel.getFontMetrics(curFont);
+				//JPanel panel = new JPanel(new BorderLayout());
+				Font curFont = table.getFont();
+				FontMetrics ftMetrics = table.getFontMetrics(curFont);
 				int ftHeight = ftMetrics.getHeight();
 				table.setRowHeight(ftHeight);
 				
@@ -380,7 +385,7 @@ public class EquipmentModels
 				JTableHeader header = table.getTableHeader();
 				header.setReorderingAllowed(false);
 				JScrollPane pane = EquipmentModels.prepareScrollPane(table);
-				//JPanel panel = new JPanel(new BorderLayout());
+				JPanel panel = new JPanel(new BorderLayout());
 				JLabel help = new JLabel(LanguageBundle.getString("in_equipSelectUnequipQty")); //$NON-NLS-1$
 				panel.add(help, BorderLayout.NORTH);
 				panel.add(pane, BorderLayout.CENTER);
