@@ -19,6 +19,7 @@
 package pcgen.gui2.tabs.bio;
 
 import java.awt.Color;
+import java.awt.SystemColor;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -73,8 +74,8 @@ class PortraitPane extends JComponent
 		{
 			g.drawImage(portrait, insets.left, insets.top, this);
 		}
-		g.setColor(Color.BLACK);
-		g.setXORMode(Color.WHITE);
+		g.setColor(SystemColor.text);
+		g.setXORMode(SystemColor.textHighlight);
 		if (cropRect != null)
 		{
 			if (scale < 1)
