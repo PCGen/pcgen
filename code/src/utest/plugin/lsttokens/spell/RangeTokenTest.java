@@ -19,8 +19,6 @@ package plugin.lsttokens.spell;
 
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
