@@ -142,7 +142,6 @@ dependencies {
 
     compile group: 'commons-io', name: 'commons-io', version:'2.5'
     compile group: 'rhino', name: 'js', version:'1.7R2'
-    compile group: 'commons-logging', name: 'commons-logging', version:'1.2'
     compile group: 'org.springframework', name: 'spring-core', version:'4.3.6.RELEASE'
     compile group: 'org.springframework', name: 'spring-beans', version:'4.3.6.RELEASE'
     compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
