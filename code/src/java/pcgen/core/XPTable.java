@@ -91,15 +91,10 @@ public final class XPTable extends PObject implements XPTableFacade
 	public boolean validateSequence(String levelValue)
 	{
 		int value = getIntValue(levelValue);
-		for (String key : infoMap.keySet())
-		{
-			int intValue = getIntValue(infoMap.get(key).getLevelString());
-			if (value < intValue)
-			{
-				return false;
-			}
-		}
-		return true;
+		return infoMap.keySet()
+		              .stream()
+		              .mapToInt(key -> getIntValue(infoMap.get(key).getLevelString()))
+		              .noneMatch(intValue -> value < intValue);
 	}
 	
 	private static int getIntValue(String level)

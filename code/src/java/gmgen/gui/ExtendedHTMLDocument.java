@@ -27,6 +27,7 @@ import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.StyleSheet;
 import javax.swing.undo.UndoableEdit;
 import java.util.Enumeration;
+import java.util.stream.IntStream;
 
 /**
  * {@code ExtendedHTMLDocument} is used by Swing for improved HTML
@@ -91,12 +92,12 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 		int end = e.getElement((index + count) - 1).getEndOffset();
 
 		try {
-			Element[] removed = new Element[count];
+			Element[] removed;
 			Element[] added = EMPTY_ELEMENT_ARRAY;
 
-			for (int counter = 0; counter < count; counter++) {
-				removed[counter] = e.getElement(counter + index);
-			}
+			removed = IntStream.range(0, count)
+			                   .mapToObj(counter -> e.getElement(counter + index))
+			                   .toArray(Element[]::new);
 
 			DefaultDocumentEvent dde= new DefaultDocumentEvent(
 					start, end - start, EventType.REMOVE);
