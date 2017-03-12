@@ -200,10 +200,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	private void applyOptionValuesToControls()
 	{
-		for (PCGenPrefsPanel prefsPanel : panelList)
-		{
-			prefsPanel.applyOptionValuesToControls();
-		}
+		panelList.forEach(PCGenPrefsPanel::applyOptionValuesToControls);
 		
 		// Copy Settings
 		copySettingsPanel.registerAffectedPanel(characterStatsPanel);
@@ -405,10 +402,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	
 	private void resetOptionValues()
 	{
-		for (PCGenPrefsPanel prefsPanel : panelList)
-		{
-			prefsPanel.resetOptionValues();
-		}
+		panelList.forEach(PCGenPrefsPanel::resetOptionValues);
 	}
 
     @Override

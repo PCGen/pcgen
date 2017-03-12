@@ -26,6 +26,7 @@ package pcgen.core.term;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
@@ -44,16 +45,10 @@ public class PCCountContainersTermEvaluator
 	{
 		final int merge = Constants.MERGE_ALL;
 
-		final Collection<Equipment> aList = new ArrayList<>();
+		final Collection<Equipment> aList;
 		final List<Equipment> eList = pc.getEquipmentListInOutputOrder(merge);
 
-		for ( Equipment eq : eList )
-		{
-			if (eq.acceptsChildren())
-			{
-				aList.add(eq);
-			}
-		}
+		aList = eList.stream().filter(Equipment::acceptsChildren).collect(Collectors.toList());
 
 		return (float) aList.size();
 	}

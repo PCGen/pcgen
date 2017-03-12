@@ -42,11 +42,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observer;
 import java.util.logging.LogRecord;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -193,15 +196,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
 
-		for (GraphicsDevice device : env.getScreenDevices())
-		{
-			Rectangle bounds = device.getDefaultConfiguration().getBounds();
-			if (bounds.contains(rect) || bounds.intersects(rect))
-			{
-				return true;
-			}
-		}
-		return false;
+		return Arrays.stream(env.getScreenDevices())
+		             .map(device -> device.getDefaultConfiguration().getBounds())
+		             .anyMatch(bounds -> bounds.contains(rect) || bounds.intersects(rect));
 	}
 
 	private void initSettings()
@@ -386,13 +383,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					.hasNext();)
 				{
 					CampaignFacade camp = iterator.next();
-					for (String name : sourceNames)
+					if (Arrays.stream(sourceNames).anyMatch(name -> name.equals(camp.toString())))
 					{
-						if (name.equals(camp.toString()))
-						{
-							campaigns.add(camp);
-							break;
-						}
+						campaigns.add(camp);
 					}
 				}
 
@@ -743,11 +736,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				|| showMessageConfirm(Constants.APPLICATION_NAME,
 					LanguageBundle.getString("in_unsavedCompanions"))) //$NON-NLS-1$
 			{
-				for (CompanionFacade companionFacade : tobeSaved)
-				{
-					CharacterFacade compChar = CharacterManager.getCharacterMatching(companionFacade);
-					showSaveCharacterChooser(compChar);
-				}
+				tobeSaved.stream().map(CharacterManager::getCharacterMatching).forEach(this::showSaveCharacterChooser);
 			}
 		}
 		CharacterStubFacade master = character.getMaster();
@@ -867,10 +856,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			}
 		}
 
-		for (CharacterFacade character : characterList)
-		{
-			CharacterManager.removeCharacter(character);
-		}
+		characterList.forEach(CharacterManager::removeCharacter);
 		return characters.isEmpty();
 	}
 
@@ -1802,20 +1788,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			{
 				currentSourceSelection.set(sources);
 
-				StringBuilder sourceString = new StringBuilder(100);
+				String sourceString;
 				ListFacade<CampaignFacade> campaigns = sources.getCampaigns();
-				for (int i = 0; i < campaigns.getSize(); i++)
-				{
-					if (i > 0)
-					{
-						sourceString.append('|');
-					}
-					sourceString.append(campaigns.getElementAt(i));
-				}
+				sourceString = IntStream.range(0, campaigns.getSize())
+				                        .mapToObj(i -> String.valueOf(campaigns.getElementAt(i)))
+				                        .collect(Collectors.joining("|"));
 				PCGenSettings.getInstance().setProperty(
 					PCGenSettings.LAST_LOADED_GAME, sources.getGameMode().toString());
 				PCGenSettings.getInstance().setProperty(
-					PCGenSettings.LAST_LOADED_SOURCES, sourceString.toString());
+					PCGenSettings.LAST_LOADED_SOURCES, sourceString);
 			}
 			else
 			{
@@ -1990,14 +1971,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		StringBuilder sb = new StringBuilder(500);
 
 		sb.append("<html>");
-		for (Sponsor sponsor : sponsors)
-		{
-			if (!"PCGEN".equals(sponsor.getKeyName()))
-			{
-				continue;
-			}
-			sb.append("<img src='").append(sponsor.getBannerImage()).append("'><br>");
-		}
+		sponsors.stream()
+		        .filter(sponsor -> "PCGEN".equals(sponsor.getKeyName()))
+		        .forEach(sponsor -> sb.append("<img src='").append(sponsor.getBannerImage()).append("'><br>"));
 
 		String s = "";
 		if (sponsors.size() > 2)

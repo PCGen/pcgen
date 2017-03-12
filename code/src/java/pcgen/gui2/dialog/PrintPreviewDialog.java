@@ -42,6 +42,7 @@ import java.net.URI;
 import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.IntStream;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -416,11 +417,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 
 	private static ComboBoxModel createPagesModel(int pages)
 	{
-		String[] pageNumbers = new String[pages];
-		for (int i = 0; i < pages; i++)
-		{
-			pageNumbers[i] = (i + 1) + " of " + pages;
-		}
+		String[] pageNumbers = IntStream.range(0, pages).mapToObj(i -> (i + 1) + " of " + pages).toArray(String[]::new);
 		return new DefaultComboBoxModel(pageNumbers);
 	}
 

@@ -39,14 +39,11 @@ public class PCCountTemplatesTermEvaluator
 	public Float resolve(CharacterDisplay display)
 	{
 		Float count = new Float(0);
-		for (PCTemplate template : display.getTemplateSet())
-		{
-			//TODO This is a bug, it assumes export
-			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
-			{
-				count++;
-			}
-		}
+		//TODO This is a bug, it assumes export
+		count += display.getTemplateSet()
+		                .stream()
+		                .filter(template -> template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
+		                .count();
 		return count;
 	}
 

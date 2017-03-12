@@ -41,6 +41,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -430,15 +432,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				table.setRowSelectionInterval(row, row);
 			}
 		}
-		List<EquipmentFacade> targets = new ArrayList<>();
-		for (int selRow : table.getSelectedRows())
-		{
-			Object value = table.getModel().getValueAt(selRow, 0);
-			if (value instanceof EquipmentFacade)
-			{
-				targets.add((EquipmentFacade) value);
-			}
-		}
+		List<EquipmentFacade> targets = Arrays.stream(table.getSelectedRows())
+		                                      .mapToObj(selRow -> table.getModel().getValueAt(selRow, 0))
+		                                      .filter(value -> value instanceof EquipmentFacade)
+		                                      .map(value -> (EquipmentFacade) value)
+		                                      .collect(Collectors.toList());
 		return targets;
 	}
 
@@ -598,14 +596,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			List<?> data = availableTable.getSelectedData();
 			if (data != null)
 			{
-				for (Object object : data)
-				{
-					if (object instanceof EquipmentFacade)
-					{
-						EquipmentFacade equip = (EquipmentFacade) object;
-						character.deleteCustomEquipment(equip);
-					}
-				}
+				data.stream()
+				    .filter(object -> object instanceof EquipmentFacade)
+				    .map(object -> (EquipmentFacade) object)
+				    .forEach(character::deleteCustomEquipment);
 			}
 		}
 
@@ -874,15 +868,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 			if (primaryTypes.isEmpty())
 			{
-				for (int i = 0; i < equipmentList.getSize(); i++)
-				{
-					EquipmentFacade eq = equipmentList.getElementAt(i);
-					List<String> types = eq.getTypesForDisplay();
-					if (!types.isEmpty())
-					{
-						primaryTypes.add(types.get(0));
-					}
-				}
+				IntStream.range(0, equipmentList.getSize())
+				         .mapToObj(equipmentList::getElementAt)
+				         .map(EquipmentFacade::getTypesForDisplay)
+				         .filter(types -> !types.isEmpty())
+				         .map(types -> types.get(0))
+				         .forEach(primaryTypes::add);
 			}
 		}
 
@@ -1082,14 +1073,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						{
 							if (primaryTypes.contains(type))
 							{
-								for (String subType : types)
-								{
-									if (!type.equals(subType))
-									{
-										paths.add(new TreeViewPath<>(
-                                                pobj, type, subType));
-									}
-								}
+								types.stream()
+								     .filter(subType -> !type.equals(subType))
+								     .map(subType -> new TreeViewPath<>(
+										     pobj, type, subType))
+								     .forEach(paths::add);
 							}
 						}
 						return paths;
@@ -1101,13 +1089,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					{
 						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>(
                                 types.size());
-						for (String type : types)
-						{
-							if (primaryTypes.contains(type))
-							{
-								paths.add(new TreeViewPath<>(pobj, type));
-							}
-						}
+						types.stream()
+						     .filter(primaryTypes::contains)
+						     .map(type -> new TreeViewPath<>(pobj, type))
+						     .forEach(paths::add);
 						return paths;
 					}
 				// No types, fall through and treat it as just a name.
@@ -1326,11 +1311,9 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			}
 			else if (support.getComponent() == purchasedTable)
 			{
-				for (EquipmentFacade equipmentFacade : equipmentArray)
-				{
-					EquipmentFacade equip = character.getEquipmentSizedForCharacter(equipmentFacade);
-					character.addPurchasedEquipment(equip, 1, false, false);
-				}
+				Arrays.stream(equipmentArray)
+				      .map(character::getEquipmentSizedForCharacter)
+				      .forEach(equip -> character.addPurchasedEquipment(equip, 1, false, false));
 			}
 			availableTable.refilter();
 			return true;

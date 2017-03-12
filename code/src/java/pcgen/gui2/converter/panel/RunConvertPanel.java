@@ -40,6 +40,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Handler;
@@ -128,23 +129,15 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
 		totalCampaigns = new ArrayList<>(pc.getSafeListFor(ListKey.CAMPAIGN));
-		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
-		{
-			// Add all sub-files to the main campaign, regardless of exclusions
-			for (CampaignSourceEntry fName : campaign
-					.getSafeListFor(ListKey.FILE_PCC))
-			{
-				URI uri = fName.getURI();
-				if (PCGFile.isPCGenCampaignFile(uri))
-				{
-					Campaign c = Globals.getCampaignByURI(uri, false);
-					if (c != null)
-					{
-						totalCampaigns.add(c);
-					}
-				}
-			}
-		}
+		// Add all sub-files to the main campaign, regardless of exclusions
+		pc.getSafeListFor(ListKey.CAMPAIGN).forEach(campaign -> campaign
+				.getSafeListFor(ListKey.FILE_PCC)
+				.stream()
+				.map(CampaignSourceEntry::getURI)
+				.filter(PCGFile::isPCGenCampaignFile)
+				.map(uri -> Globals.getCampaignByURI(uri, false))
+				.filter(Objects::nonNull)
+				.forEach(c -> totalCampaigns.add(c)));
 		sortCampaignsByRank(totalCampaigns);
 		
 		new Thread(new Runnable()
@@ -180,17 +173,10 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				converter = new LSTConverter(context, rootDir,
 						outDir.getAbsolutePath(), RunConvertPanel.this, changeLogWriter);
 				converter.addObserver(RunConvertPanel.this);
-				int numFiles = 0;
-				for (Campaign campaign : totalCampaigns)
-				{
-					numFiles += converter.getNumFilesInCampaign(campaign);
-				}
+				int numFiles = totalCampaigns.stream().mapToInt(converter::getNumFilesInCampaign).sum();
 				setTotalFileCount(numFiles);
 				converter.initCampaigns(totalCampaigns);
-				for (Campaign campaign : totalCampaigns)
-				{
-					converter.processCampaign(campaign);
-				}
+				totalCampaigns.forEach(converter::processCampaign);
 				ObjectInjector oi = new ObjectInjector(context, outDir,
 						rootDir, converter);
 				try
