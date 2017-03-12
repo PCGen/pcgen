@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
- *
  */
 package pcgen.util;
 
@@ -28,7 +27,6 @@ import java.io.Serializable;
  * {@code Comparable}s.  This is particularly useful for
  * applications such as maintaining a sorted {@code JComboBoxEx}
  * and the like.
- *
  */
 public final class ComparableComparator<T extends Comparable<T>> implements Comparator<T>, Serializable
 {
