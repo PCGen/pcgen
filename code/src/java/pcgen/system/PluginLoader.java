@@ -20,7 +20,6 @@
 package pcgen.system;
 
 /**
- *
  */
 public interface PluginLoader
 {

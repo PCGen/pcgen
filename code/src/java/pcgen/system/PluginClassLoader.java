@@ -46,7 +46,6 @@ import pcgen.util.Logging;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- *
  */
 class PluginClassLoader extends PCGenTask
 {

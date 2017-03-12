@@ -26,7 +26,6 @@ import java.util.Collections;
 import java.util.Iterator;
 
 /**
- *
  */
 public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 	extends AbstractMap<K, C> implements CollectionMap<K, V, C>

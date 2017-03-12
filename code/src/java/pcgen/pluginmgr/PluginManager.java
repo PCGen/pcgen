@@ -31,7 +31,6 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- *
  */
 public final class PluginManager implements pcgen.system.PluginLoader
 {
