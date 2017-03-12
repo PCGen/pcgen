@@ -43,4 +43,3 @@ public interface LogReceiver
 	 */
 	public void logMessage(String message);
 }
- // end interface LogReceiver
