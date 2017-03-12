@@ -160,22 +160,13 @@ public enum SkillArmorCheck
 	@Deprecated
 	protected int calculateMaxOld(PlayerCharacter pc)
 	{
-		int max = 0;
+		int max;
 		final List<Equipment> itemList = pc.getEquipmentOfType("Armor", 1);
-		for (Equipment eq : pc.getEquipmentOfType("Shield", 1))
-		{
-			if (!itemList.contains(eq))
-			{
-				itemList.add(eq);
-			}
-		}
-		for (Equipment eq : itemList)
-		{
-			if (useEquipment(pc, eq))
-			{
-				max += EqToken.getAcCheckTokenInt(pc, eq);
-			}
-		}
+		pc.getEquipmentOfType("Shield", 1).stream().filter(eq -> !itemList.contains(eq)).forEach(itemList::add);
+		max = itemList.stream()
+		              .filter(eq -> useEquipment(pc, eq))
+		              .mapToInt(eq -> EqToken.getAcCheckTokenInt(pc, eq))
+		              .sum();
 		return max;
 	}
 

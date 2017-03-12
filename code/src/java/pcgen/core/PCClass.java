@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
+import java.util.stream.IntStream;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -205,10 +206,9 @@ public class PCClass extends PObject implements ClassFacade
 
 		List<BonusObj> rawBonusList = getRawBonusList(aPC);
 
-		for (int lvl = 1 ; lvl < asLevel; lvl++)
-		{
-			rawBonusList.addAll(aPC.getActiveClassLevel(this, lvl).getRawBonusList(aPC));
-		}
+		IntStream.range(1, asLevel)
+		         .mapToObj(lvl -> aPC.getActiveClassLevel(this, lvl).getRawBonusList(aPC))
+		         .forEach(rawBonusList::addAll);
 		if ((asLevel == 0) || rawBonusList.isEmpty())
 		{
 			return 0;
@@ -308,7 +308,11 @@ public class PCClass extends PObject implements ClassFacade
 	 */
 	public final int getSkillPool(final PlayerCharacter aPC)
 	{
-		int returnValue = 0;
+		int returnValue = aPC.getLevelInfo()
+		                     .stream()
+		                     .filter(pcl -> pcl.getClassKeyName().equals(getKeyName()))
+		                     .mapToInt(PCLevelInfo::getSkillPointsRemaining)
+		                     .sum();
 		// //////////////////////////////////
 		// Using this method will return skills for level 0 even when there is
 		// no information
@@ -322,13 +326,6 @@ public class PCClass extends PObject implements ClassFacade
 		// returnValue += pcl.getSkillPointsRemaining();
 		// }
 		// }
-		for (PCLevelInfo pcl : aPC.getLevelInfo())
-		{
-			if (pcl.getClassKeyName().equals(getKeyName()))
-			{
-				returnValue += pcl.getSkillPointsRemaining();
-			}
-		}
 		// //////////////////////////////////
 
 		return returnValue;
@@ -384,15 +381,8 @@ public class PCClass extends PObject implements ClassFacade
 			return null;
 		}
 
-		for (SubClass subClass : subClassList)
-		{
-			if (subClass.getKeyName().equals(aKey))
-			{
-				return subClass;
-			}
-		}
+		return subClassList.stream().filter(subClass -> subClass.getKeyName().equals(aKey)).findFirst().orElse(null);
 
-		return null;
 	}
 
 	/*
@@ -408,15 +398,8 @@ public class PCClass extends PObject implements ClassFacade
 			return null;
 		}
 
-		for (SubstitutionClass sc : substitutionClassList)
-		{
-			if (sc.getKeyName().equals(aKey))
-			{
-				return sc;
-			}
-		}
+		return substitutionClassList.stream().filter(sc -> sc.getKeyName().equals(aKey)).findFirst().orElse(null);
 
-		return null;
 	}
 
 	public void setLevel(final int newLevel, final PlayerCharacter aPC)
@@ -454,10 +437,7 @@ public class PCClass extends PObject implements ClassFacade
 			SubstitutionClassApplication.checkForSubstitutionClass(this, newLevel, aPC);
 		}
 
-		for (PCClass pcClass : aPC.getClassSet())
-		{
-			aPC.calculateKnownSpellsForClassLevel(this);
-		}
+		aPC.getClassSet().stream().map(pcClass -> this).forEach(aPC::calculateKnownSpellsForClassLevel);
 	}
 
 	/**
@@ -747,16 +727,9 @@ public class PCClass extends PObject implements ClassFacade
 	 */
 	public boolean hasXPPenalty()
 	{
-		for (Type type : getTrueTypeList(false))
-		{
-			final ClassType aClassType =
-					SettingsHandler.getGame().getClassTypeByName(type.toString());
-				if ((aClassType != null) && !aClassType.getXPPenalty())
-			{
-				return false;
-			}
-		}
-		return true;
+		return getTrueTypeList(false).stream()
+		                             .map(type -> SettingsHandler.getGame().getClassTypeByName(type.toString()))
+		                             .noneMatch(aClassType -> (aClassType != null) && !aClassType.getXPPenalty());
 	}
 
 	/**
@@ -1225,15 +1198,12 @@ public class PCClass extends PObject implements ClassFacade
 				{
 					for (PCLevelInfoStat statToRollback : moddedStats)
 					{
-						for (PCStat aStat : aPC.getStatSet())
-						{
-							if (aStat.equals(statToRollback.getStat()))
-							{
-								aPC.setStat(aStat, aPC.getStat(aStat)
-									- statToRollback.getStatMod());
-								break;
-							}
-						}
+						aPC.getStatSet()
+						   .stream()
+						   .filter(aStat -> aStat.equals(statToRollback.getStat()))
+						   .findFirst()
+						   .ifPresent(aStat -> aPC.setStat(aStat, aPC.getStat(aStat)
+								   - statToRollback.getStatMod()));
 					}
 				}
 			}

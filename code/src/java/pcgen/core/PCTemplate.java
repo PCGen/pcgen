@@ -81,31 +81,18 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 
 		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-			{
-				if (lt.get(IntegerKey.LEVEL) <= totalLevels)
-				{
-					returnList.add(lt);
-				}
-			}
+			rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES)
+			   .stream()
+			   .filter(lt -> lt.get(IntegerKey.LEVEL) <= totalLevels)
+			   .forEach(returnList::add);
 		}
 
-		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.LEVEL) <= totalLevels)
-			{
-				returnList.add(lt);
-			}
-		}
+		getSafeListFor(ListKey.LEVEL_TEMPLATES).stream()
+		                                       .filter(lt -> lt.get(IntegerKey.LEVEL) <= totalLevels)
+		                                       .forEach(returnList::add);
 
-		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.HD_MAX) >= totalHitDice
-					&& lt.get(IntegerKey.HD_MIN) <= totalHitDice)
-			{
-				returnList.add(lt);
-			}
-		}
+		getSafeListFor(ListKey.HD_TEMPLATES).stream().filter(lt -> lt.get(IntegerKey.HD_MAX) >= totalHitDice
+				&& lt.get(IntegerKey.HD_MIN) <= totalHitDice).forEach(returnList::add);
 		return returnList;
 	}
 
@@ -120,23 +107,14 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 		 * for (PCTemplate pct : getConditionalTemplates(pc.getTotalLevels(),
 		 * pc.totalHitDice())) { list.addAll(pct.getRawBonusList(pc); }
 		 */
-		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
-		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-			{
-				list.addAll(lt.getRawBonusList(pc));
-			}
-		}
+		getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES).forEach(rlt -> rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES)
+		                                                                .stream()
+		                                                                .map(lt -> lt.getRawBonusList(pc))
+		                                                                .forEach(list::addAll));
 
-		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
-		{
-			list.addAll(lt.getRawBonusList(pc));
-		}
+		getSafeListFor(ListKey.LEVEL_TEMPLATES).stream().map(lt -> lt.getRawBonusList(pc)).forEach(list::addAll);
 
-		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
-		{
-			list.addAll(lt.getRawBonusList(pc));
-		}
+		getSafeListFor(ListKey.HD_TEMPLATES).stream().map(lt -> lt.getRawBonusList(pc)).forEach(list::addAll);
 		// end potential TO-DO change
 		return list;
 	}

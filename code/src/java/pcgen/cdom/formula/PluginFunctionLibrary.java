@@ -70,14 +70,7 @@ public final class PluginFunctionLibrary implements PluginLoader
 
 	private Function existingFunction(String name)
 	{
-		for (Function f : list)
-		{
-			if (f.getFunctionName().equalsIgnoreCase(name))
-			{
-				return f;
-			}
-		}
-		return null;
+		return list.stream().filter(f -> f.getFunctionName().equalsIgnoreCase(name)).findFirst().orElse(null);
 	}
 
 	@Override

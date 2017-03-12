@@ -206,14 +206,9 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 			List<Qualifier> list = hml.getListFor(cl);
 			if (list != null)
 			{
-				for (Qualifier q : list)
-				{
-					CDOMReference qRef = q.getQualifiedReference();
-					if (qRef.contains(qualTestObject))
-					{
-						return true;
-					}
-				}
+				return list.stream()
+				           .map(Qualifier::getQualifiedReference)
+				           .anyMatch(qRef -> qRef.contains(qualTestObject));
 			}
 			return false;
 		}

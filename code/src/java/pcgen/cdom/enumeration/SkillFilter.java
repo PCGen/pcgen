@@ -20,6 +20,8 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.util.Arrays;
+
 import pcgen.system.LanguageBundle;
 
 /**
@@ -86,26 +88,15 @@ public enum SkillFilter
 
 	public static SkillFilter getByValue(int value)
 	{
-		for (SkillFilter filter : values())
-		{
-			if (filter.getValue() == value)
-			{
-				return filter;
-			}
-		}
-		return null;
+		return Arrays.stream(values()).filter(filter -> filter.getValue() == value).findFirst().orElse(null);
 	}
 
 	public static SkillFilter getByToken(String value)
 	{
-		for (SkillFilter filter : values())
-		{
-			if (filter.getToken().equalsIgnoreCase(value))
-			{
-				return filter;
-			}
-		}
-		return null;
+		return Arrays.stream(values())
+		             .filter(filter -> filter.getToken().equalsIgnoreCase(value))
+		             .findFirst()
+		             .orElse(null);
 	}
 
 }

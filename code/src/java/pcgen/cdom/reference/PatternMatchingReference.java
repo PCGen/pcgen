@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -155,14 +156,10 @@ public class PatternMatchingReference<T extends Loadable> extends
 	@Override
 	public Collection<T> getContainedObjects()
 	{
-		List<T> list = new ArrayList<>();
-		for (T obj : all.getContainedObjects())
-		{
-			if (obj.getKeyName().startsWith(pattern))
-			{
-				list.add(obj);
-			}
-		}
+		List<T> list = all.getContainedObjects()
+		                  .stream()
+		                  .filter(obj -> obj.getKeyName().startsWith(pattern))
+		                  .collect(Collectors.toList());
 		return list;
 	}
 
@@ -196,14 +193,8 @@ public class PatternMatchingReference<T extends Loadable> extends
 	@Override
 	public int getObjectCount()
 	{
-		int count = 0;
-		for (T obj : all.getContainedObjects())
-		{
-			if (obj.getKeyName().startsWith(pattern))
-			{
-				count++;
-			}
-		}
+		int count =
+				(int) all.getContainedObjects().stream().filter(obj -> obj.getKeyName().startsWith(pattern)).count();
 		return count;
 	}
 
