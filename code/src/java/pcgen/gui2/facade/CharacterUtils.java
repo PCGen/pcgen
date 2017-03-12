@@ -57,17 +57,10 @@ public class CharacterUtils
 
 			if (!clothes.isEmpty())
 			{
-				for (Equipment eq : clothes)
-				{
-					if (!eq.isType("Magic") && (CoreUtility.doublesEqual(
-						eq.getCost(aPC).doubleValue(), 0.0))
-						&& pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)))
-					{
-						hasClothes = true;
-
-						break;
-					}
-				}
+				hasClothes = clothes.stream().anyMatch(eq -> !eq.isType("Magic") && (
+						CoreUtility.doublesEqual(
+								eq.getCost(aPC).doubleValue(), 0.0))
+						&& pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)));
 			}
 
 			//

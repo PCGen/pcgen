@@ -34,7 +34,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import javax.swing.undo.UndoManager;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -1075,18 +1079,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	private int getUsedStatPool()
 	{
-		int i = 0;
+		int i = charDisplay.getStatSet()
+		                   .stream()
+		                   .filter(aStat -> aStat.getSafe(ObjectKey.ROLLED))
+		                   .mapToInt(aStat -> theCharacter.getBaseStatFor(aStat))
+		                   .map(statValue -> getPurchaseCostForStat(theCharacter, statValue))
+		                   .sum();
 
-		for (PCStat aStat : charDisplay.getStatSet())
-		{
-			if (!aStat.getSafe(ObjectKey.ROLLED))
-			{
-				continue;
-			}
-
-			final int statValue = theCharacter.getBaseStatFor(aStat);
-			i += getPurchaseCostForStat(theCharacter, statValue);
-		}
 		i += (int) theCharacter.getTotalBonusTo("POINTBUY", "SPENT"); //$NON-NLS-1$ //$NON-NLS-2$
 		return i;
 	}
@@ -1121,17 +1120,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		//
 		// next do all abilities to get TEMPBONUS:ANYPC only
 		GameMode game = (GameMode) dataSet.getGameMode();
-		for (AbilityCategory cat : game.getAllAbilityCategories())
-		{
-			if (cat.getParentCategory() == cat)
-			{
-				for (Ability aFeat : Globals.getContext().getReferenceContext().getManufacturer(
-					Ability.class, cat).getAllObjects())
-				{
-					scanForAnyPcTempBonuses(tempBonuses, aFeat);
-				}
-			}
-		}
+		game.getAllAbilityCategories()
+		    .stream()
+		    .filter(cat -> cat.getParentCategory() == cat)
+		    .flatMap(cat -> Globals.getContext().getReferenceContext().getManufacturer(
+				    Ability.class, cat).getAllObjects().stream())
+		    .forEach(aFeat -> scanForAnyPcTempBonuses(tempBonuses, aFeat));
 
 		//
 		// Do all the PC's spells
@@ -1143,14 +1137,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		// Do all the pc's innate spells.
 		Collection<CharacterSpell> innateSpells = theCharacter.getCharacterSpells(charDisplay.getRace(),
 				Constants.INNATE_SPELL_BOOK_NAME);
-		for (CharacterSpell aCharacterSpell : innateSpells)
-		{
-			if (aCharacterSpell == null)
-			{
-				continue;
-			}
-			scanForTempBonuses(tempBonuses, aCharacterSpell.getSpell());
-		}
+		innateSpells.stream()
+		            .filter(Objects::nonNull)
+		            .forEach(aCharacterSpell -> scanForTempBonuses(tempBonuses, aCharacterSpell.getSpell()));
 
 		//
 		// Next do all spells to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
@@ -1652,17 +1641,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			statScoreMap.put(stat, facade);
 		}
 
-		PCStat pcStat = null;
+		PCStat pcStat;
 		final int pcPlayerLevels = charDisplay.totalNonMonsterLevels();
 		Collection<PCStat> pcStatList = charDisplay.getStatSet();
-		for (PCStat aStat : pcStatList)
-		{
-			if (stat.getKeyName().equals(aStat.getKeyName()))
-			{
-				pcStat = aStat;
-				break;
-			}
-		}
+		pcStat = pcStatList.stream()
+		                   .filter(aStat -> stat.getKeyName().equals(aStat.getKeyName()))
+		                   .findFirst()
+		                   .orElse(null);
 		if (pcStat == null)
 		{
 			Logging.errorPrint("Unexpected stat '" + stat + "' found - ignoring.");
@@ -1835,12 +1820,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return;
 		}
 
-		int poolPointsTotal = 0;
-
-		for (PCLevelInfo pcl : charDisplay.getLevelInfo())
-		{
-			poolPointsTotal += pcl.getSkillPointsGained(theCharacter);
-		}
+		int poolPointsTotal =
+				charDisplay.getLevelInfo().stream().mapToInt(pcl -> pcl.getSkillPointsGained(theCharacter)).sum();
 
 		int poolPointsUsed = poolPointsTotal - theCharacter.getSkillPoints();
 
@@ -2278,13 +2259,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				Collection<AssociatedPrereqObject> assoc = pcDeity.getListAssociations(Deity.DOMAINLIST, domainRef);
 				for (AssociatedPrereqObject apo : assoc)
 				{
-					for (Domain d : domainRef.getContainedObjects())
-					{
-						if (!isDomainInList(availDomainList, d))
-						{
-							availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList()));
-						}
-					}
+					domainRef.getContainedObjects()
+					         .stream()
+					         .filter(d -> !isDomainInList(availDomainList, d))
+					         .forEach(d -> availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList())));
 				}
 			}
 		}
@@ -2298,12 +2276,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			 */
 			processDomainList(aClass, availDomainList);
 			processAddDomains(aClass, availDomainList);
-			for (int lvl = 0; lvl <= charDisplay.getLevel(aClass); lvl++)
-			{
-				PCClassLevel cl = charDisplay.getActiveClassLevel(aClass, lvl);
-				processAddDomains(cl, availDomainList);
-				processDomainList(cl, availDomainList);
-			}
+			IntStream.rangeClosed(0, charDisplay.getLevel(aClass))
+			         .mapToObj(lvl -> charDisplay.getActiveClassLevel(aClass, lvl))
+			         .forEach(cl ->
+			         {
+				         processAddDomains(cl, availDomainList);
+				         processDomainList(cl, availDomainList);
+			         });
 		}
 
 		// Loop through the character's selected domains
@@ -2348,14 +2327,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	private boolean isDomainInList(List<DomainFacadeImpl> qualDomainList, Domain domain)
 	{
-		for (DomainFacadeImpl row : qualDomainList)
-		{
-			if (domain.equals(row.getRawObject()))
-			{
-				return true;
-			}
-		}
-		return false;
+		return qualDomainList.stream().anyMatch(row -> domain.equals(row.getRawObject()));
 	}
 
 	private void processAddDomains(CDOMObject cdo, final List<DomainFacadeImpl> availDomainList)
@@ -2368,18 +2340,15 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				Collection<AssociatedPrereqObject> assoc = cdo.getListAssociations(PCClass.ALLOWED_DOMAINS, ref);
 				for (AssociatedPrereqObject apo : assoc)
 				{
-					for (Domain d : ref.getContainedObjects())
-					{
-						/*
-						 * TODO This gate produces a rather interesting, and
-						 * potentially wrong situation. What if two ADDDOMAINS
-						 * exist with different PRE? Doesn't this fail?
-						 */
-						if (!isDomainInList(availDomainList, d))
-						{
-							availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList()));
-						}
-					}
+					/*
+					 * TODO This gate produces a rather interesting, and
+					 * potentially wrong situation. What if two ADDDOMAINS
+					 * exist with different PRE? Doesn't this fail?
+					 */
+					ref.getContainedObjects()
+					   .stream()
+					   .filter(d -> !isDomainInList(availDomainList, d))
+					   .forEach(d -> availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList())));
 				}
 			}
 		}
@@ -2663,20 +2632,20 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			catch (ConcurrentModificationException e)
 			{
 				Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
-				for (Entry<Thread, StackTraceElement[]> threadEntry : allStackTraces.entrySet())
-				{
-					if (threadEntry.getValue().length > 1)
-					{
-						StringBuilder sb = new StringBuilder("Thread: " + threadEntry.getKey() + "\n");
-						for (StackTraceElement elem : threadEntry.getValue())
-						{
-							sb.append("  ");
-							sb.append(elem.toString());
-							sb.append("\n");
-						}
-						Logging.log(Logging.INFO, sb.toString());
-					}
-				}
+				allStackTraces.entrySet()
+				              .stream()
+				              .filter(threadEntry -> threadEntry.getValue().length > 1)
+				              .forEach(threadEntry ->
+				              {
+					              StringBuilder sb = new StringBuilder("Thread: " + threadEntry.getKey() + "\n");
+					              for (StackTraceElement elem : threadEntry.getValue())
+					              {
+						              sb.append("  ");
+						              sb.append(elem.toString());
+						              sb.append("\n");
+					              }
+					              Logging.log(Logging.INFO, sb.toString());
+				              });
 				Logging.log(Logging.WARNING, "Retrying export after ConcurrentModificationException", e);
 				try
 				{
@@ -3475,14 +3444,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		Set<EquipmentModifier> allEqMods = new HashSet<>(equipItemToAdjust.getEqModifierList(true));
 		allEqMods.addAll(equipItemToAdjust.getEqModifierList(false));
-		for (EquipmentModifier eqMod : allEqMods)
-		{
-			if (!eqMod.isType(Constants.EQMOD_TYPE_BASEMATERIAL))
-			{
-				return true;
-			}
-		}
-		return false;
+		return allEqMods.stream().anyMatch(eqMod -> !eqMod.isType(Constants.EQMOD_TYPE_BASEMATERIAL));
 	}
 
 	/**
@@ -4130,13 +4092,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private void refreshTemplates()
 	{
 		Collection<PCTemplate> pcTemplates = charDisplay.getDisplayVisibleTemplateList();
-		for (PCTemplate template : pcTemplates)
-		{
-			if (!templates.containsElement(template))
-			{
-				templates.addElement(template);
-			}
-		}
+		pcTemplates.stream()
+		           .filter(template -> !templates.containsElement(template))
+		           .forEach(template -> templates.addElement(template));
 		for (Iterator<TemplateFacade> iterator = templates.iterator(); iterator.hasNext();)
 		{
 			PCTemplate pcTemplate = (PCTemplate) iterator.next();
@@ -4436,15 +4394,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void modifyCharges(List<EquipmentFacade> targets)
 	{
-		List<Equipment> chargedEquip = new ArrayList<>();
-		for (EquipmentFacade equipmentFacade : targets)
-		{
-			if (equipmentFacade instanceof Equipment && ((Equipment) equipmentFacade).getMaxCharges() > 0)
-			{
-				chargedEquip.add((Equipment) equipmentFacade);
-			}
-		}
-		
+		List<Equipment> chargedEquip = targets.stream()
+		                                      .filter(equipmentFacade -> equipmentFacade instanceof Equipment
+				                                      && ((Equipment) equipmentFacade).getMaxCharges() > 0)
+		                                      .map(equipmentFacade -> (Equipment) equipmentFacade)
+		                                      .collect(Collectors.toList());
+
 		if (chargedEquip.isEmpty())
 		{
 			return;
@@ -4502,15 +4457,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void addNote(List<EquipmentFacade> targets)
 	{
-		List<Equipment> notedEquip = new ArrayList<>();
-		for (EquipmentFacade equipmentFacade : targets)
-		{
-			if (equipmentFacade instanceof Equipment)
-			{
-				notedEquip.add((Equipment) equipmentFacade);
-			}
-		}
-		
+		List<Equipment> notedEquip = targets.stream()
+		                                    .filter(equipmentFacade -> equipmentFacade instanceof Equipment)
+		                                    .map(equipmentFacade -> (Equipment) equipmentFacade)
+		                                    .collect(Collectors.toList());
+
 		if (notedEquip.isEmpty())
 		{
 			return;

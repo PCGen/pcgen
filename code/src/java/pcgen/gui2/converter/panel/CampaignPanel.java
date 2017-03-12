@@ -26,7 +26,9 @@ import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -94,16 +96,10 @@ public class CampaignPanel extends ConvertSubPanel
 		// Only add those campaigns in the user's chosen folder and game mode
 		List<Campaign> allCampaigns = Globals.getCampaignList();
 		gameModeCampaigns = new ArrayList<>();
-		for (Campaign campaign : allCampaigns)
-		{
-			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
-			{
-				if (campaign.getSourceURI().toString().startsWith(folderName))
-				{
-					gameModeCampaigns.add(campaign);
-				}
-			}
-		}
+		allCampaigns.stream()
+		            .filter(campaign -> campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
+		            .filter(campaign -> campaign.getSourceURI().toString().startsWith(folderName))
+		            .forEach(campaign -> gameModeCampaigns.add(campaign));
 		return false;
 	}
 
@@ -152,12 +148,9 @@ public class CampaignPanel extends ConvertSubPanel
 					}
 					else
 					{
-						for (int row : selRows)
-						{
-							Campaign selCampaign =
-									(Campaign) model.getValueAt(row, 0);
-							pc.addToListFor(ListKey.CAMPAIGN, selCampaign);
-						}
+						Arrays.stream(selRows)
+						      .mapToObj(row -> (Campaign) model.getValueAt(row, 0))
+						      .forEach(selCampaign -> pc.addToListFor(ListKey.CAMPAIGN, selCampaign));
 						saveSourceSelection(pc);
 						fireProgressEvent(ProgressEvent.ALLOWED);
 					}
@@ -190,14 +183,10 @@ public class CampaignPanel extends ConvertSubPanel
 			{
 				if (camp.toString().equals(srcName))
 				{
-					for (int i = 0; i<model.getRowCount(); i++)
-					{
-						if (camp.equals(model.getValueAt(i, 0)))
-						{
-							table.getSelectionModel().addSelectionInterval(i, i);
-							break;
-						}
-					}
+					IntStream.range(0, model.getRowCount())
+					         .filter(i -> camp.equals(model.getValueAt(i, 0)))
+					         .findFirst()
+					         .ifPresent(i -> table.getSelectionModel().addSelectionInterval(i, i));
 					break;
 				}
 			}

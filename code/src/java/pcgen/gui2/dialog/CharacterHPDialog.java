@@ -28,6 +28,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
@@ -175,13 +176,12 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	{
 		if (e.getActionCommand().equals("Reroll"))
 		{
-			for (int l = 0; l < levels.getSize(); l++)
+			IntStream.range(0, levels.getSize()).mapToObj(levels::getElementAt).forEach(level ->
 			{
-				CharacterLevelFacade level = levels.getElementAt(l);
 				Integer i = Integer.valueOf(levels.getClassTaken(level).getHD());
 				int rolled = RollingMethods.roll(i);
 				levels.setHPRolled(level, rolled);
-			}
+			});
 			return;
 		}
 		dispose();
