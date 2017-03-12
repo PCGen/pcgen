@@ -297,10 +297,7 @@ public class Prerequisite implements Cloneable
 
 		if (prerequisites != null)
 		{
-			for ( Prerequisite prereq : prerequisites )
-			{
-				buf.append(prereq.toString());
-			}
+			prerequisites.stream().map(Prerequisite::toString).forEach(buf::append);
 		}
 
 		buf.append("</"); //$NON-NLS-1$
@@ -411,10 +408,7 @@ public class Prerequisite implements Cloneable
 		if (prerequisites != null && !prerequisites.isEmpty() && !shortForm)
 		{
 			buf.append(" ("); //$NON-NLS-1$
-			for ( Prerequisite subreq : prerequisites )
-			{
-				buf.append(subreq.getDescription(shortForm));
-			}
+			prerequisites.stream().map(subreq -> subreq.getDescription(shortForm)).forEach(buf::append);
 			buf.append(')'); //$NON-NLS-1$
 		}
 

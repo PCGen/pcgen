@@ -22,6 +22,7 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
@@ -94,10 +95,7 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 		List<RaceSubType> rst = getListFor(ListKey.RACESUBTYPE);
 		if (rst != null)
 		{
-		    for (RaceSubType subtype : rst)
-		    {
-		    	subTypeNames.add(subtype.toString());
-		    }
+			subTypeNames = rst.stream().map(RaceSubType::toString).collect(Collectors.toList());
 		}
 		return subTypeNames;
 	}

@@ -46,24 +46,23 @@ public class RaceGeneratorOption extends GeneratorOption
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
 		{
-			for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
-			{
-				if ( ! theChoices.contains(race) )
-				{
-					theChoices.add(race, aWeight);
-				}
-			}
+			Globals.getContext()
+			       .getReferenceContext()
+			       .getConstructedCDOMObjects(Race.class)
+			       .stream()
+			       .filter(race -> !theChoices.contains(race))
+			       .forEach(race -> theChoices.add(race, aWeight));
 			return;
 		}
 		if ( aValue.startsWith("TYPE") ) //$NON-NLS-1$
 		{
-			for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
-			{
-				if (race.isType(aValue.substring(5)) && !race.getDisplayName().equals(Constants.NONESELECTED))
-				{
-					theChoices.add(race, aWeight);
-				}
-			}
+			Globals.getContext()
+			       .getReferenceContext()
+			       .getConstructedCDOMObjects(Race.class)
+			       .stream()
+			       .filter(race -> race.isType(aValue.substring(5)) && !race.getDisplayName()
+			                                                                .equals(Constants.NONESELECTED))
+			       .forEach(race -> theChoices.add(race, aWeight));
 			return;
 		}
 		final Race race = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, aValue);

@@ -1152,21 +1152,29 @@ public final class SettingsHandler
 		setPCGenOption("rollMethod", null);
 		setPCGenOption("rollMethodExpression", null);
 
-		for (int idx = 0; idx < SystemCollections.getUnmodifiableGameModeList().size(); idx++)
+		//$NON-NLS-1$
+//$NON-NLS-1$
+//$NON-NLS-1$
+		SystemCollections.getUnmodifiableGameModeList().forEach(gameMode ->
 		{
-			final GameMode gameMode = SystemCollections.getUnmodifiableGameModeList().get(idx);
 			String gameModeKey = gameMode.getName();
 			if (gameMode.getUnitSet() != null && gameMode.getUnitSet().getDisplayName() != null)
 			{
 				setPCGenOption("gameMode." + gameModeKey + ".unitSetName", gameMode.getUnitSet().getDisplayName());
 			}
-			setPCGenOption("gameMode." + gameModeKey + ".purchaseMethodName", gameMode.getPurchaseModeMethodName()); //$NON-NLS-1$
+			setPCGenOption(
+					"gameMode." + gameModeKey + ".purchaseMethodName",
+					gameMode.getPurchaseModeMethodName()
+			); //$NON-NLS-1$
 			setPCGenOption("gameMode." + gameModeKey + ".rollMethod", gameMode.getRollMethod()); //$NON-NLS-1$
-			setPCGenOption("gameMode." + gameModeKey + ".rollMethodExpression", gameMode.getRollMethodExpressionName()); //$NON-NLS-1$
+			setPCGenOption(
+					"gameMode." + gameModeKey + ".rollMethodExpression",
+					gameMode.getRollMethodExpressionName()
+			); //$NON-NLS-1$
 			setPCGenOption("gameMode." + gameModeKey + ".allStatsValue", gameMode.getAllStatsValue());
 			setPCGenOption("gameMode." + gameModeKey + ".xpTableName", gameMode.getDefaultXPTableName());
 			setPCGenOption("gameMode." + gameModeKey + ".characterType", gameMode.getDefaultCharacterType());
-		}
+		});
 
 		setRuleChecksInOptions("ruleChecks"); //$NON-NLS-1$
 
