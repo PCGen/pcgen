@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.IntStream;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
@@ -171,12 +172,13 @@ public class ClassToken extends Token {
 		final List<SpecialAbility> saList = new ArrayList<>();
 		saList.addAll(display.getResolvedUserSpecialAbilities(pcclass));
 		saList.addAll(display.getResolvedSpecialAbilities(pcclass));
-		for (int i = 1; i <= display.getLevel(pcclass); i++)
-		{
-			PCClassLevel pcl = display.getActiveClassLevel(pcclass, i);
-			saList.addAll(display.getResolvedUserSpecialAbilities(pcl));
-			saList.addAll(display.getResolvedSpecialAbilities(pcl));
-		}
+		IntStream.rangeClosed(1, display.getLevel(pcclass))
+		         .mapToObj(i -> display.getActiveClassLevel(pcclass, i))
+		         .forEach(pcl ->
+		         {
+			         saList.addAll(display.getResolvedUserSpecialAbilities(pcl));
+			         saList.addAll(display.getResolvedSpecialAbilities(pcl));
+		         });
 
 		if (saList.isEmpty())
 		{

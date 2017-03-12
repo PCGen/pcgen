@@ -18,6 +18,7 @@
 package plugin.lsttokens;
 
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -189,11 +190,8 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			if (lockChanges.hasAddedItems())
 			{
-				for (StatLock sl : lockChanges.getAdded())
-				{
-					set.add("LOCK|" + sl.getLSTformat() + Constants.PIPE
-							+ sl.getLockValue());
-				}
+				set = lockChanges.getAdded().stream().map(sl -> "LOCK|" + sl.getLSTformat() + Constants.PIPE
+						+ sl.getLockValue()).collect(Collectors.toCollection(TreeSet::new));
 			}
 		}
 		if (ulchanges != null && !ulchanges.isEmpty())
@@ -206,52 +204,37 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			if (ulchanges.hasAddedItems())
 			{
-				for (CDOMSingleRef<PCStat> st : ulchanges.getAdded())
-				{
-					set.add("UNLOCK|" + st.getLSTformat(false));
-				}
+				ulchanges.getAdded().stream().map(st -> "UNLOCK|" + st.getLSTformat(false)).forEach(set::add);
 			}
 		}
 		if (nonStatChanges != null && !nonStatChanges.isEmpty())
 		{
 			if (nonStatChanges.hasAddedItems())
 			{
-				for (CDOMSingleRef<PCStat> st : nonStatChanges.getAdded())
-				{
-					set.add("NONSTAT|" + st.getLSTformat(false));
-				}
+				nonStatChanges.getAdded().stream().map(st -> "NONSTAT|" + st.getLSTformat(false)).forEach(set::add);
 			}
 		}
 		if (nonStatToStatChanges != null && !nonStatToStatChanges.isEmpty())
 		{
 			if (nonStatToStatChanges.hasAddedItems())
 			{
-				for (CDOMSingleRef<PCStat> st : nonStatToStatChanges.getAdded())
-				{
-					set.add("STAT|" + st.getLSTformat(false));
-				}
+				nonStatToStatChanges.getAdded().stream().map(st -> "STAT|" + st.getLSTformat(false)).forEach(set::add);
 			}
 		}
 		if (minValueChanges != null && !minValueChanges.isEmpty())
 		{
 			if (minValueChanges.hasAddedItems())
 			{
-				for (StatLock sl : minValueChanges.getAdded())
-				{
-					set.add("MINVALUE|" + sl.getLSTformat() + Constants.PIPE
-							+ sl.getLockValue());
-				}
+				minValueChanges.getAdded().stream().map(sl -> "MINVALUE|" + sl.getLSTformat() + Constants.PIPE
+						+ sl.getLockValue()).forEach(set::add);
 			}
 		}
 		if (maxValueChanges != null && !maxValueChanges.isEmpty())
 		{
 			if (maxValueChanges.hasAddedItems())
 			{
-				for (StatLock sl : maxValueChanges.getAdded())
-				{
-					set.add("MAXVALUE|" + sl.getLSTformat() + Constants.PIPE
-							+ sl.getLockValue());
-				}
+				maxValueChanges.getAdded().stream().map(sl -> "MAXVALUE|" + sl.getLSTformat() + Constants.PIPE
+						+ sl.getLockValue()).forEach(set::add);
 			}
 		}
 		if (set.isEmpty())

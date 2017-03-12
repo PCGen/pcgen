@@ -26,6 +26,8 @@ import gmgen.plugin.State;
 import gmgen.util.LogUtilities;
 import java.io.File;
 import java.util.Observable;
+import java.util.stream.IntStream;
+
 import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
 import plugin.experience.gui.PreferencesExperiencePanel;
@@ -140,26 +142,29 @@ public class ExperienceAdjusterModel extends Observable
 			"Party Awarded " + getPartyExperience()
 				+ " Total Experience Split as:");
 
-		for (int i = 0; i < party.size(); i++)
-		{
-			Combatant cbt = ((ExperienceListItem) party.get(i)).getCombatant();
-			if (expType == PreferencesExperiencePanel.EXPERIENCE_3)
-			{
-				cbt.setXP(cbt.getXP()
-					+ (getPartyTotalExperience() / party.size()));
-				LogUtilities.inst().logMessage(
-					ExperienceAdjusterPlugin.LOG_NAME,
-					cbt.getName() + ": "
-						+ (getPartyTotalExperience() / party.size()));
-			}
-			else
-			{
-				cbt.setXP(cbt.getXP() + getCombatantExperience(cbt));
-				LogUtilities.inst().logMessage(
-					ExperienceAdjusterPlugin.LOG_NAME,
-					cbt.getName() + ": " + getCombatantExperience(cbt));
-			}
-		}
+		IntStream.range(0, party.size())
+		         .mapToObj(i -> ((ExperienceListItem) party.get(i)).getCombatant())
+		         .forEach(cbt ->
+		         {
+			         if (expType == PreferencesExperiencePanel.EXPERIENCE_3)
+			         {
+				         cbt.setXP(cbt.getXP()
+						         + (getPartyTotalExperience() / party.size()));
+				         LogUtilities.inst().logMessage(
+						         ExperienceAdjusterPlugin.LOG_NAME,
+						         cbt.getName() + ": "
+								         + (getPartyTotalExperience() / party.size())
+				         );
+			         }
+			         else
+			         {
+				         cbt.setXP(cbt.getXP() + getCombatantExperience(cbt));
+				         LogUtilities.inst().logMessage(
+						         ExperienceAdjusterPlugin.LOG_NAME,
+						         cbt.getName() + ": " + getCombatantExperience(cbt)
+				         );
+			         }
+		         });
 	}
 
 	/**
@@ -167,11 +172,9 @@ public class ExperienceAdjusterModel extends Observable
 	 */
 	void clearEnemies()
 	{
-		for (int i = 0; i < enemies.size(); i++)
-		{
-			ExperienceListItem item = (ExperienceListItem) enemies.get(i);
-			combat.remove(item.getCombatant());
-		}
+		IntStream.range(0, enemies.size())
+		         .mapToObj(i -> (ExperienceListItem) enemies.get(i))
+		         .forEach(item -> combat.remove(item.getCombatant()));
 
 		enemies.removeAllElements();
 	}
@@ -186,28 +189,21 @@ public class ExperienceAdjusterModel extends Observable
 			party.removeAllElements();
 			enemies.removeAllElements();
 
-			for (int i = 0; i < combat.size(); i++)
+			combat.stream().filter(iH -> iH instanceof Combatant).map(iH -> (Combatant) iH).forEach(cbt ->
 			{
-				InitHolder iH = combat.get(i);
-
-				if (iH instanceof Combatant)
+				if (cbt.getCombatantType().equals("PC"))
 				{
-					Combatant cbt = (Combatant) iH;
-
-					if (cbt.getCombatantType().equals("PC"))
-					{
-						party.addElement(new ExperienceListItem(cbt));
-					}
-					else if (cbt.getCombatantType().equals("Enemy"))
-					{
-						if (cbt.getStatus() == State.Dead
+					party.addElement(new ExperienceListItem(cbt));
+				}
+				else if (cbt.getCombatantType().equals("Enemy"))
+				{
+					if (cbt.getStatus() == State.Dead
 							|| cbt.getStatus() == State.Defeated)
-						{
-							enemies.addElement(new ExperienceListItem(cbt));
-						}
+					{
+						enemies.addElement(new ExperienceListItem(cbt));
 					}
 				}
-			}
+			});
 		}
 	}
 
@@ -367,12 +363,9 @@ public class ExperienceAdjusterModel extends Observable
 		else
 		{
 			partyExperience = 0;
-			for (int i = 0; i < party.size(); i++)
-			{
-				Combatant cbt =
-						((ExperienceListItem) party.get(i)).getCombatant();
-				partyExperience += getCombatantExperience(cbt);
-			}
+			IntStream.range(0, party.size())
+			         .mapToObj(i -> ((ExperienceListItem) party.get(i)).getCombatant())
+			         .forEach(cbt -> partyExperience += getCombatantExperience(cbt));
 		}
 	}
 }

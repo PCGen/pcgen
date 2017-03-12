@@ -23,6 +23,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.Collection;
+import java.util.stream.IntStream;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -409,13 +410,9 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i) instanceof ExperienceAdjusterView)
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
+		IntStream.range(0, tp.getTabCount())
+		         .filter(i -> tp.getComponentAt(i) instanceof ExperienceAdjusterView)
+		         .forEach(tp::setSelectedIndex);
 	}
 
 	/**

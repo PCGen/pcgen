@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.stream.IntStream;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -366,21 +367,20 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 */
 	private void moveRecordsUp(ActionEvent e)
 	{
-		for (int row = 0; row < m_table.getRowCount(); row++)
+		IntStream.range(0, m_table.getRowCount()).filter(row -> (row > 0) && m_table.isRowSelected(row)
+				&& !m_table.isRowSelected(row - 1)).forEach(row ->
 		{
-			if ((row > 0) && m_table.isRowSelected(row)
-				&& !m_table.isRowSelected(row - 1))
-			{
-				final String die1 = m_bag.getDie(row);
-				final String die2 = m_bag.getDie(row - 1);
-				m_bag.setDie(row - 1, die1);
-				m_bag.setDie(row, die2);
-				m_tableModel.fireTableRowsUpdated(row - 1, row);
-				m_table.getSelectionModel().addSelectionInterval(row - 1,
-					row - 1);
-				m_table.getSelectionModel().removeSelectionInterval(row, row);
-			}
-		}
+			final String die1 = m_bag.getDie(row);
+			final String die2 = m_bag.getDie(row - 1);
+			m_bag.setDie(row - 1, die1);
+			m_bag.setDie(row, die2);
+			m_tableModel.fireTableRowsUpdated(row - 1, row);
+			m_table.getSelectionModel().addSelectionInterval(
+					row - 1,
+					row - 1
+			);
+			m_table.getSelectionModel().removeSelectionInterval(row, row);
+		});
 	}
 
 	/**

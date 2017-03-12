@@ -169,18 +169,12 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		}
 		if (removedItems != null && !removedItems.isEmpty())
 		{
-			for (String d : removedItems)
-			{
-				list.add(Constants.LST_DOT_CLEAR_DOT + d);
-			}
+			removedItems.stream().map(d -> Constants.LST_DOT_CLEAR_DOT + d).forEach(list::add);
 		}
 		Collection<Description> addedItems = changes.getAdded();
 		if (addedItems != null)
 		{
-			for (Description d : addedItems)
-			{
-				list.add(d.getPCCText());
-			}
+			addedItems.stream().map(Description::getPCCText).forEach(list::add);
 		}
 		if (list.isEmpty())
 		{

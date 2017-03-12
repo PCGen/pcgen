@@ -26,9 +26,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.Reference;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
@@ -157,11 +159,10 @@ public class DeityToken extends Token
 			else if ("PANTHEONLIST".equals(subTag))
 			{
 				FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-				Set<String> pset = new TreeSet<>();
-				for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-				{
-					pset.add(indirect.get());
-				}
+				Set<String> pset = deity.getSafeSetFor(fk)
+				                        .stream()
+				                        .map(Reference::get)
+				                        .collect(Collectors.toCollection(TreeSet::new));
 				retString = StringUtil.join(pset, ", ");
 			}
 			else if ("SOURCE".equals(subTag))
