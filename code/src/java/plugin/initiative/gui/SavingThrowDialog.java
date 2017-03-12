@@ -44,8 +44,6 @@ import plugin.initiative.XMLCombatant;
  * <p>
  * Dialog class that represents a d20 saving throw.
  * </p>
- *
- *
  */
 public class SavingThrowDialog extends javax.swing.JDialog
 {

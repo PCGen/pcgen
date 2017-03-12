@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * AttackDialog.java
- *
  */
 package plugin.initiative.gui;
 
@@ -48,7 +47,6 @@ import pcgen.core.RollingMethods;
  * <p>User can enter an armor class and roll attacks.  If a vector of combatants is passed the
  * dialog displays a {@code JComboBox} which displays attackable combatants.  Changing
  * selections changes the AC value and re-calculates the attack rolls.</p>
- *
  */
 public class AttackDialog extends JDialog
 {

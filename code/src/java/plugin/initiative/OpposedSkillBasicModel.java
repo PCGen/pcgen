@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  OpposedSkillAvailableModel.java
- *
  */
 
 package plugin.initiative;
@@ -42,7 +41,6 @@ import java.util.TreeMap;
  * </p>
  * <p>
  * </p>
- *
  */
 public class OpposedSkillBasicModel extends AbstractTableModel
 {
