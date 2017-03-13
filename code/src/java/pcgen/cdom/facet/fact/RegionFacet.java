@@ -188,7 +188,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		return region;
 	}
 
-	private String getTemplateRegion(PCTemplate template)
+	private static String getTemplateRegion(PCTemplate template)
 	{
 		/*
 		 * TODO This should be made type safe to return a Region. Will require a
@@ -299,7 +299,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		return s;
 	}
 
-	private String getTemplateSubRegion(PCTemplate template)
+	private static String getTemplateSubRegion(PCTemplate template)
 	{
 		/*
 		 * TODO This should be made type safe to return a SubRegion. Will

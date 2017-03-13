@@ -186,7 +186,7 @@ public abstract class IOHandler
 	 *  
 	 * @param outFile The file to be backed up.
 	 */
-	public void createBackupForFile(File outFile)
+	public static void createBackupForFile(File outFile)
 	{
 		// Make a backup of the old file, if it exists and isn't empty
 		if (PCGenSettings.getCreatePcgBackup() && outFile.exists()
