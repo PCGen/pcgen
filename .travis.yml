@@ -1,15 +1,18 @@
 # Run tests run on travis-ci after each commit and before each merge
 
 language: java
+dist: trusty
+sudo: false
 jdk:
   - oraclejdk8
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+      - lib32z1
+      - lib32ncurses5
 script: ./gradlew clean build test compileSlowtest datatest pfinttest allReports
 
-before_install:
- - sudo apt-get update
- - sudo apt-get install lib32z1 lib32ncurses5
- - chmod +x gradlew
- 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
