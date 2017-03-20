@@ -101,7 +101,7 @@ first page
 		<xsl:param name="uses" />
 		<xsl:param name="uses.title" select="'Uses per day'" />
 		<xsl:param name="description.title" select="''"/>
-		<xsl:param name="description" />
+		<xsl:param name="description" select="''"/>
 		<xsl:param name="width" select="'wide'" />
 
 		<fo:table table-layout="fixed" width="100%" space-before="2mm" keep-together="always" border-collapse="collapse">
