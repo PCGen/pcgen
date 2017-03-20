@@ -674,7 +674,7 @@
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
 								<fo:block font-size="7pt" padding-right="2pt">
-									<xsl:value-of select="number($distance)"/>
+									<xsl:value-of select="$distance"/>
 									<xsl:value-of select="distance_unit"/>
 								</fo:block>
 							</fo:table-cell>

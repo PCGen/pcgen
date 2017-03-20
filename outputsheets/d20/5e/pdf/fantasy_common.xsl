@@ -74,7 +74,7 @@
 			</xsl:when>
 			<xsl:otherwise>
 				<!-- Call template for remaining Items -->
-				<xsl:variable name="CurrentTotal" select="$RunningTotal + ($Items[1]/quantity * $Items[1]/cost)"/>
+				<xsl:variable name="CurrentTotal" select="$RunningTotal + ($Items[1]/quantity * number($Items[1]/cost))"/>
 				<xsl:call-template name="Total">
 					<xsl:with-param name="Items" select="$Items[position()>1]"/>
 					<xsl:with-param name="RunningTotal" select="$CurrentTotal"/>
@@ -904,17 +904,17 @@
 			</fo:table-cell>
 			<fo:table-cell>
 				<fo:block text-align="right" space-before.optimum="1pt" font-size="7pt">
-					<xsl:value-of select="format-number(item/weight, '####0.0#')" />
+					<xsl:value-of select="format-number(number(item/weight), '####0.0#')" />
 					<xsl:if test="item/quantity &gt; 1">
-						<fo:inline font-size="5pt">(<xsl:value-of select="format-number(item/weight * item/quantity, '####0.0#')" />)</fo:inline>
+						<fo:inline font-size="5pt">(<xsl:value-of select="format-number(item/weight * number(item/quantity), '####0.0#')" />)</fo:inline>
 					</xsl:if>
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell>
 				<fo:block text-align="right" space-before.optimum="1pt" font-size="7pt">
-				<xsl:value-of select="format-number(item/cost, '####0.0#')" />
+				<xsl:value-of select="format-number(number(item/cost), '####0.0#')" />
 					<xsl:if test="item/quantity &gt; 1">
-						<fo:inline font-size="5pt">(<xsl:value-of select="format-number(item/cost * item/quantity, '####0.0#')" />)</fo:inline>
+						<fo:inline font-size="5pt">(<xsl:value-of select="format-number(item/cost * number(item/quantity), '####0.0#')" />)</fo:inline>
 					</xsl:if>
 				</fo:block>
 			</fo:table-cell>
@@ -976,7 +976,7 @@
 		<xsl:if test="charges &gt; 0">
 			<fo:block font-size="7pt" font-family="ZapfDingbats">
 				<xsl:call-template name="for.loop">
-					<xsl:with-param name="count" select="charges"/>
+					<xsl:with-param name="count" select="number(charges)"/>
 				</xsl:call-template>
 			</fo:block>
 		</xsl:if>
@@ -984,7 +984,7 @@
 		<xsl:if test="contains(type, 'POTION') or contains(type, 'AMMUNITION') or contains(type, 'CONSUMABLE') or contains(type, 'ALCHEMICAL') or contains(type, 'VIAL') or contains(type, 'FOOD')">
 			<fo:block font-size="7pt" font-family="ZapfDingbats">
 				<xsl:call-template name="for.loop">
-					<xsl:with-param name="count" select="quantity"/>
+					<xsl:with-param name="count" select="number(quantity)"/>
 				</xsl:call-template>
 			</fo:block>
 		</xsl:if>
