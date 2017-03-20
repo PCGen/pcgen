@@ -556,8 +556,7 @@
 		<xsl:param name="attribute"/>
 		<xsl:param name="title" />
 		<xsl:param name="deitytitle.tag"  />
-		<xsl:param name="list" />
-		<xsl:param name="name.tag" />
+        <xsl:param name="name.tag" />
 		<xsl:param name="desc.tag" />
 		<xsl:param name="alignment.tag"  />
 		<xsl:param name="domainlist.tag"  />
