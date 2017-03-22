@@ -809,7 +809,7 @@
 					<fo:table-body>
 						<fo:table-row>
 							<fo:table-cell >
-								<fo:block></fo:block>
+                                <fo:block/>
 							</fo:table-cell>
 							<fo:table-cell >
 								<fo:block>
