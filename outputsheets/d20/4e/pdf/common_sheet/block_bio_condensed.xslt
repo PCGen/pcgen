@@ -121,7 +121,7 @@
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio.title'"/>
 										</xsl:call-template>
-										<fo:block font-size="6pt"></fo:block>
+                                        <fo:block font-size="6pt"/>
 									</fo:table-cell>
 								</fo:table-row>
 								<xsl:call-template name="bio.entry">
