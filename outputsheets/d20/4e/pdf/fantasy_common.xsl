@@ -951,7 +951,7 @@
 		<xsl:variable name="label">
 			<xsl:call-template name="str:substring-after-last">
 				<xsl:with-param name="text" select="$string"/>
-				<xsl:with-param name="char" select="' '"/>
+				<xsl:with-param name="chars" select="' '"/>
 			</xsl:call-template>
 		</xsl:variable>
 
