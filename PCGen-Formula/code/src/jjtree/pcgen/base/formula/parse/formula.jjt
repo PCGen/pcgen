@@ -292,7 +292,8 @@ void primitiveExpr()
 	{
 		parenExpr()       |
 		numberExpr()      |
-		lookupExpr()
+		lookupExpr()      |
+		quotedString()
 	}
 
 void parenExpr()
