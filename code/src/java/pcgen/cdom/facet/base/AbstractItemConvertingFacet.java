@@ -312,7 +312,12 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	private Target getConstructingCachedSetFor(CharID id, S obj)
 	{
 		Map<S, Target> map = getConstructingCachedMap(id);
-		Target target = map.computeIfAbsent(obj, k -> new Target());
+		Target target = map.get(obj);
+		if (target == null)
+		{
+			target = new Target();
+			map.put(obj, target);
+		}
 		return target;
 	}
 
