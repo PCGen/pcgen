@@ -9,7 +9,7 @@
  */
 ext {
     if (System.env.BUILD_NUMBER) {
-        destAutobuildDir = '/public_html/autobuilds/'
+        destAutobuildDir = '/home/pcgen1/public_html/autobuilds/'
     } else {
         destAutobuildDir = "${buildDir}/autobuilds/"
     }
