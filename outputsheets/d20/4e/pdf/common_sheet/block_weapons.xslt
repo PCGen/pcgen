@@ -20,16 +20,11 @@
 ====================================
 ====================================-->
 	<xsl:template name="view.weapon.num">
-		<xsl:variable name="featureheight">
-			<xsl:call-template name="features.left">
-				<xsl:with-param name="features" select="/character/class_features/*"/>
-			</xsl:call-template>
-		</xsl:variable>
-		<!-- 145 is the number of mm available to weapons and features
-		 28mm is the size of a single large ranged weapon block
-		 20mm is the size of a single large weapon block
-		 24mm is the size of a single simple weapon block
-		-->
+        <!-- 145 is the number of mm available to weapons and features
+         28mm is the size of a single large ranged weapon block
+         20mm is the size of a single large weapon block
+         24mm is the size of a single simple weapon block
+        -->
 		<!-- This should be made more complicated so that it determines the
 			 size of each weapon block in turn so that a correct cumulative
 		 height can be determined -->
@@ -493,8 +488,7 @@
 						We currently allow up to 9 attack iterations
 						flurry_attacks controls how many attacks are visible on the OS.
 					-->
-					<xsl:variable name="flurrylvl" select="flurry_level"/>
-					<xsl:variable name="fab" select="to_hit"/>
+                    <xsl:variable name="fab" select="to_hit"/>
 					<xsl:variable name="fab_1" select="fab_1"/>
 					<xsl:variable name="fab_2" select="fab_2"/>
 					<xsl:variable name="fab_3" select="fab_3"/>
@@ -705,8 +699,7 @@
 		<xsl:call-template name="range.distance.thrown">
 			<xsl:with-param name="distance" select="range"/>
 			<xsl:with-param name="tohit" select="tohit"/>
-			<xsl:with-param name="damage" select="damage"/>
-		</xsl:call-template>
+        </xsl:call-template>
 	</xsl:when>
 	<xsl:otherwise/>
 </xsl:choose>
@@ -716,8 +709,7 @@
 	<xsl:template name="range.distance.thrown">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<xsl:param name="distance"/>
-		<xsl:param name="damage"/>
-		<xsl:param name="tohit" select="''"/>
+        <xsl:param name="tohit" select="''"/>
 			<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column>
@@ -859,9 +851,7 @@
 
 						<xsl:template name="range.ranged">
 								<xsl:param name="distance"/>
-								<xsl:param name="damage"/>
-								<xsl:param name="tohit" select="''"/>
-							<fo:table-cell number-columns-spanned="1">
+                            <fo:table-cell number-columns-spanned="1">
 								<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 								</xsl:call-template>

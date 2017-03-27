@@ -138,7 +138,13 @@ CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_DetectAlignment|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Track|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_SoloTactics|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat3|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat6|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat9|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat12|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat15|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat18|0
+
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Bane|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_DiscernLies|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_SecondJudgment|0
@@ -168,8 +174,12 @@ CATEGORY=Class|Inquisitor.MOD																																																			
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Slayer|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Slayer=True
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TrueJudgment|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TrueJudgment=True
 
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat3=True
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat6=True
-
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat9=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat12=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat15=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat18=True
 
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Domains|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Judgment|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorJudgements
