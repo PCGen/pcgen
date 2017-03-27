@@ -8,7 +8,7 @@
  <section name="Download Autobuild">
  <p>
  The download is split into two parts, either a full distribution with everything needed to run CDOM UI demo 
- (apart from Java: Java 6 required, Java 7 supported also) or the program patch which can be applied to an 
+ (apart from Java: Java 8 required) or the program patch which can be applied to an
  existing autobuild install to update it. Generally you can just patch your existing full distribution for each 
  autobuild and only grab the full distribution if a missing library is reported.
  </p><p>

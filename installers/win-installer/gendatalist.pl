@@ -122,7 +122,7 @@ foreach $dirname (@basedirlist)
 		next;
 	}
 
-	# Read the files under the directory that do not have have names starting with "."
+	# Read the files under the directory that do not have names starting with "."
 	$data_dir = $DATA_ROOT . $dirname;
 	opendir(DIR, $data_dir) || die "can't opendir $data_dir: $!";
 	@dirlist =  readdir(DIR);

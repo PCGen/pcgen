@@ -255,12 +255,6 @@
 	<!--		Start the character		-->
 	<xsl:template match="character">
 		<!-- calculate the number of weapons and skills on the first page -->
-		<xsl:variable name="first_page_weapon_count">
-			<xsl:call-template name="view.weapon.num"/>
-		</xsl:variable>
-		<xsl:variable name="first_page_skills_count">
-			<xsl:call-template name="view.skills.num"/>
-		</xsl:variable>
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
 			<xsl:call-template name="page.layouts"/>
 			<!--

@@ -848,7 +848,7 @@ public final class PCGVer2Creator
 			key = pcClass.getKeyName() + IOConstants.TAG_SAVE + '0';
 
 			List<? extends SpecialAbility> salist = charDisplay.getUserSpecialAbilityList(pcClass);
-			if (salist != null)
+			if (salist != null && !salist.isEmpty())
 			{
 				SpecialAbility sa = salist.get(0);
 				specials.put(pcClass.getKeyName() + IOConstants.TAG_SA + 0, sa

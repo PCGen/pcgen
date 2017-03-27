@@ -112,7 +112,7 @@
 					<fo:table-row>
 											<xsl:message>Test</xsl:message>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.header'"/></xsl:call-template>
-						<fo:table-cell></fo:table-cell>
+						<fo:table-cell/>
 						<fo:table-cell number-columns-spanned="2" border-top-width="1pt" border-left-width="0pt" border-right-width="0pt" border-bottom-width="0pt">
 							<fo:block text-align="left" space-before.optimum="4pt" line-height="4pt" font-size="5pt">
 								<xsl:text>TOTAL SKILLPOINTS: </xsl:text>
@@ -144,7 +144,7 @@
 					<fo:table-row>
 											<xsl:message>Test</xsl:message>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.header'"/></xsl:call-template>
-						<fo:table-cell></fo:table-cell>
+						<fo:table-cell/>
 						<fo:table-cell number-columns-spanned="2">
 							<fo:block font-weight="bold" font-size="8pt">
 								SKILL NAME
