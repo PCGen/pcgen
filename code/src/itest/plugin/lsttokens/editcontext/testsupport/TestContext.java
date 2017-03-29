@@ -30,14 +30,14 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 public class TestContext
 {
 
-	private final Map<URI, List<String>> map = new HashMap<>();
+	private Map<URI, List<String>> map = new HashMap<>();
 
 	public void putText(URI testCampaign, String[] str)
 	{
-		map.put(testCampaign, (str == null) ? null : Arrays.asList(str));
+		map.put(testCampaign, str == null ? null : Arrays.asList(str));
 	}
 
-	List<String> getText(URI cse)
+	public List<String> getText(URI cse)
 	{
 		return map.get(cse);
 	}
@@ -51,9 +51,10 @@ public class TestContext
 	 * TODO Today this is LinkedHashMap to preserve order; but that shouldn't be
 	 * necessary.
 	 */
-	private final Map<URI, CampaignSourceEntry> cm = new LinkedHashMap<>();
+	private Map<URI, CampaignSourceEntry> cm =
+            new LinkedHashMap<>();
 
-	void putCampaign(URI uri, CampaignSourceEntry testCampaign)
+	public void putCampaign(URI uri, CampaignSourceEntry testCampaign)
 	{
 		cm.put(uri, testCampaign);
 	}
@@ -63,7 +64,7 @@ public class TestContext
 		return cm.get(uri);
 	}
 
-	Set<URI> getURIs()
+	public Set<URI> getURIs()
 	{
 		return cm.keySet();
 	}

@@ -113,10 +113,12 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		CompanionList cl = fo.getCompanionList().get();
 		Map<FollowerLimit, Set<CDOMObject>> foMap = getConstructingCachedMap(
 				id, cl);
-		Set<CDOMObject> set = foMap.computeIfAbsent(
-				fo,
-				k -> new WrappedMapSet<>(IdentityHashMap.class)
-		);
+		Set<CDOMObject> set = foMap.get(fo);
+		if (set == null)
+		{
+			set = new WrappedMapSet<>(IdentityHashMap.class);
+			foMap.put(fo, set);
+		}
 		set.add(cdo);
 	}
 
@@ -190,8 +192,12 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 			componentMap = new HashMap<>();
 			setCache(id, componentMap);
 		}
-		Map<FollowerLimit, Set<CDOMObject>> foMap =
-				componentMap.computeIfAbsent(cl, k -> new IdentityHashMap<>());
+		Map<FollowerLimit, Set<CDOMObject>> foMap = componentMap.get(cl);
+		if (foMap == null)
+		{
+			foMap = new IdentityHashMap<>();
+			componentMap.put(cl, foMap);
+		}
 		return foMap;
 	}
 
