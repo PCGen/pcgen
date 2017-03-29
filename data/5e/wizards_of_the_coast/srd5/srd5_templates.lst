@@ -288,3 +288,12 @@ two daggers					VISIBLE:NO	KIT:1|two daggers
 two shortswords				VISIBLE:NO	KIT:1|two shortswords
 shortbow and quiver of 20 arrows	VISIBLE:NO	KIT:3|Shortbow|Quiver|20 arrows
 
+###Block - Packs
+Burglar's Pack		KIT:1|Burglar's Pack		VISIBLE:NO
+Diplomat's Pack		KIT:1|Diplomat's Pack		VISIBLE:NO
+Dungeoneer's Pack		KIT:1|Dungeoneer's Pack		VISIBLE:NO
+Entertainer's Pack	KIT:1|Entertainer's Pack	VISIBLE:NO
+Explorer's Pack		KIT:1|Explorer's Pack		VISIBLE:NO
+Priest's Pack		KIT:1|Priest's Pack		VISIBLE:NO
+Scholar's Pack		KIT:1|Scholar's Pack		VISIBLE:NO
+
