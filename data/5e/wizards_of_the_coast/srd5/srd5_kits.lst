@@ -41,6 +41,88 @@ GEAR:Clothes (Common)
 GEAR:Belt Pouch
 GEAR:Coin (Gold)		QTY:15
 
+###Block - Packs
+STARTPACK:Burglar's Pack		EQUIPBUY:0	VISIBLE:NO	
+GEAR:backpack
+GEAR:Ball bearings (bag of 1000)
+GEAR:String (10')
+GEAR:bell
+GEAR:Candle	QTY:5
+GEAR:crowbar
+GEAR:hammer
+GEAR:Piton			QTY:10
+GEAR:Lantern (Hooded)
+GEAR:Oil (flask)		QTY:2
+GEAR:Rations (1 day)	QTY:5
+GEAR:tinderbox
+GEAR:waterskin
+GEAR:Rope (Hempen/50)
+
+STARTPACK:Diplomat's Pack		EQUIPBUY:0	VISIBLE:NO
+GEAR:chest
+GEAR:Case (Map or Scroll)	QTY:2
+GEAR:Clothes (Fine)
+GEAR:Ink (1 ounce bottle)
+GEAR:ink pen
+GEAR:lamp
+GEAR:Oil (flask)		QTY:2
+GEAR:Paper (one sheet)	QTY:5
+GEAR:Perfume (vial)
+GEAR:sealing wax
+GEAR:soap
+
+STARTPACK:Dungeoneer's Pack		EQUIPBUY:0	VISIBLE:NO
+GEAR:backpack
+GEAR:crowbar
+GEAR:hammer
+GEAR:Piton	QTY:10
+GEAR:Torch	QTY:10
+GEAR:tinderbox
+GEAR:Rations (1 day)		QTY:10
+GEAR:waterskin
+GEAR:Rope (Hempen/50)
+
+STARTPACK:Entertainer's Pack		EQUIPBUY:0	VISIBLE:NO
+GEAR:backpack
+GEAR:bedroll
+GEAR:Clothes (Costume)	QTY:2
+GEAR:Candle	QTY:5
+GEAR:Rations (1 day)	QTY:5
+GEAR:waterskin
+GEAR:disguise kit
+
+STARTPACK:Explorer's Pack		EQUIPBUY:0	VISIBLE:NO
+GEAR:backpack
+GEAR:bedroll
+GEAR:mess kit
+GEAR:tinderbox
+GEAR:Torch	QTY:10
+GEAR:Rations (1 day)	QTY:10
+GEAR:waterskin
+GEAR:Rope (Hempen/50)
+
+STARTPACK:Priest's Pack			EQUIPBUY:0	VISIBLE:NO
+GEAR:backpack
+GEAR:blanket
+GEAR:Candle	QTY:10
+GEAR:tinderbox
+GEAR:alms box
+GEAR:Block of Incense	QTY:2
+GEAR:censer
+GEAR:vestments
+GEAR:Rations (1 day)	QTY:2
+GEAR:waterskin
+
+STARTPACK:Scholar's Pack		EQUIPBUY:0	VISIBLE:NO
+GEAR:backpack
+GEAR:book of lore
+GEAR:Ink (1 ounce bottle)
+GEAR:ink pen
+GEAR:Parchment (one sheet)	QTY:10
+GEAR:little bag of sand
+GEAR:small knife
+
+
 STARTPACK:Holy Symbol (Amulet)	EQUIPBUY:0
 GEAR:Holy Symbol (Amulet)
 STARTPACK:Holy Symbol (Emblem)	EQUIPBUY:0
