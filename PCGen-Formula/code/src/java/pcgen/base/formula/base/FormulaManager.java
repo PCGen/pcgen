@@ -17,8 +17,8 @@
  */
 package pcgen.base.formula.base;
 
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.util.TypedKey;
+import pcgen.base.formula.inst.ScopeInstanceFactory;
 
 /**
  * A FormulaManager exists as compound object to simplify those things that

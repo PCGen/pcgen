@@ -168,10 +168,7 @@ public class ArgFunction implements Function
 				manager.get(ArgumentDependencyManager.KEY);
 		if (argManager != null)
 		{
-			/*
-			 * TODO What if not present probably an error since it's a REAL dependency...
-			 * (unlike ignoring it in Semantics)
-			 */
+			//TODO What if not present - probably an error since it's a REAL dependency... (unlike ignoring it in Semantics)
 			argManager.addArgument(argNum);
 		}
 		visitor.visit((SimpleNode) masterArgs[argNum], manager);

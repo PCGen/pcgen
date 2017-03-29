@@ -31,7 +31,6 @@ import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
@@ -49,7 +48,6 @@ import pcgen.base.util.FormatManager;
  * consider items as represented by a given "VariableID", whereas the DynamicSolverManager
  * will build and manage the associated Solver for that VariableID.
  */
-@SuppressWarnings("PMD.TooManyMethods")
 public class DynamicSolverManager implements SolverManager
 {
 
@@ -134,6 +132,16 @@ public class DynamicSolverManager implements SolverManager
 	 * question (item is "in" the VariableID). The key here being that there is the
 	 * ability to have a local variable (e.g. Equipment variable).
 	 */
+	/**
+	 * Defines a new Variable that requires solving in this DynamicSolverManager. The
+	 * Variable, identified by the given VariableID, will be of the format of the given
+	 * Class.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
+	 * @param varID
+	 *            The VariableID used to identify the Solver to be built
+	 */
 	@Override
 	public <T> void createChannel(VariableID<T> varID)
 	{
@@ -147,6 +155,22 @@ public class DynamicSolverManager implements SolverManager
 		solveFromNode(varID);
 	}
 
+	/**
+	 * Adds a Modifier (with the given source object) to the Solver identified by the
+	 * given VariableID.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
+	 * @param varID
+	 *            The VariableID for which a Modifier should be added to the responsible
+	 *            Solver
+	 * @param modifier
+	 *            The Modifier to be added to the Solver for the given VariableID
+	 * @param source
+	 *            The source of the Modifier to be added to the Solver
+	 * @throws IllegalArgumentException
+	 *             if any of the parameters is null
+	 */
 	@Override
 	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
@@ -189,47 +213,6 @@ public class DynamicSolverManager implements SolverManager
 			source, varID.getFormatManager().getManagedClass());
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
-		addDirectDependencies(varID, fdm);
-		addDynamicDependencies(varID, fdm);
-		//Cast above effectively enforced here
-		solver.addModifier(modifier, source);
-		/*
-		 * Solve this solver and anything that requires it (recursively)
-		 */
-		solveFromNode(varID);
-	}
-
-	private <T> void addDynamicDependencies(VariableID<T> varID, DependencyManager fdm)
-	{
-		DynamicManager dd = fdm.get(DependencyManager.DYNAMIC);
-		for (DynamicDependency dep : dd.getDependencies())
-		{
-			VariableID<?> controlVar = dep.getControlVar();
-			VarScoped vs = (VarScoped) resultStore.get(controlVar);
-			if (vs == null)
-			{
-				throw new IllegalArgumentException(
-					"Cannot initialize Dynamic Edge of format "
-						+ controlVar.getFormatManager()
-						+ " because no default was provided for that format");
-			}
-			List<VariableID<?>> inputs = dep.generateSources(formulaManager.getFactory(),
-				formulaManager.getScopeInstanceFactory(), vs);
-			for (VariableID<?> input : inputs)
-			{
-				@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
-				DefaultDirectionalGraphEdge<VariableID<?>> edge =
-						new DefaultDirectionalGraphEdge<>(input, varID);
-				dependencies.addEdge(edge);
-				@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
-				DynamicEdge de = new DynamicEdge(controlVar, edge, dep);
-				dynamic.addEdge(de);
-			}
-		}
-	}
-
-	private <T> void addDirectDependencies(VariableID<T> varID, DependencyManager fdm)
-	{
 		for (VariableID<?> depID : fdm.getVariables())
 		{
 			ensureSolverExists(depID);
@@ -239,9 +222,42 @@ public class DynamicSolverManager implements SolverManager
 			 */
 			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 			DefaultDirectionalGraphEdge<VariableID<?>> edge =
-					new DefaultDirectionalGraphEdge<>(depID, varID);
+					new DefaultDirectionalGraphEdge<VariableID<?>>(depID, varID);
 			dependencies.addEdge(edge);
 		}
+		DynamicManager dd = fdm.get(DependencyManager.DYNAMIC);
+		for (DynamicDependency dep : dd.getDependencies())
+		{
+			VariableID<?> controlVar = dep.getControlVar();
+			if (!VarScoped.class
+				.isAssignableFrom(controlVar.getFormatManager().getManagedClass()))
+			{
+				throw new IllegalArgumentException(
+					"Request to add Dynamic Dependency to Solver based on " + controlVar
+						+ " but that variable cannot be VarScoped");
+			}
+			VarScoped vs = (VarScoped) resultStore.get(controlVar);
+			if (vs == null)
+			{
+				throw new IllegalArgumentException(
+					"Cannot initialize Dynamic Edge of format "
+						+ controlVar.getFormatManager()
+						+ " because no default was provided for that format");
+			}
+			VariableID<?> variableID =
+					dep.generateSourceVarID(formulaManager.getScopeInstanceFactory(), vs);
+			DefaultDirectionalGraphEdge<VariableID<? extends Object>> edge =
+					new DefaultDirectionalGraphEdge<>(variableID, varID);
+			DynamicEdge de = new DynamicEdge(dep.getControlVar(), edge, dep);
+			dynamic.addEdge(de);
+			dependencies.addEdge(de.getTargetEdge());
+		}
+		//Cast above effectively enforced here
+		solver.addModifier(modifier, source);
+		/*
+		 * Solve this solver and anything that requires it (recursively)
+		 */
+		solveFromNode(varID);
 	}
 
 	private void ensureSolverExists(VariableID<?> varID)
@@ -262,6 +278,28 @@ public class DynamicSolverManager implements SolverManager
 		return solver;
 	}
 
+	/**
+	 * Removes a Modifier (with the given source object) from the Solver identified by the
+	 * given VariableID.
+	 * 
+	 * For this to have any effect, the combination of Modifier and source must be the
+	 * same (as defined by .equals() equality) as a combination provided to the
+	 * addModifier method for the given VariableID.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
+	 * @param varID
+	 *            The VariableID for which a Modifier should be removed from the
+	 *            responsible Solver
+	 * @param modifier
+	 *            The Modifier to be removed from the Solver identified by the given
+	 *            VariableID
+	 * @param source
+	 *            The source object for the Modifier to be removed from the Solver
+	 *            identified by the given VariableID
+	 * @throws IllegalArgumentException
+	 *             if any of the parameters is null
+	 */
 	@Override
 	public <T> void removeModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
@@ -395,12 +433,11 @@ public class DynamicSolverManager implements SolverManager
 		}
 		VarScoped vs = (VarScoped) resultStore.get(varID);
 		ScopeInstanceFactory siFactory = formulaManager.getScopeInstanceFactory();
-		VariableLibrary varLibrary = formulaManager.getFactory();
 		for (DynamicEdge edge : dynamic.getAdjacentEdges(varID))
 		{
 			DefaultDirectionalGraphEdge<VariableID<?>> target = edge.getTargetEdge();
-			DynamicEdge newEdge = edge.createReplacement(varLibrary, siFactory, vs,
-				target.getNodeAt(1));
+			DynamicEdge newEdge =
+					edge.createReplacement(siFactory, vs, target.getNodeAt(1));
 			DefaultDirectionalGraphEdge<VariableID<?>> newTarget =
 					newEdge.getTargetEdge();
 			dynamic.removeEdge(edge);
@@ -410,13 +447,19 @@ public class DynamicSolverManager implements SolverManager
 			}
 			dynamic.removeNode(target);
 			dependencies.removeEdge(target);
-			dependencies.addEdge(newTarget);
 			dynamic.addEdge(newEdge);
 			solveFromNode(newTarget.getNodeAt(1));
 		}
 	}
 
-	@Override
+	/**
+	 * Triggers Solvers to be called, recursively through the dependencies, from the
+	 * children of the given VariableID.
+	 * 
+	 * @param varID
+	 *            The VariableID for which the children will be used as a starting point
+	 *            for triggering Solvers to be processed
+	 */
 	public void solveChildren(VariableID<?> varID)
 	{
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> adjacentEdges =
@@ -462,7 +505,21 @@ public class DynamicSolverManager implements SolverManager
 		return !newValue.equals(oldValue);
 	}
 
-	@Override
+	/**
+	 * Provides a List of ProcessStep objects identifying how the current value of the
+	 * variable identified by the given VariableID has been calculated.
+	 * 
+	 * The ProcessStep objects are provided in the order of operations, with the first
+	 * object in the list being the first step in the derivation.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
+	 * @param varID
+	 *            The VariableID for which the List of ProcessStep objects should be
+	 *            returned.
+	 * @return The List of ProcessStep objects identifying how the current value of the
+	 *         variable identified by the given VariableID has been calculated
+	 */
 	public <T> List<ProcessStep<T>> diagnose(VariableID<T> varID)
 	{
 		@SuppressWarnings("unchecked")
@@ -477,7 +534,12 @@ public class DynamicSolverManager implements SolverManager
 		return solver.diagnose(evalManager);
 	}
 
-	@Override
+	/**
+	 * Returns the Default Value (in the underlying SolverFactory) for the given Variable
+	 * Format.
+	 * 
+	 * @return The Default Value for the given Variable Format.
+	 */
 	public <T> T getDefaultValue(Class<T> varFormat)
 	{
 		return solverFactory.getDefault(varFormat);

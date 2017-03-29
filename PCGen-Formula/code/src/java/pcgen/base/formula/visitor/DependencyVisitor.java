@@ -21,6 +21,8 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
 import pcgen.base.formula.parse.ASTExpon;
@@ -225,7 +227,26 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 */
 	public void visitVariable(String varName, DependencyManager manager)
 	{
-		manager.addVariable(varName);
+		VariableID<?> id = getVariableID(varName, manager);
+		if (id != null)
+		{
+			manager.addVariable(id);
+		}
+	}
+
+	/**
+	 * Returns the VariableID for the given variable name using the information provided
+	 * in the given DependencyManager.
+	 * 
+	 * @return the VariableID for the given variable name using the information provided
+	 *         in the given DependencyManager
+	 */
+	public VariableID<?> getVariableID(String varName, DependencyManager manager)
+	{
+		VariableLibrary varLib =
+				manager.get(DependencyManager.FMANAGER).getFactory();
+		return varLib.getVariableID(manager.get(DependencyManager.INSTANCE),
+			varName);
 	}
 
 	/**
