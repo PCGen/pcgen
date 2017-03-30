@@ -34,7 +34,7 @@ Poisonous Cloak				EQMOD:CLOTH	TYPE:Magic.Wondrous.Cursed.Cloak					COST:0	WT:1	
 Potion of Poison				TYPE:Magic.Potion.Cursed						COST:0			SOURCEPAGE:p.349																																																																																																									SPROP:1d3 Con per round for 6 rounds, DC 14 Fort negates.
 Ring of Clumsiness			TYPE:Magic.Ring.Cursed							COST:0			SOURCEPAGE:p.349																BONUS:MISC|SPELLFAILURE|20																																			BONUS:STAT|DEX|-4																																																SPROP:Acts as Ring of Featherfall
 Ring of Lifebleed				TYPE:Magic.Ring.Cursed							COST:0			SOURCEPAGE:p.349																																																																																																									SPROP:Each time wearer is hit, he takes and additional 1d4 point of damage.
-Ring of Spell Devouring			TYPE:Magic.Ring.Cursed							COST:0			SOURCEPAGE:p.349																BONUS:MISC|SPELLFAILURE|25														BONUS:SITUATION|Spellcraft=Spellcraft (Counterspell)|-4
+Ring of Spell Devouring			TYPE:Magic.Ring.Cursed							COST:0			SOURCEPAGE:p.349																BONUS:MISC|SPELLFAILURE|25														BONUS:SITUATION|Spellcraft=Counterspell|-4
 Ring of Truth.MOD																		SOURCEPAGE:p.349
 Riot Pipes.MOD																		SOURCEPAGE:p.349
 Robe of Powerlessness			TYPE:Magic.Wondrous.Cursed.Robe					COST:0	WT:1		SOURCEPAGE:p.350																																																							BONUS:STAT|STR|-10	BONUS:STAT|WIS|-10|PRECLASS:1,Cleric=1,Druid=1,Inquisitor=1,Paladin=1,Ranger=1	BONUS:STAT|CHA|-10|Bard,Oracle,Summoner,Sorceror	BONUS:STAT|INT|-10|PRECLASS:1,Alchemist=1,Barbarian=1,Cavalier=1,Fighter=1,Monk=1,Magus=1,Rogue=1,Wizard=1,Witch=1
