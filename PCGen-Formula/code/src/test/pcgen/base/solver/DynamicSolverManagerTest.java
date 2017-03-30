@@ -26,7 +26,6 @@ import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.TrainingStrategy;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
@@ -49,9 +48,7 @@ import pcgen.base.util.TypedKey;
 
 public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 {
-	private ManagerFactory managerFactory = new ManagerFactory()
-	{
-	};
+	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private DynamicSolverManager manager;
 	private LimbManager limbManager;
 	public static final TypedKey<ScopeInstanceFactory> SIFACTORY = new TypedKey<>();
@@ -208,9 +205,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		getManager().addModifier(active, useFingers, source);
 
 		assertEquals(10, store.get(result));
-
+		
 		getManager().removeModifier(result, dynamicMod, source);
-
+		
 		assertEquals(0, store.get(result));
 	}
 
@@ -350,88 +347,31 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 
 		@Override
-		public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager em)
+		public Object evaluate(EvaluateVisitor visitor, Node[] args,
+			EvaluationManager manager)
 		{
-			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, em);
-			FormulaManager fManager = em.get(EvaluationManager.FMANAGER);
+			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, manager);
+			FormulaManager fManager = manager.get(EvaluationManager.FMANAGER);
 			ScopeInstanceFactory siFactory = fManager.getScopeInstanceFactory();
 			ScopeInstance scopeInst = siFactory.get("LIMB", vs);
 			//Rest of Equation
 			return args[1].jjtAccept(visitor,
-				em.getWith(EvaluationManager.INSTANCE, scopeInst));
+				manager.getWith(EvaluationManager.INSTANCE, scopeInst));
 		}
 
 		@Override
-		public void getDependencies(DependencyVisitor visitor, DependencyManager dm,
+		public void getDependencies(DependencyVisitor visitor, DependencyManager manager,
 			Node[] args)
 		{
+			FormulaManager fManager = manager.get(DependencyManager.FMANAGER);
 			String varName = ((SimpleNode) args[0]).getText();
 			String name = ((SimpleNode) args[1]).getText();
-			TrainingStrategy ts = new TrainingStrategy();
-			DependencyManager trainer = dm.getWith(DependencyManager.VARSTRATEGY, ts);
-			visitor.visitVariable(varName, trainer);
-			DynamicDependency dd = new DynamicDependency(ts.getControlVar(), "LIMB");
-			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, dd);
-			visitor.visitVariable(name, dynamic);
-			dm.get(DependencyManager.DYNAMIC).addDependency(dd);
+			VariableID<?> varID = visitor.getVariableID(varName, manager);
+			DynamicDependency dd =
+					new DynamicDependency(fManager.getFactory(), varID, "LIMB", name);
+			manager.get(DependencyManager.DYNAMIC).addDependency(dd);
 		}
+
 	}
 
-	public void testAnother()
-	{
-		ScopeInstance source = getGlobalScopeInst();
-		LegalScope globalScope = getGlobalScope();
-
-		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
-		getScopeLibrary().registerScope(limbScope);
-
-		getVarLibrary().assertLegalVariableID("LocalVar", limbScope, numberManager);
-		getVarLibrary().assertLegalVariableID("ResultVar", globalScope, numberManager);
-		getVarLibrary().assertLegalVariableID("EquipVar", globalScope, limbManager);
-
-		WriteableVariableStore store = getVariableStore();
-
-		VariableID<Limb> activeID = (VariableID<Limb>) getVarLibrary()
-			.getVariableID(getGlobalScopeInst(), "EquipVar");
-		VariableID<Number> resultID = (VariableID<Number>) getVarLibrary()
-			.getVariableID(getGlobalScopeInst(), "ResultVar");
-
-		Limb equip = limbManager.convert("EquipKey");
-		ScopeInstance equipInst = getScopeInstance("LIMB", equip);
-		Limb equipalt  = limbManager.convert("EquipAlt");
-		ScopeInstance altInst = getScopeInstance("LIMB", equipalt);
-
-		VariableID<Number> equipID =
-				(VariableID<Number>) getVarLibrary().getVariableID(equipInst, "LocalVar");
-		VariableID<Number> altID =
-				(VariableID<Number>) getVarLibrary().getVariableID(altInst, "LocalVar");
-
-		AbstractModifier<Number> two = AbstractModifier.setNumber(2, 5);
-		AbstractModifier<Number> three = AbstractModifier.setNumber(3, 10);
-		AbstractModifier<Number> four = AbstractModifier.setNumber(4, 15);
-		AbstractModifier<Limb> useEquip = AbstractModifier.setObject(equip, 3);
-		AbstractModifier<Limb> useAlt = AbstractModifier.setObject(equipalt, 5);
-
-		manager.addModifier(equipID, two, equipInst);
-		manager.addModifier(altID, three, altInst);
-		assertEquals(2, store.get(equipID));
-		assertEquals(3, store.get(altID));
-		//assertEquals(0, store.get(resultID));
-
-		manager.addModifier(activeID, useEquip, source);
-
-		getFunctionLibrary().addFunction(new Dynamic());
-		ComplexNEPFormula<Number> dynamicformula =
-				new ComplexNEPFormula<Number>("dynamic(equipVar, localVar)");
-		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
-
-		manager.addModifier(resultID, dynamicMod, source);
-		assertEquals(2, store.get(resultID));
-
-		manager.addModifier(activeID, useAlt, source);
-		assertEquals(3, store.get(resultID));
-
-		manager.addModifier(altID, four, altInst);
-		assertEquals(4, store.get(resultID));
-	}
 }

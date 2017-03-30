@@ -15,8 +15,6 @@
  */
 package pcgen.base.solver;
 
-import java.util.List;
-
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 
@@ -86,43 +84,4 @@ public interface SolverManager
 	 */
 	public <T> void removeModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source);
-
-	/**
-	 * Provides a List of ProcessStep objects identifying how the current value of the
-	 * variable identified by the given VariableID has been calculated.
-	 * 
-	 * The ProcessStep objects are provided in the order of operations, with the first
-	 * object in the list being the first step in the derivation.
-	 * 
-	 * @param <T>
-	 *            The format (class) of object contained by the given VariableID
-	 * @param varID
-	 *            The VariableID for which the List of ProcessStep objects should be
-	 *            returned.
-	 * @return The List of ProcessStep objects identifying how the current value of the
-	 *         variable identified by the given VariableID has been calculated
-	 */
-	public <T> List<ProcessStep<T>> diagnose(VariableID<T> varID);
-
-	/**
-	 * Returns the Default Value (in the underlying SolverFactory) for the given Variable
-	 * Format.
-	 * 
-	 * @param varFormat
-	 *            The variable format for which the default value should be returned
-	 * @param <T>
-	 *            The format for which the default value should be returned
-	 * @return The Default Value for the given Variable Format.
-	 */
-	public <T> T getDefaultValue(Class<T> varFormat);
-
-	/**
-	 * Triggers Solvers to be called, recursively through the dependencies, from the
-	 * children of the given VariableID.
-	 * 
-	 * @param varID
-	 *            The VariableID for which the children will be used as a starting point
-	 *            for triggering Solvers to be processed
-	 */
-	public void solveChildren(VariableID<?> varID);
 }

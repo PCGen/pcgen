@@ -120,6 +120,16 @@ public class AggressiveSolverManager implements SolverManager
 	 * question (item is "in" the VariableID). The key here being that there is the
 	 * ability to have a local variable (e.g. Equipment variable).
 	 */
+	/**
+	 * Defines a new Variable that requires solving in this AggressiveSolverManager. The
+	 * Variable, identified by the given VariableID, will be of the format of the given
+	 * Class.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
+	 * @param varID
+	 *            The VariableID used to identify the Solver to be built
+	 */
 	@Override
 	public <T> void createChannel(VariableID<T> varID)
 	{
@@ -133,6 +143,22 @@ public class AggressiveSolverManager implements SolverManager
 		solveFromNode(varID);
 	}
 
+	/**
+	 * Adds a Modifier (with the given source object) to the Solver identified by the
+	 * given VariableID.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
+	 * @param varID
+	 *            The VariableID for which a Modifier should be added to the responsible
+	 *            Solver
+	 * @param modifier
+	 *            The Modifier to be added to the Solver for the given VariableID
+	 * @param source
+	 *            The source of the Modifier to be added to the Solver
+	 * @throws IllegalArgumentException
+	 *             if any of the parameters is null
+	 */
 	@Override
 	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
@@ -212,6 +238,28 @@ public class AggressiveSolverManager implements SolverManager
 		return solver;
 	}
 
+	/**
+	 * Removes a Modifier (with the given source object) from the Solver identified by the
+	 * given VariableID.
+	 * 
+	 * For this to have any effect, the combination of Modifier and source must be the
+	 * same (as defined by .equals() equality) as a combination provided to the
+	 * addModifier method for the given VariableID.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
+	 * @param varID
+	 *            The VariableID for which a Modifier should be removed from the
+	 *            responsible Solver
+	 * @param modifier
+	 *            The Modifier to be removed from the Solver identified by the given
+	 *            VariableID
+	 * @param source
+	 *            The source object for the Modifier to be removed from the Solver
+	 *            identified by the given VariableID
+	 * @throws IllegalArgumentException
+	 *             if any of the parameters is null
+	 */
 	@Override
 	public <T> void removeModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
@@ -322,7 +370,14 @@ public class AggressiveSolverManager implements SolverManager
 		}
 	}
 
-	@Override
+	/**
+	 * Triggers Solvers to be called, recursively through the dependencies, from the
+	 * children of the given VariableID.
+	 * 
+	 * @param varID
+	 *            The VariableID for which the children will be used as a starting point
+	 *            for triggering Solvers to be processed
+	 */
 	public void solveChildren(VariableID<?> varID)
 	{
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> adjacentEdges =
@@ -368,7 +423,21 @@ public class AggressiveSolverManager implements SolverManager
 		return !newValue.equals(oldValue);
 	}
 
-	@Override
+	/**
+	 * Provides a List of ProcessStep objects identifying how the current value of the
+	 * variable identified by the given VariableID has been calculated.
+	 * 
+	 * The ProcessStep objects are provided in the order of operations, with the first
+	 * object in the list being the first step in the derivation.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
+	 * @param varID
+	 *            The VariableID for which the List of ProcessStep objects should be
+	 *            returned.
+	 * @return The List of ProcessStep objects identifying how the current value of the
+	 *         variable identified by the given VariableID has been calculated
+	 */
 	public <T> List<ProcessStep<T>> diagnose(VariableID<T> varID)
 	{
 		@SuppressWarnings("unchecked")
@@ -383,7 +452,12 @@ public class AggressiveSolverManager implements SolverManager
 		return solver.diagnose(evalManager);
 	}
 
-	@Override
+	/**
+	 * Returns the Default Value (in the underlying SolverFactory) for the given Variable
+	 * Format.
+	 * 
+	 * @return The Default Value for the given Variable Format.
+	 */
 	public <T> T getDefaultValue(Class<T> varFormat)
 	{
 		return solverFactory.getDefault(varFormat);
