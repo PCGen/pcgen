@@ -100,6 +100,12 @@ CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlineFeat9|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlineFeat12|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlineFeat15|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlineFeat18|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower1|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower4|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower8|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower12|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower16|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower20|0
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_Bloodline|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_Bloodline=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_Bloodrage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_Bloodrage=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_FastMovement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_FastMovement=True
@@ -117,6 +123,12 @@ CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|B
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlineFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlineFeat12=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlineFeat15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlineFeat15=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlineFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlineFeat18=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower1=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower4=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower8=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower12=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower16=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower20=True
 
 
 
