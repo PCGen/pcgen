@@ -69,6 +69,10 @@ Bribery		KEY:Rogue Smuggler ~ Bribery		CATEGORY:Special Ability	TYPE:SpecialQual
 Conceal Item	KEY:Rogue Smuggler ~ Conceal Item	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueTrapfinding							DESC:You add half your level on Sleight of Hand checks (minimum +1). You can use Sleight of Hand to conceal a small item in a container or room, such as the false bottom of a chest or beneath floorboards. Anyone attempting to find an item concealed by you makes a Perception check opposed by your Sleight of Hand check made when you concealed the object.																											BONUS:SKILL|Sleight of Hand|max(RogueLvl/2,1)									SOURCEPAGE:p.23
 Distraction		KEY:Rogue Smuggler ~ Distraction	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueEvasion								DESC:You can use patter and body language to deflect searchers from hidden items. You may make a Bluff check opposed by a searcher's Perception check when a searcher looks for items you have concealed. If the your Bluff check succeeds, the searcher must make a second Perception check and take the lower of the two rolls.																																																	SOURCEPAGE:p.23
 
+###Block: Swashbuckler Finesse and Slashing Grace Support
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Cutlass|TOHIT|DEX|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Cutlass|TOHIT|-STR|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
+
 #
 # End
 #
