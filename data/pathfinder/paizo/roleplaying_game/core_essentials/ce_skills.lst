@@ -241,16 +241,45 @@ Appraise.MOD			SITUATION:Giant subtype
 Perception.MOD			SITUATION:sight-based
 
 
+Acrobatics.MOD			SITUATION:Maintain Balance
 Acrobatics.MOD			SITUATION:on the ground
-Intimidate.MOD			SITUATION:Demoralize
-Diplomacy.MOD			SITUATION:Dromites
-Use Magic Device.MOD		SITUATION:activate item
+Appraise.MOD			SITUATION:Gems
+Bluff.MOD				SITUATION:fool someone
+Bluff.MOD				SITUATION:Using voice
+Climb.MOD				SITUATION:With spider legs
+Climb.MOD				SITUATION:Without Rope
 Diplomacy.MOD			SITUATION:Aberrations
 Diplomacy.MOD			SITUATION:Demons
-Intimidate.MOD			SITUATION:Demons
-Spellcraft.MOD			SITUATION:Identity magic item
+Diplomacy.MOD			SITUATION:Dromites
 Diplomacy.MOD			SITUATION:Undead
+Diplomacy.MOD			SITUATION:Using voice
+Diplomacy.MOD			SITUATION:Wild Empathy
 Disable Device.MOD		SITUATION:Traps
+Disable Device.MOD		SITUATION:Unlock Door
+Disguise.MOD			SITUATION:As animal of different species
+Disguise.MOD			SITUATION:As specific animal of same species
+Handle Animal.MOD			SITUATION:Train Animal
+Intimidate.MOD			SITUATION:Demons
+Intimidate.MOD			SITUATION:Demoralize
+Perception.MOD			SITUATION:At night
+Perception.MOD			SITUATION:Avoid Surprise
+Perception.MOD			SITUATION:Find Secret Doors
+Perception.MOD			SITUATION:See Through Disguise 
+Sleight of Hand.MOD		SITUATION:Pick pockets of stunned or disabled victims
+Spellcraft.MOD			SITUATION:Counterspell
+Spellcraft.MOD			SITUATION:Identity magic item
+Stealth.MOD				SITUATION:In jungles
+Stealth.MOD				SITUATION:On plains
+Stealth.MOD				SITUATION:In urban environments
+Stealth.MOD				SITUATION:While still
+Survival.MOD			SITUATION:Find Fresh Water
+Survival.MOD			SITUATION:In water
+Survival.MOD			SITUATION:Jungles
+Survival.MOD			SITUATION:Plains
+Survival.MOD			SITUATION:Swamps
+Survival.MOD			SITUATION:Undergrowth
+Swim.MOD				SITUATION:Completely Underwater
+Use Magic Device.MOD		SITUATION:activate item
 
 ###Block: Inner Sea World Guide
 # Skill Name		Situational Skill
@@ -266,9 +295,9 @@ Sense Motive.MOD		SITUATION:Resist feint
 Handle Animal.MOD		SITUATION:Horse
 Ride.MOD			SITUATION:Horse
 
-
-
-
+###Book of the Damned vol 2
+Disguise.MOD		SITUATION:Inhabiting a corpse
+Escape Artist.MOD		SITUATION:Not inhabiting a corpse
 
 
 
