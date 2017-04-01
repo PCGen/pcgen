@@ -516,3 +516,6 @@ FUNDS:gp	QTY:10*roll("4d4")
 STARTPACK:Starting gold ~ Wizard	VISIBLE:NO	
 FUNDS:gp	QTY:10*roll("4d4")
 
+STARTPACK:Spellbook ~ Wizard			EQUIPBUY:0	VISIBLE:NO
+GEAR:Spellbook ~ Wizard			QTY:1	LOCATION:Equipped
+
