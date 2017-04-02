@@ -512,16 +512,16 @@ CATEGORY=Special Ability|Unchained Rogue ~ Finesse Training.MOD	BONUS:ABILITYPOO
 
 ###Block:
 # Ability Name									Bonus Ability Pool
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,1|PREVAREQ:Rogue_CF_RogueTalent2,1
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,2|PREVAREQ:Rogue_CF_RogueTalent4,1
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,3|PREVAREQ:Rogue_CF_RogueTalent6,1
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,4|PREVAREQ:Rogue_CF_RogueTalent8,1
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,5|PREVAREQ:Rogue_CF_RogueTalent10,1
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,6|PREVAREQ:Rogue_CF_RogueTalent12,1
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,7|PREVAREQ:Rogue_CF_RogueTalent14,1
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,8|PREVAREQ:Rogue_CF_RogueTalent16,1
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,9|PREVAREQ:Rogue_CF_RogueTalent18,1
-CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,10|PREVAREQ:Rogue_CF_RogueTalent20,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,2|PREVAREQ:Rogue_CF_RogueTalent2,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,4|PREVAREQ:Rogue_CF_RogueTalent4,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,6|PREVAREQ:Rogue_CF_RogueTalent6,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,8|PREVAREQ:Rogue_CF_RogueTalent8,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,10|PREVAREQ:Rogue_CF_RogueTalent10,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,12|PREVAREQ:Rogue_CF_RogueTalent12,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,14|PREVAREQ:Rogue_CF_RogueTalent14,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,16|PREVAREQ:Rogue_CF_RogueTalent16,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,18|PREVAREQ:Rogue_CF_RogueTalent18,1
+CATEGORY=Special Ability|Unchained Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Unchained Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,20|PREVAREQ:Rogue_CF_RogueTalent20,1
 
 
 ###Block: Rogue Talents
