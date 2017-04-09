@@ -1925,8 +1925,8 @@ Fury of a Single Blade					KEY:Mobile Knife ~ Fury of a Single Blade		CATEGORY:S
 Returning Knives						KEY:Mobile Knife ~ Returning Knives			CATEGORY:Special Ability	TYPE:MarksmanClassFeatures.SpecialQuality.Supernatural																																										DESC:When maintaining psionic focus, your thrown daggers and xephyr knives are treated as having the returning special ability.  In addition, you can expend your psionic focus when making a ranged attack with a dagger to use that same weapon for all attacks on your turn, rather than having to wait for the dagger to return.																																																																																																SOURCEPAGE:p.341
 
 Shot on the Run						KEY:Mobile Knife ~ Shot on the Run Bonus Feat	CATEGORY:Special Ability	TYPE:MobileKnifeBonusFeat														PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Mobile Knife ~ Shot on the Run Bonus Feat],[!PREABILITY:1,CATEGORY=FEAT,Shot on the Run]																																																																																																																													ABILITY:FEAT|AUTOMATIC|Shot on the Run
-# NEEDS CODE/LOTS OF DATA WORK: "Feat with Point Blank Shot as a prerequisite" not enforced
-Feat with Point Blank Shot as Prerequisite	KEY:Mobile Knife ~ PBS Prereq Feat			CATEGORY:Special Ability	TYPE:MobileKnifeBonusFeat						PREABILITY:1,CATEGORY=FEAT,Shot on the Run																																																																																																																																																																			BONUS:FEAT|POOL|1
+# NEEDS CODE/LOTS OF DATA WORK: "Feat with Point-Blank Shot as a prerequisite" not enforced
+Feat with Point-Blank Shot as Prerequisite	KEY:Mobile Knife ~ PBS Prereq Feat			CATEGORY:Special Ability	TYPE:MobileKnifeBonusFeat						PREABILITY:1,CATEGORY=FEAT,Shot on the Run																																																																																																																																																																			BONUS:FEAT|POOL|1
 
 
 ###Block: Psion archetypes
