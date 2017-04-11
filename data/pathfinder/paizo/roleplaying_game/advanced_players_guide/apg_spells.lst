@@ -286,6 +286,8 @@ Strong Jaw.MOD																									TEMPBONUS:EQ|Natural;Unarmed|WEAPON|DAMAG
 Weapon of Awe.MOD																									TEMPBONUS:EQ|Weapon|WEAPON|DAMAGE|2|TYPE=Sacred
 Wrathful Mantle.MOD																								TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Resistance
 Gravity Bow.MOD																									TEMPBONUS:EQ|Weapon,Ranged|WEAPON|DAMAGESIZE|1|TYPE=Temporary
+Aspect of the Falcon.MOD		TEMPBONUS:ANYPC|VAR|TempBonus_AspectOfTheFalcon|1
+
 
 Threefold Aspect (Young Adult)	PRESPELL:1,Threefold Aspect																	TEMPBONUS:ANYPC|STAT|DEX,CON|2|TYPE=Enhancement	TEMPBONUS:PC|STAT|WIS|-2
 Threefold Aspect (Adulthood)		PRESPELL:1,Threefold Aspect																	TEMPBONUS:ANYPC|STAT|WIS,INT|2|TYPE=Enhancement	TEMPBONUS:PC|STAT|DEX|-2
