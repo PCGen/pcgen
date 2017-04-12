@@ -29,11 +29,50 @@ import pcgen.base.util.TypedKey;
 /**
  * A DependencyManager is a class to capture Formula dependencies.
  * 
- * In order to capture specific dependencies, a specific dependency should be
- * loaded into this DependencyManager.
+ * In order to capture specific dependencies, a specific dependency should be loaded into
+ * this DependencyManager.
  */
 public class DependencyManager
 {
+
+	/**
+	 * A TypedKey used for storing the FormulaManager contained in this DependencyManager
+	 */
+	public static final TypedKey<FormulaManager> FMANAGER =
+			new TypedKey<FormulaManager>();
+
+	/**
+	 * A TypedKey used for storing the ScopeInstance contained in this DependencyManager
+	 */
+	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<ScopeInstance>();
+
+	/**
+	 * A TypedKey used for storing the Format currently asserted for the formula served by
+	 * this DependencyManager
+	 */
+	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
+
+	/**
+	 * A TypedKey used for storing the dynamic variables for the formula served by this
+	 * DependencyManager.
+	 */
+	public static final TypedKey<DynamicManager> DYNAMIC = new TypedKey<DynamicManager>();
+
+	private static final VariableStrategy BASE_STRATEGY = new StaticStrategy();
+
+	/**
+	 * A TypedKey used for storing the (static) Variables contained in this DependencyManager.
+	 */
+	public static final TypedKey<ArrayList<VariableID<?>>> VARIABLES =
+			new TypedKey<ArrayList<VariableID<?>>>();
+
+	/**
+	 * A TypedKey used for determining how encountered variables are processed. This can
+	 * be a VariableStrategy that simply provides static behavior, or one that is aware of
+	 * dynamic variables.
+	 */
+	public static final TypedKey<VariableStrategy> VARSTRATEGY =
+			new TypedKey<VariableStrategy>();
 
 	/**
 	 * The underlying map for this DependencyManager that contains the target objects.
@@ -46,8 +85,9 @@ public class DependencyManager
 	public DependencyManager()
 	{
 		map.put(VARIABLES, new ArrayList<>());
+		map.put(VARSTRATEGY, BASE_STRATEGY);
 	}
-	
+
 	/**
 	 * Constructs a new DependencyManager object with the provided map used to initialize
 	 * the underlying map for the DependencyManager.
@@ -94,63 +134,31 @@ public class DependencyManager
 		return (value == null) ? key.getDefaultValue() : key.cast(value);
 	}
 
-	private static final TypedKey<ArrayList<VariableID<?>>> VARIABLES =
-			new TypedKey<ArrayList<VariableID<?>>>();
-
 	/**
-	 * A TypedKey used for storing the FormulaManager contained in this
-	 * DependencyManager
-	 */
-	public static final TypedKey<FormulaManager> FMANAGER =
-			new TypedKey<FormulaManager>();
-
-	/**
-	 * A TypedKey used for storing the ScopeInstance contained in this
-	 * DependencyManager
-	 */
-	public static final TypedKey<ScopeInstance> INSTANCE =
-			new TypedKey<ScopeInstance>();
-
-	/**
-	 * A TypedKey used for storing the Format currently asserted for the formula
-	 * served by this DependencyManager
-	 */
-	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
-
-	/**
-	 * A TypedKey used for storing the dynamic dependencies for the formula
-	 * served by this DependencyManager.
-	 */
-	public static final TypedKey<DynamicManager> DYNAMIC = new TypedKey<DynamicManager>();
-
-	/**
-	 * Adds a Variable (identified by the VariableID) to the list of
-	 * dependencies for a Formula.
+	 * Adds a Variable (identified by the VariableID) to the list of dependencies for a
+	 * Formula.
 	 * 
-	 * @param varID
-	 *            The VariableID to be added as a dependency of the Formula this
+	 * @param varName
+	 *            The name of the variable to be added as a dependency of the Formula this
 	 *            VariableDependencyManager represents
 	 */
-	public void addVariable(VariableID<?> varID)
+	public void addVariable(String varName)
 	{
-		ArrayList<VariableID<?>> vars = get(VARIABLES);
-		vars.add(Objects.requireNonNull(varID));
+		get(VARSTRATEGY).addVariable(this, varName);
 	}
 
 	/**
 	 * Returns a non-null list of VariableID objects that identify the list of
 	 * dependencies of the Formula this VariableDependencyManager represents.
 	 * 
-	 * Ownership of the returned List is transferred to the calling Object. The
-	 * contents of the List will not be modified as a result of the
-	 * VariableDependencyManager maintaining or otherwise transferring a
-	 * reference to the List to another object (and the
-	 * VariableDependencyManager cannot be modified if the returned list is
+	 * Ownership of the returned List is transferred to the calling Object. The contents
+	 * of the List will not be modified as a result of the VariableDependencyManager
+	 * maintaining or otherwise transferring a reference to the List to another object
+	 * (and the VariableDependencyManager cannot be modified if the returned list is
 	 * modified).
 	 * 
 	 * @return A non-null list of VariableID objects that identify the list of
-	 *         dependencies of the Formula this VariableDependencyManager
-	 *         represents
+	 *         dependencies of the Formula this VariableDependencyManager represents
 	 */
 	public List<VariableID<?>> getVariables()
 	{
