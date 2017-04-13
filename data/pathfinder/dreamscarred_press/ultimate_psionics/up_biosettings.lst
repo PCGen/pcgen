@@ -1,6 +1,6 @@
 # CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
-
+AGESET:0|Young
 AGESET:1|Adult
 RACENAME:Blue%		CLASS:Barbarian,Rogue,Sorcerer,TYPE=Intuitive[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger,TYPE=Self-Taught[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard,TYPE=Trained[BASEAGEADD:2d6]
 RACENAME:Blue%		SEX:Male[BASEHT:46|HTDIEROLL:2d4|BASEWT:40|WTDIEROLL:1d1|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:34|HTDIEROLL:2d4|BASEWT:35|WTDIEROLL:1d1|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]
