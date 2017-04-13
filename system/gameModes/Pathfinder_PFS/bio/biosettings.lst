@@ -1,0 +1,5 @@
+AGESET:0|Young		BONUS:STAT|DEX|2	BONUS:STAT|STR,CON,WIS|-2
+AGESET:1|Adult
+AGESET:2|Middle-Aged	BONUS:VAR|Stat_Age_Physical|-1	BONUS:VAR|Stat_Age_Mental|1
+AGESET:3|Old		BONUS:VAR|Stat_Age_Physical|-3	BONUS:VAR|Stat_Age_Mental|2
+AGESET:4|Venerable	BONUS:VAR|Stat_Age_Physical|-6	BONUS:VAR|Stat_Age_Mental|3

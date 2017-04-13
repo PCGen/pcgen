@@ -1,6 +1,15 @@
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 AGESET:0|Young
+RACENAME:Kitsune%		BASEAGE:8
+RACENAME:Nagaji%		BASEAGE:10
+RACENAME:Samsaran%	BASEAGE:30
+RACENAME:Tengu%		BASEAGE:8
+RACENAME:Wayang%		BASEAGE:20
+
+
+
+
 AGESET:1|Adult
 RACENAME:Kitsune%		CLASS:Barbarian,Oracle,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Cavalier,Fighter,Gunslinger,Paladin,Ranger,Summoner,Witch[BASEAGEADD:1d6]|Alchemist,Cleric,Druid,Inquisitor,Magi,Monk,Wizard[BASEAGEADD:2d6]
 RACENAME:Kitsune%		SEX:Male[BASEHT:58|HTDIEROLL:2d8|BASEWT:100|WTDIEROLL:5d1|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d8|BASEWT:85|WTDIEROLL:5d1|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]
