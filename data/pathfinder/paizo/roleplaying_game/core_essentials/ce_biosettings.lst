@@ -1,5 +1,5 @@
 
-AGESET:0|Child
+AGESET:0|Young		BONUS:STAT|DEX|2	BONUS:STAT|STR,CON,WIS|-2
 
 AGESET:1|Adult
 RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]
