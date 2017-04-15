@@ -1,0 +1,6 @@
+# Wed Apr 12 17:23:26 2017 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 1$ $Author: Axxroy$ -- Sun Feb 26 13:49 2017 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Treasury of the Pharaohs	SOURCESHORT:TotP	SOURCEWEB:http://www.makeyourgamelegendary.com/	SOURCEDATE:2015-04
+
+# Equipment Name		Output Name		Type					Cost		Weight	Source Page		Special Property
+Poison (Asp Poison)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.8	SPROP:Injury; Fort DC 15; Freq. 1 round (6); Effect 1d2 Con damage; Cure 2 consecutive saves
