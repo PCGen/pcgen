@@ -15,6 +15,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import pcgen.base.formula.inst.ScopeInstanceFactory;
@@ -29,7 +31,7 @@ import pcgen.base.formula.inst.ScopeInstanceFactory;
  * you have to resolve one variable to know the absolute location of the variable to draw
  * upon).
  */
-public class DynamicDependency
+public class DynamicDependency implements VariableStrategy
 {
 
 	/**
@@ -42,7 +44,7 @@ public class DynamicDependency
 	 * The source variable name for the dynamic dependency. Stored as the variable name
 	 * since the actual VariableID is relative to the value of controlVar.
 	 */
-	private final String sourceVarName;
+	private final List<String> sourceVarNames = new ArrayList<>();
 
 	/**
 	 * The source scope name for the dynamic dependency.
@@ -50,46 +52,84 @@ public class DynamicDependency
 	private final String sourceScopeName;
 
 	/**
-	 * The VariableLibrary used to return VariableID objects.
-	 */
-	private final VariableLibrary varLibrary;
-
-	/**
 	 * Constructs a new DynamicDependency with the given VariableLibrary, Control
 	 * Variable, and source scope name and variable name.
 	 * 
-	 * @param varLibrary
-	 *            The VariableLibrary used to return VariableID objects
 	 * @param controlVar
 	 *            The VariableID that contains the variable that controls which local
 	 *            variable scope is used to resolve the source variable name
 	 * @param sourceScopeName
 	 *            The source scope name for the dynamic dependency
-	 * @param sourceVarName
-	 *            The source variable name for the dynamic dependency
 	 */
-	public DynamicDependency(VariableLibrary varLibrary, VariableID<?> controlVar,
-		String sourceScopeName, String sourceVarName)
+	public DynamicDependency(VariableID<?> controlVar, String sourceScopeName)
 	{
-		this.varLibrary = Objects.requireNonNull(varLibrary);
+		if (!VarScoped.class
+			.isAssignableFrom(controlVar.getFormatManager().getManagedClass()))
+		{
+			throw new IllegalArgumentException(
+				"Request to add Dynamic Dependency to Solver based on " + controlVar
+					+ " but that variable cannot be VarScoped");
+		}
 		this.controlVar = Objects.requireNonNull(controlVar);
 		this.sourceScopeName = Objects.requireNonNull(sourceScopeName);
-		this.sourceVarName = Objects.requireNonNull(sourceVarName);
 	}
 
 	/**
-	 * Returns the VariableID of the source of the dynamic dependency, given the given
-	 * source object. The given ScopeInstanceFactory is used to resolve the ScopeInstance
-	 * for the given source object.
+	 * Returns a list of VariableIDs of the sources of the dynamic dependency, for the
+	 * given source object. The given ScopeInstanceFactory is used to resolve the
+	 * ScopeInstance for the given source object.
 	 * 
-	 * @return the VariableID of the source of the dynamic dependency, given the given
-	 *         source object
+	 * @param varLibrary
+	 *            The VariableLibrary used to resolve variables
+	 * @param siFactory
+	 *            The ScopeInstanceFactory used to resolve ScopeInstance objects
+	 * @param sourceObject
+	 *            The source VarScoped for the variables
+	 * @return A list of the VariableIDs of the source of the dynamic dependency, for the
+	 *         given source object
 	 */
-	public VariableID<?> generateSourceVarID(ScopeInstanceFactory siFactory,
-		VarScoped sourceObject)
+	public List<VariableID<?>> generateSources(VariableLibrary varLibrary,
+		ScopeInstanceFactory siFactory, VarScoped sourceObject)
+	{
+		ScopeInstance scopeInst = siFactory.get(sourceScopeName, sourceObject);
+		List<VariableID<?>> list = new ArrayList<>();
+		for (String sourceVarName : sourceVarNames)
+		{
+			list.add(varLibrary.getVariableID(scopeInst, sourceVarName));
+		}
+		return list;
+	}
+
+	/**
+	 * Returns a source VariableID for a specific source variable name and other parameters.
+	 * 
+	 * @param varLibrary
+	 *            The VariableLibrary used to resolve variables
+	 * @param siFactory
+	 *            The ScopeInstanceFactory used to resolve ScopeInstance objects
+	 * @param sourceObject
+	 *            The source VarScoped for the variable
+	 * @param sourceVarName
+	 *            The source variable name
+	 * @return A source VariableID for a specific source variable name based on the other
+	 *         given parameters
+	 */
+	public VariableID<?> generateSource(VariableLibrary varLibrary,
+		ScopeInstanceFactory siFactory, VarScoped sourceObject, String sourceVarName)
 	{
 		ScopeInstance scopeInst = siFactory.get(sourceScopeName, sourceObject);
 		return varLibrary.getVariableID(scopeInst, sourceVarName);
+	}
+
+	/**
+	 * Adds a source variable name to this DynamicDependency.
+	 * 
+	 * @param varName The source variable name to be added to this DynamicDependency
+	 */
+	@Override
+	public void addVariable(DependencyManager mgr, String varName)
+	{
+		sourceVarNames.add(varName);
 	}
 
 	/**
