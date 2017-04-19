@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import javax.swing.SwingUtilities;
 
 import pcgen.cdom.base.Category;
@@ -161,14 +162,16 @@ public class CharacterAbilities
                 new LinkedHashMap<>();
 		DefaultListFacade<AbilityCategoryFacade> workingActiveCategories = new DefaultListFacade<>();
 
-		for (AbilityCategoryFacade category : dataSetFacade.getAbilities().getKeys())
+		// deal with visibility
+//				updateAbilityCategoryTodo(cat);
+		dataSetFacade.getAbilities().getKeys().forEach(category ->
 		{
 			AbilityCategory cat = (AbilityCategory) category;
 
-			for (CNAbility cna : theCharacter.getPoolAbilities(cat))
+			theCharacter.getPoolAbilities(cat).forEach(cna ->
 			{
 				addCategorisedAbility(cna, workingAbilityListMap);
-			}
+			});
 
 			// deal with visibility
 			boolean visible = cat.isVisibleTo(theCharacter, View.VISIBLE_DISPLAY);
@@ -183,45 +186,40 @@ public class CharacterAbilities
 				workingActiveCategories.removeElement(cat);
 //				updateAbilityCategoryTodo(cat);
 			}
-			
+
 			if (visible)
 			{
 				adviseSelectionChangeLater(cat);
 			}
-		}
+		});
 		
 		// Update map contents
-		for (AbilityCategoryFacade category : workingAbilityListMap.keySet())
+		workingAbilityListMap.keySet().forEach(category ->
 		{
 			DefaultListFacade<AbilityFacade> workingListFacade = workingAbilityListMap.get(category);
 			DefaultListFacade<AbilityFacade> masterListFacade = abilityListMap.get(category);
 			if (masterListFacade == null)
 			{
 				abilityListMap.put(category, workingListFacade);
-			}
-			else
+			} else
 			{
 				masterListFacade.updateContentsNoOrder(workingListFacade.getContents());
 			}
 			updateAbilityCategoryTodo((AbilityCategory) category);
-		}
+		});
 		
 		Set<AbilityCategoryFacade> origCats = new HashSet<>(abilityListMap.keySet());
-		for (AbilityCategoryFacade category : origCats)
+		origCats.stream().filter(category -> !workingAbilityListMap.containsKey(category)).forEach(category ->
 		{
-			if (!workingAbilityListMap.containsKey(category))
+			if (workingActiveCategories.containsElement(category))
 			{
-				if (workingActiveCategories.containsElement(category))
-				{
-					abilityListMap.get(category).clearContents();
-				}
-				else
-				{
-					abilityListMap.remove(category);
-				}
-				updateAbilityCategoryTodo((AbilityCategory) category);
+				abilityListMap.get(category).clearContents();
+			} else
+			{
+				abilityListMap.remove(category);
 			}
-		}
+			updateAbilityCategoryTodo((AbilityCategory) category);
+		});
 		activeCategories.updateContents(workingActiveCategories.getContents());
 	}
 
@@ -319,20 +317,17 @@ public class CharacterAbilities
 			}
 			else
 			{
-				for (String choice : choices)
-				{
-					cas.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability), choice));
-				}
+				cas.addAll(choices.stream().map(choice -> new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability), choice)).collect(Collectors.toList()));
 			}
 		}
 		else
 		{
 			cas.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability)));
 		}
-		for (CNAbilitySelection sel : cas)
+		cas.forEach(sel ->
 		{
 			addElement(workingAbilityListMap, sel);
-		}
+		});
 	}
 
 	private void removeCategorisedAbility(AbilityCategory cat,

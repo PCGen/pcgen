@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -807,19 +808,13 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case DOMAIN_NAME:
-					for (String domain : pobj.getDomainNames())
-					{
-						paths.add(new TreeViewPath<>(pobj, domain));
-					}
+					paths.addAll(pobj.getDomainNames().stream().map(domain -> new TreeViewPath<>(pobj, domain)).collect(Collectors.toList()));
 					return paths;
 				case ALIGNMENT_NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj,
                             pobj.getAlignment()));
 				case PANTHEON_NAME:
-					for (String pantheon : pobj.getPantheons())
-					{
-						paths.add(new TreeViewPath<>(pobj, pantheon));
-					}
+					paths.addAll(pobj.getPantheons().stream().map(pantheon -> new TreeViewPath<>(pobj, pantheon)).collect(Collectors.toList()));
 					return paths;
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj,
