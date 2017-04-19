@@ -115,24 +115,21 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 		int totalLevels = levelFacet.getTotalLevels(id);
 		int totalHitDice = levelFacet.getMonsterLevelCount(id);
 		Map<PCTemplate, PCTemplate> newMap = new IdentityHashMap<>();
-		for (PCTemplate sourceTempl : templateFacet.getSet(id))
+		templateFacet.getSet(id).forEach(sourceTempl ->
 		{
 			List<PCTemplate> conditionalTemplates = sourceTempl
 					.getConditionalTemplates(totalLevels, totalHitDice);
-			for (PCTemplate condTempl : conditionalTemplates)
+			conditionalTemplates.forEach(condTempl ->
 			{
 				newMap.put(condTempl, sourceTempl);
-			}
-		}
+			});
+		});
 
 		// Delete items that the PC no longer has
-		for (PCTemplate a : oldSet)
+		oldSet.stream().filter(a -> !newMap.containsKey(a)).forEach(a ->
 		{
-			if (!newMap.containsKey(a))
-			{
-				remove(id, a);
-			}
-		}
+			remove(id, a);
+		});
 		//Add new items
 		for (Map.Entry<PCTemplate, PCTemplate> me : newMap.entrySet())
 		{

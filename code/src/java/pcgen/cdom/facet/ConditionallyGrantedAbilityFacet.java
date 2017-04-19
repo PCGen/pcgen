@@ -72,32 +72,26 @@ public class ConditionallyGrantedAbilityFacet extends
 						+ toRemove + " adding " + toAdd);
 			}
 		}
-		for (CNAbilitySelection cas : toRemove)
+		// Things could have changed, so we make sure
+		toRemove.stream().filter(cas -> !conditionalAbilityFacet.isQualified(id, cas) && contains(id, cas)).forEach(cas ->
 		{
-			// Things could have changed, so we make sure
-			if (!conditionalAbilityFacet.isQualified(id, cas) && contains(id, cas))
+			if (Logging.isDebugMode())
 			{
-				if (Logging.isDebugMode())
-				{
-					Logging.debugPrint("CGAF at depth " + depth + " removing "
+				Logging.debugPrint("CGAF at depth " + depth + " removing "
 						+ cas);
-				}
-				remove(id, cas);
 			}
-		}
-		for (CNAbilitySelection cas : toAdd)
+			remove(id, cas);
+		});
+		// Things could have changed, so we make sure
+		toAdd.stream().filter(cas -> conditionalAbilityFacet.isQualified(id, cas) && !contains(id, cas)).forEach(cas ->
 		{
-			// Things could have changed, so we make sure
-			if (conditionalAbilityFacet.isQualified(id, cas) && !contains(id, cas))
+			if (Logging.isDebugMode())
 			{
-				if (Logging.isDebugMode())
-				{
-					Logging.debugPrint("CGAF at depth " + depth + " adding "
+				Logging.debugPrint("CGAF at depth " + depth + " adding "
 						+ cas);
-				}
-				add(id, cas);
 			}
-		}
+			add(id, cas);
+		});
 
 		if (!toAdd.isEmpty() || !toRemove.isEmpty())
 		{

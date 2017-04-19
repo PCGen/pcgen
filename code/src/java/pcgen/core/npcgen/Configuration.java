@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Gender;
@@ -133,15 +134,8 @@ public class Configuration
 	
 	public List<AlignGeneratorOption> getAlignmentOptions()
 	{
-		final List<AlignGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof AlignGeneratorOption )
-			{
-				ret.add((AlignGeneratorOption)opt);
-			}
-		}
+		final List<AlignGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof AlignGeneratorOption).map(opt -> (AlignGeneratorOption) opt).collect(Collectors.toList());
+
 		for (final PCAlignment align : Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class))
 		{
 			boolean included = false;
@@ -166,15 +160,8 @@ public class Configuration
 	
 	public List<RaceGeneratorOption> getRaceOptions()
 	{
-		final List<RaceGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof RaceGeneratorOption )
-			{
-				ret.add((RaceGeneratorOption)opt);
-			}
-		}
+		final List<RaceGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof RaceGeneratorOption).map(opt -> (RaceGeneratorOption) opt).collect(Collectors.toList());
+
 		for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
 		{
 			final RaceGeneratorOption opt = new RaceGeneratorOption();
