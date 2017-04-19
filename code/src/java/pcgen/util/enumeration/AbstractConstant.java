@@ -27,7 +27,7 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-public abstract class AbstractConstant implements Serializable
+abstract class AbstractConstant implements Serializable
 {
 
 	private transient String _fieldName;
@@ -51,7 +51,7 @@ public abstract class AbstractConstant implements Serializable
 				}
 			} catch (IllegalAccessException e)
 			{
-				throw new IOException(e.getLocalizedMessage());
+				throw new IOException(e);
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public abstract class AbstractConstant implements Serializable
 		}
 		catch (ClassNotFoundException e)
 		{
-			throw new IOException(e.getLocalizedMessage());
+			throw new IOException(e);
 		}
 	}
 
