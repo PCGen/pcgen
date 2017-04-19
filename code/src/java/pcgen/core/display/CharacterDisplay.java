@@ -1300,7 +1300,7 @@ public class CharacterDisplay
 		return activeSpellsFacet.containsFrom(id, cdo);
 	}
 
-	public Collection<? extends CharacterSpell> getCharacterSpells(CDOMObject cdo)
+	public Collection<CharacterSpell> getCharacterSpells(CDOMObject cdo)
 	{
 		return activeSpellsFacet.getSet(id, cdo);
 	}
@@ -1569,7 +1569,7 @@ public class CharacterDisplay
 		return weaponProfFacet.getSet(id);
 	}
 
-	public List<? extends SpecialAbility> getUserSpecialAbilityList(CDOMObject source)
+	public List<SpecialAbility> getUserSpecialAbilityList(CDOMObject source)
 	{
 		return userSpecialAbilityFacet.getSet(id, source);
 	}
