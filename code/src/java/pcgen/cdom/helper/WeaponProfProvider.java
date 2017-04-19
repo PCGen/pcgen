@@ -275,8 +275,8 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 		return hasAll ^ hasIndividual;
 	}
 
-	public List<WeaponProf> getWeaponProfsInTarget(CharID id,
-			CDOMGroupRef<WeaponProf> master)
+	public static List<WeaponProf> getWeaponProfsInTarget(CharID id,
+	                                                      CDOMGroupRef<WeaponProf> master)
 	{
 		return changeProfFacet.getWeaponProfsInTarget(id, master);
 	}

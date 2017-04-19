@@ -71,7 +71,7 @@ public class VariableReport
 	 * @throws IOException If the template cannot be accessed or the file cannot be written to.
 	 * @throws TemplateException If there is an error in processing the template.
 	 */
-	public void runReport(Map<ReportFormat, String> reportNameMap)
+	public static void runReport(Map<ReportFormat, String> reportNameMap)
 		throws IOException, TemplateException
 	{
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
@@ -122,9 +122,9 @@ public class VariableReport
 	 * @throws IOException If the template cannot be accessed or the writer cannot be written to.
 	 * @throws TemplateException If there is an error in processing the template.
 	 */
-	public void outputReport(Map<String, List<VarDefine>> gameModeVarMap,
-		Map<String, Integer> gameModeVarCountMap, ReportFormat reportFormat,
-		Writer outputWriter) throws IOException, TemplateException
+	public static void outputReport(Map<String, List<VarDefine>> gameModeVarMap,
+	                                Map<String, Integer> gameModeVarCountMap, ReportFormat reportFormat,
+	                                Writer outputWriter) throws IOException, TemplateException
 	{
 		// Configuration
 		Writer file = null;

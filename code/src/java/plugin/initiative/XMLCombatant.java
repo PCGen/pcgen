@@ -647,7 +647,7 @@ public class XMLCombatant extends Combatant
 	 * @param bonus
 	 * @return A string representation of the number
 	 */
-	private String formatBonus(int bonus)
+	private static String formatBonus(int bonus)
 	{
 		if (bonus >= 0)
 		{

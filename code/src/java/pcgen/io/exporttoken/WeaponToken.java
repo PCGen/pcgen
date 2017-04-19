@@ -237,8 +237,8 @@ public class WeaponToken extends Token
 	 * @param tokenSource The original source of the export token (for error reporting.)
 	 * @return The output for the token for the weapon and character.
 	 */
-	public String getWeaponToken(PlayerCharacter pc, Equipment eq,
-		StringTokenizer aTok, String tokenSource)
+	public static String getWeaponToken(PlayerCharacter pc, Equipment eq,
+	                                    StringTokenizer aTok, String tokenSource)
 	{
 		String token = "";
 		if (aTok.hasMoreTokens())

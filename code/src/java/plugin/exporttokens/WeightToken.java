@@ -87,13 +87,13 @@ public class WeightToken extends AbstractExportToken
 		return retString;
 	}
 
-	private String getNoUnitWeight(CharacterDisplay display)
+	private static String getNoUnitWeight(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
 			display.getWeight());
 	}
 
-	private String getWeightToken(CharacterDisplay display)
+	private static String getWeightToken(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
 			display.getWeight())
