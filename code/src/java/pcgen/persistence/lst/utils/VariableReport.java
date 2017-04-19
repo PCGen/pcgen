@@ -173,26 +173,23 @@ public class VariableReport
 		// Only add those campaigns in the user's chosen folder and game mode
 		List<Campaign> allCampaigns = Globals.getCampaignList();
 		Set<Campaign> gameModeCampaigns = new HashSet<>();
-		for (Campaign campaign : allCampaigns)
+		allCampaigns.stream().filter(campaign -> campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList)).forEach(campaign ->
 		{
-			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
+			gameModeCampaigns.add(campaign);
+			campaign
+					.getSafeListFor(ListKey.FILE_PCC).forEach(fName ->
 			{
-				gameModeCampaigns.add(campaign);
-				for (CampaignSourceEntry fName : campaign
-					.getSafeListFor(ListKey.FILE_PCC))
+				URI uri = fName.getURI();
+				if (PCGFile.isPCGenCampaignFile(uri))
 				{
-					URI uri = fName.getURI();
-					if (PCGFile.isPCGenCampaignFile(uri))
+					Campaign c = Globals.getCampaignByURI(uri, false);
+					if (c != null)
 					{
-						Campaign c = Globals.getCampaignByURI(uri, false);
-						if (c != null)
-						{
-							gameModeCampaigns.add(c);
-						}
+						gameModeCampaigns.add(c);
 					}
 				}
-			}
-		}
+			});
+		});
 
 		return new ArrayList<>(gameModeCampaigns);
 	}

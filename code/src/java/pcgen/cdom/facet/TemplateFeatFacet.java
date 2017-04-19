@@ -73,10 +73,10 @@ public class TemplateFeatFacet extends
 				Collection<? extends CNAbilitySelection> result =
 						choice.driveChoice(pc);
 				choice.act(result, source, pc);
-				for (CNAbilitySelection cas : result)
+				result.forEach(cas ->
 				{
 					add(id, cas, source);
-				}
+				});
 			}
 		}
 	}

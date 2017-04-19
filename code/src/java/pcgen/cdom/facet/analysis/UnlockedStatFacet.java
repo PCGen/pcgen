@@ -62,10 +62,10 @@ public class UnlockedStatFacet extends AbstractSourcedListFacet<CharID, PCStat>
 		if (unlocked != null)
 		{
 			CharID charID = dfce.getCharID();
-			for (CDOMSingleRef<PCStat> ref : unlocked)
+			unlocked.forEach(ref ->
 			{
 				add(charID, ref.get(), cdo);
-			}
+			});
 		}
 	}
 

@@ -58,13 +58,12 @@ public class TemplateModifier
 		// (the default)
 
 		CharID id = aPC.getCharID();
-		for (PCStat stat : statFacet.getSet(id))
+		statFacet.getSet(id).forEach(stat ->
 		{
 			if (NonAbilityDisplay.isNonAbilityForObject(stat, pct))
 			{
 				mods.append(stat.getKeyName()).append(":nonability ");
-			}
-			else
+			} else
 			{
 				int statMod = BonusCalc.getStatMod(pct, stat, aPC);
 
@@ -74,7 +73,7 @@ public class TemplateModifier
 							statMod).append(' ');
 				}
 			}
-		}
+		});
 
 		Map<DamageReduction, Set<Object>> drMap = new IdentityHashMap<>();
 		CharacterDisplay display = aPC.getDisplay();

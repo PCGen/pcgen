@@ -102,23 +102,20 @@ public final class TokenStore implements PluginLoader
 	 */
 	public void addToTokenMap(LstToken newToken)
 	{
-		for (Class<? extends LstToken> tokClass : tokenTypeList)
+		tokenTypeList.stream().filter(tokClass -> tokClass.isAssignableFrom(newToken.getClass())).forEach(tokClass ->
 		{
-			if (tokClass.isAssignableFrom(newToken.getClass()))
-			{
-				Map<String, LstToken> tokenMap = getTokenMap(tokClass);
-				LstToken test = tokenMap.put(newToken.getTokenName(), newToken);
+			Map<String, LstToken> tokenMap = getTokenMap(tokClass);
+			LstToken test = tokenMap.put(newToken.getTokenName(), newToken);
 
-				if (test != null)
-				{
-					Logging.errorPrint("More than one " + tokClass.getName()
+			if (test != null)
+			{
+				Logging.errorPrint("More than one " + tokClass.getName()
 						+ " has the same token name: '"
 						+ newToken.getTokenName() + "'. " + "Classes were "
 						+ test.getClass().getName() + " and "
 						+ newToken.getClass().getName());
-				}
 			}
-		}
+		});
 	}
 
 	/**

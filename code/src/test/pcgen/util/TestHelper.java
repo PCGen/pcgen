@@ -441,10 +441,10 @@ public class TestHelper
 	public static void addType(CDOMObject cdo, String string)
 	{
 		List<String> stringList = Arrays.asList(string.split("\\."));
-		for (String s : stringList)
+		stringList.forEach(s ->
 		{
 			cdo.addToListFor(ListKey.TYPE, Type.getConstant(s));
-		}
+		});
 	}
 
 	/**

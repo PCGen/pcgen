@@ -201,7 +201,7 @@ public class TokenSupport
 			}
 		}
 		Set<CDOMSecondaryToken<? super T>> local = localTokens.getSubTokens(cl, tokenName);
-		for (CDOMSecondaryToken<? super T> token : local)
+		local.forEach(token ->
 		{
 			String[] s = token.unparse(context, cdo);
 			if (s != null)
@@ -211,7 +211,7 @@ public class TokenSupport
 					set.add(token.getTokenName() + separator + aString);
 				}
 			}
-		}
+		});
 
 		if (set.isEmpty())
 		{
