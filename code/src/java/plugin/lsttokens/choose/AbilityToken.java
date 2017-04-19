@@ -263,12 +263,12 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return CDOMObject.class;
 	}
 
-	protected String getDefaultTitle()
+	protected static String getDefaultTitle()
 	{
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<Ability> getListKey()
+	protected static AssociationListKey<Ability> getListKey()
 	{
 		return AssociationListKey.getKeyFor(ABILITY_CLASS, "CHOOSE*ABILITY");
 	}

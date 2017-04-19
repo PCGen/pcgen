@@ -108,7 +108,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 			+ ref.getLSTformat(useAny) + ']';
 	}
 
-	private <R> List<R> getList(PlayerCharacter pc, Ability a)
+	private static <R> List<R> getList(PlayerCharacter pc, Ability a)
 	{
 		// workaround for cloning issue
 		List<R> availableList = new ArrayList<>();

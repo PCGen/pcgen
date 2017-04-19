@@ -311,8 +311,8 @@ public abstract class AbstractListContext
 		}
 	}
 
-	private <T> void setAssoc(AssociatedPrereqObject assoc,
-			AssociatedPrereqObject edge, AssociationKey<T> ak)
+	private static <T> void setAssoc(AssociatedPrereqObject assoc,
+	                                 AssociatedPrereqObject edge, AssociationKey<T> ak)
 	{
 		edge.setAssociation(ak, assoc.getAssociation(ak));
 	}

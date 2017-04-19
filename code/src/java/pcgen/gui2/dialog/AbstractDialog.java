@@ -171,7 +171,7 @@ public abstract class AbstractDialog extends JDialog
 	 * {@code true} if the ok button should be set as default during init
 	 * @return {@code true} by default
 	 */
-	protected boolean shouldSetOkAsDefault()
+	protected static boolean shouldSetOkAsDefault()
 	{
 		return true;
 	}
@@ -180,17 +180,17 @@ public abstract class AbstractDialog extends JDialog
 	 * Indicate if Esc should be installed as close window (not cancel) during init
 	 * @return {@code true} by default
 	 */
-	protected boolean shouldInstallEsc()
+	protected static boolean shouldInstallEsc()
 	{
 		return true;
 	}
 
-	protected String getCancelMnKey()
+	protected static String getCancelMnKey()
 	{
 		return "in_mn_cancel"; //$NON-NLS-1$
 	}
 
-	protected String getCancelKey()
+	protected static String getCancelKey()
 	{
 		return "in_cancel"; //$NON-NLS-1$
 	}

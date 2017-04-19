@@ -294,8 +294,8 @@ public class AbilityRefChoiceSet implements
 		return returnList;
 	}
 
-	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
-		ChooseInformation<T> chooseInfo)
+	private static <T> List<String> getAvailableList(final PlayerCharacter aPC,
+	                                                 ChooseInformation<T> chooseInfo)
 	{
 		final List<String> availableList = new ArrayList<>();
 		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);

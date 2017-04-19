@@ -57,8 +57,8 @@ public class AbilitySelectionApplication implements
 		}
 	}
 
-	private <T> void applySelection(PlayerCharacter pc,
-		ChooseInformation<T> chooseInfo, CNAbility cna, String selection)
+	private static <T> void applySelection(PlayerCharacter pc,
+	                                       ChooseInformation<T> chooseInfo, CNAbility cna, String selection)
 	{
 		Ability ability = cna.getAbility();
 		T obj = chooseInfo.decodeChoice(Globals.getContext(), selection);
@@ -100,8 +100,8 @@ public class AbilitySelectionApplication implements
 		}
 	}
 
-	private <T> void removeSelection(PlayerCharacter pc,
-		ChooseInformation<T> chooseInfo, CNAbility cna, String selection)
+	private static <T> void removeSelection(PlayerCharacter pc,
+	                                        ChooseInformation<T> chooseInfo, CNAbility cna, String selection)
 	{
 		T obj = chooseInfo.decodeChoice(Globals.getContext(), selection);
 		chooseInfo.getChoiceActor().removeChoice(pc, cna, obj);

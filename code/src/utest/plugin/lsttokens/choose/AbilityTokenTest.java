@@ -95,7 +95,7 @@ public class AbilityTokenTest extends
 	@Override
 	protected String getChoiceTitle()
 	{
-		return subtoken.getDefaultTitle();
+		return AbilityToken.getDefaultTitle();
 	}
 
 	@Override

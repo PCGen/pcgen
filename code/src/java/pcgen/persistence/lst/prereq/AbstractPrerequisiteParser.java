@@ -87,7 +87,7 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 	 * @param value     The string to check.
 	 * @return  A parse result of success if the string uses separators correctly.
 	 */
-	protected ParseResult checkForIllegalSeparator(String kind, char separator, String value)
+	protected static ParseResult checkForIllegalSeparator(String kind, char separator, String value)
 	{
 		if (value.charAt(0) == separator)
 		{

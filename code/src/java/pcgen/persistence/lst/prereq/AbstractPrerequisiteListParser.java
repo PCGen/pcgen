@@ -42,7 +42,7 @@ public abstract class AbstractPrerequisiteListParser
 	implements PrerequisiteParserInterface
 {
 
-	protected void convertKeysToSubKeys(Prerequisite prereq, String kind)
+	protected static void convertKeysToSubKeys(Prerequisite prereq, String kind)
 	{
 		if (prereq == null)
 		{
@@ -402,7 +402,7 @@ public abstract class AbstractPrerequisiteListParser
 		}
 	}
 
-	private String getRequirementKey(String[] tokens)
+	private static String getRequirementKey(String[] tokens)
 	{
 		String reqKey;
 		if (tokens.length == 2)
@@ -457,7 +457,7 @@ public abstract class AbstractPrerequisiteListParser
 	 * 
 	 * @param prereq the new no need for char
 	 */
-	protected void setNoNeedForChar(Prerequisite prereq)
+	protected static void setNoNeedForChar(Prerequisite prereq)
 	{
 		if (prereq == null)
 		{
