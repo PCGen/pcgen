@@ -23,7 +23,6 @@
     <module name="JavadocVariable">
       <property name="scope" value="public"/>
     </module>
-    <module name="ConstantName"/>
     <module name="LocalFinalVariableName"/>
     <module name="LocalVariableName"/>
     <module name="MemberName"/>
