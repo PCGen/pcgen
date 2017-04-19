@@ -916,7 +916,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 	private void buildKnownPreparedSpellsForCDOMObject(CDOMObject pObject)
 	{
-		Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pObject);
+		Collection<CharacterSpell> sp = charDisplay.getCharacterSpells(pObject);
 		List<CharacterSpell> cSpells = new ArrayList<>(sp);
 
 		// Add in the spells granted by objects

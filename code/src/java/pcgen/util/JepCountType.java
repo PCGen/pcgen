@@ -212,8 +212,8 @@ public abstract class JepCountType
 		}
 
 		@Override
-		protected Set<? extends Equipment> filterSetP(final String c,
-			Collection<Equipment> coll) throws ParseException
+		protected Set<Equipment> filterSetP(final String c,
+		                                    Collection<Equipment> coll) throws ParseException
 		{
 			final String[] keyValue = c.split("=");
 
@@ -231,7 +231,7 @@ public abstract class JepCountType
 			}
 
 			final Set<Equipment> cs = new HashSet<>(coll);
-			final Iterator<? extends Equipment> it = cs.iterator();
+			final Iterator<Equipment> it = cs.iterator();
 
 			switch (en)
 			{

@@ -1890,7 +1890,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			Map<Integer, Integer> spellCountMap = new TreeMap<>();
 			int highestSpellLevel = -1;
-			Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pcClass);
+			Collection<CharacterSpell> sp = charDisplay.getCharacterSpells(pcClass);
 			List<CharacterSpell> classSpells = new ArrayList<>(sp);
 			// Add in the spells granted by objects
 			pc.addBonusKnownSpellsToList(pcClass, classSpells);
