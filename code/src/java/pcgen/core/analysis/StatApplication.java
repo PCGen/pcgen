@@ -81,8 +81,8 @@ public class StatApplication
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
 			final List<String> selectableStats = new ArrayList<>();
-	
-			for (PCStat aStat : aPC.getDisplay().getStatSet())
+
+			aPC.getDisplay().getStatSet().forEach(aStat ->
 			{
 				final StringBuilder sStats = new StringBuilder(100);
 				final int iAdjStat =
@@ -90,26 +90,25 @@ public class StatApplication
 				final int iCurStat =
 						aPC.getBaseStatFor(aStat);
 				sStats.append(aStat.getDisplayName()).append(":  ").append(iCurStat);
-	
+
 				if (iCurStat != iAdjStat)
 				{
 					sStats.append(" adjusted: ").append(iAdjStat);
 				}
-	
+
 				sStats.append(" (").append(formatter.format(
-					aPC.getStatModFor(aStat))).append(
-					")");
-	
+						aPC.getStatModFor(aStat))).append(
+						")");
+
 				if (allowStacks || !statsAlreadyBonused.contains(aStat))
 				{
 					selectableStats.add(sStats.toString());
-				}
-				else
+				} else
 				{
 					sStats.append(" * Already incremented.");
 					selectableStats.add(sStats.toString());
 				}
-			}
+			});
 	
 			CDOMChooserFacadeImpl<String> chooserFacade =
                     new CDOMChooserFacadeImpl<>(

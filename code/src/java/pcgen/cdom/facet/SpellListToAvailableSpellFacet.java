@@ -67,13 +67,10 @@ public class SpellListToAvailableSpellFacet implements
 		CDOMList<Spell> list = dfce.getCDOMObject();
 		Collection<AvailableSpell> spells =
 				masterAvailableSpellFacet.getSet(id.getDatasetID());
-		for (AvailableSpell as : spells)
+		spells.stream().filter(as -> as.getSpelllist().equals(list)).forEach(as ->
 		{
-			if (as.getSpelllist().equals(list))
-			{
-				add(id, as, this);
-			}
-		}
+			add(id, as, this);
+		});
 	}
 
 	@Override
@@ -83,13 +80,10 @@ public class SpellListToAvailableSpellFacet implements
 		CDOMList<Spell> list = dfce.getCDOMObject();
 		Collection<AvailableSpell> spells =
 				masterAvailableSpellFacet.getSet(id.getDatasetID());
-		for (AvailableSpell as : spells)
+		spells.stream().filter(as -> as.getSpelllist().equals(list)).forEach(as ->
 		{
-			if (as.getSpelllist().equals(list))
-			{
-				remove(id, as, this);
-			}
-		}
+			remove(id, as, this);
+		});
 	}
 
 	public void init()

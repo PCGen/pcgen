@@ -358,7 +358,7 @@ public class SpellSupportForPCClass
 		if (force || !spellCacheValid)
 		{
 			SpellProgressionCache cache = new SpellProgressionCache();
-			for (PCClassLevel cl : source.getOriginalClassLevelCollection())
+			source.getOriginalClassLevelCollection().forEach(cl ->
 			{
 				Integer lvl = cl.get(IntegerKey.LEVEL);
 				List<Formula> cast = cl.getListFor(ListKey.CAST);
@@ -376,7 +376,7 @@ public class SpellSupportForPCClass
 				{
 					cache.setSpecialtyKnown(lvl, spec);
 				}
-			}
+			});
 			if (!cache.isEmpty())
 			{
 				spellCache = cache;

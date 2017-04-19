@@ -239,10 +239,10 @@ public class SpellLevelChooseInformation implements
 	public Collection<SpellLevel> getSet(PlayerCharacter pc)
 	{
 		Set<SpellLevel> list = new HashSet<>();
-		for (SpellLevelInfo sli : info)
+		info.forEach(sli ->
 		{
 			list.addAll(sli.getLevels(pc));
-		}
+		});
 		return list;
 	}
 

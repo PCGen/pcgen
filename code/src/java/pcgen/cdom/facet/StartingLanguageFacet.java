@@ -68,10 +68,10 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<CharID, Lang
 		if (list != null)
 		{
 			CharID id = dfce.getCharID();
-			for (CDOMReference<Language> ref : list)
+			list.forEach(ref ->
 			{
 				addAll(id, ref.getContainedObjects(), cdo);
-			}
+			});
 		}
 	}
 

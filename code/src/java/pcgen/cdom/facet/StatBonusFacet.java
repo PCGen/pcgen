@@ -62,15 +62,15 @@ public class StatBonusFacet
 	{
 		final Map<BonusObj, PCStat> aList = new IdentityHashMap<>();
 
-		for (PCStat stat : statFacet.getSet(id))
+		statFacet.getSet(id).forEach(stat ->
 		{
 			List<BonusObj> bonuses = BonusUtilities.getBonusFromList(stat
 					.getSafeListFor(ListKey.BONUS), aType, aName);
-			for (BonusObj bonus : bonuses)
+			bonuses.forEach(bonus ->
 			{
 				aList.put(bonus, stat);
-			}
-		}
+			});
+		});
 
 		return aList;
 	}

@@ -57,17 +57,17 @@ public class SpellProhibitorFacet extends
 		PCClass pcc = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
 		Object source = dfce.getSource();
-		for (SpellProhibitor prohibit : pcc
-			.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+		pcc
+				.getSafeListFor(ListKey.PROHIBITED_SPELLS).forEach(prohibit ->
 		{
 			add(id, pcc, prohibit, source);
-		}
+		});
 
-		for (SpellProhibitor prohibit : pcc
-			.getSafeListFor(ListKey.SPELL_PROHIBITOR))
+		pcc
+				.getSafeListFor(ListKey.SPELL_PROHIBITOR).forEach(prohibit ->
 		{
 			add(id, pcc, prohibit, source);
-		}
+		});
 	}
 
 	@Override
