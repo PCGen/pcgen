@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
@@ -143,9 +144,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		if (obj instanceof ConcreteTransitionChoice)
 		{
 			ConcreteTransitionChoice<?> other = (ConcreteTransitionChoice<?>) obj;
-			if (choiceCount == other.choiceCount
-					|| (choiceCount != null && choiceCount
-							.equals(other.choiceCount)))
+			if (Objects.equals(choiceCount, choiceCount))
 			{
 				return choices.equals(other.choices);
 			}

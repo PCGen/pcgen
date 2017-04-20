@@ -24,6 +24,7 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -117,10 +118,10 @@ public class SpellProhibitor extends ConcretePrereqObject
 		}
 		SpellProhibitor other = (SpellProhibitor) o;
 		if ((type == null && other.type == null)
-				|| (type != null && type == other.type))
+				|| (Objects.equals(type, type)))
 		{
 			return (other.valueList == null && valueList == null)
-					|| valueList != null && valueList.equals(other.valueList);
+					|| Objects.equals(valueList, valueList);
 		}
 		return false;
 	}

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet.fact;
 
+import java.util.Objects;
+
 import pcgen.base.lang.ObjectUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
@@ -443,7 +445,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		RegionCacheInfo rci = getInfo(id);
 		String current = rci.cachedRegion;
 		String newRegion = getRegion(id);
-		if (current == null || !current.equals(newRegion))
+		if (!Objects.equals(current, newRegion))
 		{
 			if (current != null)
 			{
