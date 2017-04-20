@@ -26,9 +26,9 @@ Wicked Valor				CATEGORY:FEAT		TYPE:General	PREABILITY:2,CATEGORY=FEAT,Diehard,E
 ###Block: Bardic Masterpiece feats
 # Feat Name						Type			Required Class	Required Skill					Description										Source Page
 # Ability Name					Category of Ability	Type			Required Class	Required Skill					Description										Source Page
-Masterpiece (Dance of Kindled Desires)	CATEGORY:FEAT		TYPE:General	PRECLASS:1,Bard=1	PRESKILL:1,Perform (Dance)=5			DESC:You learn the masterpiece The Dance of Kindled Desires.	SOURCEPAGE:p.28
-Masterpiece (Melody of Frightful Death)	CATEGORY:FEAT		TYPE:General	PRECLASS:1,Bard=1	PRESKILL:1,Perform (String Instruments)=7	DESC:You learn the masterpiece Melody of Frightful Death.		SOURCEPAGE:p.28
-Masterpiece (Rheumy Refrain)			CATEGORY:FEAT		TYPE:General	PRECLASS:1,Bard=1	PRESKILL:1,Perform (Sing)=5			DESC:You learn the masterpiece The Rheumy Refrain.			SOURCEPAGE:p.28
+Masterpiece (Dance of Kindled Desires)	CATEGORY:FEAT		TYPE:Masterpiece	PREVARGTEQ:MasterpieceLVL,1	PRESKILL:1,Perform (Dance)=5			DESC:You learn the masterpiece The Dance of Kindled Desires.	SOURCEPAGE:p.28
+Masterpiece (Melody of Frightful Death)	CATEGORY:FEAT		TYPE:Masterpiece	PREVARGTEQ:MasterpieceLVL,1	PRESKILL:1,Perform (String Instruments)=7	DESC:You learn the masterpiece Melody of Frightful Death.		SOURCEPAGE:p.28
+Masterpiece (Rheumy Refrain)			CATEGORY:FEAT		TYPE:Masterpiece	PREVARGTEQ:MasterpieceLVL,1	PRESKILL:1,Perform (Sing)=5			DESC:You learn the masterpiece The Rheumy Refrain.			SOURCEPAGE:p.28
 
 ###Block: Modified Feats for Sorcerer Bloodlines
 # Feat Name			Type
