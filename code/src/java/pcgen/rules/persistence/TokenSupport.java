@@ -59,7 +59,6 @@ public class TokenSupport
 
 	public <T extends Loadable> boolean processToken(LoadContext context,
 		T derivative, String typeStr, String argument)
-		throws PersistenceLayerException
 	{
 		Class<T> cl = (Class<T>) derivative.getClass();
 		List<? extends CDOMToken<T>> tokenList = getTokens(cl, typeStr);

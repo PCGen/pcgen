@@ -2406,7 +2406,6 @@ final class PCGVer2Parser implements PCGParser
 	}
 
 	private void parseCharacterTypeLine(final String line)
-		throws PCGParseException
 	{
 		final StringTokenizer stok =
 				new StringTokenizer(
@@ -2427,8 +2426,7 @@ final class PCGVer2Parser implements PCGParser
 	}
 
 	private void parsePreviewSheetLine(final String line)
-			throws PCGParseException
-		{
+	{
 			final StringTokenizer stok =
 					new StringTokenizer(
 						line.substring(IOConstants.TAG_PREVIEWSHEET.length() + 1), IOConstants.TAG_END,
@@ -2463,7 +2461,6 @@ final class PCGVer2Parser implements PCGParser
 	}
 
 	private void parseExperienceTableLine(final String line)
-		throws PCGParseException
 	{
 		final StringTokenizer stok =
 				new StringTokenizer(

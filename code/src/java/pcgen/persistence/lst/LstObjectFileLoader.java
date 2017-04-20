@@ -168,7 +168,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * @throws PersistenceLayerException 
 	 */
 	public void completeObject(LoadContext context, SourceEntry source,
-		final T pObj) throws PersistenceLayerException
+		final T pObj)
 	{
 		if (!processComplete || pObj == null)
 		{

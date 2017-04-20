@@ -492,7 +492,6 @@ public abstract class JepCountType
 		// counted and get a count of all e.g. count("ABILITIES") will return a
 		// count of all abilities with no filtering at all.
 		protected Object[] validateParams(final Object[] params)
-			throws ParseException
 		{
 			Object[] p = new Object[1];
 			if (1 > params.length)
