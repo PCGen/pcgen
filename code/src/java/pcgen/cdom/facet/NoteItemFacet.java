@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.facet.base.AbstractScopeFacetConsolidator;
 import pcgen.core.NoteItem;
 
 /**
@@ -26,7 +27,7 @@ import pcgen.core.NoteItem;
  * have been added to a Player Character.
  * 
  */
-public class NoteItemFacet extends AbstractListFacet<CharID, NoteItem>
+public class NoteItemFacet extends AbstractScopeFacetConsolidator
 {
 
 }
