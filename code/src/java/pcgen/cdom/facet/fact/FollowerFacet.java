@@ -17,15 +17,13 @@
  */
 package pcgen.cdom.facet.fact;
 
-import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.base.AbstractListFacet;
-import pcgen.core.character.Follower;
+import pcgen.cdom.facet.base.AbstractScopeFacetConsolidator;
 
 /**
  * FollowerFacet tracks the list of Followers for Player Characters.
  * 
  */
-public class FollowerFacet extends AbstractListFacet<CharID, Follower>
+public class FollowerFacet extends AbstractScopeFacetConsolidator
 {
 
 }
