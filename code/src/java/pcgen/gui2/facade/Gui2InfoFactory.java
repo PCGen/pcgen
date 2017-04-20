@@ -738,7 +738,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(EquipmentFacade equipFacade)
 	{
-		if (equipFacade == null || !(equipFacade instanceof Equipment))
+		if (!(equipFacade instanceof Equipment))
 		{
 			return EMPTY_STRING;
 		}
@@ -1069,9 +1069,8 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(EquipModFacade equipModFacade, EquipmentFacade equipFacade)
 	{
-		if (equipModFacade == null
-			|| !(equipModFacade instanceof EquipmentModifier)
-			|| equipFacade == null || !(equipFacade instanceof Equipment))
+		if (!(equipModFacade instanceof EquipmentModifier)
+                || equipFacade == null || !(equipFacade instanceof Equipment))
 		{
 			return EMPTY_STRING;
 		}
@@ -1732,7 +1731,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(SpellFacade spell)
 	{
-		if (spell == null || !(spell instanceof SpellFacadeImplem))
+		if (!(spell instanceof SpellFacadeImplem))
 		{
 			return EMPTY_STRING;
 		}
@@ -1987,7 +1986,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(AbilityFacade ability)
 	{
-		if (ability == null || !(ability instanceof Ability))
+		if (!(ability instanceof Ability))
 		{
 			return EMPTY_STRING;
 		}
@@ -2008,7 +2007,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(RaceFacade raceFacade)
 	{
-		if (raceFacade == null || !(raceFacade instanceof Race))
+		if (!(raceFacade instanceof Race))
 		{
 			return EMPTY_STRING;
 		}
@@ -2027,7 +2026,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(TemplateFacade templateFacade)
 	{
-		if(templateFacade == null || !(templateFacade instanceof PCTemplate)){
+		if(!(templateFacade instanceof PCTemplate)){
 			return EMPTY_STRING;
 		}
 		try
@@ -2045,7 +2044,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(ClassFacade classFacade)
 	{
-		if(classFacade == null || !(classFacade instanceof PCClass)){
+		if(!(classFacade instanceof PCClass)){
 			return EMPTY_STRING;
 		}
 		try
@@ -2063,7 +2062,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(SkillFacade skillFacade)
 	{
-		if (skillFacade == null || !(skillFacade instanceof Skill))
+		if (!(skillFacade instanceof Skill))
 		{
 			return EMPTY_STRING;
 		}
@@ -2082,7 +2081,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(EquipmentFacade equipFacade)
 	{
-		if (equipFacade == null || !(equipFacade instanceof Equipment))
+		if (!(equipFacade instanceof Equipment))
 		{
 			return EMPTY_STRING;
 		}
@@ -2101,7 +2100,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(KitFacade kitFacade)
 	{
-		if (kitFacade == null || !(kitFacade instanceof Kit))
+		if (!(kitFacade instanceof Kit))
 		{
 			return EMPTY_STRING;
 		}
@@ -2120,7 +2119,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(DeityFacade deityFacade)
 	{
-		if(deityFacade == null || !(deityFacade instanceof Deity)){
+		if(!(deityFacade instanceof Deity)){
 			return EMPTY_STRING;
 		}
 		try
@@ -2138,7 +2137,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(DomainFacade domainFacade)
 	{
-		if(domainFacade == null || !(domainFacade instanceof DomainFacadeImpl)){
+		if(!(domainFacade instanceof DomainFacadeImpl)){
 			return EMPTY_STRING;
 		}
 		try
@@ -2160,7 +2159,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(SpellFacade spellFacade)
 	{
-		if (spellFacade == null || !(spellFacade instanceof SpellFacadeImplem))
+		if (!(spellFacade instanceof SpellFacadeImplem))
 		{
 			return EMPTY_STRING;
 		}
@@ -2184,7 +2183,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(TempBonusFacade tempBonusFacade)
 	{
-		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacadeImpl))
+		if (!(tempBonusFacade instanceof TempBonusFacadeImpl))
 		{
 			return EMPTY_STRING;
 		}
@@ -2248,7 +2247,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDomains(DeityFacade deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (!(deityFacade instanceof Deity))
 		{
 			return EMPTY_STRING;
 		}
@@ -2272,7 +2271,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getPantheons(DeityFacade deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (!(deityFacade instanceof Deity))
 		{
 			return EMPTY_STRING;
 		}
@@ -2300,7 +2299,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getFavoredWeapons(DeityFacade deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (!(deityFacade instanceof Deity))
 		{
 			return EMPTY_STRING;
 		}
@@ -2313,7 +2312,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getChoices(AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability))
+		if (!(abilityFacade instanceof Ability))
 		{
 			return EMPTY_STRING;
 		}
@@ -2359,7 +2358,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getTempBonusTarget(TempBonusFacade tempBonusFacade)
 	{
-		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacadeImpl))
+		if (!(tempBonusFacade instanceof TempBonusFacadeImpl))
 		{
 			return EMPTY_STRING;
 		}

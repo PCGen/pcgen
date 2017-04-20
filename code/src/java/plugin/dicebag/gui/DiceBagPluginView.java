@@ -168,8 +168,8 @@ public class DiceBagPluginView implements Observer
     @Override
 	public void update(Observable o, Object arg)
 	{
-		if ((o != null) && o instanceof DiceBagPluginModel && (arg != null)
-			&& arg instanceof DiceBagMessage)
+		if (o instanceof DiceBagPluginModel && (arg != null)
+                && arg instanceof DiceBagMessage)
 		{
 			DiceBagMessage msg = (DiceBagMessage) arg;
 

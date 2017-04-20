@@ -69,6 +69,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * The Class {@code EquipmentSetFacadeImpl} is an implementation of
  * the EquipmentSetFacade interface for the new user interface. It handles 
@@ -653,7 +655,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 		// Create equip set for the item
 		String id;
-		if ((beforeNode != null) && (beforeNode instanceof EquipNodeImpl))
+		if ((beforeNode instanceof EquipNodeImpl))
 		{
 			id =
 					shiftEquipSetsDown(parentEs, (EquipNodeImpl) beforeNode,
@@ -1540,7 +1542,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	protected EquipNode getNaturalWeaponLoc(EquipmentFacade equipment)
 	{
-		if (!(equipment instanceof Equipment) || (equipment == null))
+		if (!(equipment instanceof Equipment))
 		{
 			return null;
 		}

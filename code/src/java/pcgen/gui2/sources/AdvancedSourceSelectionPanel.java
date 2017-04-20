@@ -328,7 +328,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				if (selectedRow != -1)
 				{
 					final Object data = availableTable.getModel().getValueAt(selectedRow, 0);
-					if (data != null && data instanceof CampaignFacade)
+					if (data instanceof CampaignFacade)
 					{
 						setSelectedCampaign((CampaignFacade) data);
 					}
@@ -340,7 +340,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				if (selectedRow != -1)
 				{
 					final Object data = selectedTable.getModel().getValueAt(selectedRow, 0);
-					if (data != null && data instanceof CampaignFacade)
+					if (data instanceof CampaignFacade)
 					{
 						setSelectedCampaign((CampaignFacade) data);
 					}

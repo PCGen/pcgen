@@ -83,7 +83,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	@Override
 	public String getHTMLInfo(CampaignFacade campaign)
 	{
-		if (campaign == null || !(campaign instanceof Campaign))
+		if (!(campaign instanceof Campaign))
 		{
 			return "";
 		}
@@ -258,7 +258,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder(selection.toString());
 		for (CampaignFacade campaign : selection.getCampaigns())
 		{
-			if (campaign == null || !(campaign instanceof Campaign))
+			if (!(campaign instanceof Campaign))
 			{
 				continue;
 			}
@@ -317,7 +317,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	public String getRequirementsHTMLString(CampaignFacade campaign,
 		List<CampaignFacade> testList)
 	{
-		if (campaign == null || !(campaign instanceof Campaign))
+		if (!(campaign instanceof Campaign))
 		{
 			return "";
 		}

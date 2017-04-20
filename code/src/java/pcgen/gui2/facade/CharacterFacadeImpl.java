@@ -763,7 +763,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public Nature getAbilityNature(AbilityFacade ability)
 	{
-		if (ability == null || !(ability instanceof Ability))
+		if (!(ability instanceof Ability))
 		{
 			return null;
 		}
@@ -1244,7 +1244,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void addTempBonus(TempBonusFacade bonusFacade)
 	{
-		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl))
+		if (!(bonusFacade instanceof TempBonusFacadeImpl))
 		{
 			return;
 		}
@@ -1289,7 +1289,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void removeTempBonus(TempBonusFacade bonusFacade)
 	{
-		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl))
+		if (!(bonusFacade instanceof TempBonusFacadeImpl))
 		{
 			return;
 		}
@@ -1311,7 +1311,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setTempBonusActive(TempBonusFacade bonusFacade, boolean active)
 	{
-		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl))
+		if (!(bonusFacade instanceof TempBonusFacadeImpl))
 		{
 			return;
 		}
@@ -3638,7 +3638,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void deleteCustomEquipment(EquipmentFacade eqFacade)
 	{
-		if (eqFacade == null || !(eqFacade instanceof Equipment))
+		if (!(eqFacade instanceof Equipment))
 		{
 			return;
 		}
@@ -3794,7 +3794,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void deleteEquipmentSet(EquipmentSetFacade set)
 	{
-		if (set == null || !(set instanceof EquipmentSetFacadeImpl))
+		if (!(set instanceof EquipmentSetFacadeImpl))
 		{
 			return;
 		}
@@ -4059,7 +4059,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void addTemplate(TemplateFacade templateFacade)
 	{
-		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
+		if (!(templateFacade instanceof PCTemplate))
 		{
 			return;
 		}
@@ -4108,7 +4108,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void removeTemplate(TemplateFacade templateFacade)
 	{
-		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
+		if (!(templateFacade instanceof PCTemplate))
 		{
 			return;
 		}
@@ -4303,7 +4303,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void addKit(KitFacade obj)
 	{
-		if (obj == null || !(obj instanceof Kit))
+		if (!(obj instanceof Kit))
 		{
 			return;
 		}
@@ -4400,7 +4400,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		List<KitFacade> kits = new ArrayList<>();
 		for (KitFacade obj : dataSet.getKits())
 		{
-			if (obj == null || !(obj instanceof Kit))
+			if (!(obj instanceof Kit))
 			{
 				continue;
 			}

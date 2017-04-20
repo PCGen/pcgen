@@ -508,8 +508,8 @@ public class SpellMemToken extends Token
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		if ((aObject != null) && (cs != null) && cs.isSpecialtySpell(aPC)
-			&& (aObject instanceof PCClass))
+		if ((cs != null) && cs.isSpecialtySpell(aPC)
+                && (aObject instanceof PCClass))
 		{
 			final List<CharacterSpell> charSpells =
 					aPC.getCharacterSpells(aObject, aSpell, bookName, spellLevel);
