@@ -87,12 +87,12 @@ public class FactDefinition<T extends CDOMObject, F> extends
 	{
 		context.loadLocalToken(new FactParser<>(this));
 		Boolean required = getRequired();
-		if ((required != null) && required.booleanValue())
+		if ((required != null) && required)
 		{
 			context.loadLocalToken(new FactDefinitionEnforcer<>(this));
 		}
 		Boolean selectable = getSelectable();
-		if ((selectable != null) && selectable.booleanValue())
+		if ((selectable != null) && selectable)
 		{
 			context.loadLocalToken(new FactGroupDefinition<>(this));
 		}
@@ -134,7 +134,7 @@ public class FactDefinition<T extends CDOMObject, F> extends
 	@Override
 	public FactKey<F> getFactKey()
 	{
-		return FactKey.getConstant(getFactName(), getFormatManager());
+		return FactKey.getConstant(factName, getFormatManager());
 	}
 
 }

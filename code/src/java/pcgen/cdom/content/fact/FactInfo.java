@@ -32,7 +32,7 @@ import pcgen.cdom.enumeration.FactKey;
  * @param <F>
  *            The format of the objects stored in the Fact
  */
-public interface FactInfo<T extends CDOMObject, F>
+interface FactInfo<T extends CDOMObject, F>
 {
 
 	/**
