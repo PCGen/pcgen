@@ -17,6 +17,11 @@
  */
 package plugin.pretokens;
 
+import pcgen.core.Globals;
+import pcgen.rules.context.AbstractReferenceContext;
+
+import plugin.lsttokens.testsupport.BuildUtilities;
+
 public abstract class AbstractAlignRoundRobin extends AbstractPreRoundRobin
 {
 	public abstract String getBaseString();
@@ -36,5 +41,22 @@ public abstract class AbstractAlignRoundRobin extends AbstractPreRoundRobin
 		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":NG],[PRE"
 				+ getBaseString() + ":LG]");
 	}
+
+	static void createAllAlignments()
+	{
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("Lawful Good", "LG"));
+		ref.importObject(BuildUtilities.createAlignment("Lawful Neutral", "LN"));
+		ref.importObject(BuildUtilities.createAlignment("Lawful Evil", "LE"));
+		ref.importObject(BuildUtilities.createAlignment("Neutral Good", "NG"));
+		ref.importObject(BuildUtilities.createAlignment("True Neutral", "TN"));
+		ref.importObject(BuildUtilities.createAlignment("Neutral Evil", "NE"));
+		ref.importObject(BuildUtilities.createAlignment("Chaotic Good", "CG"));
+		ref.importObject(BuildUtilities.createAlignment("Chaotic Neutral", "CN"));
+		ref.importObject(BuildUtilities.createAlignment("Chaotic Evil", "CE"));
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
+	}
+
 
 }

@@ -23,7 +23,6 @@ import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAlignParser;
 import plugin.pretokens.writer.PreAlignWriter;
-import util.Alignment;
 
 public class PreAlignRoundRobin extends AbstractAlignRoundRobin
 {
@@ -46,7 +45,7 @@ public class PreAlignRoundRobin extends AbstractAlignRoundRobin
 		super.setUp();
 		TokenRegistration.register(new PreAlignParser());
 		TokenRegistration.register(new PreAlignWriter());
-		Alignment.createAllAlignments();
+		createAllAlignments();
 	}
 
 	public void testDeity()
