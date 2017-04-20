@@ -1,6 +1,6 @@
 # Handle line endings automatically for files detected as text
 # and leave all files detected as binary untouched.
-* text=auto
+* text=auto eol=lf
 
 #
 # The above will handle all files NOT found below
@@ -26,8 +26,6 @@
 *.gradle        text=auto
 
 # This is a Linux specific file type, and since the release is on a Windows Machine, the EOL must remain unchanged.
-pcgen.sh        eol=lf
-*.sh            eol=lf
 pcgen.bat	eol=crlf
 
 # These files are binary and should be left untouched
