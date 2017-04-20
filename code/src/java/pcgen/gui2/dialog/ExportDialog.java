@@ -499,7 +499,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 	}
 
 	private boolean printToFile(File outFile)
-			throws IOException
 	{
 		File template = getSelectedTemplate();
 

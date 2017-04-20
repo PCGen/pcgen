@@ -77,7 +77,7 @@ public class VariableLoader extends Observable
 	 * @throws PersistenceLayerException
 	 */
 	public void loadLstFiles(LoadContext context,
-		List<CampaignSourceEntry> fileList) throws PersistenceLayerException
+		List<CampaignSourceEntry> fileList)
 	{
 		// Track which sources have been loaded already
 		Set<CampaignSourceEntry> loadedFiles =

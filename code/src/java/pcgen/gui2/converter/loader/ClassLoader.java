@@ -144,7 +144,6 @@ public class ClassLoader implements Loader
 
 	private List<CDOMObject> processToken(StringBuilder sb, String firstToken, CDOMObject obj,
 			CDOMObject alt, String token, ConversionDecider decider, int line)
-			throws PersistenceLayerException, InterruptedException
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)

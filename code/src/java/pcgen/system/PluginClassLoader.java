@@ -270,7 +270,7 @@ class PluginClassLoader extends PCGenTask
 
 		private final Map<String, byte[]> classDefinitions = new HashMap<>();
 
-		private JarClassLoader(URL url) throws MalformedURLException
+		private JarClassLoader(URL url)
 		{
 			super(new URL[]
 					{

@@ -2814,7 +2814,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @throws NullPointerException 
 	 * @throws IOException If the write fails
 	 */
-	public void save() throws NullPointerException, IOException
+	public void save() throws NullPointerException
 	{
 		GameMode mode = (GameMode) dataSet.getGameMode();
 		List<CampaignFacade> campaigns = ListFacades.wrap(dataSet.getCampaigns());
