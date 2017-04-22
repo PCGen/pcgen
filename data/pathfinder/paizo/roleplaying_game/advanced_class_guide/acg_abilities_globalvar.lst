@@ -246,7 +246,7 @@ CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_PreciseCompanion|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_Track|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_HunterTactics|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_TeamworkFeats|0
-CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_ImprovedEmpatheticLink|0
+CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_ImprovedEmpathicLink|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_WoodlandStride|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_BonusTricks|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_SecondAnimalFocus|0
@@ -269,7 +269,7 @@ CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunte
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_Track|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_Track=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_HunterTactics|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_HunterTactics=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_TeamworkFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_TeamworkFeats=True
-CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_ImprovedEmpatheticLink=True
+CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_ImprovedEmpathicLink=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_WoodlandStride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_WoodlandStride=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_BonusTricks|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_BonusTricks=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_SecondAnimalFocus|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_SecondAnimalFocus=True
@@ -291,7 +291,7 @@ CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunte
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_Track|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterTrack
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_HunterTactics|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterHunterTactics
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_TeamworkFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterTeamworkFeats
-CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterImprovedEmpatheticLink
+CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterImprovedEmpathicLink
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_WoodlandStride|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterWoodlandStride
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_BonusTricks|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterBonusTricks
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_SecondAnimalFocus|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterSecondAnimalFocus
