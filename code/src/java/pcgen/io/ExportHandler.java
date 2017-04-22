@@ -2385,14 +2385,6 @@ public final class ExportHandler
 		if ("CATCHPHRASE".equals(aString.substring(1)))
 		{
 			String catchPhrase = display.getCatchPhrase();
-			if (catchPhrase.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (catchPhrase.trim().isEmpty())
-			{
-				canWrite = false;
-			}
 			return 0;
 		}
 
@@ -2400,14 +2392,6 @@ public final class ExportHandler
 		if ("LOCATION".equals(aString.substring(1)))
 		{
 			String location = display.getLocation();
-			if (location.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (location.trim().isEmpty())
-			{
-				canWrite = false;
-			}
 			return 0;
 		}
 
@@ -2415,14 +2399,6 @@ public final class ExportHandler
 		if ("RESIDENCE".equals(aString.substring(1)))
 		{
 			String residence = aPC.getSafeStringFor(PCStringKey.RESIDENCE);
-			if (residence.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (residence.trim().isEmpty())
-			{
-				canWrite = false;
-			}
 			return 0;
 		}
 
@@ -2430,14 +2406,6 @@ public final class ExportHandler
 		if ("PHOBIAS".equals(aString.substring(1)))
 		{
 			String phobias = display.getSafeStringFor(PCStringKey.PHOBIAS);;
-			if (phobias.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (phobias.trim().isEmpty())
-			{
-				canWrite = false;
-			}
 			return 0;
 		}
 
@@ -2445,11 +2413,7 @@ public final class ExportHandler
 		if ("INTERESTS".equals(aString.substring(1)))
 		{
 			String interests = display.getInterests();
-			if (interests.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (interests.trim().isEmpty())
+			if (interests.equals(Constants.NONE) || interests.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2460,11 +2424,7 @@ public final class ExportHandler
 		if ("SPEECHTENDENCY".equals(aString.substring(1)))
 		{
 			String speechTendency = display.getSpeechTendency();
-			if (speechTendency.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (speechTendency.trim().isEmpty())
+			if (speechTendency.equals(Constants.NONE) || speechTendency.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2475,11 +2435,7 @@ public final class ExportHandler
 		if ("PERSONALITY1".equals(aString.substring(1)))
 		{
 			String trait1 = display.getTrait1();
-			if (trait1.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (trait1.trim().isEmpty())
+			if (trait1.equals(Constants.NONE) || trait1.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2490,11 +2446,7 @@ public final class ExportHandler
 		if ("PERSONALITY2".equals(aString.substring(1)))
 		{
 			String trait2 = display.getTrait2();
-			if (trait2.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (trait2.trim().isEmpty())
+			if (trait2.equals(Constants.NONE) || trait2.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2504,11 +2456,8 @@ public final class ExportHandler
 		// Filter out MISC.FUNDS
 		if ("MISC.FUNDS".equals(aString.substring(1)))
 		{
-			if (aPC.getSafeStringFor(PCStringKey.ASSETS).equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if ((aPC.getSafeStringFor(PCStringKey.ASSETS)).trim().isEmpty())
+			if (aPC.getSafeStringFor(PCStringKey.ASSETS).equals(Constants.NONE)
+					|| (aPC.getSafeStringFor(PCStringKey.ASSETS)).trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2519,11 +2468,11 @@ public final class ExportHandler
 		if ("COMPANIONS".equals(aString.substring(1))
 			|| "MISC.COMPANIONS".equals(aString.substring(1)))
 		{
-			if (aPC.getSafeStringFor(PCStringKey.COMPANIONS).equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (aPC.getSafeStringFor(PCStringKey.COMPANIONS).trim().isEmpty())
+			if (aPC.getSafeStringFor(PCStringKey.COMPANIONS).equals(Constants.NONE) ||
+					aPC
+					.getSafeStringFor(PCStringKey.COMPANIONS)
+					.trim()
+					.isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2533,11 +2482,8 @@ public final class ExportHandler
 		// Filter out MISC.MAGIC
 		if ("MISC.MAGIC".equals(aString.substring(1)))
 		{
-			if (aPC.getSafeStringFor(PCStringKey.MAGIC).equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (aPC.getSafeStringFor(PCStringKey.MAGIC).trim().isEmpty())
+			if (aPC.getSafeStringFor(PCStringKey.MAGIC).equals(Constants.NONE)
+					|| aPC.getSafeStringFor(PCStringKey.MAGIC).trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2548,11 +2494,7 @@ public final class ExportHandler
 		if ("DESC".equals(aString.substring(1)))
 		{
 			String description = display.getSafeStringFor(PCStringKey.DESCRIPTION);
-			if (description.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (description.trim().isEmpty())
+			if (description.equals(Constants.NONE) || description.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2563,11 +2505,7 @@ public final class ExportHandler
 		if ("BIO".equals(aString.substring(1)))
 		{
 			String bio = display.getBio();
-			if (bio.equals(Constants.NONE))
-			{
-				canWrite = false;
-			}
-			else if (bio.trim().isEmpty())
+			if (bio.equals(Constants.NONE) || bio.trim().isEmpty())
 			{
 				canWrite = false;
 			}
