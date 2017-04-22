@@ -131,15 +131,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 					.values().iterator(); it.hasNext();)
 			{
 				Map<FollowerLimit, Set<CDOMObject>> foMap = it.next();
-				for (Iterator<Set<CDOMObject>> it2 = foMap.values().iterator(); it2
-						.hasNext();)
-				{
-					Set<CDOMObject> set = it2.next();
-					if (set.remove(source) && set.isEmpty())
-					{
-						it2.remove();
-					}
-				}
+                foMap.values().removeIf(set -> set.remove(source) && set.isEmpty());
 				if (foMap.isEmpty())
 				{
 					it.remove();

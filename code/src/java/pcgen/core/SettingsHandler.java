@@ -2622,13 +2622,8 @@ public final class SettingsHandler
 		}
 
 		// remove old filter stuff!
-		for (Iterator<Object> it = getOptions().keySet().iterator(); it.hasNext();)
-		{
-			if (((String) it.next()).startsWith("pcgen.filters.")) //$NON-NLS-1$
-			{
-				it.remove();
-			}
-		}
+        //$NON-NLS-1$
+        getOptions().keySet().removeIf(o -> ((String) o).startsWith("pcgen.filters."));
 	}
 
 	/**

@@ -1211,14 +1211,8 @@ public final class Equipment extends PObject implements Serializable,
 			altModList.removeAll(baseEquipment.getEqModifierList(false));
 		}
 
-		for (Iterator<EquipmentModifier> it = modList.iterator(); it.hasNext();)
-		{
-			EquipmentModifier eqMod = it.next();
-			if (eqMod.getSafe(ObjectKey.VISIBILITY).equals(Visibility.HIDDEN))
-			{
-				it.remove();
-			}
-		}
+		modList.removeIf(eqMod -> eqMod.getSafe(ObjectKey.VISIBILITY)
+									   .equals(Visibility.HIDDEN));
 
 		extractListFromCommon(commonList, modList);
 

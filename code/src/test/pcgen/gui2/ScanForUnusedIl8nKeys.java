@@ -121,16 +121,12 @@ public class ScanForUnusedIl8nKeys
 	 */
 	private void actionWhitelistedKeys(Set<String> missingKeys)
 	{
-		for (Iterator<String> iterator = missingKeys.iterator(); iterator.hasNext();)
-		{
-			String key = iterator.next();
-			if (key.startsWith("in_mnu") || key.startsWith("in_mn_mnu")
-				|| key.startsWith("in_EqBuilder_")
-				|| key.startsWith("PrerequisiteOperator.display"))
-			{
-				iterator.remove();
-			}
-		}
+        missingKeys.removeIf(key -> key.startsWith("in_mnu") ||
+                key.startsWith("in_mn_mnu")
+                ||
+                key.startsWith("in_EqBuilder_")
+                ||
+                key.startsWith("PrerequisiteOperator.display"));
 		
 	}
 
@@ -146,14 +142,7 @@ public class ScanForUnusedIl8nKeys
 		reader.close();
 		for (String line : lines)
 		{
-			for (Iterator<String> i = missingKeys.iterator(); i.hasNext();)
-			{
-				String key = i.next();
-				if (line.contains("\"" + key + "\""))
-				{
-					i.remove();
-				}
-			}
+            missingKeys.removeIf(key -> line.contains("\"" + key + "\""));
 			
 		}
 	}
