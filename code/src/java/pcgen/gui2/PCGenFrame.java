@@ -1442,33 +1442,27 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			}
 			else if (loadSourceSelection(sources))
 			{
-				new Thread()
+				new Thread(() ->
 				{
+                    try
+                    {
+                        sourceLoader.join();
+                        SwingUtilities.invokeLater(new Runnable()
+                        {
 
-					@Override
-					public void run()
-					{
-						try
-						{
-							sourceLoader.join();
-							SwingUtilities.invokeLater(new Runnable()
-							{
+                            @Override
+                            public void run()
+                            {
+                                CharacterManager.openParty(pcpFile, PCGenFrame.this, currentDataSetRef.get());
+                            }
 
-								@Override
-								public void run()
-								{
-									CharacterManager.openParty(pcpFile, PCGenFrame.this, currentDataSetRef.get());
-								}
-
-							});
-						}
-						catch (InterruptedException ex)
-						{
-							//Do nothing
-						}
-					}
-
-				}.start();
+                        });
+                    }
+                    catch (InterruptedException ex)
+                    {
+                        //Do nothing
+                    }
+                }).start();
 			}
 			else
 			{
