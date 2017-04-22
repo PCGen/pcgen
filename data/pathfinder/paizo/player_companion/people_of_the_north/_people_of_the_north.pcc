@@ -45,4 +45,6 @@ TEMPLATE:potn_templates.lst
 
 LANGUAGE:@/pathfinder/paizo/player_companion/dragon_empires_primer/dep_languages.lst|!PRECAMPAIGN:1,INCLUDES=Dragon Empires Primer
 LANGUAGE:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_languages.lst|!PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+SPELL:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_spells.lst|(INCLUDE:Frost Fall)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_equipmods.lst|(INCLUDE:BRONZE)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
