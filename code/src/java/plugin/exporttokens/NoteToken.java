@@ -132,7 +132,9 @@ public class NoteToken extends Token
 			{
 				String internal = beforeValue + afterValue;
 				if ("".equals(internal))
+				{
 					internal = "$1";
+				}
 				sb.append(beforeValue);
 				sb.append(ni.getValue().replaceAll("(\n)", internal));
 				sb.append(afterValue);

@@ -40,7 +40,9 @@ public final class PrerequisiteTestFactory implements PluginLoader{
 	 */
 	public static PrerequisiteTestFactory getInstance() {
 		if (instance == null)
+		{
 			instance = new PrerequisiteTestFactory();
+		}
 		return instance;
 	}
 
