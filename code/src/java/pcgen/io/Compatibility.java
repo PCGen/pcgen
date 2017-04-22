@@ -22,9 +22,8 @@ public final class Compatibility
 	{
 	}
 
-	@Nullable
-	static PCTemplate getTemplateFor(PCTemplate template,
-	                                 String templateKey, String feat)
+	static @Nullable PCTemplate getTemplateFor(PCTemplate template,
+	                                           String templateKey, String feat)
 	{
 		if (templateKey.charAt(0) == 'L')
 		{
@@ -83,8 +82,7 @@ public final class Compatibility
 		return null;
 	}
 
-	@NotNull
-	public static String getKeyFor(PCTemplate pct)
+	public static @NotNull String getKeyFor(PCTemplate pct)
 	{
 		Integer level = pct.get(IntegerKey.LEVEL);
 		StringBuilder hd = new StringBuilder();
@@ -111,8 +109,7 @@ public final class Compatibility
 		return hd.toString();
 	}
 
-	@Nullable
-	public static PersistentTransitionChoice<?> processOldAdd(
+	public static @Nullable PersistentTransitionChoice<?> processOldAdd(
 			LoadContext context, String first) throws PersistenceLayerException
 	{
 		int openParenLoc = first.indexOf('(');
