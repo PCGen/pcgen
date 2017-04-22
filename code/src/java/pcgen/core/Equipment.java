@@ -784,8 +784,8 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		// Don't allow the cost modifier to push the value further into the negatives
-		if (c1.compareTo(BigDecimal.ZERO) >= 0
-			&& c1.add(itemCost).add(costMod).compareTo(BigDecimal.ZERO) < 0)
+		if ((c1.compareTo(BigDecimal.ZERO) >= 0)
+				&& (c1.add(itemCost).add(costMod).compareTo(BigDecimal.ZERO) < 0))
 		{
 			return BigDecimal.ZERO;
 		}
@@ -1468,7 +1468,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (EquipmentModifier eqMod : getEqModifierList(true))
 		{
 			Integer max = eqMod.get(IntegerKey.MAX_CHARGES);
-			if (max != null && max > 0)
+			if ((max != null) && (max > 0))
 			{
 				return max;
 			}
@@ -1926,7 +1926,7 @@ public final class Equipment extends PObject implements Serializable,
 
 			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
 
-			if (min != null && min > 0)
+			if ((min != null) && (min > 0))
 			{
 				EqModSpellInfo.setRemainingCharges(this, eqMod,
 					remainingCharges);
@@ -1944,7 +1944,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (EquipmentModifier eqMod : getEqModifierList(true))
 		{
 			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
-			if (min != null && min > 0)
+			if ((min != null) && (min > 0))
 			{
 				return EqModSpellInfo.getRemainingCharges(this, eqMod);
 			}
@@ -2155,7 +2155,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (EquipmentModifier eqMod : getEqModifierList(true))
 		{
 			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
-			if (min != null && min > 0)
+			if ((min != null) && (min > 0))
 			{
 				return EqModSpellInfo.getUsedCharges(this, eqMod);
 			}
@@ -2340,7 +2340,7 @@ public final class Equipment extends PObject implements Serializable,
 	public String getWieldName()
 	{
 		WieldCategory wield = get(ObjectKey.WIELD);
-		return wield == null ? "" : wield.getKeyName();
+		return (wield == null) ? "" : wield.getKeyName();
 	}
 
 	/**
@@ -2440,10 +2440,12 @@ public final class Equipment extends PObject implements Serializable,
 			{
 				final String x = aTok.nextToken();
 				Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
-				if (min != null
-					&& min > 0
-					|| (eqMod.getSafe(StringKey.CHOICE_STRING).startsWith(
-						"EQBUILDER") && !isLoading))
+				if ((
+						(min != null)
+								&& (min > 0))
+						|| (
+						eqMod.getSafe(StringKey.CHOICE_STRING).startsWith(
+								"EQBUILDER") && !isLoading))
 				{
 					// We clear the associated info to avoid a buildup of info
 					// like number of charges.
@@ -2626,7 +2628,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (!bImporting)
 		{
 			boolean allRemoved = false;
-			if (selectedChoice != null && !selectedChoice.isEmpty())
+			if ((selectedChoice != null) && !selectedChoice.isEmpty())
 			{
 				if (!eqMod.getSafe(StringKey.CHOICE_STRING).startsWith(
 					"EQBUILDER."))
@@ -3140,11 +3142,11 @@ public final class Equipment extends PObject implements Serializable,
 		int result = 1;
 		String displayName = getDisplayName();
 		result =
-				prime * result
-					+ ((displayName == null) ? 0 : displayName.hashCode());
+				(prime * result)
+						+ ((displayName == null) ? 0 : displayName.hashCode());
 		result =
-				prime * result
-					+ ((modifiedName == null) ? 0 : modifiedName.hashCode());
+				(prime * result)
+						+ ((modifiedName == null) ? 0 : modifiedName.hashCode());
 		return result;
 	}
 
@@ -3711,12 +3713,12 @@ public final class Equipment extends PObject implements Serializable,
 			put(ObjectKey.WEIGHT, eq.getWeightAdjustedForSize(pc, newSize));
 			adjustACForSize(pc, eq, newSize);
 			String dam = eq.getDamageAdjustedForSize(newSize, true);
-			if (dam != null && !dam.isEmpty())
+			if ((dam != null) && !dam.isEmpty())
 			{
 				getEquipmentHead(1).put(StringKey.DAMAGE, dam);
 			}
 			String adam = eq.getDamageAdjustedForSize(newSize, false);
-			if (adam != null && !adam.isEmpty())
+			if ((adam != null) && !adam.isEmpty())
 			{
 				getEquipmentHead(2).put(StringKey.DAMAGE, adam);
 			}
@@ -3728,7 +3730,7 @@ public final class Equipment extends PObject implements Serializable,
 			{
 				double mult = 1.0;
 
-				if (newSize != null && pc != null)
+				if ((newSize != null) && (pc != null))
 				{
 					mult =
 							pc.getSizeBonusTo(newSize, "ITEMCAPACITY", eq
@@ -3830,7 +3832,9 @@ public final class Equipment extends PObject implements Serializable,
 	private String toString(final boolean addCharges)
 	{
 		if (isDirty()
-			|| (cachedNameWithCharges == null && cachedNameWithoutCharges == null))
+				|| (
+				(cachedNameWithCharges == null) && (
+						cachedNameWithoutCharges == null)))
 		{
 			// If we have modified the equipment details with
 			// respect to the name then rebuid the names
@@ -3921,8 +3925,8 @@ public final class Equipment extends PObject implements Serializable,
 				new StringBuilder(getChildCount() * 20);
 
 		// Make sure there's no bug here.
-		if (pc != null && acceptsChildren()
-			&& (getContainedWeight(pc, true) >= 0.0f))
+		if ((pc != null) && acceptsChildren()
+				&& (getContainedWeight(pc, true) >= 0.0f))
 		{
 			tempStringBuilder.append(
 				Globals.getGameModeUnitSet().displayWeightInUnitSet(
@@ -3963,7 +3967,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		if (isWeapon())
 		{
-			if (aPC != null && EqToken.getOldBonusedCritRange(aPC, this, true) == 0)
+			if ((aPC != null) && (EqToken.getOldBonusedCritRange(aPC, this, true) == 0))
 			{
 				getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 			}
@@ -4301,7 +4305,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String modDesc =
 					eqMod.getSafe(ObjectKey.NAME_OPT).returnName(this, eqMod);
-			if (sMod.length() > 0 && !modDesc.isEmpty())
+			if ((sMod.length() > 0) && !modDesc.isEmpty())
 			{
 				sMod.append('/');
 			}
@@ -4547,7 +4551,7 @@ public final class Equipment extends PObject implements Serializable,
 			double mult = 1.0;
 			final SizeAdjustment currSA = baseEq.getSafe(ObjectKey.SIZE).get();
 
-			if ((newSA != null) && aPC != null)
+			if ((newSA != null) && (aPC != null))
 			{
 				mult =
 						aPC
@@ -4643,9 +4647,11 @@ public final class Equipment extends PObject implements Serializable,
 	{
 
 		BigDecimal weightCap = get(ObjectKey.CONTAINER_WEIGHT_CAPACITY);
-		return weightCap != null
-			&& (Capacity.UNLIMITED.equals(weightCap) || (aFloat + getContainedWeight(aPC)) <= weightCap
-				.doubleValue());
+		return (weightCap != null)
+				&& (
+				Capacity.UNLIMITED.equals(weightCap) || (
+						(aFloat + getContainedWeight(aPC)) <= weightCap
+								.doubleValue()));
 	}
 
 	/**
@@ -4788,7 +4794,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		Capacity totalCap = get(ObjectKey.TOTAL_CAPACITY);
 		BigDecimal capValue =
-				totalCap == null ? BigDecimal.ZERO : totalCap.getCapacity();
+				(totalCap == null) ? BigDecimal.ZERO : totalCap.getCapacity();
 
 		if (getChildType("Total") == null)
 		{
@@ -4809,9 +4815,10 @@ public final class Equipment extends PObject implements Serializable,
 				{
 					if (capType.equalsIgnoreCase(aType))
 					{
-						if (containsChildType(aType)
-							&& ((getChildType(aType) + quantToAdd) <= val)
-							|| quantToAdd <= val)
+						if ((
+								containsChildType(aType)
+										&& ((getChildType(aType) + quantToAdd) <= val))
+								|| (quantToAdd <= val))
 						{
 							canContain = aType;
 							break CAPFOR;
@@ -5055,8 +5062,8 @@ public final class Equipment extends PObject implements Serializable,
 				LinkedHashSet<String> tempTypeSet =
                         new LinkedHashSet<>(tempTypeList);
 				boolean noMatch =
-						newTypeList.size() != tempTypeList.size()
-							|| newTypeList.equals(tempTypeSet);
+						(newTypeList.size() != tempTypeList.size())
+								|| newTypeList.equals(tempTypeSet);
 				newTypeList = tempTypeSet;
 				if (!noMatch)
 				{
@@ -5130,7 +5137,7 @@ public final class Equipment extends PObject implements Serializable,
 		boolean comma = false;
 
 		BigDecimal weightCap = get(ObjectKey.CONTAINER_WEIGHT_CAPACITY);
-		if (weightCap != null && !Capacity.UNLIMITED.equals(weightCap))
+		if ((weightCap != null) && !Capacity.UNLIMITED.equals(weightCap))
 		{
 			tempStringBuilder.append(weightCap).append(' ').append(
 				Globals.getGameModeUnitSet().getWeightUnit());
@@ -5211,7 +5218,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getNonHeadedName()
 	{
-		if (wholeItemName == null || wholeItemName.length() == 0)
+		if ((wholeItemName == null) || (wholeItemName.length() == 0))
 		{
 			return getName();
 		}
@@ -5323,11 +5330,13 @@ public final class Equipment extends PObject implements Serializable,
 		 * if the name contains thisSize surrounded by /, ( or ) then replace
 		 * thisSize with newSize
 		 */
-		if (start > -1
-			&& (upName.substring(start - 1).startsWith("(") || upName
-				.substring(start - 1).startsWith("/"))
-			&& (upName.substring(end).startsWith(")") || upName.substring(end)
-				.startsWith("/")))
+		if ((start > -1)
+				&& (
+				upName.substring(start - 1).startsWith("(") || upName
+						.substring(start - 1).startsWith("/"))
+				&& (
+				upName.substring(end).startsWith(")") || upName.substring(end)
+				                                               .startsWith("/")))
 		{
 			return thisName.substring(0, start) + displayName
 				+ thisName.substring(end);
@@ -5406,7 +5415,7 @@ public final class Equipment extends PObject implements Serializable,
 	private int getHeadInfo(int headnum, IntegerKey ik)
 	{
 		EquipmentHead head = getEquipmentHeadReference(headnum);
-		return head == null ? 0 : head.getSafe(ik);
+		return (head == null) ? 0 : head.getSafe(ik);
 	}
 
 	/**
@@ -5418,7 +5427,7 @@ public final class Equipment extends PObject implements Serializable,
 	public boolean isFinessable(final PlayerCharacter pc)
 	{
 		WieldCategory wCat = getEffectiveWieldCategory(pc);
-		return isType("Finesseable") || (wCat != null && wCat.isFinessable());
+		return isType("Finesseable") || ((wCat != null) && wCat.isFinessable());
 	}
 
 	/**
@@ -5430,7 +5439,7 @@ public final class Equipment extends PObject implements Serializable,
 	public boolean isWeaponLightForPC(final PlayerCharacter pc)
 	{
 
-		if (pc == null || !isWeapon())
+		if ((pc == null) || !isWeapon())
 		{
 			return false;
 		}
@@ -5449,13 +5458,13 @@ public final class Equipment extends PObject implements Serializable,
 	public boolean isWeaponOneHanded(final PlayerCharacter pc)
 	{
 
-		if (pc == null && !isWeapon())
+		if ((pc == null) && !isWeapon())
 		{
 			return false;
 		}
 
 		WieldCategory wCat = getEffectiveWieldCategory(pc);
-		return wCat != null && wCat.getHandsRequired() == 1;
+		return (wCat != null) && (wCat.getHandsRequired() == 1);
 	}
 
 	/**
@@ -5468,14 +5477,16 @@ public final class Equipment extends PObject implements Serializable,
 	public boolean isWeaponOutsizedForPC(final PlayerCharacter pc)
 	{
 
-		if (pc == null || !isWeapon())
+		if ((pc == null) || !isWeapon())
 		{
 			return true;
 		}
 
 		final WieldCategory wCat = getEffectiveWieldCategory(pc);
 
-		return wCat != null && (wCat.getHandsRequired() > 2 || wCat.getHandsRequired() < 0);
+		return (wCat != null) && (
+				(wCat.getHandsRequired() > 2) || (
+						wCat.getHandsRequired() < 0));
 	}
 
 	/**
@@ -5487,13 +5498,13 @@ public final class Equipment extends PObject implements Serializable,
 	public boolean isWeaponTooLargeForPC(final PlayerCharacter pc)
 	{
 
-		if (pc == null || !isWeapon())
+		if ((pc == null) || !isWeapon())
 		{
 			return false;
 		}
 		
 		WieldCategory wieldCategory = getEffectiveWieldCategory(pc);
-		return wieldCategory != null && wieldCategory.getHandsRequired() > 2;
+		return (wieldCategory != null) && (wieldCategory.getHandsRequired() > 2);
 	}
 
 	/**
@@ -5506,13 +5517,13 @@ public final class Equipment extends PObject implements Serializable,
 	public boolean isWeaponTwoHanded(final PlayerCharacter pc)
 	{
 
-		if (pc == null || !isWeapon())
+		if ((pc == null) || !isWeapon())
 		{
 			return false;
 		}
 
 		WieldCategory wieldCategory = getEffectiveWieldCategory(pc);
-		return wieldCategory != null && wieldCategory.getHandsRequired() == 2;
+		return (wieldCategory != null) && (wieldCategory.getHandsRequired() == 2);
 	}
 
 	/**
@@ -5526,10 +5537,10 @@ public final class Equipment extends PObject implements Serializable,
 	public WieldCategory getEffectiveWieldCategory(final PlayerCharacter aPC)
 	{
 		CDOMSingleRef<WeaponProf> ref = get(ObjectKey.WEAPON_PROF);
-		WeaponProf wp = ref == null ? null : ref.get();
+		WeaponProf wp = (ref == null) ? null : ref.get();
 
 		WieldCategory wCat = get(ObjectKey.WIELD);
-		if (wCat != null && !Globals.checkRule(RuleConstants.SIZEOBJ))
+		if ((wCat != null) && !Globals.checkRule(RuleConstants.SIZEOBJ))
 		{
 			// Get the starting effective wield category
 			wCat = wCat.adjustForSize(aPC, this);
@@ -5546,7 +5557,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			int sizeDiff;
-			if (wCat != null && Globals.checkRule(RuleConstants.SIZEOBJ))
+			if ((wCat != null) && Globals.checkRule(RuleConstants.SIZEOBJ))
 			{
 				// In this case we have a 3.5 style equipments size.
 				// We need to map to a 3.0 style
@@ -5698,16 +5709,16 @@ public final class Equipment extends PObject implements Serializable,
 		String dam = head.get(StringKey.DAMAGE);
 		if (!isWeapon() || (!bPrimary && !isDouble()))
 		{
-			return dam == null ? "" : dam;
+			return (dam == null) ? "" : dam;
 		}
-		if (bPrimary && dam == null)
+		if (bPrimary && (dam == null))
 		{
 			// No need to grab reference, always exists due to if above
 			EquipmentHead altHead = getEquipmentHead(2);
 			dam = altHead.get(StringKey.DAMAGE);
 		}
 		String override = get(StringKey.DAMAGE_OVERRIDE);
-		if (bPrimary && override != null)
+		if (bPrimary && (override != null))
 		{
 			// this overides the base damage
 			dam = override;
@@ -5997,7 +6008,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		Integer crw = get(IntegerKey.CONTAINER_REDUCE_WEIGHT);
-		if (crw != null && crw != 0)
+		if ((crw != null) && (crw != 0))
 		{
 			total *= (crw.floatValue() / 100);
 		}
@@ -6047,7 +6058,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		Integer crw = get(IntegerKey.CONTAINER_REDUCE_WEIGHT);
-		if (crw != null && crw != 0)
+		if ((crw != null) && (crw != 0))
 		{
 			total *= (crw.floatValue() / 100);
 		}
@@ -6202,7 +6213,7 @@ public final class Equipment extends PObject implements Serializable,
 		EquipmentHead head;
 		if (headsIndex >= currentSize)
 		{
-			for (int i = 0; i < headsIndex - currentSize; i++)
+			for (int i = 0; i < (headsIndex - currentSize); i++)
 			{
 				heads.add(null);
 			}
@@ -6578,8 +6589,9 @@ public final class Equipment extends PObject implements Serializable,
 		// a stacking bonus
 		{
 			String type =
-					bType == null ? "" : bType.endsWith(".REPLACE.STACK")
-						? bType.substring(0, bType.length() - 6) : bType;
+					(bType == null) ? "" : (
+							bType.endsWith(".REPLACE.STACK")
+									? bType.substring(0, bType.length() - 6) : bType);
 
 			final String aVal = getBonusMap().get(type);
 
@@ -6772,7 +6784,7 @@ public final class Equipment extends PObject implements Serializable,
 			{
 				int priority = game.getEquipTypeIconPriority(type);
 				// Later types will win priority ties
-				if (iconPath == null || priority >= iconPriority)
+				if ((iconPath == null) || (priority >= iconPriority))
 				{
 					iconPath = path;
 					iconPriority = priority;
