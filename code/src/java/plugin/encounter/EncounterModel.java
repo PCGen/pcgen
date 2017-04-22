@@ -107,11 +107,8 @@ public class EncounterModel extends DefaultListModel
 	 */
 	private static float mCRtoPL(float x)
 	{
-		float iReturn = 0;
 
-		iReturn = (x < 1) ? x : (float) Math.exp((x - 1) / 2);
-
-		return iReturn;
+		return (x < 1) ? x : (float) Math.exp((x - 1) / 2);
 	}
 
 	/**
