@@ -21,7 +21,6 @@ import pcgen.cdom.base.Persistent;
 import pcgen.core.Equipment;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
 import plugin.lsttokens.add.EquipToken;
 
 public class EquipTokenTest extends

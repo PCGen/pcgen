@@ -21,7 +21,6 @@ import pcgen.cdom.base.Persistent;
 import pcgen.core.Language;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
 import plugin.lsttokens.add.LanguageToken;
 
 public class LanguageTokenTest extends

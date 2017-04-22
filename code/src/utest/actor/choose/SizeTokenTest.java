@@ -21,7 +21,6 @@ import pcgen.cdom.base.Chooser;
 import pcgen.core.SizeAdjustment;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
 import plugin.lsttokens.choose.SizeToken;
 
 public class SizeTokenTest extends

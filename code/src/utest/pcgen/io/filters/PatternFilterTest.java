@@ -21,7 +21,6 @@ package pcgen.io.filters;
 
 import pcgen.io.EntityEncoder;
 
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
