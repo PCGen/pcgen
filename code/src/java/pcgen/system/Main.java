@@ -85,6 +85,8 @@ public final class Main
 	private static String partyFile;
 	private static String characterFile;
 	private static String outputFile;
+	private static String configDirectory;
+	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
 
 	private Main()
@@ -144,10 +146,9 @@ public final class Main
 
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
-		configFactory = new PropertyContextFactory(getConfigPath());
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
-
 		parseCommands(args);
+		configFactory = new PropertyContextFactory(configDirectory);
+		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
 
 		if (startNameGen)
 		{
@@ -166,24 +167,6 @@ public final class Main
 			startupWithoutGUI();
 			shutdown();
 		}
-	}
-
-	private static String getConfigPath()
-	{
-		//TODO: convert to a proper command line argument instead of a -D java property
-		// First see if it was specified on the command line
-		String aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
-		if (aPath != null)
-		{
-			File testPath = new File(aPath);
-			// Then make sure it's an existing folder
-			if (testPath.exists() && testPath.isDirectory())
-			{
-				return aPath;
-			}
-		}
-		// Otherwise return user dir
-		return SystemUtils.USER_DIR;
 	}
 
 	public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile, String configFile)
@@ -223,7 +206,7 @@ public final class Main
 		characterFile = args.get("c");
 		outputFile = args.get("o");
 		startNameGen = args.get("name_generator");
-
+		configDirectory = args.get("C");
 		return args;
 	}
 
@@ -560,6 +543,16 @@ public final class Main
 								.verifyCanWrite()
 								.verifyNotExists()
 				);
+
+		parser.addArgument("-C", "--config")
+			  .nargs(1)
+			  .setDefault(SystemUtils.USER_DIR)
+			  .type(
+					  Arguments.fileType()
+							   .verifyCanRead()
+							   .verifyExists()
+							   .verifyIsDirectory()
+			  );
 
 		parser.addArgument("-c", "--character")
 				.nargs(1)
