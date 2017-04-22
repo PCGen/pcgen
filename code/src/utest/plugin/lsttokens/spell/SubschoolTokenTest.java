@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.spell;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
