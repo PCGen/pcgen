@@ -3,4 +3,4 @@
 
 ###Block: Estoc Support for Kensai Magus Archetype
 
-CATEGORY:Special Ability|Kensai ~ Weapon Proficiency.MOD	ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Estoc)|PREABILITY:1,CATEGORY=Special Ability,Kensai ~ Weapon Proficiency (Estoc)
+CATEGORY=Special Ability|Kensai ~ Weapon Proficiency.MOD	ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Estoc)|PREABILITY:1,CATEGORY=Special Ability,Kensai ~ Weapon Proficiency (Estoc)
