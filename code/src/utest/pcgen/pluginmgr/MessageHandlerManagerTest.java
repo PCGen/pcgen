@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.pluginmgr;
 
@@ -176,11 +174,8 @@ public class MessageHandlerManagerTest
 		
 		int messageCount = 0;
 		int lastMessageOrder = 0;
-		PCGenMessage lastMsg = null;
+		private PCGenMessage lastMsg = null;
 		
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{
@@ -197,9 +192,6 @@ public class MessageHandlerManagerTest
 	private static class MessageConsumer extends MessageRecorder
 	{
 		
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{

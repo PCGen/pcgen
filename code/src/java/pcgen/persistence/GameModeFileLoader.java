@@ -68,6 +68,8 @@ import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 /**
  *
  */
@@ -411,7 +413,7 @@ public class GameModeFileLoader extends PCGenTask
 		gameMode.setFeatTemplate(feat);
 
 		int[] dieSizes = gameMode.getDieSizes();
-		if (dieSizes == null || dieSizes.length == 0)
+		if (ArrayUtils.nullToEmpty(dieSizes).length == 0)
 		{
 			final int[] defaultDieSizes = {
 				1, 2, 3, 4, 6, 8, 10, 12, 20, 100, 1000
