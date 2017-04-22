@@ -77,7 +77,6 @@ OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules
 ########################
 
 # Additional Resources
-# Last Updated Friday, January 9, 2015
 
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_pfs/_.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/_pfs/_.pcc
