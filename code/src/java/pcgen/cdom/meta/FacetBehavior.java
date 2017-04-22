@@ -37,7 +37,7 @@ public final class FacetBehavior
 	
 	private static CaseInsensitiveMap<FacetBehavior> map = null;
 
-	private String type;
+	private final String type;
 
 	private FacetBehavior(String type)
 	{

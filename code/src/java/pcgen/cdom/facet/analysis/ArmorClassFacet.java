@@ -41,7 +41,7 @@ public class ArmorClassFacet
 	 */
 	private PrerequisiteFacet prerequisiteFacet;
 
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**

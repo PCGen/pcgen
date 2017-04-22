@@ -30,7 +30,7 @@ import pcgen.cdom.facet.FormulaResolvingFacet;
  */
 public class InitiativeFacet
 {
-	private static Formula initcomp = FormulaFactory.getFormulaFor("INITCOMP");
+	private static final Formula initcomp = FormulaFactory.getFormulaFor("INITCOMP");
 
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private BonusCheckingFacet bonusCheckingFacet;

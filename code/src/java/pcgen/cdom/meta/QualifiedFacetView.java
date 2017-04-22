@@ -26,7 +26,7 @@ import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 public class QualifiedFacetView<T extends QualifyingObject> implements FacetView<T>
 {
 
-	private AbstractQualifiedListFacet<T> facet;
+	private final AbstractQualifiedListFacet<T> facet;
 	
 	QualifiedFacetView(AbstractQualifiedListFacet<T> facet)
 	{

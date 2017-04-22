@@ -35,7 +35,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  */
 public final class SpellMigration
 {
-	private static Map<int[], List<MigrationRule>> spellChangesForVer = new HashMap<>();
+	private static final Map<int[], List<MigrationRule>> spellChangesForVer = new HashMap<>();
 
 	/**
 	 * Find the new spell key to replace the provided one.

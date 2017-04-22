@@ -28,12 +28,12 @@ import java.util.List;
  */
 final class FORNode
 {
-	private List<Object> children;
-	private String max;
-	private String min;
-	private String step;
-	private String var;
-	private boolean exists;
+	private final List<Object> children;
+	private final String max;
+	private final String min;
+	private final String step;
+	private final String var;
+	private final boolean exists;
 
 	/**
 	 * Constructor
