@@ -348,7 +348,15 @@ CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_StudiedCombat|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_StudiedStrike|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_TrueInspiration|0
 
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent3|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent5|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent7|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent9|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent11|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent13|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent15|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent17|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent19|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance2|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance4|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance6|0
@@ -363,7 +371,15 @@ CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonImmunity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonImmunity=True
 
 
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_WeaponProficiencies=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_ArmorProficiencies=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Alchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Alchemy=True
