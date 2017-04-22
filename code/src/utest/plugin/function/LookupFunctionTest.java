@@ -100,10 +100,10 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "lookup(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 		formula = "lookup(2, 3, 4, 5)";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -127,7 +127,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(3,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -161,7 +161,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,3,ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -183,7 +183,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -208,7 +208,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(badf(),\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -242,7 +242,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,badf(),ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -268,7 +268,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",badf())";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -346,8 +346,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
-		isStatic(formula, node, false);
+		isValid(formula, node);
+		isStatic(formula, node);
 		evaluatesTo(formula, node, 2);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
@@ -387,8 +387,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
-		isStatic(formula, node, false);
+		isValid(formula, node);
+		isStatic(formula, node);
 		EvaluationManager manager = generateManager();
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (result instanceof Number)
@@ -432,8 +432,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"Oh No\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
-		isStatic(formula, node, false);
+		isValid(formula, node);
+		isStatic(formula, node);
 		EvaluationManager manager = generateManager();
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (!result.equals(0))
