@@ -94,7 +94,9 @@ public class CompareEqualObject extends TestChecker
 		for (int i = 0; i < Array.getLength(obj1); i++)
 		{
 			if (!areEqual(Array.get(obj1, i), Array.get(obj2, i)))
+			{
 				return false;
+			}
 		}
 		return true;
 	}

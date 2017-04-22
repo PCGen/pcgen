@@ -19,9 +19,9 @@ pmd {
     ruleSets = []
 	ruleSetFiles = files('code/standards/pmdruleset.xml')
 	
-	ignoreFailures = true
 	sourceSets = []
-	toolVersion = "5.5.1"
+	toolVersion = "5.5.4"
+	consoleOutput = true
 }
 
 findbugs {

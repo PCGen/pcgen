@@ -57,12 +57,13 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.VisionType;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * This is like the top level model container. However,
@@ -256,7 +257,7 @@ public final class Globals
 	 */
 	public static String getDefaultPath()
 	{
-		return ConfigurationSettings.getUserDir();
+		return SystemUtils.USER_DIR;
 	}
 
 	/**

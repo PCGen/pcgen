@@ -74,25 +74,6 @@ public class JTreeTable extends JTableEx
 	private TreeTableCellRenderer tree;
 	private TreeTableModelAdapter adapter;
 
-	static
-	{
-		/*
-		JTreeTable's event handling assumes bad things about
-		mouse pressed/released that are not true on MacOS X.
-		For example, one gets NPEs thrown when the mouse is
-		hit because the event manager is waiting for released
-		and one never gets the release.
-		It turns out that the MetalLAF handles this happily and
-		thus we can use that to get appropriate line styles,
-		without knackering Mac support.
-		Fix done by LeeAnn Rucker, formerly at Apple for Javasoft.
-		Added to pcgen by Scott Ellsworth
-		 */
-//		UIManager.put("TreeTableUI", "javax.swing.plaf.metal.MetalTreeUI"); //$NON-NLS-1$ //$NON-NLS-2$
-//		UIManager.put("Tree.leftChildIndent", Integer.valueOf(3)); //$NON-NLS-1$
-//		UIManager.put("Tree.rightChildIndent", Integer.valueOf(8)); //$NON-NLS-1$
-	}
-
 	public JTreeTable()
 	{
 		this(null);

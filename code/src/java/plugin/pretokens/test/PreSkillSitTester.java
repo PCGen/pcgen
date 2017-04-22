@@ -81,9 +81,10 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		}
 		if (!foundSkill)
 		{
-			for (Skill mock : serveAsSkills.keySet())
+			for (final Map.Entry<Skill, Set<Skill>> skillSetEntry : serveAsSkills
+					.entrySet())
 			{
-				Set<Skill> targets = serveAsSkills.get(mock);
+				Set<Skill> targets = skillSetEntry.getValue();
 				for (Skill target : targets)
 				{
 					if (foundSkill)
@@ -94,10 +95,10 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 					if (aSkillKey.equals(requiredSkill))
 					{
 						foundSkill = true;
-						foundMatch = true;
 						int theTotal =
-								getRunningTotal(mock, character, prereq,
-									foundMatch, runningTotal, requiredRanks, situation);
+								getRunningTotal(
+										skillSetEntry.getKey(), character, prereq,
+										true, runningTotal, requiredRanks, situation);
 						runningTotal += theTotal;
 
 					}
@@ -107,7 +108,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 
 		// If we are looking for a negative test i.e. !PRESKILL and the PC
 		// doesn't have the skill we have to return a match
-		if (foundSkill == false)
+		if (!foundSkill)
 		{
 			if (prereq.getOperator() == PrerequisiteOperator.LT)
 			{
@@ -117,12 +118,12 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private Map<Skill, Set<Skill>> getImitators(
-		 CharacterDisplay display)
+	private static Map<Skill, Set<Skill>> getImitators(
+			CharacterDisplay display)
 	{
-		HashMap<Skill, Set<Skill>> serveAsSkills =
+		Map<Skill, Set<Skill>> serveAsSkills =
 				new HashMap<>();
-		Set<Skill> skillSet = new HashSet<>(display.getSkillSet());
+		Iterable<Skill> skillSet = new HashSet<>(display.getSkillSet());
 		for (Skill aSkill : skillSet)
 		{
 			Set<Skill> servesAs = new HashSet<>();
@@ -132,7 +133,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 				servesAs.addAll(ref.getContainedObjects());
 			}
 
-			if (servesAs.size() > 0)
+			if (!servesAs.isEmpty())
 			{
 				serveAsSkills.put(aSkill, servesAs);
 			}
@@ -161,17 +162,19 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 
 		}
 
-		final String foo =
-				LanguageBundle.getFormattedString(
-					"PreSkill.toHtml", //$NON-NLS-1$
-						prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), skillName);
-		return foo;
+		return LanguageBundle.getFormattedString(
+			"PreSkill.toHtml", //$NON-NLS-1$
+				prereq.getOperator().toDisplayString(),
+				prereq.getOperand(), skillName);
 	}
 
-	private int getRunningTotal(Skill aSkill, PlayerCharacter character,
-		Prerequisite prereq, boolean foundMatch, int runningTotal,
-		int requiredRanks, String situation)
+	private static int getRunningTotal(Skill aSkill,
+	                                   PlayerCharacter character,
+	                                   Prerequisite prereq,
+	                                   boolean foundMatch,
+	                                   int runningTotal,
+	                                   int requiredRanks,
+	                                   String situation)
 	{
 		if (foundMatch)
 		{

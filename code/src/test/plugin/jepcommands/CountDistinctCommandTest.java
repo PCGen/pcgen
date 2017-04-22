@@ -463,14 +463,14 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
 		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
-		pcgenFinalize(ab, "munch", character, gCat);
+		finalizeTest(ab, "munch", character, gCat);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
-		pcgenFinalize(ab, "devour", character, gCat);
+		finalizeTest(ab, "devour", character, gCat);
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
-		pcgenFinalize(ab, "nibble", character, gCat);
+		finalizeTest(ab, "nibble", character, gCat);
 		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 

@@ -105,7 +105,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());
 
 		// Now add the choice
-		pcgenFinalize(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);
+		finalizeTest(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);
 		ca.rebuildAbilityLists();
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());

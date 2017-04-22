@@ -2429,7 +2429,7 @@ public final class ExportHandler
 		// Filter out PHOBIAS
 		if ("PHOBIAS".equals(aString.substring(1)))
 		{
-			String phobias = display.getSafeStringFor(PCStringKey.PHOBIAS);;
+			String phobias = display.getSafeStringFor(PCStringKey.PHOBIAS);
 			if (phobias.equals(Constants.NONE))
 			{
 				canWrite = false;

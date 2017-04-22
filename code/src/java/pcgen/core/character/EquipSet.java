@@ -414,7 +414,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * @return A new equip set, identical to this one.
 	 */
 	@Override
-	public Object clone()
+	public EquipSet clone()
 	{
 		EquipSet eqSet = null;
 
