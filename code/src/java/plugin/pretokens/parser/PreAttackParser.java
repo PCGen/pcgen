@@ -34,8 +34,7 @@ import pcgen.util.Logging;
  * A prerequisite parser class that handles the parsing of pre attack tokens.
  *
  */
-public class PreAttackParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreAttackParser extends AbstractPrerequisiteParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

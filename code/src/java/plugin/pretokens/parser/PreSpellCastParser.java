@@ -35,8 +35,7 @@ import java.util.StringTokenizer;
  * A prerequisite parser class that handles the parsing of pre spell cast tokens.
  *
  */
-public class PreSpellCastParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreSpellCastParser extends AbstractPrerequisiteParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

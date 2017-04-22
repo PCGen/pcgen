@@ -45,7 +45,7 @@ public class Localized
 	private static final String ATTRIBUTE_LANGUAGE = "language"; //$NON-NLS-1$
 
 	/** used to produce names based on element name when the {@value #ATTRIBUTE_DEFAULTNAME} is missing */
-	private static Map<String, Integer> unnamedCount = new HashMap<>();
+	private static final Map<String, Integer> unnamedCount = new HashMap<>();
 
 	/** This is the default string of the node */
 	private String defaultName;

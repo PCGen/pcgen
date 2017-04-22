@@ -34,7 +34,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 /**
  * Prerequisite test the type of a piece of armour.
  */
-public class PreArmorTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreArmorTypeTester extends AbstractDisplayPrereqTest
 {
 
 	/**

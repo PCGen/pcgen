@@ -31,8 +31,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * A prerequisite parser class that handles the parsing of pre city tokens.
  *
  */
-public class PreCityParser extends AbstractPrerequisiteSimpleParser implements
-		PrerequisiteParserInterface
+public class PreCityParser extends AbstractPrerequisiteSimpleParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

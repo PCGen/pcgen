@@ -32,7 +32,7 @@ import pcgen.system.LanguageBundle;
 /**
  * Prerequisite test the type of a piece of armour.
  */
-public class PreAttackTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreAttackTester extends AbstractPrerequisiteTest
 {
 
 	/**

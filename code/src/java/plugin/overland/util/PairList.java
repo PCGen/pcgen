@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class PairList<T extends Pair<?, ?>>
 {
-	private List<T> vPairs;
+	private final List<T> vPairs;
 
 	public PairList()
 	{

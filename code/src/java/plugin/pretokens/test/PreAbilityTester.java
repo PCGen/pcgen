@@ -36,7 +36,7 @@ import pcgen.system.LanguageBundle;
  *
  *
  */
-public class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreAbilityTester extends AbstractPrerequisiteTest
 {
 
 	/**

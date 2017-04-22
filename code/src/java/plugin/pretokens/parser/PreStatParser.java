@@ -33,8 +33,7 @@ import pcgen.util.Logging;
  * A prerequisite parser class that handles the parsing of pre stat tokens.
  *
  */
-public class PreStatParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreStatParser extends AbstractPrerequisiteParser
 {
 
 	/**

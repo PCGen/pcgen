@@ -32,7 +32,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  *
  */
 public class PreArmorProfParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
 {
 
 	/**

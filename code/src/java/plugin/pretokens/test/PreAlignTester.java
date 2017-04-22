@@ -39,7 +39,7 @@ import pcgen.util.Logging;
 /**
  *
  */
-public class PreAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreAlignTester extends AbstractDisplayPrereqTest
 {
 
 	/**

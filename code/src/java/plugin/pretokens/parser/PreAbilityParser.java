@@ -35,8 +35,7 @@ import pcgen.system.LanguageBundle;
  * A prerequisite parser class that handles the parsing of pre ability tokens.
  *
  */
-public class PreAbilityParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreAbilityParser extends AbstractPrerequisiteListParser
 {
 	private static final String CATEGORY = "CATEGORY.";
 	private static final String CATEGORY_EQUALS = "CATEGORY=";
@@ -46,7 +45,6 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	 */
 	public PreAbilityParser()
 	{
-		super();
 	}
 
 	/**

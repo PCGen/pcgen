@@ -34,8 +34,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * A prerequisite parser class that handles the parsing of pre variable tokens.
  *
  */
-public class PreVariableParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreVariableParser extends AbstractPrerequisiteParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

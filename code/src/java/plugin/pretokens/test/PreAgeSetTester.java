@@ -30,7 +30,7 @@ import pcgen.system.LanguageBundle;
 /**
  *
  */
-public class PreAgeSetTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreAgeSetTester extends AbstractDisplayPrereqTest
 {
 
 	/**

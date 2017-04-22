@@ -33,7 +33,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  *
  */
 public class PreSpellTypeParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
 {
 	@Override
 	protected boolean requiresValue()

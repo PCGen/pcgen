@@ -27,8 +27,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * A prerequisite parser class that handles the parsing of pre move tokens.
  *
  */
-public class PreMoveParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreMoveParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

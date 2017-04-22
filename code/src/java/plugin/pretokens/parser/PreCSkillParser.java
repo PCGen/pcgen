@@ -29,8 +29,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * A prerequisite parser class that handles the parsing of pre CSkill tokens.
  *
  */
-public class PreCSkillParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreCSkillParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

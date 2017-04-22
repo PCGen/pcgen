@@ -31,7 +31,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  *
  */
 public class PreShieldProfParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

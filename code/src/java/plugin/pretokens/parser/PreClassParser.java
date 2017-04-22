@@ -31,8 +31,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * A prerequisite parser class that handles the parsing of pre class tokens.
  *
  */
-public class PreClassParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreClassParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Returns a Array of the kings of PRE tags this class parses, 

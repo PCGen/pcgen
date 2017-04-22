@@ -35,7 +35,7 @@ import pcgen.rules.context.AbstractReferenceContext;
 /**
  *
  */
-public class PreBaseSizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreBaseSizeTester extends AbstractDisplayPrereqTest
 {
 
 	/**

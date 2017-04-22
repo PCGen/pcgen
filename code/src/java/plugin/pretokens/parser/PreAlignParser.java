@@ -35,8 +35,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * A prerequisite parser class that handles the parsing of pre align tokens.
  *
  */
-public class PreAlignParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreAlignParser extends AbstractPrerequisiteParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

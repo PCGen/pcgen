@@ -31,7 +31,6 @@ import pcgen.util.Logging;
  *
  */
 public class PreAgeSetParser extends AbstractPrerequisiteListParser
-implements PrerequisiteParserInterface
 {
 
 	/**

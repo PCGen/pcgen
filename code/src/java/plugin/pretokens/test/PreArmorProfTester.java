@@ -38,7 +38,7 @@ import pcgen.system.LanguageBundle;
  * prerequisites. 
  *
  */
-public class PreArmorProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreArmorProfTester extends AbstractDisplayPrereqTest
 {
 
 	/**

@@ -18,9 +18,13 @@
  */
  package plugin.pcgtracker.gui;
 
+import java.awt.BorderLayout;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import pcgen.system.LanguageBundle;
 
@@ -28,17 +32,17 @@ import pcgen.system.LanguageBundle;
  *
  */
 // TODO Add some gap to buttons. Use icons on buttons?
-public class PCGTrackerView extends javax.swing.JPanel
+public class PCGTrackerView extends JPanel
 {
-	private javax.swing.JButton loadButton;
-	private javax.swing.JButton removeButton;
-	private javax.swing.JButton saveAsButton;
-	private javax.swing.JButton saveButton;
-	private javax.swing.JList loadedList;
-	private javax.swing.JPanel jPanel2;
+	private JButton loadButton;
+	private JButton removeButton;
+	private JButton saveAsButton;
+	private JButton saveButton;
+	private JList loadedList;
+	private JPanel jPanel2;
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JScrollPane jScrollPane1;
+	private JScrollPane jScrollPane1;
 
 	/** Creates new form PCGTrackerView */
 	public PCGTrackerView()
@@ -94,15 +98,15 @@ public class PCGTrackerView extends javax.swing.JPanel
 	 */
 	private void initComponents()
 	{ //GEN-BEGIN:initComponents
-		jPanel2 = new javax.swing.JPanel();
-		removeButton = new javax.swing.JButton();
-		saveButton = new javax.swing.JButton();
-		saveAsButton = new javax.swing.JButton();
-		loadButton = new javax.swing.JButton();
-		jScrollPane1 = new javax.swing.JScrollPane();
-		loadedList = new javax.swing.JList();
+		jPanel2 = new JPanel();
+		removeButton = new JButton();
+		saveButton = new JButton();
+		saveAsButton = new JButton();
+		loadButton = new JButton();
+		jScrollPane1 = new JScrollPane();
+		loadedList = new JList();
 
-		setLayout(new java.awt.BorderLayout());
+		setLayout(new BorderLayout());
 
 		jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
 
@@ -118,11 +122,11 @@ public class PCGTrackerView extends javax.swing.JPanel
 		removeButton.setText(LanguageBundle.getString("in_remove")); //$NON-NLS-1$
 		jPanel2.add(removeButton);
 
-		add(jPanel2, java.awt.BorderLayout.EAST);
+		add(jPanel2, BorderLayout.EAST);
 
 		jScrollPane1.setViewportView(loadedList);
 
-		add(jScrollPane1, java.awt.BorderLayout.CENTER);
+		add(jScrollPane1, BorderLayout.CENTER);
 	}
 	//GEN-END:initComponents
 

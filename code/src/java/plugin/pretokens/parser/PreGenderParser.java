@@ -33,8 +33,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * A prerequisite parser class that handles the parsing of pre gender tokens.
  *
  */
-public class PreGenderParser extends AbstractPrerequisiteSimpleParser implements
-		PrerequisiteParserInterface
+public class PreGenderParser extends AbstractPrerequisiteSimpleParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
