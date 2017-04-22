@@ -303,12 +303,6 @@ public class SkillRankFacetTest extends TestCase
 	 */
 
 	@Test
-	public void testGetSetIndependence()
-	{
-		//TODO Not possible with NamedValue being mutable :(
-	}
-
-	@Test
 	public void testCopyContents()
 	{
 		facet.set(id, s1, cl1, 4);
