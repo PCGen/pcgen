@@ -50,7 +50,7 @@ public final class SubRace implements TypeSafeConstant
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private SubRace(String name)
 	{

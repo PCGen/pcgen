@@ -39,7 +39,7 @@ public final class CharID implements TypeSafeConstant, PCGenIdentifier
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 	
 	/**
 	 * The DataSet under which the Character was created
