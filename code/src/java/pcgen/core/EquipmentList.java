@@ -242,77 +242,78 @@ public final class EquipmentList {
 
 			// Still haven't found it?
 			// Try adding bonus to end of name
-			if ((bonusCount > 0) && (bonuses != null)) {
+			if (bonusCount > 0) {
 				if (bonusString.isEmpty()) {
 					omitString = "";
 					bonusString = " " + Delta.toString(bonuses[0]);
-
-					continue;
 				}
 			}
-
-			break;
 		}
 
-		if (eq != null) {
-			boolean bModified = false;
-			boolean bError = false;
-			eq = eq.clone();
+		boolean bModified = false;
+		boolean bError = false;
+		eq = eq.clone();
 
-			//
-			// Now attempt to add all the modifiers.
-			//
-			for (Iterator<String> e = modList.iterator(); e.hasNext();) {
-				final String namePart = e.next();
-				final EquipmentModifier eqMod = getQualifiedModifierNamed(namePart, eq);
+		//
+		// Now attempt to add all the modifiers.
+		//
+		for (final String namePart : modList)
+		{
+			final EquipmentModifier eqMod = getQualifiedModifierNamed(namePart, eq);
 
-				if (eqMod != null) {
-					eq.addEqModifier(eqMod, true, aPC);
+			if (eqMod != null)
+			{
+				eq.addEqModifier(eqMod, true, aPC);
 
-					if (eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL) && eq.isDouble()) {
-						eq.addEqModifier(eqMod, false, aPC);
-						bModified = true;
-					}
-				} else {
-					Logging.errorPrint("Could not find a qualified modifier named: " + namePart + " for " + eq.getName() + ":"
-							+ eq.typeList());
-					bError = true;
+				if (eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL) && eq.isDouble())
+				{
+					eq.addEqModifier(eqMod, false, aPC);
+					bModified = true;
 				}
 			}
-
-			// Found what appeared to be the base item,
-			// but one of the modifiers is not qualified
-			// to be attached to the item
-			//
-			if (bError) { return null; }
-
-			if (!sizList.isEmpty()) {
-				/*
-				 * CONSIDER This size can be further optimized by changing sizList
-				 */
-				eq.resizeItem(aPC, Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(SizeAdjustment.class, sizList
-								.get(0)));
-				bModified = true;
-
-				if (sizList.size() > 1) {
-					Logging.errorPrint("Too many sizes in item name, used only 1st of: " + sizList);
-				}
+			else
+			{
+				Logging.errorPrint(
+						"Could not find a qualified modifier named: " + namePart + " "
+								+ "for "
+								+ eq.getName() + ":"
+								+ eq.typeList());
+				bError = true;
 			}
+		}
 
-			if (bModified) {
-				eq.nameItemFromModifiers(aPC);
-				Equipment equip = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(Equipment.class, eq
-								.getKeyName());
-				if (equip == null)
-				{
-					Globals.getContext().getReferenceContext().importObject(eq);
-				}
-				else
-				{
-					eq = equip;
-				}
+		// Found what appeared to be the base item,
+		// but one of the modifiers is not qualified
+		// to be attached to the item
+		//
+		if (bError) { return null; }
+
+		if (!sizList.isEmpty()) {
+			/*
+			 * CONSIDER This size can be further optimized by changing sizList
+			 */
+			eq.resizeItem(aPC, Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(SizeAdjustment.class, sizList
+							.get(0)));
+			bModified = true;
+
+			if (sizList.size() > 1) {
+				Logging.errorPrint("Too many sizes in item name, used only 1st of: " + sizList);
+			}
+		}
+
+		if (bModified) {
+			eq.nameItemFromModifiers(aPC);
+			Equipment equip = Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(Equipment.class, eq
+							.getKeyName());
+			if (equip == null)
+			{
+				Globals.getContext().getReferenceContext().importObject(eq);
+			}
+			else
+			{
+				eq = equip;
 			}
 		}
 
@@ -448,24 +449,29 @@ public final class EquipmentList {
 
 					// Iterate over list, creating an item for each choice.
 					final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
-					for (; equipIter.hasNext();) {
+
+					while (equipIter.hasNext())
+					{
 						final String mwChoice = String.valueOf(equipIter.next());
 						eq = eq.clone();
 						eq.addEqModifier(eqMod, true, null, mwChoice, equipChoice);
 
-						if (eq.isWeapon() && eq.isDouble()) {
+						if (eq.isWeapon() && eq.isDouble())
+						{
 							eq.addEqModifier(eqMod, false, null, mwChoice, equipChoice);
 						}
 
 						eqMod = getQualifiedModifierNamed(aBonus, eq);
 
-						if (eqMod == null) {
+						if (eqMod == null)
+						{
 							Logging
-								.debugPrint("Could not generate a "
-									+ aBonus
-									+ " "
-									+ eq.toString()
-									+ " as the equipment modifier could not be found.");
+									.debugPrint("Could not generate a "
+											+ aBonus
+											+ " "
+											+ eq.toString()
+											+ " as the equipment modifier could not be "
+											+ "found.");
 							continue;
 						}
 						createItem(eq, eqMod, null, null, null);
@@ -498,7 +504,8 @@ public final class EquipmentList {
 
 				// Iterate over list, creating an item for each choice.
 				final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
-				for (; equipIter.hasNext();) {
+				while (equipIter.hasNext())
+				{
 					final String choice = String.valueOf(equipIter.next());
 					createItem(eq, eqMasterwork, null, choice, equipChoice);
 				}
@@ -680,8 +687,7 @@ public final class EquipmentList {
 		newName.append(" (");
 
 		if (preNameList != null) {
-			final List<String> nameList = preNameList;
-			appendNameParts(nameList, omitString, newName);
+			appendNameParts(preNameList, omitString, newName);
 		}
 
 		if (sizList != null) {
@@ -702,10 +708,8 @@ public final class EquipmentList {
 			newName.append(')');
 		}
 
-		final Equipment eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+		return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				Equipment.class, aName + newName);
-
-		return eq;
 	}
 
 }
