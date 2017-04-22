@@ -23,6 +23,8 @@ import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.util.Arrays;
+import java.util.stream.IntStream;
 
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
@@ -67,15 +69,14 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 {
 	public static final String LOG_NAME = "PCG_Tracker"; //$NON-NLS-1$
 
-	private static final String OPTION_NAME_SYSTEM = LOG_NAME + ".System"; //$NON-NLS-1$
 	private static final String OPTION_NAME_LOADORDER = LOG_NAME + ".LoadOrder"; //$NON-NLS-1$
 
 	private static final String FILENAME_PCP = "pcp"; //$NON-NLS-1$
 	private static final String FILENAME_PCG = "pcg"; //$NON-NLS-1$
 
 	/** The plugin menu item in the tools menu. */
-	private JMenuItem charToolsItem = new JMenuItem();
-	private PCGTrackerModel model = new PCGTrackerModel();
+	private final JMenuItem charToolsItem = new JMenuItem();
+	private final PCGTrackerModel model = new PCGTrackerModel();
 	private PCGTrackerView theView;
 
 	/** The English name of the plugin. */
@@ -121,7 +122,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		return NAME;
 	}
 	
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -169,22 +170,11 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		theView.getLoadedList().repaint();
 	}
 
-	public void handleClose()
+	private void handleClose()
 	{
-		/*
-		 * TODO This method seems like a "dead" chain of events - the PCs are
-		 * fetched, but nothing happens. As best I can tell, none of these
-		 * methods have side effects (that is good), but that means this method
-		 * does nothing. - thpr 10/26/06
-		 */
 		if (!model.isEmpty())
 		{
 			GMGenSystemView.getTabPane().setSelectedComponent(theView);
-		}
-
-		for (int i = 0; i < model.size(); i++)
-		{
-			model.get(i);
 		}
 	}
 
@@ -253,7 +243,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	/**
 	 * Handles the clicking of the <b>Add</b> button on the GUI.
 	 */
-	public void handleOpen()
+	private void handleOpen()
 	{
 		File defaultFile = new File(PCGenSettings.getPcgDir());
 		JFileChooser chooser = new JFileChooser();
@@ -261,7 +251,6 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 		String[] pcgs = {FILENAME_PCG, FILENAME_PCP};
 		FileFilter ff = new FileNameExtensionFilter(LanguageBundle.getString("in_pcgen_file"),
-
                 pcgs); //$NON-NLS-1$
 		chooser.addChoosableFileFilter(ff);
 		chooser.setFileFilter(ff);
@@ -274,14 +263,14 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 		if (option == JFileChooser.APPROVE_OPTION)
 		{
-			for (File selectedFile : chooser.getSelectedFiles())
-			{
-				if (PCGFile.isPCGenCharacterOrPartyFile(selectedFile))
-				{
-					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, selectedFile,
-						false));
-				}
-			}
+			Arrays.stream(chooser.getSelectedFiles())
+			      .filter(PCGFile::isPCGenCharacterOrPartyFile)
+			      .forEach(selectedFile -> messageHandler.handleMessage(new
+					      RequestOpenPlayerCharacterMessage(
+					      this,
+					      selectedFile,
+					      false
+			      )));
 		}
 		else
 		{
@@ -383,14 +372,13 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 				if (file.exists()
 					&& (newPC || !file.getName().equals(prevFile.getName())))
 				{
-					int reallyClose =
-							JOptionPane
-								.showConfirmDialog(
-									GMGenSystem.inst,
-									LanguageBundle.getFormattedString("in_savePcConfirmOverMsg", //$NON-NLS-1$
-										file.getName()),
-										LanguageBundle.getFormattedString("in_savePcConfirmOverTitle", file.getName()), //$NON-NLS-1$
-									JOptionPane.YES_NO_OPTION);
+					int reallyClose = JOptionPane
+						.showConfirmDialog(
+							GMGenSystem.inst,
+							LanguageBundle.getFormattedString("in_savePcConfirmOverMsg", //$NON-NLS-1$
+								file.getName()),
+								LanguageBundle.getFormattedString("in_savePcConfirmOverTitle", file.getName()), //$NON-NLS-1$
+							JOptionPane.YES_NO_OPTION);
 
 					if (reallyClose != JOptionPane.YES_OPTION)
 					{
@@ -434,13 +422,9 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i) instanceof PCGTrackerView)
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
+		IntStream.range(0, tp.getTabCount())
+		         .filter(i -> tp.getComponentAt(i) instanceof PCGTrackerView)
+		         .forEachOrdered(tp::setSelectedIndex);
 	}
 
 	private void initMenus()
@@ -455,12 +439,10 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * Property change listener for the event "selected file
 	 * changed".  Ensures that the filename doesn't get changed
 	 * when a directory is selected.
-	 *
-	 * @author Dmitry Jemerov &lt;yole@spb.cityline.ru&gt;
 	 */
 	static final class FilenameChangeListener implements PropertyChangeListener
 	{
-		private JFileChooser fileChooser;
+		private final JFileChooser fileChooser;
 		private String lastSelName;
 
 		FilenameChangeListener(String aFileName, JFileChooser aFileChooser)
@@ -503,8 +485,6 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 	/**
 	 *  Gets the name of the data directory for Plugin object
-	 *
-	 *@return    The data directory name
 	 */
 	public File getDataDirectory()
 	{
