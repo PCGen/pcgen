@@ -21,8 +21,6 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -42,8 +40,14 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
-public class SkillRankControl
+import org.apache.commons.lang3.StringUtils;
+
+public final class SkillRankControl
 {
+
+	private SkillRankControl()
+	{
+	}
 
 	/**
 	 * Returns the total ranks of a skill rank + bonus ranks (racial, class, etc
@@ -79,7 +83,7 @@ public class SkillRankControl
 			maxRanks = Math.max(maxRanks, baseRanks);
 			ranks = Math.min(maxRanks, ranks);
 		}
-		return new Float(ranks);
+		return (float) ranks;
 	}
 
 	/**
@@ -88,8 +92,7 @@ public class SkillRankControl
 	 * @param aClass
 	 * @param aPC
 	 */
-	public static void setZeroRanks(PCClass aClass, PlayerCharacter aPC,
-			Skill sk)
+	public static void setZeroRanks(PCClass aClass, PlayerCharacter aPC, Skill sk)
 	{
 		if (aClass == null)
 		{
@@ -244,13 +247,6 @@ public class SkillRankControl
 					ChooserUtilities.modChoices(sk, new ArrayList<Language>(),
 							new ArrayList<Language>(), aPC, true, null);
 					aPC.setDirty(true);
-					int selectedLanguages = aPC
-							.getSelectCorrectedAssociationCount(sk);
-					int maxLanguages = getTotalRank(aPC, sk).intValue();
-					if (selectedLanguages > maxLanguages)
-					{
-						newRank = curRank;
-					}
 				}
 			}
 		}
@@ -392,7 +388,7 @@ public class SkillRankControl
 				}
 				level--;
 			}
-			if (targetLevel == null && currentLevel > 0)
+			if ((targetLevel == null) && (currentLevel > 0))
 			{
 			    //  Otherwise subtract the remainder from the remaining value of 
 				// the character's highest remaining level.
