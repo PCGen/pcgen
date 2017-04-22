@@ -297,7 +297,7 @@ public final class CharacterManager
 	{
 		Logging.log(Logging.INFO, "Loading party " + file.getAbsolutePath()); //$NON-NLS-1$
 		PCGIOHandler ioHandler = new PCGIOHandler();
-		ioHandler.readCharacterFileList(file).forEach(charFile ->
+		PCGIOHandler.readCharacterFileList(file).forEach(charFile ->
 				openCharacter(charFile, delegate, dataset));
 		characters.setFile(file);
 		return characters;
@@ -306,7 +306,7 @@ public final class CharacterManager
 	public static SourceSelectionFacade getRequiredSourcesForParty(File pcpFile, UIDelegate delegate)
 	{
 		PCGIOHandler ioHandler = new PCGIOHandler();
-		List<File> files = ioHandler.readCharacterFileList(pcpFile);
+		List<File> files = PCGIOHandler.readCharacterFileList(pcpFile);
 		if ((files == null) || files.isEmpty())
 		{
 			return null;
