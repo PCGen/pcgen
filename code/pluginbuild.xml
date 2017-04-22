@@ -2,7 +2,6 @@
 pluginbuild.xml - a build file for the PCGEN plugins
 Note: This is used by the gradle build.
 
-$Id$
 
 STANDARD TARGETS
 ================
