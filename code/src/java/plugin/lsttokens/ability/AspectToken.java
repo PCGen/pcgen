@@ -69,7 +69,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability obj,
 		String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
@@ -104,7 +104,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		}
 		Aspect a = parseAspect(key, val);
 		MapChanges<AspectName, List<Aspect>> mc =
-				context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
+				context.getObjectContext().getMapChanges(obj, MapKey.ASPECT);
 		Map<AspectName, List<Aspect>> fullMap = mc.getAdded();
 		List<Aspect> aspects = fullMap.get(a.getKey());
 		if (aspects == null)
@@ -112,7 +112,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			aspects = new ArrayList<>();
 		}
 		aspects.add(a);
-		context.getObjectContext().put(ability, MapKey.ASPECT, a.getKey(), aspects);
+		context.getObjectContext().put(obj, MapKey.ASPECT, a.getKey(), aspects);
 		return ParseResult.SUCCESS;
 	}
 
@@ -177,10 +177,10 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	 *      java.lang.Object)
 	 */
 	@Override
-	public String[] unparse(LoadContext context, Ability ability)
+	public String[] unparse(LoadContext context, Ability obj)
 	{
 		MapChanges<AspectName, List<Aspect>> changes =
-				context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
+				context.getObjectContext().getMapChanges(obj, MapKey.ASPECT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

@@ -45,10 +45,10 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
 	 */
 	@Override
-	public Ability parseLine(LoadContext context, Ability ability,
+	public Ability parseLine(LoadContext context, Ability target,
 		String lstLine, SourceEntry source) throws PersistenceLayerException
 	{
-		Ability anAbility = ability;
+		Ability anAbility = target;
 
 		boolean isnew = false;
 		if (anAbility == null)

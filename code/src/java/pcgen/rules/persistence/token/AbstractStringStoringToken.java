@@ -26,20 +26,29 @@ public abstract class AbstractStringStoringToken<T extends CDOMObject> extends
 {
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, T cdo,
+	protected ParseResult parseNonEmptyToken(LoadContext context, T obj,
 		String value)
 	{
-		context.getObjectContext().put(cdo,
+		context.getObjectContext().put(
+				obj,
 			ObjectKey.getKeyFor(String.class, '*' + getTokenName()), value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, T cdo)
+	public String[] unparse(LoadContext context, T obj)
 	{
 		ObjectKey<String> ok =
+<<<<<<< HEAD
 				ObjectKey.getKeyFor(String.class, '*' + getTokenName());
 		String value = context.getObjectContext().getObject(cdo, ok);
+||||||| merged common ancestors
+				ObjectKey.getKeyFor(String.class, "*" + getTokenName());
+		String value = context.getObjectContext().getObject(cdo, ok);
+=======
+				ObjectKey.getKeyFor(String.class, "*" + getTokenName());
+		String value = context.getObjectContext().getObject(obj, ok);
+>>>>>>> USe the same name as parent
 		if (value == null)
 		{
 			return null;
