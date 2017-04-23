@@ -537,7 +537,7 @@ public class PcgCombatant extends Combatant
 			{
 				Equipment eq = weaponList.get(i);
 				statBuf.append("<a href=" + '"' + "attack:");
-				statBuf.append(pcOut.getWeaponName(eq)); //|WEAPON.%weap.NAME|
+				statBuf.append(PlayerCharacterOutput.getWeaponName(eq)); //|WEAPON.%weap.NAME|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponToHit(i)); //|WEAPON.%weap.TOTALHIT|
 				statBuf.append("\\");
@@ -551,14 +551,14 @@ public class PcgCombatant extends Combatant
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponCritMult(i)); //|WEAPON.%weap.MULT|
 				statBuf.append("\\");
-				statBuf.append(pcOut.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
+				statBuf.append(PlayerCharacterOutput.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
 				statBuf.append("\\");
-				statBuf.append(pcOut.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
+				statBuf.append(PlayerCharacterOutput.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponSpecialProperties(eq)); //|WEAPON.%weap.SPROP|
 				statBuf.append('"' + " class=" + '"' + "dialog" + '"' + "> ");
 
-				statBuf.append(pcOut.getWeaponName(eq)); //|WEAPON.%weap.NAME|
+				statBuf.append(PlayerCharacterOutput.getWeaponName(eq)); //|WEAPON.%weap.NAME|
 				statBuf.append(" ");
 				statBuf.append(pcOut.getWeaponToHit(i)); //|WEAPON.%weap.TOTALHIT|
 				statBuf.append(" ");
@@ -572,9 +572,9 @@ public class PcgCombatant extends Combatant
 				statBuf.append("/x");
 				statBuf.append(pcOut.getWeaponCritMult(i)); //|WEAPON.%weap.MULT|
 				statBuf.append(" ");
-				statBuf.append(pcOut.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
+				statBuf.append(PlayerCharacterOutput.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
 				statBuf.append(" ");
-				statBuf.append(pcOut.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
+				statBuf.append(PlayerCharacterOutput.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
 				statBuf.append(" ");
 				statBuf.append(pcOut.getWeaponSpecialProperties(eq)); //|WEAPON.%weap.SPROP|
 				statBuf.append(") </a> or ");
@@ -873,7 +873,7 @@ public class PcgCombatant extends Combatant
 
 					firstLine = false;
 
-					statBuf.append(pcOut.getDomainName(dom)); //|DOMAIN|
+					statBuf.append(PlayerCharacterOutput.getDomainName(dom)); //|DOMAIN|
 					statBuf.append(" (");
 					statBuf.append(DescriptionFormatting.piWrapDesc(dom, pc.getDescription(dom), true)); //|DOMAIN.POWER|
 					statBuf.append(")");
