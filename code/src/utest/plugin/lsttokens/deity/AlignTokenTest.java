@@ -42,8 +42,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 
 	@Override
 	@Before
-	public final void setUp() throws PersistenceLayerException,
-			URISyntaxException
+	public final void setUp() throws Exception
 	{
 		super.setUp();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
