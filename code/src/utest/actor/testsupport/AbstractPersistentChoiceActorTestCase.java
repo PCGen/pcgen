@@ -36,7 +36,7 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 	protected LoadContext context;
 
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();

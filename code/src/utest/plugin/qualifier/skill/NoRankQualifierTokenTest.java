@@ -57,7 +57,7 @@ public class NoRankQualifierTokenTest extends
 	}
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(NORANK_TOKEN);

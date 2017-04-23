@@ -47,7 +47,7 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		if (!getClassSetUpFired())

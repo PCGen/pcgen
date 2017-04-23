@@ -61,7 +61,7 @@ public class DataTypeTokenTest extends TestCase
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		if (!classSetUpFired)
 		{

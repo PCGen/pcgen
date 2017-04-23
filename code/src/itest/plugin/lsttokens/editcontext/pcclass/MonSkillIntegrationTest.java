@@ -44,7 +44,7 @@ public class MonSkillIntegrationTest extends
 	PreLevelMaxParser prelevelmax = new PreLevelMaxParser();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		addBonus(MonSkillPts.class);
