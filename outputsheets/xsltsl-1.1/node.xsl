@@ -9,7 +9,6 @@
   <doc:reference xmlns="">
     <referenceinfo>
       <releaseinfo role="meta">
-	$Id: node.xsl,v 1.6 2003/03/31 21:07:30 balls Exp $
       </releaseinfo>
       <author>
 	<surname>Ball</surname>
