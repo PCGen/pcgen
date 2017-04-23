@@ -21,10 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -36,6 +32,9 @@ import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class ClassFacetTest extends TestCase
 {
@@ -698,10 +697,6 @@ public class ClassFacetTest extends TestCase
 		{
 			// Yep!
 		}
-		catch (CloneNotSupportedException e)
-		{
-			fail(e.getMessage());
-		}
 	}
 
 	@Test
@@ -719,25 +714,14 @@ public class ClassFacetTest extends TestCase
 		{
 			// Yep!
 		}
-		catch (CloneNotSupportedException e)
-		{
-			fail(e.getMessage());
-		}
 	}
 
 	@Test
 	public void testSetClassLevelNotAdded()
 	{
-		try
-		{
-			PCClassLevel pcl = new PCClassLevel();
-			PCClass t1 = new PCClass();
-			assertFalse(facet.setClassLevel(id, t1, pcl));
-		}
-		catch (CloneNotSupportedException e)
-		{
-			fail(e.getMessage());
-		}
+		PCClassLevel pcl = new PCClassLevel();
+		PCClass t1 = new PCClass();
+		assertFalse(facet.setClassLevel(id, t1, pcl));
 		assertNull(facet.removeAllClasses(id));
 	}
 
@@ -758,9 +742,6 @@ public class ClassFacetTest extends TestCase
 		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//yep!
-		} catch (CloneNotSupportedException e)
-		{
-			fail(e.getMessage());
 		}
 	}
 
@@ -782,10 +763,6 @@ public class ClassFacetTest extends TestCase
 		{
 			//Yep okay too!
 		}
-		catch (CloneNotSupportedException e)
-		{
-			fail(e.getMessage());
-		}
 	}
 
 	@Test
@@ -796,19 +773,12 @@ public class ClassFacetTest extends TestCase
 		PCClassLevel pcl = new PCClassLevel();
 		pcl.put(IntegerKey.LEVEL, 3);
 		PCClassLevel old = facet.getClassLevel(id, t1, 3);
-		try
-		{
-			assertTrue(facet.setClassLevel(id, t1, pcl));
-			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
-			assertSame(id, event.getCharID());
-			assertEquals(t1, event.getPCClass());
-			assertEquals(old, event.getOldLevel());
-			assertEquals(pcl, event.getNewLevel());
-		}
-		catch (CloneNotSupportedException e)
-		{
-			fail(e.getMessage());
-		}
+		assertTrue(facet.setClassLevel(id, t1, pcl));
+		ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
+		assertSame(id, event.getCharID());
+		assertEquals(t1, event.getPCClass());
+		assertEquals(old, event.getOldLevel());
+		assertEquals(pcl, event.getNewLevel());
 		assertEquals(pcl, facet.getClassLevel(id, t1, 3));
 	}
 
@@ -825,12 +795,7 @@ public class ClassFacetTest extends TestCase
 		try
 		{
 			assertFalse(facet.setClassLevel(id, t1, pcl));
-		}
-		catch (CloneNotSupportedException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (IllegalArgumentException e)
+		} catch (IllegalArgumentException e)
 		{
 			//ok as well
 		}
@@ -854,29 +819,15 @@ public class ClassFacetTest extends TestCase
 		pcl.put(IntegerKey.LEVEL, 3);
 		PCClassLevel old = facet.getClassLevel(id, t1, 3);
 		assertEquals(0, classListener.addEventObjectCount);
-		try
-		{
-			assertTrue(facet.setClassLevel(id, t1, pcl));
-			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
-			assertSame(id, event.getCharID());
-			assertEquals(t1, event.getPCClass());
-			assertEquals(old, event.getOldLevel());
-			assertEquals(pcl, event.getNewLevel());
-		}
-		catch (CloneNotSupportedException e)
-		{
-			fail(e.getMessage());
-		}
+		assertTrue(facet.setClassLevel(id, t1, pcl));
+		ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
+		assertSame(id, event.getCharID());
+		assertEquals(t1, event.getPCClass());
+		assertEquals(old, event.getOldLevel());
+		assertEquals(pcl, event.getNewLevel());
 		assertEquals(1, classListener.addEventObjectCount);
 		//Now useless but still returns true
-		try
-		{
-			assertTrue(facet.setClassLevel(id, t1, pcl));
-		}
-		catch (CloneNotSupportedException e)
-		{
-			fail(e.getMessage());
-		}
+		assertTrue(facet.setClassLevel(id, t1, pcl));
 		//Guarantee no new event
 		assertEquals(1, classListener.addEventObjectCount);
 		assertEquals(pcl, facet.getClassLevel(id, t1, 3));
