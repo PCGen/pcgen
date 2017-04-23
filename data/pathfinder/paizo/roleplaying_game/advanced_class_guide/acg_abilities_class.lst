@@ -1299,6 +1299,18 @@ Linnorm Death Curse (Tor)	KEY:Rage Power ~ Linnorm Death Curse (Tor)	CATEGORY:Sp
 Raging Flier			KEY:Rage Power ~ Raging Flier				CATEGORY:Special Ability	TYPE:Barbarian Class Feature.Skald Class Feature.Rage Power.RagePower.SpecialAttack.Supernatural	PRELEVEL:MIN=6																		DESC:Once per rage, the character can fly up to her base speed as a move action. If she uses the charge action, she can use this flight as part of her movement during the charge. A character must be at least 6th level and have the raging leaper rage power to select this rage power.																																																				SOURCEPAGE:p.114	ASPECT:ChildAbility|Rage
 Ultimate Clarity			KEY:Rage Power ~ Ultimate Clarity			CATEGORY:Special Ability	TYPE:Barbarian Class Feature.Skald Class Feature.Rage Power.RagePower.SpecialAttack.Supernatural	PRELEVEL:MIN=6																		DESC:Once per rage, the character can refine her senses, seeing through normal and magical darkness (including from magical effects such as blur and displacement), invisibility, and illusions; she can also discern the exact locations of creatures with concealment. This lasts for 1 round. A character must be at least 6th level and have the moment of clarity and perfect clarity rage powers to select this rage power. The character does not need to be using moment of clarity to use this rage power.																SOURCEPAGE:p.114	ASPECT:ChildAbility|Rage
 
+CATEGORY=Special Ability|Skald ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:SkaldLVL,3|PREVAREQ:Skald_CF_RagePower3,1
+CATEGORY=Special Ability|Skald ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:SkaldLVL,6|PREVAREQ:Skald_CF_RagePower6,1
+CATEGORY=Special Ability|Skald ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:SkaldLVL,9|PREVAREQ:Skald_CF_RagePower9,1
+CATEGORY=Special Ability|Skald ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:SkaldLVL,12|PREVAREQ:Skald_CF_RagePower12,1
+CATEGORY=Special Ability|Skald ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:SkaldLVL,15|PREVAREQ:Skald_CF_RagePower15,1
+CATEGORY=Special Ability|Skald ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:SkaldLVL,18|PREVAREQ:Skald_CF_RagePower18,1
+
+CATEGORY=Special Ability|Skald ~ Versatile Performance.MOD	BONUS:ABILITYPOOL|Skald Versatile Performance|-1|PREVARGTEQ:SkaldLVL,2|PREVAREQ:Skald_CF_VersatilePerformance2,1
+CATEGORY=Special Ability|Skald ~ Versatile Performance.MOD	BONUS:ABILITYPOOL|Skald Versatile Performance|-1|PREVARGTEQ:SkaldLVL,7|PREVAREQ:Skald_CF_VersatilePerformance7,1
+CATEGORY=Special Ability|Skald ~ Versatile Performance.MOD	BONUS:ABILITYPOOL|Skald Versatile Performance|-1|PREVARGTEQ:SkaldLVL,12|PREVAREQ:Skald_CF_VersatilePerformance12,1
+CATEGORY=Special Ability|Skald ~ Versatile Performance.MOD	BONUS:ABILITYPOOL|Skald Versatile Performance|-1|PREVARGTEQ:SkaldLVL,17|PREVAREQ:Skald_CF_VersatilePerformance17,1
+
 # ==============================
 # Slayer Class features
 # ==============================
