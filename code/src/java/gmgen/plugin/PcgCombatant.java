@@ -543,7 +543,7 @@ public class PcgCombatant extends Combatant
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponRange(eq)); //|WEAPON.%weap.RANGE|
 				statBuf.append("\\");
-				statBuf.append(pcOut.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
+				statBuf.append(PlayerCharacterOutput.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponDamage(i)); //|WEAPON.%weap.DAMAGE|
 				statBuf.append("\\");
@@ -564,7 +564,7 @@ public class PcgCombatant extends Combatant
 				statBuf.append(" ");
 				statBuf.append(pcOut.getWeaponRange(eq)); //|WEAPON.%weap.RANGE|
 				statBuf.append("/");
-				statBuf.append(pcOut.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
+				statBuf.append(PlayerCharacterOutput.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
 				statBuf.append(" (");
 				statBuf.append(pcOut.getWeaponDamage(i)); //|WEAPON.%weap.DAMAGE|
 				statBuf.append(" ");
