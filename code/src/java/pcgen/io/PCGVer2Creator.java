@@ -124,8 +124,8 @@ public final class PCGVer2Creator
 
 	private final PlayerCharacter thePC;
 	private final CharacterDisplay charDisplay;
-	private GameMode mode;
-	private List<? extends CampaignFacade> campaigns;
+	private final GameMode mode;
+	private final List<? extends CampaignFacade> campaigns;
 
 	/**
 	 * Constructor

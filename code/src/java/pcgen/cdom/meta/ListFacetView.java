@@ -25,7 +25,7 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 public class ListFacetView<T> implements FacetView<T>
 {
 
-	private AbstractSourcedListFacet<CharID, T> facet;
+	private final AbstractSourcedListFacet<CharID, T> facet;
 	
 	ListFacetView(AbstractSourcedListFacet<CharID, T> facet)
 	{

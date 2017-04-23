@@ -151,9 +151,9 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	 */
 	private static class CacheInfo
 	{
-		private HashMapToList<Class<? extends Loadable>, Qualifier> hml =
+		private final HashMapToList<Class<? extends Loadable>, Qualifier> hml =
                 new HashMapToList<>();
-		private HashMapToList<CDOMObject, Qualifier> sourceMap =
+		private final HashMapToList<CDOMObject, Qualifier> sourceMap =
                 new HashMapToList<>();
 
 		/**

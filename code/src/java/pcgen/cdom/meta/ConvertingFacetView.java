@@ -26,7 +26,7 @@ import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 public class ConvertingFacetView<S, D> implements FacetView<Object>
 {
 
-	private AbstractItemConvertingFacet<S, D> facet;
+	private final AbstractItemConvertingFacet<S, D> facet;
 	
 	ConvertingFacetView(AbstractItemConvertingFacet<S, D> facet)
 	{

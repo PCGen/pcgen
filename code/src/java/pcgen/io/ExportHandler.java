@@ -3904,15 +3904,13 @@ public final class ExportHandler
 			existsOnly =
 					pTok.hasMoreTokens() && !("0".equals(pTok.nextToken()));
 
-			cMax = (max >= numOfPCs) && existsOnly ? numOfPCs : max;
+			cMax = ((max >= numOfPCs) && existsOnly) ? numOfPCs : max;
 
 			if (pTok.hasMoreTokens())
 			{
-				StringBuilder sBuf = new StringBuilder();
-				sBuf.append("In Party.print there is an unhandled case in a ");
-				sBuf.append("switch (the value is ").append(pTok.nextToken());
-				sBuf.append(".");
-				String log = sBuf.toString();
+				String log = "In Party.print there is an unhandled case in a " +
+						"switch (the value is " + pTok.nextToken() +
+						".";
 				Logging.errorPrint(log);
 			}
 		}

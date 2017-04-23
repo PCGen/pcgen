@@ -42,7 +42,7 @@ import pcgen.core.utils.CoreUtility;
 public class EquipSetMigration
 {
 
-	private static EquipSetOutputOrderComparator comparator =
+	private static final EquipSetOutputOrderComparator comparator =
 			new EquipSetOutputOrderComparator();
 
 	/**
