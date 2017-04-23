@@ -63,8 +63,7 @@ public class RepeatLevelIntegrationTest extends
 
 	@Override
 	@Before
-	public final void setUp() throws PersistenceLayerException,
-		URISyntaxException
+	public final void setUp() throws Exception
 	{
 		super.setUp();
 		if (!classSetUpFired)
