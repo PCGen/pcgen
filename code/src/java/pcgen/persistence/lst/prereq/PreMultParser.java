@@ -24,13 +24,13 @@
  */
 package pcgen.persistence.lst.prereq;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -54,7 +54,7 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		prereq.setKind(null);
 		prereq.setCharacterRequired(false);
 
-		int commaIndex = formula.indexOf(",");
+		int commaIndex = formula.indexOf(',');
 
 		if (commaIndex > 0)
 		{
