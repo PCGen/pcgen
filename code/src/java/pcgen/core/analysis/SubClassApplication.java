@@ -196,6 +196,7 @@ public class SubClassApplication
 	}
 
 	public static void setSubClassKey(PlayerCharacter pc, PCClass cl, final String aKey)
+			throws CloneNotSupportedException
 	{
 		if (aKey == null || cl == null)
 		{
