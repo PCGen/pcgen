@@ -96,7 +96,6 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 	 *             if the class level cannot be thrown
 	 */
 	public boolean setClassLevel(CharID id, PCClass pcc, PCClassLevel pcl)
-		throws CloneNotSupportedException
 	{
 		if (pcc == null)
 		{
@@ -114,7 +113,14 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			return false;
 		}
 		PCClassLevel old = info.getClassLevel(pcc, pcl.get(IntegerKey.LEVEL));
-		boolean returnVal = info.setClassLevel(pcc, pcl);
+		boolean returnVal = false;
+		try
+		{
+			returnVal = info.setClassLevel(pcc, pcl);
+		} catch (CloneNotSupportedException e)
+		{
+			e.printStackTrace();
+		}
 		support.fireClassLevelObjectChangeEvent(id, pcc, old, pcl);
 		return returnVal;
 	}
