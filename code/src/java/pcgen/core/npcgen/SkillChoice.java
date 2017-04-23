@@ -102,15 +102,8 @@ public class SkillChoice
 		{
 			return false;
 		}
-		
-		for ( final Skill s : theSkillList )
-		{
-			if ( s.getKeyName().equals(aKey) )
-			{
-				return true;
-			}
-		}
-		return false;
+
+		return theSkillList.stream().anyMatch(s -> s.getKeyName().equals(aKey));
 	}
 	
 	/**

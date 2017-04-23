@@ -29,14 +29,13 @@ public class RaceAlignment
 	{
 		if (r.hasPrerequisites())
 		{
-			for (Prerequisite prereq : r.getPrerequisiteList())
-			{
-				if ("ALIGN".equalsIgnoreCase(prereq.getKind()))
-				{
-					return align.equals(AlignmentConverter
-							.getPCAlignment(prereq.getKey()));
-				}
-			}
+			return r.getPrerequisiteList()
+			        .stream()
+			        .filter(prereq -> "ALIGN".equalsIgnoreCase(prereq.getKind()))
+			        .findFirst()
+			        .map(prereq -> align.equals(AlignmentConverter
+					        .getPCAlignment(prereq.getKey())))
+			        .orElse(true);
 		}
 	
 		return true;

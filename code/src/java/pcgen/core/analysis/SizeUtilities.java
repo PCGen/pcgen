@@ -29,15 +29,13 @@ public class SizeUtilities
 	 */
 	public static SizeAdjustment getDefaultSizeAdjustment()
 	{
-		for (SizeAdjustment s : Globals.getContext().getReferenceContext()
-			.getConstructedCDOMObjects(SizeAdjustment.class))
-		{
-			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
-			{
-				return s;
-			}
-		}
-	
-		return null;
+		return Globals.getContext()
+		              .getReferenceContext()
+		              .getConstructedCDOMObjects(SizeAdjustment.class)
+		              .stream()
+		              .filter(s -> s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
+		              .findFirst()
+		              .orElse(null);
+
 	}
 }

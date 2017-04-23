@@ -86,14 +86,7 @@ public final class PrereqHandler
 			}
 		}
 
-		for (Prerequisite prereq : prereqList)
-		{
-			if (!passes(prereq, aPC, caller))
-			{
-				return false;
-			}
-		}
-		return true;
+		return prereqList.stream().allMatch(prereq -> passes(prereq, aPC, caller));
 	}
 
 	/**
@@ -112,14 +105,7 @@ public final class PrereqHandler
 		{
 			return true;
 		}
-		for (Prerequisite prereq : prereqList)
-		{
-			if (!passes(prereq, equip, aPC))
-			{
-				return false;
-			}
-		}
-		return true;
+		return prereqList.stream().allMatch(prereq -> passes(prereq, equip, aPC));
 	}
 
 	/**

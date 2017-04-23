@@ -67,14 +67,12 @@ public final class SkillCostDisplay
 				boolean include = bonusForThisSkill(bonus, keyName);
 				if (!include)
 				{
-					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
+					if (aPC.getStringListFromBonus(bonus)
+					       .stream()
+					       .map(bp -> bp.fullyQualifiedBonusType.toUpperCase())
+					       .anyMatch(bpKey -> bpKey.equals(bonusKey)))
 					{
-						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
-						if (bpKey.equals(bonusKey))
-						{
-							include = true;
-							break;
-						}
+						include = true;
 					}
 				}
 	
@@ -188,14 +186,7 @@ public final class SkillCostDisplay
 
 	private static boolean bonusForThisSkill(BonusObj bonus, String keyName)
 	{
-		for (Object target : bonus.getBonusInfoList())
-		{
-			if (String.valueOf(target).equalsIgnoreCase(keyName))
-			{
-				return true;
-			}
-		}
-		return false;
+		return bonus.getBonusInfoList().stream().anyMatch(target -> String.valueOf(target).equalsIgnoreCase(keyName));
 	}
 	
 	public static String getSituationModifierExplanation(Skill sk,
@@ -212,14 +203,12 @@ public final class SkillCostDisplay
 				boolean include = bonusForThisSkill(bonus, keyName);
 				if (!include)
 				{
-					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
+					if (aPC.getStringListFromBonus(bonus)
+					       .stream()
+					       .map(bp -> bp.fullyQualifiedBonusType.toUpperCase())
+					       .anyMatch(bpKey -> bpKey.equals(bonusKey)))
 					{
-						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
-						if (bpKey.equals(bonusKey))
-						{
-							include = true;
-							break;
-						}
+						include = true;
 					}
 				}
 

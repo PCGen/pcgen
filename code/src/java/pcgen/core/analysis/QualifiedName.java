@@ -71,15 +71,10 @@ public class QualifiedName
 		ChooseInformation<T> chooseInfo, List<CNAbility> list)
 	{
 		List<T> allSelections = new ArrayList<>();
-		for (CNAbility cna : list)
-		{
-			if (pc.hasAssociations(cna))
-			{
-				List<? extends T> selections =
-						(List<? extends T>) pc.getDetailedAssociations(cna);
-				allSelections.addAll(selections);
-			}
-		}
+		list.stream()
+		    .filter(pc::hasAssociations)
+		    .map(cna -> (List<? extends T>) pc.getDetailedAssociations(cna))
+		    .forEach(allSelections::addAll);
 		String choiceInfo = chooseInfo.composeDisplay(allSelections).toString();
 		if (!choiceInfo.isEmpty())
 		{

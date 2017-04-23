@@ -150,14 +150,9 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 			{
 				return false;
 			}
-			for (Object target : bonus.getBonusInfoList())
-			{
-				if (String.valueOf(target).equalsIgnoreCase(skill.getKeyName()))
-				{
-					return true;
-				}
-			}
-			return false;
+			return bonus.getBonusInfoList()
+			            .stream()
+			            .anyMatch(target -> String.valueOf(target).equalsIgnoreCase(skill.getKeyName()));
 		}
 		
 	}
