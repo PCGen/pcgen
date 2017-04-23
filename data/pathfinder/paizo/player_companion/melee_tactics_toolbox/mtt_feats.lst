@@ -44,7 +44,7 @@ Kraken Wrack							CATEGORY:FEAT		TYPE:Combat,Style		PREABILITY:3,CATEGORY=FEAT,
 # Bardic Masterpiece Feats
 # ==============================
 
-Masterpiece (Battle Song of the People's Revolt)	CATEGORY:FEAT		TYPE:General																						PRECLASS:1,Bard=3																											PRESKILL:1,Perform (Percussion Instruments)=4,Perform (Wind Instruments)=4																											DESC:You learn the masterpiece The Battle Song of the People's Revolt																																													SOURCEPAGE:p.11
+Masterpiece (Battle Song of the People's Revolt)	CATEGORY:FEAT		TYPE:Masterpiece																						PREVARGTEQ:MasterpieceLVL,3																											PRESKILL:1,Perform (Percussion Instruments)=4,Perform (Wind Instruments)=4																											DESC:You learn the masterpiece The Battle Song of the People's Revolt																																													SOURCEPAGE:p.11
 
 
 
