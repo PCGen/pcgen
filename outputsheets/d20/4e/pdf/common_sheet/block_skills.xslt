@@ -280,7 +280,7 @@
 										<xsl:if test="ranks &gt; 0">
 											<xsl:if test="contains(type, 'SkillUse')">[</xsl:if>
 											<xsl:choose>
-												<xsl:when test="round(ranks) = ranks">
+												<xsl:when test="round(number(ranks)) = ranks">
 													<xsl:value-of select="round(ranks)"/>
 												</xsl:when>
 												<xsl:otherwise>

@@ -505,28 +505,28 @@
 								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 							</xsl:call-template>
 							<fo:block font-size="8pt">
-									<xsl:value-of select="format-number($fab + $fab_1,'+#;-#')"/>/
-									<xsl:value-of select="format-number($fab + $fab_2,'+#;-#')"/>
+									<xsl:value-of select="format-number($fab + number($fab_1),'+#;-#')"/>/
+									<xsl:value-of select="format-number($fab + number($fab_2),'+#;-#')"/>
 									<xsl:if test="(flurry_attacks &gt; 2)">
-											/<xsl:value-of select="format-number($fab + $fab_3,'+#;-#')"/>
+											/<xsl:value-of select="format-number($fab + number($fab_3),'+#;-#')"/>
 									</xsl:if>
 									<xsl:if test="(flurry_attacks &gt; 3)">
-											/<xsl:value-of select="format-number($fab + $fab_4,'+#;-#')"/>
+											/<xsl:value-of select="format-number($fab + number($fab_4),'+#;-#')"/>
 									</xsl:if>
 									<xsl:if test="(flurry_attacks &gt; 4)">
-											/<xsl:value-of select="format-number($fab + $fab_5,'+#;-#')"/>
+											/<xsl:value-of select="format-number($fab + number($fab_5),'+#;-#')"/>
 									</xsl:if>
 									<xsl:if test="(flurry_attacks &gt; 5)">
-											/<xsl:value-of select="format-number($fab + $fab_6,'+#;-#')"/>
+											/<xsl:value-of select="format-number($fab + number($fab_6),'+#;-#')"/>
 									</xsl:if>
 									<xsl:if test="(flurry_attacks &gt; 6)">
-											/<xsl:value-of select="format-number($fab + $fab_7,'+#;-#')"/>
+											/<xsl:value-of select="format-number($fab + number($fab_7),'+#;-#')"/>
 									</xsl:if>
 									<xsl:if test="(flurry_attacks &gt; 7)">
-											/<xsl:value-of select="format-number($fab + $fab_8,'+#;-#')"/>
+											/<xsl:value-of select="format-number($fab + number($fab_8),'+#;-#')"/>
 									</xsl:if>
 									<xsl:if test="(flurry_attacks &gt; 8)">
-											/<xsl:value-of select="format-number($fab + $fab_9,'+#;-#')"/>
+											/<xsl:value-of select="format-number($fab + number($fab_9),'+#;-#')"/>
 									</xsl:if>
 							</fo:block>
 						</fo:table-cell>
@@ -744,7 +744,7 @@
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
 								<fo:block font-size="7pt" padding-right="2pt">
-									<xsl:value-of select="number($distance)"/>
+									<xsl:value-of select="$distance"/>
 									<xsl:value-of select="distance_unit"/>
 								</fo:block>
 							</fo:table-cell>
