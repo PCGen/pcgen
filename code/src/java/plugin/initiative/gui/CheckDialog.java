@@ -20,6 +20,8 @@ package plugin.initiative.gui;
 import java.awt.Component;
 import java.awt.HeadlessException;
 import java.text.DecimalFormat;
+
+import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.text.NumberFormatter;
@@ -41,9 +43,7 @@ public class CheckDialog extends DiceRollDialog
 	private JFormattedTextField m_dc;
 
 	/**
-	 * <p>
 	 * Constructs the dialog; initializes components
-	 * </p>
 	 *
 	 * @param model
 	 *            A DiceRollModel
@@ -55,10 +55,7 @@ public class CheckDialog extends DiceRollDialog
 	}
 
 	/**
-	 * <p>
 	 * Initializes the DC value
-	 * </p>
-	 *
 	 */
 	private void initDC()
 	{
@@ -68,16 +65,11 @@ public class CheckDialog extends DiceRollDialog
 		m_dc = new JFormattedTextField(formatter);
 		m_dc.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
 		m_dc.setValue(m_defaultDC);
-		JLabel label = new JLabel("DC:");
+		JComponent label = new JLabel("DC:");
 		label.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		addComponent(m_dc, label);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see plugin.initiative.gui.DiceRollDialog#initComponents()
-	 */
     @Override
 	protected void initComponents()
 	{
@@ -90,11 +82,6 @@ public class CheckDialog extends DiceRollDialog
 		super.initComponents();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see plugin.initiative.gui.DiceRollDialog#setResult(int)
-	 */
     @Override
 	protected void setResult(int result)
 	{
@@ -104,11 +91,6 @@ public class CheckDialog extends DiceRollDialog
 				: "") + "</b></body></html>");
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see plugin.initiative.gui.DiceRollDialog#initListeners()
-	 */
     @Override
 	protected void initListeners()
 	{
