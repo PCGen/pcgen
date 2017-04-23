@@ -25,6 +25,7 @@ package pcgen.core.term;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.core.Globals;
 import pcgen.core.character.Follower;
@@ -55,15 +56,12 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 	{
 		if (display.hasFollowers())
 		{
-			final List<Follower> aList = new ArrayList<>();
-
-			for ( Follower follower : display.getFollowerList() )
-			{
-				if (follower.getType().getKeyName().equalsIgnoreCase(type))
-				{
-					aList.add(follower);
-				}
-			}
+			final List<Follower> aList = display.getFollowerList()
+			                                    .stream()
+			                                    .filter(follower -> follower.getType()
+			                                                                .getKeyName()
+			                                                                .equalsIgnoreCase(type))
+			                                    .collect(Collectors.toList());
 
 			if (index < aList.size())
 			{

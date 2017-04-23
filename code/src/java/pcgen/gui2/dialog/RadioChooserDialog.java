@@ -28,6 +28,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.stream.IntStream;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -204,15 +205,11 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		}
 		if (e.getActionCommand().equals("OK"))
 		{
-			for (int i = 0; i < avaRadioButton.length; i++)
-			{
-				if (selectedButton == avaRadioButton[i])
-				{
-					chooser.addSelected(chooser.getAvailableList()
-						.getElementAt(i));
-					break;
-				}
-			}
+			IntStream.range(0, avaRadioButton.length)
+			         .filter(i -> selectedButton == avaRadioButton[i])
+			         .findFirst()
+			         .ifPresent(i -> chooser.addSelected(chooser.getAvailableList()
+			                                                    .getElementAt(i)));
 			if (chooser.isRequireCompleteSelection()
 				&& chooser.getRemainingSelections().get() > 0)
 			{

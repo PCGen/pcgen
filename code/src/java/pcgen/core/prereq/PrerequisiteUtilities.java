@@ -367,27 +367,13 @@ public final class PrerequisiteUtilities
 
 	private static int countSubkeyMatches(List<String> assocs, String subKey)
 	{
-		int numMatches = 0;
-		for (String s : assocs)
-		{
-			if (subKey.equalsIgnoreCase(s))
-			{
-				numMatches++;
-			}
-		}
+		int numMatches = (int) assocs.stream().filter(subKey::equalsIgnoreCase).count();
 		return numMatches;
 	}
 
 	private static boolean hasAssoc(List<String> assocs, String subKey)
 	{
-		for (String s : assocs)
-		{
-			if (subKey.equalsIgnoreCase(s))
-			{
-				return true;
-			}
-		}
-		return false;
+		return assocs.stream().anyMatch(subKey::equalsIgnoreCase);
 	}
 
 	/**
@@ -493,28 +479,18 @@ public final class PrerequisiteUtilities
 			{
 				Logging.errorPrint("Invalid use of child category in PREABILITY");
 			}
-			for (CNAbility cna : character.getCNAbilities(cat))
-			{
-				abilityList.add(cna.getAbility());
-			}
+			character.getCNAbilities(cat).stream().map(CNAbility::getAbility).forEach(abilityList::add);
 
 			Collection<AbilityCategory> allCats =
 					SettingsHandler.getGame().getAllAbilityCategories();
 			// Now scan for relevant SERVESAS occurrences
-			for (AbilityCategory aCat : allCats)
-			{
-				for (CNAbility cna : character.getPoolAbilities(aCat))
-				{
-					for(CDOMReference<Ability> ref
-						: cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY))
-					{
-						for (Ability ab : ref.getContainedObjects())
-						{
-								abilityList.add(ab);
-						}
-					}
-				}
-			}
+			allCats.forEach(aCat -> character.getPoolAbilities(aCat).forEach(cna -> cna.getAbility()
+			                                                                           .getSafeListFor(ListKey
+					                                                                           .SERVES_AS_ABILITY)
+			                                                                           .forEach(ref -> ref
+					                                                                           .getContainedObjects()
+			                                                                                              .forEach(
+					                                                                                              abilityList::add))));
 		}
 		return abilityList;
 	}
@@ -703,16 +679,8 @@ public final class PrerequisiteUtilities
 		{
 			return true;
 		}
-		
-		for (Prerequisite childPrereq : prereq.getPrerequisites())
-		{
-			if (hasPreReqKindOf(childPrereq, matchKind))
-			{
-				return true;
-			}
-		}
-	
-		return false;
+
+		return prereq.getPrerequisites().stream().anyMatch(childPrereq -> hasPreReqKindOf(childPrereq, matchKind));
 	}
 
 	/**
@@ -735,11 +703,11 @@ public final class PrerequisiteUtilities
 		{
 			matchingPrereqs.add(prereq);
 		}
-		
-		for (Prerequisite childPrereq : prereq.getPrerequisites())
-		{
-			matchingPrereqs.addAll(getPreReqsOfKind(childPrereq, matchKind));
-		}
+
+		prereq.getPrerequisites()
+		      .stream()
+		      .map(childPrereq -> getPreReqsOfKind(childPrereq, matchKind))
+		      .forEach(matchingPrereqs::addAll);
 	
 		return matchingPrereqs;
 	}
@@ -773,16 +741,10 @@ public final class PrerequisiteUtilities
 				return true;
 			}
 		}
-		
-		for (Prerequisite childPrereq : prereq.getPrerequisites())
-		{
-			if (hasPreReqMatching(childPrereq, matchKind, matchKey))
-			{
-				return true;
-			}
-		}
-	
-		return false;
+
+		return prereq.getPrerequisites()
+		             .stream()
+		             .anyMatch(childPrereq -> hasPreReqMatching(childPrereq, matchKind, matchKey));
 	}
 	
 }

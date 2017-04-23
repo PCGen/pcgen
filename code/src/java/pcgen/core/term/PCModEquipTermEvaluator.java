@@ -87,11 +87,10 @@ public class PCModEquipTermEvaluator
 			}
 			else
 			{
-				int bonus = 0;
-				for (Equipment eq : pc.getEquippedEquipmentSet())
-				{
-					bonus += EqToken.getSpellFailureTokenInt(pc, eq);
-				}
+				int bonus = pc.getEquippedEquipmentSet()
+				              .stream()
+				              .mapToInt(eq -> EqToken.getSpellFailureTokenInt(pc, eq))
+				              .sum();
 				return bonus + (int) pc.getTotalBonusTo("MISC", "SPELLFAILURE");
 			}
 		}

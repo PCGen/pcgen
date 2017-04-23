@@ -41,15 +41,11 @@ public class PCCountFollowerTypeTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		Float countFollower = 0.0f;
-
-		for ( Follower follower : display.getFollowerList() )
-		{
-			if (follower.getType().getKeyName().equalsIgnoreCase(type))
-			{
-				++countFollower;
-			}
-		}
+		Float countFollower = (Float) display.getFollowerList()
+		                                     .stream()
+		                                     .filter(follower -> follower.getType().getKeyName().equalsIgnoreCase
+				                                     (type))
+		                                     .count();
 
 		return countFollower;
 	}

@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -579,14 +580,11 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					List<String> subtypes = pobj.getRaceSubTypes();
 					if (!subtypes.isEmpty())
 					{
-						List<TreeViewPath<RaceFacade>> paths
-								= new ArrayList<>();
+						List<TreeViewPath<RaceFacade>> paths;
 						String raceType = pobj.getRaceType();
-						for (String subtype : subtypes)
-						{
-							paths.add(new TreeViewPath<>(pobj,
-                                    raceType, subtype));
-						}
+						paths = subtypes.stream().map(subtype -> new TreeViewPath<>(pobj,
+								raceType, subtype
+						)).collect(Collectors.toList());
 						return paths;
 					}
 					// No subtypes, fall through to treat it as a type tree.

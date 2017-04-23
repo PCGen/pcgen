@@ -39,18 +39,13 @@ public class PCCountVisibleTemplatesTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		Float count = 0.0f;
+		Float count = (Float) display.getTemplateSet()
+		                             .stream()
+		                             .map(template -> template.getSafe(ObjectKey.VISIBILITY))
+		                             .filter(vis -> vis.isVisibleTo(View.VISIBLE_EXPORT))
+		                             .count();
 
-		for ( PCTemplate template : display.getTemplateSet() )
-		{
-			final Visibility vis = template.getSafe(ObjectKey.VISIBILITY);
-
-			//TODO This is a bug, it assumes export
-			if (vis.isVisibleTo(View.VISIBLE_EXPORT))
-			{
-				count++;
-			}
-		}
+		//TODO This is a bug, it assumes export
 
 		return count;
 	}
