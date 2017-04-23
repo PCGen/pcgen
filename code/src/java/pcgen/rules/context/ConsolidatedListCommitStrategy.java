@@ -21,8 +21,10 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.MapToList;
@@ -132,17 +134,16 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		{
 			for (CDOMObject allowed : masterList.getSecondaryKeySet(ref))
 			{
-				for (AssociatedPrereqObject assoc : masterList.getListFor(ref,
-					allowed))
-				{
-					if (owner
-						.equals(assoc.getAssociation(AssociationKey.OWNER))
-						&& tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
-					{
-						masterList.removeFromListFor(ref, allowed, assoc);
-					}
-				}
+				masterList.getListFor(
+						ref,
+						allowed
+				)
+				          .stream()
+				          .filter(assoc -> owner
+						          .equals(assoc.getAssociation(AssociationKey.OWNER))
+						          && tokenName.equals(assoc
+						          .getAssociation(AssociationKey.TOKEN)))
+				          .forEach(assoc -> masterList.removeFromListFor(ref, allowed, assoc));
 			}
 		}
 	}
@@ -209,15 +210,11 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
 		ArrayList<CDOMReference<? extends CDOMList<?>>> list =
-                new ArrayList<>();
-		for (CDOMReference<? extends CDOMList<?>> ref : owner
-			.getModifiedLists())
-		{
-			if (cl.equals(ref.getReferenceClass()))
-			{
-				list.add(ref);
-			}
-		}
+				owner
+						.getModifiedLists()
+						.stream()
+						.filter(ref -> cl.equals(ref.getReferenceClass()))
+						.collect(Collectors.toCollection(ArrayList::new));
 		return list;
 	}
 
@@ -247,17 +244,12 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 			CDOMList<T> key1, T key2)
 	{
 		List<AssociatedPrereqObject> list = new ArrayList<>();
-		for (CDOMReference ref : masterList.getKeySet())
-		{
-			if (ref.contains(key1))
-			{
-				List<AssociatedPrereqObject> tempList = masterList.getListFor(ref, key2);
-				if (tempList != null)
-				{
-					list.addAll(tempList);
-				}
-			}
-		}
+		masterList.getKeySet()
+		          .stream()
+		          .filter(ref -> ref.contains(key1))
+		          .map(ref -> masterList.getListFor(ref, key2))
+		          .filter(Objects::nonNull)
+		          .forEach(list::addAll);
 		return list;
 	}
 

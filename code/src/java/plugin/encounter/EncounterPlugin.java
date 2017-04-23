@@ -26,11 +26,14 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Vector;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
@@ -522,13 +525,9 @@ public class EncounterPlugin extends MouseAdapter
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i) instanceof EncounterView)
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
+		IntStream.range(0, tp.getTabCount())
+		         .filter(i -> tp.getComponentAt(i) instanceof EncounterView)
+		         .forEach(tp::setSelectedIndex);
 	}
 
 	/**
@@ -544,12 +543,9 @@ public class EncounterPlugin extends MouseAdapter
 		}
 
 		// Get any currently selected items in the Races list
-		List<Object> selected = new ArrayList<>();
-
-		for (int index : theView.getLibraryCreatures().getSelectedIndices())
-		{
-			selected.add(theRaces.elementAt(index));
-		}
+		List<Object> selected = Arrays.stream(theView.getLibraryCreatures().getSelectedIndices())
+		                              .mapToObj(index -> theRaces.elementAt(index))
+		                              .collect(Collectors.toList());
 
 		theRaces.update();
 		theEnvironments.update();
@@ -560,11 +556,9 @@ public class EncounterPlugin extends MouseAdapter
 		//	TODO: This is only a quick fix to clear the encounter list if the 
 		//	the sources are changed - it will only remove the items when focus is
 		//	returned to this control, 
-		for (Object obj : theModel.toArray())
-		{
-			if (!theRaces.contains(obj))
-				theModel.removeElement(obj);
-		}
+		Arrays.stream(theModel.toArray())
+		      .filter(obj -> !theRaces.contains(obj))
+		      .forEach(obj -> theModel.removeElement(obj));
 
 		theView.getEnvironment().setSelectedIndex(sel);
 		theView.setTotalEncounterLevel(Integer.toString(theModel.getCR()));
@@ -591,25 +585,16 @@ public class EncounterPlugin extends MouseAdapter
 
 		// re-select the selected creatures only if they still exist in 
 		//	the Races list - may not if sources have been changed
-		List<Integer> stillSelected = new ArrayList<>();
-
-		for (Object obj : selected)
-		{
-			if (theRaces.contains(obj))
-			{
-				stillSelected.add(theRaces.indexOf(obj));
-			}
-		}
+		List<Integer> stillSelected = selected.stream()
+		                                      .filter(obj -> theRaces.contains(obj))
+		                                      .map(obj -> theRaces.indexOf(obj))
+		                                      .collect(Collectors.toList());
 
 		//	convert the ArrayList to an integer array - needed
 		//	to select multiple indices
 		if (!stillSelected.isEmpty())
 		{
-			int[] ints = new int[stillSelected.size()];
-			for (int i = 0; i < ints.length; i++)
-			{
-				ints[i] = (stillSelected.get(i)).intValue();
-			}
+			int[] ints = stillSelected.stream().mapToInt(integer -> (integer).intValue()).toArray();
 
 			theView.getLibraryCreatures().setSelectedIndices(ints);
 		}
@@ -828,7 +813,7 @@ public class EncounterPlugin extends MouseAdapter
 		ReadXML xml;
 		VectorTable table41;
 		Random roll = new Random(System.currentTimeMillis());
-		List<Race> critters = new ArrayList<>();
+		List<Race> critters;
 
 		if (!f.exists())
 		{
@@ -870,13 +855,12 @@ public class EncounterPlugin extends MouseAdapter
 		ChallengeRating cr = new ChallengeRating(crFormula);
 
 		// populate critters with a list of matching monsters with the right CR.
-		for (final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class))
-		{
-			if (cr.equals(race.get(ObjectKey.CHALLENGE_RATING)))
-			{
-				critters.add(race);
-			}
-		}
+		critters = Globals.getContext()
+		                  .getReferenceContext()
+		                  .getConstructedCDOMObjects(Race.class)
+		                  .stream()
+		                  .filter(race -> cr.equals(race.get(ObjectKey.CHALLENGE_RATING)))
+		                  .collect(Collectors.toList());
 
 		int i = roll.nextInt(critters.size());
 
@@ -1071,16 +1055,13 @@ public class EncounterPlugin extends MouseAdapter
 			return "";
 		}
 
-		for (EquipSlot es : eqSlotList)
-		{
-			// see if this EquipSlot can contain this item TYPE
-			if (es.canContainType(eqI.getType()))
-			{
-				return es.getSlotName();
-			}
-		}
+		// see if this EquipSlot can contain this item TYPE
+		return eqSlotList.stream()
+		                 .filter(es -> es.canContainType(eqI.getType()))
+		                 .findFirst()
+		                 .map(EquipSlot::getSlotName)
+		                 .orElse("");
 
-		return "";
 	}
 
 	private String getEquipLocation(PlayerCharacter pc, EquipSet eSet,

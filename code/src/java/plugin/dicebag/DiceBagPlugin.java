@@ -20,6 +20,7 @@ package plugin.dicebag;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.net.URL;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -179,13 +180,9 @@ public class DiceBagPlugin implements InteractivePlugin
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i).equals(theController.getComponent()))
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
+		IntStream.range(0, tp.getTabCount())
+		         .filter(i -> tp.getComponentAt(i).equals(theController.getComponent()))
+		         .forEach(tp::setSelectedIndex);
 	}
 
 	/**

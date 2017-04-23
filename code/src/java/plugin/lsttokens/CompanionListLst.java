@@ -299,9 +299,8 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		CDOMSingleRef<CompanionList> ref = context.getReferenceContext().getCDOMReference(
 				CompanionList.class, companionType);
 
-		for (CDOMReference<Race> race : races)
+		races.stream().map(race -> new FollowerOption(race, ref)).forEach(option ->
 		{
-			final FollowerOption option = new FollowerOption(race, ref);
 			if (prereqs != null && !prereqs.isEmpty())
 			{
 				option.addAllPrerequisites(prereqs);
@@ -311,7 +310,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				option.setAdjustment(followerAdjustment.intValue());
 			}
 			context.getObjectContext().addToList(obj, ListKey.COMPANIONLIST, option);
-		}
+		});
 	}
 
 	@Override

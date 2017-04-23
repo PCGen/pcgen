@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.text.ParsingSeparator;
@@ -131,11 +132,8 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		TreeSet<String> set = new TreeSet<>();
 		if (keys != null && !keys.isEmpty())
 		{
-			for (VariableKey key : keys)
-			{
-				set.add(key.toString() + Constants.PIPE
-						+ context.getObjectContext().getVariable(obj, key));
-			}
+			set = keys.stream().map(key -> key.toString() + Constants.PIPE
+					+ context.getObjectContext().getVariable(obj, key)).collect(Collectors.toCollection(TreeSet::new));
 		}
 		if (set.isEmpty())
 		{

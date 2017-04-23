@@ -69,10 +69,7 @@ public class ComplexParseResult implements ParseResult
 
 	public void addMessages(ComplexParseResult pr)
 	{
-		for (QueuedMessage msg : pr.queuedMessages)
-		{
-			queuedMessages.add(msg);
-		}
+		pr.queuedMessages.forEach(queuedMessages::add);
 	}
 
 	@Override
@@ -96,14 +93,7 @@ public class ComplexParseResult implements ParseResult
 	@Override
 	public boolean passed()
 	{
-		for (QueuedMessage msg : queuedMessages)
-		{
-			if (msg.level == Logging.LST_ERROR)
-			{
-				return false;
-			}
-		}
-		return true;
+		return queuedMessages.stream().noneMatch(msg -> msg.level == Logging.LST_ERROR);
 	}
 
 	/**
@@ -115,10 +105,7 @@ public class ComplexParseResult implements ParseResult
 		if (pr instanceof ComplexParseResult)
 		{
 			ComplexParseResult cpr = (ComplexParseResult) pr;
-			for (QueuedMessage msg : cpr.queuedMessages)
-			{
-				queuedMessages.add(msg);
-			}
+			cpr.queuedMessages.forEach(queuedMessages::add);
 		}
 		else if (pr instanceof ParseResult.Fail)
 		{

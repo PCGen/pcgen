@@ -30,6 +30,7 @@ import java.awt.Component;
 import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.stream.IntStream;
 
 /**
  *
@@ -83,19 +84,17 @@ public class DiceBagPluginView implements Observer
 		Component[] frames = theDesktop.getComponents();
 		StringBuilder files = new StringBuilder();
 
-		for (int i = 0; i < frames.length; i++)
-		{
-			if (frames[i] instanceof DiceBagView)
-			{
-				DiceBagModel bag = ((DiceBagView) frames[i]).getBag();
-				askSaveBag(bag, JOptionPane.YES_NO_OPTION);
-
-				if (!bag.isChanged() && !bag.isBagEmpty())
-				{
-					files.append(bag.getFilePath() + '|');
-				}
-			}
-		}
+		IntStream.range(0, frames.length)
+		         .filter(i -> frames[i] instanceof DiceBagView)
+		         .mapToObj(i -> ((DiceBagView) frames[i]).getBag())
+		         .forEach(bag ->
+		         {
+			         askSaveBag(bag, JOptionPane.YES_NO_OPTION);
+			         if (!bag.isChanged() && !bag.isBagEmpty())
+			         {
+				         files.append(bag.getFilePath() + '|');
+			         }
+		         });
 
 		SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + "closeFiles",
 			files.toString());
@@ -213,13 +212,9 @@ public class DiceBagPluginView implements Observer
 	{
 		Component[] frames = theDesktop.getComponents();
 
-		for (int i = 0; i < frames.length; i++)
-		{
-			if (frames[i] instanceof DiceBagView)
-			{
-				((DiceBagView) frames[i]).hide();
-			}
-		}
+		IntStream.range(0, frames.length)
+		         .filter(i -> frames[i] instanceof DiceBagView)
+		         .forEach(i -> ((DiceBagView) frames[i]).hide());
 	}
 
 	/**
@@ -312,16 +307,10 @@ public class DiceBagPluginView implements Observer
 	{
 		Component[] frames = theDesktop.getComponents();
 
-		for (int i = 0; i < frames.length; i++)
-		{
-			if (frames[i] instanceof DiceBagView)
-			{
-				if (((DiceBagView) frames[i]).getBag() == model)
-				{
-					((DiceBagView) frames[i]).hide();
-				}
-			}
-		}
+		IntStream.range(0, frames.length)
+		         .filter(i -> frames[i] instanceof DiceBagView)
+		         .filter(i -> ((DiceBagView) frames[i]).getBag() == model)
+		         .forEach(i -> ((DiceBagView) frames[i]).hide());
 	}
 
 	/**
