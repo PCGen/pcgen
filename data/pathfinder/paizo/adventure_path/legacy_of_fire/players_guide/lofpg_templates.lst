@@ -1,6 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2009-02
-
-
-# Template Name	Visible	Bonus to HP				Bonus to skill point for a level			Choose					Favored Class
-Finding Haleen	VISIBLE:NO	BONUS:HP|CURRENTMAX|CL=%LIST	BONUS:SKILLPOOL|CLASS=%LIST;LEVEL=1|CL=%LIST	CHOOSE:NUMCHOICES=1|CLASS|TYPE=Base	FAVOREDCLASS:%LIST
