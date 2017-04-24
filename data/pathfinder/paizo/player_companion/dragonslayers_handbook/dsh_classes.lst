@@ -9,3 +9,7 @@ SOURCELONG:Dragonslayer's Handbook	SOURCESHORT:DSH	SOURCEWEB:http://paizo.com/pr
 
 CLASS:Bard.MOD
 1	TEMPLATE:Masterpiece Activation Dragonslayer
+
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Dragonslayer

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:People of the North (PFS)
 KEY:PFS ~ People of the North
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 GENRE:Fantasy
@@ -52,5 +52,5 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: People of the North" C
 # Last Updated Tuesday, January 31, 2017
 # Page 25—Replace the third sentence of the Witchguard's Defend Charge ability with the following. "At 8th level and every 4 levels thereafter, these bonuses increase by 2." Replace the second-to-last sentence of the ability with the following. "At 7th level and every 3 levels thereafter, the witchguard can use this ability one additional time per day."
 
-EQUIPMENT:pfs_potn_equip_general.lst
+EQUIPMENT:pfs_potn_equip_general.lst|PRECAMPAIGN:1,INCLUDES=People of the North
 

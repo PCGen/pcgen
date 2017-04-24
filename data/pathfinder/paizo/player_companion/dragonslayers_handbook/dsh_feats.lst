@@ -25,9 +25,9 @@ Wingclipper							CATEGORY:FEAT		TYPE:Combat			PRETOTALAB:9																					
 # New Bardic Masterpiece
 # ==============================
 
-Masterpiece (Ancients' Flight)						CATEGORY:FEAT		TYPE:General	PRECLASS:1,Bard=1	PRESKILL:1,Perform (Oratory)=13	PRELANG:1,Draconic				DESC:You learn the masterpiece Ancients' Flight				SOURCEPAGE:p.11
-Masterpiece (Fafnheir and the First King)		NAMEISPI:YES	CATEGORY:FEAT		TYPE:General	PRECLASS:1,Bard=1	PRESKILL:1,Perform (String Instruments)=6,Perform (Wind Instruments)=6		DESC:You learn the masterpiece Fafnheir and the First King		SOURCEPAGE:p.11
-Masterpiece (Pageant of the Peacock)					CATEGORY:FEAT		TYPE:General	PRECLASS:1,Bard=1	PRESKILL:1,Perform (Act)=4,(Dance)=4							DESC:You learn the masterpiece Pageant of the Peacock			SOURCEPAGE:p.11
+Masterpiece (Ancients' Flight)						CATEGORY:FEAT		TYPE:Masterpiece	PREVARGTEQ:MasterpieceLVL,1	PRESKILL:1,Perform (Oratory)=13	PRELANG:1,Draconic				DESC:You learn the masterpiece Ancients' Flight				SOURCEPAGE:p.11
+Masterpiece (Fafnheir and the First King)		NAMEISPI:YES	CATEGORY:FEAT		TYPE:Masterpiece	PREVARGTEQ:MasterpieceLVL,1	PRESKILL:1,Perform (String Instruments)=6,Perform (Wind Instruments)=6		DESC:You learn the masterpiece Fafnheir and the First King		SOURCEPAGE:p.11
+Masterpiece (Pageant of the Peacock)					CATEGORY:FEAT		TYPE:Masterpiece	PREVARGTEQ:MasterpieceLVL,1	PRESKILL:1,Perform (Act)=4,(Dance)=4							DESC:You learn the masterpiece Pageant of the Peacock			SOURCEPAGE:p.11
 
 # ==============================
 # New Story Feat

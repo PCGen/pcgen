@@ -431,5 +431,5 @@ Yeth Hound			STARTFEATS:1	SIZE:M	MOVE:Walk,40,Fly,60	FACE:5	REACH:5													
 Yeti				STARTFEATS:1	SIZE:L	MOVE:Walk,40,Climb,30	FACE:10	REACH:10	BONUS:SITUATION|Stealth=In snow|8|TYPE=Racial	BONUS:SKILL|Stealth|4|TYPE=Racial	BONUS:STAT|STR|8	BONUS:STAT|DEX,WIS|2	BONUS:STAT|CON|4	BONUS:STAT|INT|-2	BONUS:VAR|AC_Natural_Armor|7|TYPE=Base	BONUS:VAR|RendDamageDieSize|6	BONUS:VAR|RendBonusDamage|STR*1.5																	AUTO:LANG|Aklo	ABILITY:Special Ability|AUTOMATIC|Rend|Scent|Yeti ~ Cold|Yeti ~ Frightful Gaze	ABILITY:Internal|AUTOMATIC|Claw																																					LEGS:2	HANDS:2																												MONSTERCLASS:Monstrous Humanoid:6		RACETYPE:Monstrous Humanoid	RACESUBTYPE:Cold			CR:4			ROLE:Combat		SOURCEPAGE:p.287
 
 ###Block: Z
-# Race Name		Output Name		Size		Move			Face/Space	Reach		Monster Class Name and Starting Level	Main Race Type	Template		Challenge Rating	Source Page		Apply Kit
-Zombie (Human)	OUTPUTNAME:Human	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	MONSTERCLASS:Undead (Mindless):1		RACETYPE:Undead	TEMPLATE:Zombie	CR:1/2		SOURCEPAGE:p.288	KIT:1|NE
+# Race Name			Size		Move			Face/Space	Reach		Monster Class Name and Starting Level	Main Race Type	Template		Challenge Rating	Source Page		Apply Kit
+Zombie (Human)		SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	MONSTERCLASS:Undead (Mindless):1		RACETYPE:Undead	TEMPLATE:Zombie	CR:1/2		SOURCEPAGE:p.288	KIT:1|NE
