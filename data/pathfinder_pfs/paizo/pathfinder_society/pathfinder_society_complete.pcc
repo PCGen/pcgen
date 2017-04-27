@@ -126,6 +126,7 @@ PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pc
 # PCC:@/pathfinder/paizo/campaign_setting/technology_guide/technology_guide.pcc
 
 PCC:@/pathfinder/paizo/player_companion/adventurers_armory/_adventurers_armory.pcc
+PCC:@/pathfinder/paizo/player_companion/alchemy_manual/_alchemy_manual.pcc
 PCC:@/pathfinder/paizo/player_companion/andoran_spirit_of_liberty/andoran_spirit_of_liberty.pcc
 PCC:@/pathfinder/paizo/player_companion/animal_archive/_animal_archive.pcc
 PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
