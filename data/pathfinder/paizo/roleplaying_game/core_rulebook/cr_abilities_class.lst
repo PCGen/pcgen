@@ -587,28 +587,28 @@ Weather						KEY:Druid Domain ~ Weather			SORTKEY:Domain ~ Base	CATEGORY:Special
 
 ###Block: Wild Shape
 # Ability Name	Category of Ability		Type											Define													Description																																																																			Ability														Modify VAR					Source Page
-Wild Shape		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Supernatural.Wild Shape	DEFINE:WildShapeTimes|0	DEFINE:WildShapeDuration|0	DEFINE:WildShapeProgression|0	DESC:You can change shape %1 time / day for up to %2 hours|WildShapeTimes|WildShapeDuration|PREVAREQ:WildShapeProgression,1	DESC:You can change shape %1 times / day for up to %2 hours|WildShapeTimes|WildShapeDuration|PREMULT:2,[PREVARGTEQ:WildShapeProgression,2],[PREVARLT:WildShapeProgression,9]	DESC:You can change shape at will for up to %1 hours|WildShapeDuration|PREVARGTEQ:WildShapeProgression,9	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape Progression|Druid Wild Shape Times	BONUS:VAR|DruidWildShape|DruidLVL	SOURCEPAGE:p.51
+Wild Shape		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Supernatural.Wild Shape	DEFINE:WildShapeTimes|0	DEFINE:WildShapeDuration|0	DEFINE:WildShapeProgression|0	DESC:You can change shape %1 time / day for up to %2 hours|WildShapeTimes|WildShapeDuration|PREVAREQ:WildShapeProgression,1	DESC:You can change shape %1 times / day for up to %2 hours|WildShapeTimes|WildShapeDuration|PREMULT:2,[PREVARGTEQ:WildShapeProgression,2],[PREVARLT:WildShapeProgression,9]	DESC:You can change shape at will for up to %1 hours|WildShapeDuration|PREMULT:2,[PREVARGTEQ:WildShapeProgression,9],[PREVAREQ:Druid_CF_WildShapeUses20,0]	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape Progression|Druid Wild Shape Times	BONUS:VAR|DruidWildShape|DruidLVL	SOURCEPAGE:p.51
 
 ###Block: Wild Shape Size and Type Progression MODS
 # Ability Name					Description
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Small or Medium animal.|PREVAREQ:WildShapeProgression,1
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Tiny, Small, Medium or Large animal, or a Small elemental.|PREVAREQ:WildShapeProgression,2
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small or Medium elemental, or a Small or Medium plant creature.|PREVAREQ:NoPlantShape,0|PREVAREQ:WildShapeProgression,3	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small or Medium elemental.|PREVAREQ:NoPlantShape,1|PREVAREQ:WildShapeProgression,3
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium or Large elemental, or a Small, Medium or Large plant creature.|PREVAREQ:NoPlantShape,0|PREVAREQ:WildShapeProgression,4	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium or Large elemental.|PREVAREQ:NoPlantShape,1|PREVAREQ:WildShapeProgression,4
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium, Large or Huge elemental, or a Small, Medium, Large or Huge plant creature.|PREVAREQ:NoPlantShape,0|PREVARGTEQ:WildShapeProgression,5	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium, Large or Huge elemental, or a Small, Medium, Large or Huge plant creature.|PREVAREQ:NoPlantShape,1|PREVARGTEQ:WildShapeProgression,5
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Small or Medium animal.|PREMULT:2,[PREVAREQ:WildShapeProgression,1],[PREVARGTEQ:WildShapeAbilityLevel,1]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Tiny, Small, Medium or Large animal, or a Small elemental.|PREMULT:2,[PREVAREQ:WildShapeProgression,2],[PREVARGTEQ:WildShapeAbilityLevel,2]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small or Medium elemental, or a Small or Medium plant creature.|PREVAREQ:NoPlantShape,0|PREMULT:2,[PREVARGTEQ:WildShapeProgression,3],[PREVARGTEQ:WildShapeAbilityLevel,3]	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small or Medium elemental.|PREVAREQ:NoPlantShape,1|PREMULT:2,[PREVARGTEQ:WildShapeProgression,3],[PREVARGTEQ:WildShapeAbilityLevel,3]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium or Large elemental, or a Small, Medium or Large plant creature.|PREVAREQ:NoPlantShape,0|PREMULT:2,[PREVAREQ:WildShapeProgression,4],[PREVARGTEQ:WildShapeAbilityLevel,4]	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium or Large elemental.|PREVAREQ:NoPlantShape,1|PREMULT:2,[PREVAREQ:WildShapeProgression,4],[PREVARGTEQ:WildShapeAbilityLevel,4]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium, Large or Huge elemental, or a Small, Medium, Large or Huge plant creature.|PREVAREQ:NoPlantShape,0|PREMULT:2,[PREVARGTEQ:WildShapeProgression,5],[PREVARGTEQ:WildShapeAbilityLevel,5]	DESC:You can change into any Diminutive, Tiny, Small, Medium, Large or Huge animal, a Small, Medium, Large or Huge elemental, or a Small, Medium, Large or Huge plant creature.|PREVAREQ:NoPlantShape,1|PREMULT:2,[PREVARGTEQ:WildShapeProgression,5],[PREVARGTEQ:WildShapeAbilityLevel,5]
 
 ###Block: Wild Shape "Works Like" Descriptions
 # Ability Name					Description
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an animal, this functions as Beast Shape I|PREVAREQ:WildShapeProgression,1
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an animal, this functions as Beast Shape II|PREVAREQ:WildShapeProgression,2
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an animal, this functions as Beast Shape III|PREVARGTEQ:WildShapeProgression,3
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape I|PREVAREQ:NoPlantShape,0|PREVAREQ:WildShapeProgression,3
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape II|PREVAREQ:NoPlantShape,0|PREVAREQ:WildShapeProgression,4
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape III|PREVAREQ:NoPlantShape,0|PREVARGTEQ:WildShapeProgression,5
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body I|PREVAREQ:WildShapeProgression,2
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body II|PREVAREQ:WildShapeProgression,3
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body III|PREVAREQ:WildShapeProgression,4
-CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body IV|PREVARGTEQ:WildShapeProgression,5
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an animal, this functions as Beast Shape I|PREMULT:2,[PREVAREQ:WildShapeProgression,1],[PREVARGTEQ:WildShapeAbilityLevel,1]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an animal, this functions as Beast Shape II|PREMULT:2,[PREVAREQ:WildShapeProgression,2],[PREVARGTEQ:WildShapeAbilityLevel,2]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an animal, this functions as Beast Shape III|PREMULT:2,[PREVARGTEQ:WildShapeProgression,3],[PREVARGTEQ:WildShapeAbilityLevel,3]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape I|PREVAREQ:NoPlantShape,0|PREMULT:2,[PREVAREQ:WildShapeProgression,3],[PREVARGTEQ:WildShapeAbilityLevel,3]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape II|PREVAREQ:NoPlantShape,0|PREMULT:2,[PREVAREQ:WildShapeProgression,4],[PREVARGTEQ:WildShapeAbilityLevel,4]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into a plant, this functions as Plant Shape III|PREVAREQ:NoPlantShape,0|PREMULT:2,[PREVARGTEQ:WildShapeProgression,5],[PREVARGTEQ:WildShapeAbilityLevel,5]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body I|PREMULT:2,[PREVAREQ:WildShapeProgression,2],[PREVARGTEQ:WildShapeAbilityLevel,2]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body II|PREMULT:2,[PREVAREQ:WildShapeProgression,3],[PREVARGTEQ:WildShapeAbilityLevel,3]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body III|PREMULT:2,[PREVAREQ:WildShapeProgression,4],[PREVARGTEQ:WildShapeAbilityLevel,4]
+CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body IV|PREMULT:2,[PREVARGTEQ:WildShapeProgression,5],[PREVARGTEQ:WildShapeAbilityLevel,5]
 
 ###Block: Wild Shape creature abilities copied from bestiary
 # Ability Name	Unique Key						Category of Ability		Type												Define			Description																																																	Move			Ability						Modify VAR												Source Page		Aspects
@@ -626,6 +626,23 @@ Tongue		KEY:Giant Frog Wild Shape ~ Tongue		CATEGORY:Special Ability	TYPE:DruidC
 Druid ~ Wild Shape		CATEGORY:Special Ability	TYPE:DruidClassFeatures.Internal.ClassFeatures				VISIBLE:NO	DEFINE:DruidWildShape|0	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape Progression|Druid Wild Shape Times|Wild Shape	BONUS:VAR|WildShapeDuration|DruidWildShape
 Druid Wild Shape Times		CATEGORY:Special Ability	TYPE:DruidClassFeatures.Internal.ClassFeatures.DruidWildshape	VISIBLE:NO																						BONUS:VAR|WildShapeTimes|WildShapeProgression
 Druid Wild Shape Progression	CATEGORY:Special Ability	TYPE:DruidClassFeatures.Internal.ClassFeatures.DruidWildshape	VISIBLE:NO																						BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,4	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,18	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
+
+CATEGORY=Special Ability|Wild Shape.MOD	DEFINE:WildShapeAbilityLevel|0
+CATEGORY=Special Ability|Wild Shape.MOD	BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,4],[PREVAREQ:Druid_CF_WildShapeOptions4,0]
+CATEGORY=Special Ability|Wild Shape.MOD	BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,6],[PREVAREQ:Druid_CF_WildShapeOptions6,0]
+CATEGORY=Special Ability|Wild Shape.MOD	BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,8],[PREVAREQ:Druid_CF_WildShapeOptions8,0]
+CATEGORY=Special Ability|Wild Shape.MOD	BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,10],[PREVAREQ:Druid_CF_WildShapeOptions10,0]
+CATEGORY=Special Ability|Wild Shape.MOD	BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,12],[PREVAREQ:Druid_CF_WildShapeOptions12,0]
+
+CATEGORY=Special Ability|Druid Wild Shape Times.MOD	BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,4],[PREVAREQ:Druid_CF_WildShapeUses4,0]
+CATEGORY=Special Ability|Druid Wild Shape Times.MOD	BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,6],[PREVAREQ:Druid_CF_WildShapeUses6,0]
+CATEGORY=Special Ability|Druid Wild Shape Times.MOD	BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,8],[PREVAREQ:Druid_CF_WildShapeUses8,0]
+CATEGORY=Special Ability|Druid Wild Shape Times.MOD	BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,10],[PREVAREQ:Druid_CF_WildShapeUses10,0]
+CATEGORY=Special Ability|Druid Wild Shape Times.MOD	BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,12],[PREVAREQ:Druid_CF_WildShapeUses12,0]
+CATEGORY=Special Ability|Druid Wild Shape Times.MOD	BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,14],[PREVAREQ:Druid_CF_WildShapeUses14,0]
+CATEGORY=Special Ability|Druid Wild Shape Times.MOD	BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,16],[PREVAREQ:Druid_CF_WildShapeUses16,0]
+CATEGORY=Special Ability|Druid Wild Shape Times.MOD	BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,18],[PREVAREQ:Druid_CF_WildShapeUses18,0]
+CATEGORY=Special Ability|Druid Wild Shape Times.MOD	BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,20],[PREVAREQ:Druid_CF_WildShapeUses20,0]
 
 ###Block: Fighter Internal Abilities
 # Ability Name					Category of Ability		Type										Visible	Define													Modify VAR
