@@ -22,6 +22,7 @@ package pcgen.base.formula.base;
  * In the primary design case, this will be a String describing an object that this
  * Identified has been delegated to represent.
  */
+@FunctionalInterface
 public interface Identified
 {
 
