@@ -29,7 +29,6 @@ public class ScopeInstanceFactoryTest extends TestCase
 
 	private ScopeInstanceFactory factory;
 	private LegalScopeLibrary library;
-	private SimpleLegalScope scope;
 	private ScopeInstance scopeInst;
 	private SimpleLegalScope local;
 
@@ -39,7 +38,7 @@ public class ScopeInstanceFactoryTest extends TestCase
 		super.setUp();
 		library = new LegalScopeLibrary();
 		factory = new ScopeInstanceFactory(library);
-		scope = new SimpleLegalScope(null, "Global");
+		SimpleLegalScope scope = new SimpleLegalScope(null, "Global");
 		library.registerScope(scope);
 		scopeInst = factory.getGlobalInstance("Global");
 		local = new SimpleLegalScope(scope, "Local");
