@@ -45,7 +45,7 @@ import pcgen.base.util.FormatManager;
  * evaluate() to fail. For example, the formula "age("Bob")" may be passed by allowArgs()
  * because the database to determine "Bob" being a legal name is not present (and
  * allowArgs is designed to be used as early as possible). If allowArgs returns TRUE and
- * has NOT validated the the person "Bob" actually exists, then then getDependencies()
+ * has NOT validated the person "Bob" actually exists, then getDependencies()
  * MUST be able to load an appropriate manager with a DependencyManager in order to
  * indicate that "Bob" is a name upon which the formula is dependent.
  */
