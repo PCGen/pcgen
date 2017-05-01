@@ -448,8 +448,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 *  
 	 * @return a negative integer, zero, or a positive integer as this EquipSet 
 	 * is less than, equal to, or greater than the specified EquipSet.
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 *
 	 */
     @Override
 	public int compareTo(final EquipSet obj)
@@ -459,8 +458,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 	/**
 	 * Returns the EquipSet name.
-	 * 
-	 * @see java.lang.Object#toString()
+	 *
 	 */
 	@Override
 	public String toString()

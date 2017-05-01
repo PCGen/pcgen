@@ -44,7 +44,6 @@ public final class Eqm extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual equipment attribute that may be bonused.
 	 * @param tagNumber the index of the equipment attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The equipment attribute.
 	 */
 	@Override

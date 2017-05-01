@@ -41,9 +41,6 @@ public class LengthToken extends AbstractExportToken
 	}
 
 	//TODO: A new token needs to be made that has stuff like this as a subtoken.
-	/**
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)

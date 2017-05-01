@@ -88,8 +88,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	/**
 	 * Compares the keys of the object.
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 *
 	 */
     @Override
 	public int compareTo(final Object obj)

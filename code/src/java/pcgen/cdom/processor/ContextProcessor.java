@@ -147,8 +147,7 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 	 * Returns true if this ContextProcessor is equal to the given Object.
 	 * Equality is defined as being another ContextProcessor object underlying
 	 * Processor and context items
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -164,8 +163,7 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this ContextProcessor
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()

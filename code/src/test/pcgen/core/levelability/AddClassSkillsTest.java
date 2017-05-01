@@ -65,9 +65,6 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	PCClass pcClass;
 	boolean firstTime = true;
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Before
 	protected void setUp() throws Exception
 	{
@@ -93,9 +90,6 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	@After
 	protected void tearDown() throws Exception

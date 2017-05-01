@@ -96,7 +96,6 @@ public final class Combat extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual combat attribute that may be bonused.
 	 * @param tagNumber the index of the combat attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The combat attribute.
 	 */
 	@Override

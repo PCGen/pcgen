@@ -65,9 +65,6 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -165,9 +162,6 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		character.calcActiveBonuses();
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

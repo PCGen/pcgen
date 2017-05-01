@@ -64,10 +64,6 @@ public class FactParser<T extends CDOMObject, F> extends
 		def = fi;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.AbstractNonEmptyToken#parseNonEmptyToken(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object, java.lang.String)
-	 */
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, T obj,
 		String value)
@@ -113,10 +109,6 @@ public class FactParser<T extends CDOMObject, F> extends
 		return "FACT";
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMSecondaryToken#unparse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, T obj)
 	{

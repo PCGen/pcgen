@@ -110,7 +110,6 @@ public class Capacity
 	 * Returns a String representation of this Capacity.
 	 * 
 	 * @return A String representation of this Capacity.
-	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()
@@ -125,8 +124,7 @@ public class Capacity
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this Capacity
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -137,8 +135,7 @@ public class Capacity
 	/**
 	 * Returns true if the given object is a Capacity with identical underlying
 	 * type and capacity limit.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

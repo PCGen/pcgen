@@ -155,8 +155,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this CompoundOrChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -168,8 +167,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * Returns true if this CompoundOrChoiceSet is equal to the given Object.
 	 * Equality is defined as being another CompoundOrChoiceSet object with
 	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

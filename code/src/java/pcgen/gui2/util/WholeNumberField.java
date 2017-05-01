@@ -108,9 +108,6 @@ public final class WholeNumberField extends JTextField implements Serializable
 
 	private static class WholeNumberDocument extends PlainDocument
 	{
-		/**
-		 * @see javax.swing.text.PlainDocument#insertString(int, java.lang.String, javax.swing.text.AttributeSet)
-		 */
 		@Override
 		public void insertString(int offs, String str, AttributeSet a)
 			throws BadLocationException

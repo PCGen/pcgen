@@ -47,7 +47,6 @@ public class BioToken extends AbstractExportToken
 	 * TODO  Could expand Token itself or even create a sub class of Token so that
 	 * the beforeValue and afterValue can be handled more cleanly. 
 	 *
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display,

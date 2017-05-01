@@ -120,18 +120,12 @@ public class URIFactory
 		return getNonNormalizedPathURI(rootURI, offset).normalize();
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return offset.hashCode();
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

@@ -58,8 +58,7 @@ public class ChronicleEntryFacet extends
 	 * Overrides the default behavior of AbstractListFacet, since we need to
 	 * ensure we are storing all chronicle entries (otherwise duplicate blanks
 	 * are skipped, see CODE-2861)
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
+	 *
 	 */
 	@Override
 	protected List<ChronicleEntry> getComponentSet()

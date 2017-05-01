@@ -232,8 +232,7 @@ public class CollectionToAbilitySelection implements
 	/**
 	 * Returns the consistent-with-equals hashCode for this
 	 * CollectionToAbilitySelection
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -245,8 +244,7 @@ public class CollectionToAbilitySelection implements
 	 * Returns true if this CollectionToAbilitySelection is equal to the given
 	 * Object. Equality is defined as being another CollectionToAbilitySelection
 	 * object with equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

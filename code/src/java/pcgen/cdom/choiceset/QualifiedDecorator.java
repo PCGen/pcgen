@@ -129,8 +129,7 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 	/**
 	 * Returns true if this given object is a QualifiedDecorator with identical
 	 * underlying PrimitiveChoiceSet
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -141,8 +140,7 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this QualifiedDecorator
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()

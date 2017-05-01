@@ -60,9 +60,6 @@ public final class BioSetLoader extends LstLineFileLoader
 		regionName = Constants.NONE;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(LoadContext, URI)
-	 */
 	@Override
 	public void loadLstFile(LoadContext context, URI fileName)
 			throws PersistenceLayerException
@@ -74,9 +71,6 @@ public final class BioSetLoader extends LstLineFileLoader
 		game.setBioSet(bioSet);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(LoadContext, String, URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
