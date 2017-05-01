@@ -54,7 +54,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		return token;
 	}
 
-	public ListKey<?> getListKey()
+	public static ListKey<?> getListKey()
 	{
 		return ListKey.INFO_TEXT;
 	}

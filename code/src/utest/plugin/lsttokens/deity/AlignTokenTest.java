@@ -74,7 +74,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 		return token;
 	}
 
-	public ObjectKey<?> getObjectKey()
+	public static ObjectKey<?> getObjectKey()
 	{
 		return ObjectKey.ALIGNMENT;
 	}
