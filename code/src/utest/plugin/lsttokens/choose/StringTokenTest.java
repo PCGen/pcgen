@@ -52,7 +52,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		TokenRegistration.register(subtoken);
 	}
 
-	private String getSubTokenName()
+	private static String getSubTokenName()
 	{
 		return "STRING";
 	}
@@ -104,7 +104,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		assertNoSideEffects();
 	}
 
-	protected boolean requiresLiteral()
+	protected static boolean requiresLiteral()
 	{
 		return false;
 	}
@@ -197,7 +197,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<ChooseInformation<?>> getObjectKey()
+	private static ObjectKey<ChooseInformation<?>> getObjectKey()
 	{
 		return ObjectKey.CHOOSE_INFO;
 	}
