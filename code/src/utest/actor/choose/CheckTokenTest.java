@@ -30,12 +30,6 @@ public class CheckTokenTest extends
 
 	static CheckToken pca = new CheckToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public Chooser<PCCheck> getActor()
 	{

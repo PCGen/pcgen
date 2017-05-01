@@ -41,13 +41,6 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-	}
-
-	@Override
 	public CDOMLoader<PCTemplate> getLoader()
 	{
 		return loader;

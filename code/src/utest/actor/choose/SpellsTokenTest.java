@@ -30,12 +30,6 @@ public class SpellsTokenTest extends
 
 	static SpellsToken pca = new SpellsToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public Chooser<Spell> getActor()
 	{
