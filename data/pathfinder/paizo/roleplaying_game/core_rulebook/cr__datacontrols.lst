@@ -681,6 +681,7 @@ FACTDEF:ABILITY|Ranger_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	S
 
 
 # Rogue Archetype Section
+FACTDEF:ABILITY|Rogue_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - Rogue ClassSkills
 FACTDEF:ABILITY|Rogue_Archetype_UncannyDodge			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UncannyDodge		EXPLANATION:Determines whether the archetype affects - UncannyDodge
 FACTDEF:ABILITY|Rogue_Archetype_ImprovedUncannyDodge		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ImprovedUncannyDodge	EXPLANATION:Determines whether the archetype affects - ImprovedUncannyDodge
 FACTDEF:ABILITY|Rogue_Archetype_SneakAttack			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SneakAttack			EXPLANATION:Determines whether the archetype affects - SneakAttack
