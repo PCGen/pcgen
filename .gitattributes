@@ -6,51 +6,49 @@
 # The above will handle all files NOT found below
 #
 # These files are text and should be normalized (Convert crlf => lf)
-*.bat           text=auto
-*.css           text=auto
-*.df            text=auto
-*.htm           text=auto
-*.html          text=auto
-*.java          text=auto
-*.js            text=auto
-*.json          text=auto
-*.jsp           text=auto
-*.jspf          text=auto
-*.md            text=auto
-*.properties    text=auto
-*.tld           text=auto
-*.txt           text=auto
-*.xml           text=auto
-*.lst           text=auto
-*.ftl           text=auto
-*.gradle        text=auto
+*.css text=auto
+*.df text=auto
+*.htm text=auto
+*.html text=auto
+*.java text=auto
+*.js text=auto
+*.json text=auto
+*.jsp text=auto
+*.jspf text=auto
+*.md text=auto
+*.properties text=auto
+*.tld text=auto
+*.txt eol=crlf
+*.xml text=auto
+*.lst text=auto
+*.ftl text=auto
+*.gradle text=auto
 
 # This is a Linux specific file type, and since the release is on a Windows Machine, the EOL must remain unchanged.
-pcgen.sh        eol=lf
-*.sh            eol=lf
-pcgen.bat	eol=crlf
+*.sh eol=lf
+*.bat eol=crlf
 
 # These files are binary and should be left untouched
 # (binary is a macro for -text -diff)
-*.class         binary
-*.dll           binary
-*.exe           binary
-*.jar           binary
-*.so            binary
-*.war           binary
+*.class binary
+*.dll binary
+*.exe binary
+*.jar binary
+*.so binary
+*.war binary
 
 
 # Documents
-*.doc	 diff=astextplain
-*.DOC	 diff=astextplain
+*.doc diff=astextplain
+*.DOC diff=astextplain
 *.docx diff=astextplain
 *.DOCX diff=astextplain
-*.dot  diff=astextplain
-*.DOT  diff=astextplain
-*.pdf  diff=astextplain
-*.PDF	 diff=astextplain
-*.rtf	 diff=astextplain
-*.RTF	 diff=astextplain
+*.dot diff=astextplain
+*.DOT diff=astextplain
+*.pdf diff=astextplain
+*.PDF diff=astextplain
+*.rtf diff=astextplain
+*.RTF diff=astextplain
 *.md text=auto
 *.adoc text=auto
 *.textile text=auto
