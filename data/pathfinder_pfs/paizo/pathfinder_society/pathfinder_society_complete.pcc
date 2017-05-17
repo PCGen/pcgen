@@ -87,7 +87,7 @@ PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
 PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
 # Lords of Chaos - book of the damned vol 2
 PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/_book_of_the_damned_volume_2.pcc
-
+PCC:@/pathfinder/paizo/campaign_setting/chronicles_of_the_righteous/chronicles_of_the_righteous.pcc
 PCC:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.pcc
 PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
 PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
@@ -98,7 +98,6 @@ PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_gu
 PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
 PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
 
-# PCC:@/pathfinder/paizo/campaign_setting/chronicles_of_the_righteous/chronicles_of_the_righteous.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/cities_of_golarion/cities_of_golarion.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/city_of_strangers/city_of_strangers.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/classic_horrors_revisited/classic_horrors_revisited.pcc
