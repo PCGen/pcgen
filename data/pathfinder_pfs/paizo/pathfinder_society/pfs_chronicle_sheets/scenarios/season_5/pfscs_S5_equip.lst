@@ -35,6 +35,8 @@ Talisman of Tongues														TYPE:Magic.Wondrous.Amulet.PFS				COST:45000	WT
 #CONSTRUCTION
 #Requirements Craft Wondrous Item, blindness/deafness, true seeing
 
+# PFS #5-S2
+Mind Crystal (Minor Artifact)																TYPE:Magic.Wondrous.PFS				COST:0	WT:0.5		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S05-S2																			SOURCELONG:PFS Chronicle #05-S2																		DESC:This pale blue crystal hums with hidden power. Simply carrying this crystal provides protection against mental intrusions. Whenever you fail a saving throw against a compulsion effect, gou can attempt a new saving throw at the end of your turn (using the original DC). If you succeed at this saving throw, the effect is negated or reduced (as per the compulsion effect). The crystal may have other powers, but they are not known to you at this time.
 
 #
 # DONE
