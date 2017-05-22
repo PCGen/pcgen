@@ -88,8 +88,14 @@ PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_
 # Lords of Chaos - book of the damned vol 2
 PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/_book_of_the_damned_volume_2.pcc
 
+
+PCC:@/pathfinder/paizo/campaign_setting/city_of_strangers/_city_of_strangers.pcc
+
+PCC:@/pathfinder/paizo/campaign_setting/chronicle_of_the_righteous/_chronicle_of_the_righteous.pcc
+
 PCC:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.pcc
 PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
+PCC:@/pathfinder/paizo/campaign_setting/faction_guide/_faction_guide.pcc
 PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
 PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
 PCC:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/inner_sea_bestiary.pcc
@@ -98,16 +104,13 @@ PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_gu
 PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
 PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
 
-# PCC:@/pathfinder/paizo/campaign_setting/chronicles_of_the_righteous/chronicles_of_the_righteous.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/cities_of_golarion/cities_of_golarion.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/city_of_strangers/city_of_strangers.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/classic_horrors_revisited/classic_horrors_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/classic_monsters_revisited/classic_monsters_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/classic_treasures_revisited/classic_treasures_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/demons_revisited/demons_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/dungeon_denizens_revisited/dungeon_denizens_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/dungeons_of_golarion/dungeons_of_golarion.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/faction_guide/faction_guide.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/giants_revisited/giants_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/gods_and_magic/gods_and_magic.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/horseman_of_the_apocalypse/horseman_of_the_apocalypse.pcc

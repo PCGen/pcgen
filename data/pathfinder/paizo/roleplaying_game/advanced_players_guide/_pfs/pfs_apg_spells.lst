@@ -2,9 +2,9 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 #Original Entry By: Andrew Maitland
 
-# Spell Name		Type			!PRECHARACTERTYPE
-Heroic Fortune		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Heroic Fortune (Mass	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Malediction			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Severed Fate		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Unravel Destiny		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+# Spell Name			Type			!PRECHARACTERTYPE
+Heroic Fortune.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Heroic Fortune (Mass).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Malediction.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Severed Fate.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Unravel Destiny.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
