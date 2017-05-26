@@ -10,3 +10,7 @@ SOURCELONG:Melee Tactics Toolbox	SOURCESHORT:MTT	SOURCEWEB:http://paizo.com/prod
 # Class Name
 CLASS:Bard.MOD
 1	TEMPLATE:Masterpiece Activation Melee Tactics
+
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Melee Tactics

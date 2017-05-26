@@ -1,4 +1,4 @@
-/**
+/*
  *  Initiative - A role playing utility to track turns
  *  Copyright (C) 2013 Vincent Lhote
  *

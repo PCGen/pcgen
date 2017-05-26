@@ -1,5 +1,4 @@
 /*
- * KitLevelAbility.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -39,7 +38,7 @@ public final class KitLevelAbility extends BaseKit
 {
 	private CDOMSingleRef<PCClass> theClassName;
 	private int theLevel;
-	private List<String> choiceList = new ArrayList<>();
+	private final List<String> choiceList = new ArrayList<>();
 	private PersistentTransitionChoice<?> add;
 
 	/**

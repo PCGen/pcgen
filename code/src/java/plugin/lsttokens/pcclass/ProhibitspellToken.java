@@ -143,7 +143,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		spellProb.setType(type);
 		if (args.isEmpty())
 		{
-			Logging.errorPrint(getTokenName() + " " + type
+			Logging.errorPrint(getTokenName() + ' ' + type
 					+ " has no arguments");
 			return null;
 		}
@@ -181,7 +181,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 					&& (!aValue.equalsIgnoreCase("CHAOTIC")))
 			{
 				Logging.errorPrint("Illegal PROHIBITSPELL:ALIGNMENT subtag '"
-						+ aValue + "'");
+						+ aValue + '\'');
 				return null;
 			}
 			else

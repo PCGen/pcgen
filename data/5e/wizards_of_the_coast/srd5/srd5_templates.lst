@@ -111,3 +111,190 @@ Wyrmling		SIZE:M	VISIBLE:NO																		SUBRACE:Wyrmling
 Young			SIZE:L	VISIBLE:NO																		SUBRACE:Young
 Adult			SIZE:H	VISIBLE:NO																		SUBRACE:Adult
 Ancient		SIZE:G	VISIBLE:NO																		SUBRACE:Ancient
+
+
+###Block - Starting Equipment by Class - Autoselects based off the first class taken.
+Starting Equipment ~ Barbarian	VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Barbarian	KIT:1|Starting gold ~ Barbarian	TEMPLATE:CHOOSE:Greataxe|Any Martial Melee Weapon	TEMPLATE:CHOOSE:Two Handaxes|Any simple weapon	KIT:2|Explorer's Pack|four javelins
+Starting Equipment ~ Bard		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Bard	KIT:1|Starting gold ~ Bard		TEMPLATE:CHOOSE:Rapier|Longsword|Any simple weapon	TEMPLATE:CHOOSE:Diplomat's pack|Entertainer's pack	TEMPLATE:CHOOSE:Lute|Any musical instrument	KIT:2|Leather armor|dagger
+Starting Equipment ~ Cleric		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Cleric	KIT:1|Starting gold ~ Cleric		TEMPLATE:CHOOSE:mace|warhammer	TEMPLATE:CHOOSE:scale mail|leather armor|Chain mail	TEMPLATE:CHOOSE:light crossbow and 20 bolts|Any simple weapon	TEMPLATE:CHOOSE:priest's pack|explorer's pack	KIT:1|Shield	TEMPLATE:CHOOSE:TYPE=Holy Symbol
+Starting Equipment ~ Druid		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Druid	KIT:1|Starting gold ~ Druid		TEMPLATE:CHOOSE:wooden shield|any simple weapon	TEMPLATE:CHOOSE:scimitar|any simple melee weapon	KIT:2|Leather armor|explorer's pack	TEMPLATE:CHOOSE:TYPE=druidic focus
+Starting Equipment ~ Fighter		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Fighter	KIT:1|Starting gold ~ Fighter		TEMPLATE:CHOOSE:chain mail|leather longbow and 20 arrows	TEMPLATE:CHOOSE:martial weapon and a shield|two martial weapons	TEMPLATE:CHOOSE:light crossbow and 20 bolts|two handaxes	TEMPLATE:CHOOSE:dungeoneer's pack|explorer's pack
+Starting Equipment ~ Monk		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Monk	KIT:1|Starting gold ~ Monk		TEMPLATE:CHOOSE:shortsword|any simple weapon	TEMPLATE:CHOOSE:dungeoneer's pack|explorer's pack	KIT:1|10 darts
+Starting Equipment ~ Paladin		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Paladin	KIT:1|Starting gold ~ Paladin		TEMPLATE:CHOOSE:martial weapon and a shield|Two martial weapons	TEMPLATE:CHOOSE:five javelins|any simple melee weapon	TEMPLATE:CHOOSE:priest's pack|explorer's pack	KIT:1|Chain mail	TEMPLATE:CHOOSE:TYPE=holy symbol
+Starting Equipment ~ Ranger		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Ranger	KIT:1|Starting gold ~ Ranger		TEMPLATE:CHOOSE:scale mail|leather armor	TEMPLATE:CHOOSE:two shortswords|two simple melee weapons	TEMPLATE:CHOOSE:dungeoneer's pack|explorer's pack	KIT:3|longbow|quiver|20 Arrows
+Starting Equipment ~ Rogue		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Rogue	KIT:1|Starting gold ~ Rogue		TEMPLATE:CHOOSE:rapier|shortsword	TEMPLATE:CHOOSE:shortbow and quiver of 20 arrows|shortsword	TEMPLATE:CHOOSE:burglar's pack|dungeoneer's pack|explorer's pack	KIT:3|Leather armor|two daggers|thieves' tools
+Starting Equipment ~ Sorcerer		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Sorcerer	KIT:1|Starting gold ~ Sorcerer	TEMPLATE:CHOOSE:light crossbow and 20 bolts|any simple weapon	TEMPLATE:CHOOSE:component pouch|arcane focus	TEMPLATE:CHOOSE:dungeoneer's pack|explorer's pack	KIT:1|Two daggers
+Starting Equipment ~ Warlock		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Warlock	KIT:1|Starting gold ~ Warlock		TEMPLATE:CHOOSE:light crossbow and 20 bolts|any simple weapon	TEMPLATE:CHOOSE:component pouch|arcane focus	TEMPLATE:CHOOSE:scholar's pack|dungeoneer's pack	TEMPLATE:Leather armor|any simple weapon	KIT:1|two daggers
+Starting Equipment ~ Wizard		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Wizard	KIT:1|Starting gold ~ Wizard		TEMPLATE:CHOOSE:quarterstaff|dagger	TEMPLATE:CHOOSE:component pouch|arcane focus	TEMPLATE:CHOOSE:scholar's pack|explorer's pack	KIT:1|spellbook
+
+###Block:
+Any Martial Melee Weapon	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Martial Melee Weapon
+Any Martial Ranged Weapon	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Martial Ranged Weapon
+Any Martial Weapon		VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Martial Weapon
+two martial weapons		VISIBLE:NO	TEMPLATE:CHOOSE:Same Martial Weapons|Different Martial Weapons
+Same Martial Weapons		VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Two Martial Weapon
+Different Martial Weapons	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Martial Weapon	TEMPLATE:CHOOSE:TYPE=Martial Weapon
+#
+Battleaxe			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Battleaxe		!PRETEMPLATE:1,Battleaxe			KIT:1|Battleaxe	
+Flail				VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Flail			!PRETEMPLATE:1,Flail				KIT:1|Flail		
+Glaive			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Glaive			!PRETEMPLATE:1,Glaive				KIT:1|Glaive	
+Greataxe			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Greataxe		!PRETEMPLATE:1,Greataxe			KIT:1|Greataxe	
+Greatsword			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Greatsword		!PRETEMPLATE:1,Greatsword			KIT:1|Greatsword	
+Halberd			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Halberd			!PRETEMPLATE:1,Halberd				KIT:1|Halberd	
+Lance				VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Lance			!PRETEMPLATE:1,Lance				KIT:1|Lance		
+Longsword			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Longsword		!PRETEMPLATE:1,Longsword			KIT:1|Longsword	
+Maul				VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Maul			!PRETEMPLATE:1,Maul				KIT:1|Maul		
+Morningstar			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Morningstar		!PRETEMPLATE:1,Morningstar			KIT:1|Morningstar	
+Pike				VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Pike			!PRETEMPLATE:1,Pike				KIT:1|Pike		
+Rapier			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Rapier			!PRETEMPLATE:1,Rapier				KIT:1|Rapier	
+Scimitar			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Scimitar		!PRETEMPLATE:1,Scimitar			KIT:1|Scimitar	
+Shortsword			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Shortsword		!PRETEMPLATE:1,Shortsword			KIT:1|Shortsword	
+Trident			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Trident			!PRETEMPLATE:1,Trident				KIT:1|Trident	
+War pick			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,War pick		!PRETEMPLATE:1,War pick			KIT:1|War pick	
+Warhammer			VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Warhammer		!PRETEMPLATE:1,Warhammer			KIT:1|Warhammer	
+Whip				VISIBLE:NO	TYPE:Martial Weapon.Martial Melee Weapon	PREWEAPONPROF:1,Whip			!PRETEMPLATE:1,Whip				KIT:1|Whip		
+Blowgun			VISIBLE:NO	TYPE:Martial Weapon.Martial Ranged Weapon	PREWEAPONPROF:1,Blowgun			!PRETEMPLATE:1,Blowgun				KIT:1|Blowgun		
+Crossbow (hand)		VISIBLE:NO	TYPE:Martial Weapon.Martial Ranged Weapon	PREWEAPONPROF:1,Crossbow (hand)	!PRETEMPLATE:1,Crossbow (hand)		KIT:1|Crossbow (hand)	
+Crossbow (heavy)		VISIBLE:NO	TYPE:Martial Weapon.Martial Ranged Weapon	PREWEAPONPROF:1,Crossbow (heavy)	!PRETEMPLATE:1,Crossbow (heavy)		KIT:1|Crossbow (heavy)	
+Longbow			VISIBLE:NO	TYPE:Martial Weapon.Martial Ranged Weapon	PREWEAPONPROF:1,Longbow			!PRETEMPLATE:1,Longbow				KIT:1|Longbow		
+Net				VISIBLE:NO	TYPE:Martial Weapon.Martial Ranged Weapon	PREWEAPONPROF:1,Net			!PRETEMPLATE:1,Net				KIT:1|Net			
+
+Two Battleaxe			VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Battleaxe		!PRETEMPLATE:1,Battleaxe			KIT:1|Two Battleaxes	
+Two Flail				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Flail			!PRETEMPLATE:1,Flail				KIT:1|Two Flails		
+Two Glaive				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Glaive			!PRETEMPLATE:1,Glaive				KIT:1|Two Glaives	
+Two Greataxe			VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Greataxe		!PRETEMPLATE:1,Greataxe				KIT:1|Two Greataxes	
+Two Greatsword			VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Greatsword		!PRETEMPLATE:1,Greatsword			KIT:1|Two Greatswords	
+Two Halberd				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Halberd			!PRETEMPLATE:1,Halberd				KIT:1|Two Halberds	
+Two Lance				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Lance			!PRETEMPLATE:1,Lance				KIT:1|Two Lances		
+Two Longsword			VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Longsword		!PRETEMPLATE:1,Longsword			KIT:1|Two Longswords	
+Two Maul				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Maul			!PRETEMPLATE:1,Maul				KIT:1|Two Mauls		
+Two Morningstar			VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Morningstar		!PRETEMPLATE:1,Morningstar			KIT:1|Two Morningstars	
+Two Pike				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Pike			!PRETEMPLATE:1,Pike				KIT:1|Two Pikes		
+Two Rapier				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Rapier			!PRETEMPLATE:1,Rapier				KIT:1|Two Rapiers	
+Two Scimitar			VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Scimitar		!PRETEMPLATE:1,Scimitar				KIT:1|Two Scimitars	
+Two Shortsword			VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Shortsword		!PRETEMPLATE:1,Shortsword			KIT:1|Two Shortswords	
+Two Trident				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Trident			!PRETEMPLATE:1,Trident				KIT:1|Two Tridents	
+Two War pick			VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,War pick		!PRETEMPLATE:1,War pick				KIT:1|Two War picks	
+Two Warhammer			VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Warhammer		!PRETEMPLATE:1,Warhammer			KIT:1|Two Warhammers	
+Two Whip				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Melee Weapon	PREWEAPONPROF:1,Whip			!PRETEMPLATE:1,Whip				KIT:1|Two Whips		
+Two Blowgun				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Ranged Weapon	PREWEAPONPROF:1,Blowgun			!PRETEMPLATE:1,Blowgun				KIT:1|Two Blowguns		
+Two Crossbow (hand)		VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Ranged Weapon	PREWEAPONPROF:1,Crossbow (hand)	!PRETEMPLATE:1,Crossbow (hand)		KIT:1|Two Crossbow (hand)	
+Two Crossbow (heavy)		VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Ranged Weapon	PREWEAPONPROF:1,Crossbow (heavy)	!PRETEMPLATE:1,Crossbow (heavy)		KIT:1|Two Crossbow (heavy)	
+Two Longbow				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Ranged Weapon	PREWEAPONPROF:1,Longbow			!PRETEMPLATE:1,Longbow				KIT:1|Two Longbows		
+Two Net				VISIBLE:NO	TYPE:Two Martial Weapon.Two Martial Ranged Weapon	PREWEAPONPROF:1,Net			!PRETEMPLATE:1,Net				KIT:1|Two Nets			
+
+Any Simple Weapon			VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Simple Weapon
+Any simple melee weapon		VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Simple Melee Weapon
+Any simple ranged weapon	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Simple ranged Weapon
+two simple melee weapons	VISIBLE:NO	TEMPLATE:CHOOSE:Same Simple Melee Weapons|Different Simple Melee Weapons
+Two simple weapons		VISIBLE:NO	TEMPLATE:CHOOSE:Same Simple Weapons|Different Simple Weapons
+Same Simple Weapons		VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Two Simple Weapon
+Different Simple Weapons	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Simple Weapon	TEMPLATE:CHOOSE:TYPE=Simple Weapon
+
+Same Simple Melee Weapons		VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Two Simple Melee Weapon
+Different Simple Melee Weapons	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Simple Melee Weapon	TEMPLATE:CHOOSE:TYPE=Simple Melee Weapon
+
+#
+Club				VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Club			KIT:1|Club				
+Dagger			VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Dagger			KIT:1|Dagger		
+Greatclub			VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Greatclub		KIT:1|Greatclub		
+Handaxe			VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Handaxe			KIT:1|Handaxe		
+Javelin			VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Javelin			KIT:1|Javelin		
+Light Hammer		VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Light Hammer		KIT:1|Light Hammer	
+Mace				VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Mace			KIT:1|Mace			
+Quarterstaff		VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Quarterstaff		KIT:1|Quarterstaff	
+Sickle			VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Sickle			KIT:1|Sickle		
+Spear				VISIBLE:NO	TYPE:Simple Weapon.Simple Melee Weapon	PREWEAPONPROF:1,Spear			KIT:1|Spear			
+Crossbow (Light)		VISIBLE:NO	TYPE:Simple Weapon.Simple Ranged Weapon	PREWEAPONPROF:1,Crossbow (Light)	KIT:1|Crossbow (Light)	
+Dart				VISIBLE:NO	TYPE:Simple Weapon.Simple Ranged Weapon	PREWEAPONPROF:1,Dart			KIT:1|Dart			
+Shortbow			VISIBLE:NO	TYPE:Simple Weapon.Simple Ranged Weapon	PREWEAPONPROF:1,Shortbow		KIT:1|Shortbow		
+Sling				VISIBLE:NO	TYPE:Simple Weapon.Simple Ranged Weapon	PREWEAPONPROF:1,Sling			KIT:1|Sling			
+
+Two Club			VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Club			KIT:1|Two Clubs				
+Two Dagger			VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Dagger			KIT:1|Two Daggers		
+Two Greatclub		VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Greatclub		KIT:1|Two Greatclubs		
+Two Handaxe			VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Handaxe			KIT:1|Two Handaxes		
+Two Javelin			VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Javelin			KIT:1|Two Javelins		
+Two Light Hammer		VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Light Hammer		KIT:1|Two Light Hammers	
+Two Mace			VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Mace			KIT:1|Two Maces			
+Two Quarterstaff		VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Quarterstaff		KIT:1|Two Quarterstaffs	
+Two Sickle			VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Sickle			KIT:1|Two Sickles		
+Two Spear			VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Melee Weapon	PREWEAPONPROF:1,Spear			KIT:1|Two Spears			
+Two Crossbow (Light)	VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Ranged Weapon	PREWEAPONPROF:1,Crossbow (Light)	KIT:1|Two Crossbow (Light)	
+Two Dart			VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Ranged Weapon	PREWEAPONPROF:1,Dart			KIT:1|Two Darts			
+Two Shortbow		VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Ranged Weapon	PREWEAPONPROF:1,Shortbow		KIT:1|Two Shortbows		
+Two Sling			VISIBLE:NO	TYPE:Two Simple Weapon.Two Simple Ranged Weapon	PREWEAPONPROF:1,Sling			KIT:1|Two Slings			
+
+# Armor
+Padded Armor		VISIBLE:NO	TYPE:Armor.Light Armor	PREPROFWITHARMOR:1,Padded		KIT:1|Padded Armor	
+Leather Armor		VISIBLE:NO	TYPE:Armor.Light Armor	PREPROFWITHARMOR:1,Leather		KIT:1|Leather Armor	
+Studded Leather		VISIBLE:NO	TYPE:Armor.Light Armor	PREPROFWITHARMOR:1,Studded Leather	KIT:1|Studded Leather	
+Hide Armor			VISIBLE:NO	TYPE:Armor.Light Armor	PREPROFWITHARMOR:1,Hide			KIT:1|Hide Armor		
+Chain Shirt			VISIBLE:NO	TYPE:Armor.Medium Armor	PREPROFWITHARMOR:1,Chain Shirt	KIT:1|Chain Shirt		
+Scale Mail			VISIBLE:NO	TYPE:Armor.Medium Armor	PREPROFWITHARMOR:1,Scale Mail		KIT:1|Scale Mail		
+Breastplate			VISIBLE:NO	TYPE:Armor.Medium Armor	PREPROFWITHARMOR:1,Breastplate	KIT:1|Breastplate		
+Half Plate			VISIBLE:NO	TYPE:Armor.Medium Armor	PREPROFWITHARMOR:1,Half Plate		KIT:1|Half Plate		
+Ring Mail			VISIBLE:NO	TYPE:Armor.Heavy Armor	PREPROFWITHARMOR:1,Ring Mail		KIT:1|Ring Mail		
+Chain Mail			VISIBLE:NO	TYPE:Armor.Heavy Armor	PREPROFWITHARMOR:1,Chain Mail		KIT:1|Chain Mail		
+Splint			VISIBLE:NO	TYPE:Armor.Heavy Armor	PREPROFWITHARMOR:1,Splint		KIT:1|Splint		
+Plate				VISIBLE:NO	TYPE:Armor.Heavy Armor	PREPROFWITHARMOR:1,Plate		KIT:1|Plate			
+
+wooden shield		VISIBLE:NO	KIT:1|Wooden Shield
+
+shield			VISIBLE:NO	KIT:1|Shield
+
+Any musical instrument	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Musical Instrument
+#
+Bagpipes			VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Bagpipes	
+Drum				VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Drum		
+Dulcimer			VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Dulcimer	
+Flute				VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Flute		
+Lute				VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Lute		
+Lyre				VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Lyre		
+Horn				VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Horn		
+Pan flute			VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Pan flute	
+Shawm				VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Shawm		
+Viol				VISIBLE:NO	TYPE:Musical Instrument	KIT:1|Viol		
+
+Holy Symbol	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Holy Symbol
+#
+Holy Symbol (Amulet)	VISIBLE:NO	TYPE:Holy Symbol	KIT:1|Holy Symbol (Amulet)	
+Holy Symbol (Emblem)	VISIBLE:NO	TYPE:Holy Symbol	KIT:1|Holy Symbol (Emblem)	
+Holy Symbol (Reliquary)	VISIBLE:NO	TYPE:Holy Symbol	KIT:1|Holy Symbol (Reliquary)	
+
+Druidic Focus	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Druidic Focus
+#
+Druidic Focus (Sprig of mistletoe)		VISIBLE:NO	TYPE:druidic focus	KIT:1|Druidic Focus (Sprig of mistletoe)	
+Druidic Focus (Totem)				VISIBLE:NO	TYPE:druidic focus	KIT:1|Druidic Focus (Totem)			
+Druidic Focus (Wooden staff)			VISIBLE:NO	TYPE:druidic focus	KIT:1|Druidic Focus (Wooden staff)		
+Druidic Focus (Yew wand)			VISIBLE:NO	TYPE:druidic focus	KIT:1|Druidic Focus (Yew wand)		
+
+Arcane Focus	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=Arcane Focus
+#
+Arcane Focus (Crystal)		VISIBLE:NO	TYPE:Arcane Focus		KIT:1|Arcane Focus (Crystal)	
+Arcane Focus (Orb)		VISIBLE:NO	TYPE:Arcane Focus		KIT:1|Arcane Focus (Orb)	
+Arcane Focus (Rod)		VISIBLE:NO	TYPE:Arcane Focus		KIT:1|Arcane Focus (Rod)	
+Arcane Focus (Staff)		VISIBLE:NO	TYPE:Arcane Focus		KIT:1|Arcane Focus (Staff)	
+Arcane Focus (Wand)		VISIBLE:NO	TYPE:Arcane Focus		KIT:1|Arcane Focus (Wand)	
+
+component pouch				VISIBLE:NO	KIT:1|component pouch
+Five Javelins				VISIBLE:NO	KIT:1|Five Javelins
+Two Handaxes				VISIBLE:NO	KIT:1|Two Handaxes
+light crossbow and 20 bolts		VISIBLE:NO	KIT:2|crossbow (light)|20 bolts
+hand crossbow and 20 bolts		VISIBLE:NO	KIT:2|crossbow (hand)|20 bolts
+leather longbow and 20 arrows		VISIBLE:NO	KIT:3|leather Armor|longbow|20 arrows
+martial weapon and a shield		VISIBLE:NO	KIT:1|Shield	TEMPLATE:CHOOSE:TYPE=Martial Weapon	
+two daggers					VISIBLE:NO	KIT:1|two daggers
+two shortswords				VISIBLE:NO	KIT:1|two shortswords
+shortbow and quiver of 20 arrows	VISIBLE:NO	KIT:3|Shortbow|Quiver|20 arrows
+
+###Block - Packs
+Burglar's Pack		KIT:1|Burglar's Pack		VISIBLE:NO
+Diplomat's Pack		KIT:1|Diplomat's Pack		VISIBLE:NO
+Dungeoneer's Pack		KIT:1|Dungeoneer's Pack		VISIBLE:NO
+Entertainer's Pack	KIT:1|Entertainer's Pack	VISIBLE:NO
+Explorer's Pack		KIT:1|Explorer's Pack		VISIBLE:NO
+Priest's Pack		KIT:1|Priest's Pack		VISIBLE:NO
+Scholar's Pack		KIT:1|Scholar's Pack		VISIBLE:NO
+
+Spellbook ~ Wizard	KIT:1|Spellbook ~ Wizard	VISIBLE:NO

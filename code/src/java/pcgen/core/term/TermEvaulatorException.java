@@ -1,5 +1,4 @@
 /*
- * pcgen.core.term.TermEvaulatorException.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -20,6 +19,13 @@
 package pcgen.core.term;
 
 public class TermEvaulatorException extends Exception {
+	/**
+	 * Creates a new instance of {@code TermEvaulatorException} without detail message.
+	 */
+	public TermEvaulatorException()
+	{
+		super();
+	}
 
 	/**
 	 * Constructs an instance of {@code TermEvaulatorException} with the specified detail message.

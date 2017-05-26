@@ -85,12 +85,6 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 		return true;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public boolean allowsParenAsSub()
 	{

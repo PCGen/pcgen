@@ -1,5 +1,4 @@
 /*
- * KitSkillAdd.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -34,8 +33,8 @@ public final class KitSkillAdd //implements java.io.Serializable
 	private Skill skill = null;
 	private double ranks = 0.0;
 	private int cost = 0;
-	private List<Language> languages;
-	private PCClass pcclass;
+	private final List<Language> languages;
+	private final PCClass pcclass;
 
 	/**
 	 * Constructor

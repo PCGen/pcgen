@@ -358,17 +358,15 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		ChoiceSet<ClassSpellList> cs = new ChoiceSet<>(getToken()
 				.getTokenName(), rcs);
 		cs.setTitle("Pick a SpellList");
-		PersistentTransitionChoice<CDOMListObject<Spell>> tc = new ConcretePersistentTransitionChoice<>(
+		return new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
-		return tc;
 	}
 
 	protected static ReferenceChoiceSet<ClassSpellList> buildRCS(
 			CDOMReference<ClassSpellList>... refs)
 	{
-		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<>(
+		return new ReferenceChoiceSet<>(
 				Arrays.asList(refs));
-		return rcs;
 	}
 
 	@Test

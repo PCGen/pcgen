@@ -49,12 +49,12 @@ import pcgen.util.Logging;
 
 public class TokenSupport
 {
-	private TokenFamily localTokens = new TokenFamily(new Revision(0, 0, 0));
+	private final TokenFamily localTokens = new TokenFamily(new Revision(0, 0, 0));
 	
-	private DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
+	private final DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
             new DoubleKeyMapToList<>();
 
-	private TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
+	private final TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
             new TripleKeyMapToList<>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	public <T extends Loadable> boolean processToken(LoadContext context,

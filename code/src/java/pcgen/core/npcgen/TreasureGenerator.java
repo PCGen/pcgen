@@ -31,11 +31,11 @@ import pcgen.util.Logging;
 
 public final class TreasureGenerator
 {
-	private static TreasureGenerator theInstance = new TreasureGenerator();
+	private static final TreasureGenerator theInstance = new TreasureGenerator();
 	
-	private static HashMap<GameMode, List<EquipmentTable>> theTreasureTables = new HashMap<>();
+	private static final HashMap<GameMode, List<EquipmentTable>> theTreasureTables = new HashMap<>();
 	
-	private static File tablesDir = new File(new File(ConfigurationSettings.getSystemsDir())
+	private static final File tablesDir = new File(new File(ConfigurationSettings.getSystemsDir())
 			+ File.separator + "npcgen"  //$NON-NLS-1$ 
 			+ File.separator + "treasure"); //$NON-NLS-1$
 

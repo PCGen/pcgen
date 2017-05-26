@@ -15,6 +15,7 @@ ABILITYCATEGORY:Attunement					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CAT
 
 #
 ABILITYCATEGORY:Language Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Language					CATEGORY:Language			TYPE:Language																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Starting Equipment				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:Starting Equipment										ABILITYLIST:Starting Equipment																		DISPLAYLOCATION:Character
 
 
 # Ability Category						Visible		Editable?		Change Pool?	Base Pool number						Category of Object		Type of Object											Specific choices list																				Display Location

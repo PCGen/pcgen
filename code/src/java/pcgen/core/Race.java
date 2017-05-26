@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -39,8 +37,6 @@ import pcgen.facade.core.RaceFacade;
 /**
  * {@code Race}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @author Michael Osterlie
  */
 public final class Race extends PObject implements RaceFacade, ChooseDriver
 {

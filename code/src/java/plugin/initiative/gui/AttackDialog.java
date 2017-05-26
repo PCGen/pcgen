@@ -567,7 +567,7 @@ public class AttackDialog extends JDialog
 			}
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#isCellEditable(int, int)
 		 */
         @Override
@@ -577,7 +577,7 @@ public class AttackDialog extends JDialog
 				.booleanValue();
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getColumnClass(int)
 		 */
         @Override
@@ -600,7 +600,7 @@ public class AttackDialog extends JDialog
 			}
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
 		 *
 		 * In addition to setting the value this method also calls recalcRow.

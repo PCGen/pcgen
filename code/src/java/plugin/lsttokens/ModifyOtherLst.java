@@ -186,7 +186,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " found invalid var name: " + varName + " Modified on "
-				+ obj.getClass().getSimpleName() + " " + obj.getKeyName(),
+				+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(),
 				context);
 		}
 		if (!sep.hasNext())

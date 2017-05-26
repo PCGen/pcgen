@@ -73,7 +73,7 @@ public class BaseSizeToken implements PrimitiveToken<Race>,
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + size.getLSTformat(false);
+		return getTokenName() + '=' + size.getLSTformat(false);
 	}
 
 	@Override

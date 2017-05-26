@@ -146,7 +146,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		setupEditMode();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 *
 	 * Does nothing
@@ -500,7 +500,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 */
 	private class BagListener implements ActionListener
 	{
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
         @Override
@@ -560,7 +560,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 */
 	private class BagTableModel extends AbstractTableModel
 	{
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#isCellEditable(int, int)
 		 */
         @Override
@@ -569,7 +569,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return true;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getColumnClass(int)
 		 */
         @Override
@@ -578,7 +578,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return String.class;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getColumnCount()
 		 *
 		 * Always a single column
@@ -589,7 +589,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return 1;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getColumnName(int)
 		 */
         @Override
@@ -598,7 +598,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return "Dice Expression";
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getRowCount()
 		 *
 		 * We add one more row than the number of dice in the bag;
@@ -610,7 +610,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return m_bag.diceCount() + 1;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
 		 *
 		 * Sets the value at the specified index, or adds a new die at the end.
@@ -637,7 +637,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			}
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getValueAt(int, int)
 		 */
         @Override

@@ -229,7 +229,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		if (count > 1)
 		{
 			sb.append(count);
-			sb.append("x");
+			sb.append('x');
 		}
 		return sb;
 	}
@@ -242,7 +242,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		{
 			Logging
 				.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName(), obj.getSourceURI());
+					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(), obj.getSourceURI());
 			return false;
 		}
 		return true;

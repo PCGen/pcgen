@@ -502,8 +502,7 @@
 		<xsl:param name="attribute"/>
 		<xsl:param name="title" />
 		<xsl:param name="deitytitle.tag"  />
-		<xsl:param name="list" />
-		<xsl:param name="name.tag" />
+        <xsl:param name="name.tag" />
 		<xsl:param name="desc.tag" />
 		<xsl:param name="alignment.tag"  />
 		<xsl:param name="domainlist.tag"  />
@@ -810,7 +809,7 @@
 					<fo:table-body>
 						<fo:table-row>
 							<fo:table-cell >
-								<fo:block></fo:block>
+                                <fo:block/>
 							</fo:table-cell>
 							<fo:table-cell >
 								<fo:block>
@@ -952,7 +951,7 @@
 		<xsl:variable name="label">
 			<xsl:call-template name="str:substring-after-last">
 				<xsl:with-param name="text" select="$string"/>
-				<xsl:with-param name="char" select="' '"/>
+				<xsl:with-param name="chars" select="' '"/>
 			</xsl:call-template>
 		</xsl:variable>
 

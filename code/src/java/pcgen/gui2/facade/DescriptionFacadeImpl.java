@@ -74,9 +74,9 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
 	private final DefaultListFacade<ChronicleEntryFacade> chronicleEntries;
-	private DefaultListFacade<NoteFacade> notes;
+	private final DefaultListFacade<NoteFacade> notes;
 
-	private Map<BiographyField, WriteableReferenceFacade<String>> bioData = new EnumMap<>(BiographyField.class);
+	private final Map<BiographyField, WriteableReferenceFacade<String>> bioData = new EnumMap<>(BiographyField.class);
 
 	private final DefaultListFacade<BiographyField> customBiographyFields;
 
@@ -158,7 +158,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DescriptionFacade#createChronicleEntry()
 	 */
 	@Override
@@ -170,7 +170,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		return chronicleEntry;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DescriptionFacade#removeChronicleEntry(pcgen.core.ChronicleEntry)
 	 */
 	@Override
@@ -183,7 +183,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		chronicleEntries.removeElement(chronicleEntry);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DescriptionFacade#getChronicleEntries()
 	 */
 	@Override

@@ -66,12 +66,12 @@ import pcgen.util.enumeration.Tab;
 public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListListener<CharacterFacade>
 {
 
-	private DefaultListFacade<CompanionFacadeDelegate> companionList;
+	private final DefaultListFacade<CompanionFacadeDelegate> companionList;
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
-	private DefaultListFacade<CompanionStubFacade> availCompList;
-	private DefaultMapFacade<String, Integer> maxCompanionsMap;
-	private Map<String, CompanionList> keyToCompanionListMap;
+	private final DefaultListFacade<CompanionStubFacade> availCompList;
+	private final DefaultMapFacade<String, Integer> maxCompanionsMap;
+	private final Map<String, CompanionList> keyToCompanionListMap;
 	private final TodoManager todoManager;
 	private final CharacterFacadeImpl pcFacade;
 

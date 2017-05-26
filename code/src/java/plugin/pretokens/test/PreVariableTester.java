@@ -51,7 +51,7 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements Prere
 		return "VAR"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
 	@Override
@@ -94,7 +94,7 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements Prere
 		return countedTotal(prereq, 1);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override

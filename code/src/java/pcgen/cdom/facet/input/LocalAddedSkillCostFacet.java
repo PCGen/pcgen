@@ -28,7 +28,6 @@ import pcgen.core.Skill;
  * or CCSKILL:%LIST in a Domain are both examples that use
  * LocalAddedSkillCostFacet.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LocalAddedSkillCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill>

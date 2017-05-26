@@ -40,7 +40,7 @@ public class PreTemplateWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -49,7 +49,7 @@ public class PreTemplateWriter extends AbstractPrerequisiteWriter implements
 		return "template";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -59,7 +59,7 @@ public class PreTemplateWriter extends AbstractPrerequisiteWriter implements
 			PrerequisiteOperator.LT};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
@@ -100,7 +100,7 @@ public class PreTemplateWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+		writer.write("PRE" + kindHandled().toUpperCase() + ':'
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
 				: "1");

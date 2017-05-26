@@ -243,10 +243,10 @@ public class Event implements InitHolder
 					rowVector.add("");
 					break;
 				case "Init":  // Event's Initiative
-					rowVector.add("" + init.getCurrentInitiative());
+					rowVector.add(String.valueOf(init.getCurrentInitiative()));
 					break;
 				case "Dur":  // Event's Duration
-					rowVector.add("" + getDuration());
+					rowVector.add(String.valueOf(getDuration()));
 					break;
 				case "#":  // Ignored
 					rowVector.add("");
@@ -272,9 +272,9 @@ public class Event implements InitHolder
 		Element retElement = new Element("Event");
 		Element initiative = new Element("Initiative");
 
-		initiative.setAttribute("initiative", init.getCurrentInitiative() + "");
-		initiative.setAttribute("duration", getDuration() + "");
-		initiative.setAttribute("alert", isAlert() + "");
+		initiative.setAttribute("initiative", String.valueOf(init.getCurrentInitiative()));
+		initiative.setAttribute("duration", String.valueOf(getDuration()));
+		initiative.setAttribute("alert", String.valueOf(isAlert()));
 		retElement.addContent(initiative);
 
 		retElement.setAttribute("name", getName());

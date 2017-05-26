@@ -1,5 +1,4 @@
 /*
- * PreSpell.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -46,7 +45,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -115,7 +114,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		return "SPELL"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override

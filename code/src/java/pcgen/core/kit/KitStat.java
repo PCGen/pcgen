@@ -1,5 +1,4 @@
 /*
- * KitStat.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -43,7 +42,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  */
 public class KitStat extends BaseKit
 {
-	private Map<CDOMSingleRef<PCStat>, Formula> statMap =
+	private final Map<CDOMSingleRef<PCStat>, Formula> statMap =
             new HashMap<>();
 
 	@Override

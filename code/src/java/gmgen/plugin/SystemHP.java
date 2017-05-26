@@ -465,14 +465,7 @@ public class SystemHP
 	{
 		if (state == State.Nothing)
 		{
-			if (type)
-			{
-				state = State.Unconsious;
-			}
-			else
-			{
-				state = State.Dazed;
-			}
+			state = type ? State.Unconsious : State.Dazed;
 		}
 
 		return state;

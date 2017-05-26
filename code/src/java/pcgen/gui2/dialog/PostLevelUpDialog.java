@@ -63,7 +63,6 @@ import pcgen.system.LanguageBundle;
  * The Class {@code PostLevelUpDialog} provides a display of the results
  * of levelling up a character. 
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")
@@ -73,7 +72,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 	private final CharacterLevelsFacade levels;
 	private final LevelTableModel tableModel;
 	private final int oldLevel;
-	private int numLevels;
+	private final int numLevels;
 
 	private PostLevelUpDialog(Frame frame, CharacterFacade character, int oldLevel)
 	{

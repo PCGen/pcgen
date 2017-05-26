@@ -24,7 +24,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class DamageTokenTest extends AbstractDamageTokenTestCase
 {
 
-	public static DamageToken token = new DamageToken();
+	public static final DamageToken token = new DamageToken();
 
 	@Override
 	public CDOMPrimaryToken<Equipment> getToken()

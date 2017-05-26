@@ -44,17 +44,17 @@ class TravelMethodImplementation implements TravelMethod
 	// ### Fields ###
 
 	/** Name of this method */
-	private Localized name;
-	private Map<String, Map<String, Combo>> multByRoadByTerrains;
-	private List<Method> methods;
-	private Map<String, Map<Localized, String>> terrainsId;
-	private Map<String, Map<Localized, String>> routesId;
+	private final Localized name;
+	private final Map<String, Map<String, Combo>> multByRoadByTerrains;
+	private final List<Method> methods;
+	private final Map<String, Map<Localized, String>> terrainsId;
+	private final Map<String, Map<Localized, String>> routesId;
 
-	private MethodModel methodModel = new MethodModel();
-	private ListByWayModel routesModel;
-	private ListByWayModel terrainsModel;
-	private PaceModel paceModel = new PaceModel();
-	private ChoiceModel choiceModel = new ChoiceModel();
+	private final MethodModel methodModel = new MethodModel();
+	private final ListByWayModel routesModel;
+	private final ListByWayModel terrainsModel;
+	private final PaceModel paceModel = new PaceModel();
+	private final ChoiceModel choiceModel = new ChoiceModel();
 
 	private Method selectedMethod;
 
@@ -482,9 +482,9 @@ class TravelMethodImplementation implements TravelMethod
 
 	static class Method extends Named
 	{
-		private List<Pace> paces;
-		private List<Choice> choices;
-		private String way;
+		private final List<Pace> paces;
+		private final List<Choice> choices;
+		private final String way;
 
 		public Method(Localized name, String way)
 		{
@@ -537,7 +537,7 @@ class TravelMethodImplementation implements TravelMethod
 
 		private boolean useDays = false;
 		private Number mult = 1;
-		private Localized comment;
+		private final Localized comment;
 
 		/**
 		 * @return the useDays
@@ -566,9 +566,9 @@ class TravelMethodImplementation implements TravelMethod
 
 	static class Choice extends Named
 	{
-		private Number hoursInDay;
-		private Number kmh;
-		private Number mph;
+		private final Number hoursInDay;
+		private final Number kmh;
+		private final Number mph;
 
 		/**
 		 * @param name
@@ -615,7 +615,7 @@ class TravelMethodImplementation implements TravelMethod
 	 */
 	static class Named
 	{
-		private Localized name;
+		private final Localized name;
 
 		public Named(Localized name)
 		{
@@ -716,7 +716,7 @@ class TravelMethodImplementation implements TravelMethod
 	{
 		private static final long serialVersionUID = -5596276376727073581L;
 
-		private Map<String, List<Localized>> listByWay;
+		private final Map<String, List<Localized>> listByWay;
 		private Localized selected;
 
 		public ListByWayModel(Map<String, List<Localized>> list)

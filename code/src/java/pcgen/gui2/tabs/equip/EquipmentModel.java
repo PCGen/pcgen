@@ -1,5 +1,4 @@
 /*
- * EquipmentModel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -250,7 +249,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 	private static class TreeRenderer extends CharacterTreeCellRenderer
 	{
 
-		private Map<String, ImageIcon> iconCache = new HashMap<>();
+		private final Map<String, ImageIcon> iconCache = new HashMap<>();
 
 		@Override
 		public Component getTreeCellRendererComponent(final JTree tree,

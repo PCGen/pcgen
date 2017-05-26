@@ -82,9 +82,9 @@ import plugin.doomsdaybook.RandomNamePlugin;
  */
 public class NameGenPanel extends JPanel
 {
-	private Preferences namePrefs =
+	private final Preferences namePrefs =
 			Preferences.userNodeForPackage(NameGenPanel.class);
-	private Map<String, List<RuleSet>> categories =
+	private final Map<String, List<RuleSet>> categories =
             new HashMap<>();
 	private JButton generateButton;
 	private JButton jButton1;
@@ -122,7 +122,7 @@ public class NameGenPanel extends JPanel
 	private JSeparator jSeparator3;
 	private JSeparator jSeparator4;
 	private JTextField name;
-	private VariableHashMap allVars = new VariableHashMap();
+	private final VariableHashMap allVars = new VariableHashMap();
 
 	private Rule lastRule = null;
 	

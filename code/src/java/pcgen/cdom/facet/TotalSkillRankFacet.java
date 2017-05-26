@@ -196,7 +196,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 			source = src;
 		}
 
-		private List<AssociationChangeListener> listeners =
+		private final List<AssociationChangeListener> listeners =
                 new ArrayList<>();
 
 		/**

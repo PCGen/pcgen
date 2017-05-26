@@ -608,7 +608,7 @@ CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|TY
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																						Modify VAR																																																												FACT
 CLASS:Mystic Theurge	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.387	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Myt
 # Class Name		Multiple Requirements																																	Required Skill
-CLASS:Mystic Theurge	PREMULT:1,[PRESPELLTYPE:1,Divine=2],[PREABILITY:1,CATEGORY=Spell-Like Ability,TYPE.SpellLikeDivineLVL2]	PREMULT:1,[PRESPELLTYPE:1,Arcane=2],[PREABILITY:1,CATEGORY=Spell-Like Ability,TYPE.SpellLikeArcaneLVL2]	PRESKILL:2,Knowledge (Arcana)=3,Knowledge (Religion)=3
+CLASS:Mystic Theurge	PRESPELLTYPE:1,Divine=2	PRESPELLTYPE:1,Arcane=2	PRESKILL:2,Knowledge (Arcana)=3,Knowledge (Religion)=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft
 ###Block: Level Progression

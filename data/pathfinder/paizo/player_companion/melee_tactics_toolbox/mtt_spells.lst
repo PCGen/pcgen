@@ -24,4 +24,4 @@ Vine Strike								TYPE:Arcane.Divine	CLASSES:Alchemist,Antipaladin,Bloodrager,D
 # Bardic Masterpiece Spell
 # ==============================
 
-Masterpiece (Battle Song of the People's Revolt)					CLASSES:Bard=2[PRESKILL:1,Perform (Percussion)=4,Perform (Wind)=4]				SCHOOL:Masterpiece												CASTTIME:1 standard action																																							SOURCEPAGE:p.11
+Masterpiece (Battle Song of the People's Revolt)					CLASSES:Bard=2[PRESKILL:1,Perform (Percussion Instruments)=4,Perform (Wind Instruments)=4]				SCHOOL:Masterpiece												CASTTIME:1 standard action																																							SOURCEPAGE:p.11

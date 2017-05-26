@@ -31,7 +31,7 @@ import java.util.List;
 public final class LogUtilities implements LogReceiver
 {
 	private static LogUtilities singleton = null;
-	private List<LogReceiver> receivers;
+	private final List<LogReceiver> receivers;
 	private boolean logging;
 
 	/**

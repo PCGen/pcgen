@@ -130,7 +130,7 @@ public class InfoCharacterDetails
 
 	private class Renderer extends Thread
 	{
-		private Combatant combatant;
+		private final Combatant combatant;
 		
 		/**
 		 * Constructor

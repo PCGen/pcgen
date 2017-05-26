@@ -56,7 +56,7 @@ CLASS:Alchemist	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alche
 # Class Name	Hit Dice	Type				Max Level	Base class as subclass?	Source Page		Define			Combat bonus																Save bonus																																		Modify VAR																																																																	FACT
 CLASS:Cavalier	HD:10		TYPE:Base.PC.Cavalier	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.32	DEFINE:CavalierLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|CavalierLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Cav
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
+CLASS:Cavalier	STARTSKILLPTS:4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Cavalier
 ###Block: Level progression
@@ -224,7 +224,7 @@ CLASS:Summoner	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|Caster_Level
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define																			Combat bonus																	Save bonus																																		Modify VAR																																																																																																																	FACT
 CLASS:Witch		HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.65	DEFINE:WitchLVL|0	DEFINE:CasterLevelBLWitch|0	DEFINE:Caster_Level_Witch|0	DEFINE:Caster_Level_BL_Stripped_Witch|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|WitchLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Witch|Caster_Level_Witch-CasterLevelBLWitch	BONUS:VAR|Caster_Level_Witch|CL+Caster_Level_Bonus+CasterLevelBLWitch	BONUS:VAR|CasterLevelBL_x_Witch|charbonusto("PCLEVEL","Witch")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Witch|TYPE=Base	FACT:ClassType|PC	FACT:Abb|Wit	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (Planes)|TYPE=Profession|Spellcraft|Use Magic Device
+CLASS:Witch		STARTSKILLPTS:2
 # Class Name	Spell Stat		Automatically Known Spell Levels	Caster level
 CLASS:Witch		SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|Caster_Level_BL_Stripped_Witch
 ###Block:Proficiencies

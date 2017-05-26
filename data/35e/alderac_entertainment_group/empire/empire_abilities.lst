@@ -65,7 +65,7 @@ Master of the Order								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:
 
 #Paladin MOD - EMPIRE Powers
 The Good King									CATEGORY:Special Ability					VISIBLE:YES											DESC:During the spring phase, the paladin gains a +1 competence bonus to his roll to determine the pool of settlers.  Furthermore, the commoners gain a +2 morale bonus to their loyalty score.
-Legion of Honor									CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES											DESC:The paladin gains teh service of a Medium-sized unit of 2nd-level Paladins.  These paladins share the paladins race.
+Legion of Honor									CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES											DESC:The paladin gains the service of a Medium-sized unit of 2nd-level Paladins.  These paladins share the paladins race.
 Benevolent Monarch								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES											DESC:The commoners gain a +4 morale bonus to their loyalty score. In the event of invasion, the paladin can raise 20%% of the commoner population as 1st level commoners outfitted with whatever weapons and armors he can spare.  These commoners gain a +1 morale bonus to attack and a +4 morale bonus to Morale saves.
 Hero King										CATEGORY:Special Ability					VISIBLE:YES											DESC:All allies and followers who serve with the paladin gain a +2 morale bonus to their loyalty scores.  No non-evil lord can ever invade his realm as long as the Paladin does not initiate hostilities.
 

@@ -1,5 +1,4 @@
 /**
- * CharacterAbilitiesTest.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -106,7 +105,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());
 
 		// Now add the choice
-		finalize(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);
+		pcgenFinalize(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);
 		ca.rebuildAbilityLists();
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());
@@ -115,7 +114,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

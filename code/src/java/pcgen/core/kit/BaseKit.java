@@ -1,5 +1,4 @@
 /*
- * BaseKit.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  * Copyright 2003 (C) Jonas Karlson <jujutsunerd@sf.net>
  *

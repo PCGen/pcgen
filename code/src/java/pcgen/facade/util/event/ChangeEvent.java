@@ -26,7 +26,6 @@ import java.util.EventObject;
  * The Class {@code ChangeEvent} indicates the source object, or
  * associated data, was modified in some way.
  *
- * <br>
  * 
  */
 public class ChangeEvent extends EventObject

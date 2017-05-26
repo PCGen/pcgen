@@ -25,7 +25,6 @@ import pcgen.util.enumeration.Tab;
  * The Class {@code TodoFacadeImpl} represents a task
  * to be done for a character.
  *
- * <br>
  * 
  */
 @SuppressWarnings("TodoComment")
@@ -69,7 +68,7 @@ public class TodoFacadeImpl implements TodoFacade
 		this.order = order;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.TodoFacade#getFieldName()
 	 */
 	@Override
@@ -78,7 +77,7 @@ public class TodoFacadeImpl implements TodoFacade
 		return fieldName;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.TodoFacade#getMessage()
 	 */
 	@Override
@@ -87,7 +86,7 @@ public class TodoFacadeImpl implements TodoFacade
 		return messageKey;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.TodoFacade#getTabName()
 	 */
 	@Override
@@ -96,7 +95,7 @@ public class TodoFacadeImpl implements TodoFacade
 		return tab;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override

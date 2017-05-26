@@ -27,7 +27,6 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
 /**
  * FactFacet stores basic String information about a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FactFacet extends AbstractStorageFacet<CharID>
 {

@@ -48,14 +48,12 @@ public final class SourceMigration
 	 */
 	public static String getNewSourceKey(String sourceKey, int[] pcgVer, String gameModeName)
 	{
-		List<MigrationRule> sourceChangeList = sourceChangesForVer.get(pcgVer);
-		if (sourceChangeList == null)
-		{
-			sourceChangeList =
-					MigrationUtils.getChangeList(pcgVer, gameModeName,
-						ObjectType.SOURCE);
-			sourceChangesForVer.put(pcgVer, sourceChangeList);
-		}
+		List<MigrationRule> sourceChangeList = sourceChangesForVer.computeIfAbsent(
+				pcgVer,
+				v -> MigrationUtils.getChangeList(v, gameModeName,
+						ObjectType.SOURCE
+				)
+		);
 
 		for (MigrationRule rule : sourceChangeList)
 		{

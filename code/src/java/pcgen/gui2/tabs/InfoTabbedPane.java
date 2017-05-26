@@ -1,5 +1,4 @@
 /*
- * InfoTabbedPane.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -476,7 +475,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	private class TabActionListener implements PropertyChangeListener
 	{
 
-		private Component component;
+		private final Component component;
 
 		public TabActionListener(Component component)
 		{

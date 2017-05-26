@@ -88,7 +88,7 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 					cpr.addErrorMessage("Warning: You performed an invalid .CLEAR in a ADD: Token");
 					cpr.addErrorMessage("  A level limited .CLEAR ( " + value
 							+ " ) was not used in a Class Level line in "
-							+ obj.getClass().getSimpleName() + " "
+							+ obj.getClass().getSimpleName() + ' '
 							+ obj.getKeyName());
 					return cpr;
 				}

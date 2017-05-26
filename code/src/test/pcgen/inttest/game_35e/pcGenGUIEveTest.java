@@ -1,5 +1,4 @@
 /*
- * pcGenGUIEveTest.java
  */
 package pcgen.inttest.game_35e;
 

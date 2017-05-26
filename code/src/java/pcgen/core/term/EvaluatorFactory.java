@@ -41,9 +41,9 @@ public final class EvaluatorFactory {
 	Pattern internalVarPattern;
 	Map<String, TermEvaluatorBuilder> BuilderStore;
 	
-	private Map<String, TermEvaluator> SrcNeutralEvaluatorStore =
+	private final Map<String, TermEvaluator> SrcNeutralEvaluatorStore =
             new HashMap<>();
-	private Map<String, Map<String, TermEvaluator>> SrcDependantEvaluatorStore =
+	private final Map<String, Map<String, TermEvaluator>> SrcDependantEvaluatorStore =
             new HashMap<>();
 
 

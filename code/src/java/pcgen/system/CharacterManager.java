@@ -97,7 +97,7 @@ public final class CharacterManager
 			String name = createNewCharacterName();
 			character.setName(name);
 			characters.addElement(character);
-			Logging.log(Logging.INFO, "Created new character " + name + "."); //$NON-NLS-1$ //$NON-NLS-2$
+			Logging.log(Logging.INFO, "Created new character " + name + '.'); //$NON-NLS-1$ //$NON-NLS-2$
 			messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, pc));
 			return character;
 		}

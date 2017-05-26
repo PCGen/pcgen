@@ -1303,7 +1303,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	{
 		if (dirty)
 		{
-			return "*" + getUserObject().toString();
+			return '*' + getUserObject().toString();
 		}
 		return getUserObject().toString();
 	}

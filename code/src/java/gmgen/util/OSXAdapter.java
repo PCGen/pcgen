@@ -27,7 +27,7 @@ public final class OSXAdapter extends ApplicationAdapter
 	private static com.apple.eawt.Application theApplication;
 
 	// reference to the app where the existing quit, about, prefs code is
-	private gmgen.GMGenSystem mainApp;
+	private final gmgen.GMGenSystem mainApp;
 
 	private OSXAdapter(gmgen.GMGenSystem inApp)
 	{

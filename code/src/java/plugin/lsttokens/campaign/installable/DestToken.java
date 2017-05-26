@@ -37,7 +37,7 @@ import pcgen.util.Logging;
 public class DestToken implements InstallLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
@@ -46,7 +46,7 @@ public class DestToken implements InstallLstToken
 		return "DEST";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.InstallLstToken#parse(pcgen.core.Campaign, java.lang.String, java.net.URI)
 	 */
     @Override

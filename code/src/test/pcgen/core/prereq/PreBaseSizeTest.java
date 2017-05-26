@@ -1,5 +1,4 @@
 /*
- * PreBaseSizeTest.java
  *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *

@@ -1,5 +1,4 @@
 /*
- * KitAlignment.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -39,7 +38,7 @@ public class KitAlignment extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient PCAlignment align = null;
+	private PCAlignment align = null;
 
 	/**
 	 * Actually applies the alignment to this PC.

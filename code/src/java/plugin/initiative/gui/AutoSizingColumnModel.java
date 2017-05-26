@@ -108,7 +108,7 @@ public class AutoSizingColumnModel extends DefaultTableColumnModel
 		return returnValue;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see javax.swing.table.TableColumnModel#addColumn(javax.swing.table.TableColumn)
 	 */
     @Override

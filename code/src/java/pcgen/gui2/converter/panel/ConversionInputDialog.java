@@ -50,7 +50,7 @@ public class ConversionInputDialog extends JDialog implements
 	ActionListener
 {
 	
-	private String introText;
+	private final String introText;
 
 	private String result;
 
@@ -132,7 +132,7 @@ public class ConversionInputDialog extends JDialog implements
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	@Override

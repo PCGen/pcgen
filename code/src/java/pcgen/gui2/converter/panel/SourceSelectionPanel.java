@@ -118,7 +118,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#returnAllowed()
 	 */
 	@Override

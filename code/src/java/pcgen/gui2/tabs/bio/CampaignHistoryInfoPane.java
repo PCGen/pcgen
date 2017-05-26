@@ -1,5 +1,4 @@
 /*
- * CampaignHistoryInfoPane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -276,15 +275,15 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 	private static class ChroniclePane extends JPanel implements ActionListener
 	{
 
-		private JCheckBox checkBox = new JCheckBox();
-		private JButton deleteButton = new JButton();
-		private JTextField campaignField = new JTextField();
-		private JTextField adventureField = new JTextField();
-		private JTextField partyField = new JTextField();
-		private JTextField dateField = new JTextField();
-		private JFormattedTextField xpField = new JFormattedTextField(NumberFormat.getIntegerInstance());
-		private JTextField gmField = new JTextField();
-		private JTextArea textArea = new JTextArea()
+		private final JCheckBox checkBox = new JCheckBox();
+		private final JButton deleteButton = new JButton();
+		private final JTextField campaignField = new JTextField();
+		private final JTextField adventureField = new JTextField();
+		private final JTextField partyField = new JTextField();
+		private final JTextField dateField = new JTextField();
+		private final JFormattedTextField xpField = new JFormattedTextField(NumberFormat.getIntegerInstance());
+		private final JTextField gmField = new JTextField();
+		private final JTextArea textArea = new JTextArea()
 		{
 			@Override
 			public Dimension getMinimumSize()
@@ -536,7 +535,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 	private static class ChroniclesPane extends JPanel implements Scrollable
 	{
 
-		private ChroniclePane dummyPane = new ChroniclePane();
+		private final ChroniclePane dummyPane = new ChroniclePane();
 
 		public ChroniclesPane()
 		{

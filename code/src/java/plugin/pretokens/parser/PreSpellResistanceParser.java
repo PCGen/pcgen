@@ -1,5 +1,4 @@
 /*
- * PreSpellResistanceParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -88,7 +87,7 @@ public class PreSpellResistanceParser extends AbstractPrerequisiteIntegerParser
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ":" + formula
+				"Unable to parse the prerequisite :'" + kind + ':' + formula
 					+ "'. " + pe.getLocalizedMessage());
 		}
 

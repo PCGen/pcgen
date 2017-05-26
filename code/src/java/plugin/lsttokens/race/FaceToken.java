@@ -64,7 +64,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		}
 		if (value.indexOf(',') == -1)
 		{
-			value = value + "," + 0;
+			value = value + ',' + 0;
 		}
 		FormatManager<OrderedPair> formatManager =
 				(FormatManager<OrderedPair>) context.getReferenceContext()
@@ -101,7 +101,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " internal error: found invalid var name: " + VAR_NAME
-				+ ", Modified on " + race.getClass().getSimpleName() + " "
+				+ ", Modified on " + race.getClass().getSimpleName() + ' '
 				+ race.getKeyName(), context);
 		}
 		VarModifier<OrderedPair> vm =

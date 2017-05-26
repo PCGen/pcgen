@@ -253,23 +253,23 @@ public class PcgCombatant extends Combatant
 		Element hp = new Element("HitPoints");
 		Element pcg = new Element("PCG");
 
-		pcg.setAttribute("file", pc.getFileName() + "");
+		pcg.setAttribute("file", pc.getFileName());
 		retElement.addContent(pcg);
 
-		initiative.setAttribute("bonus", init.getModifier() + "");
+		initiative.setAttribute("bonus", String.valueOf(init.getModifier()));
 
 		if (init.getCurrentInitiative() > 0)
 		{
 			initiative
-				.setAttribute("current", init.getCurrentInitiative() + "");
+				.setAttribute("current", String.valueOf(init.getCurrentInitiative()));
 		}
 
 		retElement.addContent(initiative);
 
-		hp.setAttribute("current", hitPoints.getCurrent() + "");
-		hp.setAttribute("subdual", hitPoints.getSubdual() + "");
-		hp.setAttribute("max", hitPoints.getMax() + "");
-		hp.setAttribute("state", hitPoints.getState() + "");
+		hp.setAttribute("current", String.valueOf(hitPoints.getCurrent()));
+		hp.setAttribute("subdual", String.valueOf(hitPoints.getSubdual()));
+		hp.setAttribute("max", String.valueOf(hitPoints.getMax()));
+		hp.setAttribute("state", String.valueOf(hitPoints.getState()));
 		retElement.addContent(hp);
 
 		retElement.setAttribute("name", getName());
@@ -815,14 +815,11 @@ public class PcgCombatant extends Combatant
 
 				firstLine = false;
 
-				int modSkill;
-
 				CDOMSingleRef<PCStat> keyStat = skill.get(ObjectKey.KEY_STAT);
 				if (keyStat != null)
 				{
-					modSkill =
-							SkillModifier.modifier(skill, pc).intValue()
-								- pc.getStatModFor(keyStat.get());
+					int modSkill = SkillModifier.modifier(skill, pc).intValue()
+							- pc.getStatModFor(keyStat.get());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 
@@ -1049,9 +1046,8 @@ public class PcgCombatant extends Combatant
 
 		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, Collection<PObject> classList, String spellBookName)
 		{
-			Set<PObject> classes = new HashSet<>();
-			classes.addAll(classList);
-			
+			Set<PObject> classes = new HashSet<>(classList);
+
 			for ( PObject pObj : classes )
 			{
 				if (pObj != null)

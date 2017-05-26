@@ -24,11 +24,11 @@ Sling bullets (20)												TYPE:Gear.Ammunition.Sling Bullet											COST:0
 #
 Antitoxin (vial)													TYPE:Gear															COST:50	WT:0
 # Arcane focus
-Crystal														TYPE:Gear.Arcane Focus													COST:10	WT:1
-Orb															TYPE:Gear.Arcane Focus													COST:20	WT:3
-Rod															TYPE:Gear.Arcane Focus													COST:10	WT:2
-Staff															TYPE:Gear.Arcane Focus													COST:5	WT:4
-Wand															TYPE:Gear.Arcane Focus													COST:10	WT:1
+Crystal								KEY:Arcane Focus (Crystal)						TYPE:Gear.Arcane Focus													COST:10	WT:1
+Orb									KEY:Arcane Focus (Orb)						TYPE:Gear.Arcane Focus													COST:20	WT:3
+Rod									KEY:Arcane Focus (Rod)						TYPE:Gear.Arcane Focus													COST:10	WT:2
+Staff									KEY:Arcane Focus (Staff)						TYPE:Gear.Arcane Focus													COST:5	WT:4
+Wand									KEY:Arcane Focus (Wand)						TYPE:Gear.Arcane Focus													COST:10	WT:1
 #
 Backpack														TYPE:Gear.Container			CONTAINS:30									COST:2	WT:5
 Ball bearings (bag of 1,000)					KEY:Ball bearings (bag of 1000)	TYPE:Gear															COST:1	WT:2
@@ -56,10 +56,10 @@ Clothes, Traveler's						KEY:Clothes (Traveler's)		TYPE:Gear.Clothing											
 Component pouch													TYPE:Gear															COST:25	WT:2
 Crowbar														TYPE:Gear															COST:2	WT:5
 # Druidic Focus
-Sprig of mistletoe												TYPE:Gear.Druidic Focus													COST:1	WT:0
-Totem															TYPE:Gear.Druidic Focus													COST:1	WT:0
-Wooden staff													TYPE:Gear.Druidic Focus													COST:5	WT:4
-Yew wand														TYPE:Gear.Druidic Focus													COST:10	WT:1
+Sprig of mistletoe						KEY:Druidic Focus (Sprig of mistletoe)						TYPE:Gear.Druidic Focus													COST:1	WT:0
+Totem									KEY:Druidic Focus (Totem)						TYPE:Gear.Druidic Focus													COST:1	WT:0
+Wooden staff							KEY:Druidic Focus (Wooden staff)						TYPE:Gear.Druidic Focus													COST:5	WT:4
+Yew wand								KEY:Druidic Focus (Yew wand)						TYPE:Gear.Druidic Focus													COST:10	WT:1
 #
 Fishing tackle													TYPE:Gear															COST:1	WT:4
 Flask or tankard													TYPE:Gear															COST:0.02	WT:1
@@ -227,7 +227,12 @@ Scroll Case
 
 
 
-Wizard's Spellbook	TYPE:Spellbook	NUMPAGES:400	PAGEUSAGE:1
+Wizard Spellbook	KEY:Spellbook ~ Wizard		TYPE:SPELLBOOK	NUMPAGES:400	PAGEUSAGE:1
 Warlock Book of Shadows	TYPE:SPELLBOOK	PAGEUSAGE:1	NUMPAGES:400
 
-
+alms box
+Block of Incense
+book of lore
+censer
+little bag of sand
+String (10')

@@ -25,4 +25,4 @@ Lamashtu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Strength,Trickery|PREALIGN:NE,
 Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:NE,CN,CE				DESC:God of wrath, disaster, destruction						FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Greataxe			ALIGN:CE	SOURCEPAGE:p.45
 
 # Deity Name	Product Identity?	Domains													Description of Deity/Title					FACT			FACTSET						Deity Weapon				Align		Source Page
-None						DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE							DESC:None								FACT:Symbol|None								DEITYWEAP:ANY
+None						DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE							DESC:None								FACT:Symbol|None

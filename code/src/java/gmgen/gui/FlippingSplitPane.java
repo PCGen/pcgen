@@ -547,7 +547,7 @@ public class FlippingSplitPane extends JSplitPane
 	private class ContinuousLayoutActionListener
 			implements ActionListener
 	{
-		private boolean aContinuousLayout;
+		private final boolean aContinuousLayout;
 
 		ContinuousLayoutActionListener(final boolean continuousLayout)
 		{
@@ -617,7 +617,7 @@ public class FlippingSplitPane extends JSplitPane
 	private class LockActionListener
 			implements ActionListener
 	{
-		private boolean aLocked;
+		private final boolean aLocked;
 
 		LockActionListener(final boolean locked)
 		{

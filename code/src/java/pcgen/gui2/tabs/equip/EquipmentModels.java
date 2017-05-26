@@ -1,5 +1,4 @@
 /*
- * EquipmentModels.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -72,7 +71,6 @@ import pcgen.system.LanguageBundle;
  * models for both the left and right tables of gear. It also contains the 
  * processing to manage equipping and unequipping actions.
  *
- * <br>
  *  
  */
 public class EquipmentModels

@@ -49,7 +49,7 @@ public class RegionToken extends AbstractExportToken
 		String subRegion = display.getSubRegion();
 		if (!subRegion.equals(Constants.NONE))
 		{
-			retString += (" (" + subRegion + ")");
+			retString += (" (" + subRegion + ')');
 		}
 		
 		return retString;

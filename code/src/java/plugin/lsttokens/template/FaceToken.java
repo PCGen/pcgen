@@ -70,7 +70,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 		if (value.indexOf(',') == -1)
 		{
-			value = value + "," + 0;
+			value = value + ',' + 0;
 		}
 		@SuppressWarnings("unchecked")
 		FormatManager<OrderedPair> formatManager =
@@ -108,7 +108,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " internal error: found invalid fact name: " + varName
-				+ ", Modified on " + fObj.getClass().getSimpleName() + " "
+				+ ", Modified on " + fObj.getClass().getSimpleName() + ' '
 				+ fObj.getKeyName(), context);
 		}
 		VarModifier<OrderedPair> vm =

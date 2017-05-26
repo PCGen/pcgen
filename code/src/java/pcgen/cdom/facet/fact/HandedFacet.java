@@ -25,7 +25,6 @@ import pcgen.util.Logging;
 /**
  * HandedFacet is a Facet that tracks the Handed of a Player Character.
  * 
- * @author Vincent Lhote
  */
 public class HandedFacet extends AbstractItemFacet<CharID, Handed>
 {
