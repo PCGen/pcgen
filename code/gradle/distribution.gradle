@@ -4,8 +4,6 @@
  * is called from the main build.gradle file.
  *
  * Usage: gradle builddist
- *
- * Author: James Dempsey
  */
 
 ext {
