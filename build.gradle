@@ -184,10 +184,6 @@ dependencies {
     findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:6.8.2'
 }
 
-ant.importBuild 'build-gradle.xml'
-ant.properties['src.java.dir']="code/src/java"
-ant.properties['build.classes.dir']="build/classes/main"
-
 configure('jar-all-plugins') {
     group = BasePlugin.BUILD_GROUP // Or use 'build'
     description = 'Create the plugin jars'
