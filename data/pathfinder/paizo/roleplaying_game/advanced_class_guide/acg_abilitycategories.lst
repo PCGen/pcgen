@@ -65,7 +65,7 @@ ABILITYCATEGORY:Crossblooded Rager Bloodline Powers	VISIBLE:QUALIFY	EDITABLE:YES
 
 
 #
-ABILITYCATEGORY:Brawler Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:Combat															PLURAL:Brawler Bonus Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Brawler Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:Combat.Meditation													PLURAL:Brawler Bonus Feats				DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Brawler's Strike Alignment Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:BrawlerStrikeAlignmentSelection										PLURAL:Brawler's Strike Alignment Selections	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Maneuver Training I Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:BrawlerManeuverTrainingISelection										PLURAL:Maneuver Training I Selections		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Maneuver Training II Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:BrawlerManeuverTrainingIISelection										PLURAL:Maneuver Training II Selections		DISPLAYLOCATION:Class Features

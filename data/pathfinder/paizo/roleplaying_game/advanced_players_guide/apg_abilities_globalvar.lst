@@ -63,13 +63,21 @@ CATEGORY=Class|Alchemist.MOD																																																				
 
 
 # Cavalier
-CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies
-CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierHeavyArmorProficiency
-CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierLightArmorProficiency
-CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierMediumArmorProficiency
-CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ShieldProf|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierShieldProficiency
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|Cavalier ~ Class Skills|PREVAREQ:Cavalier_CF_ClassSkills,0
+
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|PREMULT:2,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies],[PREVAREQ:Cavalier_CF_Proficiencies,0]
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierHeavyArmorProficiency],[PREVAREQ:Cavalier_CF_Proficiencies,0],[PREVAREQ:Cavalier_CF_HeavyArmorProficiency,0]
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierLightArmorProficiency],[PREVAREQ:Cavalier_CF_Proficiencies,0],[PREVAREQ:Cavalier_CF_LightArmorProficiency,0]
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierMediumArmorProficiency],[PREVAREQ:Cavalier_CF_Proficiencies,0],[PREVAREQ:Cavalier_CF_MediumArmorProficiency,0]
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ShieldProf|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierShieldProficiency],[PREVAREQ:Cavalier_CF_Proficiencies,0],[PREVAREQ:Cavalier_CF_ShieldProficiency,0]
 
 
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_ClassSkills|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Proficiencies|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_HeavyArmorProficiency|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_LightArmorProficiency|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_MediumArmorProficiency|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_ShieldProficiency|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Challenge|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Mount|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Order|0
@@ -84,12 +92,16 @@ CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_DemandingChallenge|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_GreaterBanner|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_MasterTactician|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_SupremeCharge|0
-CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Proficiencies|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility2|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility8|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility15|0
 
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_ClassSkills=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Proficiencies=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_HeavyArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_HeavyArmorProficiency=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_LightArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_LightArmorProficiency=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_MediumArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_MediumArmorProficiency=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_ShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_ShieldProficiency=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Challenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Challenge=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Mount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Mount=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Order|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Order=True
@@ -315,9 +327,12 @@ CATEGORY=Class|Summoner.MOD																																																					
 
 
 # Witch
+CATEGORY=Class|Witch.MOD																																	ABILITY:Internal|AUTOMATIC|Witch ~ Class Skills|PREVAREQ:Witch_CF_ClassSkills,0
+
 CATEGORY=Class|Witch.MOD																																	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfAuto
 CATEGORY=Class|Witch.MOD		DEFINE:SpellMasteryQualify|0																																																											BONUS:VAR|FamiliarMasterLVL|WitchLVL	BONUS:VAR|SpellMasteryQualify|1
 
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_ClassSkills|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Familiar|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Cantrips|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex|0
@@ -344,6 +359,7 @@ CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell14|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell16|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell18|0
 
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_ClassSkills=True
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Familiar|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Familiar=True
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Cantrips=True
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex=True,Witch_CF_Hexes=True
