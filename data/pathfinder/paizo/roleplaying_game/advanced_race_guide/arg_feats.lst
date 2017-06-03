@@ -149,7 +149,7 @@ Mother's Gift		CATEGORY:FEAT		TYPE:General										PRERACE:1,Changeling,RACESUB
 
 ##Block: Duergar Feats
 # Feat Name			Type			Required Ability							Required Race						Description										Stackable?	Multiple?	Choose		Bonus Ability Pool				Source Page		Benefits
-Giant Steps			CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Dwarf ~ Steady	PRERACE:1,Duergar,RACESUBTYPE=Duergar		DESC:When enlarged, your speed increases.																			SOURCEPAGE:p.187	BENEFIT:When your size increases to Large or larger, your base speed increases by 20 feet. This increase applies only if the effect that changed your size does not alter your speed.
+Giant Steps			CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Duergar ~ Slow and Steady	PRERACE:1,Duergar,RACESUBTYPE=Duergar		DESC:When enlarged, your speed increases.																			SOURCEPAGE:p.187	BENEFIT:When your size increases to Large or larger, your base speed increases by 20 feet. This increase applies only if the effect that changed your size does not alter your speed.
 Lingering Invisibility	CATEGORY:FEAT		TYPE:General										PRERACE:1,Duergar,RACESUBTYPE=Duergar		DESC:You remain briefly translucent after losing invisibility.															SOURCEPAGE:p.187	BENEFIT:When your invisibility ends, you gain concealment for 1 round per minute of duration the invisibility effect had remaining (minimum 1 round). This only occurs if the invisibility is from your racial spell-like ability or a spell you cast. Effects that negate invisibility negate this concealment.
 
 ###Block: Gillman Feats
