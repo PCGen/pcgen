@@ -27,7 +27,8 @@ CATEGORY=Internal|Default.MOD											BONUS:STAT|CHA|Stat_Age_Mental|TYPE=Age
 
 
 # Comment: PC and NPCs are usually playable races that follow age rules, Monsters don't normally follow age rules.
-CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Age|PRECHARACTERTYPE:1,PC,NPC
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Age|PREVAREQ:UseAgeRules,1		DEFINE:UseAgeRules|0
+CATEGORY=Internal|Default.MOD	BONUS:VAR|UseAgeRules|1|TYPE=Bool|PRECHARACTERTYPE:1,PC,NPC
 
 Age	CATEGORY:Internal
 CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Young|PREVARLTEQ:AgeSetValue,1
@@ -35,7 +36,7 @@ CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Adult|PREVAREQ:AgeSet
 CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Middle-Aged|PREVAREQ:AgeSetValue,3
 CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Old|PREVAREQ:AgeSetValue,4
 CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Venerable|PREVARGTEQ:AgeSetValue,5
-CATEGORY=Internal|Age.MOD	DEFINE:AgeSetValue|0	
+CATEGORY=Internal|Age.MOD	DEFINE:AgeSetValue|0	DEFINE:UseAgeRulesYoung|0	DEFINE:UseAgeRulesNegatePenalties|0
 
 CATEGORY=Internal|Age.MOD	BONUS:VAR|AgeSetValue|1|PREAGESET:1,Young
 CATEGORY=Internal|Age.MOD	BONUS:VAR|AgeSetValue|1|PREAGESET:1,Adult
@@ -45,16 +46,15 @@ CATEGORY=Internal|Age.MOD	BONUS:VAR|AgeSetValue|1|PREAGESET:1,Venerable
 
 
 ###Block: Game Specific bonuses
-Age ~ Young		CATEGORY:Internal	BONUS:STAT|DEX|2	BONUS:STAT|STR,CON,WIS|-2
+Age ~ Young		CATEGORY:Internal	BONUS:STAT|DEX|2|PREVAREQ:UseAgeRulesYoung,1	BONUS:STAT|STR,CON,WIS|-2|PREVAREQ:UseAgeRulesYoung,1
 Age ~ Adult		CATEGORY:Internal	
-Age ~ Middle-Aged	CATEGORY:Internal	BONUS:VAR|Stat_Age_Physical|-1	BONUS:VAR|Stat_Age_Mental|1
-Age ~ Old		CATEGORY:Internal	BONUS:VAR|Stat_Age_Physical|-3	BONUS:VAR|Stat_Age_Mental|2
-Age ~ Venerable	CATEGORY:Internal	BONUS:VAR|Stat_Age_Physical|-6	BONUS:VAR|Stat_Age_Mental|3
+Age ~ Middle-Aged	CATEGORY:Internal	BONUS:VAR|Stat_Age_Physical|-1|PREVAREQ:UseAgeRulesNegatePenalties,1	BONUS:VAR|Stat_Age_Mental|1
+Age ~ Old		CATEGORY:Internal	BONUS:VAR|Stat_Age_Physical|-3|PREVAREQ:UseAgeRulesNegatePenalties,1	BONUS:VAR|Stat_Age_Mental|2
+Age ~ Venerable	CATEGORY:Internal	BONUS:VAR|Stat_Age_Physical|-6|PREVAREQ:UseAgeRulesNegatePenalties,1	BONUS:VAR|Stat_Age_Mental|3
 
-
-
-
-
+Rules ~ Use Age Rules (Monsters)			CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRules|1|TYPE=Bool
+Rules ~ Use Age Rules (Young)				CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesYoung|1|TYPE=Bool
+Rules ~ Use Age Rules (Negate Penalties)		CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesNegatePenalties|1|TYPE=Bool
 
 
 #	This system is designed to be expandable to new classes. Each class is designated as either "Arcane" or "Divine".
