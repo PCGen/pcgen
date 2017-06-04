@@ -29,9 +29,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- *
- */
+
 public class PreEquipPrimaryTester extends PreEquippedTester implements PrerequisiteTest
 {
 

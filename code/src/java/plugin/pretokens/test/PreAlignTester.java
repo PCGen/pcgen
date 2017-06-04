@@ -36,9 +36,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class PreAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 

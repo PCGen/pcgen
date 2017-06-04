@@ -29,9 +29,7 @@ import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- *
- */
+
 public class UmultLst extends AbstractIntToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {

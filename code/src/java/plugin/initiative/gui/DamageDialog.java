@@ -21,9 +21,7 @@
  */
 package plugin.initiative.gui;
 
-/**
- *
- */
+
 public class DamageDialog extends javax.swing.JDialog
 {
 	/** OK_VALUE = 0 */

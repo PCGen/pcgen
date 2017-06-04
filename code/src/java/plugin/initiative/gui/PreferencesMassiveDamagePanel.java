@@ -39,9 +39,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
-/**
- *
- */
+
 public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 {
 

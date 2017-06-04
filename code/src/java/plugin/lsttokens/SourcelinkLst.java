@@ -1,6 +1,4 @@
-/*
- *
- */
+
 package plugin.lsttokens;
 
 import pcgen.cdom.base.CDOMObject;
@@ -13,9 +11,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 import java.net.URI;
 
-/**
- *
- */
+
 public class SourcelinkLst extends AbstractStringToken<CDOMObject> implements
         CDOMPrimaryToken<CDOMObject>, InstallLstToken
 {

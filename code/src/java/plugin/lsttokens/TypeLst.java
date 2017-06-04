@@ -32,9 +32,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- *
- */
+
 public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {

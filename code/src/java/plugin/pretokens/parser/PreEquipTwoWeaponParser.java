@@ -26,9 +26,7 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-/**
- *
- */
+
 public class PreEquipTwoWeaponParser extends AbstractPrerequisiteListParser
 		implements PrerequisiteParserInterface
 {
