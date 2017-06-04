@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.pretokens.test;
 
@@ -31,7 +28,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  * This is used to check the characters spellcasting ability.
- *
  */
 public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest

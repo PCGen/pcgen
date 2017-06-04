@@ -58,9 +58,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LoggingRecorder;
 import pcgen.util.Logging;
 
-/**
- * 
- */
+
 public class DebugDialog extends JDialog
 {
 

@@ -24,9 +24,7 @@ import java.util.WeakHashMap;
 
 import javax.swing.ImageIcon;
 
-/**
- *
- */
+
 public enum Icons
 {
 

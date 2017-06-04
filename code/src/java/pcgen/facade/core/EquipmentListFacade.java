@@ -23,9 +23,7 @@ import java.util.EventObject;
 
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- */
+
 public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 {
 	public int getQuantity(EquipmentFacade equipment);

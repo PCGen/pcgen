@@ -4,7 +4,6 @@ import junit.framework.TestCase;
 
 /**
  * <code>ClassTypeTest</code> <strong>needs documentation</strong>.
- *
  */
 public class ClassTypeTest extends TestCase
 {

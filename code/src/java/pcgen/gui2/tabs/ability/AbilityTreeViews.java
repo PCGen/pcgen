@@ -32,9 +32,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class AbilityTreeViews
 {
 

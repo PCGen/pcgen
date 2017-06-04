@@ -122,7 +122,6 @@ public class AssociationSupport implements AssociatedObject
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this AssociationSupport
-	 *
 	 */
 	@Override
 	public int hashCode()
@@ -136,7 +135,6 @@ public class AssociationSupport implements AssociatedObject
 	 * keys associated with equal values. Equality of the keys and values is as
 	 * equality is defined by those objects in their .equals(java.lang.Object)
 	 * method.
-	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

@@ -27,9 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class PropertyContextFactory
 {
 

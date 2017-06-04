@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.exporttokens;
 
@@ -45,8 +42,6 @@ import pcgen.util.TestHelper;
 /**
  * <code>ACTokenTest</code> tests the function of the AC token and 
  * thus the calculations of armor class.  
- *
- *
  */
 public class ACTokenTest extends AbstractCharacterTestCase
 {

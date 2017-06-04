@@ -29,8 +29,7 @@ import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
 import org.jdom2.Element;
 
-/**
- */
+
 public class DefeatedCombatant extends Combatant
 {
 	protected String name;

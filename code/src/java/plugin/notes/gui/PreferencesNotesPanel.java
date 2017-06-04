@@ -16,7 +16,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  PreferencesNotesPanel.java
- *
  */
 package plugin.notes.gui;
 
@@ -42,7 +41,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  * Panel that tracks the misc preferences
- *
  */
 public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 {
@@ -98,7 +96,6 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	 * Gets the current data directory setting
 	 * </p>
 	 * @return data directory
-	 *
 	 */
 	private String getDataDir()
 	{

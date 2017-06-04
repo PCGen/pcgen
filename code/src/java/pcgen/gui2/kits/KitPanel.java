@@ -141,9 +141,7 @@ public class KitPanel extends FlippingSplitPane
 		setResizeWeight(0.75);
 	}
 
-	/**
-	 * 
-	 */
+
 	private void initDefaults()
 	{
 		InfoHandler infoHandler = new InfoHandler(character);

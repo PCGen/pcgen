@@ -29,9 +29,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
 
-/**
- *
- */
+
 class PortraitPane extends JComponent
 {
 

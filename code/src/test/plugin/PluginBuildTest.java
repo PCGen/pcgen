@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin;
 
@@ -36,8 +33,6 @@ import junit.framework.TestCase;
  * <code>PluginBuildTest</code> verifies that the pluginbuild.xml file has all 
  * required data. As a result this unit test is a bit different in structure to 
  * a normal test.  
- *
- *
  */
 public class PluginBuildTest extends TestCase
 {

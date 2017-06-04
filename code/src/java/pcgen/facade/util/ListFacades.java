@@ -25,9 +25,7 @@ import java.util.List;
 
 import pcgen.facade.util.event.ListListener;
 
-/**
- *
- */
+
 public final class ListFacades
 {
 

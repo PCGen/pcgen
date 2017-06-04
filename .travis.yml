@@ -11,7 +11,8 @@ addons:
       - oracle-java8-installer
       - lib32z1
       - lib32ncurses5
-script: ./gradlew clean build test compileSlowtest datatest pfinttest allReports
+script: ./gradlew clean build test itest compileSlowtest datatest pfinttest allReports
+
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock

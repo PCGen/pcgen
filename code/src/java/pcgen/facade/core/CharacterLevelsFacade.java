@@ -24,9 +24,7 @@ import java.util.EventObject;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- */
+
 public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 {
 

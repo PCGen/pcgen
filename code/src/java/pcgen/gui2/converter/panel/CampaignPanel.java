@@ -174,9 +174,7 @@ public class CampaignPanel extends ConvertSubPanel
 		initSourceSelection(model, table);
 	}
 
-	/**
-	 * 
-	 */
+
 	private void initSourceSelection(CampaignTableModel model, JTable table)
 	{
 		// Select any previous selections

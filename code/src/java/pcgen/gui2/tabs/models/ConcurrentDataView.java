@@ -32,9 +32,7 @@ import javax.swing.SwingUtilities;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public abstract class ConcurrentDataView<E> implements DataView<E>
 {
 

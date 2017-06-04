@@ -67,9 +67,7 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.enumeration.View;
 
-/**
- *
- */
+
 public class DataSet implements DataSetFacade
 {
 

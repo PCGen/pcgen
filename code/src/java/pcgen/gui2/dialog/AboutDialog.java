@@ -62,9 +62,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class AboutDialog extends JDialog
 {
 

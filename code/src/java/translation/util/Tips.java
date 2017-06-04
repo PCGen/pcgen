@@ -472,9 +472,7 @@ public final class Tips
 		}
 	}
 
-	/**
-	 * 
-	 */
+
 	private static void usage()
 	{
 		log("Usage:");

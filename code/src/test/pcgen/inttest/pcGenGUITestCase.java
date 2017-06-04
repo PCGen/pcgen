@@ -28,7 +28,7 @@ import pcgen.util.TestHelper;
 @SuppressWarnings("nls")
 public abstract class pcGenGUITestCase extends XMLTestCase
 {
-	/** */
+
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
 	/**

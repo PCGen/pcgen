@@ -19,9 +19,7 @@
  */
 package pcgen.facade.util.event;
 
-/**
- *
- */
+
 public class MapEvent<K, V> extends FacadeEvent
 {
 
