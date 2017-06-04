@@ -23,9 +23,7 @@ import java.util.Enumeration;
 import javax.swing.tree.TreeNode;
 import pcgen.gui2.util.table.Row;
 
-/**
- *
- */
+
 public interface TreeTableNode extends TreeNode, Row
 {
 	@Override

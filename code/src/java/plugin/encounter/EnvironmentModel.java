@@ -30,9 +30,7 @@ import pcgen.util.Logging;
 import gmgen.io.ReadXML;
 import gmgen.io.VectorTable;
 
-/**
- *
- */
+
 public class EnvironmentModel extends DefaultComboBoxModel<Object>
 {
 	private final String dir;

@@ -36,8 +36,7 @@ import plugin.experience.ExperienceAdjusterModel;
 import plugin.experience.ExperienceAdjusterPlugin;
 import plugin.experience.ExperienceListItem;
 
-/**
- */
+
 public class AddDefeatedCombatant extends AbstractDialog
 {
 	// End of variables declaration//GEN-END:variables

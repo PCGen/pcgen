@@ -21,9 +21,7 @@ package pcgen.system;
 
 import java.util.EventListener;
 
-/**
- *
- */
+
 public interface PCGenTaskListener extends EventListener
 {
 

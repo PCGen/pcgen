@@ -31,9 +31,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public final class Save extends BonusObj
 {
 	@Override

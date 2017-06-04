@@ -36,8 +36,7 @@ import pcgen.util.Logging;
 
 import org.apache.commons.lang3.StringUtils;
 
-/**
- */
+
 public class CampaignFileLoader extends PCGenTask
 {
 	private File alternateSourceFolder = null;

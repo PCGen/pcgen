@@ -23,9 +23,7 @@ package pcgen.util;
 import java.util.Collection;
 import java.util.List;
 
-/**
- *
- */
+
 public interface ListMap<K, V, C extends List<V>> extends CollectionMap<K, V, C>{
     void add(K key, int index, V value);
     void addAll(K key, int index, Collection<? extends V> values);
