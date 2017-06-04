@@ -39,7 +39,7 @@ public class SpeechTendancyToken extends AbstractExportToken
 		return "SPEECHTENDENCY";
 	}
 
-	//TODO: Move this to a token that has all of teh descriptive stuff about a cahracter
+	//TODO: Move this to a token that has all of the descriptive stuff about a cahracter
 	/**
 	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
