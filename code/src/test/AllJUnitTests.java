@@ -23,7 +23,6 @@ import junit.textui.TestRunner;
 /**
  * TestSuite that is composed of the individual test classes.  Pick up
  * all the individual PCGen test suites into this one.
- *
  */
 public final class AllJUnitTests
 {
