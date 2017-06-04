@@ -28,9 +28,7 @@ import pcgen.facade.core.ClassFacade;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
 
-/**
- *
- */
+
 class ClassInfoHandler implements ListSelectionListener
 {
 

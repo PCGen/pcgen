@@ -23,9 +23,7 @@ import java.util.Set;
 
 import pcgen.facade.util.event.MapListener;
 
-/**
- *
- */
+
 public interface MapFacade<K, V>
 {
 

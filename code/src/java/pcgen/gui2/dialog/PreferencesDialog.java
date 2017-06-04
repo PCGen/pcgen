@@ -423,9 +423,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	}
 }
 
-/**
- *
- */
+
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {
 	private final HashMap<String, PluginRef> pluginMap = new HashMap<>();

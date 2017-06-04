@@ -28,9 +28,7 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class SortedListFacade<E> extends AbstractListFacade<E> implements ListListener<E>
 {
 
