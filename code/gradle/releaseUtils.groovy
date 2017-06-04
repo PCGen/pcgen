@@ -75,7 +75,7 @@ void updateVersionProperty(String newVersion) {
 			try {
 				project.ant.replace(file: propFile, token: "${prop}=${oldVersion}", value: "${prop}=${newVersion}", failOnNoReplacements: true)
 			} catch (org.apache.tools.ant.BuildException be) {
-				throw new GradleException("Unable to update version property. Please check file permissions, and ensure property is in \"${prop}=${newVersion}\" format.")
+				throw new GradleException("Unable to update version property. Please check file permissions, and ensure property is in \"${prop}=${newVersion}\" format.", be)
 			}
 		}
 	}
