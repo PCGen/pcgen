@@ -28,10 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 /**
  * The Class {@code SortKeyLstTest} is a round robin test for the SORTKEY tag.
  * It checks that the parse and unparse are working correctly and that a parsed 
- * result can be unparsed back to the original input.  
- *
- * <br/>
- * 
+ * result can be unparsed back to the original input.
  */
 public class SortKeyLstTest extends AbstractGlobalStringTokenTestCase
 {

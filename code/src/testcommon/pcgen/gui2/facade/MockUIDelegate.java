@@ -1,5 +1,4 @@
 /**
- * MockUIDelegate.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -26,12 +25,6 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
 
-/**
- * The Class {@code} is ...
- *
- * <br/>
- * 
- */
 public class MockUIDelegate implements UIDelegate
 {
 
