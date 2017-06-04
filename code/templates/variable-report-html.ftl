@@ -29,6 +29,7 @@
 	
 
 <#escape x as x?html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>PCGen Variable Definition Report - ${.now?date}</title>
@@ -62,7 +63,7 @@ font-size: 11px; width:99%;}
 </table>
 <#list gameModeVarMap?keys as game>
 	<#assign lastVar = "">
-	<a name="${game}"/>
+	<a name="${game}"></a>
 	<h2>Variables for game mode ${game}</h2>
 	<p>Found ${gameModeVarMap[game]?size} defines of ${gameModeVarCountMap[game]} variables</p>
 	<#list gameModeVarMap[game] as varDefine>
