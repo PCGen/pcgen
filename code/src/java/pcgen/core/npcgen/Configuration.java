@@ -42,9 +42,7 @@ import pcgen.core.Race;
 import pcgen.core.spell.Spell;
 import pcgen.system.ConfigurationSettings;
 
-/**
- * 
- */
+
 public class Configuration
 {
 	private static final List<Configuration> theConfigurations = new ArrayList<>();

@@ -28,9 +28,7 @@ import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public final class PrerequisiteTestFactory implements PluginLoader{
 	private static PrerequisiteTestFactory instance = null;
 	private static final Map<String, PrerequisiteTest> testLookup = new HashMap<>();

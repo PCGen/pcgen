@@ -26,9 +26,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
-/**
- *
- */
+
 public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 {
 

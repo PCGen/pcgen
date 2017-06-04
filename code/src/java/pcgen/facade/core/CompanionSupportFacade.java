@@ -21,9 +21,7 @@ package pcgen.facade.core;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 
-/**
- *
- */
+
 public interface CompanionSupportFacade
 {
 

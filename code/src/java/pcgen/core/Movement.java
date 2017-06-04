@@ -25,8 +25,7 @@ import java.util.StringTokenizer;
 
 import pcgen.util.Logging;
 
-/**
- */
+
 public class Movement
 {
 

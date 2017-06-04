@@ -24,9 +24,7 @@ import pcgen.facade.util.ListFacade;
 
 import java.util.List;
 
-/**
- *
- */
+
 public interface SourceSelectionFacade extends LoadableFacade
 {
 

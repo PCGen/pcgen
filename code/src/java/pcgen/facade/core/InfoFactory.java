@@ -18,9 +18,7 @@
  */
 package pcgen.facade.core;
 
-/**
- *
- */
+
 /**
  * InfoFactory defines the interface to be used by the UI for extracting
  * information about objects for display to the user.

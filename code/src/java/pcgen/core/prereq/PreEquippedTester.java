@@ -29,8 +29,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.WieldCategory;
 import pcgen.system.LanguageBundle;
 
-/**
- */
+
 public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 
 	/**
