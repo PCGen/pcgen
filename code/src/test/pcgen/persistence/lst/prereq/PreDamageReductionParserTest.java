@@ -34,9 +34,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreDamageReductionParser;
 
-/**
- *
- */
+
 @SuppressWarnings("nls")
 public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 {
