@@ -1,0 +1,56 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:People of the North (PFS)
+KEY:PFS ~ People of the North
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:BETA
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:People of the North
+SOURCESHORT:POTN
+SOURCEWEB:http://paizo.com/products/btpy8v35?Pathfinder-Player-Companion-People-of-the-North
+SOURCEDATE:2013-01
+ISOGL:YES
+
+#COVER:people_of_the_north.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8v35|Buy this publication from Paizo Publishing!
+DESC:Far beyond the reach of the soft southlander lords lie the frozen forests and icy tundra of the Inner Sea region’s northernmost nations. Here dragon-headed longships ply the arctic seas, nomadic tribes hunt and ride mighty mammoths, and the descendents of the Witch Queen Baba Yaga rule a nation where spring has been forgotten. Whether they’re hardened natives or arctic adventurers, everyone in the northern lands walks a fine line between finding wealth and glory and filling a shallow grave in the bloody snow.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: People of the North Copyright 2013, Paizo Publishing, LLC; Author: Matthew Goodall, Shaun Hocking, Rob McCreary, Philip Minchin, and William Thrasher
+COPYRIGHT:PCGen dataset conversion for "Player Companion: People of the North" Copyright 2016, PCgen Data team (including, but not limited to Vincent Lhote and Gwen T.)
+
+
+#INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
+
+# Additional Resources
+# Last Updated Wednesday, March 22, 2017
+#
+# Pathfinder Player Companion: People of the North 
+# The kellid, snowcaster elves, ulfen, erutaki, and jadwiga sections of the book are legal for play. 
+# The traits on pages 6–13 are only legal if your character is of the same ethnicity as the section with the trait.
+# Archetypes: all archetypes on pages 24–25 are legal for play
+# Equipment: buoyant harpoon, cloak of the saga keeper, helm of the mammoth lord, hex nail, and mammoth lance are legal for play
+# Feats: all feats on page 24 are legal
+# Languages: ethnicities begin play with their preferred language for free. If there are more than one listed, the player may choose which one the character receives for free
+# Misc.: the oracle mystery on pages 26–27 is legal
+# Spells: all spells on page 26 are legal
+# Traits: all traits on pages 6–23 are legal
+#
+# Campaign Clarifications
+# Last Updated Tuesday, January 31, 2017
+# Page 25—Replace the third sentence of the Witchguard's Defend Charge ability with the following. "At 8th level and every 4 levels thereafter, these bonuses increase by 2." Replace the second-to-last sentence of the ability with the following. "At 7th level and every 3 levels thereafter, the witchguard can use this ability one additional time per day."
+
+EQUIPMENT:pfs_potn_equip_general.lst|PRECAMPAIGN:1,INCLUDES=People of the North
+

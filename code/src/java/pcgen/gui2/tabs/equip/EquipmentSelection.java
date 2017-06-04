@@ -25,9 +25,7 @@ import java.io.IOException;
 
 import pcgen.facade.core.EquipmentFacade;
 
-/**
- *
- */
+
 public class EquipmentSelection implements Transferable
 {
 

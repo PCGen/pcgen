@@ -24,9 +24,7 @@ import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 
-/**
- *
- */
+
 public interface DataSetFacade
 {
 

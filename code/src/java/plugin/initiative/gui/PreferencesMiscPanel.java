@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  PreferencesTrackingPanel.java
- *
  */
 package plugin.initiative.gui;
 
@@ -28,7 +27,6 @@ import plugin.initiative.InitiativePlugin;
 
 /**
  *  Panel that tracks the misc preferences
- *
  */
 public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 {

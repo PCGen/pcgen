@@ -15,7 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.doomsdaybook;
 
@@ -23,8 +22,6 @@ package pcgen.core.doomsdaybook;
  * {@code Operation} encapsulates an action that can be performed
  * on a variable. These are actions such as setting, adding or 
  * multiplying the variable's current value.
- *
- *
  */
 public class Operation implements Comparable
 {

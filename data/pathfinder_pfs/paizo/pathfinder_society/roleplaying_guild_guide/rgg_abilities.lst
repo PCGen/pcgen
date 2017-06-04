@@ -16,7 +16,7 @@ Society Faction			KEY:Faction Access ~ Society Faction	CATEGORY:Background		SORT
 Retired Factions			KEY:Faction Access ~ Retired Faction	CATEGORY:Background		SORTKEY:Faction_2	TYPE:Faction Selection		VISIBLE:YES		SORTKEY:1		COST:0	MULT:YES	CHOOSE:ABILITYSELECTION|Background|TYPE=Retired Faction		ABILITY:Society Faction|AUTOMATIC|%LIST												DESC:You at one time belonged to the %1, but that faction was retired by a later version of the Guide to Organized Play or Guild Guide. You retain access to faction-specific traits, prestige awards and items.
 Changed Factions			KEY:Faction Access ~ Changed Faction	CATEGORY:Background		SORTKEY:Faction_3	TYPE:Faction Selection		VISIBLE:YES		SORTKEY:1		COST:0	MULT:YES	CHOOSE:ABILITY|Background|TYPE=All Factions														DESC:You at one time belonged to the %1, but chose to change factions. You retain access to faction-specific traits, but not faction-specific prestige awards and items.
 
-Dark Archives			KEY:Dark Archives Faction			SORTKEY:Faction_2		NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction.All Factions.Active Faction		VISIBLE:DISPLAY		COST:1	SOURCEPAGE:p.26
+Dark Archive			KEY:Dark Archives Faction			SORTKEY:Faction_2		NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction.All Factions.Active Faction		VISIBLE:DISPLAY		COST:1	SOURCEPAGE:p.26
 The Exchange			KEY:Exchange Faction				SORTKEY:Faction_2		NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction.All Factions.Active Faction		VISIBLE:DISPLAY		COST:1	SOURCEPAGE:p.26
 Grand Lodge				KEY:Grand Lodge Faction				SORTKEY:Faction_2		NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction.All Factions.Active Faction		VISIBLE:DISPLAY		COST:1	SOURCEPAGE:p.26
 Liberty's Edge			KEY:Liberty's Edge Faction			SORTKEY:Faction_2		NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction.All Factions.Active Faction		VISIBLE:DISPLAY		COST:1	SOURCEPAGE:p.26
@@ -24,6 +24,14 @@ Scarab Sages			KEY:Scarab Sages Faction			SORTKEY:Faction_2		NAMEISPI:YES	CATEGO
 The Silver Crusade		KEY:Silver Crusade Faction			SORTKEY:Faction_2		NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction.All Factions.Active Faction		VISIBLE:DISPLAY		COST:1	SOURCEPAGE:p.26
 Sovereign Court			KEY:Sovereign Court Faction			SORTKEY:Faction_2		NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction.All Factions.Active Faction		VISIBLE:DISPLAY		COST:1	SOURCEPAGE:p.26
 No Faction				KEY:No Faction					SORTKEY:Faction_2					CATEGORY:Background		TYPE:Society Faction.Active Faction					VISIBLE:DISPLAY		COST:1
+
+# Grant access to retired faction prestige awards from other sources
+CATEGORY=Background|Dark Archives Faction.MOD		ABILITY:Background|AUTOMATIC|Cheliax Faction
+CATEGORY=Background|Exchange Faction.MOD			ABILITY:Background|AUTOMATIC|Qadira Faction
+CATEGORY=Background|Liberty's Edge Faction.MOD		ABILITY:Background|AUTOMATIC|Andoran Faction
+CATEGORY=Background|Scarab Sages Faction.MOD		ABILITY:Background|AUTOMATIC|Osirion Faction
+CATEGORY=Background|Sovereign Court Faction.MOD		ABILITY:Background|AUTOMATIC|Taldor Faction
+
 
 #####################
 # SEASON 4 FACTIONS #

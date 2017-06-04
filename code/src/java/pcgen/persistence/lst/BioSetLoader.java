@@ -39,9 +39,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public final class BioSetLoader extends LstLineFileLoader
 {
 	private static String regionName = Constants.NONE;

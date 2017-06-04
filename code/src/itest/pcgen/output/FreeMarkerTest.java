@@ -29,34 +29,33 @@ import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 public class FreeMarkerTest extends AbstractOutputTestCase
 {
 
 	private static final CheckFacet cf = new CheckFacet();
 
+	private static boolean classSetUpRun = false;
 
-	@Before
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
+		if (!classSetUpRun)
+		{
+			classSetUp();
+			classSetUpRun = true;
+		}
 		CDOMWrapperInfoFacet wiFacet =
 				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		wiFacet.initialize(dsid);
 	}
 
-	@BeforeClass
-	public static void classSetUp()
+	private void classSetUp()
 	{
 		OutputDB.reset();
 		cf.init();
 	}
 
-	@Test
 	public void testBasic()
 	{
 		createChecks();
@@ -64,7 +63,6 @@ public class FreeMarkerTest extends AbstractOutputTestCase
 			+ "</#list>", "WillRefFort");
 	}
 
-	@Test
 	public void testNested()
 	{
 		createChecks();

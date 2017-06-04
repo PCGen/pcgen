@@ -2,6 +2,7 @@
 # SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
 # Original Entry: See contributors listed in PCC file.
 
+Wood			KEY:Wood
 
 ###Block:
 # Modifier Name	Unique Key		Source Page		Special Property

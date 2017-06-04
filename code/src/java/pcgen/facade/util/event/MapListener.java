@@ -21,9 +21,7 @@ package pcgen.facade.util.event;
 
 import java.util.EventListener;
 
-/**
- *
- */
+
 public interface MapListener<K, V> extends EventListener
 {
 

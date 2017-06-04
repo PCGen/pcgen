@@ -33,8 +33,6 @@ import javax.swing.text.NumberFormatter;
  * <p>
  * A utility class for building some GUI elements
  * </p>
- *
- *
  */
 public class Utils
 {

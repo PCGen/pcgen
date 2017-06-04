@@ -15,7 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package plugin.notes.gui;
 
@@ -42,7 +41,6 @@ import pcgen.gui2.tools.Icons;
  *  JIcon is a small form that uses an image, a button and some text to
  *  represent a file. You can launch files in supported operating systems from
  *  JIcon into their associated application.
- *
  */
 public class JIcon extends JPanel
 {

@@ -39,9 +39,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- *
- */
+
 
 public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>

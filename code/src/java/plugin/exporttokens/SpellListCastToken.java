@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.exporttokens;
 
@@ -31,8 +28,6 @@ import pcgen.io.exporttoken.SpellListToken;
 /**
  * {@code SpellListCastToken} outputs the number of spells
  * that can cast for the specified class and level.
- *
- *
  */
 ///SPELLLISTCAST0.0 KNOWN0.0 BOOK0.0 TYPE0
 public class SpellListCastToken extends SpellListToken

@@ -309,7 +309,6 @@ public final class RollInfo
 	 * roll.
 	 *
 	 * @param rollString String compact representation of dice rolls
-	 *
 	 */
 	public RollInfo(final String rollString)
 	{

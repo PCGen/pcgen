@@ -28,9 +28,7 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 @SuppressWarnings("serial")
 public class QualifiedTreeCellRenderer extends CharacterTreeCellRenderer
 {

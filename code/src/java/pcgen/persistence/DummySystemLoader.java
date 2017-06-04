@@ -25,9 +25,7 @@ import java.util.List;
 
 import pcgen.core.GameMode;
 
-/**
- *
- */
+
 public class DummySystemLoader implements SystemLoader
 {
 

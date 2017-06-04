@@ -249,7 +249,6 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * Handles a state changed message. Basically enables or disables applicable
 	 * menu items, refreshes data.
 	 * </p>
-	 *
 	 */
 	private void handleStateChangedMessage()
 	{
@@ -273,7 +272,6 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * <p>
 	 * Calls the {@code windowClosed()} method of the controller.
 	 * </p>
-	 *
 	 */
 	private void handleWindowClosedMessage()
 	{

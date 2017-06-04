@@ -31,9 +31,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- *
- */
+
 public class SrLst implements CDOMPrimaryToken<CDOMObject>
 {
 

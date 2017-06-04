@@ -16,11 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package pcgen.persistence.lst.prereq;
 
@@ -37,7 +32,6 @@ import pcgen.util.TestHelper;
 
 /*** Test
 	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
- *
  */
 @SuppressWarnings("nls")
 public class PreMultParserTest extends EnUsLocaleDependentTestCase

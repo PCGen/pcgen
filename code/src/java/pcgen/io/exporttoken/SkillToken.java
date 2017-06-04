@@ -589,7 +589,6 @@ public class SkillToken extends Token
 	 * {@code SkillDetails} holds the parsed details of a skill
 	 * token. Note that apart from updating the properties array contents,
 	 * instances of this class are immutable.
-	 *
 	 */
 	public final static class SkillDetails
 	{

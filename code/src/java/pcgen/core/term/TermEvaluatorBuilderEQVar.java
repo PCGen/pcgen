@@ -17,7 +17,6 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03 Oct 2008
- *
  */
 
 package pcgen.core.term;

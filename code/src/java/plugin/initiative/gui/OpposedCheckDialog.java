@@ -17,7 +17,6 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * OpposedCheckDialog.java
- *
  */
 
 package plugin.initiative.gui;
@@ -92,7 +91,6 @@ import plugin.initiative.OpposedSkillTypeModel;
  *    <li>TODO: Add comparison/re-sorting support to models?</li>
  *    <li>TODO: Add logging support to the initiative tracker log</li>
  * </ul>
- *
  */
 class OpposedCheckDialog extends JDialog
 {
@@ -382,7 +380,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes availableLabel
 	 *
 	 * @return javax.swing.JLabel
-	 *
 	 */
 	private Component getAvailableLabel()
 	{
@@ -399,7 +396,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes availableScrollPane
 	 *
 	 * @return javax.swing.JScrollPane
-	 *
 	 */
 	private Component getAvailableScrollPane()
 	{
@@ -418,7 +414,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes availableTable
 	 *
 	 * @return javax.swing.JTable
-	 *
 	 */
 	private Component getAvailableTable()
 	{
@@ -438,7 +433,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes ivjAvailableModel
 	 *
 	 * @return OpposedSkillAvailableModel
-	 *
 	 */
 	private TableModel getIvjAvailableModel()
 	{
@@ -454,7 +448,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes ivjOpposedSkillModel
 	 *
 	 * @return OpposedSkillModel
-	 *
 	 */
 	private TableModel getIvjOpposedSkillModel()
 	{
@@ -470,7 +463,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes ivjRollingSkillModel
 	 *
 	 * @return OpposedSkillModel
-	 *
 	 */
 	private TableModel getIvjRollingSkillModel()
 	{
@@ -560,7 +552,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes okButton
 	 *
 	 * @return javax.swing.JButton
-	 *
 	 */
 	private Component getOkButton()
 	{
@@ -579,7 +570,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes opposingComboBox
 	 *
 	 * @return javax.swing.JComboBox
-	 *
 	 */
 	private Component getOpposingComboBox()
 	{
@@ -599,7 +589,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes opposingGroupLabel
 	 *
 	 * @return javax.swing.JLabel
-	 *
 	 */
 	private Component getOpposingGroupLabel()
 	{
@@ -616,7 +605,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes opposingGroupScrollPane
 	 *
 	 * @return javax.swing.JScrollPane
-	 *
 	 */
 	private Component getOpposingGroupScrollPane()
 	{
@@ -635,7 +623,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes opposingGroupTable
 	 *
 	 * @return javax.swing.JTable
-	 *
 	 */
 	private Component getOpposingGroupTable()
 	{
@@ -655,7 +642,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollButton
 	 *
 	 * @return javax.swing.JButton
-	 *
 	 */
 	private Component getRollButton()
 	{
@@ -674,7 +660,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollingComboBox
 	 *
 	 * @return javax.swing.JComboBox
-	 *
 	 */
 	private Component getRollingComboBox()
 	{
@@ -694,7 +679,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollingGroupLabel
 	 *
 	 * @return javax.swing.JLabel
-	 *
 	 */
 	private Component getRollingGroupLabel()
 	{
@@ -711,7 +695,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollingGroupScrollPane
 	 *
 	 * @return javax.swing.JScrollPane
-	 *
 	 */
 	private Component getRollingGroupScrollPane()
 	{
@@ -729,7 +712,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollingGroupTable
 	 *
 	 * @return javax.swing.JTable
-	 *
 	 */
 	private Component getRollingGroupTable()
 	{

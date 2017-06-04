@@ -42,13 +42,14 @@ SKILL:boa_skills.lst
 SPELL:boa_spells.lst
 TEMPLATE:boa_templates.lst
 
-# ARMORPROF:boa_armorprofs.lst
-# BIOSET:boa_biosettings.lst
-# COMPANIONMOD:boa_companionmods.lst
-# DEITY:boa_deities.lst
-# EQUIPMENT:boa_equipment.lst
-# EQUIPMOD:boa_equipmods.lst
-# KIT:boa_kits.lst
-# LANGUAGE:boa_languages.lst
-# SHIELDPROF:boa_shieldprofs.lst
-# WEAPONPROF:boa_weaponprofs.lst
+# ENTRY DATE: 
+# LST MONKEY: 
+# LICENSE MONKEY: 
+# RELEASE REVIEW #
+# BETA: 
+# RELEASE:
+# Built for PCGen Version: 
+# Updated to work with version: 6.06.01
+# MINVER:6.6
+# MINDEVVER:6.6
+# COMMENTS:

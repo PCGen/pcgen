@@ -419,7 +419,6 @@ public class DataInstaller extends JFrame
 
 	/**
 	 * Instantiates a new data installer.
-	 *
 	 */
 	public DataInstaller()
 	{

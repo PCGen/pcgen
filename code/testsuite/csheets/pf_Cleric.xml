@@ -2205,7 +2205,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Touch of Glory</name>
-			<description>You can cause you hand to shimmer with divine radiance, allowing you to touch a creature as a standard action and give it a +3 bonus to a single Charisma-based skill check or Charisma ability check. This ability lasts for one hour or until the creature touched elects to apply the bonus to a roll. You can use this ability to grant the bonus 7 times per day.</description>
+			<description>You can cause your hand to shimmer with divine radiance, allowing you to touch a creature as a standard action and give it a +3 bonus to a single Charisma-based skill check or Charisma ability check. This ability lasts for one hour or until the creature touched elects to apply the bonus to a roll. You can use this ability to grant the bonus 7 times per day.</description>
 			<type>CLERICCLASSFEATURES.SPECIALQUALITY.SPELLLIKE.DOMAINPOWER.GLORY DOMAIN</type>
 			<associated></associated>
 			<count>0</count>
@@ -2339,6 +2339,28 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<!-- Visible Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Age</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Age ~ Adult</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
 		<ability_object>
 			<name>Armor Prof ~ Light</name>
 			<description></description>

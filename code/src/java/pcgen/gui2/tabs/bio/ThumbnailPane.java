@@ -29,9 +29,7 @@ import javax.swing.JComponent;
 
 import pcgen.cdom.base.Constants;
 
-/**
- *
- */
+
 class ThumbnailPane extends JComponent
 {
 
