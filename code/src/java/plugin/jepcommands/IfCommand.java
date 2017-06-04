@@ -16,8 +16,6 @@ import java.util.Stack;
  * So, given if(x,y,z), y is returned if x != 0, and z is returned
  * otherise.
  * </p>
- *
- *
  */
 public class IfCommand extends PCGenCommand
 {

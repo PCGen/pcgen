@@ -1,5 +1,4 @@
 /*
- * InfoPane.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -34,9 +33,7 @@ import javax.swing.text.EditorKit;
 import pcgen.base.lang.UnreachableError;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class InfoPane extends JScrollPane
 {
 

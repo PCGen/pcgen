@@ -100,6 +100,12 @@ CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlineFeat9|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlineFeat12|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlineFeat15|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlineFeat18|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower1|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower4|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower8|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower12|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower16|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodlinePower20|0
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_Bloodline|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_Bloodline=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_Bloodrage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_Bloodrage=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_FastMovement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_FastMovement=True
@@ -117,6 +123,12 @@ CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|B
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlineFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlineFeat12=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlineFeat15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlineFeat15=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlineFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlineFeat18=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower1=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower4=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower8=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower12=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower16=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodlinePower20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodlinePower20=True
 
 
 
@@ -234,7 +246,7 @@ CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_PreciseCompanion|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_Track|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_HunterTactics|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_TeamworkFeats|0
-CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_ImprovedEmpatheticLink|0
+CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_ImprovedEmpathicLink|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_WoodlandStride|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_BonusTricks|0
 CATEGORY=Class|Hunter.MOD		DEFINE:Hunter_CF_SecondAnimalFocus|0
@@ -257,7 +269,7 @@ CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunte
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_Track|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_Track=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_HunterTactics|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_HunterTactics=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_TeamworkFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_TeamworkFeats=True
-CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_ImprovedEmpatheticLink=True
+CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_ImprovedEmpathicLink=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_WoodlandStride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_WoodlandStride=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_BonusTricks|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_BonusTricks=True
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_SecondAnimalFocus|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_SecondAnimalFocus=True
@@ -279,7 +291,7 @@ CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunte
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_Track|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterTrack
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_HunterTactics|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterHunterTactics
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_TeamworkFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterTeamworkFeats
-CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterImprovedEmpatheticLink
+CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterImprovedEmpathicLink
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_WoodlandStride|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterWoodlandStride
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_BonusTricks|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterBonusTricks
 CATEGORY=Class|Hunter.MOD																																								BONUS:VAR|Hunter_CF_SecondAnimalFocus|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterSecondAnimalFocus
@@ -336,7 +348,15 @@ CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_StudiedCombat|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_StudiedStrike|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_TrueInspiration|0
 
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent3|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent5|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent7|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent9|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent11|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent13|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent15|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent17|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent19|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance2|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance4|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance6|0
@@ -351,7 +371,15 @@ CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonImmunity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonImmunity=True
 
 
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent3=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent5=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent7=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent11=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent13=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent15=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent17=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent19=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_WeaponProficiencies=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_ArmorProficiencies=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Alchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Alchemy=True
@@ -480,12 +508,29 @@ CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_SpellKenning5|0
 CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_SpellKenning11|0
 CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_SpellKenning17|0
 CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_RagePower3|0
-
+CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_RagePower6|0
+CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_RagePower9|0
+CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_RagePower12|0
+CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_RagePower15|0
+CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_RagePower18|0
+CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_VersatilePerformance2|0
+CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_VersatilePerformance7|0
+CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_VersatilePerformance12|0
+CATEGORY=Class|Skald.MOD		DEFINE:Skald_CF_VersatilePerformance17|0
 
 CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_SpellKenning5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_SpellKenning5=True
 CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_SpellKenning11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_SpellKenning11=True
 CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_SpellKenning17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_SpellKenning17=True
 CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_RagePower3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_RagePower3=True
+CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_RagePower6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_RagePower6=True
+CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_RagePower9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_RagePower9=True
+CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_RagePower12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_RagePower12=True
+CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_RagePower15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_RagePower15=True
+CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_RagePower18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_RagePower18=True
+CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_VersatilePerformance2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_VersatilePerformance2=True
+CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_VersatilePerformance7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_VersatilePerformance7=True
+CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_VersatilePerformance12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_VersatilePerformance12=True
+CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_VersatilePerformance17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_VersatilePerformance17=True
 
 CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_ClassSkills=True
 CATEGORY=Class|Skald.MOD																																								BONUS:VAR|Skald_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_WeaponProficiencies=True

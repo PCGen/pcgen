@@ -1,5 +1,4 @@
 /*
- * DomainChoiceManagerTest.java
  * Copyright 2005 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -20,7 +19,6 @@
  * $Author: nuance $
  * $Date: 2006-03-26 08:00:03 +0100 (Sun, 26 Mar 2006) $
  * $Revision: 471 $
- *
  */
 package pcgen.core.chooser;
 

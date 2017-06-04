@@ -15,7 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.npcgen;
 
@@ -38,12 +37,11 @@ import pcgen.core.SystemCollections;
 /**
  * Parse a generator options file.
  * 
- *
  */
 public class OptionsParser
 {
-	private SAXParser theParser;
-	private GameMode theMode;
+	private final SAXParser theParser;
+	private final GameMode theMode;
 	
 	/**
 	 * Creates a new OptionsParser for the specified game mode.
@@ -88,7 +86,7 @@ public class OptionsParser
 
 class OptionHandler extends DefaultHandler
 {
-	private List<GeneratorOption> theList;
+	private final List<GeneratorOption> theList;
 	
 	private GameMode theGameMode = null;
 	private boolean theValidFlag = false;

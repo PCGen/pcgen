@@ -11,7 +11,7 @@ import java.io.Writer;
 public class PreLegsWriter implements PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -20,7 +20,7 @@ public class PreLegsWriter implements PrerequisiteWriterInterface
 		return "legs";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -29,7 +29,7 @@ public class PreLegsWriter implements PrerequisiteWriterInterface
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override

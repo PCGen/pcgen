@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  Initiative.java
- *
  */
 package plugin.initiative.gui;
 
@@ -94,8 +93,7 @@ import plugin.initiative.SaveModel;
 import plugin.initiative.SpellModel;
 import plugin.initiative.XMLCombatant;
 
-/**
- */
+
 public class Initiative extends javax.swing.JPanel
 {
 	//** End Dynamic Components **
@@ -682,7 +680,7 @@ public class Initiative extends javax.swing.JPanel
 			State newStatus = cbt.getStatus();
 			writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer()
 				+ ") Took " + damage + " Damage: " + cbt.getHP().getCurrent()
-				+ "/" + cbt.getHP().getMax());
+				+ '/' + cbt.getHP().getMax());
 			doMassiveDamage(cbt, damage);
 
 			if ((oldStatus != newStatus) && (newStatus == State.Dead))
@@ -715,7 +713,7 @@ public class Initiative extends javax.swing.JPanel
 				combatantUpdated(cbt);
 				writeToCombatTabWithRound(cbt.getName() + " ("
 					+ cbt.getPlayer() + ") Gained " + heal + " Healing: "
-					+ cbt.getHP().getCurrent() + "/" + cbt.getHP().getMax());
+					+ cbt.getHP().getCurrent() + '/' + cbt.getHP().getMax());
 			}
 		}
 
@@ -771,7 +769,7 @@ public class Initiative extends javax.swing.JPanel
 			if (roll > 0)
 			{
 				sb.append(" with a roll of " + (roll + total));
-				sb.append(" (" + total + " + Roll: " + roll + ")");
+				sb.append(" (" + total + " + Roll: " + roll + ')');
 			}
 
 			//write out the results to the combat tab
@@ -900,7 +898,7 @@ public class Initiative extends javax.swing.JPanel
 				if (roll > 0)
 				{
 					sb.append(" with a roll of " + (roll + total));
-					sb.append(" (" + total + " + Roll: " + roll + ")");
+					sb.append(" (" + total + " + Roll: " + roll + ')');
 				}
 
 				if (returnVal == SavingThrowDialog.PASS_OPTION)
@@ -960,7 +958,7 @@ public class Initiative extends javax.swing.JPanel
 
 			writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer()
 				+ ") Took " + damage + " Subdual Damage: "
-				+ cbt.getHP().getCurrent() + "(" + cbt.getHP().getSubdual()
+				+ cbt.getHP().getCurrent() + '(' + cbt.getHP().getSubdual()
 				+ "s)/" + cbt.getHP().getMax());
 		}
 	}
@@ -1703,7 +1701,7 @@ public class Initiative extends javax.swing.JPanel
 		if (roll > 0)
 		{
 			sb.append(" with a roll of " + (roll + total));
-			sb.append(" (" + total + " + Roll: " + roll + ")");
+			sb.append(" (" + total + " + Roll: " + roll + ')');
 		}
 
 		if (returnVal == SavingThrowDialog.PASS_OPTION)
@@ -2224,7 +2222,7 @@ public class Initiative extends javax.swing.JPanel
 				if (roll > 0)
 				{
 					sb.append(" with a roll of " + (roll + total));
-					sb.append(" (" + total + " + Roll: " + roll + ")");
+					sb.append(" (" + total + " + Roll: " + roll + ')');
 				}
 
 				//write out the results to the combat tab
@@ -2874,11 +2872,11 @@ public class Initiative extends javax.swing.JPanel
 			{
 				Event evt = (Event) anInitList;
 				sb.append(evt.getName() + " (" + evt.getPlayer() + ")\n");
-				sb.append("Duration: " + evt.getDuration() + "\n");
+				sb.append("Duration: " + evt.getDuration() + '\n');
 
 				if (evt.getEffect().isEmpty())
 				{
-					sb.append("\n");
+					sb.append('\n');
 				}
 				else
 				{

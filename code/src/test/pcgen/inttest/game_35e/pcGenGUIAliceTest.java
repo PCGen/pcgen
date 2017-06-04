@@ -1,6 +1,4 @@
-/*
- * pcGenGUIAliceTest.java
- */
+
 package pcgen.inttest.game_35e;
 
 import pcgen.inttest.pcGenGUITestCase;
@@ -15,9 +13,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIAliceTest extends pcGenGUITestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIAliceTest()
 	{
 		// Empty Constructor

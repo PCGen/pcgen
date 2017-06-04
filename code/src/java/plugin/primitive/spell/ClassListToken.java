@@ -33,7 +33,6 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
  * The Class {@code ClassListToken} handles the restriction of a spell choice to a spell from a
  * class spell list.
  *
- * <br>
  * 
  */
 public class ClassListToken extends AbstractRestrictedSpellPrimitive

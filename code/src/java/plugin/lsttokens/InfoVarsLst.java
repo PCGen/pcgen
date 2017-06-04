@@ -72,7 +72,7 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 					+ " found an error. " + name
 					+ " is not a legal variable name in scope "
 					+ scope.getName() + " in " + cdo.getClass().getSimpleName()
-					+ " " + cdo.getKeyName(), context);
+					+ ' ' + cdo.getKeyName(), context);
 			}
 		}
 		CaseInsensitiveString cis = new CaseInsensitiveString(key);

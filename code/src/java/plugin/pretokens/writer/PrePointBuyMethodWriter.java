@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package plugin.pretokens.writer;
 
@@ -31,13 +29,12 @@ import java.io.Writer;
 
 /**
  * {@code PrerequisitePointBuyMethodWriter}.
- *
  */
 public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter
 		implements PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -46,7 +43,7 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter
 		return "pointbuymethod";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -56,7 +53,7 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter
 			PrerequisiteOperator.LT};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
@@ -83,7 +80,7 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
 	 */
 	@Override
@@ -100,7 +97,7 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+		writer.write("PRE" + kindHandled().toUpperCase() + ':'
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
 				: "1");

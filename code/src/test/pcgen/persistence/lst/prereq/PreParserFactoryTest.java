@@ -33,9 +33,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 
-/**
- *
- */
+
 @SuppressWarnings("nls")
 public class PreParserFactoryTest extends AbstractCharacterTestCase
 {
@@ -52,7 +50,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 		return new TestSuite(PreParserFactoryTest.class);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

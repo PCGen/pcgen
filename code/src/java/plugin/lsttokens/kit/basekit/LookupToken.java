@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 
 package plugin.lsttokens.kit.basekit;
@@ -96,7 +94,7 @@ public class LookupToken extends AbstractToken implements
 		List<String> list = new ArrayList<>();
 		for (NamedFormula nf : lookups)
 		{
-			list.add(nf.getName() + "," + nf.getFormula().toString());
+			list.add(nf.getName() + ',' + nf.getFormula().toString());
 		}
 		return list.toArray(new String[list.size()]);
 	}

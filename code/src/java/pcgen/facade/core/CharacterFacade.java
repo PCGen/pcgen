@@ -1,5 +1,4 @@
 /*
- * CharacterFacade.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 12, 2008, 8:27:12 PM
  */
 package pcgen.facade.core;
 
@@ -53,13 +51,12 @@ import pcgen.io.ExportHandler;
  * from this class, with a couple of exceptions, are models that can
  * be listenered to. Two of the most commonly used models are
  * the {@code ReferenceFacade} and the <code>ListFacade</code>
- * <br>
+ *
  * Note: This facade returns references to items of interest.
  * These allow not only the values to be retrieved but also
  * interested parties to register as listeners for changes to the valiues.
  * @see pcgen.facade.util.ListFacade
  * @see ReferenceFacade
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface CharacterFacade extends CompanionFacade
 {

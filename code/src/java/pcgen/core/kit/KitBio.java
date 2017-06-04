@@ -1,5 +1,4 @@
 /*
- * KitBio.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.kit;
 
@@ -33,14 +30,13 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * Code to represent a bio setting choices for a Kit.
- *
  */
 public class KitBio extends BaseKit
 {
 	private String theCharacterName = null;
 	private Integer theCharacterAge = null;
 	private List<Gender> theGenders = null;
-	private transient Gender selectedGender = null;
+	private Gender selectedGender = null;
 
 	/**
 	 * Set the character name to set for this kit item.

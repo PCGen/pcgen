@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  XMLCombatant.java
- *
  */
 package plugin.initiative;
 
@@ -35,8 +34,7 @@ import org.jdom2.Element;
 
 import pcgen.util.Logging;
 
-/**
- */
+
 public class XMLCombatant extends Combatant
 {
 	/** Challenge rating of the combatant */
@@ -45,7 +43,7 @@ public class XMLCombatant extends Combatant
 	protected int xp;
 
 	/** The JDOM element from which the combatant was derived. */
-	private Element combatant;
+	private final Element combatant;
 
 	/**
 	 *  Creates new XMLCombatant from a JDOM Element.

@@ -25,13 +25,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-/**
- *
- */
+
 public class DefaultListFacade<E> extends AbstractListFacade<E>
 {
 
-	private ArrayList<E> elementList;
+	private final ArrayList<E> elementList;
 
 	public DefaultListFacade()
 	{
@@ -49,7 +47,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		return new Iterator<E>()
 		{
 
-			private ListIterator<E> iterator = elementList.listIterator();
+			private final ListIterator<E> iterator = elementList.listIterator();
 			private int index;
 
             @Override

@@ -31,10 +31,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- * {@code SAVE}.  Derived from CHECKS
- *
- */
+
 public final class Save extends BonusObj
 {
 	@Override

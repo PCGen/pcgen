@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 
 package plugin.lsttokens;
@@ -54,14 +52,12 @@ import pcgen.util.Logging;
  * <pre>
  * SPELLKNOWN:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
  * </pre>
- *
- *
  */
 public class SpellknownLst extends AbstractSpellListToken implements
 		CDOMPrimaryToken<CDOMObject>
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.rules.persistence.token.AbstractToken#getTokenName()
 	 */
 	@Override
@@ -234,7 +230,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext, java.lang.Object)
 	 */
 	@Override
@@ -258,7 +254,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		return set.toArray(new String[set.size()]);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
 	 */
 	@Override

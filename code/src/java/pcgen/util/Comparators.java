@@ -29,9 +29,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.util.treetable.TreeTableNode;
 
-/**
- *
- */
+
 @SuppressWarnings("unchecked")
 public final class Comparators
 {

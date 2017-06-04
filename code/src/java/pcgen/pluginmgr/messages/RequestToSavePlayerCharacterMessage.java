@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/02/2014 10:21:09 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr.messages;
 
@@ -29,9 +27,7 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code RequestToSavePlayerCharacterMessage} encapsulates a
  * request that PCGen save the specified character.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class RequestToSavePlayerCharacterMessage extends PCGenMessage

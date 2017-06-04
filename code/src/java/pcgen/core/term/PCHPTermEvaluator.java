@@ -1,5 +1,4 @@
 /*
- * PCHPTermEvaluator.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.term;
 
@@ -43,7 +40,7 @@ public class PCHPTermEvaluator
 		this.originalText = originalText;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.BasePCTermEvaluator#resolve(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -52,7 +49,7 @@ public class PCHPTermEvaluator
 		return (float) pc.hitPoints();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
 	 */
 	@Override
@@ -61,7 +58,7 @@ public class PCHPTermEvaluator
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#isStatic()
 	 */
 	public boolean isStatic()

@@ -21,7 +21,7 @@
 		<very.dark color="black" background-color="#ccccaa" border-color="#888855"/>
 		<inverse color="black" background-color="#bbbb99" border-color="#888855"/>
 
-		<bio display-align="after" color="black" background-color="transparent" border-color="#888855"></bio>
+        <bio display-align="after" color="black" background-color="transparent" border-color="#888855"/>
 		<bio.title border-top-width="0.5pt" border-top-style="solid"><subattrib normal=""/></bio.title>
 
 		<picture><subattrib normal="" border=""/></picture>
@@ -64,7 +64,7 @@
 		<skills.lightline><subattrib light="" /></skills.lightline>
 		<skills.darkline.total><subattrib dark="" /></skills.darkline.total>
 		<skills.lightline.total><subattrib medium="" /></skills.lightline.total>
-		<skills.footer border-bottom-width="0.5pt" border-bottom-style="solid"></skills.footer>
+        <skills.footer border-bottom-width="0.5pt" border-bottom-style="solid"/>
 
 		<saves.title><subattrib border="" centre="" inverse=""/></saves.title>
 		<saves.total><subattrib border="" centre="" light=""/></saves.total>

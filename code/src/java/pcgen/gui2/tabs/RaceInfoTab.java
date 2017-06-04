@@ -65,7 +65,6 @@ import pcgen.util.enumeration.Tab;
 
 /**
  * The Class {@code RaceInfoTab} is the component used in the Race tab.
- * <br>
  * -0800 (Wed, 16 Feb 2011) $
  *
  */

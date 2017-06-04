@@ -66,7 +66,7 @@ public class DescriptorToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + school;
+		return getTokenName() + '=' + school;
 	}
 
 	@Override

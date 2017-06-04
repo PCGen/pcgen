@@ -83,7 +83,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 				activeValue = value.substring(0, pipeLoc);
 				if (title == null || title.isEmpty())
 				{
-					return new ParseResult.Fail(getParentToken() + ":"
+					return new ParseResult.Fail(getParentToken() + ':'
 						+ getTokenName() + " had TITLE= but no title: " + value, context);
 				}
 			}
@@ -185,7 +185,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		if (!tc.getGroupingState().isValid())
 		{
 			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + ":" + getTokenName());
+				+ " was used in: " + getParentToken() + ':' + getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();

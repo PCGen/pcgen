@@ -1,5 +1,4 @@
 /*
- * pcGenGUIPfrpgPaladinTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -71,9 +70,7 @@ public class FtlMigrationTest
 	/** The settings file we will generate and use. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
-	/**
-	 * 
-	 */
+
 	public FtlMigrationTest()
 	{
 	}

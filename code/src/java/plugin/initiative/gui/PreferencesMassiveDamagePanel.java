@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  PreferencesMassiveDamagePanel.java
- *
  */
 package plugin.initiative.gui;
 
@@ -39,9 +38,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
-/**
- *
- */
+
 public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 {
 

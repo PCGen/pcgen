@@ -17,8 +17,6 @@ import pcgen.util.enumeration.View;
 
 /**
  * {@code VFeatToken} deals with VFEAT output token.
- *
- *
  */
 public class VFeatToken extends AbilityToken
 {

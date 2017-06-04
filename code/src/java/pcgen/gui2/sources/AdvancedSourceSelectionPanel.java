@@ -1,5 +1,4 @@
 /*
- * AdvancedSourceSelectionPanel.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -80,9 +79,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 class AdvancedSourceSelectionPanel extends JPanel
 		implements ListSelectionListener, ListListener<CampaignFacade>, ActionListener
 {
@@ -94,16 +91,16 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 	private final FilteredTreeViewTable<Object, CampaignFacade> availableTable;
 	private final FilteredTreeViewTable<Object, CampaignFacade> selectedTable;
-	private SourceTreeViewModel availTreeViewModel;
-	private SourceTreeViewModel selTreeViewModel;
-	private InfoPane infoPane;
+	private final SourceTreeViewModel availTreeViewModel;
+	private final SourceTreeViewModel selTreeViewModel;
+	private final InfoPane infoPane;
 	private GameModeFacade gameMode;
-	private JComboBox gameModeList;
-	private InfoPaneLinkAction linkAction;
+	private final JComboBox gameModeList;
+	private final InfoPaneLinkAction linkAction;
 	private final JButton unloadAllButton;
 	private final JButton addButton;
 	private final JButton removeButton;
-	private DefaultListFacade<CampaignFacade> selectedCampaigns;
+	private final DefaultListFacade<CampaignFacade> selectedCampaigns;
 	private final PCGenFrame frame;
 	
 	public AdvancedSourceSelectionPanel(PCGenFrame frame)
@@ -496,9 +493,9 @@ class AdvancedSourceSelectionPanel extends JPanel
 			implements TreeViewModel<CampaignFacade>, DataView<CampaignFacade>, ListListener<CampaignFacade>
 	{
 		
-		private ListFacade<TreeView<CampaignFacade>> views =
+		private final ListFacade<TreeView<CampaignFacade>> views =
                 new DefaultListFacade<>(Arrays.asList(SourceTreeView.values()));
-		private DefaultListFacade<CampaignFacade> model;
+		private final DefaultListFacade<CampaignFacade> model;
 		private ListFacade<CampaignFacade> baseModel = null;
 		private final List<DefaultDataViewColumn> columns;
 		private final boolean isAvailModel;

@@ -33,9 +33,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-/**
- * 
- */
+
 public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 {
 
@@ -101,7 +99,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			if (sep.hasNext())
 			{
-				return new ParseResult.Fail(getTokenName() + " " + firstItem
+				return new ParseResult.Fail(getTokenName() + ' ' + firstItem
 						+ " syntax requires only one argument: " + value, context);
 			}
 			if (value.startsWith("LOCK."))
@@ -119,7 +117,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		catch (IllegalArgumentException e)
 		{
 			return new ParseResult.Fail("Illegal Formula found in "
-					+ getTokenName() + ": " + value + " "
+					+ getTokenName() + ": " + value + ' '
 					+ e.getLocalizedMessage(), context);
 		}
 	}

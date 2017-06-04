@@ -1,5 +1,4 @@
 /**
- * SpellsInfoTab.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -32,7 +31,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class {@code SpellsInfoTab} is a placeholder for the yet
  * to be implemented Seplls tab.
- * <br>
  * 
  */
 @SuppressWarnings("serial")

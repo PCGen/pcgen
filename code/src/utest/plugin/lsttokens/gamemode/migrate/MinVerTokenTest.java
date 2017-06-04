@@ -1,5 +1,4 @@
 /*
- * MinVerTokenTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package plugin.lsttokens.gamemode.migrate;
 
@@ -61,7 +58,7 @@ public class MinVerTokenTest
 	public void testParseValidVerNumbers()
 	{
 		String[] goodVersions =
-				new String[]{"5.17.12", "6.0.0", "6.0.1 RC2", "6.0.1-RC2",
+				{"5.17.12", "6.0.0", "6.0.1 RC2", "6.0.1-RC2",
 					"6.01.02", "6.01.02-dev"};
 		for (String verString : goodVersions)
 		{
@@ -84,7 +81,7 @@ public class MinVerTokenTest
 	public void testParseInvalidVerFormat()
 	{
 		String[] badVersions =
-				new String[]{"text", "a.b.c", "6.1", "6_0_1", "6.0.1d",
+				{"text", "a.b.c", "6.1", "6_0_1", "6.0.1d",
 					"3.rc2", "6.0.1RC2"};
 		for (String verString : badVersions)
 		{

@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCSkillRankTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 13:21:32
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -43,7 +39,7 @@ public class PCSkillRankTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(display));
+		return TermUtil.convertToFloat(originalText, evaluate(display));
 	}
 	
 	@Override

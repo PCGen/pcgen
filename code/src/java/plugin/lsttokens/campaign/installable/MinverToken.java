@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package plugin.lsttokens.campaign.installable;
 
@@ -30,13 +28,11 @@ import pcgen.util.Logging;
 
 /**
  * {@code MinverToken} parses MINVER tokens in installable campaigns.
- *
- *
  */
 public class MinverToken implements InstallLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
@@ -45,7 +41,7 @@ public class MinverToken implements InstallLstToken
 		return "MINVER";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.InstallLstToken#parse(pcgen.core.Campaign, java.lang.String, java.net.URI)
 	 */
     @Override

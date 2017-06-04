@@ -124,7 +124,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final int getSafe(IntegerKey key)
 	{
 		Integer intValue = integerChar == null ? null : integerChar.get(key);
-		return intValue == null ? key.getDefault() : intValue.intValue();
+		return intValue == null ? key.getDefault() : intValue;
 	}
 
 	public final Integer put(IntegerKey key, Integer intValue)
@@ -1041,9 +1041,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 	}
 
-	@Override
-	public abstract boolean isType(String type);
-
 	public <T extends CDOMObject> boolean hasObjectOnList(
 			CDOMReference<? extends CDOMList<T>> list, T element)
 	{
@@ -1195,7 +1192,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public boolean isInternal()
 	{
-		return getSafe(ObjectKey.INTERNAL).booleanValue();
+		return getSafe(ObjectKey.INTERNAL);
 	}
 
 	/**

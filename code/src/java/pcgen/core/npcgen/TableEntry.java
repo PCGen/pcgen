@@ -15,7 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.npcgen;
 
@@ -25,8 +24,8 @@ import java.util.List;
 
 public class TableEntry
 {
-	private String theName;
-	private List<Object> theData = new ArrayList<>();
+	private final String theName;
+	private final List<Object> theData = new ArrayList<>();
 	
 	public TableEntry( final String aName )
 	{

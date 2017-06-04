@@ -42,9 +42,7 @@ import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- *
- */
+
 public class TemplateLst extends AbstractToken implements
 		CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
 {

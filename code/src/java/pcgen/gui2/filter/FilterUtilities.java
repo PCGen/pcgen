@@ -1,5 +1,4 @@
 /*
- * FilterUtilities.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -23,9 +22,7 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-/**
- *
- */
+
 public class FilterUtilities
 {
 

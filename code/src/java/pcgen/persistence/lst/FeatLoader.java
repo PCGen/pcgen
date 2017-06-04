@@ -30,9 +30,7 @@ import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public final class FeatLoader extends AbilityLoader
 {
 	private boolean defaultFeatsLoaded = false;

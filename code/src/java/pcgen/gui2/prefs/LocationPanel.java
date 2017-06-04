@@ -1,5 +1,4 @@
 /*
- * LocationPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -58,51 +57,51 @@ import org.apache.commons.lang3.SystemUtils;
 @SuppressWarnings("serial")
 public class LocationPanel extends PCGenPrefsPanel
 {
-	private static String in_location =
+	private static final String in_location =
 		LanguageBundle.getString("in_Prefs_location");
 
-	private static String in_browserPath =
+	private static final String in_browserPath =
 		LanguageBundle.getString("in_Prefs_browserPath");
-	private static String in_clearBrowserPath =
+	private static final String in_clearBrowserPath =
 		LanguageBundle.getString("in_Prefs_clearBrowserPath");
-	private static String in_choose = "...";
+	private static final String in_choose = "...";
 
-	private ButtonGroup groupFilesDir;
-	private JRadioButton pcgenFilesDirRadio;
-	private JRadioButton selectFilesDirRadio;
-	private JRadioButton usersFilesDirRadio;
-	private JCheckBox pcgenCreateBackupCharacter = new JCheckBox();
+	private final ButtonGroup groupFilesDir;
+	private final JRadioButton pcgenFilesDirRadio;
+	private final JRadioButton selectFilesDirRadio;
+	private final JRadioButton usersFilesDirRadio;
+	private final JCheckBox pcgenCreateBackupCharacter = new JCheckBox();
 
-	private JButton browserPathButton;
-	private JButton clearBrowserPathButton;
-	private JButton pcgenCharacterDirButton;
-	private JButton pcgenCustomDirButton;
-	private JButton pcgenVendorDataDirButton;
-	private JButton pcgenHomebrewDataDirButton;
-	private JButton pcgenDataDirButton;
-	private JButton pcgenDocsDirButton;
+	private final JButton browserPathButton;
+	private final JButton clearBrowserPathButton;
+	private final JButton pcgenCharacterDirButton;
+	private final JButton pcgenCustomDirButton;
+	private final JButton pcgenVendorDataDirButton;
+	private final JButton pcgenHomebrewDataDirButton;
+	private final JButton pcgenDataDirButton;
+	private final JButton pcgenDocsDirButton;
 	private JButton pcgenFilesDirButton;
-	private JButton pcgenOutputSheetDirButton;
-	private JButton pcgenPreviewDirButton;
-	private JButton pcgenPortraitsDirButton;
-	private JButton pcgenSystemDirButton;
-	private JButton pcgenBackupCharacterDirButton;
+	private final JButton pcgenOutputSheetDirButton;
+	private final JButton pcgenPreviewDirButton;
+	private final JButton pcgenPortraitsDirButton;
+	private final JButton pcgenSystemDirButton;
+	private final JButton pcgenBackupCharacterDirButton;
 
-	private JTextField browserPath;
-	private JTextField pcgenCharacterDir;
-	private JTextField pcgenCustomDir;
-	private JTextField pcgenVendorDataDir;
-	private JTextField pcgenHomebrewDataDir;
-	private JTextField pcgenDataDir;
-	private JTextField pcgenDocsDir;
-	private JTextField pcgenFilesDir;
-	private JTextField pcgenOutputSheetDir;
-	private JTextField pcgenBackupCharacterDir;
-	private JTextField pcgenPreviewDir;
-	private JTextField pcgenPortraitsDir;
-	private JTextField pcgenSystemDir;
+	private final JTextField browserPath;
+	private final JTextField pcgenCharacterDir;
+	private final JTextField pcgenCustomDir;
+	private final JTextField pcgenVendorDataDir;
+	private final JTextField pcgenHomebrewDataDir;
+	private final JTextField pcgenDataDir;
+	private final JTextField pcgenDocsDir;
+	private final JTextField pcgenFilesDir;
+	private final JTextField pcgenOutputSheetDir;
+	private final JTextField pcgenBackupCharacterDir;
+	private final JTextField pcgenPreviewDir;
+	private final JTextField pcgenPortraitsDir;
+	private final JTextField pcgenSystemDir;
 
-	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
+	private final PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private final TextFocusLostListener textFieldListener =
 			new TextFocusLostListener();
 
@@ -480,7 +479,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		this.add(emptyLabel);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -489,7 +488,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		return in_location;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -553,7 +552,7 @@ public class LocationPanel extends PCGenPrefsPanel
 			pcgenPreviewDir.getText());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

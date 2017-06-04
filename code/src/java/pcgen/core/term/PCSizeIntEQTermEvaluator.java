@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCSizeIntEQTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 05-Oct-2008 20:57:45
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -33,7 +29,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 public class PCSizeIntEQTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
 {
-	private String source;
+	private final String source;
 
 	public PCSizeIntEQTermEvaluator(String expressionString, String source)
 	{
@@ -55,20 +51,16 @@ public class PCSizeIntEQTermEvaluator
 			if (ref != null)
 			{
 				String profName = ref.get().getKeyName();
-				StringBuilder sB = new StringBuilder("WEAPONPROF=");
-				sB.append(profName);
 
-				modSize = (int) pc.getTotalBonusTo(sB.toString(), "PCSIZE");
+				modSize = (int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "PCSIZE");
 			}
 
 			// loops for each equipment type
 			for ( String eqType : eq.typeList() )
 			{
-				final StringBuilder sB = new StringBuilder("WEAPONPROF=TYPE.");
-				sB.append(eqType);
 
 				// get the type bonus (ex TYPE.MARTIAL)
-				final int i = (int) pc.getTotalBonusTo(sB.toString(), "PCSIZE");
+				final int i = (int) pc.getTotalBonusTo("WEAPONPROF=TYPE." + eqType, "PCSIZE");
 
 				// get the highest bonus
 				if (modSize < i) {

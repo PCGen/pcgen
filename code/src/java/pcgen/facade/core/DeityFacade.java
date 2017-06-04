@@ -1,5 +1,4 @@
 /*
- * DeityFacade.java
  * Copyright 2010 (C) Connor
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,17 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 23, 2010, 11:20:18 PM
  */
 package pcgen.facade.core;
 
 import java.util.Collection;
 import java.util.List;
 
-/**
- *
- * @author Connor
- */
+
 public interface DeityFacade extends InfoFacade
 {
 

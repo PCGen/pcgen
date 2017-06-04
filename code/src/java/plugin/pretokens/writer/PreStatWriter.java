@@ -16,11 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package plugin.pretokens.writer;
 
@@ -40,7 +35,7 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -49,7 +44,7 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements
 		return "STAT";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -61,7 +56,7 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements
 			PrerequisiteOperator.NEQ};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
@@ -83,7 +78,7 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write(operator.toString().toUpperCase());
 			}
-			writer.write(":1," + prereq.getKey() + "="
+			writer.write(":1," + prereq.getKey() + '='
 				+ prereq.getOperand());
 
 		}

@@ -1,5 +1,4 @@
 /*
- * PreCampaignRoundRobin.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package plugin.pretokens;
 
@@ -45,7 +42,7 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 		return new TestSuite(PreCampaignRoundRobin.class);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -56,7 +53,7 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 		TokenRegistration.register(new PreCampaignWriter());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.pretokens.AbstractBasicRoundRobin#getBaseString()
 	 */
 	@Override
@@ -65,7 +62,7 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 		return "CAMPAIGN";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.pretokens.AbstractBasicRoundRobin#isTypeAllowed()
 	 */
 	@Override

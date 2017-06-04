@@ -30,9 +30,7 @@ import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreVisionParser;
 
-/**
- *
- */
+
 @SuppressWarnings("nls")
 public class PreVisionParserTest extends EnUsLocaleDependentTestCase
 {

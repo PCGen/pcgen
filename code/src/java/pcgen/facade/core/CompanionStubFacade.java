@@ -1,5 +1,4 @@
 /*
- * CompanionStubFacade.java
  * Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,16 +15,12 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 4, 2012, 6:46:38 PM
  */
 package pcgen.facade.core;
 
 import pcgen.facade.util.ReferenceFacade;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+
 public interface CompanionStubFacade
 {
 

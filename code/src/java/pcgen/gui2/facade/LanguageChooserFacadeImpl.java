@@ -51,20 +51,19 @@ import pcgen.facade.util.ListFacade;
  * LanguageChooserFacade for the gui2 package. It is responsible for managing 
  * details of a possible selection of languages. 
  *
- * <br>
  * 
  */
 public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 {
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
-	private ChooseDriver source;
-	private String name;
-	private DefaultListFacade<LanguageFacade> availableList;
-	private DefaultListFacade<LanguageFacade> selectedList;
-	private DefaultListFacade<LanguageFacade> originalSelectedList;
-	private DefaultReferenceFacade<Integer> numSelectionsRemain;
-	private CharacterFacadeImpl pcFacade;
+	private final ChooseDriver source;
+	private final String name;
+	private final DefaultListFacade<LanguageFacade> availableList;
+	private final DefaultListFacade<LanguageFacade> selectedList;
+	private final DefaultListFacade<LanguageFacade> originalSelectedList;
+	private final DefaultReferenceFacade<Integer> numSelectionsRemain;
+	private final CharacterFacadeImpl pcFacade;
 	
 	/**
 	 * Create a new LanguageChooserFacadeImpl. This is initially empty but will be 
@@ -204,7 +203,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#addSelected(pcgen.core.facade.LanguageFacade)
 	 */
 	@Override
@@ -219,7 +218,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()-1);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#removeSelected(pcgen.core.facade.LanguageFacade)
 	 */
 	@Override
@@ -230,7 +229,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()+1);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getAvailableList()
 	 */
 	@Override
@@ -240,7 +239,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return availableList;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getName()
 	 */
 	@Override
@@ -249,7 +248,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return name;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getRemainingSelections()
 	 */
 	@Override
@@ -258,7 +257,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return numSelectionsRemain;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getSelectedList()
 	 */
 	@Override
@@ -267,7 +266,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return selectedList;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#commit()
 	 */
 	@Override
@@ -287,7 +286,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		pcFacade.refreshLanguageList();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#rollback()
 	 */
 	@Override

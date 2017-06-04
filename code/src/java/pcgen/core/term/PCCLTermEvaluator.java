@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 04-Aug-2008 16:43:40
- *
- *
  */
 
 package pcgen.core.term;
@@ -42,7 +40,7 @@ public class PCCLTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(pc));
+		return TermUtil.convertToFloat(originalText, evaluate(pc));
 	}
 
 	@Override

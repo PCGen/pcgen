@@ -30,7 +30,6 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
  * by those shield proficiencies held by the character.
  * e.g. CHOOSE:SHIELDPROFICIENCY|PC 
  *
- * <br>
  * 
  */
 public class PCToken extends AbstractPCQualifierToken<ShieldProf>

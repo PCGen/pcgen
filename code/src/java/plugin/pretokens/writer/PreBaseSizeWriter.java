@@ -16,11 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package plugin.pretokens.writer;
 
@@ -38,7 +33,7 @@ import java.io.Writer;
 public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -47,7 +42,7 @@ public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 		return "basesize";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -56,7 +51,7 @@ public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
@@ -67,7 +62,7 @@ public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 		{
 			writer.write("PREBASESIZE");
 			writer.write(prereq.getOperator().toString().toUpperCase());
-			writer.write(":" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write(':' + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

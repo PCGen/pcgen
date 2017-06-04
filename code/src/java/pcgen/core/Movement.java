@@ -15,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on July 22, 2005.
  *
- * Current Ver: $Revision$
  */
 package pcgen.core;
 
@@ -27,9 +25,7 @@ import java.util.StringTokenizer;
 
 import pcgen.util.Logging;
 
-/**
- * @author Tom Parker &lt;thpr@sourceforge.net&gt;
- */
+
 public class Movement
 {
 

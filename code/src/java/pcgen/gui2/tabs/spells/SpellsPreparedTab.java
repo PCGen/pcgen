@@ -1,5 +1,4 @@
 /*
- * SpellsPreparedTab.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -61,9 +60,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- */
+
 @SuppressWarnings("serial")
 public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInfoTab
 {

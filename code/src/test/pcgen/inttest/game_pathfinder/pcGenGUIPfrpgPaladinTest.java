@@ -33,9 +33,7 @@ import pcgen.inttest.PcgenFtlTestCase;
 public class pcGenGUIPfrpgPaladinTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIPfrpgPaladinTest()
 	{
 		super("pf_paladin");

@@ -43,9 +43,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class SpelllevelLst extends AbstractSpellListToken implements
 		CDOMPrimaryToken<CDOMObject>
 {

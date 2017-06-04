@@ -108,7 +108,7 @@ public class PropertyContext implements PropertyChangeListener
 	{
 		if (parent != null)
 		{
-			return parent.getProperty(name + "." + key);
+			return parent.getProperty(name + '.' + key);
 		}
 		return properties.getProperty(key);
 	}
@@ -145,7 +145,7 @@ public class PropertyContext implements PropertyChangeListener
 	{
 		if (parent != null)
 		{
-			return parent.getProperty(name + "." + key, defaultValue);
+			return parent.getProperty(name + '.' + key, defaultValue);
 		}
 		return properties.getProperty(key, defaultValue);
 	}
@@ -159,7 +159,7 @@ public class PropertyContext implements PropertyChangeListener
 		Object oldValue;
 		if (parent != null)
 		{
-			oldValue = parent.setProperty(name + "." + key, value);
+			oldValue = parent.setProperty(name + '.' + key, value);
 		}
 		else
 		{
@@ -174,7 +174,7 @@ public class PropertyContext implements PropertyChangeListener
 		Object oldValue;
 		if (parent != null)
 		{
-			oldValue = parent.removeProperty(name + "." + key);
+			oldValue = parent.removeProperty(name + '.' + key);
 		}
 		else
 		{

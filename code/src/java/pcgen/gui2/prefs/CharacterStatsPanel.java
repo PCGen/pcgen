@@ -1,5 +1,4 @@
 /*
- * CharacterStatsPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -60,7 +59,7 @@ import pcgen.system.LanguageBundle;
 public class CharacterStatsPanel extends PCGenPrefsPanel
 {
 	
-	private static String in_abilities =
+	private static final String in_abilities =
 		LanguageBundle.getString("in_Prefs_abilities");
 	private String[] pMode;
 	private String[] pModeMethodName;
@@ -240,7 +239,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
 	 */
 	@Override
@@ -447,7 +446,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -456,7 +455,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		return in_abilities;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */
 	@Override
@@ -509,7 +508,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	private final class PurchaseModeButtonListener implements ActionListener
 	{
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
 		@Override

@@ -50,7 +50,7 @@ public class InstallLoader extends LstLineFileLoader
 		super.loadLstString(context, fileName, lstData);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URI)
 	 */
 	@Override

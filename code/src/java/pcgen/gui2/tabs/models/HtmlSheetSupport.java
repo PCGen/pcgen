@@ -1,5 +1,4 @@
 /*
- * HtmlSheetSupport.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -52,9 +51,7 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class HtmlSheetSupport
 {
 

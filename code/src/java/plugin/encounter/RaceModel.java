@@ -23,8 +23,7 @@ import javax.swing.DefaultListModel;
 import pcgen.core.Globals;
 import pcgen.core.Race;
 
-/**
- */
+
 public class RaceModel extends DefaultListModel
 {
 	/**

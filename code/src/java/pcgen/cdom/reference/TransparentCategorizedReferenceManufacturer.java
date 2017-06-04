@@ -40,7 +40,7 @@ public class TransparentCategorizedReferenceManufacturer<T extends Categorized<T
 	 */
 	private final String category;
 	
-	private Class<? extends Category<T>> categoryClass;
+	private final Class<? extends Category<T>> categoryClass;
 
 	/**
 	 * Constructs a new TransparentCategorizedReferenceManufacturer for the

@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Oct-2008 03:10:04
- *
- *
  */
 
 package pcgen.core.term;
@@ -42,7 +40,7 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override

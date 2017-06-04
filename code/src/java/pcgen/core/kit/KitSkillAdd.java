@@ -1,5 +1,4 @@
 /*
- * KitSkillAdd.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.kit;
 
@@ -27,15 +25,14 @@ import pcgen.core.Skill;
 
 /**
  * {@code KitSkillAdd}.
- *
  */
 public final class KitSkillAdd //implements java.io.Serializable
 {
 	private Skill skill = null;
 	private double ranks = 0.0;
 	private int cost = 0;
-	private List<Language> languages;
-	private PCClass pcclass;
+	private final List<Language> languages;
+	private final PCClass pcclass;
 
 	/**
 	 * Constructor

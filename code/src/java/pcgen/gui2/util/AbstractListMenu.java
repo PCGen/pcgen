@@ -33,9 +33,7 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 
-/**
- *
- */
+
 public abstract class AbstractListMenu<E> extends JMenu implements ListListener<E>
 {
 

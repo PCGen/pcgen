@@ -40,7 +40,7 @@ public final class SourceLogFormatter extends Formatter
 	private final Date date = new Date(); 
 	private static final Pattern javaExtPattern = Pattern.compile("\\.java");
 	
-	/* (non-Javadoc)
+	/**
 	 * @see java.util.logging.Formatter#format(java.util.logging.LogRecord)
 	 */
     @Override

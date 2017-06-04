@@ -21,9 +21,7 @@ package pcgen.facade.util.event;
 
 import java.util.EventObject;
 
-/**
- *
- */
+
 public class ListEvent<E> extends EventObject
 {
 

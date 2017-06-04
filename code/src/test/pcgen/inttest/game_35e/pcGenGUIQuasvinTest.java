@@ -1,6 +1,4 @@
-/*
- * pcGenGUIQuasvinTest.java
- */
+
 package pcgen.inttest.game_35e;
 
 import junit.framework.Test;
@@ -15,9 +13,7 @@ import pcgen.inttest.PcgenFtlTestCase;
 public class pcGenGUIQuasvinTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIQuasvinTest()
 	{
 		super("35e_quasvin");

@@ -19,9 +19,7 @@
  */
 package pcgen.facade.core;
 
-/**
- *
- */
+
 public interface SkillFacade extends InfoFacade
 {
 

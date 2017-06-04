@@ -26,7 +26,6 @@ import pcgen.core.system.MigrationRule;
  * The Interface {@code MigrationLstToken} defines a token
  * as being callable by the MigrationLoader.
  *
- * <br>
  * 
  */
 public interface MigrationLstToken extends LstToken

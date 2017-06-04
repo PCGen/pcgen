@@ -28,7 +28,6 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * JUnit Tests for {@link translation.util.Tips}.
- *
  */
 @SuppressWarnings("nls")
 public class TipsTest

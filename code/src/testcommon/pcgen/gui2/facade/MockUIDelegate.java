@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.gui2.facade;
 
@@ -37,7 +35,7 @@ import pcgen.util.Logging;
 public class MockUIDelegate implements UIDelegate
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#maybeShowWarningConfirm(java.lang.String, java.lang.String, java.lang.String, pcgen.system.PropertyContext, java.lang.String)
 	 */
     @Override
@@ -48,7 +46,7 @@ public class MockUIDelegate implements UIDelegate
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#showErrorMessage(java.lang.String, java.lang.String)
 	 */
     @Override
@@ -57,7 +55,7 @@ public class MockUIDelegate implements UIDelegate
 		Logging.log(Logging.ERROR, title + " - " + message);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#showInfoMessage(java.lang.String, java.lang.String)
 	 */
     @Override
@@ -66,7 +64,7 @@ public class MockUIDelegate implements UIDelegate
 		Logging.log(Logging.INFO, title + " - " + message);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#showLevelUpInfo(pcgen.core.facade.CharacterFacade, int)
 	 */
     @Override
@@ -75,7 +73,7 @@ public class MockUIDelegate implements UIDelegate
 		// No action
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#showWarningConfirm(java.lang.String, java.lang.String)
 	 */
     @Override

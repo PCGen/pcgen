@@ -42,9 +42,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * 
- */
+
 public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 		CDOMPrimaryToken<Domain>, ChooseSelectionActor<Skill>
 {

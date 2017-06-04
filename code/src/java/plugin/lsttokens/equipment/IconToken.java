@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package plugin.lsttokens.equipment;
 
@@ -35,14 +33,13 @@ import pcgen.rules.persistence.token.ParseResult;
  * The Class {@code IconToken} processes the ICPON token. This
  * allows an icon to be specified for the item of equipment.
  *
- * <br>
  * 
  */
 public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.rules.persistence.token.AbstractToken#getTokenName()
 	 */
 	@Override
@@ -51,7 +48,7 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 		return "ICON";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.rules.persistence.token.CDOMToken#parse(pcgen.rules.context.LoadContext, java.lang.Object, java.lang.String)
 	 */
 	@Override
@@ -68,7 +65,7 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext, java.lang.Object)
 	 */
 	@Override
@@ -82,7 +79,7 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[]{icon};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
 	 */
 	@Override

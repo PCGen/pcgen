@@ -1,5 +1,4 @@
 /*
- * KitKit.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.kit;
 
@@ -41,7 +38,7 @@ public class KitKit extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient Map<Kit, List<BaseKit>> appliedKits =
+	private Map<Kit, List<BaseKit>> appliedKits =
             new HashMap<>();
 
 	/**

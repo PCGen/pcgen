@@ -39,7 +39,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
- *
  */
 @SuppressWarnings("nls")
 public abstract class AbstractCharacterTestCase extends PCGenTestCase
@@ -315,8 +314,8 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 			UserSelection.getInstance(), UserSelection.getInstance());
 	}
 
-	protected CNAbility finalize(Ability a, String string,
-		PlayerCharacter pc, AbilityCategory cat)
+	protected CNAbility pcgenFinalize(Ability a, String string,
+	                                  PlayerCharacter pc, AbilityCategory cat)
 	{
 		return applyAbility(pc, cat, a, string);
 	}

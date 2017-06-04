@@ -146,11 +146,11 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     private JSeparator toolsSeparator1;
 
     // Tree for the preferences dialog
-    private PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
+    private final PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
 
     private final PCGenMessageHandler messageHandler;
 
-	private PluginManager pluginManager;
+	private final PluginManager pluginManager;
 
     /**
      * Constructor
@@ -231,7 +231,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
          * Preferences on the Macintosh is in the application menu. See
          * macOSXRegistration()
          */
-        if (!SystemUtils.IS_OS_MAC_OSX) {
+        if (!SystemUtils.IS_OS_MAC_OSX)
+        {
             editMenu.add(editSeparator1);
             CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
             editMenu.add(preferencesEditItem);
@@ -252,7 +253,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     /**
      * Exits GMGen, the Mac way.
      */
-    public void exitFormMac() {
+    public void exitFormMac()
+    {
         this.setVisible(false);
     }
 
@@ -422,30 +424,40 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         SettingsHandler.setGMGenOption(SETTING_WINDOW_HEIGHT, this.getSize().height);
 
         // Maximized state of the window
-        if ((getExtendedState() & Frame.MAXIMIZED_BOTH) != 0) {
+        if ((getExtendedState() & Frame.MAXIMIZED_BOTH) != 0)
+        {
             SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.MAXIMIZED_BOTH);
-        } else if ((getExtendedState() & Frame.MAXIMIZED_HORIZ) != 0) {
+        }
+        else if ((getExtendedState() & Frame.MAXIMIZED_HORIZ) != 0)
+        {
             SettingsHandler
                     .setGMGenOption(SETTING_WINDOW_STATE, Frame.MAXIMIZED_HORIZ);
-        } else if ((getExtendedState() & Frame.MAXIMIZED_VERT) != 0) {
+        }
+        else if ((getExtendedState() & Frame.MAXIMIZED_VERT) != 0)
+        {
             SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.MAXIMIZED_VERT);
-        } else {
+        }
+        else
+        {
             SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.NORMAL);
         }
     }
 
     // Sets all the panes on the GUI in the correct order.
     private void setTabbedPanes() {
-        try {
+        try
+        {
             GMGenSystemView.getTabPane().setSelectedIndex(0);
             theView.showPane();
-        } catch (RuntimeException e) {
+        }
+        catch (RuntimeException e) {
             // TODO
         }
     }
 
     // Creates the MenuBar for the application.
-    private void createMenuBar() {
+    private void createMenuBar()
+    {
         systemMenuBar = new JMenuBar();
         createFileMenu();
         createEditMenu();
@@ -456,7 +468,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     }
 
     // Enable or Disable menu items at initialization time
-    private void setDefaultEnablementOfMenuItems() {
+    private void setDefaultEnablementOfMenuItems()
+    {
         openFileItem.setEnabled(true);
         saveFileItem.setEnabled(false);
         newFileItem.setEnabled(false);
@@ -468,7 +481,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     }
 
     // Create tools menu
-    private void createToolsMenu() {
+    private void createToolsMenu()
+    {
         toolsMenu = new JMenu();
         toolsSeparator1 = new JSeparator();
         versionToolsItem = new JMenuItem();
@@ -485,7 +499,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     }
 
     // Create the edit menu
-    private void createEditMenu() {
+    private void createEditMenu()
+    {
         editMenu = new JMenu();
         cutEditItem = new JMenuItem();
         copyEditItem = new JMenuItem();
@@ -507,7 +522,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         editMenu.add(pasteEditItem);
 
         // Preferences... on MAC OS X is in the application menu. See macOSXRegistration()
-        if (!SystemUtils.IS_OS_MAC_OSX) {
+        if (!SystemUtils.IS_OS_MAC_OSX)
+        {
             editMenu.add(editSeparator1);
 
             CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
@@ -553,36 +569,28 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         systemMenuBar.add(fileMenu);
     }
 
-    /**
-     * 
-     */
+
     private void createFileSaveMenuItem() {
         CommonMenuText.name(saveFileItem, MNU_SAVE);
         fileMenu.add(saveFileItem);
         saveFileItem.addActionListener(this);
     }
 
-    /**
-     * 
-     */
+
     private void createFileOpenMenuItem() {
         CommonMenuText.name(openFileItem, MNU_OPEN);
         fileMenu.add(openFileItem);
         openFileItem.addActionListener(this);
     }
 
-    /**
-     * 
-     */
+
     private void createFileNewMenuItem() {
     	CommonMenuText.name(newFileItem, MNU_NEW);
         newFileItem.addActionListener(this);
         fileMenu.add(newFileItem);
     }
 
-    /**
-     * 
-     */
+
     private void exitForMacOSX() {
         fileMenu.add(fileSeparator2);
     	CommonMenuText.name(exitFileItem, MNU_EXIT);

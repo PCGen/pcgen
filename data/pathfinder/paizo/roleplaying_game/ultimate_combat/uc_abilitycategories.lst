@@ -18,6 +18,7 @@ ABILITYCATEGORY:Gladiator Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YE
 # Gunslinger
 ABILITYCATEGORY:Gun Training Choice					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability										ABILITYLIST:Gunslinger ~ Gun Training Choice																					PLURAL:Gun Training Choices			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Gunslinger Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_GunslingerBonusFeat			CATEGORY:FEAT			TYPE:GunslingerFeat.Combat.Grit																																PLURAL:Gunslinger Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Gunslinger Battered Gun			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO										CATEGORY:Special Ability										ABILITYLIST:Gunslinger Battered Gun																																						DISPLAYLOCATION:Class Features
 
 # Added with ACG - Grants choice of Dare or Feat
 ABILITYCATEGORY:Gunslinger Bonus Feat Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_GunslingerBonusFeatPoolChoice	CATEGORY:Internal			TYPE:Gunslinger Bonus Feat Selection																																						DISPLAYLOCATION:Feats

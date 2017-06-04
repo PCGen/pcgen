@@ -1,5 +1,4 @@
 /*
- * TextFieldHandler.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -27,9 +26,7 @@ import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
-/**
- *
- */
+
 public abstract class TextFieldHandler implements DocumentListener, ReferenceListener<String>
 {
 

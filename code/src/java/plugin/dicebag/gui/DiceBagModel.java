@@ -186,7 +186,7 @@ class DiceBagModel extends Observable
 	}
 
 	/**
-	 * <p>Gets the count of dice in teh bag.</p>
+	 * <p>Gets the count of dice in the bag.</p>
 	 *
 	 * @return Count of dice in bag.
 	 */

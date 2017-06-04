@@ -482,6 +482,8 @@ CLASS:Warlock	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Warlock|CL
 11	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Mystic Arcanum
 20	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Eldritch Master
 ###Block
+1	ADD:SPELLCASTER|Warlock Book of Shadows
+###Block
 1	CAST:0,1
 2	CAST:0,2
 3	CAST:0,0,2
@@ -572,6 +574,7 @@ CLASS:Wizard	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Wizard|CL
 20	CAST:1,1,1,1,1,1,1,1,1,1
 
 
-CLASS:Warlock Book of Shadows	SPELLSTAT:CHA	MEMORIZE:YES	BONUS:CASTERLEVEL|Warlock|CL
-1:REPEATLEVEL:1	CAST:1,1,1,1,1,1,1,1
-1	
+CLASS:Warlock Book of Shadows	TYPE:Other	FACT:SpellType|Arcane	VISIBLE:NO
+CLASS:Warlock Book of Shadows	SPELLSTAT:CHA	MEMORIZE:YES	BONUS:CASTERLEVEL|Warlock Book of Shadows|WarlockLVL|PREABILITY:1,CATEGORY=Special Ability,Eldritch Invocation ~ Book of Ancient Secrets
+1:REPEATLEVEL:1	CAST:0,1
+	

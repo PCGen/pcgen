@@ -65,16 +65,16 @@ public class SolverViewFrame extends JFrame
 	private static final FormulaSetupFacet formulaSetupFacet = FacetLibrary
 		.getFacet(FormulaSetupFacet.class);
 
-	private JComboBoxEx scopeChooser;
+	private final JComboBoxEx scopeChooser;
 	private LegalScope selectedScope;
 
-	private JTextField varName;
+	private final JTextField varName;
 	private String varNameText = "                               ";
 
-	private JComboBoxEx objectChooser;
+	private final JComboBoxEx objectChooser;
 	private VarScoped activeObject;
 
-	private JComboBoxEx identifierChooser;
+	private final JComboBoxEx identifierChooser;
 	private CharID activeIdentifier;
 
 	private JTable viewTable;
@@ -314,7 +314,7 @@ public class SolverViewFrame extends JFrame
 
 	private static class SolverTableModel<T> extends AbstractTableModel
 	{
-		private String[] columnNames = {"Modification Type", "Modification",
+		private final String[] columnNames = {"Modification Type", "Modification",
 			"Resulting Value", "Priority", "Source"};
 
 		private List<ProcessStep<T>> steps = Collections.emptyList();

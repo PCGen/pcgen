@@ -30,7 +30,6 @@ import pcgen.util.enumeration.Visibility;
  * definition of an Equipment Modifier.
  *
  * (Sat, 24 May 2008) $
- *
  */
 public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		implements CDOMPrimaryToken<EquipmentModifier>

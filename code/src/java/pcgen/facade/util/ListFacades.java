@@ -25,9 +25,7 @@ import java.util.List;
 
 import pcgen.facade.util.event.ListListener;
 
-/**
- *
- */
+
 public final class ListFacades
 {
 
@@ -66,7 +64,7 @@ public final class ListFacades
 	private static class EmptyList implements ListFacade
 	{
 
-		private static Iterator iterator = new Iterator()
+		private static final Iterator iterator = new Iterator()
 		{
 
             @Override

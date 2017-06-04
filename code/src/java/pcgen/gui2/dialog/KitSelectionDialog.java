@@ -42,16 +42,15 @@ import pcgen.system.LanguageBundle;
  * the user to add kits to a character. Kits are prepared groups of equipment and 
  * other rules items.  
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")
 public class KitSelectionDialog extends JDialog
 		implements ActionListener
 {
-	private KitPanel kitPanel;
-	private JPanel buttonPanel;
-	private JButton closeButton;
+	private final KitPanel kitPanel;
+	private final JPanel buttonPanel;
+	private final JButton closeButton;
 
 	/**
 	 * Create a new instance of KitSelectionDialog

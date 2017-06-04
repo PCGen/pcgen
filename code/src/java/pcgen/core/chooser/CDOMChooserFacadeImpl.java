@@ -1,5 +1,4 @@
 /*
- * GeneralChooserFacadeBase.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -49,7 +48,6 @@ import pcgen.system.LanguageBundle;
  * 
  * @param <T> The type of objects being chosen from. 
  *
- * <br>
  * 
  */
 

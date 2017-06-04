@@ -33,7 +33,7 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 		return "spellcast.memorize"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -58,7 +58,7 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override

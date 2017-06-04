@@ -1,5 +1,4 @@
 /*
- * SkillInfoTab.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -677,7 +676,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class InfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String text;
 
 		public InfoHandler(CharacterFacade character)
@@ -721,9 +720,9 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class SkillFilterHandler extends ListDataAdapter
 	{
 
-		private CharacterFacade character;
-		private SkillSheetHandler skillSheetHandler;
-		private ComboBoxModel model;
+		private final CharacterFacade character;
+		private final SkillSheetHandler skillSheetHandler;
+		private final ComboBoxModel model;
 
 		public SkillFilterHandler(CharacterFacade character, SkillSheetHandler skillSheetHandler)
 		{

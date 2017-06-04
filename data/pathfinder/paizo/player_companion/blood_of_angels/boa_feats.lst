@@ -21,6 +21,6 @@ Supernal Feast		CATEGORY:FEAT		TYPE:General					PREMULT:2,[PRERACE:1,Aasimar%,RA
 ###Block: Bardic Masterpiece feats
 # Feat Name							Type			Required Class	Required Skill											Description										Source Page
 # Ability Name						Category of Ability	Type			Required Class	Required Skill											Description										Source Page
-Masterpiece (Pallavi of Nirvana's Blossoming)	CATEGORY:FEAT		TYPE:General	PRECLASS:1,Bard=1	PRESKILL:1,Perform (Dance)=11									DESC:You learn the masterpiece Pallavi of Nirvana's Blossoming.	SOURCEPAGE:p.28
-Masterpiece (Rondeau of Heavenly Order)		CATEGORY:FEAT		TYPE:General	PRECLASS:1,Bard=1	PRESKILL:1,Perform (Sing)=4									DESC:You learn the masterpiece Rondeau of Heavenly Order.		SOURCEPAGE:p.28
-Masterpiece (Symphony of the Elysian Heart)	CATEGORY:FEAT		TYPE:General	PRECLASS:1,Bard=1	PRESKILL:1,Perform (Keyboard Instruments)=7,Perform (Wind Instruments)=7	DESC:You learn the masterpiece Symphony of the Elysian Heart.	SOURCEPAGE:p.28
+Masterpiece (Pallavi of Nirvana's Blossoming)	CATEGORY:FEAT		TYPE:Masterpiece	PREVARGTEQ:MasterpieceLVL,1	PRESKILL:1,Perform (Dance)=11									DESC:You learn the masterpiece Pallavi of Nirvana's Blossoming.	SOURCEPAGE:p.28
+Masterpiece (Rondeau of Heavenly Order)		CATEGORY:FEAT		TYPE:Masterpiece	PREVARGTEQ:MasterpieceLVL,1	PRESKILL:1,Perform (Sing)=4									DESC:You learn the masterpiece Rondeau of Heavenly Order.		SOURCEPAGE:p.28
+Masterpiece (Symphony of the Elysian Heart)	CATEGORY:FEAT		TYPE:Masterpiece	PREVARGTEQ:MasterpieceLVL,1	PRESKILL:1,Perform (Keyboard Instruments)=7,Perform (Wind Instruments)=7	DESC:You learn the masterpiece Symphony of the Elysian Heart.	SOURCEPAGE:p.28

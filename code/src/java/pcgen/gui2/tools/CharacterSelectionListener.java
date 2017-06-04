@@ -1,5 +1,4 @@
 /*
- * CharacterSelectionListener.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -21,9 +20,7 @@ package pcgen.gui2.tools;
 
 import pcgen.facade.core.CharacterFacade;
 
-/**
- *
- */
+
 @FunctionalInterface
 public interface CharacterSelectionListener
 {

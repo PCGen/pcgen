@@ -1,5 +1,4 @@
 /*
- * InfoFactory.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -19,14 +18,10 @@
  */
 package pcgen.facade.core;
 
-/**
- *
- */
+
 /**
  * InfoFactory defines the interface to be used by the UI for extracting
  * information about objects for display to the user.
- *
- *
  */
 public interface InfoFactory
 {

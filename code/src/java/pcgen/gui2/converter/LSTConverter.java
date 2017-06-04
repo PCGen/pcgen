@@ -79,13 +79,13 @@ public class LSTConverter extends Observable
 	private final GenericLoader<PCStat> statLoader = new GenericLoader<>(PCStat.class);
 	private final CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private final EditorLoadContext context;
-	private List<Loader> loaders;
-	private Set<URI> written = new HashSet<>();
+	private final List<Loader> loaders;
+	private final Set<URI> written = new HashSet<>();
 	private final String outDir;
 	private final File rootDir;
 	private final DoubleKeyMapToList<Loader, URI, CDOMObject> injected = new DoubleKeyMapToList<>();
 	private final ConversionDecider decider;
-	private Writer changeLogWriter;
+	private final Writer changeLogWriter;
 	
 	public LSTConverter(EditorLoadContext lc, File root, String outputDir,
 			ConversionDecider cd, Writer changeLogWriter) 

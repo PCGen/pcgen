@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 22, 2002, 4:30 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core;
@@ -70,7 +68,6 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * Handles game modes.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class GameMode implements Comparable<Object>, GameModeFacade
 {
@@ -1319,9 +1316,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return alignmentName;
 	}
 
-	/**
-	 * 
-	 */
+
 	public List<String> getAllowedModes()
 	{
 		if (allowedModes == null)
@@ -1335,9 +1330,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return allowedModes;
 	}
 
-	/**
-	 * 
-	 */
+
 	String getAltHPAbbrev()
 	{
 		return althpAbbrev;
@@ -1445,17 +1438,13 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return hpAbbrev;
 	}
 
-	/**
-	 * 
-	 */
+
 	String getHPText()
 	{
 		return hpName;
 	}
 
-	/**
-	 * 
-	 */
+
 	List<String> getLoadStrings()
 	{
 		return loadStrings;
@@ -1470,9 +1459,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return currencyUnit;
 	}
 
-	/**
-	 * 
-	 */
+
 	public String getRankModFormula()
 	{
 		return rankModFormula;
@@ -2350,9 +2337,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return ac;
 	}
 
-	/**
-	 *
-	 */
+
 	private AbilityCategory silentlyGetAbilityCategory(final String aKey)
 	{
 		AbilityCategory cat = getContext().getReferenceContext()
@@ -2405,33 +2390,25 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return Collections.unmodifiableCollection(catList);
 	}
 
-	/**
-	 *
-	 */
+
 	public void setPreviewDir(final String aDir)
 	{
 		thePreviewDir = aDir;
 	}
 
-	/**
-	 *
-	 */
+
 	private String getPreviewDir()
 	{
 		return thePreviewDir;
 	}
 
-	/**
-	 *
-	 */
+
 	public void setDefaultPreviewSheet(final String aSheet)
 	{
 		theDefaultPreviewSheet = aSheet;
 	}
 
-	/**
-	 *
-	 */
+
 	public String getDefaultPreviewSheet()
 	{
 		return theDefaultPreviewSheet;
@@ -2637,9 +2614,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
 	private String defaultSourceTitle;
 
-	/**
-	 *
-	 */
+
 	public void clearLoadContext()
 	{
 		masterLCS = new ConsolidatedListCommitStrategy();
@@ -2677,9 +2652,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 	}
 
-	/**
-	 *
-	 */
+
 	static <T extends Loadable> void resolveReferenceManufacturer(
 			AbstractReferenceContext rc, ReferenceManufacturer<T> rm)
 	{
@@ -2703,33 +2676,25 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		rm.injectConstructed(mfg);
 	}
 
-	/**
-	 *
-	 */
+
 	public LoadContext getContext()
 	{
 		return context;
 	}
 
-	/**
-	 *
-	 */
+
 	public LoadContext getModeContext()
 	{
 		return modeContext;
 	}
 
-	/**
-	 *
-	 */
+
 	public MasterListInterface getMasterLists()
 	{
 		return masterLCS;
 	}
 
-	/**
-	 *
-	 */
+
 	public void addHiddenType(Class<?> cl, String s)
 	{
 		Set<String> set = hiddenTypes.get(cl);
@@ -2882,9 +2847,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return defaultSourceTitle;
 	}
 
-	/**
-	 *
-	 */
+
 	public String getTabName(Tab tab)
 	{
 		TabInfo ti = getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -2892,9 +2855,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return ti.getResolvedName();
 	}
 
-	/**
-	 *
-	 */
+
 	public boolean getTabShown(Tab tab)
 	{
 		TabInfo ti = getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -2902,9 +2863,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return ti.isVisible();
 	}
 
-	/**
-	 *
-	 */
+
 	public void setTabVisible(CDOMSingleRef<TabInfo> ref, Boolean set)
 	{
 		if (visibleTabs == null)
@@ -2914,9 +2873,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		visibleTabs.put(ref, set);
 	}
 
-	/**
-	 *
-	 */
+
 	public Boolean getTabVisibility(TabInfo ti)
 	{
 		if (visibleTabs == null)
@@ -2937,9 +2894,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * End SHOWTAB compatibility
 	 */
 
-	/**
-	 *
-	 */
+
 	public LoadInfo getLoadInfo()
 	{
 		return getModeContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -3088,17 +3043,13 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return getUnitSet().getWeightUnit();
 	}
 
-	/**
-	 *
-	 */
+
 	AbilityCategory getFeatTemplate()
 	{
 		return featTemplate;
 	}
 
-	/**
-	 *
-	 */
+
 	public void setFeatTemplate(AbilityCategory featTemplate)
 	{
 		this.featTemplate = featTemplate;

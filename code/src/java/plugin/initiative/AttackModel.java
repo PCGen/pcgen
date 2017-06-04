@@ -15,7 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package plugin.initiative;
 
@@ -34,7 +33,6 @@ import pcgen.base.lang.StringUtil;
  * off-hand attacks (as in +10/+5;+10).  It splits damage into
  * primary and off-hand by a slash, and the same with crit multiples
  * and ranges.</p>
- *
  */
 public class AttackModel extends PObjectModel
 {
@@ -557,7 +555,6 @@ public class AttackModel extends PObjectModel
 	 * {@code
 	 *    Bonus/Bonus/Bonus...;off hand bonus/off hand bonus...
 	 * }
-	 * <br>
 	 * The method splits the string into primary and off-hand bonus values, and
 	 * splits the separate strings into individual bonuses. The length of the
 	 * resulting list of bonuses drives the indices used to determine bonuses
@@ -620,11 +617,11 @@ public class AttackModel extends PObjectModel
 				{
 					if (i == firstOffHandAttack)
 					{
-						sb.append(";");
+						sb.append(';');
 					}
 					else
 					{
-						sb.append("/");
+						sb.append('/');
 					}
 				}
 
@@ -654,7 +651,7 @@ public class AttackModel extends PObjectModel
 	}
 
 	/**
-	 * <p>Sets teh weapon type.</p>
+	 * <p>Sets the weapon type.</p>
 	 * @param string
 	 */
 	public void setType(String string)
@@ -671,7 +668,7 @@ public class AttackModel extends PObjectModel
 		return type;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 *
 	 * Gets a string representation of the object.
@@ -681,12 +678,12 @@ public class AttackModel extends PObjectModel
 	{
 		String returnValue;
 		returnValue =
-				getName() + " " + getToHit() + " " + getRange() + "/"
-					+ getType() + " (" + getDamage() + " " + getCritRange()
-					+ "/x" + getCritMultiple() + " " + getHand() + " "
+				getName() + ' ' + getToHit() + ' ' + getRange() + '/'
+					+ getType() + " (" + getDamage() + ' ' + getCritRange()
+					+ "/x" + getCritMultiple() + ' ' + getHand() + ' '
 					+ getSize()
 					+ ("".equals(getSpecialProp()) ? "" : getSpecialProp())
-					+ ")";
+					+ ')';
 
 		return returnValue;
 	}

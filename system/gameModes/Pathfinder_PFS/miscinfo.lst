@@ -334,7 +334,7 @@ DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 RESIZABLEEQUIPTYPE:Shield|Armor|Resizable
 
 # Character Types:
-CHARACTERTYPE:PC|NPC
+CHARACTERTYPE:PC|NPC|Monster
 
 # With the basic loader giving several offerings, we don't need this, plus it's using the character traits which was replaced by APG.
 DEFAULTDATASET:Pathfinder Society Core Assumption

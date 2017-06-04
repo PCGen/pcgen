@@ -1,5 +1,4 @@
 /*
- * SkillCostTableModel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -36,9 +35,7 @@ import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class SkillCostTableModel extends AbstractTableModel implements ListSelectionListener
 {
 

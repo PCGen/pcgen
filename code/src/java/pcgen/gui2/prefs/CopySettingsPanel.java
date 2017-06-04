@@ -1,5 +1,4 @@
 /*
- * CopySettingsPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -54,14 +53,14 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class CopySettingsPanel extends PCGenPrefsPanel
 {
-	private static String in_copy_settings =
+	private static final String in_copy_settings =
 		LanguageBundle.getString("in_Prefs_copy");
 	
-	private JComboBoxEx gameModeSelect = new JComboBoxEx();
-	private JButton copyButton =
+	private final JComboBoxEx gameModeSelect = new JComboBoxEx();
+	private final JButton copyButton =
 			new JButton(LanguageBundle.getString("in_copy"));
 
-	private List<PCGenPrefsPanel> affectedPanels =
+	private final List<PCGenPrefsPanel> affectedPanels =
             new ArrayList<>();
 
 	/**
@@ -121,7 +120,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -130,7 +129,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		return in_copy_settings;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -139,7 +138,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		// Do nothing
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override
@@ -165,7 +164,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 	private final class CopyButtonListener implements ActionListener
 	{
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
 		@Override

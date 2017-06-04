@@ -334,9 +334,20 @@ CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_AThousandFaces|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_TimelessBody|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_NatureBond|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_ClassSkills|0
-CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShape6|0
-CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShape8|0
-
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeUses4|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeUses6|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeUses8|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeUses10|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeUses12|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeUses14|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeUses16|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeUses18|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeUses20|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeOptions4|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeOptions6|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeOptions8|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeOptions10|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeOptions12|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_DruidDomain|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_AnimalCompanion|0
 
@@ -352,9 +363,19 @@ CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Drui
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_TimelessBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_TimelessBody=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_NatureBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_NatureBond=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ClassSkills=True
-CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShape6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
-CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShape8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
-
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeUses4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeUses4=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeUses8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeUses8=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeUses10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeUses10=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeUses12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeUses12=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeUses14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeUses14=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeUses16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeUses16=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeUses18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeUses18=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeUses20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeUses20=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeOptions4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeOptions4=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeOptions6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeOptions6=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeOptions8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeOptions8=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeOptions10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeOptions10=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShapeOptions12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShapeOptions12=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_DruidDomain|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_DruidDomain=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_AnimalCompanion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_AnimalCompanion=True
 

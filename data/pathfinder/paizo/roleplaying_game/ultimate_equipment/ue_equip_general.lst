@@ -562,7 +562,7 @@ Marbles.MOD																	TYPE:Goods.General															COST:0.1	WT:2					S
 Mess Kit																	TYPE:Goods.General															COST:0.2	WT:1					SOURCEPAGE:p.68
 Miner's Pick																TYPE:Goods.General															COST:3	WT:10					SOURCEPAGE:p.68
 Mirror (Small/Steel).MOD																																							SOURCEPAGE:p.68
-Mock Armor																	TYPE:Goods.Cloth.Clothing.Armor.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
+Mock Armor																	TYPE:Goods.Cloth.Clothing.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
 Mug or Tankard (Clay).MOD																																							SOURCEPAGE:p.68
 Oil (1 Pint Flask).MOD																																								SOURCEPAGE:p.68
 Paper (Sheet).MOD																																									SOURCEPAGE:p.69

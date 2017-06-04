@@ -62,10 +62,10 @@ ABILITYCATEGORY:Crossblooded Rager Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ABILITYCATEGORY:Crossblooded Rager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:CrossbloodedRagerFeat												PLURAL:Crossblooded Rager Feats			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Crossblooded Rager Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:CrossbloodedRagerSpellChoice											PLURAL:Crossblooded Rager Spells			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Crossblooded Rager Bloodline Powers	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:CrossbloodedRagerPowerChoice											PLURAL:Crossblooded Rager Bloodline Powers	DISPLAYLOCATION:Class Features
-
+ABILITYCATEGORY:Bloodrager Draconic Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Bloodrager Draconic Bloodline
 
 #
-ABILITYCATEGORY:Brawler Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:Combat															PLURAL:Brawler Bonus Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Brawler Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:Combat.Meditation													PLURAL:Brawler Bonus Feats				DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Brawler's Strike Alignment Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:BrawlerStrikeAlignmentSelection										PLURAL:Brawler's Strike Alignment Selections	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Maneuver Training I Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:BrawlerManeuverTrainingISelection										PLURAL:Maneuver Training I Selections		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Maneuver Training II Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:BrawlerManeuverTrainingIISelection										PLURAL:Maneuver Training II Selections		DISPLAYLOCATION:Class Features

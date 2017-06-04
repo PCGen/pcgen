@@ -1,5 +1,4 @@
 /*
- * Utilities.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -27,9 +26,7 @@ import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class Utilities
 {
 

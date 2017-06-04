@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 17/02/2014 7:41:11 am
  *
- * $Id$
  */
 package pcgen.pluginmgr.messages;
 
@@ -29,9 +27,7 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code PlayerCharacterWasClosedMessage} encapsulates an
  * advisory message that a character was closed in the user interface of PCGen.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class PlayerCharacterWasClosedMessage extends PCGenMessage

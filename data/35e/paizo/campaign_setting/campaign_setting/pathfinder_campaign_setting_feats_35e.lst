@@ -20,7 +20,7 @@ CATEGORY=FEAT|Storm-Lashed.MOD																PRESKILL:1,Profession (Sailor)=1
 # Feat Name			Required Ability							Required Skill					Allowed Companions
 # Ability Name				Required Ability							Required Skill					Allowed Companions
 CATEGORY=FEAT|Harmonic Spell.MOD										PRESKILL:1,TYPE=Perform=8
-CATEGORY=FEAT|One Finger.MOD		PREABILITY:1,CATEGORY=Special Ability,Ki Strike
+CATEGORY=FEAT|One Finger.MOD		PREABILITY:1,CATEGORY=Special Ability,Monk ~ Ki Strike
 CATEGORY=FEAT|Spirit Strike.MOD	PREABILITY:1,CATEGORY=Special Ability,TYPE=TurnUndead	PRESKILL:1,Knowledge (Religion)=5
 CATEGORY=FEAT|Vermin Companion.MOD																	COMPANIONLIST:Animal Companion|Giant Ant (Worker),Giant Fire Beetle,Monstrous Centipede (Medium),Monstrous Scorpion (Medium),Monstrous Spider (Medium)	COMPANIONLIST:Animal Companion|Giant Ant (Soldier),Giant Bee,Giant Bombardier Beetle,Monstrous Centipede (Large),Monstrous Scorpion (Large),Monstrous Spider (Large)|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Giant Praying Mantis,Giant Stag Beetle,Giant Wasp,Monstrous Centipede (Huge)|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Monstrous Centipede (Gargantuan),Monstrous Spider (Huge)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Monstrous Scorpion (Huge)|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Monstrous Spider (Gargantuan)|FOLLOWERADJUSTMENT:-15
 CATEGORY=FEAT|Wand Dancer.MOD											PRESKILL:2,Perform (Dance)=1,Tumble=1

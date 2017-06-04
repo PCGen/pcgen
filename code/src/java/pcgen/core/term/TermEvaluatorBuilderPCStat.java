@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EvaluatorFactoryPCStat.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 21-Sep-2008 01:29:15
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -27,9 +23,9 @@ package pcgen.core.term;
 public class TermEvaluatorBuilderPCStat implements TermEvaluatorBuilder
 {
 
-	private String   termConstructorPattern;
-	private String[] termConstructorKeys;
-	private boolean  patternMatchesEntireTerm;
+	private final String   termConstructorPattern;
+	private final String[] termConstructorKeys;
+	private final boolean  patternMatchesEntireTerm;
 
 	TermEvaluatorBuilderPCStat(
 			String pattern,

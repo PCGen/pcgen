@@ -21,9 +21,7 @@ package pcgen.gui2.util.treeview;
 
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class DefaultDataViewColumn implements DataViewColumn
 {
 

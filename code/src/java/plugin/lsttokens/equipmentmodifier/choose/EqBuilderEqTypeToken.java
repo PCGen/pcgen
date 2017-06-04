@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package plugin.lsttokens.equipmentmodifier.choose;
 
@@ -34,7 +32,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * string to allow the selection of equipent types.
  *
  * (Tue, 06 May 2008) $
- *
  */
 public class EqBuilderEqTypeToken implements
 		CDOMSecondaryToken<EquipmentModifier>

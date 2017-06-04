@@ -1,5 +1,4 @@
 /*
- * SpellInfoHandler.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -30,9 +29,7 @@ import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
 
-/**
- *
- */
+
 class SpellInfoHandler implements ListSelectionListener
 {
 

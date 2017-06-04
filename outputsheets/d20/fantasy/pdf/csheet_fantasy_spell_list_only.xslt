@@ -215,6 +215,11 @@
 		<traits.lightline><subattrib light=""/></traits.lightline>
 		<traits.darkline><subattrib medium=""/></traits.darkline>
 
+		<drawbacks.title><subattrib centre="" inverse=""/></drawbacks.title>
+		<drawbacks.border><subattrib border="" normal=""/></drawbacks.border>
+		<drawbacks.lightline><subattrib light=""/></drawbacks.lightline>
+		<drawbacks.darkline><subattrib medium=""/></drawbacks.darkline>
+
 
 		<salient_divine_abilities.title><subattrib centre="" inverse=""/></salient_divine_abilities.title>
 		<salient_divine_abilities.border><subattrib border="" normal=""/></salient_divine_abilities.border>

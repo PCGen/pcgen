@@ -1,5 +1,4 @@
 /*
- * TodoHandler.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -23,7 +22,6 @@ package pcgen.gui2.tabs;
  * of which field should be used to action a todo. This may be by highlighting 
  * the field, or changing focus to the field.   
  *
- * <br>
  * 
  */
 
