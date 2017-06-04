@@ -224,7 +224,7 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/release/pcgen.exe"
     from "$projectDir/code/pcgen.sh"
-    into "$projectDir"
+    into "$projectDir/output"
     rename "(.+)-$version(.+)", '$1$2'
 }
 
