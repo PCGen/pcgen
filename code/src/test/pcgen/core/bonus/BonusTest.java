@@ -48,9 +48,7 @@ import plugin.bonustokens.Var;
 public class BonusTest extends AbstractCharacterTestCase
 {
 
-	/**
-	 *
-	 */
+
 	public BonusTest()
 	{
 	}

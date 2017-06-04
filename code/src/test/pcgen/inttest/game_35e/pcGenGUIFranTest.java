@@ -1,5 +1,4 @@
-/*
- */
+
 package pcgen.inttest.game_35e;
 
 import pcgen.inttest.PcgenFtlTestCase;
@@ -14,9 +13,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIFranTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIFranTest()
 	{
 		super("35e_fran");

@@ -1,5 +1,4 @@
-/*
- */
+
 package pcgen.inttest.game_35e;
 
 import junit.framework.Test;
@@ -13,9 +12,7 @@ import pcgen.inttest.PcgenFtlTestCase;
 public class pcGenGUIJangoTest extends PcgenFtlTestCase
 {
 
-	/**
-	 *
-	 */
+
 	public pcGenGUIJangoTest()
 	{
 		super("35e_jango");

@@ -24,9 +24,7 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- *
- */
+
 public class PrePCLevelTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {

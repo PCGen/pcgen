@@ -32,9 +32,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
-/**
- *
- */
+
 @SuppressWarnings("nls")
 public class PreRaceTest extends AbstractCharacterTestCase
 {

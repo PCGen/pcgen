@@ -1,5 +1,4 @@
-/*
- */
+
 package pcgen.inttest.game_35e;
 
 import pcgen.inttest.PcgenFtlTestCase;
@@ -13,9 +12,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIMalloryTest extends PcgenFtlTestCase
 {
 
-	/**
-	 *
-	 */
+
 	public pcGenGUIMalloryTest()
 	{
 		super("35e_mallory");

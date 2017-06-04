@@ -29,12 +29,8 @@ import pcgen.core.analysis.SubClassApplication;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.test.PreSubClassTester;
 
-/**
- *
- */
-/**
- *
- */
+
+
 public class PreSubClassTest extends AbstractCharacterTestCase
 {
 	/**

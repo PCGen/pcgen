@@ -32,9 +32,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIElwoodTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIElwoodTest()
 	{
 		super("msrd_elwood");

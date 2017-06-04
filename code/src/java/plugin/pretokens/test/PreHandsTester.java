@@ -31,9 +31,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class PreHandsTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {

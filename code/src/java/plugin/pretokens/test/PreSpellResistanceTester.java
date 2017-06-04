@@ -27,9 +27,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- *
- */
+
 public class PreSpellResistanceTester extends AbstractPrerequisiteTest
 		implements PrerequisiteTest
 {

@@ -30,9 +30,7 @@ import pcgen.system.LanguageBundle;
 
 import java.util.List;
 
-/**
- *
- */
+
 public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 		implements PrerequisiteTest
 {
