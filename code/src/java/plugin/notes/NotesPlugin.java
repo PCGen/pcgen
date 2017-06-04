@@ -193,7 +193,6 @@ public class NotesPlugin implements InteractivePlugin
 
 	/**
 	 * Handles the FileOpenMessage
-	 *
 	 */
 	private void handleFileOpenMessage()
 	{
@@ -238,7 +237,6 @@ public class NotesPlugin implements InteractivePlugin
 
 	/**
 	 * Handles the WindowClosedMessage
-	 *
 	 */
 	private void handleWindowClosedMessage()
 	{

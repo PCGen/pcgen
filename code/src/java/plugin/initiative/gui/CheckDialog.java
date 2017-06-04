@@ -56,7 +56,6 @@ public class CheckDialog extends DiceRollDialog
 	 * <p>
 	 * Initializes the DC value
 	 * </p>
-	 *
 	 */
 	private void initDC()
 	{

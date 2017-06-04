@@ -96,7 +96,6 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	 * Gets the current data directory setting
 	 * </p>
 	 * @return data directory
-	 *
 	 */
 	private String getDataDir()
 	{

@@ -1171,7 +1171,6 @@ final class PCGVer2Parser implements PCGParser
 			 * It only works because I've already sorted on output
 			 * in PCGVer2Creator
 			 * author: Jayme Cox 01-16-03
-			 *
 			 */
 
 			//Collections.sort(cache.get(TAG_EQUIPSET), new EquipSetLineComparator());

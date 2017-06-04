@@ -102,7 +102,6 @@ public class StartEvent extends javax.swing.JDialog
 	/**
 	 *
 	 * <p>Initializes the alert checkbox based on the options.</p>
-	 *
 	 */
 	public void initCheckBox()
 	{
@@ -172,7 +171,6 @@ public class StartEvent extends javax.swing.JDialog
 	/**
 	 *
 	 * <p>Initializes the components.</p>
-	 *
 	 */
 	protected void initComponents()
 	{

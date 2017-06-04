@@ -466,7 +466,6 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 *
 	 * <p>Calculates the save total based on the current values
 	 * of all fields.</p>
-	 *
 	 */
 	private void calculate()
 	{
@@ -558,7 +557,6 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	/**
 	 *
 	 * <p>Updates DC and save type values back to the dialog's model.</p>
-	 *
 	 */
 	private void updateModel()
 	{
@@ -597,7 +595,6 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	/**
 	 *
 	 * <p>Initializes all form components</p>
-	 *
 	 */
 	private void initComponents()
 	{

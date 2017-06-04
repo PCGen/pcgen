@@ -32,7 +32,6 @@ public final class ResourceChecker
 
 	/**
 	 * Handle to resource bundle message for when there is a missing resource
-	 *
 	 */
 	static final String missingLibMsg =
 			LanguageBundle.getString("MissingLibMessage").replace('|', '\n');

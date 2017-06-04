@@ -195,7 +195,6 @@ public class AttackDialog extends JDialog
 
 	/**
 	 * Handles actions from the Ok button.  Sets the damage list and hides the dialog.
-	 *
 	 */
 	protected void handleOk()
 	{
