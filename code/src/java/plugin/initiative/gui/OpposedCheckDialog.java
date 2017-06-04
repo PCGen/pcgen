@@ -17,7 +17,6 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * OpposedCheckDialog.java
- *
  */
 
 package plugin.initiative.gui;
@@ -92,7 +91,6 @@ import plugin.initiative.OpposedSkillTypeModel;
  *    <li>TODO: Add comparison/re-sorting support to models?</li>
  *    <li>TODO: Add logging support to the initiative tracker log</li>
  * </ul>
- *
  */
 class OpposedCheckDialog extends JDialog
 {
