@@ -395,8 +395,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		return targets;
 	}
 
-	/**
-	 */
+
 	public void setLoadLabel(String text)
 	{
 		// bold / highlight text based on encumbrance value

@@ -33,7 +33,6 @@ import plugin.overland.util.Localized;
 
 /**
  * Stores travel methods and provides model for use in a GUI. Implementation. Visible only in same package.
- *
  */
 class TravelMethodImplementation implements TravelMethod
 {

@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.core;
 
@@ -47,8 +44,6 @@ import pcgen.util.enumeration.Visibility;
  * This supports either the user manually choosing which option
  * they want, or the generator creating one object for each
  * combination of choices.
- *
- *
  */
 
 public final class EquipmentChoice

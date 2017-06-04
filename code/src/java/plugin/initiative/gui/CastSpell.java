@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  CastSpell.java
- *
  */
 package plugin.initiative.gui;
 
@@ -141,7 +140,6 @@ public class CastSpell extends StartEvent
 	/**
 	 *
 	 * <p>Initializes the components.</p>
-	 *
 	 */
     @Override
 	protected void initComponents()

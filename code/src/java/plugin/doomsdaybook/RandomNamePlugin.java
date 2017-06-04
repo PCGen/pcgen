@@ -38,9 +38,7 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
 
-/**
- * 
- */
+
 public class RandomNamePlugin implements InteractivePlugin
 {
 	/** Log name */

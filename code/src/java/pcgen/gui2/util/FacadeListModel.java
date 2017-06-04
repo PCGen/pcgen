@@ -26,9 +26,7 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- */
+
 @SuppressWarnings("serial")
 public class FacadeListModel<E> extends AbstractListModel implements ListListener<E>
 {

@@ -32,8 +32,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
-/**
- */
+
 @SuppressWarnings("nls")
 public class PreReqHandlerTest extends TestCase
 {

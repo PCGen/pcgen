@@ -25,6 +25,7 @@ plugins {
     id "de.undercouch.download" version "3.2.0"
     id 'edu.sc.seis.launch4j' version '2.1.0'
     id 'com.github.ben-manes.versions' version '0.14.0'
+    id 'nebula.lint' version '7.0.0'
 }
 
 group = 'net.sourceforge.pcgen'
@@ -219,12 +220,17 @@ task copyToLibs(type: Copy) {
     from configurations.runtime
 }
 
+import org.apache.tools.ant.filters.FixCrLfFilter;
 task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/release/pcgen.exe"
-    from "$projectDir/code/pcgen.sh"
-    into "$projectDir/output"
+    from("$projectDir/code/pcgen.sh") {
+        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
+        fileMode 0755
+    }
+     into "$projectDir/output"
+
     rename "(.+)-$version(.+)", '$1$2'
 }
 

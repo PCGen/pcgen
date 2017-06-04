@@ -47,7 +47,6 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 	/**
 	 * Tests outputting an empty description.
-	 *
 	 */
 	public void testEmptyDesc()
 	{
@@ -59,7 +58,6 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 	/**
 	 * Tests outputting a simple description.
-	 *
 	 */
 	public void testSimpleDesc()
 	{

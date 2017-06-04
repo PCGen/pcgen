@@ -28,9 +28,7 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
 
-/**
- *
- */
+
 public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 {
 	public static final int EXPERIENCE_3 = 1;

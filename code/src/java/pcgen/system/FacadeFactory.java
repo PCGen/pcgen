@@ -52,9 +52,7 @@ import pcgen.util.Logging;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-/**
- *
- */
+
 public class FacadeFactory
 {
 

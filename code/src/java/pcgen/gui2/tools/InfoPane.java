@@ -33,9 +33,7 @@ import javax.swing.text.EditorKit;
 import pcgen.base.lang.UnreachableError;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class InfoPane extends JScrollPane
 {
 

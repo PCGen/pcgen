@@ -66,6 +66,7 @@ import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
+
 public class GameModeFileLoader extends PCGenTask
 {
 

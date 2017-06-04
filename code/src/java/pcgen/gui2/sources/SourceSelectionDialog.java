@@ -80,9 +80,7 @@ import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 
-/**
- *
- */
+
 public class SourceSelectionDialog extends JDialog
 		implements ActionListener, ChangeListener, ListSelectionListener
 {

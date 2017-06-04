@@ -41,7 +41,6 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	/**
 	 *  Creates an instance of this class. It creates the tabbed pane, sets the
 	 *  layout, and registers all the listeners.
-	 *
 	 */
 	public GMGenSystemView()
 	{
@@ -81,7 +80,6 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	/**
 	 *  Places the whole {@code JTabbedPane} on the main frame setting it
 	 *  visible.
-	 *
 	 */
 	public void showPane()
 	{
@@ -100,7 +98,6 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 
 	/**
 	 *  Initializes the GUI components and sets up the layout being used.
-	 *
 	 */
 	private void initComponents()
 	{

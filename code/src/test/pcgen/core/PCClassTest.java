@@ -63,8 +63,7 @@ import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreVariableParser;
 
-/**
- */
+
 @SuppressWarnings("nls")
 public class PCClassTest extends AbstractCharacterTestCase
 {

@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.exporttokens;
 
@@ -39,8 +36,6 @@ import pcgen.util.Delta;
  * spellcaster classname, or the effective casting level, including
  * bonus levels from other classes. The level is output if the token
  * ends in .LEVEL
- *
- *
  */
 
 public class SpellListClassToken extends SpellListToken

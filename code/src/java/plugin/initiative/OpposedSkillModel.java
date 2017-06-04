@@ -17,7 +17,6 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * OpposedSkillModel.java
- *
  */
 
 package plugin.initiative;
@@ -46,7 +45,6 @@ import pcgen.core.RollingMethods;
  * </p>
  * <p>
  * </p>
- *
  */
 public class OpposedSkillModel extends OpposedSkillBasicModel
 {

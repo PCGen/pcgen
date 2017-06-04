@@ -28,9 +28,7 @@ import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import plugin.pretokens.test.PreWieldTester;
 
-/**
- *
- */
+
 public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 {
 

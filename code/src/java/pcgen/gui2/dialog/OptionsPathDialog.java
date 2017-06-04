@@ -45,9 +45,7 @@ import org.apache.commons.lang3.SystemUtils;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.ConfigurationSettings.SettingsFilesPath;
 
-/**
- *
- */
+
 public class OptionsPathDialog extends JDialog
 {
 

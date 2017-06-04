@@ -53,9 +53,7 @@ import org.lobobrowser.html.test.SimpleUserAgentContext;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-/**
- *
- */
+
 public class CharacterSheetPanel extends HtmlPanel implements CharacterSelectionListener
 {
 	private enum CssColor
