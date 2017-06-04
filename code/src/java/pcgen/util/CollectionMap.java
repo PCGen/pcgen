@@ -28,7 +28,6 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- *
  */
 public interface CollectionMap<K, V, C extends Collection<V>> extends Map<K, C>{
     /**
