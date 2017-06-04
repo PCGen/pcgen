@@ -18,7 +18,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision: 18723 $
- *
  */
 package pcgen.core.analysis;
 
