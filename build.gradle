@@ -9,8 +9,6 @@
  * Build and run all tests: gradle clean build slowtest
  * Run the data tests: gradle datatest
  * Run the character integration tests: gradle inttest
- *
- * Author: James Dempsey
  */
 
 plugins {
