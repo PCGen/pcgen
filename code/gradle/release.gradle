@@ -157,7 +157,8 @@ launch4j {
     stayAlive = false
     bundledJre64Bit = true
     dontWrapJar = true
-    bundledJrePath = 'jre'
+    //Use the local java defined in java home.
+    bundledJrePath = System.properties['java.home']
     jar = "pcgen.jar"
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
@@ -165,50 +166,6 @@ launch4j {
     splashTimeoutError = true
     //Can't be longer than 150 characters
     copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
-}
-
-task downloadJRE doLast {
-    def m = System.properties['java.runtime.version'] =~ /(\d+)\.(\d+)\.(\d+)_(\d+)\-b(\d+)/
-    def major = Integer.parseInt(m[0][1], 10)
-    def minor = Integer.parseInt(m[0][2], 10)
-    def micro = Integer.parseInt(m[0][3], 10)
-    def update = Integer.parseInt(m[0][4], 10)
-    def build = m[0][5]
-    def extension = 'tar.gz'
-    def jre64Dir = new File("${projectDir}/jre/jre_64")
-    if(!jre64Dir.exists()){
-        println("Downloading Java ${minor}u${update} JRE missing tar files...")
-        //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
-        def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
-        def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
-        if(!jre64Dir.exists()){
-            download {
-                src jre64URL
-                dest new File("${projectDir}/jre/", "jre_64.${extension}")
-                header 'Cookie', oracleCookie
-                overwrite false
-            }
-        }
-        //Now untar them
-        fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
-            copy {
-                println "Untar $simLib.name"
-                def name = simLib.name - '.tar.gz'
-                from tarTree("${projectDir}/jre/${simLib.name}")
-                into "${projectDir}/jre/$name"
-            }
-            new File("${projectDir}/jre/${simLib.name}").delete()
-        }
-        def jre64 = new File("${projectDir}/jre/jre_64/jre${major}.${minor}.${micro}_${update}")
-        //Removing the folder with specific version so it's easier to handle in NSIS script.
-        if(jre64.exists()){
-            copy {
-                from jre64
-                into "${projectDir}/jre/jre_64"
-            }
-            jre64.deleteDir()
-        }
-    }
 }
 
 task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
@@ -269,7 +226,7 @@ task genProjectNsis doLast {
 
 // Call NSIS to generate windows installer
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
-        genProjectNsis, downloadJRE, createExe]) doLast {
+        genProjectNsis, createExe]) doLast {
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
