@@ -36,7 +36,6 @@ import pcgen.core.SpecialAbility;
  * capability in the new UI (and transition any Player Characters that have a
  * user SpecialAbility.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UserSpecialAbilityFacet extends
 		AbstractQualifiedListFacet<SpecialAbility>
