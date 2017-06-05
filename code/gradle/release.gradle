@@ -180,7 +180,8 @@ task downloadJRE doLast {
         println("Downloading Java ${minor}u${update} JRE missing tar files...")
         //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
         def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
-        def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+        println("From: ${jre64URL}")
+        def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjre8-downloads-2133155.html; oraclelicense=accept-securebackup-cookie'
         if(!jre64Dir.exists()){
             download {
                 src jre64URL
