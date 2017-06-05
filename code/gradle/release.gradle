@@ -113,39 +113,6 @@ ext {
     }
 }
 
-task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
-    description="Assemble the required files for all PCGen installations"
-    doFirst {
-        // Release notes are required!
-        assert file(releaseNotes).exists()
-    }
-
-    into nsisBaseFolder
-    from ("${projectDir}/installers/win-installer/Local") {
-        into "../Local"
-    }
-    from ("${projectDir}/installers/win-installer/") {
-        into "/docs/acknowledgments/"
-        include "PCGenLicense.txt"
-    }
-    from ("${projectDir}") {
-        include '*.jar'
-        include 'logging.properties'
-        include 'system/**' // Later we want to split out the game modes to optional
-        include 'docs/**'
-        include 'preview/**'
-        include 'characters/*.pcg'
-    }
-    from ("${buildDir}/release") {
-        include 'pcgen.exe'
-    }
-
-    with baseLibs
-    with basePlugins
-    with nonPdfOutput
-    with baseData
-}
-
 //See: https://github.com/TheBoegl/gradle-launch4j\
 launch4j {
     mainClassName = 'pcgen.system.Main'
@@ -266,31 +233,6 @@ task genProjectNsis doLast {
 
     mkdir "${buildDir}/release"
 }
-
-// Call NSIS to generate windows installer
-task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
-        genProjectNsis, downloadJRE, createExe]) doLast {
-    if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
-        new ByteArrayOutputStream().withStream { os ->
-            def result = exec {
-                workingDir = "${buildDir}/nsis"
-                executable = 'C:/Program Files (x86)/NSIS/makensis.exe'
-                args = ["/V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
-            }
-        }
-    } else if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('linux')){
-        new ByteArrayOutputStream().withStream { os ->
-            def result = exec {
-                workingDir = "${buildDir}/nsis"
-                executable = 'makensis'
-                args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
-            }
-        }
-    }else{
-        printf "Unhandled OS: " + System.properties['os.name']
-    }
-}
-buildNsis.mustRunAfter createExe
 
 task cleanNsis(type: Delete) {
     delete nsisBaseFolder, nsisOptionFolder, "${buildDir}/nsis/Local"
