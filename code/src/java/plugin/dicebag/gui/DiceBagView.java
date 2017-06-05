@@ -46,7 +46,6 @@ import pcgen.gui2.tools.Icons;
 
 /**
  * <p>The internal frame view class for the DiceBag.</p>
- *
  */
 public class DiceBagView extends JInternalFrame implements Observer
 {

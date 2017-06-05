@@ -56,7 +56,6 @@ import plugin.dicebag.gui.DiceBagPluginController;
  * the {@code dicebag.gui} classes, nor should those classes call the
  * framework directly.
  * </p>
- *
  */
 public class DiceBagPlugin implements InteractivePlugin
 {
