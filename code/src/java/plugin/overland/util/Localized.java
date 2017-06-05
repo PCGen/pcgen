@@ -62,9 +62,13 @@ public class Localized
 	public Localized(Element element, String attribute)
 	{
 		if (attribute == null)
+		{
 			defaultName = element.getTextTrim();
+		}
 		else
+		{
 			defaultName = element.getAttributeValue(attribute);
+		}
 		update(element, attribute);
 	}
 
@@ -131,8 +135,13 @@ public class Localized
 		if (NEED_RESTART)
 		{
 			if (defaultLocaleName != null)
+			{
 				return defaultLocaleName;
-			else return defaultName;
+			}
+			else
+			{
+				return defaultName;
+			}
 		}
 		return toString(Locale.getDefault());
 	}
@@ -153,11 +162,17 @@ public class Localized
 				String lang = child.getAttributeValue(ATTRIBUTE_LANGUAGE);
 				String name;
 				if (attribute == null)
+				{
 					name = child.getTextTrim();
+				}
 				else
+				{
 					name = child.getAttributeValue(attribute);
+				}
 				if (lang != null && !lang.isEmpty())
+				{
 					addName(lang, name);
+				}
 			}
 		}
 	}

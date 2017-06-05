@@ -563,7 +563,9 @@ public class EncounterPlugin extends MouseAdapter
 		for (Object obj : theModel.toArray())
 		{
 			if (!theRaces.contains(obj))
+			{
 				theModel.removeElement(obj);
+			}
 		}
 
 		theView.getEnvironment().setSelectedIndex(sel);
