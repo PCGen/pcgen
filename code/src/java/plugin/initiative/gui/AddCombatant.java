@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  AddCombatant.java
- *
  */
 package plugin.initiative.gui;
 
@@ -38,8 +37,6 @@ import plugin.initiative.XMLCombatant;
  * {@code XMLCombatant}; Selecting the "Save" action constructs
  * the combatant(s) and saves them to the initiative model.
  * </p>
- *
- *
  */
 public class AddCombatant extends AbstractDialog
 {

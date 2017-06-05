@@ -20,9 +20,7 @@
 
 package pcgen.facade.core;
 
-/**
- *
- */
+
 public interface TempBonusFacade extends InfoFacade
 {
 

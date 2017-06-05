@@ -2,7 +2,7 @@
 <equipment_tables game_mode="35e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="treasure.xsd">
 	<table id="CR1_COINS" name="CR1 Coins">
 		<entry weight="14" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="15" name="1d6x1,000 cp">
 			<equipment value="Coin (Copper)" quantity="roll(&quot;1d6&quot;)*1000" />
@@ -19,7 +19,7 @@
 	</table>
 	<table id="CR2_COINS" name="CR2 Coins">
 		<entry weight="13" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="10" name="1d10x1,000 cp">
 			<equipment value="Coin (Copper)" quantity="roll(&quot;1d10&quot;)*1000" />
@@ -36,7 +36,7 @@
 	</table>
 	<table id="CR3_COINS" name="CR3 Coins">
 		<entry weight="11" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="10" name="1d10x1,000 cp">
 			<equipment value="Coin (Copper)" quantity="roll(&quot;1d10&quot;)*1000" />
@@ -53,7 +53,7 @@
 	</table>
 	<table id="CR4_COINS" name="CR4 Coins">
 		<entry weight="11" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="10" name="3d10x1,000 cp">
 			<equipment value="Coin (Copper)" quantity="roll(&quot;3d10&quot;)*1000" />
@@ -70,7 +70,7 @@
 	</table>
 	<table id="CR5_COINS" name="CR5 Coins">
 		<entry weight="10" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="9" name="1d4x10,000 cp">
 			<equipment value="Coin (Copper)" quantity="roll(&quot;1d4&quot;)*10000" />
@@ -87,7 +87,7 @@
 	</table>
 	<table id="CR6_COINS" name="CR6 Coins">
 		<entry weight="10" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="8" name="1d6x10,000 cp">
 			<equipment value="Coin (Copper)" quantity="roll(&quot;1d6&quot;)*10000" />
@@ -104,7 +104,7 @@
 	</table>
 	<table id="CR7_COINS" name="CR7 Coins">
 		<entry weight="11" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="7" name="1d10x10,000 cp">
 			<equipment value="Coin (Copper)" quantity="roll(&quot;1d10&quot;)*10000" />
@@ -121,7 +121,7 @@
 	</table>
 	<table id="CR8_COINS" name="CR8 Coins">
 		<entry weight="10" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="5" name="1d12x10,000 cp">
 			<equipment value="Coin (Copper)" quantity="roll(&quot;1d12&quot;)*10000" />
@@ -138,7 +138,7 @@
 	</table>
 	<table id="CR9_COINS" name="CR9 Coins">
 		<entry weight="10" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="5" name="2d6x10,000 cp">
 			<equipment value="Coin (Copper)" quantity="roll(&quot;2d6&quot;)*10000" />
@@ -155,7 +155,7 @@
 	</table>
 	<table id="CR10_COINS" name="CR10 Coins">
 		<entry weight="10" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="14" name="2d10x1000 sp">
 			<equipment value="Coin (Silver)" quantity="roll(&quot;2d10&quot;)*1000" />
@@ -169,7 +169,7 @@
 	</table>
 	<table id="CR11_COINS" name="CR11 Coins">
 		<entry weight="8" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="6" name="3d10x1000 sp">
 			<equipment value="Coin (Silver)" quantity="roll(&quot;3d10&quot;)*1000" />
@@ -183,7 +183,7 @@
 	</table>
 	<table id="CR12_COINS" name="CR12 Coins">
 		<entry weight="8" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="6" name="3d12x1000 sp">
 			<equipment value="Coin (Silver)" quantity="roll(&quot;3d12&quot;)*1000" />
@@ -197,7 +197,7 @@
 	</table>
 	<table id="CR13_COINS" name="CR13 Coins">
 		<entry weight="8" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="67" name="1d4x1000 gp">
 			<equipment value="Coin (Gold)" quantity="roll(&quot;1d4&quot;)*1000" />
@@ -208,7 +208,7 @@
 	</table>
 	<table id="CR14_COINS" name="CR14 Coins">
 		<entry weight="8" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="67" name="1d6x1000 gp">
 			<equipment value="Coin (Gold)" quantity="roll(&quot;1d6&quot;)*1000" />
@@ -219,7 +219,7 @@
 	</table>
 	<table id="CR15_COINS" name="CR15 Coins">
 		<entry weight="3" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="71" name="1d8x1000 gp">
 			<equipment value="Coin (Gold)" quantity="roll(&quot;1d8&quot;)*1000" />
@@ -230,7 +230,7 @@
 	</table>
 	<table id="CR16_COINS" name="CR16 Coins">
 		<entry weight="3" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="71" name="1d12x1000 gp">
 			<equipment value="Coin (Gold)" quantity="roll(&quot;1d12&quot;)*1000" />
@@ -241,7 +241,7 @@
 	</table>
 	<table id="CR17_COINS" name="CR17 Coins">
 		<entry weight="3" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="65" name="3d4x1000 gp">
 			<equipment value="Coin (Gold)" quantity="roll(&quot;3d4&quot;)*1000" />
@@ -252,7 +252,7 @@
 	</table>
 	<table id="CR18_COINS" name="CR18 Coins">
 		<entry weight="2" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="63" name="3d6x1000 gp">
 			<equipment value="Coin (Gold)" quantity="roll(&quot;3d6&quot;)*1000" />
@@ -263,7 +263,7 @@
 	</table>
 	<table id="CR19_COINS" name="CR19 Coins">
 		<entry weight="2" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="63" name="3d8x1000 gp">
 			<equipment value="Coin (Gold)" quantity="roll(&quot;3d8&quot;)*1000" />
@@ -274,7 +274,7 @@
 	</table>
 	<table id="CR20_COINS" name="CR20 Coins">
 		<entry weight="2" name="None">
-			<equipment></equipment>
+            <equipment/>
 		</entry>
 		<entry weight="63" name="4d8x1000 gp">
 			<equipment value="Coin (Gold)" quantity="roll(&quot;4d8&quot;)*1000" />

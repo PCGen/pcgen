@@ -22,9 +22,7 @@ package pcgen.facade.util.event;
 
 import java.util.EventListener;
 
-/**
- * 
- */
+
 @FunctionalInterface
 public interface ReferenceListener<E> extends EventListener
 {

@@ -32,9 +32,7 @@ import pcgen.util.Logging;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- */
+
 public class PreMultParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
 {

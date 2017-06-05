@@ -21,8 +21,6 @@ import java.util.EventObject;
 
 /**
  * Change event
- *
- *
  */
 public class TravelSpeedEvent extends EventObject
 {

@@ -29,9 +29,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.util.treetable.TreeTableNode;
 
-/**
- *
- */
+
 @SuppressWarnings("unchecked")
 public final class Comparators
 {
@@ -142,7 +140,6 @@ public final class Comparators
 	 * A {@code Comparator} to compare objects as
 	 * {@code String}s.  This is particularly useful for applications
 	 * such as maintaining a sorted {@code JComboBoxEx} and the like.
-	 *
 	 */
 	private static final class ToStringComparator implements Comparator<Object>,
 			Serializable
@@ -163,7 +160,6 @@ public final class Comparators
 	 * {@code String}s ignoring case.  This is particularly useful
 	 * for applications such as maintaining a sorted
 	 * {@code JComboBoxEx} and the like.
-	 *
 	 */
 	private static final class ToStringIgnoreCaseComparator implements
 			Comparator<Object>, Serializable

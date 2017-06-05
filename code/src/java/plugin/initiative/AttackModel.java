@@ -15,7 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package plugin.initiative;
 
@@ -34,7 +33,6 @@ import pcgen.base.lang.StringUtil;
  * off-hand attacks (as in +10/+5;+10).  It splits damage into
  * primary and off-hand by a slash, and the same with crit multiples
  * and ranges.</p>
- *
  */
 public class AttackModel extends PObjectModel
 {
@@ -653,7 +651,7 @@ public class AttackModel extends PObjectModel
 	}
 
 	/**
-	 * <p>Sets teh weapon type.</p>
+	 * <p>Sets the weapon type.</p>
 	 * @param string
 	 */
 	public void setType(String string)

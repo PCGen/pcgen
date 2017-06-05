@@ -22,9 +22,7 @@ import java.util.List;
 
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- */
+
 public interface CampaignFacade
 {
 

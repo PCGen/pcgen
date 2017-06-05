@@ -9,8 +9,6 @@ import pcgen.io.exporttoken.AbilityListToken;
 
 /**
  * {@code FeatListToken} deals with FEATLIST Token
- *
- *
  */
 public class FeatListToken extends AbilityListToken
 {

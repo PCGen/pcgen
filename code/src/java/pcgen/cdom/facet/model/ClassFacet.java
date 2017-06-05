@@ -41,7 +41,6 @@ import pcgen.output.publish.OutputDB;
  * ClassFacet is a Facet that tracks the PCClass objects possessed by a Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		SetFacet<CharID, PCClass>
@@ -408,7 +407,6 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 	 * for a PCClass and Player Character, as well as the levels of the
 	 * PCClasses for a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	public static class ClassInfo
 	{

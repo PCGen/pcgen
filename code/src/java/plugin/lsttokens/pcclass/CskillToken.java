@@ -40,9 +40,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 
-/**
- * 
- */
+
 public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 		CDOMPrimaryToken<PCClass>, PostDeferredToken<PCClass>
 {

@@ -32,9 +32,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public final class PreParserFactory implements PluginLoader
 {
 	private static PreParserFactory instance = null;

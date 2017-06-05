@@ -70,7 +70,6 @@ import plugin.initiative.gui.PreferencesPerformancePanel;
  * the Adjusting of experience. This class is called by the {@code GMGenSystem
  * }
  * and will have it's own model and view. <br>
- *
  */
 public class InitiativePlugin implements InteractivePlugin
 {

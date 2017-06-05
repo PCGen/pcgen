@@ -38,7 +38,7 @@ import static org.junit.Assert.*;
  */
 public class AbilityTokenTest
 {
-	/** */
+
 	private static final AbilityCategory CATEGORY = AbilityCategory.FEAT;
 	private static final CategorizedChooser<Ability> pca = new AbilityToken();
 	private static final String ITEM_NAME = "ItemName";

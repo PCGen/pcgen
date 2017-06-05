@@ -23,7 +23,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  * Abstract TestCase framework for tests that are Locale dependent.
- *
  */
 public abstract class LocaleDependentTestCase
 {

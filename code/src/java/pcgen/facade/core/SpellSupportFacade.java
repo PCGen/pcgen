@@ -22,9 +22,7 @@ package pcgen.facade.core;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- */
+
 public interface SpellSupportFacade
 {
 

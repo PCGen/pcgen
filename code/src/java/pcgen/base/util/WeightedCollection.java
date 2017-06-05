@@ -549,7 +549,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Equals method. Note this is required in order to have the .equals()
 		 * at the WeightedCollection level work properly (it is a deep equals)
-		 *
 		 */
 		@Override
 		public boolean equals(Object obj)
@@ -637,7 +636,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Checks if there are any more elements in the iteration.
 		 * 
 		 * @return <tt>true</tt> if there are more elements.
-		 *
 		 */
 		@Override
 		public boolean hasNext()
@@ -701,7 +699,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 
 		/**
 		 * Compare two WeightedItem objects
-		 *
 		 */
 		@Override
 		public int compare(WeightedItem<WICT> item1, WeightedItem<WICT> item2)

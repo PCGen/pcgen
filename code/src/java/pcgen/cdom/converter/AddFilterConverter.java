@@ -71,7 +71,6 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this AddFilterConverter
-	 *
 	 */
 	@Override
 	public int hashCode()
@@ -83,7 +82,6 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 	 * Returns true if this AddFilterConverter is equal to the given Object.
 	 * Equality is defined as being another AddFilterConverter object with equal
 	 * underlying contents.
-	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

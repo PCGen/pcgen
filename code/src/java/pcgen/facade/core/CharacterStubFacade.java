@@ -22,9 +22,7 @@ import pcgen.facade.util.ReferenceFacade;
 
 import java.io.File;
 
-/**
- *
- */
+
 public interface CharacterStubFacade
 {
 	public ReferenceFacade<String> getNameRef();

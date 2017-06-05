@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -43,7 +41,6 @@ import pcgen.facade.core.SkillFacade;
 /**
  * {@code Skill}.
  * 
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		VarScoped
@@ -107,7 +104,6 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	 * A comparator for sorting bonuses which puts the bonuses in the order
 	 * bonuses to this skill, bonuses without prereqs, bonuses with prereqs.  
 	 *
-	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	public final class SkillBonusComparator implements Comparator<BonusObj>
 	{

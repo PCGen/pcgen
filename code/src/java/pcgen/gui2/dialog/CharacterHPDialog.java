@@ -57,9 +57,7 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.table.IntegerEditor;
 
-/**
- *
- */
+
 public final class CharacterHPDialog extends JDialog implements ActionListener
 {
 
