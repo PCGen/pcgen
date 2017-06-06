@@ -37,7 +37,6 @@ import pcgen.output.publish.OutputDB;
  * WeaponProfModelFacet is a Facet that tracks the WeaponProfs that have been
  * granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 {

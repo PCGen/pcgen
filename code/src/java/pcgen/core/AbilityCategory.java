@@ -17,7 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision$
  */
 package pcgen.core;
 
@@ -67,7 +66,6 @@ import pcgen.util.enumeration.Visibility;
  * the AbilityCategory was &quot;FEAT&quot; and set the ability type to
  * &quot;Fighter&quot;. 
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class AbilityCategory implements Category<Ability>, Loadable,

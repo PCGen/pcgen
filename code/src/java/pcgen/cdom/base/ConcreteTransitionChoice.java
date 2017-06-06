@@ -135,7 +135,6 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	/**
 	 * Returns true if the given Object is a TransitionChoice and has identical
 	 * underlying choices and choiceCount
-	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -155,7 +154,6 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this TransitionChoice.
-	 *
 	 */
 	@Override
 	public int hashCode()

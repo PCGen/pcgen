@@ -1,6 +1,4 @@
-/*
- *
- */
+
 package plugin.lsttokens;
 
 import java.util.ArrayList;
@@ -26,9 +24,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- *
- */
+
 public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>, ChoiceActor<Region>
 {

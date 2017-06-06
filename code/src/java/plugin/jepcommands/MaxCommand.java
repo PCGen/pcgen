@@ -15,7 +15,6 @@ public class MaxCommand extends PCGenCommand
 	 * Initializes the number of parameters to = -1, indicating a variable
 	 * number of parameters.
 	 * </p>
-	 *
 	 */
 	public MaxCommand()
 	{

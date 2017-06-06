@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -33,7 +31,6 @@ import org.apache.commons.lang3.StringUtils;
  *
  * Structure representing dice rolls
  *
- * @author binkley 
  */
 public final class RollInfo
 {
@@ -309,7 +306,6 @@ public final class RollInfo
 	 * roll.
 	 *
 	 * @param rollString String compact representation of dice rolls
-	 *
 	 */
 	public RollInfo(final String rollString)
 	{

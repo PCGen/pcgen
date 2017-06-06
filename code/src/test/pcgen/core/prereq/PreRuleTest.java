@@ -14,9 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.core.prereq;
 
@@ -33,7 +30,6 @@ import plugin.pretokens.parser.PreRuleParser;
 /**
  * <code>PreRuleTest</code> checks the function of the rule 
  * prereq tester.
- *
  */
 @SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase

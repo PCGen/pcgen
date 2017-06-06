@@ -15,7 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package gmgen.util;
 
@@ -26,7 +25,6 @@ import java.util.List;
  *  LogUtilities is the class used to log messages in gmgen. It provides access
  *  to a singleton instance that can be used by system classes as well as
  *  plugins.
- *
  */
 public final class LogUtilities implements LogReceiver
 {
@@ -37,7 +35,6 @@ public final class LogUtilities implements LogReceiver
 	/**
 	 *  The private constructor. Called by inst to create the singleton instance if
 	 *  it doesn't already exist.
-	 *
 	 */
 	private LogUtilities()
 	{

@@ -13,9 +13,7 @@
  * library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite
  * 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -38,7 +36,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 /**
  * Definition and games rules for an Ability.
  *
- * @author   ???
  */
 @SuppressWarnings("serial")
 public final class Ability extends PObject implements Categorized<Ability>,

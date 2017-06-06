@@ -37,7 +37,6 @@ import pcgen.core.Race;
 
 /**
  * {@code CompanionMod}.
- *
  */
 public final class CompanionMod extends PObject implements
 		Categorized<CompanionMod>

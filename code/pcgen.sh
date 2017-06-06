@@ -2,7 +2,7 @@
 set -e
 if command git rev-parse >/dev/null 2>&1
 then
-  cd "$(git rev-parse --show-toplevel)"
+  cd "$(git rev-parse --show-toplevel)/output"
 else
   cd "$(dirname $0)"
 fi

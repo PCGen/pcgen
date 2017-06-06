@@ -53,3 +53,15 @@ WEAPONPROF:my_profs_weapon.lst
 #If you use this framework to set up a dataset of your own, then you may want to rename the folder and files to something
 #different. Otherwise if you ever should install a newer version of PCGen into your existing directory or needed to re-install
 #your existing installation of PCGen, your changes would get overwritten and thus be lost.
+
+# ENTRY DATE: 
+# LST MONKEY: 
+# LICENSE MONKEY: 
+# RELEASE REVIEW #
+# BETA: 
+# RELEASE:
+# Built for PCGen Version: 
+# Updated to work with version: 6.06.01
+# MINVER:6.6
+# MINDEVVER:6.6
+# COMMENTS:

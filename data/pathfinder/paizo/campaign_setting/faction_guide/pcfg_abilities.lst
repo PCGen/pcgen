@@ -68,5 +68,5 @@ Secret of the Grave			KEY:Whispered Knowledge ~ Secret of the Grave	CATEGORY:Spe
 # Support for new Red Mantis Assassin spell
 # ==============================
 
-CATEGORY=Special Ability|RMA Bonus Spells.MOD		SPELLKNOWN:CLASS|Red Mantis Assassin=2|Mark of Blood
+CATEGORY=Special Ability|RMA Bonus Spells.MOD		SPELLLEVEL:CLASS|Red Mantis Assassin=2|Mark of Blood
 

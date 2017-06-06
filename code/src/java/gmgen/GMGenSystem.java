@@ -569,36 +569,28 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         systemMenuBar.add(fileMenu);
     }
 
-    /**
-     * 
-     */
+
     private void createFileSaveMenuItem() {
         CommonMenuText.name(saveFileItem, MNU_SAVE);
         fileMenu.add(saveFileItem);
         saveFileItem.addActionListener(this);
     }
 
-    /**
-     * 
-     */
+
     private void createFileOpenMenuItem() {
         CommonMenuText.name(openFileItem, MNU_OPEN);
         fileMenu.add(openFileItem);
         openFileItem.addActionListener(this);
     }
 
-    /**
-     * 
-     */
+
     private void createFileNewMenuItem() {
     	CommonMenuText.name(newFileItem, MNU_NEW);
         newFileItem.addActionListener(this);
         fileMenu.add(newFileItem);
     }
 
-    /**
-     * 
-     */
+
     private void exitForMacOSX() {
         fileMenu.add(fileSeparator2);
     	CommonMenuText.name(exitFileItem, MNU_EXIT);

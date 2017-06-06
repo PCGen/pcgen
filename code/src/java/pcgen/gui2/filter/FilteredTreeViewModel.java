@@ -30,9 +30,7 @@ import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 
-/**
- *
- */
+
 public class FilteredTreeViewModel<C, E>
 		implements TreeViewModel<E>, ListListener<E>
 {

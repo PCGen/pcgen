@@ -39,7 +39,6 @@ import org.jdom2.output.XMLOutputter;
 /**
  * <p>The base data class of the DiceBag plugin.  This class maintains a single "Dice Bag," which
  * consists of an ordered list of dice expressions.</p>
- *
  */
 class DiceBagModel extends Observable
 {
@@ -186,7 +185,7 @@ class DiceBagModel extends Observable
 	}
 
 	/**
-	 * <p>Gets the count of dice in teh bag.</p>
+	 * <p>Gets the count of dice in the bag.</p>
 	 *
 	 * @return Count of dice in bag.
 	 */

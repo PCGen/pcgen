@@ -29,8 +29,6 @@ import plugin.initiative.DiceRollModel;
  * <p>
  * A generic check dialog; handles an expression with a DC
  * </p>
- *
- *
  */
 public class CheckDialog extends DiceRollDialog
 {
@@ -58,7 +56,6 @@ public class CheckDialog extends DiceRollDialog
 	 * <p>
 	 * Initializes the DC value
 	 * </p>
-	 *
 	 */
 	private void initDC()
 	{

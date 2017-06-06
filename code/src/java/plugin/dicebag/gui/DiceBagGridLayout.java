@@ -26,7 +26,6 @@ import java.awt.GridLayout;
  * <p>The caller can specify whether the manager should give manage by columns,
  * in which case the min/max values represent minimum and maximum column widths, or by
  * rows, in which case the values represent column heights.</p>
- *
  */
 public class DiceBagGridLayout extends GridLayout
 {

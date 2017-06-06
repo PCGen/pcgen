@@ -3792,7 +3792,6 @@ public final class ExportHandler
 
 	/**
 	 * {@code PStringTokenizer}
-	 *
 	 */
 	private static final class PStringTokenizer
 	{

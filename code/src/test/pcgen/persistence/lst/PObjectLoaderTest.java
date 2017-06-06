@@ -20,7 +20,6 @@
  *
  * 
  * 
- *
  */
 package pcgen.persistence.lst;
 

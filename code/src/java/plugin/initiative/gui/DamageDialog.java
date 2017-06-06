@@ -17,13 +17,10 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * DamageDialog.java
- *
  */
 package plugin.initiative.gui;
 
-/**
- *
- */
+
 public class DamageDialog extends javax.swing.JDialog
 {
 	/** OK_VALUE = 0 */

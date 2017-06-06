@@ -58,7 +58,6 @@ public class ArmorToken extends Token
 	 * @param pc
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return token
-	 *
 	 */
 	public static String getArmorToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{

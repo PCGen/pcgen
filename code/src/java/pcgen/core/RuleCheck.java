@@ -1,6 +1,4 @@
 /*
- * RuleCheck.java
- *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -14,11 +12,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Novmeber 06, 2003, 11:59 PM PST
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -27,12 +20,6 @@ import java.net.URI;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMSingleRef;
 
-/**
- * {@code RuleCheck} describes checks that can be turned on or off in the
- * GUI by the users
- * 
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- */
 public final class RuleCheck implements Loadable
 {
 	private String ruleName;

@@ -22,9 +22,7 @@ package pcgen.util;
 import java.util.Collection;
 import java.util.List;
 
-/**
- *
- */
+
 public abstract class AbstractListMap<K, V, L extends List<V>>
 	extends AbstractCollectionMap<K, V, L> implements ListMap<K, V, L>
 {

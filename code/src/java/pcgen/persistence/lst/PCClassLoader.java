@@ -38,9 +38,7 @@ import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 {
 	/**

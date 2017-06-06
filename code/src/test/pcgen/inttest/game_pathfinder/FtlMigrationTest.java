@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.inttest.game_pathfinder;
 
@@ -70,9 +68,7 @@ public class FtlMigrationTest
 	/** The settings file we will generate and use. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
-	/**
-	 * 
-	 */
+
 	public FtlMigrationTest()
 	{
 	}

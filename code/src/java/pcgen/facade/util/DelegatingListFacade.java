@@ -22,9 +22,7 @@ package pcgen.facade.util;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 
-/**
- *
- */
+
 public class DelegatingListFacade<E> extends AbstractListFacade<E> implements ListListener<E>
 {
 

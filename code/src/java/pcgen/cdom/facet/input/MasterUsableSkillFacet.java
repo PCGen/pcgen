@@ -25,8 +25,7 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 
-/**
- */
+
 public class MasterUsableSkillFacet extends
 		AbstractSourcedListFacet<DataSetID, Skill> implements
 		DataSetInitializedFacet

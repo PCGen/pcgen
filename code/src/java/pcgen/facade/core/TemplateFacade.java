@@ -19,9 +19,7 @@
  */
 package pcgen.facade.core;
 
-/**
- *
- */
+
 public interface TemplateFacade extends InfoFacade
 {
     @Override

@@ -16,7 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package plugin.lsttokens;
 
@@ -100,9 +99,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * {@code ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist}<br>
  * Adds the Stunning Fist feat as a virtual class feature.
  * <p>
- *
- *
- *
  */
 public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
