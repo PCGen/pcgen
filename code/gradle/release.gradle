@@ -128,6 +128,11 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
         into "/docs/acknowledgments/"
         include "PCGenLicense.txt"
     }
+    from ("${buildDir}/libs") {
+        include "pcgen-${version}.jar"
+        include "pcgen-${version}-batch-convert.jar"
+        rename "(.+)-$version(.+)", '$1$2'
+    }
     from ("${projectDir}") {
         include '*.jar'
         include 'logging.properties'
