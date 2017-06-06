@@ -48,3 +48,4 @@ data/customsources/*
 /installers/win-installer/project.nsh
 /installers/win-installer/includes/constants.nsh
 /.checkstyle
+/installers/win-installer/includes/data.nsh
