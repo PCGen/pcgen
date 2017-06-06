@@ -105,14 +105,7 @@ public class ShieldProfProviderFacet extends
 	 */
 	public boolean isProficientWithShield(CharID id, Equipment eq)
 	{
-		for (ProfProvider<ShieldProf> pp : getQualifiedSet(id))
-		{
-			if (pp.providesProficiencyFor(eq))
-			{
-				return true;
-			}
-		}
-		return false;
+		return getQualifiedSet(id).stream().anyMatch(pp -> pp.providesProficiencyFor(eq));
 	}
 
 	public void init()

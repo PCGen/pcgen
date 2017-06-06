@@ -204,16 +204,12 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	@Override
 	public int getObjectCount()
 	{
-		int count = 0;
-		for (T obj : all.getContainedObjects())
-		{
-			V actual = obj.get(key);
-			if (value == null && actual == null || value != null
-					&& value.equals(actual))
-			{
-				count++;
-			}
-		}
+		int count = (int) all.getContainedObjects()
+		                     .stream()
+		                     .map(obj -> obj.get(key))
+		                     .filter(actual -> value == null && actual == null || value != null
+				                     && value.equals(actual))
+		                     .count();
 		return count;
 	}
 

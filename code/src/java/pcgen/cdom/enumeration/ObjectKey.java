@@ -425,15 +425,13 @@ public class ObjectKey<T>
 		{
 			buildMap();
 		}
-		for (Map.Entry<?, ObjectKey<?>> me : map.entrySet())
-		{
-			if (me.getValue() == this)
-			{
-				return me.getKey().toString();
-			}
-		}
+		return map.entrySet()
+		          .stream()
+		          .filter(me -> me.getValue() == this)
+		          .findFirst()
+		          .map(me -> me.getKey().toString())
+		          .orElse("");
 		// Error
-		return "";
 	}
 
 	public static Collection<ObjectKey<?>> getAllConstants()

@@ -19,6 +19,7 @@ package pcgen.cdom.choiceset;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PrimitiveChoiceSet;
@@ -115,14 +116,8 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		Set<T> returnSet = new HashSet<>();
-		for (T item : underlyingPCS.getSet(pc))
-		{
-			if (item.qualifies(pc, item))
-			{
-				returnSet.add(item);
-			}
-		}
+		Set<T> returnSet =
+				underlyingPCS.getSet(pc).stream().filter(item -> item.qualifies(pc, item)).collect(Collectors.toSet());
 		return returnSet;
 	}
 
