@@ -825,11 +825,7 @@ public class CharacterLevelsFacadeImpl extends
 	 */
 	private int calcRemainingSkillPoints()
 	{
-		int numRemaining = 0;
-		for (CharacterLevelFacade clf : charLevels)
-		{
-			numRemaining += getRemainingSkillPoints(clf);
-		}
+		int numRemaining = charLevels.stream().mapToInt(this::getRemainingSkillPoints).sum();
 		return numRemaining;
 	}
 

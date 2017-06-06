@@ -21,6 +21,7 @@
 package pcgen.gui2.converter.loader;
 
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
@@ -68,24 +69,24 @@ public class AbilityLoader extends BasicLoader<Ability>
 	{
 		// We do a scan for the category first and ensure the ability category is defined.
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
-		for (String tok : tokens)
-		{
-			if (tok.startsWith("CATEGORY:"))
-			{
-				String abilityCatName = tok.substring(9);
-				final Category<Ability> cat =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(
-							ABILITY_CATEGORY_CLASS, abilityCatName);
-				if (cat == null)
-				{
+		//					Logging.log(Logging.INFO, "Found new cat " + abilityCatName
+//						+ " at line " + line + ": " + lineString);
+		Arrays.stream(tokens)
+		      .filter(tok -> tok.startsWith("CATEGORY:"))
+		      .map(tok -> tok.substring(9))
+		      .forEach(abilityCatName ->
+		      {
+			      final Category<Ability> cat =
+					      context.getReferenceContext().silentlyGetConstructedCDOMObject(
+							      ABILITY_CATEGORY_CLASS, abilityCatName);
+			      if (cat == null)
+			      {
 //					Logging.log(Logging.INFO, "Found new cat " + abilityCatName
 //						+ " at line " + line + ": " + lineString);
-					context.getReferenceContext().constructCDOMObject(
-						ABILITY_CATEGORY_CLASS, abilityCatName);
-				}
-
-			}
-		}
+				      context.getReferenceContext().constructCDOMObject(
+						      ABILITY_CATEGORY_CLASS, abilityCatName);
+			      }
+		      });
 
 		return super.process(sb, line, lineString, decider);
 	}

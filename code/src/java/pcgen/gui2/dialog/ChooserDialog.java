@@ -34,6 +34,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -321,13 +322,10 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			List<Object> data = availTable.getSelectedData();
 			if (!data.isEmpty())
 			{
-				for (Object object : data)
-				{
-					if (object instanceof InfoFacade)
-					{
-						chooser.addSelected((InfoFacade) object);
-					}
-				}
+				data.stream()
+				    .filter(object -> object instanceof InfoFacade)
+				    .map(object -> (InfoFacade) object)
+				    .forEach(chooser::addSelected);
 			}
 			return;
 		}
@@ -475,11 +473,10 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			switch (viewType)
 			{
 				case TYPE_NAME:
-					List<TreeViewPath<InfoFacade>> paths = new ArrayList<>();
-					for(String type : chooser.getBranchNames(pobj))
-					{
-						paths.add(new TreeViewPath<>(pobj, type));
-					}
+					List<TreeViewPath<InfoFacade>> paths = chooser.getBranchNames(pobj)
+					                                              .stream()
+					                                              .map(type -> new TreeViewPath<>(pobj, type))
+					                                              .collect(Collectors.toList());
 					if (!paths.isEmpty())
 					{
 						return paths;

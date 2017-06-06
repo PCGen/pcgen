@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -287,14 +288,10 @@ class AdvancedSourceSelectionPanel extends JPanel
 			return;
 		}
 		GameModeFacade selectedGame = sources.getGameMode().get();
-		for (int i = 0; i < gameModeList.getModel().getSize(); i++)
-		{
-			GameModeDisplayFacade gmdf = (GameModeDisplayFacade) gameModeList.getModel().getElementAt(i);
-			if (gmdf.getGameMode() == selectedGame)
-			{
-				gameModeList.setSelectedItem(gmdf);
-			}
-		}
+		IntStream.range(0, gameModeList.getModel().getSize())
+		         .mapToObj(i -> (GameModeDisplayFacade) gameModeList.getModel().getElementAt(i))
+		         .filter(gmdf -> gmdf.getGameMode() == selectedGame)
+		         .forEach(gameModeList::setSelectedItem);
 		List<CampaignFacade> wrap = new ArrayList<>(ListFacades.wrap(sources.getCampaigns()));
 		wrap.sort(Comparators.toStringIgnoreCaseCollator());
 		selectedCampaigns.setContents(wrap);
@@ -413,32 +410,36 @@ class AdvancedSourceSelectionPanel extends JPanel
 			List<Object> list = availableTable.getSelectedData();
 			if (list != null && !list.isEmpty())
 			{
-				for (Object obj : list)
-				{
-					if (obj instanceof CampaignFacade)
-					{
-						CampaignFacade camp = (CampaignFacade) obj;
-						if (selectedCampaigns.containsElement(camp))
-						{
-							// Already in the list - ignore
-							continue;
-						}
-						selectedCampaigns.addElement(camp);
-						if (!FacadeFactory.passesPrereqs(selectedCampaigns.getContents()))
-						{
-							String prereqDesc =
-									FacadeFactory.getCampaignInfoFactory()
-										.getRequirementsHTMLString(camp,
-											selectedCampaigns.getContents());
-							JOptionPane.showMessageDialog(AdvancedSourceSelectionPanel.this,
-														  LanguageBundle.getFormattedString("in_src_badComboMsg", //$NON-NLS-1$
-															  prereqDesc), 
-														  LanguageBundle.getString("in_src_badComboTitle"), //$NON-NLS-1$
-														  JOptionPane.INFORMATION_MESSAGE);
-							selectedCampaigns.removeElement(camp);
-						}
-					}
-				}
+				// Already in the list - ignore
+//$NON-NLS-1$
+//$NON-NLS-1$
+				list.stream()
+				    .filter(obj -> obj instanceof CampaignFacade)
+				    .map(obj -> (CampaignFacade) obj)
+				    .filter(camp -> !selectedCampaigns.containsElement(camp))
+				    .forEach(camp ->
+				    {
+					    selectedCampaigns.addElement(camp);
+					    if (!FacadeFactory.passesPrereqs(selectedCampaigns.getContents()))
+					    {
+						    String prereqDesc =
+								    FacadeFactory.getCampaignInfoFactory()
+								                 .getRequirementsHTMLString(
+										                 camp,
+										                 selectedCampaigns.getContents()
+								                 );
+						    JOptionPane.showMessageDialog(
+								    AdvancedSourceSelectionPanel.this,
+								    LanguageBundle.getFormattedString(
+										    "in_src_badComboMsg", //$NON-NLS-1$
+										    prereqDesc
+								    ),
+								    LanguageBundle.getString("in_src_badComboTitle"), //$NON-NLS-1$
+								    JOptionPane.INFORMATION_MESSAGE
+						    );
+						    selectedCampaigns.removeElement(camp);
+					    }
+				    });
 				rememberSelectedSources();
 			}
 		}
@@ -460,13 +461,10 @@ class AdvancedSourceSelectionPanel extends JPanel
 			List<Object> list = selectedTable.getSelectedData();
 			if (list != null && !list.isEmpty())
 			{
-				for (Object obj : list)
-				{
-					if (obj instanceof CampaignFacade)
-					{
-						selectedCampaigns.removeElement((CampaignFacade) obj);
-					}
-				}
+				list.stream()
+				    .filter(obj -> obj instanceof CampaignFacade)
+				    .map(obj -> (CampaignFacade) obj)
+				    .forEach(selectedCampaigns::removeElement);
 				rememberSelectedSources();
 			}
 		}

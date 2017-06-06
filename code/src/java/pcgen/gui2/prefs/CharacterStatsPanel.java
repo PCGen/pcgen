@@ -28,6 +28,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -314,13 +315,9 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		{
 			final String methodName = gameMode.getPurchaseModeMethodName();
 
-			for (int i = 0; i < pMode.length; ++i)
-			{
-				if (pModeMethodName[i].equals(methodName))
-				{
-					abilityPurchaseModeCombo.setSelectedIndex(i);
-				}
-			}
+			IntStream.range(0, pMode.length)
+			         .filter(i -> pModeMethodName[i].equals(methodName))
+			         .forEach(i -> abilityPurchaseModeCombo.setSelectedIndex(i));
 		}
 		
 		startListeners();

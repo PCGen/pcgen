@@ -21,6 +21,8 @@
 
 package pcgen.core.term;
 
+import java.util.Arrays;
+
 import pcgen.cdom.content.CNAbility;
 import pcgen.core.PlayerCharacter;
 
@@ -36,15 +38,10 @@ public abstract class BasePCCountAbilitiesTypeTermEvaluator extends BasePCCountA
 		for (CNAbility anAbility : getAbilities(pc))
 		{
 			// for each feat, look to see if it has any of the required types.
-			for ( String type : types)
+			if (Arrays.stream(types).anyMatch(type -> anAbility.getAbility().isType(type)))
 			{
-				if (anAbility.getAbility().isType(type))
-				{
-					count += countVisibleAbility(
-							pc, anAbility, visible, hidden, false);
-
-					break;
-				}
+				count += countVisibleAbility(
+						pc, anAbility, visible, hidden, false);
 			}
 		}
 

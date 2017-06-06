@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -354,31 +355,37 @@ class ClassDataHandler extends DefaultHandler
 						else if (key.startsWith("TYPE")) //$NON-NLS-1$
 						{
 							Type type = Type.getConstant(key.substring(5));
-							for (final Ability ability : Globals.getContext().getReferenceContext()
-									.getManufacturer(Ability.class,
-											theCurrentCategory).getAllObjects())
-							{
-								if (!ability.containsInList(ListKey.TYPE, type))
-								{
-									continue;
-								}
-								if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-								{
-									if (weight > 0)
-									{
-										theCurrentData.addAbility(theCurrentCategory, ability, weight);
-									}
-									else
-									{
-										// We have to remove any feats of this
-										// type.
-										// TODO - This is a little goofy.  We
-										// already have the feat but we will 
-										// store the key and reretrieve it.
-										removeList.add(ability.getKeyName());
-									}
-								}
-							}
+							// We have to remove any feats of this
+// type.
+// TODO - This is a little goofy.  We
+// already have the feat but we will
+// store the key and reretrieve it.
+							Globals.getContext()
+							       .getReferenceContext()
+							       .getManufacturer(
+									       Ability.class,
+									       theCurrentCategory
+							       )
+							       .getAllObjects()
+							       .stream()
+							       .filter(ability -> ability.containsInList(ListKey.TYPE, type))
+							       .filter(ability -> ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
+							       .forEach(ability ->
+							       {
+								       if (weight > 0)
+								       {
+									       theCurrentData.addAbility(theCurrentCategory, ability, weight);
+								       }
+								       else
+								       {
+									       // We have to remove any feats of this
+									       // type.
+									       // TODO - This is a little goofy.  We
+									       // already have the feat but we will
+									       // store the key and reretrieve it.
+									       removeList.add(ability.getKeyName());
+								       }
+							       });
 						}
 						else
 						{
@@ -486,13 +493,12 @@ class ClassDataHandler extends DefaultHandler
 			if (remainingWeight > 0)
 			{
 				// Add all remaining skills at this weight.
-				for ( final Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
-				{
-					if (skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-					{
-						theCurrentData.addSkill(skill.getKeyName(), remainingWeight);
-					}
-				}
+				Globals.getContext()
+				       .getReferenceContext()
+				       .getConstructedCDOMObjects(Skill.class)
+				       .stream()
+				       .filter(skill -> skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
+				       .forEach(skill -> theCurrentData.addSkill(skill.getKeyName(), remainingWeight));
 				remainingWeight = -1;
 			}
 			for ( final String remove : removeList )
@@ -507,24 +513,21 @@ class ClassDataHandler extends DefaultHandler
 			if ( remainingWeight > 0 )
 			{
 				// Add all abilities at this weight.
-				for (Ability ability : Globals.getContext().getReferenceContext()
-						.getManufacturer(Ability.class, theCurrentCategory)
-						.getAllObjects())
-				{
-					if ( ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-					{
-						theCurrentData.addAbility(theCurrentCategory, ability, remainingWeight);
-					}
-				}
+				Globals.getContext()
+				       .getReferenceContext()
+				       .getManufacturer(Ability.class, theCurrentCategory)
+				       .getAllObjects()
+				       .stream()
+				       .filter(ability -> ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
+				       .forEach(ability -> theCurrentData.addAbility(theCurrentCategory, ability, remainingWeight));
 				remainingWeight = -1;
 			}
-			for ( final String remove : removeList )
-			{
-				Ability ability = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(Ability.class,
-								theCurrentCategory, remove);
-				theCurrentData.removeAbility(theCurrentCategory, ability);
-			}
+			removeList.stream()
+			          .map(remove -> Globals.getContext().getReferenceContext()
+			                                .silentlyGetConstructedCDOMObject(Ability.class,
+					                                theCurrentCategory, remove
+			                                ))
+			          .forEach(ability -> theCurrentData.removeAbility(theCurrentCategory, ability));
 			removeList = new ArrayList<>();
 			theCurrentCategory = null;
 			theState = ParserState.CLASSDATA;
@@ -557,18 +560,21 @@ class ClassDataHandler extends DefaultHandler
 				}
 				remainingWeight = -1;
 			}
-			for ( final String remove : removeList )
-			{
-				final Spell spell = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class,  remove );
-				if ( theCurrentSpellType == SpellType.KNOWN )
-				{
-					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
-				}
-				else if ( theCurrentSpellType == SpellType.PREPARED )
-				{
-					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
-				}
-			}
+			removeList.stream()
+			          .map(remove -> Globals.getContext()
+			                                .getReferenceContext()
+			                                .silentlyGetConstructedCDOMObject(Spell.class, remove))
+			          .forEach(spell ->
+			          {
+				          if (theCurrentSpellType == SpellType.KNOWN)
+				          {
+					          theCurrentData.removeKnownSpell(theCurrentLevel, spell);
+				          }
+				          else if (theCurrentSpellType == SpellType.PREPARED)
+				          {
+					          theCurrentData.removeKnownSpell(theCurrentLevel, spell);
+				          }
+			          });
 			removeList = new ArrayList<>();
 			theCurrentLevel = -1;
 			theState = ParserState.SPELLDATA;
@@ -606,18 +612,13 @@ class ClassDataHandler extends DefaultHandler
 	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
 	{
 		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
-		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<>();
-		for (CDOMReference ref : masterLists.getActiveLists())
-		{
-			for (CDOMList<Spell> list : spellLists)
-			{
-				if (ref.contains(list))
-				{
-					useLists.add(ref);
-					break;
-				}
-			}
-		}
+		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = masterLists.getActiveLists()
+		                                                                .stream()
+		                                                                .filter(ref -> spellLists.stream()
+		                                                                                         .anyMatch
+				                                                                                         (ref::contains))
+		                                                                .collect(Collectors.toCollection
+				                                                                (ArrayList::new));
 		boolean allLevels = level == -1;
 		Set<Spell> spellList = new HashSet<>();
 		for (CDOMReference<CDOMList<Spell>> ref : useLists)
@@ -626,21 +627,17 @@ class ClassDataHandler extends DefaultHandler
 			{
 				Collection<AssociatedPrereqObject> assoc = masterLists
 						.getAssociations(ref, spell);
-				for (AssociatedPrereqObject apo : assoc)
+				// TODO This null for source is incorrect!
+// TODO Not sure if effect of null for PC
+				if (assoc.stream()
+				         .filter(apo -> PrereqHandler.passesAll(apo.getPrerequisiteList(), (PlayerCharacter) null,
+						         null
+				         ))
+				         .mapToInt(apo -> apo
+						         .getAssociation(AssociationKey.SPELL_LEVEL))
+				         .anyMatch(lvl -> allLevels || level == lvl))
 				{
-					// TODO This null for source is incorrect!
-					// TODO Not sure if effect of null for PC
-					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), (PlayerCharacter) null,
-							null))
-					{
-						int lvl = apo
-								.getAssociation(AssociationKey.SPELL_LEVEL);
-						if (allLevels || level == lvl)
-						{
-							spellList.add(spell);
-							break;
-						}
-					}
+					spellList.add(spell);
 				}
 			}
 		}

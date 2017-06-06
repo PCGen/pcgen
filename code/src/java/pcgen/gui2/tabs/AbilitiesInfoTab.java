@@ -126,13 +126,10 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		 */
 		private void populateFullCategoryList(String type, TabInfo tabInfo)
 		{
-			for (AbilityCategoryFacade category : categoryMap.getKeys())
-			{
-				if (type.equals(category.getType()))
-				{
-					tabInfo.fullCategoryList.addElement(category);
-				}
-			}
+			categoryMap.getKeys()
+			           .stream()
+			           .filter(category -> type.equals(category.getType()))
+			           .forEach(tabInfo.fullCategoryList::addElement);
 		}
 
 		@Override
@@ -233,10 +230,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		public void install()
 		{
 			activeCategories.addListListener(this);
-			for (TabInfo tabInfo : tabs)
-			{
-				addTab(tabInfo.title);
-			}
+			tabs.stream().map(tabInfo -> tabInfo.title).forEach(AbilitiesInfoTab.this::addTab);
 			setSelectedIndex(indexOfTab(selectedTitle));
 			abilityTab.restoreState(typeMap.get(selectedTitle).tabData);
 			addChangeListener(this);

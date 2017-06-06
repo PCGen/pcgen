@@ -21,6 +21,7 @@ package pcgen.gui2.tabs.ability;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -83,10 +84,7 @@ public class AbilityTreeViews
 			}
 			else
 			{
-				for (String type : types)
-				{
-					list.add(new TreeViewPath<>(pobj, type));
-				}
+				list = types.stream().map(type -> new TreeViewPath<>(pobj, type)).collect(Collectors.toList());
 			}
 			return list;
 		}
