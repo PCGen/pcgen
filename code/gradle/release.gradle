@@ -113,7 +113,7 @@ ext {
     }
 }
 
-task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
+task layoutNsisBase(type: Copy, dependsOn: [copyToRoot, cleanCreateExe, createExe]) {
     description="Assemble the required files for all PCGen installations"
     doFirst {
         // Release notes are required!
@@ -141,7 +141,7 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
         include 'preview/**'
         include 'characters/*.pcg'
     }
-    from ("${buildDir}/release") {
+    from ("${buildDir}/launch4j") {
         include 'pcgen.exe'
     }
 
@@ -155,7 +155,6 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-    outfile = "../release/pcgen.exe"
     jdkPreference = 'preferJre'
     initialHeapSize = 128
     maxHeapSize = 512
@@ -164,6 +163,7 @@ launch4j {
     dontWrapJar = true
     bundledJrePath = 'jre'
     jar = "pcgen.jar"
+    jreRuntimeBits = 64
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
     splashTimeout = 60
@@ -274,7 +274,7 @@ task genProjectNsis doLast {
 
 // Call NSIS to generate windows installer
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
-        genProjectNsis, downloadJRE, createExe]) doLast {
+        genProjectNsis, downloadJRE]) doLast {
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
