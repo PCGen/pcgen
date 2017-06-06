@@ -8,7 +8,7 @@ script: ./gradlew clean build test itest compileSlowtest datatest pfinttest allR
 
 before_install:
  - sudo apt-get update
- - sudo apt-get install lib32z1 lib32ncurses5 nsis
+ - sudo apt-get install lib32z1 lib32ncurses5 nsis perl
  - chmod +x gradlew
  
 before_cache:
