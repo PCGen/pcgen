@@ -261,7 +261,7 @@ test {
     exclude 'pcgen/testsupport/**'
 }
 
-task itest(type: Test, dependsOn: jar) {
+task itest(type: Test, dependsOn: [jar, 'buildNsis']) {
     testClassesDir = sourceSets.itest.output.classesDir
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
@@ -313,7 +313,7 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
 }
 
 // Do the lot!
-task all(dependsOn: ['build', 'slowtest', 'javadoc', 'allReports']) {
+task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
 }
 
 task wrapper(type: Wrapper) {
