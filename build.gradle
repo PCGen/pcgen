@@ -23,6 +23,7 @@ plugins {
     id 'java'
     id 'maven'
     id 'pmd'
+    id "de.undercouch.download" version "3.2.0"
     id 'edu.sc.seis.launch4j' version '2.3.0'
     id 'com.github.ben-manes.versions' version '0.14.0'
 }
