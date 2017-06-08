@@ -4,7 +4,6 @@
 ; Known issues
 
 ; Outstanding Issues
-;		Need file association for .pcg files
 ;		java -Dpcgen.inputfile=Ilse.pcg -Dpcgen.outputfile=Ilse.pdf -Dpcgen.templatefile=csheet_fantasy_std_blackandwhite.xslt -jar pcgen.jar
 
 
@@ -13,8 +12,6 @@
 !include "project.nsh"
 !define INCLUDES_DIR "${PROJECT_BUILD_DIR}\..\installers\win-installer\includes"
 !include ${INCLUDES_DIR}\constants.nsh
-;To detect 64 vs. 32 bit. Used for installing right JRE version if needed.
-!include x64.nsh
 ;File association
 !include ${INCLUDES_DIR}\FileAssociation.nsh
 
@@ -33,6 +30,8 @@
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\splash.bmp"
 !define MUI_HEADERIMAGE_RIGHT
+;Uncomment when a better images is available.
+;!define MUI_WELCOMEFINISHPAGE_BITMAP "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\splash.bmp" 
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
