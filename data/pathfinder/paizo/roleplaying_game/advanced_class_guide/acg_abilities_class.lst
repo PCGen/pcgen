@@ -1545,6 +1545,9 @@ CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPRO
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Katana|TOHIT|DEX|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Katana)
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Katana|TOHIT|-STR|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Katana)
 
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Sawtooth Sabre|TOHIT|DEX|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Sawtooth Sabre)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Sawtooth Sabre|TOHIT|-STR|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Sawtooth Sabre)
+
 #	BONUS:COMBAT|TOHIT.Weapon Group Melee OneHanded Slashing|DEX|TYPE=NotRanged|PREABILITY:1,CATEGORY=FEAT,Slashing Grace
 ###Block:
 # Ability Name											Unique Key							SORTKEY				Category of Ability		Type												Define						Description																																							Stackable?	Multiple?	Choose		Ability																			Modify VAR																	Weapon prof. bonus																		Source Page		Aspects									Temporary effect description																		Temporary Bonus
