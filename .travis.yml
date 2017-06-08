@@ -1,6 +1,7 @@
 # Run tests run on travis-ci after each commit and before each merge
 
 language: java
+dist: trusty
 jdk:
   - oraclejdk8
 script: ./gradlew clean build test itest compileSlowtest datatest pfinttest allReports
@@ -9,7 +10,7 @@ before_install:
  - sudo apt-get update
  - sudo apt-get install lib32z1 lib32ncurses5 nsis perl
  - export PERL_MM_USE_DEFAULT=1
- - cpan Readonly
+ - sudo cpan Readonly
  - chmod +x gradlew
  
 before_cache:
