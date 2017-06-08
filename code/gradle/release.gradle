@@ -113,7 +113,7 @@ ext {
     }
 }
 
-task layoutNsisBase(type: Copy, dependsOn: [copyToRoot, cleanCreateExe, createExe]) {
+task layoutNsisBase(type: Copy, dependsOn: [copyToLibs, cleanCreateExe, createExe]) {
     description="Assemble the required files for all PCGen installations"
     doFirst {
         // Release notes are required!
@@ -129,12 +129,16 @@ task layoutNsisBase(type: Copy, dependsOn: [copyToRoot, cleanCreateExe, createEx
         include "PCGenLicense.txt"
     }
     from ("${buildDir}/libs") {
+        into "./libs/"
+        exclude "pcgen-${version}.jar"
+        exclude "pcgen-${version}-batch-convert.jar"
+    }
+    from ("${buildDir}/libs") {
         include "pcgen-${version}.jar"
         include "pcgen-${version}-batch-convert.jar"
         rename "(.+)-$version(.+)", '$1$2'
     }
     from ("${projectDir}") {
-        include '*.jar'
         include 'logging.properties'
         include 'system/**' // Later we want to split out the game modes to optional
         include 'docs/**'
@@ -182,6 +186,7 @@ task downloadJRE doLast {
     def jre64Dir = new File("${projectDir}/jre/jre_64")
     if(!jre64Dir.exists()){
         //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
+        //See more information about Azul here: http://www.azul.com/downloads/zulu/
         def filename = "zulu${azul}-jdk${major}.${micro}.${update}-win_x64"
         def jre64URL = "http://cdn.azul.com/zulu/bin/${filename}.zip"
         println("Downloading JRE ${major}.${minor}.${update} from ${jre64URL}")
