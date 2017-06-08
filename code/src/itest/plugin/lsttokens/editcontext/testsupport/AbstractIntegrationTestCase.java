@@ -22,11 +22,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.core.AbilityCategory;
@@ -42,6 +37,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject & Loadable> extends
@@ -155,7 +154,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		primaryContext.setSourceURI(uri);
 		getLoader().parseLine(primaryContext, primaryProf, null,
 				campaign.getURI());
-		tc.putText(uri, null);
+		tc.putText(uri, (String[]) null);
 		tc.putCampaign(uri, campaign);
 	}
 

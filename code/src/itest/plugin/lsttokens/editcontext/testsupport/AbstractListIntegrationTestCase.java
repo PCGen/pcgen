@@ -120,8 +120,8 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 			commit(testCampaign, tc, getPrefix() + "TestWP1");
 			commit(testCampaign, tc, getPrefix() + "TestWP2");
 			tc = new TestContext();
-			tc.putText(testCampaign.getURI(), new String[] { getPrefix()
-					+ "TestWP1" + getJoinCharacter() + "TestWP2" });
+			tc.putText(testCampaign.getURI(), getPrefix()
+					+ "TestWP1" + getJoinCharacter() + "TestWP2");
 			completeRoundRobin(tc);
 		}
 	}
