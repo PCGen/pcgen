@@ -26,6 +26,13 @@
 !define OverVer "1.9"
 !define OutName "pcgen${SIMPVER}_win_install"
 
+;Change the icons
+!include "MUI2.nsh"
+
+!define MUI_ICON "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\pcgen.ico"
+!define MUI_HEADERIMAGE
+!define MUI_HEADERIMAGE_BITMAP "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\splash.bmp"
+!define MUI_HEADERIMAGE_RIGHT
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
