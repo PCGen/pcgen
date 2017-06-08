@@ -9,7 +9,7 @@ before_install:
  - sudo apt-get update
  - sudo apt-get install lib32z1 lib32ncurses5 nsis perl
  - export PERL_MM_USE_DEFAULT=1
- - sudo cpan Readonly
+ - cpan Readonly
  - chmod +x gradlew
  
 before_cache:
