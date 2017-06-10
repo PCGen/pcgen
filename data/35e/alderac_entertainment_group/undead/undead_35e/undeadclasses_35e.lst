@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Class Name		Clear Prereq.	Required Ability										Required AL				Required Skill											Req. Known Spell			Required Spell School		Required Text
 CLASS:Chirurgeon.MOD	PRE:.CLEAR		PREABILITY:2,CATEGORY=FEAT,Craft Wondrous Item,Spell Focus (Necromancy)	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:4,Craft (Autopsy)=6,Heal=3,Craft (Alchemy)=8,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:4,Necromancy=0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
