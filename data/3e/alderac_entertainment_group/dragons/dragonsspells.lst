@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 # Spell Name			Product Identity?	Type				Classes of caster							Domains granting the spell	School			Sub-School			Components		Casting Time			Range				Item		Target Area or Effect					Duration								Save Info			Spell Resistance	Source Page			Description
 Become Dragon			NAMEISPI:YES	TYPE:Arcane			CLASSES:Sorcerer,Wizard=9										SCHOOL:Transmutation					COMPS:V S F		CASTTIME:1 round			RANGE:Personal				TARGETAREA:You						DURATION:10 minutes/level					SAVEINFO:None		SPELLRES:No		SOURCEPAGE:p.69		DESC:See text
