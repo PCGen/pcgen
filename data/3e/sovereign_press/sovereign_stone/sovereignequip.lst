@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Fri Oct  9 00:36:06 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 # Equipment Name			Type						Contains							Cost		Weight	Size		Source Page
 Vial (Earth)			TYPE:Goods.Component.Vial.Container	CONTAINS:3|SpellComponent=10				COST:0.2					SOURCEPAGE:p.
