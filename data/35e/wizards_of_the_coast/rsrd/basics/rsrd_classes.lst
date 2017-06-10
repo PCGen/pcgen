@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Revised Updated Entry by: Collaborative Effort by Andrew Maitland and BD
 
@@ -929,7 +928,6 @@ CLASS:Thaumaturgist.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|P
 
 
 ###Block: HD Classes
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 # Yeehaa....
 # Monster "class" advancement LST file
 # Drew Bernat (abernat@zathras.net)

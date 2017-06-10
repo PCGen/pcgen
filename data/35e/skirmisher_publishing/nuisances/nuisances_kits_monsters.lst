@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Thu Sep 18 16:14:10 2008 -- reformated by prettylst.pl v1.38 (build 7233)
 SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
 
 STARTPACK:Decapussywhipper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Decapussywhipper],[!PRERACE:1,%]	SOURCEPAGE:p.115
