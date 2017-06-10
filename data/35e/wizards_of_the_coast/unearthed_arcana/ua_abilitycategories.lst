@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
 ABILITYCATEGORY:Totem Barbarian					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF			TYPE:Totem Barbarian									PLURAL:Totem Barbarian Variants		DISPLAYLOCATION:Class Features
