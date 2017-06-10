@@ -1,3 +1,2 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 # Skill Name	Key Stat	Type							Source Page
 Appraise		KEYSTAT:INT	TYPE:Intelligence.Standard.Base.Appraise	SOURCEPAGE:SkillsI
