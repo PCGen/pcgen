@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/02/2014 8:22:48 am
  *
- * $Id$
  */
 package gmgen.pluginmgr.messages;
 
@@ -29,7 +27,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * that the GMGen file save menu item was selected. 
  *
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class FileMenuSaveMessage extends PCGenMessage
