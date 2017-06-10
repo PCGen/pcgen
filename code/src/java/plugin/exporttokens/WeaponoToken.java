@@ -31,7 +31,6 @@ import pcgen.io.exporttoken.WeaponToken;
 /**
  * {@code WeaponoToken}.
  * 
- * @author	binkley
  */
 public class WeaponoToken extends WeaponToken
 {
