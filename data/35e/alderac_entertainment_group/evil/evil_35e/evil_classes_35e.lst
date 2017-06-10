@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Class Name		Remove Class Skill	Class Skill
 CLASS:Bargainer.MOD	CSKILL:.CLEAR		CSKILL:Bluff|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device

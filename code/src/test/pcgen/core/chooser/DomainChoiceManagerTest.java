@@ -14,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- * $Author: nuance $
- * $Date: 2006-03-26 08:00:03 +0100 (Sun, 26 Mar 2006) $
- * $Revision: 471 $
  */
 package pcgen.core.chooser;
 
@@ -38,7 +33,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * {@code DomainChoiceManagerTest} test that the DomainChoiceManager class is
  * functioning correctly.
- * 
  */
 
 public class DomainChoiceManagerTest extends AbstractCharacterTestCase

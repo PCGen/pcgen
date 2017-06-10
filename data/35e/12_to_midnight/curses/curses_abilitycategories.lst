@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # Ability Category			Editable?		Change Pool?	Category of Object		Type of Object		Plural description for UI	Display Location
 ABILITYCATEGORY:Curse Repertoire	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CurseRepertoire	PLURAL:Curse Repertoires	DISPLAYLOCATION:Class Abilities
