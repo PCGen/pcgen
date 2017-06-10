@@ -321,7 +321,7 @@ task all(dependsOn: ['build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.3'
+    gradleVersion = '3.5'
 }
 
 allprojects {
