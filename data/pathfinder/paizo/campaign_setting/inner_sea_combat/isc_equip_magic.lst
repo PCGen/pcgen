@@ -1,4 +1,3 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Equipment Name			Unique Key				Product Identity?	Type								Cost		Weight	Source Page		Special Property
 Canopic Wrap											TYPE:Wondrous.Magic.Slot_Belt.Belt			COST:10500	WT:1		SOURCEPAGE:p.58

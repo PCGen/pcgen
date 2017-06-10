@@ -1,4 +1,3 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name		Category of Ability	Auto Language											Ability										Modify VAR
 Race Traits ~ Caulborn	CATEGORY:Internal		AUTO:LANG|Abyssal|Aklo|Celestial|Common|Draconic|Giant|Infernal|Thassilonian	ABILITY:Caulborn Race Trait|AUTOMATIC|TYPE=Caulborn Race Trait	BONUS:VAR|TelepathyRange|100

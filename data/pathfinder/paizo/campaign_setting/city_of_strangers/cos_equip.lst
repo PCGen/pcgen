@@ -1,4 +1,3 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Equipment Name			Type				Cost		Weight	Source Page		Special Property
 Death's Head Talisman (10 HD)	TYPE:Magic.SLOT_Amulet	COST:1000	WT:0		SOURCEPAGE:p.11	SPROP:CL = 5th

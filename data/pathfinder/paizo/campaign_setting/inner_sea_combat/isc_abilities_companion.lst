@@ -1,4 +1,3 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name					Unique Key						Category of Ability		Type					Visible		Required Race				Description																										Ability													Add to base move								Stat bonus									Modify VAR							Weapon prof. bonus
 Companion Advancement (Griffon)		KEY:Companion Advancement ~ Griffon		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Griffon)																													ABILITY:Internal|AUTOMATIC|Talons	ABILITY:Special Ability|AUTOMATIC|Pounce|Rake	BONUS:MOVEADD|TYPE.Walk|10	BONUS:MOVEADD|TYPE.Fly|40	BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
