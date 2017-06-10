@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Bastion Press - Arms and Armor	SOURCESHORT:arms	SOURCEWEB:http://dragonwing.net/	SOURCEDATE:2001-01
 
 # Equipment Name			Output Name					Required Weapon Proficiency		Type												Cost		Weight	Base Item for EQMOD	Crit Mult	Crit Range	Damage	Modifier							Range		Size		Source Page		Innate Spells																																				Combat bonus				Bonus DC					Add to base move			Bonus to skill							Stat bonus					Modify VAR						Special Property
