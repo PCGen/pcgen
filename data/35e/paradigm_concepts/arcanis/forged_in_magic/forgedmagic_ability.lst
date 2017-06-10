@@ -1,4 +1,3 @@
-# CVS $Revision: 8692 $ $Author: eddyanthony $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 
 #ABILITIES support for items - not actual feats or abilities
 # Ability Name				Category of Ability	Type			Visible	Special ABility								Move			Combat bonus				Misc bonus								Save bonus					Stat bonus					Weapon prof. bonus												Natural Attacks
