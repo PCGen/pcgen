@@ -1,5 +1,4 @@
 /*
- * EQPlusTermEvaluator.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
