@@ -16,6 +16,7 @@
  */
 package gmgen.gui;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -40,7 +41,7 @@ public class ImageFileChooserPreview extends JComponent implements PropertyChang
 	 * be notified when a new file is selected in the browser.
 	 * @param parent that this preview window is used in.
 	 */
-	public ImageFileChooserPreview(JFileChooser parent)
+	public ImageFileChooserPreview(Component parent)
 	{
 		setPreferredSize(new Dimension(previewWidth, previewHeight));
 		parent.addPropertyChangeListener(this);
