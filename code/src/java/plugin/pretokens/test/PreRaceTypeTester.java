@@ -29,10 +29,6 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 
-/**
- * @author	wardc
- * @author	byngl &lt;byngl@hotmail.com&gt;
- */
 public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 {
 

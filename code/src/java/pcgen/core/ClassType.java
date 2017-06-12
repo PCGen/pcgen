@@ -19,6 +19,11 @@ package pcgen.core;
 
 import pcgen.base.lang.UnreachableError;
 
+
+/**
+ * {@code Campaign}.
+ * A simple structure.
+ */
 public final class ClassType implements Cloneable
 {
 	private String theName = "";

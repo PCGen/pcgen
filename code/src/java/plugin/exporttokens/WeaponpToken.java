@@ -28,7 +28,6 @@ import java.util.StringTokenizer;
 /**
  * {@code WeaponpToken}.
  * 
- * @author	binkley
  */
 public class WeaponpToken extends WeaponToken
 {

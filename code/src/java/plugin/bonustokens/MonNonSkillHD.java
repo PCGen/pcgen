@@ -26,7 +26,6 @@ import pcgen.core.bonus.MultiTagBonusObj;
  * do not gain skills.
  *
  *
- * @author	James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public final class MonNonSkillHD extends MultiTagBonusObj

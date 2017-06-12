@@ -17,7 +17,6 @@
  *
  * PreferencesDamagePanel.java
  *
- * Created on July 11, 2003, 4:34 PM
  */
 package gmgen.gui;
 
@@ -40,7 +39,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  *
- * @author  soulcatcher
  */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	private static final Map<String, PluginRef> pluginMap = new HashMap<>();

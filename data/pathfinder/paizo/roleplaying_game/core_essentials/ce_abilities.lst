@@ -52,9 +52,9 @@ Age ~ Middle-Aged	CATEGORY:Internal	BONUS:VAR|Stat_Age_Physical|-1|PREVAREQ:UseA
 Age ~ Old		CATEGORY:Internal	BONUS:VAR|Stat_Age_Physical|-3|PREVAREQ:UseAgeRulesNegatePenalties,1	BONUS:VAR|Stat_Age_Mental|2
 Age ~ Venerable	CATEGORY:Internal	BONUS:VAR|Stat_Age_Physical|-6|PREVAREQ:UseAgeRulesNegatePenalties,1	BONUS:VAR|Stat_Age_Mental|3
 
-Rules ~ Use Age Rules (Monsters)			CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRules|1|TYPE=Bool
-Rules ~ Use Age Rules (Young)				CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesYoung|1|TYPE=Bool
-Rules ~ Use Age Rules (Negate Penalties)		CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesNegatePenalties|1|TYPE=Bool
+Rules ~ Use Age Rules (Monsters)		COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRules|1|TYPE=Bool
+Rules ~ Use Age Rules (Young)			COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesYoung|1|TYPE=Bool
+Rules ~ Use Age Rules (Negate Penalties)	COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesNegatePenalties|1|TYPE=Bool
 
 
 #	This system is designed to be expandable to new classes. Each class is designated as either "Arcane" or "Divine".
