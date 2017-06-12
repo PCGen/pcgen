@@ -4,7 +4,8 @@ language: java
 dist: trusty
 jdk:
   - oraclejdk8
-script: ./gradlew clean build test itest compileSlowtest datatest pfinttest allReports
+script: ./gradlew clean build test compileSlowtest datatest pfinttest allReports
+# Do not use itest, requires release notes
 
 before_install:
  - sudo apt-get update
