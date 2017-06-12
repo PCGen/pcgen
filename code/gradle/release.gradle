@@ -113,10 +113,10 @@ ext {
 
 task layoutNsisBase(type: Copy, dependsOn: [copyToLibs, cleanCreateExe, createExe]) {
     description="Assemble the required files for all PCGen installations"
-    doFirst {
-        // Release notes are required!
-        assert file(releaseNotes).exists()
-    }
+    //doFirst {
+        // Release notes are required! Causes Autobuild Problem
+        //assert file(releaseNotes).exists()
+    //}
 
     into nsisBaseFolder
     from ("${projectDir}/installers/win-installer/Local") {
