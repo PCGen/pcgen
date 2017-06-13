@@ -68,7 +68,7 @@ CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass A
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Cleric|PRESTAT:1,WIS=13
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Druid|PRESTAT:1,WIS=13
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Fighter|PRESTAT:1,STR=13,DEX=13
-CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Monk|PRESTAT:1,WIS=13
+CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Monk|PRESTAT:2,WIS=13,DEX=13
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Paladin|PRESTAT:2,STR=13,CHA=13
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Ranger|PRESTAT:2,DEX=13,WIS=13
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Rogue|PRESTAT:1,DEX=13
