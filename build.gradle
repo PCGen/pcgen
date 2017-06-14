@@ -220,15 +220,16 @@ task copyToLibs(type: Copy) {
 }
 
 import org.apache.tools.ant.filters.FixCrLfFilter;
-task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
+task copyToRoot(type: Copy, dependsOn: [cleanCreateExe, createExe, copyToLibs, 
+        jar, converterJar]) {
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-    from "$buildDir/release/pcgen.exe"
+    from "$buildDir/launch4j/pcgen.exe"
     from("$projectDir/code/pcgen.sh") {
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
     }
-     into "$projectDir/output"
+    into "$projectDir/output"
 
     rename "(.+)-$version(.+)", '$1$2'
 }
@@ -248,13 +249,14 @@ task cleanRoot(type: Delete) {
     delete "$projectDir/pcgen-batch-convert.jar"
     delete "$projectDir/batch-convert.jar"
     delete "$projectDir/pcgen.sh"
-    delete "$projectDir/pcgen.exe"
+    delete "$projectDir/output"
     delete "$projectDir/libs"
     delete "$projectDir/autobuild.properties"
 }
 
 build {
     it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    mustRunAfter clean
 }
 
 clean {
@@ -322,7 +324,7 @@ task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports'])
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.5'
+    gradleVersion = '4.0'
 }
 
 allprojects {

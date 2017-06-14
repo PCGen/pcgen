@@ -37,7 +37,7 @@ ext {
     }
 
     programDistsImage = copySpec {
-        from('build/libs') {
+        from("$buildDir/libs") {
             include 'pcgen-*.jar'
             // Use a regular expression to map the file name
             rename "(.+)-$version(.+)", '$1$2'
@@ -54,13 +54,13 @@ ext {
         from('code') {
             include 'LICENSE'
         }
-        from('build/release') {
+        from("$buildDir/launch4j") {
             include 'pcgen.exe'
         }
     }
 
     libsDistsImage = copySpec {
-        from('build/libs') {
+        from("$buildDir/libs") {
             into 'libs'
             exclude 'pcgen-*.jar'
         }
@@ -74,7 +74,7 @@ ext {
 }
 
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
