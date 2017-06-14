@@ -1,5 +1,4 @@
 /*
- * NPCGenerator.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -75,7 +74,7 @@ public final class NPCGenerator
 	private Configuration theConfiguration = null;
 
 	// Rule options
-	private int theSubSkillWeightAdd = 10;
+	private final int theSubSkillWeightAdd = 10;
 	
 	private NPCGenerator()
 	{

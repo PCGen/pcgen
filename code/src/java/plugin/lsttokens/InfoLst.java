@@ -138,7 +138,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 				String[] vars = obj.get(infoVarKey, s);
 				if (vars == null)
 				{
-					Logging.errorPrint(obj.getClass().getSimpleName() + " "
+					Logging.errorPrint(obj.getClass().getSimpleName() + ' '
 						+ obj.getKeyName() + " was loaded with INFO: " + s
 						+ " that requires " + required
 						+ " arguments, but no arguments"
@@ -147,7 +147,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 				}
 				else if (vars.length != required)
 				{
-					Logging.errorPrint(obj.getClass().getSimpleName() + " "
+					Logging.errorPrint(obj.getClass().getSimpleName() + ' '
 						+ obj.getKeyName() + " was loaded with INFO: " + s
 						+ " that requires " + required + " arguments, but "
 						+ vars.length + " arguments in INFOVARS were provided",
@@ -162,7 +162,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!infoKeys.contains(s))
 			{
 				Logging.errorPrint(
-					obj.getClass().getSimpleName() + " " + obj.getKeyName()
+					obj.getClass().getSimpleName() + ' ' + obj.getKeyName()
 						+ " was loaded with INFOVARS: " + s
 						+ " but no matching INFO was provided", context);
 				returnValue = false;

@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 
 package plugin.jepcommands;
@@ -35,8 +33,6 @@ import java.util.Stack;
  * <p>
  * So, given or(x,y,z), x or y or z is returned
  * </p>
- *
- *
  */
 public class OrCommand extends PCGenCommand
 {

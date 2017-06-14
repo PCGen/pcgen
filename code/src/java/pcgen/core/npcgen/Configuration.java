@@ -1,5 +1,4 @@
 /*
- * Configuration.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.npcgen;
 
@@ -43,24 +41,22 @@ import pcgen.core.Race;
 import pcgen.core.spell.Spell;
 import pcgen.system.ConfigurationSettings;
 
-/**
- * 
- */
+
 public class Configuration
 {
-	private static List<Configuration> theConfigurations = new ArrayList<>();
-	private static Configuration theDefaultConfiguration = new Configuration();
+	private static final List<Configuration> theConfigurations = new ArrayList<>();
+	private static final Configuration theDefaultConfiguration = new Configuration();
 	
 	private GameMode theMode = null;
 	
-	private List<GeneratorOption> theGeneratorOptions = new ArrayList<>();
-	private Map<String, ClassData> theClassData = new HashMap<>();
+	private final List<GeneratorOption> theGeneratorOptions = new ArrayList<>();
+	private final Map<String, ClassData> theClassData = new HashMap<>();
 	
-	private static File optionsDir = new File(ConfigurationSettings.getSystemsDir()
+	private static final File optionsDir = new File(ConfigurationSettings.getSystemsDir()
 		+ File.separator + "npcgen"  //$NON-NLS-1$ 
 		+ File.separator + "options"); //$NON-NLS-1$
 	
-	private static File classDataDir = new File(ConfigurationSettings.getSystemsDir()
+	private static final File classDataDir = new File(ConfigurationSettings.getSystemsDir()
 		+ File.separator + "npcgen"  //$NON-NLS-1$ 
 		+ File.separator + "classdata"); //$NON-NLS-1$
 	

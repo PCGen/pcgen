@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/02/2014 10:30:08 pm
  *
- * $Id$
  */
 package gmgen.pluginmgr.messages;
 
@@ -29,9 +27,7 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code CombatantHasBeenUpdatedMessage} encapsulates a
  * message that a specific combatant has been modified.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 @SuppressWarnings("serial")

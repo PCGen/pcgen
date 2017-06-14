@@ -92,7 +92,7 @@ public class DiceBagPluginView implements Observer
 
 				if (!bag.isChanged() && !bag.isBagEmpty())
 				{
-					files.append(bag.getFilePath() + "|");
+					files.append(bag.getFilePath() + '|');
 				}
 			}
 		}
@@ -152,7 +152,7 @@ public class DiceBagPluginView implements Observer
 					WindowConstants.DO_NOTHING_ON_CLOSE);
 			}
 			else if ((answer == JOptionPane.NO_OPTION)
-				&& (answer == JOptionPane.YES_OPTION))
+				|| (answer == JOptionPane.YES_OPTION))
 			{
 				e.getInternalFrame().setDefaultCloseOperation(
 					WindowConstants.HIDE_ON_CLOSE);
@@ -160,7 +160,7 @@ public class DiceBagPluginView implements Observer
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 *
 	 * Forwards update messages on to the appropriate handlers.
@@ -244,7 +244,7 @@ public class DiceBagPluginView implements Observer
 			returnValue =
 					JOptionPane.showConfirmDialog(getMainComponent(),
 						"Do you want to save your changes to dicebag "
-							+ bag.getName() + "?", "Save?", option);
+							+ bag.getName() + '?', "Save?", option);
 
 			if (returnValue == JOptionPane.YES_OPTION)
 			{
@@ -353,11 +353,10 @@ public class DiceBagPluginView implements Observer
 
 	/**
 	 * <p>Listener for events on the internal frame children of this view.</p>
-	 *
 	 */
 	private class ChildListener extends InternalFrameAdapter
 	{
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.event.InternalFrameListener#internalFrameActivated(javax.swing.event.InternalFrameEvent)
 		 */
         @Override
@@ -366,7 +365,7 @@ public class DiceBagPluginView implements Observer
 			DiceBagPluginView.this.internalFrameActivated(e);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.event.InternalFrameListener#internalFrameClosed(javax.swing.event.InternalFrameEvent)
 		 */
         @Override
@@ -375,7 +374,7 @@ public class DiceBagPluginView implements Observer
 			DiceBagPluginView.this.internalFrameClosed(e);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.event.InternalFrameListener#internalFrameClosing(javax.swing.event.InternalFrameEvent)
 		 */
         @Override

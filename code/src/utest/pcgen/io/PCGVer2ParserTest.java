@@ -1,5 +1,4 @@
 /*
- * PCGVer2ParserTest.java
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.io;
 
@@ -25,8 +23,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-/**
- */
+
 public class PCGVer2ParserTest
 {
 

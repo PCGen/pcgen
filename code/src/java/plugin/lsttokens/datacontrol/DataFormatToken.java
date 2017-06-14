@@ -48,9 +48,9 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 		if ((old != null) && (!old.equals(fmtManager)))
 		{
 			return new ParseResult.Fail("Content Definition "
-				+ def.getClass().getSimpleName() + " " + def.getKeyName()
+				+ def.getClass().getSimpleName() + ' ' + def.getKeyName()
 				+ " was defined as " + old.getIdentifierType() + " and "
-				+ value + " (using " + value + ")");
+				+ value + " (using " + value + ')');
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -79,7 +79,7 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 		if (isMissingFormatManager)
 		{
 			Logging.errorPrint("Content Definition "
-				+ def.getClass().getSimpleName() + " " + def.getKeyName()
+				+ def.getClass().getSimpleName() + ' ' + def.getKeyName()
 				+ " did not have a " + getTokenName());
 		}
 		return !isMissingFormatManager;

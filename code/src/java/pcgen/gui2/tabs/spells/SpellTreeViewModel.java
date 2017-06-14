@@ -1,5 +1,4 @@
 /*
- * SpellTreeViewModel.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -35,9 +34,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 {
 

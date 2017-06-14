@@ -18,7 +18,6 @@
  *
  * AboutBox.java
  *
- * Created on September 18, 2002, 5:38 PM
  */
 package gmgen.gui;
 
@@ -30,11 +29,10 @@ import java.util.List;
 
 /** This defines the preferences tree
  *
- * @author  devon
  */
 public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 {
-	private List<PreferencesPanel> panelList = new ArrayList<>();
+	private final List<PreferencesPanel> panelList = new ArrayList<>();
 
 	public PreferencesRootTreeNode()
 	{

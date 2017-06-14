@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core;
@@ -103,9 +101,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * {@code Equipment}.
  * 
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt; created December
  *         27
- * @author 2001
  */
 public final class Equipment extends PObject implements Serializable,
 		Comparable<Object>, VariableContainer, EquipmentFacade, VarScoped
@@ -3357,7 +3353,7 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * Get the modified name e.g. "Natural/Primary" of this Equipment.
 	 * Is mostly unset and (if set) is added to the display name when
-	 * producing teh long name 
+	 * producing the long name
 	 * 
 	 * @return the modified name
 	 */
@@ -4001,7 +3997,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * Get the type list as a period-delimited string
 	 * 
 	 * @param bPrimary
-	 *            if true the types for teh porimary head, otherwise the 
+	 *            if true the types for the porimary head, otherwise the
 	 *            secondary head.
 	 * @return The type value
 	 */
@@ -4780,7 +4776,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * Checks whether the Equipment can hold quantToAdd more of an item which
 	 * has the types in aTypeList
 	 *  
-	 * @param aTypeList The types of teh Equipment we want to add
+	 * @param aTypeList The types of the Equipment we want to add
 	 *            
 	 * @param quantToAdd how many to add
 	 *            

@@ -1,5 +1,4 @@
 /*
- * PreMultTest.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,9 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.core.prereq;
 
@@ -45,8 +41,6 @@ import plugin.pretokens.parser.PreSkillParser;
 /**
  * <code>PreMultTest</code> tests that the PreMult class
  * is working correctly.
- *
- *
  */
 
 public class PreMultTest extends AbstractCharacterTestCase
@@ -68,7 +62,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		return new TestSuite(PreMultTest.class);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
     @Override
@@ -88,7 +82,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
     @Override

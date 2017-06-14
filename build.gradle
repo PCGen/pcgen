@@ -9,9 +9,9 @@
  * Build and run all tests: gradle clean build slowtest
  * Run the data tests: gradle datatest
  * Run the character integration tests: gradle inttest
- *
- * Author: James Dempsey
  */
+
+import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id 'application'
@@ -21,29 +21,23 @@ plugins {
     id 'java'
     id 'maven'
     id 'pmd'
-
     id "de.undercouch.download" version "3.2.0"
-    id 'edu.sc.seis.launch4j' version '2.1.0'
+    id 'edu.sc.seis.launch4j' version '2.3.0'
     id 'com.github.ben-manes.versions' version '0.14.0'
+    id 'nebula.lint' version '7.5.0'
 }
 
 group = 'net.sourceforge.pcgen'
 
 description = """PCGen"""
 
-defaultTasks 'clean', 'build'
+defaultTasks 'build'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
     binDir = "code/bin"
-
-    // Default ignoreTestFailures to false if it is not provided
-    if (!hasProperty('ignoreTestFailures')) {
-        ignoreTestFailures = false;
-    }
-
 }
 
 mainClassName = 'pcgen.system.Main'
@@ -142,7 +136,6 @@ dependencies {
 
     compile group: 'commons-io', name: 'commons-io', version:'2.5'
     compile group: 'rhino', name: 'js', version:'1.7R2'
-    compile group: 'commons-logging', name: 'commons-logging', version:'1.2'
     compile group: 'org.springframework', name: 'spring-core', version:'4.3.6.RELEASE'
     compile group: 'org.springframework', name: 'spring-beans', version:'4.3.6.RELEASE'
     compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
@@ -226,13 +219,17 @@ task copyToLibs(type: Copy) {
     from configurations.runtime
 }
 
+import org.apache.tools.ant.filters.FixCrLfFilter;
 task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
-
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/release/pcgen.exe"
-    from "$projectDir/code/pcgen.sh"
-    into "$projectDir"
+    from("$projectDir/code/pcgen.sh") {
+        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
+        fileMode 0755
+    }
+     into "$projectDir/output"
+
     rename "(.+)-$version(.+)", '$1$2'
 }
 
@@ -267,20 +264,12 @@ clean {
 
 test {
     exclude 'pcgen/testsupport/**'
-    //	maxParallelForks 4
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
-task itest(type: Test, dependsOn: jar) {
+task itest(type: Test, dependsOn: [jar, 'buildNsis']) {
     testClassesDir = sourceSets.itest.output.classesDir
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
-    ignoreFailures=ignoreTestFailures
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
@@ -288,14 +277,9 @@ task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
     forkEvery = 1
-    maxHeapSize = "512m"
     // Exclude the two suites to avoid duplicate test runs.
     exclude 'AllJUnitTests.class'
     exclude 'pcgen/core/AllJUnitTests.class'
-    ignoreFailures=ignoreTestFailures
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 task datatest(type: Test, dependsOn: 'jar') {
@@ -303,89 +287,54 @@ task datatest(type: Test, dependsOn: 'jar') {
     classpath = sourceSets.slowtest.runtimeClasspath
     include 'pcgen/persistence/lst/DataTest.class'
     include 'pcgen/persistence/lst/DataLoadTest.class'
-    ignoreFailures=ignoreTestFailures
-    maxHeapSize = "512m"
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 task inttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/**/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 task pfinttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_pathfinder/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 task rsrdinttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_35e/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 task msrdinttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_modern/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 // Do the lot!
-task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
+task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.3'
+    gradleVersion = '3.5'
 }
 
-//Disable failing on javadoc warning
 allprojects {
     tasks.withType(Javadoc) {
         options.addBooleanOption('Xdoclint:none', true)
+    }
+    tasks.withType(Test) {
+        maxHeapSize = "512m"
+        testLogging {
+            exceptionFormat = 'full'
+            events 'failed', 'skipped'
+        }
     }
 }
 

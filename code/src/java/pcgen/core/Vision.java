@@ -1,5 +1,4 @@
 /*
- * PCClass.java
  * Copyright 2006 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on October 25, 2006
  *
- * $Id: PCClass.java 1526 2006-10-25 03:56:08Z thpr $
  */
 package pcgen.core;
 

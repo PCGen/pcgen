@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/02/2014 10:23:08 pm
  *
- * $Id$
  */
 package gmgen.pluginmgr.messages;
 
@@ -29,9 +27,7 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code CombatHasBeenInitiatedMessage} encapsulates an advisory
  * message that the user has kicked off combat.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 @SuppressWarnings("serial")

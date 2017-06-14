@@ -1,5 +1,4 @@
 /*
- * PrerequisiteOperator.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,20 +15,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package pcgen.core.prereq;
 
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 
-/**
- * 
- */
+
 public enum PrerequisiteOperator
 {
 	GTEQ

@@ -135,7 +135,6 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	/**
 	 * Returns true if the given Object is a TransitionChoice and has identical
 	 * underlying choices and choiceCount
-	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -155,7 +154,6 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this TransitionChoice.
-	 *
 	 */
 	@Override
 	public int hashCode()
@@ -194,7 +192,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		{
 			if (choiceActor == null || choiceActor.allow(item, pc, allowStack))
 			{
-				if (assocList != null && stackLimit != null && stackLimit.intValue() > 0)
+				if (assocList != null && stackLimit != null && stackLimit > 0)
 				{
 					int takenCount = 0;
 					for (Object choice : assocList)
@@ -204,7 +202,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 							takenCount++;
 						}
 					}
-					if (stackLimit.intValue() <= takenCount)
+					if (stackLimit <= takenCount)
 					{
 						continue;
 					}

@@ -1,7 +1,6 @@
 /*
  * WeightedCollection.java
  * Copyright 2007 (c) Tom Parker <thpr@users.sourceforge.net>
- *  Derived from WeightedList.java
  *  Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -54,7 +53,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	/**
 	 * The actual list where the data is stored.
 	 */
-	private Collection<WeightedItem<E>> theData;
+	private final Collection<WeightedItem<E>> theData;
 
 	/**
 	 * Default constructor. Creates an empty collection.
@@ -550,7 +549,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Equals method. Note this is required in order to have the .equals()
 		 * at the WeightedCollection level work properly (it is a deep equals)
-		 *
 		 */
 		@Override
 		public boolean equals(Object obj)
@@ -638,7 +636,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Checks if there are any more elements in the iteration.
 		 * 
 		 * @return <tt>true</tt> if there are more elements.
-		 *
 		 */
 		@Override
 		public boolean hasNext()
@@ -702,7 +699,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 
 		/**
 		 * Compare two WeightedItem objects
-		 *
 		 */
 		@Override
 		public int compare(WeightedItem<WICT> item1, WeightedItem<WICT> item2)

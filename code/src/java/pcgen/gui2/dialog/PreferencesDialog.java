@@ -91,9 +91,9 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	private static final long serialVersionUID = 5042379023317257550L;
 
 	// Resource strings
-	private static String in_appearance =
+	private static final String in_appearance =
 			LanguageBundle.getString("in_Prefs_appearance"); //$NON-NLS-1$
-	private static String in_character =
+	private static final String in_character =
 			LanguageBundle.getString("in_Prefs_character"); //$NON-NLS-1$
 	public static final String LB_PREFS_PLUGINS_RUN = "in_Prefs_pluginsRun"; //$NON-NLS-1$
 	public static final String LB_PREFS_PLUGIN_PCGEN_WIN = "in_Prefs_pluginPcgenWin"; //$NON-NLS-1$
@@ -423,9 +423,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	}
 }
 
-/**
- *
- */
+
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {
 	private final HashMap<String, PluginRef> pluginMap = new HashMap<>();
@@ -498,9 +496,9 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 
 	private static class PluginRef extends JPanel 
 	{
-		private String pluginName;
-		private String pluginTitle;
-		private String defaultSystem;
+		private final String pluginName;
+		private final String pluginTitle;
+		private final String defaultSystem;
 		private JCheckBox checkBox;
 		private JRadioButton pcgenButton;
 		private JRadioButton gmgenButton;

@@ -1,5 +1,4 @@
 /*
- * GameModeFacade.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -23,9 +22,7 @@ import java.util.List;
 
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- */
+
 public interface GameModeFacade
 {
 

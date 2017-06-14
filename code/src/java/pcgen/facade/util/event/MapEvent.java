@@ -19,9 +19,7 @@
  */
 package pcgen.facade.util.event;
 
-/**
- *
- */
+
 public class MapEvent<K, V> extends FacadeEvent
 {
 
@@ -31,10 +29,10 @@ public class MapEvent<K, V> extends FacadeEvent
 	public static final int VALUE_CHANGED = 3;
 	public static final int VALUE_MODIFIED = 4;
 	public static final int KEYS_CHANGED = 4;
-	private int type;
-	private K key;
-	private V newValue;
-	private V oldValue;
+	private final int type;
+	private final K key;
+	private final V newValue;
+	private final V oldValue;
 
 	/**
 	 * This is a shortcut constructor for an KEYS_CHANGED event

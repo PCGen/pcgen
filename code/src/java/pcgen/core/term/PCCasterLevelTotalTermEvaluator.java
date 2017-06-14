@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCasterLevelTotalTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 04-Aug-2008 02:25:32
- *
- *
  */
 
 package pcgen.core.term;
@@ -63,7 +60,7 @@ public class PCCasterLevelTotalTermEvaluator
 				String spellType = pcClass.getSpellType();
 
 				iLev += pc.getTotalCasterLevelWithSpellBonus(
-						    aSpell, aSpell == null ? null : aSpell.getSpell(),
+						    aSpell, (aSpell == null) ? null : aSpell.getSpell(),
 							spellType,
 							classKey,
 							iClass + pcBonus);

@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package plugin.pretokens.writer;
 
@@ -39,7 +37,7 @@ public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -48,7 +46,7 @@ public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 		return "campaign";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -58,7 +56,7 @@ public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 			PrerequisiteOperator.LT};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
@@ -85,7 +83,7 @@ public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
 	 */
 	@Override
@@ -102,7 +100,7 @@ public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+		writer.write("PRE" + kindHandled().toUpperCase() + ':'
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
 				: "1");

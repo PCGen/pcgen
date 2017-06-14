@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 23/05/2011 7:44:55 PM
  *
- * $Id$
  */
 package pcgen.cdom.reference;
 
@@ -44,9 +42,7 @@ import pcgen.cdom.enumeration.ListKey;
  * @param <V>
  *            The class of object stored by the List Key used by this
  *            ListMatchingReference.
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class ListMatchingReference<T extends CDOMObject, V> extends
 		CDOMReference<T>

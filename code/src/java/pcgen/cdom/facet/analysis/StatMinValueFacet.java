@@ -38,7 +38,6 @@ import pcgen.core.PCStat;
  * StatMinValueFacet  is a Facet that tracks the Stats that have had a minimum 
  * value set on a Player Character.
  *
- * <br>
  * 
  */
 public class StatMinValueFacet extends AbstractSourcedListFacet<CharID, StatLock> implements

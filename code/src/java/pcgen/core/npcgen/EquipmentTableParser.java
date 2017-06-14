@@ -1,5 +1,4 @@
 /*
- * EquipmentTableParser.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.npcgen;
 
@@ -47,11 +45,11 @@ import pcgen.util.Logging;
  */
 public class EquipmentTableParser
 {
-	private SAXParser theParser;
-	private GameMode theMode;
+	private final SAXParser theParser;
+	private final GameMode theMode;
 	
-	private HashMap<EquipmentItem, String> theLinkTable = new HashMap<>();
-	private HashMap<EqmodItem, String> theEqmodLinkTable = new HashMap<>();
+	private final HashMap<EquipmentItem, String> theLinkTable = new HashMap<>();
+	private final HashMap<EqmodItem, String> theEqmodLinkTable = new HashMap<>();
 	
 	/**
 	 * Creates a new <tt>EquipmentTableParser</tt> for the specified game mode.
@@ -139,11 +137,10 @@ public class EquipmentTableParser
 	 * This is the parsing event handler class.  The methods in this class are
 	 * called by the SAX parser as it finds various elements in the XML file.
 	 * 
-	 *
 	 */
 	class EquipmentTableHandler extends DefaultHandler
 	{
-		private List<EquipmentTable> theList;
+		private final List<EquipmentTable> theList;
 		
 		private GameMode theGameMode = null;
 		private boolean theValidFlag = false;

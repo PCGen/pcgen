@@ -32,13 +32,12 @@ import pcgen.util.Logging;
  * and returns default choices. It is used when PCGen is running in batch mode 
  * without any windows shown.
  *
- * <br>
  * 
  */
 public class ConsoleUIDelegate implements UIDelegate
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#maybeShowWarningConfirm(java.lang.String, java.lang.String, java.lang.String, pcgen.system.PropertyContext, java.lang.String)
 	 */
     @Override
@@ -49,7 +48,7 @@ public class ConsoleUIDelegate implements UIDelegate
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#showErrorMessage(java.lang.String, java.lang.String)
 	 */
     @Override
@@ -58,7 +57,7 @@ public class ConsoleUIDelegate implements UIDelegate
 		Logging.log(Logging.ERROR, title + " - " + message);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#showInfoMessage(java.lang.String, java.lang.String)
 	 */
     @Override
@@ -67,7 +66,7 @@ public class ConsoleUIDelegate implements UIDelegate
 		Logging.log(Logging.INFO, title + " - " + message);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#showLevelUpInfo(pcgen.core.facade.CharacterFacade, int)
 	 */
     @Override
@@ -76,7 +75,7 @@ public class ConsoleUIDelegate implements UIDelegate
 		Logging.log(Logging.INFO, "Level up from " + oldLevel + " complete for character " + character);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.UIDelegate#showWarningConfirm(java.lang.String, java.lang.String)
 	 */
     @Override

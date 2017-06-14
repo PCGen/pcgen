@@ -1,5 +1,4 @@
 /*
- * EquipmentTreeTableModel.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -48,7 +47,6 @@ import pcgen.util.ListMap;
  * tree structure showing the equipment by its equipped location for a 
  * particular character and equipment set.
  * 
- * <br>
  *  
  */
 public class EquipmentTreeTableModel implements TreeTableModel, ListListener<EquipNode>, EquipmentTreeListener

@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package plugin.lsttokens;
 
@@ -39,7 +37,6 @@ import pcgen.util.Logging;
  * The Class {@code SortKeyLst} implements the global SORTKEY tag, which
  * allows items to be sorted in a custom manner.
  *
- * <br>
  * 
  */
 public class SortKeyLst extends AbstractStringToken<CDOMObject> implements

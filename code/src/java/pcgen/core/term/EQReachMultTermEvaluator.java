@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EQReachMultTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Oct-2008 03:01:55
- *
- *
  */
 
 package pcgen.core.term;
@@ -42,7 +39,7 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override

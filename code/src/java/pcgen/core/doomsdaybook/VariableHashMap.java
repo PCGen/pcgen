@@ -15,9 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * VariableHashMap.java
- *
  */
 package pcgen.core.doomsdaybook;
 
@@ -31,13 +28,11 @@ import java.util.Map;
  * pairs) and DataElements optimised for quick lookup and updating. Note
  * there are three structures here, the principle map of variables, a
  * secondary map of DataElement objects and a list of Operation objects.
- *
- *
  */
 public class VariableHashMap extends HashMap<String, String>
 {
-	private List<Operation> initialize = new ArrayList<>();
-	private Map<String, DataElement> dataElements;
+	private final List<Operation> initialize = new ArrayList<>();
+	private final Map<String, DataElement> dataElements;
 
 	/** Creates a new instance of VariableHashMap */
 	public VariableHashMap()

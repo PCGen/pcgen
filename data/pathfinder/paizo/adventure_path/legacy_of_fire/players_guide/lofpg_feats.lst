@@ -3,7 +3,7 @@ SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paiz
 
 # Feat Name			Type			Required Stat		Required Text																		Description																													Multiple?	Choose								Ability								Combat bonus					Bonus to skill			Modify VAR							Source Page
 # Ability Name		Category of Ability	Type			Required Stat		Required Text																		Description																													Multiple?	Choose								Ability								Bonus to skill			Modify VAR							Source Page
-Sandwalker			CATEGORY:FEAT		TYPE:General	PRESTAT:2,DEX=13,CON=13																					DESC:You are at home on the shifting waves of sand.																																																							SOURCEPAGE:p.20
+Sandwalker			CATEGORY:FEAT		TYPE:General	PRESTAT:1,CON=13		PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,13],[PREVARGTEQ:FeatDexRequirement,13]								DESC:You are at home on the shifting waves of sand.																																																							SOURCEPAGE:p.20
 
 # Achievement Feats
 All Gnolls Must Die	CATEGORY:FEAT		TYPE:Achievement					PRETEXT:Deliver the killing blow to 20 gnolls, hyenas, dire hyenas, werehyenas, jackalweres, or minions of Lamashtu	DESC:Your name is whispered by black lips throughout the Uwaga Highlands as a bringer of death and pain--few are the gnolls who don't quake when they hear stories of your deeds.																																		SOURCEPAGE:p.29

@@ -19,8 +19,6 @@
  *   c.	Tag
  *   d.	Update version - increment version and add snapshot
  *   e.	Commit new version
- *
- * Author: James Dempsey
  */
 
 apply from: "code/gradle/releaseUtils.groovy"
@@ -113,12 +111,12 @@ ext {
     }
 }
 
-task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
+task layoutNsisBase(type: Copy, dependsOn: [copyToLibs, cleanCreateExe, createExe]) {
     description="Assemble the required files for all PCGen installations"
-    doFirst {
-        // Release notes are required!
-        assert file(releaseNotes).exists()
-    }
+    //doFirst {
+        // Release notes are required! Causes Autobuild Problem
+        //assert file(releaseNotes).exists()
+    //}
 
     into nsisBaseFolder
     from ("${projectDir}/installers/win-installer/Local") {
@@ -128,15 +126,24 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
         into "/docs/acknowledgments/"
         include "PCGenLicense.txt"
     }
+    from ("${buildDir}/libs") {
+        into "./libs/"
+        exclude "pcgen-${version}.jar"
+        exclude "pcgen-${version}-batch-convert.jar"
+    }
+    from ("${buildDir}/libs") {
+        include "pcgen-${version}.jar"
+        include "pcgen-${version}-batch-convert.jar"
+        rename "(.+)-$version(.+)", '$1$2'
+    }
     from ("${projectDir}") {
-        include '*.jar'
         include 'logging.properties'
         include 'system/**' // Later we want to split out the game modes to optional
         include 'docs/**'
         include 'preview/**'
         include 'characters/*.pcg'
     }
-    from ("${buildDir}/release") {
+    from ("${buildDir}/launch4j") {
         include 'pcgen.exe'
     }
 
@@ -150,7 +157,6 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-    outfile = "../release/pcgen.exe"
     jdkPreference = 'preferJre'
     initialHeapSize = 128
     maxHeapSize = 512
@@ -159,6 +165,7 @@ launch4j {
     dontWrapJar = true
     bundledJrePath = 'jre'
     jar = "pcgen.jar"
+    jreRuntimeBits = 64
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
     splashTimeout = 60
@@ -168,38 +175,39 @@ launch4j {
 }
 
 task downloadJRE doLast {
-    def m = System.properties['java.runtime.version'] =~ /(\d+)\.(\d+)\.(\d+)_(\d+)\-b(\d+)/
-    def major = Integer.parseInt(m[0][1], 10)
-    def minor = Integer.parseInt(m[0][2], 10)
-    def micro = Integer.parseInt(m[0][3], 10)
-    def update = Integer.parseInt(m[0][4], 10)
-    def build = m[0][5]
-    def extension = 'tar.gz'
+    def azul= '8.21.0.1'
+    def major = 8
+    def minor = 1
+    def micro = 0
+    def update = 131
+    def extension = 'zip'
     def jre64Dir = new File("${projectDir}/jre/jre_64")
     if(!jre64Dir.exists()){
-        println("Downloading Java ${minor}u${update} JRE missing tar files...")
         //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
-        def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
-        def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+        //See more information about Azul here: http://www.azul.com/downloads/zulu/
+        def filename = "zulu${azul}-jdk${major}.${micro}.${update}-win_x64"
+        def jre64URL = "http://cdn.azul.com/zulu/bin/${filename}.zip"
+        println("Downloading JRE ${major}.${minor}.${update} from ${jre64URL}")
         if(!jre64Dir.exists()){
             download {
                 src jre64URL
                 dest new File("${projectDir}/jre/", "jre_64.${extension}")
-                header 'Cookie', oracleCookie
                 overwrite false
             }
         }
         //Now untar them
         fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
             copy {
-                println "Untar $simLib.name"
-                def name = simLib.name - '.tar.gz'
-                from tarTree("${projectDir}/jre/${simLib.name}")
-                into "${projectDir}/jre/$name"
+                println "Unzip $simLib.name"
+                def name = simLib.name - '.$extension'
+                def zipFile = file("${projectDir}/jre/${simLib.name}")
+                def outputDir = "${projectDir}/jre/"
+                from zipTree(zipFile)
+                into outputDir
             }
             new File("${projectDir}/jre/${simLib.name}").delete()
         }
-        def jre64 = new File("${projectDir}/jre/jre_64/jre${major}.${minor}.${micro}_${update}")
+        def jre64 = new File("${projectDir}/jre/${filename}")
         //Removing the folder with specific version so it's easier to handle in NSIS script.
         if(jre64.exists()){
             copy {
@@ -260,8 +268,8 @@ task genProjectNsis doLast {
 ; Constants file generated by release.gradle
 !define SIMPVER "${shortVerNum}"
 !define LONGVER "${plainVerNum}"
-!define OutDir "${buildDir}/release"
-!define SrcDir "${buildDir}/nsis"
+!define OutDir "${buildDir}\\release"
+!define SrcDir "${buildDir}\\nsis"
 """)
 
     mkdir "${buildDir}/release"
@@ -269,7 +277,7 @@ task genProjectNsis doLast {
 
 // Call NSIS to generate windows installer
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
-        genProjectNsis, downloadJRE, createExe]) doLast {
+        genProjectNsis, downloadJRE]) doLast {
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
@@ -286,7 +294,7 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
                 args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
             }
         }
-    }else{
+    } else {
         printf "Unhandled OS: " + System.properties['os.name']
     }
 }

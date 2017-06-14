@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 23, 2002, 1:49 PM
  */
 package pcgen.core;
 
@@ -47,8 +45,6 @@ import pcgen.util.enumeration.Visibility;
 
 /**
  * {@code Kit}.
- *
- * @author   Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Kit extends PObject implements Comparable<Object>, KitFacade
 {

@@ -1,5 +1,4 @@
 /*
- * PCLevelCastingInfo.java
  * Copyright 2006 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,7 +17,6 @@
  *
  * Created: November 8, 2006
  *
- * $Id: PCClass.java 1605 2006-11-08 02:14:21Z thpr $
  */
 package pcgen.core;
 
@@ -34,7 +32,6 @@ import pcgen.base.formula.Formula;
  * SpellProgressionInfo contains information about Spell Progression in support
  * of a PCClass.
  * 
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
 public class SpellProgressionCache implements Cloneable {
 

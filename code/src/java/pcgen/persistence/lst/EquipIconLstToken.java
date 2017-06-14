@@ -28,7 +28,6 @@ import pcgen.core.GameMode;
  * The Interface {@code EquipIconLstToken} defines a token
  * as being callable by the EquipIconLoader.
  *
- * <br>
  * 
  */
 public interface EquipIconLstToken extends LstToken

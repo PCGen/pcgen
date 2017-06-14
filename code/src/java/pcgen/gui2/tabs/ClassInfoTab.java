@@ -1,5 +1,4 @@
 /*
- * ClassInfoTab.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -79,9 +78,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- */
+
 @SuppressWarnings("serial")
 public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {

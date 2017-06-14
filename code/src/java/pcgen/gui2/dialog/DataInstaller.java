@@ -191,7 +191,7 @@ public class DataInstaller extends JFrame
 			return createFiles(dataSet, destDir, files);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
         @Override
@@ -406,7 +406,7 @@ public class DataInstaller extends JFrame
 	private JButton closeButton;
 	
 	/** The listener. */
-	private ActionListener listener = new InstallerButtonListener();
+	private final ActionListener listener = new InstallerButtonListener();
 	
 	/** The campaign. */
 	private InstallableCampaign campaign;
@@ -419,7 +419,6 @@ public class DataInstaller extends JFrame
 
 	/**
 	 * Instantiates a new data installer.
-	 *
 	 */
 	public DataInstaller()
 	{

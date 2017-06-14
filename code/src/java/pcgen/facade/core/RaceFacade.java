@@ -1,5 +1,4 @@
 /*
- * RaceFacade.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -21,9 +20,7 @@ package pcgen.facade.core;
 
 import java.util.List;
 
-/**
- *
- */
+
 public interface RaceFacade extends InfoFacade
 {
 

@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.exporttokens;
 
@@ -54,8 +51,6 @@ import pcgen.util.Delta;
 /**
  * {@code SpellMemToken} displays information about the spells
  * in the character spellbooks..
- *
- *
  */
 
 // SPELLMEM.x.x.x.x.LABEL classNum.bookNum.level.spellnumber
@@ -378,11 +373,11 @@ public class SpellMemToken extends Token
 						{
 							if ("No".equals(aSpell.getListAsString(ListKey.SPELL_RESISTANCE)))
 							{
-								retValue.append("N");
+								retValue.append('N');
 							}
 							else
 							{
-								retValue.append("Y");
+								retValue.append('Y');
 							}
 						}
 						else if ("CLASS".equals(aLabel))
@@ -480,7 +475,7 @@ public class SpellMemToken extends Token
 			aBuf.append((an == null) ? "" : an);
 			if (i < featList.size())
 			{
-				aBuf.append(" ");
+				aBuf.append(' ');
 			}
 		}
 		
@@ -601,7 +596,7 @@ public class SpellMemToken extends Token
 
 			String aDescription = sAlt;
 			final String aSearch =
-					sType.toUpperCase() + ":" + sKey + Constants.LINE_SEPARATOR;
+					sType.toUpperCase() + ':' + sKey + Constants.LINE_SEPARATOR;
 			final int pos = aPC.getDescriptionLst().indexOf(aSearch);
 
 			if (pos >= 0)

@@ -41,6 +41,7 @@ $pub{'alderac_entertainment_group'} = 'Alderac Entertainment Group';
 $pub{'alderac_ent_group'} = 'Alderac Entertainment Group';
 $pub{'alea_publishing_group'} = 'Alea Publishing Group';
 $pub{'alluria_publishing'} = 'Alluria Publishing';
+$pub{'ascension_games'} = 'Ascension Games';
 $pub{'atlas_games'} = 'Atlas Games';
 $pub{'auran_d20'} = 'Auran d20';
 $pub{'avalanche_press'} = 'Avalanche Press';
@@ -66,7 +67,9 @@ $pub{'fantasy_flight_games'} = 'Fantasy Flight Games';
 $pub{'gallantry_productions'} = 'Gallantry Productions';
 $pub{'goodman_games'} = 'Goodman Games';
 $pub{'green_ronin'} = 'Green Ronin';
+$pub{'legendary_games'} = 'Legendary Games';
 $pub{'lions_den_press'} = 'Lions Den Press';
+$pub{'lone_wanderer_entertainment'} = 'Lone Wanderer Entertainment';
 $pub{'malhavoc_press'} = 'Malhavoc Press';
 $pub{'minotaur_games'} = 'Minotaur Games';
 $pub{'mongoose'} = 'Mongoose';
@@ -122,7 +125,7 @@ foreach $dirname (@basedirlist)
 		next;
 	}
 
-	# Read the files under the directory that do not have have names starting with "."
+	# Read the files under the directory that do not have names starting with "."
 	$data_dir = $DATA_ROOT . $dirname;
 	opendir(DIR, $data_dir) || die "can't opendir $data_dir: $!";
 	@dirlist =  readdir(DIR);
@@ -135,8 +138,8 @@ foreach $dirname (@basedirlist)
 	# Loop through the publisher directories adding a section for each
 NAME:	foreach $filename (@nondots)
 	{
-		# Skip some folders we don't wish to distribute
-		if ($filename eq 'homebrew' || $filename eq 'readme.md' || $filename eq 'pcgen_test_advanced' || $filename =~ /zen_test.*/)
+		# Skip some folders we don't wish to distribute - Everything we don't want distributed should be placed in zen_test
+		if ($filename eq 'readme.md' || $filename eq 'pcgen_test_advanced' || $filename =~ /zen_test.*/)
 		{
 			next NAME;
 		}

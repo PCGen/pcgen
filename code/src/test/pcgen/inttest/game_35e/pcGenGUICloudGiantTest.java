@@ -1,6 +1,4 @@
-/*
- * pcGenGUICloudGiantTest.java
- */
+
 package pcgen.inttest.game_35e;
 
 import pcgen.inttest.PcgenFtlTestCase;
@@ -15,9 +13,7 @@ import junit.framework.TestSuite;
 public class pcGenGUICloudGiantTest extends PcgenFtlTestCase
 {
 
-	/**
-	 *
-	 */
+
 	public pcGenGUICloudGiantTest()
 	{
 		super("35e_cloudgiant");

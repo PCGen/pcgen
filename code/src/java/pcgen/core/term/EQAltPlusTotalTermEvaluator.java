@@ -1,5 +1,4 @@
 /*
- * EQAltPlusTermEvaluator.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.term;
 
@@ -26,8 +23,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * The Class {@code EQAltPlusTotalTermEvaluator} is responsible for producing
  * the value of the ALTPLUSTOTAL token for use in equipment and eqmod cost formulas. 
- * 
- * 
  */
 public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -51,7 +46,7 @@ public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements 
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	/* (non-Javadoc)

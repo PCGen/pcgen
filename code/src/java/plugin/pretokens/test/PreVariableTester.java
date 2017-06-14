@@ -16,11 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package plugin.pretokens.test;
 
@@ -51,7 +46,7 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements Prere
 		return "VAR"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
 	@Override
@@ -94,7 +89,7 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements Prere
 		return countedTotal(prereq, 1);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override

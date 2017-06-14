@@ -1,5 +1,4 @@
 /*
- * FilteredListFacadeTableModel.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -31,9 +30,7 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.util.table.Row;
 import pcgen.gui2.util.table.SortableTableModel;
 
-/**
- *
- */
+
 public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel implements SortableTableModel, ListListener<E>
 {
 

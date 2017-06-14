@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.BasePCTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,18 +16,14 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 20:49:05
- *
- *
  */
 
 package pcgen.core.term;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
-import pcgen.util.Logging;
 
 public abstract class BasePCTermEvaluator
 {
@@ -52,51 +47,19 @@ public abstract class BasePCTermEvaluator
 	public abstract Float resolve(PlayerCharacter pc);
 
 	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
-		return convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
+		return TermUtil.convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
-	protected Float convertToFloat(String element, String foo)
+	protected static Float convertToFloat(String element, String foo)
 	{
-		Float d = null;
-		try
-		{
-			d = new Float(foo);
-		}
-		catch (NumberFormatException nfe)
-		{
-			// What we got back was not a number
-		}
-
-		Float retVal = null;
-		if (d != null && !d.isNaN())
-		{
-			retVal = d;
-			if (Logging.isDebugMode())
-			{
-				Logging.debugPrint(new StringBuilder("Export variable for: '")
-					.append(element).append("' = ").append(d).toString());
-			}
-		}
-
-		return retVal;
-	}
-
-	public Float localToFloat(PlayerCharacter pc, String localVar,
-		CDOMObject owner)
-	{
-		Object o = pc.getLocal(owner, localVar);
-		if (o instanceof Float)
-		{
-			return (Float) o;
-		}
-		return ((Number) o).floatValue();
+		return TermUtil.convertToFloat(element, foo);
 	}
 
 }

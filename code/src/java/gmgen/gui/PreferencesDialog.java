@@ -18,7 +18,6 @@
  *
  *  PreferencesDialog.java
  *
- *  Created on August 29, 2002, 2:17 PM
  */
 package gmgen.gui;
 
@@ -49,7 +48,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 
     private FlippingSplitPane jSplitPane1;
     private javax.swing.JTree prefsTree;
-    private PreferencesRootTreeNode root;
+    private final PreferencesRootTreeNode root;
     private JPanel prefsPane;
     private CardLayout cardLayout;
 

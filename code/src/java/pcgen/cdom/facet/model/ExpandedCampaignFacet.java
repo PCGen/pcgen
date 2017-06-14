@@ -33,7 +33,6 @@ import pcgen.core.Campaign;
  * 
  * @see pcgen.cdom.facet.input.CampaignFacet
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ExpandedCampaignFacet extends AbstractSourcedListFacet<CharID, Campaign>
 		implements DataFacetChangeListener<CharID, Campaign>

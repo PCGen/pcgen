@@ -21,13 +21,11 @@ import java.util.EventObject;
 
 /**
  * Change event
- *
- *
  */
 public class TravelSpeedEvent extends EventObject
 {
 	
-	private String changed;
+	private final String changed;
 
 	public TravelSpeedEvent(Object source, String changed)
 	{

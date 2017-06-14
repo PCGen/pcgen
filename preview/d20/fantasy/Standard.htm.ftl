@@ -1651,7 +1651,7 @@ ${pcstring('ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype.DESC')}</td
      <td valign="top" class="font8" width="70%"><b>${pcstring('ABILITYALL.Afflictions.VISIBLE.${affliction}.TYPE=Affliction')}</b></td>
 	<td valign="top" class="font8" width="30%" align="right">[${pcstring('ABILITYALL.Afflictions.VISIBLE.${affliction}.TYPE=Affliction.SOURCE')}]</td>
 	<tr>
-<#if (afflictions % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<#if (affliction % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
 <td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
 ${pcstring('ABILITYALL.Afflictions.VISIBLE.${affliction}.TYPE=Affliction.DESC')}
 	</td>

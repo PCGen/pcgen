@@ -1,5 +1,4 @@
 /*
- * InputPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -44,12 +43,12 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class InputPanel extends PCGenPrefsPanel
 {
-	private static String in_input =
+	private static final String in_input =
 		LanguageBundle.getString("in_Prefs_input");
 
-	private static String in_printDeprecation = LanguageBundle
+	private static final String in_printDeprecation = LanguageBundle
 		.getString("in_Prefs_printDeprecation");
-	private static String in_printUnconstructed = LanguageBundle
+	private static final String in_printUnconstructed = LanguageBundle
 		.getString("in_Prefs_printUnconstructed");
 
 	private JCheckBox printDeprecationMessages = new JCheckBox();
@@ -96,7 +95,7 @@ public class InputPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -105,7 +104,7 @@ public class InputPanel extends PCGenPrefsPanel
 		return in_input;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -117,7 +116,7 @@ public class InputPanel extends PCGenPrefsPanel
 			.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

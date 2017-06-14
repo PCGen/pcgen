@@ -1,5 +1,4 @@
 /*
- * PreSpellDescriptor.java
  * Copyright 2004 (C) Anders Lindgren <blithwyn@yahoo.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,9 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.pretokens.test;
 
@@ -31,14 +27,12 @@ import pcgen.system.LanguageBundle;
 
 import java.util.List;
 
-/**
- *
- */
+
 public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 		implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -66,7 +60,7 @@ public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 		return "SPELLDESCRIPTOR"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override

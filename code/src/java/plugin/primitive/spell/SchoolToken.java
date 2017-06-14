@@ -68,7 +68,7 @@ public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + school.getLSTformat(false);
+		return getTokenName() + '=' + school.getLSTformat(false);
 	}
 
 	@Override

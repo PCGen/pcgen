@@ -16,5 +16,5 @@ Imbue with Addiction			TYPE:Arcane			CLASSES:Alchemist=2|Sorcerer,Wizard,Witch=3
 # Bardic Masterpiece Spells
 # ==============================
 
-Masterpiece (Rat Quadrille)						CLASSES:Bard=2[PRESKILL:1,Perform (Percussion)=4,Perform (Sing)=4]			SCHOOL:Masterpiece											CASTTIME:1 standard action																																SOURCEPAGE:p.30
+Masterpiece (Rat Quadrille)						CLASSES:Bard=2[PRESKILL:1,Perform (Percussion Instruments)=4,Perform (Sing)=4]	SCHOOL:Masterpiece											CASTTIME:1 standard action																																SOURCEPAGE:p.30
 Masterpiece (Vindictive Soliloquy)					CLASSES:Bard=4[PRESKILL:1,Perform (Act)=10,Perform (Oratory)=10,Perform (Sing)=10]	SCHOOL:Masterpiece											CASTTIME:5 full rounds																																	SOURCEPAGE:p.30

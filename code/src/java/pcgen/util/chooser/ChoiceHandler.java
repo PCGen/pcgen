@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.util.chooser;
 
@@ -26,7 +24,6 @@ import pcgen.facade.core.ChooserFacade;
  * This interface indicates that the class can handle making a decision 
  * on a choice request.
  *
- * <br>
  * 
  */
 public interface ChoiceHandler

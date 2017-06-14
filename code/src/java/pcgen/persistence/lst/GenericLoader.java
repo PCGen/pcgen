@@ -28,9 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 
-/**
- * 
- */
+
 public class GenericLoader<T extends CDOMObject> extends
 		LstObjectFileLoader<T>
 {

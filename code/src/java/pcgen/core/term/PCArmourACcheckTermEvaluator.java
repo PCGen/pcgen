@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCArmourACcheckTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,15 +16,12 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Aug-2008 22:25:54
- *
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
-import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
@@ -41,19 +37,16 @@ public class PCArmourACcheckTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.EQACCHECK))
+		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.EQACCHECK))
 		{
 			Logging.errorPrint(originalText
 				+ " term is deprecated (does not function)"
 				+ " when EQACCHECK CodeControl is used");
 		}
-		int maxCheck = 0;
-
-		for ( Equipment eq : pc.getEquipmentOfType("Armor", 1) )
-		{
-			maxCheck += eq.preFormulaAcCheck(pc);
-		}
+		int maxCheck = pc.getEquipmentOfType("Armor", 1)
+		                 .stream()
+		                 .mapToInt(eq -> eq.preFormulaAcCheck(pc))
+		                 .sum();
 
 		return (float) maxCheck;
 	}

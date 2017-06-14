@@ -1,5 +1,4 @@
 /*
- * PreRule.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.pretokens.test;
 
@@ -32,9 +28,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 
-/**
- *
- */
+
 public class PreRuleTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
@@ -48,7 +42,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 		return "RULE"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
 	@Override
@@ -87,7 +81,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 			targetNumber));
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override

@@ -94,8 +94,8 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	private boolean errorState = false;
 	private String lastNotifiedFilename = "";
 	private String currFilename = "";
-	private Component statusField;
-	private File changeLogFile;
+	private final Component statusField;
+	private final File changeLogFile;
 
 	public RunConvertPanel(Component statusField)
 	{
@@ -108,7 +108,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		changeLogFile = new File(dataLogFileName);
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -117,7 +117,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -241,7 +241,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#setupDisplay(javax.swing.JPanel, pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -496,7 +496,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	}
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.ConversionDecider#getConversionDecision(java.lang.String, java.util.List, java.util.List)
 	 */
 	@Override

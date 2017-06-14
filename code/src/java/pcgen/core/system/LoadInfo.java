@@ -1,5 +1,4 @@
 /*
- * LoadInfo.java
  * Copyright (c) Thomas Parker, 2010.
  * Copyright 2002 (C) James Dempsey
  *
@@ -16,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.core.system;
 
@@ -44,17 +40,17 @@ public class LoadInfo implements Loadable
 	private URI sourceURI;
 	private String loadInfoName;
 
-	private Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<>();
-	private Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<>();
+	private final Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<>();
+	private final Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<>();
 
-	private SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<>();
+	private final SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<>();
 	private int minStrenghScoreWithLoad = 0;
 	private int maxStrengthScoreWithLoad = 0;
 
 	private BigDecimal loadScoreMultiplier = BigDecimal.ZERO;
 	private int loadMultStep = 10;
 
-	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<>();
+	private final Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<>();
 	private String modifyFormula;
 
     @Override
@@ -266,9 +262,9 @@ public class LoadInfo implements Loadable
 
 	private static class LoadMapEntry
 	{
-		private Float multiplier;
-		private String moveFormula;
-		private Integer checkPenalty;
+		private final Float multiplier;
+		private final String moveFormula;
+		private final Integer checkPenalty;
 
 		/**
 		 * Constructor

@@ -1,5 +1,4 @@
 /*
- * EquipmentTableModel.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -33,7 +32,6 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * is either equipped, unequipped or of all gear owned. Each instance relates to 
  * one type of view.
  * 
- * <br>
  * 
  */
 public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentFacade> implements EquipmentListListener

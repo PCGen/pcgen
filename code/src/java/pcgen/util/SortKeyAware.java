@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.util;
 
@@ -25,7 +23,6 @@ package pcgen.util;
  * sort key. That is the text to be used for sorting, which may be different 
  * from the text used to display the item.
  *
- * <br>
  * 
  */
 @FunctionalInterface

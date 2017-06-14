@@ -1,5 +1,4 @@
 /*
- * DisplayableFilter.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -21,9 +20,7 @@ package pcgen.gui2.filter;
 
 import java.awt.Component;
 
-/**
- *
- */
+
 public interface DisplayableFilter<C, E> extends Filter<C, E>
 {
 

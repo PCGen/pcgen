@@ -16,9 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.exporttokens;
 
@@ -148,7 +145,7 @@ public class SkillSitToken extends Token
 					for (String situation : situations)
 					{
 						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
-							+ "=" + situation);
+							+ '=' + situation);
 						if (bonus > 0.01 || bonus < -0.01)
 						{
 							if (i == 0)
@@ -178,7 +175,7 @@ public class SkillSitToken extends Token
 				Skill sk = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Skill.class, skillName.substring(0, equalLoc));
 				double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
-					+ "=" + situation);
+					+ '=' + situation);
 				return new SkillSituation(sk, situation, bonus);
 			}
 		}
@@ -276,7 +273,7 @@ public class SkillSitToken extends Token
 					String name = QualifiedName.qualifiedName(pc, skill);
 					if (isSituation)
 					{
-						name += " (" + situation + ")";
+						name += " (" + situation + ')';
 					}
 					retValue.append(name);
 					break;
@@ -386,7 +383,7 @@ public class SkillSitToken extends Token
 					boolean b = (skill.getSafe(ObjectKey.EXCLUSIVE) || !skill.getSafe(ObjectKey.USE_UNTRAINED)) && (etRank == 0);
 					if (b)
 					{
-						retValue.append("0");
+						retValue.append('0');
 					}
 					else
 					{
@@ -408,7 +405,7 @@ public class SkillSitToken extends Token
 					boolean isNotTrained = !skill.getSafe(ObjectKey.USE_UNTRAINED) && (tRank == 0);
 					if (isNotTrained)
 					{
-						retValue.append("0");
+						retValue.append('0');
 					}
 					else
 					{
@@ -454,7 +451,7 @@ public class SkillSitToken extends Token
 					if (isSituation)
 					{
 						i += pc.getSizeAdjustmentBonusTo("SITUATION",
-							skill.getKeyName() + "=" + situation);
+							skill.getKeyName() + '=' + situation);
 					}
 					retValue.append(Integer.toString(i));
 					break;

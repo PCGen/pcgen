@@ -77,7 +77,7 @@ public class LookupFunction implements Function
 		{
 			semantics.setInvalid("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 3 got "
-				+ args.length + " " + Arrays.asList(args));
+				+ args.length + ' ' + Arrays.asList(args));
 			return null;
 		}
 

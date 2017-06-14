@@ -49,7 +49,6 @@ import pcgen.system.LanguageBundle;
  * The Class {@code Gui2CampaignInfoFactory} is responsible for producing
  * HTML formatted information on campaigns for the new user interface.
  *
- * <br>
  * 
  */
 public class Gui2CampaignInfoFactory implements CampaignInfoFactory
@@ -78,7 +77,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		return oldList;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.CampaignInfoFactory#getHTMLInfo(pcgen.core.facade.CampaignFacade)
 	 */
 	@Override

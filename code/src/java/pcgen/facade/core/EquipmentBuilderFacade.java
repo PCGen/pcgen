@@ -1,5 +1,4 @@
 /*
- * EquipmentBuilderFacade.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14/09/2013
- *
- * $Id$
  */
 package pcgen.facade.core;
 
@@ -33,7 +28,6 @@ import pcgen.facade.util.ListFacade;
  * piece of custom equipment.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface EquipmentBuilderFacade
 {

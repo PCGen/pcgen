@@ -1,6 +1,4 @@
-/*
- * pcGenGUIBobTest.java
- */
+
 package pcgen.inttest.game_35e;
 
 import pcgen.inttest.PcgenFtlTestCase;
@@ -15,9 +13,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIBobTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIBobTest()
 	{
 		super("35e_bob");

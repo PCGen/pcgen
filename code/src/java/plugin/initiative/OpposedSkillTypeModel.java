@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  OpposedSkillAvailableModel.java
- *
  */
 
 package plugin.initiative;
@@ -65,7 +64,7 @@ public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 		columns.addColumn("TYPE", String.class, null, false, "Type");
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see javax.swing.table.TableModel#getValueAt(int, int)
 	 */
     @Override

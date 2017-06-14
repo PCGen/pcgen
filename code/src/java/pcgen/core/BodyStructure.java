@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/01/2011 10:57:27 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -37,9 +35,7 @@ import pcgen.facade.core.BodyStructureFacade;
  * The Class {@code BodyStructure} represents a part of a character's
  * body that may hold equipment.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class BodyStructure implements BodyStructureFacade
 {

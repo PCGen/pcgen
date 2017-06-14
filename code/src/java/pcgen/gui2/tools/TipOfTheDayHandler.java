@@ -41,9 +41,6 @@ import pcgen.util.Logging;
 
 /**
  * The singleton class {@code TipOfTheDayHandler} manages the list of tips.
- *
- * <br>
-
  */
 public final class TipOfTheDayHandler
 {

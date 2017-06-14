@@ -1,5 +1,4 @@
 /*
- * KitGear.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.kit;
 
@@ -46,7 +43,6 @@ import pcgen.core.character.EquipSet;
 
 /**
  * {@code KitGear}.
- *
  */
 public final class KitGear extends BaseKit
 {
@@ -60,16 +56,16 @@ public final class KitGear extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient Formula actingQuantity;
-	private transient Integer actingCost;
-	private transient List<EqModRef> actingMods;
-	private transient String actingLocation;
-	private transient SizeAdjustment actingSize;
+	private Formula actingQuantity;
+	private Integer actingCost;
+	private List<EqModRef> actingMods;
+	private String actingLocation;
+	private SizeAdjustment actingSize;
 
-	private transient Equipment theEquipment = null;
-	private transient int theQty = 0;
-	private transient String theLocation = "";
-	private transient BigDecimal theCost = BigDecimal.ZERO;
+	private Equipment theEquipment = null;
+	private int theQty = 0;
+	private String theLocation = "";
+	private BigDecimal theCost = BigDecimal.ZERO;
 
 	/**
 	 * Set the location of the gear

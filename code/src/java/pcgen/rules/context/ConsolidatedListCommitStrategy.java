@@ -69,7 +69,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		this.sourceURI = sourceURI;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.rules.context.ListCommitStrategy#addToMasterList(java.lang.String, pcgen.cdom.base.CDOMObject, pcgen.cdom.base.CDOMReference, pcgen.cdom.base.CDOMObject)
 	 */
 	@Override

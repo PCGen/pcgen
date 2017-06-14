@@ -1,5 +1,4 @@
 /*
- * VariableProcessorEq.java
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 13-Dec-2004
  */
 package pcgen.core;
 
@@ -31,13 +28,12 @@ import pcgen.core.term.TermEvaluator;
  * both in definitions of objects and for output to output sheets.
  *
  *
- * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public class VariableProcessorEq extends VariableProcessor
 {
 
-	private Equipment eq;
-	private boolean primaryHead;
+	private final Equipment eq;
+	private final boolean primaryHead;
 
 	/**
 	 * Create a new VariableProcessorEq instance for an equipment item, and

@@ -22,9 +22,7 @@ package pcgen.system;
 import java.util.EventObject;
 import java.util.logging.LogRecord;
 
-/**
- *
- */
+
 public class PCGenTaskEvent extends EventObject
 {
 

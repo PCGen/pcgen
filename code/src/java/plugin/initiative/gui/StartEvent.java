@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  StartEvent.java
- *
  */
 package plugin.initiative.gui;
 
@@ -32,8 +31,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 
-/**
- */
+
 public class StartEvent extends javax.swing.JDialog
 {
 
@@ -104,7 +102,6 @@ public class StartEvent extends javax.swing.JDialog
 	/**
 	 *
 	 * <p>Initializes the alert checkbox based on the options.</p>
-	 *
 	 */
 	public void initCheckBox()
 	{
@@ -174,7 +171,6 @@ public class StartEvent extends javax.swing.JDialog
 	/**
 	 *
 	 * <p>Initializes the components.</p>
-	 *
 	 */
 	protected void initComponents()
 	{

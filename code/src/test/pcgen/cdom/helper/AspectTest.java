@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.cdom.helper;
 
@@ -50,7 +48,6 @@ public class AspectTest extends AbstractCharacterTestCase
 
 	/**
 	 * Tests outputting an empty Aspect.
-	 *
 	 */
 	public void testEmptyDesc()
 	{
@@ -68,7 +65,6 @@ public class AspectTest extends AbstractCharacterTestCase
 
 	/**
 	 * Tests outputting a simple Aspect.
-	 *
 	 */
 	public void testSimpleDesc()
 	{
@@ -140,7 +136,7 @@ public class AspectTest extends AbstractCharacterTestCase
 		assertEquals("", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
 		AbilityCategory category = AbilityCategory.FEAT;
 
-		CNAbility cna = finalize(pobj, "Foo", pc, category);
+		CNAbility cna = pcgenFinalize(pobj, "Foo", pc, category);
 		assertEquals("Foo", aspect.getAspectText(pc, Collections.singletonList(cna)));
 	}
 
@@ -196,8 +192,8 @@ public class AspectTest extends AbstractCharacterTestCase
 		aspect.addVariable("TestVar");
 		assertEquals("0 test ", aspect.getAspectText(pc, buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
 
-		CNAbility cna = finalize(dummy, "Associated 1", pc, AbilityCategory.FEAT);
-		finalize(dummy, "Associated 2", pc, AbilityCategory.FEAT);
+		CNAbility cna = pcgenFinalize(dummy, "Associated 1", pc, AbilityCategory.FEAT);
+		pcgenFinalize(dummy, "Associated 2", pc, AbilityCategory.FEAT);
 		assertEquals("2 test ", aspect.getAspectText(pc, Collections.singletonList(cna)));
 
 		aspect.addVariable("%LIST");
@@ -205,7 +201,7 @@ public class AspectTest extends AbstractCharacterTestCase
 			"2 test Associated 1 and Associated 2", aspect
 				.getAspectText(pc, Collections.singletonList(cna)));
 
-		finalize(dummy, "Associated 3", pc, AbilityCategory.FEAT);
+		pcgenFinalize(dummy, "Associated 3", pc, AbilityCategory.FEAT);
 
 		aspect.addVariable("%LIST");
 		assertEquals("Replacement of %LIST failed",

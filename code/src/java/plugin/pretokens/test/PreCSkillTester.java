@@ -1,5 +1,4 @@
 /*
- * PreCSkill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2005 (C) Thomas Clegg <TN_Clegg@lycos.com>
  *
@@ -16,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */package plugin.pretokens.test;
 
 import java.util.HashMap;
@@ -36,12 +33,10 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class PreCSkillTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -58,7 +53,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 
 		if (prereq.getSubKey() != null)
 		{
-			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ')'; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		final boolean isType =
@@ -167,7 +162,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		return "CSKILL"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override
@@ -176,7 +171,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		String skillName = prereq.getKey();
 		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
-			skillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$ //$NON-NLS-2$
 
 		}
 

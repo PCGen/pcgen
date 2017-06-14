@@ -6,13 +6,11 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 
-/**
- *
- */
+
 public class DieSizesToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
 	 */
     @Override
@@ -22,7 +20,7 @@ public class DieSizesToken implements GameModeLstToken
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override

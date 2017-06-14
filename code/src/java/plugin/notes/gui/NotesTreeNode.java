@@ -53,7 +53,6 @@ import gmgen.util.MiscUtilities;
 /**
  * This defines the preferences tree
  *
- * @author devon
  */
 public class NotesTreeNode implements MutableTreeNode, DocumentListener
 {
@@ -1303,7 +1302,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	{
 		if (dirty)
 		{
-			return "*" + getUserObject().toString();
+			return '*' + getUserObject().toString();
 		}
 		return getUserObject().toString();
 	}

@@ -10,3 +10,7 @@ SOURCELONG:Magical Marketplace	SOURCESHORT:MM	SOURCEWEB:http://paizo.com/product
 # Class Name
 CLASS:Bard.MOD
 1	TEMPLATE:Masterpiece Activation Marketplace
+
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Marketplace

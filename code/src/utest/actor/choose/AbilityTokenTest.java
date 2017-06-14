@@ -35,13 +35,10 @@ import static org.junit.Assert.*;
 /**
  * The Class {@code AbilityTokenTest} verifies the AbilityToken
  * class is working correctly.
- *
- * <br/>
- * 
  */
 public class AbilityTokenTest
 {
-	/** */
+
 	private static final AbilityCategory CATEGORY = AbilityCategory.FEAT;
 	private static final CategorizedChooser<Ability> pca = new AbilityToken();
 	private static final String ITEM_NAME = "ItemName";

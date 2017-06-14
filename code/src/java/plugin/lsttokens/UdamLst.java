@@ -40,9 +40,7 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>,
 		DeferredToken<CDOMObject>
 {

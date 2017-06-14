@@ -1,5 +1,4 @@
 /*
- * ThumbnailPane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -30,9 +29,7 @@ import javax.swing.JComponent;
 
 import pcgen.cdom.base.Constants;
 
-/**
- *
- */
+
 class ThumbnailPane extends JComponent
 {
 

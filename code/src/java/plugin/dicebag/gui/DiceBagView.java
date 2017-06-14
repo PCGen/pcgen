@@ -46,7 +46,6 @@ import pcgen.gui2.tools.Icons;
 
 /**
  * <p>The internal frame view class for the DiceBag.</p>
- *
  */
 public class DiceBagView extends JInternalFrame implements Observer
 {
@@ -146,7 +145,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		setupEditMode();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 *
 	 * Does nothing
@@ -215,7 +214,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * <p>Initializes the view and all components, and starts the bag in
 	 * editing mode.  It sets the size ({@code pack()}) of the
 	 * internal frame, but does <b>not</b> show the frame.</p>
-	 *
 	 *
 	 */
 	private void initComponents()
@@ -424,7 +422,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * <p>Sets up the rolling mode; first cleans out all components
 	 * and then displays the components for the rolling mode.</p>
 	 *
-	 *
 	 */
 	private void setupRollingMode()
 	{
@@ -496,11 +493,10 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 	/**
 	 * <p>An action listener for the buttons in the GUI.</p>
-	 *
 	 */
 	private class BagListener implements ActionListener
 	{
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
         @Override
@@ -556,11 +552,10 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * Basically this overrides enough of {@code AbstracTableModel}
 	 * to make the code useful.</p>
 	 *
-	 *
 	 */
 	private class BagTableModel extends AbstractTableModel
 	{
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#isCellEditable(int, int)
 		 */
         @Override
@@ -569,7 +564,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return true;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getColumnClass(int)
 		 */
         @Override
@@ -578,7 +573,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return String.class;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getColumnCount()
 		 *
 		 * Always a single column
@@ -589,7 +584,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return 1;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getColumnName(int)
 		 */
         @Override
@@ -598,7 +593,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return "Dice Expression";
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getRowCount()
 		 *
 		 * We add one more row than the number of dice in the bag;
@@ -610,7 +605,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return m_bag.diceCount() + 1;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
 		 *
 		 * Sets the value at the specified index, or adds a new die at the end.
@@ -637,7 +632,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			}
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getValueAt(int, int)
 		 */
         @Override

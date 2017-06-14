@@ -25,9 +25,7 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code AddMenuItemToGMGenToolsMenuMessage} encapsulates a
  * request for a menu item to be shown in the GMGen tools menu.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class AddMenuItemToGMGenToolsMenuMessage extends PCGenMessage

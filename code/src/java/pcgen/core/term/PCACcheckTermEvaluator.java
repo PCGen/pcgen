@@ -1,5 +1,4 @@
-/**
- * pcgen.core.term.PCACcheckTermEvaluator.java
+/*
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -15,17 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 03-Aug-2008 21:30:46
- *
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
-import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
@@ -49,17 +43,15 @@ public class PCACcheckTermEvaluator
 				+ " term is deprecated (does not function)"
 				+ " when EQACCHECK CodeControl is used");
 		}
-		int maxCheck = 0;
+		int maxCheck = pc.getEquipmentOfType("Armor", 1)
+		                 .stream()
+		                 .mapToInt(eq -> eq.preFormulaAcCheck(pc))
+		                 .sum();
 
-		for ( Equipment eq : pc.getEquipmentOfType("Armor", 1) )
-		{
-			maxCheck += eq.preFormulaAcCheck(pc);
-		}
-
-		for ( Equipment eq : pc.getEquipmentOfType("Shield", 1) )
-		{
-			maxCheck += eq.preFormulaAcCheck(pc);
-		}
+		maxCheck += pc.getEquipmentOfType("Shield", 1)
+		              .stream()
+		              .mapToInt(eq -> eq.preFormulaAcCheck(pc))
+		              .sum();
 
 		return (float) maxCheck;
 	}
@@ -70,7 +62,7 @@ public class PCACcheckTermEvaluator
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

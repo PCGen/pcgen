@@ -17,7 +17,6 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * OpposedSkillModel.java
- *
  */
 
 package plugin.initiative;
@@ -46,7 +45,6 @@ import pcgen.core.RollingMethods;
  * </p>
  * <p>
  * </p>
- *
  */
 public class OpposedSkillModel extends OpposedSkillBasicModel
 {
@@ -306,7 +304,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		rollAll();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
 	 */
     @Override
@@ -324,7 +322,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.initiative.OpposedSkillBasicModel#addCombatant(gmgen.plugin.PcgCombatant)
 	 */
     @Override

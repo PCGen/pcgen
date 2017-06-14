@@ -22,7 +22,6 @@ import pcgen.core.term.TermEvaulatorException;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 10/04/2008
- *
  */
 
 public class TermUtilitiesTest extends PCGenTestCase

@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountFollowerTypeTransitiveTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 00:47:38
- *
- *
  */
 
 package pcgen.core.term;
@@ -27,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
 
@@ -70,14 +66,14 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 			{
 				final Follower follower = aList.get(index);
 
-				for ( PlayerCharacter pc : Globals.getPCList() )
-				{
-					if (follower.getFileName().equals(pc.getFileName())
-							&& follower.getName().equals(pc.getName()))
-					{
-						return pc.getVariableValue(newCount, "");
-					}
-				}
+				return Globals.getPCList()
+				              .stream()
+				              .filter(pc ->
+						              follower.getFileName().equals(pc.getFileName())
+								              && follower.getName().equals(pc.getName()))
+				              .findFirst()
+				              .map(pc -> pc.getVariableValue(newCount, ""))
+				              .orElse(0.0f);
 			}
 		}
 

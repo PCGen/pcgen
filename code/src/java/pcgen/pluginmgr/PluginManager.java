@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 5, 2011, 2:55:43 PM
  */
 package pcgen.pluginmgr;
 
@@ -31,10 +30,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+
 public final class PluginManager implements pcgen.system.PluginLoader
 {
 

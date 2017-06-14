@@ -1,4 +1,5 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy?Pathfinder-Player-Companion-Weapon-Masters-Handbook	SOURCEDATE:2015-12
 
 # Modifier Name	Type		Plus		Cost		Visible		Source Page		Required Type
 Driving		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement

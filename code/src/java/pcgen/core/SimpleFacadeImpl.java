@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 13/06/2010 12:26:59 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -28,9 +26,7 @@ import pcgen.facade.core.SimpleFacade;
  * The Class {@code} is a default implementation of the SimpleFacade
  * interface. It was extracted from the implementation in the Race class.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SimpleFacadeImpl implements SimpleFacade
 {

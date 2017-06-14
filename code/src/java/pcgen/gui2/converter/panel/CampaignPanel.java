@@ -60,7 +60,7 @@ public class CampaignPanel extends ConvertSubPanel
 	private List<Campaign> gameModeCampaigns;
 	private String folderName;
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -69,7 +69,7 @@ public class CampaignPanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#returnAllowed()
 	 */
 	@Override
@@ -78,7 +78,7 @@ public class CampaignPanel extends ConvertSubPanel
 		return true;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -107,7 +107,7 @@ public class CampaignPanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#setupDisplay(javax.swing.JPanel, pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -174,9 +174,7 @@ public class CampaignPanel extends ConvertSubPanel
 		initSourceSelection(model, table);
 	}
 
-	/**
-	 * 
-	 */
+
 	private void initSourceSelection(CampaignTableModel model, JTable table)
 	{
 		// Select any previous selections
@@ -220,10 +218,10 @@ public class CampaignPanel extends ConvertSubPanel
 	{
 		
 		/** The column names. */
-		private String[] columnNames = {"Campaign", "Location"};
+		private final String[] columnNames = {"Campaign", "Location"};
 		
 		/** The row data. */
-		private Object[][] rowData;
+		private final Object[][] rowData;
 
 		/**
 		 * Instantiates a new campaign table model.
@@ -245,7 +243,7 @@ public class CampaignPanel extends ConvertSubPanel
 			}
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.AbstractTableModel#getColumnName(int)
 		 */
 		@Override
@@ -254,7 +252,7 @@ public class CampaignPanel extends ConvertSubPanel
 			return columnNames[col].toString();
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getRowCount()
 		 */
 		@Override
@@ -263,7 +261,7 @@ public class CampaignPanel extends ConvertSubPanel
 			return rowData.length;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getColumnCount()
 		 */
 		@Override
@@ -272,7 +270,7 @@ public class CampaignPanel extends ConvertSubPanel
 			return columnNames.length;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getValueAt(int, int)
 		 */
 		@Override
@@ -281,7 +279,7 @@ public class CampaignPanel extends ConvertSubPanel
 			return rowData[row][col];
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.AbstractTableModel#isCellEditable(int, int)
 		 */
 		@Override
@@ -290,7 +288,7 @@ public class CampaignPanel extends ConvertSubPanel
 			return false;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.AbstractTableModel#setValueAt(java.lang.Object, int, int)
 		 */
 		@Override

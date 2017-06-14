@@ -25,13 +25,11 @@ import pcgen.facade.util.event.FacadeEvent;
 import pcgen.facade.util.event.MapEvent;
 import pcgen.facade.util.event.MapListener;
 
-/**
- *
- */
+
 public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 {
 
-	private EventListenerList listenerList = new EventListenerList();
+	private final EventListenerList listenerList = new EventListenerList();
 
 	@Override
 	public void addMapListener(MapListener<? super K, ? super V> listener)

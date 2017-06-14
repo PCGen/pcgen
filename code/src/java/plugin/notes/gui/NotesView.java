@@ -116,7 +116,6 @@ import plugin.notes.NotesPlugin;
 /**
  *  This class is the main view for the Notes Plugin. Mostof the work is done
  *  here and in the NotesTreeNode Class.
- *
  */
 public class NotesView extends JPanel
 {
@@ -124,7 +123,7 @@ public class NotesView extends JPanel
 	/**
 	 * Extension with a point
 	 */
-	private static final String EXTENSION = "."+NotesPlugin.EXTENSION_NOTES; //$NON-NLS-1$
+	private static final String EXTENSION = '.' +NotesPlugin.EXTENSION_NOTES; //$NON-NLS-1$
 
 	private static final String OPTION_NAME_LASTFILE = NotesPlugin.LOG_NAME + ".LastFile"; //$NON-NLS-1$
 

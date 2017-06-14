@@ -28,8 +28,7 @@ import pcgen.core.system.LoadInfo;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
-/**
- **/
+
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {
 

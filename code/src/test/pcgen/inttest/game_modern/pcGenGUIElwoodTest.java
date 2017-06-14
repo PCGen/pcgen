@@ -1,5 +1,4 @@
 /*
- * pcGenGUIElwoodTest.java
  * Copyright 2015 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,7 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created/Reinstated on 09/07/2015
- *
  */
 package pcgen.inttest.game_modern;
 
@@ -33,9 +31,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIElwoodTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIElwoodTest()
 	{
 		super("msrd_elwood");

@@ -26,8 +26,6 @@ import java.util.Observable;
  * <p>The model for the pluging -- basically a linked list of open
  * dice bags.  This is an {@code Observable} class that sends
  * out messages to observers (views).</p>
- *
- *
  */
 public class DiceBagPluginModel extends Observable
 {

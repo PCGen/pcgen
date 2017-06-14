@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountFeatsBaseEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 16:08:40
- *
- *
  */
 
 package pcgen.core.term;

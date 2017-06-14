@@ -36,7 +36,6 @@ import pcgen.util.SortKeyAware;
  * to a domain with the domain. This allows these prereqs to be displayed and 
  * enforced by the UI.
  *
- * <br>
  * 
  */
 public class DomainFacadeImpl extends QualifiedObject<Domain> implements
@@ -72,7 +71,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 		super(domain, prereq);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFacade#getKeyName()
 	 */
 	@Override
@@ -81,7 +80,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 		return getRawObject().getKeyName();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFacade#getSource()
 	 */
 	@Override
@@ -91,7 +90,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 			Globals.getSourceDisplay(), true);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFacade#getSourceForNodeDisplay()
 	 */
     @Override
@@ -101,7 +100,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 				SourceFormat.LONG, false);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.QualifiedObject#toString()
 	 */
 	@Override

@@ -1,5 +1,4 @@
 /*
- * CompanionMod.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -38,7 +37,6 @@ import pcgen.core.Race;
 
 /**
  * {@code CompanionMod}.
- *
  */
 public final class CompanionMod extends PObject implements
 		Categorized<CompanionMod>

@@ -1,5 +1,4 @@
 /*
- * FilteredTreeViewModel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -31,14 +30,12 @@ import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 
-/**
- *
- */
+
 public class FilteredTreeViewModel<C, E>
 		implements TreeViewModel<E>, ListListener<E>
 {
 
-	private DefaultListFacade<E> data = new DefaultListFacade<>();
+	private final DefaultListFacade<E> data = new DefaultListFacade<>();
 	private Filter<C, E> filter;
 	private TreeViewModel<E> model;
 	private C context;

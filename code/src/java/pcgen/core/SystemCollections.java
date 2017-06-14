@@ -1,5 +1,4 @@
 /*
- * SystemCollections.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 2003-07-12 14:02
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -36,8 +30,6 @@ import pcgen.core.system.MigrationRule;
 
 /**
  * Contains lists of stuff loaded from system-wide lst files.
- *
- * @author     Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
  **/
 public final class SystemCollections
 {

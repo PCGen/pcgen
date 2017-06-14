@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.util;
 
@@ -40,16 +37,20 @@ public class ParameterTree
     private static String leftPatString  = "\\(";
     private static String rightPatString = "\\)";
 
-    static String patString = "(" + leftPatString + "|" + rightPatString+ "|" + orPatString + "|" + andPatString + ")";
+    static String patString =
+		    '(' + leftPatString + '|' + rightPatString+ '|' + orPatString + '|'
+		    + andPatString + ')';
 		
 	static Pattern pat = Pattern.compile(patString);
 
     // the grouping pattern & matcher
-    private static final String  parenString  = "(" + leftPatString + "|" + rightPatString + ")";
+    private static final String  parenString  =
+		    '(' + leftPatString + '|' + rightPatString + ')';
     private static final Pattern parenPattern = Pattern.compile(parenString);
 
     // the opertor pattern & matcher
-    private static final String  operatorString  = "(" + orPatString + "|" + andPatString + ")";
+    private static final String  operatorString  =
+		    '(' + orPatString + '|' + andPatString + ')';
     private static final Pattern operatorPattern = Pattern.compile(operatorString);
 
 
@@ -292,9 +293,9 @@ public class ParameterTree
 	public String toString() {
         final StringBuilder sb = new StringBuilder(200);
 
-        sb.append("[");
+        sb.append('[');
         sb.append(contents);
-        sb.append(" ");
+        sb.append(' ');
 
         if (left != null) {
             sb.append(left.toString());
@@ -304,7 +305,7 @@ public class ParameterTree
             sb.append(right.toString());
         }
 
-        sb.append("]");
+        sb.append(']');
 
         return sb.toString();
     }

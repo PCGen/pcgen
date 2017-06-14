@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EvaluatorFactory.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Oct-2008 17:46:37
- *
- *
  */
 
 package pcgen.core.term;
@@ -41,9 +38,9 @@ public final class EvaluatorFactory {
 	Pattern internalVarPattern;
 	Map<String, TermEvaluatorBuilder> BuilderStore;
 	
-	private Map<String, TermEvaluator> SrcNeutralEvaluatorStore =
+	private final Map<String, TermEvaluator> SrcNeutralEvaluatorStore =
             new HashMap<>();
-	private Map<String, Map<String, TermEvaluator>> SrcDependantEvaluatorStore =
+	private final Map<String, Map<String, TermEvaluator>> SrcDependantEvaluatorStore =
             new HashMap<>();
 
 

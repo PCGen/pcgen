@@ -18,13 +18,11 @@
  *
  *  Dice.java
  *
- *  Created on January 24, 2002, 11:15 AM
  */
 package gmgen.plugin.dice;
 
 
 /** A normal die
- * @author Soulcatcher
  */
 public class Dice extends Die
 {

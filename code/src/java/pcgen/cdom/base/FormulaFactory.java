@@ -260,7 +260,6 @@ public final class FormulaFactory
 
 		/**
 		 * Returns the consistent-with-equals hashCode for this SimpleFormula
-		 *
 		 */
 		@Override
 		public int hashCode()
@@ -272,7 +271,6 @@ public final class FormulaFactory
 		 * Returns true if this SimpleFormula is equal to the given Object.
 		 * Equality is defined as being another SimpleFormula object with equal
 		 * value.
-		 *
 		 */
 		@Override
 		public boolean equals(Object obj)

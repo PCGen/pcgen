@@ -62,7 +62,6 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 
 	public TransparentPlayerCharacter()
 	{
-		super();
 		display = new TransparentCharacterDisplay(getCharID());
 	}
 

@@ -25,7 +25,6 @@ import pcgen.output.publish.OutputDB;
 /**
  * HeightFacet is a Facet that tracks the Player Character's height.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HeightFacet extends AbstractItemFacet<CharID, Integer> implements
 		ItemFacet<CharID, Integer>
@@ -75,7 +74,7 @@ public class HeightFacet extends AbstractItemFacet<CharID, Integer> implements
 	public int getHeight(CharID id)
 	{
 		Integer height = get(id);
-		return (height == null) ? 0 : height.intValue();
+		return (height == null) ? 0 : height;
 	}
 	
 	/**

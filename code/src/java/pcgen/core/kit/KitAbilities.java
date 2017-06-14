@@ -1,5 +1,4 @@
 /*
- * KitAbilities.java
  * Copyright 2005 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.kit;
 
@@ -44,7 +41,6 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * {@code KitAbiltiies}.
- *
  */
 public final class KitAbilities extends BaseKit
 {
@@ -55,7 +51,7 @@ public final class KitAbilities extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient List<CNAbilitySelection> abilitiesToAdd = null;
+	private List<CNAbilitySelection> abilitiesToAdd = null;
 	private CDOMSingleRef<AbilityCategory> catRef;
 
 	/**
@@ -219,7 +215,7 @@ public final class KitAbilities extends BaseKit
 				// Need to pay for it first
 				if (free)
 				{
-					aPC.adjustAbilities(category, new BigDecimal(1));
+					aPC.adjustAbilities(category, BigDecimal.ONE);
 				}
 			}
 			if (ability.getCost() > aPC.getAvailableAbilityPool(category).doubleValue())
@@ -255,7 +251,7 @@ public final class KitAbilities extends BaseKit
 			if (isFree())
 			{
 				AbilityCategory category = catRef.get();
-				aPC.adjustAbilities(category, new BigDecimal(1));
+				aPC.adjustAbilities(category, BigDecimal.ONE);
 			}
 		}
 	}

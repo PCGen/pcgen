@@ -1,5 +1,4 @@
 /*
- * NewPurchaseMethodDialog.java
  *
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -31,8 +30,7 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-/**
- */
+
 class NewPurchaseMethodDialog extends JDialog
 {
 	static final long serialVersionUID = -5321303573914291162L;

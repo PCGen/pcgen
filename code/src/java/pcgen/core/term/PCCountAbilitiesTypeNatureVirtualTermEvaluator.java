@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountAbilitiesTypeNatureVirtualTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 06-Aug-2008 23:46:28
- *
- *
  */
 
 package pcgen.core.term;

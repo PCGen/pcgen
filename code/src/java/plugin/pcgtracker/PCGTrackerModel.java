@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
  package plugin.pcgtracker;
 
@@ -105,9 +104,9 @@ public class PCGTrackerModel extends DefaultListModel
 			}
 
 			outbuf.append(pcOut.getName()).append(" (");
-			outbuf.append(pcOut.getRaceName()).append(" ");
-			outbuf.append(pcOut.getClasses()).append(" ");
-			outbuf.append(pcOut.getGender()).append(")");
+			outbuf.append(pcOut.getRaceName()).append(' ');
+			outbuf.append(pcOut.getClasses()).append(' ');
+			outbuf.append(pcOut.getGender()).append(')');
 
 			return outbuf.toString();
 		}

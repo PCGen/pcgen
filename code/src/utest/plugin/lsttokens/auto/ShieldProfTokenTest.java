@@ -74,12 +74,6 @@ public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 		return true;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected ChooseSelectionActor<ShieldProf> getActor()
 	{

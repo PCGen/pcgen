@@ -19,12 +19,10 @@ package pcgen.gui2.doomsdaybook;
 
 import pcgen.core.doomsdaybook.DataElement;
 
-/**
- *
- */
+
 class NameButton extends javax.swing.JButton
 {
-	private DataElement element;
+	private final DataElement element;
 
 	/** Creates a new instance of NameButton 
 	 * @param element

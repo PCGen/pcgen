@@ -1,5 +1,4 @@
 /**
- * TodoManager.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -27,13 +26,12 @@ import pcgen.facade.util.ListFacade;
  * Each task is a TodoFacade instance which should have enough information to 
  * direct the user to the field where they can achieve the task.  
  *
- * <br>
  * 
  */
 @SuppressWarnings("TodoComment")
 public class TodoManager
 {
-	private DefaultListFacade<TodoFacade> todoList;
+	private final DefaultListFacade<TodoFacade> todoList;
 
 	TodoManager()
 	{

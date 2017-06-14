@@ -1,5 +1,4 @@
 /*
- * CharacterTreeCellRenderer.java
  * Copyright 2014 Connor
  * 
  * This library is free software; you can redistribute it and/or
@@ -23,9 +22,7 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.TreeColumnCellRenderer;
 
-/**
- *
- */
+
 public abstract class CharacterTreeCellRenderer extends TreeColumnCellRenderer
 {
 

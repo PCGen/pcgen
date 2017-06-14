@@ -356,7 +356,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 	private class PreviewLoader extends SwingWorker<AWTRenderer, Object>
 	{
 
-		private URI uri;
+		private final URI uri;
 
 		public PreviewLoader(URI uri)
 		{

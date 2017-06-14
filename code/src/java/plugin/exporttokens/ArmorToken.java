@@ -58,7 +58,6 @@ public class ArmorToken extends Token
 	 * @param pc
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return token
-	 *
 	 */
 	public static String getArmorToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
@@ -175,7 +174,7 @@ public class ArmorToken extends Token
 			}
 			else if (tokens[i].equals("ISTYPE"))
 			{
-				property = tokens[i] + "." + tokens[i + 1];
+				property = tokens[i] + '.' + tokens[i + 1];
 
 				break;
 			}
@@ -184,7 +183,7 @@ public class ArmorToken extends Token
 				property = tokens[i];
 				if (i < (tokens.length - 1))
 				{
-					property += "." + tokens[i + 1];
+					property += '.' + tokens[i + 1];
 				}
 
 				break;
@@ -452,7 +451,7 @@ public class ArmorToken extends Token
 		{
 			if (eq.isEquipped() && !property.equals("NAMENOSTAR"))
 			{
-				ret.append("*");
+				ret.append('*');
 			}
 
 			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));
@@ -463,7 +462,7 @@ public class ArmorToken extends Token
 			// TODO this appears to be the same as above.  Should be refactored
 			if (eq.isEquipped())
 			{
-				ret.append("*");
+				ret.append('*');
 			}
 
 			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));

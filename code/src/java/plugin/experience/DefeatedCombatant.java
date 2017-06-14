@@ -16,7 +16,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  DefeatedCombatant.java
- *
  */
 package plugin.experience;
 
@@ -29,8 +28,7 @@ import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
 import org.jdom2.Element;
 
-/**
- */
+
 public class DefeatedCombatant extends Combatant
 {
 	protected String name;

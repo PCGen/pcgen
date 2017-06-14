@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCMaxCastableClassTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 23:14:10
- *
- *
  */
 
 package pcgen.core.term;
@@ -36,7 +33,7 @@ public class PCMaxCastableClassTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	private ClassSpellList spellList;
+	private final ClassSpellList spellList;
 
 	public PCMaxCastableClassTermEvaluator(String originalText, String classKey)
 	{

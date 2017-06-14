@@ -29,7 +29,6 @@ import gmgen.plugin.dice.Die;
 import plugin.initiative.InitiativePlugin;
 
 /**
- * @author devon
  */
 public class InitHolderList extends ArrayList<InitHolder> {
 

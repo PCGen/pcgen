@@ -1,5 +1,4 @@
 /*
- * KitSkill.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.kit;
 
@@ -46,20 +43,19 @@ import pcgen.util.Logging;
 
 /**
  * {@code KitSkill}.
- *
  */
 public final class KitSkill extends BaseKit
 {
 	private Boolean free = null;
 	private BigDecimal rank = null;
-	private List<CDOMReference<Skill>> skillList =
+	private final List<CDOMReference<Skill>> skillList =
             new ArrayList<>();
 	private CDOMSingleRef<PCClass> className = null;
 	private Integer choiceCount;
 
-	private List<CDOMSingleRef<Language>> selection =
+	private final List<CDOMSingleRef<Language>> selection =
             new ArrayList<>();
-	private transient List<KitSkillAdd> skillsToAdd;
+	private List<KitSkillAdd> skillsToAdd;
 
 	/**
 	 * Used to make purchasing ranks of this skill not come out of the skill

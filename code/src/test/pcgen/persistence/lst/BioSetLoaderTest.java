@@ -16,11 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package pcgen.persistence.lst;
 
@@ -82,7 +77,7 @@ public final class BioSetLoaderTest extends TestCase
 
 	private BioSetLoader loader;
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
     @Override
@@ -94,7 +89,7 @@ public final class BioSetLoaderTest extends TestCase
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA, loader);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
     @Override

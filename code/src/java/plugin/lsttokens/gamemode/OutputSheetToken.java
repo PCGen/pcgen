@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package plugin.lsttokens.gamemode;
 
@@ -35,13 +33,12 @@ import pcgen.util.Logging;
  * game mode specific information output sheet to be specified that will be 
  * displayed on the summary tab when editing a character. 
  *
- * <br>
  * 
  */
 public class OutputSheetToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
 	 */
     @Override

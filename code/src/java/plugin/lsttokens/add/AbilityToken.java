@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.lsttokens.add;
 
@@ -80,7 +77,6 @@ import pcgen.util.enumeration.Visibility;
  * ability key name (whitespace is ignored).</li>
  * </ul>
  * (Sun, 20 May 2007) $
- *
  */
 public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CNAbilitySelection>

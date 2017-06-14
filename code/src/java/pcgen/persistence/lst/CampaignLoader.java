@@ -37,8 +37,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- */
+
 public class CampaignLoader extends LstLineFileLoader
 {
     /**

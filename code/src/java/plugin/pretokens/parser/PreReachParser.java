@@ -1,5 +1,4 @@
 /*
- * PreReachParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -35,7 +29,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre reach tokens.
- *
  */
 public class PreReachParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
@@ -96,7 +89,7 @@ public class PreReachParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ":" + formula
+				"Unable to parse the prerequisite :'" + kind + ':' + formula
 					+ "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;

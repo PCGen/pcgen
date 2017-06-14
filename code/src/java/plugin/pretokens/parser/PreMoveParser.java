@@ -1,5 +1,4 @@
 /*
- * PreMoveParser.java
  * 
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  * 
@@ -26,7 +25,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre move tokens.
- *
  */
 public class PreMoveParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface

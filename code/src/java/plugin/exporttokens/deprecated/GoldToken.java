@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package plugin.exporttokens.deprecated;
 
@@ -34,8 +31,6 @@ import pcgen.io.exporttoken.Token;
 /**
  * Handle the GOLD token which outputs the amount of unallocated wealth
  * that the character has.
- *
- *
  */
 public class GoldToken extends Token
 {

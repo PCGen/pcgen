@@ -278,11 +278,6 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 
-/**
- * {@code PlayerCharacter}.
- *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- */
 public class PlayerCharacter implements Cloneable, VariableContainer
 {
 
@@ -578,7 +573,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		checkFacet.addAll(id, refContext.getOrderSortedCDOMObjects(PCCheck.class));
 		campaignFacet.addAll(id, loadedCampaigns);
 
-		setGold(new BigDecimal(0));
+		setGold(BigDecimal.ZERO);
 		setXPTable(SettingsHandler.getGame().getDefaultXPTableName());
 		setCharacterType(SettingsHandler.getGame().getDefaultCharacterType());
 		setPreviewSheet(SettingsHandler.getGame().getDefaultPreviewSheet());

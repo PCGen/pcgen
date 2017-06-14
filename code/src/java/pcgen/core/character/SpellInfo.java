@@ -1,5 +1,4 @@
 /*
- * SpellInfo.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.character;
 
@@ -32,7 +29,6 @@ import pcgen.core.Globals;
  * meant to contain the book, whether or not this spell
  * is in the specialtySlot for characters which have them,
  * and the list of meta-magic feats which have been applied.
- *
  */
 public final class SpellInfo implements Comparable<SpellInfo>
 {

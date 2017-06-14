@@ -1,5 +1,4 @@
 /*
- * QualifiedTreeCellRenderer.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -29,9 +28,7 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 @SuppressWarnings("serial")
 public class QualifiedTreeCellRenderer extends CharacterTreeCellRenderer
 {

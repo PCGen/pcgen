@@ -35,6 +35,7 @@ CATEGORY=Internal|Default.MOD									ABILITY:Special Ability|AUTOMATIC|Spellcas
 CATEGORY=Internal|Default.MOD									ABILITY:Special Ability|AUTOMATIC|Passive Perception
 CATEGORY=Internal|Default.MOD									ABILITY:SkillExport|AUTOMATIC|TYPE=SkillExport
 CATEGORY=Internal|Default.MOD									ABILITY:Internal|AUTOMATIC|Background|PRECLASS:1,TYPE.Base=1
+CATEGORY=Internal|Default.MOD									BONUS:ABILITYPOOL|Starting Equipment|1|PRECLASS:1,TYPE.PC=1|PRERACE:1,%
 CATEGORY=Internal|Default.MOD																									BONUS:VAR|Proficiency_Bonus|(TL+7)/4|TYPE=Base|!PRECLASS:1,Hit Die=1
 
 CATEGORY=Internal|Default.MOD	DEFINE:MaxStatNPC|0
@@ -57,6 +58,8 @@ CATEGORY=Internal|Default.MOD																																																			
 CATEGORY=Internal|Default.MOD																																																																	DEFINE:WizardSpellDC|0																																																																																																																																																																																										BONUS:VAR|WizardSpellDC|SpellDC_INT
 
 
+Starting Equipment	CATEGORY:Internal	TYPE:Starting Equipment	TEMPLATE:CHOOSE:TYPE=Starting Equipment	DESC:Add this once the character for first level is finished. As the selections will be based upon the current Proficiencies. Also, this will only trigger for the initial first level character.
+Skip Starting Equipment	CATEGORY:Internal	TYPE:Starting Equipment								DESC:Choose this if you are not wanting to be granted starting equipment for this character.
 
 
 # Default

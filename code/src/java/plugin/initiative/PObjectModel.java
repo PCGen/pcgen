@@ -22,7 +22,6 @@ package plugin.initiative;
  * An abstract class used for the "model" classes for the plugins.  Basically
  * provides utility methods for the AttackModel, SkillModel, etc. classes.
  * </p>
- *
  */
 public abstract class PObjectModel
 {
@@ -146,7 +145,7 @@ public abstract class PObjectModel
 		return returnValue;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

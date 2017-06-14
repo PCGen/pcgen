@@ -1,5 +1,4 @@
 /*
- * Icons.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -25,9 +24,7 @@ import java.util.WeakHashMap;
 
 import javax.swing.ImageIcon;
 
-/**
- *
- */
+
 public enum Icons
 {
 

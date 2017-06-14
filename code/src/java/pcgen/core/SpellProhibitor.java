@@ -1,5 +1,4 @@
 /*
- * SpellProhibitor.java
  * Copyright 2005 (c) Stefan Raderamcher <radermacher@netcologne.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 3, 2005, 16:30 AM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -32,7 +26,6 @@ import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
- * @author stefan
  * 
  * TODO To change the template for this generated type comment go to Window -
  * Preferences - Java - Code Style - Code Templates

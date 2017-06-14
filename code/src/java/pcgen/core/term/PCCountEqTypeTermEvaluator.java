@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountEquipmentTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 05-Aug-2008 00:21:49
- *
- *
  */
 
 package pcgen.core.term;

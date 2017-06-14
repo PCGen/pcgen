@@ -1,5 +1,4 @@
 /*
- * LanguagePanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -52,32 +51,32 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class LanguagePanel extends PCGenPrefsPanel
 {
-	private static String in_language =
+	private static final String in_language =
 			LanguageBundle.getString("in_Prefs_language");
-	private static String in_langEnglish =
+	private static final String in_langEnglish =
 			LanguageBundle.getString("in_Prefs_langEnglish");
-	private static String in_langFrench =
+	private static final String in_langFrench =
 			LanguageBundle.getString("in_Prefs_langFrench");
-	private static String in_langGerman =
+	private static final String in_langGerman =
 			LanguageBundle.getString("in_Prefs_langGerman");
-	private static String in_langItalian =
+	private static final String in_langItalian =
 			LanguageBundle.getString("in_Prefs_langItalian");
-	private static String in_langSpanish =
+	private static final String in_langSpanish =
 			LanguageBundle.getString("in_Prefs_langSpanish");
-	private static String in_langPortuguese =
+	private static final String in_langPortuguese =
 			LanguageBundle.getString("in_Prefs_langPortuguese");
-	private static String in_langSystem =
+	private static final String in_langSystem =
 			LanguageBundle.getString("in_Prefs_langSystem");
 
 	private String[] unitSetNames = null;
 
-	private JRadioButton langEng;
-	private JRadioButton langFre;
-	private JRadioButton langGer;
-	private JRadioButton langIt;
-	private JRadioButton langEs;
-	private JRadioButton langPt;
-	private JRadioButton langSystem;
+	private final JRadioButton langEng;
+	private final JRadioButton langFre;
+	private final JRadioButton langGer;
+	private final JRadioButton langIt;
+	private final JRadioButton langEs;
+	private final JRadioButton langPt;
+	private final JRadioButton langSystem;
 	private JComboBoxEx unitSetType = new JComboBoxEx();
 	private String origLanguage;
 	private String origUnitSet;
@@ -182,7 +181,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 		return line;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
 	 */
 	@Override
@@ -253,7 +252,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -262,7 +261,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 		return in_language;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */
 	@Override

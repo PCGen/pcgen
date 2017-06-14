@@ -109,7 +109,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("'" + elements[0]
+			throw new PersistenceLayerException('\'' + elements[0]
 				+ "' is not a valid integer");
 		}
 
@@ -117,7 +117,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		String[] fileElements  = filetype.split("\\.");
 		if (!OutputDB.isLegal(fileElements[0]))
 		{
-			throw new PersistenceLayerException("'" + elements[1]
+			throw new PersistenceLayerException('\'' + elements[1]
 				+ "' is not a valid location to check for a FACT");
 		}
 

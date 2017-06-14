@@ -24,7 +24,6 @@ package pcgen.facade.util.event;
  * The interface {@code ChangeListener} should be implemented by classes interested in
  * object changes.
  *
- * <br>
  * 
  */
 

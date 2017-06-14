@@ -1,5 +1,4 @@
 /*
- * WieldCategory.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,9 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.core.character;
 
@@ -47,9 +43,9 @@ public final class WieldCategory implements Loadable
 	private int handsRequired;
 	private boolean isFinessable;
 	private int sizeDifference;
-	private Map<Integer, Float> damageMultiplier = new HashMap<>();
-	private Map<Integer, CDOMSingleRef<WieldCategory>> wcSteps = new HashMap<>();
-	private List<QualifiedObject<CDOMSingleRef<WieldCategory>>> categorySwitches = new ArrayList<>();
+	private final Map<Integer, Float> damageMultiplier = new HashMap<>();
+	private final Map<Integer, CDOMSingleRef<WieldCategory>> wcSteps = new HashMap<>();
+	private final List<QualifiedObject<CDOMSingleRef<WieldCategory>>> categorySwitches = new ArrayList<>();
 
     @Override
 	public URI getSourceURI()
