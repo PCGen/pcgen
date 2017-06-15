@@ -269,13 +269,13 @@ test {
 }
 
 task itest(type: Test, dependsOn: [jar, 'buildNsis']) {
-    testClassesDir = sourceSets.itest.output.classesDir
+    testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
 }
 
 task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
     forkEvery = 1
@@ -285,35 +285,35 @@ task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
 }
 
 task datatest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     include 'pcgen/persistence/lst/DataTest.class'
     include 'pcgen/persistence/lst/DataLoadTest.class'
 }
 
 task inttest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/**/*Test.class'
 }
 
 task pfinttest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/game_pathfinder/*Test.class'
 }
 
 task rsrdinttest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/game_35e/*Test.class'
 }
 
 task msrdinttest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/game_modern/*Test.class'
