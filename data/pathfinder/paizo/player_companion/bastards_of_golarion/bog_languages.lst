@@ -12,3 +12,4 @@ SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/produ
 # Language	Product Identity?	Type
 Erutaki	NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
 Hallit	NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+Varki		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
