@@ -47,7 +47,7 @@ ext {
             include 'plugins/**'
             include 'logging.properties'
         }
-        from('.') {
+        from('code') {
             include 'pcgen.sh'
             fileMode = 0755
         }
