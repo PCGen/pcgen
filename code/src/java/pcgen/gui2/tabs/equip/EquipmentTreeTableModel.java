@@ -20,7 +20,6 @@ package pcgen.gui2.tabs.equip;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -58,7 +57,6 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	private Object root = new Object();
 	private ListMap<EquipNode, EquipNode, List<EquipNode>> pathMap;
 	private List<EquipNode> bodySlotNodes;
-	private Comparator<EquipNode> pathComparator = new NodeComparator();
 
 	public EquipmentTreeTableModel(CharacterFacade character, EquipmentSetFacade equipSet)
 	{
@@ -257,7 +255,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 
 	private void addBodyNode(EquipNode bodyNode)
 	{
-		int insertion_index = Collections.binarySearch(bodySlotNodes, bodyNode, pathComparator);
+		int insertion_index = Collections.binarySearch(bodySlotNodes, bodyNode, Comparable::compareTo);
 		bodySlotNodes.add(-(insertion_index + 1), bodyNode);
 	}
 
@@ -268,7 +266,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		{
 			children = Collections.emptyList();
 		}
-		int insertion_index = 1 + Collections.binarySearch(children, child, pathComparator);
+		int insertion_index = 1 + Collections.binarySearch(children, child, Comparable::compareTo);
 		if (insertion_index < 0)
 		{
 			// The item wasn't already in the list so the search gave us a negative index of where to add the item. 
@@ -338,7 +336,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		EquipNode parent = child.getParent();
 		List<EquipNode> children = pathMap.get(parent);
 
-		int index = Collections.binarySearch(children, child, pathComparator);
+		int index = Collections.binarySearch(children, child, Comparable::compareTo);
 		fireTreeNodesChanged(this, getPathToRoot(parent), new int[]
 				{
 					index
@@ -538,16 +536,4 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 			}
 		}
 	}
-
-	private static class NodeComparator implements Comparator<EquipNode>
-	{
-
-		@Override
-		public int compare(EquipNode o1, EquipNode o2)
-		{
-			return o1.compareTo(o2);
-		}
-
-	}
-
 }
