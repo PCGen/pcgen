@@ -840,7 +840,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return this;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.AbilityCategoryFacade#getName()
 	 */
     @Override
@@ -849,7 +849,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return getDisplayName();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.AbilityCategoryFacade#getType()
 	 */
     @Override

@@ -29,7 +29,7 @@ import pcgen.system.LanguageBundle;
 
 public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTest {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
     @Override
@@ -56,7 +56,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
     @Override
@@ -64,7 +64,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		return "MULT"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
     @Override
@@ -84,7 +84,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	}
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
     @Override

@@ -37,7 +37,7 @@ public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements 
 		this.originalText = expressionString;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#resolve(pcgen.core.Equipment, boolean, pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -49,7 +49,7 @@ public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements 
 		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#evaluate(pcgen.core.Equipment, boolean, pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -60,7 +60,7 @@ public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements 
 		return Integer.toString(eq.calcPlusForHead(false));
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
 	 */
 	@Override
@@ -69,7 +69,7 @@ public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements 
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#isStatic()
 	 */
 	public boolean isStatic()

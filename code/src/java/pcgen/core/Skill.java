@@ -63,7 +63,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		return getKeyName().hashCode();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SkillFacade#getKeyStat()
 	 */
     @Override
@@ -72,7 +72,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		return getKeyStatAbb();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SkillFacade#isUntrained()
 	 */
     @Override
@@ -81,7 +81,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		return getSafe(ObjectKey.USE_UNTRAINED);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SkillFacade#getTypes()
 	 */
     @Override
