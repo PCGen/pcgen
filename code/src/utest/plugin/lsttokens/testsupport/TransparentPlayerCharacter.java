@@ -194,7 +194,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	}
 
 	@Override
-	public boolean isSpellCaster(int level)
+	public boolean isSpellCaster()
 	{
 		return (level <= spellcastinglevel);
 	}
