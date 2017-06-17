@@ -3996,7 +3996,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 */
 		for (SpellSchool school : new TreeSet<>(aSpell.getSafeListFor(ListKey.SPELL_SCHOOL)))
 		{
-			tStr = "SCHOOL." + school.toString();
+			tStr = "SCHOOL." + school;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus != 0) // Allow negative bonus to casterlevel
@@ -8687,7 +8687,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		for (SpellSchool aType : sp.getSafeListFor(ListKey.SPELL_SCHOOL))
 		{
-			dc += (int) getTotalBonusTo("DC", "SCHOOL." + aType.toString());
+			dc += (int) getTotalBonusTo("DC", "SCHOOL." + aType);
 		}
 
 		for (String aType : sp.getSafeListFor(ListKey.SPELL_SUBSCHOOL))
@@ -8822,7 +8822,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		for (SpellSchool aType : sp.getSafeListFor(ListKey.SPELL_SCHOOL))
 		{
-			concentration += (int) getTotalBonusTo("CONCENTRATION", "SCHOOL." + aType.toString());
+			concentration += (int) getTotalBonusTo("CONCENTRATION", "SCHOOL." + aType);
 		}
 
 		for (String aType : sp.getSafeListFor(ListKey.SPELL_SUBSCHOOL))
