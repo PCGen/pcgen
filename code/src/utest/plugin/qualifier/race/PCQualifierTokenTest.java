@@ -57,12 +57,6 @@ public class PCQualifierTokenTest extends
 	}
 
 	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return true;
-	}
-
-	@Override
 	protected boolean typeAllowsMult()
 	{
 		return false;

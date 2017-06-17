@@ -61,18 +61,6 @@ public class PCQualifierTokenTest extends
 	}
 
 	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return true;
-	}
-
-	@Override
-	protected boolean typeAllowsMult()
-	{
-		return true;
-	}
-
-	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, Ability item)
 	{
 		pc.abilitySet.add(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT,
