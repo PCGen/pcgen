@@ -391,8 +391,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			Point mousepoint = e.getPoint();
 			if (scale < 1)
 			{
-				mousepoint.x = (int) (mousepoint.x / scale);
-				mousepoint.y = (int) (mousepoint.y / scale);
+				mousepoint.x /= scale;
+				mousepoint.y /= scale;
 			}
 			movingRect = cropRect.contains(mousepoint);
 			cropOffset = new Point(mousepoint.x - cropRect.x, mousepoint.y - cropRect.y);
@@ -414,8 +414,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			Point mousepoint = e.getPoint();
 			if (scale < 1)
 			{
-				mousepoint.x = (int) (mousepoint.x / scale);
-				mousepoint.y = (int) (mousepoint.y / scale);
+				mousepoint.x /= scale;
+				mousepoint.y /= scale;
 			}
 			if (!cropRect.contains(mousepoint))
 			{
