@@ -14,8 +14,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package gmgen.gui;
 
@@ -36,14 +34,10 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	private static final Map<String, PluginRef> pluginMap = new HashMap<>();
 
 	private JPanel mainPanel;
-	private JScrollPane jScrollPane1;
 
 	/** Creates new form PreferencesDamagePanel */
 	public PreferencesPluginsPanel() {
@@ -69,7 +63,7 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	}
 
 	private void initComponents() {
-		jScrollPane1 = new JScrollPane();
+		JScrollPane jScrollPane1 = new JScrollPane();
 		mainPanel = new JPanel();
 
 		setLayout(new BorderLayout());
