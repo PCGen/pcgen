@@ -93,17 +93,4 @@ public final class LogUtilities implements LogReceiver
 		}
 	}
 
-	/**
-	 * Log a message without an owner - from LogReceiver
-	 *
-	 * @param  message  The message to send
-	 */
-    @Override
-	public void logMessage(String message)
-	{
-		if (logging)
-		{
-			receivers.forEach(r -> r.logMessage(message));
-		}
-	}
 }
