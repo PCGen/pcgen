@@ -78,21 +78,20 @@ public abstract class ConcurrentDataView<E> implements DataView<E>
 			}
 
 		});
-		if (!dataMap.containsKey(obj))
+		if (dataMap.containsKey(obj))
+		{
+			return dataMap.get(obj);
+		}
+		else
 		{
 			try
 			{
 				return future.get();
-			}
-			catch (InterruptedException | ExecutionException ex)
+			} catch (InterruptedException | ExecutionException ex)
 			{
 				Logging.errorPrint(null, ex);
 			}
 			return Collections.emptyList();
-		}
-		else
-		{
-			return dataMap.get(obj);
 		}
 	}
 
