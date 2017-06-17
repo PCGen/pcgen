@@ -175,7 +175,7 @@ public class JIcon extends JPanel
 	 */
 	protected void launchFile()
 	{
-		if (plugin.isRecognizedFileType(launch))
+		if (NotesPlugin.isRecognizedFileType(launch))
 		{
 			plugin.loadRecognizedFileType(launch);
 		}
