@@ -73,10 +73,7 @@
     <exclude name="EmptyInitializer" />
     <exclude name="EmptyStatementNotInLoop" />
   </rule>
-  <rule ref="rulesets/java/finalizers.xml">
-    <exclude name="FinalizeOverloaded" />
-    <exclude name="AvoidCallingFinalize" />
-  </rule>
+  <rule ref="rulesets/java/finalizers.xml"/>
   <rule ref="rulesets/java/imports.xml">
     <exclude name="UnnecessaryFullyQualifiedName" />
     <exclude name="TooManyStaticImports" />
