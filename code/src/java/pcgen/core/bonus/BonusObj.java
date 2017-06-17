@@ -605,13 +605,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				&& bonusInfo.equals(other.bonusInfo);
 	}
 
-	@Override
-	public int hashCode()
-	{
-		// TODO Auto-generated method stub
-		return super.hashCode();
-	}
-
 	/*
 	 * This makes an editor a bit more difficult, but since CHOOSE is an early
 	 * target of 5.17, this probably isn't a big deal.
