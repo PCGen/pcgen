@@ -18,6 +18,8 @@
 package pcgen.gui2;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -25,6 +27,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Rectangle;
+import java.awt.Window;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.WindowAdapter;
@@ -34,6 +37,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,6 +46,7 @@ import java.util.Observer;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
 
+import javax.swing.AbstractButton;
 import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
@@ -704,7 +709,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 */
 	private void prepareForSave(CharacterFacade character, boolean savingAll)
 	{
-		List<CompanionFacade> tobeSaved = new ArrayList<>();
+		Collection<CompanionFacade> tobeSaved = new ArrayList<>();
 		for (CompanionFacade comp : character.getCompanionSupport().getCompanions())
 		{
 			if (StringUtils.isEmpty(comp.getFileRef().get().getName())
@@ -774,8 +779,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		int saveAllChoice = CLOSE_OPT_CHOOSE;
 
-		List<CharacterFacade> characterList = new ArrayList<>();
-		List<CharacterFacade> unsavedPCs = new ArrayList<>();
+		Collection<CharacterFacade> characterList = new ArrayList<>();
+		Collection<CharacterFacade> unsavedPCs = new ArrayList<>();
 		for (CharacterFacade characterFacade : characters)
 		{
 			if (characterFacade.isDirty())
@@ -789,8 +794,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		if (unsavedPCs.size() > 1)
 		{
-			Object[] options = new Object[]
-			{
+			Object[] options = {
 				LanguageBundle.getString("in_closeOptSaveAll"), //$NON-NLS-1$
 				LanguageBundle.getString("in_closeOptSaveNone"), //$NON-NLS-1$
 				LanguageBundle.getString("in_closeOptChoose"), //$NON-NLS-1$
@@ -1161,7 +1165,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			if (!dontLoadSources && !sourcesSame && gameModesSame)
 			{
 				Object[] btnNames =
-						new Object[]{
+						{
 							LanguageBundle
 								.getString("in_loadPcDiffSourcesLoaded"),
 							LanguageBundle
@@ -1479,7 +1483,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 */
 	void showTipsOfTheDay()
 	{
-		TipOfTheDay tips = new TipOfTheDay(this);
+		Window tips = new TipOfTheDay(this);
 		Utility.setComponentRelativeLocation(this, tips);
 		tips.setVisible(true);
 	}
@@ -1509,7 +1513,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 * @return JPanel A panel containing the message and the checkbox.
 	 */
 	public static JPanel buildMessageLabelPanel(String message,
-												JCheckBox checkbox)
+	                                            Component checkbox)
 	{
 		JPanel panel = new JPanel();
 		JLabel label;
@@ -1824,8 +1828,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		final JDialog aFrame = new JDialog(this, title, true);
 		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
-		final JPanel jPanel = new JPanel();
-		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
+		final Container jPanel = new JPanel();
+		final AbstractButton jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		jPanel.add(jCheckBox);
 		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_LICENSE));
 		jCheckBox.addItemListener(evt -> context.setBoolean(PCGenSettings.OPTION_SHOW_LICENSE, jCheckBox.isSelected()));
@@ -1854,16 +1858,16 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		final JDialog aFrame = new JDialog(this, LanguageBundle.getString("in_matureTitle"), true);
 
-		final JPanel jPanel1 = new JPanel();
-		final JPanel jPanel3 = new JPanel();
-		final JLabel jLabel1 =
+		final Container jPanel1 = new JPanel();
+		final Container jPanel3 = new JPanel();
+		final Component jLabel1 =
 				new JLabel(LanguageBundle.getString("in_matureWarningLine1"), //$NON-NLS-1$
 						SwingConstants.CENTER);
-		final JLabel jLabel2 =
+		final Component jLabel2 =
 				new JLabel(LanguageBundle.getString("in_matureWarningLine2"), //$NON-NLS-1$
 						SwingConstants.CENTER);
-		final JCheckBox jCheckBox1 = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
-		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
+		final AbstractButton jCheckBox1 = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
+		final AbstractButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 
 		jPanel1.setLayout(new BorderLayout());
@@ -1906,10 +1910,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		String title = LanguageBundle.getString("in_sponsorTitle"); //$NON-NLS-1$
 
 		final JDialog aFrame = new JDialog(this, title, true);
-		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
+		final AbstractButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
-		final JPanel jPanel = new JPanel();
-		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
+		final Container jPanel = new JPanel();
+		final AbstractButton jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		jPanel.add(jCheckBox);
 		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
 		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
@@ -2004,15 +2008,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			return aString;
 		}
 
-		char[] inputLine;
-		try (BufferedReader theReader = new BufferedReader(new InputStreamReader(new
+		try (Reader theReader = new BufferedReader(new InputStreamReader(new
 				FileInputStream(
 				aFile), "UTF-8")))
 		{
 			final int length = (int) aFile.length();
-			inputLine = new char[length];
+			char[] inputLine = new char[length];
 			theReader.read(inputLine, 0, length);
 			theReader.close();
+			aString = new String(inputLine);
 		} catch (IOException e)
 		{
 			Logging.errorPrint("Could not read license at " + fileName, e);
