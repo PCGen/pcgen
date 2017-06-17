@@ -23,7 +23,6 @@ pmd {
     ruleSets = []
 	ruleSetFiles = files('code/standards/pmdruleset.xml')
 	
-	ignoreFailures = true
 	sourceSets = []
 	toolVersion = "5.7.0"
 }
