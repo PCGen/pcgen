@@ -1,5 +1,4 @@
 /*
- *
  * Copyright 2007 (C) Koen Van Daele <kador@foeffighters.be>
  *
  * This library is free software; you can redistribute it and/or

@@ -28,7 +28,6 @@ import pcgen.core.Race;
 public final class Follower implements Comparable<Object>, Cloneable
 {
 	/*
-	 *
 	 * the Structure of each Follower is as follows:
 	 *
 	 * FOLLOWER:name:type:race:HD:/path/to/some.pcg

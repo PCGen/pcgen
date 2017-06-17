@@ -1,5 +1,4 @@
 /*
- *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
