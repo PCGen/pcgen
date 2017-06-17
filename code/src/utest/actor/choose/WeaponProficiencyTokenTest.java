@@ -17,12 +17,12 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.WeaponProf;
-import plugin.lsttokens.choose.WeaponProficiencyToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.choose.WeaponProficiencyToken;
 
 public class WeaponProficiencyTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<WeaponProf>

@@ -17,11 +17,11 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
-import plugin.lsttokens.choose.NoChoiceToken;
+
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.choose.NoChoiceToken;
 
 public class NoChoiceTokenTest extends
 		AbstractPersistentChoiceActorTestCase<String>
