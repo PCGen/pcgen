@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreDamageReductionWriter;
 public class PreDRRoundRobin extends AbstractRankedRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreDRRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDRRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

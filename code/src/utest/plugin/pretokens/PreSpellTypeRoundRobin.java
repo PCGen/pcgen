@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreSpellTypeWriter;
 public class PreSpellTypeRoundRobin extends AbstractRankedRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSpellTypeRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSpellTypeRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

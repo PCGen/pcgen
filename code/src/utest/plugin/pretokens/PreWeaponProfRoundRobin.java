@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreWeaponProfWriter;
 
 public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreWeaponProfRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreWeaponProfRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreEquipPrimaryWriter;
 
 public class PreEquipPrimaryRoundRobin extends AbstractEquipmentRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreEquipPrimaryRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreEquipPrimaryRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

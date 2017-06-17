@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 
 public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreRaceRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreRaceRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreSkillWriter;
 
 public class PreSkillTotRoundRobin extends AbstractPreRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSkillTotRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSkillTotRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

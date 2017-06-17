@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreHandsWriter;
 
 public class PreHandsRoundRobin extends AbstractComparatorRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreHandsRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreHandsRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception
