@@ -394,7 +394,7 @@ public class JTreeTable extends JTableEx
 		@Override
 		public void sortModel(Comparator<Row> comparator)
 		{
-			if (treeTableModel == null || !(treeTableModel instanceof SortableTreeTableModel))
+			if (!(treeTableModel instanceof SortableTreeTableModel))
 			{
 				return;
 			}
