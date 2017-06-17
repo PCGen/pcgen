@@ -804,53 +804,19 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 											   Constants.APPLICATION_NAME, JOptionPane.YES_NO_CANCEL_OPTION,
 											   JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		}
-		if (saveAllChoice == 3)
+		if (saveAllChoice == JOptionPane.CANCEL_OPTION)
 		{
-			// Cancel
 			return false;
 		}
-		if (saveAllChoice == 1)
+		if (saveAllChoice == JOptionPane.NO_OPTION)
 		{
-			// Save none
 			CharacterManager.removeAllCharacters();
 			return true;
 		}
 
-		for (CharacterFacade character : unsavedPCs)
-		{
-			int saveSingleChoice = JOptionPane.YES_OPTION;
-
-			if (saveAllChoice == CLOSE_OPT_CHOOSE)
-			{
-				saveSingleChoice =
-						JOptionPane.showConfirmDialog(this, LanguageBundle
-							.getFormattedString("in_savePcChoice", character //$NON-NLS-1$
-								.getNameRef().get()),
-							Constants.APPLICATION_NAME,
-							JOptionPane.YES_NO_CANCEL_OPTION);
-			}
-
-			if (saveSingleChoice == JOptionPane.YES_OPTION)
-			{//If you get here then the user either selected "Yes to All" or "Yes"
-				if (saveCharacter(character))
-				{
-					characterList.add(character);
-				}
-			}
-			else if (saveSingleChoice == JOptionPane.NO_OPTION)
-			{
-				characterList.add(character);
-			}
-			else if (saveSingleChoice == JOptionPane.CANCEL_OPTION)
-			{
-				return false;
-			}
-		}
-
-		for (CharacterFacade character : characterList)
-		{
-			CharacterManager.removeCharacter(character);
-		}
+		//If you get here then the user either selected "Yes to All" or "Yes"
+		unsavedPCs.stream().filter(this::saveCharacter).forEach(characterList::add);
+		characterList.forEach(CharacterManager::removeCharacter);
 		return characters.isEmpty();
 	}
 
