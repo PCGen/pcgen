@@ -83,7 +83,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		 * into AutoLst.java (since it's the same across AUTO SubTokens)
 		 */
 		boolean isPre = false;
-		if (value.indexOf("[") == -1)
+		if (value.indexOf('[') == -1)
 		{
 			// Supported version of PRExxx using |.  Needs to be at the front of the
 			// Parsing code because many objects expect the pre to have been determined

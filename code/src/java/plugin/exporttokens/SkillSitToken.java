@@ -161,7 +161,7 @@ public class SkillSitToken extends Token
 		catch (NumberFormatException exc)
 		{
 			String skillName = details.getSkillId();
-			int equalLoc = skillName.indexOf("=");
+			int equalLoc = skillName.indexOf('=');
 			if (equalLoc == -1)
 			{
 				//Allowing SKILL.Spot.<subtoken>

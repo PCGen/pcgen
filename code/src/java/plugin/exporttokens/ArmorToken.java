@@ -521,7 +521,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("ISTYPE"))
 		{
-			if (eq.isType(property.substring(property.indexOf(".") + 1)))
+			if (eq.isType(property.substring(property.indexOf('.') + 1)))
 			{
 				ret.append("TRUE");
 			}

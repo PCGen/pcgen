@@ -856,9 +856,9 @@ public final class SettingsHandler
 		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
 		{
 			final int width = Integer.parseInt(dw.toString().substring(0,
-						Math.min(dw.toString().length(), dw.toString().lastIndexOf(".")))); //$NON-NLS-1$
+						Math.min(dw.toString().length(), dw.toString().lastIndexOf('.')))); //$NON-NLS-1$
 			final int height = Integer.parseInt(dh.toString().substring(0,
-						Math.min(dh.toString().length(), dh.toString().lastIndexOf(".")))); //$NON-NLS-1$
+						Math.min(dh.toString().length(), dh.toString().lastIndexOf('.')))); //$NON-NLS-1$
 			d = new Dimension(width, height);
 		}
 
@@ -1614,7 +1614,7 @@ public final class SettingsHandler
 	{
 		if (!selectedEqSetTemplate.isEmpty())
 		{
-			final int i = selectedEqSetTemplate.lastIndexOf("\\"); //$NON-NLS-1$
+			final int i = selectedEqSetTemplate.lastIndexOf('\\'); //$NON-NLS-1$
 
 			return selectedEqSetTemplate.substring(i + 1);
 		}
@@ -1686,7 +1686,7 @@ public final class SettingsHandler
 	{
 		if (!selectedSpellSheet.isEmpty())
 		{
-			final int i = selectedSpellSheet.lastIndexOf("\\"); //$NON-NLS-1$
+			final int i = selectedSpellSheet.lastIndexOf('\\'); //$NON-NLS-1$
 
 			return selectedSpellSheet.substring(i + 1);
 		}
