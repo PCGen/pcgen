@@ -24,7 +24,6 @@ import java.util.Map;
 import pcgen.cdom.helper.SpringHelper;
 
 /**
- * 
  * FacetLibrary is a container for the Facets that process information about
  * PlayerCharacters
  */
@@ -33,12 +32,11 @@ public final class FacetLibrary
 	
 	private FacetLibrary()
 	{
-		//Do not instantiate
 	}
 
 	private static Map<Class<?>, Object> facets = new HashMap<>();
 
-	public static <T extends Object> T getFacet(Class<T> cl)
+	public static <T> T getFacet(Class<T> cl)
 	{
 		T facet = (T) facets.get(cl);
 		if (facet == null)
@@ -51,19 +49,9 @@ public final class FacetLibrary
 				//System.err.println("Using Legacy Load for Facet: " + cl.getName());
 				try
 				{
-					facet = cl.getConstructor()
-							.newInstance();
+					facet = cl.getConstructor().newInstance();
 				}
-				catch (InstantiationException | IllegalAccessException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				catch (NoSuchMethodException e)
-				{
-					e.printStackTrace();
-				}
-				catch (InvocationTargetException e)
+				catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e)
 				{
 					e.printStackTrace();
 				}
