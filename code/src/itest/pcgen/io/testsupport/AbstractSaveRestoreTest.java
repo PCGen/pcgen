@@ -353,7 +353,10 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		GameMode mode = SettingsHandler.getGame();
 		String pcgString =
 				(new PCGVer2Creator(pc, mode, null)).createPCGString();
-		if (dump) System.err.println(pcgString);
+		if (dump)
+		{
+			System.err.println(pcgString);
+		}
 		InputStream is = new ByteArrayInputStream(pcgString.getBytes());
 		PCGIOHandler ioh = new PCGIOHandler();
 		ioh.read(reloadedPC, is, true);

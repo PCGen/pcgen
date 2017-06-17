@@ -156,7 +156,9 @@ public final class Tips
 			try
 			{
 				if (bw != null)
+				{
 					bw.close();
+				}
 			}
 			catch (IOException e)
 			{
@@ -198,7 +200,9 @@ public final class Tips
 			while (line != null)
 			{
 				if (isTip(line))
+				{
 					addTip(tips, line);
+				}
 				line = reader.readLine();
 			}
 		}
@@ -281,8 +285,13 @@ public final class Tips
 						// add previous appended translation with the id in the map
 						tipsTranslated.put(key, str.toString());
 						if (str.toString().isEmpty())
+						{
 							statUntranslated++;
-						else statTranslated++;
+						}
+						else
+						{
+							statTranslated++;
+						}
 						str = new StringBuilder();
 					}
 					key = line.substring(line.indexOf(QUOTE) + 1, line.lastIndexOf(QUOTE));
@@ -301,8 +310,13 @@ public final class Tips
 			{
 				tipsTranslated.put(key, str.toString());
 				if (str.toString().isEmpty())
+				{
 					statUntranslated++;
-				else statTranslated++;
+				}
+				else
+				{
+					statTranslated++;
+				}
 			}
 		}
 		catch (IOException e)
@@ -312,6 +326,7 @@ public final class Tips
 		finally
 		{
 			if (translationReader != null)
+			{
 				try
 				{
 					translationReader.close();
@@ -321,6 +336,7 @@ public final class Tips
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			}
 		}
 		log("Translated tips: {0}", statTranslated);
 		log("Untranslated tips: {0}", statUntranslated);
@@ -455,15 +471,25 @@ public final class Tips
 		{
 			// TODO handle missing argument case
 			if (args.length == 4)
+			{
 				generatePOT(new File(args[1]), args[2], args[3]);
-			else generatePOT(new File(args[1]), args[2]);
+			}
+			else
+			{
+				generatePOT(new File(args[1]), args[2]);
+			}
 		}
 		else if ("tips".equals(args[0]))
 		{
 			// TODO handle missing argument case
 			if (args.length == 5)
+			{
 				generateTips(new File(args[1]), new File(args[2]), args[3], args[4]);
-			else generateTips(new File(args[1]), new File(args[2]), args[3]);
+			}
+			else
+			{
+				generateTips(new File(args[1]), new File(args[2]), args[3]);
+			}
 		}
 		else
 		{

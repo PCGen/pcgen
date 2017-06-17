@@ -91,11 +91,11 @@ public class TravelMethodFactory
 			File[] dataFiles = path.listFiles(new XMLFilter());
 			SAXBuilder builder = new SAXBuilder();
 
-			for (int i = 0; i < dataFiles.length; i++)
+			for (File dataFile : dataFiles)
 			{
 				try
 				{
-					Document methodSet = builder.build(dataFiles[i]);
+					Document methodSet = builder.build(dataFile);
 					DocType dt = methodSet.getDocType();
 
 					if (dt.getElementName().equals(XML_ELEMENT_TRAVEL))
@@ -259,6 +259,7 @@ public class TravelMethodFactory
 		Number n = def;
 		String attributeValue = e.getAttributeValue(string);
 		if (attributeValue != null)
+		{
 			try
 			{
 				n = nf.parse(attributeValue);
@@ -268,6 +269,7 @@ public class TravelMethodFactory
 				// TODO Auto-generated catch block
 				exception.printStackTrace();
 			}
+		}
 		return n;
 	}
 
