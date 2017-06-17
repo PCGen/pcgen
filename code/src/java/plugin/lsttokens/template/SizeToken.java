@@ -84,15 +84,9 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					SizeAdjustment.class, value);
 		Formula sizeFormula;
-		if (size == null)
-		{
-			sizeFormula = FormulaFactory.getFormulaFor(value);
-		}
-		else
-		{
-			sizeFormula =
-					new FixedSizeFormula(CDOMDirectSingleRef.getRef(size));
-		}
+		sizeFormula = (size == null) ?
+				FormulaFactory.getFormulaFor(value) :
+				new FixedSizeFormula(CDOMDirectSingleRef.getRef(size));
 		if (!sizeFormula.isValid())
 		{
 			Logging.errorPrint("Size in " + getTokenName() + " was not valid: "

@@ -125,9 +125,6 @@
     <exclude name="UseEqualsToCompareStrings" />
     <exclude name="UselessStringValueOf" />
     <exclude name="InsufficientStringBufferDeclaration" />
-    <exclude name="StringToString" />
-    <exclude name="InefficientEmptyStringCheck" />
-    <exclude name="StringInstantiation" />
   </rule>
   <!--<rule ref="rulesets/java/sunsecure.xml">-->
   <rule ref="rulesets/java/typeresolution.xml">
