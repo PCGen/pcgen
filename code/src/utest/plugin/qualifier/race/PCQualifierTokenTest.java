@@ -38,7 +38,7 @@ public class PCQualifierTokenTest extends
 			new plugin.qualifier.race.PCToken();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(PC_TOKEN);

@@ -42,7 +42,7 @@ public class TempValueLstTest extends AbstractGlobalTokenTestCase
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		PCStat ps = BuildUtilities.createStat("Strength", "STR");

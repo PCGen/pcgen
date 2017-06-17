@@ -48,7 +48,7 @@ public class AlignTokenTest extends
 	}
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		PCAlignment lg = BuildUtilities.createAlignment("Lawful Good", "LG");

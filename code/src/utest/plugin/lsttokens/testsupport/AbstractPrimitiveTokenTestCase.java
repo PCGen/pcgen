@@ -56,7 +56,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	public abstract Class<TC> getTargetClass();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(getSubToken());

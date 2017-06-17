@@ -88,7 +88,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	protected abstract boolean allowsNotQualifier();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(getSubToken());

@@ -50,7 +50,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 			new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(subtoken);

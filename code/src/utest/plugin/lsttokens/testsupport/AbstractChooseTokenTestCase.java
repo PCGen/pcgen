@@ -58,7 +58,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	public abstract Class<TC> getTargetClass();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		QualifierToken<? extends CDOMObject> pcqual = getPCQualifier();

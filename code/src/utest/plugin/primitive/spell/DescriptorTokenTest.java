@@ -46,7 +46,7 @@ public class DescriptorTokenTest extends
 	}
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(DESCRIPTOR_TOKEN);

@@ -44,7 +44,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		ps = BuildUtilities.createStat("Strength", "STR");

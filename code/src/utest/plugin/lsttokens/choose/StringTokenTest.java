@@ -46,7 +46,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(subtoken);

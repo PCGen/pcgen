@@ -40,7 +40,7 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(keyToken);

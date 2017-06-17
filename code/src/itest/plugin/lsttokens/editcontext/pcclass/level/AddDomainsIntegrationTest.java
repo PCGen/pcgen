@@ -39,7 +39,7 @@ public class AddDomainsIntegrationTest extends
 	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		prefix = "CLASS:";

@@ -40,7 +40,7 @@ public class DefineIntegrationTest extends
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		PCStat ps = BuildUtilities.createStat("Strength", "STR");

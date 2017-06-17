@@ -49,7 +49,7 @@ public class UdamLstTest extends AbstractGlobalTokenTestCase
 	protected SizeAdjustment fine;
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		fine = BuildUtilities.createSize("Fine", 0);

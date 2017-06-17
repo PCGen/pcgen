@@ -40,7 +40,7 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new plugin.modifier.number.AddModifierFactory());

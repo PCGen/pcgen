@@ -50,7 +50,7 @@ public class SelectableTokenIntegrationTest
 	}
 
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
