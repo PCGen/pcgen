@@ -27,12 +27,6 @@ public class AutoLanguageListFacetTest extends AbstractSourcedListFacetTest<Lang
 	private AutoLanguageListFacet facet = new AutoLanguageListFacet();
 
 	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	@Override
 	protected AbstractSourcedListFacet<CharID, Language> getFacet()
 	{
 		return facet;
