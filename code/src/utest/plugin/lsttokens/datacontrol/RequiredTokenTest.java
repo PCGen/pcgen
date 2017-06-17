@@ -61,6 +61,7 @@ public class RequiredTokenTest extends TestCase
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
+		super.setUp();
 		if (!classSetUpFired)
 		{
 			classSetUp();
