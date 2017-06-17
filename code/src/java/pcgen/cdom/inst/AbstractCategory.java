@@ -132,7 +132,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 		if (activeObj == null)
 		{
 			// Wasn't constructed!
-			if (name.charAt(0) != '*' && !report(validator, name))
+			if ((name.charAt(0) != '*') && !report(validator, name))
 			{
 				Logging.errorPrint("Unconstructed Reference: "
 					+ getReferenceDescription() + " " + name);
