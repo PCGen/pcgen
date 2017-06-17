@@ -20,7 +20,6 @@ package selectionactor.template;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.PCClass;
 
-import org.junit.Test;
 import plugin.lsttokens.template.FavoredclassToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
