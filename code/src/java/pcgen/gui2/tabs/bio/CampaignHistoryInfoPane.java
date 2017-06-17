@@ -31,7 +31,6 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BorderFactory;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -47,9 +46,6 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.Scrollable;
 import javax.swing.SwingUtilities;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ChronicleEntryFacade;
@@ -58,6 +54,9 @@ import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.TextFieldListener;
 import pcgen.gui2.tools.Icons;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 /**
  * The CampaignHistoryInfoPane displays a set of chronicles that the user can fill in for his
@@ -362,7 +361,6 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		private boolean fieldsNotBlank()
 		{
 			return StringUtils.isNotBlank(campaignField.getText()) ||
-					StringUtils.isNotBlank(adventureField.getText()) ||
 					StringUtils.isNotBlank(adventureField.getText()) ||
 					StringUtils.isNotBlank(partyField.getText()) ||
 					StringUtils.isNotBlank(dateField.getText()) ||
