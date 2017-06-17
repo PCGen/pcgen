@@ -110,7 +110,7 @@ import gmgen.gui.FlippingSplitPane;
 import gmgen.gui.ImageFileChooserPreview;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
-import gmgen.util.MiscUtilities;
+import org.apache.commons.io.FileUtils;
 import plugin.notes.NotesPlugin;
 
 /**
@@ -1596,7 +1596,7 @@ public class NotesView extends JPanel
 
 				if (!image.exists())
 				{
-					MiscUtilities.copy(newImage, image);
+					FileUtils.copyFile(newImage, image);
 				}
 			}
 		}
@@ -1992,7 +1992,7 @@ public class NotesView extends JPanel
 
 						if (!isImageFile(destFile) || !destFile.exists())
 						{
-							MiscUtilities.copy(newFile, destFile);
+							FileUtils.copyFile(newFile, destFile);
 						}
 
 						editor.setCaretPosition(editor.viewToModel(dtde
