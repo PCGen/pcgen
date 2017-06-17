@@ -218,7 +218,7 @@ public class IntegerKey
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private IntegerKey(String name, int def)
 	{
