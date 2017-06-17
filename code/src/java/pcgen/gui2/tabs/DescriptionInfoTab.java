@@ -86,7 +86,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 
 	private void initComponents()
 	{
-		addButton.setAlignmentX((float) 0.5);
+		addButton.setAlignmentX(0.5f);
 
 		Box box = Box.createVerticalBox();
 		box.add(new JScrollPane(pageList));
