@@ -30,8 +30,8 @@ public class IsDefaultSizeTokenTest extends
 		AbstractYesNoTokenTestCase<SizeAdjustment>
 {
 
-	static IsdefaultsizeToken token = new IsdefaultsizeToken();
-	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<>();
+	private static IsdefaultsizeToken token = new IsdefaultsizeToken();
+	private static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<SizeAdjustment> getCDOMClass()
