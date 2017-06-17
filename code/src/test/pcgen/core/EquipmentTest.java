@@ -1,5 +1,4 @@
 /*
- * EquipmentTest.java
  *
  * Copyright 2005 (C) Andrew Wilson <nuance@sourceforge.net>
  *

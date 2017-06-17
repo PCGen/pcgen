@@ -1,5 +1,4 @@
 /*
- * PCTemplateTest.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or

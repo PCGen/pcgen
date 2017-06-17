@@ -1,5 +1,4 @@
 /*
- * PrerequisiteSpellDescriptor.java
  *
  * Copyright 2004 (C) Blithwyn <blithwyn@yahoo.co.uk>
  *
