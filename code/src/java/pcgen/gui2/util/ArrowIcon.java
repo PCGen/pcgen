@@ -60,7 +60,7 @@ public class ArrowIcon implements Icon
 	@Override
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
-		boolean enabled = (c != null) ? c.isEnabled() : true;
+		boolean enabled = (c == null) || c.isEnabled();
 		paintTriangle(g, x, y, size, direction, enabled);
 	}
 
