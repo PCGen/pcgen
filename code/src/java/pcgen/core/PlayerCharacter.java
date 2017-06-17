@@ -408,7 +408,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private final SpellProhibitorFacet spellProhibitorFacet = FacetLibrary.getFacet(SpellProhibitorFacet.class);
 
-	private final GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -441,7 +440,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
 	private final TargetTrackingFacet astocnasFacet = FacetLibrary.getFacet(TargetTrackingFacet.class);
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+
 	private final PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
 			.getFacet(PortraitThumbnailRectFacet.class);
 	private final BonusSkillRankChangeFacet bonusSkillRankChangeFacet = FacetLibrary.getFacet(BonusSkillRankChangeFacet.class);
@@ -547,6 +546,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		display = new CharacterDisplay(id);
 		SA_TO_STRING_PROC = new SAtoStringProcessor(this);
 		SA_PROC = new SAProcessor(this);
+		PlayerCharacterTrackingFacet trackingFacet =
+				FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 		trackingFacet.associatePlayerCharacter(id, this);
 
 		variableProcessor = new VariableProcessorPC(this);
@@ -559,6 +560,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		GlobalModifiers gm =
 				refContext.constructNowIfNecessary(GlobalModifiers.class,
 					"Global Modifiers");
+		GlobalModifierFacet globalModifierFacet =
+				FacetLibrary.getFacet(GlobalModifierFacet.class);
 		globalModifierFacet.set(id, gm);
 		controller =
 				refContext.constructNowIfNecessary(CodeControl.class,
