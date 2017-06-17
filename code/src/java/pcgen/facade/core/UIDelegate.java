@@ -1,5 +1,4 @@
 /*
- * UIDelegate.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or

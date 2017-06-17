@@ -1,5 +1,4 @@
 /*
- * ChooserDialog.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or

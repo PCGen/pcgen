@@ -1,5 +1,4 @@
 /*
- * EquipmentSetFacadeImpl.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or

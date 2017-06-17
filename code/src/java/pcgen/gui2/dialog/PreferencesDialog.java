@@ -1,5 +1,4 @@
 /*
- * PreferencesDialog.java
  *
  * Copyright 2001 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
