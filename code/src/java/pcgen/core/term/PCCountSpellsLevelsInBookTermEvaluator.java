@@ -62,7 +62,7 @@ public class PCCountSpellsLevelsInBookTermEvaluator
 				final List<CharacterSpell> aList =
 						pc.getCharacterSpells(pObj, null, bookName, levelNum);
 
-				if (aList.size() < 1)
+				if (aList.isEmpty())
 				{
 					break;
 				}

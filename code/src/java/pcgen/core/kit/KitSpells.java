@@ -316,7 +316,7 @@ public final class KitSpells extends BaseKit
 			adjustedLevel += anAbility.getSafe(IntegerKey.ADD_SPELL_LEVEL);
 			metamagicFeatList.add(anAbility);
 		}
-		if (metamagicFeatList.size() <= 0)
+		if (metamagicFeatList.isEmpty())
 		{
 			metamagicFeatList = null;
 		}
