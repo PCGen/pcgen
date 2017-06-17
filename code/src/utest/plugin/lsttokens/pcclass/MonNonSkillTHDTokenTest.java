@@ -19,8 +19,6 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.Bonus;
@@ -30,6 +28,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.bonustokens.MonNonSkillHD;
 import plugin.bonustokens.MonSkillPts;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
@@ -174,7 +174,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testUnparseOne() throws PersistenceLayerException
 	{
-		expectSingle(setAndUnparse(1), Integer.toString(1));
+		expectSingle(setAndUnparse(), Integer.toString(1));
 	}
 
 	@Test
@@ -220,9 +220,9 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		}
 	}
 
-	protected String[] setAndUnparse(int val) throws PersistenceLayerException
+	protected String[] setAndUnparse() throws PersistenceLayerException
 	{
-		primaryProf.addToListFor(ListKey.BONUS, getBonus(val));
+		primaryProf.addToListFor(ListKey.BONUS, getBonus(1));
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 

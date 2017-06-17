@@ -78,10 +78,10 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 		formula = "if(\"a\", \"b\")";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -89,7 +89,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -97,7 +97,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -105,7 +105,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input(\"notvalid\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -120,8 +120,8 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 				(VariableChannel<Number>) ChannelUtilities.getGlobalChannel(id, "STR");
 		String formula = "input(\"STR\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
-		isStatic(formula, node, false);
+		isValid(formula, node);
+		isStatic(formula, node);
 		evaluatesTo(formula, node, 0);
 		strChannel.set(2);
 		evaluatesTo(formula, node, 2);
