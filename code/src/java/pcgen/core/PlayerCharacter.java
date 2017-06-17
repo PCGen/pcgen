@@ -267,6 +267,7 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.io.ExportHandler;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -1367,7 +1368,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	/**
 	 * Returns the character's total wealth.
 	 *
-	 * @see pcgen.core.PlayerCharacter#setGold(String)
+	 * @see PlayerCharacter#setGold(String)
 	 *
 	 * @return A <tt>BigDecimal</tt> value for the character's wealth.
 	 */
@@ -2884,7 +2885,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *
 	 * <p>
 	 * This method caps the base check based on the game mode setting for
-	 * {@link pcgen.core.GameMode#getChecksMaxLvl() checks max level}.
+	 * {@link GameMode#getChecksMaxLvl() checks max level}.
 	 *
 	 * @param check
 	 *            The index of the check to get
@@ -5371,7 +5372,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				}
 
 				String lookupString = aString.substring(startIdx + 2, endIdx);
-				lookupString = pcgen.io.ExportHandler.getTokenString(this, lookupString);
+				lookupString = ExportHandler.getTokenString(this, lookupString);
 				aString = aString.substring(0, startIdx) + lookupString + aString.substring(endIdx + 2);
 			}
 			total = getVariableValue(aString, "").intValue();
