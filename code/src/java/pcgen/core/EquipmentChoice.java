@@ -1,5 +1,4 @@
 /*
- * EquipmentChoice.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -472,7 +471,6 @@ public final class EquipmentChoice
 			addSelectableAbilities(type, "FEAT");
 		}
 
-		// Used by internal equipment modifier "Add Type" see LstSystemLoader.java
 		else if ("EQTYPES".equalsIgnoreCase(type))
 		{
 			Collection<Type> types =

@@ -51,7 +51,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * This class contains all settings-related code moved from Globals.java
  *
  * Should be cleaned up more.
  * 

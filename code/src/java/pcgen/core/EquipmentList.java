@@ -1,5 +1,4 @@
 /*
- * EquipmentList.java
  * Copyright 2003 (C) Jonas Karlsson <jujutsunerd@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
