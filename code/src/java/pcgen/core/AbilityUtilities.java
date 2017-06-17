@@ -187,8 +187,9 @@ public final class AbilityUtilities
 		{
 			return false;
 		}
-		return ability.getCDOMCategory() == AbilityCategory.FEAT
-			|| (ability.getCDOMCategory().getParentCategory() == AbilityCategory.FEAT);
+		return (ability.getCDOMCategory() == AbilityCategory.FEAT)
+				|| (
+				ability.getCDOMCategory().getParentCategory() == AbilityCategory.FEAT);
 	}
 
 	public static Ability validateCNAList(List<CNAbility> list)

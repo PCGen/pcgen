@@ -108,11 +108,11 @@ public final class Ability extends PObject implements Categorized<Ability>,
 				final Ability ab = (Ability) obj;
 				Category<Ability> cat = getCDOMCategory();
 				Category<Ability> othercat = ab.getCDOMCategory();
-				if (cat == null && othercat != null)
+				if ((cat == null) && (othercat != null))
 				{
 					return -1;
 				}
-				else if (cat != null && othercat == null)
+				else if ((cat != null) && (othercat == null))
 				{
 					return 1;
 				}
@@ -148,7 +148,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
     @Override
 	public boolean equals(final Object other)
 	{
-		return other instanceof Ability && this.compareTo(other) == 0;
+		return (other instanceof Ability) && (this.compareTo(other) == 0);
 	}
     
     /**

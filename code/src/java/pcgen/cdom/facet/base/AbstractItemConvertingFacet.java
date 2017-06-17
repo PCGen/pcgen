@@ -263,7 +263,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	public boolean isEmpty(CharID id)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
-		return componentMap == null || componentMap.isEmpty();
+		return (componentMap == null) || componentMap.isEmpty();
 	}
 
 	/**
@@ -285,7 +285,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	public boolean contains(CharID id, S obj)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
-		return componentMap != null && componentMap.containsKey(obj);
+		return (componentMap != null) && componentMap.containsKey(obj);
 	}
 
 	/**

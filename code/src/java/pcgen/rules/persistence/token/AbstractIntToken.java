@@ -70,7 +70,7 @@ public abstract class AbstractIntToken<T extends CDOMObject>
 		}
 		else
 		{
-			if (value.intValue() > max || value.intValue() < min)
+			if ((value.intValue() > max) || (value.intValue() < min))
 			{
 				return new ParseResult.Fail(getTokenName()
 					+ " must be an integer betwen " + min + " and " + max);

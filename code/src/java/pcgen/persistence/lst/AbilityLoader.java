@@ -80,7 +80,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	@Override
 	protected Ability getObjectKeyed(LoadContext context, String aKey)
 	{
-		if (aKey == null || aKey.isEmpty())
+		if ((aKey == null) || aKey.isEmpty())
 		{
 			return null;
 		}
@@ -89,7 +89,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		String abilityKey;
 
 		String[] parts = aKey.split("\\|");
-		if (parts.length == 2 && parts[0].startsWith("CATEGORY="))
+		if ((parts.length == 2) && parts[0].startsWith("CATEGORY="))
 		{
 			abilityCatName = parts[0].substring(9);
 			abilityKey = parts[1];
