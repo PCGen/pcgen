@@ -27,10 +27,8 @@ import org.jdom2.Element;
 /**
  * Localized String. This class is used when there is language dependent
  * information in XML. It stores an element and eventually all of its
- * translations. If PCGen UI language can only be changed after a restart, the
+ * translations. Since PCGen UI language can only be changed after a restart, the
  * other language information is not stored to reduce memory usage.
- * 
- * 
  */
 // TODO move to pcgen.?.util or gmgen.?.util
 public class Localized
@@ -45,7 +43,7 @@ public class Localized
 	private static final String ATTRIBUTE_LANGUAGE = "language"; //$NON-NLS-1$
 
 	/** used to produce names based on element name when the {@value #ATTRIBUTE_DEFAULTNAME} is missing */
-	private static Map<String, Integer> unnamedCount = new HashMap<>();
+	private static final Map<String, Integer> unnamedCount = new HashMap<>();
 
 	/** This is the default string of the node */
 	private String defaultName;
@@ -61,10 +59,9 @@ public class Localized
 	 */
 	public Localized(Element element, String attribute)
 	{
-		if (attribute == null)
-			defaultName = element.getTextTrim();
-		else
-			defaultName = element.getAttributeValue(attribute);
+		defaultName = (attribute == null) ?
+				element.getTextTrim() :
+				element.getAttributeValue(attribute);
 		update(element, attribute);
 	}
 
@@ -130,9 +127,7 @@ public class Localized
 	{
 		if (NEED_RESTART)
 		{
-			if (defaultLocaleName != null)
-				return defaultLocaleName;
-			else return defaultName;
+			return (defaultLocaleName != null) ? defaultLocaleName : defaultName;
 		}
 		return toString(Locale.getDefault());
 	}
@@ -145,20 +140,19 @@ public class Localized
 	private void update(Element e, String attribute)
 	{
 		List<?> children = e.getChildren(ELEMENT_LOC);
-		for (Object object : children)
-		{
-			if (object instanceof Element)
-			{
-				Element child = (Element) object;
-				String lang = child.getAttributeValue(ATTRIBUTE_LANGUAGE);
-				String name;
-				if (attribute == null)
-					name = child.getTextTrim();
-				else
-					name = child.getAttributeValue(attribute);
-				if (lang != null && !lang.isEmpty())
-					addName(lang, name);
-			}
-		}
+		children.stream()
+		        .filter(object -> object instanceof Element)
+		        .map(object -> (Element) object)
+		        .forEach(child ->
+		        {
+			        String lang = child.getAttributeValue(ATTRIBUTE_LANGUAGE);
+			        String name = (attribute == null) ?
+					        child.getTextTrim() :
+					        child.getAttributeValue(attribute);
+			        if ((lang != null) && !lang.isEmpty())
+			        {
+				        addName(lang, name);
+			        }
+		        });
 	}
 }
