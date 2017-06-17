@@ -31,6 +31,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Constants;
@@ -66,37 +67,37 @@ import org.apache.commons.lang3.StringUtils;
  */
 public final class GameMode implements Comparable<Object>, GameModeFacade
 {
-	private static PropertyContext prefsContext = PCGenSettings.getInstance().createChildContext("gameMode"); //$NON-NLS-1$
+	private static final PropertyContext prefsContext = PCGenSettings.getInstance().createChildContext("gameMode"); //$NON-NLS-1$
 
 	private PropertyContext gamemodePrefsContext = prefsContext.createChildContext("gameMode"); //$NON-NLS-1$
 	private List<String> allowedModes;
-	private List<String> bonusFeatLevels = new ArrayList<>();
-	private List<String> bonusStackList = new ArrayList<>();
-	private List<String> bonusStatLevels = new ArrayList<>();
-	private List<ClassType> classTypeList = new ArrayList<>();
+	private final List<String> bonusFeatLevels = new ArrayList<>();
+	private final List<String> bonusStackList = new ArrayList<>();
+	private final List<String> bonusStatLevels = new ArrayList<>();
+	private Collection<ClassType> classTypeList = new ArrayList<>();
 	private List<String> defaultDataSetList = new ArrayList<>();
 	private List<String> defaultDeityList = new ArrayList<>();
-	private Map<String, XPTable> xpTableInfo = new HashMap<>();
-	private List<String> loadStrings = new ArrayList<>();
-	private List<String> skillMultiplierLevels = new ArrayList<>();
+	private final Map<String, XPTable> xpTableInfo = new HashMap<>();
+	private final List<String> loadStrings = new ArrayList<>();
+	private final List<String> skillMultiplierLevels = new ArrayList<>();
 	@Deprecated
-	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<>();
+	private final MapToList<String, ACControl> ACTypeAddMap = new HashMapToList<>();
 	@Deprecated
-	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<>();
+	private final MapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<>();
 	private Map<String, String> plusCalcs;
-	private Map<String, String> spellRangeMap = new HashMap<>();
+	private final Map<String, String> spellRangeMap = new HashMap<>();
 	private String acAbbrev = "";
 	private String acName = "";
 	private String alignmentName = "";
 	private String althpAbbrev = "";
 	private String althpName = "";
-	private String babAbbrev = null;
+	private String babAbbrev;
 	private String currencyUnit = "";
 	private String currencyUnitAbbrev = "";
 	private String damageResistance = "";
 	private String defaultSpellBook = "Known Spells";
 	private String defaultUnitSet = Constants.STANDARD_UNITSET_NAME;
-	private UnitSet selectedUnitSet = null;
+	private UnitSet selectedUnitSet;
 	private String displayName = "";
 	private String displayVariable2Name = "";
 	private String displayVariable2Text = "";
@@ -116,9 +117,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String weaponCategories = "";
 	private String weaponTypes = "";
 	private String weaponReachFormula = "";
-	private Map<Integer, Integer> xpAwardsMap = new HashMap<>();
-	private Map<Integer, String> crStepsMap = new HashMap<>();
-	private String crThreshold = null;
+	private final Map<Integer, Integer> xpAwardsMap = new HashMap<>();
+	private final Map<Integer, String> crStepsMap = new HashMap<>();
+	private String crThreshold;
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
 	private boolean allowAutoResize = false;
@@ -148,10 +149,10 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int shortRangeDistance;
 	private int rangePenalty;
 
-	private RollMethod activeRollMethod = null;
+	private RollMethod activeRollMethod;
 
-	private SortedMap<Integer, PointBuyCost> pointBuyStatCosts = null;
-	private int[] abilityScoreCost = null;
+	private SortedMap<Integer, PointBuyCost> pointBuyStatCosts;
+	private int[] abilityScoreCost;
 	private String purchaseMethodName = ""; //$NON-NLS-1$
 
 	private int rollMethod = Constants.CHARACTER_STAT_METHOD_USER;
@@ -164,9 +165,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int statMin = 3;
 	private int statMax = 18;
 
-	private TreeMap<Integer, String> statDisplayText = null;
-	private String statDisplayTextAppend = "+";
-	private TreeMap<Integer, String> skillRankDisplayText = null;
+	private TreeMap<Integer, String> statDisplayText;
+	private final String statDisplayTextAppend = "+";
+	private TreeMap<Integer, String> skillRankDisplayText;
 
 	private String thePreviewDir;
 	private String theDefaultPreviewSheet;
@@ -174,7 +175,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String theInfoSheetSkill;
 	
 	private String outputSheetDirectory;
-	private Map<String, String> outputSheetDefaultMap = new HashMap<>();
+	private final Map<String, String> outputSheetDefaultMap = new HashMap<>();
 
 	private int [] dieSizes;
 	private int maxDieSize = 12;
@@ -184,9 +185,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private List<String> characterTypeList = new ArrayList<>();
 	private List<String> monsterRoleList = new ArrayList<>();
 	private String monsterRoleDefault = "";
-	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<>();
+	private final Map<Class<?>, Set<String>> hiddenTypes = new HashMap<>();
 
-	private List<String> xpTableNames = new ArrayList<>();
+	private final List<String> xpTableNames = new ArrayList<>();
 	private String defaultXPTableName;
 	private String defaultCharacterType;
 
@@ -196,10 +197,10 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/** SHOWTAB compatibility */
 	private Map<CDOMSingleRef<TabInfo>, Boolean> visibleTabs;
 
-	private Map<String, String> equipTypeIconMap = new HashMap<>();
+	private final Map<String, String> equipTypeIconMap = new HashMap<>();
 
 	/** Priority of the equipment types for icon use. */
-	private Map<String, Integer> equipTypeIconPriorityMap = new HashMap<>();
+	private final Map<String, Integer> equipTypeIconPriorityMap = new HashMap<>();
 	
 	/** A container for feat settings for this game mode. */
 	private AbilityCategory featTemplate;
@@ -1207,7 +1208,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void setXPAwards(final String aString)
 	{
-		String sTmp = "";;
+		String sTmp = "";
 		StringTokenizer aTok = new StringTokenizer(aString, "|", false);
 		
 		while (aTok.hasMoreTokens())
@@ -1311,8 +1312,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return alignmentName;
 	}
 
-
-	public List<String> getAllowedModes()
+	public Collection<String> getAllowedModes()
 	{
 		if (allowedModes == null)
 		{
@@ -1353,7 +1353,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Levels at which all characters get bonus to stats.
 	 * @return List
 	 */
-	List<String> getBonusStatLevels()
+	Iterable<String> getBonusStatLevels()
 	{
 		return bonusStatLevels;
 	}
@@ -2373,7 +2373,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			return Collections.emptyList();
 		}
-		List<AbilityCategory> catList = new ArrayList<>();
+		Collection<AbilityCategory> catList = new ArrayList<>();
 		for (AbilityCategory cat : getAllAbilityCategories())
 		{
 			if (key.equals(cat.getKeyName())
@@ -2567,7 +2567,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Retrieve the list of monster roles.
 	 * @return the monsterRoleList
 	 */
-	public List<String> getMonsterRoleList()
+	public Collection<String> getMonsterRoleList()
 	{
 		return Collections.unmodifiableList(monsterRoleList);
 	}
@@ -2603,8 +2603,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
 	private LoadContext context = new RuntimeLoadContext(getRefContext(), masterLCS);
-	private GameReferenceContext gameRefContext = new GameReferenceContext();
-	private LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
+	private final GameReferenceContext gameRefContext = new GameReferenceContext();
+	private final LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
 	private String defaultSourceTitle;
 
 
