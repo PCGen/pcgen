@@ -19,8 +19,8 @@ package plugin.lsttokens.testsupport;
 
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 import pcgen.core.bonus.BonusObj;
 import pcgen.io.ExportHandler;
@@ -40,7 +40,8 @@ import pcgen.rules.persistence.token.QualifierToken;
 public final class TokenRegistration
 {
 
-	public static final Set<String> ppiSet = new HashSet<>();
+
+	private static final Collection<String> ppiSet = new HashSet<>();
 
 	private TokenRegistration()
 	{
@@ -63,7 +64,7 @@ public final class TokenRegistration
 		}
 	}
 
-	public static final Set<LstToken> tokenSet = new HashSet<>();
+	private static final Collection<LstToken> tokenSet = new HashSet<>();
 
 	public static void register(LstToken token)
 	{
@@ -83,7 +84,7 @@ public final class TokenRegistration
 		}
 	}
 
-	public static final Set<Token> exportSet = new HashSet<>();
+	private static final Collection<Token> exportSet = new HashSet<>();
 
 	public static void register(Token token)
 	{
@@ -103,7 +104,7 @@ public final class TokenRegistration
 		PreParserFactory.clear();
 	}
 
-	public static final Set<String> pwSet = new HashSet<>();
+	private static final Collection<String> pwSet = new HashSet<>();
 
 	public static void register(PrerequisiteWriterInterface writer)
 		throws PersistenceLayerException
@@ -128,7 +129,7 @@ public final class TokenRegistration
 		}
 	}
 
-	public static final Set<ModifierFactory<?>> mSet = new HashSet<>();
+	private static final Collection<ModifierFactory<?>> mSet = new HashSet<>();
 
 	public static void register(ModifierFactory<?> m)
 	{
