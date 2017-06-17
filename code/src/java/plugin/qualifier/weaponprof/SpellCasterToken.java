@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 
 public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFilter<WeaponProf>
 {
-	private PrimitiveCollection<WeaponProf> pcs = null;
+	private PrimitiveCollection<WeaponProf> pcs;
 	
 	@Override
 	public String getTokenName()
