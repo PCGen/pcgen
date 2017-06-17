@@ -282,7 +282,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 {
 
 	// Constants for use in getBonus
-	private static String lastVariable = null;
+	private static String lastVariable;
 	// This marker is static so that the spells allocated to it can also be found in the cloned character.
 	private static final ObjectCache grantedSpellCache = new ObjectCache();
 
@@ -517,7 +517,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * This map stores any user bonuses (entered through the GUI) to the
 	 * corresponding ability pool.
 	 */
-	private Map<Category<Ability>, BigDecimal> theUserPoolBonuses = null;
+	private Map<Category<Ability>, BigDecimal> theUserPoolBonuses;
 
 	// /////////////////////////////////////
 	// operations
