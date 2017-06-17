@@ -709,7 +709,7 @@ public class FlippingSplitPane extends JSplitPane
 	private class PopupListener
 			extends MouseAdapter
 	{
-        @Override
+		@Override
 		public void mousePressed(final MouseEvent e)
 		{
 			if (e.isPopupTrigger())
@@ -739,7 +739,7 @@ public class FlippingSplitPane extends JSplitPane
 			}
 
 			// A handy shortcut
-			else if (Utilities.isShiftLeftMouseButton(e))
+			else if (pcgen.gui2.tools.Utilities.isShiftLeftMouseButton(e))
 			{
 				if (!isLocked())
 				{
