@@ -46,8 +46,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Override
 	@Before
-	public final void setUp() throws PersistenceLayerException,
-		URISyntaxException
+	public final void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreLevelParser());
