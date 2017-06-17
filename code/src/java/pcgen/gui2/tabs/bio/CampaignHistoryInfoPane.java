@@ -129,7 +129,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		add(pane);
 		add(Box.createVerticalStrut(10));
-		addButton.setAlignmentX((float) 0.5);
+		addButton.setAlignmentX(0.5f);
 		add(addButton);
 		add(Box.createVerticalStrut(5));
 		add(Box.createVerticalGlue());
