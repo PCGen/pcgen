@@ -361,7 +361,7 @@ public abstract class AbstractListContext
 			}
 
 			@Override
-			public boolean isType(String str)
+			public boolean isType(String type)
 			{
 				return false;
 			}
@@ -373,9 +373,9 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public void setExtractURI(URI extractURI)
+		public void setExtractURI(URI sourceURI)
 		{
-			this.extractURI = extractURI;
+			this.extractURI = sourceURI;
 		}
 
 		public URI getSourceURI()
@@ -565,12 +565,12 @@ public abstract class AbstractListContext
 		@Override
 		public <T extends CDOMObject> AssociatedPrereqObject removeFromList(String tokenName,
 				CDOMObject owner,
-				CDOMReference<? extends CDOMList<? super T>> list,
+				CDOMReference<? extends CDOMList<? super T>> swl,
 				CDOMReference<T> ref)
 		{
 			SimpleAssociatedObject a = new SimpleAssociatedObject();
 			a.setAssociation(AssociationKey.TOKEN, tokenName);
-			getNegative(sourceURI, owner).putToList(list, ref, a);
+			getNegative(sourceURI, owner).putToList(swl, ref, a);
 			return a;
 		}
 
@@ -658,11 +658,11 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public boolean equalsTracking(ListCommitStrategy obj)
+		public boolean equalsTracking(ListCommitStrategy commit)
 		{
-			if (obj instanceof TrackingListCommitStrategy)
+			if (commit instanceof TrackingListCommitStrategy)
 			{
-				TrackingListCommitStrategy other = (TrackingListCommitStrategy) obj;
+				TrackingListCommitStrategy other = (TrackingListCommitStrategy) commit;
 				return other.masterAllClear.equals(this.masterAllClear)
 						&& other.masterClearSet.equals(this.masterClearSet)
 						&& other.positiveMasterMap.equals(this.positiveMasterMap)

@@ -46,15 +46,15 @@ public abstract class AbstractBasicCampaignToken extends
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	                                              Campaign obj, String value)
 	{
 		CampaignSourceEntry cse =
-				context.getCampaignSourceEntry(campaign, value);
+				context.getCampaignSourceEntry(obj, value);
 		if (cse == null)
 		{
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.getObjectContext().addToList(campaign, getListKey(), cse);
+		context.getObjectContext().addToList(obj, getListKey(), cse);
 		return ParseResult.SUCCESS;
 	}
 

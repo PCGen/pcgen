@@ -156,9 +156,9 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	}
 
 	@Override
-	public void put(CDOMObject cdo, VariableKey vk, Formula f)
+	public void put(CDOMObject obj, VariableKey vk, Formula f)
 	{
-		edits.put(cdo, vk, f);
+		edits.put(obj, vk, f);
 	}
 
 	@Override
@@ -469,7 +469,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	private static class SimpleCDOMObject extends CDOMObject
 	{
 		@Override
-		public boolean isType(String str)
+		public boolean isType(String type)
 		{
 			return false;
 		}
@@ -587,9 +587,9 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 
 		@Override
-		public boolean containsSetFor(CDOMObject cdo, FactSetKey<?> key)
+		public boolean containsSetFor(CDOMObject obj, FactSetKey<?> lk)
 		{
-			return cdo.containsSetFor(key);
+			return obj.containsSetFor(lk);
 		}
 
 		@Override
@@ -630,15 +630,15 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 
 		@Override
-		public void put(CDOMObject cdo, VariableKey vk, Formula f)
+		public void put(CDOMObject obj, VariableKey vk, Formula f)
 		{
-			getPositive(sourceURI, cdo).put(vk, f);
+			getPositive(sourceURI, obj).put(vk, f);
 		}
 
 		@Override
-		public boolean containsListFor(CDOMObject cdo, ListKey<?> key)
+		public boolean containsListFor(CDOMObject obj, ListKey<?> lk)
 		{
-			return cdo.containsListFor(key);
+			return obj.containsListFor(lk);
 		}
 
 		@Override
@@ -702,15 +702,15 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 
 		@Override
-		public Formula getVariable(CDOMObject cdo, VariableKey key)
+		public Formula getVariable(CDOMObject obj, VariableKey key)
 		{
-			return getPositive(extractURI, cdo).get(key);
+			return getPositive(extractURI, obj).get(key);
 		}
 
 		@Override
-		public Set<VariableKey> getVariableKeys(CDOMObject cdo)
+		public Set<VariableKey> getVariableKeys(CDOMObject obj)
 		{
-			return getPositive(extractURI, cdo).getVariableKeys();
+			return getPositive(extractURI, obj).getVariableKeys();
 		}
 
 		@Override
@@ -903,15 +903,15 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	}
 
 	@Override
-	public boolean wasRemoved(CDOMObject cdo, FactKey<?> sk)
+	public boolean wasRemoved(CDOMObject cdo, FactKey<?> ok)
 	{
-		return getCommitStrategy().wasRemoved(cdo, sk);
+		return getCommitStrategy().wasRemoved(cdo, ok);
 	}
 
 	@Override
-	public boolean wasRemoved(CDOMObject cdo, FactSetKey<?> sk)
+	public boolean wasRemoved(CDOMObject cdo, FactSetKey<?> ok)
 	{
-		return getCommitStrategy().wasRemoved(cdo, sk);
+		return getCommitStrategy().wasRemoved(cdo, ok);
 	}
 
 	@Override

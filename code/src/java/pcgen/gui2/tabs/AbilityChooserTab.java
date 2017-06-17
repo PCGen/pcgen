@@ -350,21 +350,21 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 //		}
 
 		@Override
-		public Object getDataInternal(AbilityFacade obj, int column)
+		public Object getDataInternal(AbilityFacade element, int column)
 		{
 			switch(column){
 				case 0:
-					return getTypes(obj.getTypes());
+					return getTypes(element.getTypes());
 				case 1:
-					return obj.isMult();
+					return element.isMult();
 				case 2:
-					return obj.isStackable();
+					return element.isStackable();
 				case 3:
-					return infoFactory.getDescription(obj);
+					return infoFactory.getDescription(element);
 				case 4:
-					return (int) obj.getCost();
+					return (int) element.getCost();
 				case 5:
-					return obj.getSource();
+					return element.getSource();
 				default:
 					return null;
 			}
@@ -915,11 +915,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		@Override
 		public Component getTreeCellRendererComponent(JTree tree, Object value,
 				boolean sel, boolean expanded, boolean leaf, int row,
-				boolean focus)
+				boolean hasFocus)
 		{
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded,
-					leaf, row, focus);
+					leaf, row, hasFocus
+			);
 			Object abilityObj = ((DefaultMutableTreeNode) value).getUserObject();
 			if (abilityObj instanceof AbilityFacade)
 			{

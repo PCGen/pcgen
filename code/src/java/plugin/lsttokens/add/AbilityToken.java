@@ -380,30 +380,30 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void applyChoice(CDOMObject owner,
-		CNAbilitySelection choice, PlayerCharacter pc)
+	                        CNAbilitySelection item, PlayerCharacter pc)
 	{
-		CNAbility cna = choice.getCNAbility();
+		CNAbility cna = item.getCNAbility();
 		Ability ab = cna.getAbility();
 		AbilityCategory cat = (AbilityCategory) cna.getAbilityCategory();
 		boolean isVirtual = Nature.VIRTUAL.equals(cna.getNature());
 		if (isVirtual)
 		{
-			pc.addSavedAbility(choice, UserSelection.getInstance(),
+			pc.addSavedAbility(item, UserSelection.getInstance(),
 				UserSelection.getInstance());
 		}
 		else
 		{
-			pc.addAbility(choice, UserSelection.getInstance(),
+			pc.addAbility(item, UserSelection.getInstance(),
 				UserSelection.getInstance());
 			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST));
 		}
 	}
 
 	@Override
-	public boolean allow(CNAbilitySelection choice,
+	public boolean allow(CNAbilitySelection item,
 		PlayerCharacter pc, boolean allowStack)
 	{
-		CNAbility cna = choice.getCNAbility();
+		CNAbility cna = item.getCNAbility();
 		Ability ability = cna.getAbility();
 		if (!ability.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))
 		{
@@ -414,26 +414,26 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return false;
 		}
-		String selection = choice.getSelection();
+		String selection = item.getSelection();
 		// Avoid any already selected
 		return !AbilityUtilities.alreadySelected(pc, ability, selection, allowStack);
 	}
 
 	@Override
-	public CNAbilitySelection decodeChoice(LoadContext context, String s)
+	public CNAbilitySelection decodeChoice(LoadContext context, String persistentFormat)
 	{
-		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(persistentFormat);
 	}
 
 	@Override
-	public String encodeChoice(CNAbilitySelection choice)
+	public String encodeChoice(CNAbilitySelection item)
 	{
-		return choice.getPersistentFormat();
+		return item.getPersistentFormat();
 	}
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+		CNAbilitySelection item)
 	{
 		// String featName = choice.getAbilityKey();
 		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
@@ -443,21 +443,21 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+		CNAbilitySelection item)
 	{
-		CNAbility cna = choice.getCNAbility();
+		CNAbility cna = item.getCNAbility();
 		Ability ab = cna.getAbility();
 		AbilityCategory cat = (AbilityCategory) cna.getAbilityCategory();
 		if (cna.getNature().equals(Nature.NORMAL))
 		{
 			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST)
 				.negate());
-			pc.removeAbility(choice, UserSelection.getInstance(),
+			pc.removeAbility(item, UserSelection.getInstance(),
 				UserSelection.getInstance());
 		}
 		else
 		{
-			pc.removeSavedAbility(choice, UserSelection.getInstance(),
+			pc.removeSavedAbility(item, UserSelection.getInstance(),
 				UserSelection.getInstance());
 		}
 	}

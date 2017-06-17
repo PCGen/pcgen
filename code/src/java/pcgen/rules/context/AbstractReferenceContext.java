@@ -213,15 +213,15 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	}
 
 	@Override
-	public <T extends Loadable> T get(Class<T> c, String val)
+	public <T extends Loadable> T get(Class<T> cl, String name)
 	{
-		return silentlyGetConstructedCDOMObject(c, val);
+		return silentlyGetConstructedCDOMObject(cl, name);
 	}
 
 	@Override
-	public <T extends Loadable> Indirect<T> getIndirect(Class<T> c, String val)
+	public <T extends Loadable> Indirect<T> getIndirect(Class<T> cl, String name)
 	{
-		return getCDOMReference(c, val);
+		return getCDOMReference(cl, name);
 	}
 
 	public <T extends Loadable> T silentlyGetConstructedCDOMObject(Class<T> c,

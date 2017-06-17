@@ -75,8 +75,8 @@ public abstract class AbstractSetModifierFactory<T> implements
 
 	@Override
 	public PCGenModifier<T> getModifier(int userPriority, String instructions,
-		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
-		FormatManager<T> formatManager)
+	                                    ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
+	                                    FormatManager<T> formatManager)
 	{
 		if (!formatManager.getManagedClass().equals(getVariableFormat()))
 		{
@@ -89,15 +89,15 @@ public abstract class AbstractSetModifierFactory<T> implements
 
 	@Override
 	public PCGenModifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> fmtManager, String instructions)
+	                                         FormatManager<T> formatManager, String instructions)
 	{
-		if (!fmtManager.getManagedClass().equals(getVariableFormat()))
+		if (!formatManager.getManagedClass().equals(getVariableFormat()))
 		{
 			throw new IllegalArgumentException(
 				"FormatManager must manage " + getVariableFormat().getName());
 		}
-		T n = fmtManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
+		T n = formatManager.convert(instructions);
+		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);
 		return new CalculationModifier<>(calc, userPriority);
 	}
 

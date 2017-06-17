@@ -522,15 +522,15 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 	 * "global" list when load is complete - thpr Dec 15, 2012
 	 */
 	@Override
-	public boolean process(LoadContext context, CDOMObject cdo)
+	public boolean process(LoadContext context, CDOMObject obj)
 	{
 		List<ListKey<ChooseSelectionActor<?>>> lkList =
-				cdo.getListFor(ListKey.GA_CAKEYS);
+				obj.getListFor(ListKey.GA_CAKEYS);
 		if (lkList != null)
 		{
 			for (ListKey<ChooseSelectionActor<?>> lk : lkList)
 			{
-				cdo.addAllToListFor(ListKey.NEW_CHOOSE_ACTOR, cdo.getListFor(lk));
+				obj.addAllToListFor(ListKey.NEW_CHOOSE_ACTOR, obj.getListFor(lk));
 			}
 		}
 		return true;

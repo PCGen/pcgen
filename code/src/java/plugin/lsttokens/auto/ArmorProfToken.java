@@ -272,15 +272,15 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, ArmorProf item, PlayerCharacter pc)
 	{
-		pc.addArmorProf(obj, ap);
+		pc.addArmorProf(obj, item);
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, ArmorProf item, PlayerCharacter pc)
 	{
-		pc.removeArmorProf(obj, ap);
+		pc.removeArmorProf(obj, item);
 	}
 
 	@Override
