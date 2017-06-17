@@ -77,33 +77,32 @@ public class CharacterFilter implements OutputFilter
 					outputFilterName = filterName;
 					outputFilter = new HashMap<>();
 
-					for (;;)
+				while (true)
+				{
+					final String aLine = br.readLine();
+
+					if (aLine == null)
 					{
-						final String aLine = br.readLine();
+						break;
+					}
 
-						if (aLine == null)
+					final List<String> filterEntry =
+							CoreUtility.split(aLine, '\t');
+
+					if (filterEntry.size() >= 2)
+					{
+						try
 						{
-							break;
-						}
-
-						final List<String> filterEntry =
-								CoreUtility.split(aLine, '\t');
-
-						if (filterEntry.size() >= 2)
+							final Integer key =
+									Delta.decode(filterEntry.get(0));
+							outputFilter.put(key, filterEntry.get(1));
+						} catch (NullPointerException | NumberFormatException e)
 						{
-							try
-							{
-								final Integer key =
-										Delta.decode(filterEntry.get(0));
-								outputFilter.put(key, filterEntry.get(1));
-							}
-							catch (NullPointerException | NumberFormatException e)
-							{
-								Logging.errorPrint(
+							Logging.errorPrint(
 									"Exception in setCurrentOutputFilter", e);
-							}
 						}
 					}
+				}
 
 					br.close();
 			}
