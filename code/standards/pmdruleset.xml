@@ -35,6 +35,7 @@
     <exclude name="ProperCloneImplementation" />
     <exclude name="CloneThrowsCloneNotSupportedException" />
     <exclude name="CloneMethodMustImplementCloneable" />
+    <exclude name="CloneMethodMustBePublic" />
   </rule>
   <rule ref="rulesets/java/codesize.xml" >
     <exclude name="TooManyFields" />
