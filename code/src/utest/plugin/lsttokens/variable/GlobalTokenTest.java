@@ -32,8 +32,8 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 {
 
-	private static GlobalToken token = new GlobalToken();
-	private static CDOMTokenLoader<DatasetVariable> loader =
+	private static final GlobalToken token = new GlobalToken();
+	private static final CDOMTokenLoader<DatasetVariable> loader =
 			new CDOMTokenLoader<>();
 
 	@Override

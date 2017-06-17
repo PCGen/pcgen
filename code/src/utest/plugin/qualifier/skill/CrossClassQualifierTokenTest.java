@@ -44,8 +44,8 @@ public class CrossClassQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
-	private static CDOMPrimaryToken token = new ChooseLst();
-	private static CDOMSecondaryToken subtoken = new SkillToken();
+	private static final CDOMPrimaryToken token = new ChooseLst();
+	private static final CDOMSecondaryToken subtoken = new SkillToken();
 	static final CDOMLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private Skill s1, s2, s3, s4, s5;
 	private PCClass cl1;

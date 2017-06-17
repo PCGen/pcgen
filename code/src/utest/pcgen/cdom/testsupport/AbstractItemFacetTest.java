@@ -32,7 +32,7 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	private CharID id;
 	private CharID altid;
 
-	private Listener listener = new Listener();
+	private final Listener listener = new Listener();
 
 	public class Listener implements DataFacetChangeListener<CharID, T>
 	{

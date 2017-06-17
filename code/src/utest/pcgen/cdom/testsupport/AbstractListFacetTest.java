@@ -39,7 +39,7 @@ public abstract class AbstractListFacetTest<T>
 	protected CharID id;
 	protected CharID altid;
 
-	private Listener listener = new Listener();
+	private final Listener listener = new Listener();
 
 	private class Listener implements DataFacetChangeListener<CharID, T>
 	{

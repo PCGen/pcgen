@@ -34,7 +34,7 @@ public class UnencumberedLoadFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Load>
 {
 
-	private UnencumberedLoadFacet facet = new UnencumberedLoadFacet();
+	private final UnencumberedLoadFacet facet = new UnencumberedLoadFacet();
 	private Load[] target;
 	private CDOMObject[] source;
 

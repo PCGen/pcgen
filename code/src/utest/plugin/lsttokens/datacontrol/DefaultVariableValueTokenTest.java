@@ -43,9 +43,9 @@ public class DefaultVariableValueTokenTest extends
 			new plugin.modifier.string.SetModifierFactory();
 	private static final SetModifierFactory SET_NUMBER =
 			new plugin.modifier.number.SetModifierFactory();
-	private static DefaultVariableValueToken token =
+	private static final DefaultVariableValueToken token =
 			new DefaultVariableValueToken();
-	private static CDOMTokenLoader<DefaultVarValue> loader =
+	private static final CDOMTokenLoader<DefaultVarValue> loader =
 			new CDOMTokenLoader<>();
 
 	@Override

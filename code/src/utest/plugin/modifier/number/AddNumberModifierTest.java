@@ -33,7 +33,7 @@ import static org.junit.Assert.*;
 public class AddNumberModifierTest
 {
 	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
-	private FormatManager<Number> numManager = new NumberManager();
+	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
 	public void testInvalidConstruction()

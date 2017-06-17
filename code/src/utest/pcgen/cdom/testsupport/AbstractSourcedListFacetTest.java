@@ -39,7 +39,7 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 	protected CharID id;
 	protected CharID altid;
 
-	private Listener listener = new Listener();
+	private final Listener listener = new Listener();
 	protected Object oneSource = new Object();
 
 	private class Listener implements DataFacetChangeListener<CharID, T>

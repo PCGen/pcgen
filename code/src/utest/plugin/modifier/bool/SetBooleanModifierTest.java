@@ -33,7 +33,7 @@ public class SetBooleanModifierTest
 {
 
 	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
-	private FormatManager<Boolean> booleanManager = new BooleanManager();
+	private final FormatManager<Boolean> booleanManager = new BooleanManager();
 
 	@Test
 	public void testInvalidConstruction()
