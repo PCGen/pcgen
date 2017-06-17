@@ -46,9 +46,4 @@ public class CombatantHasBeenUpdatedMessage extends PCGenMessage
 		this.combatant = combatant;
 	}
 
-	public Combatant getCombatant()
-	{
-		return combatant;
-	}
-
 }
