@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.input;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.SkillCost;
@@ -30,15 +26,21 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
-public class GlobalAddedSkillCostFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public class GlobalAddedSkillCostFacetTest
 {
 	protected CharID id;
 	protected CharID altid;
 
 	private GlobalAddedSkillCostFacet facet = new GlobalAddedSkillCostFacet();
 	private PCTemplate source1 = new PCTemplate();
-
-	@Override
+	@Before
 	public void setUp()
 	{
 		DataSetID cid = DataSetID.getID();
@@ -250,6 +252,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 		assertTrue(getFacet().contains(id, SkillCost.CLASS, t1));
 	}
 
+	@Test
 	public void testTypeRemoveDiffCost()
 	{
 		Skill t1 = getObject();

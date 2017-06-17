@@ -22,11 +22,12 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.Language;
 
+import org.junit.Before;
+
 public class AutoLanguageListFacetTest extends AbstractSourcedListFacetTest<Language> {
 
 	private AutoLanguageListFacet facet = new AutoLanguageListFacet();
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

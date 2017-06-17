@@ -19,10 +19,6 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.Collection;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ListKey;
@@ -32,7 +28,15 @@ import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
-public class RacialSubTypesFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+public class RacialSubTypesFacetTest
 {
 	private static final RaceSubType LAST_RACE_TYPE = RaceSubType
 			.getConstant("TestLastRACESUBTYPE");
@@ -52,12 +56,10 @@ public class RacialSubTypesFacetTest extends TestCase
 	private RacialSubTypesFacet facet;
 	private RaceFacet rfacet = new RaceFacet();
 	private TemplateFacet tfacet = new TemplateFacet();
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		facet = new RacialSubTypesFacet();
-		super.setUp();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();

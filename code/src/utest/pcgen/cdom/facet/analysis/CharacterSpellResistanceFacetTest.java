@@ -30,6 +30,8 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Before;
+
 public class CharacterSpellResistanceFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Formula>
 {
@@ -38,8 +40,7 @@ public class CharacterSpellResistanceFacetTest extends
 			new CharacterSpellResistanceFacet();
 	private Formula[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

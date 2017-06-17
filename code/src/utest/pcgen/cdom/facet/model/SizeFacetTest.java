@@ -21,10 +21,6 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -40,9 +36,14 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.AbstractReferenceContext;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-public class SizeFacetTest extends TestCase
+import static org.junit.Assert.assertEquals;
+
+public class SizeFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -60,11 +61,9 @@ public class SizeFacetTest extends TestCase
 	private Map<CharID, Double> bonusInfo;
 	private static boolean staticDone = false;
 	private static SizeAdjustment t, s, m, l, h;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -531,6 +530,7 @@ public class SizeFacetTest extends TestCase
 	/**
 	 * Verify the function of the sizesAdvanced method.
 	 */
+	@Test
 	public void testSizesAdvanced()
 	{
 		Race race = new Race();

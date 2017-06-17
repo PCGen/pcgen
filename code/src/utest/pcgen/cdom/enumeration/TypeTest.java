@@ -21,7 +21,8 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.fail;
 
 
 /**
@@ -36,6 +37,7 @@ public class TypeTest
 	 * Test whether type can be sorted, by adding it to a hashset.
 	 * Added to check fix on Bug with tracker nr. 2413116 
 	 */
+
 	@Test
 	public void testSortable()
 	{

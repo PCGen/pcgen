@@ -29,6 +29,8 @@ import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Before;
+
 public class UnarmedDamageFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, List<String>>
 {
@@ -36,8 +38,7 @@ public class UnarmedDamageFacetTest extends
 	private UnarmedDamageFacet facet = new UnarmedDamageFacet();
 	private List<String>[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -29,17 +25,21 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.core.PCTemplate;
 
-public class VariableFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class VariableFacetTest
 {
 
 	private VariableFacet facet = new VariableFacet();
 	private CharID id;
 	private CharID altid;
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);

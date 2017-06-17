@@ -28,6 +28,8 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Before;
+
 public class UnlockedStatFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, PCStat>
 {
@@ -35,8 +37,7 @@ public class UnlockedStatFacetTest extends
 	private UnlockedStatFacet facet = new UnlockedStatFacet();
 	private PCStat[] stat;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

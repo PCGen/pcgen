@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,7 +24,13 @@ import pcgen.cdom.enumeration.SubRace;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
-public class SubRaceFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
+public class SubRaceFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -40,12 +42,10 @@ public class SubRaceFacetTest extends TestCase
 	private CharID altid;
 	private SubRaceFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		facet = new SubRaceFacet();
-		super.setUp();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);

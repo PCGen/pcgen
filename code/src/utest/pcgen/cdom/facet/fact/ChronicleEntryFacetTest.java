@@ -26,6 +26,8 @@ import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.ChronicleEntry;
 
+import org.junit.Test;
+
 public class ChronicleEntryFacetTest extends
 		AbstractListFacetTest<ChronicleEntry>
 {
@@ -49,6 +51,7 @@ public class ChronicleEntryFacetTest extends
 	}
 
 	@Override
+	@Test
 	public void testAddSingleTwiceGet()
 	{
 		ChronicleEntry t1 = getObject();
@@ -70,6 +73,7 @@ public class ChronicleEntryFacetTest extends
 	}
 
 	@Override
+	@Test
 	public void testAddAllTwice()
 	{
 		ChronicleEntry t1 = getObject();
@@ -87,6 +91,7 @@ public class ChronicleEntryFacetTest extends
 	}
 
 	@Override
+	@Test
 	public void testAddSingleTwiceRemove()
 	{
 		ChronicleEntry t1 = getObject();

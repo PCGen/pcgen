@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,14 +27,16 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Before;
+import org.junit.Test;
+
 public class HasAnyFavoredClassFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Boolean>
 {
 	private HasAnyFavoredClassFacet facet = new HasAnyFavoredClassFacet();
 	private Boolean[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();
@@ -92,36 +92,36 @@ public class HasAnyFavoredClassFacetTest extends
 		return Boolean.FALSE;
 	}
 
-	@Test
     @Override
+	@Test
 	public void testTypeAddAllSecondSource()
 	{
 		// TODO Override due to Boolean only having 2 values
 	}
 
-	@Test
     @Override
+	@Test
 	public void testTypeRemoveAllList()
 	{
 		// TODO Override due to Boolean only having 2 values
 	}
 
 	@Test
-    @Override
+	@Override
 	public void testTypeRemoveAllSource()
 	{
 		// TODO Override due to Boolean only having 2 values
 	}
 
 	@Test
-    @Override
+	@Override
 	public void testTypeGetSetSource()
 	{
 		// TODO Override due to Boolean only having 2 values
 	}
 
 	@Test
-    @Override
+	@Override
 	public void testTypeContainsFrom()
 	{
 		// TODO Override due to Boolean only having 2 values

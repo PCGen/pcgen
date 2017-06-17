@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.input;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.SkillCost;
@@ -30,7 +26,14 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
-public class LocalAddedSkillCostFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public class LocalAddedSkillCostFacetTest
 {
 	protected CharID id;
 	protected CharID altid;
@@ -40,11 +43,9 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	private PCClass class1;
 	private PCClass class2;
 	private PCClass class3;
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -70,6 +71,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAddNullClass()
 	{
 		try
@@ -351,6 +353,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
 	}
 
+	@Test
 	public void testRemoveDiffCost()
 	{
 		Skill t1 = getObject();
