@@ -26,11 +26,7 @@
     <exclude name="AvoidBranchingStatementAsLastInLoop" />
     <exclude name="OverrideBothEqualsAndHashcode" />
   </rule>
-  <rule ref="rulesets/java/braces.xml">
-    <exclude name="IfStmtsMustUseBraces" />
-    <exclude name="ForLoopsMustUseBraces" />
-    <exclude name="IfElseStmtsMustUseBraces" />
-  </rule>
+  <rule ref="rulesets/java/braces.xml"/>
   <rule ref="rulesets/java/clone.xml">
     <exclude name="ProperCloneImplementation" />
     <exclude name="CloneThrowsCloneNotSupportedException" />
