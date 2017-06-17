@@ -388,7 +388,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 */
 	protected Map<S, Target> getComponentMap()
 	{
-		return new IdentityHashMap<S, Target>();
+		return new IdentityHashMap<>();
 	}
 
 	/**
