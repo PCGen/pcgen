@@ -55,7 +55,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		extends AbstractCDOMTokenTestCase<T>
 {
 
-	private static QualifierToken<CDOMObject> qt = new QualifiedToken<>();
+	private static final QualifierToken<CDOMObject> qt = new QualifiedToken<>();
 
 	public abstract CDOMSecondaryToken<?> getSubToken();
 

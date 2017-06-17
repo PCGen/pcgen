@@ -33,7 +33,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 		extends AbstractCDOMTokenTestCase<T>
 {
 
-	private static QualifierToken<CDOMObject> qual = new QualifiedToken<>();
+	private static final QualifierToken<CDOMObject> qual = new QualifiedToken<>();
 
 	public abstract CDOMSecondaryToken<?> getSubToken();
 

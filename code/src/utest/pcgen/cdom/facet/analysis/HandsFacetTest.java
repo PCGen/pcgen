@@ -41,8 +41,8 @@ public class HandsFacetTest extends TestCase
 	private CharID id;
 	private CharID altid;
 	private HandsFacet facet;
-	private RaceFacet rfacet = new RaceFacet();
-	private TemplateFacet tfacet = new TemplateFacet();
+	private final RaceFacet rfacet = new RaceFacet();
+	private final TemplateFacet tfacet = new TemplateFacet();
 
 	@Override
 	public void setUp() throws Exception

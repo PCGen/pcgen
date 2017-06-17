@@ -42,7 +42,7 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<Race>
 	static FaceToken token = new FaceToken();
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 	static ModifierFactory<OrderedPair> m = new SetModifierFactory();
-	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
+	private final FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

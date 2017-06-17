@@ -34,7 +34,7 @@ public class SetOrderedPairModifierTest
 {
 
 	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
-	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
+	private final FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Test
 	public void testInvalidConstruction()

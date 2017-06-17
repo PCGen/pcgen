@@ -38,7 +38,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 	private CharID id;
 	private CharID altid;
 
-	private Listener listener = new Listener();
+	private final Listener listener = new Listener();
 	ST oneSource = developSource();
 
 	private class Listener implements DataFacetChangeListener<CharID, CT>

@@ -33,7 +33,7 @@ import static org.junit.Assert.*;
 public class MultiplyNumberModifierTest
 {
 
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test

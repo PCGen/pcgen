@@ -32,8 +32,8 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 {
 
-	private static LocalToken token = new LocalToken();
-	private static CDOMTokenLoader<DatasetVariable> loader =
+	private static final LocalToken token = new LocalToken();
+	private static final CDOMTokenLoader<DatasetVariable> loader =
 			new CDOMTokenLoader<>();
 
 	@Override

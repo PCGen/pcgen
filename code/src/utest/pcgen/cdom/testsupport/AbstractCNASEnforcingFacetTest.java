@@ -36,7 +36,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	Ability stackyes;
 	Ability othernomult;
 
-	private Listener listener = new Listener();
+	private final Listener listener = new Listener();
 	protected Object oneSource = new Object();
 
 	private static class Listener implements

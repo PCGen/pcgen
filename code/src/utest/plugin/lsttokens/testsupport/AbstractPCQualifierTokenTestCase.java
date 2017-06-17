@@ -35,8 +35,8 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 		extends AbstractQualifierTokenTestCase<CDOMObject, T>
 {
 
-	private static ChooseLst token = new ChooseLst();
-	private static CDOMTokenLoader<CDOMObject> loader =
+	private static final ChooseLst token = new ChooseLst();
+	private static final CDOMTokenLoader<CDOMObject> loader =
 			new CDOMTokenLoader<>();
 
 	protected AbstractPCQualifierTokenTestCase()

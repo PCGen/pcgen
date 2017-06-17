@@ -42,9 +42,9 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		extends AbstractCDOMTokenTestCase<T>
 {
 
-	private static QualifierToken<CDOMObject> qual = new QualifiedToken<>();
+	private static final QualifierToken<CDOMObject> qual = new QualifiedToken<>();
 
-	private static QualifierToken<CDOMObject> anyqualifier = new AnyToken<>();
+	private static final QualifierToken<CDOMObject> anyqualifier = new AnyToken<>();
 
 	public abstract CDOMSecondaryToken<?> getSubToken();
 
