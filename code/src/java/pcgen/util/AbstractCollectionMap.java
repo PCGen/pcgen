@@ -29,7 +29,7 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 	extends AbstractMap<K, C> implements CollectionMap<K, V, C>
 {
 
-    private volatile Collection<V> values = null;
+    private Collection<V> values = null;
 
     @Override
     public boolean add(K key, V value)
