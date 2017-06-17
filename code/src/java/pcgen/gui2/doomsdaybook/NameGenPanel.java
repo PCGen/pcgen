@@ -646,7 +646,9 @@ public class NameGenPanel extends JPanel
 					new DefaultComboBoxModel(catalogs);
 			cbCatalog.setModel(catalogModel);
 			if(oldSelected>=0)
+			{
 				cbCatalog.setSelectedIndex(oldSelected);
+			}
 		}
 		catch (Exception e)
 		{
