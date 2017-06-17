@@ -786,8 +786,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 */
 	public NotesTreeNode createChild(String newName)
 	{
-		boolean notDone = true;
-
 		newName = checkName(newName);
 
 		int num = 1;
@@ -797,7 +795,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			populate();
 		}
 
-		while (notDone)
+		while (true)
 		{
 			String baseName = newName;
 			if (num > 1)
