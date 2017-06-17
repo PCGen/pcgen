@@ -1,5 +1,4 @@
 /*
- * MigrationLoader.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.equipforge.net>
  *
  * This library is free software; you can redistribute it and/or
