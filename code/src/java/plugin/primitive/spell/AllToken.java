@@ -49,15 +49,15 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
+	public boolean allow(PlayerCharacter pc, Spell obj)
 	{
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
-				pc.getSpellLevelInfo(spell);
+				pc.getSpellLevelInfo(obj);
 		for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 		{
 			for (Integer level : levelInfo.getListFor(spellList))
 			{
-				if (allow(pc, level.intValue(), "ANY", spell, null))
+				if (allow(pc, level.intValue(), "ANY", obj, null))
 				{
 					return true;
 				}

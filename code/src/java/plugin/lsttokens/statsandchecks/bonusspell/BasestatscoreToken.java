@@ -41,7 +41,7 @@ public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, BonusSpellInfo bsi,
+	public ParseResult parseToken(LoadContext context, BonusSpellInfo obj,
 			String value)
 	{
 		try
@@ -52,7 +52,7 @@ public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 				return new ParseResult.Fail(getTokenName()
 						+ " must be an integer >= " + 1, context);
 			}
-			bsi.setStatScore(intValue);
+			obj.setStatScore(intValue);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
@@ -64,9 +64,9 @@ public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, BonusSpellInfo bsi)
+	public String[] unparse(LoadContext context, BonusSpellInfo obj)
 	{
-		int range = bsi.getStatScore();
+		int range = obj.getStatScore();
 		if (range == 0)
 		{
 			return null;

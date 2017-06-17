@@ -64,7 +64,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClassLevel level, String value)
+	                                              PCClassLevel obj, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.DOT);
 		while (tok.hasMoreTokens())
@@ -108,7 +108,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 				}
 			}
 			AssociatedPrereqObject apo = context.getListContext().addToList(
-					getTokenName(), level, PCClass.ALLOWED_DOMAINS,
+					getTokenName(), obj, PCClass.ALLOWED_DOMAINS,
 					context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, domainKey));
 			if (prereq != null)
 			{
@@ -120,10 +120,10 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, PCClassLevel level)
+	public String[] unparse(LoadContext context, PCClassLevel obj)
 	{
 		AssociatedChanges<CDOMReference<Domain>> changes = context
-				.getListContext().getChangesInList(getTokenName(), level,
+				.getListContext().getChangesInList(getTokenName(), obj,
 						PCClass.ALLOWED_DOMAINS);
 		Collection<CDOMReference<Domain>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty()

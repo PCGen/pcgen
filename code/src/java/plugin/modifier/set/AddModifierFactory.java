@@ -78,8 +78,8 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	 */
 	@Override
 	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
-		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
-		FormatManager<T[]> formatManager)
+	                                      ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
+	                                      FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);
 		return new AddIndirectArrayModifier(formatManager, userPriority,
@@ -88,10 +88,11 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 
 	@Override
 	public Modifier<T[]> getFixedModifier(int userPriority,
-		FormatManager<T[]> fmtManager, String instructions)
+	                                      FormatManager<T[]> formatManager, String
+			                                          instructions)
 	{
-		T[] toAdd = fmtManager.convert(instructions);
-		return new AddDirectArrayModifier(fmtManager, userPriority, toAdd);
+		T[] toAdd = formatManager.convert(instructions);
+		return new AddDirectArrayModifier(formatManager, userPriority, toAdd);
 	}
 
 	/**

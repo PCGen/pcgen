@@ -77,9 +77,9 @@ public class BaseSizeToken implements PrimitiveToken<Race>,
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Race race)
+	public boolean allow(PlayerCharacter pc, Race obj)
 	{
-		Formula raceSize = race.get(FormulaKey.SIZE);
+		Formula raceSize = obj.get(FormulaKey.SIZE);
 		return size.get().getKeyName().equals(raceSize.toString());
 	}
 

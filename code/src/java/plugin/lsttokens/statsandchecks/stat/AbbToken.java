@@ -43,11 +43,11 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, PCStat stat, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, PCStat obj, String value)
 	{
 		try
 		{
-			if (!context.processToken(stat, "KEY", value))
+			if (!context.processToken(obj, "KEY", value))
 			{
 				return new ParseResult.Fail("Internal Error", context);
 			}
@@ -56,14 +56,14 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		{
 			return new ParseResult.Fail(e.getLocalizedMessage(), context);
 		}
-		context.getObjectContext().put(stat, StringKey.ABB_KR, value);
+		context.getObjectContext().put(obj, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, PCStat stat)
+	public String[] unparse(LoadContext context, PCStat obj)
 	{
-		String abb = context.getObjectContext().getString(stat, StringKey.ABB_KR);
+		String abb = context.getObjectContext().getString(obj, StringKey.ABB_KR);
 		if (abb == null)
 		{
 			return null;

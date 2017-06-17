@@ -45,11 +45,11 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCAlignment al, String value)
+	                                         PCAlignment obj, String value)
 	{
 		try
 		{
-			if (!context.processToken(al, "KEY", value))
+			if (!context.processToken(obj, "KEY", value))
 			{
 				return new ParseResult.Fail("Internal Error", context);
 			}
@@ -58,14 +58,14 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 		{
 			return new ParseResult.Fail(e.getLocalizedMessage(), context);
 		}
-		context.getObjectContext().put(al, StringKey.ABB_KR, value);
+		context.getObjectContext().put(obj, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, PCAlignment al)
+	public String[] unparse(LoadContext context, PCAlignment obj)
 	{
-		String abb = context.getObjectContext().getString(al, StringKey.ABB_KR);
+		String abb = context.getObjectContext().getString(obj, StringKey.ABB_KR);
 		if (abb == null)
 		{
 			return null;

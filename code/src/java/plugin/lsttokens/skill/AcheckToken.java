@@ -39,7 +39,7 @@ public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Skill skill, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Skill obj, String value)
 	{
 		SkillArmorCheck aCheck;
 		try
@@ -86,14 +86,15 @@ public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
 			}
 		}
 
-		context.getObjectContext().put(skill, ObjectKey.ARMOR_CHECK, aCheck);
+		context.getObjectContext().put(obj, ObjectKey.ARMOR_CHECK, aCheck);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, Skill skill)
+	public String[] unparse(LoadContext context, Skill obj)
 	{
-		SkillArmorCheck sac = context.getObjectContext().getObject(skill,
+		SkillArmorCheck sac = context.getObjectContext().getObject(
+				obj,
 				ObjectKey.ARMOR_CHECK);
 		if (sac == null)
 		{

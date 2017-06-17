@@ -45,11 +45,11 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context,
-		SizeAdjustment size, String value)
+	                                      SizeAdjustment obj, String value)
 	{
 		try
 		{
-			if (!context.processToken(size, "KEY", value))
+			if (!context.processToken(obj, "KEY", value))
 			{
 				return new ParseResult.Fail("Internal Error", context);
 			}
@@ -58,14 +58,14 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 		{
 			return new ParseResult.Fail(e.getLocalizedMessage(), context);
 		}
-		context.getObjectContext().put(size, StringKey.ABB_KR, value);
+		context.getObjectContext().put(obj, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, SizeAdjustment size)
+	public String[] unparse(LoadContext context, SizeAdjustment obj)
 	{
-		String abb = context.getObjectContext().getString(size, StringKey.ABB_KR);
+		String abb = context.getObjectContext().getString(obj, StringKey.ABB_KR);
 		if (abb == null)
 		{
 			return null;

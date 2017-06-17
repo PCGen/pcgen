@@ -74,9 +74,9 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Deity deity)
+	public boolean allow(PlayerCharacter pc, Deity obj)
 	{
-		CDOMSingleRef<PCAlignment> alignRef = deity.get(ObjectKey.ALIGNMENT);
+		CDOMSingleRef<PCAlignment> alignRef = obj.get(ObjectKey.ALIGNMENT);
 		return (alignRef != null) && alignment.get().equals(alignRef.get());
 	}
 

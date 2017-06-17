@@ -52,7 +52,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	                                         PCTemplate obj, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -115,15 +115,15 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 					+ " was not valid: " + f.toString(), context);
 		}
 		LevelCommandFactory cf = new LevelCommandFactory(cl, f);
-		context.getObjectContext().addToList(template, ListKey.ADD_LEVEL, cf);
+		context.getObjectContext().addToList(obj, ListKey.ADD_LEVEL, cf);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, PCTemplate pct)
+	public String[] unparse(LoadContext context, PCTemplate obj)
 	{
 		Changes<LevelCommandFactory> changes = context.getObjectContext()
-				.getListChanges(pct, ListKey.ADD_LEVEL);
+				.getListChanges(obj, ListKey.ADD_LEVEL);
 		Collection<LevelCommandFactory> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
