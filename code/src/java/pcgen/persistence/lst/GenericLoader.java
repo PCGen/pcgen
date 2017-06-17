@@ -19,6 +19,7 @@
 package pcgen.persistence.lst;
 
 import java.lang.reflect.Modifier;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
@@ -28,7 +29,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 
-
 public class GenericLoader<T extends CDOMObject> extends
 		LstObjectFileLoader<T>
 {
@@ -36,11 +36,7 @@ public class GenericLoader<T extends CDOMObject> extends
 	
 	public GenericLoader(Class<T> cl)
 	{
-		if (cl == null)
-		{
-			throw new IllegalArgumentException(
-					"Class for GenericLoader cannot be null");
-		}
+		Objects.requireNonNull(cl);
 		if (Modifier.isAbstract(cl.getModifiers()))
 		{
 			throw new IllegalArgumentException(
@@ -54,29 +50,21 @@ public class GenericLoader<T extends CDOMObject> extends
 						"Class for GenericLoader must have public zero-argument constructor");
 			}
 		}
-		catch (SecurityException e)
+		catch (SecurityException | NoSuchMethodException e)
 		{
 			throw new IllegalArgumentException(
-					"Class for GenericLoader must have public zero-argument constructor");
-		}
-		catch (NoSuchMethodException e)
-		{
-			throw new IllegalArgumentException(
-					"Class for GenericLoader must have zero-argument constructor");
+					"Class for GenericLoader must have public zero-argument constructor", e);
 		}
 		baseClass = cl;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
-	 */
 	@Override
-	public final T parseLine(LoadContext context, T object, String lstLine,
-			SourceEntry source) throws PersistenceLayerException
+	public final T parseLine(LoadContext context, T target, String lstLine,
+	                         SourceEntry source) throws PersistenceLayerException
 	{
 		T po;
 		boolean isnew = false;
-		if (object == null)
+		if (target == null)
 		{
 			try
 			{
@@ -91,7 +79,7 @@ public class GenericLoader<T extends CDOMObject> extends
 		}
 		else
 		{
-			po = object;
+			po = target;
 		}
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine,
@@ -118,17 +106,11 @@ public class GenericLoader<T extends CDOMObject> extends
 		return null;
 	}
 
-	protected void newConstructionActions(LoadContext context, T po)
-	{
-		//Nothing by default
-	}
-
 	/**
 	 * Get the object with key aKey
 	 * @param aKey
 	 * 
 	 * @return PObject
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
 	 */
 	@Override
 	protected final T getObjectKeyed(LoadContext context, String aKey)

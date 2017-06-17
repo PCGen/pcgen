@@ -18,6 +18,7 @@
 package pcgen.persistence.lst;
 
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.persistence.PersistenceLayerException;
@@ -56,11 +57,7 @@ public class GenericLocalVariableLoader<T extends CDOMObject> extends
 	public GenericLocalVariableLoader(Class<T> cl, String varScope)
 	{
 		super(cl);
-		if (varScope == null)
-		{
-			throw new IllegalArgumentException("VariableScope cannot be null");
-		}
-		this.varScope = varScope;
+		this.varScope = Objects.requireNonNull(varScope);
 	}
 
 	/**
