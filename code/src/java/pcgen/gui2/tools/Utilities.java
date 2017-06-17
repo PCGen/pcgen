@@ -1,5 +1,4 @@
 /*
- * Utilities.java
  *
  * Copyright 2002, 2003 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
