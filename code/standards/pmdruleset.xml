@@ -116,7 +116,6 @@
   </rule>
   <rule ref="rulesets/java/strings.xml">
     <exclude name="AvoidDuplicateLiterals" />
-    <exclude name="InefficientStringBuffering" />
     <exclude name="AppendCharacterWithChar" />
     <exclude name="ConsecutiveLiteralAppends" />
     <exclude name="AvoidStringBufferField" />
