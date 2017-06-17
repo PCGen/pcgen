@@ -673,7 +673,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 						sb.append(character.getInfoFactory().getHTMLInfo(equip));
 					}
 				}
-				text = "<html>" + sb.toString() + "</html>"; //$NON-NLS-1$ //$NON-NLS-2$
+				text = "<html>" + sb + "</html>"; //$NON-NLS-1$ //$NON-NLS-2$
 				infoPane.setText(text);
 			}
 		}
