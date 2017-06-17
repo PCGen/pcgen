@@ -29,7 +29,6 @@ import pcgen.system.PropertyContext;
 /**
  * This is a property context which holds UI related user preferences such as
  * screen position and colors.
- *
  */
 @SuppressWarnings("nls")
 public final class UIPropertyContext extends PropertyContext

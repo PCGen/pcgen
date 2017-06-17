@@ -80,7 +80,6 @@ import pcgen.util.enumeration.Tab;
 
 /**
  * This component handles diety and domain selection for a character.
- *
  */
 @SuppressWarnings("serial")
 public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
