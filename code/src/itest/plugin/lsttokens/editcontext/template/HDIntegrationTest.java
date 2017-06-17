@@ -17,17 +17,15 @@
  */
 package plugin.lsttokens.editcontext.template;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import plugin.lsttokens.DrLst;
 import plugin.lsttokens.SabLst;
 import plugin.lsttokens.SrLst;
@@ -64,8 +62,7 @@ public class HDIntegrationTest extends
 
 	@Override
 	@Before
-	public final void setUp() throws PersistenceLayerException,
-		URISyntaxException
+	public final void setUp() throws Exception
 	{
 		super.setUp();
 		if (!classSetUpFired)
