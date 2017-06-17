@@ -655,7 +655,7 @@ public class WeightedCollectionTest
 	public void testArchitectureProof()
 	{
 		TreeSet<String> ciSet = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-		TreeSet<String> csSet = new TreeSet<>(StringUtil.CASE_SENSITIVE_ORDER);
+		TreeSet<String> csSet = new TreeSet<>(String::compareTo);
 		//To prove existing behavior
 		assertEquals(ciSet, csSet);
 		ciSet.add("asting");
