@@ -45,7 +45,7 @@ class ImagePreviewer extends JComponent
 
 	public void setImage(File file)
 	{
-		if (null == file || !file.exists())
+		if (file == null || !file.exists())
 		{
 			image = null;
 			return;
@@ -75,7 +75,7 @@ class ImagePreviewer extends JComponent
 		final int textX = getFontHeightHint(g);
 		final int textY = SIZE - getFontHeightHint(g);
 
-		if (null != image)
+		if (image != null)
 		{
 			final int width = image.getWidth(null);
 			final int height = image.getHeight(null);
