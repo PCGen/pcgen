@@ -716,8 +716,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private static class EquipNodeSelection implements Transferable
 	{
 
-		private static final DataFlavor[] FLAVORS = new DataFlavor[]
-		{
+		private static final DataFlavor[] FLAVORS = {
 			equipNodeArrayFlavor,
 			equipmentArrayFlavor
 		};
@@ -1116,8 +1115,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 
 			// Set the before and after nodes
-			EquipNode[] relativeNodes = new EquipNode[]
-			{
+			EquipNode[] relativeNodes = {
 				null, null
 			};
 			if (beforeRow >= 0)
