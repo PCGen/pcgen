@@ -48,7 +48,7 @@ import pcgen.util.Logging;
 import gmgen.GMGenSystem;
 import gmgen.gui.ExtendedHTMLDocument;
 import gmgen.gui.ExtendedHTMLEditorKit;
-import gmgen.util.MiscUtilities;
+import org.apache.commons.io.FileUtils;
 
 /**
  * This defines the preferences tree
@@ -916,14 +916,15 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			List fileList =
 					((List) t.getTransferData(DataFlavor.javaFileListFlavor));
 
-			for (int i = 0; i < fileList.size(); i++)
+			for (Object aFileList : fileList)
 			{
-				File newFile = (File) fileList.get(i);
+				File newFile = (File) aFileList;
 
 				if (newFile.exists())
 				{
-					MiscUtilities.copy(newFile, new File(dir.getAbsolutePath()
-						+ File.separator + newFile.getName()));
+
+					FileUtils.copyFile(newFile, new File(dir.getAbsolutePath()
+							+ File.separator + newFile.getName()));
 				}
 			}
 		}
