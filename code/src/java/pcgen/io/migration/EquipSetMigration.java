@@ -158,7 +158,7 @@ public class EquipSetMigration
 			return arg0.getIdPath().compareTo(arg1.getIdPath());
 		}
 
-		private String getSortKey(Equipment equip)
+		private static String getSortKey(Equipment equip)
 		{
 			if (equip == null)
 			{
