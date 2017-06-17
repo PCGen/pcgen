@@ -1,5 +1,4 @@
 /*
- *  Initiative - A role playing utility to track turns
  *  Copyright (C) 2002 Devon D Jones
  *
  *  This library is free software; you can redistribute it and/or
@@ -15,16 +14,13 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * DamageDialog.java
  */
 package plugin.initiative.gui;
-
 
 public class DamageDialog extends javax.swing.JDialog
 {
 	/** OK_VALUE = 0 */
-	public static final int OK_VALUE = 0;
+	static final int OK_VALUE = 0;
 	/** CANCEL_VALUE = 1 */
 	public static final int CANCEL_VALUE = 1;
 
@@ -41,7 +37,7 @@ public class DamageDialog extends javax.swing.JDialog
 	 * @param parent
 	 * @param modal
 	 */
-	public DamageDialog(java.awt.Frame parent, boolean modal)
+	DamageDialog(java.awt.Frame parent, boolean modal)
 	{
 		super(parent, modal);
 		initComponents();
@@ -87,7 +83,7 @@ public class DamageDialog extends javax.swing.JDialog
 	 * Check damage field
 	 * @throws NumberFormatException
 	 */
-	public void checkDamageField() throws NumberFormatException
+	private void checkDamageField() throws NumberFormatException
 	{
 		try
 		{
@@ -104,7 +100,7 @@ public class DamageDialog extends javax.swing.JDialog
 	/**
 	 * submit
 	 */
-	public void submit()
+	private void submit()
 	{
 		try
 		{
