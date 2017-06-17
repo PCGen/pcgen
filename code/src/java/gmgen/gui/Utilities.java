@@ -21,8 +21,6 @@ package gmgen.gui;
 
 import java.net.URL;
 
-import javax.swing.ImageIcon;
-
 /**
  * Utility Code for manipulating the GUI
  */
