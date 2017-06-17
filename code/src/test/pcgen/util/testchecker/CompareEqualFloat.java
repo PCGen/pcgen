@@ -1,5 +1,4 @@
 /**
- * CompareEqualFloat.java
  * Copyright 2005 (c) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or

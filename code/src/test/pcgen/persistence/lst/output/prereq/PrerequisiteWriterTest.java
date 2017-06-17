@@ -365,11 +365,9 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREMULT:3,[PRETYPE:1,type1],[PRETYPE:1,type2,type3],[!PRETYPE:1,type4]",		"PREMULT:3,[PRETYPE:1,type1],[PRETYPE:1,type2,type3],[!PRETYPE:1,type4]",
 		"PRETYPE:1,Animal",																"PRETYPE:1,Animal",
 		"!PRETYPE:1,Animal",															"!PRETYPE:1,Animal",
-	// From PrerequisiteLanguageWriterTest.java
 		"!PRELANG:1,Dwarven,Elven",														"!PRELANG:1,Dwarven,Elven",
 		"PRELANG:2,Any",																"PRELANG:2,Any",
 		"!PRELANG:2,Any",																"!PRELANG:2,Any",
-	// From PrerequisiteSkillWriterTest.java
 		"PRESKILL:1,Ride=10",															"PRESKILL:1,Ride=10",
 		"!PRESKILL:1,Ride=10",															"!PRESKILL:1,Ride=10",
 		"PRESKILL:1,Ride=10,Listen=5",													"PRESKILL:1,Ride=10,Listen=5",

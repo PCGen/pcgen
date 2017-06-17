@@ -1,5 +1,4 @@
 /*
- * pcGenGUIPfrpgGoldieLocksTest.java
  */
 package pcgen.inttest.game_pathfinder;
 
