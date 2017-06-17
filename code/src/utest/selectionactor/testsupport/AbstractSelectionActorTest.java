@@ -17,8 +17,6 @@
  */
 package selectionactor.testsupport;
 
-import org.junit.Test;
-
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseDriver;
@@ -31,6 +29,10 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
 
 import compare.InequalityTesterInst;
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends AbstractCharacterUsingTestCase
 {
