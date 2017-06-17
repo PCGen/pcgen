@@ -65,7 +65,8 @@ public final class Comparators
 		}
 
 		return 0;
-	}
+	};
+
 	private static final Comparator<Date> dC = (o1, o2) ->
 	{
 		final long n1 = o1.getTime();
@@ -83,7 +84,8 @@ public final class Comparators
 
 		return 0;
 
-	}
+	};
+
 	private static final Comparator<Object> treeNodeComp = new TreeTableNodeComparator();
 
 	private static Comparator<Object> toStringComparator()
