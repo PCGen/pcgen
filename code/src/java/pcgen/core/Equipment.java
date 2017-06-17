@@ -1735,10 +1735,10 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			String key = tString.substring(6);
 			String choice = "";
-			if (key.indexOf("(") > 0)
+			if (key.indexOf('(') > 0)
 			{
-				int i = key.indexOf("(");
-				choice = key.substring(i+1, key.lastIndexOf(")"));
+				int i = key.indexOf('(');
+				choice = key.substring(i+1, key.lastIndexOf(')'));
 				key = key.substring(0, i);
 			}
 

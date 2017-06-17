@@ -173,7 +173,7 @@ public class CampaignSourceEntry implements SourceEntry
 		}
 		
 		// Check if include/exclude items were present
-		int pipePos = value.indexOf("|");
+		int pipePos = value.indexOf('|');
 
 		CampaignSourceEntry cse;
 

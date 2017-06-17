@@ -287,7 +287,7 @@ public class BonusManager
 
 			if (typedBonusNameInfo.startsWith(prefix))
 			{
-				final int typeIndex = typedBonusNameInfo.indexOf(":");
+				final int typeIndex = typedBonusNameInfo.indexOf(':');
 				if (typeIndex > 0)
 				{
 					return (fullyQualifedBonusType.substring(typeIndex + 1)); // use aKey to get
