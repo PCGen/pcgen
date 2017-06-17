@@ -1,5 +1,4 @@
 /*
- * ItemWeight.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or

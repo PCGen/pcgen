@@ -1,5 +1,4 @@
 /*
- * CollectionMap.java
  *
  * Copyright 2007 (C) Connor Petty <mistercpp2000@gmail.com>
  *

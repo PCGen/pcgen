@@ -1,5 +1,4 @@
 /*
- * Feat.java
  * Copyright 2004 (C) Devon Jones <soulcatcher@eviloft.org>
  *
  * This library is free software; you can redistribute it and/or
