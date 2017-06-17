@@ -31,7 +31,7 @@ public class CategorizedAbilitySelectionChooseInformation extends
 		BasicChooseInformation<AbilitySelection>
 {
 
-	private CollectionToAbilitySelection casChoiceSet;
+	private final CollectionToAbilitySelection casChoiceSet;
 
 	/**
 	 * Create a new CategorizedAbilitySelectionChooseInformation instance

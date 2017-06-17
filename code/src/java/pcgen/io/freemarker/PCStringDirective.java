@@ -43,8 +43,8 @@ import freemarker.template.TemplateModelException;
 public class PCStringDirective implements
 		TemplateDirectiveModel, TemplateMethodModelEx, CharacterExportAction
 {
-	private PlayerCharacter pc;
-	private ExportHandler eh;
+	private final PlayerCharacter pc;
+	private final ExportHandler eh;
 
 	/**
 	 * Create a new instance of PCStringDirective

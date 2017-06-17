@@ -44,7 +44,7 @@ import freemarker.template.TemplateModelException;
  */
 public class EquipSetLoopDirective implements TemplateDirectiveModel
 {
-	private PlayerCharacter pc;
+	private final PlayerCharacter pc;
 
 	/**
 	 * Create a new instance of EquipSetLoopDirective

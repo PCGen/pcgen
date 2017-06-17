@@ -420,7 +420,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		 * Map that stores the numeric level values for the PCClasses in a
 		 * Player Character.
 		 */
-		private Map<PCClass, Integer> levelmap =
+		private final Map<PCClass, Integer> levelmap =
                 new HashMap<>();
 
 		public ClassInfo()
