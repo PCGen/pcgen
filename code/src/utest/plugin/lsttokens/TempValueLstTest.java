@@ -26,11 +26,15 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
+import org.junit.Before;
 import org.junit.Test;
+
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import static org.junit.Assert.assertFalse;
 
 /**
  * Token parse and unparsing tests for TempValueLst
@@ -40,8 +44,7 @@ public class TempValueLstTest extends AbstractGlobalTokenTestCase
 
 	static CDOMPrimaryToken<CDOMObject> token = new TempValueLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

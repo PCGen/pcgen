@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreWeaponProfParser;
 import plugin.pretokens.writer.PreWeaponProfWriter;
@@ -28,8 +27,10 @@ public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 {
 
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreWeaponProfParser());
@@ -48,11 +49,13 @@ public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 		return true;
 	}
 
+	@Test
 	public void testDeityWeapon()
 	{
 		this.runRoundRobin("PRE" + getBaseString() + ":1,DEITYWEAPON");
 	}
 
+	@Test
 	public void testNegateItem()
 	{
 		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",

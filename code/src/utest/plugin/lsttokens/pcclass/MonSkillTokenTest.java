@@ -19,12 +19,13 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.bonustokens.MonNonSkillHD;
 import plugin.bonustokens.MonSkillPts;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
@@ -44,8 +45,7 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 	PreLevelMaxParser prelevelmax = new PreLevelMaxParser();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

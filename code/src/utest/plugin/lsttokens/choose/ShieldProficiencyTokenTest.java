@@ -18,8 +18,6 @@
 package plugin.lsttokens.choose;
 
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
@@ -31,6 +29,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -109,6 +109,7 @@ public class ShieldProficiencyTokenTest extends
 	 * Check that a PC qualifier with a restriction is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidPc() throws PersistenceLayerException
 	{
 		CDOMObject a = (CDOMObject) construct(primaryContext, "DwarvenShield");
@@ -123,6 +124,7 @@ public class ShieldProficiencyTokenTest extends
 	 * of equipment is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidEquipment() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new EquipmentToken());

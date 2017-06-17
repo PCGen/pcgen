@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSpellCastParser;
 import plugin.pretokens.writer.PreSpellCastMemorizeWriter;
@@ -29,8 +28,10 @@ public class PreSpellCastRoundRobin extends AbstractPreRoundRobin
 {
 
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreSpellCastParser());
@@ -38,16 +39,19 @@ public class PreSpellCastRoundRobin extends AbstractPreRoundRobin
 		TokenRegistration.register(new PreSpellCastMemorizeWriter());
 	}
 
+	@Test
 	public void testYes()
 	{
 		runRoundRobin("PRESPELLCAST:MEMORIZE=Y");
 	}
 
+	@Test
 	public void testNo()
 	{
 		runRoundRobin("PRESPELLCAST:MEMORIZE=N");
 	}
 
+	@Test
 	public void testType()
 	{
 		runRoundRobin("PRESPELLCAST:TYPE=TypeText");

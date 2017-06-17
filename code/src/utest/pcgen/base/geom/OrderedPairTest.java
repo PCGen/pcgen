@@ -19,11 +19,13 @@ package pcgen.base.geom;
 import pcgen.base.math.OrderedPair;
 
 import org.junit.Test;
+
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.fail;
 
 public class OrderedPairTest
 {
+
 	@Test
 	public void testValueOfNull()
 	{
@@ -94,7 +96,6 @@ public class OrderedPairTest
 		}
 	}
 
-
 	@Test
 	public void testValueOfBadFirstNumber()
 	{
@@ -118,7 +119,6 @@ public class OrderedPairTest
 		}
 	}
 
-
 	@Test
 	public void testValueOfBadSecondNumber()
 	{
@@ -141,7 +141,7 @@ public class OrderedPairTest
 			//ok
 		}
 	}
-	
+
 	@Test
 	public void testValueOf()
 	{

@@ -20,12 +20,13 @@ package plugin.lsttokens.testsupport;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public abstract class AbstractCampaignTokenTestCase extends
 		AbstractCDOMTokenTestCase<Campaign>
@@ -42,8 +43,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	{
 		return null;
 	}
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -129,7 +129,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 		assertNoSideEffects();
 	}
 
-		@Test
+	@Test
 	public void testInvalidInputExcludeNoParen()
 			throws PersistenceLayerException
 	{
@@ -163,6 +163,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 		assertNoSideEffects();
 	}
 
+	@Test
 	public void testInvalidInclude() throws PersistenceLayerException
 	{
 		if (!allowIncludeExclude())
@@ -171,6 +172,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 		}
 	}
 
+	@Test
 	public void testInvalidExclude() throws PersistenceLayerException
 	{
 		if (!allowIncludeExclude())
@@ -187,6 +189,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	//	{
 	//		assertFalse(parse("@TestWP1|(INCLUDE:ARing|BItem)|(EXCLUDE:CRing)"));
 	//	}
+
 	@Test
 	public void testRoundRobinOne() throws PersistenceLayerException
 	{

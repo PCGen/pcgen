@@ -22,6 +22,11 @@ import pcgen.persistence.PersistenceLayerException;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 public abstract class AbstractGlobalIntegerTokenTestCase extends
 		AbstractGlobalTokenTestCase
 {
@@ -37,7 +42,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	@Test
 	public void testInvalidInputUnset() throws PersistenceLayerException
 	{
-		testInvalidInputs(null);
+		invalidInputs(null);
 		assertNoSideEffects();
 	}
 
@@ -49,11 +54,11 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
 		assertEquals(con, primaryProf.get(getIntegerKey()));
-		testInvalidInputs(con);
+		invalidInputs(con);
 		assertNoSideEffects();
 	}
 
-	public void testInvalidInputs(Integer val) throws PersistenceLayerException
+	public void invalidInputs(Integer val) throws PersistenceLayerException
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value

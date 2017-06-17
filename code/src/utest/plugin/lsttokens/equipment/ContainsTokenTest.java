@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
-
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -167,6 +167,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		assertNoSideEffects();
 	}
 
+	@Test
 	public void testInvalidNoCapacity() throws PersistenceLayerException
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "|Cookies").passed());
@@ -205,6 +206,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		assertNoSideEffects();
 	}
 
+	@Test
 	public void testInvalidCapacityUselessPipe()
 		throws PersistenceLayerException
 	{
@@ -283,6 +285,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		assertNoSideEffects();
 	}
 
+	@Test
 	public void testInvalidWeightlessUselessPipe()
 		throws PersistenceLayerException
 	{
@@ -338,6 +341,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		assertNoSideEffects();
 	}
 
+	@Test
 	public void testInvalidReducedUselessPipe()
 		throws PersistenceLayerException
 	{

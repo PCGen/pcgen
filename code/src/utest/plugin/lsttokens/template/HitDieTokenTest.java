@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
-
 import pcgen.base.formula.DividingFormula;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.ListKey;
@@ -32,6 +30,8 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -578,6 +578,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

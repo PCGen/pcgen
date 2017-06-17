@@ -17,14 +17,13 @@
  */
 package pcgen.io;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import java.io.File;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 /**
  * ExportUtilitiesTest checks the function of the ExportUtilities class.
  * 
@@ -35,6 +34,7 @@ public class ExportUtilitiesTest
 	/**
 	 * Test method for {@link pcgen.io.ExportUtilities#getOutputExtension(java.lang.String, boolean)}.
 	 */
+
 	@Test
 	public void testGetOutputExtensionNonPdf()
 	{
@@ -66,6 +66,7 @@ public class ExportUtilitiesTest
 	/**
 	 * Test method for {@link pcgen.io.ExportUtilities#getOutputExtension(java.lang.String, boolean)}.
 	 */
+
 	@Test
 	public void testGetOutputExtensionPdf()
 	{
@@ -78,6 +79,7 @@ public class ExportUtilitiesTest
 	/**
 	 * Test method for {@link pcgen.io.ExportUtilities#isPdfTemplate(java.io.File)}.
 	 */
+
 	@Test
 	public void testIsPdfTemplateFile()
 	{
@@ -127,6 +129,7 @@ public class ExportUtilitiesTest
 	/**
 	 * Test method for {@link pcgen.io.ExportUtilities#isPdfTemplate(java.lang.String)}.
 	 */
+
 	@Test
 	public void testIsPdfTemplateString()
 	{

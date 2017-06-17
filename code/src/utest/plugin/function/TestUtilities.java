@@ -25,7 +25,7 @@ import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 public final class TestUtilities
 {

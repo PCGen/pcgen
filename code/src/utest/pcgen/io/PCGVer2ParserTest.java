@@ -20,8 +20,12 @@ package pcgen.io;
 import pcgen.system.PCGenPropBundle;
 
 import org.junit.Test;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 
 public class PCGVer2ParserTest
@@ -148,6 +152,7 @@ public class PCGVer2ParserTest
 	 * Test parsing of version line for broken 5.12RC1 version number.
 	 * @throws PCGParseException
 	 */
+
 	@Test
 	public void test_1045596_8() throws PCGParseException
 	{
@@ -170,6 +175,7 @@ public class PCGVer2ParserTest
 	 * Test that the currently specified version can be parsed.
 	 * @throws PCGParseException
 	 */
+
 	@Test
 	public void testCurrVersion() throws PCGParseException
 	{
@@ -181,7 +187,7 @@ public class PCGVer2ParserTest
 
 		assertThat("version length is correct", version.length, is(3));
 	}
-	
+
 	@Test
 	public void testCompareVersionTo() throws PCGParseException
 	{

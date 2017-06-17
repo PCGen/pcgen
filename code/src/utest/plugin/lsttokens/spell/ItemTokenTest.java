@@ -19,14 +19,14 @@ package plugin.lsttokens.spell;
 
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
@@ -355,6 +355,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFailRemove()
 			throws PersistenceLayerException

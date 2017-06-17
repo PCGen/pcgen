@@ -21,6 +21,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 

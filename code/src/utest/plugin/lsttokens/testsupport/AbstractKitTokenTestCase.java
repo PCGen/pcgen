@@ -21,12 +21,6 @@ package plugin.lsttokens.testsupport;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.base.Loadable;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -44,7 +38,18 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestCase
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public abstract class AbstractKitTokenTestCase<T extends Loadable>
 {
 	protected LoadContext primaryContext;
 	protected LoadContext secondaryContext;
@@ -63,8 +68,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		if (!classSetUpFired)
@@ -219,7 +223,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 			fail("Token should not throw an exception with null input");
 		}
 	}
-	
+
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{

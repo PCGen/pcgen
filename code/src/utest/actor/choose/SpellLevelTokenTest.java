@@ -17,13 +17,13 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.cdom.helper.SpellLevel;
 import pcgen.core.PCClass;
-import plugin.lsttokens.choose.SpellLevelToken;
+
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.choose.SpellLevelToken;
 
 public class SpellLevelTokenTest extends
 		AbstractPersistentChoiceActorTestCase<SpellLevel>

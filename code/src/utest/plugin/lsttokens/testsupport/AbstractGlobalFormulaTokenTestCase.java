@@ -17,12 +17,17 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public abstract class AbstractGlobalFormulaTokenTestCase extends
 		AbstractGlobalTokenTestCase

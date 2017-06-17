@@ -19,8 +19,6 @@ package plugin.qualifier.weaponprof;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -31,6 +29,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.WeaponProficiencyToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
@@ -53,8 +54,7 @@ public class SpellcasterQualifierTokenTest extends
 	{
 		super("SPELLCASTER", null);
 	}
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
