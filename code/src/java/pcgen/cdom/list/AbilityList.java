@@ -88,7 +88,7 @@ public class AbilityList extends CDOMListObject<Ability>
 		if (ref == null)
 		{
 			AbilityList list = new AbilityList();
-			list.setName("*" + category.toString() + ":" + nature.toString());
+			list.setName("*" + category + ":" + nature);
 			list.category = category;
 			list.nature = nature;
 			ref = CDOMDirectSingleRef.getRef(list);

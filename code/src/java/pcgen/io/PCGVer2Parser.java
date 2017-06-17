@@ -5746,7 +5746,7 @@ final class PCGVer2Parser implements PCGParser
 
 			for (PCGElement child : getChildren())
 			{
-				buffer.append(child.toString()).append(IOConstants.LINE_SEP);
+				buffer.append(child).append(IOConstants.LINE_SEP);
 			}
 
 			buffer.append("</").append(getName()).append('>'); //$NON-NLS-1$

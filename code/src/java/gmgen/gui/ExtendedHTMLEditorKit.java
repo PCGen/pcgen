@@ -458,7 +458,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             position[i] = -1;
         }
 
-        String searchString = "<" + tag.toString();
+        String searchString = "<" + tag;
         int caret;
 
         if ((caret = source.indexOf(idString)) != -1) {
@@ -467,7 +467,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         }
 
         if (closingTag) {
-            String searchEndTagString = "</" + tag.toString() + ">";
+            String searchEndTagString = "</" + tag + ">";
             int beginEndTag;
             int endEndTag;
             caret = position[1];
