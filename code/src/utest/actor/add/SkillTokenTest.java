@@ -30,12 +30,6 @@ public class SkillTokenTest extends
 
 	private static final Persistent<Skill> pca = new SkillToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public Persistent<Skill> getActor()
 	{

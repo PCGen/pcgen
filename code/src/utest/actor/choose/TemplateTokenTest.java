@@ -30,12 +30,6 @@ public class TemplateTokenTest extends
 
 	static TemplateToken pca = new TemplateToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public Chooser<PCTemplate> getActor()
 	{

@@ -31,14 +31,6 @@ import static org.junit.Assert.*;
 public class PatternFilterTest
 {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception
-	{
-	}
-
 	@Test
 	public void testHtmlFilterStringSingleLine() throws Exception
 	{
