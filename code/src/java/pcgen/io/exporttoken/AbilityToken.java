@@ -26,7 +26,6 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
@@ -53,6 +52,8 @@ import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code AbilityToken} handles the output of ability information.
@@ -150,9 +151,10 @@ public class AbilityToken extends Token
 		final String tokenString, final AbilityCategory aCategory)
 	{
 		boolean cacheAbilityProcessingData =
-				(cachedPC != pc || !aCategory.equals(lastCategory)
-					|| cachedPcSerial != pc.getSerial() || !tokenString
-					.equals(lastToken));
+				(
+						(cachedPC != pc) || !aCategory.equals(lastCategory)
+								|| (cachedPcSerial != pc.getSerial()) || !tokenString
+								.equals(lastToken));
 
 		// As this method can effectively be called by an OS FOR token, there 
 		// is a performance saving in caching some of the one-off processing data 
@@ -231,7 +233,7 @@ public class AbilityToken extends Token
 			int extypeInd = typeStr.indexOf("EXCLUDETYPE=");
 
 			// If it's TYPE and it actually has a value attached then process it 
-			if (typeInd != -1 && extypeInd == -1 && typeStr.length() > 5)
+			if ((typeInd != -1) && (extypeInd == -1) && (typeStr.length() > 5))
 			{
 				// It's a type to be excluded from the filter list 
 				if (typeStr.startsWith("!"))
@@ -250,7 +252,7 @@ public class AbilityToken extends Token
 			}
 
 			// If it's EXCLUDETYPE and it actually has a value attached then process it 
-			if (extypeInd != -1 && typeStr.length() > 12)
+			if ((extypeInd != -1) && (typeStr.length() > 12))
 			{
 				// exclude TYPEs from comma-separated list
 				StringTokenizer exTok = new StringTokenizer(typeStr.substring(extypeInd + 12), Constants.SEMICOLON);
@@ -262,14 +264,14 @@ public class AbilityToken extends Token
 			
 			int keyInd = typeStr.indexOf("KEY=");
 			// If it's KEY and it actually has a value attached then process it 
-			if (keyInd != -1 && typeStr.length() > 4)
+			if ((keyInd != -1) && (typeStr.length() > 4))
 			{
 				key = typeStr.substring(keyInd + 4);
 			}
 			
 			int aspectInd = typeStr.indexOf("ASPECT=");
 			// If it's ASPECT and it actually has a value attached then process it
-			if (aspectInd != -1 && typeStr.length() > 7)
+			if ((aspectInd != -1) && (typeStr.length() > 7))
 			{
 				aspect = typeStr.substring(aspectInd + 7);
 			}
@@ -361,8 +363,8 @@ public class AbilityToken extends Token
 	 *            The key of the wanted ability.
 	 * @return List of abilities based on the type and visibility selection.
 	 */
-	static MapToList<Ability, CNAbility> buildAbilityList(String key, View view,
-		MapToList<Ability, CNAbility> listOfAbilities)
+	private static MapToList<Ability, CNAbility> buildAbilityList(String key, View view,
+	                                                              MapToList<Ability, CNAbility> listOfAbilities)
 	{
 		List<Ability> aList = new ArrayList<>(listOfAbilities.getKeySet());
 
@@ -413,8 +415,10 @@ public class AbilityToken extends Token
 	 * @param negate The exclusion list of types
 	 * @return True if it matches one of the types else false
 	 */
-	static boolean abilityMatchesType(String abilityType,
-		Ability aAbility, List<String> types, List<String> negate)
+	private static boolean abilityMatchesType(String abilityType,
+	                                          Ability aAbility,
+	                                          List<String> types,
+	                                          List<String> negate)
 	{
 		boolean matchTypeDef = false;
 
@@ -461,11 +465,11 @@ public class AbilityToken extends Token
 	/**
 	 * Helper method, returns true if the ability meets the visibility requirements.
 	 * 
-	 * @param visibility The ability Type to test
+	 * @param v view to check against
 	 * @param aAbility The ability
 	 * @return true if it meets the visibility requirements
 	 */
-	static boolean abilityVisibleTo(View v, Ability aAbility)
+	private static boolean abilityVisibleTo(View v, Ability aAbility)
 	{
 		return aAbility.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v);
 	}
@@ -477,7 +481,7 @@ public class AbilityToken extends Token
 	 * @param aAbility The ability
 	 * @return True if it matches the aspect else false
 	 */
-	static boolean abilityMatchesAspect(String aspect, Ability aAbility)
+	private static boolean abilityMatchesAspect(String aspect, Ability aAbility)
 	{
 		return (aspect == null) ||
 			(aAbility.get(MapKey.ASPECT, AspectName.getConstant(aspect)) != null);
@@ -494,20 +498,19 @@ public class AbilityToken extends Token
 	 *            The export handler.
 	 * @param abilityIndex
 	 *            The location of the ability in the list.
-	 * @param aList
-	 *            The list of abilities to get the ability from.
+	 * @param aMapToList
+	 *            The set of abilities to get the ability from.
 	 * @return The token value.
 	 */
 	private String getRetString(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh, int abilityIndex, MapToList<Ability, CNAbility> aMapToList)
 	{
 		String retString = "";
-		Ability aAbility;
 		List<Ability> aList = new ArrayList<>(aMapToList.getKeySet());
 		// If the ability index given is within a valid range
-		if (abilityIndex >= 0 && abilityIndex < aList.size())
+		if ((abilityIndex >= 0) && (abilityIndex < aList.size()))
 		{
-			aAbility = aList.get(abilityIndex);
+			Ability aAbility = aList.get(abilityIndex);
 			List<CNAbility> abilities = aMapToList.getListFor(aAbility);
 			if (abilities.isEmpty())
 			{
@@ -516,8 +519,8 @@ public class AbilityToken extends Token
 
 			// If it is the last item and there's a valid export handler and ??? TODO
 			// Then tell the ExportHandler that there is no more processing needed
-			if (abilityIndex == aList.size() - 1 && eh != null
-				&& eh.getExistsOnly())
+			if ((abilityIndex == (aList.size() - 1)) && (eh != null)
+					&& eh.getExistsOnly())
 			{
 				eh.setNoMoreItems(true);
 			}
@@ -612,7 +615,7 @@ public class AbilityToken extends Token
 		}
 		// If the ability index is not in a valid range then tell the 
 		// ExportHandler that there are no more items to process
-		else if (eh != null && eh.getExistsOnly())
+		else if ((eh != null) && eh.getExistsOnly())
 		{
 			eh.setNoMoreItems(true);
 		}
@@ -656,8 +659,8 @@ public class AbilityToken extends Token
 	 * 
 	 * @param pc
 	 *            The character being exported.
-	 * @param ability
-	 *            The ability
+	 * @param abilities
+	 *            The set of ability
 	 * 
 	 * @return the aspect string
 	 */
@@ -669,17 +672,13 @@ public class AbilityToken extends Token
 		}
 		Ability sampleAbilityObject = abilities.get(0).getAbility();
 		Set<AspectName> aspectKeys = sampleAbilityObject.getKeysFor(MapKey.ASPECT);
-		SortedSet<AspectName> sortedKeys = new TreeSet<>(aspectKeys);
-		StringBuilder buff = new StringBuilder();
-		for (AspectName key : sortedKeys)
-		{
-			if (buff.length() > 0)
-			{
-				buff.append(", ");
-			}
-			buff.append(Aspect.printAspect(pc, key, abilities));
-		}
-		return buff.toString();
+		Collection<AspectName> sortedKeys = new TreeSet<>(aspectKeys);
+		return StringUtils.join(
+				sortedKeys.stream().map(
+					key -> Aspect.printAspect(pc, key, abilities)
+				),
+				", "
+		);
 	}
 
 	/**
@@ -687,8 +686,8 @@ public class AbilityToken extends Token
 	 * 
 	 * @param pc
 	 *            The character being exported.
-	 * @param ability
-	 *            The ability being queried.
+	 * @param abilities
+	 *            The set of abilites being queried.
 	 * @param key
 	 *            The key (number or name) of the aspect to retrieve
 	 * 
@@ -770,16 +769,11 @@ public class AbilityToken extends Token
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
-			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
+		allCats.stream()
+		       .filter(aCat -> AbilityCategory.ANY.equals(aCategory)
+				       || aCat.getParentCategory().equals(aCategory))
+		       .flatMap(aCat -> pc.getPoolAbilities(aCat, Nature.NORMAL).stream())
+		       .forEach(cna -> listOfAbilities.addToListFor(cna.getAbility(), cna));
 		return listOfAbilities;
 	}
 
