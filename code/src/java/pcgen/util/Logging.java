@@ -73,7 +73,7 @@ public final class Logging
 	private static Logger pcgenLogger;
 	private static Logger pluginLogger;
 
-	/**
+	/*
 	 * Do any required initialization of the Logger.
 	 */
 	static

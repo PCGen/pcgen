@@ -192,37 +192,12 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 
 	public boolean hasSpellInfoFor(int level)
 	{
-		if (infoList.isEmpty())
-		{
-			return false;
-		}
-		for (SpellInfo s : infoList)
-		{
-			if (s.getActualLevel() == level)
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return infoList.stream().anyMatch(s -> s.getActualLevel() == level);
 	}
 
 	public boolean hasSpellInfoFor(String bookName)
 	{
-		if (infoList.isEmpty())
-		{
-			return false;
-		}
-
-		for (SpellInfo s : infoList)
-		{
-			if (bookName.equals(s.getBook()))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return infoList.stream().anyMatch(s -> bookName.equals(s.getBook()));
 	}
 
 	/**
@@ -374,18 +349,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	@Override
 	public String toString()
 	{
-		final String result;
-
-		if (spell == null)
-		{
-			result = "";
-		}
-		else
-		{
-			result = spell.getDisplayName();
-		}
-
-		return result;
+		return (spell == null) ? "" : spell.getDisplayName();
 	}
 
 	/**
