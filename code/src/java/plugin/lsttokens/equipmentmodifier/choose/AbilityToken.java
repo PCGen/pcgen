@@ -98,8 +98,8 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 	{
 		String chooseString = context.getObjectContext().getString(eqMod,
 				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') == -1)
+		if ((chooseString == null)
+				|| (chooseString.indexOf(getTokenName() + '|') == -1))
 		{
 			return null;
 		}
