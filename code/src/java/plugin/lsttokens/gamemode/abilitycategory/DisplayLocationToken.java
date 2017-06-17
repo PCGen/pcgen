@@ -1,5 +1,4 @@
 /*
- * DisplayLocationToken.java
  * Copyright 2007 (C) James Dempsey <jdemspey@users.sourceforge.net>
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * 

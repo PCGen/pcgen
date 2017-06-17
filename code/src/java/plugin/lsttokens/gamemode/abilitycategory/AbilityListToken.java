@@ -1,5 +1,4 @@
 /*
- * AbilityListToken.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2008 (C) James Dempsey
  * 
