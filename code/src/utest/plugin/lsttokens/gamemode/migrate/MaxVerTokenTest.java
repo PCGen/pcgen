@@ -17,13 +17,16 @@
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import static org.junit.Assert.*;
+import pcgen.core.system.MigrationRule;
+import pcgen.core.system.MigrationRule.ObjectType;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.core.system.MigrationRule;
-import pcgen.core.system.MigrationRule.ObjectType;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * MaxVerTokenTest checks the function of the MaxVerToken class.
@@ -35,9 +38,6 @@ public class MaxVerTokenTest
 	private MaxVerToken token;
 	private String gameModeName;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
 	@Before
 	public void setUp() throws Exception
 	{
