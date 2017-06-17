@@ -3106,12 +3106,8 @@ public class WeaponToken extends Token
 	 */
 	private static boolean appendSeperator(Equipment eq)
 	{
-		if (eq.isType("Natural")
-			&& (eq.isType("Both") || eq.isType("Melee") || eq.isType("Ranged")))
-		{
-			return true;
-		}
-		return false;
+		return eq.isType("Natural")
+				&& (eq.isType("Both") || eq.isType("Melee") || eq.isType("Ranged"));
 	}
 
 	/**
@@ -3121,12 +3117,9 @@ public class WeaponToken extends Token
 	 */
 	private static boolean isNonStandard(Equipment eq)
 	{
-		if (eq.isType("Natural") || eq.isType("Both") || eq.isType("Melee")
-			|| eq.isType("Ranged"))
-		{
-			return false;
-		}
-		return true;
+		return !(
+				eq.isType("Natural") || eq.isType("Both") || eq.isType("Melee")
+						|| eq.isType("Ranged"));
 	}
 
 
