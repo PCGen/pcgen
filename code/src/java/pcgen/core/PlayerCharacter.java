@@ -3623,8 +3623,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				int classLevels = (int) getTotalBonusTo("CASTERLEVEL", pcClass.getKeyName());
 				if ((classLevels == 0)
-						&& (canCastSpellTypeLevel(pcClass.getSpellType(), 0, 1) || canCastSpellTypeLevel(
-								pcClass.getSpellType(), 1, 1)))
+						&& (canCastSpellTypeLevel(pcClass.getSpellType(), 0) || canCastSpellTypeLevel(
+								pcClass.getSpellType(), 1)))
 				{
 					// missing CASTERLEVEL hack
 					classLevels = getLevel(pcClass);
@@ -4834,12 +4834,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *            Spell type to check for
 	 * @param spellLevel
 	 *            Desired spell level
-	 * @param minNumSpells
-	 *            Minimum number of spells at the desired spell level
 	 * @return boolean <p> author David Wilson
 	 *         <eldiosyeldiablo@users.sourceforge.net>
 	 */
-	private boolean canCastSpellTypeLevel(final String spellType, final int spellLevel, final int minNumSpells)
+	private boolean canCastSpellTypeLevel(final String spellType,
+	                                      final int spellLevel)
 	{
 		for (PCClass aClass : getClassSet())
 		{
@@ -4851,14 +4850,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				// Get the number of known spells for the level
 				int knownForLevel = this.getSpellSupport(aClass).getKnownForLevel(spellLevel, this);
 				knownForLevel += this.getSpellSupport(aClass).getSpecialtyKnownForLevel(spellLevel, this);
-				if (knownForLevel >= minNumSpells)
+				if (knownForLevel >= 1)
 				{
 					return true;
 				}
 
 				// See if the character can cast
 				// at the required spell level
-				if (this.getSpellSupport(aClass).getCastForLevel(spellLevel, this) >= minNumSpells)
+				if (this.getSpellSupport(aClass).getCastForLevel(spellLevel, this) >= 1)
 				{
 					return true;
 				}
