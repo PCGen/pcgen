@@ -17,11 +17,8 @@
  */
 package plugin.lsttokens.add;
 
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
@@ -40,6 +37,8 @@ import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
 public class ClassSkillsLevelTokenTest extends AbstractAddTokenTestCase<Skill>
@@ -49,7 +48,7 @@ public class ClassSkillsLevelTokenTest extends AbstractAddTokenTestCase<Skill>
 	private PCClass fighter;
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		fighter = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");

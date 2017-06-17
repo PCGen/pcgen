@@ -17,7 +17,6 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.net.URISyntaxException;
 import java.util.Arrays;
 
 import org.junit.Test;
@@ -67,7 +66,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	public abstract boolean allowsFormula();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(getSubToken());
