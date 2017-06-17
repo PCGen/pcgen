@@ -101,9 +101,7 @@
     <exclude name="PrematureDeclaration" />
     <exclude name="UseStringBufferForStringAppends" />
     <exclude name="UseArrayListInsteadOfVector" />
-    <exclude name="AddEmptyString" />
     <exclude name="UnnecessaryWrapperObjectCreation" />
-    <exclude name="SimplifyStartsWith" />
   </rule>
   <rule ref="rulesets/java/strictexception.xml">
     <exclude name="AvoidCatchingGenericException" />
