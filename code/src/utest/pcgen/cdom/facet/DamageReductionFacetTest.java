@@ -1,5 +1,4 @@
 /*
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -41,7 +40,7 @@ import pcgen.core.Race;
 public class DamageReductionFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, DamageReduction>
 {
-	private DamageReductionFacet facet = new DamageReductionFacet();
+	private final DamageReductionFacet facet = new DamageReductionFacet();
 	private DamageReduction[] target;
 	private CDOMObject[] source;
 
