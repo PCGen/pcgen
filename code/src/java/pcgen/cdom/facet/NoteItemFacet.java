@@ -17,16 +17,14 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.base.AbstractListFacet;
-import pcgen.core.NoteItem;
+import pcgen.cdom.facet.base.AbstractScopeFacetConsolidator;
 
 /**
  * NotesFacet is a Facet that tracks the Notes objects that
  * have been added to a Player Character.
  * 
  */
-public class NoteItemFacet extends AbstractListFacet<CharID, NoteItem>
+public class NoteItemFacet extends AbstractScopeFacetConsolidator
 {
 
 }
