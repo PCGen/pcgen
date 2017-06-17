@@ -3296,14 +3296,15 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public PCLevelInfo getLevelInfoFor(final String classKey, int level)
 	{
+		int actualLevel = level;
 		for (PCLevelInfo pcl : getLevelInfo())
 		{
 			if (pcl.getClassKeyName().equals(classKey))
 			{
-				level--;
+				actualLevel--;
 			}
 
-			if (level <= 0)
+			if (actualLevel <= 0)
 			{
 				return pcl;
 			}
@@ -3833,8 +3834,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	/**
 	 * whether we should use/save Temporary bonuses
-	 *
-	 * @param aBool
 	 */
 	public void setUseTempMods(final boolean aBool)
 	{
@@ -3889,9 +3888,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return vp.getVariableValue(aSpell, aString, src, spellLevelTemp);
 	}
 
-	/**
-	 * @return VariableProcessor
-	 */
 	public VariableProcessor getVariableProcessor()
 	{
 		return variableProcessor;
@@ -4290,10 +4286,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return "Invalid parameter to add spell";
 		}
 
-		PCClass aClass = null;
-		final Spell aSpell = acs.getSpell();
-
-		if ((bookName == null) || (bookName.isEmpty()))
+		if (StringUtils.isEmpty(bookName))
 		{
 			return "Invalid spell list/book name.";
 		}
@@ -4302,6 +4295,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			return "Could not find spell list/book " + bookName;
 		}
+
+		PCClass aClass = null;
+		final Spell aSpell = acs.getSpell();
 
 		if (classKey != null)
 		{
@@ -4472,17 +4468,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// for this character in this book at this level
 		SpellInfo si = null;
 		final List<CharacterSpell> acsList = getCharacterSpells(aClass, acs.getSpell(), bookName, adjSpellLevel);
-		if (!acsList.isEmpty())
-		{
-			for (int x = acsList.size() - 1; x >= 0; x--)
-			{
-				final CharacterSpell c = acsList.get(x);
-				if (!c.equals(acs))
-				{
-					acsList.remove(x);
-				}
-			}
-		}
+
+		final CharacterSpell finalAcs = acs;
+		acsList.removeIf(x -> !x.equals(finalAcs));
 		final boolean isEmpty = acsList.isEmpty();
 		if (!isEmpty)
 		{
