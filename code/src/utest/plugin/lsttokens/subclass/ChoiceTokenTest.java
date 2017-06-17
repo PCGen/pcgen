@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.subclass;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
@@ -26,6 +24,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.ProhibitedSpellType;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -201,6 +201,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
-
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -73,6 +73,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNoSideEffects();
 	}
 
+	@Test
 	public void testInvalidInputs(HitDie val) throws PersistenceLayerException
 	{
 		// Always ensure get is unchanged
@@ -168,6 +169,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

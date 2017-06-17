@@ -17,15 +17,18 @@
  */
 package plugin.lsttokens.kit.gear;
 
-import org.junit.Test;
-
 import pcgen.core.EquipmentModifier;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
@@ -141,6 +144,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 		assertFalse(parse("EQMOD2|Assoc||Assoc2"));
 	}
 
+	@Test
 	public void testRoundRobinOnlyAssociation()
 			throws PersistenceLayerException
 	{
@@ -151,6 +155,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 		runRoundRobin("EQMOD2|9500");
 	}
 
+	@Test
 	public void testRoundRobinComplexAssociation()
 			throws PersistenceLayerException
 	{
@@ -167,6 +172,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	// runRoundRobin("EQMOD2|COST[[9500]]");
 	// }
 
+	@Test
 	public void testRoundRobinComplexMultipleAssociation()
 			throws PersistenceLayerException
 	{

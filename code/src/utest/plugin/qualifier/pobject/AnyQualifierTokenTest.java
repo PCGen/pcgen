@@ -31,6 +31,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Before;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.RaceToken;
@@ -54,8 +55,7 @@ public class AnyQualifierTokenTest extends
 	{
 		super("ANY", null);
 	}
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -157,6 +157,7 @@ public class AnyQualifierTokenTest extends
 	}
 
 	@Override
+
 	@Test
 	public void testRoundRobinTestNotQualifierAll()
 		throws PersistenceLayerException
@@ -167,6 +168,7 @@ public class AnyQualifierTokenTest extends
 	}
 
 	@Override
+
 	@Test
 	public void testRoundRobinTestNotQualifierRaw()
 		throws PersistenceLayerException

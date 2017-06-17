@@ -19,14 +19,15 @@ package plugin.lsttokens.testsupport;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.qualifier.pobject.QualifiedToken;
 
 public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC extends Loadable>
@@ -54,8 +55,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	public abstract Class<TC> getTargetClass();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

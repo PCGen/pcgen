@@ -21,8 +21,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
@@ -40,6 +38,9 @@ import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
 public class ClassSkillsLevelTokenTest extends AbstractAddTokenTestCase<Skill>
@@ -47,8 +48,7 @@ public class ClassSkillsLevelTokenTest extends AbstractAddTokenTestCase<Skill>
 
 	static ClassSkillsLevelToken subtoken = new ClassSkillsLevelToken();
 	private PCClass fighter;
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -177,7 +177,6 @@ public class ClassSkillsLevelTokenTest extends AbstractAddTokenTestCase<Skill>
 		// TODO This is a hack, to get this to work pre-CDOM
 		return new ClassSkillChoiceActor(fighter, null);
 	}
-
 
 	@Test
 	public void testUnparseSingleRanked() throws PersistenceLayerException

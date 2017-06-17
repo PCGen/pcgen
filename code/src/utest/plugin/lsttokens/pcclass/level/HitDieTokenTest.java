@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import org.junit.Test;
-
 import pcgen.base.formula.DividingFormula;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,7 +26,14 @@ import pcgen.cdom.processor.HitDieLock;
 import pcgen.cdom.processor.HitDieStep;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 {
@@ -379,6 +384,7 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

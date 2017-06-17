@@ -20,7 +20,6 @@ package plugin.pretokens;
 import java.io.StringWriter;
 import java.util.Collection;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.core.prereq.Prerequisite;
@@ -31,15 +30,18 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
+
+import org.junit.Before;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public abstract class AbstractPreRoundRobin extends TestCase
-{
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
-	@Override
-	protected void setUp() throws Exception
+public abstract class AbstractPreRoundRobin
+{
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		TokenRegistration.clearTokens();
 	}
 

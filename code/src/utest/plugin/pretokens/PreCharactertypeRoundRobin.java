@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreCharactertypeParser;
 import plugin.pretokens.writer.PreCharactertypeWriter;
@@ -28,8 +27,10 @@ public class PreCharactertypeRoundRobin extends AbstractBasicRoundRobin
 {
 
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreCharactertypeParser());
@@ -48,6 +49,7 @@ public class PreCharactertypeRoundRobin extends AbstractBasicRoundRobin
 		return false;
 	}
 
+	@Test
 	public void testAny()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Any");

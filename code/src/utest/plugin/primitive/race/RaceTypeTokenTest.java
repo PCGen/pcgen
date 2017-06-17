@@ -24,6 +24,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Before;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.RaceToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
@@ -44,8 +46,7 @@ public class RaceTypeTokenTest extends
 	{
 		super("RACETYPE", "SampleType");
 	}
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

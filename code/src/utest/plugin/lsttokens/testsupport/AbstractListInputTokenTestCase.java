@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
@@ -26,6 +24,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
 public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC extends Loadable>
@@ -463,6 +463,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	 * TODO This needs to be tested for !allowDups to ensure it consolidates or
 	 * throws an error
 	 */
+
 	@Test
 	public void testRoundRobinThreeDupe() throws PersistenceLayerException
 	{

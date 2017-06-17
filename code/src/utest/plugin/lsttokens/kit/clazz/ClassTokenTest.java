@@ -17,14 +17,16 @@
  */
 package plugin.lsttokens.kit.clazz;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.kit.KitClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import static org.junit.Assert.assertTrue;
 
 public class ClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 {

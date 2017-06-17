@@ -19,16 +19,18 @@ package plugin.lsttokens.kit;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.core.PCStat;
 import pcgen.core.kit.KitStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import static org.junit.Assert.assertFalse;
 
 public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 {
@@ -37,8 +39,7 @@ public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 	static CDOMSubLineLoader<KitStat> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitStat.class);
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -83,13 +84,11 @@ public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 		assertFalse(parse("=2"));
 	}
 
-
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("STR=2");
 	}
-
 
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException

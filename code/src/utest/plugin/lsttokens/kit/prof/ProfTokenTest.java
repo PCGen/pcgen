@@ -17,14 +17,17 @@
  */
 package plugin.lsttokens.kit.prof;
 
-import org.junit.Test;
-
 import pcgen.core.WeaponProf;
 import pcgen.core.kit.KitProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 {
