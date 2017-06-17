@@ -93,7 +93,7 @@ public abstract class AbstractPreRoundRobin extends TestCase
 			}
 			Logging.clearParseMessages();
 			Collection<String> output = context.unparse(obj);
-			if (output == null || output.isEmpty())
+			if ((output == null) || output.isEmpty())
 			{
 				// Uh Oh
 				fail("Unable to unparse: " + key + ":" + value);

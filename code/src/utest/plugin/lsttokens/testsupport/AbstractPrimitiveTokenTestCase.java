@@ -45,7 +45,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	{
 		prim = primitive;
 		target = tgt;
-		good = target == null ? prim : prim + "=" + target;
+		good = (target == null) ? prim : (prim + "=" + target);
 	}
 
 	public String getSubTokenName()
