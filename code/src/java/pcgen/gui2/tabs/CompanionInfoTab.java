@@ -714,7 +714,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		{
 			if (!"null".equals(e.getActionCommand()))
 			{
-				if ("SELECT".equals(e.getActionCommand()) || (JTreeTable.ACTION_DOUBLECLICK == e.getID()))
+				if ("SELECT".equals(e.getActionCommand()) || (
+						e.getID() == JTreeTable.ACTION_DOUBLECLICK))
 				{
 					newCompanion = CharacterManager.createNewCharacter(character.getUIDelegate(), character.getDataSet());
 					CompanionStubFacade selected = (CompanionStubFacade) raceTable.getSelectedObject();
