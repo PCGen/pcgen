@@ -34,7 +34,7 @@ import pcgen.facade.core.LanguageFacade;
  * {@code Language}.
  */
 public final class Language extends PObject implements Comparable<Object>,
-		LanguageFacade, Ungranted
+		LanguageFacade, Ungranted, Cloneable
 {
 	public static final CDOMReference<LanguageList> STARTING_LIST;
 

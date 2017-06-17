@@ -84,7 +84,7 @@ import pcgen.util.enumeration.AttackType;
 /**
  * {@code PCClass}.
  */
-public class PCClass extends PObject implements ClassFacade
+public class PCClass extends PObject implements ClassFacade, Cloneable
 {
 
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS;
