@@ -254,7 +254,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         pane.setCaretPosition(pos - 1);
         element = getListItemParent(htmlDoc.getCharacterElement(pane.getCaretPosition()));
         sa = new SimpleAttributeSet(element.getAttributes());
-        sa = removeAttributeByKey(sa, "id");
+        sa = removeAttributeByKey(sa);
         ((ExtendedHTMLDocument) pane.getStyledDocument()).replaceAttributes(element, sa, HTML.Tag.LI);
     }
 
@@ -330,12 +330,11 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
     /**
      * Remove attribute by key
      * @param sourceAS
-     * @param removeKey
      * @return attribute set
      */
-    private static SimpleAttributeSet removeAttributeByKey(SimpleAttributeSet sourceAS, String removeKey) {
+    private static SimpleAttributeSet removeAttributeByKey(SimpleAttributeSet sourceAS) {
         SimpleAttributeSet temp = new SimpleAttributeSet();
-        temp.addAttribute(removeKey, "NULL");
+        temp.addAttribute("id", "NULL");
 
         return removeAttribute(sourceAS, temp);
     }
@@ -344,9 +343,8 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * Remove a tag
      * @param pane
      * @param element
-     * @param closingTag
      */
-    public static void removeTag(JTextPane pane, Element element, boolean closingTag) {
+    public static void removeTag(JTextPane pane, Element element) {
         if (element == null) { return; }
 
         HTML.Tag tag = getHTMLTag(element);
@@ -375,7 +373,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         source = pane.getText();
 
         StringBuilder newHtmlString = new StringBuilder();
-        int[] position = getPositions(element, source, closingTag, idString);
+        int[] position = getPositions(element, source, true, idString);
 
         if (position == null) { return; }
 
@@ -387,7 +385,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         int beginStartTag = position[0];
         int endStartTag = position[1];
 
-        if (closingTag) {
+        if (true) {
             int beginEndTag = position[2];
             int endEndTag = position[3];
             newHtmlString.append(source.substring(0, beginStartTag));

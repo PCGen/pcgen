@@ -1014,7 +1014,7 @@ public class NotesView extends JPanel
 						if (!content)
 						{
 							elem.getParentElement();
-							ExtendedHTMLEditorKit.removeTag(editor, elem, true);
+							ExtendedHTMLEditorKit.removeTag(editor, elem);
 							editor.setCaretPosition(sOffset - 1);
 							return;
 						}
@@ -1641,7 +1641,7 @@ public class NotesView extends JPanel
 				ExtendedHTMLEditorKit.getListItemParent(htmlDoc
 					.getCharacterElement(editor.getCaretPosition()));
 		h.getParentElement();
-		ExtendedHTMLEditorKit.removeTag(editor, h, true);
+		ExtendedHTMLEditorKit.removeTag(editor, h);
 	}
 
 	//GEN-LAST:event_saveButtonActionPerformed
