@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.gui2.tabs;
 
@@ -58,7 +56,6 @@ import pcgen.util.enumeration.Tab;
  * implemented description tab.
  *
  * -0700 (Wed, 29 Sep 2010) $
- *
  */
 @SuppressWarnings("serial")
 public class DescriptionInfoTab extends FlippingSplitPane implements CharacterInfoTab

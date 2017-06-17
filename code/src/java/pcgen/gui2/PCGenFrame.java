@@ -124,7 +124,6 @@ import org.lobobrowser.html.test.SimpleUserAgentContext;
 /**
  * The main window for PCGen. In addition this class is responsible for providing 
  * global UI functions such as message dialogs. 
- *
  */
 public final class PCGenFrame extends JFrame implements UIDelegate
 {

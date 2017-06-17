@@ -98,8 +98,6 @@ import pcgen.util.enumeration.Tab;
  * EquipInfoTab is a character tab for managing where gear is distributed for a
  * character. Each set of distribution information is called an EquipSet.
  * Multiple EquipSets can be managed to reflect different configurations.
- *
- *
  */
 @SuppressWarnings("serial")
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler

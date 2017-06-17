@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.gui2.dialog;
 
@@ -53,7 +51,6 @@ import pcgen.system.LanguageBundle;
  * available, the text to be displayed on screen and the actions to be taken 
  * when the user confirms their choices. The chooser is generally displayed 
  * via a call to UIDelgate.showGeneralChooser.
- *
  */
 @SuppressWarnings("serial")
 public class RadioChooserDialog extends JDialog implements ActionListener

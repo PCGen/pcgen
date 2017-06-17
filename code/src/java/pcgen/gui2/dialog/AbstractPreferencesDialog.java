@@ -23,7 +23,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  * Factorized Preferences Dialog.
- *
  */
 public abstract class AbstractPreferencesDialog extends AbstractDialog
 {

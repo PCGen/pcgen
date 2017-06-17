@@ -53,7 +53,6 @@ import pcgen.facade.core.CharacterFacade;
  * Note: The states crated by the a tab's {@code createModels} are
  * guaranteed to not be modified in anyway by the tab handler. The only changes
  * that would occur to any state would be in a call to {@code storeModels}.
- *
  */
 public interface CharacterInfoTab
 {
