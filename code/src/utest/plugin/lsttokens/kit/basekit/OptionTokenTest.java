@@ -99,7 +99,7 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}
