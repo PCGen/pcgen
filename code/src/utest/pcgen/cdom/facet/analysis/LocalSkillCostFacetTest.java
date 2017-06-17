@@ -457,11 +457,11 @@ public class LocalSkillCostFacetTest extends TestCase
                 new DataFacetChangeEvent<>(cid, cl, new Object(),
                         DataFacetChangeEvent.DATA_ADDED);
 		ListKey<CDOMReference<Skill>> lk;
-		if (sc.equals(SkillCost.CLASS))
+		if (sc == SkillCost.CLASS)
 		{
 			lk = ListKey.LOCALCSKILL;
 		}
-		else if (sc.equals(SkillCost.CROSS_CLASS))
+		else if (sc == SkillCost.CROSS_CLASS)
 		{
 			lk = ListKey.LOCALCCSKILL;
 		}
