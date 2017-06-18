@@ -377,7 +377,7 @@ void parenGroup()
 void functionExpr()
 	#void : {}
 	{
-		logicalExpr() | quotedString()
+		logicalExpr()
 	}
 
 void quotedString()
