@@ -28,9 +28,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 
-/**
- *
- */
+
 public abstract class AbstractPrerequisiteSimpleParser extends
 		AbstractPrerequisiteParser
 {

@@ -34,9 +34,7 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 
-/**
- *
- */
+
 public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implements PartyFacade
 {
 

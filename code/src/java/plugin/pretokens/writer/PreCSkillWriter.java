@@ -19,8 +19,6 @@
  *
  *
  * @ author	Greg Bingleman <byngl@hotmail.com>
- *
- *
  */
 package plugin.pretokens.writer;
 

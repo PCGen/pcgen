@@ -46,7 +46,6 @@ import pcgen.gui2.tools.Icons;
 
 /**
  * <p>The internal frame view class for the DiceBag.</p>
- *
  */
 public class DiceBagView extends JInternalFrame implements Observer
 {
@@ -215,7 +214,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * <p>Initializes the view and all components, and starts the bag in
 	 * editing mode.  It sets the size ({@code pack()}) of the
 	 * internal frame, but does <b>not</b> show the frame.</p>
-	 *
 	 *
 	 */
 	private void initComponents()
@@ -424,7 +422,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * <p>Sets up the rolling mode; first cleans out all components
 	 * and then displays the components for the rolling mode.</p>
 	 *
-	 *
 	 */
 	private void setupRollingMode()
 	{
@@ -496,7 +493,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 	/**
 	 * <p>An action listener for the buttons in the GUI.</p>
-	 *
 	 */
 	private class BagListener implements ActionListener
 	{
@@ -555,7 +551,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * <p>Table model for displaying/editing the dice bag information.
 	 * Basically this overrides enough of {@code AbstracTableModel}
 	 * to make the code useful.</p>
-	 *
 	 *
 	 */
 	private class BagTableModel extends AbstractTableModel

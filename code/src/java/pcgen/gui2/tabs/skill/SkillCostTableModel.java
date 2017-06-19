@@ -35,9 +35,7 @@ import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
+
 public class SkillCostTableModel extends AbstractTableModel implements ListSelectionListener
 {
 

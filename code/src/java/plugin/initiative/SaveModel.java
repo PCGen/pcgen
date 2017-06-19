@@ -23,7 +23,6 @@ package plugin.initiative;
  * as the name of the saving throw (fort/ref/will) and a bonus.
  * </p>
  * 
- *
  */
 public class SaveModel extends PObjectModel
 {

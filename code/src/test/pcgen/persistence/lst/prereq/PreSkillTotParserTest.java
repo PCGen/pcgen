@@ -13,8 +13,7 @@ import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreSkillTotalParser;
 
-/**
- */
+
 @SuppressWarnings("nls")
 public class PreSkillTotParserTest extends EnUsLocaleDependentTestCase
 {

@@ -26,9 +26,7 @@ import java.io.File;
 import pcgen.facade.util.ListFacade;
 import pcgen.io.ExportHandler;
 
-/**
- *
- */
+
 public interface PartyFacade extends ListFacade<CharacterFacade>
 {
 

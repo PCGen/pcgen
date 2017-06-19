@@ -1,5 +1,4 @@
-/*
- */
+
 package pcgen.inttest.game_35e;
 
 import pcgen.inttest.PcgenFtlTestCase;
@@ -14,9 +13,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIGordonTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIGordonTest()
 	{
 		super("35e_gordon");

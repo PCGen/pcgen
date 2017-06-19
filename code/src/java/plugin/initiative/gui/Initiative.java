@@ -17,7 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  Initiative.java
- *
  */
 package plugin.initiative.gui;
 
@@ -94,8 +93,7 @@ import plugin.initiative.SaveModel;
 import plugin.initiative.SpellModel;
 import plugin.initiative.XMLCombatant;
 
-/**
- */
+
 public class Initiative extends javax.swing.JPanel
 {
 	//** End Dynamic Components **

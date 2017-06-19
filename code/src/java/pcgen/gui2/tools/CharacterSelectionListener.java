@@ -20,9 +20,7 @@ package pcgen.gui2.tools;
 
 import pcgen.facade.core.CharacterFacade;
 
-/**
- *
- */
+
 @FunctionalInterface
 public interface CharacterSelectionListener
 {

@@ -1,5 +1,4 @@
 /*
- * AbilityUtilities.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 25, 2005
- *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
- *
- *
  */
 package pcgen.core;
 
@@ -44,14 +38,11 @@ import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
 
 /**
  * General utilities related to the Ability class.
- *
- * @author   Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class AbilityUtilities
 {
 	private AbilityUtilities ()
 	{
-		// private constructor, do nothing
 	}
 
 	public static void finaliseAbility(PlayerCharacter aPC, CNAbilitySelection cnas)

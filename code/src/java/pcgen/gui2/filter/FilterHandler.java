@@ -18,9 +18,7 @@
  */
 package pcgen.gui2.filter;
 
-/**
- *
- */
+
 public interface FilterHandler
 {
 

@@ -6,9 +6,7 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 
-/**
- *
- */
+
 public class DieSizesToken implements GameModeLstToken
 {
 

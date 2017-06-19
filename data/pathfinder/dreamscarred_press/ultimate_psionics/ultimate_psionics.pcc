@@ -109,6 +109,18 @@ ABILITYCATEGORY:up_abilitycategories_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Comb
 ABILITY:up_abilities_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 DOMAIN:up_domains_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 
+# ENTRY DATE: 
+# LST MONKEY: 
+# LICENSE MONKEY: 
+# RELEASE REVIEW #
+# BETA: 
+# RELEASE:
+# Built for PCGen Version: 
+# Updated to work with version: 6.06.01
+# MINVER:6.6
+# MINDEVVER:6.6
+# COMMENTS:
+
 #
 # End
 #

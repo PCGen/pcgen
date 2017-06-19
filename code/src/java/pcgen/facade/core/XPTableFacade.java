@@ -21,9 +21,7 @@ package pcgen.facade.core;
 
 import pcgen.core.LevelInfo;
 
-/**
- *
- */
+
 public interface XPTableFacade
 {
 

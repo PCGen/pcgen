@@ -56,7 +56,6 @@ import plugin.dicebag.gui.DiceBagPluginController;
  * the {@code dicebag.gui} classes, nor should those classes call the
  * framework directly.
  * </p>
- *
  */
 public class DiceBagPlugin implements InteractivePlugin
 {
@@ -249,7 +248,6 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * Handles a state changed message. Basically enables or disables applicable
 	 * menu items, refreshes data.
 	 * </p>
-	 *
 	 */
 	private void handleStateChangedMessage()
 	{
@@ -273,7 +271,6 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * <p>
 	 * Calls the {@code windowClosed()} method of the controller.
 	 * </p>
-	 *
 	 */
 	private void handleWindowClosedMessage()
 	{

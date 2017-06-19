@@ -38,7 +38,6 @@ import plugin.initiative.DiceRollModel;
  * <p>
  * This dialog class manages a skill roll.
  * </p>
- *
  */
 class DiceRollDialog extends JDialog
 {
@@ -87,7 +86,6 @@ class DiceRollDialog extends JDialog
 	 * <p>
 	 * Exits the dialog.
 	 * </p>
-	 *
 	 */
 	private void handleOk()
 	{
@@ -98,7 +96,6 @@ class DiceRollDialog extends JDialog
 	 * <p>
 	 * Rolls the skill roll.
 	 * </p>
-	 *
 	 */
 	private void handleRoll()
 	{
@@ -157,7 +154,6 @@ class DiceRollDialog extends JDialog
 	/**
 	 *
 	 * <p>Builds the main panels for the dialog.  Does NOT initialize the buttons panel.</p>
-	 *
 	 */
 	private void initPanels()
 	{
@@ -200,7 +196,6 @@ class DiceRollDialog extends JDialog
 	/**
 	 *
 	 * <p>Initializes the buttons and their panel</p>
-	 *
 	 */
 	private void initButtons()
 	{
@@ -219,7 +214,6 @@ class DiceRollDialog extends JDialog
 	/**
 	 *
 	 * <p>Initializes the button listeners</p>
-	 *
 	 */
 	protected void initListeners()
 	{
@@ -233,7 +227,6 @@ class DiceRollDialog extends JDialog
 	 * <p>Adds the specified component and label to the dialog's component lists.</p>
 	 * @param field
 	 * @param label
-	 *
 	 */
 	void addComponent(Component field, Component label)
 	{

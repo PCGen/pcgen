@@ -19,9 +19,7 @@
 
 import java.io.File;
 
-/**
- *
- */
+
 public class XMLFilter implements java.io.FilenameFilter
 {
 

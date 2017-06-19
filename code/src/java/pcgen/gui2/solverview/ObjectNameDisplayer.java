@@ -59,7 +59,6 @@ class ObjectNameDisplayer
 	/**
 	 * Returns an informative String identifying the VarScoped underlying this
 	 * ObjectNameDisplayer
-	 *
 	 */
 	@Override
 	public String toString()

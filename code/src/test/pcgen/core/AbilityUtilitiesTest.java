@@ -32,9 +32,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-/**
- *
- */
+
 public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 {
 

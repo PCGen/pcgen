@@ -14,9 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.core.character;
 
@@ -32,8 +29,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  * {@code SpellBook} contains details of a prepared spell list or
  * a spell book. The term spell book was used as that is the term used
  * throughout the rest of the code.
- *
- *
  */
 
 public class SpellBook implements Cloneable

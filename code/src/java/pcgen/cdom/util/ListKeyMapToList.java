@@ -15,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on June 18, 2005.
  *
- * Current Ver: $Revision$
  */
 package pcgen.cdom.util;
 
@@ -29,7 +27,6 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.enumeration.ListKey;
 
 /**
- * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  * 
  * This encapsulates a MapToList in a typesafe and value-semantic way.
  * 

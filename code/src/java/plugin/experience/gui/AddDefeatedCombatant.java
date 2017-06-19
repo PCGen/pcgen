@@ -16,7 +16,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  AddDefeatedCombatant.java
- *
  */
 package plugin.experience.gui;
 
@@ -36,8 +35,7 @@ import plugin.experience.ExperienceAdjusterModel;
 import plugin.experience.ExperienceAdjusterPlugin;
 import plugin.experience.ExperienceListItem;
 
-/**
- */
+
 public class AddDefeatedCombatant extends AbstractDialog
 {
 	// End of variables declaration//GEN-END:variables

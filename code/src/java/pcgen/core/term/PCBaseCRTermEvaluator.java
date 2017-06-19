@@ -1,5 +1,4 @@
 /*
- * pcgen.core.term.PCBaseCRTermEvaluator.java
  * Copyright (c) 2014 Stefan Radermacher <zaister@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or

@@ -27,9 +27,7 @@ package pcgen.util;
 import java.util.Collection;
 import java.util.Map;
 
-/**
- *
- */
+
 public interface CollectionMap<K, V, C extends Collection<V>> extends Map<K, C>{
     /**
      * Associates the specified collection with the specified key in this map

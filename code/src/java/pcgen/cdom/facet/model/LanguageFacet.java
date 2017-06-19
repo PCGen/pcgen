@@ -33,7 +33,6 @@ import pcgen.output.publish.OutputDB;
  * LanguageFacet is a Facet that tracks the Languages that have been granted to
  * a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LanguageFacet extends AbstractSourcedListFacet<CharID, Language>
 		implements DataFacetChangeListener<CharID, Language>,

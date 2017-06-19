@@ -52,10 +52,7 @@ import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JLabelPane;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- *
- */
+
 public final class TipOfTheDay extends JDialog implements ActionListener
 {
 

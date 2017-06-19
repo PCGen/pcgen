@@ -21,9 +21,7 @@ package pcgen.facade.core;
 import java.util.Collection;
 import java.util.List;
 
-/**
- *
- */
+
 public interface DeityFacade extends InfoFacade
 {
 

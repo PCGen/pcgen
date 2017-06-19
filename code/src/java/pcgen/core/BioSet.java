@@ -1,5 +1,4 @@
 /*
- * BioSet.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 27, 2002, 5:30 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -43,11 +37,6 @@ import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
 
-/**
- * {@code BioSet}.
- *
- * @author Bryan McRoberts
- */
 public final class BioSet extends PObject implements NonInteractive
 {
 	private DoubleKeyMap<Region, Integer, AgeSet> ageMap = new DoubleKeyMap<>();

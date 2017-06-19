@@ -43,9 +43,7 @@ import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
 import pcgen.util.Logging;
 
-/**
- *
- */
+
 public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		implements SortableTreeTableModel
 {

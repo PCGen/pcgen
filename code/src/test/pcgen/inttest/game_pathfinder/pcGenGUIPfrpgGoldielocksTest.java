@@ -15,9 +15,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIPfrpgGoldielocksTest extends pcGenGUITestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIPfrpgGoldielocksTest()
 	{
 		//	super("pf_goldielocks");

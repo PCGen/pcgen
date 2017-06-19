@@ -29,9 +29,7 @@ import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.util.AbstractListFacade;
 
-/**
- *
- */
+
 public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		implements EquipmentListFacade
 {

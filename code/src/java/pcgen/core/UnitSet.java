@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 25, 2002, 10:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -32,7 +30,6 @@ import pcgen.cdom.base.Loadable;
 /**
  * {@code UnitSet}.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class UnitSet implements Loadable
 {
