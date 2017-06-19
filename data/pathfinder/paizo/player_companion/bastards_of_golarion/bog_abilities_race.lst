@@ -19,7 +19,7 @@ Cold-Honed			KEY:Snowborn ~ Cold-Honed					CATEGORY:Special Ability	TYPE:RacialT
 Poison Use			KEY:Darkborn ~ Poison Use					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																														DESC:You are trained in the use of poison and cannot accidentally poison yourself when applying poison to a weapon.
 
 # ==============================
-# Half-Elf Racial Traits
+# Half-Orc Racial Traits
 # ==============================
 
 Evader			KEY:Gloomkin ~ Evader						CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HalfOrcRacialTrait.HalfOrcIntimidating					PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Gloomkin ~ Evader],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating]	PREMULT:1,[PRETEMPLATE:1,Half-Orc ~ Darklands],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Half-Orc]																										DESC:While underground, gain a +5 racial bonus on Survival checks to avoid becoming lost, and a +1 racial bonus on Stealth checks.																																	COST:0	SOURCEPAGE:p.11

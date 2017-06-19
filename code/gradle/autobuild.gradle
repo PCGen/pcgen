@@ -39,7 +39,6 @@ task copyInstaller(type: Copy) {
     outputs.upToDateWhen { false }
     from "${projectDir}/build/release/"
     into "${destAutobuildDir}/downloads/"
-    exclude "pcgen.exe"
 }
 
 task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', \
