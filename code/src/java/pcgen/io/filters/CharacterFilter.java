@@ -30,7 +30,6 @@ import pcgen.system.ConfigurationSettings;
 
 public class CharacterFilter implements OutputFilter
 {
-	private String outputFilterName = "";
 	private Map<Integer, String> outputFilter = null;
 
 	/**
@@ -52,6 +51,7 @@ public class CharacterFilter implements OutputFilter
 
 		filterName = filterName.toLowerCase();
 
+		String outputFilterName = "";
 		if (filterName.equals(outputFilterName))
 		{
 			return;

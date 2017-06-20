@@ -40,8 +40,6 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 
 	private DeityFacet deityFacet;
 
-	private TemplateFacet templateFacet;
-
 	/**
 	 * Globally recalculates Bonus values for a Player Character.
 	 * 
@@ -96,7 +94,7 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
-		this.templateFacet = templateFacet;
+		TemplateFacet templateFacet1 = templateFacet;
 	}
 
 	/**

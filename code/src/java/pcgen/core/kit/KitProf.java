@@ -49,7 +49,6 @@ public final class KitProf extends BaseKit
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private CDOMObject thePObject = null;
-	private List<WeaponProf> weaponProfs = null;
 
 	/**
 	 * True if it is a racial proficiency
@@ -90,7 +89,7 @@ public final class KitProf extends BaseKit
 		List<String> warnings)
 	{
 		thePObject = null;
-		weaponProfs = null;
+		List<WeaponProf> weaponProfs = null;
 
 		PersistentTransitionChoice<WeaponProf> wpPTC = null;
 		if (isRacial())

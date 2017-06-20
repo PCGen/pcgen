@@ -140,9 +140,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
 
     // Separators
     private JSeparator editSeparator1;
-    private JSeparator fileSeparator1;
     private JSeparator fileSeparator2;
-    private JSeparator toolsSeparator1;
 
     // Tree for the preferences dialog
     private final PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
@@ -430,7 +428,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     private void createToolsMenu()
     {
         toolsMenu = new JMenu();
-        toolsSeparator1 = new JSeparator();
+        JSeparator toolsSeparator1 = new JSeparator();
         versionToolsItem = new JMenuItem();
         
         CommonMenuText.name(toolsMenu, PCGenActionMap.MNU_TOOLS);
@@ -490,7 +488,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         fileMenu = new JMenu();
         newFileItem = new JMenuItem();
         openFileItem = new JMenuItem();
-        fileSeparator1 = new JSeparator();
+        JSeparator fileSeparator1 = new JSeparator();
         saveFileItem = new JMenuItem();
         fileSeparator2 = new JSeparator();
         exitFileItem = new JMenuItem();

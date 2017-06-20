@@ -39,7 +39,6 @@ import pcgen.util.Logging;
  */
 public class PatternFilter implements OutputFilter
 {
-	private String outputFilterName = "";
 	private List<String> match = null;
 	private List<String> replace = null;
 
@@ -67,6 +66,7 @@ public class PatternFilter implements OutputFilter
 
 		filterName = filterName.toLowerCase();
 
+		String outputFilterName = "";
 		if (filterName.equals(outputFilterName))
 		{
 			return;
