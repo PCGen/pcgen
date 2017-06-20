@@ -44,6 +44,7 @@ import pcgen.cdom.base.Loadable;
  * @param <T>
  *            The Class of object this TransparentReference references
  */
+@FunctionalInterface
 public interface TransparentReference<T extends Loadable>
 {
 	/**

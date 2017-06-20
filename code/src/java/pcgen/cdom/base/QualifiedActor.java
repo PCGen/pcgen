@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.base;
 
+@FunctionalInterface
 public interface QualifiedActor<T extends QualifyingObject, R>
 {
 
