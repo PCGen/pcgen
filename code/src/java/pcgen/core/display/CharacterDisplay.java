@@ -1392,7 +1392,7 @@ public class CharacterDisplay
 				" level " + getDisplayRaceName() + ' ' + displayClass;
 	}
 
-	private String getOrdinal(final int cardinal)
+	private static String getOrdinal(final int cardinal)
 	{
 		switch (cardinal)
 		{
