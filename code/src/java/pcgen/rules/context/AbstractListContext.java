@@ -487,7 +487,7 @@ public abstract class AbstractListContext
 				CDOMReference<? extends CDOMList<T>> swl)
 		{
 			MapToList<T, AssociatedPrereqObject> map = new TreeMapToList<>(
-                    CDOMObjectUtilities.CDOM_SORTER);
+					CDOMObjectUtilities::compareKeys);
 			OwnerURI lo = new OwnerURI(extractURI, owner);
 			Set<CDOMObject> added = positiveMasterMap
 					.getTertiaryKeySet(swl, lo);
@@ -500,7 +500,7 @@ public abstract class AbstractListContext
 				}
 			}
 			MapToList<T, AssociatedPrereqObject> rmap = new TreeMapToList<>(
-                    CDOMObjectUtilities.CDOM_SORTER);
+					CDOMObjectUtilities::compareKeys);
 			Set<CDOMObject> removed = negativeMasterMap
 					.getTertiaryKeySet(swl, lo);
 			for (CDOMObject lw : removed)

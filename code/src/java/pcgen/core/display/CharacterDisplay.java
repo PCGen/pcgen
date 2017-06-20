@@ -493,14 +493,11 @@ public class CharacterDisplay
 	{
 		List<PCTemplate> tl = new ArrayList<>();
 
-		TreeSet<PCTemplate> treeSet = new TreeSet<>(CDOMObjectUtilities.CDOM_SORTER);
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-			{
-				treeSet.add(template);
-			}
-		}
+		Collection<PCTemplate> treeSet = new TreeSet<>(CDOMObjectUtilities::compareKeys);
+		templateFacet.getSet(id)
+		             .stream()
+		             .filter(template -> template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
+		             .forEach(treeSet::add);
 		tl.addAll(treeSet);
 		return tl;
 	}
@@ -625,7 +622,7 @@ public class CharacterDisplay
 	@Deprecated
 	public SortedSet<PCClass> getFavoredClasses()
 	{
-		SortedSet<PCClass> favored = new TreeSet<>(CDOMObjectUtilities.CDOM_SORTER);
+		SortedSet<PCClass> favored = new TreeSet<>(CDOMObjectUtilities::compareKeys);
 		favored.addAll(favClassFacet.getSet(id));
 		return favored;
 	}
@@ -746,7 +743,7 @@ public class CharacterDisplay
 
 	public Set<Domain> getSortedDomainSet()
 	{
-		SortedSet<Domain> domains = new TreeSet<>(CDOMObjectUtilities.CDOM_SORTER);
+		SortedSet<Domain> domains = new TreeSet<>(CDOMObjectUtilities::compareKeys);
 		domains.addAll(domainFacet.getSet(id));
 		return domains;
 	}
