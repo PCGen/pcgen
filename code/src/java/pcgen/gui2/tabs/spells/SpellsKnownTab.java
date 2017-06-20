@@ -294,13 +294,9 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = availableTable.getSelectedData();
-			for (Object object : data)
-			{
-				if (object instanceof SpellNode)
-				{
-					character.getSpellSupport().addKnownSpell((SpellNode) object);
-				}
-			}
+			data.stream()
+			    .filter(object -> object instanceof SpellNode)
+			    .forEach(object -> character.getSpellSupport().addKnownSpell((SpellNode) object));
 		}
 
 		public void install()

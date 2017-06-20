@@ -47,14 +47,7 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
     @Override
     public boolean containsValue(Object value)
     {
-	for (K key : keySet())
-	{
-	    if (get(key).contains(value))
-	    {
-		return true;
-	    }
-	}
-	return false;
+	    return keySet().stream().anyMatch(key -> get(key).contains(value));
     }
 
     @Override
@@ -138,12 +131,8 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
                 @Override
 		public int size()
 		{
-		    int size = 0;
-		    for (C collection : values())
-		    {
-			size += collection.size();
-		    }
-		    return size;
+			int size = values().stream().mapToInt(Collection::size).sum();
+			return size;
 		}
 
 		@Override

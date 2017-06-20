@@ -79,12 +79,7 @@ public abstract class AbstractBasicCampaignToken extends
 			//empty indicates no token
 			return null;
 		}
-		Set<String> set = new TreeSet<>();
-		for (CampaignSourceEntry cse : added)
-		{
-			set.add(cse.getLSTformat());
-		}
-		return set.toArray(new String[set.size()]);
+		return added.stream().map(CampaignSourceEntry::getLSTformat).distinct().sorted().toArray(String[]::new);
 	}
 
 	@Override

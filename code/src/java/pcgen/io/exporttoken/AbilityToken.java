@@ -29,6 +29,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
@@ -537,10 +538,7 @@ public class AbilityToken extends Token
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{
 				List<String> assocs = new ArrayList<>();
-				for (CNAbility cna : abilities)
-				{
-					assocs.addAll(pc.getAssociationExportList(cna));
-				}
+				abilities.stream().map(pc::getAssociationExportList).forEach(assocs::addAll);
 				Collections.sort(assocs);
 				retString = StringUtil.join(assocs, ",");
 			}
@@ -553,11 +551,7 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".ASSOCIATEDCOUNT"))
 			{
-				int count = 0;
-				for (CNAbility cna : abilities)
-				{
-					count += pc.getDetailedAssociationCount(cna);
-				}
+				int count = abilities.stream().mapToInt(pc::getDetailedAssociationCount).sum();
 				retString = Integer.toString(count);
 			}
 			else if (tokenSource.endsWith(".SOURCE"))
@@ -637,10 +631,7 @@ public class AbilityToken extends Token
 			return Constants.EMPTY_STRING;
 		}
 		List<String> assocs  = new ArrayList<>();
-		for (CNAbility cna : abilities)
-		{
-			assocs.addAll(pc.getAssociationExportList(cna));
-		}
+		abilities.stream().map(pc::getAssociationExportList).forEach(assocs::addAll);
 		Collections.sort(assocs);
 		int count = assocs.size();
 		if (index < count)
@@ -670,16 +661,10 @@ public class AbilityToken extends Token
 		Ability sampleAbilityObject = abilities.get(0).getAbility();
 		Set<AspectName> aspectKeys = sampleAbilityObject.getKeysFor(MapKey.ASPECT);
 		SortedSet<AspectName> sortedKeys = new TreeSet<>(aspectKeys);
-		StringBuilder buff = new StringBuilder();
-		for (AspectName key : sortedKeys)
-		{
-			if (buff.length() > 0)
-			{
-				buff.append(", ");
-			}
-			buff.append(Aspect.printAspect(pc, key, abilities));
-		}
-		return buff.toString();
+		String buff = sortedKeys.stream()
+		                        .map(key -> Aspect.printAspect(pc, key, abilities))
+		                        .collect(Collectors.joining(", "));
+		return buff;
 	}
 
 	/**
@@ -770,16 +755,10 @@ public class AbilityToken extends Token
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
-			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
+		allCats.stream()
+		       .filter(aCat -> AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
+		       .flatMap(aCat -> pc.getPoolAbilities(aCat, Nature.NORMAL).stream())
+		       .forEach(cna -> listOfAbilities.addToListFor(cna.getAbility(), cna));
 		return listOfAbilities;
 	}
 

@@ -23,8 +23,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.ListSet;
@@ -120,16 +123,10 @@ public abstract class AbstractListContext
 	void commit()
 	{
 		ListCommitStrategy commit = getCommitStrategy();
-		for (CDOMReference<? extends CDOMList<?>> list : edits.positiveMasterMap.getKeySet())
-		{
-			//Note: Intentional Generics Violation due to Sun Compiler
-			commitDirect((CDOMReference) list);
-		}
-		for (CDOMReference<? extends CDOMList<?>> list : edits.negativeMasterMap.getKeySet())
-		{
-			//Note: Intentional Generics Violation due to Sun Compiler
-			removeDirect((CDOMReference) list);
-		}
+		//Note: Intentional Generics Violation due to Sun Compiler
+		edits.positiveMasterMap.getKeySet().stream().map(list -> (CDOMReference) list).forEach(this::commitDirect);
+		//Note: Intentional Generics Violation due to Sun Compiler
+		edits.negativeMasterMap.getKeySet().stream().map(list -> (CDOMReference) list).forEach(this::removeDirect);
 		for (URI uri : edits.globalClearSet.getKeySet())
 		{
 			for (CDOMObject owner : edits.globalClearSet
@@ -579,40 +576,26 @@ public abstract class AbstractListContext
 				CDOMObject owner, Class<? extends CDOMList<?>> cl)
 		{
 			Set<CDOMReference<? extends CDOMList<?>>> list =
-                    new ListSet<>();
-			for (CDOMReference<? extends CDOMList<?>> ref : getPositive(
-				extractURI, owner).getModifiedLists())
-			{
-				if (cl.equals(ref.getReferenceClass()))
-				{
-					list.add(ref);
-				}
-			}
-			for (CDOMReference<? extends CDOMList<?>> ref : getNegative(
-				extractURI, owner).getModifiedLists())
-			{
-				if (cl.equals(ref.getReferenceClass()))
-				{
-					list.add(ref);
-				}
-			}
+					getPositive(
+							extractURI, owner).getModifiedLists()
+					                          .stream()
+					                          .filter(ref -> cl.equals(ref.getReferenceClass()))
+					                          .collect(Collectors.toCollection(ListSet::new));
+			getNegative(
+					extractURI, owner).getModifiedLists()
+			                          .stream()
+			                          .filter(ref -> cl.equals(ref.getReferenceClass()))
+			                          .forEach(list::add);
 			
 			Set<String> globalClearTokenKeys = globalClearSet.getTertiaryKeySet(extractURI, owner);
-			for (String key : globalClearTokenKeys)
-			{
-				List<CDOMReference<? extends CDOMList<?>>> globalClearList = globalClearSet
-						.getListFor(extractURI, owner, key);
-				if (globalClearList != null)
-				{
-					for (CDOMReference<? extends CDOMList<?>> ref : globalClearList)
-					{
-						if (cl.equals(ref.getReferenceClass()))
-						{
-							list.add(ref);
-						}
-					}
-				}
-			}
+			globalClearTokenKeys.stream()
+			                    .map(key -> globalClearSet
+					                    .getListFor(extractURI, owner, key))
+			                    .filter(Objects::nonNull)
+			                    .forEach(globalClearList -> globalClearList.stream()
+			                                                               .filter(ref -> cl.equals(ref
+					                                                               .getReferenceClass()))
+			                                                               .forEach(list::add));
 			return list;
 		}
 
@@ -760,15 +743,10 @@ public abstract class AbstractListContext
 									apo.getAssociation(AssociationKey.TOKEN),
 									cdoNew, ref, cdoNew);
 					newapo.addAllPrerequisites(apo.getPrerequisiteList());
-					for (AssociationKey assocKey : apo.getAssociationKeys())
-					{
-						if (assocKey != AssociationKey.TOKEN
-								&& assocKey != AssociationKey.OWNER)
-						{
-							newapo.setAssociation(assocKey, apo
-									.getAssociation(assocKey));
-						}
-					}
+					apo.getAssociationKeys().stream().filter(assocKey -> assocKey != AssociationKey.TOKEN
+							&& assocKey != AssociationKey.OWNER).forEach(assocKey -> newapo.setAssociation(assocKey,
+							apo
+							.getAssociation(assocKey)));
 				}
 			}
 		}

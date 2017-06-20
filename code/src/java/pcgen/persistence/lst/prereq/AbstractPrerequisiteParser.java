@@ -21,6 +21,8 @@
  */
 package pcgen.persistence.lst.prereq;
 
+import java.util.Arrays;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.ParseResult;
@@ -49,19 +51,7 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 		throws PersistenceLayerException
 	{
 		// Check to make sure that this class can parse this token
-		boolean foundTag = false;
-
-		for (int i = 0; i < kindsHandled().length; i++)
-		{
-			String arrayElement = kindsHandled()[i];
-
-			if (arrayElement.equalsIgnoreCase(kind))
-			{
-				foundTag = true;
-
-				break;
-			}
-		}
+		boolean foundTag = Arrays.stream(kindsHandled()).anyMatch(arrayElement -> arrayElement.equalsIgnoreCase(kind));
 
 		if (!foundTag)
 		{

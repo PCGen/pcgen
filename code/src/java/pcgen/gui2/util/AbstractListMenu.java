@@ -22,6 +22,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
+import java.util.stream.IntStream;
 
 import javax.swing.Action;
 import javax.swing.JCheckBoxMenuItem;
@@ -84,10 +85,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 
 	private void rebuildListMenu()
 	{
-		for (int i = 0; i < oldSize; i++)
-		{
-			remove(offset);
-		}
+		IntStream.range(0, oldSize).map(i -> offset).forEach(this::remove);
 		oldSize = listModel.getSize();
 		for (int i = 0; i < oldSize; i++)
 		{
@@ -110,10 +108,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 		if (oldModel != null)
 		{
 			oldModel.removeListListener(this);
-			for (int x = 0; x < oldSize; x++)
-			{
-				remove(offset);
-			}
+			IntStream.range(0, oldSize).map(x -> offset).forEach(this::remove);
 		}
 		this.listModel = listModel;
 		if (listModel != null)

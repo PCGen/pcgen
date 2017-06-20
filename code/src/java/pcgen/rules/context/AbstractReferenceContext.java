@@ -329,10 +329,7 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	public Set<Object> getAllConstructedObjects()
 	{
 		Set<Object> set = new HashSet<>();
-		for (ReferenceManufacturer<?> ref : getAllManufacturers())
-		{
-			set.addAll(ref.getAllObjects());
-		}
+		getAllManufacturers().stream().map(ReferenceManufacturer::getAllObjects).forEach(set::addAll);
 		// Collection otherSet = categorized.getAllConstructedCDOMObjects();
 		// set.addAll(otherSet);
 		return set;
@@ -482,10 +479,7 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 
 	public void buildDeferredObjects()
 	{
-		for (ReferenceManufacturer<?> rs : getAllManufacturers())
-		{
-			rs.buildDeferredObjects();
-		}
+		getAllManufacturers().forEach(ReferenceManufacturer::buildDeferredObjects);
 	}
 
 	public <T extends Loadable> T constructNowIfNecessary(Class<T> cl, String name)
