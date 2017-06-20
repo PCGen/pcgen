@@ -18,6 +18,8 @@
 
 package pcgen.util.enumeration;
 
+import java.util.Arrays;
+
 public enum AttackType
 {
 
@@ -43,14 +45,13 @@ public enum AttackType
 
 	public static AttackType getAttackInstance(String ident)
 	{
-		for (AttackType at : AttackType.values())
-		{
-			if (at.identifier.equals(ident))
-			{
-				return at;
-			}
-		}
-		throw new IllegalArgumentException("Illegal AttackType identifier: "
-			+ ident);
+		return Arrays.stream(AttackType.values())
+		             .filter(at -> at.identifier.equals(ident))
+		             .findFirst()
+		             .orElseThrow(() ->
+				             new IllegalArgumentException(
+						             "Illegal AttackType identifier: "
+								             + ident)
+		             );
 	}
 }

@@ -15,20 +15,21 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- */package plugin.pretokens.test;
+ */
+package plugin.pretokens.test;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
@@ -42,10 +43,6 @@ import pcgen.system.LanguageBundle;
 public class PreSkillTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
-
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
@@ -87,7 +84,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 				if (percentageSignPosition >= 0)
 				{
 					foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, aSkill);
-					foundSkill = (foundMatch)? true: false;
+					foundSkill = foundMatch;
 					runningTotal = getRunningTotal(aSkill, character
 						, prereq, foundMatch, runningTotal, requiredRanks);
 				}
@@ -96,7 +93,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 					foundMatch = true;
 					foundSkill = true;
 					runningTotal = getRunningTotal(aSkill, character
-						, prereq, foundMatch, runningTotal, requiredRanks);
+						, prereq, true, runningTotal, requiredRanks);
 				}
 				// If there wasn't a match, then check other skills of the type
 				if (runningTotal == 0)
@@ -111,7 +108,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 				foundMatch = true;
 				foundSkill = true;
 				runningTotal = getRunningTotal(aSkill, character
-					, prereq, foundMatch, runningTotal, requiredRanks);
+					, prereq, true, runningTotal, requiredRanks);
 			}
 
 			if (prereq.isCountMultiples() || prereq.isTotalValues())
@@ -126,9 +123,10 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		}
 		if (!isType && !foundSkill) 
 		{
-			for(Skill mock: serveAsSkills.keySet()) 
+			for(final Map.Entry<Skill, Set<Skill>> skillSetEntry : serveAsSkills
+					.entrySet())
 			{
-				Set<Skill> targets = serveAsSkills.get(mock);
+				Set<Skill> targets = skillSetEntry.getValue();
 				for(Skill target: targets)
 				{
 					if (foundSkill)
@@ -136,11 +134,10 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 						break;
 					}
 					final String aSkillKey = target.getKeyName().toUpperCase();
-					if(target.getDisplayName().equalsIgnoreCase(skillKey))
+					if (target.getDisplayName().equalsIgnoreCase(skillKey))
 					{
 						foundSkill = true;
-						foundMatch = true;
-						int theTotal = getRunningTotal(mock, character, prereq, foundMatch
+						int theTotal = getRunningTotal(skillSetEntry.getKey(), character, prereq, true
 							, runningTotal, requiredRanks);
 						runningTotal += theTotal;
 					}
@@ -149,20 +146,19 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 							.startsWith(skillKey.substring(0, percentageSignPosition))))
 					{
 						foundSkill = true;
-						foundMatch = true;
-						int theTotal = getRunningTotal(mock, character, prereq, foundMatch
+						int theTotal = getRunningTotal(skillSetEntry.getKey(), character, prereq, true
 							, runningTotal, requiredRanks);
-						runningTotal += theTotal;						
-						
+						runningTotal += theTotal;
+
 					}
 				}
 			}
 		}
 		else if (isType && !foundSkill) 
 		{
-			for(Skill mock: serveAsSkills.keySet()) 
+			for(final Map.Entry<Skill, Set<Skill>> skillSetEntry : serveAsSkills.entrySet())
 			{
-				Set<Skill> targets = serveAsSkills.get(mock);
+				Set<Skill> targets = skillSetEntry.getValue();
 				for(Skill target: targets)
 				{
 					if (foundSkill)
@@ -172,19 +168,20 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 					if(target.isType(skillKey))
 					{
 						foundSkill = true;
-						foundMatch = true;
-						int theTotal = getRunningTotal(mock, character, prereq, foundMatch
+						int theTotal = getRunningTotal(skillSetEntry.getKey(), character, prereq, true
 							, runningTotal, requiredRanks);
 						runningTotal += theTotal;
 					}
 					else if((percentageSignPosition >= 0))
 					{
 						List<Type> mockTypes = target.getTrueTypeList(true);
-						for(Type mockType: mockTypes)
+						for(Type ignored : mockTypes)
 						{
-							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, target);
-							foundSkill = (foundMatch)? true: false;
-							runningTotal = getRunningTotal(mock, character
+							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition,
+
+									false, target);
+							foundSkill = foundMatch;
+							runningTotal = getRunningTotal(skillSetEntry.getKey(), character
 								, prereq, foundMatch, runningTotal, requiredRanks);	
 							if (foundSkill)
 							{
@@ -200,7 +197,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 
 		// If we are looking for a negative test i.e. !PRESKILL and the PC
 		// doesn't have the skill we have to return a match
-		if (foundSkill == false)
+		if (!foundSkill)
 		{
 			if (prereq.getOperator() == PrerequisiteOperator.LT)
 			{
@@ -211,17 +208,17 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	}
 
 	private void getImitators(
-		HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
-		CharacterDisplay display)
+			Map<Skill, Set<Skill>> serveAsSkills, Collection<Skill> imitators,
+			CharacterDisplay display)
 	{
-		Set<Skill> skillSet = new HashSet<>(display.getSkillSet());
+		Iterable<Skill> skillSet = new HashSet<>(display.getSkillSet());
 		for (Skill aSkill : skillSet)
 		{
 			Set<Skill> servesAs = new HashSet<>();
-			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
-			{
-				servesAs.addAll(ref.getContainedObjects());
-			}
+			aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL)
+			      .stream()
+			      .map(CDOMReference::getContainedObjects)
+			      .forEach(servesAs::addAll);
 			
 			if(!servesAs.isEmpty())
 			{
@@ -241,24 +238,19 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		return "SKILL"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		String skillName = prereq.getKey();
-		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
+		if ((prereq.getSubKey() != null) && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
 			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$ //$NON-NLS-2$
 
 		}
 
-		final String foo =
-				LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
-						prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), skillName);
-		return foo;
+		return LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
+				prereq.getOperator().toDisplayString(),
+				prereq.getOperand(), skillName);
 	}
 	/**
 	 * Check if the skill's types match the supplied pattern.
@@ -271,16 +263,14 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	 * @return
 	 */
 	private boolean matchesTypeWildCard(final String skillKey,
-		final int percentageSignPosition, boolean found, Skill aSkill)
+	                                    final int percentageSignPosition, boolean found, PObject aSkill)
 	{
-		for (Type type : aSkill.getTrueTypeList(false))
+		if (aSkill.getTrueTypeList(false)
+		          .stream()
+		          .anyMatch(type -> type.toString().toUpperCase().startsWith(
+				          skillKey.substring(0, percentageSignPosition))))
 		{
-			if (type.toString().toUpperCase().startsWith(
-				skillKey.substring(0, percentageSignPosition)))
-			{
-				found = true;
-				break;
-			}
+			found = true;
 		}
 		return found;
 	}

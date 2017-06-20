@@ -36,6 +36,8 @@ import org.jdom2.input.SAXBuilder;
 
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import org.jdom2.input.sax.SAXEngine;
 import plugin.overland.gui.XMLFilter;
 import plugin.overland.model.TravelMethodImplementation.Choice;
 import plugin.overland.model.TravelMethodImplementation.Combo;
@@ -45,12 +47,11 @@ import plugin.overland.util.Localized;
 
 /**
  * Builds a Travel Method instance from an XML document.
- * 
  */
-public class TravelMethodFactory
+public final class TravelMethodFactory
 {
 	/** Default locale for number parsing */
-	public static final Locale DEFAULT_LOCALE = Locale.UK;
+	private static final Locale DEFAULT_LOCALE = Locale.UK;
 
 	/** directory where the XML and DTD is stored, under the plugin specific directory */
 	private static final String DIR_TRAVELMETHODS = "travel_methods"; //$NON-NLS-1$
@@ -77,6 +78,11 @@ public class TravelMethodFactory
 	private static final String XML_ATTRIBUTE_ID = "id"; //$NON-NLS-1$
 	private static final String XML_ATTRIBUTE_NUMBERFORMAT = "numberFormat"; //$NON-NLS-1$
 
+
+	private TravelMethodFactory()
+	{
+	}
+
 	// ### Factory methods ###
 
 	public static Vector<TravelMethod> load(File datadir)
@@ -89,7 +95,7 @@ public class TravelMethodFactory
 		if (path.isDirectory())
 		{
 			File[] dataFiles = path.listFiles(new XMLFilter());
-			SAXBuilder builder = new SAXBuilder();
+			SAXEngine builder = new SAXBuilder();
 
 			for (File dataFile : dataFiles)
 			{
