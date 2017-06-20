@@ -25,6 +25,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
@@ -183,14 +185,10 @@ public class FacadeFactory
 	private static void initDisplayedSources()
 	{
 		String[] hiddenElements = PCGenSettings.getInstance().getStringArray("hiddenSources", ArrayUtils.EMPTY_STRING_ARRAY);
-		for (int i = 0; i < quickSources.getSize(); i++)
-		{
-			SourceSelectionFacade selection = quickSources.getElementAt(i);
-			if (!ArrayUtils.contains(hiddenElements, selection.toString()))
-			{
-				displayedSources.addElement(selection);
-			}
-		}
+		IntStream.range(0, quickSources.getSize())
+		         .mapToObj(i -> quickSources.getElementAt(i))
+		         .filter(selection -> !ArrayUtils.contains(hiddenElements, selection.toString()))
+		         .forEach(selection -> displayedSources.addElement(selection));
 	}
 
 	private static void initCustomSourceSelections()
@@ -367,11 +365,9 @@ public class FacadeFactory
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = pman.getChosenCampaignSourcefiles();
-		List<URI> uris = new ArrayList<>();
-		for (CampaignFacade campaignFacade : campaigns)
-		{
-			uris.add(((Campaign)campaignFacade).getSourceURI());
-		}
+		List<URI> uris = campaigns.stream()
+		                          .map(campaignFacade -> ((Campaign) campaignFacade).getSourceURI())
+		                          .collect(Collectors.toList());
 		pman.setChosenCampaignSourcefiles(uris);
 		for (CampaignFacade campaignFacade : campaigns)
 		{
@@ -488,11 +484,7 @@ public class FacadeFactory
 		public void setCampaigns(List<CampaignFacade> campaign)
 		{
 			campaigns.setContents(campaign);
-			List<String> camps = new ArrayList<>();
-			for (CampaignFacade camp : campaign)
-			{
-				camps.add(camp.getName());
-			}
+			List<String> camps = campaign.stream().map(CampaignFacade::getName).collect(Collectors.toList());
 			context.setStringArray("campaigns", camps);
 		}
 

@@ -204,11 +204,8 @@ abstract class LoadContextInst implements LoadContext
 	@Override
 	public void resolveDeferredTokens()
 	{
-		for (DeferredToken<? extends Loadable> token : support.
-				getDeferredTokens())
-		{
-			processRes(token);
-		}
+		support.
+				       getDeferredTokens().forEach(this::processRes);
 		commit();
 	}
 
@@ -217,23 +214,20 @@ abstract class LoadContextInst implements LoadContext
 		Class<T> cl = token.getDeferredTokenClass();
 		Collection<? extends ReferenceManufacturer<?>> mfgs = getReferenceContext()
 				.getAllManufacturers();
-		for (ReferenceManufacturer<?> rm : mfgs)
-		{
-			if (cl.isAssignableFrom(rm.getReferenceClass()))
-			{
-				@SuppressWarnings("unchecked")
-				ReferenceManufacturer<? extends T> trm =
-						(ReferenceManufacturer<? extends T>) rm;
-				for (T po : trm.getAllObjects())
-				{
-					token.process(this, po);
-				}
-				for (T po : trm.getDerivativeObjects())
-				{
-					token.process(this, po);
-				}
-			}
-		}
+		mfgs.stream()
+		    .filter(rm -> cl.isAssignableFrom(rm.getReferenceClass()))
+		    .map(rm -> (ReferenceManufacturer<? extends T>) rm)
+		    .forEach(trm ->
+		    {
+			    for (T po : trm.getAllObjects())
+			    {
+				    token.process(this, po);
+			    }
+			    for (T po : trm.getDerivativeObjects())
+			    {
+				    token.process(this, po);
+			    }
+		    });
 	}
 
 	@Override
@@ -251,20 +245,15 @@ abstract class LoadContextInst implements LoadContext
 			Collection<? extends ReferenceManufacturer<?>> mfgs)
 	{
 		Class<T> cl = token.getDeferredTokenClass();
-		for (ReferenceManufacturer<?> rm : mfgs)
-		{
-			if (cl.isAssignableFrom(rm.getReferenceClass()))
-			{
-				@SuppressWarnings("unchecked")
-				ReferenceManufacturer<? extends T> trm =
-						(ReferenceManufacturer<? extends T>) rm;
-				for (T po : trm.getAllObjects())
-				{
-					this.setSourceURI(po.getSourceURI());
-					token.process(this, po);
-				}
-			}
-		}
+		mfgs.stream()
+		    .filter(rm -> cl.isAssignableFrom(rm.getReferenceClass()))
+		    .map(rm -> (ReferenceManufacturer<? extends T>) rm)
+		    .flatMap(trm -> trm.getAllObjects().stream())
+		    .forEach(po ->
+		    {
+			    this.setSourceURI(po.getSourceURI());
+			    token.process(this, po);
+		    });
 	}
 
 	@Override
@@ -282,14 +271,11 @@ abstract class LoadContextInst implements LoadContext
 			Collection<? extends ReferenceManufacturer> mfgs)
 	{
 		Class<T> cl = token.getValidationTokenClass();
-		for (ReferenceManufacturer<? extends T> rm : mfgs)
+		mfgs.stream().filter(rm -> cl.isAssignableFrom(rm.getReferenceClass())).forEach(rm ->
 		{
-			if (cl.isAssignableFrom(rm.getReferenceClass()))
-			{
-				setSourceURI(null);
-				token.process(this, rm.getAllObjects());
-			}
-		}
+			setSourceURI(null);
+			token.process(this, rm.getAllObjects());
+		});
 	}
 
 	@Override

@@ -21,6 +21,7 @@ package plugin.exporttokens;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
@@ -141,14 +142,10 @@ public class FollowerTypeToken extends Token
 	private List<Follower> getFollowersOfType(CharacterDisplay display,
 		String typeString)
 	{
-		List<Follower> aList = new ArrayList<>();
-		for (Follower fol : display.getFollowerList())
-		{
-			if (fol.getType().getKeyName().equalsIgnoreCase(typeString))
-			{
-				aList.add(fol);
-			}
-		}
+		List<Follower> aList = display.getFollowerList()
+		                              .stream()
+		                              .filter(fol -> fol.getType().getKeyName().equalsIgnoreCase(typeString))
+		                              .collect(Collectors.toList());
 		return aList;
 	}
 }

@@ -55,13 +55,7 @@ public class LoadValidator implements UnconstructedValidator
 		List<String> list = simpleMap.getListFor(cl);
 		if (list != null)
 		{
-			for (String key : list)
-			{
-				if (key.equalsIgnoreCase(s))
-				{
-					return true;
-				}
-			}
+			return list.stream().anyMatch(key -> key.equalsIgnoreCase(s));
 		}
 		return false;
 	}
@@ -69,37 +63,31 @@ public class LoadValidator implements UnconstructedValidator
 	private void buildSimpleMap()
 	{
 		simpleMap = new HashMapToList<>();
-		for (Campaign c : campaignList)
+		campaignList.stream().flatMap(c -> c.getSafeListFor(ListKey.FORWARDREF).stream()).forEach(q ->
 		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
+			Class<? extends Loadable> qcl = q.getQualifiedClass();
+			if (!CATEGORIZED_CLASS.isAssignableFrom(qcl))
 			{
-				Class<? extends Loadable> qcl = q.getQualifiedClass();
-				if (!CATEGORIZED_CLASS.isAssignableFrom(qcl))
-				{
-					simpleMap.addToListFor(qcl, q.getQualifiedReference()
-							.getLSTformat(false));
-				}
+				simpleMap.addToListFor(qcl, q.getQualifiedReference()
+				                             .getLSTformat(false));
 			}
-		}
+		});
 	}
 
 	private void buildCategoryMap()
 	{
 		categoryMap = new DoubleKeyMapToList<>();
-		for (Campaign c : campaignList)
+		campaignList.stream().flatMap(c -> c.getSafeListFor(ListKey.FORWARDREF).stream()).forEach(q ->
 		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
+			Class<? extends Loadable> qcl = q.getQualifiedClass();
+			if (CATEGORIZED_CLASS.isAssignableFrom(qcl))
 			{
-				Class<? extends Loadable> qcl = q.getQualifiedClass();
-				if (CATEGORIZED_CLASS.isAssignableFrom(qcl))
-				{
-					CDOMSingleRef<?> ref = q.getQualifiedReference();
-					String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
-							.getLSTCategory();
-					categoryMap.addToListFor(qcl, cat, ref.getLSTformat(false));
-				}
+				CDOMSingleRef<?> ref = q.getQualifiedReference();
+				String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
+						.getLSTCategory();
+				categoryMap.addToListFor(qcl, cat, ref.getLSTformat(false));
 			}
-		}
+		});
 	}
 
 	@Override
@@ -113,13 +101,7 @@ public class LoadValidator implements UnconstructedValidator
 		List<String> list = categoryMap.getListFor(cl, cat.getKeyName());
 		if (list != null)
 		{
-			for (String key : list)
-			{
-				if (key.equalsIgnoreCase(s))
-				{
-					return true;
-				}
-			}
+			return list.stream().anyMatch(key -> key.equalsIgnoreCase(s));
 		}
 		return false;
 	}
@@ -127,14 +109,7 @@ public class LoadValidator implements UnconstructedValidator
 	@Override
 	public boolean allowDuplicates(Class<?> cl)
 	{
-		for (Campaign c : campaignList)
-		{
-			if (c.containsInList(ListKey.DUPES_ALLOWED, cl))
-			{
-				return true;
-			}
-		}
-		return false;
+		return campaignList.stream().anyMatch(c -> c.containsInList(ListKey.DUPES_ALLOWED, cl));
 	}
 
 }

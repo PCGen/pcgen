@@ -53,24 +53,21 @@ public class FeatAllListToken extends AbilityListToken
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
+		allCats.stream().filter(aCat -> aCat.getParentCategory().equals(aCategory)).forEach(aCat ->
 		{
-			if (aCat.getParentCategory().equals(aCategory))
+			for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
 			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
+				listOfAbilities.addToListFor(cna.getAbility(), cna);
 			}
-		}
+			for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
+			{
+				listOfAbilities.addToListFor(cna.getAbility(), cna);
+			}
+			for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
+			{
+				listOfAbilities.addToListFor(cna.getAbility(), cna);
+			}
+		});
 		return listOfAbilities;
 	}
 

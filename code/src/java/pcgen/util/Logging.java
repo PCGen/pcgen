@@ -717,14 +717,9 @@ public final class Logging
 	public static void replayParsedMessages()
 	{
 		Logger l = getLogger();
-		for (QueuedMessage msg : queuedMessages)
-		{
-			if (l.isLoggable(msg.level))
-			{
-				l.log(msg.level, msg.message, msg.stackTrace);
-			}
-
-		}
+		queuedMessages.stream()
+		              .filter(msg -> l.isLoggable(msg.level))
+		              .forEach(msg -> l.log(msg.level, msg.message, msg.stackTrace));
 		queuedMessageMark = -1;
 	}
 

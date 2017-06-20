@@ -73,15 +73,9 @@ class ListChanges<T extends CDOMObject> implements
 		{
 			for (CDOMReference<T> ref : listMods)
 			{
-				for (AssociatedPrereqObject assoc : positive
-						.getListAssociations(list, ref))
-				{
-					if (tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
-					{
-						set.add(ref);
-					}
-				}
+				positive
+						.getListAssociations(list, ref).stream().filter(assoc -> tokenName.equals(assoc
+						.getAssociation(AssociationKey.TOKEN))).map(assoc -> ref).forEach(set::add);
 			}
 		}
 		return set;
@@ -110,15 +104,9 @@ class ListChanges<T extends CDOMObject> implements
 		{
 			for (CDOMReference<T> ref : listMods)
 			{
-				for (AssociatedPrereqObject assoc : negative
-						.getListAssociations(list, ref))
-				{
-					if (tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
-					{
-						set.add(ref);
-					}
-				}
+				negative
+						.getListAssociations(list, ref).stream().filter(assoc -> tokenName.equals(assoc
+						.getAssociation(AssociationKey.TOKEN))).map(assoc -> ref).forEach(set::add);
 			}
 		}
 		return set;
@@ -148,14 +136,10 @@ class ListChanges<T extends CDOMObject> implements
 		{
 			Collection<AssociatedPrereqObject> assocs = positive
 					.getListAssociations(list, lw);
-			for (AssociatedPrereqObject assoc : assocs)
-			{
-				if (tokenName
-						.equals(assoc.getAssociation(AssociationKey.TOKEN)))
-				{
-					owned.addToListFor(lw, assoc);
-				}
-			}
+			assocs.stream()
+			      .filter(assoc -> tokenName
+					      .equals(assoc.getAssociation(AssociationKey.TOKEN)))
+			      .forEach(assoc -> owned.addToListFor(lw, assoc));
 		}
 		if (owned.isEmpty())
 		{
@@ -182,14 +166,10 @@ class ListChanges<T extends CDOMObject> implements
 		{
 			Collection<AssociatedPrereqObject> assocs = negative
 					.getListAssociations(list, lw);
-			for (AssociatedPrereqObject assoc : assocs)
-			{
-				if (tokenName
-						.equals(assoc.getAssociation(AssociationKey.TOKEN)))
-				{
-					owned.addToListFor(lw, assoc);
-				}
-			}
+			assocs.stream()
+			      .filter(assoc -> tokenName
+					      .equals(assoc.getAssociation(AssociationKey.TOKEN)))
+			      .forEach(assoc -> owned.addToListFor(lw, assoc));
 		}
 		if (owned.isEmpty())
 		{

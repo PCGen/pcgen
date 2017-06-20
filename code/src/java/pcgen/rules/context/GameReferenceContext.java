@@ -82,10 +82,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	{
 		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<>(
                 map.values());
-		for (Class<?> cl : catmap.getKeySet())
-		{
-			returnList.addAll(catmap.values(cl));
-		}
+		catmap.getKeySet().stream().map(catmap::values).forEach(returnList::addAll);
 		return returnList;
 	}
 

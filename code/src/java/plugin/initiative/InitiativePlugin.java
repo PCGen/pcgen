@@ -22,6 +22,7 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.stream.IntStream;
 
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
@@ -354,16 +355,13 @@ public class InitiativePlugin implements InteractivePlugin
 	 */
 	private void fileSave()
 	{
-		for (int i = 0; i < theView.initList.size(); i++)
-		{
-			InitHolder iH = theView.initList.get(i);
-
-			if (iH instanceof PcgCombatant)
-			{
-				PcgCombatant pcgcbt = (PcgCombatant) iH;
-				messageHandler.handleMessage(new RequestToSavePlayerCharacterMessage(this, pcgcbt.getPC()));
-			}
-		}
+		theView.initList.stream()
+		                .filter(iH -> iH instanceof PcgCombatant)
+		                .map(iH -> (PcgCombatant) iH)
+		                .forEach(pcgcbt -> messageHandler.handleMessage(new RequestToSavePlayerCharacterMessage(
+				                this,
+				                pcgcbt.getPC()
+		                )));
 
 		theView.saveToFile();
 	}
@@ -449,13 +447,9 @@ public class InitiativePlugin implements InteractivePlugin
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i) instanceof Initiative)
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
+		IntStream.range(0, tp.getTabCount())
+		         .filter(i -> tp.getComponentAt(i) instanceof Initiative)
+		         .forEach(tp::setSelectedIndex);
 	}
 
 	/**

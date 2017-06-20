@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Observable;
 import java.util.Set;
 
@@ -94,20 +95,15 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		Set<CampaignSourceEntry> loadedFiles = new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
-		for (CampaignSourceEntry sourceEntry : fileList)
-		{
-			if (sourceEntry == null)
-			{
-				continue;
-			}
-
-			// Check if the CSE has already been loaded before loading it
-			if (!loadedFiles.contains(sourceEntry))
-			{
-				loadLstFile(context, sourceEntry);
-				loadedFiles.add(sourceEntry);
-			}
-		}
+		// Check if the CSE has already been loaded before loading it
+		fileList.stream()
+		        .filter(Objects::nonNull)
+		        .filter(sourceEntry -> !loadedFiles.contains(sourceEntry))
+		        .forEach(sourceEntry ->
+		        {
+			        loadLstFile(context, sourceEntry);
+			        loadedFiles.add(sourceEntry);
+		        });
 
 		// Next we perform copy operations
 		processCopies(context);
@@ -702,24 +698,14 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	private void processForgets(LoadContext context)
 	{
 
-		for (String forgetKey : forgetLineList)
-		{
-			forgetKey =
-					forgetKey.substring(0, forgetKey.indexOf(FORGET_SUFFIX));
-
-			if (excludedObjects.contains(forgetKey))
-			{
-				continue;
-			}
-			// Commented out so that deprcated method no longer used
-			// performForget(forgetName);
-
-			T objToForget = getObjectKeyed(context, forgetKey);
-			if (objToForget != null)
-			{
-				performForget(context, objToForget);
-			}
-		}
+		// Commented out so that deprcated method no longer used
+// performForget(forgetName);
+		forgetLineList.stream()
+		              .map(forgetKey -> forgetKey.substring(0, forgetKey.indexOf(FORGET_SUFFIX)))
+		              .filter(forgetKey -> !excludedObjects.contains(forgetKey))
+		              .map(forgetKey -> getObjectKeyed(context, forgetKey))
+		              .filter(Objects::nonNull)
+		              .forEach(objToForget -> performForget(context, objToForget));
 		forgetLineList.clear();
 	}
 

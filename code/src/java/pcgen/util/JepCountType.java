@@ -32,6 +32,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -85,13 +86,7 @@ public abstract class JepCountType
 			double accum = 0;
 			for (final CNAbility ab : filtered)
 			{
-				for (String assoc : pc.getAssociationList(ab))
-				{
-					if (assocList.contains(assoc))
-					{
-						accum++;
-					}
-				}
+				accum += pc.getAssociationList(ab).stream().filter(assocList::contains).count();
 			}
 			return accum;
 		}
@@ -115,13 +110,7 @@ public abstract class JepCountType
 				}
 				else
 				{
-					for (String assoc : pc.getAssociationList(ab))
-					{
-						if (assocList.contains(assoc))
-						{
-							accum++;
-						}
-					}
+					accum += pc.getAssociationList(ab).stream().filter(assocList::contains).count();
 				}
 			}
 			return accum;
@@ -172,14 +161,7 @@ public abstract class JepCountType
 
 					boolean wantExport = "YES".equalsIgnoreCase(keyValue[1]);
 					final Set<ChronicleEntry> cs =
-                            new HashSet<>();
-					for (ChronicleEntry ce : coll)
-					{
-						if (ce.isOutputEntry() == wantExport)
-						{
-							cs.add(ce);
-						}
-					}
+							coll.stream().filter(ce -> ce.isOutputEntry() == wantExport).collect(Collectors.toSet());
 					return cs;
 				}
 
@@ -541,13 +523,9 @@ public abstract class JepCountType
 				{
 					final T pObj = it.next();
 
-					for (final String type : typeList)
+					if (typeList.stream().anyMatch(type -> !pObj.isType(type)))
 					{
-						if (!pObj.isType(type))
-						{
-							it.remove();
-							break;
-						}
+						it.remove();
 					}
 				}
 			}
@@ -898,17 +876,13 @@ public abstract class JepCountType
 				if (pc.includeSkill(sk, sf) && sk.qualifies(pc, null))
 				{
 					count++; //For the skill
-					for (String situation : sk
-						.getUniqueListFor(ListKey.SITUATION))
-					{
-						double bonus =
-								pc.getTotalBonusTo("SITUATION", sk.getKeyName()
-									+ '=' + situation);
-						if (bonus > 0.01 || bonus < -0.01)
-						{
-							count++;
-						}
-					}
+					count += sk
+							.getUniqueListFor(ListKey.SITUATION)
+							.stream()
+							.mapToDouble(situation -> pc.getTotalBonusTo("SITUATION", sk.getKeyName()
+									+ '=' + situation))
+							.filter(bonus -> bonus > 0.01 || bonus < -0.01)
+							.count();
 				}
 			}
 			return (double) count;

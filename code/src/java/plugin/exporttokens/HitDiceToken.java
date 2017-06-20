@@ -21,6 +21,7 @@ package plugin.exporttokens;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -88,22 +89,21 @@ public class HitDiceToken extends Token
 			HashMap<Integer, Integer> hdMap =
 					new LinkedHashMap<>();
 
-			for (int i = 0; i < display.getLevel(pcClass); i++)
-			{
-				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
-				if (hitDie != 0)
-				{
-					Integer num = hdMap.get(hitDie);
-					if (num == null)
-					{
-						hdMap.put(hitDie, 1);
-					}
-					else
-					{
-						hdMap.put(hitDie, num.intValue() + 1);
-					}
-				}
-			}
+			IntStream.range(0, display.getLevel(pcClass))
+			         .map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
+			         .filter(hitDie -> hitDie != 0)
+			         .forEach(hitDie ->
+			         {
+				         Integer num = hdMap.get(hitDie);
+				         if (num == null)
+				         {
+					         hdMap.put(hitDie, 1);
+				         }
+				         else
+				         {
+					         hdMap.put(hitDie, num.intValue() + 1);
+				         }
+			         });
 
 			Set<Integer> keys = hdMap.keySet();
 			for (int key : keys)
@@ -148,22 +148,21 @@ public class HitDiceToken extends Token
 		CharacterDisplay display = pc.getDisplay();
 		for (PCClass pcClass : display.getClassSet())
 		{
-			for (int i = 0; i < display.getLevel(pcClass); i++)
-			{
-				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
-				if (hitDie != 0)
-				{
-					Integer num = hdMap.get(hitDie);
-					if (num == null)
-					{
-						hdMap.put(hitDie, 1);
-					}
-					else
-					{
-						hdMap.put(hitDie, num.intValue() + 1);
-					}
-				}
-			}
+			IntStream.range(0, display.getLevel(pcClass))
+			         .map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
+			         .filter(hitDie -> hitDie != 0)
+			         .forEach(hitDie ->
+			         {
+				         Integer num = hdMap.get(hitDie);
+				         if (num == null)
+				         {
+					         hdMap.put(hitDie, 1);
+				         }
+				         else
+				         {
+					         hdMap.put(hitDie, num.intValue() + 1);
+				         }
+			         });
 		}
 		Set<Integer> keys = hdMap.keySet();
 
@@ -211,25 +210,23 @@ public class HitDiceToken extends Token
 			HashMap<Integer, Integer> hdMap =
 					new LinkedHashMap<>();
 
-			for (int i = 0; i < display.getLevel(pcClass); i++)
-			{
-				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
-				Integer num = hdMap.get(hitDie);
-				if (num == null)
-				{
-					hdMap.put(hitDie, 1);
-				}
-				else
-				{
-					hdMap.put(hitDie, num.intValue() + 1);
-				}
-			}
+			IntStream.range(0, display.getLevel(pcClass))
+			         .map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
+			         .forEach(hitDie ->
+			         {
+				         Integer num = hdMap.get(hitDie);
+				         if (num == null)
+				         {
+					         hdMap.put(hitDie, 1);
+				         }
+				         else
+				         {
+					         hdMap.put(hitDie, num.intValue() + 1);
+				         }
+			         });
 
 			Set<Integer> keys = hdMap.keySet();
-			for (int hdSize : keys)
-			{
-				dice += hdMap.get(hdSize);
-			}
+			dice += keys.stream().mapToInt(hdSize -> hdSize).map(hdMap::get).sum();
 		}
 
 		return String.valueOf(dice);
