@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
@@ -122,12 +123,8 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		Collection<?> choiceSet = choice.getChoices().getSet(pc);
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(pc, ""));
-		
-		List<String> choiceStrings = new ArrayList<>();
-		for (Object o : choiceSet)
-		{
-			choiceStrings.add(o.toString());
-		}
+
+		List<String> choiceStrings = choiceSet.stream().map(Object::toString).collect(Collectors.toList());
 		assertTrue(choiceStrings.contains("Bluff"));
 		assertTrue(choiceStrings.contains("Listen"));
 		assertTrue(choiceStrings.contains("Move Silently"));
@@ -151,12 +148,8 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
-		
-		List<String> choiceStrings = new ArrayList<>();
-		for (Object o : choiceSet)
-		{
-			choiceStrings.add(o.toString());
-		}
+
+		List<String> choiceStrings = choiceSet.stream().map(Object::toString).collect(Collectors.toList());
 		assertTrue(choiceStrings.contains("Bluff"));
 		assertTrue(choiceStrings.contains("Listen"));
 		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
@@ -206,23 +199,15 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		TransitionChoice<?> choice = choiceList.get(0);
 		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
 		assertEquals(3, choiceSet.size());
-		Set<Object> limitedSet = new HashSet<>();
+		Set<Object> limitedSet;
 		ClassSkillChoiceActor csca = new ClassSkillChoiceActor(po, 0);
-		for (Object sc : choiceSet)
-		{
-			if (csca.allow((Skill) sc, getCharacter(), true))
-			{
-				limitedSet.add(sc);
-			}
-		}
+		limitedSet = choiceSet.stream()
+		                      .filter(sc -> csca.allow((Skill) sc, getCharacter(), true))
+		                      .collect(Collectors.toSet());
 		assertEquals(2, limitedSet.size());
 		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
-		
-		List<String> choiceStrings = new ArrayList<>();
-		for (Object o : limitedSet)
-		{
-			choiceStrings.add(o.toString());
-		}
+
+		List<String> choiceStrings = limitedSet.stream().map(Object::toString).collect(Collectors.toList());
 		assertTrue(choiceStrings.contains("Listen"));
 		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
 	}

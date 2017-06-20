@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Converter;
@@ -113,16 +114,10 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 		// workaround for cloning issue
 		List<R> availableList = new ArrayList<>();
 		List<CNAbility> theFeats = pc.getMatchingCNAbilities(a);
-		for (CNAbility ability : theFeats)
-		{
-			@SuppressWarnings("unchecked")
-			List<? extends R> list =
-					(List<? extends R>) pc.getDetailedAssociations(ability);
-			if (list != null)
-			{
-				availableList.addAll(list);
-			}
-		}
+		theFeats.stream()
+		        .map(ability -> (List<? extends R>) pc.getDetailedAssociations(ability))
+		        .filter(Objects::nonNull)
+		        .forEach(availableList::addAll);
 		return availableList;
 	}
 
