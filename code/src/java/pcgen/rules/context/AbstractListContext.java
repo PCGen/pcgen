@@ -355,7 +355,7 @@ public abstract class AbstractListContext
 		protected static class CDOMShell extends CDOMObject
 		{
 			@Override
-			public CDOMObject clone() throws CloneNotSupportedException
+			public CDOMShell clone() throws CloneNotSupportedException
 			{
 				throw new CloneNotSupportedException();
 			}
