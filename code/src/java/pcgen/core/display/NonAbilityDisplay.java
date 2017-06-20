@@ -24,6 +24,10 @@ import pcgen.core.PCStat;
 public class NonAbilityDisplay
 {
 
+	private NonAbilityDisplay()
+	{
+	}
+
 	/**
 	 * Returns true if the given PCStat is not an ability as locked in the given
 	 * CDOMObject.

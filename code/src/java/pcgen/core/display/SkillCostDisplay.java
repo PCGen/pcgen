@@ -40,6 +40,10 @@ import pcgen.util.Delta;
 
 public final class SkillCostDisplay
 {
+	private SkillCostDisplay()
+	{
+	}
+
 	/**
 	 * Builds up a string describing what makes up the misc modifier for a skill
 	 * for a character. This can either be in long form '+2[skill TUMBLE gteq

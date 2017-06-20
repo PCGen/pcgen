@@ -25,6 +25,10 @@ import pcgen.core.PObject;
 public class DescriptionFormatting
 {
 
+	private DescriptionFormatting()
+	{
+	}
+
 	public static String piWrapDesc(PObject cdo, String desc, boolean useHeader)
 	{
 		if (cdo.getSafe(ObjectKey.DESC_PI) && !desc.isEmpty())
