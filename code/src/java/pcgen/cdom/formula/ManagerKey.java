@@ -23,4 +23,8 @@ import pcgen.rules.context.LoadContext;
 public class ManagerKey
 {
 	public static final TypedKey<LoadContext> CONTEXT = new TypedKey<>();
+
+	private ManagerKey()
+	{
+	}
 }

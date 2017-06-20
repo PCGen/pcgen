@@ -27,6 +27,10 @@ import pcgen.util.Logging;
 public class BenefitFormatting
 {
 
+	private BenefitFormatting()
+	{
+	}
+
 	public static String getBenefits(PlayerCharacter aPC, List<? extends Object> objList)
 	{
 		if (objList.isEmpty())

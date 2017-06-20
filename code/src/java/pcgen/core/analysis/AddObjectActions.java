@@ -30,6 +30,10 @@ import pcgen.core.PlayerCharacter;
 public class AddObjectActions
 {
 
+	private AddObjectActions()
+	{
+	}
+
 	public static void doBaseChecks(CDOMObject po, final PlayerCharacter aPC)
 	{
 		aPC.setDirty(true);

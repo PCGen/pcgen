@@ -44,6 +44,10 @@ import pcgen.core.spell.Spell;
 
 public class DomainApplication
 {
+	private DomainApplication()
+	{
+	}
+
 	/**
 	 * Sets the locked flag on a PC
 	 * 
