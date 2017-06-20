@@ -33,9 +33,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
@@ -387,11 +390,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			table.setRowSelectionInterval(row, row);
 		}
-		List<Integer> targets = new ArrayList<>();
-		for (int selRow : table.getSelectedRows())
-		{
-			targets.add(selRow);
-		}
+		List<Integer> targets = Arrays.stream(table.getSelectedRows()).boxed().collect(Collectors.toList());
 		return targets;
 	}
 
@@ -509,10 +508,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void actionPerformed(ActionEvent e)
 		{
 			JTree tree = equipmentSetTable.getTree();
-			for (int i = 0; i < tree.getRowCount(); i++)
-			{
-				tree.expandRow(i);
-			}
+			IntStream.range(0, tree.getRowCount()).forEach(tree::expandRow);
 		}
 
 	}
@@ -751,11 +747,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			if (flavor == equipmentArrayFlavor)
 			{
-				EquipmentFacade[] equipArray = new EquipmentFacade[nodeArray.length];
-				for (int i = 0; i < equipArray.length; i++)
-				{
-					equipArray[i] = nodeArray[i].getEquipment();
-				}
+				EquipmentFacade[] equipArray =
+						Arrays.stream(nodeArray).map(EquipNode::getEquipment).toArray(EquipmentFacade[]::new);
 				return equipArray;
 			}
 			throw new UnsupportedFlavorException(flavor);
@@ -796,11 +789,13 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				{
 					return null;
 				}
-				EquipmentFacade[] equipArray = new EquipmentFacade[rows.length];
-				for (int i = 0; i < equipArray.length; i++)
-				{
-					equipArray[i] = (EquipmentFacade) equipmentTable.getModel().getValueAt(rows[i], 0);
-				}
+				EquipmentFacade[] equipArray = Arrays.stream(rows)
+				                                     .mapToObj(row -> (EquipmentFacade) equipmentTable.getModel()
+				                                                                                      .getValueAt(
+						                                                                                      row,
+						                                                                                      0
+				                                                                                      ))
+				                                     .toArray(EquipmentFacade[]::new);
 				return new EquipmentSelection(equipArray);
 			}
 			return super.createTransferable(c);
@@ -890,11 +885,10 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				{
 					return null;
 				}
-				EquipNode[] nodeArray = new EquipNode[rows.length];
-				for (int i = 0; i < nodeArray.length; i++)
-				{
-					nodeArray[i] = (EquipNode) equipmentSetTable.getModel().getValueAt(rows[i], 0);
-				}
+				EquipNode[] nodeArray = Arrays.stream(rows)
+				                              .mapToObj(row -> (EquipNode) equipmentSetTable.getModel()
+				                                                                            .getValueAt(row, 0))
+				                              .toArray(EquipNode[]::new);
 				return new EquipNodeSelection(nodeArray);
 			}
 			return super.createTransferable(c);
@@ -1270,10 +1264,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			EquipmentSetFacade equipSet
 					= character.getEquipmentSetRef().get();
-			for (EquipNode equipNode : targets)
-			{
-				equipSet.sortEquipment(equipNode);
-			}
+			targets.forEach(equipSet::sortEquipment);
 		}
 
 	}

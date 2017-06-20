@@ -20,6 +20,7 @@
 package pcgen.gui2.util.table;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.event.TableColumnModelEvent;
@@ -77,10 +78,9 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
                                            int[] visibleColumns)
     {
         this(model, offset);
-        for (int column : visibleColumns)
-        {
-            super.addColumn(availableColumns.get(column - offset));
-        }
+	    Arrays.stream(visibleColumns)
+	          .mapToObj(column -> availableColumns.get(column - offset))
+	          .forEach(super::addColumn);
     }
 
 	@Override

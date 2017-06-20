@@ -34,6 +34,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Vector;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.AbstractCellEditor;
@@ -272,10 +273,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		
 		public void install()
 		{
-			for (TreePath path : expandedPaths)
-			{
-				tree.expandPath(path);
-			}
+			expandedPaths.forEach(tree::expandPath);
 			tree.addTreeExpansionListener(this);
 		}
 		
@@ -992,11 +990,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			public void referenceChanged(ReferenceEvent<String> e)
 			{
 				children.sort(Comparators.toStringIgnoreCaseCollator());
-				int[] indexes = new int[getChildCount()];
-				for (int i = 0; i < indexes.length; i++)
-				{
-					indexes[i] = i;
-				}
+				int[] indexes = IntStream.range(0, getChildCount()).toArray();
 				nodesChanged(this, indexes);
 			}
 			
@@ -1006,11 +1000,9 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				super.setParent(newParent);
 				if (newParent == null && children != null)
 				{
-					for (int i = 0; i < getChildCount(); i++)
-					{
-						CompanionNode child = (CompanionNode) getChildAt(i);
-						child.companion.getNameRef().removeReferenceListener(this);
-					}
+					IntStream.range(0, getChildCount())
+					         .mapToObj(i -> (CompanionNode) getChildAt(i))
+					         .forEach(child -> child.companion.getNameRef().removeReferenceListener(this));
 				}
 			}
 			
@@ -1037,11 +1029,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				types.addAll(maxMap.getKeys());
 				types.sort(Comparators.toStringIgnoreCaseCollator());
 				removeAllChildren();
-				for (String key : types)
-				{
-					CompanionTypeNode child = new CompanionTypeNode(key);
-					add(child);
-				}
+				types.stream().map(CompanionTypeNode::new).forEach(this::add);
 				for (CompanionFacade companion : companions)
 				{
 					addCompanion(companion, true);

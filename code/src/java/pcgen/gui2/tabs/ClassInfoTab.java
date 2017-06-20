@@ -30,6 +30,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -260,11 +262,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		if (clazz != null)
 		{
-			ClassFacade[] classes = new ClassFacade[spinnerValue];
-			for (int x = 0; x < spinnerValue; x++)
-			{
-				classes[x] = clazz;
-			}
+			ClassFacade[] classes = IntStream.range(0, spinnerValue).mapToObj(x -> clazz).toArray(ClassFacade[]::new);
 			character.addCharacterLevels(classes);
 		}
 	}
@@ -646,11 +644,9 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 						if (types != null && types.length > 0)
 						{
 							List<TreeViewPath<ClassFacade>> paths
-									= new ArrayList<>(types.length);
-							for (String type : types)
-							{
-								paths.add(new TreeViewPath<>(pobj, type));
-							}
+									= Arrays.stream(types)
+									        .map(type -> new TreeViewPath<>(pobj, type))
+									        .collect(Collectors.toCollection(() -> new ArrayList<>(types.length)));
 							return paths;
 						}
 					case NAME:

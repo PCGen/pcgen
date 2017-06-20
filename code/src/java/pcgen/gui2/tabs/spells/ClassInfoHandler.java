@@ -18,6 +18,8 @@
  */
 package pcgen.gui2.tabs.spells;
 
+import java.util.Arrays;
+
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -79,17 +81,13 @@ class ClassInfoHandler implements ListSelectionListener
 			{
 				return;
 			}
-			ClassFacade c = null;
+			ClassFacade c;
 			DefaultMutableTreeNode treenode = (DefaultMutableTreeNode) path.getLastPathComponent();
 			Object[] objs = treenode.getUserObjectPath();
-			for (Object object : objs)
-			{
-				if (object instanceof ClassFacade)
-				{
-					c = (ClassFacade) object;
-					break;
-				}
-			}
+			c = (ClassFacade) Arrays.stream(objs)
+			                        .filter(object -> object instanceof ClassFacade)
+			                        .findFirst()
+			                        .orElse(null);
 			if (c != null)
 			{
 				text = character.getSpellSupport().getClassInfo(c);

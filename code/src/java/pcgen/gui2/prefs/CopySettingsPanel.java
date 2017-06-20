@@ -199,10 +199,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 
 			
 			// Refresh the affected settings panels
-			for (PCGenPrefsPanel panel : affectedPanels)
-			{
-				panel.applyOptionValuesToControls();
-			}
+			affectedPanels.forEach(PCGenPrefsPanel::applyOptionValuesToControls);
 
 			// Let the user know it is done
 			ShowMessageDelegate.showMessageDialog(

@@ -53,14 +53,11 @@ public final class EquipmentMigration
 				)
 		);
 
-		for (MigrationRule rule : equipChangeList)
-		{
-			if (rule.getOldKey().equalsIgnoreCase(equipKey))
-			{
-				return rule.getNewKey();
-			}
-		}
-		return equipKey;
+		return equipChangeList.stream()
+		                      .filter(rule -> rule.getOldKey().equalsIgnoreCase(equipKey))
+		                      .findFirst()
+		                      .map(MigrationRule::getNewKey)
+		                      .orElse(equipKey);
 	}
 	
 

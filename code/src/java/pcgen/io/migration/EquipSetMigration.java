@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
@@ -87,16 +88,11 @@ public class EquipSetMigration
 	private static List<EquipSet> getSortedChildren(
 		Collection<EquipSet> allEquipSets, String parentIdPath)
 	{
-		List<EquipSet> children = new ArrayList<>();
-		for (EquipSet equipSet : allEquipSets)
-		{
-			if (equipSet.getParentIdPath().equals(parentIdPath))
-			{
-				children.add(equipSet);
-			}
-		}
+		List<EquipSet> children = allEquipSets.stream()
+		                                      .filter(equipSet -> equipSet.getParentIdPath().equals(parentIdPath))
+		                                      .sorted(comparator)
+		                                      .collect(Collectors.toList());
 
-		children.sort(comparator);
 		return children;
 	}
 

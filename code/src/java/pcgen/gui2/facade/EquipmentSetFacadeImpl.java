@@ -34,6 +34,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -1131,13 +1132,11 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		//TODO: Extra secondary locations for more than 2 arms
 
 		List<String> namesList = Arrays.asList(incompatLocNames);
-		for (EquipSlot slot : equipSlotNodeMap.keySet())
-		{
-			if (namesList.contains(slot.toString()))
-			{
-				wpnList.add(equipSlotNodeMap.get(slot));
-			}
-		}
+		wpnList = equipSlotNodeMap.keySet()
+		                          .stream()
+		                          .filter(slot -> namesList.contains(slot.toString()))
+		                          .map(slot -> equipSlotNodeMap.get(slot))
+		                          .collect(Collectors.toList());
 		return wpnList;
 	}
 
@@ -1296,13 +1295,10 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 
 		// Add hiddenPNs to neededPNs if they now have spare capacity
-		for (EquipNode node : hiddenPhantomNodes)
-		{
-			if (getNumFreeSlots(node) > 0)
-			{
-				neededPNs.add((EquipNodeImpl) node);
-			}
-		}
+		hiddenPhantomNodes.stream()
+		                  .filter(node -> getNumFreeSlots(node) > 0)
+		                  .map(node -> (EquipNodeImpl) node)
+		                  .forEach(neededPNs::add);
 
 		// Remove the phantom nodes flagged, add to hiddenPNs as needed
 		for (EquipNode node : nodesToBeRemoved)
@@ -1758,14 +1754,10 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	private boolean pcHasUnequippedNaturalWeapons()
 	{
-		for (Equipment equipItem : theCharacter.getEquipmentMasterList())
-		{
-			if (equipItem.isNatural() && !equippedItemsList.containsElement(equipItem))
-			{
-				return true;
-			}
-		}
-		return false;
+		return theCharacter.getEquipmentMasterList()
+		                   .stream()
+		                   .anyMatch(equipItem -> equipItem.isNatural()
+				                   && !equippedItemsList.containsElement(equipItem));
 	}
 
 	/**

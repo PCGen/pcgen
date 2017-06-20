@@ -27,7 +27,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.AbstractCellEditor;
@@ -182,29 +185,20 @@ public class EquipmentModels
 	private List<EquipNode> getSelectedEquipmentSetNodes()
 	{
 		int[] rows = equipmentSetTable.getSelectedRows();
-		List<EquipNode> paths = new ArrayList<>();
-		for (int row : rows)
-		{
-			EquipNode path = (EquipNode) equipmentSetTable.getValueAt(row, 0);
-			if (path.getNodeType() == NodeType.EQUIPMENT)
-			{
-				paths.add(path);
-			}
-		}
+		List<EquipNode> paths = Arrays.stream(rows)
+		                              .mapToObj(row -> (EquipNode) equipmentSetTable.getValueAt(row, 0))
+		                              .filter(path -> path.getNodeType() == NodeType.EQUIPMENT)
+		                              .collect(Collectors.toList());
 		return paths;
 	}
 
 	private void selectNodeInEquipmentSetTable(EquipNode nodeToSelect)
 	{
 		TableModel model = equipmentSetTable.getModel();
-		for (int i = 0; i < model.getRowCount(); i++)
-		{
-			if (nodeToSelect == model.getValueAt(i, 0))
-			{
-				equipmentSetTable.getSelectionModel().setSelectionInterval(i, i);
-				break;
-			}
-		}
+		IntStream.range(0, model.getRowCount())
+		         .filter(i -> nodeToSelect == model.getValueAt(i, 0))
+		         .findFirst()
+		         .ifPresent(i -> equipmentSetTable.getSelectionModel().setSelectionInterval(i, i));
 	}
 	
 	private static JScrollPane prepareScrollPane(JTable table)
@@ -421,21 +415,22 @@ public class EquipmentModels
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			List<EquipmentFacade> equipment = new ArrayList<>();
 
-			for (int selectedRow : selectedRows)
-			{
-				EquipmentFacade equipmentFacade = selectedModel.getValue(selectedRow);
-				for (EquipNode path : equipSet.getNodes())
-				{
-					if (equipSet.canEquip(path, equipmentFacade))
-					{
-						equipMap.addToListFor(equipmentFacade, path);
-					}
-				}
-				if (equipMap.containsListFor(equipmentFacade))
-				{
-					equipment.add(equipmentFacade);
-				}
-			}
+			Arrays.stream(selectedRows)
+			      .mapToObj(selectedRow -> selectedModel.getValue(selectedRow))
+			      .forEach(equipmentFacade ->
+			      {
+				      for (EquipNode path : equipSet.getNodes())
+				      {
+					      if (equipSet.canEquip(path, equipmentFacade))
+					      {
+						      equipMap.addToListFor(equipmentFacade, path);
+					      }
+				      }
+				      if (equipMap.containsListFor(equipmentFacade))
+				      {
+					      equipment.add(equipmentFacade);
+				      }
+			      });
 			if (!equipment.isEmpty())
 			{
 				Object[][] data = new Object[equipment.size()][3];

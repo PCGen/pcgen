@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -223,20 +224,14 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		{
 			notes.addListListener(this);
 
-			for (NoteInfoPane noteInfoPane : notePaneList)
-			{
-				addPage(noteInfoPane);
-			}
+			notePaneList.forEach(DescriptionInfoTab.this::addPage);
 		}
 
 		public void uninstall()
 		{
 			notes.removeListListener(this);
 
-			for (NoteInfoPane noteInfoPane : notePaneList)
-			{
-				removePage(noteInfoPane);
-			}
+			notePaneList.forEach(DescriptionInfoTab.this::removePage);
 		}
 
 		@Override
@@ -279,25 +274,17 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 					break;
 				}
 			}
-			for (int i = 0; i < listModel.getSize(); i++)
-			{
-				PageItem item = (PageItem) listModel.elementAt(i);
-				if (note == item.note)
-				{
-					listModel.removeElement(item);
-					break;
-				}
-
-			}
+			IntStream.range(0, listModel.getSize())
+			         .mapToObj(i -> (PageItem) listModel.elementAt(i))
+			         .filter(item -> note == item.note)
+			         .findFirst()
+			         .ifPresent(listModel::removeElement);
 		}
 
 		@Override
 		public void elementsChanged(ListEvent<NoteFacade> e)
 		{
-			for (NoteInfoPane pane : notePaneList)
-			{
-				listModel.removeElement(pane);
-			}
+			notePaneList.forEach(listModel::removeElement);
 			notePaneList.clear();
 			for (NoteFacade note : notes)
 			{
