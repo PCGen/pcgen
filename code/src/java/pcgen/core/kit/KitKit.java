@@ -67,13 +67,12 @@ public class KitKit extends BaseKit
 		List<String> warnings)
 	{
 		appliedKits = new HashMap<>();
-		for (CDOMSingleRef<Kit> ref : availableKits)
+		availableKits.stream().map(CDOMSingleRef::get).forEach(addedKit ->
 		{
-			Kit addedKit = ref.get();
 			ArrayList<BaseKit> thingsToAdd = new ArrayList<>();
 			addedKit.testApplyKit(aPC, thingsToAdd, warnings, true);
 			appliedKits.put(addedKit, thingsToAdd);
-		}
+		});
 		return true;
 	}
 

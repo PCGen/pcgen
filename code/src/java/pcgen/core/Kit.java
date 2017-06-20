@@ -303,23 +303,14 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			kStat.testApply(this, tempPC, warnings);
 		}
 
-		for (BaseKit bk : getSafeListFor(ListKey.KIT_TASKS))
-		{
-			if (!PrereqHandler
-				.passesAll(bk.getPrerequisiteList(), tempPC, this))
-			{
-				continue;
-			}
-			if (selectValue != -1 && bk.isOptional()
-				&& !bk.isOption(tempPC, selectValue))
-			{
-				continue;
-			}
-			if (bk.testApply(this, tempPC, warnings))
-			{
-				thingsToAdd.add(bk);
-			}
-		}
+		getSafeListFor(ListKey.KIT_TASKS).stream()
+		                                 .filter(bk -> PrereqHandler
+				                                 .passesAll(bk.getPrerequisiteList(), tempPC, this))
+		                                 .filter(bk -> !(
+				                                 selectValue != -1 && bk.isOptional()
+						                                 && !bk.isOption(tempPC, selectValue)))
+		                                 .filter(bk -> bk.testApply(this, tempPC, warnings))
+		                                 .forEach(thingsToAdd::add);
 		
 		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(tempPC);
 		if (totalCostToBeCharged != null)

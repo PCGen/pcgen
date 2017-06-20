@@ -138,13 +138,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 		List<V> actualList = item.getListFor(key);
 		if (actualList != null)
 		{
-			for (V actual : actualList)
-			{
-				if (value != null && value.equals(actual))
-				{
-					return true;
-				}
-			}
+			return actualList.stream().anyMatch(actual -> value != null && value.equals(actual));
 		}
 		return false;
 	}

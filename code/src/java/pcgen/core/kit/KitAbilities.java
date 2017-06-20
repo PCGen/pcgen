@@ -21,6 +21,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -92,19 +93,16 @@ public final class KitAbilities extends BaseKit
 			firstDone = true;
 
 			String choice = ref.getChoice();
-			for (Ability a : ref.getContainedObjects())
+			ref.getContainedObjects().stream().filter(Objects::nonNull).forEach(a ->
 			{
-				if (a != null)
+				sb.append(a.getKeyName());
+				if (choice != null)
 				{
-					sb.append(a.getKeyName());
-					if (choice != null)
-					{
-						sb.append(" (");
-						sb.append(choice);
-						sb.append(')');
-					}
+					sb.append(" (");
+					sb.append(choice);
+					sb.append(')');
 				}
-			}
+			});
 		}
 
 		if (isFree())

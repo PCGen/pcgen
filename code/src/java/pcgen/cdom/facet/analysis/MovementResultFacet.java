@@ -22,6 +22,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMObject;
@@ -210,15 +212,12 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 
 			for (Movement mv : movementFacet.getSet(id))
 			{
-				for (int i1 = 0; i1 < mv.getNumberOfMovements(); i1++)
-				{
-					if (mv.getMovementType(i1) != null)
-					{
-						setMyMoveRates(mv.getMovementType(i1),
-							mv.getMovement(i1), mv.getMovementMult(i1),
-							mv.getMovementMultOp(i1), mv.getMoveRatesFlag());
-					}
-				}
+				IntStream.range(0, mv.getNumberOfMovements())
+				         .filter(i1 -> mv.getMovementType(i1) != null)
+				         .forEach(i1 -> setMyMoveRates(mv.getMovementType(i1),
+						         mv.getMovement(i1), mv.getMovementMult(i1),
+						         mv.getMovementMultOp(i1), mv.getMoveRatesFlag()
+				         ));
 			}
 
 			// Need to create movement entries if there is a BONUS:MOVEADD
@@ -522,11 +521,9 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 
 		public List<NamedValue> getMovementValues(CharID id)
 		{
-			List<NamedValue> list = new ArrayList<>();
-			for (int i = 0; i < countMovementTypes(); i++)
-			{
-				list.add(new NamedValue(getMovementType(i), movement(id, i)));
-			}
+			List<NamedValue> list = IntStream.range(0, countMovementTypes())
+			                                 .mapToObj(i -> new NamedValue(getMovementType(i), movement(id, i)))
+			                                 .collect(Collectors.toList());
 			return list;
 		}
 
@@ -588,14 +585,8 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 		 */
 		public boolean hasMovement(String moveType)
 		{
-			for (int i = 0; i < countMovementTypes(); i++)
-			{
-				if (getMovementType(i).equalsIgnoreCase(moveType))
-				{
-					return true;
-				}
-			}
-			return false;
+			return IntStream.range(0, countMovementTypes())
+			                .anyMatch(i -> getMovementType(i).equalsIgnoreCase(moveType));
 		}
 
 		/**

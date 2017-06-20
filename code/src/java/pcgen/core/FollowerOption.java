@@ -147,14 +147,13 @@ public class FollowerOption extends ConcretePrereqObject implements
 			options.add( this );
 			return options;
 		}
-		for (Race r : ref.getContainedObjects())
+		ref.getContainedObjects().stream().map(r -> new FollowerOption(CDOMDirectSingleRef
+				.getRef(r), list)).forEach(opt ->
 		{
-			final FollowerOption opt = new FollowerOption(CDOMDirectSingleRef
-					.getRef(r), list);
 			opt.setAdjustment(getAdjustment());
 			opt.addAllPrerequisites(getPrerequisiteList());
 			options.add(opt);
-		}
+		});
 		return options;
 	}
 }

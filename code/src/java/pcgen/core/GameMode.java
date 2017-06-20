@@ -29,6 +29,7 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
@@ -302,15 +303,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 				return acKey;
 			}
 		}
-		for (String acKey : ACTypeRemoveMap.getKeySet())
-		{
-			if (acKey.equalsIgnoreCase(acType))
-			{
-				return acKey;
-			}
-		}
-		
-		return acType;
+		return ACTypeRemoveMap.getKeySet()
+		                      .stream()
+		                      .filter(acKey -> acKey.equalsIgnoreCase(acType))
+		                      .findFirst()
+		                      .orElse(acType);
+
 	}
 	/**
 	 * Set Alignment Text.
@@ -448,15 +446,11 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public ClassType getClassTypeByName(final String aClassKey)
 	{
-		for ( ClassType classType : classTypeList )
-		{
-			if (classType.getName().equalsIgnoreCase(aClassKey))
-			{
-				return classType;
-			}
-		}
+		return classTypeList.stream()
+		                    .filter(classType -> classType.getName().equalsIgnoreCase(aClassKey))
+		                    .findFirst()
+		                    .orElse(null);
 
-		return null;
 	}
 
 	/**
@@ -983,14 +977,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	{
 		if (cr.startsWith("1/"))
 		{
-			for (Map.Entry<Integer, String> entry : crStepsMap.entrySet())
-			{
-				if (entry.getValue().equals(cr))
-				{
-					return entry.getKey();
-				}
-			}
-			return null;
+			return crStepsMap.entrySet()
+			                 .stream()
+			                 .filter(entry -> entry.getValue().equals(cr))
+			                 .findFirst()
+			                 .map(Map.Entry::getKey)
+			                 .orElse(null);
 		}
 		return Integer.parseInt(cr);
 	}
@@ -2373,15 +2365,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			return Collections.emptyList();
 		}
-		List<AbilityCategory> catList = new ArrayList<>();
-		for (AbilityCategory cat : getAllAbilityCategories())
-		{
-			if (key.equals(cat.getKeyName())
-				|| key.equals(cat.getParentCategory().getKeyName()))
-			{
-				catList.add(cat);
-			}
-		}
+		List<AbilityCategory> catList = getAllAbilityCategories().stream().filter(cat -> key.equals(cat.getKeyName())
+				|| key.equals(cat.getParentCategory().getKeyName())).collect(Collectors.toList());
 		return Collections.unmodifiableCollection(catList);
 	}
 
@@ -2873,14 +2858,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			return null;
 		}
-		for (Map.Entry<CDOMSingleRef<TabInfo>, Boolean> me : visibleTabs.entrySet())
-		{
-			if (ti.equals(me.getKey().get()))
-			{
-				return me.getValue();
-			}
-		}
-		return null;
+		return visibleTabs.entrySet()
+		                  .stream()
+		                  .filter(me -> ti.equals(me.getKey().get()))
+		                  .findFirst()
+		                  .map(Map.Entry::getValue)
+		                  .orElse(null);
 	}
 
 	/*

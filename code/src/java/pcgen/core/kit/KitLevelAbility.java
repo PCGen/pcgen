@@ -19,6 +19,7 @@ package pcgen.core.kit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
@@ -130,11 +131,8 @@ public final class KitLevelAbility extends BaseKit
 	private <T> void process(PlayerCharacter pc, PCClass cl,
 		PersistentTransitionChoice<T> ch)
 	{
-		List<T> list = new ArrayList<>();
-		for (String s : choiceList)
-		{
-			list.add(ch.decodeChoice(Globals.getContext(), s));
-		}
+		List<T> list =
+				choiceList.stream().map(s -> ch.decodeChoice(Globals.getContext(), s)).collect(Collectors.toList());
 		//use ch
 		ch.act(list, cl, pc);
 	}

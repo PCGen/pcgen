@@ -19,6 +19,7 @@ package pcgen.core.kit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -139,16 +140,8 @@ public class KitLangBonus extends BaseKit
 	@Override
 	public String toString()
 	{
-		StringBuilder result = new StringBuilder();
-		for (CDOMSingleRef<Language> lang : langList)
-		{
-			if (result.length() > 0)
-			{
-				result.append(", ");
-			}
-			result.append(lang.getLSTformat(false));
-		}
-		return result.toString();
+		String result = langList.stream().map(lang -> lang.getLSTformat(false)).collect(Collectors.joining(", "));
+		return result;
 	}
 
 	public void addLanguage(CDOMSingleRef<Language> reference)

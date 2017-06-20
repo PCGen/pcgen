@@ -190,15 +190,11 @@ public final class Globals
 	 */
 	public static Campaign getCampaignKeyedSilently(final String aKey)
 	{
-		for ( final Campaign campaign : campaignList)
-		{
-			if (campaign.getKeyName().equalsIgnoreCase(aKey))
-			{
-				return campaign;
-			}
-		}
+		return campaignList.stream()
+		                   .filter(campaign -> campaign.getKeyName().equalsIgnoreCase(aKey))
+		                   .findFirst()
+		                   .orElse(null);
 
-		return null;
 	}
 
 	/**
@@ -287,15 +283,12 @@ public final class Globals
 	 */
 	public static EquipSlot getEquipSlotByName(final String aName)
 	{
-		for (final EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
-		{
-			if (es.getSlotName().equals(aName))
-			{
-				return es;
-			}
-		}
+		return SystemCollections.getUnmodifiableEquipSlotList()
+		                        .stream()
+		                        .filter(es -> es.getSlotName().equals(aName))
+		                        .findFirst()
+		                        .orElse(null);
 
-		return null;
 	}
 
 	/**
