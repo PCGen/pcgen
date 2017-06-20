@@ -1,5 +1,5 @@
 /*
- * LogReceiver.java - Defines an interface for receiving Log events
+ * Defines an interface for receiving Log events
  * Copyright (C) 2003 Tod Milam
  *
  * This library is free software; you can redistribute it and/or
@@ -18,12 +18,12 @@
  */
 package gmgen.util;
 
-
 /**
  * LogReceiver is an interface specifying methods to be called for logging messages.
  * It is used by the LogUtilities class to allow log messages to be sent to any
  * number of logging destinations.
  */
+@FunctionalInterface
 public interface LogReceiver
 {
 	/**
@@ -34,10 +34,4 @@ public interface LogReceiver
 	 */
 	public void logMessage(String owner, String message);
 
-	/**
-	 * Logs a message not associated with a specific owner.
-	 *
-	 * @param message the message to log.
-	 */
-	public void logMessage(String message);
 }

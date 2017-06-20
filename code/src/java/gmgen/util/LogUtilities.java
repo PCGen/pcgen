@@ -1,5 +1,5 @@
 /*
- *  LogUtilities.java - Provides logging facilities for GMGen
+ *  Provides logging facilities for GMGen
  *  Copyright (C) 2003 Tod Milam
  *
  *  This library is free software; you can redistribute it and/or
@@ -19,18 +19,22 @@
 package gmgen.util;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *  LogUtilities is the class used to log messages in gmgen. It provides access
  *  to a singleton instance that can be used by system classes as well as
  *  plugins.
  */
+@SuppressWarnings("ClassWithoutLogger")
 public final class LogUtilities implements LogReceiver
 {
-	private static LogUtilities singleton = null;
-	private final List<LogReceiver> receivers;
-	private boolean logging;
+	@NotNull
+	private final Collection<LogReceiver> receivers = new ArrayList<>();
+	private boolean logging = false;
 
 	/**
 	 *  The private constructor. Called by inst to create the singleton instance if
@@ -38,8 +42,11 @@ public final class LogUtilities implements LogReceiver
 	 */
 	private LogUtilities()
 	{
-		logging = false;
-		receivers = new ArrayList<>();
+	}
+
+	private static final class SingletonHolder
+	{
+		private static final LogUtilities singleton = new LogUtilities();
 	}
 
 	/**
@@ -47,14 +54,11 @@ public final class LogUtilities implements LogReceiver
 	 *
 	 *@return    LogUtilities the singleton instance of this class.
 	 */
+	@Contract(pure = true)
+	@NotNull
 	public static LogUtilities inst()
 	{
-		if (singleton == null)
-		{
-			singleton = new LogUtilities();
-		}
-
-		return singleton;
+		return SingletonHolder.singleton;
 	}
 
 	/**
@@ -88,28 +92,8 @@ public final class LogUtilities implements LogReceiver
 	{
 		if (logging)
 		{
-			// send the message to all registered receivers
-			for (LogReceiver rcvr : receivers)
-			{
-				rcvr.logMessage(owner, message);
-			}
+			receivers.forEach(r -> r.logMessage(owner, message));
 		}
 	}
 
-	/**
-	 * Log a message without an owner - from LogReceiver
-	 *
-	 * @param  message  The message to send
-	 */
-    @Override
-	public void logMessage(String message)
-	{
-		if (logging)
-		{
-			for (LogReceiver rcvr : receivers)
-			{
-				rcvr.logMessage(message);
-			}
-		}
-	}
 }
