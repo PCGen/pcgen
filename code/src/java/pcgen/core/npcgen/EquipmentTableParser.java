@@ -412,6 +412,7 @@ public class EquipmentTableParser
 			else if ( "eqmod".equals(qName) ) //$NON-NLS-1$
 			{
 				// Do nothing
+				;
 			}
 	    }
 
