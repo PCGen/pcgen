@@ -444,7 +444,7 @@ public class VariableReport
 			builder.append(definingFile);
 			builder.append(", use=");
 			builder.append(use);
-			builder.append("]");
+			builder.append(']');
 			return builder.toString();
 		}
 

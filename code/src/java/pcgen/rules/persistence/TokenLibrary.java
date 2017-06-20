@@ -207,8 +207,8 @@ public final class TokenLibrary implements PluginLoader
 			{
 				Logging.errorPrint("Duplicate " + tok.getTokenClass().getSimpleName()
 					+ " Compatibility Token found for token " + tok.getTokenName()
-					+ " at compatibility level " + tok.compatibilityLevel() + "."
-					+ tok.compatibilitySubLevel() + "." + tok.compatibilityPriority());
+					+ " at compatibility level " + tok.compatibilityLevel() + '.'
+					+ tok.compatibilitySubLevel() + '.' + tok.compatibilityPriority());
 			}
 			TOKEN_FAMILIES.add(fam);
 			if (fam.compareTo(TokenFamily.REV514) <= 0 && PCCLASS_CLASS.equals(tok.getTokenClass()))
@@ -256,7 +256,7 @@ public final class TokenLibrary implements PluginLoader
 			{
 				Logging.errorPrint("Duplicate "
 					+ tok.getTokenClass().getSimpleName()
-					+ " Token found for token " + tok.getParentToken() + ":"
+					+ " Token found for token " + tok.getParentToken() + ':'
 					+ tok.getTokenName() + ". Classes were "
 					+ existingToken.getClass().getName() + " and "
 					+ newToken.getClass().getName());
@@ -282,7 +282,7 @@ public final class TokenLibrary implements PluginLoader
 				if (family.putSubToken(pos) != null)
 				{
 					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName()
-						+ " Token found for token " + pos.getParentToken() + ":"
+						+ " Token found for token " + pos.getParentToken() + ':'
 						+ pos.getTokenName());
 				}
 				family.putSubToken(pos);
@@ -296,7 +296,7 @@ public final class TokenLibrary implements PluginLoader
 				if (family.putSubToken(neg) != null)
 				{
 					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName()
-						+ " Token found for token " + neg.getParentToken() + ":"
+						+ " Token found for token " + neg.getParentToken() + ':'
 						+ neg.getTokenName());
 				}
 			}

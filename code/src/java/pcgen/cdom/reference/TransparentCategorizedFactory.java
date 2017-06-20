@@ -93,7 +93,7 @@ public class TransparentCategorizedFactory<T extends Categorized<T>>
 	@Override
 	public String getReferenceDescription()
 	{
-		return getReferenceClass().getSimpleName() + " " + category;
+		return getReferenceClass().getSimpleName() + ' ' + category;
 	}
 
 	@Override

@@ -85,7 +85,7 @@ public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
 		{
 			context.addWriteMessage("Visibility " + vis
 					+ " is not a valid Visibility for "
-					+ ac.getClass().getSimpleName() + " " + ac.getKeyName());
+					+ ac.getClass().getSimpleName() + ' ' + ac.getKeyName());
 			return null;
 		}
 		return new String[] { visString };
