@@ -36,11 +36,7 @@ public class EqmodTable extends Table
 		
 		final TableEntry entry = getEntry();
 		final List<Object> items = entry.getData();
-		for ( final Object item : items )
-		{
-			final EqmodItem eqItem = (EqmodItem)item;
-			ret.addAll(eqItem.getEqMods());
-		}
+		items.stream().map(item -> (EqmodItem) item).map(EqmodItem::getEqMods).forEach(ret::addAll);
 		
 		return ret;
 	}

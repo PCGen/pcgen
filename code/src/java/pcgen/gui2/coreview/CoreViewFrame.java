@@ -65,10 +65,7 @@ public class CoreViewFrame extends JFrame
 		viewTable = new JTreeViewTable<>();
 
 		perspectiveChooser = new JComboBoxEx();
-		for (CorePerspective pers : CorePerspective.getAllConstants())
-		{
-			perspectiveChooser.addItem(pers);
-		}
+		CorePerspective.getAllConstants().forEach(perspectiveChooser::addItem);
 		final CoreViewTreeViewModel coreViewTreeViewModel = new CoreViewTreeViewModel(character);
 
 		PerspectiveActionListener pal = new PerspectiveActionListener(coreViewTreeViewModel);

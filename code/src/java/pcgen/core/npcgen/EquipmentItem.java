@@ -93,14 +93,11 @@ public class EquipmentItem
 			{
 				for ( final Equipment eq : ret )
 				{
-					for ( final EqmodItem eqmodItem : theEqMods )
+					theEqMods.stream().flatMap(eqmodItem -> eqmodItem.getEqMods().stream()).forEach(eqmod ->
 					{
-						for ( final String eqmod : eqmodItem.getEqMods() )
-						{
-							Logging.debugPrint("Adding eqmod: " + eqmod);
-							eq.addEqModifiers(eqmod, true);
-						}
-					}
+						Logging.debugPrint("Adding eqmod: " + eqmod);
+						eq.addEqModifiers(eqmod, true);
+					});
 					// We need setBase() called.  The only way to do that is to resize.
 					// We will set the size to itself.
 					eq.resizeItem(null, eq.getSafe(ObjectKey.SIZE).get());

@@ -40,11 +40,7 @@ public class EquipmentTable extends Table
 		final TableEntry entry = getEntry();
 		Logging.debugPrint("Table: " + this + " -> " + entry);
 		final List<Object> items = entry.getData();
-		for ( final Object item : items )
-		{
-			final EquipmentItem eqItem = (EquipmentItem)item;
-			ret.addAll(eqItem.getEquipment());
-		}
+		items.stream().map(item -> (EquipmentItem) item).map(EquipmentItem::getEquipment).forEach(ret::addAll);
 		return ret;
 	}
 	

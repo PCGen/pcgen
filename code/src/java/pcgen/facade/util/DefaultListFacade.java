@@ -225,14 +225,8 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 			setContents(newElements);
 			return;
 		}
-		
-		for (E elem : newElements)
-		{
-			if (!containsElement(elem))
-			{
-				addElement(elem);
-			}
-		}
+
+		newElements.stream().filter(elem -> !containsElement(elem)).forEach(this::addElement);
 		
 		for (Iterator<E> iterator = elementList.iterator(); iterator.hasNext();)
 		{

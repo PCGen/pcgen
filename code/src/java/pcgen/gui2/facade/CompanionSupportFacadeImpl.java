@@ -25,6 +25,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
+import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.CompanionList;
@@ -191,13 +192,14 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		{
 			keyToCompanionListMap.put(compList.getKeyName(), compList);
 			Map<FollowerOption, CDOMObject> fMap = charDisplay.getAvailableFollowers(compList.getKeyName(), null);
-			for (FollowerOption followerOpt : fMap.keySet())
-			{
-				if (followerOpt.getRace() != Globals.s_EMPTYRACE && followerOpt.qualifies(theCharacter, null))
-				{
-					companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
-				}
-			}
+			fMap.keySet()
+			    .stream()
+			    .filter(followerOpt -> followerOpt.getRace() != Globals.s_EMPTYRACE && followerOpt.qualifies(
+					    theCharacter,
+					    null
+			    ))
+			    .map(followerOpt -> new CompanionStub(followerOpt.getRace(), compList.getKeyName()))
+			    .forEach(companions::add);
 			int maxVal = theCharacter.getMaxFollowers(compList);
 			if (maxVal == 0)
 			{
@@ -214,23 +216,22 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		
 		if (rebuildCompanionList)
 		{
-			for (Follower follower : charDisplay.getFollowerList())
+			charDisplay.getFollowerList().stream().map(follower -> new CompanionNotLoaded(follower.getName(), new File(
+					follower.getFileName()), follower.getRace(), follower
+					.getType().toString())).forEach(comp ->
 			{
-				CompanionFacade comp =
-						new CompanionNotLoaded(follower.getName(), new File(
-							follower.getFileName()), follower.getRace(), follower
-							.getType().toString());
 				CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
 				delegate.setCompanionFacade(comp);
 				companionList.addElement(delegate);
-			}
+			});
 		}
 		//Logging.debugPrint("Companion list " + companionList);
-		for (CompanionList compList : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(CompanionList.class))
-		{
-			updateCompanionTodo(compList.toString());
-		}
+		Globals.getContext()
+		       .getReferenceContext()
+		       .getConstructedCDOMObjects(CompanionList.class)
+		       .stream()
+		       .map(CDOMListObject::toString)
+		       .forEach(this::updateCompanionTodo);
 	}
 
 
@@ -328,16 +329,9 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 
 	private FollowerOption getFollowerOpt(CompanionList compList, Race compRace)
 	{
-		FollowerOption followerOpt = null; 
+		FollowerOption followerOpt;
 		Map<FollowerOption, CDOMObject> fMap = charDisplay.getAvailableFollowers(compList.getKeyName(), null);
-		for (FollowerOption fOpt : fMap.keySet())
-		{
-			if (compRace == fOpt.getRace())
-			{
-				followerOpt = fOpt;
-				break;
-			}
-		}
+		followerOpt = fMap.keySet().stream().filter(fOpt -> compRace == fOpt.getRace()).findFirst().orElse(null);
 		return followerOpt;
 	}
 

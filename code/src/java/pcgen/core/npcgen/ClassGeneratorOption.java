@@ -43,13 +43,12 @@ public class ClassGeneratorOption extends GeneratorOption
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
 		{
-			for ( final PCClass pcClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class) )
-			{
-				if ( ! theChoices.contains(pcClass) )
-				{
-					theChoices.add(pcClass, aWeight);
-				}
-			}
+			Globals.getContext()
+			       .getReferenceContext()
+			       .getConstructedCDOMObjects(PCClass.class)
+			       .stream()
+			       .filter(pcClass -> !theChoices.contains(pcClass))
+			       .forEach(pcClass -> theChoices.add(pcClass, aWeight));
 			return;
 		}
 		if ( aValue.startsWith("TYPE") ) //$NON-NLS-1$

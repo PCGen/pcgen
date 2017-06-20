@@ -88,19 +88,20 @@ class CoreUtils
 				}
 			}
 		}
-		for (Object location : locations)
+		/*
+		 * Check the source of each child to identify if:
+		 *
+		 * (a) The source is a Loadable that can thus be identified as such
+		 *
+		 * (b) The source is a known facet (and thus is identified as such)
+		 *
+		 * (c) the source is not something recognized
+		 *///Not a recognized view
+//A View, but not part of this perspective
+//Insert the contents of the facet as children of this node
+		locations.stream().<FacetView<T>>map(location -> CorePerspectiveDB.getView(pers, location)).forEach(view ->
 		{
-			FacetView<T> view = CorePerspectiveDB.getView(pers, location);
 			CoreViewNodeBase node = facetToNode.get(view);
-			/*
-			 * Check the source of each child to identify if:
-			 * 
-			 * (a) The source is a Loadable that can thus be identified as such
-			 * 
-			 * (b) The source is a known facet (and thus is identified as such)
-			 * 
-			 * (c) the source is not something recognized
-			 */
 			for (T obj : view.getSet(id))
 			{
 				List<String> sourceDesc = new ArrayList<>();
@@ -118,30 +119,29 @@ class CoreUtils
 						{
 							//Not a recognized view
 							sourceDesc.add("Orphaned ["
-								+ src.getClass().getSimpleName() + "]");
+									+ src.getClass().getSimpleName() + "]");
 						}
 						else if (facetToNode.get(srcView) == null)
 						{
 							//A View, but not part of this perspective
 							sourceDesc.add("Other Perspective ["
-								+ CorePerspectiveDB.getPerspectiveOfFacet(src)
-								+ ": " + srcView.getDescription() + "]");
+									+ CorePerspectiveDB.getPerspectiveOfFacet(src)
+									+ ": " + srcView.getDescription() + "]");
 						}
 					}
 				}
 				//Insert the contents of the facet as children of this node
 				ObjectCoreViewNode<T> sourceNode =
-                        new ObjectCoreViewNode<>(pc, obj, sourceDesc);
+						new ObjectCoreViewNode<>(pc, obj, sourceDesc);
 				sourceNode.addGrantedByNode(node);
 				coreViewList.add(sourceNode);
 			}
-		}
+		});
 		/*
 		 * For each location, put sources as children in the tree
 		 */
-		for (Object location : locations)
+		locations.stream().<FacetView<T>>map(location -> CorePerspectiveDB.getView(pers, location)).forEach(view ->
 		{
-			FacetView<T> view = CorePerspectiveDB.getView(pers, location);
 			CoreViewNodeBase node = facetToNode.get(view);
 			List<FacetView<T>> facetInputs = sources.getListFor(view);
 			if (facetInputs != null)
@@ -151,7 +151,7 @@ class CoreUtils
 					facetToNode.get(facet).addGrantedByNode(node);
 				}
 			}
-		}
+		});
 		return coreViewList;
 	}
 

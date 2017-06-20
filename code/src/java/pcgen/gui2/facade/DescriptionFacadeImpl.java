@@ -145,13 +145,10 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	 */
 	private void addCharacterCustomFields()
 	{
-		for (BiographyField field : EnumSet.range(BiographyField.SPEECH_PATTERN, BiographyField.CATCH_PHRASE))
-		{
-			if (StringUtils.isNotEmpty(getBiographyField(field).get()))
-			{
-				customBiographyFields.addElement(field);
-			}
-		}
+		EnumSet.range(BiographyField.SPEECH_PATTERN, BiographyField.CATCH_PHRASE)
+		       .stream()
+		       .filter(field -> StringUtils.isNotEmpty(getBiographyField(field).get()))
+		       .forEach(customBiographyFields::addElement);
 	}
 
 	/**

@@ -556,11 +556,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			Collections.sort(files);
 					
 			URI osPath = new File(outputSheetsDir).toURI();
-			Object[] uriList = new Object[files.size()];
-			for (int i = 0; i < uriList.length; i++)
-			{
-				uriList[i] = osPath.relativize(files.get(i).toURI());
-			}
+			Object[] uriList = files.stream().map(file -> osPath.relativize(file.toURI())).toArray();
 			fileList.setListData(uriList);
 			if (StringUtils.isNotEmpty(defaultSheet))
 			{

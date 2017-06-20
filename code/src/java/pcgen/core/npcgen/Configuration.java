@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
@@ -130,26 +131,14 @@ public class Configuration
 	
 	public List<AlignGeneratorOption> getAlignmentOptions()
 	{
-		final List<AlignGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof AlignGeneratorOption )
-			{
-				ret.add((AlignGeneratorOption)opt);
-			}
-		}
+		final List<AlignGeneratorOption> ret = theGeneratorOptions.stream()
+		                                                          .filter(opt -> opt instanceof AlignGeneratorOption)
+		                                                          .map(opt -> (AlignGeneratorOption) opt)
+		                                                          .collect(Collectors.toList());
+
 		for (final PCAlignment align : Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class))
 		{
-			boolean included = false;
-			for (AlignGeneratorOption option : ret)
-			{
-				if (option.getName().equals(align.getDisplayName()))
-				{
-					included = true;
-					break;
-				}
-			}
+			boolean included = ret.stream().anyMatch(option -> option.getName().equals(align.getDisplayName()));
 			if (!align.getKeyName().equals(Constants.NONE) && !included)
 			{
 				final AlignGeneratorOption opt = new AlignGeneratorOption();
@@ -163,15 +152,11 @@ public class Configuration
 	
 	public List<RaceGeneratorOption> getRaceOptions()
 	{
-		final List<RaceGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof RaceGeneratorOption )
-			{
-				ret.add((RaceGeneratorOption)opt);
-			}
-		}
+		final List<RaceGeneratorOption> ret = theGeneratorOptions.stream()
+		                                                         .filter(opt -> opt instanceof RaceGeneratorOption)
+		                                                         .map(opt -> (RaceGeneratorOption) opt)
+		                                                         .collect(Collectors.toList());
+
 		for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
 		{
 			final RaceGeneratorOption opt = new RaceGeneratorOption();
@@ -184,15 +169,11 @@ public class Configuration
 
 	public List<GenderGeneratorOption> getGenderOptions()
 	{
-		final List<GenderGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof GenderGeneratorOption )
-			{
-				ret.add((GenderGeneratorOption)opt);
-			}
-		}
+		final List<GenderGeneratorOption> ret = theGeneratorOptions.stream()
+		                                                           .filter(opt -> opt instanceof GenderGeneratorOption)
+		                                                           .map(opt -> (GenderGeneratorOption) opt)
+		                                                           .collect(Collectors.toList());
+
 		for ( final Gender gender : Gender.values() )
 		{
 			final GenderGeneratorOption opt = new GenderGeneratorOption();
@@ -205,15 +186,11 @@ public class Configuration
 
 	public List<ClassGeneratorOption> getClassOptions()
 	{
-		final List<ClassGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof ClassGeneratorOption )
-			{
-				ret.add((ClassGeneratorOption)opt);
-			}
-		}
+		final List<ClassGeneratorOption> ret = theGeneratorOptions.stream()
+		                                                          .filter(opt -> opt instanceof ClassGeneratorOption)
+		                                                          .map(opt -> (ClassGeneratorOption) opt)
+		                                                          .collect(Collectors.toList());
+
 		for ( final PCClass pcClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class) )
 		{
 			final ClassGeneratorOption opt = new ClassGeneratorOption();
@@ -226,15 +203,11 @@ public class Configuration
 
 	public List<LevelGeneratorOption> getLevelOptions()
 	{
-		final List<LevelGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof LevelGeneratorOption )
-			{
-				ret.add((LevelGeneratorOption)opt);
-			}
-		}
+		final List<LevelGeneratorOption> ret = theGeneratorOptions.stream()
+		                                                          .filter(opt -> opt instanceof LevelGeneratorOption)
+		                                                          .map(opt -> (LevelGeneratorOption) opt)
+		                                                          .collect(Collectors.toList());
+
 		for ( int i = 1; i <= 20; i++ )
 		{
 			final LevelGeneratorOption opt = new LevelGeneratorOption();

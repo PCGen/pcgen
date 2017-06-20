@@ -23,6 +23,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -358,13 +359,9 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 					}
 					else
 					{
-						for (String aType : aFilter)
+						if (aFilter.stream().anyMatch(aEqMod::isType))
 						{
-							if (aEqMod.isType(aType))
-							{
-								newEqMods.add(aEqMod);
-								break;
-							}
+							newEqMods.add(aEqMod);
 						}
 					}
 				}
@@ -449,11 +446,8 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		int baseSpellLevel = spellBuilderFI.getSpellLevelRef().get();
 		int casterLevel = spellBuilderFI.getCasterLevelRef().get();
 		ListFacade<AbilityFacade> metamagicFeatsList = spellBuilderFI.getSelectedMetamagicFeats();
-		Object[] metamagicFeats = new Object[metamagicFeatsList.getSize()];
-		for (int i = 0; i < metamagicFeats.length; i++)
-		{
-			metamagicFeats[i] = metamagicFeatsList.getElementAt(i);
-		}
+		Object[] metamagicFeats =
+				IntStream.range(0, metamagicFeatsList.getSize()).mapToObj(metamagicFeatsList::getElementAt).toArray();
 
 		int charges = getNumCharges(eqMod);
 
