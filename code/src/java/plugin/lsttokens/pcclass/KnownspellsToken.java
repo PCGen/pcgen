@@ -195,7 +195,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 		if (added != null && !added.isEmpty())
 		{
 			TreeMapToList<CDOMReference<?>, Integer> map = new TreeMapToList<>(
-					ReferenceUtilities.REFERENCE_SORTER);
+					ReferenceUtilities::compareRefs);
 			for (KnownSpellIdentifier ksi : added)
 			{
 				CDOMReference<Spell> ref = ksi.getSpellReference();

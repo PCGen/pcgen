@@ -67,7 +67,7 @@ class ListChanges<T extends CDOMObject> implements
 	public Collection<CDOMReference<T>> getAdded()
 	{
 		TreeSet<CDOMReference<T>> set = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+                ReferenceUtilities::compareRefs);
 		Collection<CDOMReference<T>> listMods = positive.getListMods(list);
 		if (listMods != null)
 		{
@@ -100,7 +100,7 @@ class ListChanges<T extends CDOMObject> implements
 	public Collection<CDOMReference<T>> getRemoved()
 	{
 		TreeSet<CDOMReference<T>> set = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+                ReferenceUtilities::compareRefs);
 		if (negative == null)
 		{
 			return set;
@@ -143,7 +143,7 @@ class ListChanges<T extends CDOMObject> implements
 		}
 		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned =
                 new TreeMapToList<>(
-                        ReferenceUtilities.REFERENCE_SORTER);
+                        ReferenceUtilities::compareRefs);
 		for (CDOMReference<T> lw : mods)
 		{
 			Collection<AssociatedPrereqObject> assocs = positive
@@ -168,7 +168,7 @@ class ListChanges<T extends CDOMObject> implements
 	public MapToList<CDOMReference<T>, AssociatedPrereqObject> getRemovedAssociations()
 	{
 		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned = new TreeMapToList<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+                ReferenceUtilities::compareRefs);
 		if (negative == null)
 		{
 			return owned;

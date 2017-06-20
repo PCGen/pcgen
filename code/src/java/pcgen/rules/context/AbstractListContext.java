@@ -420,7 +420,7 @@ public abstract class AbstractListContext
 		{
 			OwnerURI lo = new OwnerURI(extractURI, owner);
 			TreeSet<CDOMReference<T>> list =
-					new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
+					new TreeSet<>(ReferenceUtilities::compareRefs);
 			Set<CDOMReference<? extends CDOMList<?>>> set =
 					positiveMasterMap.getKeySet();
 			if (set != null)

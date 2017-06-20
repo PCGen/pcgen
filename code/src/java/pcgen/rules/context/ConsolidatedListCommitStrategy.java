@@ -97,7 +97,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		CDOMObject owner, Class<T> cl)
 	{
 		TreeSet<CDOMReference<T>> set =
-				new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
+				new TreeSet<>(ReferenceUtilities::compareRefs);
 		LIST: for (CDOMReference<? extends CDOMList<?>> ref : masterList.getKeySet())
 		{
 			if (!cl.equals(ref.getReferenceClass()))

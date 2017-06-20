@@ -100,7 +100,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	public String getLSTformat(boolean useAny)
 	{
 		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+                ReferenceUtilities::compareRefs);
 		sortedSet.addAll(refCollection);
 		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
 				useAny);

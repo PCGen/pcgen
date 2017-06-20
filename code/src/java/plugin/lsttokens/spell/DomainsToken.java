@@ -351,7 +351,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 		SortedSet<CDOMReference<DomainSpellList>> set = new TreeSet<>(
-				ReferenceUtilities.REFERENCE_SORTER);
+				ReferenceUtilities::compareRefs);
 		SortedSet<Integer> levelSet = new TreeSet<>();
 		for (Prerequisite prereq : dkmtl.getKeySet())
 		{

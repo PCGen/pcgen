@@ -138,7 +138,7 @@ public class AbilityRefChoiceSet implements
 	public String getLSTformat(boolean useAny)
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+                ReferenceUtilities::compareRefs);
 		for (CDOMReference<Ability> ar : abilityRefSet)
 		{
 			sortedSet.add(ar);

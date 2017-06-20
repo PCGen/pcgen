@@ -37,15 +37,7 @@ public final class PrimitiveUtilities
 	}
 
 	public static final Comparator<PrimitiveCollection<?>> COLLECTION_SORTER =
-			new Comparator<PrimitiveCollection<?>>()
-	{
-		@Override
-		public int compare(PrimitiveCollection<?> lstw1,
-				PrimitiveCollection<?> lstw2)
-		{
-			return COLLATOR.compare(lstw1.getLSTformat(false), lstw2.getLSTformat(false));
-		}
-	};
+			(lstw1, lstw2) -> COLLATOR.compare(lstw1.getLSTformat(false), lstw2.getLSTformat(false));
 
 	public static String joinLstFormat(
 			Collection<? extends PrimitiveCollection<?>> pcfCollection,

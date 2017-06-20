@@ -19,7 +19,6 @@ package pcgen.cdom.reference;
 
 import java.text.Collator;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -39,12 +38,6 @@ public final class ReferenceUtilities
 	 * A COLLATOR used to sort Strings in a locale-aware method.
 	 */
 	private static final Collator COLLATOR = Collator.getInstance();
-
-	/**
-	 * A Comparator to consistently sort CDOMReference objects. This is done
-	 * using the ReferenceUtilities.compareRefs method.
-	 */
-	public static final Comparator<CDOMReference<?>> REFERENCE_SORTER = ReferenceUtilities::compareRefs;
 
 	private ReferenceUtilities()
 	{

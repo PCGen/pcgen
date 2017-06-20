@@ -183,7 +183,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		SortedSet<CDOMReference<WeaponProf>> set =
 				new TreeSet<>(
-						ReferenceUtilities.REFERENCE_SORTER);
+						ReferenceUtilities::compareRefs);
 		Set<String> returnSet = new TreeSet<>();
 		for (CDOMGroupRef<WeaponProf> result : m.getKeySet())
 		{

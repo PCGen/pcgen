@@ -360,7 +360,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 		SortedSet<CDOMReference<ClassSpellList>> set = new TreeSet<>(
-				ReferenceUtilities.REFERENCE_SORTER);
+				ReferenceUtilities::compareRefs);
 		SortedSet<Integer> levelSet = new TreeSet<>();
 		for (Prerequisite prereq : dkmtl.getKeySet())
 		{

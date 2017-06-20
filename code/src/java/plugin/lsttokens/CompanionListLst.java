@@ -357,7 +357,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 					sb.append(cl.getLSTformat(false));
 					sb.append(Constants.PIPE);
 					Set<CDOMReference<Race>> raceSet = new TreeSet<>(
-							ReferenceUtilities.REFERENCE_SORTER);
+							ReferenceUtilities::compareRefs);
 					raceSet.addAll(m.getListFor(prereqs, cl, fa));
 					sb.append(ReferenceUtilities.joinLstFormat(raceSet,
 							Constants.COMMA, true));

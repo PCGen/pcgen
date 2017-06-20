@@ -212,7 +212,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			List<CDOMReference<Equipment>> eq = m.getListFor(prereqs);
 			WeightedCollection<CDOMReference<Equipment>> refs =
 					new WeightedCollection<>(
-							ReferenceUtilities.REFERENCE_SORTER);
+							ReferenceUtilities::compareRefs);
 			refs.addAll(eq);
 			String ab = ReferenceUtilities.joinLstFormat(refs, Constants.PIPE);
 			if (prereqs != null && !prereqs.isEmpty())

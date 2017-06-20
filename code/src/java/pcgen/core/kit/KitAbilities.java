@@ -299,7 +299,7 @@ public final class KitAbilities extends BaseKit
 	public Collection<CDOMReference<Ability>> getAbilityKeys()
 	{
 		Set<CDOMReference<Ability>> wc = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+                ReferenceUtilities::compareRefs);
 		wc.addAll(abilities);
 		return wc;
 	}

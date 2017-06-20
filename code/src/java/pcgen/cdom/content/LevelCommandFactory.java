@@ -17,11 +17,15 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCClass;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A LevelCommandFactory is used to identify a PCClass which is to be applied
@@ -60,18 +64,8 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 */
 	public LevelCommandFactory(CDOMSingleRef<PCClass> classRef, Formula lvls)
 	{
-		if (classRef == null)
-		{
-			throw new IllegalArgumentException(
-					"Class Reference for LevelCommandFactory cannot be null");
-		}
-		if (lvls == null)
-		{
-			throw new IllegalArgumentException(
-					"Level Formula for LevelCommandFactory cannot be null");
-		}
-		pcClass = classRef;
-		levels = lvls;
+		pcClass = Objects.requireNonNull(classRef);
+		levels = Objects.requireNonNull(lvls);
 	}
 
 	/**
@@ -158,10 +152,9 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 *             if the given LevelCommandFactory is null
 	 */
 	@Override
-	public int compareTo(LevelCommandFactory other)
+	public int compareTo(@NotNull LevelCommandFactory other)
 	{
-		int compareResult = ReferenceUtilities.REFERENCE_SORTER.compare(
-				pcClass, other.pcClass);
+		int compareResult = ReferenceUtilities.compareRefs(pcClass, other.pcClass);
 		if (compareResult == 0)
 		{
 			if (levels.equals(other.levels))

@@ -154,7 +154,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 			map.addToListFor(key, ref);
 		}
 		Set<CDOMSingleRef<?>> set = new TreeSet<>(
-				ReferenceUtilities.REFERENCE_SORTER);
+				ReferenceUtilities::compareRefs);
 		Set<String> returnSet = new TreeSet<>();
 		for (String key : map.getKeySet())
 		{

@@ -75,10 +75,10 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 			List<CDOMReference<Equipment>> equipTypes)
 	{
 		direct = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+                ReferenceUtilities::compareRefs);
 		direct.addAll(profs);
 		byEquipType = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+                ReferenceUtilities::compareRefs);
 		byEquipType.addAll(equipTypes);
 	}
 

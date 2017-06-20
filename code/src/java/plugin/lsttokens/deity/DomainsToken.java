@@ -209,7 +209,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 			for (Set<Prerequisite> prereqs : m.getKeySet())
 			{
 				Set<CDOMReference<Domain>> domainSet = new TreeSet<>(
-						ReferenceUtilities.REFERENCE_SORTER);
+						ReferenceUtilities::compareRefs);
 				domainSet.addAll(m.getListFor(prereqs));
 				StringBuilder sb =
 						new StringBuilder(ReferenceUtilities.joinLstFormat(domainSet,

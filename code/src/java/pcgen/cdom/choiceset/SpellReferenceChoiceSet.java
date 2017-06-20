@@ -121,7 +121,7 @@ public class SpellReferenceChoiceSet implements
 	public String getLSTformat(boolean useAny)
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+                ReferenceUtilities::compareRefs);
 		sortedSet.addAll(set);
 		StringBuilder sb = new StringBuilder();
 		List<CDOMReference<?>> domainList = new ArrayList<>();

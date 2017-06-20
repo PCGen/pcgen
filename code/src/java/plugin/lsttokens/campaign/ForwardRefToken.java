@@ -136,7 +136,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 			map.addToListFor(key, ref);
 		}
 		Set<CDOMSingleRef<?>> set = new TreeSet<>(
-				ReferenceUtilities.REFERENCE_SORTER);
+				ReferenceUtilities::compareRefs);
 		Set<String> returnSet = new TreeSet<>();
 		for (String key : map.getKeySet())
 		{
