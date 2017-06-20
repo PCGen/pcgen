@@ -81,7 +81,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	 *  Places the whole {@code JTabbedPane} on the main frame setting it
 	 *  visible.
 	 */
-	public void showPane()
+	void showPane()
 	{
 		add(tabbedPane, java.awt.BorderLayout.CENTER);
 	}
@@ -94,6 +94,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
     @Override
 	public void stateChanged(ChangeEvent e)
 	{
+		// defaults to empty
 	}
 
 	/**
