@@ -18,6 +18,9 @@
  */
 package plugin.exporttokens;
 
+import java.math.BigDecimal;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -27,9 +30,6 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.BigDecimalHelper;
-
-import java.math.BigDecimal;
-import java.util.StringTokenizer;
 
 /**
  * Deals with EQCONTAINERW Token
@@ -149,7 +149,7 @@ public class EqContainerwToken extends Token
 			}
 			else if (property.equals("COST"))
 			{
-				retString = BigDecimalHelper.trimZeros(getCostToken(pc, eq));
+				retString = getCostToken(pc, eq).stripTrailingZeros().toPlainString();
 			}
 			else if (property.equals("CRITMULT"))
 			{

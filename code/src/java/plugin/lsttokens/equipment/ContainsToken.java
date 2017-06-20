@@ -32,7 +32,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.BigDecimalHelper;
 
 /**
  * Deals with CONTAINS token
@@ -110,8 +109,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 		{
 			try
 			{
-				weightCap = BigDecimalHelper.trimBigDecimal(new BigDecimal(
-						weightCapacity));
+				weightCap = new BigDecimal(weightCapacity).stripTrailingZeros();
 				if (BigDecimal.ZERO.compareTo(weightCap) > 0)
 				{
 					return new ParseResult.Fail(
@@ -166,8 +164,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 				{
 					try
 					{
-						itemNumber = BigDecimalHelper
-								.trimBigDecimal(new BigDecimal(itemNumString));
+						itemNumber = new BigDecimal(itemNumString).stripTrailingZeros();
 					}
 					catch (NumberFormatException ex)
 					{

@@ -665,7 +665,7 @@ public class EqToken extends Token
 	 */
 	public static String getCostToken(PlayerCharacter pc, Equipment eq)
 	{
-		return BigDecimalHelper.trimZeros(eq.getCost(pc));
+		return eq.getCost(pc).stripTrailingZeros().toPlainString();
 	}
 
 	/**

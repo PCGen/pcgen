@@ -148,7 +148,7 @@ public class EqContainerToken extends Token
 			}
 			else if (property.equals("COST"))
 			{
-				retString = BigDecimalHelper.trimZeros(getCostToken(pc, eq));
+				retString = getCostToken(pc, eq).stripTrailingZeros().toPlainString();
 			}
 			else if (property.equals("CRITMULT"))
 			{
