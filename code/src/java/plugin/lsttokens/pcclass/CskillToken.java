@@ -215,15 +215,13 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 			ClassSkillList csl = obj.get(ObjectKey.CLASS_SKILLLIST);
 			CDOMDirectSingleRef<ClassSkillList> listref = new CDOMDirectSingleRef<>(
 					csl);
-			for (CDOMReference<Skill> ref : list)
+			list.stream().flatMap(ref -> ref.getContainedObjects().stream()).forEach(sk ->
 			{
-				for (Skill sk : ref.getContainedObjects())
-				{
-					context.getListContext().addToMasterList(getTokenName(), obj, listref,
-							sk);
-					context.commit();
-				}
-			}
+				context.getListContext().addToMasterList(getTokenName(), obj, listref,
+						sk
+				);
+				context.commit();
+			});
 		}
 		return true;
 	}

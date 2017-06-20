@@ -1,5 +1,6 @@
 package plugin.lsttokens.eqslot;
 
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
@@ -58,10 +59,7 @@ public class ContainsToken implements EquipSlotLstToken
 
 		
 		final String[] types = type.split(",");
-		for (String pair : types)
-		{
-			eqSlot.addContainedType(pair.intern());
-		}
+		Arrays.stream(types).map(String::intern).forEach(eqSlot::addContainedType);
 		eqSlot.setContainNum(num);
 		return true;
 	}

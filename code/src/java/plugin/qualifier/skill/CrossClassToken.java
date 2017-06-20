@@ -140,13 +140,6 @@ public class CrossClassToken implements QualifierToken<Skill>, PrimitiveFilter<S
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
 		Collection<PCClass> classlist = pc.getClassSet();
-		for (PCClass cl : classlist)
-		{
-			if (SkillCost.CROSS_CLASS.equals(pc.skillCostForPCClass(sk, cl)))
-			{
-				return true;
-			}
-		}
-		return false;
+		return classlist.stream().anyMatch(cl -> SkillCost.CROSS_CLASS.equals(pc.skillCostForPCClass(sk, cl)));
 	}
 }

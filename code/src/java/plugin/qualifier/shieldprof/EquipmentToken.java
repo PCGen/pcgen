@@ -19,8 +19,10 @@ package plugin.qualifier.shieldprof;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
@@ -143,10 +145,7 @@ public class EquipmentToken implements QualifierToken<ShieldProf>,
 		Set<R> returnSet = new HashSet<>();
 		Collection<? extends ObjectContainer<ShieldProf>> intermediate =
 				pcs.getCollection(pc, this);
-		for (ObjectContainer<ShieldProf> ref : intermediate)
-		{
-			returnSet.addAll(c.convert(ref));
-		}
+		intermediate.stream().map(c::convert).forEach(returnSet::addAll);
 		return returnSet;
 	}
 
@@ -154,18 +153,12 @@ public class EquipmentToken implements QualifierToken<ShieldProf>,
 	public Collection<CDOMReference<ShieldProf>> convert(
 			ObjectContainer<Equipment> orig)
 	{
-		Set<CDOMReference<ShieldProf>> refSet = new HashSet<>();
-		for (Equipment e : orig.getContainedObjects())
-		{
-			if (e.getListFor(ListKey.TYPE).contains(SHIELD_TYPE))
-			{
-				CDOMSingleRef<ShieldProf> prof = e.get(ObjectKey.SHIELD_PROF);
-				if (prof != null)
-				{
-					refSet.add(prof);
-				}
-			}
-		}
+		Set<CDOMReference<ShieldProf>> refSet = orig.getContainedObjects()
+		                                            .stream()
+		                                            .filter(e -> e.getListFor(ListKey.TYPE).contains(SHIELD_TYPE))
+		                                            .map(e -> e.get(ObjectKey.SHIELD_PROF))
+		                                            .filter(Objects::nonNull)
+		                                            .collect(Collectors.toSet());
 		return refSet;
 	}
 

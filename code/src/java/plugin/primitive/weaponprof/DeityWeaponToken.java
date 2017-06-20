@@ -95,10 +95,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 		HashSet<R> set = new HashSet<>();
 		List<CDOMReference<WeaponProf>> dwp = deity
 				.getSafeListFor(ListKey.DEITYWEAPON);
-		for (CDOMReference<WeaponProf> ref : dwp)
-		{
-			set.addAll(c.convert(ref));
-		}
+		dwp.stream().map(c::convert).forEach(set::addAll);
 		return set;
 	}
 }

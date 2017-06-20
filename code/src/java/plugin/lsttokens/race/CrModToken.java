@@ -106,14 +106,9 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<>();
 		Map<String, Integer> added = changes.getAdded();
-		for (Map.Entry<String, Integer> me : added.entrySet())
-		{
-			set.add(new StringBuilder().append(me.getKey()).append(
-					Constants.PIPE).append(me.getValue()).toString());
-		}
-		return set.toArray(new String[set.size()]);
+		return added.entrySet().stream().map(me -> new StringBuilder().append(me.getKey()).append(
+				Constants.PIPE).append(me.getValue()).toString()).distinct().sorted().toArray(String[]::new);
 	}
 
 	/**

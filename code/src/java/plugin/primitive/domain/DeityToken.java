@@ -98,14 +98,10 @@ public class DeityToken implements PrimitiveToken<Domain>
 		{
 			Collection<AssociatedPrereqObject> assoc = deity
 					.getListAssociations(list, ref);
-			for (AssociatedPrereqObject apo : assoc)
+			if (assoc.stream().anyMatch(apo -> PrereqHandler
+					.passesAll(apo.getPrerequisiteList(), pc, deity)))
 			{
-				if (PrereqHandler
-						.passesAll(apo.getPrerequisiteList(), pc, deity))
-				{
-					returnSet.addAll(c.convert(ref));
-					break;
-				}
+				returnSet.addAll(c.convert(ref));
 			}
 		}
 		return returnSet;

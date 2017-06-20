@@ -139,13 +139,6 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
 		Collection<PCClass> classlist = pc.getClassSet();
-		for (PCClass cl : classlist)
-		{
-			if (pc.isClassSkill(cl, sk))
-			{
-				return true;
-			}
-		}
-		return false;
+		return classlist.stream().anyMatch(cl -> pc.isClassSkill(cl, sk));
 	}
 }

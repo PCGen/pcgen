@@ -64,17 +64,12 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 	{
 		ClassSpellList list = spelllist.get();
 		DataSetID datasetID = pc.getCharID().getDatasetID();
-		
-		for (AvailableSpell availSpell : masterAvailableSpellFacet
-			.getMatchingSpellsInList(list, datasetID, spell))
-		{
-			int level = availSpell.getLevel();
-			if (level >= 0 && allow(pc, level, "", spell, list))
-			{
-				return true;
-			}
-		}
-		return false;
+
+		return masterAvailableSpellFacet
+				.getMatchingSpellsInList(list, datasetID, spell)
+				.stream()
+				.mapToInt(AvailableSpell::getLevel)
+				.anyMatch(level -> level >= 0 && allow(pc, level, "", spell, list));
 	}
 
 	@Override
