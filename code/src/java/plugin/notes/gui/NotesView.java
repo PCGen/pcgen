@@ -2118,17 +2118,6 @@ public class NotesView extends JPanel
 				+ message);
 		}
 
-		/**
-		 * Logs a message not associated with a specific owner.
-		 *
-		 * @param message the message to log.
-		 */
-        @Override
-		public void logMessage(String message)
-		{
-			logMessage("Misc", message);
-		}
-
 		private NotesTreeNode getChildNode(String name, NotesTreeNode parentNode)
 		{
 			Enumeration<MutableTreeNode> newNodes = parentNode.children();
