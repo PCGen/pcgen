@@ -225,7 +225,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 			return source.equals(other.source)
 					&& category.equals(other.category)
 					&& ability.equals(other.ability)
-					&& nature.equals(other.nature);
+					&& nature == other.nature;
 		}
 		return false;
 	}
