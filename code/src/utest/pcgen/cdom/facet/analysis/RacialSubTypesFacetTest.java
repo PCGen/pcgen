@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import junit.framework.TestCase;
@@ -288,10 +289,7 @@ public class RacialSubTypesFacetTest extends TestCase
 		 * 
 		 * Number of instances is not properly counted!
 		 */
-		for (T obj : array)
-		{
-			assertTrue(c.contains(obj));
-		}
+		Arrays.stream(array).map(c::contains).forEach(TestCase::assertTrue);
 	}
 
 }

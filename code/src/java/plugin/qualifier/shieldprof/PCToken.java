@@ -52,15 +52,8 @@ public class PCToken extends AbstractPCQualifierToken<ShieldProf>
 	public boolean allow(PlayerCharacter pc, ShieldProf po)
 	{
 		Collection<ProfProvider<ShieldProf>> providers = pc.getShieldProfList();
-		for (ProfProvider<ShieldProf> profProvider : providers)
-		{
-			if (profProvider.providesProficiency(po))
-			{
-				return true;
-			}
-		}
-		
-		return false;
+
+		return providers.stream().anyMatch(profProvider -> profProvider.providesProficiency(po));
 	}
 
 }

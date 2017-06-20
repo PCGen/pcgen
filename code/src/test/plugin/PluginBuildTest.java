@@ -23,6 +23,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -598,15 +600,12 @@ public class PluginBuildTest extends TestCase
 		File jarFolder, String classSuffix, String[] sources)
 	{
 		assertTrue("Jar folder " + jarFolder.getAbsolutePath() + " should be a directory", jarFolder.isDirectory());
-		Set<String> jarSet = new HashSet<>();
+		Set<String> jarSet;
 		String[] jars = jarFolder.list();
-		for (int i = 0; i < jars.length; i++)
-		{
-			if (jars[i].startsWith(jarPrefix))
-			{
-				jarSet.add(jars[i].toLowerCase());
-			}
-		}
+		jarSet = IntStream.range(0, jars.length)
+		                  .filter(i -> jars[i].startsWith(jarPrefix))
+		                  .mapToObj(i -> jars[i].toLowerCase())
+		                  .collect(Collectors.toSet());
 		for (int i = 0; i < sources.length; i++)
 		{
 			if (sources[i] != null && sources[i].endsWith(".java"))
@@ -657,14 +656,11 @@ public class PluginBuildTest extends TestCase
 		{
 			String[] jars = folder.list();
 			String jarRegexPattern = jarRegexPrefix + ".*";
-			for (int i = 0; i < jars.length; i++)
-			{
-				if (jars[i].matches(jarRegexPattern))
-				{
-					String jarStr = jars[i].replaceFirst(jarRegexPrefix, "");
-					jarSet.add(jarStr.toLowerCase());
-				}
-			}
+			IntStream.range(0, jars.length)
+			         .filter(i -> jars[i].matches(jarRegexPattern))
+			         .mapToObj(i -> jars[i].replaceFirst(jarRegexPrefix, ""))
+			         .map(String::toLowerCase)
+			         .forEach(jarSet::add);
 		}
 		for (int i = 0; i < sources.length; i++)
 		{

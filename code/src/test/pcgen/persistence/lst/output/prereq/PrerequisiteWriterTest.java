@@ -20,6 +20,8 @@ package pcgen.persistence.lst.output.prereq;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.util.stream.IntStream;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -67,10 +69,7 @@ public class PrerequisiteWriterTest extends TestCase
 	public static Test suite()
 	{
 		TestSuite suite = new TestSuite();
-		for (int i = 0; i < testparams.length >> 1; ++i)
-		{
-			suite.addTest(new PrerequisiteWriterTest(i));
-		}
+		IntStream.range(0, testparams.length >> 1).mapToObj(PrerequisiteWriterTest::new).forEach(suite::addTest);
 		return suite;
 	}
 

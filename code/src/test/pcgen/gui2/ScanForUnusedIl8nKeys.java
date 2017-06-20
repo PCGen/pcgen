@@ -36,6 +36,7 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.DirectoryWalker;
 import org.apache.commons.io.IOUtils;
@@ -73,11 +74,8 @@ public class ScanForUnusedIl8nKeys
 		//Read in bundle, grab all keys
 		Properties p = new Properties();
 		p.load(new FileInputStream(CODE_PATH + PROPERTIES_PATH + PROPERTIES_FILE));
-		Set<String> keys = new TreeSet<>();
-		for (Entry e : p.entrySet())
-		{
-			keys.add((String)e.getKey());
-		}
+		Set<String> keys =
+				p.entrySet().stream().map(e -> (String) e.getKey()).collect(Collectors.toCollection(TreeSet::new));
 
 		// Grab a list of files to be scanned
 		List<File> fileList = buildFileList();
@@ -176,21 +174,14 @@ public class ScanForUnusedIl8nKeys
 		boolean lastLineBlank = false;
 		for (String line : lines)
 		{
-			boolean found = false;
+			boolean found;
 			if (lastLineBlank && line.trim().isEmpty())
 			{
 				continue;
 			}
 			else
 			{
-				for (String key : unusedKeys)
-				{
-					if (line.startsWith(key+"="))
-					{
-						found = true;
-						break;
-					}
-				}
+				found = unusedKeys.stream().anyMatch(key -> line.startsWith(key + "="));
 			}
 			if (!found)
 			{
@@ -226,7 +217,7 @@ public class ScanForUnusedIl8nKeys
 		boolean lastLineBlank = false;
 		for (String line : lines)
 		{
-			boolean found = false;
+			boolean found;
 			if (lastLineBlank && line.trim().isEmpty())
 			{
 				continue;
@@ -237,14 +228,7 @@ public class ScanForUnusedIl8nKeys
 			}
 			else
 			{
-				for (String key : unusedKeys)
-				{
-					if (line.startsWith(key+"="))
-					{
-						found = true;
-						break;
-					}
-				}
+				found = unusedKeys.stream().anyMatch(key -> line.startsWith(key + "="));
 			}
 			if (found)
 			{
