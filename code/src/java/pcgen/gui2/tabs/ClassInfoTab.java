@@ -249,7 +249,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				data = classTable.getModel().getValueAt(selectedRow, 1);
 			}
 		}
-		if (data != null && data instanceof ClassFacade)
+		if (data instanceof ClassFacade)
 		{
 			return (ClassFacade) data;
 		}
