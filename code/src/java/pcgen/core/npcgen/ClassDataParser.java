@@ -173,7 +173,7 @@ class ClassDataHandler extends DefaultHandler
 	 * @param aMode The game mode to expect the file to be for.
 	 * @param aList The list of <tt>ClassData</tt> objects to fill
 	 */
-	public ClassDataHandler( final GameMode aMode, final List<ClassData> aList )
+	ClassDataHandler( final GameMode aMode, final List<ClassData> aList )
 	{
 		theGameMode = aMode;
 		theList = aList;

@@ -21,7 +21,7 @@ import java.util.List;
 
 class ChooseController<T>
 {
-	public ChooseController()
+	ChooseController()
 	{
 		// Nothing to build here
 	}

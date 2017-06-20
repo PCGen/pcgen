@@ -309,7 +309,7 @@ public final class KitAbilities extends BaseKit
 		public final Ability ability;
 		public final String selection;
 
-		public AbilitySelection(Ability a, String sel)
+		AbilitySelection(Ability a, String sel)
 		{
 			ability = a;
 			selection = sel;

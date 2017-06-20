@@ -107,7 +107,7 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 
 	private static class Global extends Dynamic
 	{
-		public Global()
+		Global()
 		{
 			setName("Global");
 		}

@@ -272,7 +272,7 @@ public class LoadInfo implements Loadable
 		 * @param argFormula
 		 * @param argPenalty
 		 */
-		public LoadMapEntry(Float argMultiplier, String argFormula,
+		LoadMapEntry(Float argMultiplier, String argFormula,
 				Integer argPenalty)
 		{
 			multiplier = argMultiplier;

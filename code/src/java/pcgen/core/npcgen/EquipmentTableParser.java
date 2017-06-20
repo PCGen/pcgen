@@ -158,7 +158,7 @@ public class EquipmentTableParser
 		 * @param aMode The game mode to expect the file to be for.
 		 * @param aList The list of <tt>ClassData</tt> objects to fill
 		 */
-		public EquipmentTableHandler( final GameMode aMode, final List<EquipmentTable> aList )
+		EquipmentTableHandler( final GameMode aMode, final List<EquipmentTable> aList )
 		{
 			theGameMode = aMode;
 			theList = aList;

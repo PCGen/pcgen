@@ -92,7 +92,7 @@ class OptionHandler extends DefaultHandler
 	
 	private GeneratorOption theCurrentOption = null;
 	
-	public OptionHandler( final GameMode aMode, final List<GeneratorOption> aList )
+	OptionHandler( final GameMode aMode, final List<GeneratorOption> aList )
 	{
 		theGameMode = aMode;
 		theList = aList;

@@ -318,7 +318,7 @@ public class CollectionToAbilitySelection implements
 		private final Ability ability;
 		private final String choice;
 
-		public AbilityWithChoice(Ability a, String c)
+		AbilityWithChoice(Ability a, String c)
 		{
 			ability = a;
 			choice = c;

@@ -46,7 +46,7 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	private JScrollPane jScrollPane1;
 
 	/** Creates new form PreferencesDamagePanel */
-	public PreferencesPluginsPanel() {
+	PreferencesPluginsPanel() {
 		initComponents();
 		initPreferences();
 	}

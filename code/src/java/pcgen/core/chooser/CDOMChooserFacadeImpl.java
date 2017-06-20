@@ -435,7 +435,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	{
 		private final CDOMObject cdomObj;
 
-		public CDOMInfoWrapper(CDOMObject cdomObj)
+		CDOMInfoWrapper(CDOMObject cdomObj)
 		{
 			this.cdomObj = cdomObj;
 			
@@ -494,7 +494,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		private final String string;
 		private final String delimiter;
 
-		public DelimitedStringInfoWrapper(String string, String delimiter)
+		DelimitedStringInfoWrapper(String string, String delimiter)
 		{
 			this.string = string;
 			this.delimiter = StringUtils.trimToNull(delimiter);
