@@ -1,7 +1,4 @@
 /*
- * MacGUI.java
- * Copyright 2006 (C) Tod Milam <twmilam@yahoo.com>
- *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -19,18 +16,22 @@
  */
 package pcgen.gui2.plaf;
 
+import pcgen.gui2.PCGenUIManager;
+
+import com.apple.eawt.AboutHandler;
+import com.apple.eawt.AppEvent;
 import com.apple.eawt.Application;
-import pcgen.gui2.plaf.osx.OSXAboutHandler;
-import pcgen.gui2.plaf.osx.OSXPreferencesHandler;
-import pcgen.gui2.plaf.osx.OSXQuitHandler;
+import com.apple.eawt.PreferencesHandler;
+import com.apple.eawt.QuitHandler;
+import com.apple.eawt.QuitResponse;
 
 /**
  * {@code MacGUI} initializes Mac-specific GUI elements.
  */
 public final class MacGUIHandler
 {
-	private static MacGUIHandler myObj = null;
-	private static Application theApp = null;
+	private static MacGUIHandler theAdapter;
+	private static Application theApp;
 
 	private MacGUIHandler()
 	{
@@ -42,18 +43,47 @@ public final class MacGUIHandler
 	 */
 	public static void initialize()
 	{
-		if (myObj != null)
+		if (theAdapter != null)
 		{
 			// we have already initialized.
 			return;
 		}
 
 		// set up the Application menu
-		myObj = new MacGUIHandler();
+		theAdapter = new MacGUIHandler();
 		theApp = Application.getApplication();
 		theApp.setAboutHandler(new OSXAboutHandler());
 		theApp.setPreferencesHandler(new OSXPreferencesHandler());
 		theApp.setQuitHandler(new OSXQuitHandler());
-	}  // end static initialize method
-}  // end class MacGUI
+	}
+
+
+	private static class OSXAboutHandler implements AboutHandler
+	{
+		@Override
+		public void handleAbout(final AppEvent.AboutEvent aboutEvent)
+		{
+			PCGenUIManager.displayAboutDialog();
+		}
+	}
+
+	private static class OSXPreferencesHandler implements PreferencesHandler
+	{
+		@Override
+		public void handlePreferences(final AppEvent.PreferencesEvent preferencesEvent)
+		{
+			PCGenUIManager.displayPreferencesDialog();
+		}
+	}
+
+	private static class OSXQuitHandler implements QuitHandler
+	{
+		@Override
+		public void handleQuitRequestWith(final AppEvent.QuitEvent quitEvent, final QuitResponse quitResponse)
+		{
+			PCGenUIManager.closePCGen();
+		}
+	}
+
+}
 
