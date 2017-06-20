@@ -206,7 +206,7 @@ public final class Bonus
 		if (!val.isValid())
 		{
 			Logging.errorPrint("Could not create bonusObj for:" + bonusString
-					+ " since Formula " + bValue + " is not valid: " + val.toString());
+					+ " since Formula " + bValue + " is not valid: " + val);
 			return null;
 		}
 

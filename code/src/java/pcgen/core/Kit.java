@@ -390,7 +390,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			{
 				info.append(", ");
 			}
-			info.append(bk.toString());
+			info.append(bk);
 		}
 		info.append("  <b>Source</b>: ").append(SourceFormat.getFormattedString(this,
 		Globals.getSourceDisplay(), true));

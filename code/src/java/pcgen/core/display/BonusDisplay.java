@@ -40,7 +40,7 @@ public class BonusDisplay
 	{
 		final StringBuilder buffer = new StringBuilder(50);
 	
-		buffer.append(ti.source.toString());
+		buffer.append(ti.source);
 		buffer.append(" [");
 	
 		Object targetObj = ti.target;

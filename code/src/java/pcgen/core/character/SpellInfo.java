@@ -152,11 +152,11 @@ public final class SpellInfo implements Comparable<SpellInfo>
 			return "";
 		}
 
-		final StringBuilder aBuf = new StringBuilder(" [" + featList.get(0).toString());
+		final StringBuilder aBuf = new StringBuilder(" [" + featList.get(0));
 
 		for (int i = 1; i < featList.size(); i++)
 		{
-			aBuf.append(", ").append(featList.get(i).toString());
+			aBuf.append(", ").append(featList.get(i));
 		}
 
 		aBuf.append("] ");
