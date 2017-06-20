@@ -24,6 +24,7 @@ package pcgen.cdom.base;
  * example) to solely rely on this interface rather than having to do a cast or
  * other special case when it encounters things like a CNAbilitySelection.
  */
+@FunctionalInterface
 public interface Reducible
 {
 	/**

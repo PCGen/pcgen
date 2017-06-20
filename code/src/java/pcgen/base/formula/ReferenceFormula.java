@@ -29,6 +29,7 @@ package pcgen.base.formula;
  *            The type of Object returned by the Formula (it is likely, but not
  *            required, that this is a Number of some form)
  */
+@FunctionalInterface
 public interface ReferenceFormula<T>
 {
 
