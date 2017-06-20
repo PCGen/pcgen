@@ -204,11 +204,11 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		// Replace illegal characters in old name
 		oldName = oldName.replaceAll(";:\\|,", "@");
 
-		if (!oldName.toString().toUpperCase()
-			.startsWith(Constants.GENERIC_ITEM))
+		if (!oldName.toUpperCase()
+		            .startsWith(Constants.GENERIC_ITEM))
 		{
 			equip.addToListFor(ListKey.SPECIAL_PROPERTIES,
-				SpecialProperty.createFromLst(oldName.toString()));
+				SpecialProperty.createFromLst(oldName));
 		}
 		equip.setName(aString);
 		
