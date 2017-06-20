@@ -160,15 +160,9 @@ public final class AbilityUtilities
 		ChooseInformation<?> info = ability.get(ObjectKey.CHOOSE_INFO);
 		Object decoded =
 				info.decodeChoice(Globals.getContext(), selection);
-		for (CNAbility cna : cnAbilities)
-		{
-			List<?> oldSelections = pc.getDetailedAssociations(cna);
-			if ((oldSelections != null) && oldSelections.contains(decoded))
-			{
-				return true;
-			}
-		}
-		return false;
+		return cnAbilities.stream()
+		                  .map(pc::getDetailedAssociations)
+		                  .anyMatch(oldSelections -> (oldSelections != null) && oldSelections.contains(decoded));
 	}
 
 	/**
@@ -280,30 +274,22 @@ public final class AbilityUtilities
 		}
 
 		//Need to use only the new ones
-		for (T obj : newSelections)
-		{
-			removedSelections.remove(obj);
-		}
+		newSelections.forEach(removedSelections::remove);
 		//removedSelections.removeAll(newSelections);
-		for (T obj : origSelections)
-		{
-			newSelections.remove(obj);
-		}
+		origSelections.forEach(newSelections::remove);
 		//newSelections.removeAll(origSelections);
 
-		for (T sel : newSelections)
-		{
-			String selection = aMan.encodeChoice(sel);
-			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);
-			pc.addAbility(cnas, UserSelection.getInstance(),
-				UserSelection.getInstance());
-		}
-		for (T sel : removedSelections)
-		{
-			String selection = aMan.encodeChoice(sel);
-			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);
-			pc.removeAbility(cnas, UserSelection.getInstance(),
-				UserSelection.getInstance());
-		}
+		newSelections.stream()
+		             .map(aMan::encodeChoice)
+		             .map(selection -> new CNAbilitySelection(cna, selection))
+		             .forEach(cnas -> pc.addAbility(cnas, UserSelection.getInstance(),
+				             UserSelection.getInstance()
+		             ));
+		removedSelections.stream()
+		                 .map(aMan::encodeChoice)
+		                 .map(selection -> new CNAbilitySelection(cna, selection))
+		                 .forEach(cnas -> pc.removeAbility(cnas, UserSelection.getInstance(),
+				                 UserSelection.getInstance()
+		                 ));
 	}
 }

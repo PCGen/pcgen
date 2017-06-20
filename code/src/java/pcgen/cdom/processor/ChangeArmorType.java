@@ -20,6 +20,8 @@ package pcgen.cdom.processor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.content.Processor;
 
@@ -188,15 +190,11 @@ public class ChangeArmorType implements Processor<String>
 	 */
 	public List<String> applyProcessor(Collection<String> armorTypes)
 	{
-		List<String> returnList = new ArrayList<>();
-		for (String type : armorTypes)
-		{
-			String mod = applyProcessor(type, null);
-			if (mod != null)
-			{
-				returnList.add(mod.toUpperCase());
-			}
-		}
+		List<String> returnList = armorTypes.stream()
+		                                    .map(type -> applyProcessor(type, null))
+		                                    .filter(Objects::nonNull)
+		                                    .map(String::toUpperCase)
+		                                    .collect(Collectors.toList());
 		return returnList;
 	}
 

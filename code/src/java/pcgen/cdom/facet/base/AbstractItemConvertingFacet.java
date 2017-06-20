@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.Map.Entry;
 
@@ -537,17 +538,11 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		Map<S, Target> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Entry<S, Target> me : componentMap.entrySet())
-			{
-				Target target = me.getValue();
-				if (target != null)
-				{
-					if (target.set.contains(source))
-					{
-						return true;
-					}
-				}
-			}
+			return componentMap.entrySet()
+			                   .stream()
+			                   .map(Entry::getValue)
+			                   .filter(Objects::nonNull)
+			                   .anyMatch(target -> target.set.contains(source));
 		}
 		return false;
 	}

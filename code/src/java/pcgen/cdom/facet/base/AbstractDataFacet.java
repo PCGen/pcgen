@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.base;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -275,13 +276,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 
 	public DataFacetChangeListener<IDT, ? super T>[] getDataFacetChangeListeners()
 	{
-		List<DataFacetChangeListener<IDT, ? super T>> list =
-                new ArrayList<>();
-		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners
-			.values())
-		{
-			Collections.addAll(list, dfclArray);
-		}
-		return list.toArray(new DataFacetChangeListener[list.size()]);
+		return listeners
+				.values().stream().flatMap(Arrays::stream).toArray(DataFacetChangeListener[]::new);
 	}
 }

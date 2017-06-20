@@ -150,13 +150,15 @@ public class ChallengeRatingFacet
 	 */
 	private int getTemplateCR(CharID id)
 	{
-		int cr = 0;
+		int cr = templateFacet.getSet(id)
+		                      .stream()
+		                      .mapToInt(template -> template.getCR(
+				                      levelFacet.getTotalLevels(id),
+				                      levelFacet.getMonsterLevelCount(id)
+		                      ))
+		                      .sum();
 
 		// Calculate and add the CR from the templates
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			cr += template.getCR(levelFacet.getTotalLevels(id), levelFacet.getMonsterLevelCount(id));
-		}
 		return cr;
 	}
 

@@ -106,14 +106,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	@Override
 	public boolean contains(T item)
 	{
-		for (CDOMReference<T> ref : references)
-		{
-			if (ref.contains(item))
-			{
-				return true;
-			}
-		}
-		return false;
+		return references.stream().anyMatch(ref -> ref.contains(item));
 	}
 
 	/**
@@ -181,11 +174,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	@Override
 	public int getObjectCount()
 	{
-		int count = 0;
-		for (CDOMReference<T> ref : references)
-		{
-			count += ref.getObjectCount();
-		}
+		int count = references.stream().mapToInt(CDOMReference::getObjectCount).sum();
 		return count;
 	}
 
@@ -210,10 +199,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	public Collection<T> getContainedObjects()
 	{
 		Set<T> set = new HashSet<>();
-		for (CDOMReference<T> ref : references)
-		{
-			set.addAll(ref.getContainedObjects());
-		}
+		references.stream().map(CDOMReference::getContainedObjects).forEach(set::addAll);
 		return set;
 	}
 

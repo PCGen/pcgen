@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.reference;
 
+import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +26,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 import javax.swing.event.EventListenerList;
 
@@ -342,15 +345,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 				CDOMGroupRef<T> trt = me.getValue().get();
 				if (trt != null)
 				{
-					boolean typeOkay = true;
-					for (String type : me.getKey())
-					{
-						if (!obj.isType(type))
-						{
-							typeOkay = false;
-							break;
-						}
-					}
+					boolean typeOkay = me.getKey().stream().allMatch(type -> obj.isType(type));
 					if (typeOkay)
 					{
 						trt.addResolution(obj);
@@ -1021,13 +1016,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	@Override
 	public void buildDeferredObjects()
 	{
-		for (String cis : deferred)
-		{
-			if (!active.containsKey(cis))
-			{
-				constructObject(cis);
-			}
-		}
+		deferred.stream().filter(cis -> !active.containsKey(cis)).forEach(this::constructObject);
 	}
 
 	/**
@@ -1087,15 +1076,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	@Override
 	public Collection<CDOMSingleRef<T>> getReferenced()
 	{
-		List<CDOMSingleRef<T>> list = new ArrayList<>();
-		for (WeakReference<CDOMSingleRef<T>> wr : referenced.values())
-		{
-			CDOMSingleRef<T> ref = wr.get();
-			if (ref != null)
-			{
-				list.add(ref);
-			}
-		}
+		List<CDOMSingleRef<T>> list =
+				referenced.values().stream().map(Reference::get).filter(Objects::nonNull).collect(Collectors.toList());
 		return list;
 	}
 
@@ -1128,10 +1110,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 				arm.addObject(obj, cis.toString());
 			}
 		}
-		for (String s : deferred)
-		{
-			arm.constructIfNecessary(s);
-		}
+		deferred.forEach(arm::constructIfNecessary);
 	}
 
 	/**

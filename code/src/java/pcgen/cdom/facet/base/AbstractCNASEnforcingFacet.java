@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -130,11 +131,8 @@ public class AbstractCNASEnforcingFacet extends
 		{
 			return Collections.emptyList();
 		}
-		List<CNAbilitySelection> returnList = new ArrayList<>();
-		for (List<SourcedCNAS> array : list)
-		{
-			returnList.add(array.get(0).cnas);
-		}
+		List<CNAbilitySelection> returnList =
+				list.stream().map(array -> array.get(0).cnas).collect(Collectors.toList());
 		return returnList;
 	}
 
@@ -161,13 +159,7 @@ public class AbstractCNASEnforcingFacet extends
 		if (list != null)
 		{
 			List<List<SourcedCNAS>> constructingList = getConstructingList(copy);
-			for (List<SourcedCNAS> orig : list)
-			{
-				List<SourcedCNAS> newCnasList =
-                        new ArrayList<>(
-                                orig);
-				constructingList.add(newCnasList);
-			}
+			list.stream().map(ArrayList::new).forEach(constructingList::add);
 		}
 	}
 

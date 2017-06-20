@@ -617,14 +617,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Entry<T, Set<Object>> me : componentMap.entrySet())
-			{
-				Set<Object> set = me.getValue();
-				if (set.contains(owner))
-				{
-					return true;
-				}
-			}
+			return componentMap.entrySet().stream().map(Entry::getValue).anyMatch(set -> set.contains(owner));
 		}
 		return false;
 	}
@@ -651,14 +644,11 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		int count = 0;
 		if (componentMap != null)
 		{
-			for (Entry<T, Set<Object>> me : componentMap.entrySet())
-			{
-				Set<Object> set = me.getValue();
-				if (set.contains(owner))
-				{
-					count++;
-				}
-			}
+			count = (int) componentMap.entrySet()
+			                          .stream()
+			                          .map(Entry::getValue)
+			                          .filter(set -> set.contains(owner))
+			                          .count();
 		}
 		return count;
 	}

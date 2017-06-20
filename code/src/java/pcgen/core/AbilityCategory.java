@@ -787,13 +787,9 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 			boolean use = isAllAbilityTypes;
 			if (!use && (types != null))
 			{
-				for (Type type : types)
+				if (types.stream().anyMatch(type -> ability.isType(type.toString())))
 				{
-					if (ability.isType(type.toString()))
-					{
-						use = true;
-						break;
-					}
+					use = true;
 				}
 			}
 			if (use)

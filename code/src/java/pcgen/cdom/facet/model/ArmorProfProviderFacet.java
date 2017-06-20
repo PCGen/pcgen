@@ -105,14 +105,7 @@ public class ArmorProfProviderFacet extends
 	 */
 	public boolean isProficientWithArmor(CharID id, Equipment eq)
 	{
-		for (ProfProvider<ArmorProf> pp : getQualifiedSet(id))
-		{
-			if (pp.providesProficiencyFor(eq))
-			{
-				return true;
-			}
-		}
-		return false;
+		return getQualifiedSet(id).stream().anyMatch(pp -> pp.providesProficiencyFor(eq));
 	}
 	
 	public void init()

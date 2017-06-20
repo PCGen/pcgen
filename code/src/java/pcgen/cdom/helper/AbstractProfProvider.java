@@ -109,14 +109,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	@Override
 	public boolean providesProficiency(T proficiency)
 	{
-		for (CDOMReference<T> ref : direct)
-		{
-			if (ref.contains(proficiency))
-			{
-				return true;
-			}
-		}
-		return false;
+		return direct.stream().anyMatch(ref -> ref.contains(proficiency));
 	}
 
 	/**

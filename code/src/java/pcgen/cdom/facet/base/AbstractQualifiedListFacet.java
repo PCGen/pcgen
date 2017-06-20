@@ -645,13 +645,9 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			{
 				T obj = me.getKey();
 				Set<Object> sources = me.getValue();
-				for (Object source : sources)
+				if (sources.stream().anyMatch(source -> prereqFacet.qualifies(id, obj, source)))
 				{
-					if (prereqFacet.qualifies(id, obj, source))
-					{
-						set.add(obj);
-						break;
-					}
+					set.add(obj);
 				}
 			}
 		}
@@ -758,13 +754,10 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			{
 				T obj = me.getKey();
 				Set<Object> sources = me.getValue();
-				for (Object source : sources)
-				{
-					if (prereqFacet.qualifies(id, obj, source))
-					{
-						list.add(qa.act(obj, source));
-					}
-				}
+				sources.stream()
+				       .filter(source -> prereqFacet.qualifies(id, obj, source))
+				       .map(source -> qa.act(obj, source))
+				       .forEach(list::add);
 			}
 		}
 		return list;
