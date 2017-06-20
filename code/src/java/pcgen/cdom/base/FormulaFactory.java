@@ -107,7 +107,7 @@ public final class FormulaFactory
 	/**
 	 * NumberFormula is a fixed-value formula for a specific Integer.
 	 */
-	private static class NumberFormula implements Formula
+	private static final class NumberFormula implements Formula
 	{
 
 		/**
@@ -223,7 +223,7 @@ public final class FormulaFactory
 	/**
 	 * SimpleFormula is a fixed-value formula for a specific value.
 	 */
-	private static class SimpleFormula<T> implements NEPFormula<T>
+	private static final class SimpleFormula<T> implements NEPFormula<T>
 	{
 
 		/**
