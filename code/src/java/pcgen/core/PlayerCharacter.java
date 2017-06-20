@@ -9056,6 +9056,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * (they are highly correlated, but no control is exerted over them by
 	 * Equipment to ensure appropriate states are maintained)
 	 */
+	@TestOnly
 	public void doAfavorForAunitTestThatIgnoresEquippingRules()
 	{
 		equippedFacet.reset(id);
