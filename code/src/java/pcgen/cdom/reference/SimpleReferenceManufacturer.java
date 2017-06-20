@@ -30,7 +30,7 @@ import pcgen.cdom.base.Loadable;
  *            manufacture
  */
 public class SimpleReferenceManufacturer<T extends Loadable> extends
-		AbstractReferenceManufacturer<T> implements ReferenceManufacturer<T>
+		AbstractReferenceManufacturer<T>
 {
 	/**
 	 * Constructs a new SimpleReferenceManufacturer that will construct or

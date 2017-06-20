@@ -32,8 +32,7 @@ import pcgen.core.SubClass;
  * This Class is a Type Safe Constant.
  */
 public final class SubClassCategory extends AbstractCategory<SubClass>
-		implements TypeSafeConstant, Category<SubClass>,
-		ManufacturableFactory<SubClass>
+		implements TypeSafeConstant
 {
 
 	/**

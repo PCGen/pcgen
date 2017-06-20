@@ -28,8 +28,7 @@ import pcgen.cdom.base.CDOMReference;
  * @param <T>
  *            The Class of the underlying objects contained by this CDOMGroupRef
  */
-public abstract class CDOMGroupRef<T> extends CDOMReference<T> implements
-		ObjectContainer<T>
+public abstract class CDOMGroupRef<T> extends CDOMReference<T>
 {
 
 	/**

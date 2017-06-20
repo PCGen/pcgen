@@ -41,8 +41,7 @@ import pcgen.facade.core.SkillFacade;
  * {@code Skill}.
  * 
  */
-public final class Skill extends PObject implements SkillFacade, ChooseDriver,
-		VarScoped
+public final class Skill extends PObject implements SkillFacade, ChooseDriver
 {
 	public String getKeyStatAbb()
 	{

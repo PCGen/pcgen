@@ -24,7 +24,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.facade.core.StatFacade;
 
 public final class PCStat extends PObject implements StatFacade,
-		NonInteractive, SortKeyRequired, VarScoped
+		NonInteractive, SortKeyRequired
 {
 	@Override
 	public int getMinValue()

@@ -38,7 +38,7 @@ import pcgen.cdom.base.Category;
  */
 // Should be T extends CategorizedCDOMObject<T>
 public class CDOMTransparentCategorizedSingleRef<T extends Categorized<T>>
-		extends CDOMTransparentSingleRef<T> implements TransparentReference<T>,
+		extends CDOMTransparentSingleRef<T> implements
 		CategorizedCDOMReference<T>
 {
 	/**

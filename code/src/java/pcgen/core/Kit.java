@@ -45,7 +45,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * {@code Kit}.
  */
-public final class Kit extends PObject implements Comparable<Object>, KitFacade
+public final class Kit extends PObject implements KitFacade
 {
 	private int selectValue = -1;
 

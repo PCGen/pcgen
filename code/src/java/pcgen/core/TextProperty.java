@@ -27,7 +27,7 @@ import pcgen.cdom.base.CDOMObject;
  * {@code TextProperty}.
  *
  */
-public abstract class TextProperty extends PObject implements Serializable, Comparable<Object>
+public abstract class TextProperty extends PObject implements Serializable
 {
 	/** Constructor */
 	public TextProperty()

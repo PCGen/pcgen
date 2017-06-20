@@ -26,7 +26,7 @@ import pcgen.cdom.base.Ungranted;
  *
  * DO NOT DELETE (waiting for use)
  */
-public final class ShieldProf extends PObject implements Comparable<Object>,
+public final class ShieldProf extends PObject implements
 		Ungranted
 {
 	/**
