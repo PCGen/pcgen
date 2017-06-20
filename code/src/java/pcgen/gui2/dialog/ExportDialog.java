@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -186,13 +187,9 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		String defaultOSType = context.getProperty(UIPropertyContext.DEFAULT_OS_TYPE);
 		if (defaultOSType != null)
 		{
-			for (SheetFilter filter : SheetFilter.values())
-			{
-				if (defaultOSType.equals(filter.toString()))
-				{
-					exportBox.setSelectedItem(filter);
-				}
-			}
+			Arrays.stream(SheetFilter.values())
+			      .filter(filter -> defaultOSType.equals(filter.toString()))
+			      .forEach(exportBox::setSelectedItem);
 		}
 	}
 

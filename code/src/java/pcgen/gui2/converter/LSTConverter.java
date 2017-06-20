@@ -106,13 +106,8 @@ public class LSTConverter extends Observable
 	 */
 	public int getNumFilesInCampaign(Campaign campaign)
 	{
-		int numFiles = 0;
-	
-		for (final Loader loader : loaders)
-		{
-			List<CampaignSourceEntry> files = loader.getFiles(campaign);
-			numFiles += files.size();
-		}
+		int numFiles = loaders.stream().map(loader -> loader.getFiles(campaign)).mapToInt(List::size).sum();
+
 		return numFiles;
 	}
 	

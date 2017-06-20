@@ -24,6 +24,7 @@ import gmgen.pluginmgr.messages.FileMenuSaveMessage;
 
 import java.io.File;
 import java.util.Iterator;
+import java.util.stream.IntStream;
 
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -136,20 +137,17 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	{
 		InitHolderList list = message.getInitHolderList();
 
-		for (int i = 0; i < list.size(); i++)
-		{
-			InitHolder iH = list.get(i);
-
-			if (iH instanceof PcgCombatant)
-			{
-				//TODO: Resolve against the current PC list and add any new characters.
-				PcgCombatant pcg = (PcgCombatant) iH;
-				PlayerCharacter aPC = pcg.getPC();
-				Globals.getPCList().add(aPC);
-				aPC.setDirty(true);
+		//TODO: Resolve against the current PC list and add any new characters.
 //				addPCTab(aPC);
-			}
-		}
+		list.stream()
+		    .filter(iH -> iH instanceof PcgCombatant)
+		    .map(iH -> (PcgCombatant) iH)
+		    .map(PcgCombatant::getPC)
+		    .forEach(aPC ->
+		    {
+			    Globals.getPCList().add(aPC);
+			    aPC.setDirty(true);
+		    });
 	}
 
 	private void handleOpenPCGRequestMessage(RequestOpenPlayerCharacterMessage message)
@@ -174,15 +172,12 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 
 	private void handleFetchOpenPCGRequestMessage()
 	{
-		for (int i = 0; i < CharacterManager.getCharacters().getSize(); i++)
-		{
-			CharacterFacade facade = CharacterManager.getCharacters().getElementAt(i);
-			if (facade instanceof CharacterFacadeImpl)
-			{
-				CharacterFacadeImpl cfi = (CharacterFacadeImpl) facade;
-				messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(this, cfi.getTheCharacter()));
-			}
-		}
+		IntStream.range(0, CharacterManager.getCharacters().getSize())
+		         .mapToObj(i -> CharacterManager.getCharacters().getElementAt(i))
+		         .filter(facade -> facade instanceof CharacterFacadeImpl)
+		         .map(facade -> (CharacterFacadeImpl) facade)
+		         .map(cfi -> new PlayerCharacterWasLoadedMessage(this, cfi.getTheCharacter()))
+		         .forEach(messageHandler::handleMessage);
 	}
 
 	private void handleStateChangedMessage()

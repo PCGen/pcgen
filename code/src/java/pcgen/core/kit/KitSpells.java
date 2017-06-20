@@ -247,14 +247,10 @@ public final class KitSpells extends BaseKit
 		{
 			List<? extends PObject> spellcastingClasses =
 					aPC.getSpellClassList();
-			for (PObject obj : spellcastingClasses)
-			{
-				if (obj instanceof PCClass)
-				{
-					return (PCClass) obj;
-				}
-			}
-			return null;
+			return (PCClass) spellcastingClasses.stream()
+			                                    .filter(obj -> obj instanceof PCClass)
+			                                    .findFirst()
+			                                    .orElse(null);
 		}
 		return aPC.getClassKeyed(ref.get().getKeyName());
 	}

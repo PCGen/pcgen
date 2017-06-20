@@ -232,14 +232,11 @@ public final class KitProf extends BaseKit
 	{
 		List<PersistentTransitionChoice<?>> adds =
 				cdo.getListFor(ListKey.ADD);
-		for (PersistentTransitionChoice<?> ptc: adds)
-		{
-			if (ptc.getChoiceClass().equals(WeaponProf.class))
-			{
-				return (PersistentTransitionChoice<WeaponProf>) ptc;
-			}
-		}
-		return null;
+		return (PersistentTransitionChoice<WeaponProf>) adds.stream()
+		                                                    .filter(ptc -> ptc.getChoiceClass()
+		                                                                      .equals(WeaponProf.class))
+		                                                    .findFirst()
+		                                                    .orElse(null);
 	}
 
 	@Override
@@ -247,14 +244,10 @@ public final class KitProf extends BaseKit
 	{
 		PersistentTransitionChoice<WeaponProf> wpPTC = getPTC(thePObject);
 		Collection<?> choices = wpPTC.getChoices().getSet(aPC);
-		for (CDOMSingleRef<WeaponProf> profKey : profList)
-		{
-			WeaponProf wp = profKey.get();
-			if (choices.contains(wp))
-			{
-				wpPTC.act(Collections.singleton(wp), thePObject, aPC);
-			}
-		}
+		profList.stream()
+		        .map(CDOMSingleRef::get)
+		        .filter(choices::contains)
+		        .forEach(wp -> wpPTC.act(Collections.singleton(wp), thePObject, aPC));
 	}
 
 	@Override

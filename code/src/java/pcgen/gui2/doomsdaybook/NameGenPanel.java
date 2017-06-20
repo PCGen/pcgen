@@ -37,6 +37,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 import java.util.prefs.Preferences;
+import java.util.stream.Collectors;
 
 import javax.swing.BoxLayout;
 import javax.swing.ComboBoxModel;
@@ -657,18 +658,15 @@ public class NameGenPanel extends JPanel
 	//	Get a list of all the gender categories in the category map
 	private Vector<String> getGenderCategoryNames()
 	{
-		Vector<String> genders = new Vector<>();
+		Vector<String> genders;
 		Set<String> keySet = categories.keySet();
 
 		//	Loop through the keys in the categories
-		for (final String key : keySet)
-		{
-			//	if the key starts with "Sex" then save it
-			if (key.startsWith("Sex:"))
-			{
-				genders.add(key.substring(5));
-			}
-		}
+		//	if the key starts with "Sex" then save it
+		genders = keySet.stream()
+		                .filter(key -> key.startsWith("Sex:"))
+		                .map(key -> key.substring(5))
+		                .collect(Collectors.toCollection(Vector::new));
 
 		//	Return all the found gender types
 		return genders;
@@ -696,16 +694,12 @@ public class NameGenPanel extends JPanel
 			List<RuleSet> genderRules = categories.get("Sex: " + genderString);
 
 			//	now loop through all the rules from the selected category
-			for (RuleSet categoryRule : categoryRules)
+			//	if the category rule is in the list of gender rules
+//	add the current gender to the selectable gender list
+//	we can stop processing the list once we find a match
+			if (categoryRules.stream().anyMatch(genderRules::contains))
 			{
-				//	if the category rule is in the list of gender rules
-				//	add the current gender to the selectable gender list
-				//	we can stop processing the list once we find a match
-				if (genderRules.contains(categoryRule))
-				{
-					selectable.add(genderString);
-					break;
-				}
+				selectable.add(genderString);
 			}
 		}
 
@@ -779,22 +773,16 @@ public class NameGenPanel extends JPanel
 	//	Get a list of category names from the categories map
 	private Vector<String> getCategoryNames()
 	{
-		Vector<String> cats = new Vector<>();
+		Vector<String> cats;
 		Set<String> keySet = categories.keySet();
 
-		for (final String key : keySet)
-		{
-			//	Ignore any category that starts with this
-			if (key.startsWith("Sex:"))
-			{
-				continue;
-			}
-
-			cats.add(key);
-		}
+		//	Ignore any category that starts with this
+		cats = keySet.stream()
+		             .filter(key -> !key.startsWith("Sex:"))
+		             .sorted()
+		             .collect(Collectors.toCollection(Vector::new));
 
 		//	Sor the selected categories before returning it
-		Collections.sort(cats);
 
 		return cats;
 	}
@@ -851,12 +839,10 @@ public class NameGenPanel extends JPanel
 								.getAttribute("weight").getIntValue());
 				List<?> subElements = child.getChildren("SUBVALUE");
 
-				for (final Object subElement1 : subElements)
-				{
-					Element subElement = (Element) subElement1;
-					dv.addSubValue(subElement.getAttributeValue("type"),
-							subElement.getText());
-				}
+				subElements.stream().map(subElement1 -> (Element) subElement1).forEach(subElement -> dv.addSubValue(
+						subElement.getAttributeValue("type"),
+						subElement.getText()
+				));
 
 				dataList.add(dv);
 			}
@@ -875,11 +861,9 @@ public class NameGenPanel extends JPanel
 					.getIntValue());
 		java.util.List<?> elements = rule.getChildren();
 
-		for (final Object element : elements)
+		elements.stream().map(element -> (Element) element).forEach(child ->
 		{
-			Element child = (Element) element;
 			String elementName = child.getName();
-
 			if (elementName.equals("GETLIST"))
 			{
 				String listId = child.getAttributeValue("idref");
@@ -908,7 +892,7 @@ public class NameGenPanel extends JPanel
 				String ruleId = child.getAttributeValue("idref");
 				dataRule.add(ruleId);
 			}
-		}
+		});
 
 		allVars.addDataElement(dataRule);
 

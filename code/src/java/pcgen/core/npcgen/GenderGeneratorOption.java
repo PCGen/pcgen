@@ -17,6 +17,8 @@
  */
 package pcgen.core.npcgen;
 
+import java.util.Arrays;
+
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.enumeration.Gender;
 
@@ -41,23 +43,15 @@ public class GenderGeneratorOption extends GeneratorOption
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
 		{
-			for ( final Gender gender : Gender.values() )
-			{
-				if ( ! theChoices.contains(gender) )
-				{
-					theChoices.add(gender, aWeight);
-				}
-			}
+			Arrays.stream(Gender.values())
+			      .filter(gender -> !theChoices.contains(gender))
+			      .forEach(gender -> theChoices.add(gender, aWeight));
 			return;
 		}
 
-		for ( final Gender gender : Gender.values() )
-		{
-			if (gender.toString().equalsIgnoreCase(aValue))
-			{
-				theChoices.add(gender, aWeight);
-			}
-		}
+		Arrays.stream(Gender.values())
+		      .filter(gender -> gender.toString().equalsIgnoreCase(aValue))
+		      .forEach(gender -> theChoices.add(gender, aWeight));
 
 	}
 

@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
@@ -45,11 +46,10 @@ public class KitStat extends BaseKit
 	@Override
 	public String toString()
 	{
-		Set<String> set = new TreeSet<>();
-		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
-		{
-			set.add(me.getKey().getLSTformat(false) + '='+ me.getValue());
-		}
+		Set<String> set = statMap.entrySet()
+		                         .stream()
+		                         .map(me -> me.getKey().getLSTformat(false) + '=' + me.getValue())
+		                         .collect(Collectors.toCollection(TreeSet::new));
 		return StringUtil.join(set, Constants.PIPE);
 	}
 

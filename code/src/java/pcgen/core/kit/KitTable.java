@@ -98,13 +98,6 @@ public class KitTable extends BaseKit
 
 	public KitGear getEntry(PlayerCharacter pc, int value)
 	{
-		for (TableEntry entry : list)
-		{
-			if (entry.isIn(pc, value))
-			{
-				return entry.gear;
-			}
-		}
-		return null;
+		return list.stream().filter(entry -> entry.isIn(pc, value)).findFirst().map(entry -> entry.gear).orElse(null);
 	}
 }

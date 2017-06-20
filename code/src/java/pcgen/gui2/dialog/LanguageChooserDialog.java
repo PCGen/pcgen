@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -184,13 +185,10 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			List<Object> data = availTable.getSelectedData();
 			if (!data.isEmpty())
 			{
-				for (Object object : data)
-				{
-					if (object instanceof LanguageFacade)
-					{
-						chooser.addSelected((LanguageFacade) object);
-					}
-				}
+				data.stream()
+				    .filter(object -> object instanceof LanguageFacade)
+				    .map(object -> (LanguageFacade) object)
+				    .forEach(chooser::addSelected);
 			}
 			return;
 		}
@@ -290,16 +288,16 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		@Override
 		public List<TreeViewPath<LanguageFacade>> getPaths(LanguageFacade pobj)
 		{
-			List<TreeViewPath<LanguageFacade>> paths = new ArrayList<>();
+			List<TreeViewPath<LanguageFacade>> paths;
 			switch (this)
 			{
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					for(String type : pobj.getTypes())
-					{
-						paths.add(new TreeViewPath<>(pobj, type));
-					}
+					paths = pobj.getTypes()
+					            .stream()
+					            .map(type -> new TreeViewPath<>(pobj, type))
+					            .collect(Collectors.toList());
 					return paths;
 				default:
 					throw new InternalError();

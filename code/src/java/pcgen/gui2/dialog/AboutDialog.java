@@ -423,15 +423,9 @@ final class MainAbout extends JPanel
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html><b>");
 		sb.append(LanguageBundle.getString("in_abt_ourSponsors")).append("</b><br>");
-		for (Sponsor sponsor : sponsors)
-		{
-			if ("PCGEN".equals(sponsor.getKeyName()))
-			{
-				continue;
-			}
-
-			sb.append("<img src='").append(sponsor.getBannerImage()).append("'><br>");
-		}
+		sponsors.stream()
+		        .filter(sponsor -> !"PCGEN".equals(sponsor.getKeyName()))
+		        .forEach(sponsor -> sb.append("<img src='").append(sponsor.getBannerImage()).append("'><br>"));
 		sb.append("</html>");
 		sponsorLabel.setText(sb.toString());
 		return panel;

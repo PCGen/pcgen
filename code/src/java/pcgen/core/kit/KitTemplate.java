@@ -116,12 +116,11 @@ public class KitTemplate extends BaseKit
 			List<PCTemplate> subAdded = new ArrayList<>();
 			if (subList != null)
 			{
-				for (CDOMSingleRef<PCTemplate> subRef : subList)
+				subList.stream().map(CDOMSingleRef::get).forEach(ownedTemplate ->
 				{
-					PCTemplate ownedTemplate = subRef.get();
 					subAdded.add(ownedTemplate);
 					aPC.setTemplatesAdded(templateToAdd, ownedTemplate);
-				}
+				});
 			}
 
 			aPC.addTemplate(templateToAdd);

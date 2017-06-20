@@ -165,13 +165,7 @@ public final class KitSkill extends BaseKit
 						+ classKey + " in PC to add ranks from.");
 				}
 			}
-			for (PCClass pcClass : aPC.getClassSet())
-			{
-				if (!classList.contains(pcClass))
-				{
-					classList.add(pcClass);
-				}
-			}
+			aPC.getClassSet().stream().filter(pcClass -> !classList.contains(pcClass)).forEach(classList::add);
 
 			// Try and find a class we can add them from.
 			boolean oldImporting = aPC.isImporting();
@@ -246,14 +240,11 @@ public final class KitSkill extends BaseKit
 		ChoiceManagerList<Language> controller = ChooserUtilities
 				.getConfiguredController(aSkill, pc, null,
                         new ArrayList<>());
-		for (Language lang : langList)
-		{
-			if (!controller.conditionallyApply(pc, lang))
-			{
-				Logging.errorPrint("Failed to apply Language into Skill: "
-						+ lang.getLSTformat());
-			}
-		}
+		langList.stream()
+		        .filter(lang -> !controller.conditionallyApply(pc, lang))
+		        .map(lang -> "Failed to apply Language into Skill: "
+				        + lang.getLSTformat())
+		        .forEach(Logging::errorPrint);
 
 		//
 		// Fix up the skill pools to reflect what we just spent.
@@ -295,10 +286,7 @@ public final class KitSkill extends BaseKit
 	{
 		final List<Skill> skillsOfType = new ArrayList<>();
 
-		for (CDOMReference<Skill> ref : skillList)
-		{
-			skillsOfType.addAll(ref.getContainedObjects());
-		}
+		skillList.stream().map(CDOMReference::getContainedObjects).forEach(skillsOfType::addAll);
 
 		if (skillsOfType.isEmpty())
 		{
