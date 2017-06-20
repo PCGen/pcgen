@@ -153,7 +153,6 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	public SimpleChoiceSet(Collection<? extends T> col,
 			Comparator<? super T> comp, String sep)
 	{
-		super();
 		if (col == null)
 		{
 			throw new IllegalArgumentException(

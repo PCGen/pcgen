@@ -29,7 +29,6 @@ public final class ShowMessageDelegate extends Observable
 
 	private ShowMessageDelegate()
 	{
-		super();
 	}
 
 

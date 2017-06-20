@@ -44,7 +44,6 @@ public class HitDieFormula implements Processor<HitDie>
 	 */
 	public HitDieFormula(ReferenceFormula<Integer> refFormula)
 	{
-		super();
 		formula = refFormula;
 	}
 

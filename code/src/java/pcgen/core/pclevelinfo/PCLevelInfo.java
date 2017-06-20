@@ -51,7 +51,6 @@ public final class PCLevelInfo implements Cloneable
 	 */
 	public PCLevelInfo(final String argClassKeyName)
 	{
-		super();
 		classKeyName = argClassKeyName;
 	}
 

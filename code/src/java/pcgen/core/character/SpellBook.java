@@ -60,7 +60,6 @@ public class SpellBook implements Cloneable
 	 */
 	public SpellBook(String name, int type)
 	{
-		super();
 
 		this.name = name;
 		this.type = type;

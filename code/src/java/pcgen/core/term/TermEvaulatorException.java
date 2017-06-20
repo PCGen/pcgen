@@ -24,7 +24,6 @@ public class TermEvaulatorException extends Exception {
 	 */
 	public TermEvaulatorException()
 	{
-		super();
 	}
 
 	/**

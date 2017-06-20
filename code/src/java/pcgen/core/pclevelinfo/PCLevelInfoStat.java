@@ -31,7 +31,6 @@ public final class PCLevelInfoStat implements Serializable
 
 	PCLevelInfoStat(final PCStat pcstat, final int argMod)
 	{
-		super();
 		stat = pcstat;
 		mod = argMod;
 	}

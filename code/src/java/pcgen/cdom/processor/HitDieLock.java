@@ -45,7 +45,6 @@ public class HitDieLock implements Processor<HitDie>
 	 */
 	public HitDieLock(HitDie die)
 	{
-		super();
 		if (die == null)
 		{
 			throw new IllegalArgumentException(

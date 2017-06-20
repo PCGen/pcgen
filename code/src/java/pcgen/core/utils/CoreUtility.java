@@ -124,7 +124,6 @@ public final class CoreUtility
 
 	private CoreUtility()
 	{
-		super();
 	}
 
 	/**
