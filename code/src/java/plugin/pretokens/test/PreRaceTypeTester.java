@@ -24,6 +24,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
@@ -93,16 +94,12 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 		{
 			critterTypes.add("Humanoid");
 		}
-	
-		for (PCTemplate t : display.getTemplateSet())
-		{
-			final String aType = t.getType();
-	
-			if (aType != null && !aType.isEmpty())
-			{
-				critterTypes.add(aType);
-			}
-		}
+
+		display.getTemplateSet()
+		       .stream()
+		       .map(PObject::getType)
+		       .filter(aType -> aType != null && !aType.isEmpty())
+		       .forEach(critterTypes::add);
 	
 		return critterTypes;
 	}

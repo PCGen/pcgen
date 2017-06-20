@@ -62,14 +62,12 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 			{
 				if (percentageSignPosition >= 0)
 				{
-					for (Type type : aSkill.getTrueTypeList(false))
+					if (aSkill.getTrueTypeList(false)
+					          .stream()
+					          .anyMatch(type -> type.toString().toUpperCase().startsWith(
+							          skillKey.substring(0, percentageSignPosition))))
 					{
-						if (type.toString().toUpperCase().startsWith(
-							skillKey.substring(0, percentageSignPosition)))
-						{
-							foundMatch = true;
-							break;
-						}
+						foundMatch = true;
 					}
 				}
 				else if (aSkill.isType(skillKey))

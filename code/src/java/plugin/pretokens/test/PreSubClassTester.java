@@ -53,17 +53,13 @@ public class PreSubClassTester extends AbstractDisplayPrereqTest implements Prer
 		}
 
 		final String thisClass = prereq.getKey();
-		for (PCClass aClass : display.getClassSet())
+		if (display.getClassSet()
+		           .stream()
+		           .map(display::getSubClassName)
+		           .filter(subClassName -> subClassName != null && !subClassName.isEmpty())
+		           .anyMatch(thisClass::equalsIgnoreCase))
 		{
-			final String subClassName = display.getSubClassName(aClass);
-			if (subClassName != null && !subClassName.isEmpty())
-			{
-				if (thisClass.equalsIgnoreCase(subClassName))
-				{
-					runningTotal++;
-					break;
-				}
-			}
+			runningTotal++;
 		}
 
 		runningTotal = prereq.getOperator().compare(runningTotal, num);

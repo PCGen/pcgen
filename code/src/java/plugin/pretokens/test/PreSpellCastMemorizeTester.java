@@ -43,15 +43,10 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 		final boolean prereqMemorized =
 				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
-		int runningTotal = 0;
-
-		for (PCClass aClass : display.getClassSet())
-		{
-			if (aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) == prereqMemorized)
-			{
-				runningTotal++;
-			}
-		}
+		int runningTotal = (int) display.getClassSet()
+		                                .stream()
+		                                .filter(aClass -> aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) == prereqMemorized)
+		                                .count();
 
 		runningTotal =
 				prereq.getOperator().compare(runningTotal, requiredNumber);

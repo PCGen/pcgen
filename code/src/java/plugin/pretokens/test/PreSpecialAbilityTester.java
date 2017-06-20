@@ -38,7 +38,7 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
-		int runningTotal = 0;
+		int runningTotal;
 		int number;
 		try
 		{
@@ -51,13 +51,10 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 		}
 
 		final String aString = prereq.getKey().toUpperCase();
-		for (SpecialAbility sa : character.getSpecialAbilityList())
-		{
-			if (sa.getKeyName().toUpperCase().startsWith(aString))
-			{
-				runningTotal++;
-			}
-		}
+		runningTotal = (int) character.getSpecialAbilityList()
+		                              .stream()
+		                              .filter(sa -> sa.getKeyName().toUpperCase().startsWith(aString))
+		                              .count();
 
 		runningTotal = prereq.getOperator().compare(runningTotal, number);
 		return countedTotal(prereq, runningTotal);

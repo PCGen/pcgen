@@ -9,6 +9,7 @@ import java.util.Set;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.Reference;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactSetKey;
@@ -49,10 +50,7 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 				if (deity != null)
 				{
 					FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-					for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-					{
-						charDeityPantheon.add(indirect.get());
-					}
+					deity.getSafeSetFor(fk).stream().map(Reference::get).forEach(charDeityPantheon::add);
 				}
 				if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 						|| prereq.getOperator().equals(

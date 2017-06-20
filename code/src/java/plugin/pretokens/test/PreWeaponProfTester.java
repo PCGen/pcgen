@@ -83,16 +83,10 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 		{
 			List<CDOMReference<WeaponProf>> dwp = display.getDeity().getSafeListFor(
 					ListKey.DEITYWEAPON);
-			DEITYWPN: for (CDOMReference<WeaponProf> ref : dwp)
+			DEITYWPN:
+			if (dwp.stream().flatMap(ref -> ref.getContainedObjects().stream()).anyMatch(display::hasWeaponProf))
 			{
-				for (WeaponProf wp : ref.getContainedObjects())
-				{
-					if (display.hasWeaponProf(wp))
-					{
-						runningTotal++;
-						break DEITYWPN;
-					}
-				}
+				runningTotal++;
 			}
 		}
 		else if (aString.startsWith("TYPE.") || aString.startsWith("TYPE=")) //$NON-NLS-1$ //$NON-NLS-2$

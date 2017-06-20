@@ -64,11 +64,8 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 				character.aggregateSpellList("", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 		//Needs to add domain spells as well
-		for (Domain d : display.getDomainSet())
-		{
-			aArrayList.addAll(character.getAllSpellsInLists(Collections
-			.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST))));
-		}
+		display.getDomainSet().stream().map(d -> character.getAllSpellsInLists(Collections
+				.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST)))).forEach(aArrayList::addAll);
 
 		//Are there Innate Spell-like abilities?
 		if (character.getAutoSpells())
@@ -77,23 +74,16 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 					.getListMods(Spell.SPELLS);
 			if (mods != null)
 			{
-				for (CDOMReference<Spell> ref : mods)
-				{
-					aArrayList.addAll(ref.getContainedObjects());
-				}
+				mods.stream().map(CDOMReference::getContainedObjects).forEach(aArrayList::addAll);
 			}
 		}
 
 		final String spellName = prereq.getKey();
-		int runningTotal = 0;
+		int runningTotal = (int) aArrayList.stream()
+		                                   .filter(aSpell -> aSpell != null && aSpell.getKeyName() != null
+				                                   && aSpell.getKeyName().equalsIgnoreCase(spellName))
+		                                   .count();
 
-		for (Spell aSpell : aArrayList)
-		{
-			if (aSpell != null && aSpell.getKeyName() != null && aSpell.getKeyName().equalsIgnoreCase(spellName))
-			{
-				runningTotal++;
-			}
-		}
 		runningTotal =
 				prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);

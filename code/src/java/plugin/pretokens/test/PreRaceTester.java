@@ -104,15 +104,12 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 			}
 			else
 			{
-				for(Race mock : racesImitated)
-				{
-					RaceType mockRaceType = mock.get(ObjectKey.RACETYPE);
-					if (mockRaceType != null && mockRaceType.toString()
-						.equalsIgnoreCase(raceToMatch))
-					{
-						++runningTotal;
-					}
-				}
+				runningTotal = (int) racesImitated.stream()
+				                                  .map(mock -> mock.get(ObjectKey.RACETYPE))
+				                                  .filter(mockRaceType -> mockRaceType != null
+						                                  && mockRaceType.toString()
+						                                                 .equalsIgnoreCase(raceToMatch))
+				                                  .count();
 			}
 		}
 		else if (requiredRace.startsWith("RACESUBTYPE=")
@@ -126,13 +123,9 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 			}
 			if(runningTotal == 0)
 			{
-				for (Race mock: racesImitated)
+				if (racesImitated.stream().anyMatch(mock -> mock.containsInList(ListKey.RACESUBTYPE, st)))
 				{
-					if (mock.containsInList(ListKey.RACESUBTYPE, st))
-					{
-						++runningTotal;
-						break;
-					}
+					++runningTotal;
 				}
 			}
 		}
@@ -169,14 +162,10 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 				}
 				else 
 				{
-					for (Race mock : racesImitated)
+					if (racesImitated.stream().anyMatch(mock -> mock.getDisplayName()
+					                                                .equalsIgnoreCase(requiredRace)))
 					{
-						if (mock.getDisplayName()
-							.equalsIgnoreCase(requiredRace))
-						{
-							++runningTotal;
-							break;
-						}
+						++runningTotal;
 					}
 				}
 			}
@@ -210,10 +199,10 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		Set<Race> servesAs = new HashSet<>();
 		if (pcRace != null)
 		{
-			for(CDOMReference<Race> ref: pcRace.getSafeListFor(ListKey.SERVES_AS_RACE))
-			{
-				servesAs.addAll(ref.getContainedObjects());
-			}
+			pcRace.getSafeListFor(ListKey.SERVES_AS_RACE)
+			      .stream()
+			      .map(CDOMReference::getContainedObjects)
+			      .forEach(servesAs::addAll);
 		}
 		return servesAs;
 	}

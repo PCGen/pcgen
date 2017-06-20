@@ -126,11 +126,11 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		for (Skill aSkill : skillSet)
 		{
 			Set<Skill> servesAs = new HashSet<>();
-			for (CDOMReference<Skill> ref : aSkill
-				.getSafeListFor(ListKey.SERVES_AS_SKILL))
-			{
-				servesAs.addAll(ref.getContainedObjects());
-			}
+			aSkill
+					.getSafeListFor(ListKey.SERVES_AS_SKILL)
+					.stream()
+					.map(CDOMReference::getContainedObjects)
+					.forEach(servesAs::addAll);
 
 			if (servesAs.size() > 0)
 			{

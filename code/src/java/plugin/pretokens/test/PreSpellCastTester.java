@@ -40,15 +40,10 @@ public class PreSpellCastTester extends AbstractDisplayPrereqTest implements
 
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 		final String prereqSpellType = prereq.getKey();
-		int runningTotal = 0;
-
-		for (PCClass aClass : display.getClassSet())
-		{
-			if (prereqSpellType.equalsIgnoreCase(aClass.getSpellType()))
-			{
-				runningTotal++;
-			}
-		}
+		int runningTotal = (int) display.getClassSet()
+		                                .stream()
+		                                .filter(aClass -> prereqSpellType.equalsIgnoreCase(aClass.getSpellType()))
+		                                .count();
 
 		runningTotal =
 				prereq.getOperator().compare(runningTotal, requiredNumber);

@@ -86,14 +86,10 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
-		for (PCClass cl : pc.getDisplay().getClassSet())
-		{
-			if (prohibited == SpellCountCalc.isProhibited(spell, cl, pc))
-			{
-				return false;
-			}
-		}
-		return true;
+		return pc.getDisplay()
+		         .getClassSet()
+		         .stream()
+		         .noneMatch(cl -> prohibited == SpellCountCalc.isProhibited(spell, cl, pc));
 	}
 
 	@Override

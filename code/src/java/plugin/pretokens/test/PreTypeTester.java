@@ -24,6 +24,7 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
@@ -107,15 +108,8 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		Logging.errorPrint("  PRETYPE value was: " + requiredType + '\n');
 		
 		final int numRequired = Integer.parseInt(prereq.getOperand());
-		int runningTotal = 0;
-
-		for (String element : getTypes(display))
-		{
-			if (element.equalsIgnoreCase(requiredType))
-			{
-				runningTotal++;
-			}
-		}
+		int runningTotal =
+				(int) getTypes(display).stream().filter(element -> element.equalsIgnoreCase(requiredType)).count();
 
 		runningTotal = prereq.getOperator().compare(runningTotal, numRequired);
 		return countedTotal(prereq, runningTotal);
@@ -153,11 +147,8 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		{
 			list.add("Humanoid");
 		}
-	
-		for (PCTemplate t : display.getTemplateSet())
-		{
-			list.add(t.getType());
-		}
+
+		display.getTemplateSet().stream().map(PObject::getType).forEach(list::add);
 	
 		return list;
 		

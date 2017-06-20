@@ -38,16 +38,13 @@ public class PreSpellBookTester extends AbstractDisplayPrereqTest implements Pre
 	{
 		final boolean prereqUsesBook =
 				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
-		int runningTotal = 0;
+		int runningTotal;
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 
-		for (PCClass spellClass : display.getClassSet())
-		{
-			if (spellClass.getSafe(ObjectKey.SPELLBOOK) == prereqUsesBook)
-			{
-				runningTotal++;
-			}
-		}
+		runningTotal = (int) display.getClassSet()
+		                            .stream()
+		                            .filter(spellClass -> spellClass.getSafe(ObjectKey.SPELLBOOK) == prereqUsesBook)
+		                            .count();
 
 		runningTotal =
 				prereq.getOperator().compare(runningTotal, requiredNumber);
