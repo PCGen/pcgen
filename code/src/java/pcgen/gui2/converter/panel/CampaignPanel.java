@@ -246,7 +246,7 @@ public class CampaignPanel extends ConvertSubPanel
 		@Override
 		public String getColumnName(int col)
 		{
-			return columnNames[col].toString();
+			return columnNames[col];
 		}
 
 		/**

@@ -63,7 +63,7 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 		{
 			return null;
 		}
-		return new String[]{res.toString()};
+		return new String[]{res};
 	}
 
 	@Override
