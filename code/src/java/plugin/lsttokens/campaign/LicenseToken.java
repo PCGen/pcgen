@@ -86,10 +86,7 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 		Collection<CampaignSourceEntry> addeduri = filechanges.getAdded();
 		if (addeduri != null && !addeduri.isEmpty())
 		{
-			for (CampaignSourceEntry cse : addeduri)
-			{
-				set.add("FILE=" + cse.getLSTformat());
-			}
+			addeduri.stream().map(cse -> "FILE=" + cse.getLSTformat()).forEach(set::add);
 		}
 		if (set.isEmpty())
 		{

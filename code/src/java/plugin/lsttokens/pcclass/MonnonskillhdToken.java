@@ -73,21 +73,18 @@ public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass>
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
 		Set<String> bonusSet = new TreeSet<>();
-		for (BonusObj bonus : added)
+		added.stream().filter(bonus -> tokenName.equals(bonus.getTokenSource())).forEach(bonus ->
 		{
-			if (tokenName.equals(bonus.getTokenSource()))
+			StringBuilder sb = new StringBuilder();
+			sb.append(bonus.getValue());
+			if (bonus.hasPrerequisites())
 			{
-				StringBuilder sb = new StringBuilder();
-				sb.append(bonus.getValue());
-				if (bonus.hasPrerequisites())
-				{
-					sb.append('|');
-					sb.append(getPrerequisiteString(context, bonus
-							.getPrerequisiteList()));
-				}
-				bonusSet.add(sb.toString());
+				sb.append('|');
+				sb.append(getPrerequisiteString(context, bonus
+						.getPrerequisiteList()));
 			}
-		}
+			bonusSet.add(sb.toString());
+		});
 		if (bonusSet.isEmpty())
 		{
 			// This is okay - just no BONUSes from this token

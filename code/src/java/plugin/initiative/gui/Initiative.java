@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
@@ -1363,10 +1364,7 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	private void pasteNew(InitHolder toPaste, int num)
 	{
-		for (int i = 0; i < num; i++)
-		{
-			pasteNew(toPaste);
-		}
+		IntStream.range(0, num).mapToObj(i -> toPaste).forEach(this::pasteNew);
 	}
 
 	/**
@@ -1564,21 +1562,15 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void removePcgCombatant(PlayerCharacter pc)
 	{
-		for (int i = 0; i < initList.size(); i++)
+		initList.stream().filter(iH -> iH instanceof PcgCombatant).forEach(iH ->
 		{
-			InitHolder iH = initList.get(i);
-
-			if (iH instanceof PcgCombatant)
+			PcgCombatant c = (PcgCombatant) iH;
+			if (c.getPC() == pc)
 			{
-				PcgCombatant c = (PcgCombatant) iH;
-
-				if (c.getPC() == pc)
-				{
-					initList.remove(iH);
-					removeTab(iH);
-				}
+				initList.remove(iH);
+				removeTab(iH);
 			}
-		}
+		});
 	}
 
 	/**
@@ -1976,12 +1968,9 @@ public class Initiative extends javax.swing.JPanel
 	private List getColumnOrder()
 	{
 		TableColumnModel colModel = combatantTable.getColumnModel();
-		final List colOrder = new ArrayList();
-
-		for (int i = 0; i < colModel.getColumnCount(); i++)
-		{
-			colOrder.add(colModel.getColumn(i).getHeaderValue());
-		}
+		final List colOrder = IntStream.range(0, colModel.getColumnCount())
+		                               .mapToObj(i -> colModel.getColumn(i).getHeaderValue())
+		                               .collect(Collectors.toList());
 
 		return colOrder;
 	}
@@ -2892,15 +2881,10 @@ public class Initiative extends javax.swing.JPanel
 	{
 		TableColumnModel colModel = combatantTable.getColumnModel();
 
-		for (int i = 0; i < colModel.getColumnCount(); i++)
-		{
-			TableColumn col = colModel.getColumn(i);
-
-			if (col.getHeaderValue().toString().equals(name))
-			{
-				colModel.removeColumn(col);
-			}
-		}
+		IntStream.range(0, colModel.getColumnCount())
+		         .mapToObj(colModel::getColumn)
+		         .filter(col -> col.getHeaderValue().toString().equals(name))
+		         .forEach(colModel::removeColumn);
 
 		trackTable();
 		initTable();

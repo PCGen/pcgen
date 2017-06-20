@@ -117,13 +117,11 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 	@Override
 	public boolean process(LoadContext context, Kit obj)
 	{
-		for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))
-		{
-			if (bk instanceof KitLevelAbility)
-			{
-				obj.setDoLevelAbilities(false);
-			}
-		}
+		obj.getSafeListFor(ListKey.KIT_TASKS)
+		   .stream()
+		   .filter(bk -> bk instanceof KitLevelAbility)
+		   .map(bk -> false)
+		   .forEach(obj::setDoLevelAbilities);
 		return true;
 	}
 

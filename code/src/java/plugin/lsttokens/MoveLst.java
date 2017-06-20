@@ -134,15 +134,12 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			return null;
 		}
 		Set<String> set = new TreeSet<>();
-		for (Movement m : added)
+		added.stream().filter(m -> m.getMoveRatesFlag() == 0).forEach(m ->
 		{
-			if (m.getMoveRatesFlag() == 0)
-			{
-				StringBuilder sb = new StringBuilder();
-				m.addTokenContents(sb);
-				set.add(sb.toString());
-			}
-		}
+			StringBuilder sb = new StringBuilder();
+			m.addTokenContents(sb);
+			set.add(sb.toString());
+		});
 		if (set.isEmpty())
 		{
 			return null;
