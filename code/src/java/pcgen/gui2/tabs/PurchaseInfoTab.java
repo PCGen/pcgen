@@ -397,7 +397,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		models.get(CurrencyLabelHandler.class).install();
 		models.get(BuyPopupMenuHandler.class).install();
 		models.get(SellPopupMenuHandler.class).install();
-		models.get(AllowDebtAction.class).install();;
+		models.get(AllowDebtAction.class).install();
 	}
 
 	@Override
