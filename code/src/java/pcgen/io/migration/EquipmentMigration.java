@@ -36,6 +36,12 @@ public final class EquipmentMigration
 {
 	private static Map<int[], List<MigrationRule>> equipChangesForVer = new HashMap<>();
 
+
+
+	private EquipmentMigration()
+	{
+	}
+
 	/**
 	 * Find the new equipment key to replace the provided one.
 	 * 

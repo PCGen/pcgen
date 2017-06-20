@@ -38,6 +38,10 @@ public final class FileAccess
 	private static OutputFilter outputFilter = null;
 	private static int maxLength = -1;
 
+	private FileAccess()
+	{
+	}
+
 	/**
 	 * Filter the supplied string according to the current output filter. This
 	 * can do things such as escaping HTML entities.

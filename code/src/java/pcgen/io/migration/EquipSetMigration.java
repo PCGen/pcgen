@@ -44,6 +44,10 @@ public class EquipSetMigration
 	private static EquipSetOutputOrderComparator comparator =
 			new EquipSetOutputOrderComparator();
 
+	private EquipSetMigration()
+	{
+	}
+
 	/**
 	 * Update the character's equipment sets, if required.
 	 * 

@@ -37,6 +37,10 @@ public final class JEPResourceChecker
 		checkResource();
 	}
 
+	private JEPResourceChecker()
+	{
+	}
+
 	/**
 	 * Get the number of missing resources
 	 * @return the number of missing resources
