@@ -43,6 +43,7 @@ import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Vector;
+import java.util.stream.IntStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -234,15 +235,11 @@ public class NotesView extends JPanel
 	private Action getActionByName(JTextComponent textComponent, String name)
 	{
 		// TODO: This should be static in a GUIUtilities file
-		for (Action a : textComponent.getActions())
-		{
-			if (a.getValue(Action.NAME).equals(name))
-			{
-				return a;
-			}
-		}
+		return Arrays.stream(textComponent.getActions())
+		             .filter(a -> a.getValue(Action.NAME).equals(name))
+		             .findFirst()
+		             .orElse(null);
 
-		return null;
 	}
 
 	private static FileFilter getFileType()
@@ -621,17 +618,11 @@ public class NotesView extends JPanel
 
 		int fontSize = StyleConstants.getFontSize(set);
 
-		for (int i = 0; i < sizeCB.getItemCount(); i++)
-		{
-			String value = (String) sizeCB.getItemAt(i);
-
-			if (value.equals(Integer.toString(fontSize)))
-			{
-				sizeCB.setSelectedItem(value);
-
-				break;
-			}
-		}
+		IntStream.range(0, sizeCB.getItemCount())
+		         .mapToObj(i -> (String) sizeCB.getItemAt(i))
+		         .filter(value -> value.equals(Integer.toString(fontSize)))
+		         .findFirst()
+		         .ifPresent(value -> sizeCB.setSelectedItem(value));
 	}
 
 	/**
@@ -1923,15 +1914,8 @@ public class NotesView extends JPanel
 		 */
 		boolean isImageFile(File image)
 		{
-			for (String anExtsIMG : extsIMG)
-			{
-				if (image.getName().endsWith(anExtsIMG))
-				{
-					return true;
-				}
-			}
 
-			return false;
+			return Arrays.stream(extsIMG).anyMatch(anExtsIMG -> image.getName().endsWith(anExtsIMG));
 		}
 
 		/**

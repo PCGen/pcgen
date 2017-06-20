@@ -83,14 +83,9 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<>();
 		Map<String, String> added = changes.getAdded();
-		for (Map.Entry<String, String> me : added.entrySet())
-		{
-			set.add(new StringBuilder().append(me.getKey()).append(
-					Constants.PIPE).append(me.getValue()).toString());
-		}
-		return set.toArray(new String[set.size()]);
+		return added.entrySet().stream().map(me -> new StringBuilder().append(me.getKey()).append(
+				Constants.PIPE).append(me.getValue()).toString()).distinct().sorted().toArray(String[]::new);
 	}
 
 	@Override

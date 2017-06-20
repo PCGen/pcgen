@@ -17,6 +17,8 @@
  */
  package plugin.pcgtracker;
 
+import java.util.stream.IntStream;
+
 import gmgen.plugin.PlayerCharacterOutput;
 import pcgen.core.PlayerCharacter;
 
@@ -63,15 +65,10 @@ public class PCGTrackerModel extends DefaultListModel
 
 	public void remove(PlayerCharacter pc)
 	{
-		for (int i = 0; i < size(); i++)
-		{
-			LoadedPC lpc = (LoadedPC) elementAt(i);
-
-			if (lpc.getPC() == pc)
-			{
-				removeElement(lpc);
-			}
-		}
+		IntStream.range(0, size())
+		         .mapToObj(i -> (LoadedPC) elementAt(i))
+		         .filter(lpc -> lpc.getPC() == pc)
+		         .forEach(this::removeElement);
 	}
 
 	private static class LoadedPC

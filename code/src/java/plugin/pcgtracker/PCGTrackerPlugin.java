@@ -23,6 +23,8 @@ import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.util.Arrays;
+import java.util.stream.IntStream;
 
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
@@ -274,14 +276,13 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 		if (option == JFileChooser.APPROVE_OPTION)
 		{
-			for (File selectedFile : chooser.getSelectedFiles())
-			{
-				if (PCGFile.isPCGenCharacterOrPartyFile(selectedFile))
-				{
-					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, selectedFile,
-						false));
-				}
-			}
+			Arrays.stream(chooser.getSelectedFiles())
+			      .filter(PCGFile::isPCGenCharacterOrPartyFile)
+			      .forEach(selectedFile -> messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(
+					      this,
+					      selectedFile,
+					      false
+			      )));
 		}
 		else
 		{
@@ -434,13 +435,9 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i) instanceof PCGTrackerView)
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
+		IntStream.range(0, tp.getTabCount())
+		         .filter(i -> tp.getComponentAt(i) instanceof PCGTrackerView)
+		         .forEach(tp::setSelectedIndex);
 	}
 
 	private void initMenus()

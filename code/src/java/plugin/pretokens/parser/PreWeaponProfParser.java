@@ -89,10 +89,7 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 		 * In case of PREMULT (e.g 'PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)',
 		 * need to check all sub-prereqs
 		 */
-		for (Prerequisite subReq : prereq.getPrerequisites())
-		{
-			doTypeInvertFixUp(subReq);
-		}
+		prereq.getPrerequisites().forEach(PreWeaponProfParser::doTypeInvertFixUp);
 	}
 
 	@Override

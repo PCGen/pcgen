@@ -116,17 +116,9 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 				fullCampList = new ArrayList<>();
 				fullCampList.add(aCampaign);
 			}
-			for (Campaign camp : fullCampList)
-			{
-				for (String listType : camp.getBookTypeList())
-				{
-					if (bookType.equalsIgnoreCase(listType))
-					{
-						matchingCampaigns.add(camp);
-						break;
-					}
-				}				
-			}
+			fullCampList.stream()
+			            .filter(camp -> camp.getBookTypeList().stream().anyMatch(bookType::equalsIgnoreCase))
+			            .forEach(matchingCampaigns::add);
 		}
 		return matchingCampaigns.size();
 	}
@@ -154,13 +146,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 				if (includeSubCampaigns)
 				{
 					List<Campaign> campList = getFullCampaignList(aCampaign);
-					for (Campaign camp : campList)
-					{
-						if (camp.equals(campaignToFind))
-						{
-							++total;
-						}
-					}
+					total += campList.stream().filter(camp -> camp.equals(campaignToFind)).count();
 				}
 				else
 				{

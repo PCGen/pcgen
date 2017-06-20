@@ -129,22 +129,18 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 				{
 					for(CDOMReference<PCClass> ref: cl.getSafeListFor(ListKey.SERVES_AS_CLASS))
 					{
-						for (PCClass fakeClass : ref.getContainedObjects())
+						if (ref.getContainedObjects().stream().anyMatch(fakeClass -> fakeClass.isType(typeString)))
 						{
-							if (fakeClass.isType(typeString))
+							if (prereq.isCountMultiples())
 							{
-								if (prereq.isCountMultiples())
+								if (display.getLevel(cl) >= preClass)
 								{
-									if (display.getLevel(cl) >= preClass)
-									{
-										countedTotal++;
-									}
+									countedTotal++;
 								}
-								else
-								{
-									runningTotal += display.getLevel(cl);
-								}
-								break;
+							}
+							else
+							{
+								runningTotal += display.getLevel(cl);
 							}
 						}
 					}

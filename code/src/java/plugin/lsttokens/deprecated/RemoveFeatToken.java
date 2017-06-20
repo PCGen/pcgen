@@ -345,14 +345,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 					+ choice.getAbilityKey());
 			return false;
 		}
-		for (String a : associationList)
-		{
-			if (choice.containsAssociation(a))
-			{
-				return true;
-			}
-		}
-		return false;
+		return associationList.stream().anyMatch(choice::containsAssociation);
 	}
 
 	@Override

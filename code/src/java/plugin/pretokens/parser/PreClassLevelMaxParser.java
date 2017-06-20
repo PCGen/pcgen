@@ -82,10 +82,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
 	//
 	private static void changeFromLevelMax(Prerequisite p)
 	{
-		for (Prerequisite subreq : p.getPrerequisites())
-		{
-			changeFromLevelMax(subreq);
-		}
+		p.getPrerequisites().forEach(PreClassLevelMaxParser::changeFromLevelMax);
 
 		if (p.getKind() == null) // PREMULT
 		{

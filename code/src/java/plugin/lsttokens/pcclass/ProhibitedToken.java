@@ -91,10 +91,7 @@ public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass>
 			return null;
 		}
 		Set<String> set = new TreeSet<>();
-		for (SpellProhibitor sp : added)
-		{
-			set.addAll(sp.getValueList());
-		}
+		added.stream().map(SpellProhibitor::getValueList).forEach(set::addAll);
 		return new String[]{StringUtil.join(set, Constants.COMMA)};
 	}
 

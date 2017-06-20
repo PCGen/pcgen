@@ -98,9 +98,6 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 			}
 		}
 
-		for (Prerequisite subprereq : prereq.getPrerequisites())
-		{
-			replaceHasDeityPrereqs(subprereq);
-		}
+		prereq.getPrerequisites().forEach(PreDeityParser::replaceHasDeityPrereqs);
 	}
 }

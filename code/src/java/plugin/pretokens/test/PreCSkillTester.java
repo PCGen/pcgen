@@ -113,13 +113,11 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 			}
 			else 
 			{
-				for(Skill mock: imitators)
+				if (imitators.stream()
+				             .anyMatch(mock -> character.isClassSkill(mock) && serveAsSkills.get(mock).contains
+						             (skill)))
 				{
-					if (character.isClassSkill(mock) && serveAsSkills.get(mock).contains(skill))
-					{
-						runningTotal++;
-						break;
-					}
+					runningTotal++;
 				}
 			}
 		}
@@ -139,10 +137,10 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		for(Skill aSkill: Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
 			Set<Skill> servesAs = new HashSet<>();
-			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
-			{
-				servesAs.addAll(ref.getContainedObjects());
-			}
+			aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL)
+			      .stream()
+			      .map(CDOMReference::getContainedObjects)
+			      .forEach(servesAs::addAll);
 			
 			if(!servesAs.isEmpty())
 			{

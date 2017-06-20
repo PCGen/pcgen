@@ -68,13 +68,10 @@ public class PreLanguageParser extends AbstractPrerequisiteListParser implements
 		}
 		else
 		{
-			for (Prerequisite element : prereq.getPrerequisites())
-			{
-				if (element.getKey().equalsIgnoreCase("ANY"))
-				{
-					element.setCountMultiples(true);
-				}
-			}
+			prereq.getPrerequisites()
+			      .stream()
+			      .filter(element -> element.getKey().equalsIgnoreCase("ANY"))
+			      .forEach(element -> element.setCountMultiples(true));
 		}
 		return prereq;
 	}

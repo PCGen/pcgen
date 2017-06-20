@@ -75,12 +75,7 @@ public class PccToken extends AbstractTokenWithSeparator<Campaign> implements
 			// empty indicates no token
 			return null;
 		}
-		Set<String> set = new TreeSet<>();
-		for (CampaignSourceEntry uri : added)
-		{
-			set.add(uri.getLSTformat());
-		}
-		return set.toArray(new String[set.size()]);
+		return added.stream().map(CampaignSourceEntry::getLSTformat).distinct().sorted().toArray(String[]::new);
 	}
 
     @Override
