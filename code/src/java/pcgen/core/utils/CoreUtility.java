@@ -44,7 +44,7 @@ import pcgen.util.Logging;
 public final class CoreUtility
 {
 
-	static final private double epsilon = 0.0001d;
+	private static final double epsilon = 0.0001d;
 
 	public static final Comparator<Equipment> equipmentComparator = new Comparator<Equipment>()
 	{
