@@ -57,7 +57,7 @@ public class BonusSpellInfo implements Loadable
 		catch (NumberFormatException nfe)
 		{
 			throw new IllegalArgumentException(
-					"Name must be an integer, found: " + name);
+					"Name must be an integer, found: " + name, nfe);
 		}
 	}
 
