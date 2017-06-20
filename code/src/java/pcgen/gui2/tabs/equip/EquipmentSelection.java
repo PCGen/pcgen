@@ -31,7 +31,7 @@ public class EquipmentSelection implements Transferable
 
 	public static final DataFlavor equipmentArrayFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType
 			+ ";class=\"" + EquipmentFacade[].class.getName() + "\"", null);
-	private EquipmentFacade[] equipment;
+	private final EquipmentFacade[] equipment;
 
 	public EquipmentSelection(EquipmentFacade[] equipment)
 	{

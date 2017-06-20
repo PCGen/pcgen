@@ -66,7 +66,7 @@ public class JDynamicTable extends JTableEx
 	};
 	private final JTableMenuButton cornerButton;
 	private DynamicTableColumnModel dynamicColumnModel = null;
-	private JPopupMenu menu = new JPopupMenu();
+	private final JPopupMenu menu = new JPopupMenu();
 
 	public JDynamicTable()
 	{
@@ -176,7 +176,7 @@ public class JDynamicTable extends JTableEx
 	{
 
 		private boolean visible;
-		private TableColumn column;
+		private final TableColumn column;
 
 		public MenuAction(TableColumn column, boolean visible)
 		{

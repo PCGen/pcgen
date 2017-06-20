@@ -290,7 +290,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	private class AddMMSpellAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddMMSpellAction(CharacterFacade character)
 		{
@@ -328,7 +328,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	private class AddSpellAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddSpellAction(CharacterFacade character)
 		{
@@ -367,7 +367,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	private class RemoveSpellAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public RemoveSpellAction(CharacterFacade character)
 		{
@@ -406,7 +406,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	private class UseHigherSlotsAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public UseHigherSlotsAction(CharacterFacade character)
 		{
@@ -431,7 +431,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	private class AddSpellListAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddSpellListAction(CharacterFacade character)
 		{
@@ -450,7 +450,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	private class RemoveSpellListAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public RemoveSpellListAction(CharacterFacade character)
 		{
@@ -469,9 +469,9 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	private class TreeViewModelHandler
 	{
 
-		private SpellTreeViewModel availableModel;
-		private SpellTreeViewModel selectedModel;
-		private CharacterFacade character;
+		private final SpellTreeViewModel availableModel;
+		private final SpellTreeViewModel selectedModel;
+		private final CharacterFacade character;
 
 		public TreeViewModelHandler(CharacterFacade character)
 		{

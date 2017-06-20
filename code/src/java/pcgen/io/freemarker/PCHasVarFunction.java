@@ -33,8 +33,8 @@ import freemarker.template.TemplateModelException;
  */
 public class PCHasVarFunction implements TemplateMethodModelEx, CharacterExportAction
 {
-	private PlayerCharacter pc;
-	private ExportHandler eh;
+	private final PlayerCharacter pc;
+	private final ExportHandler eh;
 
 	/**
 	 * Create a new instance of PCBooleanFunction

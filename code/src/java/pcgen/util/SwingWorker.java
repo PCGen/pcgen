@@ -61,7 +61,7 @@ public abstract class SwingWorker
 		}
 	}
 
-	private ThreadVar threadVar;
+	private final ThreadVar threadVar;
 
 	/** 
 	 * Get the value produced by the worker thread, or null if it 

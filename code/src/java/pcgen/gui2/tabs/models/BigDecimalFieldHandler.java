@@ -32,8 +32,8 @@ import pcgen.facade.util.event.ReferenceListener;
 public abstract class BigDecimalFieldHandler implements PropertyChangeListener, ReferenceListener<BigDecimal>
 {
 
-	private JFormattedTextField field;
-	private ReferenceFacade<BigDecimal> ref;
+	private final JFormattedTextField field;
+	private final ReferenceFacade<BigDecimal> ref;
 
 	public BigDecimalFieldHandler(JFormattedTextField field, ReferenceFacade<BigDecimal> ref)
 	{

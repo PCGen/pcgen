@@ -30,7 +30,7 @@ import pcgen.facade.util.ListFacade;
 public class FacadeListModel<E> extends AbstractListModel implements ListListener<E>
 {
 
-	private DelegatingListFacade<E> delegate;
+	private final DelegatingListFacade<E> delegate;
 
 	public FacadeListModel()
 	{

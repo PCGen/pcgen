@@ -32,7 +32,7 @@ import freemarker.template.TemplateModelException;
  */
 public class PCVarFunction implements TemplateMethodModelEx
 {
-	private PlayerCharacter pc;
+	private final PlayerCharacter pc;
 
 	/**
 	 * Create a new instance of PCVarFunction

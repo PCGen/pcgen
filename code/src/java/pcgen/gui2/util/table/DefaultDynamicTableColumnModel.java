@@ -36,7 +36,7 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
 
     private final List<TableColumn> availableColumns = new ArrayList<>(5);
     private final List<TableColumn> safeColumns = Collections.unmodifiableList(availableColumns);
-    private int offset;
+    private final int offset;
 
     /**
      * This constructs an empty table model with an intial offset of {@code offset}.

@@ -163,11 +163,11 @@ final class PCGVer2Parser implements PCGParser
 
 	private static final String TAG_PCTEMPLATE = "PCTEMPLATE";
 
-	private RaceInputFacet raceInputFacet = FacetLibrary
+	private final RaceInputFacet raceInputFacet = FacetLibrary
 			.getFacet(RaceInputFacet.class);
-	private DomainInputFacet domainInputFacet = FacetLibrary
+	private final DomainInputFacet domainInputFacet = FacetLibrary
 			.getFacet(DomainInputFacet.class);
-	private TemplateInputFacet templateInputFacet = FacetLibrary
+	private final TemplateInputFacet templateInputFacet = FacetLibrary
 			.getFacet(TemplateInputFacet.class);
 
 	/**
@@ -178,7 +178,7 @@ final class PCGVer2Parser implements PCGParser
 	 */
 	private final List<String> warnings = new ArrayList<>();
 	private Cache cache;
-	private PlayerCharacter thePC;
+	private final PlayerCharacter thePC;
 	private final Set<String> seenStats = new HashSet<>();
 	private final Set<Language> cachedLanguages = new HashSet<>();
 

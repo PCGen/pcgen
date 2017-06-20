@@ -41,7 +41,7 @@ public class SkillCostTableModel extends AbstractTableModel implements ListSelec
 
 	private final CharacterFacade character;
 	private final CharacterLevelsFacade levels;
-	private ListSelectionModel selectionModel;
+	private final ListSelectionModel selectionModel;
 
 	public SkillCostTableModel(CharacterFacade character, ListSelectionModel selectionModel)
 	{

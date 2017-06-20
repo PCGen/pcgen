@@ -498,7 +498,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	{
 
 		private boolean visible;
-		private TableColumn column;
+		private final TableColumn column;
 
 		public MenuAction(TableColumn column, boolean visible)
 		{
@@ -518,7 +518,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	private class ChangeViewAction extends AbstractAction
 	{
 
-		private TreeView<T> view;
+		private final TreeView<T> view;
 
 		public ChangeViewAction(TreeView<T> view)
 		{

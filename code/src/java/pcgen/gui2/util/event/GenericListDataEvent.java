@@ -27,8 +27,8 @@ import javax.swing.event.ListDataEvent;
 public class GenericListDataEvent<E> extends ListDataEvent
 {
 
-    private Collection<? extends E> data;
-    private boolean isAdjusting;
+    private final Collection<? extends E> data;
+    private final boolean isAdjusting;
 
     public GenericListDataEvent(Object source, Collection<? extends E> data,
                                  boolean isAdjusting,

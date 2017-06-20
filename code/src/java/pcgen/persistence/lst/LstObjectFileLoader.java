@@ -67,9 +67,9 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	/** The suffix used to indicate this is a forget operation */
 	public static final String FORGET_SUFFIX = ".FORGET"; //$NON-NLS-1$
 
-	private List<ModEntry> copyLineList = new ArrayList<>();
-	private List<String> forgetLineList = new ArrayList<>();
-	private List<List<ModEntry>> modEntryList = new ArrayList<>();
+	private final List<ModEntry> copyLineList = new ArrayList<>();
+	private final List<String> forgetLineList = new ArrayList<>();
+	private final List<List<ModEntry>> modEntryList = new ArrayList<>();
 	private boolean processComplete = true;
 	/** A list of objects that will not be included. */
 	protected List<String> excludedObjects = new ArrayList<>();

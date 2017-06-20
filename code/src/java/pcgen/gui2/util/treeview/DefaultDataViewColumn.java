@@ -24,11 +24,11 @@ import pcgen.system.LanguageBundle;
 public class DefaultDataViewColumn implements DataViewColumn
 {
 
-	private String name;
-	private Class<?> dataclass;
-	private Visibility visibility;
-	private boolean editable;
-	private boolean cache;
+	private final String name;
+	private final Class<?> dataclass;
+	private final Visibility visibility;
+	private final boolean editable;
+	private final boolean cache;
 
 	public DefaultDataViewColumn(String name, Class<?> dataclass)
 	{

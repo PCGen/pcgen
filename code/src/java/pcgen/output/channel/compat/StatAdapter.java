@@ -33,7 +33,7 @@ public final class StatAdapter extends AbstractAdapter<Number> implements
 		WriteableReferenceFacade<Number>,
 		ScopeFacetChangeListener<CharID, PCStat, Number>
 {
-	private StatValueFacet statValueFacet = FacetLibrary
+	private final StatValueFacet statValueFacet = FacetLibrary
 		.getFacet(StatValueFacet.class);
 
 	private final CharID id;

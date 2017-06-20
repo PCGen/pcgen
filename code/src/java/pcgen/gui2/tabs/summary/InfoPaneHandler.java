@@ -43,9 +43,9 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 {
 
 	private boolean installed = false;
-	private HtmlSheetSupport support;
+	private final HtmlSheetSupport support;
 	private String currentInfoTemplateFile;
-	private CharacterFacade character;
+	private final CharacterFacade character;
 
 	/**
 	 * Create a new info pane handler instance for a character.
