@@ -33,6 +33,10 @@ import pcgen.rules.context.LoadContext;
 
 public class PCClassKeyChange
 {
+	private PCClassKeyChange()
+	{
+	}
+
 	public static void changeReferences(String oldClass, PCClass pcc)
 	{
 		String newClass = pcc.getKeyName();

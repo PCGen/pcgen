@@ -34,6 +34,10 @@ import pcgen.util.chooser.ChooserFactory;
 
 public class EquipmentChoiceDriver
 {
+	private EquipmentChoiceDriver()
+	{
+	}
+
 	/**
 	 * @param pool
 	 * @param parent

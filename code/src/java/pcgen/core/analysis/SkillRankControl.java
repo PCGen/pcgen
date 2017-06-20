@@ -45,6 +45,10 @@ import pcgen.util.enumeration.View;
 public class SkillRankControl
 {
 
+	private SkillRankControl()
+	{
+	}
+
 	/**
 	 * Returns the total ranks of a skill rank + bonus ranks (racial, class, etc
 	 * bonuses). Note that the total ranks could be higher than the max ranks if

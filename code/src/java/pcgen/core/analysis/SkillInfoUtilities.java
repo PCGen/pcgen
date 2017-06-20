@@ -36,6 +36,10 @@ import pcgen.core.bonus.BonusUtilities;
 public class SkillInfoUtilities
 {
 
+	private SkillInfoUtilities()
+	{
+	}
+
 	/**
 	 * Get the key attribute's description
 	 * 

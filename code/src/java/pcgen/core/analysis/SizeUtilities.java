@@ -23,6 +23,10 @@ import pcgen.core.SizeAdjustment;
 
 public class SizeUtilities
 {
+	private SizeUtilities()
+	{
+	}
+
 	/**
 	 * Get the default size adjustment
 	 * @return the default size adjustment
