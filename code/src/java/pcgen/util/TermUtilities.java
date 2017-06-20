@@ -30,6 +30,10 @@ public class TermUtilities {
 	public static final String sString = "(?:EQUIPPED|NOTEQUIPPED)";
 	public static final Pattern sPat = Pattern.compile(sString);
 
+	private TermUtilities()
+	{
+	}
+
 	public static void checkEqTypeTypesArray(
 			String originalText,
 			String[] types, 

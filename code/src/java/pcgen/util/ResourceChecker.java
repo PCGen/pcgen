@@ -34,6 +34,10 @@ public final class ResourceChecker
 	static final String missingLibMsg =
 			LanguageBundle.getString("MissingLibMessage").replace('|', '\n');
 
+	private ResourceChecker()
+	{
+	}
+
 	/**
 	 * Return TRUE if the resource exists in the jar
 	 *

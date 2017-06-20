@@ -37,6 +37,10 @@ import javax.swing.text.NumberFormatter;
 public class Utils
 {
 
+	private Utils()
+	{
+	}
+
 	/**
 	 * <p>Builds a formatted text field with specified min and max</p>
 	 * 
