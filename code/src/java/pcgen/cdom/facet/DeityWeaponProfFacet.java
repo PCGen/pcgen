@@ -63,20 +63,14 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<CharID, Weapo
 				.getListFor(ListKey.DEITYWEAPON);
 		if (weaponList != null)
 		{
-			for (CDOMReference<WeaponProf> ref : weaponList)
-			{
-				for (WeaponProf wp : ref.getContainedObjects())
-				{
-					/*
-					 * CONSIDER This is an open question, IMHO - why is natural
-					 * excluded here? This is magic to me - thpr Oct 14, 2008
-					 */
-					if (!wp.isType("Natural"))
-					{
-						add(dfce.getCharID(), wp, dfce.getCDOMObject());
-					}
-				}
-			}
+			/*
+			 * CONSIDER This is an open question, IMHO - why is natural
+			 * excluded here? This is magic to me - thpr Oct 14, 2008
+			 */
+			weaponList.forEach(ref -> ref.getContainedObjects()
+			                             .stream()
+			                             .filter(wp -> !wp.isType("Natural"))
+			                             .forEach(wp -> add(dfce.getCharID(), wp, dfce.getCDOMObject())));
 		}
 	}
 

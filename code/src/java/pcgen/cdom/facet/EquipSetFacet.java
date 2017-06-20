@@ -148,15 +148,8 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 	 */
 	public EquipSet getEquipSetByIdPath(CharID id, String path)
 	{
-		for (EquipSet eSet : getSet(id))
-		{
-			if (eSet.getIdPath().equals(path))
-			{
-				return eSet;
-			}
-		}
+		return getSet(id).stream().filter(eSet -> eSet.getIdPath().equals(path)).findFirst().orElse(null);
 
-		return null;
 	}
 
 	/**
@@ -167,15 +160,8 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 	 */
 	public EquipSet getEquipSetByName(CharID id, String name)
 	{
-		for (EquipSet eSet : getSet(id))
-		{
-			if (eSet.getName().equals(name))
-			{
-				return eSet;
-			}
-		}
+		return getSet(id).stream().filter(eSet -> eSet.getName().equals(name)).findFirst().orElse(null);
 
-		return null;
 	}
 
 	/**

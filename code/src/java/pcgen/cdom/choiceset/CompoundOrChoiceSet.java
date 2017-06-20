@@ -117,10 +117,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Set<T> returnSet = new HashSet<>();
-		for (PrimitiveChoiceSet<T> cs : pcsSet)
-		{
-			returnSet.addAll(cs.getSet(pc));
-		}
+		pcsSet.stream().map(cs -> cs.getSet(pc)).forEach(returnSet::addAll);
 		return returnSet;
 	}
 

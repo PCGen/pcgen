@@ -17,11 +17,13 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -115,56 +117,61 @@ public class DamageReductionFacet extends
 				.entrySet())
 		{
 			DamageReduction dr = me.getKey();
-			for (Object source : me.getValue())
-			{
-				if (prerequisiteFacet.qualifies(id, dr, source))
-				{
-					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
-							.getQualifiedKey()
-							: "";
-					int rawDrValue = formulaResolvingFacet.resolve(id,
-							dr.getReduction(), sourceString).intValue();
-					String bypass = dr.getBypass();
-					if (OR_PATTERN.matcher(bypass).find())
-					{
-						Integer current = orMap.get(bypass);
-						if ((current == null)
-								|| (current.intValue() < rawDrValue))
-						{
-							orMap.put(dr.getBypass(), rawDrValue);
-						}
-					}
-					else
-					{
+			/*
+			 * TODO Shouldn't this expansion be done in the DR
+			 * token? (since it's static?)
+			 */
+			me.getValue()
+			  .stream()
+			  .filter(source -> prerequisiteFacet.qualifies(id, dr, source))
+			  .map(source -> (source instanceof CDOMObject) ? ((CDOMObject) source)
+					  .getQualifiedKey()
+					  : "")
+			  .mapToInt(sourceString -> formulaResolvingFacet.resolve(id,
+					  dr.getReduction(), sourceString
+			  ).intValue())
+			  .forEach(rawDrValue ->
+			  {
+				  String bypass = dr.getBypass();
+				  if (OR_PATTERN.matcher(bypass).find())
+				  {
+					  Integer current = orMap.get(bypass);
+					  if ((current == null)
+							  || (current.intValue() < rawDrValue))
+					  {
+						  orMap.put(dr.getBypass(), rawDrValue);
+					  }
+				  }
+				  else
+				  {
 						/*
 						 * TODO Shouldn't this expansion be done in the DR
 						 * token? (since it's static?)
 						 */
-						String[] splits = AND_PATTERN.split(bypass);
-						if (splits.length == 1)
-						{
-							Integer current = andMap.get(dr.getBypass());
-							if ((current == null)
-									|| (current.intValue() < rawDrValue))
-							{
-								andMap.put(dr.getBypass(), rawDrValue);
-							}
-						}
-						else
-						{
-							for (String split : splits)
-							{
-								Integer current = andMap.get(split);
-								if ((current == null)
-										|| (current.intValue() < rawDrValue))
-								{
-									andMap.put(split, rawDrValue);
-								}
-							}
-						}
-					}
-				}
-			}
+					  String[] splits = AND_PATTERN.split(bypass);
+					  if (splits.length == 1)
+					  {
+						  Integer current = andMap.get(dr.getBypass());
+						  if ((current == null)
+								  || (current.intValue() < rawDrValue))
+						  {
+							  andMap.put(dr.getBypass(), rawDrValue);
+						  }
+					  }
+					  else
+					  {
+						  for (String split : splits)
+						  {
+							  Integer current = andMap.get(split);
+							  if ((current == null)
+									  || (current.intValue() < rawDrValue))
+							  {
+								  andMap.put(split, rawDrValue);
+							  }
+						  }
+					  }
+				  }
+			  });
 		}
 
 		// For each 'or'
@@ -178,18 +185,10 @@ public class DamageReductionFacet extends
 			String origBypass = me.getKey().toString();
 			Integer reduction = me.getValue();
 			String[] orValues = OR_PATTERN.split(origBypass);
-			boolean shouldAdd = true;
-			for (String orValue : orValues)
-			{
-				// See if we already have a value for this type from the 'and'
-				// processing.
-				Integer andDR = andMap.get(orValue);
-				if (andDR != null && andDR >= reduction)
-				{
-					shouldAdd = false;
-					break;
-				}
-			}
+			boolean shouldAdd =
+					Arrays.stream(orValues).map(andMap::get).noneMatch(andDR -> andDR != null && andDR >= reduction);
+			// See if we already have a value for this type from the 'and'
+// processing.
 			if (shouldAdd)
 			{
 				andMap.put(origBypass, reduction);
@@ -230,32 +229,25 @@ public class DamageReductionFacet extends
 			value += (int) bonusCheckingFacet.getBonus(id, "DR", key);
 			hml.addToListFor(value, key);
 		}
-		for (Integer reduction : hml.getKeySet())
+		hml.getKeySet().stream().filter(reduction -> hml.sizeOfListFor(reduction) > 1).forEach(reduction ->
 		{
-			if (hml.sizeOfListFor(reduction) > 1)
+			Set<String> set = new TreeSet<>();
+			hml.getListFor(reduction).stream().filter(s -> !OR_PATTERN.matcher(s).find()).forEach(s ->
 			{
-				Set<String> set = new TreeSet<>();
-				for (String s : hml.getListFor(reduction))
-				{
-					if (!OR_PATTERN.matcher(s).find())
-					{
-						hml.removeFromListFor(reduction, s);
-						set.add(s);
-					}
-				}
-				hml.addToListFor(reduction, StringUtil.join(set, " and "));
-			}
-		}
+				hml.removeFromListFor(reduction, s);
+				set.add(s);
+			});
+			hml.addToListFor(reduction, StringUtil.join(set, " and "));
+		});
 
 		StringBuilder sb = new StringBuilder(40);
 		boolean needSeparator = false;
 		for (Integer reduction : hml.getKeySet())
 		{
-			Set<String> set = new TreeSet<>();
-			for (String s : hml.getListFor(reduction))
-			{
-				set.add(reduction + "/" + s);
-			}
+			Set<String> set = hml.getListFor(reduction)
+			                     .stream()
+			                     .map(s -> reduction + "/" + s)
+			                     .collect(Collectors.toCollection(TreeSet::new));
 			if (needSeparator)
 			{
 				sb.insert(0, "; ");

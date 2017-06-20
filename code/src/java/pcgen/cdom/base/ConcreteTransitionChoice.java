@@ -194,14 +194,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 			{
 				if (assocList != null && stackLimit != null && stackLimit > 0)
 				{
-					int takenCount = 0;
-					for (Object choice : assocList)
-					{
-						if (choice.equals(item))
-						{
-							takenCount++;
-						}
-					}
+					int takenCount = (int) assocList.stream().filter(choice -> choice.equals(item)).count();
 					if (stackLimit <= takenCount)
 					{
 						continue;

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.util.Arrays;
+
 /** An enumeration of &quot;Standard&quot; spell components */
 public enum Component
 {
@@ -64,14 +66,10 @@ public enum Component
 	 */
 	public static Component getComponentFromKey(final String aKey)
 	{
-		for (Component c : Component.values())
-		{
-			if (c.getKey().equalsIgnoreCase(aKey))
-			{
-				return c;
-			}
-		}
-		return OTHER;
+		return Arrays.stream(Component.values())
+		             .filter(c -> c.getKey().equalsIgnoreCase(aKey))
+		             .findFirst()
+		             .orElse(OTHER);
 	}
 	/**
 	 * Returns the string abbreviation of this component.

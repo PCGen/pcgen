@@ -23,6 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
@@ -180,25 +181,20 @@ public class CollectionToAbilitySelection implements
 		}
 
 		List<AbilitySelection> returnList =
-                new ArrayList<>(availableList.size());
-		for (String s : availableList)
-		{
-			returnList.add(new AbilitySelection(ability, s));
-		}
+				availableList.stream()
+				             .map(s -> new AbilitySelection(ability, s))
+				             .collect(Collectors.toCollection(() -> new ArrayList<>(availableList.size())));
 		return returnList;
 	}
 
 	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
 		ChooseInformation<T> chooseInfo)
 	{
-		final List<String> availableList = new ArrayList<>();
+		final List<String> availableList;
 		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
 		// chooseInfo may have sent us back weaponprofs, abilities or
 		// strings, so we have to do a conversion here
-		for (T o : tempAvailList)
-		{
-			availableList.add(chooseInfo.encodeChoice(o));
-		}
+		availableList = tempAvailList.stream().map(chooseInfo::encodeChoice).collect(Collectors.toList());
 		return availableList;
 	}
 
@@ -294,13 +290,10 @@ public class CollectionToAbilitySelection implements
 			ObjectContainer<Ability> ref, PrimitiveFilter<Ability> lim)
 		{
 			Set<AbilityWithChoice> returnSet = new HashSet<>();
-			for (Ability a : ref.getContainedObjects())
-			{
-				if (lim.allow(character, a))
-				{
-					processAbility(ref, returnSet, a);
-				}
-			}
+			ref.getContainedObjects()
+			   .stream()
+			   .filter(a -> lim.allow(character, a))
+			   .forEach(a -> processAbility(ref, returnSet, a));
 			return returnSet;
 		}
 	}

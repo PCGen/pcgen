@@ -90,10 +90,7 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Set<R> returnSet = new LinkedHashSet<>();
-		for (PrimitiveCollection<T> cs : primCollection)
-		{
-			returnSet.addAll(cs.getCollection(pc, c));
-		}
+		primCollection.stream().map(cs -> cs.getCollection(pc, c)).forEach(rs -> returnSet.addAll(rs));
 		return returnSet;
 	}
 

@@ -17,6 +17,9 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Objects;
+import java.util.stream.IntStream;
+
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
@@ -54,14 +57,10 @@ public class ClassLevelChangeFacet implements ClassLevelChangeListener
 	private void update(CharID id, PCClass pcc, Integer oldLevel, int level)
 	{
 		int old = oldLevel == null ? 0 : oldLevel;
-		for (int i = old + 1; i <= level; i++)
-		{
-			PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, i);
-			if (classLevel != null)
-			{
-				classLevelFacet.add(id, classLevel, pcc);
-			}
-		}
+		IntStream.rangeClosed(old + 1, level)
+		         .mapToObj(i -> classFacet.getClassLevel(id, pcc, i))
+		         .filter(Objects::nonNull)
+		         .forEach(classLevel -> classLevelFacet.add(id, classLevel, pcc));
 		for (int i = old; i > level; i--)
 		{
 			PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, i);

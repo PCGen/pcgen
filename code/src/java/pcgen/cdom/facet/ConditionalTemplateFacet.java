@@ -126,13 +126,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 		}
 
 		// Delete items that the PC no longer has
-		for (PCTemplate a : oldSet)
-		{
-			if (!newMap.containsKey(a))
-			{
-				remove(id, a);
-			}
-		}
+		oldSet.stream().filter(a -> !newMap.containsKey(a)).forEach(a -> remove(id, a));
 		//Add new items
 		for (Map.Entry<PCTemplate, PCTemplate> me : newMap.entrySet())
 		{

@@ -60,14 +60,10 @@ public class EquippedEquipmentFacet extends
 		if (oldEquipped != null)
 		{
 			// Delete items that the PC no longer has at all
-			for (Equipment e : oldEquipped)
-			{
-				if (!currentEquipment.contains(e))
-				{
-					fireDataFacetChangeEvent(id, e,
-							DataFacetChangeEvent.DATA_REMOVED);
-				}
-			}
+			oldEquipped.stream().filter(e -> !currentEquipment.contains(e)).forEach(e -> fireDataFacetChangeEvent
+					(id, e,
+					DataFacetChangeEvent.DATA_REMOVED
+			));
 		}
 		for (Equipment e : currentEquipment)
 		{
