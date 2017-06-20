@@ -18,58 +18,49 @@
 package pcgen.core.display;
 
 import java.util.Collection;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
 
-public class VisionDisplay
-{
+import org.apache.commons.collections4.CollectionUtils;
+import org.jetbrains.annotations.NotNull;
 
+public final class VisionDisplay
+{
+	private VisionDisplay()
+	{
+	}
+
+	@NotNull
 	public static String getVision(final PlayerCharacter aPC, CDOMObject cdo)
 	{
 		if (aPC == null)
 		{
 			return "";
 		}
-		Collection<CDOMReference<Vision>> mods = cdo.getListMods(Vision.VISIONLIST);
-		if (mods == null)
-		{
-			return "";
-		}
-	
-		StringBuilder visionString = new StringBuilder(25);
-		for (CDOMReference<Vision> ref : mods)
-		{
-			for (Vision v : ref.getContainedObjects())
-			{
-				if (visionString.length() > 0)
-				{
-					visionString.append(';');
-				}
-				visionString.append(v.toString(aPC));
-			}
-		}
+		Collection<CDOMReference<Vision>> mods = CollectionUtils.emptyIfNull(cdo.getListMods(Vision.VISIONLIST));
+
+		StringJoiner visionString = new StringJoiner(";");
+		mods.stream()
+		    .flatMap(ref -> ref.getContainedObjects().stream())
+		    .map(v -> v.toString(aPC))
+		    .forEach(visionString::add);
 	
 		return visionString.toString();
 	}
 
+	@NotNull
 	public static String getVision(CharacterDisplay display)
 	{
-		final StringBuilder visionString = new StringBuilder();
-	
-		for (Vision vision : display.getVisionList())
-		{
-			if (visionString.length() > 0)
-			{
-				visionString.append(", ");
-			}
-	
-			visionString.append(vision);
-		}
-	
-		return visionString.toString();
+		return display.getVisionList()
+		              .stream()
+		              .map(Vision::toString)
+		              .collect(Collectors.joining(", "));
+
 	}
 
 }
