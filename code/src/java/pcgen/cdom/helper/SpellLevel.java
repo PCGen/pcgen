@@ -35,7 +35,7 @@ public class SpellLevel implements Comparable<SpellLevel>
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder(25);
-		sb.append(pcclass.toString());
+		sb.append(pcclass);
 		sb.append(" ");
 		sb.append(level);
 		return sb.toString();

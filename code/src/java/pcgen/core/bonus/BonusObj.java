@@ -318,7 +318,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				sb.append("|ERROR");
 			}
 	
-			sb.append('|').append(bonusFormula.toString());
+			sb.append('|').append(bonusFormula);
 
 			if (!bonusType.isEmpty())
 			{

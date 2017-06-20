@@ -230,8 +230,8 @@ public final class BioSet extends PObject implements NonInteractive
 	public String toString()
 	{
 		final StringBuilder sb = new StringBuilder(100);
-		sb.append("AgeMap: ").append(ageMap.toString()).append("\n");
-		sb.append("UserMap: ").append(userMap.toString()).append("\n");
+		sb.append("AgeMap: ").append(ageMap).append("\n");
+		sb.append("UserMap: ").append(userMap).append("\n");
 
 		return sb.toString();
 	}

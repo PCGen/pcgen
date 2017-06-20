@@ -89,7 +89,7 @@ public class OutputNameFormatting
 			}
 			else
 			{
-				result.append(val.toString());
+				result.append(val);
 			}
 	
 			lastIndex = subIndex + 1;
