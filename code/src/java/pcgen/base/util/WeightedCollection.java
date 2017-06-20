@@ -128,12 +128,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	@Override
 	public int size()
 	{
-		int total = 0;
-		for (WeightedItem<E> item : theData)
-		{
-			total += item.getWeight();
-		}
-		return total;
+		return theData.stream().mapToInt(WeightedItem::getWeight).sum();
 	}
 
 	/**

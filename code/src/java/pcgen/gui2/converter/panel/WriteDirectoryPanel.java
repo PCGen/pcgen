@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -31,8 +32,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -40,6 +40,9 @@ import pcgen.core.Campaign;
 import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.converter.event.TaskStrategyMessage;
 import pcgen.system.PCGenSettings;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 public class WriteDirectoryPanel extends ConvertSubPanel
 {
@@ -223,13 +226,9 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		for (Campaign camp : campaignList)
 		{
 			File campFile = new File(camp.getSourceURI());
-			for (File file : existingFiles)
+			if (existingFiles.stream().anyMatch(file -> file.getName().equals(campFile.getName())))
 			{
-				if (file.getName().equals(campFile.getName()))
-				{
-					matchingCampaigns.add(camp);
-					break;
-				}
+				matchingCampaigns.add(camp);
 			}
 		}
 		
