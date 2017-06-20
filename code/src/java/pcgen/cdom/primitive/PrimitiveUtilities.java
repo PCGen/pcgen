@@ -20,12 +20,14 @@ package pcgen.cdom.primitive;
 import java.text.Collator;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.PrimitiveCollection;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 public final class PrimitiveUtilities
 {
-
 	/**
 	 * A COLLATOR used to sort Strings in a locale-aware method.
 	 */
@@ -33,7 +35,6 @@ public final class PrimitiveUtilities
 
 	private PrimitiveUtilities()
 	{
-		// Cannot construct utility class
 	}
 
 	public static final Comparator<PrimitiveCollection<?>> COLLECTION_SORTER =
@@ -49,29 +50,12 @@ public final class PrimitiveUtilities
 
 	public static String joinLstFormat(
 			Collection<? extends PrimitiveCollection<?>> pcfCollection,
-			String separator, boolean useAny)
+			CharSequence separator, boolean useAny)
 	{
-		if (pcfCollection == null)
-		{
-			return "";
-		}
-
-		final StringBuilder result = new StringBuilder(
-				pcfCollection.size() * 10);
-
-		boolean needjoin = false;
-
-		for (PrimitiveCollection<?> pcf : pcfCollection)
-		{
-			if (needjoin)
-			{
-				result.append(separator);
-			}
-			needjoin = true;
-			result.append(pcf.getLSTformat(useAny));
-		}
-
-		return result.toString();
+		return CollectionUtils.emptyIfNull(pcfCollection)
+		                      .stream()
+		                      .map(pcf -> pcf.getLSTformat(useAny))
+		                      .collect(Collectors.joining(separator));
 	}
 
 }
