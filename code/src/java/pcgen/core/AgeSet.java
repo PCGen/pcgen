@@ -19,6 +19,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.Constants;
@@ -133,15 +134,7 @@ public class AgeSet implements BonusContainer
 		{
 			return Collections.emptyList();
 		}
-		List<BonusObj> aList = new ArrayList<>();
-
-		for (BonusObj bo : bonuses)
-		{
-			if (pc.isApplied(bo))
-			{
-				aList.add(bo);
-			}
-		}
+		List<BonusObj> aList = bonuses.stream().filter(pc::isApplied).collect(Collectors.toList());
 
 		return aList;
 	}

@@ -21,6 +21,8 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.ListKey;
@@ -60,16 +62,11 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	{
 		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
-		final List<Campaign> ret = new ArrayList<>(pccFiles.size());
-		
-		for ( final CampaignSourceEntry fileName : pccFiles )
-		{
-			final Campaign campaign = Globals.getCampaignByURI(fileName.getURI(), true);
-			if (campaign != null)
-			{
-				ret.add(campaign);
-			}
-		}
+		final List<Campaign> ret = pccFiles.stream()
+		                                   .map(fileName -> Globals.getCampaignByURI(fileName.getURI(), true))
+		                                   .filter(Objects::nonNull)
+		                                   .collect(Collectors.toCollection(() -> new ArrayList<>(pccFiles.size())));
+
 		return ret;
 	}
 
@@ -130,13 +127,10 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 			List<String> modes = getSafeListFor(ListKey.GAME_MODE);
 			for (String string : modes)
 			{
-				for (GameMode game : SystemCollections.getUnmodifiableGameModeList())
-				{
-					if (game.getAllowedModes().contains(string))
-					{
-						gameModes.addElement(game);
-					}
-				}
+				SystemCollections.getUnmodifiableGameModeList()
+				                 .stream()
+				                 .filter(game -> game.getAllowedModes().contains(string))
+				                 .forEach(game -> gameModes.addElement(game));
 			}
 		}
 		return gameModes;

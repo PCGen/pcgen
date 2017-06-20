@@ -32,6 +32,7 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.WrappedMapSet;
@@ -454,14 +455,11 @@ public class BonusManager
 		// TypedBonus.totalBonusesByType(bonuses);
 		// return CoreUtility.commaDelimit(bonusStrings);
 
-		final Set<String> keys = new TreeSet<>();
-		for (String fullyQualifiedBonusType : activeBonusMap.keySet())
-		{
-			if (fullyQualifiedBonusType.startsWith(prefix))
-			{
-				keys.add(fullyQualifiedBonusType);
-			}
-		}
+		final Set<String> keys = activeBonusMap.keySet()
+		                                       .stream()
+		                                       .filter(fullyQualifiedBonusType -> fullyQualifiedBonusType.startsWith(
+				                                       prefix))
+		                                       .collect(Collectors.toCollection(TreeSet::new));
 		for (String fullyQualifiedBonusType : keys)
 		{
 			// make a list of keys that end with .REPLACE
@@ -578,23 +576,17 @@ public class BonusManager
 		}
 		prevProcessed.add(aBonus);
 
-		final List<BonusObj> aList = new ArrayList<>();
+		final List<BonusObj> aList = getActiveBonusList().stream()
+		                                                 .filter(newBonus -> !processedBonuses.contains(newBonus))
+		                                                 .filter(newBonus ->
+				                                                 aBonus.getDependsOn(newBonus
+						                                                 .getUnparsedBonusInfoList())
+						                                                 || aBonus.getDependsOnBonusName(newBonus
+						                                                 .getBonusName()))
+		                                                 .collect(Collectors.toList());
 
 		// Go through all bonuses and check to see if they add to
 		// aBonus's dependencies and have not already been processed
-		for (BonusObj newBonus : getActiveBonusList())
-		{
-			if (processedBonuses.contains(newBonus))
-			{
-				continue;
-			}
-
-			if (aBonus.getDependsOn(newBonus.getUnparsedBonusInfoList())
-				|| aBonus.getDependsOnBonusName(newBonus.getBonusName()))
-			{
-				aList.add(newBonus);
-			}
-		}
 
 		// go through all the BonusObj's that aBonus depends on
 		// and process them first
@@ -809,15 +801,13 @@ public class BonusManager
 								&& co instanceof CDOMObject)
 						{
 							CDOMObject creator = (CDOMObject) co;
-							for (String assoc : pc
-									.getConsolidatedAssociationList(creator))
+							//TODO Case sensitivity?
+							if (pc
+									.getConsolidatedAssociationList(creator)
+									.stream()
+									.anyMatch(assoc -> assoc.contains(statAbbr)))
 							{
-								//TODO Case sensitivity?
-								if (assoc.contains(statAbbr))
-								{
-									found = true;
-									break;
-								}
+								found = true;
 							}
 						}
 					}
@@ -859,25 +849,22 @@ public class BonusManager
 					// Grab the list of relevant types so that we can build up
 					// the
 					// bonuses with the stacking rules applied.
-					for (BonusPair bp : getStringListFromBonus(bonus))
-					{
-						if (bp.fullyQualifiedBonusType.startsWith(prefix))
-						{
-							setActiveBonusStack(bp.resolve(pc).doubleValue(),
-									bp.fullyQualifiedBonusType, nonStackMap, stackMap);
-							totalBonusesForType(nonStackMap, stackMap,
-								bp.fullyQualifiedBonusType, bonusMap);
-						}
-					}
+					getStringListFromBonus(bonus).stream()
+					                             .filter(bp -> bp.fullyQualifiedBonusType.startsWith(prefix))
+					                             .forEach(bp ->
+					                             {
+						                             setActiveBonusStack(bp.resolve(pc).doubleValue(),
+								                             bp.fullyQualifiedBonusType, nonStackMap, stackMap
+						                             );
+						                             totalBonusesForType(nonStackMap, stackMap,
+								                             bp.fullyQualifiedBonusType, bonusMap
+						                             );
+					                             });
 				}
 			}
 		}
 		// Sum the included bonuses to the stat to get our result.
-		int total = 0;
-		for (String bKey : bonusMap.keySet())
-		{
-			total += Float.parseFloat(bonusMap.get(bKey));
-		}
+		int total = bonusMap.keySet().stream().mapToInt(bKey -> (int) Float.parseFloat(bonusMap.get(bKey))).sum();
 		return total;
 	}
 
@@ -937,12 +924,11 @@ public class BonusManager
 
 	public Set<String> getTempBonusDisplayNames()
 	{
-		final Set<String> ret = new TreeSet<>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
-				.entrySet())
-		{
-			ret.add(BonusDisplay.getBonusDisplayName(me.getValue()));
-		}
+		final Set<String> ret = tempBonusBySource
+				.entrySet()
+				.stream()
+				.map(me -> BonusDisplay.getBonusDisplayName(me.getValue()))
+				.collect(Collectors.toCollection(TreeSet::new));
 		return ret;
 	}
 
@@ -1375,13 +1361,10 @@ public class BonusManager
 			{
 				k = 0;
 
-				for (String aString : pc.getConsolidatedAssociationList(anObj))
-				{
-					if (aString.equalsIgnoreCase(aBonus.getBonusInfo()))
-					{
-						++k;
-					}
-				}
+				k += pc.getConsolidatedAssociationList(anObj)
+				       .stream()
+				       .filter(aString -> aString.equalsIgnoreCase(aBonus.getBonusInfo()))
+				       .count();
 			}
 			else
 			{
@@ -1403,14 +1386,7 @@ public class BonusManager
 
 	public boolean hasTempBonusesApplied(CDOMObject mod)
 	{
-		for (TempBonusInfo tbi : tempBonusBySource.values())
-		{
-			if (tbi.source.equals(mod))
-			{
-				return true;
-			}
-		}
-		return false;
+		return tempBonusBySource.values().stream().anyMatch(tbi -> tbi.source.equals(mod));
 	}
 
 	private Map<BonusObj, Object> getAllActiveBonuses()

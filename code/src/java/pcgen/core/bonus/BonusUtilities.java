@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -50,13 +51,8 @@ public final class BonusUtilities
 
 		if (bonusList != null)
 		{
-			for ( BonusObj aBonus : bonusList )
+			bonusList.stream().filter(aBonus -> aBonus.getTypeOfBonus().equals(aType)).forEach(aBonus ->
 			{
-				if (!aBonus.getTypeOfBonus().equals(aType))
-				{
-					continue;
-				}
-
 				if (aBonus.getBonusInfoList().size() > 1)
 				{
 					final StringTokenizer aTok = new StringTokenizer(aBonus.getBonusInfo(), ",");
@@ -75,7 +71,7 @@ public final class BonusUtilities
 				{
 					aList.add(aBonus);
 				}
-			}
+			});
 		}
 
 		return aList;
@@ -89,17 +85,11 @@ public final class BonusUtilities
 	 */
 	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final String type)
 	{
-		final List<BonusObj> aList = new ArrayList<>(bonusList.size());
+		final List<BonusObj> aList = bonusList.stream()
+		                                      .filter(bonus -> !bonus.getTypeOfBonus().equals(type))
+		                                      .collect(Collectors.toCollection(() -> new ArrayList<>(bonusList.size())));
 
 		// Analysis reveals that bonusList is never null
-		for ( BonusObj bonus : bonusList )
-		{
-			if (bonus.getTypeOfBonus().equals(type))
-			{
-				continue;
-			}
-			aList.add(bonus);
-		}
 
 		return aList;
 	}

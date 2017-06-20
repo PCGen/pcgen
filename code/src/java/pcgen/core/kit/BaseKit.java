@@ -63,13 +63,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	{
 		if (bounds != null)
 		{
-			for (OptionBound bound : bounds)
-			{
-				if (bound.isOption(pc, val))
-				{
-					return true;
-				}
-			}
+			return bounds.stream().anyMatch(bound -> bound.isOption(pc, val));
 		}
 		return false;
 	}

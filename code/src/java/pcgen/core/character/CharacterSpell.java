@@ -173,21 +173,19 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 			return null;
 		}
 
-		for (SpellInfo s : infoList)
-		{
-			if (("".equals(bookName) || bookName.equals(s.getBook()))
-				&& (level == -1 || s.getActualLevel() == level)
-				&& (featList == null
-				|| featList.isEmpty() && (s.getFeatList() == null || s
-					.getFeatList().isEmpty())
-				|| s.getFeatList() != null && featList.toString()
-					.equals(s.getFeatList().toString())))
-			{
-				return s;
-			}
-		}
+		return infoList.stream()
+		               .filter(s -> ("".equals(bookName) || bookName.equals(s.getBook()))
+				               && (level == -1 || s.getActualLevel() == level)
+				               && (
+				               featList == null
+						               || featList.isEmpty() && (
+						               s.getFeatList() == null || s
+								               .getFeatList().isEmpty())
+						               || s.getFeatList() != null && featList.toString()
+						                                                     .equals(s.getFeatList().toString())))
+		               .findFirst()
+		               .orElse(null);
 
-		return null;
 	}
 
 	public boolean hasSpellInfoFor(int level)
@@ -196,15 +194,8 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		{
 			return false;
 		}
-		for (SpellInfo s : infoList)
-		{
-			if (s.getActualLevel() == level)
-			{
-				return true;
-			}
-		}
 
-		return false;
+		return infoList.stream().anyMatch(s -> s.getActualLevel() == level);
 	}
 
 	public boolean hasSpellInfoFor(String bookName)
@@ -214,15 +205,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 			return false;
 		}
 
-		for (SpellInfo s : infoList)
-		{
-			if (bookName.equals(s.getBook()))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return infoList.stream().anyMatch(s -> bookName.equals(s.getBook()));
 	}
 
 	/**

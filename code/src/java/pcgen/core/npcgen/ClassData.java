@@ -88,14 +88,12 @@ public class ClassData
 	public WeightedCollection<PCStat> getStatWeights()
 	{
 		// Make sure that we have all the stats
-		for (final PCStat stat : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(PCStat.class))
-		{
-			if (theStatWeights == null || !theStatWeights.contains(stat))
-			{
-				addStat(stat, 1);
-			}
-		}
+		Globals.getContext()
+		       .getReferenceContext()
+		       .getConstructedCDOMObjects(PCStat.class)
+		       .stream()
+		       .filter(stat -> theStatWeights == null || !theStatWeights.contains(stat))
+		       .forEach(stat -> addStat(stat, 1));
 		return theStatWeights;
 	}
 	

@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -99,11 +100,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public List<String> getUnparsedBonusInfoList()
 	{
-		List<String> list = new ArrayList<>();
-		for (Object info : bonusInfo)
-		{
-			list.add(unparseToken(info));
-		}
+		List<String> list = bonusInfo.stream().map(this::unparseToken).collect(Collectors.toList());
 		return list;
 	}
 			
@@ -142,14 +139,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public boolean getDependsOn(final List<String> aList)
 	{
-		for (String key : aList)
-		{
-			if (dependMap.containsKey(key))
-			{
-				return true;
-			}
-		}
-		return false;
+		return aList.stream().anyMatch(key -> dependMap.containsKey(key));
 	}
 
 	/**

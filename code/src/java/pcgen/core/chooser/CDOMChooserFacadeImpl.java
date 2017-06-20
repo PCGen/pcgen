@@ -19,6 +19,7 @@ package pcgen.core.chooser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -332,10 +333,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		if (item instanceof PObject)
 		{
 			PObject pObject = (PObject) item;
-			for (Type type : pObject.getTrueTypeList(true))
-			{
-				branches.add(type.toString());
-			}
+			branches = pObject.getTrueTypeList(true).stream().map(Type::toString).collect(Collectors.toList());
 		}
 		return branches;
 	}

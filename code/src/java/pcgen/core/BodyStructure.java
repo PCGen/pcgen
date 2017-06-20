@@ -140,13 +140,6 @@ public class BodyStructure implements BodyStructureFacade
 	 */
 	public boolean isForbidden(Collection<Type> types)
 	{
-		for (Type type : types)
-		{
-			if (forbiddenTypes.contains(type))
-			{
-				return true;
-			}
-		}
-		return false;
+		return types.stream().anyMatch(type -> forbiddenTypes.contains(type));
 	}
 }

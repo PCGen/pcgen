@@ -19,6 +19,7 @@ package pcgen.core.chooser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -109,14 +110,9 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	{
 		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
 				owner, pc);
-		List<T> toAdd = new ArrayList<>();
-		for (T obj : selected)
-		{
-			if (oldSelections == null || !oldSelections.remove(obj))
-			{
-				toAdd.add(obj);
-			}
-		}
+		List<T> toAdd = selected.stream()
+		                        .filter(obj -> oldSelections == null || !oldSelections.remove(obj))
+		                        .collect(Collectors.toList());
 		int oldSize = 0;
 		if (oldSelections != null)
 		{

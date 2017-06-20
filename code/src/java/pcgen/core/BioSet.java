@@ -27,6 +27,8 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
@@ -374,19 +376,21 @@ public final class BioSet extends PObject implements NonInteractive
 			sb.append("AGESET:");
 			sb.append(ageMap.get(region, key).getLSTformat()).append("\n");
 
-			for (final Map.Entry<String, SortedMap<String, String>> stringSortedMapEntry : races.entrySet())
-			{
-				if (!"AGESET".equals(stringSortedMapEntry.getKey()))
-				{
-					final SortedMap<String, String> tags = stringSortedMapEntry.getValue();
-
-					for (final Map.Entry<String, String> stringStringEntry : tags.entrySet())
-					{
-						sb.append("RACENAME:").append(stringSortedMapEntry.getKey()).append("\t\t");
-						sb.append(stringStringEntry.getKey()).append(':').append(stringStringEntry.getValue()).append("\n");
-					}
-				}
-			}
+			races.entrySet()
+			     .stream()
+			     .filter(stringSortedMapEntry -> !"AGESET".equals(stringSortedMapEntry.getKey()))
+			     .forEach(stringSortedMapEntry ->
+			     {
+				     final SortedMap<String, String> tags = stringSortedMapEntry.getValue();
+				     for (final Map.Entry<String, String> stringStringEntry : tags.entrySet())
+				     {
+					     sb.append("RACENAME:").append(stringSortedMapEntry.getKey()).append("\t\t");
+					     sb.append(stringStringEntry.getKey())
+					       .append(':')
+					       .append(stringStringEntry.getValue())
+					       .append("\n");
+				     }
+			     });
 
 			sb.append("\n");
 		}
@@ -651,11 +655,8 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public Set<String> getAgeCategories()
 	{
-		Set<String> set = new TreeSet<>();
-		for (Object o : ageNames.keySet())
-		{
-			set.add(o.toString());
-		}
+		Set<String> set =
+				ageNames.keySet().stream().map(Object::toString).collect(Collectors.toCollection(TreeSet::new));
 		return set;
 	}
 

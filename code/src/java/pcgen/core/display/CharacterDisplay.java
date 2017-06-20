@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.NamedValue;
@@ -760,14 +761,10 @@ public class CharacterDisplay
 	public List<Skill> getPartialSkillList(View v)
 	{
 		// Now select the required set of skills, based on their visibility.
-		ArrayList<Skill> aList = new ArrayList<>();
-		for (Skill po : skillFacet.getSet(id))
-		{
-			if (po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-			{
-				aList.add(po);
-			}
-		}
+		ArrayList<Skill> aList = skillFacet.getSet(id)
+		                                   .stream()
+		                                   .filter(po -> po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
+		                                   .collect(Collectors.toCollection(ArrayList::new));
 		return aList;
 	}
 
@@ -1110,15 +1107,10 @@ public class CharacterDisplay
 			return false;
 		}
 
-		for (Equipment eqI : secondaryWeaponFacet.getSet(id))
-		{
-			if (eqI.getName().equalsIgnoreCase(eq.getName()) && (eqI.getLocation() == eq.getLocation()))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return secondaryWeaponFacet.getSet(id)
+		                           .stream()
+		                           .anyMatch(eqI -> eqI.getName().equalsIgnoreCase(eq.getName()) && (
+				                           eqI.getLocation() == eq.getLocation()));
 	}
 
 	/**
@@ -1163,15 +1155,10 @@ public class CharacterDisplay
 			return false;
 		}
 
-		for (Equipment eqI : primaryWeaponFacet.getSet(id))
-		{
-			if (eqI.getName().equalsIgnoreCase(eq.getName()) && (eqI.getLocation() == eq.getLocation()))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return primaryWeaponFacet.getSet(id)
+		                         .stream()
+		                         .anyMatch(eqI -> eqI.getName().equalsIgnoreCase(eq.getName()) && (
+				                         eqI.getLocation() == eq.getLocation()));
 	}
 
 	public int minXPForNextECL()
