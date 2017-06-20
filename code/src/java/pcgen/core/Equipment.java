@@ -178,6 +178,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	private boolean virtualItem;
 
+	public Equipment()
 	{
 		final SizeAdjustment sizeAdj = SizeUtilities.getDefaultSizeAdjustment();
 		if (sizeAdj != null)

@@ -28,8 +28,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.gui2.converter.panel.CampaignPanel;
 import pcgen.gui2.converter.panel.ConvertSubPanel;
 import pcgen.gui2.converter.panel.GameModePanel;
@@ -46,6 +44,8 @@ import pcgen.system.Main;
 import pcgen.system.PCGenPropBundle;
 import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.SystemUtils;
 
 public final class PCGenDataConvert extends JFrame
 {
@@ -99,7 +99,7 @@ public final class PCGenDataConvert extends JFrame
 	{
 		Logging.log(Level.INFO, "Starting PCGen Data Converter v" + PCGenPropBundle.getVersionNumber()); //$NON-NLS-1$
 		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
+		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(null));
 		Main.loadProperties(true);
 		getConverter().setVisible(true);
 	}

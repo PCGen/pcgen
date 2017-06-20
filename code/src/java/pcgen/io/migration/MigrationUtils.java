@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.io.migration;
 
@@ -28,11 +26,13 @@ import pcgen.core.system.MigrationRule.ObjectType;
 
 /**
  * MigrationUtils provides common helper functions for migration classes.
- * 
- * 
  */
-public final class MigrationUtils
+final class MigrationUtils
 {
+
+	private MigrationUtils()
+	{
+	}
 
 	/**
 	 * Retrieve a list of migration rules which should be applied based on the supplied filters.  
@@ -41,8 +41,8 @@ public final class MigrationUtils
 	 * @param objectType The type of object being migrated.
 	 * @return A list of migration rules.
 	 */
-	protected static List<MigrationRule> getChangeList(int[] pcgVer,
-	                                                   String gameModeName, ObjectType objectType)
+	static List<MigrationRule> getChangeList(int[] pcgVer,
+	                                         String gameModeName, ObjectType objectType)
 	{
 		List<MigrationRule> sourceChangeList = new ArrayList<>();
 		List<MigrationRule> migrationRuleList =
@@ -50,8 +50,8 @@ public final class MigrationUtils
 					.getUnmodifiableMigrationRuleList(gameModeName);
 		for (MigrationRule migrationRule : migrationRuleList)
 		{
-			if (migrationRule.getObjectType() == objectType
-				&& migrationRule.changeAppliesToVer(pcgVer))
+			if ((migrationRule.getObjectType() == objectType)
+					&& migrationRule.changeAppliesToVer(pcgVer))
 			{
 				sourceChangeList.add(migrationRule);
 			}
