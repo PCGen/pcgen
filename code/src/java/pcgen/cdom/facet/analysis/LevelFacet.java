@@ -102,11 +102,11 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements
 			levelAdj += formulaResolvingFacet.resolve(id, raceLA, "").intValue();
 		}
 
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			Formula templateLA = template.getSafe(FormulaKey.LEVEL_ADJUSTMENT);
-			levelAdj += formulaResolvingFacet.resolve(id, templateLA, "").intValue();
-		}
+		levelAdj += templateFacet.getSet(id)
+		                         .stream()
+		                         .map(template -> template.getSafe(FormulaKey.LEVEL_ADJUSTMENT))
+		                         .mapToInt(templateLA -> formulaResolvingFacet.resolve(id, templateLA, "").intValue())
+		                         .sum();
 
 		return levelAdj;
 	}

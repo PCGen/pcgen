@@ -308,17 +308,14 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> map = getCachedMap(source);
 		if (map != null)
 		{
-			for (Map<FollowerOption, Set<CDOMObject>> fm : map.values())
+			map.values().stream().flatMap(fm -> fm.entrySet().stream()).forEach(fme ->
 			{
-				for (Map.Entry<FollowerOption, Set<CDOMObject>> fme : fm.entrySet())
+				FollowerOption fl = fme.getKey();
+				for (CDOMObject cdo : fme.getValue())
 				{
-					FollowerOption fl = fme.getKey();
-					for (CDOMObject cdo : fme.getValue())
-					{
-						add(copy, fl, cdo);
-					}
+					add(copy, fl, cdo);
 				}
-			}
+			});
 		}
 	}
 
@@ -328,10 +325,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		int count = 0;
 		if (map != null)
 		{
-			for (Map<FollowerOption, Set<CDOMObject>> fm : map.values())
-			{
-				count += fm.size();
-			}
+			count = map.values().stream().mapToInt(Map::size).sum();
 		}
 		return count;
 	}

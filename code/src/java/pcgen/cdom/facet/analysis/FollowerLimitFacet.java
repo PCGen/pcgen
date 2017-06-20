@@ -301,17 +301,14 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> map = getCachedMap(source);
 		if (map != null)
 		{
-			for (Map<FollowerLimit, Set<CDOMObject>> fm : map.values())
+			map.values().stream().flatMap(fm -> fm.entrySet().stream()).forEach(fme ->
 			{
-				for (Map.Entry<FollowerLimit, Set<CDOMObject>> fme : fm.entrySet())
+				FollowerLimit fl = fme.getKey();
+				for (CDOMObject cdo : fme.getValue())
 				{
-					FollowerLimit fl = fme.getKey();
-					for (CDOMObject cdo : fme.getValue())
-					{
-						add(copy, fl, cdo);
-					}
+					add(copy, fl, cdo);
 				}
-			}
+			});
 		}
 	}
 
@@ -321,10 +318,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		int count = 0;
 		if (map != null)
 		{
-			for (Map<FollowerLimit, Set<CDOMObject>> fm : map.values())
-			{
-				count += fm.size();
-			}
+			count = map.values().stream().mapToInt(Map::size).sum();
 		}
 		return count;
 	}

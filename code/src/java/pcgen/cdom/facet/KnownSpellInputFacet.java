@@ -71,16 +71,13 @@ public class KnownSpellInputFacet implements
 	private void processListRef(CharID id, CDOMObject cdo,
 		CDOMReference<? extends CDOMList<?>> listref)
 	{
-		for (CDOMList<?> list : listref.getContainedObjects())
-		{
-			if (!(list instanceof ClassSpellList)
-				&& !(list instanceof DomainSpellList))
-			{
-				continue;
-			}
-			CDOMList<Spell> spelllist = (CDOMList<Spell>) list;
-			processList(id, spelllist, listref, cdo);
-		}
+		listref.getContainedObjects()
+		       .stream()
+		       .filter(list -> !(
+				       !(list instanceof ClassSpellList)
+						       && !(list instanceof DomainSpellList)))
+		       .map(list -> (CDOMList<Spell>) list)
+		       .forEach(spelllist -> processList(id, spelllist, listref, cdo));
 	}
 
 	private void processList(CharID id, CDOMList<Spell> spelllist,
@@ -102,13 +99,11 @@ public class KnownSpellInputFacet implements
 				if (apo.hasPrerequisites())
 				{
 					List<Prerequisite> prereqs = apo.getPrerequisiteList();
-					for (Spell spell : spells)
+					spells.stream().map(spell -> new AvailableSpell(spelllist, spell, lvl)).forEach(as ->
 					{
-						AvailableSpell as =
-								new AvailableSpell(spelllist, spell, lvl);
 						as.addAllPrerequisites(prereqs);
 						conditionallyKnownSpellFacet.add(id, as, cdo);
-					}
+					});
 				}
 				else
 				{

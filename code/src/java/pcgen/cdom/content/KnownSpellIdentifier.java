@@ -146,27 +146,15 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 		if (ref == null)
 		{
 			List<Spell> returnList = new ArrayList<>();
-			for (CDOMList<Spell> list : classSpellLists)
-			{
-				returnList.addAll(pc.getSpellsIn(list, spellLevel));
-			}
+			classSpellLists.stream().map(list -> pc.getSpellsIn(list, spellLevel)).forEach(returnList::addAll);
 			return returnList;
 		}
 		List<Spell> spellList = new ArrayList<>();
 		for (Spell sp : ref.getContainedObjects())
 		{
 			HashMapToList<CDOMList<Spell>, Integer> hml = pc.getSpellLevelInfo(sp);
-			for (CDOMList<Spell> cdomList : hml.getKeySet())
-			{
-				if (classSpellLists.contains(cdomList))
-				{
-					if (spellLevel == null
-							|| hml.getListFor(cdomList).contains(spellLevel))
-					{
-						spellList.add(sp);
-					}
-				}
-			}
+			hml.getKeySet().stream().filter(classSpellLists::contains).filter(cdomList -> spellLevel == null
+					|| hml.getListFor(cdomList).contains(spellLevel)).map(cdomList -> sp).forEach(spellList::add);
 		}
 		return spellList;
 	}

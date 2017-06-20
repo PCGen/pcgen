@@ -92,13 +92,10 @@ public class ListToSkillCostFacet extends
 		ClassSkillList skilllist = dfce.getScope1();
 		SkillCost cost = dfce.getScope2();
 		Skill sk = dfce.getCDOMObject();
-		for (PCClass cl : skillListFacet.getScopes(id))
-		{
-			if (skillListFacet.contains(id, cl, skilllist))
-			{
-				add(id, cl, cost, sk, cl);
-			}
-		}
+		skillListFacet.getScopes(id)
+		              .stream()
+		              .filter(cl -> skillListFacet.contains(id, cl, skilllist))
+		              .forEach(cl -> add(id, cl, cost, sk, cl));
 	}
 
 	@Override
@@ -109,12 +106,9 @@ public class ListToSkillCostFacet extends
 		ClassSkillList skilllist = dfce.getScope1();
 		SkillCost cost = dfce.getScope2();
 		Skill sk = dfce.getCDOMObject();
-		for (PCClass cl : skillListFacet.getScopes(id))
-		{
-			if (skillListFacet.contains(id, cl, skilllist))
-			{
-				remove(id, cl, cost, sk, cl);
-			}
-		}
+		skillListFacet.getScopes(id)
+		              .stream()
+		              .filter(cl -> skillListFacet.contains(id, cl, skilllist))
+		              .forEach(cl -> remove(id, cl, cost, sk, cl));
 	}
 }

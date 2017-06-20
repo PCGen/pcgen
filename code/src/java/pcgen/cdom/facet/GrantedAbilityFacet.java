@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.SetFacet;
@@ -72,14 +73,10 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		List<CNAbility> returnList = new ArrayList<>();
 		if (list != null)
 		{
-			for (List<SourcedCNAS> array : list)
-			{
-				CNAbility cna = array.get(0).cnas.getCNAbility();
-				if (cna.getAbilityCategory().equals(cat))
-				{
-					returnList.add(cna);
-				}
-			}
+			returnList = list.stream()
+			                 .map(array -> array.get(0).cnas.getCNAbility())
+			                 .filter(cna -> cna.getAbilityCategory().equals(cat))
+			                 .collect(Collectors.toList());
 		}
 		return returnList;
 	}
@@ -91,15 +88,11 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
-			for (List<SourcedCNAS> array : list)
-			{
-				CNAbility cna = array.get(0).cnas.getCNAbility();
-				if (cna.getAbilityCategory().equals(cat)
-					&& cna.getNature() == n)
-				{
-					returnList.add(cna);
-				}
-			}
+			returnList = list.stream()
+			                 .map(array -> array.get(0).cnas.getCNAbility())
+			                 .filter(cna -> cna.getAbilityCategory().equals(cat)
+					                 && cna.getNature() == n)
+			                 .collect(Collectors.toList());
 		}
 		return returnList;
 	}
@@ -115,14 +108,10 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
-			for (List<SourcedCNAS> array : list)
-			{
-				CNAbility cna = array.get(0).cnas.getCNAbility();
-				if (cna.getAbilityCategory().getParentCategory().equals(cat))
-				{
-					returnList.add(cna);
-				}
-			}
+			returnList = list.stream()
+			                 .map(array -> array.get(0).cnas.getCNAbility())
+			                 .filter(cna -> cna.getAbilityCategory().getParentCategory().equals(cat))
+			                 .collect(Collectors.toList());
 		}
 		return returnList;
 	}
@@ -133,10 +122,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
-			for (List<SourcedCNAS> array : list)
-			{
-				returnList.add(array.get(0).cnas.getCNAbility());
-			}
+			returnList = list.stream().map(array -> array.get(0).cnas.getCNAbility()).collect(Collectors.toList());
 		}
 		return returnList;
 	}
@@ -148,15 +134,11 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
-			for (List<SourcedCNAS> array : list)
-			{
-				CNAbility cna = array.get(0).cnas.getCNAbility();
-				if (cna.getAbilityCategory().getParentCategory().equals(cat)
-					&& cna.getNature() == n)
-				{
-					returnList.add(cna);
-				}
-			}
+			returnList = list.stream()
+			                 .map(array -> array.get(0).cnas.getCNAbility())
+			                 .filter(cna -> cna.getAbilityCategory().getParentCategory().equals(cat)
+					                 && cna.getNature() == n)
+			                 .collect(Collectors.toList());
 		}
 		return returnList;
 	}
@@ -168,15 +150,11 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		if (list != null)
 		{
 			Category<Ability> cat = ability.getCDOMCategory();
-			for (List<SourcedCNAS> array : list)
-			{
-				CNAbility cna = array.get(0).cnas.getCNAbility();
-				if (cna.getAbilityCategory().getParentCategory().equals(cat)
-					&& cna.getAbilityKey().equals(ability.getKeyName()))
-				{
-					returnList.add(cna);
-				}
-			}
+			returnList = list.stream()
+			                 .map(array -> array.get(0).cnas.getCNAbility())
+			                 .filter(cna -> cna.getAbilityCategory().getParentCategory().equals(cat)
+					                 && cna.getAbilityKey().equals(ability.getKeyName()))
+			                 .collect(Collectors.toSet());
 		}
 		return returnList;
 	}
@@ -186,15 +164,10 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
-			for (List<SourcedCNAS> array : list)
-			{
-				CNAbility cna = array.get(0).cnas.getCNAbility();
-				if (cna.getAbilityCategory().getParentCategory().equals(cat)
-					&& cna.getAbilityKey().equals(aKey))
-				{
-					return true;
-				}
-			}
+			return list.stream()
+			           .map(array -> array.get(0).cnas.getCNAbility())
+			           .anyMatch(cna -> cna.getAbilityCategory().getParentCategory().equals(cat)
+					           && cna.getAbilityKey().equals(aKey));
 		}
 		return false;
 	}
@@ -205,14 +178,9 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
-			for (List<SourcedCNAS> array : list)
-			{
-				CNAbility cna = array.get(0).cnas.getCNAbility();
-				if (cna.getAbilityCategory().equals(cat))
-				{
-					return true;
-				}
-			}
+			return list.stream()
+			           .map(array -> array.get(0).cnas.getCNAbility())
+			           .anyMatch(cna -> cna.getAbilityCategory().equals(cat));
 		}
 		return false;
 	}

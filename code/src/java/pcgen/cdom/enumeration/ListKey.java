@@ -356,15 +356,13 @@ public final class ListKey<T>
 		 * CONSIDER Should this find a way to do a Two-Way Map or something to
 		 * that effect?
 		 */
-		for (Map.Entry<?, ListKey<?>> me : map.entrySet())
-		{
-			if (me.getValue() == this)
-			{
-				return me.getKey().toString();
-			}
-		}
+		return map.entrySet()
+		          .stream()
+		          .filter(me -> me.getValue() == this)
+		          .findFirst()
+		          .map(me -> me.getKey().toString())
+		          .orElse("");
 		// Error
-		return "";
 	}
 
 	public static Collection<ListKey<?>> getAllConstants()

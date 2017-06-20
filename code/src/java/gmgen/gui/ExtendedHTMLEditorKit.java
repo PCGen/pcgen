@@ -22,10 +22,12 @@ import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.stream.IntStream;
 
 import javax.swing.Action;
 import javax.swing.JEditorPane;
@@ -430,17 +432,8 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             tableCarets[4] = source.indexOf("</tr", caret);
             tableCarets[5] = source.indexOf("</td", caret);
             java.util.Arrays.sort(tableCarets);
-            caret = -1;
 
-            for (final int tableCaret : tableCarets)
-            {
-                if (tableCaret >= 0)
-                {
-                    caret = tableCaret;
-
-                    break;
-                }
-            }
+	        caret = Arrays.stream(tableCarets).filter(tableCaret -> tableCaret >= 0).findFirst().orElse(-1);
 
             if (caret != -1) {
                 result.append(source.substring(caret, source.indexOf('>', caret) + 1));
@@ -452,13 +445,9 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
     private static int[] getPositions(Element element, String source, boolean closingTag, String idString) {
         HTML.Tag tag = getHTMLTag(element);
-        int[] position = new int[4];
+	    int[] position = IntStream.range(0, 4).map(i -> -1).toArray();
 
-        for (int i = 0; i < position.length; i++) {
-            position[i] = -1;
-        }
-
-        String searchString = "<" + tag.toString();
+	    String searchString = "<" + tag.toString();
         int caret;
 
         if ((caret = source.indexOf(idString)) != -1) {

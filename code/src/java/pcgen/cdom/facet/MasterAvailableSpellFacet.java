@@ -20,6 +20,8 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -62,14 +64,10 @@ public class MasterAvailableSpellFacet extends
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			Collection<CDOMList<Spell>> lists = ref.getContainedObjects();
-			for (CDOMList<Spell> list : lists)
+			if (lists.stream().anyMatch(list -> (list instanceof ClassSpellList)
+					|| (list instanceof DomainSpellList)))
 			{
-				if ((list instanceof ClassSpellList)
-					|| (list instanceof DomainSpellList))
-				{
-					useLists.add(ref);
-					break;
-				}
+				useLists.add(ref);
 			}
 		}
 		for (CDOMReference<CDOMList<Spell>> ref : useLists)
@@ -81,15 +79,14 @@ public class MasterAvailableSpellFacet extends
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					int lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
-					for (CDOMList<Spell> list : ref.getContainedObjects())
+					ref.getContainedObjects().stream().map(list -> new AvailableSpell(list, spell, lvl)).forEach(as ->
 					{
-						AvailableSpell as = new AvailableSpell(list, spell, lvl);
 						if (apo.hasPrerequisites())
 						{
 							as.addAllPrerequisites(apo.getPrerequisiteList());
 						}
 						add(dsID, as);
-					}
+					});
 				}
 			}
 		}
@@ -103,15 +100,9 @@ public class MasterAvailableSpellFacet extends
 	 */
 	public List<AvailableSpell> getAllSpellsInList(CDOMList<Spell> spellList, DataSetID dsID)
 	{
-		List<AvailableSpell> spellsInList = new ArrayList<>();
+		List<AvailableSpell> spellsInList;
 		Collection<AvailableSpell> spells = getSet(dsID);
-		for (AvailableSpell as : spells)
-		{
-			if (as.getSpelllist().equals(spellList))
-			{
-				spellsInList.add(as);
-			}
-		}
+		spellsInList = spells.stream().filter(as -> as.getSpelllist().equals(spellList)).collect(Collectors.toList());
 
 		return spellsInList;
 	}
@@ -126,16 +117,10 @@ public class MasterAvailableSpellFacet extends
 	public List<AvailableSpell> getMatchingSpellsInList(
 		CDOMList<Spell> spellList, DataSetID dsID, Spell spell)
 	{
-		List<AvailableSpell> spellsInList = new ArrayList<>();
+		List<AvailableSpell> spellsInList;
 		Collection<AvailableSpell> spells = getSet(dsID);
-		for (AvailableSpell as : spells)
-		{
-			if (as.getSpelllist().equals(spellList)
-				&& as.getSpell().equals(spell))
-			{
-				spellsInList.add(as);
-			}
-		}
+		spellsInList = spells.stream().filter(as -> as.getSpelllist().equals(spellList)
+				&& as.getSpell().equals(spell)).collect(Collectors.toList());
 
 		return spellsInList;
 	}

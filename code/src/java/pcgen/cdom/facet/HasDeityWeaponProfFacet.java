@@ -97,14 +97,7 @@ public class HasDeityWeaponProfFacet extends
 	public boolean hasDeityWeaponProf(CharID id)
 	{
 		Collection<QualifiedObject<Boolean>> set = getQualifiedSet(id);
-		for (QualifiedObject<Boolean> qo : set)
-		{
-			if (qo.getRawObject())
-			{
-				return true;
-			}
-		}
-		return false;
+		return set.stream().anyMatch(QualifiedObject::getRawObject);
 	}
 
 	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
