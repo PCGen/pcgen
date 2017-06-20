@@ -53,23 +53,22 @@ public class PCCountSpellsLevelsInBookTermEvaluator
 
 		final PObject pObj = pc.getSpellClassAtIndex(classNum);
 
-		int levelNum = 0;
 
 		if (pObj != null)
 		{
-			for (; levelNum >= 0; ++levelNum)
+			for (int levelNum = 0; levelNum >= 0; ++levelNum)
 			{
 				final List<CharacterSpell> aList =
 						pc.getCharacterSpells(pObj, null, bookName, levelNum);
 
 				if (aList.isEmpty())
 				{
-					break;
+					return (float)levelNum;
 				}
 			}
 		}
 
-		return (float) levelNum;
+		return 0.0f;
 	}
 
 	@Override
