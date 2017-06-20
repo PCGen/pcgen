@@ -44,6 +44,7 @@ import pcgen.core.SettingsHandler;
  * This contains logging functions. It is a proxy for the 
  * Java logging API.
  */
+@SuppressWarnings("PMD.MoreThanOneLogger")
 public final class Logging
 {
 	private static boolean debugMode = false;
