@@ -71,12 +71,7 @@ public class AnyPCToken extends AbstractTokenWithSeparator<CDOMObject>
 			// Zero indicates no Token (and no global clear, so nothing to do)
 			return null;
 		}
-		Set<String> bonusSet = new TreeSet<>();
-		for (BonusObj bonus : added)
-		{
-			bonusSet.add(bonus.getLSTformat());
-		}
-		return bonusSet.toArray(new String[bonusSet.size()]);
+		return added.stream().map(BonusObj::getLSTformat).distinct().sorted().toArray(String[]::new);
 	}
 
 	@Override

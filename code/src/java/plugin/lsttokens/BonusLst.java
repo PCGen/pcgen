@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Ungranted;
@@ -107,15 +108,10 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		// CONSIDER need to deal with removed...
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<>();
-		for (BonusObj bonus : added)
-		{
-			if (tokenName.equals(bonus.getTokenSource()))
-			{
-				String bonusString = bonus.getLSTformat();
-				bonusSet.add(bonusString);
-			}
-		}
+		Set<String> bonusSet = added.stream()
+		                            .filter(bonus -> tokenName.equals(bonus.getTokenSource()))
+		                            .map(BonusObj::getLSTformat)
+		                            .collect(Collectors.toCollection(TreeSet::new));
 		if (bonusSet.isEmpty())
 		{
 			// This is okay - just no BONUSes from this token
@@ -163,18 +159,17 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 				}
 				else if ("UDAM".equals(bonusName))
 				{
-					for (Object o : bonus.getBonusInfoList())
+					bonus.getBonusInfoList().stream().map(Object::toString).forEach(classKey ->
 					{
-						String classKey = o.toString();
 						final PCClass aClass = context.getReferenceContext()
-								.silentlyGetConstructedCDOMObject(
-										PCCLASS_CLASS, classKey);
+						                              .silentlyGetConstructedCDOMObject(
+								                              PCCLASS_CLASS, classKey);
 						if (aClass == null)
 						{
 							Logging.errorPrint("Could not find class '"
 									+ classKey + "' for UDAM token", context);
 						}
-					}
+					});
 				}
 			}
 		}

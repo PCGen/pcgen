@@ -37,6 +37,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
+import java.util.stream.IntStream;
+
 import pcgen.core.RollingMethods;
 
 /**
@@ -614,10 +616,7 @@ public class AttackDialog extends JDialog
 		 */
 		public void rollAttacks()
 		{
-			for (int i = 0; i < getRowCount(); i++)
-			{
-				rollAttack(i);
-			}
+			IntStream.range(0, getRowCount()).forEach(this::rollAttack);
 		}
 
 		/**
@@ -649,17 +648,10 @@ public class AttackDialog extends JDialog
 		 */
 		private int columnFromKey(String key)
 		{
-			int returnValue = -1;
-
-			for (int i = 0; i < columns.length; i++)
-			{
-				if (columns[i][COLUMN_INDEX_KEY].equals(key))
-				{
-					returnValue = i;
-
-					break;
-				}
-			}
+			int returnValue = IntStream.range(0, columns.length)
+			                           .filter(i -> columns[i][COLUMN_INDEX_KEY].equals(key))
+			                           .findFirst()
+			                           .orElse(-1);
 
 			return returnValue;
 		}

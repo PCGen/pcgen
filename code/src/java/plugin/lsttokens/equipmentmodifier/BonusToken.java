@@ -20,6 +20,7 @@ package plugin.lsttokens.equipmentmodifier;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.EquipmentModifier;
@@ -70,15 +71,10 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 		// CONSIDER need to deal with removed...
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<>();
-		for (BonusObj bonus : added)
-		{
-			if (tokenName.equals(bonus.getTokenSource()))
-			{
-				String bonusString = bonus.getLSTformat();
-				bonusSet.add(bonusString);
-			}
-		}
+		Set<String> bonusSet = added.stream()
+		                            .filter(bonus -> tokenName.equals(bonus.getTokenSource()))
+		                            .map(BonusObj::getLSTformat)
+		                            .collect(Collectors.toCollection(TreeSet::new));
 		if (bonusSet.isEmpty())
 		{
 			// This is okay - just no BONUSes from this token

@@ -21,6 +21,7 @@ package plugin.lsttokens.pointbuy.method;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.core.PointBuyMethod;
 import pcgen.core.bonus.Bonus;
@@ -64,14 +65,10 @@ public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 	{
 		Collection<BonusObj> added = pbm.getBonuses();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<>();
-		for (BonusObj bonus : added)
-		{
-			if (tokenName.equals(bonus.getTokenSource()))
-			{
-				bonusSet.add(bonus.toString());
-			}
-		}
+		Set<String> bonusSet = added.stream()
+		                            .filter(bonus -> tokenName.equals(bonus.getTokenSource()))
+		                            .map(BonusObj::toString)
+		                            .collect(Collectors.toCollection(TreeSet::new));
 		if (bonusSet.isEmpty())
 		{
 			// This is okay - just no BONUSes from this token

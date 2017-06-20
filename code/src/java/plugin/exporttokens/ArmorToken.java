@@ -3,6 +3,7 @@ package plugin.exporttokens;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.util.CControl;
@@ -261,10 +262,7 @@ public class ArmorToken extends Token
 		final List<Equipment> bArrayList =
 				aPC.getEquipmentOfTypeInOutputOrder("Shield", equipped, merge);
 
-		for (Equipment eq : bArrayList)
-		{
-			aArrayList.remove(eq);
-		}
+		bArrayList.forEach(aArrayList::remove);
 
 		if (armor < aArrayList.size())
 		{
@@ -291,20 +289,15 @@ public class ArmorToken extends Token
 	{
 		// select all pieces of equipment of status==equipped
 		// filter all AC relevant stuff
-		final List<Equipment> aArrayList = new ArrayList<>();
-
-		for (Equipment eq : aPC.getEquipmentListInOutputOrder(merge))
-		{
-			if (("".equals(subtype) || eq.isType(subtype))
-				&& ((equipped == 3) || ((equipped == 2) && !eq.isEquipped()) || ((equipped == 1) && eq
-					.isEquipped())))
-			{
-				if (eq.altersAC(aPC) && !eq.isArmor() && !eq.isShield())
-				{
-					aArrayList.add(eq);
-				}
-			}
-		}
+		final List<Equipment> aArrayList = aPC.getEquipmentListInOutputOrder(merge)
+		                                      .stream()
+		                                      .filter(eq -> ("".equals(subtype) || eq.isType(subtype))
+				                                      && (
+				                                      (equipped == 3) || ((equipped == 2) && !eq.isEquipped()) || (
+						                                      (equipped == 1) && eq
+								                                      .isEquipped())))
+		                                      .filter(eq -> eq.altersAC(aPC) && !eq.isArmor() && !eq.isShield())
+		                                      .collect(Collectors.toList());
 
 		if (item < aArrayList.size())
 		{

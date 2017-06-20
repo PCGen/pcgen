@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
@@ -99,18 +100,12 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 		}
 		else if (removedItems != null && !removedItems.isEmpty())
 		{
-			for (String d : removedItems)
-			{
-				list.add(Constants.LST_DOT_CLEAR_DOT + d);
-			}
+			list = removedItems.stream().map(d -> Constants.LST_DOT_CLEAR_DOT + d).collect(Collectors.toList());
 		}
 		Collection<Description> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			for (Description d : added)
-			{
-				list.add(d.getPCCText());
-			}
+			added.stream().map(Description::getPCCText).forEach(list::add);
 		}
 		if (list.isEmpty())
 		{

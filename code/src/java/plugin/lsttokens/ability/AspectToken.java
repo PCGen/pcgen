@@ -188,12 +188,8 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		for (AspectName an : keys)
 		{
 			List<Aspect> aspects = changes.getAdded().get(an);
-			for(int i = 0; i < aspects.size(); i++)
-			{
-				Aspect q = aspects.get(i);
-				set.add(new StringBuilder().append(q.getName()).append(Constants.PIPE)
-					.append(q.getPCCText()).toString());
-			}
+			aspects.stream().map(q -> new StringBuilder().append(q.getName()).append(Constants.PIPE)
+			                                             .append(q.getPCCText()).toString()).forEach(set::add);
 		}
 		return set.toArray(new String[set.size()]);
 	}
