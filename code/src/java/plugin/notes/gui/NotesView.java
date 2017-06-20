@@ -1212,14 +1212,7 @@ public class NotesView extends JPanel
 		newButton.setToolTipText("New Node");
 		newButton.setBorder(new EtchedBorder());
 		newButton.setEnabled(false);
-		newButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				newButtonActionPerformed();
-			}
-		});
+		newButton.addActionListener(evt -> newButtonActionPerformed());
 
 		fileBar.add(newButton);
 
@@ -1227,14 +1220,7 @@ public class NotesView extends JPanel
 		saveButton.setToolTipText("Save Node");
 		saveButton.setBorder(new EtchedBorder());
 		saveButton.setEnabled(false);
-		saveButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				saveButtonActionPerformed();
-			}
-		});
+		saveButton.addActionListener(evt -> saveButtonActionPerformed());
 
 		fileBar.add(saveButton);
 
@@ -1242,14 +1228,7 @@ public class NotesView extends JPanel
 		exportButton.setToolTipText("Export");
 		exportButton.setBorder(new EtchedBorder());
 		exportButton.setEnabled(false);
-		exportButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				exportButtonActionPerformed();
-			}
-		});
+		exportButton.addActionListener(evt -> exportButtonActionPerformed());
 
 		fileBar.add(exportButton);
 
@@ -1257,14 +1236,7 @@ public class NotesView extends JPanel
 		revertButton.setToolTipText("Revert to Saved");
 		revertButton.setBorder(new EtchedBorder());
 		revertButton.setEnabled(false);
-		revertButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				revertButtonActionPerformed();
-			}
-		});
+		revertButton.addActionListener(evt -> revertButtonActionPerformed());
 
 		fileBar.add(revertButton);
 
@@ -1272,14 +1244,7 @@ public class NotesView extends JPanel
 		deleteButton.setToolTipText("Delete Node");
 		deleteButton.setBorder(new EtchedBorder());
 		deleteButton.setEnabled(false);
-		deleteButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				deleteButtonActionPerformed();
-			}
-		});
+		deleteButton.addActionListener(evt -> deleteButtonActionPerformed());
 
 		fileBar.add(deleteButton);
 
@@ -1339,14 +1304,7 @@ public class NotesView extends JPanel
 		colorButton.setIcon(Icons.createImageIcon("menu-mode-RGB-alt.png"));
 		colorButton.setToolTipText("Color");
 		colorButton.setBorder(new EtchedBorder());
-		colorButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				colorButtonActionPerformed();
-			}
-		});
+		colorButton.addActionListener(evt -> colorButtonActionPerformed());
 
 		formatBar.add(colorButton);
 
@@ -1364,14 +1322,7 @@ public class NotesView extends JPanel
 
 		imageButton.setIcon(Icons.stock_insert_graphic.getImageIcon());
 		imageButton.setBorder(new EtchedBorder());
-		imageButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				imageButtonActionPerformed();
-			}
-		});
+		imageButton.addActionListener(evt -> imageButtonActionPerformed());
 
 		formatBar.add(imageButton);
 
@@ -1408,27 +1359,13 @@ public class NotesView extends JPanel
 
 		fileLeft.setText("<");
 		fileLeft.setBorder(new EtchedBorder());
-		fileLeft.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				fileLeftActionPerformed();
-			}
-		});
+		fileLeft.addActionListener(evt -> fileLeftActionPerformed());
 
 		filePane.add(fileLeft);
 
 		fileRight.setText(">");
 		fileRight.setBorder(new EtchedBorder());
-		fileRight.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				fileRightActionPerformed();
-			}
-		});
+		fileRight.addActionListener(evt -> fileRightActionPerformed());
 
 		filePane.add(fileRight);
 
@@ -1522,14 +1459,7 @@ public class NotesView extends JPanel
 
 		TreeModel model = new DefaultTreeModel(root);
 		notesTree.setModel(model);
-		notesTree.addTreeSelectionListener(new TreeSelectionListener()
-		{
-            @Override
-			public void valueChanged(TreeSelectionEvent evt)
-			{
-				notesTreeActionPerformed();
-			}
-		});
+		notesTree.addTreeSelectionListener(evt -> notesTreeActionPerformed());
 		notesTree.getSelectionModel().setSelectionMode(
 			TreeSelectionModel.SINGLE_TREE_SELECTION);
 		notesTree.setEditable(true);

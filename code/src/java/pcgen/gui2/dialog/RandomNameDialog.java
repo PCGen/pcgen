@@ -86,27 +86,13 @@ public class RandomNameDialog extends JDialog
 		JButton okButton = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
 		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
 		controlPanel.add(okButton);
-		okButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				okButtonActionPerformed();
-			}
-		});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
 		JButton cancelButton =
 				new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
 		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 		controlPanel.add(cancelButton);
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cancelButtonActionPerformed();
-			}
-		});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 		getContentPane().add(controlPanel, BorderLayout.SOUTH);
 	}
 

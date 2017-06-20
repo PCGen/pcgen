@@ -328,19 +328,13 @@ public final class InfoTabbedPane extends JTabbedPane
 
 		public TabModelService()
 		{
-			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new ThreadFactory()
+			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), r ->
 			{
-
-				@Override
-				public Thread newThread(Runnable r)
-				{
-					Thread thread = new Thread(r);
-					thread.setDaemon(true);
-					thread.setPriority(Thread.NORM_PRIORITY);
-					thread.setName("tab-info-thread"); //$NON-NLS-1$
-					return thread;
-				}
-
+				Thread thread = new Thread(r);
+				thread.setDaemon(true);
+				thread.setPriority(Thread.NORM_PRIORITY);
+				thread.setName("tab-info-thread"); //$NON-NLS-1$
+				return thread;
 			});
 			this.timingMap = new HashMap<>();
 			storeQueue = new LinkedList<>();
@@ -441,18 +435,12 @@ public final class InfoTabbedPane extends JTabbedPane
 			{
 				try
 				{
-					SwingUtilities.invokeAndWait(new Runnable()
+					SwingUtilities.invokeAndWait(() ->
 					{
-
-						@Override
-						public void run()
+						if (!executed)
 						{
-							if (!executed)
-							{
-								restoreTab(infoTab, models);
-							}
+							restoreTab(infoTab, models);
 						}
-
 					});
 				}
 				catch (InterruptedException ex)

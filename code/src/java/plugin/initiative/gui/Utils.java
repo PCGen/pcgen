@@ -152,37 +152,28 @@ public class Utils
 		final JFormattedTextField returnValue =
 				buildIntegerField(matchingSlider.getMinimum(), matchingSlider
 					.getMaximum());
-		returnValue.addPropertyChangeListener(new PropertyChangeListener()
+		returnValue.addPropertyChangeListener(evt ->
 		{
-
-            @Override
-			public void propertyChange(PropertyChangeEvent evt)
+			if ("value".equals(evt.getPropertyName()))
 			{
-				if ("value".equals(evt.getPropertyName()))
+				Number value = (Number) evt.getNewValue();
+				if (value != null)
 				{
-					Number value = (Number) evt.getNewValue();
-					if (value != null)
-					{
-						matchingSlider.setValue(value.intValue());
-					}
+					matchingSlider.setValue(value.intValue());
 				}
 			}
 		});
-		matchingSlider.addChangeListener(new ChangeListener()
+		matchingSlider.addChangeListener(e ->
 		{
-            @Override
-			public void stateChanged(ChangeEvent e)
-			{
-				JSlider source = (JSlider) e.getSource();
-				int value = source.getValue();
-				if (!source.getValueIsAdjusting())
-				{ //done adjusting
-					returnValue.setValue(value); //update ftf value
-				}
-				else
-				{ //value is adjusting; just set the text
-					returnValue.setText(String.valueOf(value));
-				}
+			JSlider source = (JSlider) e.getSource();
+			int value = source.getValue();
+			if (!source.getValueIsAdjusting())
+			{ //done adjusting
+				returnValue.setValue(value); //update ftf value
+			}
+			else
+			{ //value is adjusting; just set the text
+				returnValue.setText(String.valueOf(value));
 			}
 		});
 		return returnValue;

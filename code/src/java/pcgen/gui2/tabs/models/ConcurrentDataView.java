@@ -36,19 +36,13 @@ import pcgen.util.Logging;
 public abstract class ConcurrentDataView<E> implements DataView<E>
 {
 
-	private static ExecutorService executor = Executors.newFixedThreadPool(3, new ThreadFactory()
+	private static ExecutorService executor = Executors.newFixedThreadPool(3, r ->
 	{
-
-		@Override
-		public Thread newThread(Runnable r)
-		{
-			Thread thread = new Thread(r);
-			thread.setDaemon(true);
-			thread.setPriority(Thread.NORM_PRIORITY);
-			thread.setName("concurrent-dataview-thread"); //$NON-NLS-1$
-			return thread;
-		}
-
+		Thread thread = new Thread(r);
+		thread.setDaemon(true);
+		thread.setPriority(Thread.NORM_PRIORITY);
+		thread.setName("concurrent-dataview-thread"); //$NON-NLS-1$
+		return thread;
 	});
 	private final Runnable refreshRunnable = this::refreshTableData;
 	private final Map<E, List<?>> dataMap;
@@ -62,22 +56,16 @@ public abstract class ConcurrentDataView<E> implements DataView<E>
 //	@Override
 	public final List<?> getData(final E obj)
 	{
-		Future<List<?>> future = executor.submit(new Callable<List<?>>()
+		Future<List<?>> future = executor.submit(() ->
 		{
-
-			@Override
-			public List<?> call() throws Exception
+			List<?> list = getDataList(obj);
+			if (!list.equals(dataMap.get(obj))
+				&& dataMap.put(obj, list) != null
+				&& installed)
 			{
-				List<?> list = getDataList(obj);
-				if (!list.equals(dataMap.get(obj))
-					&& dataMap.put(obj, list) != null
-					&& installed)
-				{
-					SwingUtilities.invokeLater(refreshRunnable);
-				}
-				return list;
+				SwingUtilities.invokeLater(refreshRunnable);
 			}
-
+			return list;
 		});
 		if (!dataMap.containsKey(obj))
 		{

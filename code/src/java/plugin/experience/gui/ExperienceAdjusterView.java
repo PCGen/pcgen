@@ -352,16 +352,11 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		// add an empty horizontal glue like panel
 		jPanel7.add(new JPanel(), gridBagConstraints);
 		// Updates the button if there is a selected character
-		characterList.addListSelectionListener(new ListSelectionListener()
+		characterList.addListSelectionListener(e ->
 		{
-			
-			@Override
-			public void valueChanged(ListSelectionEvent e)
+			if (!e.getValueIsAdjusting())
 			{
-				if (!e.getValueIsAdjusting())
-				{
-					addExperienceToCharButton.setEnabled(!characterList.isSelectionEmpty());
-				}
+				addExperienceToCharButton.setEnabled(!characterList.isSelectionEmpty());
 			}
 		});
 
@@ -400,36 +395,33 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		gridBagConstraints.gridwidth = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		jPanel8.add(experienceMultSlider, gridBagConstraints);
-		experienceMultSlider.addChangeListener(new ChangeListener() {
-			
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				double realValue = getSliderRealValue();
+		experienceMultSlider.addChangeListener(e ->
+		{
+			double realValue = getSliderRealValue();
 
-				if (CoreUtility.doublesEqual(realValue, 0.5)) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
-				} else if (realValue <= 0.7) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
-				} else if ((realValue > 0.7) && (realValue < 1.5)) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
-				} else if (realValue >= 1.5) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_harder")); //$NON-NLS-1$
-				}
-
-				if (CoreUtility.doublesEqual(realValue, 2)) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_twice")); //$NON-NLS-1$
-				}
-
-				getExperienceMultLabel().setText(
-						LanguageBundle.getPrettyMultiplier(realValue));
-
-				model.setMultiplier(realValue);
+			if (CoreUtility.doublesEqual(realValue, 0.5)) {
+				getExperienceMultNameLabel().setText(
+						LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
+			} else if (realValue <= 0.7) {
+				getExperienceMultNameLabel().setText(
+						LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
+			} else if ((realValue > 0.7) && (realValue < 1.5)) {
+				getExperienceMultNameLabel().setText(
+						LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
+			} else if (realValue >= 1.5) {
+				getExperienceMultNameLabel().setText(
+						LanguageBundle.getString("in_plugin_xp_harder")); //$NON-NLS-1$
 			}
+
+			if (CoreUtility.doublesEqual(realValue, 2)) {
+				getExperienceMultNameLabel().setText(
+						LanguageBundle.getString("in_plugin_xp_twice")); //$NON-NLS-1$
+			}
+
+			getExperienceMultLabel().setText(
+					LanguageBundle.getPrettyMultiplier(realValue));
+
+			model.setMultiplier(realValue);
 		});
 
 		addExperienceToPartyButton.setText(LanguageBundle.getString("in_plugin_xp_addXpToParty")); //$NON-NLS-1$
@@ -475,17 +467,12 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(removeEnemyButton, gridBagConstraints);
 		// Update buttons on selection change
-		enemyList.addListSelectionListener(new ListSelectionListener()
+		enemyList.addListSelectionListener(e ->
 		{
-			
-			@Override
-			public void valueChanged(ListSelectionEvent e)
+			if (!e.getValueIsAdjusting())
 			{
-				if (!e.getValueIsAdjusting())
-				{
-					adjustCRButton.setEnabled(!enemyList.isSelectionEmpty());
-					removeEnemyButton.setEnabled(!enemyList.isSelectionEmpty());
-				}
+				adjustCRButton.setEnabled(!enemyList.isSelectionEmpty());
+				removeEnemyButton.setEnabled(!enemyList.isSelectionEmpty());
 			}
 		});
 

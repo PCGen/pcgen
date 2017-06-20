@@ -350,23 +350,19 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsTree.expandPath(new TreePath(pluginNode.getPath()));
 
 		// Add the listener which switches panels when a node of the tree is selected
-		settingsTree.addTreeSelectionListener(new TreeSelectionListener()
+		settingsTree.addTreeSelectionListener(e ->
 		{
-			@Override
-			public void valueChanged(TreeSelectionEvent e)
+			DefaultMutableTreeNode node =
+					(DefaultMutableTreeNode) settingsTree
+						.getLastSelectedPathComponent();
+
+			if (node == null)
 			{
-				DefaultMutableTreeNode node =
-						(DefaultMutableTreeNode) settingsTree
-							.getLastSelectedPathComponent();
-
-				if (node == null)
-				{
-					return;
-				}
-
-				CardLayout cl = (CardLayout) (settingsPanel.getLayout());
-				cl.show(settingsPanel, String.valueOf(node));
+				return;
 			}
+
+			CardLayout cl = (CardLayout) (settingsPanel.getLayout());
+			cl.show(settingsPanel, String.valueOf(node));
 		});
 
 		// Build the split pane

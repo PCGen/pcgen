@@ -230,44 +230,32 @@ final class MainAbout extends JPanel
 
 		// Web site button
 		wwwSite.setText(PCGenPropBundle.getWWWHome());
-		wwwSite.addActionListener(new ActionListener()
+		wwwSite.addActionListener(e ->
 		{
-
-			@Override
-			public void actionPerformed(ActionEvent e)
+			try
 			{
-				try
-				{
-					Utility.viewInBrowser(wwwSite.getText());
-				}
-				catch (IOException ioe)
-				{
-					Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
-				}
+				Utility.viewInBrowser(wwwSite.getText());
 			}
-
+			catch (IOException ioe)
+			{
+				Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
+			}
 		});
 		gridBagConstraints1 = buildConstraints(1, 4, GridBagConstraints.WEST);
 		aCreditsPanel.add(wwwSite, gridBagConstraints1);
 
 		// Mailing list button
 		mailingList.setText(PCGenPropBundle.getMailingList());
-		mailingList.addActionListener(new ActionListener()
+		mailingList.addActionListener(e ->
 		{
-
-			@Override
-			public void actionPerformed(ActionEvent e)
+			try
 			{
-				try
-				{
-					Utility.viewInBrowser(mailingList.getText());
-				}
-				catch (IOException ioe)
-				{
-					Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
-				}
+				Utility.viewInBrowser(mailingList.getText());
 			}
-
+			catch (IOException ioe)
+			{
+				Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
+			}
 		});
 		gridBagConstraints1 = buildConstraints(1, 5, GridBagConstraints.WEST);
 		aCreditsPanel.add(mailingList, gridBagConstraints1);

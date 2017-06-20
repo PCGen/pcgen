@@ -407,17 +407,13 @@ public class AttackDialog extends JDialog
 		m_field.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
 		m_field.setPreferredSize(new Dimension(40,
 			m_field.getPreferredSize().height));
-		m_field.addPropertyChangeListener(new PropertyChangeListener()
+		m_field.addPropertyChangeListener(evt ->
 		{
-            @Override
-			public void propertyChange(PropertyChangeEvent evt)
+			if ((evt.getPropertyName() != null)
+				&& evt.getPropertyName().equals("value"))
 			{
-				if ((evt.getPropertyName() != null)
-					&& evt.getPropertyName().equals("value"))
-				{
-					m_tableModel.setArmorClass(((Integer) m_field.getValue())
-						.intValue());
-				}
+				m_tableModel.setArmorClass(((Integer) m_field.getValue())
+					.intValue());
 			}
 		});
 		top.add(new JLabel("AC"));

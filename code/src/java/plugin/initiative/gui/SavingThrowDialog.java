@@ -519,16 +519,11 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	{
 		final JFormattedTextField returnValue =
 				Utils.buildIntegerField(min, max);
-		returnValue.addPropertyChangeListener(new PropertyChangeListener()
+		returnValue.addPropertyChangeListener(evt ->
 		{
-
-            @Override
-			public void propertyChange(PropertyChangeEvent evt)
+			if ("value".equals(evt.getPropertyName()))
 			{
-				if ("value".equals(evt.getPropertyName()))
-				{
-					calculate();
-				}
+				calculate();
 			}
 		});
 		return returnValue;

@@ -607,15 +607,11 @@ public class CharacterAbilities
 	 */
 	private void adviseSelectionChangeLater(final AbilityCategory cat)
 	{
-		SwingUtilities.invokeLater(new Runnable()
+		SwingUtilities.invokeLater(() ->
 		{
-			@Override
-			public void run()
-			{
-				updateAbilityCategoryTodo(cat);
-				fireAbilityCatSelectionUpdated(cat);
-				refreshChoices(cat);
-			}
+			updateAbilityCategoryTodo(cat);
+			fireAbilityCatSelectionUpdated(cat);
+			refreshChoices(cat);
 		});
 	}
 	
@@ -627,14 +623,7 @@ public class CharacterAbilities
 	 */
 	private void updateAbilityCategoryLater(final Category<Ability> category)
 	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				updateAbilityCategoryTodo(category);
-			}
-		});
+		SwingUtilities.invokeLater(() -> updateAbilityCategoryTodo(category));
 	}
 	
 	/**

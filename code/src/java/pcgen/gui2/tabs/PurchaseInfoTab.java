@@ -172,16 +172,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				FilterButton<CharacterFacade, EquipmentFacade> customFilter
 						= new FilterButton<>("EqAffordable"); //$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
-				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
-				{
-
-					@Override
-					public boolean accept(CharacterFacade context, EquipmentFacade element)
-					{
-						return context.getInfoFactory().getCost(element) <= context.getFundsRef().get().floatValue();
-					}
-
-				});
+				customFilter.setFilter((context, element) -> context.getInfoFactory().getCost(element) <= context.getFundsRef().get().floatValue());
 				filterBar.addDisplayableFilter(premadeFilter);
 				filterBar.addDisplayableFilter(customFilter);
 			}

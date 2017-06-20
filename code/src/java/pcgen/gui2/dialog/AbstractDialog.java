@@ -63,39 +63,18 @@ public abstract class AbstractDialog extends JDialog
 	{
 		okButton = new JButton(LanguageBundle.getString(getOkKey()));
 		okButton.setMnemonic(LanguageBundle.getMnemonic(getOkMnKey()));
-		okButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				okButtonActionPerformed();
-			}
-		});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
 		JButton cancelButton = new JButton(LanguageBundle.getString(getCancelKey()));
 		cancelButton.setMnemonic(LanguageBundle.getMnemonic(getCancelMnKey()));
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cancelButtonActionPerformed();
-			}
-		});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 
 		JButton bApply = null;
 		if (includeApplyButton())
 		{
 			bApply = new JButton(LanguageBundle.getString("in_apply")); //$NON-NLS-1$
 			bApply.setMnemonic(LanguageBundle.getMnemonic("in_mn_apply")); //$NON-NLS-1$
-			bApply.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					applyButtonActionPerformed();
-				}
-			});
+			bApply.addActionListener(evt -> applyButtonActionPerformed());
 		}
 
 		// initialize button panel

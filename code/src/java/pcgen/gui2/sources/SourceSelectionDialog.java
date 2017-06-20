@@ -275,16 +275,7 @@ public class SourceSelectionDialog extends JDialog
                             Comparators.toStringIgnoreCaseCollator(),
                             FacadeFactory.getCustomSourceSelections());
 			sourcesList.setModel(new FacadeListModel(sources));
-			sourcesList.addListSelectionListener(new ListSelectionListener()
-			{
-
-				@Override
-				public void valueChanged(ListSelectionEvent lse)
-				{
-					nameField.setText(sourcesList.getSelectedValue().toString());
-				}
-
-			});
+			sourcesList.addListSelectionListener(lse -> nameField.setText(sourcesList.getSelectedValue().toString()));
 			JPanel panel = new JPanel(new BorderLayout());
 			panel.add(new JScrollPane(sourcesList), BorderLayout.CENTER);
 			panel.add(nameField, BorderLayout.SOUTH);

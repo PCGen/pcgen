@@ -142,43 +142,39 @@ public class SourceSelectionPanel extends ConvertSubPanel
 
 		JButton button = new JButton("Browse...");
 		button.setMnemonic('r');
-		button.addActionListener(new ActionListener()
+		button.addActionListener(arg0 ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent arg0)
+			JFileChooser chooser = new JFileChooser(SourceFolder.OTHER.getFile());
+			chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			chooser.setDialogType(JFileChooser.OPEN_DIALOG);
+			chooser.setSelectedFile(path);
+			while (true)
 			{
-				JFileChooser chooser = new JFileChooser(SourceFolder.OTHER.getFile());
-				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				chooser.setDialogType(JFileChooser.OPEN_DIALOG);
-				chooser.setSelectedFile(path);
-				while (true)
+				int open = chooser.showOpenDialog(null);
+				if (open == JFileChooser.APPROVE_OPTION)
 				{
-					int open = chooser.showOpenDialog(null);
-					if (open == JFileChooser.APPROVE_OPTION)
+					File fileToOpen = chooser.getSelectedFile();
+					if (fileToOpen.isDirectory())
 					{
-						File fileToOpen = chooser.getSelectedFile();
-						if (fileToOpen.isDirectory())
-						{
-							path = fileToOpen;
-							SourceFolder.OTHER.setFile(fileToOpen);
-							pc.put(ObjectKey.DIRECTORY, path);
-							PCGenSettings context = PCGenSettings.getInstance();
-							context.setProperty(
-								PCGenSettings.CONVERT_INPUT_PATH,
-								path.getAbsolutePath());
-							JRadioButton button = radioButtons[SourceFolder.OTHER.ordinal()];
-							button.setSelected(true);
-							button.setText(buildFolderText(SourceFolder.OTHER, fileToOpen.getAbsolutePath()));
-							break;
-						}
-						JOptionPane.showMessageDialog(null,
-								"Selection must be a valid Directory");
-						chooser.setSelectedFile(path);
-					}
-					else if (open == JFileChooser.CANCEL_OPTION)
-					{
+						path = fileToOpen;
+						SourceFolder.OTHER.setFile(fileToOpen);
+						pc.put(ObjectKey.DIRECTORY, path);
+						PCGenSettings context = PCGenSettings.getInstance();
+						context.setProperty(
+							PCGenSettings.CONVERT_INPUT_PATH,
+							path.getAbsolutePath());
+						JRadioButton button1 = radioButtons[SourceFolder.OTHER.ordinal()];
+						button1.setSelected(true);
+						button1.setText(buildFolderText(SourceFolder.OTHER, fileToOpen.getAbsolutePath()));
 						break;
 					}
+					JOptionPane.showMessageDialog(null,
+							"Selection must be a valid Directory");
+					chooser.setSelectedFile(path);
+				}
+				else if (open == JFileChooser.CANCEL_OPTION)
+				{
+					break;
 				}
 			}
 		});
@@ -204,16 +200,12 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		{
 			JRadioButton pathButton = new JRadioButton();
 			final SourceFolder buttonFolder = folder;
-			pathButton.addActionListener(new ActionListener() {
-
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					PCGenSettings context = PCGenSettings.getInstance();
-					context.setProperty(PCGenSettings.CONVERT_INPUT_PATH,
-						buttonFolder.getFile().getAbsolutePath());
-					pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());
-				}
+			pathButton.addActionListener(e ->
+			{
+				PCGenSettings context = PCGenSettings.getInstance();
+				context.setProperty(PCGenSettings.CONVERT_INPUT_PATH,
+					buttonFolder.getFile().getAbsolutePath());
+				pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());
 			});
 			
 			String path;

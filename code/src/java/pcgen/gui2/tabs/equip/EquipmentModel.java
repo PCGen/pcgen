@@ -191,26 +191,20 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 
 	private void realignRowHeights()
 	{
-		SwingUtilities.invokeLater(new Runnable()
+		SwingUtilities.invokeLater(() ->
 		{
-
-			@Override
-			public void run()
+			JTree tree = treeTable.getTree();
+			for (int row = 0; row < tree.getRowCount(); row++)
 			{
-				JTree tree = treeTable.getTree();
-				for (int row = 0; row < tree.getRowCount(); row++)
+				Rectangle bounds = tree.getRowBounds(row);
+				if (bounds != null)
 				{
-					Rectangle bounds = tree.getRowBounds(row);
-					if (bounds != null)
+					if (treeTable.getRowHeight(row) != bounds.height)
 					{
-						if (treeTable.getRowHeight(row) != bounds.height)
-						{
-							treeTable.setRowHeight(row, bounds.height);
-						}
+						treeTable.setRowHeight(row, bounds.height);
 					}
 				}
 			}
-
 		});
 	}
 

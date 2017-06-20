@@ -416,21 +416,16 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		};
 
-		private final Filter<CharacterFacade, SkillFacade> gainedFilter = new Filter<CharacterFacade, SkillFacade>()
-		{
-
-			@Override
-			public boolean accept(CharacterFacade context, SkillFacade element)
-			{
-				if (context == null)
+		private final Filter<CharacterFacade, SkillFacade> gainedFilter =
+				(context, element) ->
 				{
-					return false;
-				}
-				CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
-				return levels.getSkillRanks(null, element) > 0.0f;
-			}
-
-		};
+					if (context == null)
+					{
+						return false;
+					}
+					CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
+					return levels.getSkillRanks(null, element) > 0.0f;
+				};
 		private final ListSelectionModel model;
 		private final CharacterFacade character;
 		private boolean installed = false;

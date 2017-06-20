@@ -79,14 +79,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 
 			task.removePCGenTaskListener(this);
 
-			SwingUtilities.invokeLater(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					statusBar.setContextMessage(oldMessage);
-				}
-			});
+			SwingUtilities.invokeLater(() -> statusBar.setContextMessage(oldMessage));
 			return errors;
 		}
 
@@ -103,15 +96,11 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 			if (!dirty)
 			{
 				dirty = true;
-				SwingUtilities.invokeLater(new Runnable()
+				SwingUtilities.invokeLater(() ->
 				{
-					@Override
-					public void run()
-					{
-						statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
-						statusBar.getProgressBar().setString(task.getMessage());
-						dirty = false;
-					}
+					statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
+					statusBar.getProgressBar().setString(task.getMessage());
+					dirty = false;
 				});
 			}
 		}

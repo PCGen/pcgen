@@ -129,33 +129,18 @@ public class InfoGuidePane extends JComponent implements UIResource
 
 	private void initListeners()
 	{
-		frame.getSelectedCharacterRef().addReferenceListener(new ReferenceListener<CharacterFacade>()
+		frame.getSelectedCharacterRef().addReferenceListener(e ->
 		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<CharacterFacade> e)
+			boolean show = e.getNewReference() == null;
+			if (show)
 			{
-				boolean show = e.getNewReference() == null;
-				if (show)
-				{
-					tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
-						TipOfTheDayHandler.getInstance().getNextTip()));
-				}
-				setVisible(show);
+				tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
+					TipOfTheDayHandler.getInstance().getNextTip()));
 			}
-
+			setVisible(show);
 		});
 		frame.getCurrentSourceSelectionRef().addReferenceListener(
-				new ReferenceListener<SourceSelectionFacade>()
-				{
-
-					@Override
-					public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
-					{
-						refreshDisplayedSources(e.getNewReference());
-					}
-
-				});
+				e -> refreshDisplayedSources(e.getNewReference()));
 	}
 
 	private void refreshDisplayedSources(SourceSelectionFacade sources)

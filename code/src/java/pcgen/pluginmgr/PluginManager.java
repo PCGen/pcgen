@@ -58,15 +58,9 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	/**
 	 * A Comparator to sort interactive plugins by their priority.
 	 */
-	public static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER = new Comparator<InteractivePlugin>()
-	{
-		@Override
-		public int compare(InteractivePlugin arg0, InteractivePlugin arg1)
-		{
-			return Integer.valueOf(arg0.getPriority()).compareTo(
+	public static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER =
+			(arg0, arg1) -> Integer.valueOf(arg0.getPriority()).compareTo(
 					arg1.getPriority());
-		}
-	};
 
 	public List<PluginInfo> getPluginInfoList()
 	{

@@ -61,16 +61,13 @@ public final class TreasureGenerator
 			try
 			{
 				final EquipmentTableParser parser = new EquipmentTableParser( aMode );
-				final File[] fileNames = tablesDir.listFiles(new FilenameFilter() {
-                    @Override
-					public boolean accept(final File aDir, final String aName)
+				final File[] fileNames = tablesDir.listFiles((aDir, aName) ->
+				{
+					if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
 					{
-						if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
-						{
-							return true;
-						}
-						return false;
+						return true;
 					}
+					return false;
 				});
 		
 				tables = new ArrayList<>();

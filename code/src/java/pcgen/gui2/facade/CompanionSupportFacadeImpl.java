@@ -110,51 +110,39 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	private void addMasterListeners(ReferenceFacade<String> nameRef,
 		ReferenceFacade<File> fileRef)
 	{
-		nameRef.addReferenceListener(new ReferenceListener<String>()
+		nameRef.addReferenceListener(e ->
 		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<String> e)
+			String newName = e.getNewReference();
+			for (CompanionFacadeDelegate delegate : companionList)
 			{
-				String newName = e.getNewReference();
-				for (CompanionFacadeDelegate delegate : companionList)
+				CharacterFacade companion =
+						CharacterManager.getCharacterMatching(delegate);
+				if (companion != null)
 				{
-					CharacterFacade companion =
-							CharacterManager.getCharacterMatching(delegate);
-					if (companion != null)
-					{
-						CharacterFacadeImpl compFacadeImpl =
-								(CharacterFacadeImpl) companion;
-						Follower follower =
-								compFacadeImpl.getTheCharacter().getDisplay().getMaster();
-						follower.setName(newName);
-					}
+					CharacterFacadeImpl compFacadeImpl =
+							(CharacterFacadeImpl) companion;
+					Follower follower =
+							compFacadeImpl.getTheCharacter().getDisplay().getMaster();
+					follower.setName(newName);
 				}
-
 			}
 
 		});
-		fileRef.addReferenceListener(new ReferenceListener<File>()
+		fileRef.addReferenceListener(e ->
 		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<File> e)
+			File newFile = e.getNewReference();
+			for (CompanionFacadeDelegate delegate : companionList)
 			{
-				File newFile = e.getNewReference();
-				for (CompanionFacadeDelegate delegate : companionList)
+				CharacterFacade companion =
+						CharacterManager.getCharacterMatching(delegate);
+				if (companion != null)
 				{
-					CharacterFacade companion =
-							CharacterManager.getCharacterMatching(delegate);
-					if (companion != null)
-					{
-						CharacterFacadeImpl compFacadeImpl =
-								(CharacterFacadeImpl) companion;
-						Follower follower =
-								compFacadeImpl.getTheCharacter().getDisplay().getMaster();
-						follower.setFileName(newFile.getAbsolutePath());
-					}
+					CharacterFacadeImpl compFacadeImpl =
+							(CharacterFacadeImpl) companion;
+					Follower follower =
+							compFacadeImpl.getTheCharacter().getDisplay().getMaster();
+					follower.setFileName(newFile.getAbsolutePath());
 				}
-
 			}
 
 		});
