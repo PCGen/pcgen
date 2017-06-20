@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountMiscCompanionsTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or

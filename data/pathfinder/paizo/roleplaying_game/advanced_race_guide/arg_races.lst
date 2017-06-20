@@ -27,41 +27,41 @@ Wyvaran				STARTFEATS:1	SIZE:M	MOVE:Walk,30,Fly,30	FACE:5	REACH:5			BONUS:STAT|D
 # Race Name		SORTKEY
 # Featured
 # Race Name		SORTKEY			FACT
-Aasimar.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Catfolk.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Dhampir.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Drow.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Fetchling.MOD	SORTKEY:a_base_pc1	FACT:IsPC|true
-Goblin.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Hobgoblin.MOD	SORTKEY:a_base_pc1	FACT:IsPC|true
-Ifrit.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Kobold.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Orc.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Oread.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Ratfolk.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Sylph.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Tengu.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
-Tiefling.MOD	SORTKEY:a_base_pc1	FACT:IsPC|true
-Undine.MOD		SORTKEY:a_base_pc1	FACT:IsPC|true
+Aasimar.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Catfolk.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Dhampir.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Drow.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Fetchling.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
+Goblin.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Hobgoblin.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
+Ifrit.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Kobold.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Orc.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Oread.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Ratfolk.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Sylph.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Tengu.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Tiefling.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
+Undine.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
 
 # Uncommon
-Changeling.MOD	SORTKEY:a_base_pc2	FACT:IsPC|true
-Duergar.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
-Gillman.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
-Grippli.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
-Kitsune.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
-Merfolk.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
-Nagaji.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
-Samsaran.MOD	SORTKEY:a_base_pc2	FACT:IsPC|true
-Strix.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
-Suli.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
-Svirfneblin.MOD	SORTKEY:a_base_pc2	FACT:IsPC|true
-Vanara.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
-Vishkanya.MOD	SORTKEY:a_base_pc2	FACT:IsPC|true
-Wayang.MOD		SORTKEY:a_base_pc2	FACT:IsPC|true
+Changeling.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
+Duergar.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Gillman.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Grippli.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Kitsune.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Merfolk.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Nagaji.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Samsaran.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
+Strix.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Suli.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Svirfneblin.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
+Vanara.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Vishkanya.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
+Wayang.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
 
 # Race Builder
-Gathlain.MOD	SORTKEY:a_base_pc3	FACT:IsPC|true
-Trox.MOD		SORTKEY:a_base_pc3	FACT:IsPC|true
-Wyrwood.MOD		SORTKEY:a_base_pc3	FACT:IsPC|true
-Wyvaran.MOD		SORTKEY:a_base_pc3	FACT:IsPC|true
+Gathlain.MOD	SORTKEY:a_base_pc	FACT:IsPC|true
+Trox.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Wyrwood.MOD		SORTKEY:a_base_pc	FACT:IsPC|true
+Wyvaran.MOD		SORTKEY:a_base_pc	FACT:IsPC|true

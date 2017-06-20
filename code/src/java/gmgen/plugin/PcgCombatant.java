@@ -18,7 +18,6 @@
  *
  *  PcgCombatant.java
  *
- *  Created on January 16, 2002, 12:27 PM
  */
 package gmgen.plugin;
 
@@ -61,7 +60,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.jdom2.Element;
 
 /**
- *@author     devon
  */
 public class PcgCombatant extends Combatant
 {

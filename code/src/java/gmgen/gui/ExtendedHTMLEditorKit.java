@@ -51,7 +51,6 @@ import javax.swing.text.html.StyleSheet;
  * classes instead of the defaults. Most important is the part which renders
  * relative image paths.
  *
- * @author &lt;a href="mailto:jal@grimor.com"&gt;Frits Jalvingh &lt;/a&gt;
  */
 public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 

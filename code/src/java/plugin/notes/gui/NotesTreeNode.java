@@ -53,7 +53,6 @@ import gmgen.util.MiscUtilities;
 /**
  * This defines the preferences tree
  *
- * @author devon
  */
 public class NotesTreeNode implements MutableTreeNode, DocumentListener
 {

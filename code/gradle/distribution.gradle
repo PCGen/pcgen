@@ -37,7 +37,7 @@ ext {
     }
 
     programDistsImage = copySpec {
-        from('build/libs') {
+        from("$buildDir/libs") {
             include 'pcgen-*.jar'
             // Use a regular expression to map the file name
             rename "(.+)-$version(.+)", '$1$2'
@@ -47,20 +47,20 @@ ext {
             include 'plugins/**'
             include 'logging.properties'
         }
-        from('.') {
+        from('code') {
             include 'pcgen.sh'
             fileMode = 0755
         }
         from('code') {
             include 'LICENSE'
         }
-        from('build/release') {
+        from("$buildDir/launch4j") {
             include 'pcgen.exe'
         }
     }
 
     libsDistsImage = copySpec {
-        from('build/libs') {
+        from("$buildDir/libs") {
             into 'libs'
             exclude 'pcgen-*.jar'
         }
@@ -71,17 +71,10 @@ ext {
             include 'characters/*.pcg'
         }
     }
-
-    jreDistro = copySpec {
-        from('jre/jre_64') {
-            into 'jre'
-        }
-    }
 }
 
 
-task fullZip(type: Zip, dependsOn: ['downloadJRE', 'createExe', 'converterJar',
-     'copyToLibs']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -90,10 +83,8 @@ task fullZip(type: Zip, dependsOn: ['downloadJRE', 'createExe', 'converterJar',
         with libsDistsImage
         with autobuildSpec
         with charactersImage
-        with jreDistro
     }
 }
-fullZip.mustRunAfter createExe
 
 
 task dataZip(type: Zip) {
@@ -128,8 +119,7 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'fullZip', 'createExe']) {
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', \
+'fullZip']) {
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }
-
-buildDist.mustRunAfter createExe
