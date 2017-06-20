@@ -76,7 +76,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 		return "Facet: " + facet.getClass().getSimpleName();
 	}
 	
-	private class SourceDest
+	private final class SourceDest
 	{
 		private final S source;
 		private final D destination;
