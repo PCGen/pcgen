@@ -49,7 +49,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * contains
 	 */
 	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(
-            ChoiceSetUtilities.WRITEABLE_SORTER);
+			ChoiceSetUtilities::compareChoiceSets);
 
 	private final String separator;
 
