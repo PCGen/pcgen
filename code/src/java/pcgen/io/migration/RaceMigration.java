@@ -36,6 +36,12 @@ public final class RaceMigration
 {
 	private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<>();
 
+
+
+	private RaceMigration()
+	{
+	}
+
 	/**
 	 * Find the new race key to replace the provided one.
 	 * 

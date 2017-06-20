@@ -39,6 +39,10 @@ public class LstUtils
 	/** Constant representing the comma "," character */
 	public static final String COMMA = ","; //$NON-NLS-1$
 
+	private LstUtils()
+	{
+	}
+
 	/**
 	 * Checks a LST token to see if it's deprecated
 	 * @param token

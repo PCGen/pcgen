@@ -66,6 +66,12 @@ public class FacadeFactory
 	private static Map<GameModeFacade, DefaultListFacade<CampaignFacade>> campaignListMap = null;
 	private static final CampaignInfoFactory campInfoFactory = new Gui2CampaignInfoFactory();
 
+
+
+	private FacadeFactory()
+	{
+	}
+
 	static void initialize()
 	{
 		List<GameMode> modes = SystemCollections.getUnmodifiableGameModeList();
