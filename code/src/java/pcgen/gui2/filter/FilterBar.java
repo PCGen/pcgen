@@ -113,14 +113,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 	@Override
 	public boolean accept(C context, E element)
 	{
-		for (DisplayableFilter<? super C, ? super E> displayableFilter : filters)
-		{
-			if (!displayableFilter.accept(context, element))
-			{
-				return false;
-			}
-		}
-		return true;
+		return filters.stream().allMatch(displayableFilter -> displayableFilter.accept(context, element));
 	}
 
 	private static class ArrowButton extends JButton

@@ -36,6 +36,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
 
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
@@ -148,12 +149,11 @@ public final class InfoTabbedPane extends JTabbedPane
 		if (!stateMap.containsKey(character))
 		{
 			//This is the first time this character has been added, so initialize the tab states.
-			for (int i = 0; i < getTabCount(); i++)
+			IntStream.range(0, getTabCount()).mapToObj(i -> (CharacterInfoTab) getComponentAt(i)).forEach(tab ->
 			{
-				CharacterInfoTab tab = (CharacterInfoTab) getComponentAt(i);
 				ModelMap models = tab.createModels(character);
 				stateMap.put(character, tab, models);
-			}
+			});
 			String key = UIPropertyContext.C_PROP_INITIAL_TAB;
 			key = UIPropertyContext.createCharacterPropertyKey(character, key);
 			//defaults to the summary tab if prop doesn't exist
@@ -249,15 +249,11 @@ public final class InfoTabbedPane extends JTabbedPane
 		if (selTab instanceof JTabbedPane && dest.length > 2)
 		{
 			JTabbedPane tabPane = (JTabbedPane) selTab;
-			for (int i = 0; i < tabPane.getTabCount(); i++)
-			{
-				if (dest[2].equals(tabPane.getTitleAt(i)))
-				{
-					tabPane.setSelectedIndex(i);
-					//selTab = tab.getComponent(i);
-					break;
-				}
-			}
+			//selTab = tab.getComponent(i);
+			IntStream.range(0, tabPane.getTabCount())
+			         .filter(i -> dest[2].equals(tabPane.getTitleAt(i)))
+			         .findFirst()
+			         .ifPresent(tabPane::setSelectedIndex);
 		}
 
 		if (selTab instanceof TodoHandler)

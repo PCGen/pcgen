@@ -22,9 +22,11 @@ package pcgen.gui2.util;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
@@ -237,12 +239,10 @@ public class JTreeViewTable<T> extends JTreeTable
 		{
 			return Collections.emptyList();
 		}
-		List<Object> data = new ArrayList<>(paths.length);
-		for (TreePath path : paths)
-		{
-			DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();
-			data.add(node.getUserObject());
-		}
+		List<Object> data = Arrays.stream(paths)
+		                          .map(path -> (DefaultMutableTreeNode) path.getLastPathComponent())
+		                          .map(DefaultMutableTreeNode::getUserObject)
+		                          .collect(Collectors.toCollection(() -> new ArrayList<>(paths.length)));
 		return data;
 	}
 
@@ -484,12 +484,11 @@ public class JTreeViewTable<T> extends JTreeTable
 			columnLabel.setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 0));
 			add(columnLabel);
 			List<TableColumn> columns = dynamicColumnModel.getAvailableColumns();
-			for (TableColumn column : columns)
+			columns.stream().map(JTreeViewTable.this::createMenuItem).forEach(item ->
 			{
-				JMenuItem item = createMenuItem(column);
 				item.setEnabled(tableColumnsEnabled);
 				add(item);
-			}
+			});
 			cornerButton.setVisible(!columns.isEmpty() || !views.isEmpty());
 		}
 

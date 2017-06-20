@@ -31,15 +31,18 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.Reference;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
@@ -571,19 +574,14 @@ public class Gui2InfoFactory implements InfoFactory
 		if (ability.getSafeSizeOfMapFor(MapKey.ASPECT) > 0)
 		{
 			Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
-			StringBuilder buff = new StringBuilder(100);
-			for (AspectName key : aspectKeys)
-			{
-				if (buff.length() > 0)
-				{
-					buff.append(", ");
-				}
-				//Assert here that the actual text displayed is not critical
-				buff.append(Aspect.printAspect(pc, key, wrappedAbility));
-			}
+			String buff = aspectKeys.stream()
+			                        .map(key -> Aspect.printAspect(pc, key, wrappedAbility))
+			                        .collect(Collectors.joining(", "));
+			//Assert here that the actual text displayed is not critical
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("Ability.Info.Aspects", //$NON-NLS-1$
-				buff.toString());
+					buff
+			);
 		}
 		
 		final String bene = BenefitFormatting.getBenefits(pc, wrappedAbility);
@@ -1029,12 +1027,9 @@ public class Gui2InfoFactory implements InfoFactory
 		Map<String, String> qualityMap = equip.getMapFor(MapKey.QUALITY);
 		if (qualityMap != null && !qualityMap.isEmpty())
 		{
-			Set<String> qualities = new TreeSet<>();
-			for (Map.Entry<String, String> me : qualityMap.entrySet())
-			{
-				qualities.add(new StringBuilder(50).append(me.getKey()).append(
-					": ").append(me.getValue()).toString());
-			}
+			Set<String> qualities =
+					qualityMap.entrySet().stream().map(me -> new StringBuilder(50).append(me.getKey()).append(
+							": ").append(me.getValue()).toString()).collect(Collectors.toCollection(TreeSet::new));
 
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join( //$NON-NLS-1$
@@ -2256,10 +2251,7 @@ public class Gui2InfoFactory implements InfoFactory
 		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
-			for (Domain d : ref.getContainedObjects())
-			{
-				set.add(OutputNameFormatting.piString(d, false));
-			}
+			ref.getContainedObjects().stream().map(d -> OutputNameFormatting.piString(d, false)).forEach(set::add);
 		}
 		final StringBuilder piString = new StringBuilder(100);
 		//piString.append("<html>"); //$NON-NLS-1$
@@ -2281,10 +2273,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (deity != null)
 		{
 			FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-			for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-			{
-				set.add(indirect.get());
-			}
+			deity.getSafeSetFor(fk).stream().map(Reference::get).forEach(set::add);
 		}
 		final StringBuilder piString = new StringBuilder(100);
 		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$
@@ -2339,15 +2328,10 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		List<T> choices = new ArrayList<>();
-		for (CNAbility ab : targetAbilities)
-		{
-			List<? extends T> sel =
-					(List<? extends T>) pc.getDetailedAssociations(ab);
-			if (sel != null)
-			{
-				choices.addAll(sel);
-			}
-		}
+		targetAbilities.stream()
+		               .map(ab -> (List<? extends T>) pc.getDetailedAssociations(ab))
+		               .filter(Objects::nonNull)
+		               .forEach(choices::addAll);
 
 		String choiceInfo = chooseInfo.composeDisplay(choices).toString();
 		if (!choiceInfo.isEmpty())
@@ -2410,51 +2394,45 @@ public class Gui2InfoFactory implements InfoFactory
 		Collection<FactDefinition> defs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactDefinition.class);
-		for (FactDefinition<?, ?> def : defs)
+		defs.stream().filter(def -> def.getUsableLocation().isAssignableFrom(cl)).forEach(def ->
 		{
-			if (def.getUsableLocation().isAssignableFrom(cl))
+			Visibility visibility = def.getVisibility();
+			if (visibility != null &&
+					visibility.isVisibleTo(View.VISIBLE_DISPLAY))
 			{
-				Visibility visibility = def.getVisibility();
-				if (visibility != null && 
-						visibility.isVisibleTo(View.VISIBLE_DISPLAY))
+				FactKey<?> fk = def.getFactKey();
+				Indirect<?> fact = cdo.get(fk);
+				if (fact != null)
 				{
-					FactKey<?> fk = def.getFactKey();
-					Indirect<?> fact = cdo.get(fk);
-					if (fact != null)
-					{
-						infoText.appendSpacer();
-						infoText.append("<b>");
-						infoText.append(fk.toString());
-						infoText.append(":</b>&nbsp;");
-						infoText.append(fact.getUnconverted());
-					}
+					infoText.appendSpacer();
+					infoText.append("<b>");
+					infoText.append(fk.toString());
+					infoText.append(":</b>&nbsp;");
+					infoText.append(fact.getUnconverted());
 				}
 			}
-		}
+		});
 		Collection<FactSetDefinition> setdefs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactSetDefinition.class);
-		for (FactSetDefinition<?, ?> def : setdefs)
+		setdefs.stream().filter(def -> def.getUsableLocation().isAssignableFrom(cl)).forEach(def ->
 		{
-			if (def.getUsableLocation().isAssignableFrom(cl))
+			Visibility visibility = def.getVisibility();
+			if (visibility != null &&
+					visibility.isVisibleTo(View.VISIBLE_DISPLAY))
 			{
-				Visibility visibility = def.getVisibility();
-				if (visibility != null &&
-						visibility.isVisibleTo(View.VISIBLE_DISPLAY))
+				FactSetKey<?> fk = def.getFactSetKey();
+				String s = getSetString(cdo, fk);
+				if (s != null)
 				{
-					FactSetKey<?> fk = def.getFactSetKey();
-					String s = getSetString(cdo, fk);
-					if (s != null)
-					{
-						infoText.appendSpacer();
-						infoText.append("<b>");
-						infoText.append(fk.toString());
-						infoText.append(":</b>&nbsp;");
-						infoText.append(s);
-					}
+					infoText.appendSpacer();
+					infoText.append("<b>");
+					infoText.append(fk.toString());
+					infoText.append(":</b>&nbsp;");
+					infoText.append(s);
 				}
 			}
-		}
+		});
 		
 	}
 

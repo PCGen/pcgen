@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -2329,13 +2331,11 @@ public final class ExportHandler
 			{
 				// only allow followers that currently loaded
 				// Otherwise the stats a zero
-				for (PlayerCharacter pc : Globals.getPCList())
-				{
-					if (pc.getFileName().equals(follower.getFileName()))
-					{
-						aList.add(follower);
-					}
-				}
+				Globals.getPCList()
+				       .stream()
+				       .filter(pc -> pc.getFileName().equals(follower.getFileName()))
+				       .map(pc -> follower)
+				       .forEach(aList::add);
 			}
 
 			StringTokenizer aTok = new StringTokenizer(aString, ".");
@@ -2364,16 +2364,13 @@ public final class ExportHandler
 		// Filter out PROHIBITEDLIST
 		if ("PROHIBITEDLIST".equals(aString.substring(1)))
 		{
-			for (PCClass pcClass : aPC.getClassSet())
+			if (aPC.getClassSet()
+			       .stream()
+			       .filter(pcClass -> aPC.getLevel(pcClass) > 0)
+			       .anyMatch(pcClass -> pcClass.containsListFor(ListKey.PROHIBITED_SPELLS)
+					       || aPC.containsProhibitedSchools(pcClass)))
 			{
-				if (aPC.getLevel(pcClass) > 0)
-				{
-					if (pcClass.containsListFor(ListKey.PROHIBITED_SPELLS)
-						|| aPC.containsProhibitedSchools(pcClass))
-					{
-						return 0;
-					}
-				}
+				return 0;
 			}
 
 			canWrite = false;
@@ -2619,16 +2616,9 @@ public final class ExportHandler
 			aTok.nextToken(); // ARMOR
 
 			String fString = aTok.nextToken();
-			final Collection<Equipment> aArrayList = new ArrayList<>();
-
-			for (Equipment eq : aPC.getEquipmentListInOutputOrder())
-			{
-				if (eq.altersAC(aPC)
-					&& (!eq.isArmor() && !eq.isShield()))
-				{
-					aArrayList.add(eq);
-				}
-			}
+			final Collection<Equipment> aArrayList =
+					aPC.getEquipmentListInOutputOrder().stream().filter(eq -> eq.altersAC(aPC)
+							&& (!eq.isArmor() && !eq.isShield())).collect(Collectors.toList());
 
 			// When removing old syntax, remove the else and leave the if
 			final int count;
@@ -3232,11 +3222,8 @@ public final class ExportHandler
 						{
 							Logging.errorPrint("OIF: not enough parameters ("
 								+ Integer.toString(iParamCount) + ')');
-							for (int j = 0; j < iParamCount; ++j)
-							{
-								Logging.errorPrint("  " + Integer.toString(j)
-									+ ':' + tokenizedString[j]);
-							}
+							IntStream.range(0, iParamCount).mapToObj(j -> "  " + Integer.toString(j)
+									+ ':' + tokenizedString[j]).forEach(Logging::errorPrint);
 						}
 					}
 					break;

@@ -27,6 +27,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -312,37 +313,29 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 	{
 		final GameMode gameMode = SettingsHandler.getGame();
 
-		for (int i = 0; i < hrBoxes.length; i++)
+		// Save settings
+		IntStream.range(0, hrBoxes.length).filter(i -> hrBoxes[i] != null).forEach(i ->
 		{
-			if (hrBoxes[i] != null)
+			String aKey = hrBoxes[i].getActionCommand();
+			boolean aBool = hrBoxes[i].isSelected();
+			if (gameMode.getModeContext().getReferenceContext()
+			            .containsConstructedCDOMObject(RuleCheck.class, aKey))
 			{
-				String aKey = hrBoxes[i].getActionCommand();
-				boolean aBool = hrBoxes[i].isSelected();
-
-				// Save settings
-				if (gameMode.getModeContext().getReferenceContext()
-						.containsConstructedCDOMObject(RuleCheck.class, aKey))
-				{
-					SettingsHandler.setRuleCheck(aKey, aBool);
-				}
+				SettingsHandler.setRuleCheck(aKey, aBool);
 			}
-		}
+		});
 
-		for (int i = 0; i < hrRadio.length; i++)
+		// Save settings
+		IntStream.range(0, hrRadio.length).filter(i -> hrRadio[i] != null).forEach(i ->
 		{
-			if (hrRadio[i] != null)
+			String aKey = hrRadio[i].getActionCommand();
+			boolean aBool = hrRadio[i].isSelected();
+			if (gameMode.getModeContext().getReferenceContext()
+			            .containsConstructedCDOMObject(RuleCheck.class, aKey))
 			{
-				String aKey = hrRadio[i].getActionCommand();
-				boolean aBool = hrRadio[i].isSelected();
-
-				// Save settings
-				if (gameMode.getModeContext().getReferenceContext()
-						.containsConstructedCDOMObject(RuleCheck.class, aKey))
-				{
-					SettingsHandler.setRuleCheck(aKey, aBool);
-				}
+				SettingsHandler.setRuleCheck(aKey, aBool);
 			}
-		}
+		});
 	}
 
 	/**

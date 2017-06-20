@@ -22,6 +22,7 @@ package pcgen.io.migration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
@@ -45,18 +46,13 @@ public final class MigrationUtils
 	protected static List<MigrationRule> getChangeList(int[] pcgVer,
 	                                                   String gameModeName, ObjectType objectType)
 	{
-		List<MigrationRule> sourceChangeList = new ArrayList<>();
+		List<MigrationRule> sourceChangeList;
 		List<MigrationRule> migrationRuleList =
 				SystemCollections
 					.getUnmodifiableMigrationRuleList(gameModeName);
-		for (MigrationRule migrationRule : migrationRuleList)
-		{
-			if (migrationRule.getObjectType() == objectType
-				&& migrationRule.changeAppliesToVer(pcgVer))
-			{
-				sourceChangeList.add(migrationRule);
-			}
-		}
+		sourceChangeList =
+				migrationRuleList.stream().filter(migrationRule -> migrationRule.getObjectType() == objectType
+						&& migrationRule.changeAppliesToVer(pcgVer)).collect(Collectors.toList());
 		return sourceChangeList;
 	}
 

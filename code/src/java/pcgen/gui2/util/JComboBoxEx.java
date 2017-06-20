@@ -26,6 +26,7 @@ import javax.swing.JComboBox;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Vector;
+import java.util.stream.IntStream;
 
 /**
  * Sorted {@code JComboBox}.
@@ -105,10 +106,7 @@ public class JComboBoxEx extends JComboBox
 		// setModel(getModel().getClass().getDeclaredConstructor(new Class[] {Object[].class}).newInstance(new Object[] {items}));
 		removeAllItems();
 
-		for (int i = 0; i < items.length; ++i)
-		{
-			super.addItem(items[i]);
-		}
+		Arrays.stream(items).forEach(super::addItem);
 	}
 
 	/**
@@ -119,12 +117,7 @@ public class JComboBoxEx extends JComboBox
 	public Object[] getAllItems()
 	{
 		int count = getItemCount();
-		Object[] items = new Object[count];
-
-		for (int i = 0; i < count; ++i)
-		{
-			items[i] = getItemAt(i);
-		}
+		Object[] items = IntStream.range(0, count).mapToObj(this::getItemAt).toArray();
 
 		return items;
 	}

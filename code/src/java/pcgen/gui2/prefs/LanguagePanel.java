@@ -25,6 +25,7 @@ import java.awt.Insets;
 import java.util.Collection;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.IntStream;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -240,15 +241,11 @@ public class LanguagePanel extends PCGenPrefsPanel
 			unitSetType.setSelectedIndex(0);
 			Collection<UnitSet> unitSets = SettingsHandler.getGame()
 					.getModeContext().getReferenceContext().getConstructedCDOMObjects(UnitSet.class);
-	
-			for (int i = 0; i < unitSets.size(); ++i)
-			{
-				if (unitSetNames[i].equals(SettingsHandler.getGame().getUnitSet()
-						.getDisplayName()))
-				{
-					unitSetType.setSelectedIndex(i);
-				}
-			}
+
+			IntStream.range(0, unitSets.size())
+			         .filter(i -> unitSetNames[i].equals(SettingsHandler.getGame().getUnitSet()
+			                                                            .getDisplayName()))
+			         .forEach(i -> unitSetType.setSelectedIndex(i));
 		}
 	}
 

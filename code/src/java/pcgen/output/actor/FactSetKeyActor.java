@@ -19,8 +19,10 @@ package pcgen.output.actor;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.Indirect;
+import pcgen.base.util.Reference;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FactSetKey;
@@ -68,11 +70,7 @@ public class FactSetKeyActor<T> implements OutputActor<CDOMObject>
 	public TemplateModel process(CharID id, CDOMObject d)
 		throws TemplateModelException
 	{
-		Collection<T> c = new ArrayList<>();
-		for (Indirect<T> indirect : d.getSafeSetFor(fsk))
-		{
-			c.add(indirect.get());
-		}
+		Collection<T> c = d.getSafeSetFor(fsk).stream().map(Reference::get).collect(Collectors.toList());
 		//Our own ListModel so that we end up wrapping subcontents on "our terms"
 		return new CollectionModel(id, c);
 	}

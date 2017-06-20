@@ -81,14 +81,7 @@ public class FilterButtonGroupPanel<C, E> extends JPanel
 	@Override
 	public boolean accept(C context, E element)
 	{
-		for (FilterButton<C, E> filterButton : buttons)
-		{
-			if (!filterButton.accept(context, element))
-			{
-				return false;
-			}
-		}
-		return true;
+		return buttons.stream().allMatch(filterButton -> filterButton.accept(context, element));
 	}
 
 	@Override
@@ -96,14 +89,9 @@ public class FilterButtonGroupPanel<C, E> extends JPanel
 	{
 		if (e.getStateChange() == ItemEvent.SELECTED)
 		{
-			for (FilterButton<C, E> filterButton : buttons)
-			{
-				if (filterButton == e.getItemSelectable())
-				{
-					continue;
-				}
-				filterButton.setSelected(false);
-			}
+			buttons.stream()
+			       .filter(filterButton -> filterButton != e.getItemSelectable())
+			       .forEach(filterButton -> filterButton.setSelected(false));
 		}
 	}
 
