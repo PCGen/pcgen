@@ -606,7 +606,7 @@ public class PCClass extends PObject implements ClassFacade
 		for (Map.Entry<AttackType, Integer> me : getMapFor(MapKey.ATTACK_CYCLE)
 				.entrySet())
 		{
-			if (at.equals(me.getKey()))
+			if (at == me.getKey())
 			{
 				return me.getValue();
 			}
