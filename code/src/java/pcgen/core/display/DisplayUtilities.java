@@ -21,12 +21,14 @@ import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
 
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
 @Deprecated
 public final class DisplayUtilities
 {
 	private DisplayUtilities()
 	{
-		//Can't instantiate
 	}
 
 	/**
@@ -41,36 +43,16 @@ public final class DisplayUtilities
 	 *
 	 * @param cdoCollection
 	 *            An Collection of CDOMObjects
-	 * @param separator
-	 *            The separating string
 	 * @return A 'separator' separated String containing the Display Name of the
 	 *         given Collection of CDOMObject objects
 	 */
 	@Deprecated
 	public static String joinDisplayName(
-		Collection<? extends CDOMObject> cdoCollection, String separator)
+		Collection<? extends CDOMObject> cdoCollection)
 	{
-		if (cdoCollection == null)
-		{
-			return "";
-		}
-
-		final StringBuilder result =
-				new StringBuilder(cdoCollection.size() * 10);
-
-		boolean needjoin = false;
-
-		for (CDOMObject obj : cdoCollection)
-		{
-			if (needjoin)
-			{
-				result.append(separator);
-			}
-			needjoin = true;
-			result.append(obj.getDisplayName());
-		}
-
-		return result.toString();
+		return StringUtils.join(
+				CollectionUtils.emptyIfNull(cdoCollection).stream().map(CDOMObject::getDisplayName),
+			",");
 	}
 
 }
