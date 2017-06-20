@@ -1388,8 +1388,8 @@ public class CharacterDisplay
 		// information in addition to the total PC level
 		displayClass = classFacet.getCount(id) > 1 ? getFullDisplayClassName() : getDisplayClassName();
 
-		return new StringBuilder(100).append(getName()).append(" the ").append(levels).append(getOrdinal(levels))
-				.append(" level ").append(getDisplayRaceName()).append(' ').append(displayClass).toString();
+		return getName() + " the " + levels + getOrdinal(levels) +
+				" level " + getDisplayRaceName() + ' ' + displayClass;
 	}
 
 	private String getOrdinal(final int cardinal)
@@ -1448,11 +1448,10 @@ public class CharacterDisplay
 
 	public String getFullDisplayClassName(PCClass pcClass)
 	{
-		final StringBuilder buf = new StringBuilder(40);
-	
-		buf.append(getDisplayClassName(pcClass));
-	
-		return buf.append(" ").append(getLevel(pcClass)).toString();
+		String buf = getDisplayClassName(pcClass) +
+				" " + getLevel(pcClass);
+
+		return buf;
 	}
 
 	public String getDisplayClassName(PCClass pcClass)
