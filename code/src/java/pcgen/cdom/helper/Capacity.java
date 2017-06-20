@@ -119,7 +119,7 @@ public class Capacity
 		sb.append("Capacity: ");
 		sb.append(type == null ? "Total" : type);
 		sb.append('=');
-		sb.append(UNLIMITED.equals(limit) ? "UNLIMITED" : limit);
+		sb.append(UNLIMITED.compareTo(limit) == 0 ? "UNLIMITED" : limit);
 		return sb.toString();
 	}
 
@@ -160,7 +160,7 @@ public class Capacity
 					return false;
 				}
 			}
-			return limit.equals(other.limit);
+			return limit.compareTo(other.limit) == 0;
 		}
 		return false;
 	}
