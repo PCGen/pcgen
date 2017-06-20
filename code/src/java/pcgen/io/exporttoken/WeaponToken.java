@@ -609,7 +609,7 @@ public class WeaponToken extends Token
 		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped() && star)
 		{
-			sb.append("*");
+			sb.append('*');
 		}
 		sb.append(OutputNameFormatting.parseOutputName(eq, pc));
 		sb.append(eq.getAppliedName());
@@ -628,7 +628,7 @@ public class WeaponToken extends Token
 		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped())
 		{
-			sb.append("*");
+			sb.append('*');
 		}
 		sb.append(OutputNameFormatting.parseOutputName(eq, pc));
 		sb.append(eq.getAppliedName());
@@ -646,7 +646,7 @@ public class WeaponToken extends Token
 		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped())
 		{
-			sb.append("*");
+			sb.append('*');
 		}
 		sb.append(eq.longName());
 		sb.append(eq.getAppliedName());
@@ -823,7 +823,7 @@ public class WeaponToken extends Token
 
 		if (isDouble && (altCrit > 0))
 		{
-			sb.append("/").append(altCrit + mult);
+			sb.append('/').append(altCrit + mult);
 		}
 		return sb.toString();
 	}
@@ -842,7 +842,7 @@ public class WeaponToken extends Token
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(critMult1);
-		sb.append("/");
+		sb.append('/');
 		sb.append(critMult2);
 		return sb.toString();
 	}
@@ -930,7 +930,7 @@ public class WeaponToken extends Token
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(weaponCategories(eq));
-		sb.append("-");
+		sb.append('-');
 
 		if (eq.isNatural())
 		{
@@ -941,7 +941,7 @@ public class WeaponToken extends Token
 		// and set non standard to false
 		if (appendSeperator(eq))
 		{
-			sb.append(",");
+			sb.append(',');
 		}
 
 		// Check if Both or Melee or Ranged
@@ -2231,7 +2231,7 @@ public class WeaponToken extends Token
 
 		for (int i = extra_attacks; i > 0; i--)
 		{
-			newAttack.append(attack).append("/");
+			newAttack.append(attack).append('/');
 		}
 
 		boolean progress = eq.getSafe(ObjectKey.ATTACKS_PROGRESS);
@@ -2557,7 +2557,7 @@ public class WeaponToken extends Token
 		}
 		else
 		{
-			sb.append("0");
+			sb.append('0');
 		}
 
 		// Handle Double weapons
@@ -2620,7 +2620,7 @@ public class WeaponToken extends Token
 
 			totalBonus += bonus + weaponProfBonus + eqbonus;
 
-			sb.append("/");
+			sb.append('/');
 			if (!"0d0".equalsIgnoreCase(damString))
 			{
 				if (bonusOnly)
@@ -2634,7 +2634,7 @@ public class WeaponToken extends Token
 			}
 			else
 			{
-				sb.append("0");
+				sb.append('0');
 			}
 		}
 		return sb.toString();
@@ -2941,7 +2941,7 @@ public class WeaponToken extends Token
 					default:
 						Logging
 							.errorPrint("In getWeaponProfTypeBonuses there is an unhandled case in a switch (the value is "
-								+ index + ".");
+								+ index + '.');
 						break;
 				}
 			}
@@ -3177,7 +3177,7 @@ public class WeaponToken extends Token
 		{
 			if (needSlash)
 			{
-				sb.append("/");
+				sb.append('/');
 			}
 			sb.append(getCritRangeHead(pc, head, critRangeVar));
 			needSlash = true;
