@@ -24,9 +24,7 @@
     <exclude name="BigIntegerInstantiation" />
     <exclude name="CollapsibleIfStatements" />
     <exclude name="AvoidBranchingStatementAsLastInLoop" />
-    <exclude name="SimplifiedTernary" />
     <exclude name="OverrideBothEqualsAndHashcode" />
-    <exclude name="UnconditionalIfStatement" />
   </rule>
   <rule ref="rulesets/java/braces.xml">
     <exclude name="IfStmtsMustUseBraces" />
