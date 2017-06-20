@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
-public class OutputNameFormatting
+public final class OutputNameFormatting
 {
 
 	private OutputNameFormatting()

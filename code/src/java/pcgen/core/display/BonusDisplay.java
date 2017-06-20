@@ -24,7 +24,7 @@ import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
-public class BonusDisplay
+public final class BonusDisplay
 {
 
 	private BonusDisplay()

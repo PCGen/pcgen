@@ -42,7 +42,7 @@ import pcgen.core.Skill;
  * 
  */
 
-public class ChooserUtilities
+public final class ChooserUtilities
 {
 	private ChooserUtilities()
 	{

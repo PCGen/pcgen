@@ -20,7 +20,7 @@ package pcgen.core.analysis;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 
-public class ChooseActivation
+public final class ChooseActivation
 {
 
 	private ChooseActivation()

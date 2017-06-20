@@ -21,7 +21,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCAlignment;
 import pcgen.core.prereq.Prerequisite;
 
-public class RaceAlignment
+public final class RaceAlignment
 {
 
 	private RaceAlignment()

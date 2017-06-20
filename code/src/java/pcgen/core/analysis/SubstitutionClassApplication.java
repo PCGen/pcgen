@@ -33,7 +33,7 @@ import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
-public class SubstitutionClassApplication
+public final class SubstitutionClassApplication
 {
 
 	private SubstitutionClassApplication()
