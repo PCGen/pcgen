@@ -399,7 +399,7 @@ public class CampaignSourceEntry implements SourceEntry
 		boolean hasKeyOnly = false;
 		List<String> catKeyList = new ArrayList<>();
 		String target = inExString.substring(8);
-		if (target == null || target.length() == 0)
+		if (target == null || target.isEmpty())
 		{
 			Logging.errorPrint("Must Specify Items after :");
 			return null;

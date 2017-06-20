@@ -762,7 +762,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		String bString = SourceFormat.getFormattedString(aClass,
 		Globals.getSourceDisplay(), true);
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_source", bString); //$NON-NLS-1$ 
@@ -1073,7 +1073,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				pc.delSpell(spellInfo, (PCClass) spell.getSpellcastingClass(),
 					bookName);
 
-		if (errorMsg.length() > 0)
+		if (!errorMsg.isEmpty())
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, errorMsg);
 			ShowMessageDelegate.showMessageDialog(errorMsg,
