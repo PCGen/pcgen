@@ -58,8 +58,10 @@ public class WeaponProfsToken extends AbstractExportToken
 	{
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
-			return DisplayUtilities.joinDisplayName(
-				display.getSortedWeaponProfs(), ", ");
+			return CollectionUtils.emptyIfNull(display.getSortedWeaponProfs())
+					      .stream()
+					      .map(CDOMObject::getDisplayName)
+					      .collect(Collectors.joining(", "));
 		}
 		else
 		{
