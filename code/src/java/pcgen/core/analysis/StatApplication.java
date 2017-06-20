@@ -39,6 +39,10 @@ import pcgen.util.chooser.ChooserFactory;
 public class StatApplication
 {
 
+	private StatApplication()
+	{
+	}
+
 	//
 	// Ask user to select a stat to increment. This can happen before skill
 	// points

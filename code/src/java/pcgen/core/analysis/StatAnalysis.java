@@ -23,6 +23,10 @@ import pcgen.core.PlayerCharacter;
 
 public class StatAnalysis
 {
+	private StatAnalysis()
+	{
+	}
+
 	/**
 	 * Retrieve a correctly calculated attribute value where one or more
 	 * types are excluded.
