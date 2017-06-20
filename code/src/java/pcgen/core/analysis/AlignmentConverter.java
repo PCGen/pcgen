@@ -25,6 +25,10 @@ public class AlignmentConverter
 {
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
 
+	private AlignmentConverter()
+	{
+	}
+
 	public static PCAlignment getPCAlignment(String alignKey)
 	{
 		PCAlignment desiredAlign;

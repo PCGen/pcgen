@@ -35,6 +35,10 @@ import pcgen.util.Logging;
 public class BonusCalc
 {
 
+	private BonusCalc()
+	{
+	}
+
 	/**
 	 * Gets the bonuses to a given stat.
 	 *

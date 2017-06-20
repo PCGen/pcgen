@@ -30,6 +30,10 @@ import pcgen.core.EquipmentModifier;
 public class EqModAttachment
 {
 
+	private EqModAttachment()
+	{
+	}
+
 	public static void finishEquipment(Equipment eq)
 	{
 		for (int i = 1; i <= 2; i++)
