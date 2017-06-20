@@ -27,15 +27,9 @@ import java.io.Serializable;
  * {@code Comparable}s.  This is particularly useful for
  * applications such as maintaining a sorted {@code JComboBoxEx}
  * and the like.
- *
  */
 public final class ComparableComparator<T extends Comparable<T>> implements Comparator<T>, Serializable
 {
-	/** Constructs a {@code ComparableComparator}. */
-	public ComparableComparator()
-	{
-		// TODO: Exception needs to be handled
-	}
 
 	@Override
 	public int compare(T o1, T o2)
