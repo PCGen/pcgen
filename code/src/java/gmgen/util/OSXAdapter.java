@@ -1,110 +1,72 @@
 /*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
  *
- * This is a modified version of Apple's OSXAdapter.java developers example.
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
  *
- * This sample uses a single class with clear, static entry points for hooking existing preferences,
- * about, quit functionality from an existing Java app into handlers for the Mac OS X application
- * menu.  The class is loaded using reflection, so that it will only be referenced by platforms
- * that actually support the Apple EAWT.  The built product should run unmodified on any
- * Java implementations.  Useful for developers looking to support multiple platforms with
- * a single codebase, and support Mac OS X features with minimal impact.
- * Requirements: Mac OS X 10.2 or later; Java 1.4.1 or later
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
+
 package gmgen.util;
 
-import com.apple.eawt.ApplicationAdapter;
-import com.apple.eawt.ApplicationEvent;
+import com.apple.eawt.AppEvent;
+import com.apple.eawt.Application;
+import com.apple.eawt.PreferencesHandler;
+import com.apple.eawt.QuitHandler;
+import com.apple.eawt.QuitResponse;
+import gmgen.GMGenSystem;
 
 /**
  * An adaptor class to deal with Apple Macintosh OSX issues 
  */
-public final class OSXAdapter extends ApplicationAdapter
+public final class OSXAdapter
 {
-	// pseudo-singleton model; no point in making multiple instances
-	// of the EAWT application or our adapter
-	private static OSXAdapter theAdapter;
-	private static com.apple.eawt.Application theApplication;
-
 	// reference to the app where the existing quit, about, prefs code is
-	private final gmgen.GMGenSystem mainApp;
+	private static OSXAdapter theAdapter;
+	private static GMGenSystem mainApp;
 
-	private OSXAdapter(gmgen.GMGenSystem inApp)
+	private OSXAdapter()
 	{
-		mainApp = inApp;
 	}
 
-	/** 
-	 * Another static entry point for EAWT functionality.  Enables the
-	 * "Preferences..." menu item in the application menu.
-	 * NOTE: called from GMGenSystem.java using reflection.
-	 * 
-	 * @param enabled
-	 */
-	public static void enablePrefs(boolean enabled)
+	public static void initialize(GMGenSystem inApp)
 	{
-		if (theApplication == null)
+		if (theAdapter != null)
 		{
-			theApplication = new com.apple.eawt.Application();
+			return;
 		}
-
-		theApplication.setEnabledPreferencesMenu(enabled);
+		mainApp = inApp;
+		theAdapter = new OSXAdapter();
+		Application osxApplication = Application.getApplication();
+		osxApplication.setPreferencesHandler(new OSXPreferencesHandler());
+		osxApplication.setQuitHandler(new OSXQuitHandler());
 	}
 
-    @Override
-	public void handlePreferences(ApplicationEvent ae)
+
+	private static class OSXPreferencesHandler implements PreferencesHandler
 	{
-		if (mainApp != null)
+		@Override
+		public void handlePreferences(final AppEvent.PreferencesEvent preferencesEvent)
 		{
 			mainApp.mPreferencesActionPerformedMac();
-			ae.setHandled(true);
-		}
-		else
-		{
-			throw new IllegalStateException("handlePreferences: GMGenSystem instance detached from listener");
 		}
 	}
 
-    @Override
-	public void handleQuit(ApplicationEvent ae)
+	private static class OSXQuitHandler implements QuitHandler
 	{
-		if (mainApp != null)
+		@Override
+		public void handleQuitRequestWith(final AppEvent.QuitEvent quitEvent, final QuitResponse quitResponse)
 		{
-			/*
-			   /    You MUST setHandled(false) if you want to delay or cancel the quit.
-			   /    This is important for cross-platform development -- have a universal quit
-			   /    routine that chooses whether or not to quit, so the functionality is identical
-			   /    on all platforms.  This example simply cancels the AppleEvent-based quit and
-			   /    defers to that universal method.
-			 */
-			ae.setHandled(false);
 			mainApp.exitFormMac();
 		}
-		else
-		{
-			throw new IllegalStateException("handleQuit: GMGenSystem instance detached from listener");
-		}
 	}
-	/**
-	 * The main entry-point for this functionality.  This is the only method
-	 * that needs to be called at runtime, and it can easily be done using
-	 * reflection (see MyApp.java)
-	 * NOTE: called from GMGenSystem.java using reflection.
-	 * 
-	 * @param inApp
-	 */
-	public static void registerMacOSXApplication(gmgen.GMGenSystem inApp)
-	{
-		if (theApplication == null)
-		{
-			theApplication = new com.apple.eawt.Application();
-		}
 
-		if (theAdapter == null)
-		{
-			theAdapter = new OSXAdapter(inApp);
-		}
-
-		theApplication.addApplicationListener(theAdapter);
-	}
 
 }
