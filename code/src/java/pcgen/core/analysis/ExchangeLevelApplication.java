@@ -37,6 +37,10 @@ import pcgen.util.chooser.ChooserFactory;
 public class ExchangeLevelApplication
 {
 
+	private ExchangeLevelApplication()
+	{
+	}
+
 	public static void exchangeLevels(final PlayerCharacter aPC, PCClass newcl)
 	{
 		LevelExchange le = newcl.get(ObjectKey.EXCHANGE_LEVEL);

@@ -34,6 +34,10 @@ import pcgen.core.Skill;
 public class QualifiedName
 {
 
+	private QualifiedName()
+	{
+	}
+
 	/**
 	 * This method generates a name for this Ability which includes any choices
 	 * made and a count of how many times it has been applied.

@@ -34,6 +34,10 @@ import pcgen.core.Skill;
 public final class SkillModifier
 {
 
+	private SkillModifier()
+	{
+	}
+
 	public static Integer modifier(Skill sk, PlayerCharacter aPC)
 	{
 		int bonus = 0;
