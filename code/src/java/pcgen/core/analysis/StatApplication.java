@@ -36,7 +36,7 @@ import pcgen.gui2.util.PrettyIntegerFormat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
-public class StatApplication
+public final class StatApplication
 {
 
 	private StatApplication()

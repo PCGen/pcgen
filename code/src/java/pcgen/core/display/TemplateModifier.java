@@ -37,7 +37,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusCalc;
 
-public class TemplateModifier
+public final class TemplateModifier
 {
 
 	private static DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);

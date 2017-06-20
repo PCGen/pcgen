@@ -29,7 +29,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 
-public class SpellCountCalc
+public final class SpellCountCalc
 {
 
 	private SpellCountCalc()

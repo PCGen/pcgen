@@ -33,7 +33,7 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 
-public class SkillInfoUtilities
+public final class SkillInfoUtilities
 {
 
 	private SkillInfoUtilities()

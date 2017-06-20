@@ -22,7 +22,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PObject;
 
 
-public class DescriptionFormatting
+public final class DescriptionFormatting
 {
 
 	private DescriptionFormatting()

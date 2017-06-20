@@ -20,7 +20,7 @@ package pcgen.cdom.formula;
 import pcgen.base.util.TypedKey;
 import pcgen.rules.context.LoadContext;
 
-public class ManagerKey
+public final class ManagerKey
 {
 	public static final TypedKey<LoadContext> CONTEXT = new TypedKey<>();
 

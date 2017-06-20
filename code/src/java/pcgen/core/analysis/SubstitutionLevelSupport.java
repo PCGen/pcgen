@@ -32,7 +32,7 @@ import pcgen.persistence.lst.SourceEntry;
 import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.util.Logging;
 
-public class SubstitutionLevelSupport
+public final class SubstitutionLevelSupport
 {
 
 	private SubstitutionLevelSupport()

@@ -31,7 +31,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
-public class PCClassKeyChange
+public final class PCClassKeyChange
 {
 	private PCClassKeyChange()
 	{

@@ -37,7 +37,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
-public class SpellLevel
+public final class SpellLevel
 {
 
 	private SpellLevel()
