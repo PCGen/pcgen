@@ -96,7 +96,6 @@
     <exclude name="SystemPrintln" />
     <exclude name="GuardLogStatementJavaUtil" />
     <exclude name="LoggerIsNotStaticFinal" />
-    <exclude name="MoreThanOneLogger" />
   </rule>
   <!--<rule ref="rulesets/java/migrating.xml" />-->
   <!--<rule ref="rulesets/java/naming.xml" />-->
