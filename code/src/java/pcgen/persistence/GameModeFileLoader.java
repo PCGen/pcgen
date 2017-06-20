@@ -1,5 +1,4 @@
 /*
- * GameModeFileLoader.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
  */
 package pcgen.persistence;
 
@@ -68,6 +66,7 @@ import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
+import org.apache.commons.lang3.ArrayUtils;
 
 public class GameModeFileLoader extends PCGenTask
 {
@@ -106,8 +105,8 @@ public class GameModeFileLoader extends PCGenTask
 	@Override
 	public void execute()
 	{
-		String[] gameFiles = GameModeFileLoader.getGameFilesList();
-		if ((gameFiles != null) && (gameFiles.length > 0))
+		String[] gameFiles = ArrayUtils.nullToEmpty(GameModeFileLoader.getGameFilesList());
+		if (gameFiles.length > 0)
 		{
 			setMaximum(gameFiles.length + 1);
 			loadGameModes(gameFiles);
@@ -408,8 +407,8 @@ public class GameModeFileLoader extends PCGenTask
 		feat.copyFields(AbilityCategory.FEAT);
 		gameMode.setFeatTemplate(feat);
 
-		int[] dieSizes = gameMode.getDieSizes();
-		if (dieSizes == null || dieSizes.length == 0)
+		int[] dieSizes = ArrayUtils.nullToEmpty(gameMode.getDieSizes());
+		if (dieSizes.length == 0)
 		{
 			final int[] defaultDieSizes = {
 				1, 2, 3, 4, 6, 8, 10, 12, 20, 100, 1000

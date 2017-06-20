@@ -30,13 +30,14 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 /**
  * Class deals with COMPS Token
  */
 public class CompsToken extends AbstractTokenWithSeparator<Spell> implements
 		CDOMPrimaryToken<Spell>
 {
-
 	@Override
 	public String getTokenName()
 	{
@@ -95,7 +96,7 @@ public class CompsToken extends AbstractTokenWithSeparator<Spell> implements
 		{
 			sb.append(Constants.LST_DOT_CLEAR);
 		}
-		if (added != null && !added.isEmpty())
+		if (!CollectionUtils.emptyIfNull(added).isEmpty())
 		{
 			if (globalClear)
 			{
