@@ -365,15 +365,13 @@ public final class EquipmentChoice
 	public void addSelectableEquipment(
 		final String          typeString)
 	{
-		for (Equipment aEquip : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
-		{
-			if (
-				aEquip.isType(typeString) &&
-				!this.getAvailableList().contains(aEquip.getName()))
-			{
-				this.getAvailableList().add(aEquip.getName());
-			}
-		}
+		Globals.getContext()
+		       .getReferenceContext()
+		       .getConstructedCDOMObjects(Equipment.class)
+		       .stream()
+		       .filter(aEquip -> aEquip.isType(typeString) &&
+				       !this.getAvailableList().contains(aEquip.getName()))
+		       .forEach(aEquip -> this.getAvailableList().add(aEquip.getName()));
 	}
 
 	/**
@@ -384,16 +382,15 @@ public final class EquipmentChoice
 	public void addSelectableSkills(
 		final String          typeString)
 	{
-		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
-		{
-			if (
-				(typeString.equalsIgnoreCase("ALL") ||
-					skill.isType(typeString)) &&
-				!this.getAvailableList().contains(skill.getKeyName()))
-			{
-				this.getAvailableList().add(skill.getKeyName());
-			}
-		}
+		Globals.getContext()
+		       .getReferenceContext()
+		       .getConstructedCDOMObjects(Skill.class)
+		       .stream()
+		       .filter(skill -> (
+				       typeString.equalsIgnoreCase("ALL") ||
+						       skill.isType(typeString)) &&
+				       !this.getAvailableList().contains(skill.getKeyName()))
+		       .forEach(skill -> this.getAvailableList().add(skill.getKeyName()));
 	}
 
 	/**
@@ -404,19 +401,15 @@ public final class EquipmentChoice
 		final Equipment       parent,
 		String                choiceType)
 	{
-		for ( EquipmentModifier sibling : parent.getEqModifierList(true) )
-		{
-			/*
-			 * TODO sibling can't be this - different classes... so this is a
-			 * bug of some form.
-			 */
-			if (
-				!(sibling.equals(this)) &&
-				sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
-			{
-				getAvailableList().addAll(parent.getAssociationList(sibling));
-			}
-		}
+		/*
+		 * TODO sibling can't be this - different classes... so this is a
+		 * bug of some form.
+		 */
+		parent.getEqModifierList(true)
+		      .stream()
+		      .filter(sibling -> !(sibling.equals(this)) &&
+				      sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
+		      .forEach(sibling -> getAvailableList().addAll(parent.getAssociationList(sibling)));
 	}
 
 	/**
@@ -477,10 +470,7 @@ public final class EquipmentChoice
 					equipmentTypeFacet.getSet(Globals.getContext()
 						.getDataSetID());
 			List<Object> list = getAvailableList();
-			for (Type t : types)
-			{
-				list.add(t.toString());
-			}
+			types.stream().map(Type::toString).forEach(list::add);
 		}
 		else
 		{

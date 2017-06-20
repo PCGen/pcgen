@@ -65,14 +65,7 @@ public final class CompanionMod extends PObject implements
 		List<CDOMSingleRef<Race>> list = getListFor(ListKey.APPLIED_RACE);
 		if (list != null)
 		{
-			for (CDOMSingleRef<Race> ref : list)
-			{
-				Race race = ref.get();
-				if (race.equals(r))
-				{
-					return true;
-				}
-			}
+			return list.stream().map(CDOMSingleRef::get).anyMatch(race -> race.equals(r));
 		}
 
 		return false;

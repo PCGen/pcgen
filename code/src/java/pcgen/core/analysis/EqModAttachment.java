@@ -54,14 +54,8 @@ public class EqModAttachment
 				EquipmentModifier curMod = null;
 				if (modlist != null)
 				{
-					for (EquipmentModifier mod : modlist)
-					{
-						if (mod.getKeyName().equals(eqModKey))
-						{
-							curMod = mod;
-							break;
-						}
-					}
+					curMod = modlist.stream().filter(mod -> mod.getKeyName().equals(eqModKey)).findFirst().orElse
+							(null);
 				}
 	
 				// If not already attached, then add a new one

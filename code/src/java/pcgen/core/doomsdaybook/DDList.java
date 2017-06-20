@@ -167,12 +167,7 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 	 */
 	public int getRange()
 	{
-		int rangeTop = 0;
-
-		for (WeightedDataValue value : this)
-		{
-			rangeTop += value.getWeight();
-		}
+		int rangeTop = this.stream().mapToInt(WeightedDataValue::getWeight).sum();
 
 		if (rangeTop <= 0)
 		{ //the die will nullpointer if it is not at least 1

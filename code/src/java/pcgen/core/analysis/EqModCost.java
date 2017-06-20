@@ -45,7 +45,7 @@ public class EqModCost
 			final PlayerCharacter aPC, final String bonusType, final int qty,
 			final Equipment parent)
 	{
-		double val = 0;
+		double val;
 
 		Set<String> typesToGetBonusesFor = new HashSet<>();
 
@@ -82,10 +82,9 @@ public class EqModCost
 			}
 		}
 
-		for (String typeString : typesToGetBonusesFor)
-		{
-			val += eqMod.bonusTo(aPC, bonusType, typeString, parent);
-		}
+		val = typesToGetBonusesFor.stream()
+		                          .mapToDouble(typeString -> eqMod.bonusTo(aPC, bonusType, typeString, parent))
+		                          .sum();
 
 		return new BigDecimal(val * qty);
 	}
@@ -109,18 +108,14 @@ public class EqModCost
 				return true;
 			}
 
-			for (Prerequisite preReq : eqMod.getPrerequisiteList())
-			{
-				if ("TYPE".equalsIgnoreCase(preReq.getKind())
-						&& ((preReq.getKey()
-								.equalsIgnoreCase("EQMODTYPE=MagicalEnhancement")) || (preReq
-								.getKey()
-								.equalsIgnoreCase("EQMODTYPE.MagicalEnhancement"))))
-				{
-					return true;
-				}
-			}
-			return false;
+			return eqMod.getPrerequisiteList().stream().anyMatch(preReq -> "TYPE".equalsIgnoreCase(preReq.getKind())
+					&& (
+					(
+							preReq.getKey()
+							      .equalsIgnoreCase("EQMODTYPE=MagicalEnhancement")) || (
+							preReq
+									.getKey()
+									.equalsIgnoreCase("EQMODTYPE.MagicalEnhancement"))));
 		}
 
 		return costdouble;

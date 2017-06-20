@@ -120,42 +120,30 @@ public class DataSet implements DataSetFacade
 	{
 		List<Race> raceList = new ArrayList<>(context.getReferenceContext().getConstructedCDOMObjects(Race.class));
 		raceList.sort(new RaceComparator());
-		for (Race race : raceList)
-		{
-			if (race.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
-			{
-				races.addElement(race);
-			}
-		}
+		raceList.stream()
+		        .filter(race -> race.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
+		        .forEach(race -> races.addElement(race));
 		
 		List<PCClass> classList = new ArrayList<>(context.getReferenceContext().getConstructedCDOMObjects(PCClass.class));
 		classList.sort(new PCClassComparator());
-		for (PCClass pcClass : classList)
-		{
-			if (pcClass.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
-			{
-				classes.addElement(pcClass);
-			}
-		}
+		classList.stream()
+		         .filter(pcClass -> pcClass.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
+		         .forEach(pcClass -> classes.addElement(pcClass));
 
-		for (Skill skill : context.getReferenceContext().getConstructedCDOMObjects(Skill.class))
-		{
-			if (skill.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
-			{
-				skills.addElement(skill);
-			}
-		}
+		context.getReferenceContext()
+		       .getConstructedCDOMObjects(Skill.class)
+		       .stream()
+		       .filter(skill -> skill.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
+		       .forEach(skill -> skills.addElement(skill));
 		for (Deity deity : context.getReferenceContext().getConstructedCDOMObjects(Deity.class))
 		{
 			deities.addElement(deity);
 		}
-		for (PCTemplate template : context.getReferenceContext().getConstructedCDOMObjects(PCTemplate.class))
-		{
-			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
-			{
-				templates.addElement(template);
-			}
-		}
+		context.getReferenceContext()
+		       .getConstructedCDOMObjects(PCTemplate.class)
+		       .stream()
+		       .filter(template -> template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
+		       .forEach(template -> templates.addElement(template));
 		for (Kit kit : context.getReferenceContext().getConstructedCDOMObjects(Kit.class))
 		{
 			kits.addElement(kit);
@@ -173,34 +161,34 @@ public class DataSet implements DataSetFacade
 //					gameMode.getAllAbilityCategories());
 //		Collections.sort(displayOrderCategories,
 //			new AbilityCategoryComparator());
-		for (AbilityCategory category : gameMode.getAllAbilityCategories())
-		{
-			if (category.isVisibleTo(View.VISIBLE_DISPLAY))
-			{
-//				categories.addElement(category);
-				List<Ability> abList =
-                        new ArrayList<>(Globals.getContext().getReferenceContext()
-                                .getManufacturer(Ability.class, category)
-                                .getAllObjects());
-				Globals.sortPObjectListByName(abList);
-				DefaultListFacade<AbilityFacade> abilityList =
-                        new DefaultListFacade<>(abList);
-				for (Iterator<AbilityFacade> iterator = abilityList.iterator(); iterator
-					.hasNext();)
-				{
-					AbilityFacade facade = iterator.next();
-					if (facade instanceof Ability)
-					{
-						Ability ability = (Ability) facade;
-						if (!(ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY)))
-						{
-							iterator.remove();
-						}
-					}
-				}
-				abilityMap.put(category, abilityList);
-			}
-		}
+		//				categories.addElement(category);
+		gameMode.getAllAbilityCategories()
+		        .stream()
+		        .filter(category -> category.isVisibleTo(View.VISIBLE_DISPLAY))
+		        .forEach(category ->
+		        {
+			        List<Ability> abList =
+					        new ArrayList<>(Globals.getContext().getReferenceContext()
+					                               .getManufacturer(Ability.class, category)
+					                               .getAllObjects());
+			        Globals.sortPObjectListByName(abList);
+			        DefaultListFacade<AbilityFacade> abilityList =
+					        new DefaultListFacade<>(abList);
+			        for (Iterator<AbilityFacade> iterator = abilityList.iterator(); iterator
+					        .hasNext(); )
+			        {
+				        AbilityFacade facade = iterator.next();
+				        if (facade instanceof Ability)
+				        {
+					        Ability ability = (Ability) facade;
+					        if (!(ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY)))
+					        {
+						        iterator.remove();
+					        }
+				        }
+			        }
+			        abilityMap.put(category, abilityList);
+		        });
 		Map<String, BodyStructure> structMap =
                 new HashMap<>(SystemCollections
                         .getUnmodifiableBodyStructureList().size() + 3);
@@ -219,22 +207,17 @@ public class DataSet implements DataSetFacade
 			Constants.EQUIP_LOCATION_EQUIPPED, true, typesWithDesignatedSlots));
 		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_CARRIED, true));
 		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_NOTCARRIED, true));
-		
-		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
-		{
-			if (structMap.containsKey(es.getBodyStructureName()))
-			{
-				structMap.get(es.getBodyStructureName()).addEquipSlot(es);
-			}
-		}
 
-		for (Equipment eq : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))
-		{
-			if (eq.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
-			{
-				equipment.addElement(eq);
-			}
-		}
+		SystemCollections.getUnmodifiableEquipSlotList()
+		                 .stream()
+		                 .filter(es -> structMap.containsKey(es.getBodyStructureName()))
+		                 .forEach(es -> structMap.get(es.getBodyStructureName()).addEquipSlot(es));
+
+		context.getReferenceContext()
+		       .getConstructedCDOMObjects(Equipment.class)
+		       .stream()
+		       .filter(eq -> eq.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
+		       .forEach(eq -> equipment.addElement(eq));
 		for (String xpTableName : gameMode.getXPTableNames())
 		{
 			xpTableNames.addElement(xpTableName);
@@ -261,11 +244,8 @@ public class DataSet implements DataSetFacade
 		Set<Type> typeList = new HashSet<>();
 		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
 		{
-			
-			for (String typeString : es.getContainType())
-			{
-				typeList.add(Type.getConstant(typeString));
-			}
+
+			es.getContainType().stream().map(Type::getConstant).forEach(typeList::add);
 		}
 		
 		return typeList;
@@ -307,10 +287,10 @@ public class DataSet implements DataSetFacade
 
 		Ability ability = (Ability) abilityFacade;
 		List<AbilityFacade> prereqList = new ArrayList<>();
-		for (Prerequisite prereq : ability.getPrerequisiteList())
-		{
-			prereqList.addAll(getAbilitiesFromPrereq(prereq, ability.getCDOMCategory()));
-		}
+		ability.getPrerequisiteList()
+		       .stream()
+		       .map(prereq -> getAbilitiesFromPrereq(prereq, ability.getCDOMCategory()))
+		       .forEach(prereqList::addAll);
 		return prereqList;
 	}
 	
@@ -338,11 +318,11 @@ public class DataSet implements DataSetFacade
 				prereqList.add(ability);
 			}
 		}
-		
-		for (Prerequisite childPrereq : prereq.getPrerequisites())
-		{
-			prereqList.addAll(getAbilitiesFromPrereq(childPrereq, cat));
-		}
+
+		prereq.getPrerequisites()
+		      .stream()
+		      .map(childPrereq -> getAbilitiesFromPrereq(childPrereq, cat))
+		      .forEach(prereqList::addAll);
 		
 		return prereqList;
 	}

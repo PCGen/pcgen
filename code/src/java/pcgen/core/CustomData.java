@@ -278,14 +278,13 @@ public final class CustomData
 			bw.newLine();
 			bw.write(AUTO_GEN_WARN_LINE_2);
 			bw.newLine();
-			
-			for (Equipment aEq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
-			{
-				if (aEq.isType(Constants.TYPE_CUSTOM) && !aEq.isType("AUTO_GEN"))
-				{
-					aEq.save(bw);
-				}
-			}
+
+			Globals.getContext()
+			       .getReferenceContext()
+			       .getConstructedCDOMObjects(Equipment.class)
+			       .stream()
+			       .filter(aEq -> aEq.isType(Constants.TYPE_CUSTOM) && !aEq.isType("AUTO_GEN"))
+			       .forEach(aEq -> aEq.save(bw));
 		}
 		catch (IOException e)
 		{
@@ -646,13 +645,10 @@ public final class CustomData
 
 	private static void writeCustomSources()
 	{
-		for ( Campaign c : Globals.getCampaignList() )
-		{
-			if (!c.getSafe(StringKey.DESTINATION).isEmpty())
-			{
-				CampaignOutput.output(Globals.getContext(), c);
-			}
-		}
+		Globals.getCampaignList()
+		       .stream()
+		       .filter(c -> !c.getSafe(StringKey.DESTINATION).isEmpty())
+		       .forEach(c -> CampaignOutput.output(Globals.getContext(), c));
 	}
 
 	private static void writeCustomSpells()

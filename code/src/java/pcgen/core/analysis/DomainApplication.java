@@ -21,6 +21,8 @@ package pcgen.core.analysis;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.IntStream;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -94,12 +96,8 @@ public class DomainApplication
 		{
 			Collection<Spell> spells = ref.getContainedObjects();
 			Collection<AssociatedPrereqObject> assoc = d.getListAssociations(Spell.SPELLS, ref);
-			for (AssociatedPrereqObject apo : assoc)
+			assoc.stream().filter(apo -> PrereqHandler.passesAll(apo.getPrerequisiteList(), pc, d)).forEach(apo ->
 			{
-				if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), pc, d))
-				{
-					continue;
-				}
 				for (Spell s : spells)
 				{
 					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
@@ -111,13 +109,15 @@ public class DomainApplication
 						Formula times = apo
 								.getAssociation(AssociationKey.TIMES_PER_UNIT);
 						CharacterSpell cs = new CharacterSpell(d, s);
-						int resolvedTimes = times.resolve(pc,
-								d.getQualifiedKey()).intValue();
+						int resolvedTimes = times.resolve(
+								pc,
+								d.getQualifiedKey()
+						).intValue();
 						cs.addInfo(1, resolvedTimes, book);
 						pc.addCharacterSpell(aClass, cs);
 					}
 				}
-			}
+			});
 		}
 	}
 
@@ -188,13 +188,9 @@ public class DomainApplication
 		}
 
 		Collection<? extends CharacterSpell> characterSpells = pc.getCharacterSpells(aClass);
-		for (CharacterSpell characterSpell : characterSpells)
-		{
-			if (characterSpell.getOwner() == domain)
-			{
-				pc.removeCharacterSpell(aClass, characterSpell);
-			}
-		}
+		characterSpells.stream()
+		               .filter(characterSpell -> characterSpell.getOwner() == domain)
+		               .forEach(characterSpell -> pc.removeCharacterSpell(aClass, characterSpell));
 	}
 	
 	public static void addSpellsToClassForLevels(PlayerCharacter pc, Domain d,
@@ -266,29 +262,19 @@ public class DomainApplication
 		 * only applied at the time of level increase, but I think that quirk
 		 * should be resolved by a CDOM system around 6.0 - thpr 10/23/06
 		 */
-		for (QualifiedObject<CDOMSingleRef<Domain>> qo : cl.getSafeListFor(ListKey.DOMAIN))
-		{
-			CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
-			if (ref != null)
-			{
-				addDomain(aPC, cl, ref.get());
-			}
-		}
-		for (int i = 0 ; i <= aLevel; i++)
-		{
-			// TODO This stinks for really high level characters - can this ever
-			// get null back?
-			PCClassLevel pcl = aPC.getActiveClassLevel(cl, i);
-			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
-					.getSafeListFor(ListKey.DOMAIN))
-			{
-				CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
-				if (ref != null)
-				{
-					addDomain(aPC, cl, ref.get());
-				}
-			}
-		}
+		cl.getSafeListFor(ListKey.DOMAIN)
+		  .stream()
+		  .map(qo -> qo.getObject(aPC, cl))
+		  .filter(Objects::nonNull)
+		  .forEach(ref -> addDomain(aPC, cl, ref.get()));
+		// TODO This stinks for really high level characters - can this ever
+// get null back?
+		IntStream.rangeClosed(0, aLevel).mapToObj(i -> aPC.getActiveClassLevel(cl, i)).forEach(pcl -> pcl
+				.getSafeListFor(ListKey.DOMAIN)
+				.stream()
+				.map(qo -> qo.getObject(aPC, cl))
+				.filter(Objects::nonNull)
+				.forEach(ref -> addDomain(aPC, cl, ref.get())));
 	}
 
 	public static void removeDomainsForLevel(PCClass cl, final int removedLevel,

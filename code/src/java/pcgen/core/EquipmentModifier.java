@@ -64,15 +64,13 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		final List<BonusObj> aList = new ArrayList<>();
 
-		for (BonusObj bonus : getBonusList(caller))
+		getBonusList(caller).stream().filter(bonus -> PrereqHandler.passesAll(bonus.getPrerequisiteList(), caller,
+				aPC
+		)).forEach(bonus ->
 		{
-			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), caller,
-					aPC))
-			{
-				aPC.setApplied(bonus, true);
-				aList.add(bonus);
-			}
-		}
+			aPC.setApplied(bonus, true);
+			aList.add(bonus);
+		});
 
 		return aList;
 	}
@@ -163,14 +161,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 */
 	public boolean isIType(final String aType)
 	{
-		for (String s : getSafeListFor(ListKey.ITEM_TYPES))
-		{
-			if (aType.equalsIgnoreCase(s))
-			{
-				return true;
-			}
-		}
-		return false;
+		return getSafeListFor(ListKey.ITEM_TYPES).stream().anyMatch(aType::equalsIgnoreCase);
 	}
 
 	/**

@@ -19,6 +19,8 @@ package pcgen.core.character;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EquipmentLocation;
@@ -485,16 +487,10 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
 		{
 			// Get back to carried/equipped/not carried to determine correct location
-			StringBuilder rootPath = new StringBuilder(40); 
-			for (int i = 0; i < Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED; i++)
-			{
-				if (i > 0)
-				{
-					rootPath.append(".");
-				}
-				rootPath.append(aTok.nextToken());
-			}
-			EquipSet rootSet = aPC.getEquipSetByIdPath(rootPath.toString());
+			String rootPath = IntStream.range(0, Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
+			                           .mapToObj(i -> aTok.nextToken())
+			                           .collect(Collectors.joining("."));
+			EquipSet rootSet = aPC.getEquipSetByIdPath(rootPath);
 			if (rootSet != null && rootSet.name.startsWith(Constants.EQUIP_LOCATION_CARRIED))
 			{
 				eq_item.addEquipmentToLocation(qty, EquipmentLocation.CARRIED_NEITHER, false, aPC);

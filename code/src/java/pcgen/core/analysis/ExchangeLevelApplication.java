@@ -20,6 +20,8 @@ package pcgen.core.analysis;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.LevelExchange;
@@ -68,13 +70,8 @@ public class ExchangeLevelApplication
 							// Build the choice list
 							//
 							final List<Integer> choiceNames =
-                                    new ArrayList<>();
-	
-							for (int i = 0; i <= iMaxDonation; ++i)
-							{
-								choiceNames.add(i);
-							}
-	
+									IntStream.rangeClosed(0, iMaxDonation).boxed().collect(Collectors.toList());
+
 							//
 							// Get number of levels to exchange for this class
 							//

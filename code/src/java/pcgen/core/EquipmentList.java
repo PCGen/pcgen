@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -340,31 +341,19 @@ public final class EquipmentList {
 			for (Equipment eq : Globals.getContext().getReferenceContext()
 					.getConstructedCDOMObjects(Equipment.class))
 			{
-				boolean addIt = true;
+				boolean addIt = desiredTypeList.stream().allMatch(type -> eq.isType(type));
 
 				//
 				// Must have all of the types in the desired list
 				//
-				for ( String type : desiredTypeList )
-				{
-					if (!eq.isType(type)) {
-						addIt = false;
-
-						break;
-					}
-				}
 
 				if (addIt && (!excludedTypeList.isEmpty())) {
 					//
 					// Can't have any of the types on the excluded list
 					//
-					for ( String type : excludedTypeList )
+					if (excludedTypeList.stream().anyMatch(eq::isType))
 					{
-						if (eq.isType(type)) {
-							addIt = false;
-
-							break;
-						}
+						addIt = false;
 					}
 				}
 
@@ -397,24 +386,25 @@ public final class EquipmentList {
 
 	private static void autogenerateExoticMaterialsEquipment() {
 		if (SettingsHandler.isAutogenExoticMaterial()) {
-			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
-			{
-				//
-				// Only apply to non-magical Armor, Shield and Weapon
-				//
-				if (eq.isMagic() || eq.isUnarmed() || eq.isMasterwork()
-						|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon())) {
-					continue;
-				}
-
-				final EquipmentModifier eqDarkwood = getQualifiedModifierNamed("Darkwood", eq);
-				final EquipmentModifier eqAdamantine = getQualifiedModifierNamed("Adamantine", eq);
-				final EquipmentModifier eqMithral = getQualifiedModifierNamed("Mithral", eq);
-
-				createItem(eq, eqDarkwood, null, null, null);
-				createItem(eq, eqAdamantine, null, null, null);
-				createItem(eq, eqMithral, null, null, null);
-			}
+			//
+// Only apply to non-magical Armor, Shield and Weapon
+//
+			Globals.getContext()
+			       .getReferenceContext()
+			       .getConstructedCDOMObjects(Equipment.class)
+			       .stream()
+			       .filter(eq -> !(
+					       eq.isMagic() || eq.isUnarmed() || eq.isMasterwork()
+							       || (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon())))
+			       .forEach(eq ->
+			       {
+				       final EquipmentModifier eqDarkwood = getQualifiedModifierNamed("Darkwood", eq);
+				       final EquipmentModifier eqAdamantine = getQualifiedModifierNamed("Adamantine", eq);
+				       final EquipmentModifier eqMithral = getQualifiedModifierNamed("Mithral", eq);
+				       createItem(eq, eqDarkwood, null, null, null);
+				       createItem(eq, eqAdamantine, null, null, null);
+				       createItem(eq, eqMithral, null, null, null);
+			       });
 		}
 	}
 
@@ -510,7 +500,7 @@ public final class EquipmentList {
 	private static void autogenerateRacialEquipment() {
 		if (SettingsHandler.isAutogenRacial()) {
 
-			Set<Integer> gensizesid = new HashSet<>();
+			Set<Integer> gensizesid;
 			//
 			// Go through all loaded races and flag whether or not to make equipment
 			// sized for them.  Karianna, changed the array length by 1 as Collosal
@@ -518,66 +508,64 @@ public final class EquipmentList {
 			// was being thrown) - Bug 937586
 			//
 			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-			for (final Race race : ref.getConstructedCDOMObjects(Race.class))
-			{
-				/*
-				 * SIZE: in Race LST files enforces that the formula is fixed,
-				 * so no isStatic() check needed here
-				 */
-				final int iSize =
-						race.getSafe(FormulaKey.SIZE).resolveStatic()
-							.intValue();
-				gensizesid.add(iSize);
-			}
+			/*
+			 * SIZE: in Race LST files enforces that the formula is fixed,
+			 * so no isStatic() check needed here
+			 */
+			gensizesid = ref.getConstructedCDOMObjects(Race.class)
+			                .stream()
+			                .mapToInt(race -> race.getSafe(FormulaKey.SIZE).resolveStatic()
+			                                      .intValue())
+			                .boxed()
+			                .collect(Collectors.toSet());
 
 			SizeAdjustment defaultSize = SizeUtilities.getDefaultSizeAdjustment();
-			Set<SizeAdjustment> gensizes = new HashSet<>();
-			for (Integer i : gensizesid)
-			{
-				gensizes.add(ref.getSortedList(SizeAdjustment.class,
-					IntegerKey.SIZEORDER).get(i));
-			}
+			Set<SizeAdjustment> gensizes = gensizesid.stream().map(i -> ref.getSortedList(
+					SizeAdjustment.class,
+					IntegerKey.SIZEORDER
+			).get(i)).collect(Collectors.toSet());
 			// skip over default size
 			gensizes.remove(defaultSize);
 
 			PlayerCharacter dummyPc = new PlayerCharacter();
-			for (Equipment eq : ref.getConstructedCDOMObjects(Equipment.class))
-			{
-				//
-				// Only apply to Armor, Shield and resizable items
-				//
-				if (!Globals.canResizeHaveEffect(eq, null))
-				{
-					continue;
-				}
-
-				for (SizeAdjustment sa : gensizes)
-				{
-					createItem(eq, sa, dummyPc);
-				}
-			}
+			//
+// Only apply to Armor, Shield and resizable items
+//
+			ref.getConstructedCDOMObjects(Equipment.class)
+			   .stream()
+			   .filter(eq -> Globals.canResizeHaveEffect(eq, null))
+			   .forEach(eq ->
+			   {
+				   for (SizeAdjustment sa : gensizes)
+				   {
+					   createItem(eq, sa, dummyPc);
+				   }
+			   });
 		}
 	}
 
 	private static EquipmentModifier getModifierNamed(final String aName) {
-		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(EquipmentModifier.class))
-		{
-			if (eqMod.getDisplayName().equals(aName)) { return eqMod; }
-		}
+		return Globals.getContext()
+		              .getReferenceContext()
+		              .getConstructedCDOMObjects(EquipmentModifier.class)
+		              .stream()
+		              .filter(eqMod -> eqMod.getDisplayName().equals(aName))
+		              .findFirst()
+		              .orElse(null);
 
-		return null;
 	}
 
 	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq) {
 		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(EquipmentModifier.class))
 		{
 			if (eqMod.getDisplayName().startsWith(aName)) {
-				for (String t : eq.typeList() )
+				// Type matches, passes prereqs?
+				if (eq.typeList()
+				      .stream()
+				      .filter(eqMod::isType)
+				      .anyMatch(t -> PrereqHandler.passesAll(eqMod.getPrerequisiteList(), eq, null)))
 				{
-					if (eqMod.isType(t)) {
-						// Type matches, passes prereqs?
-						if (PrereqHandler.passesAll(eqMod.getPrerequisiteList(), eq, null)) { return eqMod; }
-					}
+					return eqMod;
 				}
 			}
 		}
@@ -593,18 +581,17 @@ public final class EquipmentList {
 	 * @param newName
 	 */
 	private static void appendNameParts(final List<String> nameList, final String omitString, final StringBuilder newName) {
-		for ( String namePart : nameList )
-		{
-			if ((!omitString.isEmpty()) && namePart.equals(omitString)) {
-				continue;
-			}
 
-			if (newName.length() > 2) {
-				newName.append('/');
-			}
-
-			newName.append(namePart);
-		}
+		nameList.stream()
+		        .filter(namePart -> !((!omitString.isEmpty()) && namePart.equals(omitString)))
+		        .forEach(namePart ->
+		        {
+			        if (newName.length() > 2)
+			        {
+				        newName.append('/');
+			        }
+			        newName.append(namePart);
+		        });
 	}
 
 	private static void createItem(final Equipment eq, final SizeAdjustment sa, final PlayerCharacter aPC) {
