@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 import junit.framework.Test;
@@ -128,12 +129,11 @@ public final class InstallLoaderTest extends TestCase
 	{
 		final InstallLoader loader = new InstallLoader();
 		StringBuilder data = new StringBuilder();
-		for (int i = 0; i < installData.length; i++)
+		Arrays.stream(installData).forEach(line ->
 		{
-			final String line = installData[i];
 			data.append(line);
 			data.append("\n");
-		}
+		});
 		loader.loadLstString(null, new URI("http://UNIT_TEST_CASE"), data.toString());
 		return loader.getCampaign();
 	}

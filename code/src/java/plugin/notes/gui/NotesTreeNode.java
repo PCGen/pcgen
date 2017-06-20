@@ -31,6 +31,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Vector;
+import java.util.stream.Collectors;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
@@ -261,17 +262,10 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 */
 	public List<File> getFiles()
 	{
-		ArrayList<File> list = new ArrayList<>();
-		for (File child : dir.listFiles())
-		{
-			if (!child.isDirectory())
-			{
-				if (!child.getName().equals(DATA_HTML))
-				{
-					list.add(child);
-				}
-			}
-		}
+		ArrayList<File> list = Arrays.stream(dir.listFiles())
+		                             .filter(child -> !child.isDirectory())
+		                             .filter(child -> !child.getName().equals(DATA_HTML))
+		                             .collect(Collectors.toCollection(ArrayList::new));
 
 		return list;
 	}
@@ -1034,17 +1028,12 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 				}
 			}
 
-			for (File childDir : childDirs)
-			{
-				if (!removeDirs.contains(childDir))
-				{
-					if (include(childDir))
-					{
-						add(new NotesTreeNode(childDir.getName(), childDir,
-							tree));
-					}
-				}
-			}
+			childDirs.stream()
+			         .filter(childDir -> !removeDirs.contains(childDir))
+			         .filter(this::include)
+			         .forEach(childDir -> add(new NotesTreeNode(childDir.getName(), childDir,
+					         tree
+			         )));
 
 			Enumeration<MutableTreeNode> newNodes = children();
 
@@ -1316,13 +1305,9 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	{
 		hasBeenPopulated = true;
 
-		for (File child : dir.listFiles())
-		{
-			if (include(child))
-			{
-				add(new NotesTreeNode(child.getName(), child, tree));
-			}
-		}
+		Arrays.stream(dir.listFiles())
+		      .filter(this::include)
+		      .forEach(child -> add(new NotesTreeNode(child.getName(), child, tree)));
 	}
 
 	private void trimEmpty()

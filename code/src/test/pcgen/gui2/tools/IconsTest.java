@@ -18,6 +18,8 @@
  */
 package pcgen.gui2.tools;
 
+import java.util.Arrays;
+
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -60,10 +62,7 @@ public class IconsTest extends TestCase
 	public void testIconsExist()
 	{
 		System.out.println("getImageIcon");
-		for (Icons icon : Icons.values())
-		{
-			assertNotNull(icon.getImageIcon());
-		}
+		Arrays.stream(Icons.values()).map(Icons::getImageIcon).forEach(TestCase::assertNotNull);
 	}
 
 }

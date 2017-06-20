@@ -39,6 +39,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.List;
@@ -2018,20 +2019,14 @@ public class NotesView extends JPanel
 		 */
 		void handleImageDropInsertion(File image)
 		{
-			for (String s : extsIMG)
+			if (Arrays.stream(extsIMG).anyMatch(s -> image.getName().endsWith(s)))
 			{
-				if (image.getName().endsWith(s))
+				try
 				{
-					try
-					{
-						insertLocalImage(image);
-					}
-					catch (Exception e)
-					{
-						Logging.errorPrint(e.getMessage(), e);
-					}
-
-					break;
+					insertLocalImage(image);
+				} catch (Exception e)
+				{
+					Logging.errorPrint(e.getMessage(), e);
 				}
 			}
 		}
