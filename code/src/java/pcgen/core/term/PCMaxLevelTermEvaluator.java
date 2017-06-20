@@ -49,7 +49,7 @@ public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 				pc.getSpellSupport(aClass).getMaxSpellLevelForClassLevel(
 					pc.getDisplay().getLevel(aClass));
 
-		return Integer.valueOf(level).floatValue();
+		return (float) level;
 	}
 
 	@Override
