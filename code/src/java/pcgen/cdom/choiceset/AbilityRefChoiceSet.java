@@ -100,7 +100,6 @@ public class AbilityRefChoiceSet implements
 	public AbilityRefChoiceSet(CDOMSingleRef<AbilityCategory> cat,
 			Collection<? extends CDOMReference<Ability>> arCollection, Nature nat)
 	{
-		super();
 		if (arCollection == null)
 		{
 			throw new IllegalArgumentException(

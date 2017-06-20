@@ -49,7 +49,6 @@ public class SpellResistance extends ConcretePrereqObject
 	 */
 	public SpellResistance(Formula aReduction)
 	{
-		super();
 		reduction = aReduction;
 	}
 

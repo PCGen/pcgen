@@ -28,7 +28,6 @@ public class WeightedDataValue extends DataValue
 	/** Creates a new instance of WeightedDataValue */
 	public WeightedDataValue()
 	{
-		super();
 		weight = 1;
 	}
 
