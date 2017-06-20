@@ -29,6 +29,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.LogRecord;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
@@ -193,18 +194,16 @@ public class DataLoadTest implements PCGenTaskListener
 
 	private static List<SourceSelectionFacade> getBasicSources()
 	{
-		List<SourceSelectionFacade> basicSources = new ArrayList<>();
-		for (Campaign campaign : Globals.getCampaignList())
-		{
-			if (campaign.showInMenu())
-			{
-				SourceSelectionFacade sourceSelection =
-						FacadeFactory.createSourceSelection(campaign.getGameModes()
-							.getElementAt(0), Collections.singletonList(campaign), campaign.getName());
-				
-				basicSources.add(sourceSelection);
-			}
-		}
+		List<SourceSelectionFacade> basicSources = Globals.getCampaignList()
+		                                                  .stream()
+		                                                  .filter(Campaign::showInMenu)
+		                                                  .map(campaign -> FacadeFactory.createSourceSelection(
+				                                                  campaign.getGameModes()
+				                                                          .getElementAt(0),
+				                                                  Collections.singletonList(campaign),
+				                                                  campaign.getName()
+		                                                  ))
+		                                                  .collect(Collectors.toList());
 		for (GameMode mode : SystemCollections.getUnmodifiableGameModeList())
 		{
 			String title = mode.getDefaultSourceTitle();

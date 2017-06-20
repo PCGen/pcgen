@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.function.Function;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.SystemUtils;
@@ -124,10 +125,7 @@ public class DataTest
 		
 		// Output the list
 		Collections.sort(longPaths);
-		for (String msg : longPaths)
-		{
-			System.out.println(msg);
-		}
+		longPaths.forEach(System.out::println);
 				
 		// Flag any change for the worse.
 		assertEquals(
@@ -148,13 +146,10 @@ public class DataTest
 		reportNameMap.put(ReportFormat.CSV, "variable_report.csv");
 		VariableReport vReport = new VariableReport();
 		vReport.runReport(reportNameMap);
-		
-		for (Entry<ReportFormat, String> repType : reportNameMap.entrySet())
-		{
-			System.out.println("Variable report in " + repType.getKey()
+
+		reportNameMap.entrySet().stream().map(repType -> "Variable report in " + repType.getKey()
 				+ " format output to "
-				+ new File(repType.getValue()).getAbsolutePath());
-		}
+				+ new File(repType.getValue()).getAbsolutePath()).forEach(System.out::println);
 	}
 	
 	/**
@@ -173,14 +168,11 @@ public class DataTest
 		{
 			List<CampaignSourceEntry> cseList =
 					getLstFilesForCampaign(campaign);
-			for (CampaignSourceEntry cse : cseList)
-			{
-				File lstFile = new File(cse.getURI());
-				if (!lstFile.exists())
-				{
-					missingLstFiles.add(new Object[]{campaign, lstFile});
-				}
-			}
+			cseList.stream()
+			       .map(cse -> new File(cse.getURI()))
+			       .filter(lstFile -> !lstFile.exists())
+			       .map(lstFile -> new Object[]{campaign, lstFile})
+			       .forEach(missingLstFiles::add);
 		}
 
 		StringBuilder report = new StringBuilder();
@@ -229,15 +221,14 @@ public class DataTest
 		}
 
 		StringBuilder report = new StringBuilder();
-		for (String orphan : fileNames)
-		{
-			String srcRelPath = orphan.substring(dataPathLen+1);
-			if (!srcRelPath.startsWith("customsources"))
-			{
-				report.append(srcRelPath);
-				report.append("\r\n");
-			}
-		}
+		fileNames.stream()
+		         .map(orphan -> orphan.substring(dataPathLen + 1))
+		         .filter(srcRelPath -> !srcRelPath.startsWith("customsources"))
+		         .forEach(srcRelPath ->
+		         {
+			         report.append(srcRelPath);
+			         report.append("\r\n");
+		         });
 		
 		// Flag any missing files
 		assertEquals(
@@ -249,14 +240,12 @@ public class DataTest
 	{
 		List<CampaignSourceEntry> cseList =
 				new ArrayList<>();
-		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OBJECT_FILE_LISTKEY)
-		{
-			cseList.addAll(campaign.getSafeListFor(lk));
-		}
-		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OTHER_FILE_LISTKEY)
-		{
-			cseList.addAll(campaign.getSafeListFor(lk));
-		}
+		Arrays.stream(CampaignLoader.OBJECT_FILE_LISTKEY)
+		      .map((Function<ListKey, List>) campaign::getSafeListFor)
+		      .forEach(cseList::addAll);
+		Arrays.stream(CampaignLoader.OTHER_FILE_LISTKEY)
+		      .map((Function<ListKey, List>) campaign::getSafeListFor)
+		      .forEach(cseList::addAll);
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_PCC));
 		return cseList;
 	}

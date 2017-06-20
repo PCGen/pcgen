@@ -19,6 +19,8 @@
 package pcgen.util.testchecker;
 
 import java.lang.reflect.Array;
+import java.util.stream.IntStream;
+
 import pcgen.util.TestChecker;
 
 /**
@@ -89,12 +91,8 @@ public class CompareEqualObject extends TestChecker
 
 	private static boolean arrayElemEq(Object obj1, Object obj2)
 	{
-		for (int i = 0; i < Array.getLength(obj1); i++)
-		{
-			if (!areEqual(Array.get(obj1, i), Array.get(obj2, i)))
-				return false;
-		}
-		return true;
+		return IntStream.range(0, Array.getLength(obj1))
+		                .allMatch(i -> areEqual(Array.get(obj1, i), Array.get(obj2, i)));
 	}
 
 	private static boolean isArray(Object obj)

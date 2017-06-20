@@ -140,13 +140,6 @@ public class ExclusiveToken implements QualifierToken<Skill>, PrimitiveFilter<Sk
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
 		Collection<PCClass> classlist = pc.getClassSet();
-		for (PCClass cl : classlist)
-		{
-			if (SkillCost.EXCLUSIVE.equals(pc.skillCostForPCClass(sk, cl)))
-			{
-				return true;
-			}
-		}
-		return false;
+		return classlist.stream().anyMatch(cl -> SkillCost.EXCLUSIVE.equals(pc.skillCostForPCClass(sk, cl)));
 	}
 }

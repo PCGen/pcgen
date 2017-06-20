@@ -17,6 +17,8 @@
  */
 package plugin.jepcommands;
 
+import java.util.stream.IntStream;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -101,20 +103,13 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
         AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, abArray[1], "two");
 
         addAbility(AbilityCategory.FEAT, abArray[0]);
-		for (int i = 2;6 > i;i++) {
-            Ability anAbility = abArray[i];
-            addAbility(AbilityCategory.FEAT, anAbility);
-        }
+		IntStream.range(2, 6)
+		         .mapToObj(i -> abArray[i])
+		         .forEach(anAbility -> addAbility(AbilityCategory.FEAT, anAbility));
 
-        for (int i = 6;12 > i;i++) {
-            Ability anAbility = abArray[i];
-            addAbility(bardCategory, anAbility);
-        }
+		IntStream.range(6, 12).mapToObj(i -> abArray[i]).forEach(anAbility -> addAbility(bardCategory, anAbility));
 
-        for (int i = 12;14 > i;i++) {
-            Ability anAbility = abArray[i];
-            addAbility(clericalCategory, anAbility);
-        }
+		IntStream.range(12, 14).mapToObj(i -> abArray[i]).forEach(anAbility -> addAbility(clericalCategory, anAbility));
 
 
         PCClass megaCasterClass = new PCClass();

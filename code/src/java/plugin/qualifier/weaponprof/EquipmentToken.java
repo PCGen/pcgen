@@ -19,8 +19,10 @@ package plugin.qualifier.weaponprof;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
@@ -143,10 +145,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 		Set<R> returnSet = new HashSet<>();
 		Collection<? extends ObjectContainer<WeaponProf>> intermediate =
 				pcs.getCollection(pc, this);
-		for (ObjectContainer<WeaponProf> ref : intermediate)
-		{
-			returnSet.addAll(c.convert(ref));
-		}
+		intermediate.stream().map(c::convert).forEach(returnSet::addAll);
 		return returnSet;
 	}
 
@@ -154,18 +153,12 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 	public Collection<CDOMReference<WeaponProf>> convert(
 			ObjectContainer<Equipment> orig)
 	{
-		Set<CDOMReference<WeaponProf>> refSet = new HashSet<>();
-		for (Equipment e : orig.getContainedObjects())
-		{
-			if (e.getListFor(ListKey.TYPE).contains(WEAPON_TYPE))
-			{
-				CDOMSingleRef<WeaponProf> prof = e.get(ObjectKey.WEAPON_PROF);
-				if (prof != null)
-				{
-					refSet.add(prof);
-				}
-			}
-		}
+		Set<CDOMReference<WeaponProf>> refSet = orig.getContainedObjects()
+		                                            .stream()
+		                                            .filter(e -> e.getListFor(ListKey.TYPE).contains(WEAPON_TYPE))
+		                                            .map(e -> e.get(ObjectKey.WEAPON_PROF))
+		                                            .filter(Objects::nonNull)
+		                                            .collect(Collectors.toSet());
 		return refSet;
 	}
 
