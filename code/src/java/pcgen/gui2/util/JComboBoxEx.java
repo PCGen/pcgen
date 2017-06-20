@@ -18,13 +18,12 @@
  */
 package pcgen.gui2.util;
 
-import pcgen.util.StringIgnoreCaseComparator;
-
-import javax.swing.ComboBoxModel;
-import javax.swing.JComboBox;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Vector;
+
+import javax.swing.ComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  * Sorted {@code JComboBox}.
@@ -37,7 +36,12 @@ public class JComboBoxEx extends JComboBox
 	 * {@code StringIgnoreCaseComparator} (since combo boxes
 	 * display string items to the user).
 	 */
-	private Comparator<Object> comparator = new StringIgnoreCaseComparator();
+	private Comparator<Object> comparator = (o1, o2) ->
+	{
+		// Treat null as the empty string.
+		return ((o1 == null) ? "" : o1.toString())
+				.compareToIgnoreCase((o2 == null) ? "" : o2.toString());
+	};
 
 	/**
 	 * Should we sort anytime the items are changed?
