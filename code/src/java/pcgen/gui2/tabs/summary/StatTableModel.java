@@ -25,6 +25,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.awt.FontMetrics;
 
 import javax.swing.AbstractAction;
 import javax.swing.AbstractCellEditor;
@@ -180,7 +181,12 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		statsTable.setCellSelectionEnabled(false);
 		statsTable.setFocusable(false);
 		// XXX this should be calculated relative to font size and the size of a jspinner
-		statsTable.setRowHeight(27);
+		
+		Font curFont = statsTable.getFont();
+		FontMetrics ftMetrics = statsTable.getFontMetrics(curFont);
+		int ftHeight = ftMetrics.getHeight();
+		statsTable.setRowHeight(ftHeight);
+		
 		statsTable.setOpaque(false);
 		tableHeader.setFont(FontManipulation.title(statsTable.getFont()));
 		FontManipulation.large(statsTable);

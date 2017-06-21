@@ -20,6 +20,8 @@
 package pcgen.gui2.util.table;
 
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
@@ -38,6 +40,12 @@ public class TableUtils
 	{
 		JTable table = new JTable();
 		table.setFillsViewportHeight(true);
+		
+		Font curFont = table.getFont();
+		FontMetrics ftMetrics = table.getFontMetrics(curFont);
+		int ftHeight = ftMetrics.getHeight();
+		table.setRowHeight(ftHeight);
+
 		return table;
 	}
 
