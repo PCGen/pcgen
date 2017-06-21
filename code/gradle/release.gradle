@@ -344,6 +344,10 @@ task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum']) {
     description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, then update and commit the version ready for new dev work."
 }
 
+task pcgenReleaseOfficial (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'updateVersionRelease']) {
+    description="Release a new offical version of PCGen."
+}
+
 // Update the PCGen version to indicate a release, then commit the new version
 task updateVersionRelease doLast {
     unSnapshotVersion()
