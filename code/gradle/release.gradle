@@ -360,8 +360,7 @@ task updateVersionToNext doLast {
 // Tag the current PCGen trunk
 task tagRelease doLast {
     def tagName = "${project.version}"
-    exec {
-        commandLine 'git', 'tag', tagName
-    }
+    println "Creating tag " + tagName
+    grgit.tag.add(name: tagName)
     println "Tag " + tagName + " created. Don't forget to push."
 }
