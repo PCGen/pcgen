@@ -175,7 +175,7 @@ dependencies {
     findbugs 'com.google.code.findbugs:findbugs:3.0.1'
     findbugs configurations.findbugsPlugins.dependencies
 
-    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:6.8.2'
+    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:7.0.2'
 }
 
 ant.importBuild 'build-gradle.xml'
