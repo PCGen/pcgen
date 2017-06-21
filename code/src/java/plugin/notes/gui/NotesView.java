@@ -245,6 +245,12 @@ public class NotesView extends JPanel
 		return null;
 	}
 
+	private static FileFilter getFileType()
+	{
+		return new FileNameExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"), NotesPlugin.EXTENSION_NOTES);
+
+	}
+
 	/**
 	 *  {@literal handle File->Open.} Will open any .gmn files, and import them into your
 	 *  notes structure
@@ -257,8 +263,8 @@ public class NotesView extends JPanel
 		File defaultFile = new File(sFile);
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
-		chooser.addChoosableFileFilter(NotesPlugin.getFileType());
-		chooser.setFileFilter(NotesPlugin.getFileType());
+		chooser.addChoosableFileFilter(getFileType());
+		chooser.setFileFilter(getFileType());
 		chooser.setMultiSelectionEnabled(true);
 		Component component = GMGenSystem.inst;
 		Cursor originalCursor = component.getCursor();
@@ -411,7 +417,7 @@ public class NotesView extends JPanel
 				SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, "");
 		new File(sFile);
 		
-		FileFilter ff = NotesPlugin.getFileType();
+		FileFilter ff = getFileType();
 		fLoad.addChoosableFileFilter(ff);
 		fLoad.setFileFilter(ff);
 
