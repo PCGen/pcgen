@@ -90,63 +90,67 @@ public class PatternFilter implements OutputFilter
 				match = new ArrayList<>();
 				replace = new ArrayList<>();
 
-				for (;;)
-				{
-					final String aLine = br.readLine();
+			while (true)
+			{
+				final String aLine = br.readLine();
 //					Logging.debugPrint("Line read:" + aLine);
 
-					if (aLine == null)
-					{
-						break;
-					}
+				if (aLine == null)
+				{
+					break;
+				}
 
-					String aLineWOComment;
-					if (aLine.isEmpty() || aLine.charAt(0) == '#') {
-                                        continue;
-                                    }
-					else if (aLine.indexOf("\t#") > 0) {
-                                        aLineWOComment =
-                                                        aLine.substring(0, aLine.indexOf("\t#"));
-                                    }
-					else {
-                                        aLineWOComment = aLine;
-                                    }
+				String aLineWOComment;
+				if (aLine.isEmpty() || aLine.charAt(0) == '#')
+				{
+					continue;
+				}
+				else if (aLine.indexOf("\t#") > 0)
+				{
+					aLineWOComment =
+							aLine.substring(0, aLine.indexOf("\t#"));
+				}
+				else
+				{
+					aLineWOComment = aLine;
+				}
 
 //					Logging.debugPrint("Stripped line:" + aLineWOComment);
-					final List<String> filterEntry =
-							CoreUtility.split(aLineWOComment, '\t');
+				final List<String> filterEntry =
+						CoreUtility.split(aLineWOComment, '\t');
 
-					try
+				try
+				{
+					if (filterEntry.size() == 2)
 					{
-						if (filterEntry.size() == 2)
-						{
-							match.add(filterEntry.get(0));
+						match.add(filterEntry.get(0));
 
 //							Logging.debugPrint("Match: [" + filterEntry.get(0)
 //								+ "] and replace with [" + filterEntry.get(1)
 //								+ "]");
-							replace.add(filterEntry.get(1).replaceAll("\\\\n",
-								"\n").replaceAll("\\\\t", "\t"));
-						}
-						else if (filterEntry.size() == 1)
-						{
-							match.add(filterEntry.get(0));
-							replace.add("");
-//							Logging.debugPrint("Match: [" + filterEntry.get(0)
-//								+ "] and replace with []");
-						}
-						else
-						{
-							Logging
-								.errorPrint("Incorrect line format in PatternFilter: Line ignored");
-						}
+						replace.add(filterEntry.get(1).replaceAll(
+								"\\\\n",
+								"\n"
+						).replaceAll("\\\\t", "\t"));
 					}
-					catch (NullPointerException | NumberFormatException e)
+					else if (filterEntry.size() == 1)
 					{
-						Logging.errorPrint(
-							"Exception in setCurrentOutputFilter", e);
+						match.add(filterEntry.get(0));
+						replace.add("");
+//						Logging.debugPrint("Match: [" + filterEntry.get(0)
+//							+ "] and replace with []");
+					}
+					else
+					{
+						Logging.errorPrint("Incorrect line format in PatternFilter: Line "
+							+ "ignored");
 					}
 				}
+				catch (NullPointerException | NumberFormatException e)
+				{
+					Logging.errorPrint("Exception in setCurrentOutputFilter", e);
+				}
+			}
 
 				br.close();
 		}
