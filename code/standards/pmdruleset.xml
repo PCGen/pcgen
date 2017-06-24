@@ -69,7 +69,5 @@
   <rule ref="rulesets/java/unnecessary.xml">
     <exclude name="UselessParentheses" />
   </rule>
-  <rule ref="rulesets/java/unusedcode.xml">
-    <exclude name="UnusedModifier" />
-  </rule>
+  <rule ref="rulesets/java/unusedcode.xml" />
 </ruleset>

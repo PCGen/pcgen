@@ -1,5 +1,4 @@
 /*
- *  NotesPlugin.java - plugin handler for the "Notes" plugin for GMGen
  *  Copyright (C) 2003 Devon Jones
  *
  *  This library is free software; you can redistribute it and/or
@@ -20,6 +19,7 @@ package plugin.notes;
 
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.stream.IntStream;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -70,7 +70,7 @@ public class NotesPlugin implements InteractivePlugin
 	private static final String OPTION_NAME_DATADIR = LOG_NAME + ".DataDir"; //$NON-NLS-1$
 
 	/** The plugin menu item in the tools menu. */
-	private JMenuItem notesToolsItem = new JMenuItem();
+	private final JMenuItem notesToolsItem = new JMenuItem();
 
 	/** The user interface for the encounter generator. */
 	private NotesView theView;
@@ -81,11 +81,6 @@ public class NotesPlugin implements InteractivePlugin
 	private static final String IN_NAME = "in_plugin_notes_name"; //$NON-NLS-1$
 
 	private PCGenMessageHandler messageHandler;
-
-	public static FileFilter getFileType()
-	{
-		return new FileNameExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"), EXTENSION_NOTES);
-	}
 
 	/**
 	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
@@ -125,12 +120,12 @@ public class NotesPlugin implements InteractivePlugin
 		return NAME;
 	}
 
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
 
-	public boolean isRecognizedFileType(File launch)
+	public static boolean isRecognizedFileType(File launch)
 	{
 		return PCGFile.isPCGenCharacterOrPartyFile(launch);
 	}
@@ -182,13 +177,9 @@ public class NotesPlugin implements InteractivePlugin
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i) instanceof NotesView)
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
+		IntStream.range(0, tp.getTabCount())
+		         .filter(i -> tp.getComponentAt(i) instanceof NotesView)
+		         .forEach(tp::setSelectedIndex);
 	}
 
 	/**
@@ -259,11 +250,6 @@ public class NotesPlugin implements InteractivePlugin
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see gmgen.pluginmgr.Plugin#getDataDir()
-	 */
     @Override
 	public File getDataDirectory()
 	{

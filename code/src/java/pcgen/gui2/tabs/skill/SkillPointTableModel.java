@@ -19,6 +19,8 @@
 package pcgen.gui2.tabs.skill;
 
 import java.awt.Component;
+import java.awt.Font;
+import java.awt.FontMetrics;
 
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -77,6 +79,12 @@ public class SkillPointTableModel extends AbstractTableModel
 			new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		table.setColumnModel(columns);
 		table.setFocusable(false);
+		
+		Font curFont = table.getFont();
+		FontMetrics ftMetrics = table.getFontMetrics(curFont);
+		int ftHeight = ftMetrics.getHeight();
+		table.setRowHeight(ftHeight);
+
 		header.setReorderingAllowed(false);
 		header.setResizingAllowed(false);
 	}

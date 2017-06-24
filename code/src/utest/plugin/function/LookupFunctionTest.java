@@ -351,7 +351,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		evaluatesTo(formula, node, 2);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertEquals(rv.toString(), formula);
+		assertEquals(formula, rv.toString());
 	}
 
 	@Test
