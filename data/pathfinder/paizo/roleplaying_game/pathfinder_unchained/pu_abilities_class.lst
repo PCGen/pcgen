@@ -113,6 +113,25 @@ CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_TimelessBody|0
 CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_FlawlessMind|0
 CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_PerfectSelf|0
 
+CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_KiPowers4|0
+CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_KiPowers6|0
+CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_KiPowers8|0
+CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_KiPowers10|0
+CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_KiPowers12|0
+CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_KiPowers14|0
+CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_KiPowers16|0
+CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_KiPowers18|0
+CATEGORY=Class|Monk ~ Unchained Class.MOD	DEFINE:Monk_CF_KiPowers20|0
+
+CATEGORY=Class|Monk ~ Unchained Class.MOD						BONUS:VAR|Monk_CF_KiPowers4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPowers4=True
+CATEGORY=Class|Monk ~ Unchained Class.MOD						BONUS:VAR|Monk_CF_KiPowers6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPowers6=True
+CATEGORY=Class|Monk ~ Unchained Class.MOD						BONUS:VAR|Monk_CF_KiPowers8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPowers8=True
+CATEGORY=Class|Monk ~ Unchained Class.MOD						BONUS:VAR|Monk_CF_KiPowers10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPowers10=True
+CATEGORY=Class|Monk ~ Unchained Class.MOD						BONUS:VAR|Monk_CF_KiPowers12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPowers12=True
+CATEGORY=Class|Monk ~ Unchained Class.MOD						BONUS:VAR|Monk_CF_KiPowers14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPowers14=True
+CATEGORY=Class|Monk ~ Unchained Class.MOD						BONUS:VAR|Monk_CF_KiPowers16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPowers16=True
+CATEGORY=Class|Monk ~ Unchained Class.MOD						BONUS:VAR|Monk_CF_KiPowers18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPowers18=True
+CATEGORY=Class|Monk ~ Unchained Class.MOD						BONUS:VAR|Monk_CF_KiPowers20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPowers20=True
 
 ###Block: Unchained Rogue
 # Ability Name						Ability
@@ -373,6 +392,17 @@ Tongue of the Sun and Moon	KEY:Unchained Monk ~ Tongue of the Sun and Moon		CATE
 Timeless Body			KEY:Unchained Monk ~ Timeless Body				CATEGORY:Special Ability	TYPE:Unchained Monk Class Feature.SpecialQuality.Extraordinary	SERVESAS:ABILITY=Special Ability|Monk ~ Timeless Body																DESC:At 17th level, a monk no longer takes penalties to his ability scores for aging and cannot be magically aged. Any such penalties that he has already taken, however, remain in place. Age bonuses still accrue, and the monk still dies of old age when his time is up.																																																																																																																																																																																																																																																																																																																																							SOURCEPAGE:p.19
 Flawless Mind			KEY:Unchained Monk ~ Flawless Mind				CATEGORY:Special Ability	TYPE:Unchained Monk Class Feature.SpecialQuality																											DESC:At 19th level, a monk gains total control over his mental faculties. Whenever he attempts a Will save, he can roll twice and take the better result. If he fails a Will saving throw against a spell or effect that has a duration longer than 1 hour, the monk can attempt a new saving throw at the end of each hour to end the effect.																																																																																																																																																																																																																																																																																																																												SOURCEPAGE:p.19
 Perfect Self			KEY:Unchained Monk ~ Perfect Self				CATEGORY:Special Ability	TYPE:Unchained Monk Class Feature.SpecialQuality			SERVESAS:ABILITY=Special Ability|Monk ~ Perfect Self																DESC:At 20th level, a monk becomes a magical creature. He is forevermore treated as an outsider rather than a humanoid (or whatever his original creature type was) for the purpose of spells and magical effects. Additionally, the monk gains damage reduction 10/chaotic, which allows him to ignore the first 10 points of damage from any attack made by a nonchaotic weapon. Unlike other outsiders, the monk can still be brought back from the dead as if he were a member of his previous creature type. Finally, the monk gains the ability to enter a state of perfect calm. During this time, the monk can take no actions, but he does regain ki at the rate of 1 point per 10 minutes spent at calm. He cannot use this ability to gain an amount of ki in excess of his maximum.																																																																																																																																																																																																																																																				SOURCEPAGE:p.19
+
+CATEGORY=Special Ability|Unchained Monk ~ Ki Powers.MOD		BONUS:VAR|Pool_Unchained_Ki_Power|-1|PREMULT:2,[PREVARGTEQ:MonkLVL,4],[PREVAREQ:Monk_CF_KiPowers4,1]
+CATEGORY=Special Ability|Unchained Monk ~ Ki Powers.MOD		BONUS:VAR|Pool_Unchained_Ki_Power|-1|PREMULT:2,[PREVARGTEQ:MonkLVL,6],[PREVAREQ:Monk_CF_KiPowers6,1]
+CATEGORY=Special Ability|Unchained Monk ~ Ki Powers.MOD		BONUS:VAR|Pool_Unchained_Ki_Power|-1|PREMULT:2,[PREVARGTEQ:MonkLVL,8],[PREVAREQ:Monk_CF_KiPowers8,1]
+CATEGORY=Special Ability|Unchained Monk ~ Ki Powers.MOD		BONUS:VAR|Pool_Unchained_Ki_Power|-1|PREMULT:2,[PREVARGTEQ:MonkLVL,10],[PREVAREQ:Monk_CF_KiPowers10,1]
+CATEGORY=Special Ability|Unchained Monk ~ Ki Powers.MOD		BONUS:VAR|Pool_Unchained_Ki_Power|-1|PREMULT:2,[PREVARGTEQ:MonkLVL,12],[PREVAREQ:Monk_CF_KiPowers12,1]
+CATEGORY=Special Ability|Unchained Monk ~ Ki Powers.MOD		BONUS:VAR|Pool_Unchained_Ki_Power|-1|PREMULT:2,[PREVARGTEQ:MonkLVL,14],[PREVAREQ:Monk_CF_KiPowers14,1]
+CATEGORY=Special Ability|Unchained Monk ~ Ki Powers.MOD		BONUS:VAR|Pool_Unchained_Ki_Power|-1|PREMULT:2,[PREVARGTEQ:MonkLVL,16],[PREVAREQ:Monk_CF_KiPowers16,1]
+CATEGORY=Special Ability|Unchained Monk ~ Ki Powers.MOD		BONUS:VAR|Pool_Unchained_Ki_Power|-1|PREMULT:2,[PREVARGTEQ:MonkLVL,18],[PREVAREQ:Monk_CF_KiPowers18,1]
+CATEGORY=Special Ability|Unchained Monk ~ Ki Powers.MOD		BONUS:VAR|Pool_Unchained_Ki_Power|-1|PREMULT:2,[PREVARGTEQ:MonkLVL,20],[PREVAREQ:Monk_CF_KiPowers20,1]
+
 
 ###Block: Flurry of Blows update
 # Ability Name									Define				Modify VAR															Source Page
