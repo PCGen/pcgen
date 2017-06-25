@@ -210,7 +210,7 @@ Reset Attack Start Value ~ Gore	CATEGORY:Internal	BONUS:VAR|GoreAttacks|-1
 Reset Attack Start Value ~ Hoof	CATEGORY:Internal	BONUS:VAR|HoofAttacks|-2
 Reset Attack Start Value ~ Slam	CATEGORY:Internal	BONUS:VAR|SlamAttacks|-1
 Reset Attack Start Value ~ Talons	CATEGORY:Internal	BONUS:VAR|TalonsAttacks|-2
-Reset Attack Start Value ~ Wings	CATEGORY:Internal	BONUS:VAR|WingAttacks|-2
+Reset Attack Start Value ~ Wing	CATEGORY:Internal	BONUS:VAR|WingAttacks|-2
 
 # COMMENT: Rules for standard creatures based upon Size - Just Grant the Base Internal Attack Mode and the correct Damage will be assigned
 # COMMENT: Switched to using PREBASESIZE as BONUS:SIZEMOD|NUMBER also was acting as a TYPE.Natural Dice Boost. This won't affect Dragons since they use a different system.
