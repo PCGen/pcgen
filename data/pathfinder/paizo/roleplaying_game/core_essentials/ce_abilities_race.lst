@@ -271,14 +271,14 @@ CATEGORY=Internal|Hair.MOD		BONUS:WEAPONPROF=Hair|WIELDCATEGORY|SizeIncrease
 
 CATEGORY=Internal|Default.MOD	DEFINE:NaturalAttackSize|0
 CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:F
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:D
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:T
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:S
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:M
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:L
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:H
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:G
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:C
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|2|PREBASESIZEEQ:D
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|3|PREBASESIZEEQ:T
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|4|PREBASESIZEEQ:S
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|5|PREBASESIZEEQ:M
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|6|PREBASESIZEEQ:L
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|7|PREBASESIZEEQ:H
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|8|PREBASESIZEEQ:G
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|9|PREBASESIZEEQ:C
 # 1 through 9	NaturalAttackSize gives a number range for size, which sets the default attackSize value. Each att
 #			Each attack can have a different size to allow for customization
 CATEGORY=Internal|Bite.MOD		DEFINE:BiteSize|0		BONUS:VAR|BiteSize|NaturalAttackSize			
