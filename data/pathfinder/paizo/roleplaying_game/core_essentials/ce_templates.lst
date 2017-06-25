@@ -1112,3 +1112,45 @@ Monster is a PC																								BONUS:VAR|IsPC|1
 Assign RaceType ~ Outsider		VISIBLE:NO																																							RACETYPE:Outsider
 Assign RaceType ~ Fey			VISIBLE:NO																																							RACETYPE:Fey
 Assign RaceSubType ~ Extraplanar	VISIBLE:NO																																											RACESUBTYPE:Extraplanar
+
+
+
+###Block: Limbs
+Arms ~ 1		VISIBLE:NO		HANDS:1
+Arms ~ 2		VISIBLE:NO		HANDS:2
+Arms ~ 3		VISIBLE:NO		HANDS:3
+Arms ~ 4		VISIBLE:NO		HANDS:4
+Arms ~ 5		VISIBLE:NO		HANDS:5
+Arms ~ 6		VISIBLE:NO		HANDS:6
+Arms ~ 7		VISIBLE:NO		HANDS:7
+Arms ~ 8		VISIBLE:NO		HANDS:8
+Arms ~ 9		VISIBLE:NO		HANDS:9
+Arms ~ 10		VISIBLE:NO		HANDS:10
+Legs ~ 1		VISIBLE:NO		LEGS:1
+Legs ~ 2		VISIBLE:NO		LEGS:2
+Legs ~ 3		VISIBLE:NO		LEGS:3
+Legs ~ 4		VISIBLE:NO		LEGS:4
+Legs ~ 5		VISIBLE:NO		LEGS:5
+Legs ~ 6		VISIBLE:NO		LEGS:6
+Legs ~ 7		VISIBLE:NO		LEGS:7
+Legs ~ 8		VISIBLE:NO		LEGS:8
+Legs ~ 9		VISIBLE:NO		LEGS:9
+Legs ~ 10		VISIBLE:NO		LEGS:10
+Legs ~ 11		VISIBLE:NO		LEGS:11
+Legs ~ 12		VISIBLE:NO		LEGS:12
+Legs ~ 13		VISIBLE:NO		LEGS:13
+Legs ~ 14		VISIBLE:NO		LEGS:14
+Legs ~ 15		VISIBLE:NO		LEGS:15
+Legs ~ 16		VISIBLE:NO		LEGS:16
+Legs ~ 17		VISIBLE:NO		LEGS:17
+Legs ~ 18		VISIBLE:NO		LEGS:18
+Legs ~ 19		VISIBLE:NO		LEGS:19
+Legs ~ 20		VISIBLE:NO		LEGS:20
+Legs ~ 21		VISIBLE:NO		LEGS:21
+Legs ~ 22		VISIBLE:NO		LEGS:22
+Legs ~ 23		VISIBLE:NO		LEGS:23
+Legs ~ 24		VISIBLE:NO		LEGS:24
+Legs ~ 25		VISIBLE:NO		LEGS:25
+Legs ~ 26		VISIBLE:NO		LEGS:26
+Legs ~ 27		VISIBLE:NO		LEGS:27
+Legs ~ 28		VISIBLE:NO		LEGS:28
