@@ -220,15 +220,13 @@ Stunned		VISIBLE:NO	SOURCEPAGE:p.568	TEMPDESC:A stunned creature drops everythin
 
 ###Block: Test
 # Template Name	Size		Visible	Template		Choose						Type
-TestChoose				VISIBLE:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|TYPE=TestChooseTemplate
-
-
-TestMedium		SIZE:M	VISIBLE:YES											TYPE:TestChooseTemplate
-TestSmall		SIZE:S	VISIBLE:YES											TYPE:TestChooseTemplate
-TestTiny		SIZE:T	VISIBLE:YES											TYPE:TestChooseTemplate
-TestLarge		SIZE:L	VISIBLE:YES											TYPE:TestChooseTemplate
-TestDiminutive	SIZE:D	VISIBLE:YES											TYPE:TestChooseTemplate
-TestHuge		SIZE:H	VISIBLE:YES											TYPE:TestChooseTemplate
+TestChoose				VISIBLE:NO	TEMPLATE:%LIST	CHOOSE:TEMPLATE|TYPE=TestChooseTemplate
+TestMedium		SIZE:M	VISIBLE:NO											TYPE:TestChooseTemplate
+TestSmall		SIZE:S	VISIBLE:NO											TYPE:TestChooseTemplate
+TestTiny		SIZE:T	VISIBLE:NO											TYPE:TestChooseTemplate
+TestLarge		SIZE:L	VISIBLE:NO											TYPE:TestChooseTemplate
+TestDiminutive	SIZE:D	VISIBLE:NO											TYPE:TestChooseTemplate
+TestHuge		SIZE:H	VISIBLE:NO											TYPE:TestChooseTemplate
 
 
 ###BLOCK: Wildshape
