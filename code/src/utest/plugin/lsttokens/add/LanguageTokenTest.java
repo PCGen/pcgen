@@ -48,18 +48,6 @@ public class LanguageTokenTest extends AbstractAddTokenTestCase<Language>
 	}
 
 	@Override
-	public boolean isTypeLegal()
-	{
-		return true;
-	}
-
-	@Override
-	public boolean allowsParenAsSub()
-	{
-		return false;
-	}
-
-	@Override
 	public boolean allowsFormula()
 	{
 		return true;

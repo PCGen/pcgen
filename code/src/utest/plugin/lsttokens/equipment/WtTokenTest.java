@@ -51,12 +51,6 @@ public class WtTokenTest extends AbstractBigDecimalTokenTestCase<Equipment>
 	}
 
 	@Override
-	protected ConsolidationRule getConsolidationRule()
-	{
-		return ConsolidationRule.OVERWRITE;
-	}
-
-	@Override
 	public ObjectKey<BigDecimal> getObjectKey()
 	{
 		return ObjectKey.WEIGHT;
