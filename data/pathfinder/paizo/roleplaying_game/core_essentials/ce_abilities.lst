@@ -440,3 +440,123 @@ Disable First Level Domain Power	KEY:DisableDomainLVL1	CATEGORY:Internal		STACK:
 #	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:XXX_Times|0	DEFINE:XXX_LVL|0	SPELLS:Innate|TIMES=XXX_Times|TIMEUNIT=Day|CASTERLEVEL=XXX_LVL|YYY|PREVARGTEQ:XXX_Times,1|PREVAREQ:DisableSpellXXX,0	BONUS:VAR|xxx_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=XXX_LVL|YYY|PREVARLTEQ:XXX_Times,0|PREVAREQ:DisableSpellXXX,0	DESC:Blank
 #	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:XXX_Times|0	DEFINE:XXX_LVL|0	SPELLS:Innate|TIMES=XXX_Times|TIMEUNIT=Day|CASTERLEVEL=XXX_LVL|YYY|PREVARGTEQ:XXX_Times,1|PREVAREQ:DisableSpellXXX,0	BONUS:VAR|xxx_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=XXX_LVL|YYY|PREVARLTEQ:XXX_Times,0|PREVAREQ:DisableSpellXXX,0	DESC:Blank
 #	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:XXX_Times|0	DEFINE:XXX_LVL|0	SPELLS:Innate|TIMES=XXX_Times|TIMEUNIT=Day|CASTERLEVEL=XXX_LVL|YYY|PREVARGTEQ:XXX_Times,1|PREVAREQ:DisableSpellXXX,0	BONUS:VAR|xxx_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=XXX_LVL|YYY|PREVARLTEQ:XXX_Times,0|PREVAREQ:DisableSpellXXX,0	DESC:Blank
+
+###Block: Movement
+Flight Speed ~ 30		CATEGORY:Internal	MOVE:Fly,30	
+Flight Speed ~ 40		CATEGORY:Internal	MOVE:Fly,40	
+Flight Speed ~ 50		CATEGORY:Internal	MOVE:Fly,50	
+Flight Speed ~ 60		CATEGORY:Internal	MOVE:Fly,60	
+Flight Speed ~ 70		CATEGORY:Internal	MOVE:Fly,70	
+Flight Speed ~ 80		CATEGORY:Internal	MOVE:Fly,80	
+Flight Speed ~ 90		CATEGORY:Internal	MOVE:Fly,90	
+Flight Speed ~ 100	CATEGORY:Internal	MOVE:Fly,100
+Flight Speed ~ 110	CATEGORY:Internal	MOVE:Fly,110
+Flight Speed ~ 120	CATEGORY:Internal	MOVE:Fly,120
+Flight Speed ~ 130	CATEGORY:Internal	MOVE:Fly,130
+Flight Speed ~ 140	CATEGORY:Internal	MOVE:Fly,140
+Flight Speed ~ 150	CATEGORY:Internal	MOVE:Fly,150
+Flight Speed ~ 160	CATEGORY:Internal	MOVE:Fly,160
+Flight Speed ~ 170	CATEGORY:Internal	MOVE:Fly,170
+Flight Speed ~ 180	CATEGORY:Internal	MOVE:Fly,180
+Flight Speed ~ 190	CATEGORY:Internal	MOVE:Fly,190
+Flight Speed ~ 200	CATEGORY:Internal	MOVE:Fly,200
+Flight Speed ~ 210	CATEGORY:Internal	MOVE:Fly,210
+Flight Speed ~ 220	CATEGORY:Internal	MOVE:Fly,220
+Flight Speed ~ 230	CATEGORY:Internal	MOVE:Fly,230
+Flight Speed ~ 240	CATEGORY:Internal	MOVE:Fly,240
+Flight Speed ~ 250	CATEGORY:Internal	MOVE:Fly,250
+Flight Speed ~ 260	CATEGORY:Internal	MOVE:Fly,260
+Flight Speed ~ 270	CATEGORY:Internal	MOVE:Fly,270
+Flight Speed ~ 280	CATEGORY:Internal	MOVE:Fly,280
+Flight Speed ~ 290	CATEGORY:Internal	MOVE:Fly,290
+Flight Speed ~ 300	CATEGORY:Internal	MOVE:Fly,300
+Flight Speed ~ 310	CATEGORY:Internal	MOVE:Fly,310
+Flight Speed ~ 320	CATEGORY:Internal	MOVE:Fly,320
+
+# Burrow
+Burrow Speed ~ 20		CATEGORY:Internal	MOVE:Burrow,20
+Burrow Speed ~ 30		CATEGORY:Internal	MOVE:Burrow,30
+
+
+# Limbs
+CATEGORY=Internal|Default.MOD	DEFINE:Arms|0	DEFINE:Legs|0	ABILITY:Internal|AUTOMATIC|Limbs|PREMULT:1,[PREVARGT:Arms,0],[PREVARGT:Legs,0]
+
+Limbs	CATEGORY:Internal
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 1|PREVAREQ:Arms,1
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 2|PREVAREQ:Arms,2
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 3|PREVAREQ:Arms,3
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 4|PREVAREQ:Arms,4
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 5|PREVAREQ:Arms,5
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 6|PREVAREQ:Arms,6
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 7|PREVAREQ:Arms,7
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 8|PREVAREQ:Arms,8
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 9|PREVAREQ:Arms,9
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 10|PREVAREQ:Arms,10
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 1|PREVARGT:Legs,1
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 2|PREVARGT:Legs,2
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 3|PREVARGT:Legs,3
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 4|PREVARGT:Legs,4
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 5|PREVARGT:Legs,5
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 6|PREVARGT:Legs,6
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 7|PREVARGT:Legs,7
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 8|PREVARGT:Legs,8
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 9|PREVARGT:Legs,9
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 10|PREVARGT:Legs,10
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 11|PREVARGT:Legs,11
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 12|PREVARGT:Legs,12
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 13|PREVARGT:Legs,13
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 14|PREVARGT:Legs,14
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 15|PREVARGT:Legs,15
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 16|PREVARGT:Legs,16
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 17|PREVARGT:Legs,17
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 18|PREVARGT:Legs,18
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 19|PREVARGT:Legs,19
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 20|PREVARGT:Legs,20
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 21|PREVARGT:Legs,21
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 22|PREVARGT:Legs,22
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 23|PREVARGT:Legs,23
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 24|PREVARGT:Legs,24
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 25|PREVARGT:Legs,25
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 26|PREVARGT:Legs,26
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 27|PREVARGT:Legs,27
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Legs ~ 28|PREVARGT:Legs,28
+
+###Block: Limb Abilities
+Arms ~ 1		CATEGORY:Internal	TEMPLATE:Arms ~ 1			
+Arms ~ 2		CATEGORY:Internal	TEMPLATE:Arms ~ 2		
+Arms ~ 3		CATEGORY:Internal	TEMPLATE:Arms ~ 3		
+Arms ~ 4		CATEGORY:Internal	TEMPLATE:Arms ~ 4		
+Arms ~ 5		CATEGORY:Internal	TEMPLATE:Arms ~ 5		
+Arms ~ 6		CATEGORY:Internal	TEMPLATE:Arms ~ 6		
+Arms ~ 7		CATEGORY:Internal	TEMPLATE:Arms ~ 7		
+Arms ~ 8		CATEGORY:Internal	TEMPLATE:Arms ~ 8		
+Arms ~ 9		CATEGORY:Internal	TEMPLATE:Arms ~ 9		
+Arms ~ 10		CATEGORY:Internal	TEMPLATE:Arms ~ 10	
+Legs ~ 1		CATEGORY:Internal	TEMPLATE:Legs ~ 1		
+Legs ~ 2		CATEGORY:Internal	TEMPLATE:Legs ~ 2		
+Legs ~ 3		CATEGORY:Internal	TEMPLATE:Legs ~ 3		
+Legs ~ 4		CATEGORY:Internal	TEMPLATE:Legs ~ 4		
+Legs ~ 5		CATEGORY:Internal	TEMPLATE:Legs ~ 5		
+Legs ~ 6		CATEGORY:Internal	TEMPLATE:Legs ~ 6		
+Legs ~ 7		CATEGORY:Internal	TEMPLATE:Legs ~ 7		
+Legs ~ 8		CATEGORY:Internal	TEMPLATE:Legs ~ 8		
+Legs ~ 9		CATEGORY:Internal	TEMPLATE:Legs ~ 9		
+Legs ~ 10		CATEGORY:Internal	TEMPLATE:Legs ~ 10		
+Legs ~ 11		CATEGORY:Internal	TEMPLATE:Legs ~ 11	
+Legs ~ 12		CATEGORY:Internal	TEMPLATE:Legs ~ 12	
+Legs ~ 13		CATEGORY:Internal	TEMPLATE:Legs ~ 13	
+Legs ~ 14		CATEGORY:Internal	TEMPLATE:Legs ~ 14	
+Legs ~ 15		CATEGORY:Internal	TEMPLATE:Legs ~ 15	
+Legs ~ 16		CATEGORY:Internal	TEMPLATE:Legs ~ 16	
+Legs ~ 17		CATEGORY:Internal	TEMPLATE:Legs ~ 17	
+Legs ~ 18		CATEGORY:Internal	TEMPLATE:Legs ~ 18	
+Legs ~ 19		CATEGORY:Internal	TEMPLATE:Legs ~ 19	
+Legs ~ 20		CATEGORY:Internal	TEMPLATE:Legs ~ 20	
+Legs ~ 21		CATEGORY:Internal	TEMPLATE:Legs ~ 21	
+Legs ~ 22		CATEGORY:Internal	TEMPLATE:Legs ~ 22	
+Legs ~ 23		CATEGORY:Internal	TEMPLATE:Legs ~ 23	
+Legs ~ 24		CATEGORY:Internal	TEMPLATE:Legs ~ 24	
+Legs ~ 25		CATEGORY:Internal	TEMPLATE:Legs ~ 25	
+Legs ~ 26		CATEGORY:Internal	TEMPLATE:Legs ~ 26	
+Legs ~ 27		CATEGORY:Internal	TEMPLATE:Legs ~ 27	
+Legs ~ 28		CATEGORY:Internal	TEMPLATE:Legs ~ 28	
