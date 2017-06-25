@@ -130,8 +130,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		StringBuilder unparsedBuilt = new StringBuilder();
 		for (String s : unparsed)
 		{
-			unparsedBuilt.append(getToken().getTokenName()).append(':').append(
-					s).append('\t');
+			unparsedBuilt.append(getToken().getTokenName()).append(':').append(s).append('\t');
 		}
 		getLoader().parseLine(secondaryContext, secondaryProf,
 				unparsedBuilt.toString(), testCampaign.getURI());
@@ -155,7 +154,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	 * @param target The expected new token format.
 	 * @throws PersistenceLayerException If the parsing 
 	 */
-	public void runMigrationRoundRobin(String deprecated, String target) 
+	protected void runMigrationRoundRobin(String deprecated, String target)
 			throws PersistenceLayerException
 	{
 		// Default is not to write out anything
@@ -164,7 +163,6 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		parse(deprecated);
 		primaryProf.setSourceURI(testCampaign.getURI());
 		String[] unparsed = validateUnparsed(primaryContext, primaryProf, target);
-
 
 		// Do round Robin
 		StringBuilder unparsedBuilt = new StringBuilder();
@@ -253,7 +251,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		return getToken().getTokenName();
 	}
 
-	public static void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
+	private static void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
 	{
 		assertTrue(cdo1.isCDOMEqual(cdo2));
 	}

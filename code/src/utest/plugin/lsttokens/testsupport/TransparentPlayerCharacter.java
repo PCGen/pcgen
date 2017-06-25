@@ -99,7 +99,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 		{
 			return classMap.keySet();
 		}
-		
+
 		@Override
 		public Race getRace()
 		{
@@ -245,7 +245,4 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 		                                 .collect(Collectors.toList());
 		return list;
 	}
-	
-	
-	
 }
