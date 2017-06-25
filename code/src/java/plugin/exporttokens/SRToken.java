@@ -46,7 +46,7 @@ public class SRToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		return getSRToken(pc) + "";
+		return String.valueOf(getSRToken(pc));
 	}
 
 	/**

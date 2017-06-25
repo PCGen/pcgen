@@ -85,7 +85,7 @@ public class CheckToken extends Token
 		}
 		if (isNosign) 
 		{
-			return getCheckToken(pc, saveType, saveMods) + "";
+			return String.valueOf(getCheckToken(pc, saveType, saveMods));
 		}
 		return Delta.toString(getCheckToken(pc, saveType, saveMods));
 	}
