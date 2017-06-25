@@ -507,15 +507,19 @@ Senses							KEY:Wyrwood ~ Senses			CATEGORY:Special Ability	TYPE:Wyrwood Race T
 
 #Race Traits ~ Wyvaran
 # Ability Name						Category of Ability
-Race Traits ~ Wyvaran					CATEGORY:Internal
+Race Traits ~ Wyvaran					CATEGORY:Internal		DEFINE:WyvaranDraconicLanguage|0
 
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Flight|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranFlight
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranDraconicLanguage
 CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranSenses
 CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Slapping Tail|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranSlappingTail
 
 ###Block: Default Wyvaran Abilities
 # Ability Name		Unique Key					Category of Ability		Type											Description																																	Bonus															Source Page
-Senses							KEY:Wyvaran ~ Senses			CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvaran have low-light vision and can see in the dark up to 60 feet.																						BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base		SOURCEPAGE:p.238
-Slapping Tail						KEY:Wyvaran ~ Slapping Tail		CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvarans have a tail attack they can use only when making attacks of opportunity. This slapping tail attack deals a number of points of damage equal to 1d8 + the wyvaran’s Strength modifier.		ABILITY:Internal|AUTOMATIC|Tail Slap									SOURCEPAGE:p.238
+Flight							KEY:Wyvaran ~ Flight			CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvarans have dragonlike wings that grant them a fly speed of 30 feet with clumsy maneuverability.																	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,30			BONUS:VAR|Manueverability|1		SOURCEPAGE:p.238
+Language							KEY:Wyvaran ~ Language			CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		BONUS:VAR|WyvaranDraconicLanguage|1																																																	SOURCEPAGE:p.238
+Senses							KEY:Wyvaran ~ Senses			CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvaran have low-light vision and can see in the dark up to 60 feet.																						BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base							SOURCEPAGE:p.238
+Slapping Tail						KEY:Wyvaran ~ Slapping Tail		CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvarans have a tail attack they can use only when making attacks of opportunity. This slapping tail attack deals a number of points of damage equal to 1d8 + the wyvaran’s Strength modifier.		ABILITY:Internal|AUTOMATIC|Tail Slap														SOURCEPAGE:p.238
 
 
 ###Block: Changeling Mother's Gift Options

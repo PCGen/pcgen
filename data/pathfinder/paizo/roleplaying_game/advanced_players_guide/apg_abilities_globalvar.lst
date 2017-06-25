@@ -30,6 +30,30 @@ CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_InstantAlchemy|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_GrandDiscovery|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_ClassSkills|0
 
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonResistance2|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonResistance4|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonResistance6|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonImmunity|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery2|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery4|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery6|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery8|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery10|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery12|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery14|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery16|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery18|0
+
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombReduction|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage3|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage5|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage7|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage9|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage11|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage13|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage15|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage17|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage19|0
 
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Alchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Alchemy=True
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Bomb|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Bomb=True
@@ -45,6 +69,31 @@ CATEGORY=Class|Alchemist.MOD																																																				
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_InstantAlchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_InstantAlchemy=True
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_GrandDiscovery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_GrandDiscovery=True
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_ClassSkills=True
+
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonResistance2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonResistance2=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonResistance4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonResistance4=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonResistance6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonResistance6=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonImmunity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonImmunity=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery2=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery4=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery6=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery8=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery10=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery12=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery14=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery16=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery18=True
+
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombReduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombReduction=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage3=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage5=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage7=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage9=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage11=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage13=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage15=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage17=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage19=True
 
 # Old Type System
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Alchemy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistAlchemy
