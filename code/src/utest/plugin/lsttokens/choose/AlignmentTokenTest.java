@@ -88,12 +88,6 @@ public class AlignmentTokenTest extends
 	}
 
 	@Override
-	protected boolean requiresLiteral()
-	{
-		return false;
-	}
-
-	@Override
 	protected boolean isTypeLegal()
 	{
 		return false;

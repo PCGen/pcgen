@@ -137,14 +137,14 @@ Zombie (Fast)				TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zo
 Zombie (Plague)				TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|0						BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	BONUS:VAR|NoTypeTraits|1	ABILITY:Internal|AUTOMATIC|Slam	BONUS:VAR|SlamSize|1	ABILITY:Special Ability|AUTOMATIC|Plague Zombie ~ Disease|Undead Traits|Zombie ~ Death Burst|Zombie ~ Staggered	ABILITY:FEAT|AUTOMATIC|Toughness	KIT:1|NE	SUBRACE:Plague Zombie	RACETYPE:Undead
 
 ###Block: Zombie
-# Template Name			Visible	Required Size	Modify VAR							Weapon prof. bonus				Auto Language		Bonus Languages		Add Levels
-Zombie ~ Tiny			VISIBLE:NO	PRESIZEEQ:T										BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)
-Zombie ~ Small			VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)									ADDLEVEL:Undead (Mindless)|1
-Zombie ~ Medium			VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)									ADDLEVEL:Undead (Mindless)|1
-Zombie ~ Large			VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)									ADDLEVEL:Undead (Mindless)|2
-Zombie ~ Huge			VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK																ADDLEVEL:Undead (Mindless)|4
-Zombie ~ Gargantuan		VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|AC_Natural_Armor|7|TYPE=Base.STACK																ADDLEVEL:Undead (Mindless)|6
-Zombie ~ Colossal			VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|AC_Natural_Armor|11|TYPE=Base.STACK																ADDLEVEL:Undead (Mindless)|1
+# Template Name			Visible	Required Size	Modify VAR							Auto Language		Bonus Languages		Add Levels
+Zombie ~ Tiny			VISIBLE:NO	PRESIZEEQ:T										
+Zombie ~ Small			VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK									ADDLEVEL:Undead (Mindless)|1
+Zombie ~ Medium			VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK									ADDLEVEL:Undead (Mindless)|1
+Zombie ~ Large			VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK									ADDLEVEL:Undead (Mindless)|2
+Zombie ~ Huge			VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK									ADDLEVEL:Undead (Mindless)|4
+Zombie ~ Gargantuan		VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|AC_Natural_Armor|7|TYPE=Base.STACK									ADDLEVEL:Undead (Mindless)|6
+Zombie ~ Colossal			VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|AC_Natural_Armor|11|TYPE=Base.STACK									ADDLEVEL:Undead (Mindless)|1
 
 # Zombie issues:
 #TODO Can't do now: Remove Feats and Skills
@@ -152,6 +152,7 @@ Zombie ~ Colossal			VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|AC_Natural_Armor|11|TYPE=B
 #TODO Can't do now: Swap Monsters Class for Undead monster class so that Saves and BAB is recalculated
 # The only work around is to create a Zombie version of any race you want a Zombie of.
 
-Default Language ~ Tengu	VISIBLE:NO																			AUTO:LANG|Common|Tengu	LANGBONUS:TYPE=Spoken
+###Block:
+Default Language ~ Tengu	VISIBLE:NO												AUTO:LANG|Common|Tengu	LANGBONUS:TYPE=Spoken
 
 Polymorph Effect	DESC:Removes Armor and Shield Bonuses from creature.	BONUS:VAR|DisableArmorBonus|1|TYPE=Base	BONUS:VAR|DisableShieldBonus|1|TYPE=Base

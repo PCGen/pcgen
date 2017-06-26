@@ -205,6 +205,13 @@ CATEGORY=Internal|Base Size ~ Colossal.MOD																																						
 CATEGORY=Internal|Base Size ~ Colossal.MOD																																																																																																																																																																																																																							BONUS:STAT|STR|-2|PREVARGTEQ:SizeDecrease,7|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,7|PREVAREQ:BypassSizeMods,0
 CATEGORY=Internal|Base Size ~ Colossal.MOD																																																																																																																																																																																																																							BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,8|PREVAREQ:BypassSizeMods,0
 
+###Block: Race Builder or Homebrew Suport
+Reset Attack Start Value ~ Gore	CATEGORY:Internal	BONUS:VAR|GoreAttacks|-1
+Reset Attack Start Value ~ Hoof	CATEGORY:Internal	BONUS:VAR|HoofAttacks|-2
+Reset Attack Start Value ~ Slam	CATEGORY:Internal	BONUS:VAR|SlamAttacks|-1
+Reset Attack Start Value ~ Talons	CATEGORY:Internal	BONUS:VAR|TalonsAttacks|-2
+Reset Attack Start Value ~ Wing	CATEGORY:Internal	BONUS:VAR|WingAttacks|-2
+
 # COMMENT: Rules for standard creatures based upon Size - Just Grant the Base Internal Attack Mode and the correct Damage will be assigned
 # COMMENT: Switched to using PREBASESIZE as BONUS:SIZEMOD|NUMBER also was acting as a TYPE.Natural Dice Boost. This won't affect Dragons since they use a different system.
 ###Block:		Damage						Type		# of Attacks by default
@@ -223,17 +230,17 @@ CATEGORY=Internal|Base Size ~ Colossal.MOD																																						
 # Wing -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary	x2	(Max set up is 7)
 
 # Ability Name	Category of Ability	Type									Define											Ability												Modify VAR																			Weapon prof. bonus
-Bite			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:BiteAttacks|0	DEFINE:BiteOnlyAttack|0	ABILITY:Internal|AUTOMATIC|Bite Damage Increase|PREVAREQ:BiteOnlyAttack,1	BONUS:VAR|BiteAttacks|1	BONUS:VAR|NaturalAttacks|1	BONUS:VAR|BiteOnlyAttack|1|TYPE=Base|PREVARLT:NaturalAttacks,2
-Gore			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:GoreAttacks|0																		BONUS:VAR|GoreAttacks|1	BONUS:VAR|NaturalAttacks|1												BONUS:WEAPONPROF=Gore|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Bite			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:BiteAttacks|0	DEFINE:BiteOnlyAttack|0	ABILITY:Internal|AUTOMATIC|Bite Damage Increase|PREVAREQ:BiteOnlyAttack,1	BONUS:VAR|BiteAttacks|1		BONUS:VAR|NaturalAttacks|1	BONUS:VAR|BiteOnlyAttack|1|TYPE=Base|PREVARLT:NaturalAttacks,2
+Gore			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:GoreAttacks|0																		BONUS:VAR|GoreAttacks|1		BONUS:VAR|NaturalAttacks|1												BONUS:WEAPONPROF=Gore|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
 Pincers		CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:PincersAttacks|0																		BONUS:VAR|PincersAttacks|2	BONUS:VAR|NaturalAttacks|PincersAttacks									BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)
 Tail Slap		CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:TailSlapAttacks|0																	BONUS:VAR|TailSlapAttacks|1	BONUS:VAR|NaturalAttacks|1											BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)
-Claw			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:ClawAttacks|0																		BONUS:VAR|ClawAttacks|2	BONUS:VAR|NaturalAttacks|ClawAttacks										BONUS:WEAPONPROF=Claw|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
-Slam			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:SlamAttacks|0																		BONUS:VAR|SlamAttacks|1	BONUS:VAR|NaturalAttacks|1												BONUS:WEAPONPROF=Slam|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Claw			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:ClawAttacks|0																		BONUS:VAR|ClawAttacks|2		BONUS:VAR|NaturalAttacks|ClawAttacks										BONUS:WEAPONPROF=Claw|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Slam			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:SlamAttacks|0																		BONUS:VAR|SlamAttacks|1		BONUS:VAR|NaturalAttacks|1												BONUS:WEAPONPROF=Slam|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
 Sting			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:StingAttacks|0																		BONUS:VAR|StingAttacks|1	BONUS:VAR|NaturalAttacks|1											BONUS:WEAPONPROF=Sting|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
 Talons		CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:TalonsAttacks|0																		BONUS:VAR|TalonsAttacks|2	BONUS:VAR|NaturalAttacks|TalonsAttacks									BONUS:WEAPONPROF=Talons|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
-Hoof			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:HoofAttacks|0																		BONUS:VAR|HoofAttacks|2	BONUS:VAR|NaturalAttacks|HoofAttacks										BONUS:WEAPONPROF=Hoof|TOHIT|-5|!PRERACE:1,Companion (Pony)	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)|!PRERACE:1,Companion (Pony)
+Hoof			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:HoofAttacks|0																		BONUS:VAR|HoofAttacks|2		BONUS:VAR|NaturalAttacks|HoofAttacks										BONUS:WEAPONPROF=Hoof|TOHIT|-5|!PRERACE:1,Companion (Pony)	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)|!PRERACE:1,Companion (Pony)
 Tentacle		CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:TentacleAttacks|0																	BONUS:VAR|TentacleAttacks|2	BONUS:VAR|NaturalAttacks|TentacleAttacks									BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)
-Wing			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:WingAttacks|0																		BONUS:VAR|WingAttacks|2	BONUS:VAR|NaturalAttacks|WingAttacks										BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)
+Wing			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0	DEFINE:WingAttacks|0																		BONUS:VAR|WingAttacks|2		BONUS:VAR|NaturalAttacks|WingAttacks										BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)
 # Rake is a byproduct of Claws, does not count as a natural attack
 Rake			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:RakeAttacks|0																		BONUS:VAR|RakeAttacks|2	BONUS:VAR|NaturalAttacks|0												BONUS:WEAPONPROF=Rake|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
 
@@ -271,14 +278,14 @@ CATEGORY=Internal|Hair.MOD		BONUS:WEAPONPROF=Hair|WIELDCATEGORY|SizeIncrease
 
 CATEGORY=Internal|Default.MOD	DEFINE:NaturalAttackSize|0
 CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:F
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:D
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:T
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:S
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:M
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:L
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:H
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:G
-CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:C
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|2|PREBASESIZEEQ:D
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|3|PREBASESIZEEQ:T
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|4|PREBASESIZEEQ:S
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|5|PREBASESIZEEQ:M
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|6|PREBASESIZEEQ:L
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|7|PREBASESIZEEQ:H
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|8|PREBASESIZEEQ:G
+CATEGORY=Internal|Default.MOD						BONUS:VAR|NaturalAttackSize|9|PREBASESIZEEQ:C
 # 1 through 9	NaturalAttackSize gives a number range for size, which sets the default attackSize value. Each att
 #			Each attack can have a different size to allow for customization
 CATEGORY=Internal|Bite.MOD		DEFINE:BiteSize|0		BONUS:VAR|BiteSize|NaturalAttackSize			

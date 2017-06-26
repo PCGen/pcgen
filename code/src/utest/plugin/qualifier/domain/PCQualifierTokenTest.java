@@ -56,12 +56,6 @@ public class PCQualifierTokenTest extends
 	}
 
 	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return true;
-	}
-
-	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, Domain item)
 	{
 		pc.display.domainSet.add(item);

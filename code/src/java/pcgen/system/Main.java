@@ -77,7 +77,6 @@ public final class Main
 	private static boolean startGMGen;
 	private static boolean startNPCGen;
 	private static boolean startNameGen;
-	private static boolean ignoreJavaVer;
 	private static String settingsDir;
 	private static String campaignMode;
 	private static String characterSheet;
@@ -214,7 +213,6 @@ public final class Main
 
 		startGMGen = args.getBoolean("gmgen");
 		startNPCGen = args.getBoolean("npc");
-		ignoreJavaVer = args.getBoolean("J");
 		settingsDir = args.getString("settingsdir");
 		campaignMode = args.getString("campaignmode");
 		characterSheet = args.get("D");
@@ -281,53 +279,9 @@ public final class Main
 
 	/**
 	 * Check that the runtime environment is suitable for PCGen to run.
-	 * e.g. correct Java version
 	 */
 	private static void validateEnvironment(boolean useGui)
 	{
-		String javaVerString = System.getProperty("java.version");
-		String[] javaVer = javaVerString.split("\\.");
-		int majorVar = Integer.parseInt(javaVer[0]);
-		int minorVar = Integer.parseInt(javaVer[1]);
-		if (!ignoreJavaVer)
-		{
-			if ((majorVar < 1) || ((majorVar == 1) && (minorVar < 8)))
-			{
-				String message =
-						"Java version "
-								+ javaVerString
-								+ " is too old. PCGen requires at least Java 1.8 to run.";
-				Logging.errorPrint(message);
-				if (useGui)
-				{
-					JOptionPane.showMessageDialog(null, message,
-							Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
-				}
-				System.exit(1);
-			}
-			if ((majorVar > 1) || ((majorVar == 1) && (minorVar > 8)))
-			{
-				String message =
-						"Java version "
-								+ javaVerString
-								+ " is newer than PCGen supports. The program may not\n"
-								+ "work correctly. Java versions up to 1.8 are supported.";
-				Logging.errorPrint(message);
-				if (useGui)
-				{
-					int result =
-							JOptionPane.showConfirmDialog(null, message
-											+ "\n\nDo you wish to continue?",
-									Constants.APPLICATION_NAME,
-									JOptionPane.OK_CANCEL_OPTION);
-					if (result != JOptionPane.OK_OPTION)
-					{
-						System.exit(1);
-					}
-				}
-			}
-		}
-
 		// Check our main folders are present
 		String[] neededDirs =
 				{ConfigurationSettings.getSystemsDir(),
@@ -505,10 +459,6 @@ public final class Main
 
 		parser.addArgument("-V", "--version")
 				.action(Arguments.version());
-
-		parser.addArgument("-J")
-				.help("ignore java version checks")
-				.action(Arguments.storeTrue());
 
 		MutuallyExclusiveGroup startupMode = parser
 				.addMutuallyExclusiveGroup()

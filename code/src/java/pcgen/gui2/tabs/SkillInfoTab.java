@@ -25,6 +25,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.text.DecimalFormat;
 import java.util.EventObject;
 
@@ -125,7 +127,12 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setDefaultRenderer(String.class,
 				new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
-		skillTable.setRowHeight(26);
+		
+		Font curFont = skillTable.getFont();
+		FontMetrics ftMetrics = skillTable.getFontMetrics(curFont);
+		int ftHeight = ftMetrics.getHeight();
+		skillTable.setRowHeight(ftHeight);
+		
 		FilterBar<CharacterFacade, SkillFacade> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 

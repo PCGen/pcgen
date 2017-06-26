@@ -24,6 +24,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -91,7 +93,11 @@ public class InfoGuidePane extends JComponent implements UIResource
 			 null));
 		
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-		mainPanel.setPreferredSize(new Dimension(650, 450));
+		
+		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		int width = gd.getDisplayMode().getWidth();
+		int height = gd.getDisplayMode().getHeight();
+		mainPanel.setPreferredSize(new Dimension(width / 2, height / 2));
 		setOpaque(false);
 
 		JPanel sourcesPanel = new JPanel(new GridBagLayout());

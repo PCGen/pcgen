@@ -1254,7 +1254,7 @@ Telekinesis		CATEGORY:Special Ability	TYPE:SpecialAttack.GhostAbility.AttackOpti
 
 ###Block: Half-Outsider Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define				Description																																									Modify VAR						Source Page
-Smite Evil		KEY:Half-Celestial ~ Smite Evil	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:SmiteEvilDamageBonus|0	DESC:Once per day, as a swift action, the half-fiend can smite good as the smite evil ability of a paladin of the same level as the half-fiend's Hit Dice, except affecting a good target. The smite persists until target is dead or the half-fiend rests.	BONUS:VAR|SmiteEvilDamageBonus|min(TL,20)	SOURCEPAGE:p.169
+Smite Evil		KEY:Half-Celestial ~ Smite Evil	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:SmiteEvilDamageBonus|0	DESC:Once per day, as a swift action, the half-celestial can smite evil as the smite evil ability of a paladin of the same level as the half-celestial's Hit Dice. The smite persists until target is dead or the half-celestial rests.	BONUS:VAR|SmiteEvilDamageBonus|min(TL,20)	SOURCEPAGE:p.169
 Smite Good		KEY:Half-Fiend ~ Smite Good		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:SmiteGoodDamageBonus|0	DESC:Once per day, as a swift action, the half-fiend can smite good as the smite evil ability of a paladin of the same level as the half-fiend's Hit Dice, except affecting a good target. The smite persists until target is dead or the half-fiend rests.	BONUS:VAR|SmiteGoodDamageBonus|min(TL,20)	SOURCEPAGE:p.171
 
 ###Block: Half-Dragon Abilities

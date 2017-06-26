@@ -16,9 +16,8 @@
  * 3. gradle pcgenRelease
  *   a.	Build
  *   b.	Assemble distributables
- *   c.	Tag
- *   d.	Update version - increment version and add snapshot
- *   e.	Commit new version
+ *   c.	Update version - increment version and add snapshot
+ *   d.	Commit new version
  */
 
 apply from: "code/gradle/releaseUtils.groovy"
@@ -336,13 +335,17 @@ task checksum(dependsOn: assembleArtifacts) doLast {
 }
 
 
-// genDataList removed as it causes release errors	, 'genDataList'
+// genDataList removed as it causes release errors, 'genDataList'
 task prepareRelease (dependsOn: ['clean', 'build']) {
     description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
 }
 
-task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'tagRelease']) {
-    description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, tag the release and then update and commit the version ready for new dev work."
+task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum']) {
+    description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, then update and commit the version ready for new dev work."
+}
+
+task pcgenReleaseOfficial (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'updateVersionRelease']) {
+    description="Release a new offical version of PCGen."
 }
 
 // Update the PCGen version to indicate a release, then commit the new version
@@ -355,13 +358,4 @@ task updateVersionRelease doLast {
 task updateVersionToNext doLast {
     updateVersion()
     commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
-}
-
-// Tag the current PCGen trunk
-task tagRelease doLast {
-    def tagName = "${project.version}"
-    exec {
-        commandLine 'git', 'tag', tagName
-    }
-    println "Tag " + tagName + " created. Don't forget to push."
 }

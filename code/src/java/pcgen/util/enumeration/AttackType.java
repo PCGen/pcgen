@@ -42,7 +42,7 @@ public enum AttackType
 		return identifier;
 	}
 
-	public static AttackType getInstance(String ident)
+	public static AttackType getAttackInstance(String ident)
 	{
 		for (AttackType at : AttackType.values())
 		{

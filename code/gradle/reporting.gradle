@@ -3,14 +3,18 @@
  * called from the main build.gradle file.
  *
  * Usage: gradle allReports
- * 
- * Author: James Dempsey 
  */
+
+buildScan {
+	licenseAgreementUrl = 'https://gradle.com/terms-of-service';
+	licenseAgree = 'yes'
+}
 
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
 	showViolations = false
+	toolVersion = '7.8.1'
 	sourceSets = []
 }
 
@@ -21,7 +25,7 @@ pmd {
 	
 	ignoreFailures = true
 	sourceSets = []
-	toolVersion = "5.5.1"
+	toolVersion = "5.7.0"
 }
 
 findbugs {
