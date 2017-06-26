@@ -47,12 +47,6 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public char getJoinCharacter()
-	{
-		return ',';
-	}
-
-	@Override
 	public Class<? extends CDOMObject> getCDOMClass()
 	{
 		return PCTemplate.class;

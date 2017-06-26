@@ -52,7 +52,7 @@ public class InitiativeMiscToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		return Delta.toString(getInitiativeMiscToken(pc)) + "";
+		return Delta.toString(getInitiativeMiscToken(pc));
 	}
 
 	/**

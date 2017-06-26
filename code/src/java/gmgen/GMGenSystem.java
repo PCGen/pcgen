@@ -231,23 +231,20 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
          * Preferences on the Macintosh is in the application menu. See
          * macOSXRegistration()
          */
-        if (!SystemUtils.IS_OS_MAC_OSX)
+        editMenu.add(editSeparator1);
+        CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
+        editMenu.add(preferencesEditItem);
+        preferencesEditItem.setEnabled(true);
+        ActionListener[] listenerArray = preferencesEditItem
+                .getActionListeners();
+
+
+        for (final ActionListener aListenerArray : listenerArray)
         {
-            editMenu.add(editSeparator1);
-            CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
-            editMenu.add(preferencesEditItem);
-            preferencesEditItem.setEnabled(true);
-            ActionListener[] listenerArray = preferencesEditItem
-                    .getActionListeners();
-
-
-            for (final ActionListener aListenerArray : listenerArray)
-            {
-                preferencesEditItem.removeActionListener(aListenerArray);
-            }
-            preferencesEditItem
-                    .addActionListener(this::mPreferencesActionPerformed);
+            preferencesEditItem.removeActionListener(aListenerArray);
         }
+        preferencesEditItem
+                .addActionListener(this::mPreferencesActionPerformed);
     }
 
     /**
@@ -521,24 +518,20 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         CommonMenuText.name(pasteEditItem, MNU_PASTE);
         editMenu.add(pasteEditItem);
 
-        // Preferences... on MAC OS X is in the application menu. See macOSXRegistration()
-        if (!SystemUtils.IS_OS_MAC_OSX)
+        editMenu.add(editSeparator1);
+
+        CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
+        editMenu.add(preferencesEditItem);
+        preferencesEditItem.setEnabled(true);
+
+        ActionListener[] listenerArray = preferencesEditItem
+                .getActionListeners();
+        for (final ActionListener aListenerArray : listenerArray)
         {
-            editMenu.add(editSeparator1);
-
-            CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
-            editMenu.add(preferencesEditItem);
-            preferencesEditItem.setEnabled(true);
-
-            ActionListener[] listenerArray = preferencesEditItem
-                    .getActionListeners();
-            for (final ActionListener aListenerArray : listenerArray)
-            {
-                preferencesEditItem.removeActionListener(aListenerArray);
-            }
-
-            preferencesEditItem.addActionListener(this::mPreferencesActionPerformed);
+            preferencesEditItem.removeActionListener(aListenerArray);
         }
+
+        preferencesEditItem.addActionListener(this::mPreferencesActionPerformed);
 
         systemMenuBar.add(editMenu);
     }

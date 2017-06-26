@@ -328,11 +328,11 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("ATTACKS"))
 		{
-			return getAttacksToken(pc, eq) + "";
+			return String.valueOf(getAttacksToken(pc, eq));
 		}
 		else if (token.equals("AMMUNITIONCOUNT"))
 		{
-			return getAmmunitionCountToken(pc, eq) + "";
+			return String.valueOf(getAmmunitionCountToken(pc, eq));
 		}
 		else if (token.equals("AMMUNITION"))
 		{
@@ -340,7 +340,7 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("CONTENTSCOUNT"))
 		{
-			return getContentsCountToken(eq) + "";
+			return String.valueOf(getContentsCountToken(eq));
 		}
 		else if (token.equals("CONTENTS"))
 		{
@@ -348,7 +348,7 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("NUMATTACKS"))
 		{
-			return getNumAttacksToken(pc, eq) + "";
+			return String.valueOf(getNumAttacksToken(pc, eq));
 		}
 		else if (token.equals("HEFT"))
 		{
@@ -511,7 +511,7 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("REACH"))
 		{
-			return getReachToken(pc, eq) + "";
+			return getReachToken(pc, eq);
 		}
 		else if (token.equals("REACHUNIT"))
 		{
@@ -577,7 +577,7 @@ public class WeaponToken extends Token
 			int charges = eq.getRemainingCharges();
 			if (charges >= 0)
 			{
-				retString = charges + "";
+				retString = String.valueOf(charges);
 			}
 			return retString;
 
@@ -1348,7 +1348,7 @@ public class WeaponToken extends Token
 		int eqDbl = dbl + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEDOUBLE", true);
 		int critrange = eq.getRawCritRange(true) * (eqDbl + 1);
 		critrange = 21 - (critrange + iAdd + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEADD", true));
-		sb.append(critrange + "");
+		sb.append(String.valueOf(critrange));
 		if (critrange < 20)
 		{
 			sb.append("-20");

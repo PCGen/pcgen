@@ -82,12 +82,6 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Override
-	protected ConsolidationRule getConsolidationRule()
-	{
-		return ConsolidationRule.OVERWRITE;
-	}
-
-	@Override
 	protected String getLegalValue()
 	{
 		return "SCHOOLS|Abjuration";

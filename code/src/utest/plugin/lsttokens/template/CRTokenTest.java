@@ -64,12 +64,6 @@ public class CRTokenTest extends AbstractBigDecimalTokenTestCase<PCTemplate>
 	}
 
 	@Override
-	protected ConsolidationRule getConsolidationRule()
-	{
-		return ConsolidationRule.OVERWRITE;
-	}
-
-	@Override
 	public ObjectKey<BigDecimal> getObjectKey()
 	{
 		return ObjectKey.CR_MODIFIER;

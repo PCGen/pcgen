@@ -160,15 +160,6 @@ public class EncounterView extends JPanel
 	}
 
 	/**
-	 * Get number of creatures text
-	 * @return number of creatures text
-	 */
-	public String getNumberOfCreaturesText()
-	{
-		return numberOfCreatures.getText();
-	}
-
-	/**
 	 * Get remove creature
 	 * @return remove creature
 	 */

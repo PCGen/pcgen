@@ -80,18 +80,6 @@ public class ClassSkillsLevelTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Override
-	public boolean isTypeLegal()
-	{
-		return true;
-	}
-
-	@Override
-	public boolean allowsParenAsSub()
-	{
-		return false;
-	}
-
-	@Override
 	public boolean allowsFormula()
 	{
 		return true;

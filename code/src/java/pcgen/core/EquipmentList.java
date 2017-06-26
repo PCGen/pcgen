@@ -258,20 +258,26 @@ public final class EquipmentList {
 			//
 			// Now attempt to add all the modifiers.
 			//
-			for (Iterator<String> e = modList.iterator(); e.hasNext();) {
-				final String namePart = e.next();
+			for (final String namePart : modList)
+			{
 				final EquipmentModifier eqMod = getQualifiedModifierNamed(namePart, eq);
 
-				if (eqMod != null) {
+				if (eqMod != null)
+				{
 					eq.addEqModifier(eqMod, true, aPC);
 
-					if (eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL) && eq.isDouble()) {
+					if (eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL) && eq.isDouble())
+					{
 						eq.addEqModifier(eqMod, false, aPC);
 						bModified = true;
 					}
-				} else {
-					Logging.errorPrint("Could not find a qualified modifier named: " + namePart + " for " + eq.getName() + ":"
-							+ eq.typeList());
+				}
+				else
+				{
+					Logging.errorPrint(
+							"Could not find a qualified modifier named: " + namePart
+									+ " for " + eq.getName() + ":"
+									+ eq.typeList());
 					bError = true;
 				}
 			}

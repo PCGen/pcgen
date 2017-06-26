@@ -102,6 +102,6 @@ public class TempBonusToken extends Token
 		{
 			return "";
 		}
-		return pc.getNamedTempBonusDescList().get(tempIndex) + "";
+		return pc.getNamedTempBonusDescList().get(tempIndex);
 	}
 }
