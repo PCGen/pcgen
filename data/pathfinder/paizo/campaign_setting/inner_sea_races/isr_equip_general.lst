@@ -15,7 +15,7 @@ Baldric of Magical Stability						TYPE:Magic.Wondrous.Shirt			COST:14000	WT:1		S
 Belkzen Battle Standard				NAMEISPI:Yes	TYPE:Magic.Wondrous				COST:34000	WT:3		SOURCEPAGE:229
 Belt of Impossible Action						TYPE:Magic.Wondrous.Belt			COST:16000	WT:1		SOURCEPAGE:229
 Binding Contract								TYPE:Magic.Wondrous.Consumable		COST:7500	WT:0.5	SOURCEPAGE:229
-Boots of Fiendish Escape						TYPE:Magic.Wondrous.Boots			COST:45000	WT:2		SOURCEPAGE:229
+Boots of Fiendish Escape						TYPE:Magic.Wondrous.Boot			COST:45000	WT:2		SOURCEPAGE:229
 Bracelet of Good Luck Charms						TYPE:Magic.Wondrous.Bracer			COST:16000	WT:0		SOURCEPAGE:229
 Broken Rune Bracers							TYPE:Magic.Wondrous.Bracer			COST:9000	WT:0		SOURCEPAGE:229
 Cap of Darkest Dreams							TYPE:Magic.Wondrous.Headgear			COST:90000	WT:0		SOURCEPAGE:230
