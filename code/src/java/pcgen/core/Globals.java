@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 
 import javax.swing.JFrame;
 
@@ -640,7 +641,7 @@ public final class Globals
 			typeList = aEq.typeList();
 		}
 
-		final List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList();
+		final List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList().stream().map(String::toUpperCase).collect(Collectors.toList());
 		return typeList.stream().map(String::toUpperCase).anyMatch(resizeTypeList::contains);
 	}
 
