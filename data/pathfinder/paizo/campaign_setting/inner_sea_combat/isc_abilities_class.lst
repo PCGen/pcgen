@@ -105,7 +105,7 @@ CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonu
 ###Block: New Bonus Monk Feats
 Exotic Weapon Proficiency		KEY:Monk Bonus Feat ~ Exotic Weapon Proficiency			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeat_ExoticWeaponProficiency,1											ABILITY:FEAT|VIRTUAL|Exotic Weapon Proficiency (%LIST)	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ANY[TYPE=Exotic]
 Intimidating Prowess			KEY:Monk Bonus Feat ~ Intimidating Prowess			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Intimidating Prowess		PREVARGTEQ:MonkBonusFeat_IntimidatingProwess,1		ABILITY:FEAT|VIRTUAL|Intimidating Prowess
-Weapon Focus				KEY:Monk Bonus Feat ~ Weapon Focus					CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeat_WeaponFocus,1	ABILITY:FEAT|VIRTUAL|Weapon Focus
+Weapon Focus				KEY:Monk Bonus Feat ~ Weapon Focus					CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeat_WeaponFocus,1	BONUS:ABILITYPOOL|Weapon Focus|1
 Hamatulatsu					KEY:Monk Bonus Feat ~ Hamatulatsu					CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Hamatulatsu		PREVARGTEQ:MonkBonusFeat_Hamatulatsu,1	ABILITY:FEAT|VIRTUAL|Hamatulatsu
 Improved Sunder				KEY:Monk Bonus Feat ~ Improved Sunder				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Sunder	PREVARGTEQ:MonkBonusFeat_ImprovedSunder,1	ABILITY:FEAT|VIRTUAL|Improved Sunder
 Power Attack				KEY:Monk Bonus Feat ~ Power Attack					CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Power Attack		PREVARGTEQ:MonkBonusFeat_PowerAttack,1	ABILITY:FEAT|VIRTUAL|Power Attack
