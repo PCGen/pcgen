@@ -277,7 +277,7 @@ CLASS:Antipaladin	HD:10		TYPE:Base.PC	MAXLEVEL:20	EXCLASS:Ex-Antipaladin	SOURCEP
 # Class Name	Multiple Requirements
 CLASS:Antipaladin	PREMULT:1,[PREALIGN:CE],[PREVAREQ:BypassClassAlignment_Antipaladin,1]
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
+CLASS:Antipaladin	STARTSKILLPTS:2
 # Class Name	Spell Stat		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Antipaladin	SPELLSTAT:CHA	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|Caster_Level_BL_Stripped_Antipaladin|PRECLASS:1,Antipaladin=4
 ###Block: Proficiencies
