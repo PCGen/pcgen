@@ -1,5 +1,4 @@
 /*
- * CompanionModLoader.java
  * Copyright 2012 (C) Tom Parker
  *
  * This library is free software; you can redistribute it and/or

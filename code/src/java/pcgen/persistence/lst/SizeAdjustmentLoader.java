@@ -1,5 +1,4 @@
 /*
- * SizeAdjustmentLoader.java
  * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
