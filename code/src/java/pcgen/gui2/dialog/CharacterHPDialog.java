@@ -27,8 +27,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.Font;
-import java.awt.FontMetrics;
 
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
@@ -114,13 +112,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		table.setDefaultRenderer(JButton.class, new Renderer());
 		table.setDefaultEditor(JButton.class, new Editor());
 		table.setCellSelectionEnabled(false);
-		
-		Font curFont = table.getFont();
-		FontMetrics ftMetrics = table.getFontMetrics(curFont);
-		int ftHeight = ftMetrics.getHeight();
-		table.setRowHeight(ftHeight);
-		//table.setRowHeight(new IntegerEditor(1, 10).getPreferredSize().height);
-		
+		table.setRowHeight(new IntegerEditor(1, 10).getPreferredSize().height);
 		JTableHeader header = table.getTableHeader();
 		header.setReorderingAllowed(false);
 

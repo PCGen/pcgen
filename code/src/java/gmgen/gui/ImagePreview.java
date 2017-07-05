@@ -1,10 +1,10 @@
 package gmgen.gui;
 
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.SystemColor;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -39,6 +39,7 @@ public final class ImagePreview
 			= LanguageBundle.getString("in_ImagePreview_notAnImage");
 	private static final String in_noCharacterPortrait
 			= LanguageBundle.getString("in_ImagePreview_noCharacterPortrait");
+
 	private final JFileChooser jfc;
 
 	private PlayerCharacter aPC;

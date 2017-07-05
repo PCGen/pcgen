@@ -19,10 +19,11 @@
 package pcgen.gui2.util;
 
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.awt.Component;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.SystemColor;
+
 import javax.swing.Icon;
 
 /**

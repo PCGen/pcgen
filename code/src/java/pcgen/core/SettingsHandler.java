@@ -18,10 +18,10 @@
 package pcgen.core;
 
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Point;
+import java.awt.SystemColor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
