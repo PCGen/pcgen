@@ -1,5 +1,4 @@
 /*
- * PrerequisiteUnarmedAttackWriter.java
  *
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  *
