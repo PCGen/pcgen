@@ -29,9 +29,6 @@ import javax.swing.JTable;
 import javax.swing.JToggleButton;
 import javax.swing.table.TableColumn;
 
-/**
- *
- */
 public class TableUtils
 {
 
