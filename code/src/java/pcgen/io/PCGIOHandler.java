@@ -725,8 +725,7 @@ public final class PCGIOHandler extends IOHandler
 		return null;
 	}
 
-	@Nullable
-	private SourceSelectionFacade internalReadSources(InputStream in)
+	private @Nullable SourceSelectionFacade internalReadSources(InputStream in)
 	{
 		// Read lines from file
 		final List<String> lines = readPcgLines(in);

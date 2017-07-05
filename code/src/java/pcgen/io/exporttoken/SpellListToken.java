@@ -44,7 +44,7 @@ public abstract class SpellListToken extends Token
 	/**
 	 * {@code SpellListTokenParams} is ...
 	 */
-	protected final static class SpellListTokenParams
+	protected static final class SpellListTokenParams
 	{
 		private int classNum = 0;
 		private int level = 0;
