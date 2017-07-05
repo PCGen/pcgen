@@ -32,7 +32,7 @@ public class TestContext
 
 	private Map<URI, List<String>> map = new HashMap<>();
 
-	public void putText(URI testCampaign, String[] str)
+	public void putText(URI testCampaign, String... str)
 	{
 		map.put(testCampaign, str == null ? null : Arrays.asList(str));
 	}
