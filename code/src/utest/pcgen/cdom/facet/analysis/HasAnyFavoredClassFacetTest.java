@@ -32,7 +32,7 @@ import pcgen.core.Race;
 public class HasAnyFavoredClassFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Boolean>
 {
-	private HasAnyFavoredClassFacet facet = new HasAnyFavoredClassFacet();
+	private final HasAnyFavoredClassFacet facet = new HasAnyFavoredClassFacet();
 	private Boolean[] target;
 	private CDOMObject[] source;
 

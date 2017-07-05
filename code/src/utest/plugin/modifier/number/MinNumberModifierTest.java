@@ -32,7 +32,7 @@ import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class MinNumberModifierTest extends TestCase
 {
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
 	FormatManager<Number> numManager = new NumberManager();
 
 

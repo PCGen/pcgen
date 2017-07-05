@@ -33,8 +33,8 @@ public class ExplanationTokenTest extends
 		AbstractTokenTestCase<DatasetVariable>
 {
 
-	private static ExplanationToken token = new ExplanationToken();
-	private static CDOMTokenLoader<DatasetVariable> loader =
+	private static final ExplanationToken token = new ExplanationToken();
+	private static final CDOMTokenLoader<DatasetVariable> loader =
 			new CDOMTokenLoader<>();
 
 	@Override

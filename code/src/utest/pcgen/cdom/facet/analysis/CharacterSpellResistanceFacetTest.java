@@ -34,7 +34,7 @@ public class CharacterSpellResistanceFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Formula>
 {
 
-	private CharacterSpellResistanceFacet facet =
+	private final CharacterSpellResistanceFacet facet =
 			new CharacterSpellResistanceFacet();
 	private Formula[] target;
 	private CDOMObject[] source;

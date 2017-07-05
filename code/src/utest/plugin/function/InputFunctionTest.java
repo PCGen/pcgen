@@ -43,16 +43,16 @@ import plugin.function.testsupport.TestUtilities;
 public class InputFunctionTest extends AbstractFormulaTestCase
 {
 
-	private FormulaSetupFacet formulaSetupFacet =
+	private final FormulaSetupFacet formulaSetupFacet =
 			FacetLibrary.getFacet(FormulaSetupFacet.class);
-	private ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
-	private VariableLibraryFacet variableLibraryFacet =
+	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
+	private final VariableLibraryFacet variableLibraryFacet =
 			FacetLibrary.getFacet(VariableLibraryFacet.class);
-	private VariableStoreFacet variableStoreFacet =
+	private final VariableStoreFacet variableStoreFacet =
 			FacetLibrary.getFacet(VariableStoreFacet.class);
-	private SolverManagerFacet solverManagerFacet =
+	private final SolverManagerFacet solverManagerFacet =
 			FacetLibrary.getFacet(SolverManagerFacet.class);
-	private SolverFactoryFacet solverFactoryFacet =
+	private final SolverFactoryFacet solverFactoryFacet =
 			FacetLibrary.getFacet(SolverFactoryFacet.class);
 	private CharID id;
 

@@ -32,7 +32,7 @@ import static org.junit.Assert.*;
 public class SetStringModifierTest
 {
 
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
 	FormatManager<String> stringManager = new StringManager();
 
 	@Test
