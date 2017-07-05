@@ -1,5 +1,4 @@
 /*
- *  LogUtilities.java - Provides logging facilities for GMGen
  *  Copyright (C) 2003 Tod Milam
  *
  *  This library is free software; you can redistribute it and/or
@@ -22,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *  Provides logging facilities for GMGen
+ *
  *  LogUtilities is the class used to log messages in gmgen. It provides access
  *  to a singleton instance that can be used by system classes as well as
  *  plugins.
@@ -45,7 +46,7 @@ public final class LogUtilities implements LogReceiver
 	/**
 	 *  Returns the singleton instance of the LogUtilties class.
 	 *
-	 *@return    LogUtilities the singleton instance of this class.
+	 * @return    LogUtilities the singleton instance of this class.
 	 */
 	public static LogUtilities inst()
 	{
@@ -88,11 +89,7 @@ public final class LogUtilities implements LogReceiver
 	{
 		if (logging)
 		{
-			// send the message to all registered receivers
-			for (LogReceiver rcvr : receivers)
-			{
-				rcvr.logMessage(owner, message);
-			}
+			receivers.forEach(r -> r.logMessage(owner, message));
 		}
 	}
 
@@ -106,10 +103,7 @@ public final class LogUtilities implements LogReceiver
 	{
 		if (logging)
 		{
-			for (LogReceiver rcvr : receivers)
-			{
-				rcvr.logMessage(message);
-			}
+			receivers.forEach(r -> r.logMessage(message));
 		}
 	}
 }
