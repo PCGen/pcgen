@@ -1,5 +1,4 @@
 /*
- * ComparableComparator.java
  * Copyright 2003 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
  * This library is free software; you can redistribute it and/or

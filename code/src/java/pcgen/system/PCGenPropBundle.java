@@ -1,5 +1,4 @@
 /*
- * PCGenPropBundle.java
  * Copyright 2001 (C) Tom Epperly <tomepperly@home.com>
  *
  * This library is free software; you can redistribute it and/or

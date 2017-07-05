@@ -1,5 +1,4 @@
 /*
- * SkinLFResourceChecker.java
  * Copyright 2001 (C) Jason Buchanan
  *
  * This library is free software; you can redistribute it and/or
@@ -19,7 +18,6 @@
 package pcgen.util;
 
 /**
- * Title:        SkinLFResourceChecker.java
  * Description:
  * Copyright:    Copyright (c) 2001
  * Company:
