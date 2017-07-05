@@ -32,10 +32,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 
-/**
- * {@code Bonus}
- *
- */
 public final class Bonus
 {
 	static final String BONUS_UNDEFINED = "*UNDEFINED";
