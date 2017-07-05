@@ -1,5 +1,4 @@
 /*
- * ParameterTreeTest.java
  * Copyright 2007 (C) Andrew Wilson <nuance@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or

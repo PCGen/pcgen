@@ -1,5 +1,4 @@
 /*
- * BioSetLoaderTest.java
  *
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *

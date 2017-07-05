@@ -1,5 +1,4 @@
 /*
- * NatureTest.java
  * Copyright 2010 (C) Thomas Parker
  *
  * This library is free software; you can redistribute it and/or

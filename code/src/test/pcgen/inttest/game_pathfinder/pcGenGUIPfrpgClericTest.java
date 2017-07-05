@@ -1,5 +1,4 @@
 /*
- * pcGenGUIPfrpgClericTest.java
  */
 package pcgen.inttest.game_pathfinder;
 

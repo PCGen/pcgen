@@ -1,5 +1,4 @@
 /*
- * VAbilityTokenTest.java
  * Copyright 2013 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
