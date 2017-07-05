@@ -1,6 +1,5 @@
 /*
  * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
- * derived from CategorizedPersistentChoiceActor.java
  * Copyright James Dempsey, 2012
  * 
  * This library is free software; you can redistribute it and/or modify it under

@@ -1,5 +1,4 @@
 /*
- * AbilityCategory.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
