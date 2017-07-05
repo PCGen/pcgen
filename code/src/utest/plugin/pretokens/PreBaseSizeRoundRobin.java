@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreBaseSizeWriter;
 
 public class PreBaseSizeRoundRobin extends AbstractComparatorRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreBaseSizeRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreBaseSizeRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

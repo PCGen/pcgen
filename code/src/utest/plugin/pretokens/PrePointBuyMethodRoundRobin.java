@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PrePointBuyMethodWriter;
 
 public class PrePointBuyMethodRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PrePointBuyMethodRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PrePointBuyMethodRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

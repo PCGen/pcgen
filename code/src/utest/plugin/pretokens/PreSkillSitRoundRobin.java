@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreSkillSitWriter;
 public class PreSkillSitRoundRobin extends AbstractRankedRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSkillSitRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSkillSitRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

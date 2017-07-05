@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreTextWriter;
 public class PreTextRoundRobin extends AbstractStringRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreTextRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreTextRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

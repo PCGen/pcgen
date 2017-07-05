@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreSpellCastWriter;
 
 public class PreSpellCastRoundRobin extends AbstractPreRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSpellCastRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSpellCastRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

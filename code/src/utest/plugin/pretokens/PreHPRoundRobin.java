@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreHPWriter;
 public class PreHPRoundRobin extends AbstractIntegerRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreHPRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreHPRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

@@ -31,18 +31,7 @@ public class PreSizeRoundRobin extends AbstractComparatorRoundRobin
 {
 	protected SizeAdjustment medium;
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSizeRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSizeRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception
