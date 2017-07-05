@@ -1341,7 +1341,7 @@ public class NotesView extends JPanel
 
 		formatBar.add(underlineButton);
 
-		colorButton.setForeground(java.awt.SystemColor.text);
+		colorButton.setForeground(new java.awt.Color(0, 0, 0));
 		colorButton.setIcon(Icons.createImageIcon("menu-mode-RGB-alt.png"));
 		colorButton.setToolTipText("Color");
 		colorButton.setBorder(new EtchedBorder());

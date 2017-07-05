@@ -27,7 +27,6 @@ import java.util.Enumeration;
 import java.util.EventObject;
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.awt.SystemColor;
 
 import javax.swing.CellRendererPane;
 import javax.swing.JComponent;
@@ -145,8 +144,6 @@ public class JTreeTable extends JTableEx
 			// we'd better all be using the same one!
 			setRowHeight(tree.getRowHeight());
 		}
-
-		setForeground(SystemColor.text);
 	}
 
 	public TreeTableModel getTreeTableModel()

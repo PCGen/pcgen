@@ -19,7 +19,6 @@
 package pcgen.gui2.util;
 
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.awt.Component;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
@@ -48,7 +47,7 @@ public class SimpleTextIcon implements Icon
 	 */
 	public SimpleTextIcon(Component c, String text)
 	{
-		this(c, text, SystemColor.text);
+		this(c, text, Color.BLACK);
 	}
 
 	/**
