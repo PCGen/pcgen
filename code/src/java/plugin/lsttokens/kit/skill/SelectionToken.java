@@ -1,5 +1,4 @@
 /*
- * SelectionToken.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
