@@ -16,9 +16,9 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
@@ -52,10 +52,8 @@ public class MultiClassFacet
 	public double getMultiClassXPMultiplier(CharID id)
 	{
 		Set<PCClass> unfavoredClasses = new HashSet<>();
-		SortedSet<PCClass> favored = new TreeSet<>(
-                CDOMObjectUtilities.CDOM_SORTER);
+		Collection<PCClass> favored = new TreeSet<>(CDOMObjectUtilities::compareKeys);
 		favored.addAll(favoredClassFacet.getSet(id));
-		SortedSet<PCClass> aList = favored;
 		boolean hasAny = hasAnyFavoredClassFacet.contains(id, Boolean.TRUE);
 		PCClass maxClass = null;
 		PCClass secondClass = null;
@@ -75,7 +73,7 @@ public class MultiClassFacet
 			{
 				evalClass = pcClass.getSubClassKeyed(subClassKey);
 			}
-			if (!aList.contains(evalClass))
+			if (!favored.contains(evalClass))
 			{
 				unfavoredClasses.add(pcClass);
 
