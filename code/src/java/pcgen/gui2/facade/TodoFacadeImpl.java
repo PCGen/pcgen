@@ -1,5 +1,4 @@
 /**
- * TodoFacadeImpl.java
  * Copyright 2010 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
