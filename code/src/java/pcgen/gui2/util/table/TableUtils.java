@@ -36,12 +36,6 @@ public class TableUtils
 	{
 		JTable table = new JTable();
 		table.setFillsViewportHeight(true);
-		
-		Font curFont = table.getFont();
-		FontMetrics ftMetrics = table.getFontMetrics(curFont);
-		int ftHeight = ftMetrics.getHeight();
-		table.setRowHeight(ftHeight);
-
 		return table;
 	}
 
