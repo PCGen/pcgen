@@ -1,5 +1,4 @@
 /*
- * OSXAdapter.java
  *
  * This is a modified version of Apple's OSXAdapter.java developers example.
  *

@@ -398,7 +398,17 @@ FACTDEF:ABILITY|Antipaladin_Archetype_AuraOfVengeance		DATAFORMAT:BOOLEAN	REQUIR
 FACTDEF:ABILITY|Antipaladin_Archetype_AuraOfSin			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AuraOfSin			EXPLANATION:Determines whether the archetype affects - AuraOfSin
 FACTDEF:ABILITY|Antipaladin_Archetype_AuraOfDepravity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AuraOfDepravity		EXPLANATION:Determines whether the archetype affects - AuraOfDepravity
 FACTDEF:ABILITY|Antipaladin_Archetype_UnholyChampion		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Determines whether the archetype affects - UnholyChampion
-FACTDEF:ABILITY|Antipaladin_Archetype_Spells		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Determines whether the archetype affects - UnholyChampion
+FACTDEF:ABILITY|Antipaladin_Archetype_Spells			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Determines whether the archetype affects - UnholyChampion
+FACTDEF:ABILITY|Antipaladin_Archetype_ClassSkills		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Determines whether the archetype affects - UnholyChampion
+FACTDEF:ABILITY|Antipaladin_Archetype_WeaponProficiencies	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Determines whether the archetype affects - UnholyChampion
+FACTDEF:ABILITY|Antipaladin_Archetype_ArmorProficiencies	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Determines whether the archetype affects - UnholyChampion
+FACTDEF:ABILITY|Antipaladin_Archetype_SmiteGood1		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Determines whether the archetype affects - AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_Archetype_SmiteGood4		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Determines whether the archetype affects - AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_Archetype_SmiteGood7		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Determines whether the archetype affects - AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_Archetype_SmiteGood10		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Determines whether the archetype affects - AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_Archetype_SmiteGood13		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Determines whether the archetype affects - AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_Archetype_SmiteGood16		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Determines whether the archetype affects - AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_Archetype_SmiteGood19		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Determines whether the archetype affects - AntipaladinSmiteGood
 
 
 FACTDEF:ABILITY|Antipaladin_CF_AuraOfEvil				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AuraOfEvil			EXPLANATION:Remove AntipaladinAuraOfEvil
@@ -417,5 +427,14 @@ FACTDEF:ABILITY|Antipaladin_CF_AuraOfSin				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELEC
 FACTDEF:ABILITY|Antipaladin_CF_AuraOfDepravity			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AuraOfDepravity		EXPLANATION:Remove AntipaladinAuraOfDepravity
 FACTDEF:ABILITY|Antipaladin_CF_UnholyChampion			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Remove AntipaladinUnholyChampion
 FACTDEF:ABILITY|Antipaladin_CF_Spells				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Remove AntipaladinUnholyChampion
+FACTDEF:ABILITY|Antipaladin_CF_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Determines whether the archetype affects - UnholyChampion
+FACTDEF:ABILITY|Antipaladin_CF_WeaponProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Determines whether the archetype affects - UnholyChampion
+FACTDEF:ABILITY|Antipaladin_CF_ArmorProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UnholyChampion		EXPLANATION:Determines whether the archetype affects - UnholyChampion
 
+FACTDEF:ABILITY|Antipaladin_CF_SmiteGood1				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Remove AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_CF_SmiteGood4				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Remove AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_CF_SmiteGood7				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Remove AntipaladinSmiteGood
 FACTDEF:ABILITY|Antipaladin_CF_SmiteGood10			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Remove AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_CF_SmiteGood13			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Remove AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_CF_SmiteGood16			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Remove AntipaladinSmiteGood
+FACTDEF:ABILITY|Antipaladin_CF_SmiteGood19			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SmiteGood			EXPLANATION:Remove AntipaladinSmiteGood

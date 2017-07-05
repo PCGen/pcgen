@@ -1,5 +1,4 @@
 /*
- * LevelLstToken.java
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or

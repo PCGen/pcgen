@@ -1,5 +1,4 @@
 /*
- * PreParserFactoryTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *

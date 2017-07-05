@@ -1,5 +1,4 @@
 /*
- * OrCommandTest.java
  * Copyright 2007 (C) andrew wilson <nuance@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or

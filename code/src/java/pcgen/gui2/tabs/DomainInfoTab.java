@@ -21,8 +21,6 @@ package pcgen.gui2.tabs;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.FontMetrics;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -161,11 +159,6 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		domainTable.setAutoCreateColumnsFromModel(false);
 		domainTable.setColumnModel(createDomainColumnModel());
-
-		Font curFont = domainTable.getFont();
-		FontMetrics ftMetrics = domainTable.getFontMetrics(curFont);
-		int ftHeight = ftMetrics.getHeight();
-		domainTable.setRowHeight(ftHeight);
 
 		JScrollPane scrollPane = TableUtils.createCheckBoxSelectionPane(domainTable, domainRowHeaderTable);
 		panel.add(scrollPane, BorderLayout.CENTER);

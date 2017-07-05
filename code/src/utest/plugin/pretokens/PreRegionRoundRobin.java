@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreRegionWriter;
 public class PreRegionRoundRobin extends AbstractStringRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreRegionRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreRegionRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

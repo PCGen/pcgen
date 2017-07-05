@@ -1,5 +1,4 @@
 /*
- * PreAlignParser.java
  * 
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  * 
@@ -54,7 +53,7 @@ public class PreAlignParserTest extends EnUsLocaleDependentTestCase
 				+ "<prereq kind=\"align\" key=\"LE\" operator=\"EQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
 				+ "<prereq kind=\"align\" key=\"LG\" operator=\"EQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 	@Before

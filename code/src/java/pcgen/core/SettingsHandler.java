@@ -18,10 +18,10 @@
 package pcgen.core;
 
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Point;
+import java.awt.SystemColor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -51,7 +51,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * This class contains all settings-related code moved from Globals.java
  *
  * Should be cleaned up more.
  * 

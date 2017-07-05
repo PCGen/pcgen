@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreUnarmedAttackWriter;
 
 public class PreUnarmedAttackRoundRobin extends AbstractIntegerRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreUnarmedAttackRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreUnarmedAttackRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

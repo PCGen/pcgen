@@ -1,5 +1,4 @@
 /*
- * TreeTableModel.java
  *
  * Copyright (c) 1998 Sun Microsystems, Inc. All Rights Reserved.
  *

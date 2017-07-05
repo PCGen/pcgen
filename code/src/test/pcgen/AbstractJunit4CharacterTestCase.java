@@ -1,5 +1,4 @@
 /*
- * AbstractJunit4CharacterTestCase.java
  * Copyright 2003 (C) frugal@purplewombat.co.uk
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *

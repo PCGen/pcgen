@@ -1,5 +1,4 @@
 /*
- * SpellMigration.java
  * Copyright 2016 (C) Andrew Maitland <drew0500@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or

@@ -1,5 +1,4 @@
 /*
- * PreCSkillParser.java
  *
  * Copyright 2005 (C) Thomas Clegg <TN_Clegg@lycos.com>
  *

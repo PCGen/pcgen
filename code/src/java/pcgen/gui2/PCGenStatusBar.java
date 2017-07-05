@@ -1,5 +1,4 @@
 /*
- * PCGenStatusBar.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -29,11 +28,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.SwingWorker;
 
 import pcgen.gui2.tools.CursorControlUtilities;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.StatusWorker;
-import pcgen.gui2.util.SwingWorker;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
@@ -50,7 +49,7 @@ public final class PCGenStatusBar extends JPanel
 	private final JProgressBar progressBar;
 	private final JLabel loadStatusLabel;
 
-	public PCGenStatusBar(PCGenFrame frame)
+	PCGenStatusBar(PCGenFrame frame)
 	{
 		this.frame = frame;
 		this.messageLabel = new JLabel();
@@ -68,7 +67,7 @@ public final class PCGenStatusBar extends JPanel
 		progressBar.setVisible(false);
 		add(progressBar);
 		add(loadStatusLabel);
-		loadStatusLabel.addMouseListener(new LoadStatusMouseAdapter());			
+		loadStatusLabel.addMouseListener(new LoadStatusMouseAdapter());
 	}
 
 	public void setContextMessage(String message)
@@ -86,9 +85,9 @@ public final class PCGenStatusBar extends JPanel
 		return progressBar;
 	}
 
-	public void setSourceLoadErrors(List<LogRecord> errors)
+	void setSourceLoadErrors(List<LogRecord> errors)
 	{
-		if (errors != null && !errors.isEmpty())
+		if ((errors != null) && !errors.isEmpty())
 		{
 			int nerrors = 0;
 			int nwarnings = 0;
@@ -132,7 +131,7 @@ public final class PCGenStatusBar extends JPanel
 	 * @param task a PCGenTask
 	 * @return a SwingWorker
 	 */
-	public SwingWorker<List<LogRecord>> createWorker(String taskName, PCGenTask task)
+	SwingWorker<List<LogRecord>, Void> createWorker(String taskName, PCGenTask task)
 	{
 		return new StatusWorker(taskName, task, this);
 	}
@@ -185,6 +184,5 @@ public final class PCGenStatusBar extends JPanel
 		{
 			frame.getActionMap().get(PCGenActionMap.LOG_COMMAND).actionPerformed(null);
 		}
-		
 	}
 }

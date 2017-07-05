@@ -1,5 +1,4 @@
 /*
- * JTableCornerButton.java
  * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or

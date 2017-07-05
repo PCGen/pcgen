@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreWieldWriter;
 
 public class PreWieldRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreWieldRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreWieldRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

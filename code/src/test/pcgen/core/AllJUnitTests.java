@@ -1,5 +1,4 @@
 /*
- * AllJUnitTests.java
  * Copyright 2001 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
  * This library is free software; you can redistribute it and/or

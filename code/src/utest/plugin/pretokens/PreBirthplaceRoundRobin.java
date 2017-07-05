@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreBirthPlaceWriter;
 public class PreBirthplaceRoundRobin extends AbstractStringRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreBirthplaceRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreBirthplaceRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

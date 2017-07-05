@@ -462,7 +462,7 @@ CATEGORY=Class|Witch.MOD																																																								
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell18
 
 # Antipaladin
-CATEGORY=Class|Antipaladin.MOD																																ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|TYPE=ShieldProf|TYPE=WeaponProfMartial
+CATEGORY=Class|Antipaladin.MOD																																ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|TYPE=ShieldProf|PREVAREQ:Antipaladin_CF_ArmorProficiencies,0		ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|PREVAREQ:Antipaladin_CF_WeaponProficiencies,0		ABILITY:Internal|AUTOMATIC|Antipaladin ~ Class Skills|PREVAREQ:Antipaladin_CF_ClassSkills,0
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|DetectGoodLVL|AntipaladinLVL
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|SmiteGoodLVL|AntipaladinLVL
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|TouchOfCorruptionLVL|AntipaladinLVL
@@ -487,6 +487,17 @@ CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_AuraOfSin|0
 CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_AuraOfDepravity|0
 CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_UnholyChampion|0
 CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Spells|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_ClassSkills|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_WeaponProficiencies|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_ArmorProficiencies|0
+
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood1|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood4|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood7|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood10|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood13|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood16|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood19|0
 
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_AuraOfEvil=True
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_DetectGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_DetectGood=True
@@ -504,6 +515,17 @@ CATEGORY=Class|Antipaladin.MOD																																																		
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfDepravity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_AuraOfDepravity=True
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_UnholyChampion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_UnholyChampion=True
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Spells=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_ClassSkills=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_WeaponProficiencies=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_ArmorProficiencies=True
+
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood1=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood4=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood7=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood10=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood13=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood16=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood19=True
 
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfEvil|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfEvil
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_DetectGood|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectGood

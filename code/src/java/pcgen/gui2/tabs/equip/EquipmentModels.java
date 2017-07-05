@@ -47,9 +47,6 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableModel;
 
-import java.awt.Font;
-import java.awt.FontMetrics;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.facade.core.CharacterFacade;
@@ -158,11 +155,6 @@ public class EquipmentModels
 		this.unequipButton = unequipButton;
 		this.moveUpButton = moveUpButton;
 		this.moveDownButton = moveDownButton;
-
-		Font curFont = equipmentTable.getFont();
-		FontMetrics ftMetrics = equipmentTable.getFontMetrics(curFont);
-		int ftHeight = ftMetrics.getHeight();
-		equipmentTable.setRowHeight(ftHeight);
 	}
 
 	public void install()
@@ -371,14 +363,7 @@ public class EquipmentModels
 				table.setCellSelectionEnabled(false);
 				table.setDefaultRenderer(Integer.class, new TableCellUtilities.SpinnerRenderer());
 				table.setDefaultEditor(Integer.class, new SpinnerEditor(equipSet.getEquippedItems()));
-				
-
-				//JPanel panel = new JPanel(new BorderLayout());
-				Font curFont = table.getFont();
-				FontMetrics ftMetrics = table.getFontMetrics(curFont);
-				int ftHeight = ftMetrics.getHeight();
-				table.setRowHeight(ftHeight);
-				
+				table.setRowHeight(22);
 				table.getColumnModel().getColumn(0).setPreferredWidth(140);
 				table.getColumnModel().getColumn(1).setPreferredWidth(50);
 				table.setPreferredScrollableViewportSize(table.getPreferredSize());
@@ -492,12 +477,7 @@ public class EquipmentModels
 				table.setDefaultEditor(Object.class, new ComboEditor(equipMap));
 				table.setDefaultRenderer(Integer.class, new TableCellUtilities.SpinnerRenderer());
 				table.setDefaultEditor(Integer.class, new SpinnerEditor(unequippedList));
-				
-				Font curFont = table.getFont();
-				FontMetrics ftMetrics = table.getFontMetrics(curFont);
-				int ftHeight = ftMetrics.getHeight();
-				table.setRowHeight(ftHeight);
-				
+				table.setRowHeight(22);
 				table.getColumnModel().getColumn(0).setPreferredWidth(140);
 				table.getColumnModel().getColumn(1).setPreferredWidth(50);
 				table.getColumnModel().getColumn(2).setPreferredWidth(120);

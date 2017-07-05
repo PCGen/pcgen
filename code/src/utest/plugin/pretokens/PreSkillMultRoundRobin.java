@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreSkillMultWriter;
 public class PreSkillMultRoundRobin extends AbstractRankedRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSkillMultRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSkillMultRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

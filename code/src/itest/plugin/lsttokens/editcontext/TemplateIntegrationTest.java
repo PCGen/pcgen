@@ -130,8 +130,8 @@ public class TemplateIntegrationTest extends
 			commit(testCampaign, tc, "TestWP1.REMOVE");
 			commit(testCampaign, tc, "TestWP2.REMOVE");
 			tc = new TestContext();
-			tc.putText(testCampaign.getURI(), new String[] { "TestWP1.REMOVE"
-					+ getJoinCharacter() + "TestWP2.REMOVE" });
+			tc.putText(testCampaign.getURI(), "TestWP1.REMOVE"
+					+ getJoinCharacter() + "TestWP2.REMOVE");
 			completeRoundRobin(tc);
 		}
 	}

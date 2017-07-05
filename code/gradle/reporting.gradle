@@ -23,7 +23,6 @@ pmd {
     ruleSets = []
 	ruleSetFiles = files('code/standards/pmdruleset.xml')
 	
-	ignoreFailures = true
 	sourceSets = []
 	toolVersion = "5.7.0"
 }
@@ -47,7 +46,7 @@ tasks.withType(FindBugs) {
 	}
 }
 
-// unused: dependency-tuple, unused-dependency, duplicate-dependency-class
+// unused: dependency-tuple
 gradleLint.rules = [
 	'dependency-parentheses',
 	'unused-exclude-by-dep',
@@ -56,6 +55,8 @@ gradleLint.rules = [
 	'overridden-dependency-version',
 	'archaic-wrapper',
 	'all-nebula-renames',
+	'unused-dependency',
+	'duplicate-dependency-class'
 ]
 
 task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain', 'lintGradle'] }

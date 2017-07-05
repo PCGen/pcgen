@@ -1,5 +1,4 @@
 /*
- * SimpleTextIcon.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -20,10 +19,11 @@
 package pcgen.gui2.util;
 
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.awt.Component;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.SystemColor;
+
 import javax.swing.Icon;
 
 /**

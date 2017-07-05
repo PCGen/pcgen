@@ -1,5 +1,4 @@
 /*
- * StatusWorker.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,12 +17,6 @@
  *
  */
 
-/**
- * 
- * StatusWorker extends SwingWorker to handle progress display in the status bar.
- * 		It replaces TaskExecutor, which was a private class inside PCGenStatusBar.
- *
- */
 package pcgen.gui2.util;
 
 import java.util.ArrayList;
@@ -31,6 +24,7 @@ import java.util.List;
 import java.util.logging.LogRecord;
 
 import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 
 import pcgen.gui2.PCGenStatusBar;
 import pcgen.system.PCGenTask;
@@ -38,13 +32,16 @@ import pcgen.system.PCGenTaskEvent;
 import pcgen.system.PCGenTaskListener;
 import pcgen.util.Logging;
 
-public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenTaskListener
+/**
+ * StatusWorker handles progress display in the status bar.
+ */
+public class StatusWorker extends SwingWorker<List<LogRecord>, Void> implements PCGenTaskListener
 {
 		private final String statusMsg;
 		private final PCGenTask task;
 		private final PCGenStatusBar statusBar;
 		private boolean dirty = false;
-		private List<LogRecord> errors = new ArrayList<>();
+		private final List<LogRecord> errors = new ArrayList<>();
 
 		/**
 		 * @param statusMsg - text to display in status bar
@@ -59,42 +56,11 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 			this.statusBar = statusBar;
 		}
 
-		@Override
-		public List<LogRecord> construct()
-		{	
-			final String oldMessage = statusBar.getContextMessage();
-			statusBar.startShowingProgress(statusMsg, false);
-			statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
-
-			task.addPCGenTaskListener(this);
-
-			try
-			{
-				task.execute();
-			}
-			catch (Exception e)
-			{
-				Logging.errorPrint(e.getLocalizedMessage(), e);
-			}
-
-			task.removePCGenTaskListener(this);
-
-			SwingUtilities.invokeLater(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					statusBar.setContextMessage(oldMessage);
-				}
-			});
-			return errors;
-		}
 
 		@Override
-		public void finished()
+		public void done()
 		{
 			statusBar.endShowingProgress();
-			super.finished();
 		}
 
 		@Override
@@ -127,6 +93,30 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 		 */
 		public List<LogRecord> getErrors()
 		{
+			return errors;
+		}
+
+		@Override
+		protected List<LogRecord> doInBackground()
+		{
+			final String oldMessage = statusBar.getContextMessage();
+			statusBar.startShowingProgress(statusMsg, false);
+			statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
+
+			task.addPCGenTaskListener(this);
+
+			try
+			{
+				task.execute();
+			}
+			catch (Exception e)
+			{
+				Logging.errorPrint(e.getLocalizedMessage(), e);
+			}
+
+			task.removePCGenTaskListener(this);
+
+			SwingUtilities.invokeLater(() -> statusBar.setContextMessage(oldMessage));
 			return errors;
 		}
 }

@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreGenderWriter;
 public class PreGenderRoundRobin extends AbstractStringRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreGenderRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreGenderRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

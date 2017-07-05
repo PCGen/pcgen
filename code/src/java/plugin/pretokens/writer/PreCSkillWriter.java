@@ -1,5 +1,4 @@
 /*
- * PrerequisiteCSkillWriter.java
  *
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *

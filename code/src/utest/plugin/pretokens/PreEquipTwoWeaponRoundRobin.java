@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreEquipTwoWeaponWriter;
 
 public class PreEquipTwoWeaponRoundRobin extends AbstractEquipmentRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreEquipTwoWeaponRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreEquipTwoWeaponRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

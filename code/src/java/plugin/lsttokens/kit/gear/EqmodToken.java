@@ -1,5 +1,4 @@
 /*
- * EqmodToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or

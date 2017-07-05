@@ -1,6 +1,4 @@
 /*
- * Utilities.java
- *
  * Copyright 2002, 2003 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,25 +15,17 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA.
- *
  */
-package pcgen.gui2.tools; // hm.binkley.gui;
+package pcgen.gui2.tools;
 
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 import org.jetbrains.annotations.Contract;
 
-/**
- * {@code Utilities}.
- *
- *
- * @see SwingConstants
- */
 public final class Utilities
 {
 
@@ -95,7 +85,7 @@ public final class Utilities
      * @return {@code boolean}, the condition
      */
     @Contract(pure = true)
-    static boolean isShiftLeftMouseButton(InputEvent e)
+    public static boolean isShiftLeftMouseButton(InputEvent e)
     {
         return ((e.getModifiers() & InputEvent.BUTTON1_MASK) ==
                 InputEvent.BUTTON1_MASK) && e.isShiftDown();

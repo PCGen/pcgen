@@ -18,9 +18,6 @@
  */
 package pcgen.gui2.tabs.ability;
 
-import java.awt.Font;
-import java.awt.FontMetrics;
-
 import javax.swing.JTable;
 
 import pcgen.facade.core.AbilityCategoryFacade;
@@ -52,11 +49,6 @@ public class CategoryTableModel extends
 		this.categoryTable = theCategoryTable;
 		setDelegate(categories);
 		setFilter(filter);
-
-		Font curFont = categoryTable.getFont();
-		FontMetrics ftMetrics = categoryTable.getFontMetrics(curFont);
-		int ftHeight = ftMetrics.getHeight();
-		categoryTable.setRowHeight(ftHeight);
 	}
 
 	public AbilityCategoryFacade getCategory(int index)

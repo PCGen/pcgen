@@ -1,5 +1,4 @@
 /*
- * LstUtils.java
  * Copyright 2003 (C) PCGen team
  *
  * This library is free software; you can redistribute it and/or

@@ -117,7 +117,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "1");
 			commit(testCampaign, tc, "2");
-			tc.putText(testCampaign.getURI(), new String[]{"1", "2"});
+			tc.putText(testCampaign.getURI(), "1", "2");
 			completeRoundRobin(tc);
 		}
 	}
@@ -131,7 +131,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "-1");
 			commit(testCampaign, tc, "-2");
-			tc.putText(testCampaign.getURI(), new String[]{"-1", "-2"});
+			tc.putText(testCampaign.getURI(), "-1", "-2");
 			completeRoundRobin(tc);
 		}
 	}

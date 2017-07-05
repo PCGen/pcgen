@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreDeityDomainWriter;
 
 public class PreDeityDomainRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreDeityDomainRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDeityDomainRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception
