@@ -1,5 +1,4 @@
 /*
- * HtmlInfoBuilder.java
  * Copyright 2007 (C) Koen Van Daele
  *
  * This library is free software; you can redistribute it and/or

@@ -1,5 +1,4 @@
 /*
- * TreeViewModel.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or

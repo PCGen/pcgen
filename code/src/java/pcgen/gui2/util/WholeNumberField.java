@@ -1,5 +1,4 @@
 /*
- * WholeNumberField.java
  * Copyright 2001 (C) Mario Bonassin <zebuleon@peoplepc.com>
  *
  * This library is free software; you can redistribute it and/or
