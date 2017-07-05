@@ -25,8 +25,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Font;
-import java.awt.FontMetrics;
 
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
@@ -82,12 +80,7 @@ public class LanguageTableModel extends AbstractTableModel
 		table.setRowSelectionAllowed(false);
 		table.setColumnSelectionAllowed(false);
 		table.setFocusable(false);
-		
-		Font curFont = table.getFont();
-		FontMetrics ftMetrics = table.getFontMetrics(curFont);
-		int ftHeight = ftMetrics.getHeight();
-		table.setRowHeight(ftHeight);
-		
+		table.setRowHeight(21);
 		table.getTableHeader().setReorderingAllowed(false);
 	}
 

@@ -19,8 +19,6 @@
 package pcgen.gui2.util.table;
 
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
 
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;

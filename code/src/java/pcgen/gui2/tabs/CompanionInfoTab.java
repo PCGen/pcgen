@@ -34,8 +34,6 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Vector;
-import java.awt.Font;
-import java.awt.FontMetrics;
 
 import javax.swing.AbstractAction;
 import javax.swing.AbstractCellEditor;
@@ -161,12 +159,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		}
 		companionsTable.setIntercellSpacing(new Dimension(0, 0));
 		companionsTable.setFocusable(false);
-		
-		Font curFont = companionsTable.getFont();
-		FontMetrics ftMetrics = companionsTable.getFontMetrics(curFont);
-		int ftHeight = ftMetrics.getHeight();
-		companionsTable.setRowHeight(ftHeight);
-		
+		companionsTable.setRowHeight(23);
 		companionsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		setLeftComponent(new JScrollPane(companionsTable));
 		JPanel rightPane = new JPanel(new BorderLayout());

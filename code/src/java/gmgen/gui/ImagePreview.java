@@ -1,7 +1,6 @@
 package gmgen.gui;
 
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -39,6 +38,7 @@ public final class ImagePreview
 			= LanguageBundle.getString("in_ImagePreview_notAnImage");
 	private static final String in_noCharacterPortrait
 			= LanguageBundle.getString("in_ImagePreview_noCharacterPortrait");
+
 	private final JFileChooser jfc;
 
 	private PlayerCharacter aPC;
@@ -143,9 +143,9 @@ public final class ImagePreview
 			// the values are visible against most possible image backgrounds.
 			final String dim = width + " x " + height;
 
-			g.setColor(SystemColor.text);
+			g.setColor(Color.black);
 			g.drawString(dim, textX, textY);
-			g.setColor(SystemColor.textText);
+			g.setColor(Color.white);
 			g.drawString(dim, textX - 1, textX - 1);
 		}
 		else

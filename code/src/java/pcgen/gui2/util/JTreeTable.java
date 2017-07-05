@@ -25,8 +25,6 @@ import java.awt.event.MouseEvent;
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.EventObject;
-import java.awt.Font;
-import java.awt.FontMetrics;
 
 import javax.swing.CellRendererPane;
 import javax.swing.JComponent;
@@ -133,10 +131,7 @@ public class JTreeTable extends JTableEx
 		if (tree.getRowHeight() < 1)
 		{
 			// Metal looks better like this.
-			Font curFont = super.getFont();
-			FontMetrics ftMetrics = super.getFontMetrics(curFont);
-			int ftHeight = ftMetrics.getHeight();
-			setRowHeight(ftHeight);
+			setRowHeight(18);
 		}
 		else
 		{
