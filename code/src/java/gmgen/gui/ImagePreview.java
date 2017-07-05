@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.SystemColor;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -143,9 +144,9 @@ public final class ImagePreview
 			// the values are visible against most possible image backgrounds.
 			final String dim = width + " x " + height;
 
-			g.setColor(Color.black);
+			g.setColor(SystemColor.text);
 			g.drawString(dim, textX, textY);
-			g.setColor(Color.white);
+			g.setColor(SystemColor.textText);
 			g.drawString(dim, textX - 1, textX - 1);
 		}
 		else

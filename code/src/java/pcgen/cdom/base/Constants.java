@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.base;
 
+import java.awt.SystemColor;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
@@ -500,10 +501,9 @@ public interface Constants
 
 	/**
 	 * The default colour of items in the GUI which the character does qualify
-	 * for. 0x000000 is black. This  is used to initialise the value in the settings
+	 * for.  This is used to initialise the value in the settings
 	 * handler if the user has not overridden it. */
-	int DEFAULT_PREREQ_QUALIFY_COLOUR = 0x000000;
-
+	int DEFAULT_PREREQ_QUALIFY_COLOUR = SystemColor.text.getRGB() & 0x00FFFFFF;
 
 	/** A constant used to define an array of age sets. */
 	int NUMBER_OF_AGESET_KIT_SELECTIONS = 10;
