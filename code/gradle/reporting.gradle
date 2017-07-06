@@ -46,7 +46,7 @@ tasks.withType(FindBugs) {
 	}
 }
 
-// unused: dependency-tuple
+// unused: dependency-tuple, duplicate-dependency-class
 gradleLint.rules = [
 	'dependency-parentheses',
 	'unused-exclude-by-dep',
@@ -56,7 +56,6 @@ gradleLint.rules = [
 	'archaic-wrapper',
 	'all-nebula-renames',
 	'unused-dependency',
-	'duplicate-dependency-class'
 ]
 
 task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain', 'lintGradle'] }
