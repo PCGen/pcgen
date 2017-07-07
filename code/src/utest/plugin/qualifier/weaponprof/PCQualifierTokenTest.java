@@ -36,7 +36,7 @@ public class PCQualifierTokenTest extends
 	private static final plugin.qualifier.weaponprof.PCToken PC_TOKEN = new plugin.qualifier.weaponprof.PCToken();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(PC_TOKEN);

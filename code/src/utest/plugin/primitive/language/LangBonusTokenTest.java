@@ -46,7 +46,7 @@ public class LangBonusTokenTest extends
 	}
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(LANGBONUS_TOKEN);

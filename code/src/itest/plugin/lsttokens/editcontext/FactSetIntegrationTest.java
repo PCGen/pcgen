@@ -49,7 +49,7 @@ public class FactSetIntegrationTest extends
 	private FactSetDefinition cd;
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		TokenRegistration.clearTokens();
 		super.setUp();

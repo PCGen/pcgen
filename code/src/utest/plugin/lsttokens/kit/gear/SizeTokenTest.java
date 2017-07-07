@@ -57,7 +57,7 @@ public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		SizeAdjustment ps = BuildUtilities.createSize("S", 0);

@@ -43,7 +43,7 @@ public class AbilitySelectionTokenTest extends
 {
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,

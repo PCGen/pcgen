@@ -43,7 +43,7 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		TokenRegistration.clearTokens();
 		super.setUp();
