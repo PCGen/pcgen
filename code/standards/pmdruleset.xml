@@ -151,9 +151,9 @@
     <exclude name="UnnecessaryReturn" />
     <exclude name="UselessQualifiedThis" />
     <exclude name="UnnecessaryFinalModifier" />
+    <exclude name="UnnecessaryModifier" />
   </rule>
   <rule ref="rulesets/java/unusedcode.xml">
-    <exclude name="UnusedModifier" />
     <exclude name="UnusedFormalParameter" />
     <exclude name="UnusedLocalVariable" />
     <exclude name="UnusedPrivateMethod" />
