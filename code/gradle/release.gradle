@@ -231,17 +231,17 @@ task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
 
 // The perl executable is flagged as an error - not using currently.
 // Generate the publisher/data list for the Windows installer script
-task genDataList doLast {
-    new ByteArrayOutputStream().withStream { os ->
-        exec {
-            workingDir = "${projectDir}/installers/win-installer"
-            executable = 'perl'
-            args = ['gendatalist.pl']
-            standardOutput = os
-        }
-        println os.toString()
-    }
-}
+// task genDataList doLast {
+//     new ByteArrayOutputStream().withStream { os ->
+//         exec {
+//             workingDir = "${projectDir}/installers/win-installer"
+//             executable = 'perl'
+//             args = ['gendatalist.pl']
+//             standardOutput = os
+//         }
+//         println os.toString()
+//     }
+// }
 
 
 // Create the version specific config files for NSIS
@@ -274,8 +274,8 @@ task genProjectNsis doLast {
     mkdir "${buildDir}/release"
 }
 
-// Call NSIS to generate windows installer
-task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
+// Call NSIS to generate windows installer - Removed "genDataList"
+task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
         genProjectNsis, downloadJRE]) doLast {
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
