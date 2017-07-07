@@ -19,9 +19,6 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
@@ -29,6 +26,9 @@ import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -37,6 +37,9 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class SpellsLstTest extends AbstractGlobalTokenTestCase
 {
@@ -49,8 +52,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -351,7 +353,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 		System.err.println("!");
 		runRoundRobin("SpellBook|TIMES=if(var(\"SIZE==3||SIZE==4\"),5,10)|TIMEUNIT=Hour|Fireball");
 	}
-	
+
 	@Test
 	public void testRoundRobinCasterLevel() throws PersistenceLayerException
 	{

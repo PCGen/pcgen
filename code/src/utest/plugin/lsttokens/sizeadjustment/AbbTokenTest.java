@@ -19,13 +19,14 @@ package plugin.lsttokens.sizeadjustment;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.KeyLst;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -38,8 +39,7 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	static KeyLst keyToken = new KeyLst();
 
 	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<>();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

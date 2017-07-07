@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
-
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
@@ -81,6 +81,7 @@ public abstract class AbstractEqModTokenTestCase extends
 	}
 
 	@Override
+	@Test
 	public void testInvalidInputJoinedPipe() throws PersistenceLayerException
 	{
 		// This is not invalid, because EqMod uses | for associations
@@ -180,6 +181,7 @@ public abstract class AbstractEqModTokenTestCase extends
 		assertNoSideEffects();
 	}
 
+	@Test
 	public void testRoundRobinOnlyAssociation()
 			throws PersistenceLayerException
 	{
@@ -190,6 +192,7 @@ public abstract class AbstractEqModTokenTestCase extends
 		runRoundRobin("EQMOD2|9500");
 	}
 
+	@Test
 	public void testRoundRobinComplexAssociation()
 			throws PersistenceLayerException
 	{
@@ -206,6 +209,7 @@ public abstract class AbstractEqModTokenTestCase extends
 	// runRoundRobin("EQMOD2|COST[[9500]]");
 	// }
 
+	@Test
 	public void testRoundRobinComplexMultipleAssociation()
 			throws PersistenceLayerException
 	{
@@ -216,12 +220,14 @@ public abstract class AbstractEqModTokenTestCase extends
 		runRoundRobin("EQMOD2|COST[9500]PLUS[+1]");
 	}
 
+	@Test
 	public void testRoundRobinWeightAssociation()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("_WEIGHTADD|9500");
 	}
 
+	@Test
 	public void testRoundRobinDamageAssociation()
 			throws PersistenceLayerException
 	{

@@ -35,6 +35,7 @@ public class MessageHandlerManagerTest
 	/**
 	 * Test method for {@link pcgen.pluginmgr.MessageHandlerManager#addMember(pcgen.pluginmgr.PCGenMessageHandler)}.
 	 */
+
 	@Test
 	public void testAddMember()
 	{
@@ -57,6 +58,7 @@ public class MessageHandlerManagerTest
 	/**
 	 * Test method for {@link pcgen.pluginmgr.MessageHandlerManager#removeMember(pcgen.pluginmgr.PCGenMessageHandler)}.
 	 */
+
 	@Test
 	public void testRemoveMember()
 	{
@@ -80,6 +82,7 @@ public class MessageHandlerManagerTest
 	/**
 	 * Check that the postbox used by MessageHandlerManager send out messages in the right order.
 	 */
+
 	@Test
 	public void testPostboxMessageDistributionOrder()
 	{
@@ -126,6 +129,7 @@ public class MessageHandlerManagerTest
 	/**
 	 * Check that the postbox used by MessageHandlerManager send out messages in the right order.
 	 */
+
 	@Test
 	public void testPostboxMessageDistributionConsumption()
 	{

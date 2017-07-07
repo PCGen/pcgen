@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCampaignTokenTestCase;
 
 public class CoverTokenTest extends AbstractCampaignTokenTestCase

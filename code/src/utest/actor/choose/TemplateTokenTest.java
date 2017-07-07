@@ -17,12 +17,12 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.PCTemplate;
-import plugin.lsttokens.choose.TemplateToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.choose.TemplateToken;
 
 public class TemplateTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCTemplate>

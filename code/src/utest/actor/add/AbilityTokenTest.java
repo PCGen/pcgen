@@ -39,6 +39,11 @@ import plugin.lsttokens.AddLst;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 {
 
@@ -49,11 +54,9 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 
 	protected LoadContext context;
 
-	@Override
 	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
 		context.getReferenceContext().importObject(AbilityCategory.FEAT);
@@ -89,7 +92,6 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		assertEquals(as, pca
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}
-
 
 	@Test
 	public void testWithChoose()

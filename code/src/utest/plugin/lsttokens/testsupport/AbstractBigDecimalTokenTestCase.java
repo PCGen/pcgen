@@ -43,7 +43,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testInvalidInputUnset() throws PersistenceLayerException
 	{
-		testInvalidInputs(null);
+		invalidInputs(null);
 		assertNoSideEffects();
 	}
 
@@ -54,11 +54,11 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
 		assertEquals(con, primaryProf.get(getObjectKey()));
-		testInvalidInputs(con);
+		invalidInputs(con);
 		assertNoSideEffects();
 	}
 
-	public void testInvalidInputs(BigDecimal val)
+	public void invalidInputs(BigDecimal val)
 			throws PersistenceLayerException
 	{
 		// Always ensure get is unchanged
@@ -237,6 +237,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

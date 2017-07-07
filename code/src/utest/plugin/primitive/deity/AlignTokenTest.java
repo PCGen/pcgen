@@ -26,6 +26,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.DeityToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
@@ -46,8 +49,7 @@ public class AlignTokenTest extends
 	{
 		super("ALIGN", "LG");
 	}
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -88,12 +90,14 @@ public class AlignTokenTest extends
 		return token;
 	}
 
+	@Test
 	public void testPrimitiveIllegalSpelledOut()
 			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("LawfulGood");
 	}
 
+	@Test
 	public void testPrimitiveIllegalMultiple() throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("LG.NG");

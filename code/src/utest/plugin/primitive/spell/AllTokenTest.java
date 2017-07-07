@@ -25,6 +25,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SpellsToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
@@ -44,8 +47,7 @@ public class AllTokenTest extends
 	{
 		super("ALL", null);
 	}
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -90,53 +92,62 @@ public class AllTokenTest extends
 //		doPrimitiveIllegalTarget("Foo");
 //	}
 
+	@Test
 	public void testPrimitiveIllegalBadArgs() throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[Hi]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadKnownEquals()
 			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadKnownEqualsBad()
 			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=Bad]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMax()
 			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMaxEquals()
 			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMaxEqualsBad()
 			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=3-]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMin()
 			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMinEquals()
 			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMinEqualsBad()
 			throws PersistenceLayerException
 	{

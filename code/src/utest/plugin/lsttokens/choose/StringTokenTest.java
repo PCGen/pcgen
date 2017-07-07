@@ -20,8 +20,6 @@ package plugin.lsttokens.choose;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
@@ -32,6 +30,9 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -44,8 +45,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	static ChooseLst token = new ChooseLst();
 	static StringToken subtoken = new StringToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -228,6 +228,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

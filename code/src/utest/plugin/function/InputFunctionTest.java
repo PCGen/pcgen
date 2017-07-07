@@ -17,8 +17,6 @@
  */
 package plugin.function;
 
-import org.junit.Test;
-
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
@@ -37,8 +35,13 @@ import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.formula.VariableChannel;
 import pcgen.output.channel.ChannelUtilities;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
+
+import static org.junit.Assert.assertEquals;
 
 public class InputFunctionTest extends AbstractFormulaTestCase
 {
@@ -55,9 +58,8 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	private SolverFactoryFacet solverFactoryFacet =
 			FacetLibrary.getFacet(SolverFactoryFacet.class);
 	private CharID id;
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		getFunctionLibrary().addFunction(new InputFunction());

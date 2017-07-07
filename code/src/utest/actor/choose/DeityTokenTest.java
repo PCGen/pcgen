@@ -17,12 +17,12 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.Deity;
-import plugin.lsttokens.choose.DeityToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.choose.DeityToken;
 
 public class DeityTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Deity>

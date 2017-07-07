@@ -35,13 +35,14 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
 import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 {
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		SimpleFormatManagerLibrary formatLibrary = new SimpleFormatManagerLibrary();

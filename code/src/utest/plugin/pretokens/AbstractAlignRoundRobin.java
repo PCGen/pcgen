@@ -16,21 +16,24 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.pretokens;
+import org.junit.Test;
 
 public abstract class AbstractAlignRoundRobin extends AbstractPreRoundRobin
 {
 	public abstract String getBaseString();
-
+	@Test
 	public void testSimple()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":LG");
 	}
 
+	@Test
 	public void testMultiple()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":LG,LN,LE");
 	}
 
+	@Test
 	public void testNoCompress()
 	{
 		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":NG],[PRE"

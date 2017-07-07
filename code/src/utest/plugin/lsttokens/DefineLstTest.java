@@ -19,26 +19,28 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import static org.junit.Assert.assertFalse;
 
 public class DefineLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static DefineLst token = new DefineLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

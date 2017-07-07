@@ -19,20 +19,20 @@ package plugin.lsttokens.spell;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
+import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
@@ -46,8 +46,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -307,6 +306,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	// @Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testInvalidInputAllPlus() throws PersistenceLayerException
 	{
 		try
@@ -321,6 +321,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	// @Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testInvalidInputPlusAll() throws PersistenceLayerException
 	{
 		try

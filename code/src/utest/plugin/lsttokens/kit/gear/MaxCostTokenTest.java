@@ -17,13 +17,15 @@
  */
 package plugin.lsttokens.kit.gear;
 
-import org.junit.Test;
-
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import static org.junit.Assert.assertFalse;
 
 public class MaxCostTokenTest extends AbstractKitTokenTestCase<KitGear>
 {

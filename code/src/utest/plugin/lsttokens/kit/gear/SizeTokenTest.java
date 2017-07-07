@@ -19,16 +19,19 @@ package plugin.lsttokens.kit.gear;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.core.SizeAdjustment;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
@@ -55,8 +58,7 @@ public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 		return token;
 	}
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

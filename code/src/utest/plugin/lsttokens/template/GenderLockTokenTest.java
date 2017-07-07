@@ -19,8 +19,6 @@ package plugin.lsttokens.template;
 
 import java.util.Locale;
 
-import org.junit.Test;
-
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,6 +26,8 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -125,7 +125,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		runRoundRobin("Female");
 		LocaleDependentTestCase.after();
 	}
-	
+
 	@Test
 	public void testRoundRobinFemaleI18N() throws PersistenceLayerException
 	{
@@ -141,7 +141,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		runRoundRobin("Neuter");
 		LocaleDependentTestCase.after();
 	}
-	
+
 	@Test
 	public void testRoundRobinNeuterI18N() throws PersistenceLayerException
 	{
@@ -161,7 +161,6 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	{
 		return "Female";
 	}
-
 
 	@Test
 	public void testUnparseNull() throws PersistenceLayerException
@@ -183,6 +182,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

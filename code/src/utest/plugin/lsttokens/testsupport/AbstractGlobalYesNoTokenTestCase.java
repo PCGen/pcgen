@@ -17,10 +17,16 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public abstract class AbstractGlobalYesNoTokenTestCase extends
 		AbstractGlobalTokenTestCase
@@ -129,6 +135,7 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

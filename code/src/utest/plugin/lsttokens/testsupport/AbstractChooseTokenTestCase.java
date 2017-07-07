@@ -19,8 +19,6 @@ package plugin.lsttokens.testsupport;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
@@ -35,6 +33,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.qualifier.pobject.AnyToken;
 import plugin.qualifier.pobject.QualifiedToken;
 
@@ -56,8 +57,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	}
 
 	public abstract Class<TC> getTargetClass();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -1459,6 +1459,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	protected abstract String getChoiceTitle();
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

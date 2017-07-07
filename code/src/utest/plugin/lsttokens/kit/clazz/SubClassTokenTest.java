@@ -19,8 +19,6 @@ package plugin.lsttokens.kit.clazz;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
@@ -28,7 +26,12 @@ import pcgen.core.kit.KitClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import static org.junit.Assert.assertTrue;
 
 public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
@@ -36,8 +39,7 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	static SubclassToken token = new SubclassToken();
 	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitClass.class);
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

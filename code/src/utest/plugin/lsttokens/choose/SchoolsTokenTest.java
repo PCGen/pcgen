@@ -19,8 +19,6 @@ package plugin.lsttokens.choose;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.identifier.SpellSchool;
@@ -33,6 +31,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -48,8 +49,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 			new plugin.primitive.pobject.AbilityToken();
 	static CDOMTokenLoader<CDOMObject> loader =
 			new CDOMTokenLoader<>();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -181,12 +181,14 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Override
+	@Test
 	public void testInvalidInputOnlySubToken() throws PersistenceLayerException
 	{
 		// Must ignore due to 5.16 syntax
 	}
 
 	@Override
+	@Test
 	public void testInvalidInputOnlySubTokenPipe()
 		throws PersistenceLayerException
 	{
@@ -200,30 +202,35 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Override
+	@Test
 	public void testUnparseIllegalAllItem() throws PersistenceLayerException
 	{
 		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
+	@Test
 	public void testUnparseIllegalAllType() throws PersistenceLayerException
 	{
 		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
+	@Test
 	public void testUnparseIllegalItemAll() throws PersistenceLayerException
 	{
 		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
+	@Test
 	public void testUnparseIllegalTypeAll() throws PersistenceLayerException
 	{
 		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
+	@Test
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
 		//Ignore since SpellSchool doesn't have a RM

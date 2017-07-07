@@ -18,10 +18,12 @@
 package pcgen.base.util;
 
 
-import static org.junit.Assert.*;
+import pcgen.cdom.base.FormulaFactory;
+
 import org.junit.Test;
 
-import pcgen.cdom.base.FormulaFactory;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class NamedFormulaTest
 {

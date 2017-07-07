@@ -19,7 +19,9 @@ package pcgen.core.system;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * MigrationRuleTest checks the functions of the MigrationRule class.
@@ -43,6 +45,7 @@ public class MigrationRuleTest
 	/**
 	 * Test changeAppliesToVer when only a maxver is specified.
 	 */
+
 	@Test
 	public void testChangeAppliesToVerMaxOnly()
 	{
@@ -58,6 +61,7 @@ public class MigrationRuleTest
 	/**
 	 * Test changeAppliesToVer when a maxver and maxdev is specified.
 	 */
+
 	@Test
 	public void testChangeAppliesToVerMaxDev()
 	{
@@ -74,6 +78,7 @@ public class MigrationRuleTest
 	/**
 	 * Test changeAppliesToVer when a maxver and minver is specified.
 	 */
+
 	@Test
 	public void testChangeAppliesToVerMinMax()
 	{
@@ -91,6 +96,7 @@ public class MigrationRuleTest
 	/**
 	 * Test changeAppliesToVer when a maxver, minver and mindevver are specified.
 	 */
+
 	@Test
 	public void testChangeAppliesToVerMinDevMinMax()
 	{
