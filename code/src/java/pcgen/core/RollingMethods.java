@@ -216,7 +216,7 @@ public final class RollingMethods
         return IntStream.generate(() -> roll(sides - reroll) + reroll)
             .limit(times)
             .sorted()
-            .limit(numToKeep)
+            .skip(times-numToKeep)
             .sum();
     }
 
