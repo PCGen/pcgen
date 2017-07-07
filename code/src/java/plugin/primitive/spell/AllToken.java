@@ -53,17 +53,10 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 	{
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
 				pc.getSpellLevelInfo(spell);
-		for (CDOMList<Spell> spellList : levelInfo.getKeySet())
-		{
-			for (Integer level : levelInfo.getListFor(spellList))
-			{
-				if (allow(pc, level.intValue(), "ANY", spell, null))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
+		return levelInfo.getKeySet()
+		                .stream()
+		                .flatMap(spellList -> levelInfo.getListFor(spellList).stream())
+		                .anyMatch(level -> allow(pc, level.intValue(), "ANY", spell, null));
 	}
 
 	@Override

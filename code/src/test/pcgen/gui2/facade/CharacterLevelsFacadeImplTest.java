@@ -19,6 +19,7 @@ package pcgen.gui2.facade;
 
 
 import java.net.URI;
+import java.util.stream.IntStream;
 
 import pcgen.AbstractJunit4CharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -297,14 +298,10 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		// 4. Scan forward from selected level for first level with points spare 
 		// where the rank is not above max rank for the level and the skill is 
 		// not prohibited
-		for (int i = 0; i < 20; i++)
-		{
-			PCLevelInfo pcLevelInfo = charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(i));
-			if (pcLevelInfo.getClassKeyName().equals(wizardClass.getKeyName()))
-			{
-				pcLevelInfo.setSkillPointsRemaining(0);
-			}
-		}
+		IntStream.range(0, 20)
+		         .mapToObj(i -> charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(i)))
+		         .filter(pcLevelInfo -> pcLevelInfo.getClassKeyName().equals(wizardClass.getKeyName()))
+		         .forEach(pcLevelInfo -> pcLevelInfo.setSkillPointsRemaining(0));
 		assertEquals(
 			"Level for 5 ranks spellcraft",
 			charLvlsFI.getElementAt(8),

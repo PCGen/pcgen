@@ -268,15 +268,9 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		final Ability anAbility)
 	{
 		Collection<CNAbility> cnabilities = pc.getCNAbilities(aCategory, anAbilityType);
-		for (CNAbility cna : cnabilities)
-		{
-			Ability a = cna.getAbility();
-			if (a.getKeyName().equals(anAbility.getKeyName()))
-			{
-				return true;
-			}
-		}
-		return false;
+		return cnabilities.stream()
+		                  .map(CNAbility::getAbility)
+		                  .anyMatch(a -> a.getKeyName().equals(anAbility.getKeyName()));
 	}
 
 	public static CNAbility applyAbility(PlayerCharacter character,
