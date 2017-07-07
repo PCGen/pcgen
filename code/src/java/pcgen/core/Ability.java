@@ -19,6 +19,7 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
@@ -185,10 +186,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 	public List<String> getTypes()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
-		List<String> typeNames = new ArrayList<>();
-		for (Type type : trueTypeList) {
-			typeNames.add(type.toString());
-		}
+		List<String> typeNames = trueTypeList.stream().map(Type::toString).collect(Collectors.toList());
 		return typeNames;
 	}
 
