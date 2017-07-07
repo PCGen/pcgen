@@ -127,7 +127,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e, e.getMessage());
 		}
 	}
 

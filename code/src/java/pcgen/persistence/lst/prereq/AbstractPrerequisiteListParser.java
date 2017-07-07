@@ -25,13 +25,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Abstract PRE parser, provides common parsing for many PRE tokens.
@@ -171,7 +171,7 @@ public abstract class AbstractPrerequisiteListParser
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("'" + elements[0]
+			throw new PersistenceLayerException(nfe, "'" + elements[0]
 				+ "' is not a valid integer");
 		}
 
@@ -352,7 +352,7 @@ public abstract class AbstractPrerequisiteListParser
 								}
 								else
 								{
-									throw new PersistenceLayerException(
+									throw new PersistenceLayerException(nfe,
 										"Prerequisites of kind " + kind
 											+ " do not support 'ANY'");
 								}
