@@ -39,7 +39,7 @@ public class IntegerKey
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<>();
+	private static final CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<>();
 
 	/**
 	 * @deprecated due to EQACCHECK CodeControl
@@ -220,7 +220,7 @@ public class IntegerKey
 	 */
 	private final transient int ordinal;
 
-	private IntegerKey(String name, int def)
+	IntegerKey(String name, int def)
 	{
 		if (name == null)
 		{
