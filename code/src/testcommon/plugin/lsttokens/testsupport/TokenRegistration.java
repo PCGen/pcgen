@@ -46,6 +46,10 @@ public final class TokenRegistration
 	{
 	}
 
+	private TokenRegistration()
+	{
+	}
+
 	public static void register(PrerequisiteParserInterface ppi)
 		throws PersistenceLayerException
 	{
