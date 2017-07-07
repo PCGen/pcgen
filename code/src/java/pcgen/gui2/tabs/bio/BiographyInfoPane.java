@@ -925,14 +925,10 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 			
 			// Add the chosen field to the character
-			for (BiographyField field : availFields)
-			{
-				if (s.equals( LanguageBundle.getString(field.getIl8nKey())))
-				{
-					character.getDescriptionFacade().addCustomBiographyField(field);
-					break;
-				}
-			}
+			availFields.stream()
+			           .filter(field -> s.equals(LanguageBundle.getString(field.getIl8nKey())))
+			           .findFirst()
+			           .ifPresent(field -> character.getDescriptionFacade().addCustomBiographyField(field));
 		}
 
 	}

@@ -414,10 +414,7 @@ public class CampaignSourceEntry implements SourceEntry
 						CoreUtility.split(key.substring(9), ',');
 				String category = abilityKeyList.get(0);
 				abilityKeyList.remove(0);
-				for (String string : abilityKeyList)
-				{
-					catKeyList.add(category + ',' + string);
-				}
+				abilityKeyList.stream().map(string -> category + ',' + string).forEach(catKeyList::add);
 			}
 			else
 			{

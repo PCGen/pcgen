@@ -183,10 +183,10 @@ public class BonusToken extends Token
 					restOfBucket = bucket.substring(7);
 				}
 
-				for (Equipment eq : pc.getEquipmentOfType(restOfBucket, "", 1))
-				{
-					lastValue += eq.bonusTo(pc, aType, aName, true);
-				}
+				lastValue += pc.getEquipmentOfType(restOfBucket, "", 1)
+				               .stream()
+				               .mapToDouble(eq -> eq.bonusTo(pc, aType, aName, true))
+				               .sum();
 			}
 			else
 			{

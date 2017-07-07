@@ -281,13 +281,10 @@ public abstract class AbstractPrerequisiteListParser
 				subreq.setOperand(Integer.toString(min));
 				prereq.addPrerequisite(subreq);
 			}
-			for (Prerequisite element : prereq.getPrerequisites())
-			{
-				if (element.getOperand().equals("-99"))
-				{
-					element.setOperand("1");
-				}
-			}
+			prereq.getPrerequisites()
+			      .stream()
+			      .filter(element -> element.getOperand().equals("-99"))
+			      .forEach(element -> element.setOperand("1"));
 			if (hasKeyOnly && hasKeyValue)
 			{
 				Logging
@@ -463,10 +460,7 @@ public abstract class AbstractPrerequisiteListParser
 			return;
 		}
 		prereq.setCharacterRequired(false);
-	
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			setNoNeedForChar(element);
-		}
+
+		prereq.getPrerequisites().forEach(this::setNoNeedForChar);
 	}
 }

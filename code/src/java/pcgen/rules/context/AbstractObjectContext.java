@@ -194,13 +194,8 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	void commit()
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
-		for (URI uri : edits.preClearSet.getKeySet())
-		{
-			for (ConcretePrereqObject cpo : edits.preClearSet.getListFor(uri))
-			{
-				commit.clearPrerequisiteList(cpo);
-			}
-		}
+		edits.preClearSet.getKeySet()
+		                 .forEach(uri -> edits.preClearSet.getListFor(uri).forEach(commit::clearPrerequisiteList));
 		for (URI uri : edits.globalClearSet.getKeySet())
 		{
 			for (CDOMObject cdo : edits.globalClearSet.getSecondaryKeySet(uri))
@@ -213,43 +208,43 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 		for (URI uri : edits.negativeMap.getKeySet())
 		{
-			for (ConcretePrereqObject cpo : edits.negativeMap
-					.getSecondaryKeySet(uri))
-			{
-				if (cpo instanceof CDOMObject)
-				{
-					CDOMObject cdo = (CDOMObject) cpo;
-					CDOMObject neg = edits.negativeMap.get(uri, cdo);
-					for (ObjectKey<?> ok : neg.getSafeListFor(ListKey.REMOVED_OBJECTKEY))
+			edits.negativeMap
+					.getSecondaryKeySet(uri)
+					.stream()
+					.filter(cpo -> cpo instanceof CDOMObject)
+					.map(cpo -> (CDOMObject) cpo)
+					.forEach(cdo ->
 					{
-						commit.remove(cdo, ok);
-					}
-					for (FactKey<?> ok : neg.getSafeListFor(ListKey.REMOVED_FACTKEY))
-					{
-						commit.remove(cdo, ok);
-					}
-					for (StringKey sk : neg.getSafeListFor(ListKey.REMOVED_STRINGKEY))
-					{
-						commit.remove(cdo, sk);
-					}
-					for (IntegerKey ik : neg.getSafeListFor(ListKey.REMOVED_INTEGERKEY))
-					{
-						commit.remove(cdo, ik);
-					}
-					for (FactSetKey<?> key : neg.getFactSetKeys())
-					{
-						removeFactSetKey(cdo, key, neg);
-					}
-					for (ListKey<?> key : neg.getListKeys())
-					{
-						removeListKey(cdo, key, neg);
-					}
-					for (MapKey<?, ?> key1 : neg.getMapKeys())
-					{
-						removeMapKey(cdo, key1, neg);
-					}
-				}
-			}
+						CDOMObject neg = edits.negativeMap.get(uri, cdo);
+						for (ObjectKey<?> ok : neg.getSafeListFor(ListKey.REMOVED_OBJECTKEY))
+						{
+							commit.remove(cdo, ok);
+						}
+						for (FactKey<?> ok : neg.getSafeListFor(ListKey.REMOVED_FACTKEY))
+						{
+							commit.remove(cdo, ok);
+						}
+						for (StringKey sk : neg.getSafeListFor(ListKey.REMOVED_STRINGKEY))
+						{
+							commit.remove(cdo, sk);
+						}
+						for (IntegerKey ik : neg.getSafeListFor(ListKey.REMOVED_INTEGERKEY))
+						{
+							commit.remove(cdo, ik);
+						}
+						for (FactSetKey<?> key : neg.getFactSetKeys())
+						{
+							removeFactSetKey(cdo, key, neg);
+						}
+						for (ListKey<?> key : neg.getListKeys())
+						{
+							removeListKey(cdo, key, neg);
+						}
+						for (MapKey<?, ?> key1 : neg.getMapKeys())
+						{
+							removeMapKey(cdo, key1, neg);
+						}
+					});
 		}
 		for (URI uri : edits.positiveMap.getKeySet())
 		{
