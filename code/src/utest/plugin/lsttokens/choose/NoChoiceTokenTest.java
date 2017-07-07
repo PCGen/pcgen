@@ -19,13 +19,13 @@ package plugin.lsttokens.choose;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -39,8 +39,7 @@ public class NoChoiceTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	static NoChoiceToken subtoken = new NoChoiceToken();
 	static CDOMTokenLoader<CDOMObject> loader =
 			new CDOMTokenLoader<>();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

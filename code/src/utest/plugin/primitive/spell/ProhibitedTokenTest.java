@@ -25,6 +25,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SpellsToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
@@ -44,8 +47,7 @@ public class ProhibitedTokenTest extends
 	{
 		super("PROHIBITED", "YES");
 	}
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -82,6 +84,7 @@ public class ProhibitedTokenTest extends
 		return token;
 	}
 
+	@Test
 	public void testPrimitiveIllegalNoTarget() throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Maybe");

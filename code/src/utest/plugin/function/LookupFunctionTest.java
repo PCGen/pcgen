@@ -20,9 +20,6 @@ package plugin.function;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.EvaluationManager;
@@ -44,16 +41,21 @@ import pcgen.cdom.format.table.ColumnFormatFactory;
 import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatFactory;
+
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
+
+import static org.junit.Assert.assertEquals;
 
 public class LookupFunctionTest extends AbstractFormulaTestCase
 {
 
 	private SimpleFormatManagerLibrary formatLibrary;
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		formatLibrary = new SimpleFormatManagerLibrary();

@@ -58,16 +58,19 @@ public class PreClassRoundRobin extends AbstractRankedRoundRobin
 		return true;
 	}
 
+	@Test
 	public void testSpellcaster()
 	{
 		runRoundRobin("PRECLASS:1,SPELLCASTER=2");
 	}
 
+	@Test
 	public void testSpellcasterTyped()
 	{
 		runRoundRobin("PRECLASS:1,SPELLCASTER.Arcane=2");
 	}
 
+	@Test
 	public void testNestedInvalid()
 	{
 		try

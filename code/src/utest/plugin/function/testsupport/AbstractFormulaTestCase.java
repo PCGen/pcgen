@@ -19,7 +19,6 @@ package plugin.function.testsupport;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.formatmanager.FormatUtilities;
@@ -52,7 +51,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
-public abstract class AbstractFormulaTestCase extends TestCase
+import junit.framework.TestCase;
+import org.junit.Before;
+
+public abstract class AbstractFormulaTestCase
 {
 
 	protected FormatManager<Number> numberManager = new NumberManager();
@@ -62,11 +64,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected LoadContext context;
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		setup = context.getVariableContext().getFormulaSetup();

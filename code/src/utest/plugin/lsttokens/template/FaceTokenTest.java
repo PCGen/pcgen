@@ -19,8 +19,6 @@ package plugin.lsttokens.template;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
@@ -30,6 +28,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ModifierFactory;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -43,8 +44,7 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 	static ModifierFactory<OrderedPair> m = new SetModifierFactory();
 	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -126,6 +126,7 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		assertFalse(parse(",2,3"));
 		assertNull(primaryProf.getListFor(ListKey.MODIFY));
 	}
+
 	@Test
 	public void testRoundRobinOne() throws PersistenceLayerException
 	{

@@ -20,12 +20,6 @@ package plugin.lsttokens.datacontrol;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.content.UserFunction;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -34,9 +28,15 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class FunctionTokenTest extends TestCase
+import static org.junit.Assert.assertFalse;
+
+public class FunctionTokenTest
 {
 
 	static FunctionToken token = new FunctionToken();
@@ -56,8 +56,7 @@ public class FunctionTokenTest extends TestCase
 		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		if (!classSetUpFired)
