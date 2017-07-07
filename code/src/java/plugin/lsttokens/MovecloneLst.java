@@ -167,15 +167,12 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		WeightedCollection<String> set = new WeightedCollection<>(
 				String.CASE_INSENSITIVE_ORDER);
-		for (Movement m : added)
+		added.stream().filter(m -> m.getMoveRatesFlag() == 2).forEach(m ->
 		{
-			if (m.getMoveRatesFlag() == 2)
-			{
-				StringBuilder sb = new StringBuilder();
-				m.addTokenContents(sb);
-				set.add(sb.toString());
-			}
-		}
+			StringBuilder sb = new StringBuilder();
+			m.addTokenContents(sb);
+			set.add(sb.toString());
+		});
 		if (set.isEmpty())
 		{
 			return null;

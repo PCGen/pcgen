@@ -177,13 +177,6 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public boolean allow(Kit choice, PlayerCharacter pc, boolean allowStack)
 	{
-		for (Kit k : pc.getKitInfo())
-		{
-			if (k.getKeyName().equalsIgnoreCase(choice.getKeyName()))
-			{
-				return false;
-			}
-		}
-		return true;
+		return pc.getKitInfo().stream().noneMatch(k -> k.getKeyName().equalsIgnoreCase(choice.getKeyName()));
 	}
 }

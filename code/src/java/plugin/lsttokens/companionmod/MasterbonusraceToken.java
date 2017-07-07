@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
@@ -83,13 +84,10 @@ public class MasterbonusraceToken extends
 		{
 			return null;
 		}
-		SortedSet<String> set = new TreeSet<>();
+		SortedSet<String> set;
 		Collection<CDOMSingleRef<Race>> added = changes.getAdded();
 
-		for (CDOMSingleRef<Race> ref : added)
-		{
-			set.add(ref.getLSTformat(false));
-		}
+		set = added.stream().map(ref -> ref.getLSTformat(false)).collect(Collectors.toCollection(TreeSet::new));
 		return new String[]{StringUtil.join(set, Constants.PIPE)};
 	}
 
