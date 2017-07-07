@@ -17,16 +17,14 @@
  */
 package plugin.lsttokens.template;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.DrLst;
 import plugin.lsttokens.SabLst;
 import plugin.lsttokens.SrLst;
@@ -45,8 +43,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Override
 	@Before
-	public final void setUp() throws PersistenceLayerException,
-			URISyntaxException
+	public final void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreHDParser());
