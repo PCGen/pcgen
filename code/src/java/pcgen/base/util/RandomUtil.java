@@ -32,7 +32,7 @@ public final class RandomUtil
 {
 
 	/** this is used by the random selection tools */
-	private static final Random RANDOM = new Random(System.currentTimeMillis());
+	private static Random random = new Random(System.currentTimeMillis());
 
 	private RandomUtil()
 	{
@@ -46,7 +46,7 @@ public final class RandomUtil
 	 */
 	public static int getRandomInt()
 	{
-		return RANDOM.nextInt();
+		return random.nextInt();
 	}
 
 	/**
@@ -64,13 +64,23 @@ public final class RandomUtil
 		{
 			return 0;
 		}
-		int rand = RANDOM.nextInt(high);
+		int rand = random.nextInt(high);
 		if (Logging.isDebugMode())
 		{
 			Logging.debugPrint("Generated random number between " //$NON-NLS-1$
 					+ "0 and " + high + ": " + rand); //$NON-NLS-1$//$NON-NLS-2$
 		}
 		return rand;
+	}
+
+	/**
+	 * Set the object used to generate the random numbers
+	 *
+	 * @param rand The random number generator
+	 */
+	public static void setRandomGenerator(Random rand)
+	{
+		random = rand;
 	}
 
 }
