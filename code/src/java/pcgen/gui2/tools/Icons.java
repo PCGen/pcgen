@@ -21,6 +21,7 @@ package pcgen.gui2.tools;
 import java.net.URL;
 import java.util.Map;
 import java.util.WeakHashMap;
+import javafx.scene.image.ImageView;
 
 import javax.swing.ImageIcon;
 
@@ -136,12 +137,14 @@ public enum Icons
 	stock_text_bold("-16.png"),
 	stock_text_italic("-16.png"),
 	stock_text_underline("-16.png");
-	
+
 	/** Path to icons file */
 	private static final String RESOURCE_URL = "/pcgen/resources/images/";
 
 	/** Image cache */
 	private static final Map<Icons, ImageIcon> iconMap = new WeakHashMap<>(Icons.values().length);
+
+	private static final Map<Icons, ImageView> imageViewMap = new WeakHashMap<>(Icons.values().length);
 
 	private final String extension;
 
@@ -180,6 +183,17 @@ public enum Icons
 		{
 			image = createImageIcon(name() + extension);
 			iconMap.put(this, image);
+		}
+		return image;
+	}
+
+	public ImageView getImageView()
+	{
+		ImageView image = imageViewMap.get(this);
+		if (image == null)
+		{
+			image = new ImageView(RESOURCE_URL + name() + extension);
+			imageViewMap.put(this, image);
 		}
 		return image;
 	}
