@@ -22,7 +22,7 @@ Phosphorus											TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.2	WT:
 Quicksilver											TYPE:Goods.Alchemical.Consumable.Reagent							COST:1	WT:0		SOURCEPAGE:p.33
 Realgar											TYPE:Goods.Alchemical.Consumable.Reagent							COST:3	WT:0		SOURCEPAGE:p.33
 Salt												TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.33
-Salpeter											TYPE:Goods.Alchemical.Consumable.Reagent							COST:3	WT:0		SOURCEPAGE:p.33
+Saltpeter											TYPE:Goods.Alchemical.Consumable.Reagent							COST:3	WT:0		SOURCEPAGE:p.33
 Silver											TYPE:Goods.Alchemical.Consumable.Reagent							COST:1	WT:0		SOURCEPAGE:p.33
 Spirit of Wine										TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.33
 Urea												TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.33
