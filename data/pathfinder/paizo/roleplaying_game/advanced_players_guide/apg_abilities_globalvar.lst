@@ -386,6 +386,7 @@ CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Familiar|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Cantrips|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_FamiliarTouchSpells|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex1|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex2|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex4|0
@@ -413,6 +414,7 @@ CATEGORY=Class|Witch.MOD																																																								
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Cantrips=True
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex=True,Witch_CF_Hexes=True
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_FamiliarTouchSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_FamiliarTouchSpells=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell=True
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex1=True
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex2=True
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex4=True
