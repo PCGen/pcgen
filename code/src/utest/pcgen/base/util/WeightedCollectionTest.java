@@ -502,7 +502,7 @@ public class WeightedCollectionTest
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));
-		assertTrue(swc.contains(new String("asting"))); // value semantic
+		assertTrue(swc.contains("asting")); // value semantic
 		assertFalse(swc.contains(s2));
 		assertEquals(1, swc.size());
 		assertTrue(swc.add(s1));
@@ -572,7 +572,7 @@ public class WeightedCollectionTest
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));
-		assertTrue(swc.contains(new String("asting"))); // value semantic
+		assertTrue(swc.contains("asting")); // value semantic
 		assertFalse(swc.contains(s2));
 		assertEquals(1, swc.size());
 		assertTrue(swc.add(s1));
