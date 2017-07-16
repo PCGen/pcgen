@@ -115,12 +115,17 @@ publishing {
     publications {
         ivy(IvyPublication) {
             from components.java
+            configurations {
+                sources {}
+                javadoc {}
+            }
             artifact(sourceJar) {
                 type "sources"
-                conf "runtime"
+                conf "sources"
             }
             artifact(javadocJar) {
                 type "javadoc"
+                conf "javadoc"
             }
             descriptor.withXml {
                 asNode().info[0].appendNode('description', description)
