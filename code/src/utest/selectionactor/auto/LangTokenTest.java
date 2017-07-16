@@ -20,7 +20,6 @@ package selectionactor.auto;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Language;
 
-import org.junit.Test;
 import plugin.lsttokens.auto.LangToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
