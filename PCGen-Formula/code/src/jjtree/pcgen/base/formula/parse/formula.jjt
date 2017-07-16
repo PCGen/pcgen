@@ -292,7 +292,8 @@ void primitiveExpr()
 	{
 		parenExpr()       |
 		numberExpr()      |
-		lookupExpr()
+		lookupExpr()      |
+		quotedString()
 	}
 
 void parenExpr()
@@ -376,7 +377,7 @@ void parenGroup()
 void functionExpr()
 	#void : {}
 	{
-		logicalExpr() | quotedString()
+		logicalExpr()
 	}
 
 void quotedString()

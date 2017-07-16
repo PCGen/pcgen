@@ -1729,7 +1729,7 @@ public class FormulaParserTest extends TestCase
 	}
 
 	@Test
-	public void testQuotedString()
+	public void testFormulaQuotedString()
 	{
 		try
 		{
@@ -1754,4 +1754,16 @@ public class FormulaParserTest extends TestCase
 		}
 	}
 
+	@Test
+	public void testQuotedString()
+	{
+		try
+		{
+			doTest("\"Quoted String with Spaces\"");
+		}
+		catch (ParseException e)
+		{
+			fail("Encountered Unexpected Exception: " + e.getMessage());
+		}
+	}
 }
