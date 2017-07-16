@@ -35,28 +35,22 @@ public class ListSetTest extends TestCase
 
 	private ListSet<Integer> ls, ls2, ls3, ls4;
 
-	private Comparator<Integer> c = new Comparator<Integer>()
+	private Comparator<Integer> c = (arg0, arg1) ->
 	{
-
-        @Override
-		public int compare(Integer arg0, Integer arg1)
+		if (arg0 == arg1)
 		{
-			if (arg0 == arg1)
-			{
-				return 0;
-			}
-			int comp = arg0.compareTo(arg1);
-			if (comp != 0)
-			{
-				return comp;
-			}
-			if (System.identityHashCode(arg0) < System.identityHashCode(arg1))
-			{
-				return -1;
-			}
-			return 1;
+			return 0;
 		}
-
+		int comp = arg0.compareTo(arg1);
+		if (comp != 0)
+		{
+			return comp;
+		}
+		if (System.identityHashCode(arg0) < System.identityHashCode(arg1))
+		{
+			return -1;
+		}
+		return 1;
 	};
 
 	@Override

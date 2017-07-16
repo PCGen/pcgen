@@ -43,15 +43,8 @@ public class FixedStringList extends AbstractList<String> implements RandomAcces
 	 */
 	@SuppressWarnings("PMD.LongVariable")
 	public static final Comparator<FixedStringList> CASE_SENSITIVE_ORDER =
-			new Comparator<FixedStringList>()
-			{
-				@Override
-				public int compare(FixedStringList fsl1, FixedStringList fsl2)
-				{
-					return FixedStringList.compare(fsl1, fsl2,
-						StringUtil.CASE_SENSITIVE_ORDER);
-				}
-			};
+			(fsl1, fsl2) -> compare(fsl1, fsl2,
+				StringUtil.CASE_SENSITIVE_ORDER);
 
 	/**
 	 * Provides a Comparator for FixedStringList objects that will sort the
@@ -60,15 +53,8 @@ public class FixedStringList extends AbstractList<String> implements RandomAcces
 	 */
 	@SuppressWarnings("PMD.LongVariable")
 	public static final Comparator<FixedStringList> CASE_INSENSITIVE_ORDER =
-			new Comparator<FixedStringList>()
-			{
-				@Override
-				public int compare(FixedStringList fsl1, FixedStringList fsl2)
-				{
-					return FixedStringList.compare(fsl1, fsl2,
-						String.CASE_INSENSITIVE_ORDER);
-				}
-			};
+			(fsl1, fsl2) -> compare(fsl1, fsl2,
+				String.CASE_INSENSITIVE_ORDER);
 
 	/**
 	 * The String array underlying the FixedStringList.
