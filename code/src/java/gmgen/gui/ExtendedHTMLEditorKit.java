@@ -46,11 +46,12 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.ImageView;
 import javax.swing.text.html.StyleSheet;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * This class extends HTMLEditorKit so that it can provide other renderer
  * classes instead of the defaults. Most important is the part which renders
  * relative image paths.
- *
  */
 public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
@@ -98,14 +99,14 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
     /**
      * Get the unique string
-     * @param strings
      * @param source
      * @return the unique string
      */
-    private static String[] getUniqueString(int strings, String source) {
-        String[] result = new String[strings];
+    @NotNull
+    private static String[] getUniqueString(String source) {
+        String[] result = new String[2];
 
-        for (int i = 0; i < strings; i++) {
+        for (int i = 0; i < 2; i++) {
             boolean hit;
             String idString;
             int counter = 0;
@@ -185,9 +186,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         ExtendedHTMLDocument htmlDoc = (ExtendedHTMLDocument) pane.getStyledDocument();
         int selStart = pane.getSelectionStart();
         int selEnd = pane.getSelectionEnd();
-        String[] posStrings = getUniqueString(2, pane.getText());
-
-        if (posStrings == null) { return; }
+        String[] posStrings = getUniqueString(pane.getText());
 
         htmlDoc.insertString(selStart, posStrings[0], null);
         htmlDoc.insertString(selEnd + posStrings[0].length(), posStrings[1], null);
