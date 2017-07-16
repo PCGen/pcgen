@@ -948,7 +948,8 @@ public final class PCGVer2Creator
 				for (PCLevelInfoStat stat : statList)
 				{
 					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(
-						stat.toString());
+
+							stat);
 				}
 			}
 
@@ -959,7 +960,8 @@ public final class PCGVer2Creator
 				for (PCLevelInfoStat stat : statList)
 				{
 					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(
-						stat.toString());
+
+							stat);
 				}
 			}
 
@@ -1249,10 +1251,10 @@ public final class PCGVer2Creator
 			buffer.append(eq.getOutputIndex());
 			buffer.append('|');
 			buffer.append(IOConstants.TAG_COST).append(':');
-			buffer.append(eq.getCost(thePC).toString());
+			buffer.append(eq.getCost(thePC));
 			buffer.append('|');
 			buffer.append(IOConstants.TAG_WT).append(':');
-			buffer.append(eq.getWeight(thePC).toString());
+			buffer.append(eq.getWeight(thePC));
 			buffer.append('|');
 			buffer.append(IOConstants.TAG_QUANTITY).append(':');
 			buffer.append(eq.qty());
@@ -2525,7 +2527,7 @@ public final class PCGVer2Creator
 	private void appendMoneyLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_MONEY).append(':');
-		buffer.append(thePC.getGold().toString());
+		buffer.append(thePC.getGold());
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
