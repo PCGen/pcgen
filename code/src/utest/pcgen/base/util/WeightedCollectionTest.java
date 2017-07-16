@@ -25,8 +25,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
-import pcgen.base.lang.StringUtil;
-
 import org.junit.Before;
 import org.junit.Test;
 

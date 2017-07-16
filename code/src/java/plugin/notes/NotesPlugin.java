@@ -26,9 +26,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.PCGFile;

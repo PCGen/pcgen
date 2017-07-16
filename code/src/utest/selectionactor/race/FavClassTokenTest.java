@@ -17,8 +17,6 @@
  */
 package selectionactor.race;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.PCClass;
 import plugin.lsttokens.race.FavclassToken;

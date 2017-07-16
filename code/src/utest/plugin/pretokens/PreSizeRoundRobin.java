@@ -17,9 +17,6 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SizeAdjustment;
 import plugin.lsttokens.testsupport.BuildUtilities;
