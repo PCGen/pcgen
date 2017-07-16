@@ -217,7 +217,7 @@ public class Description extends ConcretePrereqObject
 							if (aPC.hasAssociations(object))
 							{
 								//TODO This is ill defined
-								buf.append(aPC.getAssociationList(object).get(0));
+								buf.append(aPC.getAssociationExportList(object).get(0));
 							}
 						}
 						else
@@ -242,7 +242,7 @@ public class Description extends ConcretePrereqObject
 								ChooseDriver object = (ChooseDriver) obj;
 								if (aPC.hasAssociations(object))
 								{
-									assocList.addAll(aPC.getAssociationList(object));
+									assocList.addAll(aPC.getAssociationExportList(object));
 								}
 							}
 							else
