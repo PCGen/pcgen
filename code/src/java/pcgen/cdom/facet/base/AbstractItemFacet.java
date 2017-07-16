@@ -136,8 +136,8 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	public boolean matches(IDT id, T obj)
 	{
 		T current = get(id);
-		return (obj == null && current == null)
-			|| (obj != null && obj.equals(current));
+		return ((obj == null) && (current == null))
+				|| ((obj != null) && obj.equals(current));
 	}
 
 	/**

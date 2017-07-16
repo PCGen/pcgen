@@ -147,7 +147,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 
 	protected boolean report(UnconstructedValidator validator, String key)
 	{
-		return validator != null && validator.allow(getReferenceClass(), this, key);
+		return (validator != null) && validator.allow(getReferenceClass(), this, key);
 	}
 
 	@Override

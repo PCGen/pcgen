@@ -138,7 +138,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		}
 		displayLocation = srcCat.displayLocation;
 		isAllAbilityTypes = srcCat.isAllAbilityTypes;
-		types = srcCat.types == null ? null : new HashSet<>(srcCat.types);
+		types = (srcCat.types == null) ? null : new HashSet<>(srcCat.types);
 		poolFormula = srcCat.poolFormula;
 		visibility = srcCat.visibility;
 		isEditable = srcCat.isEditable;
@@ -396,7 +396,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 			 * word. - thpr Apr 5 '14
 			 */
 			return (pc == null)
-					|| pc.getTotalAbilityPool(this).floatValue() != 0.0
+					|| (pc.getTotalAbilityPool(this).floatValue() != 0.0)
 					|| pc.hasAbilityInPool(this);
 					//|| pc.hasAbilityVisibleTo(this, v);
 		}
@@ -531,7 +531,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	{
 		final int PRIME = 31;
 		int result = 1;
-		result = PRIME * result + ((keyName == null) ? 0 : keyName.hashCode());
+		result = (PRIME * result) + ((keyName == null) ? 0 : keyName.hashCode());
 		return result;
 	}
 
@@ -708,7 +708,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 			{
 				// Really not constructed...
 				// Wasn't constructed!
-				if (name.charAt(0) != '*' && !report(validator, name))
+				if ((name.charAt(0) != '*') && !report(validator, name))
 				{
 					Logging.errorPrint("Unconstructed Reference: "
 							+ getReferenceDescription() + " " + name);
@@ -763,7 +763,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 
 	private boolean report(UnconstructedValidator validator, String key)
 	{
-		return validator != null
+		return (validator != null)
 				&& validator.allow(getReferenceClass(), this, key);
 	}
 

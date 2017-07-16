@@ -61,8 +61,8 @@ public final class AbilityMigration
 			if (rule.getOldKey().equalsIgnoreCase(abilityKey)
 				&& rule.getOldCategory().equalsIgnoreCase(abilityCategory))
 			{
-				return new CategorisedKey(rule.getNewCategory() == null
-					? abilityCategory : rule.getNewCategory(), rule.getNewKey());
+				return new CategorisedKey((rule.getNewCategory() == null)
+						? abilityCategory : rule.getNewCategory(), rule.getNewKey());
 			}
 		}
 		return new CategorisedKey(abilityCategory, abilityKey);

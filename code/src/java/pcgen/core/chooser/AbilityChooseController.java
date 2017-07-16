@@ -52,7 +52,7 @@ public class AbilityChooseController extends ChooseController<Ability>
 		if (isMultYes())
 		{
 			int availPool = pc.getAvailableAbilityPool(ac).intValue();
-			return availPool == 0 && getCost() == 0 ? 1 : availPool;
+			return ((availPool == 0) && (getCost() == 0)) ? 1 : availPool;
 		}
 		return 1;
 	}
