@@ -98,7 +98,7 @@ public class GenericFormatManagerTest extends TestCase
 
 	public void testGetManagedClass()
 	{
-		assertEquals(Object.class, manager.getManagedClass());
+		assertSame(Object.class, manager.getManagedClass());
 	}
 
 	public void testConvert()
