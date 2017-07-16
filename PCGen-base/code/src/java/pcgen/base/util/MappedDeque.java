@@ -146,7 +146,7 @@ public class MappedDeque
 	/**
 	 * Unwraps the null object, since Deque does not support null values
 	 */
-	private Object unwrap(Object o)
+	private static Object unwrap(Object o)
 	{
 		return (NULL == o) ? null : o;
 	}
@@ -154,7 +154,7 @@ public class MappedDeque
 	/**
 	 * Wraps the null object, since Deque does not support null values
 	 */
-	private Object wrap(Object o)
+	private static Object wrap(Object o)
 	{
 		return (o == null) ? NULL : o;
 	}
