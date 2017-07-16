@@ -46,7 +46,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		 * This case is not handled well by this generic tester, and thus should
 		 * be prohibited in this level of automation... - Tom Parker 2/24/2007
 		 */
-		assertFalse(isTypeLegal() && getJoinCharacter() == '.');
+		assertFalse(isTypeLegal() && (getJoinCharacter() == '.'));
 	}
 
 	@Test

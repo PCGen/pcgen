@@ -63,7 +63,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 		 * This case is not handled well by this generic tester, and thus should
 		 * be prohibited in this level of automation... - Tom Parker 2/24/2007
 		 */
-		assertFalse(isTypeLegal() && getJoinCharacter() == '.');
+		assertFalse(isTypeLegal() && (getJoinCharacter() == '.'));
 	}
 
 	@Test
@@ -103,7 +103,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testInvalidInputJoinedComma() throws PersistenceLayerException
 	{
-		if (!isMaster() && getJoinCharacter() != ',')
+		if (!isMaster() && (getJoinCharacter() != ','))
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
@@ -115,7 +115,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testInvalidInputJoinedPipe() throws PersistenceLayerException
 	{
-		if (!isMaster() && getJoinCharacter() != '|')
+		if (!isMaster() && (getJoinCharacter() != '|'))
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
@@ -134,7 +134,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testInvalidInputJoinedDot() throws PersistenceLayerException
 	{
-		if (!isMaster() && getJoinCharacter() != '.')
+		if (!isMaster() && (getJoinCharacter() != '.'))
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
