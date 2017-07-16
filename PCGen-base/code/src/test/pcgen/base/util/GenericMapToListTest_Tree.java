@@ -111,7 +111,7 @@ public class GenericMapToListTest_Tree extends TestCase
 		assertTrue(l.contains(CONST_B));
 		assertTrue(l.contains(CONST_C));
 		// two of them
-		l.remove(Character.valueOf(CONST_C));
+		l.remove(CONST_C);
 		assertTrue(l.contains(CONST_C));
 		l = dkm.getListFor(Integer.valueOf(2));
 		assertEquals(3, l.size());

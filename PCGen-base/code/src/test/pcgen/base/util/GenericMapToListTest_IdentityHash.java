@@ -109,7 +109,7 @@ public class GenericMapToListTest_IdentityHash extends TestCase
 		assertTrue(l.contains(CONST_B));
 		assertTrue(l.contains(CONST_C));
 		// two of them
-		l.remove(Character.valueOf(CONST_C));
+		l.remove(CONST_C);
 		assertTrue(l.contains(CONST_C));
 		l = dkm.getListFor(CONST_2);
 		assertEquals(3, l.size());
