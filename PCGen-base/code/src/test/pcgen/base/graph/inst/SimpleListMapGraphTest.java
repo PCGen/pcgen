@@ -31,13 +31,13 @@ public class SimpleListMapGraphTest extends
 	@Override
 	protected DefaultHyperEdge<Integer> getLegalHyperEdge(Integer[] gna2)
 	{
-		return new DefaultHyperEdge<Integer>(Arrays.asList(gna2));
+		return new DefaultHyperEdge<>(Arrays.asList(gna2));
 	}
 
 	@Override
 	protected Edge<Integer> getLegalEdge(Integer node1, Integer node2)
 	{
-		return new DefaultGraphEdge<Integer>(node1, node2);
+		return new DefaultGraphEdge<>(node1, node2);
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class SimpleListMapGraphTest extends
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		strategy = new SimpleListMapGraph<Integer, Edge<Integer>>();
+		strategy = new SimpleListMapGraph<>();
 	}
 
 	/**

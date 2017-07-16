@@ -41,7 +41,7 @@ public class EdgeChangeEventTest extends TestCase
 		try
 		{
 			new EdgeChangeEvent<Object, Edge<Object>>(null,
-				new DefaultGraphEdge<Object>(new Object(), new Object()),
+					new DefaultGraphEdge<>(new Object(), new Object()),
 				EdgeChangeEvent.EDGE_ADDED);
 			fail();
 		}
@@ -51,9 +51,10 @@ public class EdgeChangeEventTest extends TestCase
 		}
 		try
 		{
-			new EdgeChangeEvent<Object, Edge<Object>>(
-				new SimpleListMapGraph<Object, Edge<Object>>(), null,
-				EdgeChangeEvent.EDGE_REMOVED);
+			new EdgeChangeEvent<>(
+					new SimpleListMapGraph<>(), null,
+					EdgeChangeEvent.EDGE_REMOVED
+			);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)

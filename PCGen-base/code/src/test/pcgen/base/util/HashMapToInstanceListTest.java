@@ -25,7 +25,7 @@ public class HashMapToInstanceListTest extends HashMapToListTest
 	@Override
 	protected AbstractMapToList<Integer, Character> getMapToList()
 	{
-		return new HashMapToInstanceList<Integer, Character>();
+		return new HashMapToInstanceList<>();
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class CaseInsensitiveMapTest extends TestCase
 	@Before
 	public void setUp()
 	{
-		cim = new CaseInsensitiveMap<Double>();
+		cim = new CaseInsensitiveMap<>();
 	}
 
 	public void populate()

@@ -358,7 +358,7 @@ public abstract class AbstractMapToListTest extends TestCase
 		AbstractMapToList<Integer, Character> dkm = getMapToList();
 		dkm.addAllToListFor(Integer.valueOf(1), null);
 		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
-		dkm.addAllToListFor(Integer.valueOf(1), new ArrayList<Character>());
+		dkm.addAllToListFor(Integer.valueOf(1), new ArrayList<>());
 		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
 	}
 
@@ -366,7 +366,7 @@ public abstract class AbstractMapToListTest extends TestCase
 	public void testAddAll()
 	{
 		AbstractMapToList<Integer, Character> dkm = getMapToList();
-		List<Character> l = new ArrayList<Character>();
+		List<Character> l = new ArrayList<>();
 		l.add(CONST_A);
 		l.add(null);
 		l.add(CONST_A);

@@ -35,7 +35,7 @@ public class OneToOneMapTest extends TestCase
 	@Before
 	public void setUp()
 	{
-		otom = new OneToOneMap<Integer, Double>();
+		otom = new OneToOneMap<>();
 	}
 
 	public void populate()
@@ -172,7 +172,7 @@ public class OneToOneMapTest extends TestCase
 		assertNotNull(s);
 		assertEquals(2, s.size());
 		//copy since we don't know what is returned is modifiable
-		Set<Integer> full = new HashSet<Integer>(s);
+		Set<Integer> full = new HashSet<>(s);
 		//make sure we didn't lose anything
 		assertEquals(2, full.size());
 		assertTrue(full.remove(Integer.valueOf(0)));
@@ -204,7 +204,7 @@ public class OneToOneMapTest extends TestCase
 		assertNotNull(s);
 		assertEquals(2, s.size());
 		//copy since we don't know what is returned is modifiable
-		Set<Double> full = new HashSet<Double>(s);
+		Set<Double> full = new HashSet<>(s);
 		//make sure we didn't lose anything
 		assertEquals(2, full.size());
 		assertTrue(full.remove(Double.valueOf(0)));

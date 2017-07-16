@@ -31,10 +31,10 @@ public class MappedDequeTest extends TestCase
 	private static final Character CONST_E = 'E';
 	private static final Character CONST_F = 'F';
 
-	private TypedKey<Character> KEY1 = new TypedKey<Character>();
-	private TypedKey<Character> KEY2 = new TypedKey<Character>();
-	private TypedKey<String> KEY3 = new TypedKey<String>();
-	private TypedKey<Character> KEY4 = new TypedKey<Character>(CONST_F);
+	private TypedKey<Character> KEY1 = new TypedKey<>();
+	private TypedKey<Character> KEY2 = new TypedKey<>();
+	private TypedKey<String> KEY3 = new TypedKey<>();
+	private TypedKey<Character> KEY4 = new TypedKey<>(CONST_F);
 
 	private MappedDeque deque;
 

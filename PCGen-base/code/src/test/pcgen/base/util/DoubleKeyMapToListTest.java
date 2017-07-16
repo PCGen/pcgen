@@ -48,7 +48,7 @@ public class DoubleKeyMapToListTest extends TestCase
 	@Before
 	public void setUp()
 	{
-		dkm = new DoubleKeyMapToList<Integer, Double, Character>();
+		dkm = new DoubleKeyMapToList<>();
 	}
 
 	public void populate()
@@ -506,7 +506,7 @@ public class DoubleKeyMapToListTest extends TestCase
 	{
 		Integer i1 = Integer.valueOf(1);
 		Double d1 = Double.valueOf(1);
-		List<Character> l = new ArrayList<Character>();
+		List<Character> l = new ArrayList<>();
 		l.add(CONST_A);
 		l.add(null);
 		l.add(CONST_A);
@@ -531,7 +531,7 @@ public class DoubleKeyMapToListTest extends TestCase
 	public void testAddAll()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> copy =
-			new DoubleKeyMapToList<Integer, Double, Character>();
+				new DoubleKeyMapToList<>();
 		try
 		{
 			copy.addAll(null);
