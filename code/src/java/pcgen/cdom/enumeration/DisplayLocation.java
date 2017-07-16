@@ -50,7 +50,7 @@ public final class DisplayLocation implements TypeSafeConstant,
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private DisplayLocation(String name)
 	{
