@@ -579,12 +579,10 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 */
 	private MapToList<K2, V> getMapToListFor(K1 key1)
 	{
-		MapToList<K2, V> localMap = mtmtl.get(key1);
-		if (localMap == null)
-		{
-			localMap = GenericMapToList.getMapToList(secondClass);
-			mtmtl.put(key1, localMap);
-		}
+		MapToList<K2, V> localMap = mtmtl.computeIfAbsent(
+				key1,
+				k -> GenericMapToList.getMapToList(secondClass)
+		);
 		return localMap;
 	}
 

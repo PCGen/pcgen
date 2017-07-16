@@ -180,12 +180,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 */
 	public V put(K1 key1, K2 key2, V value)
 	{
-		Map<K2, V> localMap = map.get(key1);
-		if (localMap == null)
-		{
-			localMap = createLocalMap();
-			map.put(key1, localMap);
-		}
+		Map<K2, V> localMap = map.computeIfAbsent(key1, k -> createLocalMap());
 		return localMap.put(key2, value);
 	}
 
@@ -213,12 +208,8 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	{
 		for (Map.Entry<K1, Map<K2, V>> me : dkm.map.entrySet())
 		{
-			Map<K2, V> localMap = map.get(me.getKey());
-			if (localMap == null)
-			{
-				localMap = createLocalMap();
-				map.put(me.getKey(), localMap);
-			}
+			Map<K2, V> localMap = map.computeIfAbsent(me.getKey(), k -> createLocalMap());
+
 			localMap.putAll(me.getValue());
 		}
 	}
@@ -638,12 +629,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	public Map<K2, V> getReadOnlyMapFor(K1 key1)
 	{
 		cleanup = false;
-		Map<K2, V> localMap = map.get(key1);
-		if (localMap == null)
-		{
-			localMap = createLocalMap();
-			map.put(key1, localMap);
-		}
+		Map<K2, V> localMap = map.computeIfAbsent(key1, k -> createLocalMap());
 		return Collections.unmodifiableMap(localMap);
 	}
 }

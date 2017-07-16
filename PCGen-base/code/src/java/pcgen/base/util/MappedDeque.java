@@ -139,12 +139,7 @@ public class MappedDeque
 	 */
 	private <T> Deque<Object> getDeque(TypedKey<T> key)
 	{
-		Deque<Object> dq = map.get(key);
-		if (dq == null)
-		{
-			dq = new ArrayDeque<>();
-			map.put(key, dq);
-		}
+		Deque<Object> dq = map.computeIfAbsent(key, k -> new ArrayDeque<>());
 		return dq;
 	}
 
