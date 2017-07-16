@@ -1060,7 +1060,7 @@ public class PcgCombatant extends Combatant
 					{
 						List<CharacterSpell> spellList = aPC.getCharacterSpells(pObj, null, spellBookName, level);
 
-						if (spellList.size() >= 1)
+						if (!spellList.isEmpty())
 						{
 							spellBuff.append("<font class='type'>Level " + level + ":</font> ");
 

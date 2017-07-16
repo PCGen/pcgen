@@ -164,7 +164,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 			return availableList.get(0);
 		}
 		// If we are left without a choice, don't show the chooser.
-		if (availableList.size() < 1)
+		if (availableList.isEmpty())
 		{
 			return null;
 		}

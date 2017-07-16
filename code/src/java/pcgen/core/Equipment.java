@@ -5758,7 +5758,7 @@ public final class Equipment extends PObject implements Serializable,
 		final List<Equipment> contents =
                 new ArrayList<>(getContents());
 
-		if (contents.size() > 0)
+		if (!contents.isEmpty())
 		{
 			if (index <= contents.size())
 			{
