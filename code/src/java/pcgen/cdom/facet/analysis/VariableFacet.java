@@ -177,15 +177,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 					.iterator(); mit.hasNext();)
 			{
 				Map<Formula, Set<CDOMObject>> fMap = mit.next();
-				for (Iterator<Set<CDOMObject>> sit = fMap.values().iterator(); sit
-						.hasNext();)
-				{
-					Set<CDOMObject> set = sit.next();
-					if (set.remove(source) && set.isEmpty())
-					{
-						sit.remove();
-					}
-				}
+				fMap.values().removeIf(set -> set.remove(source) && set.isEmpty());
 				if (fMap.isEmpty())
 				{
 					mit.remove();
