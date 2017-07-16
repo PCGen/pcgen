@@ -46,7 +46,7 @@ public class OrderedPairManager implements FormatManager<OrderedPair>
 	@Override
 	public Indirect<OrderedPair> convertIndirect(String s)
 	{
-		return new BasicIndirect<OrderedPair>(this, convert(s));
+		return new BasicIndirect<>(this, convert(s));
 	}
 
 	/**

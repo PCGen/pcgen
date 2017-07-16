@@ -62,9 +62,9 @@ public class KeyMap<V>
 	 */
 	public KeyMap()
 	{
-		forwardMap = new TreeMap<String, V>(String.CASE_INSENSITIVE_ORDER);
-		reverseMap = new IdentityHashMap<V, String>();
-		inputOrder = new IdentityList<V>();
+		forwardMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+		reverseMap = new IdentityHashMap<>();
+		inputOrder = new IdentityList<>();
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class KeyMap<V>
 	 */
 	public Set<String> keySet()
 	{
-		return new LinkedHashSet<String>(forwardMap.keySet());
+		return new LinkedHashSet<>(forwardMap.keySet());
 	}
 
 	/**
@@ -230,7 +230,7 @@ public class KeyMap<V>
 	 */
 	public Collection<V> keySortedValues()
 	{
-		return new ListSet<V>(forwardMap.values());
+		return new ListSet<>(forwardMap.values());
 	}
 
 	/**
@@ -252,7 +252,7 @@ public class KeyMap<V>
 	 */
 	public List<V> insertOrderValues()
 	{
-		return new IdentityList<V>(inputOrder);
+		return new IdentityList<>(inputOrder);
 	}
 
 	/**

@@ -66,7 +66,7 @@ public class HashMapToList<K, V> extends AbstractMapToList<K, V>
 	 */
 	public HashMapToList()
 	{
-		super(new HashMap<K, List<V>>());
+		super(new HashMap<>());
 	}
 
 	/**
@@ -80,6 +80,6 @@ public class HashMapToList<K, V> extends AbstractMapToList<K, V>
 	@Override
 	protected Set<K> getEmptySet()
 	{
-		return new HashSet<K>();
+		return new HashSet<>();
 	}
 }

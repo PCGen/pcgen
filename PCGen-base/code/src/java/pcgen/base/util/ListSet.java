@@ -98,7 +98,7 @@ public class ListSet<T> extends AbstractSet<T>
 	 */
 	public ListSet(int size, Comparator<T> comp)
 	{
-		list = new ArrayList<T>(size);
+		list = new ArrayList<>(size);
 		comparator = comp;
 	}
 
@@ -122,7 +122,7 @@ public class ListSet<T> extends AbstractSet<T>
 	 */
 	public ListSet(Collection<T> otherSet)
 	{
-		list = new ArrayList<T>(otherSet);
+		list = new ArrayList<>(otherSet);
 		comparator = null;
 	}
 

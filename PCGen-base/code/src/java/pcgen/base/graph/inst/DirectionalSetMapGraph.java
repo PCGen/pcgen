@@ -93,7 +93,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		{
 			return null;
 		}
-		List<ET> inwardEdgeList = new LinkedList<ET>();
+		List<ET> inwardEdgeList = new LinkedList<>();
 		for (ET edge : adjacentEdgeList)
 		{
 			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SINK) != 0)
@@ -121,7 +121,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		{
 			return null;
 		}
-		List<ET> outwardEdgeList = new ArrayList<ET>();
+		List<ET> outwardEdgeList = new ArrayList<>();
 		for (ET edge : adjacentEdgeList)
 		{
 			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SOURCE) != 0)

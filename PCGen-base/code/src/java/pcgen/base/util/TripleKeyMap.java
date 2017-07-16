@@ -82,8 +82,10 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	{
 		thirdClass = HashMap.class;
 		map =
-				new DoubleKeyMap<K1, K2, Map<K3, V>>(HashMap.class,
-					HashMap.class);
+				new DoubleKeyMap<>(
+						HashMap.class,
+						HashMap.class
+				);
 	}
 
 	/**
@@ -107,7 +109,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		Class<? extends Map> cl3)
 	{
 		super();
-		map = new DoubleKeyMap<K1, K2, Map<K3, V>>(cl1, cl2);
+		map = new DoubleKeyMap<>(cl1, cl2);
 		thirdClass = Objects.requireNonNull(cl3);
 		/*
 		 * This "useless" call is designed to exercise the code to ensure that
@@ -299,7 +301,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		{
 			return Collections.emptySet();
 		}
-		return new HashSet<K3>(localMap.keySet());
+		return new HashSet<>(localMap.keySet());
 	}
 
 	/**
@@ -362,7 +364,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		 * Note the key and value objects are not cloned, so this is not truly a
 		 * deep clone, but is deep enough to protect the internal structure.
 		 */
-		tkm.map = new DoubleKeyMap<K1, K2, Map<K3, V>>();
+		tkm.map = new DoubleKeyMap<>();
 		for (K1 key1 : map.getKeySet())
 		{
 			for (K2 key2 : map.getSecondaryKeySet(key1))
@@ -399,7 +401,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		{
 			return Collections.emptySet();
 		}
-		return new HashSet<V>(localMap.values());
+		return new HashSet<>(localMap.values());
 	}
 
 	/**

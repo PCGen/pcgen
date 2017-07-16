@@ -46,7 +46,7 @@ public class NumberManager implements FormatManager<Number>
 	@Override
 	public Indirect<Number> convertIndirect(String s)
 	{
-		return new BasicIndirect<Number>(this, convert(s));
+		return new BasicIndirect<>(this, convert(s));
 	}
 
 	/**
