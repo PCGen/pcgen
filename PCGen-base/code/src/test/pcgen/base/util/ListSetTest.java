@@ -80,7 +80,7 @@ public class ListSetTest extends TestCase
 		testSetSize(ls4);
 	}
 
-	public void testSetSize(ListSet<Integer> set)
+	public static void testSetSize(ListSet<Integer> set)
 	{
 		assertTrue(set.isEmpty());
 		assertEquals(0, set.size());
@@ -113,7 +113,7 @@ public class ListSetTest extends TestCase
 		testIdentitySet(ls4);
 	}
 
-	public void testBasicSet(ListSet<Integer> set)
+	public static void testBasicSet(ListSet<Integer> set)
 	{
 		assertTrue(set.isEmpty());
 		assertFalse(set.remove(Integer.valueOf(1)));
@@ -181,7 +181,7 @@ public class ListSetTest extends TestCase
 		assertTrue(set.contains(new Integer(5)));
 	}
 
-	public void testIdentitySet(ListSet<Integer> set)
+	public static void testIdentitySet(ListSet<Integer> set)
 	{
 		assertTrue(set.isEmpty());
 		assertFalse(set.remove(Integer.valueOf(1)));
@@ -262,7 +262,7 @@ public class ListSetTest extends TestCase
 		testIterator(ls4);
 	}
 
-	public void testIterator(ListSet<Integer> set)
+	public static void testIterator(ListSet<Integer> set)
 	{
 		Iterator<Integer> it = set.iterator();
 		assertNotNull(it);
@@ -322,7 +322,7 @@ public class ListSetTest extends TestCase
 		testIteratorRemove(ls4);
 	}
 
-	public void testIteratorRemove(ListSet<Integer> set)
+	public static void testIteratorRemove(ListSet<Integer> set)
 	{
 		Iterator<Integer> it = set.iterator();
 		assertNotNull(it);
