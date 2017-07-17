@@ -349,6 +349,24 @@ allprojects {
     }
 }
 
+dependencyUpdates.resolutionStrategy = {
+  componentSelection { rules ->
+    rules.all { ComponentSelection selection ->
+      if (['atlassian'].any { qualifier ->
+        selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+      }) {
+        selection.reject('unofficial release')
+      }
+      if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
+	selection.reject('older than current')
+      }
+      if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
+	selection.reject('older than current')
+      }
+    }
+  }
+}
+
 apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'
 apply from: 'code/gradle/reporting.gradle'
