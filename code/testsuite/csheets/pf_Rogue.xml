@@ -4152,6 +4152,17 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
+			<name>Age ~ Young</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Armor Prof ~ Light</name>
 			<description></description>
 			<type>ARMORPROFLIGHT.ARMORPROFMEDIUM.ARMORPROFHEAVY</type>
