@@ -576,7 +576,7 @@ public class TestHelper
 		while (tok.hasMoreTokens())
 		{
 			String line = tok.nextToken();
-			if (StringUtils.isBlank(line))
+			if (!StringUtils.isBlank(line))
 			{
 				System.out.println("Processing line:'" + line + "'.");
 				reconstClass =
