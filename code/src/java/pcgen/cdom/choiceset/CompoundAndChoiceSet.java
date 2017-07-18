@@ -48,7 +48,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * contains
 	 */
 	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(
-            ChoiceSetUtilities.WRITEABLE_SORTER);
+			ChoiceSetUtilities::compareChoiceSets);
 
 	/**
 	 * Constructs a new CompoundAndChoiceSet which will contain objects
