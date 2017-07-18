@@ -19,7 +19,6 @@ package plugin.function;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -34,6 +33,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
+import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -48,12 +48,14 @@ import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.rules.context.LoadContext;
 
+import junit.framework.TestCase;
+
 public abstract class AbstractFormulaTestCase extends TestCase
 {
 
-	protected FormatManager<Number> numberManager =
+	FormatManager<Number> numberManager =
 			FormatUtilities.NUMBER_MANAGER;
-	protected FormatManager<String> stringManager =
+	FormatManager<String> stringManager =
 			FormatUtilities.STRING_MANAGER;
 
 	private SplitFormulaSetup setup;
@@ -147,7 +149,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public void isValid(String formula, SimpleNode node,
 		FormatManager<?> formatManager, Class<?> assertedFormat)
 	{
-		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaParserVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(
 			localSetup.getFormulaManager(), getGlobalScope(), assertedFormat);
 		semanticsVisitor.visit(node, semantics);
@@ -158,9 +160,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		}
 	}
 
-	protected FormulaSemantics generateFormulaSemantics(
-		FormulaManager formulaManager, LegalScope globalScope,
-		Class<?> assertedFormat)
+	FormulaSemantics generateFormulaSemantics(
+			FormulaManager formulaManager, LegalScope globalScope,
+			Class<?> assertedFormat)
 	{
 		return new FormulaSemantics()
 			.getWith(FormulaSemantics.FMANAGER, formulaManager)
@@ -168,27 +170,27 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 	}
 
-	public void isStatic(String formula, SimpleNode node, boolean b)
+	void isStatic(String formula, SimpleNode node)
 	{
 		StaticVisitor staticVisitor =
 				new StaticVisitor(localSetup.getFormulaManager().get(FormulaManager.FUNCTION));
 		boolean isStat =
-				((Boolean) staticVisitor.visit(node, null)).booleanValue();
-		if (isStat != b)
+				(Boolean) staticVisitor.visit(node, null);
+		if (isStat)
 		{
-			TestCase.fail("Expected Static (" + b + ") Formula: " + formula);
+			TestCase.fail("Expected Static (" + false + ") Formula: " + formula);
 		}
 	}
 
-	public void evaluatesTo(String formula, SimpleNode node, Object valueOf,
-		LoadContext context)
+	void evaluatesTo(String formula, SimpleNode node, Object valueOf,
+	                 LoadContext context)
 	{
 		EvaluationManager manager = generateManager(context);
 		performEvaluation(formula, node, valueOf, manager);
 	}
 
-	public void performEvaluation(String formula, SimpleNode node,
-		Object valueOf, EvaluationManager manager)
+	private void performEvaluation(String formula, SimpleNode node,
+	                               Object valueOf, EvaluationManager manager)
 	{
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (result.equals(valueOf))
@@ -218,7 +220,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			+ result.getClass().getSimpleName() + ")");
 	}
 
-	public EvaluationManager generateManager(LoadContext context)
+	private EvaluationManager generateManager(LoadContext context)
 	{
 		return new EvaluationManager()
 			.getWith(EvaluationManager.FMANAGER, localSetup.getFormulaManager())
@@ -227,12 +229,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			.getWith(ManagerKey.CONTEXT, context);
 	}
 
-	protected void isNotValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
+	void isNotValid(String formula, SimpleNode node)
 	{
-		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaParserVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(
-			localSetup.getFormulaManager(), getGlobalScope(), assertedFormat);
+			localSetup.getFormulaManager(), getGlobalScope(), null);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
 		{
@@ -244,19 +245,19 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected List<VariableID<?>> getVariables(SimpleNode node)
 	{
 		DependencyManager fdm = generateDependencyManager(getFormulaManager(),
-			getGlobalScopeInst(), null);
+			getGlobalScopeInst()
+		);
 		new DependencyVisitor().visit(node, fdm);
 		return fdm.getVariables();
 	}
 
 	private DependencyManager generateDependencyManager(
-		FormulaManager formulaManager, ScopeInstance globalScopeInst,
-		Class<?> assertedFormat)
+			FormulaManager formulaManager, ScopeInstance globalScopeInst)
 	{
 		return new DependencyManager()
 			.getWith(DependencyManager.FMANAGER, formulaManager)
 			.getWith(DependencyManager.INSTANCE, globalScopeInst)
-			.getWith(DependencyManager.ASSERTED, assertedFormat);
+			.getWith(DependencyManager.ASSERTED, null);
 	}
 
 	protected VariableID<Number> getVariable(String formula)
@@ -278,48 +279,48 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			.getVariableID(localSetup.getGlobalScopeInst(), formula);
 	}
 
-	protected FunctionLibrary getFunctionLibrary()
+	FunctionLibrary getFunctionLibrary()
 	{
 		return localSetup.getFormulaManager().get(FormulaManager.FUNCTION);
 	}
 
-	protected OperatorLibrary getOperatorLibrary()
+	OperatorLibrary getOperatorLibrary()
 	{
 		return localSetup.getFormulaManager().getOperatorLibrary();
 	}
 
-	protected VariableLibrary getVariableLibrary()
+	VariableLibrary getVariableLibrary()
 	{
 		return localSetup.getFormulaManager().getFactory();
 	}
 
-	protected WriteableVariableStore getVariableStore()
+	WriteableVariableStore getVariableStore()
 	{
 		return (WriteableVariableStore) localSetup.getFormulaManager()
 			.getResolver();
 	}
 
-	protected LegalScope getGlobalScope()
+	LegalScope getGlobalScope()
 	{
 		return localSetup.getGlobalScopeInst().getLegalScope();
 	}
 
-	protected ScopeInstance getGlobalScopeInst()
+	private ScopeInstance getGlobalScopeInst()
 	{
 		return localSetup.getGlobalScopeInst();
 	}
 
-	protected FormulaManager getFormulaManager()
+	FormulaManager getFormulaManager()
 	{
 		return localSetup.getFormulaManager();
 	}
 
-	protected LegalScopeLibrary getScopeLibrary()
+	LegalScopeLibrary getScopeLibrary()
 	{
 		return setup.getLegalScopeLibrary();
 	}
 
-	protected ScopeInstanceFactory getInstanceFactory()
+	ScopeInstanceFactory getInstanceFactory()
 	{
 		return localSetup.getInstanceFactory();
 	}

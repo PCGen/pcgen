@@ -19,7 +19,6 @@ package plugin.function.testsupport;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.formatmanager.FormatUtilities;
@@ -52,6 +51,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
+import junit.framework.TestCase;
+
 public abstract class AbstractFormulaTestCase extends TestCase
 {
 
@@ -75,13 +76,13 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		localSetup = new IndividualSetup(setup, "Global", new MonitorableVariableStore());
 	}
 
-	public void isValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
+	public void isValid(String formula, SimpleNode node)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
 				managerFactory.generateFormulaSemantics(localSetup.getFormulaManager(),
-					getGlobalScope(), assertedFormat);
+					getGlobalScope(), null
+				);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
 		{
@@ -90,18 +91,18 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		}
 	}
 
-	public void isStatic(String formula, SimpleNode node, boolean b)
+	protected void isStatic(String formula, SimpleNode node)
 	{
 		StaticVisitor staticVisitor =
 				new StaticVisitor(localSetup.getFormulaManager().get(FormulaManager.FUNCTION));
 		boolean isStat = ((Boolean) staticVisitor.visit(node, null)).booleanValue();
-		if (isStat != b)
+		if (isStat != false)
 		{
-			TestCase.fail("Expected Static (" + b + ") Formula: " + formula);
+			TestCase.fail("Expected Static (" + false + ") Formula: " + formula);
 		}
 	}
 
-	public void evaluatesTo(String formula, SimpleNode node, Object valueOf)
+	protected void evaluatesTo(String formula, SimpleNode node, Object valueOf)
 	{
 		EvaluationManager manager = generateManager();
 		Object result = new EvaluateVisitor().visit(node, manager);
@@ -120,8 +121,10 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		//Give Doubles a bit of fuzz
 		else if (valueOf instanceof Double)
 		{
-			if (TestUtilities.doubleEqual(((Double) valueOf).doubleValue(),
-				((Number) result).doubleValue(), TestUtilities.SMALL_ERROR))
+			if (TestUtilities.doubleEqual(
+					(Double) valueOf,
+					((Number) result).doubleValue()
+			))
 			{
 				return;
 			}
@@ -131,13 +134,13 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			+ result.getClass().getSimpleName() + ")");
 	}
 
-	protected void isNotValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
+	protected void isNotValid(String formula, SimpleNode node)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
 				managerFactory.generateFormulaSemantics(localSetup.getFormulaManager(),
-					getGlobalScope(), assertedFormat);
+					getGlobalScope(), null
+				);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
 		{
@@ -220,7 +223,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		return localSetup.getInstanceFactory();
 	}
 
-	public EvaluationManager generateManager()
+	protected EvaluationManager generateManager()
 	{
 		EvaluationManager em = managerFactory
 			.generateEvaluationManager(localSetup.getFormulaManager(), Number.class);

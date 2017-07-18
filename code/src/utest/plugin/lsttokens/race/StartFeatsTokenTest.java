@@ -19,9 +19,6 @@ package plugin.lsttokens.race;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
@@ -31,6 +28,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -158,7 +158,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	@Test
 	public void testUnparseOne() throws PersistenceLayerException
 	{
-		expectSingle(setAndUnparse(1), Integer.toString(1));
+		expectSingle(setAndUnparse(), Integer.toString(1));
 	}
 
 	// TODO Probably want to implement these? But needs deprecation warning
@@ -191,9 +191,9 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 		}
 	}
 
-	protected String[] setAndUnparse(int val) throws PersistenceLayerException
+	protected String[] setAndUnparse() throws PersistenceLayerException
 	{
-		primaryProf.addToListFor(ListKey.BONUS, getBonus(val));
+		primaryProf.addToListFor(ListKey.BONUS, getBonus(1));
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 
