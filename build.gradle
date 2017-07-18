@@ -277,7 +277,7 @@ test {
     exclude 'pcgen/testsupport/**'
 }
 
-task itest(type: Test, dependsOn: [jar, 'buildNsis']) {
+task itest(type: Test, dependsOn: [jar]) {
     testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
