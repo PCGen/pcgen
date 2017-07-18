@@ -49,7 +49,7 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private SubClassCategory(String name)
 	{

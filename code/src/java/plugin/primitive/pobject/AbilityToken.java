@@ -155,7 +155,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 	@Override
 	public int hashCode()
 	{
-		return ref == null ? -57 : ref.hashCode();
+		return (ref == null) ? -57 : ref.hashCode();
 	}
 
 	@Override

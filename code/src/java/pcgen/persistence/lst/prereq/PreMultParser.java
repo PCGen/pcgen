@@ -1,5 +1,4 @@
 /*
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,22 +14,16 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package pcgen.persistence.lst.prereq;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class PreMultParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
@@ -51,7 +44,7 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		prereq.setKind(null);
 		prereq.setCharacterRequired(false);
 
-		int commaIndex = formula.indexOf(",");
+		int commaIndex = formula.indexOf(',');
 
 		if (commaIndex > 0)
 		{

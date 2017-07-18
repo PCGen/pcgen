@@ -293,7 +293,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	public boolean isEmpty(IDT id)
 	{
 		Collection<T> componentSet = getCachedSet(id);
-		return componentSet == null || componentSet.isEmpty();
+		return (componentSet == null) || componentSet.isEmpty();
 	}
 
 	/**
@@ -318,7 +318,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		 * TODO obj == null? - log an error?
 		 */
 		Collection<T> componentSet = getCachedSet(id);
-		return componentSet != null && componentSet.contains(obj);
+		return (componentSet != null) && componentSet.contains(obj);
 	}
 
 	/**
@@ -473,7 +473,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	public boolean replace(IDT id, T old, T replacement)
 	{
 		Collection<T> componentSet = getCachedSet(id);
-		if (componentSet == null || !componentSet.contains(old))
+		if ((componentSet == null) || !componentSet.contains(old))
 		{
 			return false;
 		}
@@ -527,7 +527,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	public void addAfter(IDT id, T trigger, T added)
 	{
 		Collection<T> componentSet = getCachedSet(id);
-		if (componentSet != null && componentSet.contains(trigger))
+		if ((componentSet != null) && componentSet.contains(trigger))
 		{
 			Collection<T> replaceSet = getComponentSet();
 			for (T obj : componentSet)

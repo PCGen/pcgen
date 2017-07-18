@@ -25,7 +25,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -948,7 +947,8 @@ public final class PCGVer2Creator
 				for (PCLevelInfoStat stat : statList)
 				{
 					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(
-						stat.toString());
+
+							stat);
 				}
 			}
 
@@ -959,7 +959,8 @@ public final class PCGVer2Creator
 				for (PCLevelInfoStat stat : statList)
 				{
 					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(
-						stat.toString());
+
+							stat);
 				}
 			}
 
@@ -1249,10 +1250,10 @@ public final class PCGVer2Creator
 			buffer.append(eq.getOutputIndex());
 			buffer.append('|');
 			buffer.append(IOConstants.TAG_COST).append(':');
-			buffer.append(eq.getCost(thePC).toString());
+			buffer.append(eq.getCost(thePC));
 			buffer.append('|');
 			buffer.append(IOConstants.TAG_WT).append(':');
-			buffer.append(eq.getWeight(thePC).toString());
+			buffer.append(eq.getWeight(thePC));
 			buffer.append('|');
 			buffer.append(IOConstants.TAG_QUANTITY).append(':');
 			buffer.append(eq.qty());
@@ -1368,14 +1369,7 @@ public final class PCGVer2Creator
 
 		Collection<CNAbilitySelection> virtSave = thePC.getSaveAbilities();
 		
-		categories.sort(new Comparator<AbilityCategory>()
-        {
-            @Override
-            public int compare(AbilityCategory a, AbilityCategory b)
-            {
-                return a.getKeyName().compareTo(b.getKeyName());
-            }
-        });
+		categories.sort((a, b) -> a.getKeyName().compareTo(b.getKeyName()));
 		
 		for (final AbilityCategory cat : categories)
 		{
@@ -2275,20 +2269,19 @@ public final class PCGVer2Creator
 	{
 		final List<String> trackList = new ArrayList<>();
 		TreeSet<Map.Entry<BonusObj, BonusManager.TempBonusInfo>> sortedbonus = new TreeSet<>(
-                new Comparator<Map.Entry<BonusObj, BonusManager.TempBonusInfo>>() {
-                    @Override
-                    public int compare(Map.Entry<BonusObj, BonusManager.TempBonusInfo> a, Map.Entry<BonusObj, BonusManager.TempBonusInfo> b) {
-                        BonusObj keyA = a.getKey();
-                        BonusObj keyB = b.getKey();
-                        if (!keyA.getBonusName().equals(keyB.getBonusName())) {
-                            return keyA.getBonusName().compareTo(keyB.getBonusName());
-                        }
-                        if (!keyA.getBonusInfo().equals(keyB.getBonusInfo())) {
-                            return keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
-                        }
-                        return keyA.getPCCText().compareTo(keyB.getPCCText());
-                    }
-                });
+
+				(a, b) ->
+				{
+				    BonusObj keyA = a.getKey();
+				    BonusObj keyB = b.getKey();
+				    if (!keyA.getBonusName().equals(keyB.getBonusName())) {
+				        return keyA.getBonusName().compareTo(keyB.getBonusName());
+				    }
+				    if (!keyA.getBonusInfo().equals(keyB.getBonusInfo())) {
+				        return keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
+				    }
+				    return keyA.getPCCText().compareTo(keyB.getPCCText());
+				});
 		sortedbonus.addAll(thePC.getTempBonusMap().entrySet());
 		
 		//for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())
@@ -2533,7 +2526,7 @@ public final class PCGVer2Creator
 	private void appendMoneyLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_MONEY).append(':');
-		buffer.append(thePC.getGold().toString());
+		buffer.append(thePC.getGold());
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

@@ -50,7 +50,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		assertEquals("Category specified for single key",
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 		prereq = parser.parse("ability", "2,CATEGORY=Mutation,Foo,Bar", false, false);
 		assertEquals("Category specified for multiple keys",
@@ -58,13 +58,13 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Foo\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
 				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Bar\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 		prereq = parser.parse("ability", "1,CATEGORY.ANY,Sneak Attack", false, false);
 		assertEquals("Category of ANY specified for single key",
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 			+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-			+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 		prereq = parser.parse("ability", "1,CATEGORY.ANY,Foo,Bar", false, false);
 		assertEquals("Category specified for multiple key",
@@ -73,7 +73,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 			+ "</prereq>\n" 
 			+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Bar\" operator=\"GTEQ\" operand=\"1\" >\n"
 			+ "</prereq>\n" 
-			+ "</prereq>\n" + "", prereq.toString());
+			+ "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		Prerequisite prereq = parser.parse("ability", "1,Sneak Attack", false, false);
 		assertEquals("Category not specified for single key",
 			"<prereq kind=\"ability\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		Prerequisite prereq = parser.parse("ability", "1,CATEGORY.Mutation", false, false);
 		assertEquals("Category specified for no key",
 				"<prereq kind=\"ability\" category=\"Mutation\" key=\"ANY\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n", prereq.toString());
 	}
 	
 	/**

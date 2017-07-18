@@ -79,7 +79,6 @@
   </rule>
   <rule ref="rulesets/java/imports.xml">
     <exclude name="UnnecessaryFullyQualifiedName" />
-    <exclude name="UnusedImports" />
     <exclude name="TooManyStaticImports" />
     <exclude name="ImportFromSamePackage" />
   </rule>
@@ -142,7 +141,6 @@
   <!--<rule ref="rulesets/java/sunsecure.xml">-->
   <rule ref="rulesets/java/typeresolution.xml">
     <exclude name="LooseCoupling" />
-    <exclude name="UnusedImports" />
     <exclude name="SignatureDeclareThrowsException" />
   </rule>
   <rule ref="rulesets/java/unnecessary.xml">

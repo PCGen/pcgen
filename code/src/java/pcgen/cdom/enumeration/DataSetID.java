@@ -39,7 +39,7 @@ public final class DataSetID implements TypeSafeConstant, PCGenIdentifier
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	/**
 	 * A view of the cache for this DataSetID. Generally useful for debuggers,

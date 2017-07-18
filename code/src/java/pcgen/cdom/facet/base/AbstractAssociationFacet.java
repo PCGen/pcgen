@@ -241,7 +241,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	public boolean isEmpty(IDT id)
 	{
 		Map<S, A> componentMap = getCachedMap(id);
-		return componentMap == null || componentMap.isEmpty();
+		return (componentMap == null) || componentMap.isEmpty();
 	}
 
 	/**
@@ -262,7 +262,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	public boolean contains(IDT id, S obj)
 	{
 		Map<S, A> componentMap = getCachedMap(id);
-		return componentMap != null && componentMap.containsKey(obj);
+		return (componentMap != null) && componentMap.containsKey(obj);
 	}
 
 	/**

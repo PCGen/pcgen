@@ -258,7 +258,7 @@ public class AbilityRefChoiceSet implements
 				availableList.retainAll(set);
 			}
 		}
-		else if (nameRoot != null && !nameRoot.isEmpty())
+		else if ((nameRoot != null) && !nameRoot.isEmpty())
 		{
 			for (int n = availableList.size() - 1; n >= 0; --n)
 			{

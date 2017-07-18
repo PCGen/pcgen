@@ -1,12 +1,12 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Equipment Name			Type				Cost		Weight	Source Page		Special Property
-Death's Head Talisman (10 HD)	TYPE:Magic.SLOT_Amulet	COST:1000	WT:0		SOURCEPAGE:p.11	SPROP:CL = 5th
-Death's Head Talisman (14 HD)	TYPE:Magic.SLOT_Amulet	COST:1400	WT:0		SOURCEPAGE:p.11	SPROP:CL = 7th
-Death's Head Talisman (18 HD)	TYPE:Magic.SLOT_Amulet	COST:1800	WT:0		SOURCEPAGE:p.11	SPROP:CL = 9th
-Death's Head Talisman (24 HD)	TYPE:Magic.SLOT_Amulet	COST:2400	WT:0		SOURCEPAGE:p.11	SPROP:CL = 12th
+Death's Head Talisman (10 HD)	TYPE:Magic.SLOT_Amulet.Amulet.Wondrous	COST:1000	WT:0		SOURCEPAGE:p.11	SPROP:Command up to 10 HD of undead skeletons and zombies keyed to the amulet on their creation
+Death's Head Talisman (14 HD)	TYPE:Magic.SLOT_Amulet.Amulet.Wondrous	COST:1400	WT:0		SOURCEPAGE:p.11	SPROP:Command up to 14 HD of undead skeletons and zombies keyed to the amulet on their creation
+Death's Head Talisman (18 HD)	TYPE:Magic.SLOT_Amulet.Amulet.Wondrous	COST:1800	WT:0		SOURCEPAGE:p.11	SPROP:Command up to 18 HD of undead skeletons and zombies keyed to the amulet on their creation
+Death's Head Talisman (24 HD)	TYPE:Magic.SLOT_Amulet.Amulet.Wondrous	COST:2400	WT:0		SOURCEPAGE:p.11	SPROP:Command up to 24 HD of undead skeletons and zombies keyed to the amulet on their creation
 
-Halflight Charm			TYPE:Magic			COST:2500	WT:0		SOURCEPAGE:p.50	SPROP:CL = 3rd
+Halflight Charm			TYPE:Magic.SLOT_Amulet.Amulet.Wondrous			COST:2500	WT:0		SOURCEPAGE:p.50	SPROP:Releases light equivalent to a torch, 1/Day contact 3 closest Halflight members within 1 mile giving them your location
 
 ###Block: Bloatmage Initiate feat support
 # Equipment Name	Cost		Weight	Source Page		Bonus Equip Mods

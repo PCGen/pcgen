@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -114,10 +113,9 @@ public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> im
 		Map<StatLock, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<StatLock, Set<Object>>> it = componentMap
-					.entrySet().iterator(); it.hasNext();)
+			for (Entry<StatLock, Set<Object>> me : componentMap
+					.entrySet())
 			{
-				Entry<StatLock, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				StatLock lock = me.getKey();
 				if (lock.getLockedStat().equals(stat))
@@ -126,7 +124,7 @@ public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> im
 					{
 						String sourceString =
 								(source instanceof CDOMObject) ? ((CDOMObject) source)
-									.getQualifiedKey() : "";
+										.getQualifiedKey() : "";
 						Number val = formulaResolvingFacet.resolve(id, lock
 								.getLockValue(), sourceString);
 						if (val.doubleValue() > max.doubleValue())

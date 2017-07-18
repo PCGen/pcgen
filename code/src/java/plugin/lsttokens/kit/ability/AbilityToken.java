@@ -140,7 +140,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 	{
 		Collection<CDOMReference<Ability>> references =
 			kitAbil.getAbilityKeys();
-		if (references == null || references.isEmpty())
+		if ((references == null) || references.isEmpty())
 		{
 			return null;
 		}
