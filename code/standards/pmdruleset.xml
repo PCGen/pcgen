@@ -85,6 +85,9 @@
     <exclude name="UseAssertSameInsteadOfAssertTrue" />
     <exclude name="UseAssertEqualsInsteadOfAssertTrue" />
     <exclude name="JUnitSpelling" />
+    <exclude name="JUnitAssertionsShouldIncludeMessage" />
+    <exclude name="JUnitTestsShouldIncludeAssert" />
+    <exclude name="TestClassWithoutTestCases" />
   </rule>
   <!--<rule ref="rulesets/java/jakarta.xml" />-->
   <rule ref="rulesets/java/logging-jakarta-commons.xml" />
