@@ -331,42 +331,42 @@ public class PcgCombatant extends Combatant
 			{
 				// Initative bonus
 				Integer intData = Integer.valueOf(strData);
-				init.setBonus(intData.intValue());
+				init.setBonus(intData);
 				break;
 			}
 			case "Init":
 			{
 				// Initative
 				Integer intData = Integer.valueOf(strData);
-				init.setCurrentInitiative(intData.intValue());
+				init.setCurrentInitiative(intData);
 				break;
 			}
 			case "#":
 			{
 				// Number (for tokens)
 				Integer intData = Integer.valueOf(strData);
-				setNumber(intData.intValue());
+				setNumber(intData);
 				break;
 			}
 			case "HP":
 			{
 				// Current Hit Points
 				Integer intData = Integer.valueOf(strData);
-				hitPoints.setCurrent(intData.intValue());
+				hitPoints.setCurrent(intData);
 				break;
 			}
 			case "HP Max":
 			{
 				// Maximum Hit Points
 				Integer intData = Integer.valueOf(strData);
-				hitPoints.setMax(intData.intValue());
+				hitPoints.setMax(intData);
 				break;
 			}
 			case "Dur":
 			{
 				// Duration
 				Integer intData = Integer.valueOf(strData);
-				setDuration(intData.intValue());
+				setDuration(intData);
 				break;
 			}
 			case "Type":
@@ -815,13 +815,13 @@ public class PcgCombatant extends Combatant
 				CDOMSingleRef<PCStat> keyStat = skill.get(ObjectKey.KEY_STAT);
 				if (keyStat != null)
 				{
-					int modSkill = SkillModifier.modifier(skill, pc).intValue()
+					int modSkill = SkillModifier.modifier(skill, pc)
 							- pc.getStatModFor(keyStat.get());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 
 				int temp =
-						SkillModifier.modifier(skill, pc).intValue()
+						SkillModifier.modifier(skill, pc)
 							+ SkillRankControl.getTotalRank(pc, skill).intValue();
 
 				statBuf.append("<a href='skill:");
