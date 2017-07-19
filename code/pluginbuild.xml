@@ -7397,6 +7397,13 @@ jar-all-plugins - Generate the plugin jar files
 	
 	<target name="jar-function-plugins" depends="makeplugindirs" description="Build (Link) Custom Function jar files">
 		<!-- PCGen custom functions -->
+		<jar jarfile="${lstplugins.dir}/Function-GETFACT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/function/GetFactFunction.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/Function-INPUT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
