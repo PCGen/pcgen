@@ -61,9 +61,6 @@ public class FactDefinition<T extends CDOMObject, F> extends
 		getFactKey();
 	}
 
-	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateOutput(DataSetID)
-	 */
 	@Override
 	protected void activateOutput(DataSetID dsID)
  	{
@@ -79,9 +76,6 @@ public class FactDefinition<T extends CDOMObject, F> extends
 		}
 	}
 
-	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateTokens(pcgen.rules.context.LoadContext)
-	 */
 	@Override
 	protected void activateTokens(LoadContext context)
 	{
@@ -119,22 +113,23 @@ public class FactDefinition<T extends CDOMObject, F> extends
 		factName = name;
 	}
 
-	/**
-	 * @see pcgen.cdom.content.fact.FactInfo#getFactName()
-	 */
 	@Override
 	public String getFactName()
 	{
 		return factName;
 	}
 
-	/**
-	 * @see pcgen.cdom.content.fact.FactInfo#getFactKey()
-	 */
 	@Override
 	public FactKey<F> getFactKey()
 	{
 		return FactKey.getConstant(getFactName(), getFormatManager());
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "Fact Definition: " + getUsableLocation().getSimpleName() + ":" + factName
+			+ " (" + getFormatManager().getIdentifierType() + ")";
 	}
 
 }
