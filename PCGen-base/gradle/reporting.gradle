@@ -13,6 +13,7 @@ apply plugin: 'pmd'
 apply plugin: 'jdepend'
 
 checkstyle {
+    toolVersion "7.6.1"
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
 	showViolations = false
