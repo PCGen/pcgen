@@ -19,7 +19,7 @@ package pcgen.base.format.dice;
 import junit.framework.TestCase;
 import pcgen.base.format.StringManager;
 
-public class DiceManagerTest extends TestCase
+public class DiceFormatTest extends TestCase
 {
 	private DiceFormat manager = new DiceFormat();
 
