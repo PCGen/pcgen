@@ -90,23 +90,25 @@ public class DiceManagerTest extends TestCase
 
 	public void testConvert()
 	{
+		assertEquals(new Dice(1, new Die(1)), manager.convert("1"));
 		assertEquals(new Dice(1, new Die(1)), manager.convert("1d1"));
 		assertEquals(new Dice(3, new Die(8)), manager.convert("3d8"));
-		assertEquals(new Dice(1, new Die(4)), manager.convert("1d4"));
+		assertEquals(new Dice(1, new Die(4)), manager.convert("d4"));
 	}
 
 	public void testUnconvert()
 	{
-		assertEquals("1d1", manager.unconvert(new Dice(1, new Die(1))));
+		assertEquals("1", manager.unconvert(new Dice(1, new Die(1))));
 		assertEquals("3d6", manager.unconvert(new Dice(3, new Die(6))));
 		assertEquals("1d4", manager.unconvert(new Dice(1, new Die(4))));
 	}
 
 	public void testConvertIndirect()
 	{
+		assertEquals(new Dice(1, new Die(1)), manager.convertIndirect("1").get());
 		assertEquals(new Dice(1, new Die(1)), manager.convertIndirect("1d1").get());
 		assertEquals(new Dice(3, new Die(8)), manager.convertIndirect("3d8").get());
-		assertEquals(new Dice(1, new Die(4)), manager.convertIndirect("1d4").get());
+		assertEquals(new Dice(1, new Die(4)), manager.convertIndirect("d4").get());
 	}
 
 	public void testGetIdentifier()
