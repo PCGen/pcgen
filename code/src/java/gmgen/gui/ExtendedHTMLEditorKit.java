@@ -384,16 +384,16 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         int beginStartTag = position[0];
         int endStartTag = position[1];
 
-        if (true) {
+        //if (true) {
             int beginEndTag = position[2];
             int endEndTag = position[3];
             newHtmlString.append(source.substring(0, beginStartTag));
             newHtmlString.append(source.substring(endStartTag, beginEndTag));
             newHtmlString.append(source.substring(endEndTag, source.length()));
-        } else {
-            newHtmlString.append(source.substring(0, beginStartTag));
-            newHtmlString.append(source.substring(endStartTag, source.length()));
-        }
+        //} else {
+        //    newHtmlString.append(source.substring(0, beginStartTag));
+        //    newHtmlString.append(source.substring(endStartTag, source.length()));
+        //}
 
         pane.setText(newHtmlString.toString());
     }
