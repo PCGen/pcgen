@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016-7 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -58,7 +58,6 @@ public class GetFact implements Function
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
-		//Key is allowed to vary in 3 arg version
 		if (args.length == 3)
 		{
 			return (Boolean) args[1].jjtAccept(visitor, null);
