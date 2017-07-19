@@ -31,8 +31,6 @@ import pcgen.util.SortKeyAware;
 /**
  * InfoWrapper is a general purpose container for data in choosers. It wraps 
  * data of any type in an InfoFacade compliant wrapper. 
- * 
- * 
  */
 public class InfoWrapper implements InfoFacade, SortKeyAware
 {

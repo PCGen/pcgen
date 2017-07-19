@@ -17,8 +17,6 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.WeaponProf;
 import plugin.lsttokens.choose.WeaponProficiencyToken;
@@ -29,12 +27,6 @@ public class WeaponProficiencyTokenTest extends
 {
 
 	static WeaponProficiencyToken pca = new WeaponProficiencyToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<WeaponProf> getActor()

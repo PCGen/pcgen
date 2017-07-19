@@ -19,7 +19,6 @@ package pcgen.io.filters;
 
 import pcgen.io.EntityEncoder;
 
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -30,14 +29,6 @@ import static org.junit.Assert.*;
  */
 public class PatternFilterTest
 {
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception
-	{
-	}
 
 	@Test
 	public void testHtmlFilterStringSingleLine() throws Exception

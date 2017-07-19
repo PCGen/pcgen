@@ -17,9 +17,6 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -39,13 +36,6 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 
 	static CDOMPrimaryToken<CDOMObject> token = new AddLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-	}
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

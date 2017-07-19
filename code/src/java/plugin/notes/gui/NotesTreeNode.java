@@ -444,23 +444,25 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			{
 				try
 				{
-					BufferedReader br =
-							new BufferedReader(new FileReader(notes));
-					StringBuilder sb = new StringBuilder();
-					String newLine;
-
-					do 
+					StringBuilder sb;
+					try (BufferedReader br = new BufferedReader(new FileReader(notes)))
 					{
-						newLine = br.readLine();
+						sb = new StringBuilder();
+						String newLine;
 
-						if (newLine != null)
+						do
 						{
-							sb.append(newLine).append(Constants.LINE_SEPARATOR);
-						}
-					}
-					while (newLine != null);
+							newLine = br.readLine();
 
-					br.close();
+							if (newLine != null)
+							{
+								sb.append(newLine).append(Constants.LINE_SEPARATOR);
+							}
+						}
+						while (newLine != null);
+
+						br.close();
+					}
 					pane.setText(sb.toString());
 				}
 				catch (Exception e)
@@ -512,23 +514,25 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			{
 				try
 				{
-					BufferedReader br =
-							new BufferedReader(new FileReader(notes));
-					StringBuilder sb = new StringBuilder();
-					String newLine;
-
-					do
+					StringBuilder sb;
+					try (BufferedReader br = new BufferedReader(new FileReader(notes)))
 					{
-						newLine = br.readLine();
+						sb = new StringBuilder();
+						String newLine;
 
-						if (newLine != null)
+						do
 						{
-							sb.append(newLine).append(Constants.LINE_SEPARATOR);
-						}
-					}
-					while (newLine != null);
+							newLine = br.readLine();
 
-					br.close();
+							if (newLine != null)
+							{
+								sb.append(newLine).append(Constants.LINE_SEPARATOR);
+							}
+						}
+						while (newLine != null);
+
+						br.close();
+					}
 					pane.setText(sb.toString());
 				}
 				catch (Exception e)

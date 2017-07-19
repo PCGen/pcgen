@@ -17,8 +17,6 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.Domain;
 import plugin.lsttokens.choose.DomainToken;
@@ -29,12 +27,6 @@ public class DomainTokenTest extends
 {
 
 	static DomainToken pca = new DomainToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<Domain> getActor()

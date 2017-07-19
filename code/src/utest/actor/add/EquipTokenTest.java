@@ -21,7 +21,6 @@ import pcgen.cdom.base.Persistent;
 import pcgen.core.Equipment;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
 import plugin.lsttokens.add.EquipToken;
 
 public class EquipTokenTest extends
@@ -29,12 +28,6 @@ public class EquipTokenTest extends
 {
 
 	private static final Persistent<Equipment> pca = new EquipToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Persistent<Equipment> getActor()

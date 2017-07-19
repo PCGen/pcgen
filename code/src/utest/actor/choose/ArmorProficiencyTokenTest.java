@@ -17,8 +17,6 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.ArmorProf;
 import plugin.lsttokens.choose.ArmorProficiencyToken;
@@ -29,12 +27,6 @@ public class ArmorProficiencyTokenTest extends
 {
 
 	static ArmorProficiencyToken pca = new ArmorProficiencyToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<ArmorProf> getActor()

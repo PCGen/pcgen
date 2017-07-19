@@ -17,8 +17,6 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.cdom.helper.SpellLevel;
 import pcgen.core.PCClass;
@@ -30,12 +28,6 @@ public class SpellLevelTokenTest extends
 {
 
 	static SpellLevelToken pca = new SpellLevelToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<SpellLevel> getActor()

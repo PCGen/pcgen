@@ -24,9 +24,7 @@
     <exclude name="BigIntegerInstantiation" />
     <exclude name="CollapsibleIfStatements" />
     <exclude name="AvoidBranchingStatementAsLastInLoop" />
-    <exclude name="SimplifiedTernary" />
     <exclude name="OverrideBothEqualsAndHashcode" />
-    <exclude name="UnconditionalIfStatement" />
   </rule>
   <rule ref="rulesets/java/braces.xml">
     <exclude name="IfStmtsMustUseBraces" />
@@ -73,10 +71,7 @@
     <exclude name="EmptyInitializer" />
     <exclude name="EmptyStatementNotInLoop" />
   </rule>
-  <rule ref="rulesets/java/finalizers.xml">
-    <exclude name="FinalizeOverloaded" />
-    <exclude name="AvoidCallingFinalize" />
-  </rule>
+  <rule ref="rulesets/java/finalizers.xml"/>
   <rule ref="rulesets/java/imports.xml">
     <exclude name="UnnecessaryFullyQualifiedName" />
     <exclude name="TooManyStaticImports" />
@@ -90,6 +85,9 @@
     <exclude name="UseAssertSameInsteadOfAssertTrue" />
     <exclude name="UseAssertEqualsInsteadOfAssertTrue" />
     <exclude name="JUnitSpelling" />
+    <exclude name="JUnitAssertionsShouldIncludeMessage" />
+    <exclude name="JUnitTestsShouldIncludeAssert" />
+    <exclude name="TestClassWithoutTestCases" />
   </rule>
   <!--<rule ref="rulesets/java/jakarta.xml" />-->
   <rule ref="rulesets/java/logging-jakarta-commons.xml" />

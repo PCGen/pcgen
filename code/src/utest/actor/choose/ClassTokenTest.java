@@ -17,8 +17,6 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.PCClass;
 import plugin.lsttokens.choose.ClassToken;
@@ -29,12 +27,6 @@ public class ClassTokenTest extends
 {
 
 	static ClassToken pca = new ClassToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<PCClass> getActor()
