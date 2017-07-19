@@ -198,7 +198,7 @@ CLASS:Fighter	STARTSKILLPTS:2
 5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon Training|PREVAREQ:Fighter_CF_WeaponTraining,0
 19	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Mastery|PREVAREQ:Fighter_CF_ArmorMastery,0
 ###Block:
-20	BONUS:ABILITYPOOL|Weapon Mastery|1|PREVAREQ:FighterWeaponMastery,0
+20	BONUS:ABILITYPOOL|Weapon Mastery|1|PREVAREQ:FighterWeaponMastery,0|PREVAREQ:Fighter_CF_WeaponMastery,0
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define															Modify VAR																Monster Role	FACT
