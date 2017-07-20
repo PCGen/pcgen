@@ -76,12 +76,6 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	}
 
 	@Override
-	public String getLSTformat()
-	{
-		return categoryName;
-	}
-
-	@Override
 	public boolean isInternal()
 	{
 		return false;

@@ -252,7 +252,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 				{
 					for (Spell added : map.getKeySet())
 					{
-						if (!spell.getLSTformat().equals(added.getLSTformat()))
+						if (!spell.getKeyName().equals(added.getKeyName()))
 						{
 							context.addWriteMessage("Spell " + getTokenName()
 									+ " token cannot remove another Spell "
@@ -296,7 +296,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 			{
 				for (Spell added : map.getKeySet())
 				{
-					if (!spell.getLSTformat().equals(added.getLSTformat()))
+					if (!spell.getKeyName().equals(added.getKeyName()))
 					{
 						context.addWriteMessage("Spell " + getTokenName()
 								+ " token cannot allow another Spell "

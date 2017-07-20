@@ -905,12 +905,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			: cdomListMods.getKeySet();
 	}
 
-	@Override
-	public final String getLSTformat()
-	{
-		return getKeyName();
-	}
-
 	public final void overlayCDOMObject(CDOMObject cdo)
 	{
 		addAllPrerequisites(cdo.getPrerequisiteList());

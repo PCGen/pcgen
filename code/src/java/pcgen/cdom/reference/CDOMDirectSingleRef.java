@@ -57,7 +57,7 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 */
 	public CDOMDirectSingleRef(T item)
 	{
-		super((Class<T>) item.getClass(), item.getLSTformat());
+		super((Class<T>) item.getClass(), item.getKeyName());
 		referencedObject = item;
 	}
 
@@ -115,7 +115,7 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return referencedObject.getLSTformat();
+		return referencedObject.getKeyName();
 	}
 
 	/**
@@ -141,7 +141,7 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	@Override
 	public int hashCode()
 	{
-		return referencedObject.getLSTformat().hashCode();
+		return referencedObject.getKeyName().hashCode();
 	}
 
 	/**

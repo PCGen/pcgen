@@ -74,12 +74,6 @@ public class Sponsor implements Loadable
 	}
 
 	@Override
-	public String getLSTformat()
-	{
-		return getKeyName();
-	}
-
-	@Override
 	public boolean isInternal()
 	{
 		return false;

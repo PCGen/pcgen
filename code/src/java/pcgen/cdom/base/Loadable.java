@@ -22,8 +22,6 @@ import java.net.URI;
 public interface Loadable extends Identified
 {
 
-	public String getLSTformat();
-
 	public void setName(String name);
 
 	public URI getSourceURI();

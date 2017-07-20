@@ -152,8 +152,8 @@ public class DefaultVariableValueTokenTest extends
 		boolean same =
 				ObjectUtil
 					.compareWithNull(cdo1.getKeyName(), cdo2.getKeyName())
-					&& ObjectUtil.compareWithNull(cdo1.getLSTformat(),
-						cdo2.getLSTformat());
+					&& ObjectUtil.compareWithNull(cdo1.getKeyName(),
+						cdo2.getKeyName());
 		if (!same)
 		{
 			fail("Mismatched");

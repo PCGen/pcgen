@@ -104,7 +104,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return "ABILITY=" + category.getLSTformat() + '['
+		return "ABILITY=" + category.getKeyName() + '['
 			+ ref.getLSTformat(useAny) + ']';
 	}
 
