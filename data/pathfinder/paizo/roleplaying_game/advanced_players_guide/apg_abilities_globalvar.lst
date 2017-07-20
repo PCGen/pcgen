@@ -185,11 +185,14 @@ CATEGORY=Class|Cavalier.MOD																																																					
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_SupremeCharge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierSupremeCharge
 
 # Inquisitor
+CATEGORY=Class|Inquisitor.MOD																																	ABILITY:Internal|AUTOMATIC|Inquisitor ~ Class Skills|PREVAREQ:Inquisitor_CF_ClassSkills,0
+
 CATEGORY=Class|Inquisitor.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple
 CATEGORY=Class|Inquisitor.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
 CATEGORY=Class|Inquisitor.MOD										AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 
 
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_ClassSkills|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Domains|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Judgment|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_MonsterLore|0
@@ -216,6 +219,17 @@ CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_ThirdJudgment|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Slayer|0
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TrueJudgment|0
 
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentHealing|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentResiliency|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentResistance|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentSmiting|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentDestruction|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentJustice|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentPiercing|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentProtection|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentPurity|0
+
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_ClassSkills=True
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Domains|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Domains=True
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Judgment|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Judgment=True
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_MonsterLore|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_MonsterLore=True
@@ -241,6 +255,16 @@ CATEGORY=Class|Inquisitor.MOD																																																			
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat12=True
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat15=True
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat18=True
+
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentHealing|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentHealing=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentResiliency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentResiliency=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentResistance=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentSmiting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentSmiting=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentDestruction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentDestruction=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentJustice|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentJustice=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentPiercing|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentPiercing=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentProtection|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentProtection=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentPurity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentPurity=True
 
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Domains|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Judgment|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorJudgements
