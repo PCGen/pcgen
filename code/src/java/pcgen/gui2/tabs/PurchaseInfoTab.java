@@ -106,7 +106,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * A character tab providing the user with the ability to buy and sell
  * equipment.
- *
  */
 @SuppressWarnings("serial")
 public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab

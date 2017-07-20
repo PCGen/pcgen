@@ -277,6 +277,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
+import org.jetbrains.annotations.TestOnly;
 
 public class PlayerCharacter implements Cloneable, VariableContainer
 {
@@ -9057,6 +9058,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * (they are highly correlated, but no control is exerted over them by
 	 * Equipment to ensure appropriate states are maintained)
 	 */
+	@TestOnly
 	public void doAfavorForAunitTestThatIgnoresEquippingRules()
 	{
 		equippedFacet.reset(id);

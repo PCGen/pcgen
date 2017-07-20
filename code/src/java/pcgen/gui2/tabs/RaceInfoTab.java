@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.gui2.tabs;
 
@@ -66,7 +64,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class {@code RaceInfoTab} is the component used in the Race tab.
  * -0800 (Wed, 16 Feb 2011) $
- *
  */
 @SuppressWarnings("serial")
 public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
