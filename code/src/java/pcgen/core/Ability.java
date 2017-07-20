@@ -178,7 +178,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 		return ListKey.DESCRIPTION;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.AbilityFacade#getTypes()
 	 */
     @Override
@@ -192,7 +192,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 		return typeNames;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.AbilityFacade#isMult()
 	 */
     @Override
@@ -201,7 +201,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 		return getSafe(ObjectKey.MULTIPLE_ALLOWED);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.AbilityFacade#isStackable()
 	 */
     @Override

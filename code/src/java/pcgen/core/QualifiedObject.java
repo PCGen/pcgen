@@ -105,7 +105,7 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 		theObject = anObject;
 	}
 
-    /* (non-Javadoc)
+    /**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

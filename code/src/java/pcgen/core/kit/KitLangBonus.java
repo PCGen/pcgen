@@ -124,7 +124,7 @@ public class KitLangBonus extends BaseKit
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.kit.BaseKit#getObjectName()
 	 */
 	@Override
@@ -133,7 +133,7 @@ public class KitLangBonus extends BaseKit
 		return "Languages";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

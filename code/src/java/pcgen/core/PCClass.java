@@ -1523,7 +1523,7 @@ public class PCClass extends PObject implements ClassFacade
 		return super.qualifies(aPC, owner);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.ClassFacade#getBaseStat()
 	 */
     @Override
@@ -1532,7 +1532,7 @@ public class PCClass extends PObject implements ClassFacade
 		return getSpellBaseStat();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.ClassFacade#getHD()
 	 */
     @Override
@@ -1542,7 +1542,7 @@ public class PCClass extends PObject implements ClassFacade
 		return String.valueOf(hd.getDie());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.ClassFacade#getTypes()
 	 */
     @Override

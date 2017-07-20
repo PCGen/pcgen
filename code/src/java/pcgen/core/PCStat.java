@@ -41,7 +41,7 @@ public final class PCStat extends PObject implements StatFacade,
 		return getKeyName();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.StatFacade#getName()
 	 */
     @Override

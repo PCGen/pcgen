@@ -292,7 +292,7 @@ public class DataSet implements DataSetFacade
         return abilityMap;
     }
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getPrereqAbilities(pcgen.core.facade.AbilityFacade)
 	 */
     @Override
@@ -426,7 +426,7 @@ public class DataSet implements DataSetFacade
 		return speakLanguageSkill;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DataSetFacade#getEquipmentLocations()
 	 */
     @Override
@@ -480,7 +480,7 @@ public class DataSet implements DataSetFacade
 	class RaceComparator implements Comparator<Race>
 	{
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 		 */
         @Override
@@ -552,7 +552,7 @@ public class DataSet implements DataSetFacade
 	class PCClassComparator implements Comparator<PCClass>
 	{
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 		 */
         @Override
