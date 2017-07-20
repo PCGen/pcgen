@@ -312,6 +312,8 @@ FACTDEF:ABILITY|Cleric_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SE
 
 
 # Druid Archetype Section
+FACTDEF:ABILITY|Druid_Archetype_ArmorProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Armor Proficiencies	EXPLANATION:Determines whether the archetype affects - Armor Proficiencies
+FACTDEF:ABILITY|Druid_Archetype_WeaponProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Weapon Proficiencies	EXPLANATION:Determines whether the archetype affects - Weapon Proficiencies
 FACTDEF:ABILITY|Druid_Archetype_SpontaneousCasting		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SpontaneousCasting	EXPLANATION:Determines whether the archetype affects - SpontaneousCasting
 FACTDEF:ABILITY|Druid_Archetype_NatureSense			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:NatureSense			EXPLANATION:Determines whether the archetype affects - NatureSense
 FACTDEF:ABILITY|Druid_Archetype_WildEmpathy			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WildEmpathy			EXPLANATION:Determines whether the archetype affects - WildEmpathy
@@ -343,6 +345,8 @@ FACTDEF:ABILITY|Druid_Archetype_Spellcasting			DATAFORMAT:BOOLEAN	REQUIRED:NO	SE
 
 
 # Druid Class Feature
+FACTDEF:ABILITY|Druid_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Armor Proficiencies	EXPLANATION:Remove Druid Armor Proficiencies
+FACTDEF:ABILITY|Druid_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Weapon Proficiencies	EXPLANATION:Remove Druid Weapon Proficiencies
 FACTDEF:ABILITY|Druid_CF_SpontaneousCasting			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SpontaneousCasting	EXPLANATION:Remove Druid SpontaneousCasting
 FACTDEF:ABILITY|Druid_CF_NatureSense				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:NatureSense			EXPLANATION:Remove Druid NatureSense
 FACTDEF:ABILITY|Druid_CF_WildEmpathy				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WildEmpathy			EXPLANATION:Remove Druid WildEmpathy
