@@ -319,9 +319,11 @@ CATEGORY=Class|Cleric.MOD								BONUS:VAR|Cleric_CF_SpontaneousCasting|1|TYPE=B
 ###Block: Druid
 # Ability Name			Define						Ability																																	Modify VAR
 CATEGORY=Class|Druid.MOD								ABILITY:Druid Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies
-CATEGORY=Class|Druid.MOD								ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies
-CATEGORY=Class|Druid.MOD								ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies
+CATEGORY=Class|Druid.MOD								ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies|PREVAREQ:Druid_CF_ArmorProficiencies,0
+CATEGORY=Class|Druid.MOD								ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies|PREVAREQ:Druid_CF_WeaponProficiencies,0
 
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_ArmorProficiencies|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WeaponProficiencies|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_SpontaneousCasting|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_NatureSense|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildEmpathy|0
@@ -351,6 +353,8 @@ CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShapeOptions12|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_DruidDomain|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_AnimalCompanion|0
 
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ArmorProficiencies=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WeaponProficiencies=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_SpontaneousCasting=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_NatureSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_NatureSense=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildEmpathy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildEmpathy=True
