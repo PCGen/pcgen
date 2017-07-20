@@ -255,7 +255,7 @@ public final class PCGIOHandler extends IOHandler
 		}
 	}
 
-	private boolean isPCGCersion2(List<String> lines)
+	private static boolean isPCGCersion2(List<String> lines)
 	{
 		for (String aLine : lines)
 		{
@@ -271,7 +271,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param in
 	 * @return
 	 */
-	private List<String> readPcgLines(InputStream in)
+	private static List<String> readPcgLines(InputStream in)
 	{
 		final List<String> lines = new ArrayList<>();
 
@@ -369,7 +369,10 @@ public final class PCGIOHandler extends IOHandler
 	 * @param campaigns     The character's sources.
 	 * @param outFile       The file to write the character to.
 	 */
-	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, File outFile)
+	public static void write(PlayerCharacter pcToBeWritten,
+	                         GameMode mode,
+	                         List<CampaignFacade> campaigns,
+	                         File outFile)
 	{
 		final String pcgString;
 		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();
@@ -596,7 +599,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param equipSet2 The second equipment set at a path.
 	 * @return The equipment set that should be move,d or null if none are safe.
 	 */
-	private EquipSet chooseItemToBeMoved(EquipSet equipSet1, EquipSet equipSet2)
+	private static EquipSet chooseItemToBeMoved(EquipSet equipSet1, EquipSet equipSet2)
 	{
 		if (!equipSet2.getItem().isContainer())
 		{
@@ -616,7 +619,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param partyFile a .pcp party file
 	 * @return a list of files containing the characters in this party
 	 */
-	public List<File> readCharacterFileList(File partyFile)
+	public static List<File> readCharacterFileList(File partyFile)
 	{
 		List<String> lines;
 		try
