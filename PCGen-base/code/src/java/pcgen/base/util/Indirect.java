@@ -17,6 +17,8 @@
  */
 package pcgen.base.util;
 
+import java.util.function.Supplier;
+
 /**
  * An Indirect is a container for storing an object that is accessed indirectly
  * (meaning the get() method of the Reference will be called) and has a String
@@ -31,7 +33,7 @@ package pcgen.base.util;
  * @param <T>
  *            The type of object that the Indirect contains
  */
-public interface Indirect<T> extends Reference<T>
+public interface Indirect<T> extends Supplier<T>
 {
 
 	/**
