@@ -48,23 +48,6 @@ public final class ListUtilities
 	}
 
 	/**
-	 * Provides a Predicate that tests if the given list contains the object provided to
-	 * the Predicate. Intended to be used in a Stream.
-	 * 
-	 * @param list
-	 *            The List to be checked to see if it contains the object provided to the
-	 *            Predicate
-	 * @return A Predicate that tests if the given list contains the object provided to
-	 *         the Predicate
-	 * @param <T>
-	 *            The type of the object contained in the List checked by the Predicate
-	 */
-	public static <T> Predicate<? super T> containedBy(List<T> list)
-	{
-		return node -> list.contains(node);
-	}
-
-	/**
 	 * Provides a Predicate that tests if the given list does NOT contain the object
 	 * provided to the Predicate. Intended to be used in a Stream.
 	 * 
