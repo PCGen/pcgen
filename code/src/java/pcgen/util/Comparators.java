@@ -27,8 +27,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.util.treetable.TreeTableNode;
 
-
-@SuppressWarnings("unchecked")
 public final class Comparators
 {
 
@@ -36,16 +34,58 @@ public final class Comparators
 	{
 	}
 
-	private static final ToStringComparator tSC = new ToStringComparator();
-	private static final ToStringIgnoreCaseComparator tSICC = new ToStringIgnoreCaseComparator();
-	private static final ToStringIgnoreCaseCollator tSICCol = new ToStringIgnoreCaseCollator();
-	private static final IntegerComparator iC = new IntegerComparator();
-	private static final NumberComparator nC = new NumberComparator();
-	private static final DateComparator dC = new DateComparator();
-	private static final HashCodeComparator hCC = new HashCodeComparator();
-	private static final TreeTableNodeComparator treeNodeComp = new TreeTableNodeComparator();
+	private static final Comparator<Object> tSC =
+			Comparator.comparing(o -> ((o == null) ? "" : o.toString()));
+	private static final Comparator<Object> tSICC = (o1, o2) -> {
+			// Treat null as the empty string.
+			return ((o1 == null) ? "" : o1.toString()).compareToIgnoreCase((o2 == null)
+					? "" : o2.toString());
 
-	public static Comparator<Object> toStringComparator()
+	};
+	private static final Comparator<Object> tSICCol = (o1, o2) ->
+	{
+		String s1 = (o1 == null) ? "" : o1.toString();
+		String s2 = (o2 == null) ? "" : o2.toString();
+		return Collator.getInstance().compare(s1, s2);
+	};
+	private static final Comparator<Number> nC = (o1, o2) ->
+	{
+		final double d1 = o1.doubleValue();
+		final double d2 = o2.doubleValue();
+
+		if (d1 < d2)
+		{
+			return -1;
+		}
+
+		if (d1 > d2)
+		{
+			return 1;
+		}
+
+		return 0;
+	}
+	private static final Comparator<Date> dC = (o1, o2) ->
+	{
+		final long n1 = o1.getTime();
+		final long n2 = o2.getTime();
+
+		if (n1 < n2)
+		{
+			return -1;
+		}
+
+		if (n1 > n2)
+		{
+			return 1;
+		}
+
+		return 0;
+
+	}
+	private static final Comparator<Object> treeNodeComp = new TreeTableNodeComparator();
+
+	private static Comparator<Object> toStringComparator()
 	{
 		return tSC;
 	}
@@ -63,116 +103,55 @@ public final class Comparators
 	/**
 	 * @return A comparator for use with the contents of tree table nodes. 
 	 */
-	public static Comparator<Object> treeTableNodeComparator()
+	private static Comparator<Object> treeTableNodeComparator()
 	{
 		return treeNodeComp;
 	}
 
-	/**
-	 * TODO: perhaps keep instance references to commonly used InverseComparators?
-	 * @param comparator
-	 * @return new InverseComparator instance
-	 */
-	public static <T> Comparator<T> inverseComparator(Comparator<T> comparator)
+	private static Comparator<Integer> integerComparator()
 	{
-		if (comparator instanceof InverseComparator)
-		{
-			return ((InverseComparator<T>) comparator).getComparator();
-		}
-		return new InverseComparator<>(comparator);
-
+		return Integer::compareTo;
 	}
 
-	public static Comparator<Object> hashCodeComparator()
-	{
-		return hCC;
-	}
-
-	public static Comparator<Integer> integerComparator()
-	{
-		return iC;
-	}
-
-	public static Comparator<Number> numberComparator()
+	private static Comparator<Number> numberComparator()
 	{
 		return nC;
 	}
 
-	public static Comparator<Date> dateComparator()
+	private static Comparator<Date> dateComparator()
 	{
 		return dC;
 	}
 
-	public static Comparator<String> ignoreCaseStringComparator()
+	private static Comparator<String> ignoreCaseStringComparator()
 	{
 		return String.CASE_INSENSITIVE_ORDER;
 	}
 
-	public static <T> Comparator<? super T> getComparatorFor(Class<T> c)
+	public static <T> Comparator<? super T> getComparatorFor(Class<T> cls)
 	{
-		if (c == Integer.class)
+		if (cls == Integer.class)
 		{
 			return (Comparator<? super T>) integerComparator();
 		}
-		else if (c.getSuperclass() == Number.class)
+		if (cls.getSuperclass() == Number.class)
 		{
 			return (Comparator<? super T>) numberComparator();
 		}
-		else if (c == Date.class)
+		if (cls == Date.class)
 		{
 			return (Comparator<? super T>) dateComparator();
 		}
-		else if (c == String.class)
+		if (cls == String.class)
 		{
 			return (Comparator<? super T>) ignoreCaseStringComparator();
 		}
-		else if (c == TreeTableNode.class || c == InfoFacade.class
-			|| c.getSuperclass() == InfoFacade.class)
+		if ((cls == TreeTableNode.class) || (cls == InfoFacade.class)
+				|| (cls.getSuperclass() == InfoFacade.class))
 		{
 			return treeTableNodeComparator();
 		}
 		return toStringComparator();
-	}
-
-	/**
-	 * A {@code Comparator} to compare objects as
-	 * {@code String}s.  This is particularly useful for applications
-	 * such as maintaining a sorted {@code JComboBoxEx} and the like.
-	 */
-	private static final class ToStringComparator implements Comparator<Object>,
-			Serializable
-	{
-
-		@Override
-		public int compare(Object o1, Object o2)
-		{
-			// Treat null as the empty string.
-			return ((o1 == null) ? "" : o1.toString()).compareTo((o2 == null) ? ""
-					: o2.toString());
-		}
-
-	}
-
-	/**
-	 * A {@code Comparator} to compare objects as
-	 * {@code String}s ignoring case.  This is particularly useful
-	 * for applications such as maintaining a sorted
-	 * {@code JComboBoxEx} and the like.
-	 */
-	private static final class ToStringIgnoreCaseComparator implements
-			Comparator<Object>, Serializable
-	{
-
-		@Override
-		public int compare(Object o1, Object o2)
-		{
-			// Treat null as the empty string.
-			return ((o1 == null) ? "" : o1.toString()).compareToIgnoreCase((o2 ==
-					null)
-					? ""
-					: o2.toString());
-		}
-
 	}
 
 	/**
@@ -188,7 +167,7 @@ public final class Comparators
 			String key1 = getSortKey(o1); 
 			String key2 = getSortKey(o2);
 			final Collator collator = Collator.getInstance();
-			
+
 			if (!key1.equals(key2))
 			{
 				return collator.compare(key1, key2);
@@ -196,7 +175,7 @@ public final class Comparators
 			return collator.compare(String.valueOf(o1), String.valueOf(o2));
 		}
 
-		private String getSortKey(Object obj1)
+		private static String getSortKey(Object obj1)
 		{
 			String key;
 			if (obj1 == null)
@@ -222,120 +201,6 @@ public final class Comparators
 			}
 			return key;
 		}
-	}
-
-	private static final class ToStringIgnoreCaseCollator implements
-			Comparator<Object>, Serializable
-	{
-
-		private static final Collator collator = Collator.getInstance();
-
-		@Override
-		public int compare(Object o1, Object o2)
-		{
-			String s1 = (o1 == null) ? "" : o1.toString();
-			String s2 = (o2 == null) ? "" : o2.toString();
-			return collator.compare(s1, s2);
-		}
-
-	}
-
-	private static final class IntegerComparator implements Comparator<Integer>
-	{
-
-		@Override
-		public int compare(Integer o1, Integer o2)
-		{
-			return o1.compareTo(o2);
-		}
-
-	}
-
-	private static final class NumberComparator implements Comparator<Number>
-	{
-
-		@Override
-		public int compare(Number o1, Number o2)
-		{
-			final double d1 = o1.doubleValue();
-			final double d2 = o2.doubleValue();
-
-			if (d1 < d2)
-			{
-				return -1;
-			}
-
-			if (d1 > d2)
-			{
-				return 1;
-			}
-
-			return 0;
-		}
-
-	}
-
-	private static final class DateComparator implements Comparator<Date>
-	{
-
-		@Override
-		public int compare(Date o1, Date o2)
-		{
-			final long n1 = o1.getTime();
-			final long n2 = o2.getTime();
-
-			if (n1 < n2)
-			{
-				return -1;
-			}
-
-			if (n1 > n2)
-			{
-				return 1;
-			}
-
-			return 0;
-		}
-
-	}
-
-	private static final class HashCodeComparator implements Comparator<Object>
-	{
-
-		@Override
-		public int compare(Object o1, Object o2)
-		{
-			return iC.compare(o1.hashCode(), o2.hashCode());
-		}
-
-	}
-
-	/**
-	 *
-	 * @param E
-	 */
-	private static final class InverseComparator<E> implements Comparator<E>,
-			Serializable
-	{
-
-		private final Comparator<E> comparator;
-
-		public InverseComparator(Comparator<E> comparator)
-		{
-			this.comparator = comparator;
-		}
-
-		public Comparator<E> getComparator()
-		{
-			return comparator;
-		}
-
-		@Override
-		public int compare(E o1, E o2)
-		{
-			return -comparator.compare(o1, o2);
-		}
-
 	}
 
 }
