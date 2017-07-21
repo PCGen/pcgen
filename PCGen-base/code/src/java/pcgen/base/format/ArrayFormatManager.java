@@ -17,9 +17,11 @@
  */
 package pcgen.base.format;
 
+import static pcgen.base.lang.StringUtil.joining;
+import static pcgen.base.util.ArrayUtilities.arrayOfClass;
+
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -192,20 +194,9 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	@Override
 	public String unconvert(T[] array)
 	{
-		StringBuilder result = new StringBuilder();
-
-		boolean needjoin = false;
-
-		for (T obj : array)
-		{
-			if (needjoin)
-			{
-				result.append(separator);
-			}
-			needjoin = true;
-			result.append(componentManager.unconvert(obj));
-		}
-		return result.toString();
+		return Arrays.stream(array)
+					 .map(componentManager::unconvert)
+					 .collect(joining(separator));
 	}
 
 	@Override
@@ -260,37 +251,17 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		@Override
 		public T[] get()
 		{
-			Class<T> arrayClass = componentManager.getManagedClass();
-			List<T> returnList = new ArrayList<>(array.length * 5);
-			for (Indirect<T> indirect : array)
-			{
-				returnList.add(indirect.get());
-			}
-			@SuppressWarnings("unchecked")
-			T[] toReturn =
-					(T[]) Array.newInstance(arrayClass, returnList.size());
-			for (int i = 0; i < array.length; i++)
-			{
-				toReturn[i] = returnList.get(i);
-			}
-			return toReturn;
+			return Arrays.stream(array)
+						 .map(Indirect::get)
+						 .toArray(arrayOfClass(componentManager.getManagedClass()));
 		}
 
 		@Override
 		public String getUnconverted()
 		{
-			StringBuilder result = new StringBuilder();
-			boolean needjoin = false;
-			for (Indirect<T> indirect : array)
-			{
-				if (needjoin)
-				{
-					result.append(separator);
-				}
-				needjoin = true;
-				result.append(indirect.getUnconverted());
-			}
-			return result.toString();
+			return Arrays.stream(array)
+						 .map(Indirect::getUnconverted)
+						 .collect(joining(separator));
 		}
 
 	}

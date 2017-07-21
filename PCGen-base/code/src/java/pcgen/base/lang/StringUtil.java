@@ -23,6 +23,8 @@ package pcgen.base.lang;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.StringTokenizer;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * StringUtil is a utility class designed to provide utility methods when
@@ -63,7 +65,13 @@ public final class StringUtil
 	 */
 	public static String join(Collection<?> collection, String separator)
 	{
-		return joinToStringBuilder(collection, separator).toString();
+		if (collection == null)
+		{
+			return "";
+		}
+		return collection.stream()
+						 .map(Object::toString)
+						 .collect(Collectors.joining(separator));
 	}
 
 	/**
@@ -229,6 +237,19 @@ public final class StringUtil
 			}
 		}
 		return level == 0;
+	}
+
+	/**
+	 * Returns a Collector that joins the provided elements based on the given separator.
+	 * 
+	 * @param separator
+	 *            The character used to join the elements of the items provided to the
+	 *            Collector
+	 * @return A Collector that joins the provided elements based on the given separator
+	 */
+	public static Collector<CharSequence, ?, String> joining(char separator)
+	{
+		return Collectors.joining(Character.toString(separator));
 	}
 
 }

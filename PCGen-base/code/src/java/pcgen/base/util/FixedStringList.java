@@ -162,14 +162,7 @@ public class FixedStringList extends AbstractList<String> implements RandomAcces
 	@Override
 	public boolean addAll(int index, Collection<? extends String> collection)
 	{
-		for (String s : collection)
-		{
-			if (!add(s))
-			{
-				return false;
-			}
-		}
-		return true;
+		return collection.stream().allMatch(this::add);
 	}
 
 	/**

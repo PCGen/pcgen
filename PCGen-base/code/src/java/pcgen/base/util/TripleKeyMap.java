@@ -81,11 +81,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	public TripleKeyMap()
 	{
 		thirdClass = HashMap.class;
-		map =
-				new DoubleKeyMap<>(
-						HashMap.class,
-						HashMap.class
-				);
+		map = new DoubleKeyMap<>(HashMap.class, HashMap.class);
 	}
 
 	/**
@@ -166,11 +162,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	public V get(K1 key1, K2 key2, K3 key3)
 	{
 		Map<K3, V> localMap = map.get(key1, key2);
-		if (localMap == null)
-		{
-			return null;
-		}
-		return localMap.get(key3);
+		return (localMap == null) ? null : localMap.get(key3);
 	}
 
 	/**
@@ -192,11 +184,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	public boolean containsKey(K1 key1, K2 key2, K3 key3)
 	{
 		Map<K3, V> localMap = map.get(key1, key2);
-		if (localMap == null)
-		{
-			return false;
-		}
-		return localMap.containsKey(key3);
+		return (localMap == null) ? false : localMap.containsKey(key3);
 	}
 
 	/**
@@ -297,11 +285,8 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	public Set<K3> getTertiaryKeySet(K1 key1, K2 key2)
 	{
 		Map<K3, V> localMap = map.get(key1, key2);
-		if (localMap == null)
-		{
-			return Collections.emptySet();
-		}
-		return new HashSet<>(localMap.keySet());
+		return (localMap == null) ? Collections.emptySet()
+			: new HashSet<>(localMap.keySet());
 	}
 
 	/**
@@ -397,11 +382,8 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	public Set<V> values(K1 key1, K2 key2)
 	{
 		Map<K3, V> localMap = map.get(key1, key2);
-		if (localMap == null)
-		{
-			return Collections.emptySet();
-		}
-		return new HashSet<>(localMap.values());
+		return (localMap == null) ? Collections.emptySet()
+			: new HashSet<>(localMap.values());
 	}
 
 	/**
@@ -421,7 +403,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof TripleKeyMap
+		return (obj instanceof TripleKeyMap)
 			&& map.equals(((TripleKeyMap<?, ?, ?, ?>) obj).map);
 	}
 

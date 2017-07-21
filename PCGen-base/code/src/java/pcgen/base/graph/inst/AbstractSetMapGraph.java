@@ -19,11 +19,14 @@
  */
 package pcgen.base.graph.inst;
 
+import static pcgen.base.util.SetUtilities.removeFromSet;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.graph.base.Edge;
@@ -275,17 +278,14 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		 * 
 		 * Second, the use of remove is significant, in that it removes the set
 		 * of connected edges from the Map. This is important, since removeEdge
-		 * is called from within the loop, and removeEdge will alter sets within
+		 * is called from within the stream, and removeEdge will alter sets within
 		 * nodeEdgeMap. Therefore, the use of get in place of remove for
 		 * creation of this Iterator would result in a
 		 * ConcurrentModificationException (since the set for GraphNode gn would
 		 * be modified by removeEdge while inside this Iterator).
 		 */
-		for (ET edge : nodeEdgeMap.remove(node))
-		{
-			// FUTURE Consider Check of return values here to ensure success??
-			removeEdge(edge);
-		}
+		// FUTURE Consider Check of return values of removeEdge here to ensure success??
+		nodeEdgeMap.remove(node).stream().forEach(this::removeEdge);
 		/*
 		 * containsNode test means we don't need to check return value of remove
 		 * we 'know' it is present (barring an internal error!). This remove
@@ -312,19 +312,12 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		{
 			return false;
 		}
-		/*
-		 * Must be present in the Graph if we made it to this point
-		 */
-		List<N> graphNodes = edge.getAdjacentNodes();
-		for (N node : graphNodes)
-		{
-			Set<ET> adjacentEdges = nodeEdgeMap.get(node);
-			// Could be null due to side effects
-			if (adjacentEdges != null)
-			{
-				adjacentEdges.remove(edge);
-			}
-		}
+		//Edge must have been present in the Graph if we made it to this point
+		//null protection in stream required to protect against side effects
+		edge.getAdjacentNodes().stream()
+							   .map(nodeEdgeMap::get)
+							   .filter(Objects::nonNull)
+							   .forEach(removeFromSet(edge));
 		gcs.fireGraphEdgeChangeEvent(edge, EdgeChangeEvent.EDGE_REMOVED);
 		return true;
 	}

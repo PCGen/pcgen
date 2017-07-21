@@ -19,6 +19,8 @@
  */
 package pcgen.base.graph.inst;
 
+import static pcgen.base.util.ListUtilities.notContainedBy;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -82,7 +84,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		Collection<N> sinkNode)
 	{
 		super();
-		if (sourceNode == null && sinkNode == null)
+		if ((sourceNode == null) && (sinkNode == null))
 		{
 			throw new IllegalArgumentException(
 				"Both Collections to DefaultDirectionalGraphEdge cannot be null");
@@ -106,7 +108,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 */
 	private List<N> setNodes(Collection<N> nodes)
 	{
-		if (nodes == null || nodes.isEmpty())
+		if ((nodes == null) || nodes.isEmpty())
 		{
 			return null;
 		}
@@ -115,12 +117,10 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		 */
 		List<N> returnList = new ArrayList<>(nodes.size());
 		returnList.addAll(nodes);
-		for (N node : returnList)
+		
+		if (returnList.stream().anyMatch(Objects::isNull))
 		{
-			if (node == null)
-			{
-				throw new IllegalArgumentException("List contains null");
-			}
+			throw new IllegalArgumentException("List contains null");
 		}
 		return returnList;
 	}
@@ -131,7 +131,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	@Override
 	public N getNodeAt(int index)
 	{
-		if (sourceNodes != null && index < sourceNodes.size())
+		if ((sourceNodes != null) && (index < sourceNodes.size()))
 		{
 			return sourceNodes.get(index);
 		}
@@ -176,11 +176,11 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	@Override
 	public boolean isAdjacentNode(N node)
 	{
-		if (sourceNodes != null && sourceNodes.contains(node))
+		if ((sourceNodes != null) && sourceNodes.contains(node))
 		{
 			return true;
 		}
-		if (sinkNodes != null && sinkNodes.contains(node))
+		if ((sinkNodes != null) && sinkNodes.contains(node))
 		{
 			return true;
 		}
@@ -214,13 +214,8 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		}
 		// Neither is null
 		int size = sourceNodes.size();
-		for (N node : sinkNodes)
-		{
-			if (!sourceNodes.contains(node))
-			{
-				size++;
-			}
-		}
+		//Only add sinks that are not also sources
+		size += sinkNodes.stream().filter(notContainedBy(sourceNodes)).count();
 		return size;
 	}
 
@@ -232,11 +227,11 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	public int getNodeInterfaceType(N node)
 	{
 		int type = 0;
-		if (sourceNodes != null && sourceNodes.contains(node))
+		if ((sourceNodes != null) && sourceNodes.contains(node))
 		{
 			type |= DirectionalEdge.SOURCE;
 		}
-		if (sinkNodes != null && sinkNodes.contains(node))
+		if ((sinkNodes != null) && sinkNodes.contains(node))
 		{
 			type |= DirectionalEdge.SINK;
 		}
@@ -272,7 +267,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	@Override
 	public List<N> getSourceNodes()
 	{
-		return sourceNodes == null ? null : new ArrayList<>(sourceNodes);
+		return (sourceNodes == null) ? null : new ArrayList<>(sourceNodes);
 	}
 
 	/**

@@ -19,6 +19,8 @@
  */
 package pcgen.base.graph.inst;
 
+import static pcgen.base.util.ListUtilities.notContainedBy;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -98,11 +100,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	@Override
 	public boolean addNode(N v)
 	{
-		if (v == null)
-		{
-			return false;
-		}
-		if (nodeList.contains(v))
+		if ((v == null) || (nodeList.contains(v)))
 		{
 			return false;
 		}
@@ -117,22 +115,13 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	@Override
 	public boolean addEdge(ET e)
 	{
-		if (e == null)
+		if ((e == null) || (edgeList.contains(e)))
 		{
 			return false;
 		}
-		if (edgeList.contains(e))
-		{
-			return false;
-		}
-		List<N> graphNodes = e.getAdjacentNodes();
-		for (N node : graphNodes)
-		{
-			if (!nodeList.contains(node))
-			{
-				addNode(node);
-			}
-		}
+		e.getAdjacentNodes().stream()
+							.filter(notContainedBy(nodeList))
+							.forEach(this::addNode);
 		edgeList.add(e);
 		gcs.fireGraphEdgeChangeEvent(e, EdgeChangeEvent.EDGE_ADDED);
 		return true;
@@ -189,11 +178,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	@Override
 	public boolean removeNode(N gn)
 	{
-		if (gn == null)
-		{
-			return false;
-		}
-		if (!containsNode(gn))
+		if ((gn == null) || (!containsNode(gn)))
 		{
 			return false;
 		}

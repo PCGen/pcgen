@@ -22,6 +22,7 @@ package pcgen.base.graph.inst;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.graph.base.NonDirectionalEdge;
 
@@ -67,12 +68,9 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 			throw new IllegalArgumentException(
 				"GraphNode List of DefaultHyperEdge cannot be empty");
 		}
-		for (N node : this.nodes)
+		if (this.nodes.stream().anyMatch(Objects::isNull))
 		{
-			if (node == null)
-			{
-				throw new IllegalArgumentException("Node List contains null");
-			}
+			throw new IllegalArgumentException("Node List contains null");
 		}
 	}
 

@@ -180,8 +180,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 */
 	public V put(K1 key1, K2 key2, V value)
 	{
-		Map<K2, V> localMap = map.computeIfAbsent(key1, k -> createLocalMap());
-		return localMap.put(key2, value);
+		return map.computeIfAbsent(key1, k -> createLocalMap()).put(key2, value);
 	}
 
 	/**
@@ -209,7 +208,6 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 		for (Map.Entry<K1, Map<K2, V>> me : dkm.map.entrySet())
 		{
 			Map<K2, V> localMap = map.computeIfAbsent(me.getKey(), k -> createLocalMap());
-
 			localMap.putAll(me.getValue());
 		}
 	}
@@ -286,11 +284,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	public boolean containsKey(K1 key1, K2 key2)
 	{
 		Map<K2, V> localMap = map.get(key1);
-		if (localMap == null)
-		{
-			return false;
-		}
-		return localMap.containsKey(key2);
+		return (localMap == null) ? false : localMap.containsKey(key2);
 	}
 
 	/**
@@ -498,11 +492,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	public boolean removeValue(K1 key1, V obj)
 	{
 		Map<K2, V> localMap = map.get(key1);
-		if (localMap != null)
-		{
-			return localMap.values().remove(obj);
-		}
-		return false;
+		return (localMap == null) ? false : localMap.values().remove(obj);
 	}
 
 	/**
@@ -522,7 +512,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof DoubleKeyMap
+		return (obj instanceof DoubleKeyMap)
 			&& map.equals(((DoubleKeyMap<?, ?, ?>) obj).map);
 	}
 

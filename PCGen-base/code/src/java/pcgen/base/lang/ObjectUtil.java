@@ -17,6 +17,8 @@
  */
 package pcgen.base.lang;
 
+import java.util.function.Predicate;
+
 /**
  * ObjectUtilities are various utility methods for dealing with all
  * java.lang.Object objects.
@@ -50,6 +52,21 @@ public final class ObjectUtil
 	public static <T> boolean compareWithNull(T o1, T o2)
 	{
 		return (o1 == o2) || ((o1 != null) && o1.equals(o2));
+	}
+
+	/**
+	 * Returns a Predicate that indicates whether the object provided to the Predicate is
+	 * equal (identity equal, meaning ==) to the object provided to this method.
+	 * 
+	 * @param object
+	 *            The object to be checked by the Predicate to see if it is identify equal
+	 *            to this object
+	 * @return A Predicate that indicates whether the object provided to the Predicate is
+	 *         equal (identity equal, meaning ==) to the object provided to this method
+	 */
+	public static <T> Predicate<? super T> identityEquals(T object)
+	{
+		return given -> (given == object);
 	}
 
 }

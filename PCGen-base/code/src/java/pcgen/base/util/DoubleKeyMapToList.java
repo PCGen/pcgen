@@ -217,11 +217,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	public List<V> getListFor(K1 key1, K2 key2)
 	{
 		MapToList<K2, V> localMap = mtmtl.get(key1);
-		if (localMap == null)
-		{
-			return null;
-		}
-		return localMap.getListFor(key2);
+		return (localMap == null) ? null : localMap.getListFor(key2);
 	}
 
 	/**
@@ -260,11 +256,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	public boolean containsListFor(K1 key1, K2 key2)
 	{
 		MapToList<K2, V> localMap = mtmtl.get(key1);
-		if (localMap == null)
-		{
-			return false;
-		}
-		return localMap.containsListFor(key2);
+		return (localMap == null) ? false : localMap.containsListFor(key2);
 	}
 
 	/**
@@ -398,11 +390,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	public Set<K2> getSecondaryKeySet(K1 key1)
 	{
 		MapToList<K2, V> localMap = mtmtl.get(key1);
-		if (localMap == null)
-		{
-			return Collections.emptySet();
-		}
-		return localMap.getKeySet();
+		return (localMap == null) ? Collections.emptySet() : localMap.getKeySet();
 	}
 
 	/**
@@ -516,7 +504,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	public int sizeOfListFor(K1 key1, K2 key2)
 	{
 		MapToList<K2, V> localMap = mtmtl.get(key1);
-		return localMap == null ? 0 : localMap.sizeOfListFor(key2);
+		return (localMap == null) ? 0 : localMap.sizeOfListFor(key2);
 	}
 
 	/**
@@ -536,7 +524,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof DoubleKeyMapToList
+		return (obj instanceof DoubleKeyMapToList)
 			&& mtmtl.equals(((DoubleKeyMapToList<?, ?, ?>) obj).mtmtl);
 	}
 
@@ -578,11 +566,8 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 */
 	private MapToList<K2, V> getMapToListFor(K1 key1)
 	{
-		MapToList<K2, V> localMap = mtmtl.computeIfAbsent(
-				key1,
-				k -> GenericMapToList.getMapToList(secondClass)
-		);
-		return localMap;
+		return mtmtl.computeIfAbsent(key1,
+			k -> GenericMapToList.getMapToList(secondClass));
 	}
 
 }

@@ -17,7 +17,8 @@
  */
 package pcgen.base.util;
 
-import java.lang.reflect.Array;
+import static pcgen.base.util.ArrayUtilities.usingArray;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -93,10 +94,7 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public final boolean addAll(Collection<? extends T> collection)
 	{
-		for (T element : collection)
-		{
-			add(element);
-		}
+		collection.stream().forEach(this::add);
 		return true;
 	}
 
@@ -241,48 +239,17 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public Object[] toArray()
 	{
-		Object[] array = embeddedList.toArray();
-		putIntoArray(array, array);
-		return array;
+		return embeddedList.stream()
+						   .map(x -> x.getUnderlying())
+						   .toArray();
 	}
 
-	/**
-	 * Puts the underlying objects (from the source array of Identity objects)
-	 * into the given target array.
-	 * 
-	 * @param <V>
-	 *            The type of of object in the returned array
-	 * @param source
-	 *            The Wrapped (identity) objects
-	 * @param target
-	 *            The target array which will be loaded
-	 */
-	private static <V> void putIntoArray(Object[] source, V[] target)
-	{
-		for (int i = 0; i < source.length; i++)
-		{
-			@SuppressWarnings("unchecked")
-			Identity<V> identity = (Identity<V>) source[i];
-			target[i] = identity.getUnderlying();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
 	@Override
 	public <V> V[] toArray(V[] newArray)
 	{
-		Object[] array = embeddedList.toArray();
-		int size = embeddedList.size();
-		V[] returnArray = newArray;
-		// Protect for small array
-		if (newArray.length < size)
-		{
-			returnArray =
-					(V[]) Array.newInstance(newArray
-						.getClass().getComponentType(), size);
-		}
-		putIntoArray(array, returnArray);
-		return returnArray;
+		return embeddedList.stream()
+						   .map(x -> x.getUnderlying())
+						   .toArray(usingArray(newArray));
 	}
 
 	/**
@@ -314,8 +281,8 @@ public class IdentityList<T> implements List<T>
 		@Override
 		public boolean equals(Object obj)
 		{
-			return obj instanceof Identity
-				&& ((Identity<?>) obj).underlying == underlying;
+			return (obj instanceof Identity)
+				&& (((Identity<?>) obj).underlying == underlying);
 		}
 
 		@Override

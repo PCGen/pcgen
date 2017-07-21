@@ -19,6 +19,9 @@
  */
 package pcgen.base.graph.inst;
 
+import static pcgen.base.graph.util.EdgeUtilities.edgeSinkIs;
+import static pcgen.base.graph.util.EdgeUtilities.edgeSourceIs;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -94,13 +97,9 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 			return null;
 		}
 		List<ET> inwardEdgeList = new LinkedList<>();
-		for (ET edge : adjacentEdgeList)
-		{
-			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SINK) != 0)
-			{
-				inwardEdgeList.add(edge);
-			}
-		}
+		adjacentEdgeList.stream()
+						.filter(edgeSinkIs(node))
+						.forEach(inwardEdgeList::add);
 		return inwardEdgeList;
 	}
 
@@ -122,13 +121,9 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 			return null;
 		}
 		List<ET> outwardEdgeList = new ArrayList<>();
-		for (ET edge : adjacentEdgeList)
-		{
-			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SOURCE) != 0)
-			{
-				outwardEdgeList.add(edge);
-			}
-		}
+		adjacentEdgeList.stream()
+						.filter(edgeSourceIs(node))
+						.forEach(outwardEdgeList::add);
 		return outwardEdgeList;
 	}
 
@@ -143,14 +138,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		{
 			return false;
 		}
-		for (ET edge : adjacentEdgeList)
-		{
-			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SINK) != 0)
-			{
-				return true;
-			}
-		}
-		return false;
+		return adjacentEdgeList.stream().anyMatch(edgeSinkIs(node));
 	}
 
 	/**
@@ -165,14 +153,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		{
 			return false;
 		}
-		for (ET edge : adjacentEdgeList)
-		{
-			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SOURCE) != 0)
-			{
-				return true;
-			}
-		}
-		return false;
+		return adjacentEdgeList.stream().anyMatch(edgeSourceIs(node));
 	}
 
 }
