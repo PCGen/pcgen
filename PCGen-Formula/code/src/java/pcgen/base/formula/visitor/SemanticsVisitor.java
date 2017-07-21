@@ -68,7 +68,7 @@ import pcgen.base.util.FormatManager;
  * called by SemanticsVisitor - and getDependencies() - not called by
  * SemanticsVisitor)
  * 
- * The objects to be passed in as data to each of the methdos on the
+ * The objects to be passed in as data to each of the methods on the
  * FormulaParserVisitor interface of SemanticsVisitor is a FormulaSemantics
  * object. The objects that each of the methods on the FormulaParserVistor
  * interface of SemanticsVisitor returns implement the FormatManager interface.
