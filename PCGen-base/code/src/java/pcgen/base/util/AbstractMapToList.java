@@ -21,8 +21,10 @@ package pcgen.base.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -368,6 +370,33 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	{
 		List<V> list = mapToList.get(key);
 		return list == null ? null : new ArrayList<>(list);
+	}
+
+	/**
+	 * Returns a copy of the List contained in this MapToList for the given key.
+	 * This method returns an empty list if the given key is not in this MapToList.
+	 * 
+	 * This method is value-semantic in that no changes are made to the object
+	 * passed into the method and ownership of the returned List is transferred
+	 * to the class calling this method. Modification of the returned List will
+	 * not modify this MapToList and modification of this MapToList will not
+	 * modify the returned List.
+	 * 
+	 * Note: If you are only acquiring a single instance from a given list (and
+	 * acquiring that by the order in which it appears in the list) it is
+	 * probably much faster to use getElementInList, as that does not require
+	 * the internal list to be copied (getListFor copies the list in order to be
+	 * value-semantic)
+	 * 
+	 * @param key
+	 *            The key for which a copy of the list should be returned.
+	 * @return a copy of the List contained in this MapToList for the given key;
+	 *         an empty list if the given key is not a key in this MapToList.
+	 */
+	@Override
+	public List<V> getSafeListFor(K key)
+	{
+		return Optional.ofNullable(getListFor(key)).orElse(Collections.emptyList());
 	}
 
 	/**

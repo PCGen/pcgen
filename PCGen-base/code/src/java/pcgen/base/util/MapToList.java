@@ -126,6 +126,17 @@ public interface MapToList<K, V>
 	public List<V> getListFor(K key);
 
 	/**
+	 * Returns a copy of the List contained in this MapToList for the given key.
+	 * This method returns an empty list if the given key is not in this MapToList.
+	 * 
+	 * @param key
+	 *            The key for which a copy of the list should be returned.
+	 * @return a copy of the List contained in this MapToList for the given key;
+	 *         an empty list if the given key is not a key in this MapToList.
+	 */
+	public List<V> getSafeListFor(K key);
+	
+	/**
 	 * Removes the given value from the list for the given key. Returns true if
 	 * the value was successfully removed from the list for the given key.
 	 * Returns false if there is not a list for the given key object or if the
