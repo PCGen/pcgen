@@ -20,11 +20,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/** Class that holds a set of travel methods and speeds
+/**
+ * Class that holds a set of travel methods and speeds
  */
 public class PairList<T extends Pair<?, ?>>
 {
-	private List<T> vPairs;
+	private final List<T> vPairs;
 
 	public PairList()
 	{
