@@ -94,7 +94,7 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public final boolean addAll(Collection<? extends T> collection)
 	{
-		collection.stream().forEach(this::add);
+		collection.forEach(this::add);
 		return true;
 	}
 

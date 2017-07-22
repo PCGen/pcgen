@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.base.DirectionalGraph;
@@ -96,11 +97,9 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		{
 			return null;
 		}
-		List<ET> inwardEdgeList = new LinkedList<>();
-		adjacentEdgeList.stream()
-						.filter(edgeSinkIs(node))
-						.forEach(inwardEdgeList::add);
-		return inwardEdgeList;
+		return adjacentEdgeList.stream()
+							   .filter(edgeSinkIs(node))
+							   .collect(Collectors.toCollection(LinkedList::new));
 	}
 
 	/**
@@ -120,11 +119,9 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		{
 			return null;
 		}
-		List<ET> outwardEdgeList = new ArrayList<>();
-		adjacentEdgeList.stream()
-						.filter(edgeSourceIs(node))
-						.forEach(outwardEdgeList::add);
-		return outwardEdgeList;
+		return adjacentEdgeList.stream()
+							   .filter(edgeSourceIs(node))
+							   .collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	/**

@@ -41,7 +41,7 @@ public final class StringUtil
 	 */
 	@SuppressWarnings("PMD.LongVariable")
 	public static final Comparator<String> CASE_SENSITIVE_ORDER =
-			(str1, str2) -> str1.compareTo(str2);
+			Comparator.naturalOrder();
 
 	/**
 	 * Private Constructor for Utility Class.
