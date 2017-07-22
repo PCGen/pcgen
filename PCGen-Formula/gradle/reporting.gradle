@@ -13,6 +13,7 @@ checkstyle {
 	ignoreFailures = true
 	showViolations = false
 	sourceSets = []
+	toolVersion = '8.0'
 }
 
 pmd {
@@ -22,7 +23,7 @@ pmd {
 	
 	ignoreFailures = true
 	sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
-	toolVersion = "5.5.1"
+	toolVersion = "5.8.1"
 }
 
 jdepend {
