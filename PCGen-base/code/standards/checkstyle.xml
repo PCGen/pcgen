@@ -1,195 +1,88 @@
-<?xml version="1.0"?>
-<!DOCTYPE module PUBLIC
-    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
-    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 
 <!--
-
-  Checkstyle configuration that checks the sun coding conventions from:
-
-    - the Java Language Specification at
-      http://java.sun.com/docs/books/jls/second_edition/html/index.html
-
-    - the Sun Code Conventions at http://java.sun.com/docs/codeconv/
-
-    - the Javadoc guidelines at
-      http://java.sun.com/j2se/javadoc/writingdoccomments/index.html
-
-    - the JDK Api documentation http://java.sun.com/j2se/docs/api/index.html
-
-    - some best practices
-
-  Checkstyle is very configurable. Be sure to read the documentation at
-  http://checkstyle.sf.net (or in your downloaded distribution).
-
-  Most Checks are configurable, be sure to consult the documentation.
-
-  To completely disable a check, just comment it out or delete it from the file.
-
-  Finally, it is worth reading the documentation.
-
+    This configuration file was written by the eclipse-cs plugin configuration editor
 -->
-
+<!--
+    Checkstyle-Configuration: PCGen
+    Description: none
+-->
 <module name="Checker">
-    <!--
-        If you set the basedir property below, then all reported file
-        names will be relative to the specified directory. See
-        http://checkstyle.sourceforge.net/5.x/config.html#Checker
-
-        <property name="basedir" value="${basedir}"/>
-    -->
-
-    <!-- Checks whether files end with a new line.                        -->
-    <!-- See http://checkstyle.sf.net/config_misc.html#NewlineAtEndOfFile -->
-    <module name="NewlineAtEndOfFile"/>
-
-    <!-- Checks that property files contain the same keys.         -->
-    <!-- See http://checkstyle.sf.net/config_misc.html#Translation -->
-    <module name="Translation"/>
-
-    <!--  <module name="FileLength"/>  -->
-
-    <!-- Following interprets the header file as regular expressions. -->
-    <!-- <module name="RegexpHeader"/>                                -->
- 
-    <module name="TreeWalker">
-
-	    <module name="SuppressWarningsHolder"/>
-
-        <property name="cacheFile" value="checkstyle-cachefile"/>
-        
-        <!-- Checks for Javadoc comments.                     -->
-        <!-- See http://checkstyle.sf.net/config_javadoc.html -->
-        <module name="JavadocMethod">
-        	<property name="scope" value="public"/>
-        	<property name="allowMissingParamTags" value="true"/>
-        	<property name="allowMissingReturnTag" value="true"/>
-        	<property name="allowUndeclaredRTE"  value="true"/>
-        	<property name="allowMissingPropertyJavadoc"  value="true"/>
-        </module>
-        <module name="JavadocType"/>
-        <module name="JavadocVariable">
-		   <property name="scope" value="public"/>
-		</module>
-		<!-- 
-        <module name="JavadocStyle">
-			<property name="severity" value="warning"/>
-			
-        </module>
- -->
-
-        <!-- Checks for Naming Conventions.                  -->
-        <!-- See http://checkstyle.sf.net/config_naming.html -->
-        <module name="ConstantName"/>
-        <module name="LocalFinalVariableName"/>
-        <module name="LocalVariableName"/>
-        <module name="MemberName"/>
-        <module name="MethodName"/>
-        <module name="PackageName"/>
-        <module name="ParameterName"/>
-        <module name="StaticVariableName"/>
-        <module name="TypeName"/>
-
-
-        <!-- Checks for Headers                                -->
-        <!-- See http://checkstyle.sf.net/config_header.html   -->
-        <!-- <module name="Header">                            -->
-            <!-- The follow property value demonstrates the ability     -->
-            <!-- to have access to ANT properties. In this case it uses -->
-            <!-- the ${basedir} property to allow Checkstyle to be run  -->
-            <!-- from any directory within a project. See property      -->
-            <!-- expansion,                                             -->
-            <!-- http://checkstyle.sf.net/config.html#properties        -->
-            <!-- <property                                              -->
-            <!--     name="headerFile"                                  -->
-            <!--     value="${basedir}/java.header"/>                   -->
-        <!-- </module> -->
-
-
-        <!-- Checks for imports                              -->
-        <!-- See http://checkstyle.sf.net/config_import.html -->
-        <module name="AvoidStarImport"/>
-        <module name="IllegalImport"/> <!-- defaults to sun.* packages -->
-        <module name="RedundantImport"/>
-        <module name="UnusedImports"/>
-
-
-        <!-- Checks for Size Violations.                    -->
-        <!-- See http://checkstyle.sf.net/config_sizes.html -->
-        <module name="LineLength">
-        	<property name="max" value="120"/>
-        </module>
-        <module name="MethodLength"/>
-        <module name="ParameterNumber"/>
-
-
-        <!-- Checks for whitespace                               -->
-        <!-- See http://checkstyle.sf.net/config_whitespace.html -->
-        <module name="EmptyForIteratorPad"/>
-        <module name="MethodParamPad"/>
-        <module name="NoWhitespaceAfter"/>
-        <module name="NoWhitespaceBefore"/>
-        <module name="OperatorWrap"/>
-        <module name="ParenPad"/>
-        <module name="TypecastParenPad"/>
-        <module name="WhitespaceAfter"/>
-        <module name="WhitespaceAround">
-        	<property name="tokens" value="ASSIGN"/>
-        </module>
-
-
-        <!-- Modifier Checks                                    -->
-        <!-- See http://checkstyle.sf.net/config_modifiers.html -->
-        <module name="ModifierOrder"/>
-        <!-- <module name="RedundantModifier"/> -->
-
-
-        <!-- Checks for blocks. You know, those {}'s         -->
-        <!-- See http://checkstyle.sf.net/config_blocks.html -->
-        <module name="AvoidNestedBlocks"/>
-        <module name="EmptyBlock"/>
-        <module name="LeftCurly">
-        	<property name="option" value="nl" />
-        </module>
-        <module name="NeedBraces"/>
-        <module name="RightCurly">
-        	<property name="option" value="alone" />
-        </module>
-
-
-        <!-- Checks for common coding problems               -->
-        <!-- See http://checkstyle.sf.net/config_coding.html -->
-        <!-- module name="DoubleCheckedLocking"/>     MY FAVOURITE -->
-        <module name="EmptyStatement"/>
-        <module name="EqualsHashCode"/>
-	    <module name="HiddenField">
-	        <property name="tokens" value="VARIABLE_DEF"/>
-	    </module>
-        <module name="IllegalInstantiation"/>
-        <module name="InnerAssignment"/>
-        <!-- module name="MagicNumber"/ -->
-        <module name="MissingSwitchDefault"/>
-        <module name="RedundantThrows"/>
-        <module name="SimplifyBooleanExpression"/>
-        <module name="SimplifyBooleanReturn"/>
-
-        <!-- Checks for class design                         -->
-        <!-- See http://checkstyle.sf.net/config_design.html -->
-        <module name="FinalClass"/>
-        <module name="HideUtilityClassConstructor"/>
-        <module name="InterfaceIsType"/>
-        <module name="VisibilityModifier"/>
-
-
-        <!-- Miscellaneous other checks.                   -->
-        <!-- See http://checkstyle.sf.net/config_misc.html -->
-        <module name="ArrayTypeStyle"/>
-        <module name="TodoComment">
-			<property name="severity" value="info"/>
-        </module>
-        <module name="UpperEll"/>
-
+  <property name="severity" value="warning"/>
+  <module name="TreeWalker">
+    <property name="cacheFile" value="checkstyle-cachefile"/>
+    <module name="JavadocMethod">
+      <property name="scope" value="public"/>
+      <property name="allowUndeclaredRTE" value="true"/>
+      <property name="allowMissingParamTags" value="true"/>
+      <property name="allowMissingReturnTag" value="true"/>
+      <property name="allowMissingPropertyJavadoc" value="true"/>
     </module>
-
-    <module name="SuppressWarningsFilter"/>
+    <module name="JavadocType"/>
+    <module name="JavadocVariable">
+      <property name="scope" value="public"/>
+    </module>
+    <module name="ConstantName"/>
+    <module name="LocalFinalVariableName"/>
+    <module name="LocalVariableName"/>
+    <module name="MemberName"/>
+    <module name="MethodName"/>
+    <module name="PackageName"/>
+    <module name="ParameterName"/>
+    <module name="StaticVariableName"/>
+    <module name="TypeName"/>
+    <module name="AvoidStarImport"/>
+    <module name="IllegalImport"/>
+    <module name="RedundantImport"/>
+    <module name="UnusedImports"/>
+    <module name="LineLength">
+      <property name="max" value="120"/>
+    </module>
+    <module name="MethodLength"/>
+    <module name="ParameterNumber"/>
+    <module name="EmptyForIteratorPad"/>
+    <module name="MethodParamPad"/>
+    <module name="NoWhitespaceAfter"/>
+    <module name="NoWhitespaceBefore"/>
+    <module name="OperatorWrap"/>
+    <module name="ParenPad"/>
+    <module name="TypecastParenPad"/>
+    <module name="WhitespaceAfter"/>
+    <module name="WhitespaceAround">
+      <property name="tokens" value="ASSIGN"/>
+    </module>
+    <module name="ModifierOrder"/>
+    <module name="AvoidNestedBlocks"/>
+    <module name="EmptyBlock"/>
+    <module name="LeftCurly">
+      <property name="option" value="nl"/>
+      <property name="tokens" value="INTERFACE_DEF,CLASS_DEF,ANNOTATION_DEF,ENUM_DEF,CTOR_DEF,METHOD_DEF,LITERAL_WHILE,LITERAL_TRY,LITERAL_CATCH,LITERAL_FINALLY,LITERAL_SYNCHRONIZED,LITERAL_SWITCH,LITERAL_DO,LITERAL_IF,LITERAL_ELSE,LITERAL_FOR"/>
+    </module>
+    <module name="NeedBraces"/>
+    <module name="RightCurly">
+      <property name="option" value="alone"/>
+    </module>
+    <module name="EmptyStatement"/>
+    <module name="EqualsHashCode"/>
+    <module name="HiddenField">
+      <property name="tokens" value="VARIABLE_DEF"/>
+    </module>
+    <module name="IllegalInstantiation"/>
+    <module name="InnerAssignment"/>
+    <module name="MissingSwitchDefault"/>
+    <module name="SimplifyBooleanExpression"/>
+    <module name="SimplifyBooleanReturn"/>
+    <module name="FinalClass"/>
+    <module name="HideUtilityClassConstructor"/>
+    <module name="InterfaceIsType"/>
+    <module name="VisibilityModifier"/>
+    <module name="ArrayTypeStyle"/>
+    <module name="TodoComment">
+      <property name="severity" value="info"/>
+    </module>
+    <module name="UpperEll"/>
+  </module>
+  <module name="NewlineAtEndOfFile"/>
+  <module name="Translation"/>
 </module>
