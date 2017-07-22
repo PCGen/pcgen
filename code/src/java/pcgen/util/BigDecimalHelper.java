@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.util;
 
@@ -23,37 +22,11 @@ import java.math.BigDecimal;
 /**
  * This contains helper functions for BigDecimal.
  */
-public class BigDecimalHelper
+public final class BigDecimalHelper
 {
 
-	/**
-	 * trimBigDecimal ( (BigDecimal) a) to cut off all trailing zeros.
-	 * It's a terrible hack.
-	 * @param n the BigDecimal to trim all trailing zeros from
-	 * @return the trimmed BigDecimal
-	 */
-	public static BigDecimal trimBigDecimal(BigDecimal n)
+	private BigDecimalHelper()
 	{
-		if (n.unscaledValue().intValue() == 0)
-		{
-			// Java 1.5 will not throw an ArthmeticException if you change the
-			// scale of 0.0 to 0, so it will keep going through the loop below
-			// forever. To get around this we test for the special case here.
-			return BigDecimal.ZERO;
-		}
-
-		if (n.scale() <= 0)
-		{
-			return n;
-		}
-
-		BigDecimal stripped = n.stripTrailingZeros();
-		if (stripped.scale() < 0)
-		{
-			stripped = n.setScale(0);
-		}
-
-		return stripped;
 	}
 
 	/**
@@ -77,16 +50,7 @@ public class BigDecimalHelper
 				+ " as is not a number. Using 0 instead.");
 		}
 
-		return trimBigDecimal(aBigD).toString();
+		return aBigD.stripTrailingZeros().toPlainString();
 	}
 
-	/**
-	 * Trims the zeros. 
-	 * @param n bigdecimal to trim
-	 * @return String without zeros
-	 */
-	public static String trimZeros(BigDecimal n)
-	{
-		return trimBigDecimal(n).toString();
-	}
 }

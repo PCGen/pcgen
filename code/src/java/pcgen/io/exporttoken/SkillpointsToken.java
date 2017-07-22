@@ -29,7 +29,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
 
 /**
@@ -101,7 +100,7 @@ public class SkillpointsToken extends Token
 					getUsedSkillPoints(pc);
 		}
 
-		return BigDecimalHelper.trimZeros(new BigDecimal(aTotalSkillPoints));
+		return new BigDecimal(aTotalSkillPoints).stripTrailingZeros().toPlainString();
 	}
 
 	/**
