@@ -150,15 +150,15 @@ Stink Bomb*			KEY:Discovery ~ Stink Bomb		CATEGORY:Special Ability	TYPE:Alchemis
 
 ###Block: Archetype Support
 # Ability Name							Bonus Ability Pool
-CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,2|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery2],[PREVAREQ:Alchemist_CF_AlchemistDiscovery2,1]
-CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,4|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery4],[PREVAREQ:Alchemist_CF_AlchemistDiscovery4,1]
-CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,6|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery6],[PREVAREQ:Alchemist_CF_AlchemistDiscovery6,1]
-CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,8|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery8],[PREVAREQ:Alchemist_CF_AlchemistDiscovery8,1]
-CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,10|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery10],[PREVAREQ:Alchemist_CF_AlchemistDiscovery10,1]
-CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,12|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery12],[PREVAREQ:Alchemist_CF_AlchemistDiscovery12,1]
-CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,14|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery14],[PREVAREQ:Alchemist_CF_AlchemistDiscovery14,1]
-CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,16|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery16],[PREVAREQ:Alchemist_CF_AlchemistDiscovery16,1]
-CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,18|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery18],[PREVAREQ:Alchemist_CF_AlchemistDiscovery18,1]
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,2|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery2],[PREVAREQ:Alchemist_CF_Discovery2,1]
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,4|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery4],[PREVAREQ:Alchemist_CF_Discovery4,1]
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,6|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery6],[PREVAREQ:Alchemist_CF_Discovery6,1]
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,8|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery8],[PREVAREQ:Alchemist_CF_Discovery8,1]
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,10|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery10],[PREVAREQ:Alchemist_CF_Discovery10,1]
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,12|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery12],[PREVAREQ:Alchemist_CF_Discovery12,1]
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,14|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery14],[PREVAREQ:Alchemist_CF_Discovery14,1]
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,16|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery16],[PREVAREQ:Alchemist_CF_Discovery16,1]
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,18|PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery18],[PREVAREQ:Alchemist_CF_Discovery18,1]
 
 CATEGORY=Special Ability|Alchemist ~ Bomb.MOD	BONUS:VAR|AlchemistBombAdditionalDice|-1|PREMULT:2,[PREVARGTEQ:AlchemistBombLVL,3],[PREVAREQ:Alchemist_CF_BombDamage3,1]
 CATEGORY=Special Ability|Alchemist ~ Bomb.MOD	BONUS:VAR|AlchemistBombAdditionalDice|-1|PREMULT:2,[PREVARGTEQ:AlchemistBombLVL,5],[PREVAREQ:Alchemist_CF_BombDamage5,1]
