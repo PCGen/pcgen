@@ -355,6 +355,42 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		assertEquals(formula, rv.toString());
 	}
 
+
+	@Test
+	public void testInvalidFormatDirect()
+	{
+		Finder finder = new Finder();
+		DataTable dt = doTableSetup();
+		context.getReferenceContext().importObject(dt);
+		finder.map.put(TableColumn.class, "Name",
+			buildColumn("Name", stringManager));
+		finder.map.put(TableColumn.class, "Value",
+			buildColumn("Value", numberManager));
+
+		VariableLibrary vl = getVariableLibrary();
+		WriteableVariableStore vs = getVariableStore();
+
+		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
+		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
+
+		VariableID columnID =
+				vl.getVariableID(getGlobalScopeInst(), "ResultColumn");
+		vs.put(columnID, columnMgr.convert("Value"));
+
+		String formula = "lookup(\"TABLE[NUMBER,NUMBER]\",\"A\",\"That\",ResultColumn)";
+		SimpleNode node = TestUtilities.doParse(formula);
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaSemantics semantics = getManagerFactory()
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
+		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
+		semanticsVisitor.visit(node, semantics);
+		if (semantics.isValid())
+		{
+			TestCase.fail("Expected Invalid Formula: " + formula);
+		}
+	}
+
 	@Test
 	public void testDirect()
 	{
