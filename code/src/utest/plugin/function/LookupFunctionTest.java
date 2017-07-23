@@ -369,16 +369,9 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 
-//		TableFormatFactory fac = new TableFormatFactory(finder);
-//		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
-//		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
-
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
 		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
-
-//		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
-//		vs.put(tableID, tableMgr.convert("A"));
 
 		VariableID columnID =
 				vl.getVariableID(getGlobalScopeInst(), "ResultColumn");
