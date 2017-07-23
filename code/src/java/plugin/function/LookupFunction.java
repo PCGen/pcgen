@@ -19,6 +19,7 @@ package plugin.function;
 
 import java.util.Arrays;
 
+import pcgen.base.format.StringManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -96,13 +97,20 @@ public class LookupFunction implements Function
 		{
 			//This will be a format then a table name;
 			ASTQuotString qs = (ASTQuotString) args[currentArg++];
-			String formatName = qs.getText();
-			LoadContext context = semantics.get(ManagerKey.CONTEXT);
-			format = context.getReferenceContext().getFormatManager(formatName);
-			args[currentArg++].jjtAccept(visitor,
+			format = semantics.get(ManagerKey.CONTEXT).getReferenceContext()
+				.getFormatManager(qs.getText());
+			//Table name is a String
+			Object nameFormat = args[currentArg++].jjtAccept(visitor,
 				semantics.getWith(FormulaSemantics.ASSERTED, STRING_CLASS));
 			if (!semantics.isValid())
 			{
+				return null;
+			}
+			if (!(nameFormat instanceof StringManager))
+			{
+				semantics.setInvalid(
+					"Parse Error: Invalid Object: " + format.getClass()
+						+ " found in location requiring a " + "String");
 				return null;
 			}
 		}
@@ -203,7 +211,7 @@ public class LookupFunction implements Function
 		}
 		else
 		{
-			throw new IllegalStateException("Initial args must result in ");
+			throw new IllegalStateException("Initial args must result in DataTable");
 		}
 
 		FormatManager<?> lookupFormat = dataTable.getFormat(0);
@@ -244,13 +252,28 @@ public class LookupFunction implements Function
 	public void getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		args[0].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, DATATABLE_CLASS));
+		int argLength = args.length;
+		int currentArg = 0;
+		if (argLength == 3)
+		{
+			//Table name node (must be a Table)
+			args[currentArg++].jjtAccept(visitor,
+				manager.getWith(DependencyManager.ASSERTED, DATATABLE_CLASS));
+		}
+		else if (argLength == 4)
+		{
+			//Table format 
+			args[currentArg++].jjtAccept(visitor,
+				manager.getWith(DependencyManager.ASSERTED, STRING_CLASS));
+			//Table name
+			args[currentArg++].jjtAccept(visitor,
+				manager.getWith(DependencyManager.ASSERTED, STRING_CLASS));
+		}
 
 		//TODO a Semantics Check can tell what this is
-		args[1].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
+		args[currentArg++].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
 
-		args[2].jjtAccept(visitor,
+		args[currentArg++].jjtAccept(visitor,
 			manager.getWith(DependencyManager.ASSERTED, COLUMN_CLASS));
 	}
 
