@@ -24,6 +24,8 @@ import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
+import pcgen.base.formula.parse.ASTPCGenSingleWord;
+import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -34,6 +36,8 @@ import pcgen.cdom.format.table.ColumnFormatManager;
 import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatManager;
+import pcgen.cdom.formula.ManagerKey;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This is a Lookup function for finding items in a DataTable.
@@ -56,6 +60,11 @@ public class LookupFunction implements Function
 	 */
 	private static final Class<DataTable> DATATABLE_CLASS = DataTable.class;
 
+	/**
+	 * A constant referring to the String Class.
+	 */
+	private static final Class<String> STRING_CLASS = String.class;
+
 	@Override
 	public String getFunctionName()
 	{
@@ -73,36 +82,60 @@ public class LookupFunction implements Function
 		FormulaSemantics semantics)
 	{
 		int argCount = args.length;
-		if (argCount != 3)
+		if ((argCount < 3) || (argCount > 4))
 		{
 			semantics.setInvalid("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 3 got "
+				+ " received incorrect # of arguments, expected: 3 or 4 got "
 				+ args.length + ' ' + Arrays.asList(args));
 			return null;
 		}
 
-		//Table name node (must be a DataTable)
-		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object tableFormat = args[0].jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, DATATABLE_CLASS));
-		if (!semantics.isValid())
+		Object format;
+		int currentArg = 0;
+		if (args[0] instanceof ASTQuotString)
 		{
+			//This will be a format then a table name;
+			ASTQuotString qs = (ASTQuotString) args[currentArg++];
+			String formatName = qs.getText();
+			LoadContext context = semantics.get(ManagerKey.CONTEXT);
+			format = context.getReferenceContext().getFormatManager(formatName);
+			args[currentArg++].jjtAccept(visitor,
+				semantics.getWith(FormulaSemantics.ASSERTED, STRING_CLASS));
+			if (!semantics.isValid())
+			{
+				return null;
+			}
+		}
+		else if (args[0] instanceof ASTPCGenSingleWord)
+		{
+			//Table name node (must be a DataTable)
+			format = args[currentArg++].jjtAccept(visitor,
+				semantics.getWith(FormulaSemantics.ASSERTED, DATATABLE_CLASS));
+			if (!semantics.isValid())
+			{
+				return null;
+			}
+		}
+		else
+		{
+			//Error
+			semantics.setInvalid("Parse Error: Invalid first argument: "
+				+ " must be a String or single variable");
 			return null;
 		}
-		if (!(tableFormat instanceof TableFormatManager))
+
+		if (!(format instanceof TableFormatManager))
 		{
 			semantics.setInvalid(
-				"Parse Error: Invalid Object: " + tableFormat.getClass()
+				"Parse Error: Invalid Object: " + format.getClass()
 					+ " found in location requiring a " + "TableFormatManager");
 			return null;
 		}
-		@SuppressWarnings("unchecked")
-		TableFormatManager tableFormatManager =
-				(TableFormatManager) tableFormat;
+		TableFormatManager tableFormatManager = (TableFormatManager) format;
 
 		//Lookup value (at this point we don't know the format - only at runtime)
 		FormatManager<?> lookupFormat = tableFormatManager.getLookupFormat();
-		args[1].jjtAccept(visitor,
+		args[currentArg++].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, lookupFormat.getManagedClass()));
 		if (!semantics.isValid())
 		{
@@ -111,7 +144,7 @@ public class LookupFunction implements Function
 
 		//Result Column Name (must be a String)
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object resultColumn = args[2].jjtAccept(visitor,
+		Object resultColumn = args[currentArg++].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, COLUMN_CLASS));
 		if (!semantics.isValid())
 		{
@@ -140,19 +173,39 @@ public class LookupFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		//Table name node (must be a Table)
-		DataTable dataTable = (DataTable) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, DATATABLE_CLASS));
+		int argLength = args.length;
+		int currentArg = 0;
+		DataTable dataTable;
+		if (argLength == 3)
+		{
+			//Table name node (must be a Table)
+			dataTable = (DataTable) args[currentArg++].jjtAccept(visitor,
+				manager.getWith(EvaluationManager.ASSERTED, DATATABLE_CLASS));
+		}
+		else if (argLength == 4)
+		{
+			//This will be a format then a table name;
+			//Skip the format for now (was for semantics check)
+			currentArg++;
+			LoadContext context = manager.get(ManagerKey.CONTEXT);
+			String tableName = (String) args[currentArg++].jjtAccept(visitor,
+				manager.getWith(EvaluationManager.ASSERTED, STRING_CLASS));
+			dataTable = context.getReferenceContext().get(DataTable.class, tableName);
+		}
+		else
+		{
+			throw new IllegalStateException("Initial args must result in ");
+		}
 
 		FormatManager<?> lookupFormat = dataTable.getFormat(0);
 
 		//Lookup value (format based on the table)
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object lookupValue = args[1].jjtAccept(visitor,
+		Object lookupValue = args[currentArg++].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, lookupFormat.getManagedClass()));
 
 		//Result Column Name (must be a tableColumn)
-		TableColumn column = (TableColumn) args[2].jjtAccept(visitor,
+		TableColumn column = (TableColumn) args[currentArg++].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, COLUMN_CLASS));
 
 		String columnName = column.getName();
