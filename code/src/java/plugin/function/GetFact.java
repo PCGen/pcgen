@@ -98,26 +98,16 @@ public class GetFact implements Function
 		ASTQuotString qs = (ASTQuotString) scopeNode;
 		String legalScopeName = qs.getText();
 
-		//Validate the key node (since this doesn't flow onward)
-		Node keyNode = args[1];
-		FormatManager<?> keyFormat = (FormatManager<?>) keyNode.jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, STRING_CLASS));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
-
 		if (args[1] instanceof ASTQuotString)
 		{
-			//Direct,  no dependencies
+			//Direct,  no dependencies, skip jjtAccept on args[1]
 			return allowFromScopeName(visitor, semantics, legalScopeName, args[2]);
 		}
 		else if (args[1] instanceof ASTPCGenSingleWord)
 		{
 			//Variable
-			semantics = semantics.getWith(FormulaSemantics.ASSERTED, null);
-			FormatManager<?> objClass =
-					(FormatManager<?>) args[1].jjtAccept(visitor, semantics);
+			FormatManager<?> objClass = (FormatManager<?>) args[1].jjtAccept(visitor,
+				semantics.getWith(FormulaSemantics.ASSERTED, null));
 			if (!semantics.isValid())
 			{
 				return null;
