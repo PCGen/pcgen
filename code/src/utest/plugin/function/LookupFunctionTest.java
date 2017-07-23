@@ -44,6 +44,7 @@ import pcgen.cdom.format.table.ColumnFormatFactory;
 import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatFactory;
+import pcgen.cdom.formula.ManagerKey;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
 
@@ -355,6 +356,54 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
+	public void testDirect()
+	{
+		Finder finder = new Finder();
+		DataTable dt = doTableSetup();
+		context.getReferenceContext().importObject(dt);
+		finder.map.put(TableColumn.class, "Name",
+			buildColumn("Name", stringManager));
+		finder.map.put(TableColumn.class, "Value",
+			buildColumn("Value", numberManager));
+
+		VariableLibrary vl = getVariableLibrary();
+		WriteableVariableStore vs = getVariableStore();
+
+//		TableFormatFactory fac = new TableFormatFactory(finder);
+//		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
+//		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
+
+		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
+		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
+
+//		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
+//		vs.put(tableID, tableMgr.convert("A"));
+
+		VariableID columnID =
+				vl.getVariableID(getGlobalScopeInst(), "ResultColumn");
+		vs.put(columnID, columnMgr.convert("Value"));
+
+		String formula = "lookup(\"TABLE[STRING,NUMBER]\",\"A\",\"That\",ResultColumn)";
+		SimpleNode node = TestUtilities.doParse(formula);
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaSemantics semantics = getManagerFactory()
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
+		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
+		semanticsVisitor.visit(node, semantics);
+		if (!semantics.isValid())
+		{
+			TestCase.fail("Expected Valid Formula: " + formula
+				+ " but was told: " + semantics.getReport());
+		}
+		isStatic(formula, node, false);
+		evaluatesTo(formula, node, 2);
+		Object rv =
+				new ReconstructionVisitor().visit(node, new StringBuilder());
+		assertEquals(formula, rv.toString());
+	}
+
+	@Test
 	public void testNoColumn()
 	{
 		Finder finder = new Finder();
@@ -468,5 +517,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 			throw new UnsupportedOperationException();
 		}
 	}
+
+	@Override
+	public EvaluationManager generateManager()
+	{
+		EvaluationManager em = super.generateManager();
+		return em.getWith(ManagerKey.CONTEXT, context);
+	}
+	
+	
 
 }
