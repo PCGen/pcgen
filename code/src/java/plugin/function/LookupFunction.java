@@ -135,10 +135,19 @@ public class LookupFunction implements Function
 
 		//Lookup value (at this point we don't know the format - only at runtime)
 		FormatManager<?> lookupFormat = tableFormatManager.getLookupFormat();
-		args[currentArg++].jjtAccept(visitor,
+		@SuppressWarnings("PMD.PrematureDeclaration")
+		FormatManager<?> luFormat = (FormatManager<?>) args[currentArg++].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, lookupFormat.getManagedClass()));
 		if (!semantics.isValid())
 		{
+			return null;
+		}
+		if (!lookupFormat.equals(luFormat))
+		{
+			semantics.setInvalid(
+				"Parse Error: Invalid Lookup Object: " + luFormat.getIdentifierType()
+					+ " found in location the Table Format says is a "
+					+ lookupFormat.getIdentifierType());
 			return null;
 		}
 
