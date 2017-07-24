@@ -93,6 +93,7 @@ import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.analysis.RaceTypeFacet;
 import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
+import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.SubRaceFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
@@ -253,6 +254,7 @@ public class CharacterDisplay
 			.getFacet(PortraitThumbnailRectFacet.class);
 	private PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
 	private SkillFilterFacet skillFilterFacet = FacetLibrary.getFacet(SkillFilterFacet.class);
+	private final ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 
 	public CharacterDisplay(CharID id)
 	{
@@ -779,6 +781,11 @@ public class CharacterDisplay
 	public PCAlignment getPCAlignment()
 	{
 		return alignmentFacet.get(id);
+	}
+
+	public Object getGlobal(String varName)
+	{
+		return resultFacet.getGlobalVariable(id, varName);
 	}
 
 	/**

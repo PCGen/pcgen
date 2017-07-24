@@ -26,7 +26,7 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.rules.persistence.token.AbstractSetModifierFactory;
+import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
  * A SetModifierFactory is a ModifierFactory that returns a specific value
@@ -37,7 +37,7 @@ import pcgen.rules.persistence.token.AbstractSetModifierFactory;
  *            The Class of object contained in the arrays processed by this
  *            SetModifierFactory
  */
-public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
+public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 {
 
 	@SuppressWarnings("rawtypes")
