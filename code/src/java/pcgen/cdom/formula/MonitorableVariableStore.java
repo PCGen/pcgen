@@ -48,7 +48,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 *            VariableID
 	 */
 	public <T> void addVariableListener(VariableID<T> varID,
-		VariableListener<T> listener)
+		VariableListener<? super T> listener)
 	{
 		listenerList.addToListFor(varID, listener);
 	}

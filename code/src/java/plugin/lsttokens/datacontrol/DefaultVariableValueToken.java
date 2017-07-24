@@ -22,10 +22,9 @@ import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DefaultVarValue;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -99,17 +98,12 @@ public class DefaultVariableValueToken extends
 		DefaultVarValue dvv, String defaultValue, FormatManager<T> fmtManager)
 	{
 		Class<T> cl = fmtManager.getManagedClass();
-		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		if (m == null)
-		{
-			return new ParseResult.Fail("ModifierType "
-				+ fmtManager.getIdentifierType() + " requires a SET modifier",
-				context);
-		}
 		Modifier<T> defaultModifier;
+		VariableContext varContext = context.getVariableContext();
 		try
 		{
-			defaultModifier = m.getFixedModifier(0, fmtManager, defaultValue);
+			defaultModifier = varContext.getModifier("SET", defaultValue, 0,
+				varContext.getScope("GLOBAL"), fmtManager);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -119,7 +113,7 @@ public class DefaultVariableValueToken extends
 				+ defaultValue, context);
 		}
 		dvv.setModifier(defaultModifier);
-		context.getVariableContext().addDefault(cl, defaultModifier);
+		varContext.addDefault(cl, defaultModifier);
 		return ParseResult.SUCCESS;
 	}
 

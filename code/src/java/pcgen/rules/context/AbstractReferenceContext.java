@@ -65,6 +65,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 
 public abstract class AbstractReferenceContext implements ObjectDatabase
 {
@@ -105,12 +106,7 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	protected final <T extends Loadable> ReferenceManufacturer<T> getNewReferenceManufacturer(
 		Class<T> cl)
 	{
-		ReferenceManufacturer<T> mfg = constructReferenceManufacturer(cl);
-		if (mfg.getIdentifierType() != null)
-		{
-			fmtLibrary.addFormatManager(mfg);
-		}
-		return mfg;
+		return constructReferenceManufacturer(cl);
 	}
 
 	protected abstract <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
@@ -569,6 +565,28 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 
 	public FormatManager<?> getFormatManager(String clName)
 	{
+		if ((!fmtLibrary.hasFormatManager(clName))
+			&& (StringPClassUtil.getClassForBasic(clName) != null))
+		{
+			importCDOMToFormat(clName);
+		}
 		return fmtLibrary.getFormatManager(clName);
+	}
+
+	private void importCDOMToFormat(String name)
+	{
+		Class<? extends Loadable> cl = StringPClassUtil.getClassForBasic(name);
+		if (cl == null)
+		{
+			throw new IllegalArgumentException(
+				"Invalid Data Definition Location (no class): " + name);
+		}
+		ReferenceManufacturer<? extends Loadable> mgr = getManufacturer(cl);
+		if (!name.equalsIgnoreCase(mgr.getIdentifierType()))
+		{
+			throw new IllegalArgumentException("Invalid Data: " + name
+				+ " did not return a matching manufacturer: " + mgr.getIdentifierType());
+		}
+		fmtLibrary.addFormatManager(mgr);
 	}
 }

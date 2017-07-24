@@ -27,14 +27,14 @@ import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.rules.persistence.token.AbstractSetModifierFactory;
+import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
  * A SetModifierFactory is a {@code ModifierFactory<Number>} that returns a specific
  * value (independent of the input) when a Modifier produced by this
  * SetModifierFactory is processed.
  */
-public class SetModifierFactory extends AbstractSetModifierFactory<Number>
+public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 {
 
 	/**

@@ -30,6 +30,7 @@ import java.util.TreeMap;
 import javax.swing.event.EventListenerList;
 
 import pcgen.base.lang.CaseInsensitiveString;
+import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToInstanceList;
@@ -1325,7 +1326,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	@Override
 	public Indirect<T> convertIndirect(String key)
 	{
-		return factory.getReference(key);
+		return isResolved ? new BasicIndirect<T>(this, getActiveObject(key))
+			: getReference(key);
 	}
 
 	@Override

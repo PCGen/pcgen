@@ -34,6 +34,8 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import org.jetbrains.annotations.TestOnly;
+
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -275,7 +277,6 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
-import org.jetbrains.annotations.TestOnly;
 
 public class PlayerCharacter implements Cloneable, VariableContainer
 {
@@ -438,7 +439,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private final ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
 	private final TargetTrackingFacet astocnasFacet = FacetLibrary.getFacet(TargetTrackingFacet.class);
-
 
 	private final PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
 			.getFacet(PortraitThumbnailRectFacet.class);
