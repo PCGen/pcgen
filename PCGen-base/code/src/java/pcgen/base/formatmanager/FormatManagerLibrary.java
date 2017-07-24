@@ -28,10 +28,24 @@ public interface FormatManagerLibrary
 	 * Returns a FormatManager for the format identified by the given Format
 	 * name.
 	 * 
+	 * Note: Reserves the right to throw an exception if hasFormatManager returns false.
+	 * 
 	 * @param formatName
 	 *            The Format name for which the FormatManager should be returned
 	 * @return A FormatManager for the format identified by the given Format
 	 *         name
 	 */
 	public FormatManager<?> getFormatManager(String formatName);
+
+	/**
+	 * Returns whether a FormatManager for the format identified by the given Format name
+	 * exists or can be built in this FormatManagerLibrary.
+	 * 
+	 * @param formatName
+	 *            The Format name for which the FormatManager should be checked if it
+	 *            exists or can be built
+	 * @return true if a FormatManager for the format identified by the given Format name
+	 *         exists or can be built in this FormatManagerLibrary; false otherwise
+	 */
+	public boolean hasFormatManager(String formatName);
 }

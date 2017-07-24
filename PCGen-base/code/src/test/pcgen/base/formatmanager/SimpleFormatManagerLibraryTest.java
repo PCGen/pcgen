@@ -47,6 +47,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 	{
 		try
 		{
+			assertFalse(library.hasFormatManager("NUMBER]"));
 			library.getFormatManager("NUMBER]");
 			fail("bad input value should fail");
 		}
@@ -60,6 +61,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 	{
 		try
 		{
+			assertFalse(library.hasFormatManager("NIMBLER"));
 			library.getFormatManager("NIMBLER");
 			fail("null bad bracket value should fail");
 		}
@@ -73,6 +75,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 	{
 		try
 		{
+			assertFalse(library.hasFormatManager("ARRAY[NUMBER"));
 			library.getFormatManager("ARRAY[NUMBER");
 			fail("null bad bracket value should fail");
 		}
@@ -109,6 +112,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 	{
 		try
 		{
+			assertFalse(library.hasFormatManager("ARRAY[NIMBLER]"));
 			library.getFormatManager("ARRAY[NIMBLER]");
 			fail("bad sub format should fail");
 		}
@@ -120,6 +124,8 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 
 	public void testConvert()
 	{
+		assertTrue(library.hasFormatManager("NUMBER"));
+		assertTrue(library.hasFormatManager("ARRAY[NUMBER]"));
 		FormatManager<Number[]> manager =
 				(FormatManager<Number[]>) library
 					.getFormatManager("ARRAY[NUMBER]");

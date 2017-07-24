@@ -49,6 +49,17 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 	@Override
 	public FormatManager<?> getFormatManager(String formatName)
 	{
+		FormatManager<?> fm = internalGetFormatManager(formatName);
+		if (fm == null)
+		{
+			throw new IllegalArgumentException(
+				"No FormatManager available for " + formatName);
+		}
+		return fm;
+	}
+
+	private FormatManager<?> internalGetFormatManager(String formatName)
+	{
 		FormatManagerFactory fmtManagerBuilder =
 				builderByIdentifier.get(formatName);
 		String formatSub = null;
@@ -71,8 +82,7 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 			}
 			if (fmtManagerBuilder == null)
 			{
-				throw new IllegalArgumentException(
-					"No FormatManager available for " + formatName);
+				return null;
 			}
 		}
 		return fmtManagerBuilder.build(formatSub, this);
@@ -112,5 +122,11 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 				"Cannot set another Format Manager Builder for " + fmIdent);
 		}
 		builderByIdentifier.put(fmIdent, builder);
+	}
+
+	@Override
+	public boolean hasFormatManager(String formatName)
+	{
+		return internalGetFormatManager(formatName) != null;
 	}
 }
