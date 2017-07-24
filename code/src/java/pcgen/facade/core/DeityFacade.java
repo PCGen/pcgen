@@ -21,13 +21,15 @@ package pcgen.facade.core;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.core.PCAlignment;
+
 
 public interface DeityFacade extends InfoFacade
 {
 
 	List<String> getDomainNames();
 
-	AlignmentFacade getAlignment();
+	PCAlignment getAlignment();
 
 	Collection<String> getPantheons();
 

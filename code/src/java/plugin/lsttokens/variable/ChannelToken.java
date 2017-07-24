@@ -22,7 +22,6 @@ import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
-import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
@@ -113,8 +112,8 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(channelName);
-		dv.setFormat(format);
-		dv.setScopeName(fullscope);
+		dv.setFormat(formatManager);
+		dv.setScope(lvs);
 		return ParseResult.SUCCESS;
 	}
 
@@ -127,24 +126,19 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 			//Variable
 			return null;
 		}
-		String scope = dv.getScopeName();
-		if (scope == null || scope.equals("Global Variables"))
-		{
-			//Global channel
-			scope = GlobalScope.GLOBAL_SCOPE_NAME;
-		}
-		String format = dv.getFormat();
+		FormatManager<?> format = dv.getFormat();
 		if (format == null)
 		{
 			//Not a valid object
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(scope);
+		sb.append(dv.getScope().getName().toUpperCase());
 		sb.append(Constants.PIPE);
-		if (!format.equals("NUMBER"))
+		String identifier = format.getIdentifierType();
+		if (!identifier.equals("NUMBER"))
 		{
-			sb.append(format);
+			sb.append(format.getIdentifierType());
 			sb.append('=');
 		}
 		//Take off CHANNEL*

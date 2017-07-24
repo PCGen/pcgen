@@ -40,6 +40,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import tokenmodel.testsupport.AbstractTokenModelTest;
@@ -66,10 +67,10 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		processToken(lg);
 		assertEquals(baseCount(), targetFacetCount());
-		alignmentFacet.set(id, lg);
+		ChannelCompatibility.setCurrentAlignment(pc.getCharID(), lg);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
-		alignmentFacet.set(id, ng);
+		ChannelCompatibility.setCurrentAlignment(pc.getCharID(), ng);
 		assertEquals(baseCount(), targetFacetCount());
 	}
 

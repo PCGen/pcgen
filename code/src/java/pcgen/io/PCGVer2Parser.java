@@ -134,6 +134,7 @@ import pcgen.io.migration.EquipmentMigration;
 import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -547,7 +548,7 @@ final class PCGVer2Parser implements PCGParser
 					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				align = getNoAlignment();
 			}
-			thePC.setAlignment(align);
+			ChannelCompatibility.setCurrentAlignment(thePC.getCharID(), align);
 
 			return;
 		}

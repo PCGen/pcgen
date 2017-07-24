@@ -64,7 +64,7 @@ import javax.swing.event.HyperlinkListener;
 
 import org.apache.commons.lang3.StringUtils;
 
-import pcgen.facade.core.AlignmentFacade;
+import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
@@ -75,9 +75,9 @@ import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.core.TodoFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -872,7 +872,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		private final CharacterComboBoxModel<GenderFacade> genderModel;
 		private final CharacterComboBoxModel<HandedFacade> handsModel;
-		private final CharacterComboBoxModel<AlignmentFacade> alignmentModel;
+		private final CharacterComboBoxModel<PCAlignment> alignmentModel;
 		private final CharacterComboBoxModel<DeityFacade> deityModel;
 		private final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
 		private final CharacterComboBoxModel<SimpleFacade> ageCatModel;
@@ -921,13 +921,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			};
 
 			//initialize alignment model
-			alignmentModel = new CharacterComboBoxModel<AlignmentFacade>(dataset.getAlignments(), character.getAlignmentRef())
+			alignmentModel = new CharacterComboBoxModel<PCAlignment>(dataset.getAlignments(), character.getAlignmentRef())
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setAlignment((AlignmentFacade) anItem);
+					character.setAlignment((PCAlignment) anItem);
 				}
 
 			};

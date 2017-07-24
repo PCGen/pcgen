@@ -57,6 +57,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Visibility;
@@ -554,7 +555,7 @@ public final class NPCGenerator
 				{
 					Logging
 						.debugPrint("NPCGenerator: Selected " + randAlign + " for alignment " + align); //$NON-NLS-1$//$NON-NLS-2$
-					aPC.setAlignment(randAlign);
+					ChannelCompatibility.setCurrentAlignment(aPC.getCharID(), randAlign);
 				}
 				
 				final Race r = getRace(aRace);

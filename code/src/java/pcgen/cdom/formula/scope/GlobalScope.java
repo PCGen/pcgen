@@ -31,20 +31,12 @@ public class GlobalScope implements LegalScope
 	 */
 	public static final String GLOBAL_SCOPE_NAME = "PC";
 
-	/**
-	 * The String representation of the objects covered by this Scope
-	 * 
-	 * @see pcgen.base.formula.base.LegalScope#getName()
-	 */
 	@Override
 	public String getName()
 	{
 		return GLOBAL_SCOPE_NAME;
 	}
 
-	/**
-	 * @see pcgen.base.formula.base.LegalScope#getParentScope()
-	 */
 	@Override
 	public Optional<LegalScope> getParentScope()
 	{

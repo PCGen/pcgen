@@ -22,6 +22,7 @@ import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -115,21 +116,21 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(varName);
-		dv.setFormat(format);
-		dv.setScopeName(fullscope);
+		dv.setFormat(formatManager);
+		dv.setScope(lvs);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, DatasetVariable dv)
 	{
-		String scope = dv.getScopeName();
-		if (scope == null || scope.equals("Global Variables"))
+		LegalScope scope = dv.getScope();
+		if (scope == null || scope.getName().equals(GlobalScope.GLOBAL_SCOPE_NAME))
 		{
 			//Global variable
 			return null;
 		}
-		String format = dv.getFormat();
+		FormatManager<?> format = dv.getFormat();
 		if (format == null)
 		{
 			//Not a valid object
@@ -142,11 +143,12 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(scope);
+		sb.append(LegalScope.getFullName(scope));
 		sb.append(Constants.PIPE);
-		if (!format.equals("NUMBER"))
+		String identifier = format.getIdentifierType();
+		if (!identifier.equals("NUMBER"))
 		{
-			sb.append(format);
+			sb.append(format.getIdentifierType());
 			sb.append('=');
 		}
 		sb.append(varName);

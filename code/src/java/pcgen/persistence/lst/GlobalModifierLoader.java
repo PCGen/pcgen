@@ -30,6 +30,11 @@ import pcgen.util.Logging;
 public class GlobalModifierLoader extends LstLineFileLoader
 {
 
+	/**
+	 * The name of the GlobalModifiers object to be loaded with the Global Modifiers
+	 */
+	public static final String GLOBAL_MODIFIERS = "Global Modifiers";
+
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 		throws PersistenceLayerException
@@ -43,7 +48,7 @@ public class GlobalModifierLoader extends LstLineFileLoader
 		}
 		GlobalModifiers gm =
 				context.getReferenceContext().constructNowIfNecessary(
-					GlobalModifiers.class, "Global Modifiers");
+					GlobalModifiers.class, GLOBAL_MODIFIERS);
 		String tok = lstLine.trim();
 		final String token = tok.trim();
 		final int colonLoc = token.indexOf(':');

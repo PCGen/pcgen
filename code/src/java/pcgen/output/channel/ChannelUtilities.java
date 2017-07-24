@@ -17,6 +17,8 @@
  */
 package pcgen.output.channel;
 
+import java.util.Objects;
+
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
@@ -98,6 +100,27 @@ public final class ChannelUtilities
 			RESULT_FACET.get(id), varID);
 	}
 
+	public static Object readGlobalChannel(CharID id, String channelName)
+	{
+		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
+		VariableID<?> varID = VARLIB_FACET.getVariableID(id.getDatasetID(),
+			globalInstance, createVarName(channelName));
+		return RESULT_FACET.getValue(id, varID);
+	}
+
+	public static void setGlobalChannel(CharID id, String channelName, Object value)
+	{
+		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
+		VariableID<?> varID = VARLIB_FACET.getVariableID(id.getDatasetID(),
+			globalInstance, createVarName(channelName));
+		processSet(id, varID, value);
+	}
+
+	private static <T> void processSet(CharID id, VariableID<T> varID, Object value)
+	{
+		RESULT_FACET.get(id).put(varID, (T) value);
+	}
+
 	/**
 	 * Creates a channel variable Name from the given channel name.
 	 * 
@@ -107,7 +130,7 @@ public final class ChannelUtilities
 	 */
 	public static String createVarName(String channelName)
 	{
-		return "CHANNEL*" + channelName;
+		return "CHANNEL*" + Objects.requireNonNull(channelName);
 	}
 
 }

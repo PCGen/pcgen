@@ -26,6 +26,7 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
 import pcgen.core.character.CompanionMod;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
@@ -37,10 +38,10 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		T granted = createGrantedObject();
 		processToken(lg);
 		assertEquals(0, getCount());
-		alignmentFacet.set(id, lg);
+		ChannelCompatibility.setCurrentAlignment(pc.getCharID(), lg);
 		assertTrue(containsExpected(granted));
 		assertEquals(1, getCount());
-		alignmentFacet.set(id, ng);
+		ChannelCompatibility.setCurrentAlignment(pc.getCharID(), ng);
 		assertEquals(0, getCount());
 		assertTrue(cleanedSideEffects());
 	}

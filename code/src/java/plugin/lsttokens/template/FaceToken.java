@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.template;
 
-import java.util.Collection;
-
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.math.OrderedPair;
@@ -28,20 +26,18 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.PCTemplate;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with FACE Token
  */
 public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+		CDOMCompatibilityToken<PCTemplate>
 {
 
-	private static final String VAR_NAME = "Face";
 	private static final int MOD_PRIORITY = 100;
 	private static final String MOD_IDENTIFICATION = "SET";
 
@@ -99,7 +95,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			return new ParseResult.Fail(getTokenName() + " had value " + value
 				+ " but second item cannot be negative");
 		}
-		String varName = VAR_NAME;
+		String varName = CControl.FACE.getDefaultValue();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -114,36 +110,26 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, PCTemplate pct)
-	{
-		Changes<VarModifier<?>> changes =
-				context.getObjectContext().getListChanges(pct, ListKey.MODIFY);
-		Collection<VarModifier<?>> added = changes.getAdded();
-		String face = null;
-		if (added != null)
-		{
-			for (VarModifier<?> vm : added)
-			{
-				FormulaModifier<?> modifier = vm.getModifier();
-				if (VAR_NAME.equals(vm.getVarName())
-					&& (!vm.getLegalScope().getParentScope().isPresent())
-					&& (modifier.getIdentification()
-						.equals(MOD_IDENTIFICATION)))
-				{
-					face = modifier.getInstructions();
-					if (face.endsWith(",0"))
-					{
-						face = face.substring(0, face.length() - 2);
-					}
-				}
-			}
-		}
-		return (face == null) ? null : new String[]{face};
-	}
-
-	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;
+	}
+
+	@Override
+	public int compatibilityLevel()
+	{
+		return 6;
+	}
+
+	@Override
+	public int compatibilitySubLevel()
+	{
+		return 6;
+	}
+
+	@Override
+	public int compatibilityPriority()
+	{
+		return 0;
 	}
 }

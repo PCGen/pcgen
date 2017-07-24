@@ -21,6 +21,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.output.channel.compat.StatAdapter;
@@ -63,5 +64,19 @@ public final class ChannelCompatibility
 			return (WriteableReferenceFacade<Number>) ChannelUtilities
 				.getChannel(id, stat, channelName);
 		}
+	}
+	
+	public static PCAlignment getCurrentAlignment(CharID id)
+	{
+		String channelName = ControlUtilities
+				.getControlToken(Globals.getContext(), CControl.ALIGNMENTINPUT);
+		return (PCAlignment) ChannelUtilities.readGlobalChannel(id, channelName);
+	}
+
+	public static void setCurrentAlignment(CharID id, PCAlignment align)
+	{
+		String channelName = ControlUtilities
+				.getControlToken(Globals.getContext(), CControl.ALIGNMENTINPUT);
+		ChannelUtilities.setGlobalChannel(id, channelName, align);
 	}
 }

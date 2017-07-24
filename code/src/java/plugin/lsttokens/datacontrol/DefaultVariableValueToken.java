@@ -108,7 +108,8 @@ public class DefaultVariableValueToken extends
 		FormulaModifier<T> defaultModifier;
 		try
 		{
-			defaultModifier = m.getFixedModifier(fmtManager, defaultValue);
+			defaultModifier = context.getVariableContext().getModifier("SET",
+				defaultValue, context.getActiveScope(), fmtManager);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -131,5 +132,4 @@ public class DefaultVariableValueToken extends
 		sb.append(dvv.getModifier().getInstructions());
 		return new String[]{sb.toString()};
 	}
-
 }

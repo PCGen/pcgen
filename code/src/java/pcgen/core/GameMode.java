@@ -1299,7 +1299,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Answer with the alignment.
 	 * @return alignment name
 	 */
-	String getAlignmentText()
+	public String getAlignmentText()
 	{
 		return alignmentName;
 	}
