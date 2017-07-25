@@ -18,6 +18,8 @@
 package pcgen.base.util;
 
 import java.util.HashMap;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 import pcgen.base.lang.CaseInsensitiveString;
 
@@ -105,5 +107,57 @@ public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 	public V remove(Object key)
 	{
 		return super.remove(resolveObject(key));
+	}
+
+	@Override
+	public V getOrDefault(Object key, V defaultValue)
+	{
+		return super.getOrDefault(resolveObject(key), defaultValue);
+	}
+
+	@Override
+	public V putIfAbsent(Object key, V value)
+	{
+		return super.putIfAbsent(resolveObject(key), value);
+	}
+
+	@Override
+	public boolean replace(Object key, V oldValue, V newValue)
+	{
+		return super.replace(resolveObject(key), oldValue, newValue);
+	}
+
+	@Override
+	public V replace(Object key, V value)
+	{
+		return super.replace(resolveObject(key), value);
+	}
+
+	@Override
+	public V computeIfAbsent(Object key,
+		Function<? super Object, ? extends V> mappingFunction)
+	{
+		return super.computeIfAbsent(resolveObject(key), mappingFunction);
+	}
+
+	@Override
+	public V computeIfPresent(Object key,
+		BiFunction<? super Object, ? super V, ? extends V> remappingFunction)
+	{
+		return super.computeIfPresent(resolveObject(key), remappingFunction);
+	}
+
+	@Override
+	public V compute(Object key,
+		BiFunction<? super Object, ? super V, ? extends V> remappingFunction)
+	{
+		return super.compute(resolveObject(key), remappingFunction);
+	}
+
+	@Override
+	public V merge(Object key, V value,
+		BiFunction<? super V, ? super V, ? extends V> remappingFunction)
+	{
+		return super.merge(resolveObject(key), value, remappingFunction);
 	}
 }
