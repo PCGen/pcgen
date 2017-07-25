@@ -123,7 +123,7 @@ public final class NoteItem implements NoteFacade, Cloneable
 	}
 
 	@Override
-	protected NoteItem clone()
+	public NoteItem clone()
 	{
 		try
 		{

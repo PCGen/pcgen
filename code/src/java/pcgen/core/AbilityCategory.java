@@ -542,19 +542,29 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	public boolean equals(Object obj)
 	{
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (getClass() != obj.getClass())
+		{
 			return false;
+		}
 		final AbilityCategory other = (AbilityCategory) obj;
 		if (keyName == null)
 		{
 			if (other.keyName != null)
+			{
 				return false;
+			}
 		}
 		else if (!keyName.equals(other.keyName))
+		{
 			return false;
+		}
 		return true;
 	}
 

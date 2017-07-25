@@ -48,21 +48,6 @@ public final class Delta
 	}
 
 	/**
-	 * parse the Double
-	 * @param s
-	 * @return double
-	 */
-	public static double parseDouble(String s)
-	{
-		if (s.charAt(0) == '+')
-		{
-			s = s.substring(1);
-		}
-
-		return Double.parseDouble(s);
-	}
-
-	/**
 	 * Parse a string with an option plus or minus followed by digits
 	 * into an int.
 	 * @param s a string that may or may not be a valid delta

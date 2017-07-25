@@ -35,8 +35,6 @@
     <exclude name="ProperCloneImplementation" />
     <exclude name="CloneThrowsCloneNotSupportedException" />
     <exclude name="CloneMethodMustImplementCloneable" />
-    <exclude name="CloneMethodReturnTypeMustMatchClassName" />
-    <exclude name="CloneMethodMustBePublic" />
   </rule>
   <rule ref="rulesets/java/codesize.xml" >
     <exclude name="TooManyFields" />
@@ -66,7 +64,6 @@
   <rule ref="rulesets/java/empty.xml">
     <exclude name="EmptyCatchBlock" />
     <exclude name="EmptyIfStmt" />
-    <exclude name="EmptyWhileStmt" />
     <exclude name="EmptyStaticInitializer" />
     <exclude name="EmptyInitializer" />
     <exclude name="EmptyStatementNotInLoop" />
@@ -96,7 +93,6 @@
     <exclude name="SystemPrintln" />
     <exclude name="GuardLogStatementJavaUtil" />
     <exclude name="LoggerIsNotStaticFinal" />
-    <exclude name="MoreThanOneLogger" />
   </rule>
   <!--<rule ref="rulesets/java/migrating.xml" />-->
   <!--<rule ref="rulesets/java/naming.xml" />-->

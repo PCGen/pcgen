@@ -6478,6 +6478,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		while (removeFromListFor(ListKey.TYPE, t))
 		{
+			; // Using the while for side effects
 		}
 		dumpTypeCache();
 	}
