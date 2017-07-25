@@ -51,6 +51,7 @@ import pcgen.base.lang.CaseInsensitiveString;
  *
  * @param <V> The Type of the Values stored in this CaseInsensitiveMap
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 {
 	/*
