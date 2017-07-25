@@ -1133,12 +1133,12 @@ public class CharacterDisplay
 		return statBonusFacet.getStatBonusTo(id, aType, aName);
 	}
 
-	public String getUDamForRace()
+	String getUDamForRace()
 	{
 		return unarmedDamageFacet.getUDamForRace(id);
 	}
 
-	public Set<List<String>> getUnarmedDamage()
+	Set<List<String>> getUnarmedDamage()
 	{
 		return unarmedDamageFacet.getSet(id);
 	}
@@ -1272,7 +1272,7 @@ public class CharacterDisplay
 		return loadFacet.getMaxLoad(id);
 	}
 
-	public Float getMaxLoad(double mult)
+	private Float getMaxLoad(double mult)
 	{
 		return loadFacet.getMaxLoad(id, mult);
 	}
@@ -1379,7 +1379,7 @@ public class CharacterDisplay
 	 * 
 	 * @return A descriptive string name for the character.
 	 */
-	public String getFullDisplayName()
+	private String getFullDisplayName()
 	{
 		final int levels = getTotalLevels();
 		final String displayClass;
@@ -1446,7 +1446,7 @@ public class CharacterDisplay
 		return buf.toString();
 	}
 
-	public String getFullDisplayClassName(PCClass pcClass)
+	private String getFullDisplayClassName(PCClass pcClass)
 	{
 		final StringBuilder buf = new StringBuilder(40);
 	
