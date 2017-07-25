@@ -44,6 +44,7 @@ import pcgen.base.util.FormatManager;
  * AggressiveSolverManager will build and manage the associated Solver for that
  * VariableID.
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public class AggressiveSolverManager implements SolverManager
 {
 
