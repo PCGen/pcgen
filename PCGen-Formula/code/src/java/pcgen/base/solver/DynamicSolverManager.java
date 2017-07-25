@@ -151,6 +151,13 @@ public class DynamicSolverManager implements SolverManager
 	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
 	{
+		addModifierAndSolve(varID, modifier, source);
+	}
+
+	@Override
+	public <T> boolean addModifierAndSolve(VariableID<T> varID, Modifier<T> modifier,
+		ScopeInstance source)
+	{
 		if (varID == null)
 		{
 			throw new IllegalArgumentException("VariableID cannot be null");
@@ -196,7 +203,7 @@ public class DynamicSolverManager implements SolverManager
 		/*
 		 * Solve this solver and anything that requires it (recursively)
 		 */
-		solveFromNode(varID);
+		return solveFromNode(varID);
 	}
 
 	private <T> void addDynamicDependencies(VariableID<T> varID, DependencyManager fdm)
@@ -359,13 +366,15 @@ public class DynamicSolverManager implements SolverManager
 	 *            The VariableID as a starting point for triggering Solvers to be
 	 *            processed
 	 */
-	public void solveFromNode(VariableID<?> varID)
+	public boolean solveFromNode(VariableID<?> varID)
 	{
+		boolean changed = false;
 		boolean warning = varStack.contains(varID);
 		try
 		{
 			varStack.push(varID);
-			if (processSolver(varID))
+			changed = processSolver(varID);
+			if (changed)
 			{
 				if (warning)
 				{
@@ -385,6 +394,7 @@ public class DynamicSolverManager implements SolverManager
 		{
 			varStack.pop();
 		}
+		return changed;
 	}
 
 	private void resolveDynamic(VariableID<?> varID)

@@ -60,7 +60,36 @@ public interface SolverManager
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters is null
 	 */
-	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier, ScopeInstance source);
+	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
+		ScopeInstance source);
+
+	/**
+	 * Adds a Modifier (with the given source object) to the Solver identified by the
+	 * given VariableID and solves for the given VariableID. Returns true if the added
+	 * modifier caused the value of the VariableID to change.
+	 * 
+	 * Note: If the SolverManager is not aggressive, then the SolverManager may 
+	 * interpret more than one Modifier as new to the underlying Solver.  The return
+	 * value of this method is open to interpretation by the SolverManager to 
+	 * determine if it limits it to only the provided Modifier or any Modifier since
+	 * the last time the Solver was analyzed.
+	 * 
+	 * @param <T>
+	 *            The format (class) of object contained by the given VariableID
+	 * @param varID
+	 *            The VariableID for which a Modifier should be added to the responsible
+	 *            Solver
+	 * @param modifier
+	 *            The Modifier to be added to the Solver for the given VariableID
+	 * @param source
+	 *            The source of the Modifier to be added to the Solver
+	 * @return true if the given VariableID was modified by adding the given Solver, false
+	 *         otherwise
+	 * @throws IllegalArgumentException
+	 *             if any of the parameters is null
+	 */
+	public <T> boolean addModifierAndSolve(VariableID<T> varID, Modifier<T> modifier,
+		ScopeInstance source);
 
 	/**
 	 * Removes a Modifier (with the given source object) from the Solver identified by the
