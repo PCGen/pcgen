@@ -138,6 +138,16 @@ CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_KiPool|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NoTrace|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_LightSteps|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_HiddenMaster|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick2|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick4|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick6|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick8|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick10|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick12|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick14|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick16|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick18|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick20|0
 
 ###Block:
 # Ability Name			Ability
@@ -155,6 +165,17 @@ CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_KiPool|1|TYPE=Boolean|PREFACT:1,ABIL
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NoTrace|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NoTrace=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_LightSteps|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_LightSteps=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_HiddenMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_HiddenMaster=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_HiddenMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_HiddenMaster=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick2=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick4=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick6=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick8=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick10=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick12=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick14=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick16=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick18=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick20=True
 ###Block: Type
 # Ability Name			Modify VAR
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_PoisonUse|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
