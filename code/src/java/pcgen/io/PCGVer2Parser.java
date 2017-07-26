@@ -34,11 +34,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import org.apache.commons.lang3.StringUtils;
+
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.UserSelection;
@@ -421,7 +424,7 @@ final class PCGVer2Parser implements PCGParser
 
 		if (oSource != null)
 		{
-			sourceStr = ((CDOMObject) oSource).getKeyName();
+			sourceStr = ((VarScoped) oSource).getKeyName();
 		}
 
 		if (targetStr.equals(IOConstants.TAG_PC))
@@ -431,7 +434,7 @@ final class PCGVer2Parser implements PCGParser
 		else
 		{
 			Object oTarget = thePC.getEquipmentNamed(targetStr);
-			targetStr = ((CDOMObject) oTarget).getDisplayName();
+			targetStr = ((Identified) oTarget).getDisplayName();
 		}
 
 		return thePC.getTempBonusMap(sourceStr, targetStr);

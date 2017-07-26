@@ -18,6 +18,7 @@
  */
 package pcgen.core;
 
+import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.Ungranted;
 
 
@@ -38,7 +39,7 @@ public final class WeaponProf extends PObject implements Comparable<Object>,
 	@Override
 	public int compareTo(final Object o1)
 	{
-		return getKeyName().compareToIgnoreCase(((WeaponProf) o1).getKeyName());
+		return getKeyName().compareToIgnoreCase(((VarScoped) o1).getKeyName());
 	}
 
 	/**

@@ -20,6 +20,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
@@ -64,7 +65,7 @@ public final class Language extends PObject implements Comparable<Object>,
 			return getKeyName().compareToIgnoreCase((String) o1);
 		}
 
-		return getKeyName().compareToIgnoreCase(((Language) o1).getKeyName());
+		return getKeyName().compareToIgnoreCase(((VarScoped) o1).getKeyName());
 	}
 
 	/**
@@ -94,7 +95,7 @@ public final class Language extends PObject implements Comparable<Object>,
 			return false;
 		}
 
-		return getKeyName().equals(((Language) o1).getKeyName());
+		return getKeyName().equals(((VarScoped) o1).getKeyName());
 	}
 
 	/**

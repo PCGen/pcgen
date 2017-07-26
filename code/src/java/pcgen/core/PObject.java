@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifyingObject;
@@ -92,7 +93,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (obj != null)
 		{
 			//this should throw a ClassCastException for non-PObjects, like the Comparable interface calls for
-			return this.getKeyName().compareToIgnoreCase(((PObject) obj).getKeyName());
+			return this.getKeyName().compareToIgnoreCase(((VarScoped) obj).getKeyName());
 		}
 		return 1;
 	}

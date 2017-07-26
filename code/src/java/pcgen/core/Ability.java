@@ -20,6 +20,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
@@ -134,7 +135,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 
 			// this should throw a ClassCastException for non-PObjects, like the
 			// Comparable interface calls for
-			return this.getKeyName().compareToIgnoreCase(((CDOMObject) obj).getKeyName());
+			return this.getKeyName().compareToIgnoreCase(((VarScoped) obj).getKeyName());
 		}
 		return 1;
 	}
