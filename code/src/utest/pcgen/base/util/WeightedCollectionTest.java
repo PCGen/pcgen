@@ -17,6 +17,7 @@
  */
 package pcgen.base.util;
 
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -77,7 +78,7 @@ public class WeightedCollectionTest
 		assertTrue(c.add(I1));
 		assertTrue(c.add(I2));
 		assertTrue(c.add(null));
-		WeightedCollection<Integer> col = new WeightedCollection<>(c);
+		AbstractCollection<Integer> col = new WeightedCollection<>(c);
 		assertEquals(3, col.size());
 		c.add(4);
 		assertEquals(3, col.size());
@@ -495,12 +496,13 @@ public class WeightedCollectionTest
 		String s1 = "asting";
 		String s2 = "aString1";
 		String s3 = "Bobcat";
+		String s4 = "asting";
 		assertTrue(swc.isEmpty());
 		assertFalse(swc.contains(s1));
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));
-		assertTrue(swc.contains(new String("asting"))); // value semantic
+		assertTrue(swc.contains(s4)); // value semantic
 		assertFalse(swc.contains(s2));
 		assertEquals(1, swc.size());
 		assertTrue(swc.add(s1));
@@ -565,12 +567,13 @@ public class WeightedCollectionTest
 		String s1 = "asting";
 		String s2 = "aString1";
 		String s3 = "Bobcat";
+		String s4 = "asting";
 		assertTrue(swc.isEmpty());
 		assertFalse(swc.contains(s1));
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));
-		assertTrue(swc.contains(new String("asting"))); // value semantic
+		assertTrue(swc.contains(s4)); // value semantic
 		assertFalse(swc.contains(s2));
 		assertEquals(1, swc.size());
 		assertTrue(swc.add(s1));
@@ -631,8 +634,8 @@ public class WeightedCollectionTest
 	@Test
 	public void testComparatorEquals()
 	{
-		WeightedCollection<String> iwc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
-		WeightedCollection<String> swc = new WeightedCollection<>();
+		AbstractCollection<String> iwc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
+		AbstractCollection<String> swc = new WeightedCollection<>();
 		assertTrue(iwc.isEmpty());
 		assertEquals(iwc, iwc);
 		assertEquals(swc, swc);
