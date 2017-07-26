@@ -256,7 +256,7 @@ public final class UIPropertyContext extends PropertyContext
 			return null;
 		}
 		String path = file.getAbsolutePath();
-		return path + "." + key;
+		return path + '.' + key;
 	}
 
 }

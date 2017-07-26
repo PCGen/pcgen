@@ -189,6 +189,10 @@ public final class SettingsHandler
 	private static boolean isGMGen = false;
 	private static boolean showSingleBoxPerBundle = false;
 
+	private SettingsHandler()
+	{
+	}
+
 
 	public static String getSelectedGenerators(String string)
 	{

@@ -42,6 +42,10 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 public class SubClassApplication
 {
 
+	private SubClassApplication()
+	{
+	}
+
 	public static void checkForSubClass(PlayerCharacter aPC, PCClass cl)
 	{
 		List<SubClass> subClassList = cl.getListFor(ListKey.SUB_CLASS);

@@ -38,6 +38,12 @@ public final class SourceMigration
 
 	private static Map<int[], List<MigrationRule>> sourceChangesForVer = new HashMap<>();
 
+
+
+	private SourceMigration()
+	{
+	}
+
 	/**
 	 * Find the new source key to replace the provided one.
 	 * 

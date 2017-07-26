@@ -27,6 +27,10 @@ import pcgen.util.Logging;
 
 public final class BonusAddition
 {
+	private BonusAddition()
+	{
+	}
+
 	/**
 	 * Apply the bonus to a character. The bonus can optionally only be added
 	 * once no matter how many associated choices this object has. This is

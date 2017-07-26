@@ -18,12 +18,13 @@
  */
 package gmgen.plugin;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
  * Compares InitHolder objects
  */
-public class InitHolderComperator implements Comparator<InitHolder>
+public class InitHolderComperator implements Comparator<InitHolder>, Serializable
 {
 	/**
 	 *  Description of the Method

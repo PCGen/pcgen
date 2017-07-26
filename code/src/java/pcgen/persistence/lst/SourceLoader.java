@@ -33,8 +33,12 @@ import pcgen.util.Logging;
 public class SourceLoader
 {
 
+	private SourceLoader()
+	{
+	}
+
 	public static void parseLine(LoadContext context, String lstLine,
-			URI sourceFile)
+	                             URI sourceFile)
 	{
 		final StringTokenizer colToken = new StringTokenizer(lstLine,
 				SystemLoader.TAB_DELIM);

@@ -24,6 +24,10 @@ import pcgen.core.prereq.Prerequisite;
 public class RaceAlignment
 {
 
+	private RaceAlignment()
+	{
+	}
+
 	public static boolean canBeAlignment(CDOMObject r, PCAlignment align)
 	{
 		if (r.hasPrerequisites())

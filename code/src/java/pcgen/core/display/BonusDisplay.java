@@ -27,6 +27,10 @@ import pcgen.core.PlayerCharacter;
 public class BonusDisplay
 {
 
+	private BonusDisplay()
+	{
+	}
+
 	/**
 	 * Returns a String which can be used to display in the GUI
 	 * 

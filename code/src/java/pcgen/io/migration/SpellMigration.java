@@ -36,6 +36,12 @@ public final class SpellMigration
 {
 	private static Map<int[], List<MigrationRule>> spellChangesForVer = new HashMap<>();
 
+
+
+	private SpellMigration()
+	{
+	}
+
 	/**
 	 * Find the new spell key to replace the provided one.
 	 * 

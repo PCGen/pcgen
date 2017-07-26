@@ -35,9 +35,13 @@ import pcgen.util.Logging;
 public class SubstitutionLevelSupport
 {
 
+	private SubstitutionLevelSupport()
+	{
+	}
+
 	private static boolean levelArrayQualifies(int level,
-			final PlayerCharacter pc, final String aLine,
-			final SourceEntry tempSource, CDOMObject source)
+	                                           final PlayerCharacter pc, final String aLine,
+	                                           final SourceEntry tempSource, CDOMObject source)
 	{
 		final PCClassLoader classLoader = new PCClassLoader(); 
 		PCClass dummyClass = new PCClass();   

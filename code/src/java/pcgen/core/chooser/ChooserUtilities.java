@@ -44,6 +44,10 @@ import pcgen.core.Skill;
 
 public class ChooserUtilities
 {
+	private ChooserUtilities()
+	{
+	}
+
 	/**
 	 * Deal with CHOOSE tags. The actual items the choice will be made from are
 	 * based on the choiceString, as applied to current character. Choices

@@ -37,6 +37,12 @@ public final class AbilityMigration
 
 	private static Map<int[], List<MigrationRule>> abilityChangesForVer = new HashMap<>();
 
+
+
+	private AbilityMigration()
+	{
+	}
+
 	/**
 	 * Find the new ability key to replace the provided one.
 	 * 

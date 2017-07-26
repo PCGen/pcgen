@@ -155,9 +155,9 @@ public class SystemInitiative
 	 * @param aRoll
 	 * @return the new curent initiative
 	 */
-	int checkExtRoll(int aRoll)
+	void checkExtRoll(int aRoll)
 	{
-		return checkExtRoll(aRoll, 0);
+		checkExtRoll(aRoll, 0);
 	}
 
 	/**

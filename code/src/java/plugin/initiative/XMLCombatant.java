@@ -729,7 +729,7 @@ public class XMLCombatant extends Combatant
 
 			statBuf.append("<font class='type'>hp</font> ");
 			statBuf.append(hitPoints.getCurrent());
-			statBuf.append("/");
+			statBuf.append('/');
 			statBuf.append(hitPoints.getMax());
 
 			statBuf.append("<br>");

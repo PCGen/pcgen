@@ -36,8 +36,12 @@ import pcgen.util.chooser.ChooserFactory;
 public class SubstitutionClassApplication
 {
 
+	private SubstitutionClassApplication()
+	{
+	}
+
 	public static void checkForSubstitutionClass(PCClass cl, final int aLevel,
-			final PlayerCharacter aPC)
+	                                             final PlayerCharacter aPC)
 	{
 		List<SubstitutionClass> substitutionClassList = cl
 				.getListFor(ListKey.SUBSTITUTION_CLASS);

@@ -26,6 +26,10 @@ import java.math.BigDecimal;
 public class BigDecimalHelper
 {
 
+	private BigDecimalHelper()
+	{
+	}
+
 	/**
 	 * trimBigDecimal ( (BigDecimal) a) to cut off all trailing zeros.
 	 * It's a terrible hack.

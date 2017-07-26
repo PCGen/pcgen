@@ -478,7 +478,7 @@ public class Initiative extends javax.swing.JPanel
 	{
 		final List<InitHolder> selectedList = getSelected();
 
-		while (!selectedList.isEmpty())
+		if (!selectedList.isEmpty())
 		{
 			final InitHolder iH = selectedList.remove(0);
 			castSpell("", iH, null);
@@ -1842,7 +1842,7 @@ public class Initiative extends javax.swing.JPanel
 	{
 		final List<InitHolder> selectedList = getSelected();
 
-		while (!selectedList.isEmpty())
+		if (!selectedList.isEmpty())
 		{
 			InitHolder iH = selectedList.remove(0);
 			StartEvent dialog =

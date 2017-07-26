@@ -23,6 +23,10 @@ import pcgen.cdom.enumeration.ObjectKey;
 public class ChooseActivation
 {
 
+	private ChooseActivation()
+	{
+	}
+
 	/**
 	 * Check if an object has a new style choose. As at Oct 2013 this meant any
 	 * CHOOSE other than for an equipment modifier or a number (i.e. temporary 

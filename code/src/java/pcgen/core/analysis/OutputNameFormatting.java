@@ -30,6 +30,10 @@ import pcgen.core.SettingsHandler;
 public class OutputNameFormatting
 {
 
+	private OutputNameFormatting()
+	{
+	}
+
 	public static String parseOutputName(CDOMObject po, PlayerCharacter aPC)
 	{
 		return parseOutputName(getOutputName(po), aPC);

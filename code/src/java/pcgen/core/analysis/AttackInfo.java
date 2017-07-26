@@ -25,6 +25,10 @@ import pcgen.util.enumeration.AttackType;
 public class AttackInfo
 {
 
+	private AttackInfo()
+	{
+	}
+
 	/**
 	 * Get Attack Information for a PC.  
 	 * This will return the attack token value requested for the supplied

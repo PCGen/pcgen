@@ -119,6 +119,10 @@ public class StringPClassUtil
 		catClassMap.put("ABILITY", AbilityCategory.class);
 	}
 
+	private StringPClassUtil()
+	{
+	}
+
 	public static Class<? extends Loadable> getClassFor(String key)
 	{
 		return classMap.get(key);

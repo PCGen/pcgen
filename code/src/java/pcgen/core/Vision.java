@@ -75,7 +75,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 		}
 		catch (NumberFormatException e)
 		{
-			return visionType + " (" + distance + ")";
+			return visionType + " (" + distance + ')';
 		}
 	}
 

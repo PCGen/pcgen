@@ -38,6 +38,10 @@ public final class SkinLFResourceChecker
 		checkResource();
 	}
 
+	private SkinLFResourceChecker()
+	{
+	}
+
 	/**
 	 * Get the missing resource count
 	 * @return the missing resource count

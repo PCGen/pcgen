@@ -27,6 +27,10 @@ import pcgen.core.bonus.BonusObj;
 public class BonusActivation
 {
 
+	private BonusActivation()
+	{
+	}
+
 	public static void deactivateBonuses(CDOMObject po, PlayerCharacter aPC)
 	{
 		for (BonusObj bonus : po.getRawBonusList(aPC))
