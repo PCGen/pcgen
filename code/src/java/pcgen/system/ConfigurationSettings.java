@@ -14,14 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
  */
 package pcgen.system;
 
 import java.io.File;
 
 import org.apache.commons.lang3.SystemUtils;
-
 
 public final class ConfigurationSettings extends PropertyContext
 {
@@ -30,15 +28,12 @@ public final class ConfigurationSettings extends PropertyContext
 	private static final String USER_COUNTRY = "country";
 	public static final String SETTINGS_FILES_PATH = "settingsPath";
 	public static final String SYSTEMS_DIR = "systemsPath";
-	public static final String THEME_PACK_DIR = "themesPath";
+	private static final String THEME_PACK_DIR = "themesPath";
 	public static final String OUTPUT_SHEETS_DIR = "osPath";
 	private static final String PLUGINS_DIR = "pluginsPath";
 	public static final String PREVIEW_DIR = "previewPath";
-	public static final String VENDOR_DATA_DIR = "vendordataPath";
-	public static final String HOMEBREW_DATA_DIR = "homebrewdataPath";
 	public static final String DOCS_DIR = "docsPath";
 	public static final String PCC_FILES_DIR = "pccFilesPath";
-	public static final String CUSTOM_DATA_DIR = "customPath";
 	private static ConfigurationSettings instance = null;
 	/** APPLICATION directory name, used in <em>~/.&lt;APPLICATION&gt;</em>, etc. */
 	private static final String APPLICATION = "pcgen"; // $NON-NLS-1$
@@ -88,19 +83,6 @@ public final class ConfigurationSettings extends PropertyContext
 	public static void setCountry(String country)
 	{
 		setSystemProperty(USER_COUNTRY, country);
-	}
-
-	/**
-	 * @return the current user directory
-	 */
-	public static String getUserDir()
-	{
-		return SystemUtils.USER_DIR;
-	}
-
-	public static ConfigurationSettings getInstance()
-	{
-		return getInstance(null);
 	}
 
 	public static ConfigurationSettings getInstance(String configFileName)
@@ -156,17 +138,17 @@ public final class ConfigurationSettings extends PropertyContext
 
 	public static String initSystemProperty(String key, String defaultValue)
 	{
-		return getInstance().initProperty(key, defaultValue);
+		return getInstance(null).initProperty(key, defaultValue);
 	}
 
 	public static String getSystemProperty(String key)
 	{
-		return getInstance().getProperty(key);
+		return getInstance(null).getProperty(key);
 	}
 
 	public static Object setSystemProperty(String key, String value)
 	{
-		return getInstance().setProperty(key, value);
+		return getInstance(null).setProperty(key, value);
 	}
 
 	private static String getDirectory(String key)

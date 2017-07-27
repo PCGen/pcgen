@@ -144,7 +144,7 @@ public final class Main
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
 		configFactory = new PropertyContextFactory(getConfigPath());
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
+		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(null));
 
 		parseCommands(args);
 
