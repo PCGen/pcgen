@@ -18,7 +18,8 @@
  */
 package pcgen.facade.util;
 
-import pcgen.base.util.Reference;
+import java.util.function.Supplier;
+
 import pcgen.facade.util.event.ReferenceListener;
 
 /**
@@ -27,7 +28,7 @@ import pcgen.facade.util.event.ReferenceListener;
  * an implementor of this interface. When the reference changes a
  * reference change event is fired to all registered listeners.
  */
-public interface ReferenceFacade<E> extends Reference<E>
+public interface ReferenceFacade<E> extends Supplier<E>
 {
 
 	void addReferenceListener(ReferenceListener<? super E> listener);
