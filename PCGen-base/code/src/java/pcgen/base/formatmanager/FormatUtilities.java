@@ -17,6 +17,8 @@
  */
 package pcgen.base.formatmanager;
 
+import java.util.Objects;
+
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.OrderedPairManager;
@@ -101,25 +103,19 @@ public final class FormatUtilities
 	 * @param fmtManager
 	 *            The FormatManager to be checked to ensure it is valid
 	 * @return The given FormatManager if it is valid.
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if the given FormatManager is not valid
 	 */
 	public static FormatManager<?> isValid(FormatManager<?> fmtManager)
 	{
 		String fmIdent = fmtManager.getIdentifierType();
 		Class<?> fmFormat = fmtManager.getManagedClass();
-		if (fmIdent == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot use a FormatManager with no identifier (was nominally for Class: "
-					+ fmFormat + ")");
-		}
-		if (fmFormat == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot use a FormatManager with no format (was nominally for Identifier: "
-					+ fmIdent + ")");
-		}
+		Objects.requireNonNull(fmIdent,
+			"Cannot use a FormatManager with no identifier (was nominally for Class: "
+				+ fmFormat + ")");
+		Objects.requireNonNull(fmFormat,
+			"Cannot use a FormatManager with no format (was nominally for Identifier: "
+				+ fmIdent + ")");
 		return fmtManager;
 	}
 }

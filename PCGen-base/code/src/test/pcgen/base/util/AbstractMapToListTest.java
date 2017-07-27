@@ -446,7 +446,7 @@ public abstract class AbstractMapToListTest extends TestCase
 			dkm.getElementInList(Integer.valueOf(1), 0);
 			fail("Expected IllegalArgumentException");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			// OK
 		}

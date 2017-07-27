@@ -51,7 +51,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 			library.getFormatManager("NUMBER]");
 			fail("bad input value should fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok as well
 		}
@@ -65,7 +65,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 			library.getFormatManager("NIMBLER");
 			fail("null bad bracket value should fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok as well
 		}
@@ -116,7 +116,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 			library.getFormatManager("ARRAY[NIMBLER]");
 			fail("bad sub format should fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok as well
 		}

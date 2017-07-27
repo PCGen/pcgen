@@ -17,6 +17,8 @@
  */
 package pcgen.base.formatmanager;
 
+import java.util.Objects;
+
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
 
@@ -43,19 +45,14 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 	 *            should be returned
 	 * @return The FormatManager for the given String identifying a format of
 	 *         object
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if the given format does not have an associated FormatManager
 	 */
 	@Override
 	public FormatManager<?> getFormatManager(String formatName)
 	{
 		FormatManager<?> fm = internalGetFormatManager(formatName);
-		if (fm == null)
-		{
-			throw new IllegalArgumentException(
-				"No FormatManager available for " + formatName);
-		}
-		return fm;
+		return Objects.requireNonNull(fm, "No FormatManager available for " + formatName);
 	}
 
 	private FormatManager<?> internalGetFormatManager(String formatName)

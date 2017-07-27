@@ -52,7 +52,7 @@ public class ArrayFormatFactoryTest extends TestCase
 			factory.build("NUM", library);
 			fail("bad sub form should fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok as well
 		}

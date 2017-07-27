@@ -24,6 +24,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -498,7 +499,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 *            The location in the list (for the given key) of the value to
 	 *            be returned
 	 * @return The value in the given location in the list for the given key
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if the given key does not exist in this AbstractMapToList
 	 * @throws IndexOutOfBoundsException
 	 *             if the index is out of range for the list for the given key
@@ -509,12 +510,9 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	public V getElementInList(K key, int index)
 	{
 		List<V> subList = mapToList.get(key);
-		if (subList == null)
-		{
-			throw new IllegalArgumentException(key
-				+ " is not a key in this AbstractMapToList");
-		}
-		return subList.get(index);
+		return Objects
+			.requireNonNull(subList, key + " is not a key in this AbstractMapToList")
+			.get(index);
 	}
 
 	/**
