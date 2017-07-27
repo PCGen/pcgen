@@ -90,7 +90,7 @@ public class SolverFactory implements DefaultStore
 	/**
 	 * Validates the defaults added to the addSolverFormat method.  
 	 */
-	public ComplexResult validateDefaults()
+	public ComplexResult<Boolean> validateDefaults()
 	{
 		for (Entry<Class<?>, Modifier<?>> entry : defaultModifierMap.entrySet())
 		{
@@ -110,7 +110,7 @@ public class SolverFactory implements DefaultStore
 					+ entry.getKey() + " cannot be null or rely on terms/functions");
 			}
 		}
-		return Result.SUCCESS;
+		return PassResult.SUCCESS;
 	}
 
 	/**
