@@ -3681,7 +3681,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		String aRange = aSpell.getSpell().getListAsString(ListKey.RANGE);
 		String aSpellClass = aSpell.getVariableSource(this);
-		int rangeInFeet = 0;
 		String aString = SettingsHandler.getGame().getSpellRangeFormula(aRange.toUpperCase());
 
 		if (aRange.equalsIgnoreCase("CLOSE") && (aString == null))
@@ -6869,12 +6868,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			for (int i = 0; i < numberOfLevels; ++i)
 			{
 				int currentLevel = getLevel(pcClassClone);
-				final PCLevelInfo playerCharacterLevelInfo = addLevelInfo(pcClassClone.getKeyName());
+				addLevelInfo(pcClassClone.getKeyName());
 
 				// if we fail to add the level, remove and return
 				if (!pcClassClone.addLevel(false, bSilent, this, bypassPrereqs))
 				{
-					PCClassLevel failedpcl = getActiveClassLevel(pcClassClone, currentLevel + 1);
+					getActiveClassLevel(pcClassClone, currentLevel + 1);
 					removeLevelInfo(pcClassClone.getKeyName());
 					return;
 				}
@@ -7223,7 +7222,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	@Override
 	public PlayerCharacter clone()
 	{
-		PlayerCharacter aClone = null;
 
 		// calling super.clone won't work because it will not create
 		// new data instances for all the final variables and I won't
@@ -8569,8 +8567,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int getDC(final Spell sp, CharacterSpell cs, final SpellInfo si)
 	{
-		CDOMObject ow = null;
-		int spellLevel = 0;
 		int metaDC = 0;
 
 		spellLevel = si.getActualLevel();
@@ -8719,8 +8715,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int getConcentration(final Spell sp, CharacterSpell cs, final SpellInfo si)
 	{
-		CDOMObject ow = null;
-		int spellLevel = 0;
 		int metaConcentration = 0;
 
 		spellLevel = si.getActualLevel();
