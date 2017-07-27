@@ -215,7 +215,7 @@ public class AttackDialog extends JDialog
 						m_tableModel.getValueAt(i, m_tableModel
 							.columnFromKey(AttackTableModel.COLUMN_KEY_TARGET));
 
-				if ((target != null) && target instanceof PcgCombatant)
+				if (target instanceof PcgCombatant)
 				{
 					m_targetList.add(target);
 				}

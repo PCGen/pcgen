@@ -343,7 +343,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		if (e.getActionCommand().equals("REMOVE") || e.getSource() == list)
 		{
 			Object value = list.getSelectedValue();
-			if (value != null && value instanceof InfoFacade)
+			if (value instanceof InfoFacade)
 			{
 				chooser.removeSelected((InfoFacade) value);
 				if (availInput != null)
