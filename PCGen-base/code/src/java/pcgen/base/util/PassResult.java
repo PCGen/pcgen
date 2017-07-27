@@ -18,7 +18,7 @@ package pcgen.base.util;
 import java.util.Collection;
 import java.util.Collections;
 
-public class Result
+public class PassResult
 {
 
 	/**
@@ -26,12 +26,12 @@ public class Result
 	 */
 	public static final OperationSuccessful SUCCESS = new OperationSuccessful();
 
-	private static final class OperationSuccessful implements ComplexResult
+	private static final class OperationSuccessful implements ComplexResult<Boolean>
 	{
 		@Override
-		public boolean passed()
+		public Boolean get()
 		{
-			return true;
+			return Boolean.TRUE;
 		}
 
 		@Override

@@ -16,28 +16,19 @@
 package pcgen.base.util;
 
 import java.util.Collection;
+import java.util.function.Supplier;
 
 /**
- * Interface to provide feedback on complex operations that either pass, or deserve a
- * message that describes whey they failed (without throwing an exception).
+ * Interface to provide feedback on complex operations that either return a value, or
+ * deserve a message that describes whey they failed (without throwing an exception).
  */
-public interface ComplexResult
+public interface ComplexResult<T> extends Supplier<T> 
 {
-	/**
-	 * Returns the state of the ComplexResult. If this method returns false, then the
-	 * getMessages method should return additional information about why the operation was
-	 * not successful.
-	 * 
-	 * @return true if the operation represented by this ComplexResult was successful;
-	 *         false otherwise
-	 */
-	public boolean passed();
-
 	/**
 	 * Returns any messages contained by this ComplexResult.
 	 * 
-	 * Note: If the ComplexResult returns "true" to passed() then the behavior of this
-	 * method is not controlled by this interface.
+	 * Note: If the ComplexResult returns a non-null value to passed() then the behavior
+	 * of this method is not controlled by this interface.
 	 * 
 	 * @return A non-null list of messages contained by this ComplexResult.
 	 */

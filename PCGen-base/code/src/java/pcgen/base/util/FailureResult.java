@@ -19,7 +19,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
 
-public class FailureResult implements ComplexResult
+public class FailureResult implements ComplexResult<Boolean>
 {
 	private final String error;
 
@@ -29,9 +29,9 @@ public class FailureResult implements ComplexResult
 	}
 
 	@Override
-	public boolean passed()
+	public Boolean get()
 	{
-		return false;
+		return Boolean.FALSE;
 	}
 
 	@Override
