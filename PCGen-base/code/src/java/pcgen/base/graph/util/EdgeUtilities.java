@@ -77,7 +77,7 @@ public final class EdgeUtilities
 	 * @return A Function that will return the Node at the given location in the Edge
 	 *         provided to said Function
 	 */
-	public static <T> Function<? extends DefaultGraphEdge<T>, T> getNode(int i)
+	public static <T> Function<DefaultGraphEdge<T>, T> getNode(int i)
 	{
 		return edge -> edge.getNodeAt(i);
 	}
