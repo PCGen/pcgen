@@ -71,7 +71,6 @@ public class SolverFactory implements DefaultStore
 	 *             dependencies, or if the given Solver format already has a
 	 *             default Modifier defined for this SolverFactory
 	 */
-	@SuppressWarnings({"PMD.AvoidCatchingNPE", "PMD.AvoidCatchingGenericException"})
 	public <T> void addSolverFormat(Class<T> varFormat,
 		Modifier<? extends T> defaultModifier)
 	{
@@ -99,6 +98,7 @@ public class SolverFactory implements DefaultStore
 	 * @return A ComplexResult indicating the status of validating the defaults added to
 	 *         the addSolverFormat method
 	 */
+	@SuppressWarnings({"PMD.AvoidCatchingNPE", "PMD.AvoidCatchingGenericException"})
 	public ComplexResult<Boolean> validateDefaults()
 	{
 		for (Entry<Class<?>, Modifier<?>> entry : defaultModifierMap.entrySet())
