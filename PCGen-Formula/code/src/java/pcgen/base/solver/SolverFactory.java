@@ -23,7 +23,10 @@ import java.util.Map.Entry;
 import java.util.Objects;
 
 import pcgen.base.formula.base.DefaultStore;
+import pcgen.base.util.ComplexResult;
+import pcgen.base.util.FailureResult;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.PassResult;
 
 /**
  * A SolverFactory is a centralized location to define a shared default value

@@ -79,7 +79,7 @@ public class SolverFactoryTest extends TestCase
 	}
 
 	@Test
-	public void testIllegalAddSolverFormat()
+	public void testAddSolverFormat()
 	{
 		AbstractModifier<Number> setNumber = AbstractModifier.setNumber(9, 100);
 		try
@@ -87,7 +87,7 @@ public class SolverFactoryTest extends TestCase
 			factory.addSolverFormat(null, setNumber);
 			fail("Should not be able to set Solver for null format");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -96,29 +96,36 @@ public class SolverFactoryTest extends TestCase
 			factory.addSolverFormat(Number.class, null);
 			fail("Should not be able to set Solver for null default");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
-		try
-		{
-			factory.addSolverFormat(Number.class, AbstractModifier.add(9, 5));
-			fail("Should not be able to set Solver for adding modifier");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			//intentionally break generics
-			factory.addSolverFormat(String.class, (Modifier) setNumber);
-			fail("Should not be able to add Format with mismatch");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+		//But this is safe
+		factory.addSolverFormat(Number.class, AbstractModifier.setNumber(108, 28));
+		assertEquals(108, factory.getDefault(Number.class));
+	}
+
+	@Test
+	public void testIllegalAddSolverFormatAdding()
+	{
+		factory.addSolverFormat(Number.class, AbstractModifier.add(9, 5));
+		assertFalse("Should not be able to set Solver for adding modifier",
+			factory.validateDefaults().get());
+	}
+
+	@Test
+	public void testIllegalAddSolverFormatGenerics()
+	{
+		AbstractModifier<Number> setNumber = AbstractModifier.setNumber(9, 100);
+		//intentionally break generics
+		factory.addSolverFormat(String.class, (Modifier) setNumber);
+		assertFalse("Should not be able to add Format with mismatch",
+			factory.validateDefaults().get());
+	}
+
+	@Test
+	public void testIllegalAddSolverFormatDouble()
+	{
 		factory.addSolverFormat(Number.class, AbstractModifier.setNumber(108, 28));
 		try
 		{
@@ -129,8 +136,5 @@ public class SolverFactoryTest extends TestCase
 		{
 			//ok
 		}
-		//But this is safe
-		factory.addSolverFormat(Number.class, AbstractModifier.setNumber(108, 28));
-		assertEquals(108, factory.getDefault(Number.class));
 	}
 }
