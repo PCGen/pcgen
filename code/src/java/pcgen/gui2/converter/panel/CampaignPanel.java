@@ -33,8 +33,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -45,11 +43,11 @@ import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.PCGenSettings;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * The Class {@code CampaignPanel} displays a panel allowing
  * the user to select the campaigns to be converted.
- * 
- * 
  */
 public class CampaignPanel extends ConvertSubPanel
 {

@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.persistence.lst;
 
@@ -31,16 +29,11 @@ import pcgen.util.Logging;
  * {@code InstallLoader} handles parsing the Install.lst file which
  * defines how a data set should be installed into an existing PCGen 
  * installation.
- *
- *
  */
 public class InstallLoader extends LstLineFileLoader
 {
 	private InstallableCampaign campaign = null;
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstString(LoadContext, URI, String)
-	 */
 	@Override
 	public void loadLstString(LoadContext context, URI fileName, String lstData) throws PersistenceLayerException
 	{
@@ -49,9 +42,6 @@ public class InstallLoader extends LstLineFileLoader
 		super.loadLstString(context, fileName, lstData);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
 		throws PersistenceLayerException
@@ -64,15 +54,15 @@ public class InstallLoader extends LstLineFileLoader
 			return;
 		}
 		final String key = inputLine.substring(0, idxColon);
-		final String value = inputLine.substring(idxColon + 1);
 		Map<String, LstToken> tokenMap =
 				TokenStore.inst().getTokenMap(InstallLstToken.class);
 		InstallLstToken token = (InstallLstToken) tokenMap.get(key);
 
 		if (token != null)
 		{
+			final String value = inputLine.substring(idxColon + 1);
 			LstUtils.deprecationCheck(token, campaign, value);
-			if (!token.parse(campaign, new String(value), sourceURI))
+			if (!token.parse(campaign, value, sourceURI))
 			{
 				Logging.errorPrint("Error parsing install "
 					+ campaign.getDisplayName() + ':' + inputLine);
@@ -80,8 +70,7 @@ public class InstallLoader extends LstLineFileLoader
 		}
 		else
 		{
-			Logging.errorPrint("Unparsed line: " + inputLine + " in "
-				+ sourceURI.toString());
+			Logging.errorPrint("Unparsed line: " + inputLine + " in " + sourceURI);
 		}
 	}
 
