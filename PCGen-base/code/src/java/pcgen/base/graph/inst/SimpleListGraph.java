@@ -370,7 +370,8 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	@Override
 	public boolean isEmpty()
 	{
-		return nodeList.isEmpty() && edgeList.isEmpty();
+		//Only need to check nodes, since addEdge adds the adjacent nodes
+		return nodeList.isEmpty();
 	}
 
 	/**

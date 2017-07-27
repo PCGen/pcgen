@@ -103,6 +103,63 @@ public class IdentityListTest extends TestCase
 	}
 
 	@Test
+	public void testContainsAll()
+	{
+		try
+		{
+			assertFalse(ls.containsAll(null));
+			fail("Not required to take null for containsAll");
+		}
+		catch (NullPointerException e)
+		{
+			//ok
+		}
+	}
+
+	@Test
+	public void testIdentityAddAll()
+	{
+		assertFalse(ls.contains(a1));
+		assertFalse(ls.contains(b1));
+		assertTrue(ls.isEmpty());
+		assertEquals(0, ls.size());
+		ls.addAll(Arrays.asList(new Integer[] {a1, a1}));
+		assertTrue(ls.contains(a1));
+		assertFalse(ls.contains(b1));
+		assertTrue(ls.containsAll(Arrays.asList(new Integer[] {a1})));
+		assertTrue(ls.containsAll(Arrays.asList(new Integer[] {a1, a1})));
+		assertTrue(ls.containsAll(Arrays.asList(new Integer[] {a1, a1, a1})));
+		assertFalse(ls.containsAll(Arrays.asList(new Integer[] {a1, b1})));
+		assertFalse(ls.isEmpty());
+		assertEquals(2, ls.size());
+		assertTrue(ls.removeAll(Arrays.asList(new Integer[] {a1})));
+		ls.addAll(Arrays.asList(new Integer[] {a1, a1}));
+		assertTrue(ls.removeAll(Arrays.asList(new Integer[] {a1, a1})));
+		assertTrue(ls.contains(a1));
+		assertFalse(ls.contains(b1));
+		assertFalse(ls.removeAll(Arrays.asList(new Integer[] {a1, a1})));
+		assertTrue(ls.isEmpty());
+		assertEquals(0, ls.size());
+		ls.addAll(Arrays.asList(new Integer[] {a1, null}));
+		assertTrue(ls.contains(a1));
+		assertTrue(ls.contains(null));
+		assertFalse(ls.contains(b1));
+		assertFalse(ls.containsAll(Arrays.asList(new Integer[] {a1, b1})));
+		assertTrue(ls.containsAll(Arrays.asList(new Integer[] {null, a1})));
+		assertEquals(2, ls.size());
+		assertFalse(ls.isEmpty());
+		assertEquals(a1, ls.get(0));
+		assertEquals(null, ls.get(1));
+		assertEquals(0, ls.indexOf(a1));
+		assertEquals(1, ls.indexOf(null));
+		assertEquals(0, ls.lastIndexOf(a1));
+		assertEquals(1, ls.lastIndexOf(null));
+		assertFalse(ls.removeAll(Arrays.asList(new Integer[] {a1, b1})));
+		assertEquals(1, ls.size());
+		assertEquals(null, ls.get(0));
+	}
+
+	@Test
 	public void testIdentityAddInt()
 	{
 		assertFalse(ls.contains(a1));

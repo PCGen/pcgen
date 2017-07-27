@@ -474,7 +474,9 @@ public abstract class AbstractListMapGraph<N, ET extends Edge<N>> implements
 	@Override
 	public boolean isEmpty()
 	{
-		return nodeList.isEmpty() && edgeList.isEmpty();
+		
+		//Only need to check nodes, since addEdge adds the adjacent nodes
+		return nodeList.isEmpty();
 	}
 
 	/**

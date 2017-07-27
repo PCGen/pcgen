@@ -380,4 +380,20 @@ public class ParsingSeparatorTest extends TestCase
 			//ok
 		}
 	}
+	
+	public void testRemove()
+	{
+		ParsingSeparator separator = new ParsingSeparator("a,b\"c,d\"", ',');
+		separator.addGroupingPair('"', '"');
+		assertEquals("a", separator.next());
+		try
+		{
+			separator.remove();
+			fail("Expect remove to be unsupported");
+		}
+		catch (UnsupportedOperationException e)
+		{
+			//OK
+		}
+	}
 }

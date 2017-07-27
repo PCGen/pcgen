@@ -406,6 +406,29 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		assertNull(getStrategy().getAdjacentEdges(null));
 	}
 
+	public void testHasAdjacentEdge()
+	{
+		Integer node1 = new Integer(1);
+		Integer node2 = new Integer(2);
+		Integer node3 = new Integer(3);
+		Integer node4 = new Integer(4);
+		Integer node5 = new Integer(5);
+		T edge1 = getLegalEdge(node1, node2);
+		T edge2 = getLegalEdge(node2, node3);
+		assertTrue(getStrategy().addNode(node1));
+		assertTrue(getStrategy().addNode(node2));
+		assertTrue(getStrategy().addNode(node3));
+		assertTrue(getStrategy().addNode(node4));
+		//Do not add node 5
+		assertTrue(getStrategy().addEdge(edge1));
+		assertTrue(getStrategy().addEdge(edge2));
+		assertTrue(getStrategy().hasAdjacentEdge(node1));
+		assertTrue(getStrategy().hasAdjacentEdge(node2));
+		assertTrue(getStrategy().hasAdjacentEdge(node3));
+		assertFalse(getStrategy().hasAdjacentEdge(node4));
+		assertFalse(getStrategy().hasAdjacentEdge(node5));
+	}
+
 	public void testAddGraphChangeListener()
 	{
 		assertEquals(0, getStrategy().getGraphChangeListeners().length);
