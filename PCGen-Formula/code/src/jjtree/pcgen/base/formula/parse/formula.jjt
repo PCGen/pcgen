@@ -453,7 +453,6 @@ TOKEN : { < #MID_LETTER     : ( <UNDERSCORE> |
                                 <SPACE> |
                                 <COLON> |
                                 <FULLSTOP> |
-                                <PERCENT> |
                                 <FINAL_LETTER> ) > }
 
 TOKEN : { < VARIABLE        : <BASIC_LETTER> ( ( <MID_LETTER> )* ( <EQUALSIGN> ( <MID_LETTER> )* ) ? <FINAL_LETTER> )? > }
