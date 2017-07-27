@@ -59,7 +59,7 @@ public class WeaponProfsToken extends AbstractExportToken
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
 			return DisplayUtilities.joinDisplayName(
-				display.getSortedWeaponProfs(), ", ");
+				display.getSortedWeaponProfs());
 		}
 		else
 		{
