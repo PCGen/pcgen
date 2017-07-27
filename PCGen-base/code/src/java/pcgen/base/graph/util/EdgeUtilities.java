@@ -17,9 +17,11 @@
  */
 package pcgen.base.graph.util;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 import pcgen.base.graph.base.DirectionalEdge;
+import pcgen.base.graph.inst.DefaultGraphEdge;
 
 /**
  * EdgeUtilities is a utility class designed to provide utility methods when working with
@@ -43,7 +45,7 @@ public final class EdgeUtilities
 	 * @return A Predicate that indicate if the given Node is the source of the Edge
 	 *         provided to the returned Predicate
 	 */
-	public static final <N, ET extends DirectionalEdge<N>> Predicate<? super ET> edgeSourceIs(
+	public static final <N, ET extends DirectionalEdge<N>> Predicate<ET> edgeSourceIs(
 		N node)
 	{
 		return edge -> (edge.getNodeInterfaceType(node) & DirectionalEdge.SOURCE) != 0;
@@ -59,9 +61,25 @@ public final class EdgeUtilities
 	 * @return A Predicate that indicate if the given Node is the sink of the Edge
 	 *         provided to the returned Predicate
 	 */
-	public static final <N, ET extends DirectionalEdge<N>> Predicate<? super ET> edgeSinkIs(
+	public static final <N, ET extends DirectionalEdge<N>> Predicate<ET> edgeSinkIs(
 		N node)
 	{
 		return edge -> (edge.getNodeInterfaceType(node) & DirectionalEdge.SINK) != 0;
 	}
+
+	/**
+	 * Returns the Node at the given location in the Edge provided to the returned
+	 * Function.
+	 * 
+	 * @param i
+	 *            The location of the Node to be returned from the Edge provided to the
+	 *            returned Function
+	 * @return A Function that will return the Node at the given location in the Edge
+	 *         provided to said Function
+	 */
+	public static <T> Function<? extends DefaultGraphEdge<T>, T> getNode(int i)
+	{
+		return edge -> edge.getNodeAt(i);
+	}
+
 }
