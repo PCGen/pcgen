@@ -116,14 +116,6 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 	private String classKey = null;
 
 	/**
-	 * Default Constructor. Constructs an empty PCClass.
-	 */
-	public PCClass()
-	{
-		super();
-	}
-
-	/**
 	 * Returns the abbreviation for this class.
 	 *
 	 * @return The abbreviation string.
