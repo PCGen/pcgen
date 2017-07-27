@@ -337,7 +337,8 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	@Override
 	public boolean equals(final Object obj)
 	{
-		return obj != null && obj instanceof CharacterSpell && ((CharacterSpell) obj).getName().equals(getName());
+		return obj instanceof CharacterSpell && ((CharacterSpell) obj).getName()
+		                                                              .equals(getName());
 	}
 
 	/**

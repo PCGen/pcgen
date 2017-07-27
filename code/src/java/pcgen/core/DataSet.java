@@ -298,7 +298,7 @@ public class DataSet implements DataSetFacade
     @Override
 	public List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability))
+		if (!(abilityFacade instanceof Ability))
 		{
 			return Collections.emptyList();
 		}
