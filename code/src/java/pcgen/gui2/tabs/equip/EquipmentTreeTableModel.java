@@ -176,8 +176,6 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 					case 4:
 						return character.getInfoFactory().getWeight(pathNode.getEquipment());
 				}
-			default:
-				return null;
 		}
 	}
 
