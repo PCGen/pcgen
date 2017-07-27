@@ -19,10 +19,23 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
 
+/**
+ * Represents a failed operation on a method that returns a Boolean result. This will
+ * return FALSE rather than null from get().
+ */
 public class FailureResult implements ComplexResult<Boolean>
 {
+	/**
+	 * The error String indicating the reason for the failure.
+	 */
 	private final String error;
 
+	/**
+	 * Constructs a new FailureResult containing the given String as the error message.
+	 * 
+	 * @param error
+	 *            The non-null error message for this FailureResult
+	 */
 	public FailureResult(String error)
 	{
 		this.error = Objects.requireNonNull(error);

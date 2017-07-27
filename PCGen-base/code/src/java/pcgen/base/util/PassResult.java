@@ -18,14 +18,25 @@ package pcgen.base.util;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * PassResult contains a shortcut ComplexResult response for a successful set of
+ * processing (returns TRUE with no messages)
+ */
 public class PassResult
 {
+	private PassResult()
+	{
+		//Don't construct utility class
+	}
 
 	/**
 	 * Object to be returned from operations that succeeded with no messages.
 	 */
 	public static final OperationSuccessful SUCCESS = new OperationSuccessful();
 
+	/**
+	 * Represents successful processing of an operation (return TRUE with no messages).
+	 */
 	private static final class OperationSuccessful implements ComplexResult<Boolean>
 	{
 		@Override
