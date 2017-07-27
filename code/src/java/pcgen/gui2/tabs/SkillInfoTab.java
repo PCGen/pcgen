@@ -701,7 +701,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			if (!e.getValueIsAdjusting())
 			{
 				Object data = skillTable.getSelectedObject();
-				if (data != null && data instanceof SkillFacade)
+				if (data instanceof SkillFacade)
 				{
 					text = character.getInfoFactory().getHTMLInfo(
 							(SkillFacade) data);

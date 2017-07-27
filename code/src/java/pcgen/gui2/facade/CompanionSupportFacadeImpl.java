@@ -269,7 +269,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	@Override
 	public void addCompanion(CharacterFacade companion, String companionType)
 	{
-		if (companion == null || !(companion instanceof CharacterFacadeImpl))
+		if (!(companion instanceof CharacterFacadeImpl))
 		{
 			return;
 		}
