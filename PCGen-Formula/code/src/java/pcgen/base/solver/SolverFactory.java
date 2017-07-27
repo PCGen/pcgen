@@ -19,6 +19,8 @@ package pcgen.base.solver;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
 
 import pcgen.base.formula.base.DefaultStore;
 import pcgen.base.util.FormatManager;
@@ -70,31 +72,9 @@ public class SolverFactory implements DefaultStore
 	public <T> void addSolverFormat(Class<T> varFormat,
 		Modifier<? extends T> defaultModifier)
 	{
-		if (varFormat == null)
-		{
-			throw new IllegalArgumentException(
-				"Variable/Solve Format Class cannot be null");
-		}
-		if (defaultModifier == null)
-		{
-			throw new IllegalArgumentException("Default Modifier for Format: "
-				+ varFormat + " cannot be null");
-		}
-		try
-		{
-			T defaultValue = defaultModifier.process(null);
-			if (!varFormat.isAssignableFrom(defaultValue.getClass()))
-			{
-				//Generics were violated here
-				throw new IllegalArgumentException("Default Modifier for Format: "
-						+ varFormat + " cannot produce: " + defaultValue.getClass());
-			}
-		}
-		catch (NullPointerException e)
-		{
-			throw new IllegalArgumentException("Default Modifier for Format: "
-				+ varFormat + " cannot be null or rely on terms/functions");
-		}
+		Objects.requireNonNull(varFormat, "Variable/Solve Format Class cannot be null");
+		Objects.requireNonNull(defaultModifier,
+			"Default Modifier for Format: " + varFormat + " cannot be null");
 		Modifier<?> existing = defaultModifierMap.get(varFormat);
 		if (existing == null)
 		{
@@ -105,6 +85,32 @@ public class SolverFactory implements DefaultStore
 			throw new IllegalArgumentException(
 				"Cannot set different default values for Format: " + varFormat);
 		}
+	}
+
+	/**
+	 * Validates the defaults added to the addSolverFormat method.  
+	 */
+	public ComplexResult validateDefaults()
+	{
+		for (Entry<Class<?>, Modifier<?>> entry : defaultModifierMap.entrySet())
+		{
+			try
+			{
+				Object defaultValue = entry.getValue().process(null);
+				if (!entry.getKey().isAssignableFrom(defaultValue.getClass()))
+				{
+					//Generics were violated during addSolverFormat if we got here
+					return new FailureResult("Default Modifier for Format: "
+							+ entry.getKey() + " cannot produce: " + defaultValue.getClass());
+				}
+			}
+			catch (NullPointerException e)
+			{
+				return new FailureResult("Default Modifier for Format: "
+					+ entry.getKey() + " cannot be null or rely on terms/functions");
+			}
+		}
+		return Result.SUCCESS;
 	}
 
 	/**
