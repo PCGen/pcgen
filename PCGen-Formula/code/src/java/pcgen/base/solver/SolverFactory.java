@@ -91,7 +91,13 @@ public class SolverFactory implements DefaultStore
 	}
 
 	/**
-	 * Validates the defaults added to the addSolverFormat method.  
+	 * Returns a ComplexResult indicating the status of validating the defaults added to
+	 * the addSolverFormat method. If all of the defaults are usable, this will return a
+	 * ComplexResult indicating TRUE. If not, it will return a ComplexResult indicating
+	 * FALSE and an appropriate message.
+	 * 
+	 * @return A ComplexResult indicating the status of validating the defaults added to
+	 *         the addSolverFormat method
 	 */
 	public ComplexResult<Boolean> validateDefaults()
 	{
