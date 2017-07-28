@@ -42,7 +42,7 @@ public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 	 * The NEPCalculation to be performed by this CalculationModifier.
 	 */
 	private final NEPCalculation<T> toDo;
-	
+
 	/**
 	 * Constructs a new CalculationModifier from the given NEPCalculation and
 	 * user priority.

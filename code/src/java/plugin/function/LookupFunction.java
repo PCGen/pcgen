@@ -1,17 +1,19 @@
 /*
  * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
- * This library is free software; you can redistribute it and/or modify it under the terms
- * of the GNU Lesser General Public License as published by the Free Software Foundation;
- * either version 2.1 of the License, or (at your option) any later version.
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
  * 
- * This library is distributed in the hope that it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
- * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
  * 
- * You should have received a copy of the GNU Lesser General Public License along with
- * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
- * Suite 330, Boston, MA 02111-1307 USA
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package plugin.function;
 
@@ -36,8 +38,8 @@ import pcgen.cdom.format.table.TableFormatManager;
 /**
  * This is a Lookup function for finding items in a DataTable.
  * 
- * This function requires 3 arguments: (1) The Table Name (2) The Value to be looked up in
- * the first column (3) The Column name of the result to be returned
+ * This function requires 3 arguments: (1) The Table (2) The Value to be looked up in the
+ * first column (3) The Column of the result to be returned
  */
 public class LookupFunction implements Function
 {
@@ -77,7 +79,7 @@ public class LookupFunction implements Function
 			return null;
 		}
 
-		//Table name node (must be a DataTable)
+		//Table node (must be a DataTable)
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object format = args[0].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, DATATABLE_CLASS));
@@ -92,10 +94,9 @@ public class LookupFunction implements Function
 			return null;
 		}
 		TableFormatManager tableFormatManager = (TableFormatManager) format;
-
-		//Lookup value (at this point we don't know the format - only at runtime)
 		FormatManager<?> lookupFormat = tableFormatManager.getLookupFormat();
 
+		//Lookup value (at this point we enforce based on the Table Format)
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> luFormat = (FormatManager<?>) args[1].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, lookupFormat.getManagedClass()));
@@ -112,7 +113,7 @@ public class LookupFunction implements Function
 			return null;
 		}
 
-		//Result Column Name (must be a String or Column)
+		//Result Column
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object resultColumn = args[2].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, COLUMN_CLASS));
@@ -152,7 +153,7 @@ public class LookupFunction implements Function
 		Object lookupValue = args[1].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, lookupFormat.getManagedClass()));
 
-		//Result Column Name (must be a tableColumn or String)
+		//Result Column
 		TableColumn column = (TableColumn) args[2].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, COLUMN_CLASS));
 
@@ -186,13 +187,17 @@ public class LookupFunction implements Function
 		args[0].jjtAccept(visitor,
 			manager.getWith(DependencyManager.ASSERTED, DATATABLE_CLASS));
 
-		//TODO a Semantics Check can tell what this is
+		//TODO a Semantics Check can tell what this is?
 		args[1].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
 
+		/*
+		 * TODO Is there a way to check if the supplied column is part of this table? Not
+		 * really. If directly included (e.g. via get), it would show up in
+		 * ManagerKey.REFERENCES, but it could easily be a variable, so there are no
+		 * guarantees here, and right now, not sure of ROI.
+		 */
 		args[2].jjtAccept(visitor,
 			manager.getWith(DependencyManager.ASSERTED, COLUMN_CLASS));
-		
-		//TODO Associate the needed columns with the DataTable
 	}
 
 }
