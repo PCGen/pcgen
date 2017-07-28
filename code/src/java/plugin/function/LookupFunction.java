@@ -191,6 +191,8 @@ public class LookupFunction implements Function
 
 		args[2].jjtAccept(visitor,
 			manager.getWith(DependencyManager.ASSERTED, COLUMN_CLASS));
+		
+		//TODO Associate the needed columns with the DataTable
 	}
 
 }

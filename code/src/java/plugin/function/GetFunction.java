@@ -17,7 +17,6 @@ package plugin.function;
 
 import java.util.Arrays;
 
-import pcgen.base.format.StringManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -29,7 +28,9 @@ import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
 import pcgen.cdom.formula.ManagerKey;
+import pcgen.rules.context.AbstractReferenceContext;
 
 /**
  * This is a function that gets an object of a given format from the String format of the
@@ -55,7 +56,8 @@ public class GetFunction implements Function
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
-		return (Boolean) args[1].jjtAccept(visitor, null);
+		//This is a shortcut since allowArgs enforces both are ASTQuotString
+		return true;
 	}
 
 	@Override
@@ -70,59 +72,50 @@ public class GetFunction implements Function
 				+ ' ' + Arrays.asList(args));
 			return null;
 		}
-
-		FormatManager<?> rf;
-		if (args[0] instanceof ASTQuotString)
+		if (!(args[0] instanceof ASTQuotString))
 		{
-			//This will be a format then a table name;
-			ASTQuotString qs = (ASTQuotString) args[0];
-			rf = semantics.get(ManagerKey.CONTEXT).getReferenceContext()
-				.getFormatManager(qs.getText());
+			//Error
+			semantics.setInvalid("Parse Error: Invalid first argument: Must be a String");
+			return null;
 		}
-		else
+		if (!(args[1] instanceof ASTQuotString))
 		{
 			//Error
 			semantics.setInvalid("Parse Error: Invalid first argument: Must be a String");
 			return null;
 		}
 
-		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object second = args[1].jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, STRING_CLASS));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
-		if (!(second instanceof StringManager))
-		{
-			semantics.setInvalid("Parse Error: Invalid Object: " + second.getClass()
-				+ " found in location requiring a String");
-			return null;
-		}
-
-		return rf;
+		//This will be a format
+		return semantics.get(ManagerKey.CONTEXT).getReferenceContext()
+			.getFormatManager(((ASTQuotString) args[0]).getText());
 	}
 
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		String firstArg = (String) args[0].jjtAccept(visitor,
+		@SuppressWarnings("PMD.PrematureDeclaration")
+		String format = (String) args[0].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, null));
-		String stringFormat = (String) args[1].jjtAccept(visitor,
+		String stringRepresentation = (String) args[1].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, STRING_CLASS));
 		return manager.get(ManagerKey.CONTEXT).getReferenceContext()
-			.getFormatManager(firstArg).convert(stringFormat);
+			.getFormatManager(format).convert(stringRepresentation);
 	}
 
 	@Override
 	public void getDependencies(DependencyVisitor visitor, DependencyManager manager,
 		Node[] args)
 	{
-		args[0].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, STRING_CLASS));
-		args[1].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, STRING_CLASS));
+		@SuppressWarnings("PMD.PrematureDeclaration")
+		String format = ((ASTQuotString) args[0]).getText();
+		@SuppressWarnings("PMD.PrematureDeclaration")
+		String stringRepresentation = ((ASTQuotString) args[1]).getText();
+		AbstractReferenceContext refContext =
+				manager.get(ManagerKey.CONTEXT).getReferenceContext();
+		FormatManager<?> formatManager = refContext.getFormatManager(format);
+		Indirect<?> reference = formatManager.convertIndirect(stringRepresentation);
+		manager.get(ManagerKey.REFERENCES).put(reference);
 	}
 
 }

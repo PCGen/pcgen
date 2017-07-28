@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import pcgen.base.calculation.AbstractPCGenModifier;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -48,11 +49,6 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	@SuppressWarnings("rawtypes")
 	private static final Class ARRAY_CLASS = new Object[0].getClass();
 
-	/**
-	 * Identifies that this AddModifier acts upon java.util.Set objects.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public Class<T[]> getVariableFormat()
@@ -60,22 +56,12 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		return ARRAY_CLASS;
 	}
 
-	/**
-	 * Returns an Identifier for this type of Modifier
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentification()
 	{
 		return "ADD";
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.ModifierFactory#getModifier(int,
-	 *      java.lang.String, pcgen.base.formula.manager.FormulaManager,
-	 *      pcgen.base.formula.base.LegalScope, pcgen.base.format.FormatManager)
-	 */
 	@Override
 	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
@@ -163,7 +149,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	/**
 	 * The Modifier that implements ADD for Set objects
 	 */
-	private abstract class AddArrayModifier implements PCGenModifier<T[]>
+	private abstract class AddArrayModifier extends AbstractPCGenModifier<T[]>
 	{
 
 		/**
@@ -241,6 +227,5 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		{
 			return fmtManager;
 		}
-
 	}
 }

@@ -18,10 +18,14 @@
 package pcgen.rules.persistence;
 
 import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.base.VariableStrategy;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.ManagerKey;
+import pcgen.cdom.helper.ReferenceDependency;
 import pcgen.rules.persistence.token.ModifierFactory;
 
 /**
@@ -55,14 +59,13 @@ public class MasterModifierFactory
 	 * Returns a Modifier representing the information given in the parameters.
 	 * 
 	 * @param modIdentifier
-	 *            The Identifier of the Modifier (indicating the general
-	 *            function being performed, e.g. ADD)
+	 *            The Identifier of the Modifier (indicating the general function being
+	 *            performed, e.g. ADD)
 	 * @param modInstructions
-	 *            The Instructions of the Modifier (indicating the actual value
-	 *            the Modifier will use)
+	 *            The Instructions of the Modifier (indicating the actual value the
+	 *            Modifier will use)
 	 * @param managerFactory
-	 *            The ManagerFactory to be used to support analyzing the
-	 *            instructions
+	 *            The ManagerFactory to be used to support analyzing the instructions
 	 * @param priorityNumber
 	 *            The user priority of the Modifier to be produced
 	 * @param varScope
@@ -84,7 +87,33 @@ public class MasterModifierFactory
 				"Requested unknown ModifierType: " + varClass.getSimpleName()
 					+ " " + modIdentifier);
 		}
-		return factory.getModifier(priorityNumber, modInstructions, managerFactory,
-			formulaManager, varScope, formatManager);
+		PCGenModifier<T> modifier = factory.getModifier(priorityNumber, modInstructions,
+			managerFactory, formulaManager, varScope, formatManager);
+		/*
+		 * getDependencies needs to be called during LST load, so that object references are captured
+
+		 * ManagerKey.REFERENCES need to be captured and stored (probably in this object?
+		 * or in FormulaCalculation?)
+		 * 
+		 * The FormulaManager can be drawn from VariableContext's getDummySetup...
+		 */
+		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
+			null, formatManager.getManagedClass());
+		fdm = fdm.getWith(DependencyManager.VARSTRATEGY, new IgnoreVariables());
+		fdm = fdm.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
+		modifier.getDependencies(fdm);
+		modifier.addReferences(fdm.get(ManagerKey.REFERENCES).getReferences());
+		return modifier;
+	}
+	
+	private class IgnoreVariables implements VariableStrategy
+	{
+
+		@Override
+		public void addVariable(DependencyManager mgr, String varName)
+		{
+			//ignore
+		}
+		
 	}
 }

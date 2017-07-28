@@ -18,11 +18,13 @@
 package pcgen.cdom.formula;
 
 import pcgen.base.util.TypedKey;
+import pcgen.cdom.helper.ReferenceDependency;
 import pcgen.rules.context.LoadContext;
 
 public final class ManagerKey
 {
 	public static final TypedKey<LoadContext> CONTEXT = new TypedKey<>();
+	public static final TypedKey<ReferenceDependency> REFERENCES = new TypedKey<>();
 
 	private ManagerKey()
 	{
