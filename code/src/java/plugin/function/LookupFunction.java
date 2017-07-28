@@ -1,32 +1,27 @@
 /*
  * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
  * 
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
  * 
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, write to the Free Software Foundation, Inc.,
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
  */
 package plugin.function;
 
 import java.util.Arrays;
 
-import pcgen.base.format.StringManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
-import pcgen.base.formula.parse.ASTPCGenSingleWord;
-import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -37,15 +32,12 @@ import pcgen.cdom.format.table.ColumnFormatManager;
 import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatManager;
-import pcgen.cdom.formula.ManagerKey;
-import pcgen.rules.context.LoadContext;
 
 /**
  * This is a Lookup function for finding items in a DataTable.
  * 
- * This function requires 3 arguments: (1) The Table Name (2) The Value to be
- * looked up in the first column (3) The Column name of the result to be
- * returned
+ * This function requires 3 arguments: (1) The Table Name (2) The Value to be looked up in
+ * the first column (3) The Column name of the result to be returned
  */
 public class LookupFunction implements Function
 {
@@ -53,18 +45,12 @@ public class LookupFunction implements Function
 	/**
 	 * A constant referring to the TableColumn Class.
 	 */
-	@SuppressWarnings("rawtypes")
 	private static final Class<TableColumn> COLUMN_CLASS = TableColumn.class;
 
 	/**
 	 * A constant referring to the Table Class.
 	 */
 	private static final Class<DataTable> DATATABLE_CLASS = DataTable.class;
-
-	/**
-	 * A constant referring to the String Class.
-	 */
-	private static final Class<String> STRING_CLASS = String.class;
 
 	@Override
 	public String getFunctionName()
@@ -83,68 +69,35 @@ public class LookupFunction implements Function
 		FormulaSemantics semantics)
 	{
 		int argCount = args.length;
-		if ((argCount < 3) || (argCount > 4))
+		if (argCount != 3)
 		{
 			semantics.setInvalid("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 3 or 4 got "
-				+ args.length + ' ' + Arrays.asList(args));
+				+ " received incorrect # of arguments, expected: 3 got " + args.length
+				+ ' ' + Arrays.asList(args));
 			return null;
 		}
 
-		Object format;
-		int currentArg = 0;
-		if (args[0] instanceof ASTQuotString)
+		//Table name node (must be a DataTable)
+		@SuppressWarnings("PMD.PrematureDeclaration")
+		Object format = args[0].jjtAccept(visitor,
+			semantics.getWith(FormulaSemantics.ASSERTED, DATATABLE_CLASS));
+		if (!semantics.isValid())
 		{
-			//This will be a format then a table name;
-			ASTQuotString qs = (ASTQuotString) args[currentArg++];
-			format = semantics.get(ManagerKey.CONTEXT).getReferenceContext()
-				.getFormatManager(qs.getText());
-			//Table name is a String
-			Object nameFormat = args[currentArg++].jjtAccept(visitor,
-				semantics.getWith(FormulaSemantics.ASSERTED, STRING_CLASS));
-			if (!semantics.isValid())
-			{
-				return null;
-			}
-			if (!(nameFormat instanceof StringManager))
-			{
-				semantics.setInvalid(
-					"Parse Error: Invalid Object: " + format.getClass()
-						+ " found in location requiring a " + "String");
-				return null;
-			}
-		}
-		else if (args[0] instanceof ASTPCGenSingleWord)
-		{
-			//Table name node (must be a DataTable)
-			format = args[currentArg++].jjtAccept(visitor,
-				semantics.getWith(FormulaSemantics.ASSERTED, DATATABLE_CLASS));
-			if (!semantics.isValid())
-			{
-				return null;
-			}
-		}
-		else
-		{
-			//Error
-			semantics.setInvalid("Parse Error: Invalid first argument: "
-				+ " must be a String or single variable");
 			return null;
 		}
-
 		if (!(format instanceof TableFormatManager))
 		{
-			semantics.setInvalid(
-				"Parse Error: Invalid Object: " + format.getClass()
-					+ " found in location requiring a " + "TableFormatManager");
+			semantics.setInvalid("Parse Error: Invalid Object: " + format.getClass()
+				+ " found in location requiring a TableFormatManager");
 			return null;
 		}
 		TableFormatManager tableFormatManager = (TableFormatManager) format;
 
 		//Lookup value (at this point we don't know the format - only at runtime)
 		FormatManager<?> lookupFormat = tableFormatManager.getLookupFormat();
+
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		FormatManager<?> luFormat = (FormatManager<?>) args[currentArg++].jjtAccept(visitor,
+		FormatManager<?> luFormat = (FormatManager<?>) args[1].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, lookupFormat.getManagedClass()));
 		if (!semantics.isValid())
 		{
@@ -159,9 +112,9 @@ public class LookupFunction implements Function
 			return null;
 		}
 
-		//Result Column Name (must be a String)
+		//Result Column Name (must be a String or Column)
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object resultColumn = args[currentArg++].jjtAccept(visitor,
+		Object resultColumn = args[2].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, COLUMN_CLASS));
 		if (!semantics.isValid())
 		{
@@ -170,17 +123,16 @@ public class LookupFunction implements Function
 		if (!(resultColumn instanceof ColumnFormatManager))
 		{
 			semantics.setInvalid("Parse Error: Invalid Result Column Name: "
-				+ resultColumn.getClass()
-				+ " found in location requiring a Column");
+				+ resultColumn.getClass() + " found in location requiring a Column");
 			return null;
 		}
 		ColumnFormatManager<?> cf = (ColumnFormatManager<?>) resultColumn;
 		FormatManager<?> rf = tableFormatManager.getResultFormat();
 		if (!rf.equals(cf.getComponentManager()))
 		{
-			semantics.setInvalid("Parse Error: Invalid Result Column Type: "
-				+ resultColumn.getClass()
-				+ " found in table that does not contain that type");
+			semantics.setInvalid(
+				"Parse Error: Invalid Result Column Type: " + resultColumn.getClass()
+					+ " found in table that does not contain that type");
 			return null;
 		}
 		return rf;
@@ -190,39 +142,18 @@ public class LookupFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		int argLength = args.length;
-		int currentArg = 0;
-		DataTable dataTable;
-		if (argLength == 3)
-		{
-			//Table name node (must be a Table)
-			dataTable = (DataTable) args[currentArg++].jjtAccept(visitor,
-				manager.getWith(EvaluationManager.ASSERTED, DATATABLE_CLASS));
-		}
-		else if (argLength == 4)
-		{
-			//This will be a format then a table name;
-			//Skip the format for now (was for semantics check)
-			currentArg++;
-			LoadContext context = manager.get(ManagerKey.CONTEXT);
-			String tableName = (String) args[currentArg++].jjtAccept(visitor,
-				manager.getWith(EvaluationManager.ASSERTED, STRING_CLASS));
-			dataTable = context.getReferenceContext().get(DataTable.class, tableName);
-		}
-		else
-		{
-			throw new IllegalStateException("Initial args must result in DataTable");
-		}
+		DataTable dataTable = (DataTable) args[0].jjtAccept(visitor,
+			manager.getWith(EvaluationManager.ASSERTED, DATATABLE_CLASS));
 
 		FormatManager<?> lookupFormat = dataTable.getFormat(0);
 
 		//Lookup value (format based on the table)
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object lookupValue = args[currentArg++].jjtAccept(visitor,
+		Object lookupValue = args[1].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, lookupFormat.getManagedClass()));
 
-		//Result Column Name (must be a tableColumn)
-		TableColumn column = (TableColumn) args[currentArg++].jjtAccept(visitor,
+		//Result Column Name (must be a tableColumn or String)
+		TableColumn column = (TableColumn) args[2].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, COLUMN_CLASS));
 
 		String columnName = column.getName();
@@ -239,9 +170,8 @@ public class LookupFunction implements Function
 		{
 			FormatManager<?> fmt = column.getFormatManager();
 			System.out.println("Lookup called on invalid item: '" + lookupValue
-				+ "' is not present in the first row of table '"
-				+ dataTable.getName() + "' assuming default for "
-				+ fmt.getIdentifierType());
+				+ "' is not present in the first row of table '" + dataTable.getName()
+				+ "' assuming default for " + fmt.getIdentifierType());
 			FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 			return fm.getDefault(fmt.getManagedClass());
 		}
@@ -249,31 +179,17 @@ public class LookupFunction implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
-		DependencyManager manager, Node[] args)
+	public void getDependencies(DependencyVisitor visitor, DependencyManager manager,
+		Node[] args)
 	{
-		int argLength = args.length;
-		int currentArg = 0;
-		if (argLength == 3)
-		{
-			//Table name node (must be a Table)
-			args[currentArg++].jjtAccept(visitor,
-				manager.getWith(DependencyManager.ASSERTED, DATATABLE_CLASS));
-		}
-		else if (argLength == 4)
-		{
-			//Table format 
-			args[currentArg++].jjtAccept(visitor,
-				manager.getWith(DependencyManager.ASSERTED, STRING_CLASS));
-			//Table name
-			args[currentArg++].jjtAccept(visitor,
-				manager.getWith(DependencyManager.ASSERTED, STRING_CLASS));
-		}
+		//Table name node (must be a Table)
+		args[0].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED, DATATABLE_CLASS));
 
 		//TODO a Semantics Check can tell what this is
-		args[currentArg++].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
+		args[1].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
 
-		args[currentArg++].jjtAccept(visitor,
+		args[2].jjtAccept(visitor,
 			manager.getWith(DependencyManager.ASSERTED, COLUMN_CLASS));
 	}
 
