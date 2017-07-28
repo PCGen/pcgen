@@ -27,6 +27,7 @@ pcgen.log
 pcgen.log.*
 pcgen_low_mem.bat
 
+output/
 build/
 libs/
 code/testsuite/output/
