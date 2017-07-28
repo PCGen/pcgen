@@ -149,6 +149,11 @@ public class VariableContext
 		return managerFactory;
 	}
 
+	/**
+	 * Validates the default values provided to the formula system. Effectively ensures
+	 * that each default value is not dependent on variables or in other ways can't be
+	 * directly calculated. Will report to the error system any results from the analysis.
+	 */
 	public void validateDefaults()
 	{
 		ComplexResult<Boolean> result = formulaSetup.getSolverFactory().validateDefaults();

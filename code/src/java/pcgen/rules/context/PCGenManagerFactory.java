@@ -27,10 +27,23 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.helper.ReferenceDependency;
 
+/**
+ * PCGenManagerFactory is a ManagerFactory responsible for ensuring the Managers are
+ * constructed with sufficient support to work with the formula functions provided in
+ * PCGen.
+ */
 public class PCGenManagerFactory implements ManagerFactory
 {
 	private final LoadContext context;
 
+	/**
+	 * Constructs a new PCGenManagerFactory with the provided LoadContext to be included
+	 * in each Manager that is returned.
+	 * 
+	 * @param context
+	 *            The LoadContext for this ManagerFactory to include in each Manager that
+	 *            is returned
+	 */
 	public PCGenManagerFactory(LoadContext context)
 	{
 		this.context = context;

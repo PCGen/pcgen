@@ -17,12 +17,12 @@
  */
 package pcgen.rules.persistence;
 
+import pcgen.base.calculation.IgnoreVariables;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.base.VariableStrategy;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.helper.ReferenceDependency;
@@ -100,16 +100,5 @@ public class MasterModifierFactory
 		modifier.getDependencies(fdm);
 		modifier.addReferences(fdm.get(ManagerKey.REFERENCES).getReferences());
 		return modifier;
-	}
-	
-	private class IgnoreVariables implements VariableStrategy
-	{
-
-		@Override
-		public void addVariable(DependencyManager mgr, String varName)
-		{
-			//ignore
-		}
-		
 	}
 }

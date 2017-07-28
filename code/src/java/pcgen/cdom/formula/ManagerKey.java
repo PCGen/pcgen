@@ -21,9 +21,22 @@ import pcgen.base.util.TypedKey;
 import pcgen.cdom.helper.ReferenceDependency;
 import pcgen.rules.context.LoadContext;
 
+/**
+ * ManagerKey is a class indicating PCGen-specific keys for storing objects in the
+ * managers that are provided to visitors in the Formula system.
+ */
 public final class ManagerKey
 {
+	/**
+	 * Provides a key for storing a LoadContext in a Manager provided to the formula
+	 * system.
+	 */
 	public static final TypedKey<LoadContext> CONTEXT = new TypedKey<>();
+
+	/**
+	 * Provides a key for storing a ReferenceDependency in a Manager provided to the
+	 * formula system.
+	 */
 	public static final TypedKey<ReferenceDependency> REFERENCES = new TypedKey<>();
 
 	private ManagerKey()
