@@ -17,6 +17,7 @@
  */
 package plugin.modifier.set;
 
+import pcgen.base.calculation.AbstractPCGenModifier;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -42,18 +43,12 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 	@SuppressWarnings("rawtypes")
 	private static final Class ARRAY_CLASS = Object[].class;
 
-	/**
-	 * @see pcgen.rules.persistence.token.ModifierFactory#getIdentification()
-	 */
 	@Override
 	public String getIdentification()
 	{
 		return "SET";
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.ModifierFactory#getVariableFormat()
-	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	public Class<T[]> getVariableFormat()
@@ -148,7 +143,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 	/**
 	 * The Modifier that implements SET for Set objects
 	 */
-	abstract class SetArrayModifier implements PCGenModifier<T[]>
+	abstract class SetArrayModifier extends AbstractPCGenModifier<T[]>
 	{
 
 		/**
@@ -217,6 +212,5 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		{
 			return fmtManager;
 		}
-
 	}
 }

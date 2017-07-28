@@ -17,12 +17,15 @@
  */
 package pcgen.rules.context;
 
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.cdom.formula.ManagerKey;
+import pcgen.cdom.helper.ReferenceDependency;
 
 public class PCGenManagerFactory implements ManagerFactory
 {
@@ -50,5 +53,17 @@ public class PCGenManagerFactory implements ManagerFactory
 			formulaManager, assertedFormat);
 		return evalManager.getWith(ManagerKey.CONTEXT, context);
 	}
+
+	@Override
+	public DependencyManager generateDependencyManager(FormulaManager formulaManager,
+		ScopeInstance scopeInst, Class<?> assertedFormat)
+	{
+		DependencyManager depManager = ManagerFactory.super.generateDependencyManager(
+			formulaManager, scopeInst, assertedFormat);
+		return depManager.getWith(ManagerKey.CONTEXT, context)
+			.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
+	}
+	
+	
 
 }

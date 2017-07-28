@@ -30,7 +30,7 @@ import pcgen.base.formula.base.EvaluationManager;
  * @param <T>
  *            The format that this CalculationModifier acts upon
  */
-public final class CalculationModifier<T> implements PCGenModifier<T>
+public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 {
 
 	/**
@@ -42,7 +42,7 @@ public final class CalculationModifier<T> implements PCGenModifier<T>
 	 * The NEPCalculation to be performed by this CalculationModifier.
 	 */
 	private final NEPCalculation<T> toDo;
-
+	
 	/**
 	 * Constructs a new CalculationModifier from the given NEPCalculation and
 	 * user priority.
