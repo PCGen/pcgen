@@ -59,13 +59,14 @@ public class MasterModifierFactory
 	 * Returns a Modifier representing the information given in the parameters.
 	 * 
 	 * @param modIdentifier
-	 *            The Identifier of the Modifier (indicating the general function being
-	 *            performed, e.g. ADD)
+	 *            The Identifier of the Modifier (indicating the general
+	 *            function being performed, e.g. ADD)
 	 * @param modInstructions
-	 *            The Instructions of the Modifier (indicating the actual value the
-	 *            Modifier will use)
+	 *            The Instructions of the Modifier (indicating the actual value
+	 *            the Modifier will use)
 	 * @param managerFactory
-	 *            The ManagerFactory to be used to support analyzing the instructions
+	 *            The ManagerFactory to be used to support analyzing the
+	 *            instructions
 	 * @param priorityNumber
 	 *            The user priority of the Modifier to be produced
 	 * @param varScope
@@ -91,11 +92,6 @@ public class MasterModifierFactory
 			managerFactory, formulaManager, varScope, formatManager);
 		/*
 		 * getDependencies needs to be called during LST load, so that object references are captured
-
-		 * ManagerKey.REFERENCES need to be captured and stored (probably in this object?
-		 * or in FormulaCalculation?)
-		 * 
-		 * The FormulaManager can be drawn from VariableContext's getDummySetup...
 		 */
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			null, formatManager.getManagedClass());

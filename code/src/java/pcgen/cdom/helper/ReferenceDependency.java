@@ -48,6 +48,18 @@ public class ReferenceDependency
 	}
 
 	/**
+	 * Adds all of the references in the given Collection to this ReferenceDependency.
+	 * 
+	 * @param collection
+	 *            The Collection for which all of the included references should be added
+	 *            to this ReferenceDependency
+	 */
+	public void putAll(Collection<Indirect<?>> collection)
+	{
+		collection.stream().forEach(this::put);
+	}
+
+	/**
 	 * Returns a non-null, unmodifiable reference to the Collection of references
 	 * contained by this ReferenceDependency.
 	 * 
