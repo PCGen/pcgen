@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -303,5 +304,24 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
 		return StringUtil.join(trueTypeList, ".");
+	}
+
+	@Override
+	public String getLocalScopeName()
+	{
+		return "EQUIPMENT.PART";
+	}
+
+	private VarScoped variableParent;
+
+	public void setVariableParent(VarScoped vs)
+	{
+		variableParent = vs;
+	}
+
+	@Override
+	public VarScoped getVariableParent()
+	{
+		return variableParent;
 	}
 }

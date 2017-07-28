@@ -1008,6 +1008,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 
 		usePrimaryCache = false;
+		eqMod.setVariableParent(this);
 		getEquipmentHead(bPrimary ? 1 : 2).addToListFor(ListKey.EQMOD, eqMod);
 		setDirty(true);
 	}
