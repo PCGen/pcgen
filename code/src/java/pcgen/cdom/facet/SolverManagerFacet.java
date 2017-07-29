@@ -73,5 +73,4 @@ public class SolverManagerFacet extends
 	{
 		this.scopeFacet = scopeFacet;
 	}
-
 }

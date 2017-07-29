@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
@@ -24,7 +25,6 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.VariableKey;
@@ -104,7 +104,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Set<CDOMObject> sources = subMap.get(formula);
 		if (sources == null)
 		{
-			sources = new WrappedMapSet<>(IdentityHashMap.class);
+			sources = Collections.newSetFromMap(new IdentityHashMap<>());
 			subMap.put(formula, sources);
 		}
 		sources.add(cdo);

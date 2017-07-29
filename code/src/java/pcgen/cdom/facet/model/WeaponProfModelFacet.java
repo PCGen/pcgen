@@ -17,10 +17,10 @@
  */
 package pcgen.cdom.facet.model;
 
+import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -73,8 +73,7 @@ public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 	@Override
 	public Set<WeaponProf> getSet(CharID id)
 	{
-		final Set<WeaponProf> ret =
-                new WrappedMapSet<>(IdentityHashMap.class);
+		Set<WeaponProf> ret = Collections.newSetFromMap(new IdentityHashMap<>());
 		ret.addAll(weaponProfFacet.getSet(id));
 		ret.addAll(autoWeaponProfFacet.getWeaponProfs(id));
 		if (hasDeityWeaponProfFacet.hasDeityWeaponProf(id))

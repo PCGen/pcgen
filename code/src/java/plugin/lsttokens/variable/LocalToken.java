@@ -89,7 +89,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 			formatManager =
 					context.getReferenceContext().getFormatManager(format);
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " does not support format " + format + ", found in " + value

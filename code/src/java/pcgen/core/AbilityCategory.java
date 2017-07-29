@@ -30,7 +30,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.FormulaFactory;
@@ -48,10 +47,10 @@ import pcgen.cdom.reference.CategorizedCreator;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
-import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
-import pcgen.util.Logging;
+import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
@@ -787,7 +786,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		}
 		Collection<Ability> allObjects = parentCrm.getAllObjects();
 		// Don't add things twice or we'll get dupe messages :)
-		Set<Ability> added = new WrappedMapSet<>(IdentityHashMap.class);
+		Set<Ability> added = Collections.newSetFromMap(new IdentityHashMap<>());
 		/*
 		 * Pull in all the base objects... note this skips containsDirectly
 		 * because items haven't been resolved

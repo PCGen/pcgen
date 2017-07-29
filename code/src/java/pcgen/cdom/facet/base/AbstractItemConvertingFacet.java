@@ -22,10 +22,9 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
@@ -564,7 +563,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		 * The set of objects from which the converted object has been received
 		 */
 		public Set<Object> set =
-                new WrappedMapSet<>(IdentityHashMap.class);
+                Collections.newSetFromMap(new IdentityHashMap<>());
 
 		/**
 		 * The converted ("destination") object
@@ -607,7 +606,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 
 	public Collection<S> getSourceObjects(CharID id)
 	{
-		Set<S> set = new WrappedMapSet<>(IdentityHashMap.class);
+		Set<S> set = Collections.newSetFromMap(new IdentityHashMap<>());
 		Map<S, Target> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
@@ -625,7 +624,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	public Collection<Object> getSourcesFor(CharID id, S obj)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
-		Set<Object> set = new WrappedMapSet<>(IdentityHashMap.class);
+		Set<Object> set = Collections.newSetFromMap(new IdentityHashMap<>());
 		if (componentMap == null)
 		{
 			return set;

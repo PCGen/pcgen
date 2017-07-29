@@ -86,7 +86,7 @@ public class DefaultVariableValueToken extends
 			fmtManager =
 					context.getReferenceContext().getFormatManager(formatName);
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " found an unsupported format: " + formatName, context);

@@ -1352,4 +1352,10 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	{
 		return null;
 	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return false;
+	}
 }

@@ -28,7 +28,6 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -113,7 +112,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		Set<CDOMObject> set = foMap.get(fo);
 		if (set == null)
 		{
-			set = new WrappedMapSet<>(IdentityHashMap.class);
+			set = Collections.newSetFromMap(new IdentityHashMap<>());
 			foMap.put(fo, set);
 		}
 		set.add(cdo);
