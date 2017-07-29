@@ -536,6 +536,34 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *
 	 * @param loadedCampaigns The currently loaded campaign objects.
 	 */
+	private PlayerCharacter(PlayerCharacter from)
+	{
+		LoadContext context = Globals.getContext();
+		id = CharID.getID(context.getDataSetID());
+		doFormulaSetup(context);
+
+		display = new CharacterDisplay(id);
+		SA_TO_STRING_PROC = new SAtoStringProcessor(this);
+		SA_PROC = new SAProcessor(this);
+		PlayerCharacterTrackingFacet trackingFacet =
+				FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+		trackingFacet.associatePlayerCharacter(id, this);
+
+		variableProcessor = new VariableProcessorPC(this);
+		controller = from.controller;
+
+		for (int i = 0; i < Constants.NUMBER_OF_AGESET_KIT_SELECTIONS; i++)
+		{
+			ageSetKitSelections[i] = from.ageSetKitSelections[i];
+		}
+		theUserPoolBonuses = new HashMap<>(from.theUserPoolBonuses);
+	}
+
+	/**
+	 * Constructor.
+	 *
+	 * @param loadedCampaigns The currently loaded campaign objects.
+	 */
 	public PlayerCharacter(Collection<Campaign> loadedCampaigns)
 	{
 		LoadContext context = Globals.getContext();
@@ -7220,7 +7248,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// new data instances for all the final variables and I won't
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
-		aClone = new PlayerCharacter(campaignFacet.getSet(id));
+		aClone = new PlayerCharacter(this);
 		//aClone.variableProcessor = new VariableProcessorPC(aClone);
 		try
 		{
