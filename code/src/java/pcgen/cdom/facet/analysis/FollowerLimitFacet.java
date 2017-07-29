@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
@@ -24,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -116,7 +116,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		Set<CDOMObject> set = foMap.get(fo);
 		if (set == null)
 		{
-			set = new WrappedMapSet<>(IdentityHashMap.class);
+			set = Collections.newSetFromMap(new IdentityHashMap<>());
 			foMap.put(fo, set);
 		}
 		set.add(cdo);

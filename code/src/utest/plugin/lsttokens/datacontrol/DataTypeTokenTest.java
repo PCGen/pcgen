@@ -109,7 +109,7 @@ public class DataTypeTokenTest extends TestCase
 		{
 			assertFalse(token.parseToken(context, cd, "NotAType").passed());
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//This is ok too
 		}

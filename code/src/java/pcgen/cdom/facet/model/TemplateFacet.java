@@ -37,6 +37,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 		implements DataFacetChangeListener<CharID, PCTemplate>,
 		SetFacet<CharID, PCTemplate>
 {
+
 	/**
 	 * Adds the active PCTemplate to this facet.
 	 * 

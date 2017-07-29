@@ -22,10 +22,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
@@ -239,7 +238,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		{
 			isNew = true;
 			// abilitySet = new HashSet<Ability>();
-			abilitySet = new WrappedMapSet<>(IdentityHashMap.class);
+			abilitySet = Collections.newSetFromMap(new IdentityHashMap<>());
 			natureMap.put(nat, abilitySet);
 		}
 		return isNew;

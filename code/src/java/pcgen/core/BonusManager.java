@@ -34,7 +34,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -311,8 +310,8 @@ public class BonusManager
 		cachedActiveBonusSumsMap = new ConcurrentHashMap<>();
 		Map<String, String> nonStackMap = new ConcurrentHashMap<>();
 		Map<String, String> stackMap = new ConcurrentHashMap<>();
-		Set<BonusObj> processedBonuses = new WrappedMapSet<>(
-                IdentityHashMap.class);
+		Set<BonusObj> processedBonuses =
+				Collections.newSetFromMap(new IdentityHashMap<>());
 
 		//Logging.log(Logging.INFO, "=== Start bonus processing.");
 		
@@ -388,8 +387,8 @@ public class BonusManager
 
 			try
 			{
-				processBonus(bonus, new WrappedMapSet<>(
-                        IdentityHashMap.class), processedBonuses, nonStackMap, stackMap);
+				processBonus(bonus, Collections.newSetFromMap(new IdentityHashMap<>()),
+					processedBonuses, nonStackMap, stackMap);
 			}
 			catch (Exception e)
 			{

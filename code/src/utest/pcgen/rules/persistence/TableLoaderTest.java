@@ -308,7 +308,7 @@ public class TableLoaderTest
 				"STARTTABLE:A\nName,Value\nSTRING,NIMBLER\nFoo,1\nENDTABLE:A\n");
 			fail("Expected Failure");
 		}
-		catch (PersistenceLayerException | IllegalArgumentException e)
+		catch (NullPointerException | PersistenceLayerException | IllegalArgumentException e)
 		{
 			//Yes
 		}

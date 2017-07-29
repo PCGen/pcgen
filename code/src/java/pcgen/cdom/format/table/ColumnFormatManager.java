@@ -98,4 +98,10 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 	{
 		return underlying;
 	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return false;
+	}
 }
