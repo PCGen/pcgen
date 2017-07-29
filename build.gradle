@@ -156,6 +156,7 @@ dependencies {
     compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
     compile group: 'xalan', name: 'xalan', version:'2.7.2'
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
+    compile group: 'org.mozilla', name: 'rhino', version:'1.7.7.1'
 
     gradleLint.ignore('unused-dependency') {
 	// Eclipse requires this to be in the standard path for some unknown reason.
