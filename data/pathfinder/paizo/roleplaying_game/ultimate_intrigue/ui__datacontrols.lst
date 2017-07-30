@@ -1,0 +1,85 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+
+# Name											Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Vigilante_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_ShieldProficiency				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_DualIdentity				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SeamlessGuise				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteSpecialization			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_Unshakable					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_StartlingAppearance			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_FrighteningAppearance			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_StunningAppearance			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VengeanceStrike				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent1				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent3				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent5				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent7				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent9				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent11				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent13				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent15				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent17				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_SocialTalent19				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent2				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent4				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent6				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent8				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent10				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent12				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent14				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent16				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent18				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent20				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
+
+
+# Name											Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Vigilante_CF_ClassSkills						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_ArmorProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_ShieldProficiency					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_DualIdentity						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SeamlessGuise					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteSpecialization				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_Unshakable						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_StartlingAppearance				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_FrighteningAppearance				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_StunningAppearance					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VengeanceStrike					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_Avenger						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_Stalker						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent1					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent3					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent5					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent7					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent9					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent11					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent13					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent15					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent17					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_SocialTalent19					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent2					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent4					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent6					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent8					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent10					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent14					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent16					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent18					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_VigilanteTalent20					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+
+
+
+
+
+
+
