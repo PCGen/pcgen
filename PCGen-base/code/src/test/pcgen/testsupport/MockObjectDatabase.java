@@ -82,6 +82,18 @@ public class MockObjectDatabase implements ObjectDatabase
 		{
 			throw new UnsupportedOperationException();
 		}
+
+		@Override
+		public boolean isDirect()
+		{
+			return mockObjectDatabase.isDirect();
+		}
 		
+	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return false;
 	}
 }

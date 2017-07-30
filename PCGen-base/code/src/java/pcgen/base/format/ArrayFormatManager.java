@@ -295,4 +295,9 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 
 	}
 
+	@Override
+	public boolean isDirect()
+	{
+		return componentManager.isDirect();
+	}
 }

@@ -98,4 +98,10 @@ public class NumberManager implements FormatManager<Number>
 	{
 		return null;
 	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return true;
+	}
 }

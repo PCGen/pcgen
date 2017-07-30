@@ -126,4 +126,10 @@ public class GenericFormatManager<T> implements FormatManager<T>
 		}
 		return false;
 	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return database.isDirect();
+	}
 }

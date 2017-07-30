@@ -106,4 +106,10 @@ public class BooleanManager implements FormatManager<Boolean>
 	{
 		return null;
 	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return true;
+	}
 }

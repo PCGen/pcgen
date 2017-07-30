@@ -72,4 +72,19 @@ public interface ObjectDatabase
 	 */
 	public String getName(Object o);
 
+	/**
+	 * Returns true if this ObjectDatabase can always be queried directly.
+	 * 
+	 * If this returns true, then no setup is necessary in order to use the objects returned from this
+	 * ObjectDatabase, meaning the Indirect provided by getIndirect can always be
+	 * dereferenced.
+	 * 
+	 * If this returns false, then the Indirect returned from getIndirect cannot always be dereferenced, and
+	 * additional setup may be necessary. Consult the implementing class for more
+	 * information.
+	 * 
+	 * @return true if this format can always be converted directly; false otherwise
+	 */
+	public boolean isDirect();
+
 }

@@ -77,6 +77,21 @@ public interface FormatManager<T>
 	public Indirect<T> convertIndirect(String inputStr);
 
 	/**
+	 * Returns true if this format can always be converted directly.
+	 * 
+	 * If this returns true, then no setup is necessary in order to use this
+	 * FormatManager, meaning the Indirect provided by convertIndirect can always be
+	 * dereferenced.
+	 * 
+	 * If this returns false, then the Indirect returned from convertIndirect cannot
+	 * always be dereferenced, and additional setup may be necessary. Consult the
+	 * implementing class for more information.
+	 * 
+	 * @return true if this format can always be converted directly; false otherwise
+	 */
+	public boolean isDirect();
+
+	/**
 	 * Serializes (unconverts) the given object into a human-readable serialized
 	 * form.
 	 * 

@@ -98,4 +98,10 @@ public class OrderedPairManager implements FormatManager<OrderedPair>
 	{
 		return null;
 	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return true;
+	}
 }

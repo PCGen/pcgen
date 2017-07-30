@@ -98,4 +98,10 @@ public class StringManager implements FormatManager<String>
 	{
 		return null;
 	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return true;
+	}
 }
