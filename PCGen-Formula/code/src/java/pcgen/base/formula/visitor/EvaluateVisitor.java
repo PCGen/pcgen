@@ -276,8 +276,18 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTQuotString node, Object data)
 	{
+		EvaluationManager manager = (EvaluationManager) data;
+		FormatManager<?> asserted = manager.get(EvaluationManager.ASSERTED);
 		//The quotes are stripped by the parser
-		return node.getText();
+		try
+		{
+			return asserted.convert(node.getText());
+		}
+		catch (IllegalArgumentException e)
+		{
+			//Give up and return a String
+			return node.getText();
+		}
 	}
 
 	/**
@@ -379,7 +389,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 				return resolver.get(id);
 			}
 		}
-		Class<?> asserted = manager.get(EvaluationManager.ASSERTED);
+		FormatManager<?> asserted = manager.get(EvaluationManager.ASSERTED);
 		if (asserted == null)
 		{
 			System.out
@@ -389,8 +399,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 			return 0;
 		}
 		System.out.println("Evaluation called on invalid variable: '" + varName
-			+ "', assuming default for " + asserted.getSimpleName());
-		return fm.getDefault(asserted);
+			+ "', assuming default for " + asserted.getManagedClass().getSimpleName());
+		return fm.getDefault(asserted.getManagedClass());
 	}
 
 }

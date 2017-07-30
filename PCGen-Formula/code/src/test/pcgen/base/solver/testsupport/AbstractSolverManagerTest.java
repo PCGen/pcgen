@@ -473,4 +473,25 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 
 	}
 
+	@Test
+	public void testAssertion()
+	{
+		ScopeInstance source = globalScopeInst;
+		ComplexNEPFormula five = new ComplexNEPFormula("5");
+		Modifier<Number> numMod = AbstractModifier.add(five, 100);
+
+		ComplexNEPFormula fiveString = new ComplexNEPFormula("\"4\"");
+		Modifier<Number> strMod = AbstractModifier.add(fiveString, 200);
+
+		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
+		VariableID<Number> limbs =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst,
+					"Limbs");
+		assertEquals(null, store.get(limbs));
+		getManager().addModifier(limbs, numMod, source);
+
+		assertEquals(5, store.get(limbs));
+		getManager().addModifier(limbs, strMod, source);
+		assertEquals(9, store.get(limbs));
+	}
 }

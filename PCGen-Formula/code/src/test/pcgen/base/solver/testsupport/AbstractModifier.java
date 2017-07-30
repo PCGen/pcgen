@@ -19,11 +19,15 @@ package pcgen.base.solver.testsupport;
 
 import java.lang.reflect.Array;
 
+import pcgen.base.format.ArrayFormatManager;
+import pcgen.base.format.NumberManager;
+import pcgen.base.format.StringManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.lang.NumberUtilities;
 import pcgen.base.solver.Modifier;
+import pcgen.base.util.FormatManager;
 
 public abstract class AbstractModifier<T> implements Modifier<T>
 {
@@ -31,7 +35,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	{
 		private final int value;
 
-		private PrivateSetNumber(int inherent, Class<Number> cl, int priority,
+		private PrivateSetNumber(int inherent, FormatManager<Number> cl, int priority,
 			int value)
 		{
 			super(inherent, cl, priority);
@@ -62,20 +66,21 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		}
 	}
 
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-	private static final Class<Number[]> NUMBER_ARR_CLASS =
-			(Class<Number[]>) Number[].class;
+	private static final FormatManager<Number> NUMBER_FORMAT = new NumberManager();
+	private static final FormatManager<String> STRING_FORMAT = new StringManager();
+	private static final FormatManager<Number[]> NUMBER_ARR_FORMAT =
+			new ArrayFormatManager(NUMBER_FORMAT, ',');
 
-	private final Class<T> format;
+	private final FormatManager<T> format;
 	private final int priority;
 	private final int inherent;
 
-	public AbstractModifier(int inherent, Class<T> cl)
+	public AbstractModifier(int inherent, FormatManager<T> cl)
 	{
 		this(inherent, cl, 100);
 	}
 
-	public AbstractModifier(int inherent, Class<T> cl, int priority)
+	public AbstractModifier(int inherent, FormatManager<T> cl, int priority)
 	{
 		format = cl;
 		this.priority = priority;
@@ -94,7 +99,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	}
 
 	@Override
-	public Class<T> getVariableFormat()
+	public FormatManager<T> getVariableFormat()
 	{
 		return format;
 	}
@@ -120,14 +125,14 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	public static AbstractModifier<Number[]> addToArray(final int value,
 		int priority)
 	{
-		return new AbstractModifier<Number[]>(0, NUMBER_ARR_CLASS, priority)
+		return new AbstractModifier<Number[]>(0, NUMBER_ARR_FORMAT, priority)
 		{
 			@Override
 			public Number[] process(EvaluationManager manager)
 			{
 				Number[] input = (Number[]) manager.get(EvaluationManager.INPUT);
 				Number[] newArray =
-						(Number[]) Array.newInstance(NUMBER_CLASS,
+						(Number[]) Array.newInstance(NUMBER_FORMAT.getManagedClass(),
 							input.length + 1);
 				System.arraycopy(input, 0, newArray, 0, input.length);
 				newArray[newArray.length - 1] = value;
@@ -144,7 +149,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 
 	public static AbstractModifier<Number[]> setEmptyArray(int priority)
 	{
-		return new AbstractModifier<Number[]>(0, NUMBER_ARR_CLASS, priority)
+		return new AbstractModifier<Number[]>(0, NUMBER_ARR_FORMAT, priority)
 		{
 			@Override
 			public Number[] process(EvaluationManager manager)
@@ -163,12 +168,12 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	public static AbstractModifier<Number> setNumber(final int value,
 		int priority)
 	{
-		return new PrivateSetNumber(0, NUMBER_CLASS, priority, value);
+		return new PrivateSetNumber(0, NUMBER_FORMAT, priority, value);
 	}
 
 	public static AbstractModifier<String> setString()
 	{
-		return new AbstractModifier<String>(0, String.class)
+		return new AbstractModifier<String>(0, STRING_FORMAT)
 		{
 			@Override
 			public String process(EvaluationManager manager)
@@ -187,7 +192,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	public static AbstractModifier<Number> multiply(final int value,
 		int priority)
 	{
-		return new AbstractModifier<Number>(1, NUMBER_CLASS, priority)
+		return new AbstractModifier<Number>(1, NUMBER_FORMAT, priority)
 		{
 			@Override
 			public Number process(EvaluationManager manager)
@@ -205,7 +210,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 
 	public static AbstractModifier<Number> add(final int value, int priority)
 	{
-		return new AbstractModifier<Number>(2, NUMBER_CLASS, priority)
+		return new AbstractModifier<Number>(2, NUMBER_FORMAT, priority)
 		{
 			@Override
 			public Number process(EvaluationManager manager)
@@ -224,7 +229,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 
 	public static AbstractModifier<Number> add(final ComplexNEPFormula value, int priority)
 	{
-		return new AbstractModifier<Number>(2, NUMBER_CLASS, priority)
+		return new AbstractModifier<Number>(2, NUMBER_FORMAT, priority)
 		{
 			@Override
 			public Number process(EvaluationManager manager)
@@ -248,10 +253,9 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		};
 	}
 
-	public static <T> AbstractModifier<T> setObject(final T value, int priority)
+	public static <T> AbstractModifier<T> setObject(FormatManager<T> fmt, final T value, int priority)
 	{
-		Class<T> cl = (Class<T>) value.getClass();
-		return new AbstractModifier<T>(2, cl, priority)
+		return new AbstractModifier<T>(2, fmt, priority)
 		{
 			@Override
 			public T process(EvaluationManager manager)

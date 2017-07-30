@@ -84,9 +84,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			}
 
 			@Override
-			public Class getVariableFormat()
+			public FormatManager getVariableFormat()
 			{
-				return Limb.class;
+				return limbManager;
 			}
 
 			@Override
@@ -189,8 +189,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		AbstractModifier<Number> two = AbstractModifier.setNumber(2, 5);
 		AbstractModifier<Number> ten = AbstractModifier.setNumber(10, 5);
-		AbstractModifier<Limb> useHands = AbstractModifier.setObject(hands, 3);
-		AbstractModifier<Limb> useFingers = AbstractModifier.setObject(fingers, 5);
+		AbstractModifier<Limb> useHands = AbstractModifier.setObject(limbManager, hands, 3);
+		AbstractModifier<Limb> useFingers = AbstractModifier.setObject(limbManager, fingers, 5);
 
 		getManager().addModifier(handsID, two, source);
 		getManager().addModifier(fingersID, ten, source);
@@ -415,8 +415,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		AbstractModifier<Number> two = AbstractModifier.setNumber(2, 5);
 		AbstractModifier<Number> three = AbstractModifier.setNumber(3, 10);
 		AbstractModifier<Number> four = AbstractModifier.setNumber(4, 15);
-		AbstractModifier<Limb> useEquip = AbstractModifier.setObject(equip, 3);
-		AbstractModifier<Limb> useAlt = AbstractModifier.setObject(equipalt, 5);
+		AbstractModifier<Limb> useEquip = AbstractModifier.setObject(limbManager, equip, 3);
+		AbstractModifier<Limb> useAlt = AbstractModifier.setObject(limbManager, equipalt, 5);
 
 		manager.addModifier(equipID, two, equipInst);
 		manager.addModifier(altID, three, altInst);

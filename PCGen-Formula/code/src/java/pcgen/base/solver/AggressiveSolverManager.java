@@ -181,7 +181,7 @@ public class AggressiveSolverManager implements SolverManager
 		 * Now build new edges of things this solver will be dependent upon...
 		 */
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			source, varID.getFormatManager().getManagedClass());
+			source, varID.getFormatManager());
 		fdm = managerFactory.withVariables(fdm);
 		modifier.getDependencies(fdm);
 		for (VariableID<?> depID : fdm.get(DependencyManager.VARIABLES).getVariables())
@@ -247,7 +247,7 @@ public class AggressiveSolverManager implements SolverManager
 				+ varID + " but that channel was never defined");
 		}
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			source, varID.getFormatManager().getManagedClass());
+			source, varID.getFormatManager());
 		fdm = managerFactory.withVariables(fdm);
 		modifier.getDependencies(fdm);
 		processDependencies(varID, fdm);
@@ -376,7 +376,7 @@ public class AggressiveSolverManager implements SolverManager
 		 * a code bug
 		 */
 		EvaluationManager evalManager = managerFactory
-			.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+			.generateEvaluationManager(formulaManager, varID.getFormatManager());
 		T newValue = solver.process(evalManager);
 		Object oldValue = resultStore.put(varID, newValue);
 		return !newValue.equals(oldValue);
@@ -393,7 +393,7 @@ public class AggressiveSolverManager implements SolverManager
 				+ " but that channel was never defined");
 		}
 		EvaluationManager evalManager = managerFactory
-			.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+			.generateEvaluationManager(formulaManager, varID.getFormatManager());
 		return solver.diagnose(evalManager);
 	}
 

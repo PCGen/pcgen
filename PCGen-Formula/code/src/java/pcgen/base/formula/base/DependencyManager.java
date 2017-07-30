@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.TypedKey;
 import pcgen.base.util.WriteOnceReadManyList;
 
@@ -38,44 +39,46 @@ public class DependencyManager
 	/**
 	 * A TypedKey used for a location to write messages while processing dependencies.
 	 */
-	public static final TypedKey<List<String>> LOG =
-			new TypedKey<List<String>>();
+	public static final TypedKey<List<String>> LOG = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the FormulaManager contained in this DependencyManager
 	 */
-	public static final TypedKey<FormulaManager> FMANAGER =
-			new TypedKey<FormulaManager>();
+	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the ScopeInstance contained in this DependencyManager
 	 */
-	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<ScopeInstance>();
+	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the Format currently asserted for the formula served by
 	 * this DependencyManager
 	 */
-	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
+	public static final TypedKey<FormatManager<?>> ASSERTED = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the dynamic variables for the formula served by this
 	 * DependencyManager.
 	 */
-	public static final TypedKey<DynamicManager> DYNAMIC = new TypedKey<DynamicManager>();
+	public static final TypedKey<DynamicManager> DYNAMIC = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the (static) Variables contained in this DependencyManager.
 	 */
-	public static final TypedKey<VariableList> VARIABLES = new TypedKey<VariableList>();
+	public static final TypedKey<VariableList> VARIABLES = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for determining how encountered variables are processed. This can
 	 * be a VariableStrategy that simply provides static behavior, or one that is aware of
 	 * dynamic variables.
 	 */
-	public static final TypedKey<VariableStrategy> VARSTRATEGY =
-			new TypedKey<VariableStrategy>();
+	public static final TypedKey<VariableStrategy> VARSTRATEGY = new TypedKey<>();
+
+	/**
+	 * A TypedKey used for holding an object that can track when indirect objects are used.
+	 */
+	public static final TypedKey<IndirectDependency> INDIRECTS = new TypedKey<>();
 
 	/**
 	 * The underlying map for this DependencyManager that contains the target objects.

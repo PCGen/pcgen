@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.TypedKey;
 
 /**
@@ -87,7 +88,7 @@ public final class EvaluationManager
 	 * A TypedKey used for storing the Format (as a Class) asserted by the current context
 	 * of a formula.
 	 */
-	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
+	public static final TypedKey<FormatManager<?>> ASSERTED = new TypedKey<FormatManager<?>>();
 
 	/**
 	 * A TypedKey used for storing the Input Object contained in this EvaluationManager.

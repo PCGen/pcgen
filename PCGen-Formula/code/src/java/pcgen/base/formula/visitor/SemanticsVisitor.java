@@ -284,7 +284,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			return processArrayReference(name, (SimpleNode) argNode, semantics);
+			return processArray(name, (SimpleNode) argNode, semantics);
 		}
 		else
 		{
@@ -296,7 +296,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 	}
 
-	private FormatManager<?> processArrayReference(String name, SimpleNode argNode,
+	private FormatManager<?> processArray(String name, SimpleNode argNode,
 		FormulaSemantics semantics)
 	{
 		FormatManager<?> argFormat =
@@ -416,7 +416,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTQuotString node, Object data)
 	{
-		return FormatUtilities.STRING_MANAGER;
+		FormulaSemantics semantics = (FormulaSemantics) data;
+		FormatManager<?> asserted = semantics.get(FormulaSemantics.ASSERTED);
+		return (asserted == null) ? FormatUtilities.STRING_MANAGER : asserted;
 	}
 
 	/**

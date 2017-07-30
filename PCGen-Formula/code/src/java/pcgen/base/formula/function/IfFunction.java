@@ -76,7 +76,7 @@ public class IfFunction implements Function
 		Node conditionalNode = args[0];
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> format = (FormatManager<?>) conditionalNode.jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, FormatUtilities.BOOLEAN_CLASS));
+			semantics.getWith(FormulaSemantics.ASSERTED, FormatUtilities.BOOLEAN_MANAGER));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -134,7 +134,7 @@ public class IfFunction implements Function
 		EvaluationManager manager)
 	{
 		Boolean b = (Boolean) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, FormatUtilities.BOOLEAN_CLASS));
+			manager.getWith(EvaluationManager.ASSERTED, FormatUtilities.BOOLEAN_MANAGER));
 		/*
 		 * Note no attempt to cast or interpret the return values since we do
 		 * not know if they are Boolean or Double (see allowArgs)
@@ -193,7 +193,7 @@ public class IfFunction implements Function
 		DependencyManager manager, Node[] args)
 	{
 		args[0].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, FormatUtilities.BOOLEAN_CLASS));
+			manager.getWith(DependencyManager.ASSERTED, FormatUtilities.BOOLEAN_MANAGER));
 		args[1].jjtAccept(visitor, manager);
 		args[2].jjtAccept(visitor, manager);
 	}

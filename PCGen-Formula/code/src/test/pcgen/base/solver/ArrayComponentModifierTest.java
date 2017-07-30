@@ -21,18 +21,23 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
+import pcgen.base.util.FormatManager;
 
 public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 {
+	private final FormatManager<Number[]> NAF = new ArrayFormatManager(numberManager, ',');
+
 	@Test
 	public void testConstructor()
 	{
 		try
 		{
-			new ArrayComponentModifier(5, null);
+			Modifier cm = AbstractModifier.setNumber(3, 100);
+			new ArrayComponentModifier(null, 5, cm);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -41,7 +46,17 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 		}
 		try
 		{
-			new ArrayComponentModifier(-5, null);
+			new ArrayComponentModifier(NAF, 5, null);
+			fail();
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//ok
+		}
+		try
+		{
+			Modifier cm = AbstractModifier.setNumber(3, 100);
+			new ArrayComponentModifier(NAF, -5, cm);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -54,7 +69,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	public void testGetUserPriority()
 	{
 		Modifier cm = AbstractModifier.setNumber(3, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
+		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
 		assertEquals((100L << 32), acm.getPriority());
 	}
 
@@ -62,15 +77,16 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	public void testGetVariableFormat()
 	{
 		Modifier cm = AbstractModifier.setNumber(3, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		assertEquals(Number[].class, acm.getVariableFormat());
+		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
+		assertEquals(NAF, acm.getVariableFormat());
+		assertEquals(Number[].class, acm.getVariableFormat().getManagedClass());
 	}
 
 	@Test
 	public void testGetIdentification()
 	{
 		Modifier cm = AbstractModifier.setNumber(3, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
+		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
 		assertEquals("Set (component)", acm.getIdentification());
 	}
 
@@ -78,7 +94,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	public void testGetInstructions()
 	{
 		Modifier cm = AbstractModifier.setNumber(3, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
+		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
 		assertEquals("To [5]: +3", acm.toString());
 	}
 
@@ -86,7 +102,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	public void testProcess()
 	{
 		Modifier cm = AbstractModifier.setNumber(6, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
+		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		EvaluationManager manager = generateManager(array);
 		Object[] result = acm.process(manager);
@@ -100,7 +116,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	public void testProcessOutOfBounds()
 	{
 		Modifier cm = AbstractModifier.setNumber(77, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
+		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
 		Number[] array = {1, 2, 3, 4};
 		//Should be no effect
 		EvaluationManager manager = generateManager(array);

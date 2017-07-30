@@ -115,7 +115,7 @@ public class FormulaSemantics
 	 * A TypedKey used for storing the Format currently asserted for the formula served by
 	 * this FormulaSemantics.
 	 */
-	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
+	public static final TypedKey<FormatManager<?>> ASSERTED = new TypedKey<FormatManager<?>>();
 
 	/**
 	 * A TypedKey used for storing the Format of the input object for the formula served
@@ -168,6 +168,16 @@ public class FormulaSemantics
 	}
 
 	/**
+	 * Resets this FormulaSemantics to have a clean report.
+	 */
+	public void resetReport()
+	{
+		SemanticsReport report = get(REPORT);
+		report.setValid(true);
+		report.setReport("");
+	}
+
+	/**
 	 * A Class to hold the Report & Validity of the FormulaSemantics.
 	 * 
 	 * Note that this exists because you can't put new items into FormulaSemantics - some
@@ -201,4 +211,5 @@ public class FormulaSemantics
 		}
 
 	}
+
 }

@@ -194,7 +194,7 @@ public class DynamicSolverManager implements SolverManager
 		 * Now build new edges of things this solver will be dependent upon...
 		 */
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			source, varID.getFormatManager().getManagedClass());
+			source, varID.getFormatManager());
 		fdm = managerFactory.withVariables(fdm);
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
@@ -296,7 +296,7 @@ public class DynamicSolverManager implements SolverManager
 				+ varID + " but that channel was never defined");
 		}
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			source, varID.getFormatManager().getManagedClass());
+			source, varID.getFormatManager());
 		fdm = managerFactory.withVariables(fdm);
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
@@ -469,7 +469,7 @@ public class DynamicSolverManager implements SolverManager
 		 * a code bug
 		 */
 		EvaluationManager evalManager = managerFactory
-			.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+			.generateEvaluationManager(formulaManager, varID.getFormatManager());
 		T newValue = solver.process(evalManager);
 		Object oldValue = resultStore.put(varID, newValue);
 		return !newValue.equals(oldValue);
@@ -486,7 +486,7 @@ public class DynamicSolverManager implements SolverManager
 				+ " but that channel was never defined");
 		}
 		EvaluationManager evalManager = managerFactory
-			.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+			.generateEvaluationManager(formulaManager, varID.getFormatManager());
 		return solver.diagnose(evalManager);
 	}
 

@@ -24,6 +24,7 @@ import java.util.Objects;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.Identified;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.TreeMapToList;
 
@@ -119,13 +120,12 @@ public class Solver<T>
 	public void addModifier(Modifier<T> modifier, ScopeInstance source)
 	{
 		//Ensure someone isn't playing fast and loose with generics
-		Class<?> varFormat = defaultModifier.getVariableFormat();
+		FormatManager<T> varFormat = defaultModifier.getVariableFormat();
 		if (!modifier.getVariableFormat().equals(varFormat))
 		{
-			throw new IllegalArgumentException(
-				"Expected Modifier of Process Class: "
-					+ varFormat.getCanonicalName() + " but got: "
-					+ modifier.getVariableFormat().getCanonicalName());
+			throw new IllegalArgumentException("Expected Modifier of Process Class: "
+				+ varFormat.getManagedClass().getCanonicalName() + " but got: "
+				+ modifier.getVariableFormat().getManagedClass().getCanonicalName());
 		}
 		modifierList.addToListFor(Long.valueOf(modifier.getPriority()),
 			new ModInfo<>(modifier, Objects.requireNonNull(source)));
@@ -219,7 +219,7 @@ public class Solver<T>
 		List<ProcessStep<T>> steps = new ArrayList<ProcessStep<T>>();
 		T stepResult = defaultModifier.process(null);
 		steps.add(new ProcessStep<T>(defaultModifier, new DefaultValue(
-			defaultModifier.getVariableFormat().getSimpleName()), stepResult));
+			defaultModifier.getVariableFormat().getIdentifierType()), stepResult));
 		if (!modifierList.isEmpty())
 		{
 			for (Long priority : modifierList.getKeySet())

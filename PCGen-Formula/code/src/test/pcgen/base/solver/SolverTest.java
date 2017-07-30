@@ -23,6 +23,8 @@ import java.util.List;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import pcgen.base.format.ArrayFormatManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
@@ -30,9 +32,13 @@ import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.MockStat;
+import pcgen.base.util.FormatManager;
 
 public class SolverTest extends TestCase
 {
+	protected FormatManager<Number> numberManager = FormatUtilities.NUMBER_MANAGER;
+	private final FormatManager<Number[]> NAF = new ArrayFormatManager(numberManager, ',');
+
 	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private EvaluationManager evalManager;
 	private ScopeInstance inst;
@@ -52,7 +58,7 @@ public class SolverTest extends TestCase
 		str = indSetup.getInstanceFactory().get("STAT", new MockStat("STR"));
 		con = indSetup.getInstanceFactory().get("STAT", new MockStat("CON"));
 		evalManager = managerFactory
-			.generateEvaluationManager(indSetup.getFormulaManager(), Number.class);
+			.generateEvaluationManager(indSetup.getFormulaManager(), numberManager);
 	}
 
 	@Test
@@ -247,7 +253,7 @@ public class SolverTest extends TestCase
 		assertNotNull(list);
 		assertEquals(1, list.size());
 		ProcessStep<Number> step = list.get(0);
-		assertEquals("Default Value for Number", step.getSourceInfo());
+		assertEquals("Default Value for NUMBER", step.getSourceInfo());
 		assertEquals(6, step.getResult());
 		assertEquals(mod, step.getModifier());
 		solver.addModifier(addm, inst);
@@ -258,7 +264,7 @@ public class SolverTest extends TestCase
 		list = solver.diagnose(evalManager);
 		assertEquals(4, list.size());
 		step = list.get(0);
-		assertEquals("Default Value for Number", step.getSourceInfo());
+		assertEquals("Default Value for NUMBER", step.getSourceInfo());
 		assertEquals(6, step.getResult());
 		assertEquals(mod, step.getModifier());
 		step = list.get(1);
@@ -292,15 +298,15 @@ public class SolverTest extends TestCase
 		solver.addModifier(add3, inst);
 		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, solver.process(evalManager)));
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
-		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(0, addm);
+		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(NAF, 0, addm);
 		solver.addModifier(addTo1, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process(evalManager)));
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
-		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(1, multm);
+		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(NAF, 1, multm);
 		solver.addModifier(multTo2, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 4, 3}, solver.process(evalManager)));
 		Modifier<Number> setm = AbstractModifier.setNumber(7, 100);
-		Modifier<Number[]> setTo3 = new ArrayComponentModifier<>(2, setm);
+		Modifier<Number[]> setTo3 = new ArrayComponentModifier<>(NAF, 2, setm);
 		solver.addModifier(setTo3, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 4, 7}, solver.process(evalManager)));
 		solver.removeModifier(add1, inst);
@@ -325,12 +331,12 @@ public class SolverTest extends TestCase
 		Solver<Number[]> other = solver.createReplacement();
 		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, other.process(evalManager)));
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
-		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(0, addm);
+		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(NAF, 0, addm);
 		solver.addModifier(addTo1, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process(evalManager)));
 		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, other.process(evalManager)));
 		Modifier<Number> multm = AbstractModifier.multiply(6, 100);
-		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(1, multm);
+		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(NAF, 1, multm);
 		other.addModifier(multTo2, inst);
 		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process(evalManager)));
 		assertTrue(Arrays.equals(new Number[]{1, 12, 3}, other.process(evalManager)));

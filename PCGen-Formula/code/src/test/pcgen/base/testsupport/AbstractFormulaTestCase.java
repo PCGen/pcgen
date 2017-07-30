@@ -87,9 +87,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			}
 
 			@Override
-			public Class getVariableFormat()
+			public FormatManager getVariableFormat()
 			{
-				return Number.class;
+				return numberManager;
 			}
 
 			@Override
@@ -123,9 +123,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			}
 
 			@Override
-			public Class getVariableFormat()
+			public FormatManager getVariableFormat()
 			{
-				return String.class;
+				return stringManager;
 			}
 
 			@Override
@@ -142,7 +142,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	}
 
 	public void isValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
+		FormatManager<?> formatManager, FormatManager<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
@@ -206,7 +206,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public EvaluationManager generateManager()
 	{
 		EvaluationManager em = managerFactory
-			.generateEvaluationManager(localSetup.getFormulaManager(), Number.class);
+			.generateEvaluationManager(localSetup.getFormulaManager(), numberManager);
 		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
 	}
 
@@ -216,7 +216,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	}
 
 	protected void isNotValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
+		FormatManager<?> formatManager, FormatManager<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(

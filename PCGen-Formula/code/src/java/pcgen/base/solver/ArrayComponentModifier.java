@@ -17,12 +17,12 @@
  */
 package pcgen.base.solver;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Objects;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.util.FormatManager;
 
 /**
  * An ArrayComponentModifier applies an underlying Modifier to a specific
@@ -48,18 +48,20 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	 * The Format of this Modifier (an array of the format of the underlying
 	 * modifier).
 	 */
-	private final Class<T[]> format;
+	private final FormatManager<T[]> format;
 
 	/**
-	 * Constructs a new ArrayComponentModifier that will modify the component in
-	 * the array at the given location using the given Modifier.
+	 * Constructs a new ArrayComponentModifier that will modify the component in the array
+	 * at the given location using the given Modifier.
 	 * 
+	 * @param formatManager
+	 *            The format of the array this Modifier can act upon
 	 * @param loc
 	 *            The location of the component in the array to be modified
 	 * @param mod
 	 *            The Modifier to be applied to the component in the array
 	 */
-	public ArrayComponentModifier(int loc, Modifier<T> mod)
+	public ArrayComponentModifier(FormatManager<T[]> formatManager, int loc, Modifier<T> mod)
 	{
 		if (loc < 0)
 		{
@@ -67,11 +69,15 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		}
 		location = loc;
 		modifier = Objects.requireNonNull(mod);
-		@SuppressWarnings("unchecked")
-		Class<T[]> fmt =
-				(Class<T[]>) Array.newInstance(mod.getVariableFormat(), 0)
-					.getClass();
-		format = fmt;
+		format = Objects.requireNonNull(formatManager);
+		//TODO Leniency here?  Does FormatManager need something like isAssignableFrom?
+		if (!format.getComponentManager().equals(modifier.getVariableFormat()))
+		{
+			throw new IllegalArgumentException("FormatManager manages array of "
+				+ format.getComponentManager().getManagedClass().getCanonicalName()
+				+ " but Modifier was "
+				+ modifier.getVariableFormat().getManagedClass().getCanonicalName());
+		}
 	}
 
 	/**
@@ -98,8 +104,8 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		System.arraycopy(input, 0, result, 0, length);
 		EvaluationManager subManager =
 				manager.getWith(EvaluationManager.INPUT, input[location]);
-		subManager =
-				subManager.getWith(EvaluationManager.ASSERTED, format.getComponentType());
+		subManager = subManager.getWith(EvaluationManager.ASSERTED,
+			format.getComponentManager());
 		result[location] = modifier.process(subManager);
 		return result;
 	}
@@ -117,7 +123,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	}
 
 	@Override
-	public Class<T[]> getVariableFormat()
+	public FormatManager<T[]> getVariableFormat()
 	{
 		return format;
 	}

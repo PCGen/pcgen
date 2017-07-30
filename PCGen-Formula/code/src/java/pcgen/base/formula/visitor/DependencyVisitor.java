@@ -21,6 +21,7 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.IndirectDependency;
 import pcgen.base.formula.base.VariableStrategy;
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
@@ -41,6 +42,8 @@ import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
 
 /**
  * A DependencyVisitor captures the dependencies that exist in a Formula.
@@ -269,6 +272,26 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTQuotString node, Object data)
 	{
+		DependencyManager manager = (DependencyManager) data;
+		FormatManager<?> asserted = manager.get(DependencyManager.ASSERTED);
+		if (asserted == null)
+		{
+			return data;
+		}
+		/*
+		 * We want this convertIndirect call outside of the IF below, because it can
+		 * actually throw an exception...
+		 */
+		@SuppressWarnings("PMD.PrematureDeclaration")
+		Indirect<?> indirect = asserted.convertIndirect(node.getText());
+		if (!asserted.isDirect())
+		{
+			IndirectDependency refManager = manager.get(DependencyManager.INDIRECTS);
+			if (refManager != null)
+			{
+				refManager.add(indirect);
+			}
+		}
 		return data;
 	}
 

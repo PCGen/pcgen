@@ -19,6 +19,7 @@ package pcgen.base.solver;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.util.FormatManager;
 
 /**
  * A Modifier is designed to change an input (of a given format) to another
@@ -75,13 +76,14 @@ public interface Modifier<T>
 	public long getPriority();
 
 	/**
-	 * Returns the Format (Class) of object upon which this Modifier can
-	 * operate. May be a parent class if the Modifier can act upon various
-	 * related classes such as java.lang.Number.
+	 * Returns the FormatManager for the the Format (Class) of the object upon which this
+	 * Modifier can operate. May have an underlying parent class if the Modifier can act
+	 * upon various related classes such as java.lang.Number.
 	 * 
-	 * @return The Class of object upon which this Modifier can operate
+	 * @return The FormatManager of the Format (class) of the object upon which this
+	 *         Modifier can operate
 	 */
-	public Class<T> getVariableFormat();
+	public FormatManager<T> getVariableFormat();
 
 	/**
 	 * Returns a String identifying the Modifier. May be "ADD" for a Modifier

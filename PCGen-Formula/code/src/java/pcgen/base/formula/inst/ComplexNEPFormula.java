@@ -155,7 +155,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	public void isValid(FormatManager<T> formatManager,
 		FormulaSemantics semantics)
 	{
-		//semantics.set(FormulaSemantics.BASE_FORMAT, expectedFormat);
+		semantics.resetReport();
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> formulaFormat =
 				(FormatManager<?>) SEMANTICS_VISITOR.visit(root, semantics);

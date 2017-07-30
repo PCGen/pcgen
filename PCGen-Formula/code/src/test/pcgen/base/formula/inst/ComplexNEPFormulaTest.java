@@ -2,6 +2,8 @@ package pcgen.base.formula.inst;
 
 import java.util.List;
 
+import org.junit.Test;
+
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
@@ -66,8 +68,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	public void testIsValid()
 	{
-		FormulaSemantics fs = managerFactory.generateFormulaSemantics(getFormulaManager(),
-			getGlobalScope(), null);
+		FormulaSemantics fs = getSemantics();
 		try
 		{
 			new ComplexNEPFormula<Number>("3+5").isValid(numberMgr, null);
@@ -248,5 +249,41 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		EvaluationManager manager = this.generateManager(4);
 		assertEquals(4, new ComplexNEPFormula<>("value()").resolve(manager));
 		assertEquals(243.0, new ComplexNEPFormula<>("3^5").resolve(evalManager));
+	}
+	
+
+	@Test
+	public void testAssertion()
+	{
+		ComplexNEPFormula five = new ComplexNEPFormula("5");
+		ComplexNEPFormula fiveString = new ComplexNEPFormula("\"4\"");
+
+		FormulaSemantics fs = getSemantics();
+		five.isValid(numberMgr, fs);
+		assertEquals(true, fs.isValid());
+
+		five.isValid(stringMgr, fs);
+		assertEquals(false, fs.isValid());
+
+		fiveString.isValid(numberMgr, fs);
+		assertEquals(false, fs.isValid());
+
+		fiveString.isValid(stringMgr, fs);
+		//Note this implicitly tests that isValid is resetting the report
+		assertEquals(true, fs.isValid());
+		
+		fiveString.isValid(numberMgr, fs.getWith(FormulaSemantics.ASSERTED, numberMgr));
+		//Note this implicitly tests that the report survives the .getWith
+		assertEquals(true, fs.isValid());
+
+		fiveString.isValid(stringMgr, fs.getWith(FormulaSemantics.ASSERTED, numberMgr));
+		assertEquals(false, fs.isValid());
+
+	}
+
+	private FormulaSemantics getSemantics()
+	{
+		return managerFactory.generateFormulaSemantics(getFormulaManager(),
+			getGlobalScope(), null);
 	}
 }
