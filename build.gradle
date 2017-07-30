@@ -154,7 +154,6 @@ dependencies {
     compile group: 'jep', name: 'jep', version:'2.4.1'
     compile group: 'org.freemarker', name: 'freemarker', version:'2.3.26-incubating'
     compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
-    compile group: 'xalan', name: 'xalan', version:'2.7.2'
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
     compile group: 'org.mozilla', name: 'rhino', version:'1.7.7.1'
 
