@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Sun Sep  4 16:33:31 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/products/btpy978r?Pathfinder-Player-Companion-People-of-the-River	SOURCEDATE:2014-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 27 April 2017
+
+# ==============================
+# Sorcerer Wildblooded Bloodline
+# ==============================
+
+Retribution (Wildblooded Martyred) Bloodline			KEY:Sorcerer Bloodline ~ Retribution				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassSpecialization.SorcererBloodline															SOURCEPAGE:p.11		DESC:One of your ancestors was unjustly executed, and your soul is infused with this forebear's vengeful spirit.			ABILITY:Special Ability|AUTOMATIC|Retribution Bloodline ~ Bloodline Arcana|Martyred Bloodline Bonus Spells	ABILITY:Special Ability|AUTOMATIC|Martyred Bloodline ~ Sacrifical Boon|PREVAREQ:Sorcerer_CF_BloodlinePower1,0	ABILITY:Special Ability|AUTOMATIC|Martyred Bloodline ~ Rallying Cry|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|PREVARGTEQ:BloodlineProgressionLVL,3	ABILITY:Special Ability|AUTOMATIC|Retribution Bloodline ~ Vengeful Strike|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Martyred Bloodline ~ Sacrifical Exchange|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Martyred Bloodline ~ Eternal Martyr|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|PREVARGTEQ:BloodlineProgressionLVL,20	BONUS:ABILITYPOOL|Martyred Bloodline Feat|BloodlineFeatCount	CSKILL:Perform (Oratory)
+
+Bloodline Arcana								KEY:Retribution Bloodline ~ Bloodline Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality																					SOURCEPAGE:p.11		DESC:Whenever a creature damages you, until the end of your next turn, if you apply a metamagic feat to a spell that targets that creature, reduce the spell level increase of that metamagic feat by 1 (minimum 0).
+Vengeful Strike								KEY:Retribution Bloodline ~ Vengeful Strike			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																			SOURCEPAGE:p.11		DESC:Once|!PRECLASS:1,Sorcerer=17	DESC:Twice|PRECLASS:1,Sorcerer=17	DESC: per day after a foe has damaged you in melee, as an immediate action you can deal the same amount and type of damage to your foe (maximum %1 damage ).|TL*2 
