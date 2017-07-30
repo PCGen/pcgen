@@ -17,14 +17,13 @@
  */
 package pcgen.cdom.primitive;
 
+import org.jetbrains.annotations.NotNull;
+import pcgen.cdom.base.PrimitiveCollection;
+
 import java.text.Collator;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.stream.Collectors;
-
-import pcgen.cdom.base.PrimitiveCollection;
-
-import org.apache.commons.collections4.CollectionUtils;
 
 public final class PrimitiveUtilities
 {
@@ -38,24 +37,16 @@ public final class PrimitiveUtilities
 	}
 
 	public static final Comparator<PrimitiveCollection<?>> COLLECTION_SORTER =
-			new Comparator<PrimitiveCollection<?>>()
-	{
-		@Override
-		public int compare(PrimitiveCollection<?> lstw1,
-				PrimitiveCollection<?> lstw2)
-		{
-			return COLLATOR.compare(lstw1.getLSTformat(false), lstw2.getLSTformat(false));
-		}
-	};
+			(lstw1, lstw2) -> COLLATOR.compare(lstw1.getLSTformat(false), lstw2.getLSTformat(false));
 
+	@NotNull
 	public static String joinLstFormat(
-			Collection<? extends PrimitiveCollection<?>> pcfCollection,
-			CharSequence separator, boolean useAny)
+			@NotNull Collection<? extends PrimitiveCollection<?>> pcfCollection,
+			@NotNull CharSequence separator, boolean useAny)
 	{
-		return CollectionUtils.emptyIfNull(pcfCollection)
-		                      .stream()
-		                      .map(pcf -> pcf.getLSTformat(useAny))
-		                      .collect(Collectors.joining(separator));
+		return pcfCollection.stream()
+				  .map(pcf -> pcf.getLSTformat(useAny))
+				  .collect(Collectors.joining(separator));
 	}
 
 }

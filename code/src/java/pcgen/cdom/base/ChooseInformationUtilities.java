@@ -17,10 +17,10 @@
  */
 package pcgen.cdom.base;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Collection;
 import java.util.stream.Collectors;
-
-import org.apache.commons.collections4.CollectionUtils;
 
 final class ChooseInformationUtilities
 {
@@ -28,13 +28,13 @@ final class ChooseInformationUtilities
 	{
 	}
 
-	static  <T> CharSequence buildEncodedString(ChooseInformation<T> info,
-		Collection<? extends T> collection)
+	@NotNull
+	static  <T> CharSequence buildEncodedString(@NotNull Collection<? extends T> collection)
 	{
-		return CollectionUtils.emptyIfNull(collection).stream()
-		                                  .map(String::valueOf)
-		                                  .sorted()
-		                                  .collect(Collectors.joining(", "));
+		return collection.stream()
+							.map(String::valueOf)
+							.sorted()
+							.collect(Collectors.joining(", "));
 	}
 
 }

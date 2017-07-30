@@ -17,12 +17,13 @@
  */
 package pcgen.cdom.base;
 
-import java.util.Collection;
-
+import org.jetbrains.annotations.NotNull;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
+
+import java.util.Collection;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -56,7 +57,7 @@ public interface ChooseInformation<T>
 
 	ChoiceManagerList<T> getChoiceManager(ChooseDriver owner, int cost);
 
-	CharSequence composeDisplay(Collection<? extends T> collection);
+	CharSequence composeDisplay(@NotNull Collection<? extends T> collection);
 
 
 
