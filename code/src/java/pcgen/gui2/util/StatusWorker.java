@@ -30,13 +30,13 @@ import java.util.List;
 import java.util.logging.LogRecord;
 
 import javax.swing.SwingUtilities;
-import javax.swing.SwingWorker;
 
 import pcgen.gui2.PCGenStatusBar;
 import pcgen.system.PCGenTask;
 import pcgen.system.PCGenTaskEvent;
 import pcgen.system.PCGenTaskListener;
 import pcgen.util.Logging;
+import pcgen.util.SwingWorker;
 
 public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenTaskListener
 {
