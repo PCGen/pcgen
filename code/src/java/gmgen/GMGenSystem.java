@@ -41,6 +41,7 @@ import pcgen.gui2.PCGenActionMap;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.SwingWorker;
 import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
@@ -49,7 +50,6 @@ import pcgen.pluginmgr.messages.RequestFileOpenedMessageForCurrentlyOpenedPCsMes
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
-import pcgen.util.SwingWorker;
 
 import gmgen.gui.PreferencesDialog;
 import gmgen.gui.PreferencesRootTreeNode;
