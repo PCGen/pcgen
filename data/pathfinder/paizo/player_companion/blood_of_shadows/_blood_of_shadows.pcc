@@ -45,8 +45,11 @@ EQUIPMENT:bos_equip_arms_armor.lst
 EQUIPMENT:bos_equip_general.lst
 EQUIPMOD:bos_equipmods.lst
 SPELL:bos_spells.lst
+SKILL:bos_skills.lst
 TEMPLATE:bos_templates.lst
 WEAPONPROF:bos_profs_weapon.lst
+
+ABILITY:support/bos_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
 
 FORWARDREF:ABILITY=Special Ability|Skill unlock ~ Stealth
 FORWARDREF:DEITY|Nocticula
