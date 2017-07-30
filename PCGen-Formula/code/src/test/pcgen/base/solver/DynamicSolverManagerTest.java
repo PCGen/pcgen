@@ -271,6 +271,12 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			return null;
 		}
 
+		@Override
+		public boolean isDirect()
+		{
+			return false;
+		}
+
 	}
 
 	private final class Limb implements VarScoped

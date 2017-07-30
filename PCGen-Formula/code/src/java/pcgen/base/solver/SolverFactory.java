@@ -149,7 +149,7 @@ public class SolverFactory implements DefaultStore
 		if (defaultModifier == null)
 		{
 			throw new IllegalArgumentException(
-				"Cannot create Solver of format " + formatManager
+				"Cannot create Solver of format " + formatManager.getIdentifierType()
 					+ " because no default was provided for that format");
 		}
 		return new Solver<T>(defaultModifier);
