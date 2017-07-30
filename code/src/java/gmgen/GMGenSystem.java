@@ -31,7 +31,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
-import javax.swing.SwingWorker;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.MenuEvent;
@@ -50,6 +49,7 @@ import pcgen.pluginmgr.messages.RequestFileOpenedMessageForCurrentlyOpenedPCsMes
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
+import pcgen.util.SwingWorker;
 
 import gmgen.gui.PreferencesDialog;
 import gmgen.gui.PreferencesRootTreeNode;
@@ -161,7 +161,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         super(LanguageBundle.getFormattedString("in_gmgen_frameTitle", APPLICATION_NAME)); //$NON-NLS-1$
         pluginManager = PluginManager.getInstance();
         messageHandler = pluginManager.getPostbox();
-        new Renderer().execute();
+        new Renderer().start();
     }
 
     private void initialize() {
@@ -618,13 +618,16 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         dialog.setVisible(true);
     }
 
-    private class Renderer extends SwingWorker
-    {
+    private class Renderer extends SwingWorker {
+
         @Override
-        protected Object doInBackground() throws Exception
-        {
+        public Object construct() {
+            return "";
+        }
+
+        @Override
+        public void finished() {
             GMGenSystem.this.initialize();
-            return null;
         }
     }
 
