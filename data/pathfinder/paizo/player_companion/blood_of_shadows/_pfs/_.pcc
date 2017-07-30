@@ -1,0 +1,48 @@
+CAMPAIGN:Blood of Shadows (PFS)
+KEY:PFS ~ Blood of Shadows
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:Alpha
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+#PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Blood of Shadows
+SOURCESHORT:BOS
+SOURCEWEB:http://paizo.com/products/btpy9j6s?Pathfinder-Player-Companion-Blood-of-Shadows
+SOURCEDATE:2016-02
+ISOGL:YES
+
+#COVER:blood_of_shadows.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9j6s|Buy this publication from Paizo Publishing!
+DESC:Embrace the shadows! Whether from the subterranean wilds of the Darklands or otherworldly realms of absolute shadow, heroes can rise from the darkest places. Pathfinder Player Companion: Blood of Shadows explores the strange paths and subtle abilities empowered by darkness. Discover the secrets of drow, fetchlings, and wayangs—races infused with lightless powers. Within this player-friendly volume are options and secrets for characters of every class, including a penumbral psychic discipline, shadowy rogue talents, and an oracle mystery that plumbs the depths of darkness.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Blood of Shadows Copyright 2016, Paizo Inc.; Authors: Alexander Augunas, Steven T. Helt, Luis Loza, and Ron Lundeen.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Shadows" Copyright 2016, PCgen Data team (including but not limited to Gwen T. (evilpixie87))
+
+
+
+#INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
+
+
+#Additional Resources
+#Last Updated Wednesday, March 22, 2017
+#
+#Alternate Racial Traits: All of the alternate racial traits on pages 4–6 and 10 are legal for play except dimdweller, shadowhunter, and blended view. Behind the veil is not available to halflings; Archetypes: All of the archetypes in this book are legal for play. the gloomchymist archetype grants Skill Focus (Craft [alchemy] or Knowledge [planes]) as a bonus feat instead of Extra Bombs; Equipment: All items in this book are legal for play except the beaming weapon enhancement, focused shadowcraft weapon, shadowbond tunic, and shawl of shadowy disguise; Favored Class Options: All of the alternate favored class bonuses in this book are legal for play; Feats: All of the feats in this book are legal for play except Cloak and Dagger Subterfuge, Cloak and Dagger Tactics, and Drow Spirit; Spells: All spells in this book are legal for play except ignoble form, penumbral disguise, umbral infusion, and mass umbral infusion; Misc.: The rogue talents and advanced talents on pages 7–9 are legal for play except gloom magic, greater gloom magic, and see in darkness. The shadow eidolon (page 11), shadow oracle mystery (page 12), shadow bloodline (page 16), shadow psychic discipline (page 17), and shadow blessing (page 17) are legal for play. The alchemist discoveries on pages 18–19 are legal for play.
+
+ABILITY:pfs_bos_abilities_class.lst
+ABILITY:pfs_bos_abilities_race.lst
+ABILITY:pfs_bos_feats.lst
+ABILITYCATEGORY:pfs_bos_abilitycategories.lst
+EQUIPMENT:pfs_bos_equip_general.lst
+EQUIPMOD:pfs_bos_equipmods.lst
+SPELL:pfs_bos_spells.lst
