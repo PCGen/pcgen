@@ -1,0 +1,43 @@
+CAMPAIGN:People of the River (PFS)
+KEY:PFS ~ People of the River
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+GENRE:Fantasy
+STATUS:ALPHA
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:People of the River
+SOURCESHORT:PotR
+SOURCEWEB:http://paizo.com/products/btpy978r?Pathfinder-Player-Companion-People-of-the-River
+SOURCEDATE:2014-08
+ISOGL:YES
+
+#COVER:people_of_the_river.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy92lx?Pathfinder-Player-Companion-People-of-the-Sands|Buy this publication from Paizo Publishing!
+DESC:You won’t get lost if you follow the river, and Pathfinder Player Companion: People of the River will be your guide! Whether your character is a Kellid warlord intent on reclaiming his ancestral homeland or a Riverfolk sneak looking for her next score, this volume has you covered. In addition, this Pathfinder Player Companion features expanded details and new rules connected to the science-infused barbarian nation of Numeria and the chaotic realms of the River Kingdoms, making it the perfect resource for Pathfinder RPG players diving into the Iron Gods Adventure Path or Pathfinder Module: The Emerald Spire Superdungeon!
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: People of the River Copyright 2014, Paizo Inc.; Authors: Tim Akers, Jason Brick, Ethan Day-Jones, James Jacobs, Nick Salestrom, David Schwartz, and William Thrasher
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: People of the River" Copyright 2017, PCGen Data team (Including, but not limited to Gwen T.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+#ADDITIONAL RESOURCES
+#Last Updated Wednesday, March 22, 2017
+#
+#Archetypes: all archetypes on pages pages 6–25 are legal for play, and witches with the veneficus witch archetype can use Craft (alchemy) to craft poison; Bloodlines: the bloodlines on page 11 are legal for play. the nanite bloodline on page 19 is not legal for play; Discoveries: arcane discoveries on page 9 are legal for play, except knowledge is power; Equipment: all equipment and magic items on pages 28–29 are legal for play, except steelbone frame; Feats: all feats on pages 12–25 are legal for play, except Call Out, Leapfrog, and Second Wind; Order: the order of vengeance is not legal for play; Masterpiece: the Bear’s Jig masterpiece is legal for play; Rage Powers: all rage powers on page 7 are legal, except raging grappler; Spells: all spells on page 26–27 are legal; Traits: all traits on pages 7–23 are legal, except ancestral weapon, blood algorithm, and splash attack. The campaign traits on page 31 are not legal for play.
+
+ABILITY:pfs_potr_abilities.lst|PRECAMPAIGN:1,INCLUDES=People of the River
+ABILITY:pfs_potr_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=People of the River
+ABILITY:pfs_potr_feats.lst|PRECAMPAIGN:1,INCLUDES=People of the River
+EQUIPMENT:pfs_potr_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=People of the River
