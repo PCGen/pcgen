@@ -1,0 +1,15 @@
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+
+# ==============================
+# New Armor Special Abilities
+# ==============================
+
+Corsair		KEY:CORSAIR		TYPE:Armor									COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.28		PRETYPE:2,Enhancement,Armor									SPROP:Grants +5 on Acrobatics checks. If wearer regains a grit or panache point, this bonus doubles until the beginning of next turn.		BONUS:SKILL|Acrobatics|5|TYPE=Competence
+Crusading		KEY:CRUSADING	TYPE:Armor							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.28		PRETYPE:2,Enhancement,Armor									SPROP:Expend 1 use of lay on hands or fervor to activate protective aura for 1 minute. Aura grants sacred bonus to AC of +2 (+3 vs. evil dragons, evil outsiders, and undead).
+
+# ==============================
+# New Weapon Special Ability
+# ==============================
+
+Skewering		KEY:SKEWERING	TYPE:Weapon.Melee.Piercing.Light.OneHanded	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.28		PRETYPE:1,Light,OneHanded	PRETYPE:4,Enhancement,Weapon,Melee,Piercing	SPROP:On a critical threat, wielder can spend 1 panache point as an immediate action to automatically confirm the critical hit. May not regain panache for this critical, but may if attack is killing blow.

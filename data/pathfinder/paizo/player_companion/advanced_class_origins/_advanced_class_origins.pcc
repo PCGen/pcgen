@@ -1,0 +1,69 @@
+﻿# CVS $Revision$ $Author$ -- Wed Nov 20 08:25:04 2013 -- reformated by prettylst.pl v1.50 (build 21703)
+CAMPAIGN:Advanced Class Origins
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+STATUS:BETA
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Class Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Advanced Class Origins
+SOURCESHORT:ACO
+SOURCEWEB:http://paizo.com/products/btpy965z
+SOURCEDATE:2014-10
+ISOGL:YES
+
+#COVER:advanced_class_guide_playtest.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy965z|Download this publication from Paizo Publishing!
+
+DESC:Unlock your character’s potential and become a master of the hybrid classes with Pathfinder Player Companion: Advanced Class Origins! Featuring never-before-seen rules options for the 10 new classes from the Pathfinder Roleplaying Game: Advanced Class Guide, this volume is the ultimate companion for bringing your hybrid class adventurer into the Pathfinder campaign setting. Whether your character is one of Geb’s enigmatic Twilight Sage arcanists, an investigator trained at Lepidstadt Academy in gothic Ustalav, or a scimitar-wielding swashbuckler dervish from Qadira, Advanced Class Origins makes sure her connection to Golarion is as powerful as her unique new skills and abilities.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Demon Lord, Baphomet from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Advanced Class Origins Copyright 2014, Paizo Inc.; Authors: Dennis Baker, Ross Byers, Tom Phillips, Stephen Radney-MacFarland, and Owen K.C. Stephens.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Advanced Class Origins" Copyright 2017, PCGen Data team (Including, but not limited to Stefan Radermacher, Andrew Maitland, Vincent Hatakeyama, and Gwen T.).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+ABILITY:aco_abilities.lst
+ABILITY:aco_abilities_class.lst
+ABILITYCATEGORY:aco_abilitycategories.lst
+COMPANIONMOD:aco_companionmods.lst
+EQUIPMENT:aco_equip_arms_armor.lst
+EQUIPMENT:aco_equip_magic_items.lst
+EQUIPMOD:aco_equipmods.lst
+ABILITY:aco_feats.lst
+LANGUAGE:aco_languages.lst
+SKILL:aco_skills.lst
+SPELL:aco_spells.lst
+TEMPLATE:aco_templates.lst
+
+
+#Support
+ABILITY:support/aco_abilities_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+ABILITY:support/aco_abilities_class_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+SPELL:support/aco_spells_isg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
+SPELL:support/aco_spells_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+
+# ENTRY DATE: 2017-07-29
+# LST MONKEY: Mark Means
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE: 
+# Built for PCGen Version: 6.07.03
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.03
+# COMMENTS:
