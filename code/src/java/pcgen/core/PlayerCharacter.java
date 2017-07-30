@@ -275,6 +275,8 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
+
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.TestOnly;
 
 public class PlayerCharacter implements Cloneable, VariableContainer
@@ -5515,7 +5517,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 							  catch (IOException exception)
 				                          {
 					                          Logging.errorPrint("IOException in PlayerCharacter.loadDescriptionFilesInDirectory", exception);
-				                          } finally
+				                          }
+				                          finally
 				                          {
 					                          if (descriptionReader != null)
 					                          {
@@ -5619,14 +5622,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				}
 			}
 
-			//
-			// Find all skills associated with old class and link them to new
-			// class
-			//
-			for (Skill skill : getSkillSet())
-			{
-				SkillRankControl.replaceClassRank(this, skill, fromClass, cl);
-			}
+			// Find all skills associated with old class and link them to new class
+			getSkillSet().forEach(skill -> SkillRankControl.replaceClassRank(this, skill, fromClass, cl));
 
 			setSkillPool(toClass, fromClass.getSkillPool(this));
 		}
@@ -7071,7 +7068,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		calcActiveBonuses();
 	}
 
-	private static final class CasterLevelSpellBonus {
+	private static final class CasterLevelSpellBonus
+	{
 		private int bonus;
 		private final String type;
 
@@ -7081,7 +7079,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 * @param b
 		 * @param t
 		 */
-		private CasterLevelSpellBonus(final int b, final String t) {
+		private CasterLevelSpellBonus(final int b, final String t)
+		{
 			bonus = b;
 			type = t;
 		}
@@ -7216,17 +7215,17 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *
 	 * @return a new deep copy of the {@code PlayerCharacter}
 	 */
+	@SuppressWarnings({"PMD.ProperCloneImplementation", "PMD.CloneThrowsCloneNotSupportedException"})
 	@Override
 	public PlayerCharacter clone()
 	{
-		PlayerCharacter aClone = null;
-
 		// calling super.clone won't work because it will not create
 		// new data instances for all the final variables and I won't
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
-		aClone = new PlayerCharacter(campaignFacet.getSet(id));
 		//aClone.variableProcessor = new VariableProcessorPC(aClone);
+		PlayerCharacter aClone = new PlayerCharacter(campaignFacet.getSet(id));
+
 		try
 		{
 			aClone.assocSupt = assocSupt.clone();
@@ -7270,17 +7269,32 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		aClone.levelInfoFacet.removeAll(aClone.id);
-		for (PCLevelInfo info : getLevelInfo())
+		try
 		{
-			PCLevelInfo newLvlInfo = info.clone();
-			aClone.levelInfoFacet.add(aClone.id, newLvlInfo);
+			for (PCLevelInfo info : getLevelInfo())
+			{
+				PCLevelInfo newLvlInfo = info.clone();
+				aClone.levelInfoFacet.add(aClone.id, newLvlInfo);
+			}
+		}
+		catch (CloneNotSupportedException e)
+		{
+			e.printStackTrace();
 		}
 		aClone.spellBookFacet.removeAll(aClone.id);
-		for (String book : spellBookFacet.getBookNames(id))
+		try
 		{
-			aClone.addSpellBook((SpellBook) spellBookFacet.getBookNamed(id,
-				book).clone());
+			for (String book : spellBookFacet.getBookNames(id))
+			{
+				aClone.addSpellBook((SpellBook) spellBookFacet.getBookNamed(id,
+					book).clone());
+			}
 		}
+		catch (CloneNotSupportedException e)
+		{
+			e.printStackTrace();
+		}
+
 		aClone.calcEquipSetId = calcEquipSetId;
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.descriptionLst = descriptionLst;
@@ -7335,6 +7349,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
+	@Contract(value = "!null, null -> true; null, null -> false", pure = true)
 	private static boolean shouldDirtyForChange(final String s, final String currValue)
 	{
 		return (currValue == null && s != null)
@@ -7876,13 +7891,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			theUserPoolBonuses = new HashMap<>();
 		}
 		BigDecimal userMods = theUserPoolBonuses.get(aCategory);
-		if (userMods != null)
-		{
-			userMods = userMods.add(arg);
-		} else
-		{
-			userMods = arg;
-		}
+		userMods = (userMods != null) ? userMods.add(arg) : arg;
 		theUserPoolBonuses.put(aCategory, userMods);
 		setDirty(true);
 	}

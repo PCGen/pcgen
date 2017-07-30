@@ -29,7 +29,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
 
-/**
+/*
  * Every item of equipment that is contained in an EquipSet has an ID with the following
  * structure.  X.Y, where X is the parent ID (and may also be a period separated list)
  * and Y is this equipment's id.  All EquipSets have 0 as their ultimate parent.
@@ -423,7 +423,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 			if (qty != null)
 			{
-				eqSet.qty = new Float(qty.floatValue());
+				eqSet.qty = qty;
 			}
 		}
 		catch (CloneNotSupportedException exc)

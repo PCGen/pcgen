@@ -28,12 +28,7 @@
     <exclude name="SimplifiedTernary" />
   </rule>
   <rule ref="rulesets/java/braces.xml"/>
-  <rule ref="rulesets/java/clone.xml">
-    <exclude name="ProperCloneImplementation" />
-    <exclude name="CloneThrowsCloneNotSupportedException" />
-    <exclude name="CloneMethodMustImplementCloneable" />
-    <exclude name="CloneMethodMustBePublic" />
-  </rule>
+  <rule ref="rulesets/java/clone.xml" />
   <rule ref="rulesets/java/codesize.xml" >
     <exclude name="TooManyFields" />
     <exclude name="TooManyMethods" />
