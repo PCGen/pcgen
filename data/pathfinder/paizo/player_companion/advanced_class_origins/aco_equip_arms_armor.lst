@@ -1,0 +1,9 @@
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+
+# ==============================
+# New Magic Weapons
+# ==============================
+
+Daggermark Blade		NAMEISPI:YES	PROFICIENCY:WEAPON|Dagger				TYPE:Magic.Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Specific.Piercing.Slashing.Dagger.BladeLight			COST:2	WT:1				CRITMULT:x2	CRITRANGE:2							DAMAGE:1d4				EQMOD:MAGIC_COST|6000.PLUS1W.STEEL				WIELD:Light			RANGE:10		SIZE:M	SOURCEPAGE:p.28
+Signifer's Fist					PROFICIENCY:WEAPON|Mace (Light)			TYPE:Magic.Weapon.Resizable.Melee.Light.Finesseable.Simple.Specific.Bludgeoning.Mace.Hammer							COST:5	WT:4				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:MAGIC_COST|8000.PLUS1W.STEEL				WIELD:Light						SIZE:M	SOURCEPAGE:p.29
