@@ -17,7 +17,7 @@ SOURCEWEB:http://paizo.com/products/btpy8b9l?Pathfinder-Chronicles-Cities-of-Gol
 SOURCEDATE:2009-11
 ISOGL:Yes
 
-COVER:cities_of_golarion.jpg
+#COVER:cities_of_golarion.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
