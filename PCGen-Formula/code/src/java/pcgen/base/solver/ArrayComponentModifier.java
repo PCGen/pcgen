@@ -70,7 +70,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		location = loc;
 		modifier = Objects.requireNonNull(mod);
 		format = Objects.requireNonNull(formatManager);
-		//TODO Leniency here?  Does FormatManager need something like isAssignableFrom?
+		//CONSIDER Leniency here?  Does FormatManager need something like isAssignableFrom?
 		if (!format.getComponentManager().equals(modifier.getVariableFormat()))
 		{
 			throw new IllegalArgumentException("FormatManager manages array of "

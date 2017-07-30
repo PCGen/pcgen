@@ -266,7 +266,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Has no dependencies.
+	 * Has a dependency IF the asserted format is not a String and it implies something else
 	 */
 	@Override
 	public Object visit(ASTQuotString node, Object data)

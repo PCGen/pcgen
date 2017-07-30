@@ -271,7 +271,9 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Evaluates a Quoted String (so obviously returns a String).
+	 * Evaluates a Quoted String. Attempts to check if there is an asserted format that
+	 * can be converted from a String. If so, it will return that object; otherwise
+	 * returns a String.
 	 */
 	@Override
 	public Object visit(ASTQuotString node, Object data)

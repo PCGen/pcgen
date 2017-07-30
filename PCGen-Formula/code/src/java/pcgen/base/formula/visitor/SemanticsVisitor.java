@@ -411,7 +411,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * A Quoted String, thus returns a StringManager.
+	 * A Quoted String. This will check to see if there is an asserted format. If so, it
+	 * will attempt to return the FormatManager for that asserted format. If not, it will
+	 * return a StringManager.
 	 */
 	@Override
 	public Object visit(ASTQuotString node, Object data)
