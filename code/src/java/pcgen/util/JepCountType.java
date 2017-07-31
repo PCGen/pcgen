@@ -478,7 +478,7 @@ public abstract class JepCountType
 		}
 	}
 
-	public static abstract class JepCountCDOMObject<T extends CDOMObject>
+	public abstract static class JepCountCDOMObject<T extends CDOMObject>
 			extends JepCountFilterable<T>
 	{
 		@Override
@@ -554,7 +554,7 @@ public abstract class JepCountType
 		}
 	}
 
-	public static abstract class JepCountFilterable<T> extends JepCountType
+	public abstract static class JepCountFilterable<T> extends JepCountType
 	{
 		protected abstract Collection<T> getData(final PlayerCharacter pc);
 
@@ -643,7 +643,7 @@ public abstract class JepCountType
 
 	}
 
-	public static abstract class JepCountAbilities extends JepCountFilterable<CNAbility>
+	public abstract static class JepCountAbilities extends JepCountFilterable<CNAbility>
 	{
 		protected final List<String> assocList = new ArrayList<>();
 

@@ -520,8 +520,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// /////////////////////////////////////
 	// operations
 
-	private final CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-	Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS"));
+	private final CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(
+			AbilityCategory.LANGBONUS,
+			Nature.VIRTUAL,
+			Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+				Ability.class, AbilityCategory.LANGBONUS,"*LANGBONUS"));
 	private final CodeControl controller;
 
 	/**

@@ -18,14 +18,19 @@
  */
 package gmgen.gui;
 
+import java.util.Enumeration;
+
 import javax.swing.event.DocumentEvent.EventType;
 import javax.swing.event.UndoableEditEvent;
-import javax.swing.text.*;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Element;
+import javax.swing.text.MutableAttributeSet;
 import javax.swing.text.html.HTML.Tag;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.StyleSheet;
 import javax.swing.undo.UndoableEdit;
-import java.util.Enumeration;
 
 /**
  * {@code ExtendedHTMLDocument} is used by Swing for improved HTML

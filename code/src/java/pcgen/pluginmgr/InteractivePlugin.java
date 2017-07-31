@@ -30,7 +30,7 @@ import java.io.File;
  */
 public interface InteractivePlugin extends PCGenMessageHandler
 {
-	public final static int NORMAL_PRIORITY = 10;
+	public static final int NORMAL_PRIORITY = 10;
 	
 	/**
 	 * Retrieve the priority of the plugin. This is used to sort which items are 

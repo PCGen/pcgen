@@ -41,6 +41,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -376,33 +377,20 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					return false;
 				}
 
-				List<CampaignFacade> campaigns =
-                        new ArrayList<>();
+				List<CampaignFacade> campaigns = new ArrayList<>();
 				String[] sourceNames = sourcesNameString.split("\\|"); //$NON-NLS-1$
-				for (Iterator<CampaignFacade> iterator =
-						FacadeFactory.getCampaigns().iterator(); iterator
-					.hasNext();)
+				for (final CampaignFacade camp : FacadeFactory.getCampaigns())
 				{
-					CampaignFacade camp = iterator.next();
-					for (String name : sourceNames)
+					if (Arrays.stream(sourceNames).anyMatch(name -> name.equals(camp.toString())))
 					{
-						if (name.equals(camp.toString()))
-						{
-							campaigns.add(camp);
-							break;
-						}
+						campaigns.add(camp);
 					}
 				}
 
-				SourceSelectionFacade selection =
-						FacadeFactory
-							.createSourceSelection(gameMode, campaigns);
-				if (selection != null)
-				{
-					loadSourceSelection(selection);
-					sourceLoader.join();
-					return true;
-				}
+				SourceSelectionFacade selection = FacadeFactory.createSourceSelection(gameMode, campaigns);
+				loadSourceSelection(selection);
+				sourceLoader.join();
+				return true;
 			}
 
 			return false;

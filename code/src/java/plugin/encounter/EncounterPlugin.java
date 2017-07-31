@@ -407,7 +407,10 @@ public class EncounterPlugin extends MouseAdapter
 			JOptionPane
 				.showMessageDialog(
 					null,
-					"You will now be returned to PCGen so that you can finalise your selected combatants.\nOnce they are finalised, return to the GMGen Initiative tab to begin the combat!",
+						String.format(
+								"You will now be returned to PCGen so that you can finalise your selected combatants"
+										+ ".\nOnce they are finalised, return to the GMGen Initiative tab to begin the"
+										+ " combat!"),
 					"Combatant Setup Complete", JOptionPane.INFORMATION_MESSAGE);
 
 			messageHandler.handleMessage(new TransmitInitiativeValuesBetweenComponentsMessage(this, theList));
@@ -424,7 +427,7 @@ public class EncounterPlugin extends MouseAdapter
 	/**
 	 * Initiliase the menus
 	 */
-	public void initMenus()
+	private void initMenus()
 	{
 		encounterToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		encounterToolsItem.setText(getLocalizedName());

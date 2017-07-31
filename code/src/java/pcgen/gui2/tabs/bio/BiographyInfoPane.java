@@ -49,8 +49,6 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.facade.core.AlignmentFacade;
@@ -59,9 +57,9 @@ import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.SimpleFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
@@ -69,6 +67,8 @@ import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
 import pcgen.gui2.util.ScrollablePanel;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code BiographyInfoPane} is a panel within the Description
@@ -655,7 +655,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 	}
 
-	private static abstract class BioItem implements ActionListener, ItemListener 
+	private abstract static class BioItem implements ActionListener, ItemListener
 	{
 
 		private final JLabel label = new JLabel();
@@ -923,16 +923,12 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			{
 				return;
 			}
-			
+
 			// Add the chosen field to the character
-			for (BiographyField field : availFields)
-			{
-				if (s.equals( LanguageBundle.getString(field.getIl8nKey())))
-				{
-					character.getDescriptionFacade().addCustomBiographyField(field);
-					break;
-				}
-			}
+			availFields.stream()
+			           .filter(field -> s.equals(LanguageBundle.getString(field.getIl8nKey())))
+			           .findFirst()
+			           .ifPresent(field -> character.getDescriptionFacade().addCustomBiographyField(field));
 		}
 
 	}

@@ -61,7 +61,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * Object.
  */
 @SuppressWarnings("nls")
-abstract public class AbstractJunit4CharacterTestCase
+public abstract class AbstractJunit4CharacterTestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;

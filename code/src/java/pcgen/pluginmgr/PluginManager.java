@@ -45,7 +45,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		msgHandlerMgr = new MessageHandlerManager();
 	}
 
-	public synchronized static PluginManager getInstance()
+	public static synchronized PluginManager getInstance()
 	{
 		if (instance == null)
 		{

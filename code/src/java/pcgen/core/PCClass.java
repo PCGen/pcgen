@@ -26,8 +26,6 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMListObject;
@@ -66,7 +64,6 @@ import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.analysis.SubstitutionClassApplication;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.ClassFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;
@@ -74,12 +71,15 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.ClassFacade;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code PCClass}.
@@ -252,7 +252,12 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 						if (PreParserFactory.isPreReqString(bString))
 						{
 							Logging
-								.debugPrint("Why is this prerequisite '" + bString + "' parsed in '" + getClass().getName() + ".getBonusTo(String,String,int)' rather than in the persistence layer?"); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
+								.debugPrint(String.format(
+										"Why is this prerequisite '%s' parsed in '%s.getBonusTo(String,String,int)' "
+												+ "rather than in the persistence layer?",
+										bString,
+										getClass().getName()
+								)); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
 							try
 							{
 								final PreParserFactory factory =

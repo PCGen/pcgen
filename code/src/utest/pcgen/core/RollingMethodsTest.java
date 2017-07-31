@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.stream.IntStream;
 import junit.framework.TestCase;
 import pcgen.base.util.RandomUtil;
-import pcgen.core.RollingMethods;
 
 /**
  * The Class <code>RollingMethodsTest</code> check that the Rollingmethods class is functioning 
