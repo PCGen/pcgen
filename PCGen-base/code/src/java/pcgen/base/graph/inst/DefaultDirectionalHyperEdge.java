@@ -19,12 +19,11 @@
  */
 package pcgen.base.graph.inst;
 
-import static pcgen.base.util.ListUtilities.notContainedBy;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.base.DirectionalHyperEdge;
@@ -213,10 +212,8 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 			return sourceNodes.size();
 		}
 		// Neither is null
-		int size = sourceNodes.size();
-		//Only add sinks that are not also sources
-		size += sinkNodes.stream().filter(notContainedBy(sourceNodes)).count();
-		return size;
+		return (int) Stream.concat(sourceNodes.stream(), sinkNodes.stream()).distinct()
+			.count();
 	}
 
 	/**
