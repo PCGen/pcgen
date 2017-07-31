@@ -195,6 +195,7 @@ public class DynamicSolverManager implements SolverManager
 		 */
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			source, varID.getFormatManager().getManagedClass());
+		fdm = managerFactory.withVariables(fdm);
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
 		addDirectDependencies(varID, fdm);
@@ -238,7 +239,7 @@ public class DynamicSolverManager implements SolverManager
 
 	private <T> void addDirectDependencies(VariableID<T> varID, DependencyManager fdm)
 	{
-		for (VariableID<?> depID : fdm.getVariables())
+		for (VariableID<?> depID : fdm.get(DependencyManager.VARIABLES).getVariables())
 		{
 			ensureSolverExists(depID);
 			/*
@@ -296,6 +297,7 @@ public class DynamicSolverManager implements SolverManager
 		}
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			source, varID.getFormatManager().getManagedClass());
+		fdm = managerFactory.withVariables(fdm);
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
 		processDependencies(varID, fdm);
@@ -331,7 +333,7 @@ public class DynamicSolverManager implements SolverManager
 				}
 			}
 		}
-		List<VariableID<?>> deps = dm.getVariables();
+		List<VariableID<?>> deps = dm.get(DependencyManager.VARIABLES).getVariables();
 		if (deps == null)
 		{
 			return;

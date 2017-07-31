@@ -15,7 +15,6 @@
  */
 package pcgen.base.formula.base;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -27,7 +26,7 @@ public class StaticStrategy implements VariableStrategy
 	@Override
 	public void addVariable(DependencyManager mgr, String varName)
 	{
-		ArrayList<VariableID<?>> vars = mgr.get(DependencyManager.VARIABLES);
+		VariableList vars = mgr.get(DependencyManager.VARIABLES);
 		vars.add(Objects.requireNonNull(getVariableID(mgr, varName)));
 	}
 

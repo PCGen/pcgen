@@ -120,19 +120,19 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		DependencyManager depManager = setupDM();
 
 		new ComplexNEPFormula<>("3+5").getDependencies(depManager);
-		assertTrue(depManager.getVariables().isEmpty());
+		assertTrue(depManager.get(DependencyManager.VARIABLES).getVariables().isEmpty());
 		assertEquals(-1,
 			depManager.get(ArgumentDependencyManager.KEY).getMaximumArgument());
 
 		depManager = setupDM();
 		new ComplexNEPFormula<>("3*5").getDependencies(depManager);
-		assertTrue(depManager.getVariables().isEmpty());
+		assertTrue(depManager.get(DependencyManager.VARIABLES).getVariables().isEmpty());
 		assertEquals(-1,
 			depManager.get(ArgumentDependencyManager.KEY).getMaximumArgument());
 
 		depManager = setupDM();
 		new ComplexNEPFormula<>("(3+5)*7").getDependencies(depManager);
-		assertTrue(depManager.getVariables().isEmpty());
+		assertTrue(depManager.get(DependencyManager.VARIABLES).getVariables().isEmpty());
 		assertEquals(-1,
 			depManager.get(ArgumentDependencyManager.KEY).getMaximumArgument());
 
@@ -141,7 +141,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 		depManager = setupDM();
 		new ComplexNEPFormula<>("a-b").getDependencies(depManager);
-		List<VariableID<?>> variables = depManager.getVariables();
+		List<VariableID<?>> variables = depManager.get(DependencyManager.VARIABLES).getVariables();
 		assertEquals(2, variables.size());
 		assertTrue(
 			variables.contains(new VariableID<>(getGlobalScopeInst(), numberMgr, "a")));
@@ -152,7 +152,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 		depManager = setupDM();
 		new ComplexNEPFormula<>("if(a>=b,5,9)").getDependencies(depManager);
-		variables = depManager.getVariables();
+		variables = depManager.get(DependencyManager.VARIABLES).getVariables();
 		assertEquals(2, variables.size());
 		assertTrue(
 			variables.contains(new VariableID<>(getGlobalScopeInst(), numberMgr, "a")));
@@ -163,7 +163,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 		depManager = setupDM();
 		new ComplexNEPFormula<>("if(a==b,5,-9)").getDependencies(depManager);
-		variables = depManager.getVariables();
+		variables = depManager.get(DependencyManager.VARIABLES).getVariables();
 		assertEquals(2, variables.size());
 		assertTrue(
 			variables.contains(new VariableID<>(getGlobalScopeInst(), numberMgr, "a")));
@@ -177,7 +177,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 		depManager = setupDM();
 		new ComplexNEPFormula<>("if(c||d,\"A\",\"B\")").getDependencies(depManager);
-		variables = depManager.getVariables();
+		variables = depManager.get(DependencyManager.VARIABLES).getVariables();
 		assertEquals(2, variables.size());
 		assertTrue(
 			variables.contains(new VariableID<>(getGlobalScopeInst(), booleanMgr, "c")));
@@ -188,13 +188,13 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 		depManager = setupDM();
 		new ComplexNEPFormula<>("value()").getDependencies(depManager);
-		assertTrue(depManager.getVariables().isEmpty());
+		assertTrue(depManager.get(DependencyManager.VARIABLES).getVariables().isEmpty());
 		assertEquals(-1,
 			depManager.get(ArgumentDependencyManager.KEY).getMaximumArgument());
 
 		depManager = setupDM();
 		new ComplexNEPFormula<>("3^5").getDependencies(depManager);
-		assertTrue(depManager.getVariables().isEmpty());
+		assertTrue(depManager.get(DependencyManager.VARIABLES).getVariables().isEmpty());
 		assertEquals(-1,
 			depManager.get(ArgumentDependencyManager.KEY).getMaximumArgument());
 	}
@@ -203,6 +203,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	{
 		DependencyManager dm = managerFactory
 			.generateDependencyManager(getFormulaManager(), getGlobalScopeInst(), null);
+		dm = managerFactory.withVariables(dm);
 		return dm.getWith(ArgumentDependencyManager.KEY, new ArgumentDependencyManager());
 	}
 

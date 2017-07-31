@@ -166,12 +166,15 @@ public class ArgFunction implements Function
 		int argNum = Integer.parseInt(node.getText());
 		ArgumentDependencyManager argManager =
 				manager.get(ArgumentDependencyManager.KEY);
-		if (argManager != null)
+		if (argManager == null)
 		{
-			/*
-			 * TODO What if not present probably an error since it's a REAL dependency...
-			 * (unlike ignoring it in Semantics)
-			 */
+			manager.get(DependencyManager.LOG)
+				.add("Encountered ARG Function, "
+					+ "but DependencyManager did not have an ArgumentDependencyManager, "
+					+ "so unable to log the dependency");
+		}
+		else
+		{
 			argManager.addArgument(argNum);
 		}
 		visitor.visit((SimpleNode) masterArgs[argNum], manager);

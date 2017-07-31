@@ -50,6 +50,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	{
 		depManager = getManagerFactory().generateDependencyManager(getFormulaManager(),
 			getGlobalScopeInst(), null);
+		depManager = getManagerFactory().withVariables(depManager);
 		argManager = new ArgumentDependencyManager();
 		depManager = depManager.getWith(ArgumentDependencyManager.KEY, argManager);
 		varCapture = new DependencyVisitor();

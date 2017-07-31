@@ -21,6 +21,7 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.VariableStrategy;
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
 import pcgen.base.formula.parse.ASTExpon;
@@ -225,7 +226,11 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 */
 	public void visitVariable(String varName, DependencyManager manager)
 	{
-		manager.addVariable(varName);
+		VariableStrategy varStrategy = manager.get(DependencyManager.VARSTRATEGY);
+		if (varStrategy != null)
+		{
+			varStrategy.addVariable(manager, varName);
+		}
 	}
 
 	/**

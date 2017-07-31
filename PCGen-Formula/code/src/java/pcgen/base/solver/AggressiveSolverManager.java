@@ -182,8 +182,9 @@ public class AggressiveSolverManager implements SolverManager
 		 */
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			source, varID.getFormatManager().getManagedClass());
+		fdm = managerFactory.withVariables(fdm);
 		modifier.getDependencies(fdm);
-		for (VariableID<?> depID : fdm.getVariables())
+		for (VariableID<?> depID : fdm.get(DependencyManager.VARIABLES).getVariables())
 		{
 			ensureSolverExists(depID);
 			/*
@@ -247,6 +248,7 @@ public class AggressiveSolverManager implements SolverManager
 		}
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			source, varID.getFormatManager().getManagedClass());
+		fdm = managerFactory.withVariables(fdm);
 		modifier.getDependencies(fdm);
 		processDependencies(varID, fdm);
 		//Cast above effectively enforced here
@@ -268,7 +270,7 @@ public class AggressiveSolverManager implements SolverManager
 	 */
 	private <T> void processDependencies(VariableID<T> varID, DependencyManager dm)
 	{
-		List<VariableID<?>> deps = dm.getVariables();
+		List<VariableID<?>> deps = dm.get(DependencyManager.VARIABLES).getVariables();
 		if (deps == null)
 		{
 			return;
