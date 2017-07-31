@@ -67,7 +67,7 @@ public final class InstallLoaderTest extends TestCase
 	/**
 	 * The sample install data for testing.
 	 */
-	private final static String[] INSTALL_DATA =
+	private static final String[] INSTALL_DATA =
 			new String[]{"CAMPAIGN:" + CAMPAIGN_NAME, "MINVER:" + MINVER,
 				"MINDEVVER: " + MINDEVVER, "DEST:" + DEST,
 				"COPYRIGHT:" + COPYRIGHT_1, "COPYRIGHT:" + COPYRIGHT_2,
@@ -80,7 +80,7 @@ public final class InstallLoaderTest extends TestCase
 	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
-    @Override
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
