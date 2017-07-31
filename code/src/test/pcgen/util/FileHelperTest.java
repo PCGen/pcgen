@@ -29,7 +29,7 @@ import junit.framework.TestCase;
 public class FileHelperTest extends TestCase
 {
 
-	final static String BACK_ONE = ".." + File.separator;
+	static final String BACK_ONE = ".." + File.separator;
 			
 	/**
 	 * Constructs a new <code>FileHelperTest</code>.
