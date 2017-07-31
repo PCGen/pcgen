@@ -29,13 +29,13 @@ public class ArrayFormatManagerTest extends TestCase
 	private static final Number[] ARR_1 = {Integer.valueOf(1)};
 	
 	private ArrayFormatManager<Number> manager = new ArrayFormatManager<>(
-		new NumberManager(), ',');
+		new NumberManager(), '\n', ',');
 
 	public void testConstructor()
 	{
 		try
 		{
-			new ArrayFormatManager(null, ',');
+			new ArrayFormatManager(null, '\n', ',');
 			fail("null value should fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -200,22 +200,34 @@ public class ArrayFormatManagerTest extends TestCase
 
 	public void testHashCodeEquals()
 	{
-		assertEquals(new ArrayFormatManager<>(new NumberManager(), ',').hashCode(), manager.hashCode());
-		//different separator
-		assertFalse(new ArrayFormatManager<>(new NumberManager(), '|').hashCode() == manager.hashCode());
+		assertEquals(new ArrayFormatManager<>(new NumberManager(), '\n', ',').hashCode(), manager.hashCode());
+		//different list separator
+		assertFalse(new ArrayFormatManager<>(new NumberManager(), '\n', '|').hashCode() == manager.hashCode());
+		//different group separator
+		assertFalse(new ArrayFormatManager<>(new NumberManager(), '-', '|').hashCode() == manager.hashCode());
 		//different underlying
-		assertFalse(new ArrayFormatManager<>(new BooleanManager(), ',').hashCode() == manager.hashCode());
+		assertFalse(new ArrayFormatManager<>(new BooleanManager(), '\n', ',').hashCode() == manager.hashCode());
 		assertFalse(manager.equals(new Object()));
 		assertFalse(manager.equals(new StringManager()));
-		assertTrue(manager.equals(new ArrayFormatManager<>(new NumberManager(), ',')));
-		//different separator
-		assertFalse(manager.equals(new ArrayFormatManager<>(new NumberManager(), '|')));
+		assertTrue(manager.equals(new ArrayFormatManager<>(new NumberManager(), '\n', ',')));
+		//different list separator
+		assertFalse(manager.equals(new ArrayFormatManager<>(new NumberManager(), '\n', '|')));
+		//different group separator
+		assertFalse(manager.equals(new ArrayFormatManager<>(new NumberManager(), '-', '|')));
 		//different underlying
-		assertFalse(manager.equals(new ArrayFormatManager<>(new BooleanManager(), ',')));
+		assertFalse(manager.equals(new ArrayFormatManager<>(new BooleanManager(), '\n', ',')));
 	}
 
 	public void testGetComponent()
 	{
 		assertEquals(new NumberManager(), manager.getComponentManager());
+	}
+	
+	public void testEscapeNeeded()
+	{
+		ArrayFormatManager<Number> mgr =
+				new ArrayFormatManager<>(new NumberManager(), '\n', '|');
+		assertTrue(Arrays.equals(ARR_N3_4_5, mgr.convert("-3|4|5")));
+		assertTrue(Arrays.equals(ARR_N3_4P1_5, mgr.convert("-3|4.1|5")));
 	}
 }

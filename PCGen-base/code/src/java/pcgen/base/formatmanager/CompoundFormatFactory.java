@@ -1,0 +1,68 @@
+/*
+ * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.base.formatmanager;
+
+import pcgen.base.format.compound.SecondaryDefinition;
+import pcgen.base.format.compound.CompoundFormatManager;
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.FormatManager;
+
+/**
+ * An ArrayFormatFactory builds a FormatManager supporting Arrays from the name of the
+ * format of the component of the Array
+ */
+public class CompoundFormatFactory implements FormatManagerFactory
+{
+
+	/**
+	 * The separator character used to parse instructions and separate secondary values
+	 * that will be part of a Compound built by a FormatManager produced by this
+	 * CompoundFormatFactory.
+	 */
+	private final char separator;
+
+	public CompoundFormatFactory(char separator)
+	{
+		this.separator = separator;
+	}
+
+	@Override
+	public FormatManager<?> build(String subFormatName, FormatManagerLibrary library)
+	{
+		if (!StringUtil.hasValidSeparators(subFormatName, separator))
+		{
+			throw new IllegalArgumentException(
+				"Poorly formatted instructions (bad separator location): "
+					+ subFormatName);
+		}
+		String[] instructions = StringUtil.split(subFormatName, separator);
+		FormatManager<?> primaryFM = library.getFormatManager(instructions[0]);
+		CompoundFormatManager<?> manager =
+				new CompoundFormatManager<>(primaryFM, separator);
+		for (int i = 1; i < instructions.length; i++)
+		{
+			manager
+				.addSecondary(SecondaryDefinition.valueOf(library, instructions[i]));
+		}
+		return manager;
+	}
+
+	@Override
+	public String getBuilderBaseFormat()
+	{
+		return "COMPOUND";
+	}
+}

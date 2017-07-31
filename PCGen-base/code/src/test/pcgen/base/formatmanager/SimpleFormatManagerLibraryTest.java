@@ -41,6 +41,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		super.setUp();
 		library = new SimpleFormatManagerLibrary();
 		FormatUtilities.loadDefaultFormats(library);
+		FormatUtilities.loadDefaultFactories(library);
 	}
 
 	public void testFailOnlyClose()

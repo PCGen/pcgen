@@ -40,6 +40,8 @@ public final class EdgeUtilities
 	 * @param i
 	 *            The location of the Node to be returned from the Edge provided to the
 	 *            returned Function
+	 * @param <N>
+	 *            The type of Node in the Edge provided to the Function
 	 * @return A Function that will return the Node at the given location in the Edge
 	 *         provided to said Function
 	 */

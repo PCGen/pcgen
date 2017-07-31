@@ -107,4 +107,41 @@ public final class ArrayUtilities
 		return x -> ensureSizedArray(x, candidateArray);
 	}
 
+	/**
+	 * Merges two arrays of a given Class.
+	 * 
+	 * If either array is null, the other array is directly returned. If either array is
+	 * empty, the other array is directly returned. If one is null and the other is empty,
+	 * the empty array is returned. Note in NONE of those cases is the returned array
+	 * different than the original - so this method is NOT insulating against modification
+	 * of the original arrays.
+	 * 
+	 * @param arrayClass
+	 *            The class of the resulting array to be built
+	 * @param first
+	 *            The first array to be merged
+	 * @param second
+	 *            The second array to be merged
+	 * @return A merged array containing the contents of the two given arrays
+	 */
+	public static <T> T[] mergeArray(Class<T> arrayClass, T[] first, T[] second)
+	{
+		if (first == null)
+		{
+			return second;
+		}
+		if ((second == null) || (second.length == 0))
+		{
+			return first;
+		}
+		if (first.length == 0)
+		{
+			return second;
+		}
+		T[] returnArray = buildOfClass(arrayClass).apply(first.length + second.length);
+		System.arraycopy(first, 0, returnArray, 0, first.length);
+		System.arraycopy(second, 0, returnArray, first.length, second.length);
+		return returnArray;
+	}
+
 }

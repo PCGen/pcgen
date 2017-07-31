@@ -36,6 +36,26 @@ public class ArrayFormatFactory implements FormatManagerFactory
 	private static final Pattern ARRAY_PATTERN = Pattern.compile(
 		Pattern.quote("ARRAY["), Pattern.CASE_INSENSITIVE);
 
+	/**
+	 * The list separator character used to parse instructions and separate list items
+	 * that will be part of an array built by a FormatManager produced by this
+	 * ArrayFormatFactory.
+	 */
+	private final char listSep;
+
+	/**
+	 * The list separator character used to parse instructions and separate groups of
+	 * lists that will be part of an array built by a FormatManager produced by this
+	 * ArrayFormatFactory.
+	 */
+	private final char groupSep;
+
+	public ArrayFormatFactory(char groupSep, char listSep)
+	{
+		this.groupSep = groupSep;
+		this.listSep = listSep;
+	}
+	
 	@Override
 	public FormatManager<?> build(String subFormatName,
 		FormatManagerLibrary library)
@@ -52,7 +72,7 @@ public class ArrayFormatFactory implements FormatManagerFactory
 					+ " may not contain brackets");
 		}
 		return new ArrayFormatManager<>(
-			library.getFormatManager(subFormatName), ',');
+			library.getFormatManager(subFormatName), groupSep, listSep);
 	}
 
 	@Override
