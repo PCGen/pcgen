@@ -2265,7 +2265,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				value = val;
 				found = true;
 			}
-		} catch (IllegalArgumentException e)
+		}
+		catch (IllegalArgumentException e)
 		{
 			//This variable is not in the data - must be builtin?
 		}
@@ -2543,7 +2544,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		try
 		{
 			return variableFacet.contains(id, VariableKey.valueOf(variableString));
-		} catch (IllegalArgumentException e)
+		}
+		catch (IllegalArgumentException e)
 		{
 			//Built in variable
 			return false;
@@ -5509,7 +5511,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 						                          this.descriptionLst =
 								                          getDescriptionLst() + new String(inputLine);
 					                          }
-				                          } catch (IOException exception)
+				                          }
+							  catch (IOException exception)
 				                          {
 					                          Logging.errorPrint("IOException in PlayerCharacter.loadDescriptionFilesInDirectory", exception);
 				                          } finally
@@ -5519,7 +5522,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 						                          try
 						                          {
 							                          descriptionReader.close();
-						                          } catch (IOException e)
+						                          }
+									  catch (IOException e)
 						                          {
 							                          Logging.errorPrint(
 									                          "Couldn't close descriptionReader in PlayerCharacter.loadDescriptionFilesInDirectory",
@@ -5625,7 +5629,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 
 			setSkillPool(toClass, fromClass.getSkillPool(this));
-		} catch (NumberFormatException nfe)
+		}
+		catch (NumberFormatException nfe)
 		{
 			ShowMessageDelegate
 					.showMessageDialog(nfe.getMessage(), Constants.APPLICATION_NAME, MessageType.INFORMATION);
@@ -8961,7 +8966,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			PCClassLevel clvl = originalClassLevel.clone();
 			clvl.put(StringKey.QUALIFIED_KEY, pcc.getQualifiedKey());
 			classFacet.setClassLevel(id, pcc, clvl);
-		} catch (CloneNotSupportedException e)
+		}
+		catch (CloneNotSupportedException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -9370,7 +9376,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				classFacet.setClassLevel(id, pcc, pcl);
 			}
-		} catch (CloneNotSupportedException e)
+		}
+		catch (CloneNotSupportedException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
