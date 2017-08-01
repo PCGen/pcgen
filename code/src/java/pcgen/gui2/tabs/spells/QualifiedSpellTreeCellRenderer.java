@@ -37,9 +37,6 @@ import pcgen.system.LanguageBundle;
  * The Class {@code QualifiedSpellTreeCellRenderer} renders a spell tree
  * cell with colouring indicating if the item can be known by the character. It
  * is heavily based on QualifiedTreeCellRenderer
- *
- * -0700 (Tue, 05 Jun 2012) $
- *
  */
 public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 {

@@ -796,7 +796,7 @@ public class AttackDialog extends JDialog
 							(String) getValueAt(row,
 								columnFromKey(COLUMN_KEY_DMG));
 
-					if (damageString.indexOf("/") >= 0)
+					if (damageString.indexOf('/') >= 0)
 					{
 						StringTokenizer tok =
 								new StringTokenizer(damageString, "/");

@@ -68,8 +68,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class {@code TempBonusInfoTab} allows the user to select which
  * temporary bonus should be applied to their character.
- *
- * -0700 (Sat, 17 May 2014) $
  */
 public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {

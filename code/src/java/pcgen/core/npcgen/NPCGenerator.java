@@ -605,7 +605,7 @@ public final class NPCGenerator
 						{
 							break;
 						}
-						if (aClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT)
+						if (aClass.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
 							&& aClass.qualifies(aPC, aClass))
 						{
 							Logging.debugPrint( "NPCGenerator: Selecting " + aClass + " for class " + classList.get(i) ); //$NON-NLS-1$ //$NON-NLS-2$

@@ -56,7 +56,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		return token;
 	}
 
-	public ListKey<?> getListKey()
+	public static ListKey<?> getListKey()
 	{
 		return ListKey.LICENSE;
 	}

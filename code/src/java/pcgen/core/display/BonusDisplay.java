@@ -24,7 +24,7 @@ import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
-public class BonusDisplay
+public final class BonusDisplay
 {
 
 	private BonusDisplay()
@@ -40,7 +40,7 @@ public class BonusDisplay
 	{
 		final StringBuilder buffer = new StringBuilder(50);
 	
-		buffer.append(ti.source.toString());
+		buffer.append(ti.source);
 		buffer.append(" [");
 	
 		Object targetObj = ti.target;

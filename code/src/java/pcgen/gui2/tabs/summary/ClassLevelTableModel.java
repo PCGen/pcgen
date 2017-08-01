@@ -179,7 +179,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 				String classKey = c.getKeyName();
 				if (finalLevelMap.get(classKey) == rowIndex)
 				{
-					return c.toString() + " (" + character.getClassLevel(c) + ")";
+					return c + " (" + character.getClassLevel(c) + ")";
 				}
 				return c.toString();
 			default:

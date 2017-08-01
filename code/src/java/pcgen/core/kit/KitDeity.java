@@ -85,7 +85,7 @@ public class KitDeity extends BaseKit
 			buf.append(" (");
 			if (choiceCount != null)
 			{
-				buf.append(choiceCount.toString());
+				buf.append(choiceCount);
 				buf.append(" of ");
 			}
 			for (Iterator<CDOMSingleRef<Domain>> i = theDomains.iterator(); i

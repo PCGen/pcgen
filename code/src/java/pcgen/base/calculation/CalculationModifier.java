@@ -30,7 +30,7 @@ import pcgen.base.formula.base.EvaluationManager;
  * @param <T>
  *            The format that this CalculationModifier acts upon
  */
-public final class CalculationModifier<T> implements PCGenModifier<T>
+public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 {
 
 	/**

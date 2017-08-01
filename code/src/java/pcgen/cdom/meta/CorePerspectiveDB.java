@@ -101,7 +101,7 @@ public final class CorePerspectiveDB
 		}
 	}
 
-	private static class Location
+	private static final class Location
 	{
 
 		private final String location;

@@ -2360,7 +2360,7 @@ public class WeaponToken extends Token
 			}
 		}
 
-		totalAttack.append(primaryAttack.toString());
+		totalAttack.append(primaryAttack);
 
 		if (secondaryAttack.length() != 0
 			&& (hitMode == HITMODE_TOTALHIT || hitMode == HITMODE_TWOHIT))

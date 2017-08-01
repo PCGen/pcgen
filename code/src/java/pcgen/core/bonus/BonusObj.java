@@ -318,7 +318,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				sb.append("|ERROR");
 			}
 	
-			sb.append('|').append(bonusFormula.toString());
+			sb.append('|').append(bonusFormula);
 
 			if (!bonusType.isEmpty())
 			{
@@ -437,8 +437,8 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 						.append(aString.substring(y + 1)).toString();
 		}
 
-		if (aString.indexOf("(") >= 0 || aString.indexOf(")") >= 0 ||
-				aString.indexOf("%") >= 0)
+		if (aString.indexOf('(') >= 0 || aString.indexOf(')') >= 0 ||
+				aString.indexOf('%') >= 0)
 		{
 			return;
 		}
@@ -601,7 +601,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 				&& bonusFormula.equals(other.bonusFormula)
 				&& bonusName.equals(other.bonusName)
 				&& bonusType.equals(other.bonusType)
-				&& theStackingFlag.equals(other.theStackingFlag)
+				&& theStackingFlag == other.theStackingFlag
 				&& bonusInfo.equals(other.bonusInfo);
 	}
 

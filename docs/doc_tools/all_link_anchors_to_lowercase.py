@@ -20,7 +20,7 @@ import bs4 # Requires package `beautifulsoup4` for HTML parsing
 def list_all_html_files():
     html_files = list()
     for root, dirs, files in os.walk("../"):
-        # html_files.extend(filter(lambda x: x. endswith(".html"), files))
+        # html_files.extend(filter(lambda x: x.endswith(".html"), files))
         html_files.extend( [os.path.join(root, f) for f in files if f.endswith(".html")] )
     return html_files
 

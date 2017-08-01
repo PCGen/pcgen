@@ -144,7 +144,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 			AbilitySelector other = (AbilitySelector) o;
 			return source.equals(other.source)
 					&& category.equals(other.category)
-					&& nature.equals(other.nature);
+					&& nature == other.nature;
 		}
 		return false;
 	}

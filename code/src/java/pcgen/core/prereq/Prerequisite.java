@@ -296,7 +296,7 @@ public class Prerequisite implements Cloneable
 		{
 			for ( Prerequisite prereq : prerequisites )
 			{
-				buf.append(prereq.toString());
+				buf.append(prereq);
 			}
 		}
 

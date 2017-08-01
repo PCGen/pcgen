@@ -2,6 +2,12 @@
 SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
 
 # Ability Name										Type			Visible
+CATEGORY=Special Ability|Arcanist Exploit ~ Item Crafting.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Shaman Hex ~ Fetish.MOD										DESC:.CLEAR		DESC:The shaman receives Spell Focus as a bonus feat and gains a +4 insight bonus on Spellcraft checks to identify magic items permanently.		REMOVE:FEAT|Craft Wondrous Item	BONUS:ABILITYPOOL|Spell Focus|1
+CATEGORY=Special Ability|Shaman Spirit ~ Nature.MOD										DESC:.CLEAR		DESC:Spirit Magic Spells: charm animal (1st), barkskin (2nd), speak with plants (3rd), grove of respite (4th), animal growth (5th), stone tell (6th), creeping doom (7th), animal shapes (8th), world wave (9th)
+CATEGORY=Special Ability|Shaman Wandering Spirit ~ Nature.MOD								DESC:.CLEAR		DESC:Spirit Magic Spells: charm animal (1st), barkskin (2nd), speak with plants (3rd), grove of respite (4th), animal growth (5th), stone tell (6th), creeping doom (7th), animal shapes (8th), world wave (9th)
+CATEGORY=Special Ability|Skald ~ Scribe Scroll.MOD				TYPE:PFSNotLegal	VISIBLE:NO
+
 CATEGORY=Archetype|Alchemist Archetype ~ Inspired Chemist.MOD		TYPE:PFSLegal
 CATEGORY=Archetype|Arcanist Archetype ~ Blade Adept.MOD			TYPE:PFSLegal
 CATEGORY=Archetype|Arcanist Archetype ~ Blood Arcanist.MOD			TYPE:PFSLegal
@@ -104,3 +110,5 @@ CATEGORY=Archetype|Wizard Archetype ~ Spell Sage.MOD				TYPE:PFSLegal
 CATEGORY=Archetype|Wizard Archetype ~ Spirit Whisperer.MOD			TYPE:PFSLegal
 
 CATEGORY=Special Ability|Cavalier Order ~ Order of the Beast.MOD					TYPE:PFSNotLegal	VISIBLE:NO
+
+Extra Performance			KEY:Skald ~ Extra Performance			CATEGORY:Special Ability	TYPE:Skald Class Feature.SkaldScribeScroll		DESC:At 1st level, a skald gains Extra Performance as a bonus feat.		ABILITY:FEAT|AUTOMATIC|Extra Performance

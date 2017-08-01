@@ -445,7 +445,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	@Override
 	public String toString()
 	{
-		return "WeightedCollection: " + theData.toString();
+		return "WeightedCollection: " + theData;
 	}
 
 	/**

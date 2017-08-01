@@ -23,6 +23,7 @@ INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
 
 PCC:@/homebrew/conversion_support/conversion_support.pcc
 
+SIZE:rsrd__size.lst
 ALIGNMENT:rsrd__align.lst
 SAVE:rsrd__saves.lst
 STAT:rsrd__stats.lst

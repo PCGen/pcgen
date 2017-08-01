@@ -108,7 +108,7 @@ abstract class LoadContextInst implements LoadContext
 		ref = rc;
 		list = lc;
 		obj = oc;
-		var = new VariableContext();
+		var = new VariableContext(new PCGenManagerFactory(this));
 	}
 
 	@Override

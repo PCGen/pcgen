@@ -34,7 +34,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
-public class ExchangeLevelApplication
+public final class ExchangeLevelApplication
 {
 
 	private ExchangeLevelApplication()

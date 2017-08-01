@@ -869,7 +869,7 @@ Yak							TYPE:Goods.Trade.Pets.Transportation.Container	CONTAINS:*3120|Any	COST
 # Equipment Name				Type							Contains			Cost		Weight	Source Page
 Axe Beak (Combat-Trained)		TYPE:Mount.Goods.Transportation.Container	CONTAINS:*600|Any		COST:1500	WT:500	SOURCEPAGE:p.80
 Axe Beak Egg				TYPE:Mount.Goods									COST:1000	WT:10		SOURCEPAGE:p.80
-Camel						TYPE:Mount.Goods.Transportation.Container	CONTAINS:*1800|Any	COST:150	WT:1500	SOURCEPAGE:p.81
+Camel						TYPE:Mount.Goods.Transportation.Container	CONTAINS:*900|Any		COST:150	WT:1500	SOURCEPAGE:p.81
 Dire Bat (Riding)				TYPE:Mount.Goods.Transportation.Container	CONTAINS:*520|Any		COST:300	WT:400	SOURCEPAGE:p.82
 Dire bat (Riding/Combat-Trained)	TYPE:Mount.Goods.Transportation.Container	CONTAINS:*520|Any		COST:450	WT:450	SOURCEPAGE:p.82
 Dog (Riding).MOD																	WT:50		SOURCEPAGE:p.82

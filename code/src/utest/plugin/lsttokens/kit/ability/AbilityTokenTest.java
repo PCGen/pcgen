@@ -109,7 +109,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 		assertFalse(parse("CATEGORY=FEAT|TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}

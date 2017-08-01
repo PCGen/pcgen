@@ -486,7 +486,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				}
 				catch (UnsupportedFlavorException | IOException ex)
 				{
-					Logger.getLogger(ClassInfoTab.class.getName()).log(Level.SEVERE,
+					Logger.getLogger(ClassTransferHandler.class.getName()).log(Level.SEVERE,
 							null,
 							ex);
 				}

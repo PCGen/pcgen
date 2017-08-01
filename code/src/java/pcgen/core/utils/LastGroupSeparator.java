@@ -73,13 +73,13 @@ public class LastGroupSeparator
 				{
 					throw new GroupingMismatchException(startingString
 							+ " did not have an open parenthesis "
-							+ "before close: " + temp.toString());
+							+ "before close: " + temp);
 				}
 				else if (!")".equals(expected.pop()))
 				{
 					throw new GroupingMismatchException(startingString
 							+ " did not have matching parenthesis "
-							+ "inside of brackets: " + temp.toString());
+							+ "inside of brackets: " + temp);
 				}
 				else if (!expected.isEmpty())
 				{

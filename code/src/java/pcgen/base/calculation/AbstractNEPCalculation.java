@@ -67,7 +67,7 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	}
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
+	@SuppressWarnings({"PMD.EmptyMethodInAbstractClassShouldBeAbstract", "NoopMethodInAbstractClass"})
 	public void getDependencies(DependencyManager fdm)
 	{
 	}

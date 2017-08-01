@@ -196,7 +196,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 			{
 				throw new IllegalArgumentException(
 						"Invalid: Vision Distance was not valid: "
-								+ distance.toString());
+								+ distance);
 			}
 		}
 		if (type.isEmpty())

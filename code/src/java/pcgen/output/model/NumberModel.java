@@ -17,14 +17,15 @@
  */
 package pcgen.output.model;
 
-import pcgen.base.util.Reference;
+import java.util.function.Supplier;
+
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateNumberModel;
 
 /**
  * A NumberModel wraps a Number object into a TemplateScalarModel
  */
-public class NumberModel implements TemplateNumberModel, Reference<Number>
+public class NumberModel implements TemplateNumberModel, Supplier<Number>
 {
 	/**
 	 * The underlying Number object

@@ -178,6 +178,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	private boolean virtualItem;
 
+	public Equipment()
 	{
 		final SizeAdjustment sizeAdj = SizeUtilities.getDefaultSizeAdjustment();
 		if (sizeAdj != null)
@@ -1008,6 +1009,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 
 		usePrimaryCache = false;
+		eqMod.setVariableParent(this);
 		getEquipmentHead(bPrimary ? 1 : 2).addToListFor(ListKey.EQMOD, eqMod);
 		setDirty(true);
 	}
@@ -1735,10 +1737,10 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			String key = tString.substring(6);
 			String choice = "";
-			if (key.indexOf("(") > 0)
+			if (key.indexOf('(') > 0)
 			{
-				int i = key.indexOf("(");
-				choice = key.substring(i+1, key.lastIndexOf(")"));
+				int i = key.indexOf('(');
+				choice = key.substring(i+1, key.lastIndexOf(')'));
 				key = key.substring(0, i);
 			}
 
@@ -5098,7 +5100,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getNonHeadedName()
 	{
-		if (wholeItemName == null || wholeItemName.length() == 0)
+		if (wholeItemName == null || wholeItemName.isEmpty())
 		{
 			return getName();
 		}
@@ -5256,7 +5258,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String cm = getWeaponInfo("CRITMULT", true);
 
-			if (cm.length() != 0)
+			if (!cm.isEmpty())
 			{
 				mult = Integer.parseInt(cm);
 			}
@@ -5278,7 +5280,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String cm = getWeaponInfo("CRITMULT", false);
 
-			if (cm.length() != 0)
+			if (!cm.isEmpty())
 			{
 				mult = Integer.parseInt(cm);
 			}

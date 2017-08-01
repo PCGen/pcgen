@@ -47,12 +47,12 @@ public final class MessageType {
 
     // Prevent subclasses from overriding Object.equals
     @Override
-	public final boolean equals(final Object that) {
+	public boolean equals(final Object that) {
         return super.equals(that);
     }
 
     @Override
-	public final int hashCode() {
+	public int hashCode() {
         return super.hashCode();
     }
 

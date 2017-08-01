@@ -946,9 +946,7 @@ public final class PCGVer2Creator
 			{
 				for (PCLevelInfoStat stat : statList)
 				{
-					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(
-
-							stat);
+					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(stat);
 				}
 			}
 
@@ -958,9 +956,7 @@ public final class PCGVer2Creator
 			{
 				for (PCLevelInfoStat stat : statList)
 				{
-					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(
-
-							stat);
+					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(stat);
 				}
 			}
 

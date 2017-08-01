@@ -21,7 +21,6 @@ import java.awt.event.ActionEvent;
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
-import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,13 +29,16 @@ import java.util.StringTokenizer;
 import javax.swing.Action;
 import javax.swing.JEditorPane;
 import javax.swing.JTextPane;
+import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.text.Document;
 import javax.swing.text.Element;
 import javax.swing.text.JTextComponent;
+import javax.swing.text.MutableAttributeSet;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import javax.swing.text.TextAction;
 import javax.swing.text.View;
 import javax.swing.text.ViewFactory;
@@ -113,7 +115,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
             do {
                 hit = false;
-                idString = "diesisteineidzumsuchen" + counter + "#" + i;
+                idString = "diesisteineidzumsuchen" + counter + '#' + i;
 
                 if (source.contains(idString)) {
                     counter++;
@@ -162,14 +164,13 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         return false;
     }
 
-    /* WACKY GERMAN CODE */
     @Override
     public Document createDefaultDocument() {
         StyleSheet styles = getStyleSheet();
         StyleSheet ss = new StyleSheet();
         ss.addStyleSheet(styles);
 
-        ExtendedHTMLDocument doc = new ExtendedHTMLDocument(ss);
+        HTMLDocument doc = new ExtendedHTMLDocument(ss);
         doc.setParser(getParser());
         doc.setAsynchronousLoadPriority(4);
         doc.setTokenThreshold(100);
@@ -183,7 +184,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * @throws BadLocationException
      */
     public static void delete(JTextPane pane) throws BadLocationException {
-        ExtendedHTMLDocument htmlDoc = (ExtendedHTMLDocument) pane.getStyledDocument();
+        Document htmlDoc = (ExtendedHTMLDocument) pane.getStyledDocument();
         int selStart = pane.getSelectionStart();
         int selEnd = pane.getSelectionEnd();
         String[] posStrings = getUniqueString(pane.getText());
@@ -215,7 +216,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      */
     public static void insertListElement(JTextPane pane, String content) {
         int pos = pane.getCaretPosition();
-        ExtendedHTMLDocument htmlDoc = (ExtendedHTMLDocument) pane.getStyledDocument();
+        StyledDocument htmlDoc = (ExtendedHTMLDocument) pane.getStyledDocument();
         String source = pane.getText();
         boolean hit;
         String idString;
@@ -263,7 +264,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * @param removeAS
      * @return the attribute set
      */
-    private static SimpleAttributeSet removeAttribute(SimpleAttributeSet sourceAS, SimpleAttributeSet removeAS) {
+    private static SimpleAttributeSet removeAttribute(AttributeSet sourceAS, AttributeSet removeAS) {
         try {
             String[] sourceKeys = new String[sourceAS.getAttributeCount()];
             String[] sourceValues = new String[sourceAS.getAttributeCount()];
@@ -366,7 +367,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             }
         } while (hit);
 
-        SimpleAttributeSet sa = new SimpleAttributeSet(element.getAttributes());
+        MutableAttributeSet sa = new SimpleAttributeSet(element.getAttributes());
         sa.addAttribute("id", idString);
         ((ExtendedHTMLDocument) pane.getStyledDocument()).replaceAttributes(element, sa, tag);
         source = pane.getText();
@@ -396,22 +397,6 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         //}
 
         pane.setText(newHtmlString.toString());
-    }
-
-    /**
-     * Fetch a resource relative to the HTMLEditorKit classfile. If this is called
-     * on 1.2 the loading will occur under the protection of a doPrivileged call
-     * to allow the HTMLEditorKit to function when used in an applet.
-     *
-     * This method does not properly override its parent in JDK1.3 or JDK1.4 as
-     * its parent has no explicit security on it (public, private or protected)
-     * and this method is in a class in a package that is different to its parent.
-     *
-     * @param name the name of the resource, relative to the HTMLEditorKit class
-     * @return a stream representing the resource
-     */
-    static InputStream getResourceAsStream(final String name) {
-        return ExtendedHTMLEditorKit.class.getResourceAsStream(name);
     }
 
     private static String getAllTableTags(String source) {
@@ -466,7 +451,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         }
 
         if (closingTag) {
-            String searchEndTagString = "</" + tag + ">";
+            String searchEndTagString = "</" + tag + '>';
             int beginEndTag;
             int endEndTag;
             caret = position[1];
@@ -563,7 +548,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         public void actionPerformed(ActionEvent ae) {
             try {
                 JEditorPane editor = getEditor(ae);
-                ExtendedHTMLDocument doc = (ExtendedHTMLDocument) editor.getDocument();
+                HTMLDocument doc = (ExtendedHTMLDocument) editor.getDocument();
                 String selTextBase = editor.getSelectedText();
                 Element elem = doc.getParagraphElement(editor.getCaretPosition());
                 int textLength = -1;
@@ -587,7 +572,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
                         sbNew.append("<li></li>");
                         insertHTML(editor, doc, editor.getCaretPosition(), sbNew.toString(), 0, 0, HTML.Tag.LI);
                     } else {
-                        sbNew.append("<").append(sListType).append("><li></li></").append(sListType).append("><p>&nbsp;</p>");
+                        sbNew.append('<').append(sListType).append("><li></li></").append(sListType).append("><p>&nbsp;</p>");
                         insertHTML(editor, doc, editor.getCaretPosition(), sbNew.toString(), 0, 0,
                                 (sListType.equals("ol") ? HTML.Tag.OL : HTML.Tag.UL));
                     }
@@ -600,7 +585,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
                     StringBuilder sbNew = new StringBuilder();
                     String sToken = ((selText.contains("\r")) ? "\r" : "\n");
                     StringTokenizer stTokenizer = new StringTokenizer(selText, sToken);
-                    sbNew.append("<").append(sListType).append(">");
+                    sbNew.append('<').append(sListType).append('>');
 
                     while (stTokenizer.hasMoreTokens()) {
                         sbNew.append("<li>");

@@ -17,11 +17,15 @@
  */
 package pcgen.rules.persistence;
 
+import pcgen.base.calculation.IgnoreVariables;
 import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.ManagerKey;
+import pcgen.cdom.helper.ReferenceDependency;
 import pcgen.rules.persistence.token.ModifierFactory;
 
 /**
@@ -84,7 +88,17 @@ public class MasterModifierFactory
 				"Requested unknown ModifierType: " + varClass.getSimpleName()
 					+ " " + modIdentifier);
 		}
-		return factory.getModifier(priorityNumber, modInstructions, managerFactory,
-			formulaManager, varScope, formatManager);
+		PCGenModifier<T> modifier = factory.getModifier(priorityNumber, modInstructions,
+			managerFactory, formulaManager, varScope, formatManager);
+		/*
+		 * getDependencies needs to be called during LST load, so that object references are captured
+		 */
+		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
+			null, formatManager.getManagedClass());
+		fdm = fdm.getWith(DependencyManager.VARSTRATEGY, new IgnoreVariables());
+		fdm = fdm.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
+		modifier.getDependencies(fdm);
+		modifier.addReferences(fdm.get(ManagerKey.REFERENCES).getReferences());
+		return modifier;
 	}
 }

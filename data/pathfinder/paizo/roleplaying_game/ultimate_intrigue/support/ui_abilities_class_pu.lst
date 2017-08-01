@@ -1,0 +1,7 @@
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEWEB:http://paizo.com/products/btpy9j6p?Pathfinder-Roleplaying-Game-Ultimate-Intrigue	SOURCEDATE:2016-04
+
+# ==============================
+# Social Grace Support
+# ==============================
+
+Artistry		KEY:Social Grace ~ Artistry			CATEGORY:Internal		TYPE:SocialGraceSkillChoice		BONUS:SITUATION|Artistry=In Social Identity|SocialGraceBonus|TYPE=Circumstance

@@ -54,8 +54,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class {@code DescriptionInfoTab} is a placeholder for the yet to be
  * implemented description tab.
- *
- * -0700 (Wed, 29 Sep 2010) $
  */
 @SuppressWarnings("serial")
 public class DescriptionInfoTab extends FlippingSplitPane implements CharacterInfoTab
@@ -86,7 +84,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 
 	private void initComponents()
 	{
-		addButton.setAlignmentX((float) 0.5);
+		addButton.setAlignmentX(0.5f);
 
 		Box box = Box.createVerticalBox();
 		box.add(new JScrollPane(pageList));

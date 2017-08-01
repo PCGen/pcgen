@@ -673,7 +673,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 						sb.append(character.getInfoFactory().getHTMLInfo(equip));
 					}
 				}
-				text = "<html>" + sb.toString() + "</html>"; //$NON-NLS-1$ //$NON-NLS-2$
+				text = "<html>" + sb + "</html>"; //$NON-NLS-1$ //$NON-NLS-2$
 				infoPane.setText(text);
 			}
 		}
@@ -716,8 +716,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private static class EquipNodeSelection implements Transferable
 	{
 
-		private static final DataFlavor[] FLAVORS = new DataFlavor[]
-		{
+		private static final DataFlavor[] FLAVORS = {
 			equipNodeArrayFlavor,
 			equipmentArrayFlavor
 		};
@@ -824,7 +823,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			catch (UnsupportedFlavorException | IOException ex)
 			{
-				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
+				Logger.getLogger(EquipmentTransferHandler.class.getName()).log(Level.SEVERE, null, ex);
 			}
 			return equipNodeArray;
 		}
@@ -907,7 +906,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			catch (UnsupportedFlavorException | IOException ex)
 			{
-				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
+				Logger.getLogger(EquipmentSetTransferHandler.class.getName()).log(Level.SEVERE, null, ex);
 			}
 			return equipmentArray;
 		}
@@ -921,7 +920,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			catch (UnsupportedFlavorException | IOException ex)
 			{
-				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
+				Logger.getLogger(EquipmentSetTransferHandler.class.getName()).log(Level.SEVERE, null, ex);
 			}
 			return equipNodeArray;
 		}
@@ -1116,8 +1115,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 
 			// Set the before and after nodes
-			EquipNode[] relativeNodes = new EquipNode[]
-			{
+			EquipNode[] relativeNodes = {
 				null, null
 			};
 			if (beforeRow >= 0)

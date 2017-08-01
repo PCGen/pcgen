@@ -125,57 +125,17 @@ public abstract class IOHandler
 
 	/**
 	 * Writes the contents of the PlayerCharacter to a file.
-	 *
-	 * <br>author: Thomas Behr 11-03-02
-	 *
 	 * @param aPC        the PlayerCharacter to write
 	 * @param filename   the name of the output file
-	 * @throws IOException
-	 * @throws NullPointerException
 	 */
 	public final void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, String filename)
-		throws IOException, NullPointerException
+		throws IOException
 	{
-		OutputStream out = null;
-		
-
-		try
+		try (OutputStream out = new FileOutputStream(filename))
 		{
 			File outFile = new File(filename);
 			createBackupForFile(outFile);
-
-			out = new FileOutputStream(filename);
 			write(aPC, mode, campaigns, out);
-		}
-		catch (IOException ex)
-		{
-			Logging
-				.errorPrint("Exception in IOHandler::write when writing", ex);
-			throw ex;
-		}
-		finally
-		{
-			if (out != null)
-			{
-				try
-				{
-					out.flush();
-					out.close();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Exception in IOHandler::write", e);
-					throw e;
-				}
-				catch (NullPointerException e)
-				{
-					Logging
-						.errorPrint(
-							"Could not create FileOutputStream in IOHandler::write",
-							e);
-					throw e;
-				}
-			}
 		}
 	}
 

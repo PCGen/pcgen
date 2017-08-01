@@ -72,7 +72,6 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public ReferenceChoiceSet(Collection<? extends CDOMReference<T>> col)
 	{
-		super();
 		if (col == null)
 		{
 			throw new IllegalArgumentException(

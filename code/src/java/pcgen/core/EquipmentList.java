@@ -439,7 +439,7 @@ public final class EquipmentList {
 					if (eqMod == null) {
 						Logging
 						.debugPrint("Could not generate a Masterwork "
-							+ eq.toString()
+							+ eq
 							+ " as the equipment modifier could not be found.");
 						continue;
 					}
@@ -465,7 +465,7 @@ public final class EquipmentList {
 								.debugPrint("Could not generate a "
 									+ aBonus
 									+ " "
-									+ eq.toString()
+									+ eq
 									+ " as the equipment modifier could not be found.");
 							continue;
 						}

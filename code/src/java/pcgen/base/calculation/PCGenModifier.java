@@ -17,7 +17,10 @@
  */
 package pcgen.base.calculation;
 
+import java.util.Collection;
+
 import pcgen.base.solver.Modifier;
+import pcgen.base.util.Indirect;
 
 /**
  * PCGenModifier is a Modifier that has additional characteristics to support PCGen
@@ -33,4 +36,13 @@ public interface PCGenModifier<T> extends Modifier<T>
 	 * @return The user priority for this PCGenModifier
 	 */
 	public int getUserPriority();
+
+	/**
+	 * Add object references to this PCGenModifier. These are captured solely as
+	 * dependency management.
+	 * 
+	 * @param collection
+	 *            The Collection of Indirect objects that this PCGenModifier references.
+	 */
+	public void addReferences(Collection<Indirect<?>> collection);
 }

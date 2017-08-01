@@ -85,6 +85,18 @@ public class DataTable implements Loadable
 	}
 
 	/**
+	 * Returns the TableColumn at the given index in this DataTable.
+	 * 
+	 * @param i
+	 *            The index for which the TableColumn in this DataTable should be returned
+	 * @return The TableColumn at the given index in this DataTable
+	 */
+	public TableColumn getColumn(int i)
+	{
+		return columns.get(i);
+	}
+
+	/**
 	 * Appends a new row of data to this DataTable.
 	 * 
 	 * Note that the provided row must conform to the format of data as defined

@@ -18,6 +18,7 @@
 package pcgen.rules.context;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.calculation.PCGenModifier;
@@ -28,23 +29,26 @@ import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
+import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.rules.persistence.MasterModifierFactory;
+import pcgen.util.Logging;
 
 public class VariableContext
 {
 
 	private final SplitFormulaSetup formulaSetup = new SplitFormulaSetup();
-	private final ManagerFactory managerFactory = new ManagerFactory(){};
+	private final ManagerFactory managerFactory;
 
 	private MasterModifierFactory modFactory = null;
 	private IndividualSetup dummySetup = null;
 
-	public VariableContext()
+	public VariableContext(ManagerFactory fac)
 	{
 		formulaSetup.loadBuiltIns();
+		managerFactory = Objects.requireNonNull(fac);
 		PluginFunctionLibrary pfl = PluginFunctionLibrary.getInstance();
 		List<Function> functions = pfl.getFunctions();
 		for (Function f : functions)
@@ -143,6 +147,20 @@ public class VariableContext
 	public ManagerFactory getManagerFactory()
 	{
 		return managerFactory;
+	}
+
+	/**
+	 * Validates the default values provided to the formula system. Effectively ensures
+	 * that each default value is not dependent on variables or in other ways can't be
+	 * directly calculated. Will report to the error system any results from the analysis.
+	 */
+	public void validateDefaults()
+	{
+		ComplexResult<Boolean> result = formulaSetup.getSolverFactory().validateDefaults();
+		if (!result.get())
+		{
+			result.getMessages().stream().forEach(Logging::errorPrint);
+		}
 	}
 
 }

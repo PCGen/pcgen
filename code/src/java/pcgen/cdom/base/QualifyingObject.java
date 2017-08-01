@@ -27,6 +27,7 @@ import pcgen.core.PlayerCharacter;
  * list of Prerequisites is designed to serve as a list of conditions that must
  * be met before the QualifyingObject can be "used"
  */
+@FunctionalInterface
 public interface QualifyingObject
 {
 

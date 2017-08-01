@@ -104,7 +104,7 @@ public class InfoCharacterDetails
 	 * for displaying.
 	 * Made it final as it is called from constructor.
 	 */
-	private final void setStatText()
+	private void setStatText()
 	{
 		new Renderer(getCombatant()).start();
 	}
