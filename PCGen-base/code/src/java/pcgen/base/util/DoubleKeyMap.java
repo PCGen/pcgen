@@ -352,7 +352,9 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 */
 	public Set<K1> getKeySet()
 	{
-		return new WrappedMapSet<>(firstClass, map.keySet());
+		Set<K1> set = Collections.newSetFromMap(createGlobalMap());
+		set.addAll(map.keySet());
+		return set;
 	}
 
 	/**
@@ -376,7 +378,9 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 		{
 			return Collections.emptySet();
 		}
-		return new WrappedMapSet<>(secondClass, localMap.keySet());
+		Set<K2> set = Collections.newSetFromMap(createLocalMap());
+		set.addAll(localMap.keySet());
+		return set;
 	}
 
 	/**
@@ -523,7 +527,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @return a new secondary map
 	 */
 	@SuppressWarnings("unchecked")
-	private Map<K2, V> createLocalMap()
+	private <MV> Map<K2, MV> createLocalMap()
 	{
 		try
 		{
@@ -550,7 +554,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @return a new primary map
 	 */
 	@SuppressWarnings("unchecked")
-	private Map<K1, Map<K2, V>> createGlobalMap()
+	private <MV> Map<K1, MV> createGlobalMap()
 	{
 		try
 		{

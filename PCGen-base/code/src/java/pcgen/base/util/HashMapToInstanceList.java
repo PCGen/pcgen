@@ -17,14 +17,11 @@
  */
 package pcgen.base.util;
 
-import static pcgen.base.lang.ObjectUtil.identityEquals;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
 
 /**
  * Represents a Map of objects to Lists. List management is done internally to
@@ -99,8 +96,19 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 	@SuppressWarnings("PMD.CompareObjectsWithEquals")
 	public boolean containsInList(K key, V valueElement)
 	{
-		return containsListFor(key)
-			&& getListFor(key).stream().anyMatch(identityEquals(valueElement));
+		List<V> list = getListFor(key);
+		if (list == null)
+		{
+			return false;
+		}
+		for (V o : list)
+		{
+			if (o == valueElement)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

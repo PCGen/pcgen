@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import pcgen.base.graph.base.Edge;
@@ -187,8 +187,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		{
 			return false;
 		}
-		List<N> graphNodes = edge.getAdjacentNodes();
-		for (N node : graphNodes)
+		for (N node : edge.getAdjacentNodes())
 		{
 			addNode(node);
 			nodeEdgeMap.get(node).add(edge);
@@ -284,8 +283,11 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		 * ConcurrentModificationException (since the set for GraphNode gn would
 		 * be modified by removeEdge while inside this Iterator).
 		 */
-		// FUTURE Consider Check of return values of removeEdge here to ensure success??
-		nodeEdgeMap.remove(node).stream().forEach(this::removeEdge);
+		for (ET edge : nodeEdgeMap.remove(node))
+		{
+			// FUTURE Consider Check of return values of removeEdge here to ensure success??
+			removeEdge(edge);
+		}
 		/*
 		 * containsNode test means we don't need to check return value of remove
 		 * we 'know' it is present (barring an internal error!). This remove
@@ -313,11 +315,11 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 			return false;
 		}
 		//Edge must have been present in the Graph if we made it to this point
-		//null protection in stream required to protect against side effects
-		edge.getAdjacentNodes().stream()
-							   .map(nodeEdgeMap::get)
-							   .filter(Objects::nonNull)
-							   .forEach(removeFromSet(edge));
+		for (N node : edge.getAdjacentNodes())
+		{
+			//null protection required to protect against side effects
+			Optional.ofNullable(nodeEdgeMap.get(node)).ifPresent(removeFromSet(edge));
+		}
 		gcs.fireGraphEdgeChangeEvent(edge, EdgeChangeEvent.EDGE_REMOVED);
 		return true;
 	}
@@ -327,7 +329,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	{
 		// implicitly returns null if gn is not in the nodeEdgeMap
 		Set<ET> adjacentEdges = nodeEdgeMap.get(node);
-		return adjacentEdges != null && !adjacentEdges.isEmpty();
+		return (adjacentEdges != null) && !adjacentEdges.isEmpty();
 	}
 
 	/**
@@ -344,8 +346,8 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	public Set<ET> getAdjacentEdges(N node)
 	{
 		// implicitly returns null if gn is not in the nodeEdgeMap
-		Set<ET> s = nodeEdgeMap.get(node);
-		return (s == null) ? null : new HashSet<>(s);
+		Set<ET> adjacentEdges = nodeEdgeMap.get(node);
+		return (adjacentEdges == null) ? null : new HashSet<>(adjacentEdges);
 	}
 
 	/**

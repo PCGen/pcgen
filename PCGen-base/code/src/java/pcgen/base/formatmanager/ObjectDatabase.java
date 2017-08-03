@@ -35,6 +35,9 @@ public interface ObjectDatabase
 	 *            The Class for which the object is to be returned
 	 * @param name
 	 *            The name of the object of the given class to be returned
+	 * @param <T>
+	 *            The format of the Object to be retrieved from the 
+	 *            ObjectDatabase
 	 * @return The object of the given name of the given class from the
 	 *         ObjectDatabase
 	 */
@@ -52,6 +55,9 @@ public interface ObjectDatabase
 	 * @param name
 	 *            The name of the object of the given class to be referred to by
 	 *            the returned Indirect
+	 * @param <T>
+	 *            The format of the Object referred to by the Indirect to be 
+	 *            retrieved from the ObjectDatabase
 	 * @return An Indirect referring to the object of the given name of the
 	 *         given class from the ObjectDatabase
 	 */

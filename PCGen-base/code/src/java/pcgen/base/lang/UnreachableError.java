@@ -47,6 +47,7 @@ public class UnreachableError extends Error
 	 */
 	public UnreachableError()
 	{
+		//Allow an UnreachableError with no message
 	}
 
 	/**

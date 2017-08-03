@@ -141,7 +141,7 @@ public class OrderedPair
 		catch (NumberFormatException nfe)
 		{
 			throw new IllegalArgumentException(
-				"Misunderstood first value in OrderedPair: " + value);
+				"Misunderstood first value in OrderedPair: " + value, nfe);
 		}
 		Number height;
 		try
@@ -149,10 +149,10 @@ public class OrderedPair
 			String heightString = value.substring(commaLoc + 1).trim();
 			height = NumberUtilities.getPreciseNumber(heightString);
 		}
-		catch (NumberFormatException ne)
+		catch (NumberFormatException nfe)
 		{
 			throw new IllegalArgumentException(
-				"Misunderstood second value in OrderedPair: " + value);
+				"Misunderstood second value in OrderedPair: " + value, nfe);
 		}
 		return new OrderedPair(width, height);
 	}

@@ -19,8 +19,11 @@
  */
 package pcgen.base.util;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
+
+import pcgen.base.lang.UnreachableError;
 
 /**
  * Represents a Map of objects to Lists. List management is done internally to
@@ -143,6 +146,19 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	@Override
 	protected Set<K> getEmptySet()
 	{
-		return new WrappedMapSet<>(underlyingClass);
+		try
+		{
+			@SuppressWarnings("unchecked")
+			Map<K, Boolean> map = underlyingClass.newInstance();
+			return Collections.newSetFromMap(map);
+		}
+		catch (InstantiationException e)
+		{
+			throw new UnreachableError("Constructor should have caught this", e);
+		}
+		catch (IllegalAccessException e)
+		{
+			throw new UnreachableError("Constructor should have caught this", e);
+		}
 	}
 }

@@ -64,4 +64,23 @@ public final class ListUtilities
 		return node -> !list.contains(node);
 	}
 
+	/**
+	 * Returns true if the given (non-null) List contains null as one of its values.
+	 * 
+	 * @param list
+	 *            The list to be checked to see if it contains null
+	 * @return true if the given List contains null as one of its values; false otherwise
+	 */
+	public static boolean containsNull(List<?> list)
+	{
+		for (Object o : list)
+		{
+			if (o == null)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

@@ -294,7 +294,18 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	public boolean containsAnyInList(K key, Collection<V> values)
 	{
 		List<V> list = mapToList.get(key);
-		return (list != null) && values.stream().anyMatch(list::contains);
+		if (list == null)
+		{
+			return false;
+		}
+		for (V value : values)
+		{
+			if (list.contains(value))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

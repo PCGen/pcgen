@@ -51,62 +51,30 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 		super(node1, node2);
 	}
 
-	/**
-	 * Creates a replacement DefaultDirectionalGraphEdge for this
-	 * DefaultDirectionalGraphEdge, with the replacement connected to the two
-	 * given Nodes.
-	 */
 	@Override
 	public DefaultDirectionalGraphEdge<N> createReplacementEdge(N gn1, N gn2)
 	{
 		return new DefaultDirectionalGraphEdge<>(gn1, gn2);
 	}
 
-	/**
-	 * Returns a bitmask indicating the interface type of the given Node with
-	 * respect to this DefaultDirectionalGraphEdge.
-	 */
 	@Override
-	public int getNodeInterfaceType(N node)
+	public boolean isSource(N node)
 	{
-		int interfaceType = DirectionalEdge.UNCONNECTED;
-		if (getNodeAt(0).equals(node))
-		{
-			interfaceType |= DirectionalEdge.SOURCE;
-		}
-		if (getNodeAt(1).equals(node))
-		{
-			interfaceType |= DirectionalEdge.SINK;
-		}
-		return interfaceType;
+		return getNodeAt(0).equals(node);
 	}
 
-	/**
-	 * Returns a List of the source Nodes of this DefaultDirectionalGraphEdge.
-	 * Will always return a List of length one containing only the second Node.
-	 * 
-	 * Ownership of the returned List is transferred to the calling Object. No
-	 * reference to the List Object is maintained by
-	 * DefaultDirectionalGraphEdge. However, the Nodes contained in the List are
-	 * returned BY REFERENCE, and modification of the returned Nodes will modify
-	 * the Nodes contained within the DefaultDirectionalGraphEdge.
-	 */
+	@Override
+	public boolean isSink(N node)
+	{
+		return getNodeAt(1).equals(node);
+	}
+
 	@Override
 	public List<N> getSinkNodes()
 	{
 		return Collections.singletonList(getNodeAt(1));
 	}
 
-	/**
-	 * Returns a List of the source Nodes of this DefaultDirectionalGraphEdge.
-	 * Will always return a List of length one containing only the first Node.
-	 * 
-	 * Ownership of the returned List is transferred to the calling Object. No
-	 * reference to the List Object is maintained by
-	 * DefaultDirectionalGraphEdge. However, the Nodes contained in the List are
-	 * returned BY REFERENCE, and modification of the returned Nodes will modify
-	 * the Nodes contained within the DefaultDirectionalGraphEdge.
-	 */
 	@Override
 	public List<N> getSourceNodes()
 	{

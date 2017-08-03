@@ -19,12 +19,10 @@
  */
 package pcgen.base.graph.inst;
 
-import static pcgen.base.util.ListUtilities.notContainedBy;
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.EdgeChangeEvent;
@@ -94,9 +92,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		gcs = new GraphChangeSupport<>(this);
 	}
 
-	/**
-	 * Add the given Node to the Graph.
-	 */
 	@Override
 	public boolean addNode(N v)
 	{
@@ -109,9 +104,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		return true;
 	}
 
-	/**
-	 * Adds the given Edge to the Graph.
-	 */
 	@Override
 	public boolean addEdge(ET e)
 	{
@@ -119,9 +111,10 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		{
 			return false;
 		}
-		e.getAdjacentNodes().stream()
-							.filter(notContainedBy(nodeList))
-							.forEach(this::addNode);
+		for (N node : e.getAdjacentNodes())
+		{
+			addNode(node);
+		}
 		edgeList.add(e);
 		gcs.fireGraphEdgeChangeEvent(e, EdgeChangeEvent.EDGE_ADDED);
 		return true;
@@ -169,12 +162,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		return new ArrayList<>(edgeList);
 	}
 
-	/**
-	 * Removes the given Node from the Graph.
-	 * 
-	 * As a side effect, any Edges contained within the Graph which are
-	 * connected to the given Node are also removed from the Graph.
-	 */
 	@Override
 	public boolean removeNode(N gn)
 	{
@@ -216,34 +203,9 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	@Override
 	public boolean hasAdjacentEdge(N gn)
 	{
-		if (!containsNode(gn))
-		{
-			return false;
-		}
-		for (ET ge : edgeList)
-		{
-			List<N> graphNodes = ge.getAdjacentNodes();
-			for (N node : graphNodes)
-			{
-				if (node.equals(gn))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
+		return containsNode(gn) && edgeList.stream().anyMatch(e -> e.isAdjacentNode(gn));
 	}
 
-	/**
-	 * Returns a Set of the Edges which are Adjacent (connected) to the given
-	 * Node. Returns null if the given Node is not in the Graph.
-	 * 
-	 * Ownership of the returned Set is transferred to the calling Object. No
-	 * reference to the Set Object is maintained by SimpleListGraph. However,
-	 * the Edges contained in the Set are returned BY REFERENCE, and
-	 * modification of the returned Edges will modify the Edges contained within
-	 * the SimpleListGraph.
-	 */
 	@Override
 	public Set<ET> getAdjacentEdges(N gn)
 	{
@@ -251,26 +213,11 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		{
 			return null;
 		}
-		Set<ET> adjacentEdgeList = new HashSet<>();
-		EDGEITER: for (ET ge : edgeList)
-		{
-			List<N> graphNodes = ge.getAdjacentNodes();
-			for (N node : graphNodes)
-			{
-				if (node.equals(gn))
-				{
-					adjacentEdgeList.add(ge);
-					continue EDGEITER;
-				}
-			}
-		}
-		return adjacentEdgeList;
+		return edgeList.stream()
+					   .filter(e -> e.isAdjacentNode(gn))
+					   .collect(Collectors.toSet());
 	}
 
-	/**
-	 * Adds the given GraphChangeListener as a GraphChangeListener of this
-	 * Graph.
-	 */
 	@Override
 	public void addGraphChangeListener(GraphChangeListener<N, ET> arg0)
 	{
@@ -292,10 +239,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		return gcs.getGraphChangeListeners();
 	}
 
-	/**
-	 * Removes the given GraphChangeListener as a GraphChangeListener of this
-	 * Graph.
-	 */
 	@Override
 	public void removeGraphChangeListener(GraphChangeListener<N, ET> arg0)
 	{
@@ -303,14 +246,14 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	}
 
 	/**
-	 * Tests to see if this Graph is equal to the provided Object. This will
-	 * return true if the given Object is also a Graph, and that Graph contains
-	 * equal Nodes and Edges.
+	 * Tests to see if this Graph is equal to the provided Object. This will return true
+	 * if the given Object is also a Graph (not just a SimpleListGraph), and that Graph
+	 * contains equal Nodes and Edges.
 	 * 
 	 * @param other
 	 *            The Object to be tested for equality with this Graph
-	 * @return true if the given Object is a Graph that contains equal Nodes and
-	 *         Edges to this Graph; false otherwise
+	 * @return true if the given Object is a Graph that contains equal Nodes and Edges to
+	 *         this Graph; false otherwise
 	 */
 	@Override
 	public boolean equals(Object other)
@@ -361,12 +304,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		return nodeList.size() + (edgeList.size() * 23);
 	}
 
-	/**
-	 * Returns true if this Graph is empty (has no Nodes and no Edges); false
-	 * otherwise.
-	 * 
-	 * @return true if this Graph is empty; false otherwise
-	 */
 	@Override
 	public boolean isEmpty()
 	{
@@ -374,20 +311,12 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		return nodeList.isEmpty();
 	}
 
-	/**
-	 * Returns the number of nodes in this Graph.
-	 * 
-	 * @return The number of nodes in the Graph, as an integer
-	 */
 	@Override
 	public int getNodeCount()
 	{
 		return nodeList.size();
 	}
 
-	/**
-	 * Clears this Graph, removing all Nodes and Edges from the Graph.
-	 */
 	@Override
 	public void clear()
 	{

@@ -18,7 +18,7 @@
 package pcgen.base.format;
 
 import static pcgen.base.lang.StringUtil.joining;
-import static pcgen.base.util.ArrayUtilities.arrayOfClass;
+import static pcgen.base.util.ArrayUtilities.buildOfClass;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -251,9 +251,13 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		@Override
 		public T[] get()
 		{
-			return Arrays.stream(array)
-						 .map(Indirect::get)
-						 .toArray(arrayOfClass(componentManager.getManagedClass()));
+			T[] returnArray =
+					buildOfClass(componentManager.getManagedClass()).apply(array.length);
+			for (int i = 0; i < array.length; i++)
+			{
+				returnArray[i] = array[i].get();
+			}
+			return returnArray;
 		}
 
 		@Override

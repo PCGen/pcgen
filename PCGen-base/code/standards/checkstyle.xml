@@ -13,11 +13,8 @@
   <module name="TreeWalker">
     <property name="cacheFile" value="checkstyle-cachefile"/>
     <module name="JavadocMethod">
-      <property name="scope" value="public"/>
+      <property name="scope" value="package"/>
       <property name="allowUndeclaredRTE" value="true"/>
-      <property name="allowMissingParamTags" value="true"/>
-      <property name="allowMissingReturnTag" value="true"/>
-      <property name="allowMissingPropertyJavadoc" value="true"/>
     </module>
     <module name="JavadocType"/>
     <module name="JavadocVariable">

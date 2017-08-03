@@ -33,7 +33,7 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 	/**
 	 * A Map storing the FormatManagerBuilders by (case-insensitive) name
 	 */
-	private CaseInsensitiveMap<FormatManagerFactory> builderByIdentifier =
+	private final CaseInsensitiveMap<FormatManagerFactory> builderByIdentifier =
 			new CaseInsensitiveMap<>();
 
 	/**
@@ -57,30 +57,29 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 
 	private FormatManager<?> internalGetFormatManager(String formatName)
 	{
-		FormatManagerFactory fmtManagerBuilder =
-				builderByIdentifier.get(formatName);
+		FormatManagerFactory fmtManagerBuilder = builderByIdentifier.get(formatName);
+		if (fmtManagerBuilder != null)
+		{
+			return fmtManagerBuilder.build(null, this);
+		}
 		String formatSub = null;
+		int sqBracketLoc = formatName.indexOf('[');
+		if (sqBracketLoc != -1)
+		{
+			int lengthMinusOne = formatName.length() - 1;
+			if (formatName.indexOf(']') != lengthMinusOne)
+			{
+				throw new IllegalArgumentException(
+					"Format Name must have matching open and close brackets, found: "
+						+ formatName);
+			}
+			String formatRoot = formatName.substring(0, sqBracketLoc);
+			formatSub = formatName.substring(sqBracketLoc + 1, lengthMinusOne);
+			fmtManagerBuilder = builderByIdentifier.get(formatRoot);
+		}
 		if (fmtManagerBuilder == null)
 		{
-			int sqBracketLoc = formatName.indexOf('[');
-			if (sqBracketLoc != -1)
-			{
-				int lengthMinusOne = formatName.length() - 1;
-				if (formatName.indexOf(']') != lengthMinusOne)
-				{
-					throw new IllegalArgumentException(
-						"Format Name must have matching open and close brackets, found: "
-							+ formatName);
-				}
-				String formatRoot = formatName.substring(0, sqBracketLoc);
-				formatSub =
-						formatName.substring(sqBracketLoc + 1, lengthMinusOne);
-				fmtManagerBuilder = builderByIdentifier.get(formatRoot);
-			}
-			if (fmtManagerBuilder == null)
-			{
-				return null;
-			}
+			return null;
 		}
 		return fmtManagerBuilder.build(formatSub, this);
 	}

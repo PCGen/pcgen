@@ -19,11 +19,7 @@
  */
 package pcgen.base.graph.inst;
 
-import static pcgen.base.graph.util.EdgeUtilities.edgeSinkIs;
-import static pcgen.base.graph.util.EdgeUtilities.edgeSourceIs;
-
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -98,8 +94,8 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 			return null;
 		}
 		return adjacentEdgeList.stream()
-							   .filter(edgeSinkIs(node))
-							   .collect(Collectors.toCollection(LinkedList::new));
+							   .filter(edge -> edge.isSink(node))
+							   .collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	/**
@@ -120,13 +116,10 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 			return null;
 		}
 		return adjacentEdgeList.stream()
-							   .filter(edgeSourceIs(node))
+							   .filter(edge -> edge.isSource(node))
 							   .collect(Collectors.toCollection(ArrayList::new));
 	}
 
-	/**
-	 * Returns true if the given Node is connected to any edges as a sink Node.
-	 */
 	@Override
 	public boolean hasInwardEdge(N node)
 	{
@@ -135,13 +128,16 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		{
 			return false;
 		}
-		return adjacentEdgeList.stream().anyMatch(edgeSinkIs(node));
+		for (ET edge : adjacentEdgeList)
+		{
+			if (edge.isSink(node))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
-	/**
-	 * Returns true if the given Node is connected to any edges as a source
-	 * Node.
-	 */
 	@Override
 	public boolean hasOutwardEdge(N node)
 	{
@@ -150,7 +146,14 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		{
 			return false;
 		}
-		return adjacentEdgeList.stream().anyMatch(edgeSourceIs(node));
+		for (ET edge : adjacentEdgeList)
+		{
+			if (edge.isSource(node))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

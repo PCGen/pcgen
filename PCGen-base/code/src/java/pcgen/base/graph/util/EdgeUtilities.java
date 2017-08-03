@@ -18,9 +18,7 @@
 package pcgen.base.graph.util;
 
 import java.util.function.Function;
-import java.util.function.Predicate;
 
-import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.inst.DefaultGraphEdge;
 
 /**
@@ -33,36 +31,6 @@ public final class EdgeUtilities
 	private EdgeUtilities()
 	{
 		//Don't construct a utility class
-	}
-
-	/**
-	 * Returns a Predicate that indicate if the given Node is the source of the Edge
-	 * provided to the returned Predicate.
-	 * 
-	 * @param node
-	 *            The Node to be checked to see if the Node is the source of the Edge
-	 *            provided to the returned Predicate
-	 * @return A Predicate that indicate if the given Node is the source of the Edge
-	 *         provided to the returned Predicate
-	 */
-	public static <N, ET extends DirectionalEdge<N>> Predicate<ET> edgeSourceIs(N node)
-	{
-		return edge -> (edge.getNodeInterfaceType(node) & DirectionalEdge.SOURCE) != 0;
-	}
-
-	/**
-	 * Returns a Predicate that indicate if the given Node is the sink of the Edge
-	 * provided to the returned Predicate.
-	 * 
-	 * @param node
-	 *            The Node to be checked to see if the Node is the sink of the Edge
-	 *            provided to the returned Predicate
-	 * @return A Predicate that indicate if the given Node is the sink of the Edge
-	 *         provided to the returned Predicate
-	 */
-	public static <N, ET extends DirectionalEdge<N>> Predicate<ET> edgeSinkIs(N node)
-	{
-		return edge -> (edge.getNodeInterfaceType(node) & DirectionalEdge.SINK) != 0;
 	}
 
 	/**

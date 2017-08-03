@@ -54,6 +54,8 @@ public class MappedDeque
 	 *            the Deque
 	 * @param value
 	 *            The value to be pushed onto the Deque for the given TypeKey
+	 * @param <T>
+	 *            The format of the value to be put into the Deque
 	 */
 	public <T> void push(TypedKey<T> key, T value)
 	{
@@ -70,6 +72,8 @@ public class MappedDeque
 	 * @param key
 	 *            The TypeKey for which the given value should be popped from
 	 *            the Deque
+	 * @param <T>
+	 *            The format of the value to be popped from the Deque
 	 * @return The value popped from the Deque for the given TypeKey
 	 */
 	public <T> T pop(TypedKey<T> key)
@@ -92,6 +96,8 @@ public class MappedDeque
 	 * 
 	 * @param key
 	 *            The TypeKey for which the top value should be returned
+	 * @param <T>
+	 *            The format of the value to be returned from the Deque
 	 * @return The top value of the Deque for the given TypedKey
 	 */
 	public <T> T peek(TypedKey<T> key)
@@ -122,6 +128,9 @@ public class MappedDeque
 	 * @param value
 	 *            The value to be set as the top value on the Deque for the
 	 *            given TypeKey
+	 * @param <T>
+	 *            The format of the value to be set as the top value in the
+	 *            Deque
 	 */
 	public <T> void set(TypedKey<T> key, T value)
 	{
@@ -145,6 +154,7 @@ public class MappedDeque
 	/**
 	 * Unwraps the null object, since Deque does not support null values
 	 */
+	@SuppressWarnings("PMD.CompareObjectsWithEquals")
 	private static Object unwrap(Object o)
 	{
 		return (NULL == o) ? null : o;
@@ -153,6 +163,7 @@ public class MappedDeque
 	/**
 	 * Wraps the null object, since Deque does not support null values
 	 */
+	@SuppressWarnings("PMD.CompareObjectsWithEquals")
 	private static Object wrap(Object o)
 	{
 		return (o == null) ? NULL : o;

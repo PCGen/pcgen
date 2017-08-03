@@ -21,6 +21,8 @@ import java.util.function.Supplier;
 /**
  * Interface to provide feedback on complex operations that either return a value, or
  * deserve a message that describes whey they failed (without throwing an exception).
+ * 
+ * @param <T> The format of the object returned by this ComplexResult
  */
 public interface ComplexResult<T> extends Supplier<T> 
 {

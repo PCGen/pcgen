@@ -22,9 +22,9 @@ package pcgen.base.graph.inst;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 import pcgen.base.graph.base.NonDirectionalEdge;
+import pcgen.base.util.ListUtilities;
 
 /**
  * A DefaultHyperEdge is a default implementation of a non-directional
@@ -68,49 +68,30 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 			throw new IllegalArgumentException(
 				"GraphNode List of DefaultHyperEdge cannot be empty");
 		}
-		if (this.nodes.stream().anyMatch(Objects::isNull))
+		if (ListUtilities.containsNull(this.nodes))
 		{
 			throw new IllegalArgumentException("Node List contains null");
 		}
 	}
 
-	/**
-	 * Returns the node at the given index.
-	 */
 	@Override
 	public N getNodeAt(int index)
 	{
 		return nodes.get(index);
 	}
 
-	/**
-	 * Returns the List of Adjacent (connected) Nodes to this DefaultHyperEdge.
-	 * 
-	 * Ownership of the returned List is transferred to the calling Object. No
-	 * reference to the List Object is maintained by DefaultHyperEdge. However,
-	 * the Nodes contained in the List are returned BY REFERENCE, and
-	 * modification of the returned Nodes will modify the nodes contained within
-	 * the DefaultHyperEdge.
-	 */
 	@Override
 	public List<N> getAdjacentNodes()
 	{
 		return new ArrayList<>(nodes);
 	}
 
-	/**
-	 * Returns true if the given Node is adjacent (connected) to this
-	 * DefaultHyperEdge; false otherwise.
-	 */
 	@Override
 	public boolean isAdjacentNode(N node)
 	{
 		return nodes.contains(node);
 	}
 
-	/**
-	 * Returns the number of Nodes to which this DefaultHyperEdge is connected.
-	 */
 	@Override
 	public int getAdjacentNodeCount()
 	{
@@ -122,11 +103,6 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 		return nodes.size();
 	}
 
-	/**
-	 * Creates a replacement DefaultHyperEdge for this DefaultHyperEdge, with
-	 * the replacement connected to the Nodes in the given Collection. The
-	 * Collection must not be empty or null.
-	 */
 	@Override
 	public DefaultHyperEdge<N> createReplacementEdge(Collection<N> newNodes)
 	{

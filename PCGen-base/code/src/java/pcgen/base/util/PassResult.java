@@ -22,17 +22,17 @@ import java.util.Collections;
  * PassResult contains a shortcut ComplexResult response for a successful set of
  * processing (returns TRUE with no messages)
  */
-public class PassResult
+public final class PassResult
 {
-	private PassResult()
-	{
-		//Don't construct utility class
-	}
-
 	/**
 	 * Object to be returned from operations that succeeded with no messages.
 	 */
 	public static final OperationSuccessful SUCCESS = new OperationSuccessful();
+
+	private PassResult()
+	{
+		//Don't construct utility class
+	}
 
 	/**
 	 * Represents successful processing of an operation (return TRUE with no messages).

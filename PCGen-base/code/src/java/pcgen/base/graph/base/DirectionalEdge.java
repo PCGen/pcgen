@@ -51,6 +51,50 @@ public interface DirectionalEdge<N> extends Edge<N>
 	public static final int SINK = 2;
 
 	/**
+	 * Returns true if the given Node is a source for this DirectionalEdge.
+	 * 
+	 * @param node
+	 *            The node to be checked if it is a source for this DirectionalEdge.
+	 * @return true if the given Node is a source for this DirectionalEdge; false
+	 *         otherwise
+	 */
+	public boolean isSource(N node);
+
+	/**
+	 * Returns true if the given Node is a sink for this DirectionalEdge.
+	 * 
+	 * @param node
+	 *            The node to be checked if it is a sink for this DirectionalEdge.
+	 * @return true if the given Node is a sink for this DirectionalEdge; false
+	 *         otherwise
+	 */
+	public boolean isSink(N node);
+
+	/**
+	 * Returns a List of the Source Nodes of this DirectionalEdge.
+	 * 
+	 * Ownership of the returned List must be transferred to the calling Object. No
+	 * reference to the List Object may be maintained by the DirectionalEdge. However, the
+	 * Nodes contained in the List are returned BY REFERENCE, and modification of the
+	 * returned Nodes will modify the Nodes contained within the DirectionalEdge.
+	 * 
+	 * @return A List of the Source Nodes of this DirectionalEdge
+	 */
+	public List<N> getSourceNodes();
+
+	/**
+	 * Returns a List of the Sink Nodes of this DirectionalEdge.
+	 * 
+	 * Ownership of the returned List must be transferred to the calling Object. No
+	 * reference to the List Object may be maintained by the DirectionalEdge. However, the
+	 * Nodes contained in the List are returned BY REFERENCE, and modification of the
+	 * returned Nodes will modify the Nodes contained within the DirectionalEdge.
+	 * 
+	 * @return A List of the Sink Nodes of this DirectionalEdge
+	 */
+	public List<N> getSinkNodes();
+	
+	/**
 	 * Returns an identifier indicating the association between this
 	 * DirectionalEdge and the given Node. Returns 0 (zero) if this
 	 * DirectionalEdge is not attached to the given Node. If attached, the
@@ -63,19 +107,18 @@ public interface DirectionalEdge<N> extends Edge<N>
 	 * @return A bitmask indicating the interface type between this
 	 *         DirectionalEdge and the given Node
 	 */
-	public int getNodeInterfaceType(N node);
+	public default int getNodeInterfaceType(N node)
+	{
+		int interfaceType = DirectionalEdge.UNCONNECTED;
+		if (isSource(node))
+		{
+			interfaceType |= DirectionalEdge.SOURCE;
+		}
+		if (isSink(node))
+		{
+			interfaceType |= DirectionalEdge.SINK;
+		}
+		return interfaceType;
+	}
 
-	/**
-	 * Returns a List of the Source Nodes of this DirectionalEdge.
-	 * 
-	 * @return A List of the Source Nodes of this DirectionalEdge
-	 */
-	public List<N> getSourceNodes();
-
-	/**
-	 * Returns a List of the Sink Nodes of this DirectionalEdge.
-	 * 
-	 * @return A List of the Sink Nodes of this DirectionalEdge
-	 */
-	public List<N> getSinkNodes();
 }

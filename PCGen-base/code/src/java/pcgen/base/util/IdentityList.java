@@ -52,7 +52,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * Createss a new IdentityList which will be initialized with the contents
+	 * Creates a new IdentityList which will be initialized with the contents
 	 * of the given List.
 	 * 
 	 * @param list
@@ -64,31 +64,16 @@ public class IdentityList<T> implements List<T>
 		addAll(list);
 	}
 
-	/**
-	 * Internal class used to convert an object to the Identity wrapper for that
-	 * object.
-	 * 
-	 * @param <V>
-	 *            The type of object for which the identity is being returned
-	 * @param value
-	 *            The value for which the identity is being returned
-	 * @return The Identity object for the given parameter
-	 */
-	private static <V> Identity<V> getIdentity(V value)
-	{
-		return new Identity<>(value);
-	}
-
 	@Override
 	public void add(int index, T element)
 	{
-		embeddedList.add(index, getIdentity(element));
+		embeddedList.add(index, Identity.valueOf(element));
 	}
 
 	@Override
 	public final boolean add(T element)
 	{
-		return embeddedList.add(getIdentity(element));
+		return embeddedList.add(Identity.valueOf(element));
 	}
 
 	@Override
@@ -118,7 +103,7 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public boolean contains(Object element)
 	{
-		return embeddedList.contains(getIdentity(element));
+		return embeddedList.contains(Identity.valueOf(element));
 	}
 
 	@Override
@@ -126,7 +111,7 @@ public class IdentityList<T> implements List<T>
 	{
 		for (Object element : collection)
 		{
-			if (!embeddedList.contains(getIdentity(element)))
+			if (!embeddedList.contains(Identity.valueOf(element)))
 			{
 				return false;
 			}
@@ -156,7 +141,7 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public int indexOf(Object element)
 	{
-		return embeddedList.indexOf(getIdentity(element));
+		return embeddedList.indexOf(Identity.valueOf(element));
 	}
 
 	@Override
@@ -174,7 +159,7 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public int lastIndexOf(Object element)
 	{
-		return embeddedList.lastIndexOf(getIdentity(element));
+		return embeddedList.lastIndexOf(Identity.valueOf(element));
 	}
 
 	@Override
@@ -198,7 +183,7 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public boolean remove(Object element)
 	{
-		return embeddedList.remove(getIdentity(element));
+		return embeddedList.remove(Identity.valueOf(element));
 	}
 
 	@Override
@@ -221,7 +206,7 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public T set(int index, T element)
 	{
-		return embeddedList.set(index, getIdentity(element)).getUnderlying();
+		return embeddedList.set(index, Identity.valueOf(element)).getUnderlying();
 	}
 
 	@Override
@@ -253,64 +238,13 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * An object used to wrap an object to ensure checks are done with identity
-	 * (==) not equality (.equals()).
-	 * 
-	 * @param <T>
-	 *            The type of object underlying this Identity
-	 */
-	private static final class Identity<T>
-	{
-
-		/**
-		 * The underlying item for this Identity.
-		 */
-		private final T underlying;
-
-		/**
-		 * Constructs a new Identity with the given underlying item.
-		 * 
-		 * @param item
-		 *            The underlying item for this Identity
-		 */
-		private Identity(T item)
-		{
-			underlying = item;
-		}
-
-		@Override
-		public boolean equals(Object obj)
-		{
-			return (obj instanceof Identity)
-				&& (((Identity<?>) obj).underlying == underlying);
-		}
-
-		@Override
-		public int hashCode()
-		{
-			return underlying.hashCode();
-		}
-
-		/**
-		 * Returns the object underlying this Identity.
-		 * 
-		 * @return The object underlying this Identity
-		 */
-		public T getUnderlying()
-		{
-			return underlying;
-		}
-
-	}
-
-	/**
 	 * An Iterator used to dynamically wrap and unwrap objects inside of
 	 * Identity.
 	 * 
 	 * @param <I>
 	 *            The type of object underlying this IdentityIterator
 	 */
-	private final class IdentityIterator<I> implements ListIterator<I>
+	private static final class IdentityIterator<I> implements ListIterator<I>
 	{
 		/**
 		 * The ListIterator underlying this IdentityIterator.
@@ -332,7 +266,7 @@ public class IdentityList<T> implements List<T>
 		@Override
 		public void add(I item)
 		{
-			iter.add(getIdentity(item));
+			iter.add(Identity.valueOf(item));
 		}
 
 		@Override
@@ -380,7 +314,7 @@ public class IdentityList<T> implements List<T>
 		@Override
 		public void set(I item)
 		{
-			iter.set(getIdentity(item));
+			iter.set(Identity.valueOf(item));
 		}
 
 	}

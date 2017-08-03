@@ -25,8 +25,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.base.DirectionalHyperEdge;
+import pcgen.base.util.ListUtilities;
 
 /**
  * A DefaultDirectionalHyperEdge is a default implementation of a
@@ -116,17 +116,13 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		 */
 		List<N> returnList = new ArrayList<>(nodes.size());
 		returnList.addAll(nodes);
-		
-		if (returnList.stream().anyMatch(Objects::isNull))
+		if (ListUtilities.containsNull(returnList))
 		{
 			throw new IllegalArgumentException("List contains null");
 		}
 		return returnList;
 	}
 
-	/**
-	 * Returns the Node at the given index.
-	 */
 	@Override
 	public N getNodeAt(int index)
 	{
@@ -142,16 +138,6 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		throw new IndexOutOfBoundsException();
 	}
 
-	/**
-	 * Returns a List of the Nodes which are adjacent (connected) to this
-	 * DefaultDirectionalHyperEdge.
-	 * 
-	 * Ownership of the returned List is transferred to the calling Object. No
-	 * reference to the List Object is maintained by
-	 * DefaultDirectionalHyperEdge. However, the Edges contained in the List are
-	 * returned BY REFERENCE, and modification of the returned Edges will modify
-	 * the Edges contained within the DefaultDirectionalHyperEdge.
-	 */
 	@Override
 	public List<N> getAdjacentNodes()
 	{
@@ -167,22 +153,11 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		return returnList;
 	}
 
-	/**
-	 * Returns true if the given Node is adjacent (connected) to this
-	 * DefaultDirectionalHyperEdge.
-	 */
 	@Override
 	public boolean isAdjacentNode(N node)
 	{
-		if ((sourceNodes != null) && sourceNodes.contains(node))
-		{
-			return true;
-		}
-		if ((sinkNodes != null) && sinkNodes.contains(node))
-		{
-			return true;
-		}
-		return false;
+		return ((sourceNodes != null) && sourceNodes.contains(node))
+			|| ((sinkNodes != null) && sinkNodes.contains(node));
 	}
 
 	/*
@@ -195,10 +170,6 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * get lists? Should the source/sink/both be a separate list/array?
 	 */
 
-	/**
-	 * Returns a count of the number of adjacent (connected) Nodes to this
-	 * DefaultDirectionalHyperEdge.
-	 */
 	@Override
 	public int getAdjacentNodeCount()
 	{
@@ -215,64 +186,30 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 			.count();
 	}
 
-	/**
-	 * Returns a bitmask indicating the interface type of the given Node with
-	 * respect to this DefaultDirectionalHyperEdge.
-	 */
 	@Override
-	public int getNodeInterfaceType(N node)
+	public boolean isSource(N node)
 	{
-		int type = 0;
-		if ((sourceNodes != null) && sourceNodes.contains(node))
-		{
-			type |= DirectionalEdge.SOURCE;
-		}
-		if ((sinkNodes != null) && sinkNodes.contains(node))
-		{
-			type |= DirectionalEdge.SINK;
-		}
-		return type;
+		return (sourceNodes != null) && sourceNodes.contains(node);
 	}
 
-	/**
-	 * Returns a List of the sink Nodes of this DefaultDirectionalHyperEdge.
-	 * Will return null if there are no sink Nodes.
-	 * 
-	 * Ownership of the returned List is transferred to the calling Object. No
-	 * reference to the List Object is maintained by
-	 * DefaultDirectionalHyperEdge. However, the Edges contained in the List are
-	 * returned BY REFERENCE, and modification of the returned Edges will modify
-	 * the Edges contained within the DefaultDirectionalHyperEdge.
-	 */
+	@Override
+	public boolean isSink(N node)
+	{
+		return (sinkNodes != null) && sinkNodes.contains(node);
+	}
+
 	@Override
 	public List<N> getSinkNodes()
 	{
 		return (sinkNodes == null) ? null : new ArrayList<>(sinkNodes);
 	}
 
-	/**
-	 * Returns a List of the source Nodes of this DefaultDirectionalHyperEdge.
-	 * Will return null if there are no source Nodes.
-	 * 
-	 * Ownership of the returned List is transferred to the calling Object. No
-	 * reference to the List Object is maintained by
-	 * DefaultDirectionalHyperEdge. However, the Nodes contained in the List are
-	 * returned BY REFERENCE, and modification of the returned Nodes will modify
-	 * the Nodes contained within the DefaultDirectionalHyperEdge.
-	 */
 	@Override
 	public List<N> getSourceNodes()
 	{
 		return (sourceNodes == null) ? null : new ArrayList<>(sourceNodes);
 	}
 
-	/**
-	 * Creates a replacement DefaultDirectionalHyperEdge with the given Nodes as
-	 * source Nodes and Sink Nodes. Either parameter individually may be null or
-	 * an empty Collection; the only restriction is that both Collections cannot
-	 * be null or empty. (A DefaultDirectionalHyperEdge must connect to at least
-	 * one Node)
-	 */
 	@Override
 	public DefaultDirectionalHyperEdge<N> createReplacementEdge(
 		Collection<N> newSourceNodes, Collection<N> newSinkNodes)

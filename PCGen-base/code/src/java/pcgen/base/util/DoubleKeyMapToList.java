@@ -363,7 +363,9 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	{
 		// Need to 'clone' the Set, since Map returns a set that is still
 		// associated with the Map
-		return new WrappedMapSet<>(firstClass, mtmtl.keySet());
+		Set<K1> set = Collections.newSetFromMap(createGlobalMap());
+		set.addAll(mtmtl.keySet());
+		return set;
 	}
 
 	/**
@@ -535,7 +537,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @return a new primary map
 	 */
 	@SuppressWarnings("unchecked")
-	private Map<K1, MapToList<K2, V>> createGlobalMap()
+	private <MV> Map<K1, MV> createGlobalMap()
 	{
 		try
 		{

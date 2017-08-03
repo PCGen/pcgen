@@ -227,7 +227,14 @@ public class ListSet<T> extends AbstractSet<T>
 		}
 		@SuppressWarnings("unchecked")
 		T comp = (T) element;
-		return list.stream().anyMatch(l -> (comparator.compare(comp, l) == 0));
+		for (T object : list)
+		{
+			if (comparator.compare(comp, object) == 0)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

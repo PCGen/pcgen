@@ -44,6 +44,11 @@ public interface Edge<N>
 	/**
 	 * Returns a List of the Nodes which are adjacent (connected) to the Edge.
 	 * 
+	 * Ownership of the returned List must be transferred to the calling Object. No
+	 * reference to the List Object may be maintained by the Edge. However, the Nodes
+	 * contained in the List are returned BY REFERENCE, and modification of the returned
+	 * Nodes will modify the Nodes contained within the Edge.
+	 * 
 	 * @return The List of Nodes which are adjacent to the Edge
 	 */
 	public List<N> getAdjacentNodes();

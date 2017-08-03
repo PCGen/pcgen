@@ -29,14 +29,21 @@
   </rule>
   <rule ref="rulesets/java/codesize.xml" />
   <!--<rule ref="rulesets/java/comments.xml" />-->
-  <!--<rule ref="rulesets/controversial.xml />-->
+  <!--<rule ref="rulesets/java/controversial.xml />-->
   <rule ref="rulesets/java/coupling.xml">
     <exclude name="LoosePackageCoupling" />
     <exclude name="CouplingBetweenObjects" />
     <exclude name="ExcessiveImports" />
     <exclude name="LawOfDemeter" />
   </rule>
-  <!--<rule ref="rulesets/java/design.xml" />-->
+  <rule ref="rulesets/java/design.xml">
+    <exclude name="AccessorMethodGeneration" />
+    <exclude name="AccessorClassGeneration" />
+    <exclude name="SimplifyBooleanReturns" />
+    <exclude name="AvoidSynchronizedAtMethodLevel" />
+    <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
+    <exclude name="UseVarargs" />
+  </rule>
   <rule ref="rulesets/java/empty.xml">
     <exclude name="EmptyCatchBlock" />
     <exclude name="EmptyIfStmt" />
@@ -61,11 +68,23 @@
   <!--<rule ref="rulesets/java/jakarta.xml" />-->
   <rule ref="rulesets/java/logging-jakarta-commons.xml" />
   <rule ref="rulesets/java/logging-java.xml" />
-  <!--<rule ref="rulesets/java/migrating.xml" />-->
+  <rule ref="rulesets/java/migrating.xml">
+    <exclude name="IntegerInstantiation" />
+    <exclude name="ReplaceVectorWithList" />
+    <exclude name="ReplaceHashtableWithMap" />
+    <exclude name="ReplaceEnumerationWithIterator" />
+    <exclude name="JUnit4TestShouldUseBeforeAnnotation" />
+    <exclude name="JUnit4TestShouldUseAfterAnnotation" />
+    <exclude name="JUnit4TestShouldUseTestAnnotation" />
+    <exclude name="JUnit4SuitesShouldUseSuiteAnnotation" />
+    <exclude name="JUnitUseExpected" />
+  </rule>
   <!--<rule ref="rulesets/java/naming.xml" />-->
   <rule ref="rulesets/java/optimizations.xml">
     <exclude name="RedundantFieldInitializer" />
+    <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
     <exclude name="MethodArgumentCouldBeFinal" />
+    <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
     <exclude name="LocalVariableCouldBeFinal" />
   </rule>
   <rule ref="rulesets/java/strictexception.xml" />
@@ -75,11 +94,15 @@
     <exclude name="AppendCharacterWithChar" />
     <exclude name="ConsecutiveLiteralAppends" />
     <exclude name="AvoidStringBufferField" />
+    <!-- This is excluded because it's a micro-optimization (JIT compilation would eliminate the performance penalty) and enforcing it encourages writing less readable code -->
+    <exclude name="ConsecutiveAppendsShouldReuse" />
   </rule>
   <!--<rule ref="rulesets/java/sunsecure.xml">-->
   <rule ref="rulesets/java/typeresolution.xml" />
   <rule ref="rulesets/java/unnecessary.xml">
+    <!-- This is excluded because we use "useless" parenthesis for readability -->
     <exclude name="UselessParentheses" />
+    <!-- This is excluded because we use "public" in Interfaces almost universally (as a semantic hint as to its real behavior) -->
     <exclude name="UnnecessaryModifier" />
   </rule>
   <rule ref="rulesets/java/unusedcode.xml" />

@@ -50,20 +50,6 @@ public class DirectionalSetMapGraphTest extends
 			super(v1, v2);
 		}
 
-		@Override
-		public int getNodeInterfaceType(Integer node)
-		{
-			if (getNodeAt(0).equals(node))
-			{
-				return DirectionalEdge.SOURCE;
-			}
-			else if (getNodeAt(1).equals(node))
-			{
-				return DirectionalEdge.SINK;
-			}
-			return 0;
-		}
-
 		public DirectionalEdge<Integer> createReplacementEdge(
 			Collection<Integer> gn1, Collection<Integer> gn2)
 		{
@@ -83,6 +69,18 @@ public class DirectionalSetMapGraphTest extends
 		{
 			// TODO Auto-generated method stub
 			return null;
+		}
+
+		@Override
+		public boolean isSource(Integer node)
+		{
+			return getNodeAt(0).equals(node);
+		}
+
+		@Override
+		public boolean isSink(Integer node)
+		{
+			return getNodeAt(1).equals(node);
 		}
 	}
 

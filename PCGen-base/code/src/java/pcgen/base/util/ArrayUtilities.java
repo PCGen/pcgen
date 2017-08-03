@@ -19,7 +19,7 @@ import java.lang.reflect.Array;
 import java.util.function.IntFunction;
 
 /**
- * ListUtilities is a utility class designed to provide utility methods when working with
+ * ArrayUtilities is a utility class designed to provide utility methods when working with
  * Arrays.
  */
 public final class ArrayUtilities
@@ -41,11 +41,25 @@ public final class ArrayUtilities
 	 * @param <T>
 	 *            The component type of the Array to be generated
 	 */
-	public static <T> IntFunction<T[]> arrayOfClass(Class<T> arrayClass)
+	@SuppressWarnings("unchecked")
+	public static <T> IntFunction<T[]> buildOfClass(Class<T> arrayClass)
 	{
-		@SuppressWarnings("unchecked")
-		IntFunction<T[]> ftn = size -> (T[]) Array.newInstance(arrayClass, size);
-		return ftn;
+		return size -> (T[]) Array.newInstance(arrayClass, size);
+	}
+
+	/**
+	 * Returns an empty (and properly-cast) Array of a given Class
+	 * 
+	 * @param componentClass
+	 *            The Class for which an empty Array will be built
+	 * @param <T>
+	 *            The format of the class for which the empty array will be built
+	 * @return An empty (and properly-cast) Array of a given Class
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T[] buildEmpty(Class<T> componentClass)
+	{
+		return (T[]) Array.newInstance(componentClass, 0);
 	}
 
 	/**

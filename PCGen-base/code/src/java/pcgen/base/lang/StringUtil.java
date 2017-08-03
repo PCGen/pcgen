@@ -23,6 +23,7 @@ package pcgen.base.lang;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -60,18 +61,30 @@ public final class StringUtil
 	 * @param collection
 	 *            An Collection of objects
 	 * @param separator
-	 *            The separating string
+	 *            The separating character
+	 * @return A 'separator' separated String
+	 */
+	public static String join(Collection<?> collection, char separator)
+	{
+		return joinToStringBuilder(collection, separator).toString();
+	}
+	
+	/**
+	 * Concatenates the Collection of Objects (converted to Strings using
+	 * .toString()) into a String using the separator as the delimiter.
+	 * 
+	 * This method is value-semantic and will not modify or maintain a reference
+	 * to the given Collection of Objects.
+	 * 
+	 * @param collection
+	 *            An Collection of objects
+	 * @param separator
+	 *            The separating String
 	 * @return A 'separator' separated String
 	 */
 	public static String join(Collection<?> collection, String separator)
 	{
-		if (collection == null)
-		{
-			return "";
-		}
-		return collection.stream()
-						 .map(Object::toString)
-						 .collect(Collectors.joining(separator));
+		return joinToStringBuilder(collection, separator).toString();
 	}
 
 	/**
@@ -87,6 +100,27 @@ public final class StringUtil
 	 *            An Collection of objects
 	 * @param separator
 	 *            The separating character
+	 * @return A 'separator' separated StringBuilder
+	 */
+	public static StringBuilder joinToStringBuilder(Collection<?> collection,
+		char separator)
+	{
+		return joinToStringBuilder(collection, Character.toString(separator));
+	}
+
+	/**
+	 * Concatenates the Collection of Objects (converted to Strings using
+	 * .toString()) into a StringBuilder using the separator as the delimiter.
+	 * 
+	 * This method is value-semantic and will not modify or maintain a reference
+	 * to the given Collection of Objects. Ownership of the returned
+	 * StringBuilder is transferred to the calling object. No reference to the
+	 * StringBuilder is maintained by StringUtil.
+	 * 
+	 * @param collection
+	 *            An Collection of objects
+	 * @param separator
+	 *            The separating String
 	 * @return A 'separator' separated StringBuilder
 	 */
 	public static StringBuilder joinToStringBuilder(Collection<?> collection,
@@ -250,6 +284,40 @@ public final class StringUtil
 	public static Collector<CharSequence, ?, String> joining(char separator)
 	{
 		return Collectors.joining(Character.toString(separator));
+	}
+	
+	/**
+	 * Returns true if the given value has "Valid" separators. This means it does not
+	 * start with or end with separators. It also means it does not have two subsequent
+	 * separators without any intervening text.
+	 * 
+	 * @param value
+	 *            The String to be checked if the separators are valid
+	 * @param separator
+	 *            The separator character to be checked
+	 * @return true if the given value has "Valid" separators; false otherwise
+	 */
+	public static boolean hasValidSeparators(String value, char separator)
+	{
+		//assume not empty due to checks on instructions
+		return (value.charAt(0) != separator)
+			&& (value.charAt(value.length() - 1) != separator)
+			&& (!value.contains(String.valueOf(new char[]{separator, separator})));
+	}
+
+	/**
+	 * Splits the given String with the given separator character.
+	 * 
+	 * @param inputStr
+	 *            The input String to be split
+	 * @param separator
+	 *            The separator character for how the split should occur
+	 * @return An array of String containing the String elements of the input String as
+	 *         split on the given separator character
+	 */
+	public static String[] split(String inputStr, char separator)
+	{
+		return inputStr.split(Pattern.quote(Character.toString(separator)));
 	}
 
 }
