@@ -14,7 +14,7 @@ checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
 	showViolations = false
-	toolVersion = '8.0'
+	toolVersion = '8.1'
 	sourceSets = []
 }
 
@@ -50,14 +50,19 @@ tasks.withType(FindBugs) {
 	}
 }
 
-gradleLint.rules = [
-	'dependency-parentheses',
-	'unused-exclude-by-dep',
-	'unused-exclude-by-conf',
-	'rename-nebula-stash',
-	'overridden-dependency-version',
-	'archaic-wrapper',
-	'all-nebula-renames',
-]
+gradleLint {
+	rules = [
+		'dependency-parentheses',
+		'unused-exclude-by-dep',
+		'unused-exclude-by-conf',
+		'rename-nebula-stash',
+		'overridden-dependency-version',
+		'all-nebula-renames',
+	]
+	criticalRules = [
+		'archaic-wrapper'
+	]
+	autoLintAfterFailure = false
+}
 
 task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain', 'lintGradle'] }

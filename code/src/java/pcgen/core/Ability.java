@@ -39,7 +39,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  */
 @SuppressWarnings("serial")
 public final class Ability extends PObject implements Categorized<Ability>,
-		AbilityFacade
+		AbilityFacade, Cloneable
 {
 	/**
 	 * Get the category of this ability

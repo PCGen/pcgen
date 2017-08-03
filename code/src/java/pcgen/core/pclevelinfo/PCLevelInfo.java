@@ -305,9 +305,11 @@ public final class PCLevelInfo implements Cloneable
 	}
 
 	@Override
-	public PCLevelInfo clone()
+	public PCLevelInfo clone() throws CloneNotSupportedException
 	{
-		PCLevelInfo clone = new PCLevelInfo(classKeyName);
+		PCLevelInfo clone = (PCLevelInfo) super.clone();
+		clone.classKeyName = this.classKeyName;
+
 		if (statsPostModified != null)
 		{
 			for ( PCLevelInfoStat stat : statsPostModified )
