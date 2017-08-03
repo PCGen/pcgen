@@ -6,6 +6,15 @@
     <property name="severity" value="error"/>
     <module name="UpperEll"/>
     <module name="IllegalImport"/>
+    <module name="RedundantImport"/>
+    <module name="ModifierOrder"/>
+    <module name="LineLength">
+    <module name="IllegalImport"/>
+      <property name="max" value="400"/>
+    </module>
+  </module>
+  <module name="NewlineAtEndOfFile">
+    <property name="severity" value="error"/>
   </module>
   <module name="TreeWalker">
     <property name="severity" value="warning"/>
@@ -30,11 +39,6 @@
     <module name="StaticVariableName"/>
     <module name="TypeName"/>
     <module name="AvoidStarImport"/>
-    <module name="RedundantImport"/>
-    <module name="UnusedImports"/>
-    <module name="LineLength">
-      <property name="max" value="120"/>
-    </module>
     <module name="MethodLength"/>
     <module name="ParameterNumber"/>
     <module name="EmptyForIteratorPad"/>
@@ -48,7 +52,6 @@
     <module name="WhitespaceAround">
       <property name="tokens" value="ASSIGN"/>
     </module>
-    <module name="ModifierOrder"/>
     <module name="AvoidNestedBlocks"/>
     <module name="EmptyBlock"/>
     <module name="LeftCurly">
@@ -78,6 +81,5 @@
       <property name="severity" value="info"/>
     </module>
   </module>
-  <module name="NewlineAtEndOfFile"/>
   <module name="Translation"/>
 </module>

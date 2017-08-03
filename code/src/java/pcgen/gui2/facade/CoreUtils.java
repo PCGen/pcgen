@@ -245,7 +245,7 @@ class CoreUtils
 		
 	}
 
-	private static class ObjectCoreViewNode<T> extends CoreViewNodeBase
+	private static final class ObjectCoreViewNode<T> extends CoreViewNodeBase
 	{
 
 		private final T object;

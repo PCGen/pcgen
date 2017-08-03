@@ -62,7 +62,7 @@ public class PrerequisiteWriter
 	 * @return The .lst-compatible string representation of the prerequisite
 	 *         list.
 	 */
-	static public String prereqsToString(final PrereqObject pObj)
+	public static String prereqsToString(final PrereqObject pObj)
 	{
 		if (pObj.hasPrerequisites())
 		{

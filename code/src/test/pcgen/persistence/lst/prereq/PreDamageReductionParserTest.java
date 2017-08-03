@@ -18,15 +18,15 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 import plugin.pretokens.parser.PreDamageReductionParser;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 
 @SuppressWarnings("nls")
@@ -65,7 +65,12 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 				parser.parse("DR", "1,Evil=5,Magic.10", false, false);
 
 		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" operator=\"GTEQ\" operand=\"10\" >\n</prereq>\n</prereq>\n",
+				"<prereq operator=\"GTEQ\" operand=\"1\" >\n" +
+						"<prereq kind=\"dr\" key=\"Evil\" operator=\"GTEQ\" operand=\"5\" >\n" +
+						"</prereq>\n" +
+						"<prereq kind=\"dr\" key=\"Magic\" operator=\"GTEQ\" operand=\"10\" >\n" +
+						"</prereq>\n" +
+						"</prereq>\n",
 			prereq.toString());
 	}
 

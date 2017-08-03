@@ -20,14 +20,16 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.util.List;
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 /**
  * A collection of tests to validate the functioning of the BioSetLoader class.
@@ -39,15 +41,18 @@ public final class BioSetLoaderTest extends TestCase
 	/**
 	 * The sample Bio set data for testing.
 	 */
-	private final static String[] BIO_SET_DATA =
-			new String[]{
+	private static final String[] BIO_SET_DATA =
+			{
 				"AGESET:0|Adulthood",
 				"RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
 				"RACENAME:Human%		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
 				"RACENAME:Human%		BASEAGE:15	MAXAGE:34	AGEDIEROLL:5d4	HAIR:Blond|Brown	EYES:Blue	SKINTONE:Tanned|Pasty",
 				"RACENAME:Half-Elf%	CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d6]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:2d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:3d6]",
 				"RACENAME:Half-Elf%	SEX:Male[BASEHT:55|HTDIEROLL:2d8|BASEWT:100|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d8|BASEWT:80|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
-				"RACENAME:Half-Elf%	BASEAGE:20	MAXAGE:61	AGEDIEROLL:7d6	HAIR:White|Pale Yellow|Silver-White|Black|Blue|Golden Blonde|Copper|Brown	EYES:Violet|Silver|Pink|Pale Blue|Gold-flecked Green|Gold-flecked Blue|Green|Gold|Brown|Hazel	SKINTONE:Obsidian|Fair|Tanned|Pasty|Bronze|Dark Brown|Copper",
+				"RACENAME:Half-Elf%	BASEAGE:20	MAXAGE:61	AGEDIEROLL:7d6	HAIR:White|Pale "
+						+ "Yellow|Silver-White|Black|Blue|Golden Blonde|Copper|Brown	EYES:Violet|Silver|Pink|Pale "
+						+ "Blue|Gold-flecked Green|Gold-flecked Blue|Green|Gold|Brown|Hazel	"
+						+ "SKINTONE:Obsidian|Fair|Tanned|Pasty|Bronze|Dark Brown|Copper",
 				"AGESET:1|Middle Age	BONUS:STAT|STR,CON,DEX|-1	BONUS:STAT|INT,WIS,CHA|1",
 				"RACENAME:Human%		BASEAGE:35	MAXAGE:52	AGEDIEROLL:3d6",
 				"RACENAME:Half-Elf%	BASEAGE:62	MAXAGE:92	AGEDIEROLL:5d6",
@@ -71,7 +76,7 @@ public final class BioSetLoaderTest extends TestCase
 	/**
 	 * The base race used in the bio set data.
 	 */
-	private final static String[] BASE_RACE_NAME =
+	private static final String[] BASE_RACE_NAME =
 			new String[]{"Human", "Dwarf", "Half-Elf"};
 
 	private BioSetLoader loader;

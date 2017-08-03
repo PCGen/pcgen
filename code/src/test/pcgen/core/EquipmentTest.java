@@ -122,13 +122,19 @@ public class EquipmentTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"+1 (Enhancement to Weapon or Ammunition)	KEY:PLUS1W	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+1	TYPE:Ammunition.Weapon	PLUS:1	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1	SOURCEPAGE:RSRD SpecialMaterials.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:NO",
+				"+1 (Enhancement to Weapon or Ammunition)	KEY:PLUS1W	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+1	"
+						+ "TYPE:Ammunition.Weapon	PLUS:1	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1"
+						+ "	SOURCEPAGE:RSRD SpecialMaterials.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	"
+						+ "ASSIGNTOALL:NO",
 				source);
 		loader
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
+				"Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	" +
+						"TYPE:MasterworkQuality.Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	"
+						+ "SOURCEPAGE:SRDEquipmentI.rtf	BONUS:ITEMCOST|TYPE=Ammunition|6	"
+						+ "BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
 				source);
 
 		SettingsHandler.getGame().addPlusCalculation(

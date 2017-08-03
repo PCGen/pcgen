@@ -26,21 +26,26 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import plugin.lsttokens.AbilityLst;
+import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.choose.NoChoiceToken;
+import plugin.lsttokens.deprecated.AutoFeatToken;
+import plugin.lsttokens.deprecated.ChooseFeatSelectionToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTest
 {
 
-	private static final plugin.lsttokens.AbilityLst ABILITY_TOKEN =
-			new plugin.lsttokens.AbilityLst();
-	protected static final plugin.lsttokens.deprecated.AutoFeatToken AUTO_FEAT_TOKEN =
-			new plugin.lsttokens.deprecated.AutoFeatToken();
-	private static final plugin.lsttokens.deprecated.ChooseFeatSelectionToken CHOOSE_FEATSELECTION_TOKEN =
-			new plugin.lsttokens.deprecated.ChooseFeatSelectionToken();
-	private static final plugin.lsttokens.TypeLst TYPE_TOKEN =
-			new plugin.lsttokens.TypeLst();
+	private static final AbilityLst ABILITY_TOKEN =
+			new AbilityLst();
+	private static final AutoFeatToken AUTO_FEAT_TOKEN =
+			new AutoFeatToken();
+	private static final ChooseFeatSelectionToken CHOOSE_FEATSELECTION_TOKEN =
+			new ChooseFeatSelectionToken();
+	private static final TypeLst TYPE_TOKEN =
+			new TypeLst();
 	private static final StackToken ABILITY_STACK_TOKEN = new StackToken();
 	private static final NoChoiceToken CHOOSE_NOCHOICE_TOKEN =
 			new NoChoiceToken();
@@ -258,8 +263,11 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	public void generic()
 	{
 		//Need to do these with 2 choices and test :P
-		//	6) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
-		//	7) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used)
+		//	6) Ability granted by a ADD:VFEAT token where the target (in parens) is
+		// MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
+		//	7) Ability granted by a ADD:VFEAT token where the target (in parens) is
+		// MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more
+		// than once (STACK is used)
 		Ability multyesstackyes = getMultYesStackYes("MultYes", "Target");
 		Ability multyesstackyesNC = getMultYesStackYesChooseNoChoice("MultYes");
 	}
