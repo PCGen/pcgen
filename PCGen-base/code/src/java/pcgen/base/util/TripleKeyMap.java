@@ -184,7 +184,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	public boolean containsKey(K1 key1, K2 key2, K3 key3)
 	{
 		Map<K3, V> localMap = map.get(key1, key2);
-		return (localMap == null) ? false : localMap.containsKey(key3);
+		return (localMap != null) && localMap.containsKey(key3);
 	}
 
 	/**

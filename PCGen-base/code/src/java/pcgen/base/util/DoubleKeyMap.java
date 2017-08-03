@@ -284,7 +284,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	public boolean containsKey(K1 key1, K2 key2)
 	{
 		Map<K2, V> localMap = map.get(key1);
-		return (localMap == null) ? false : localMap.containsKey(key2);
+		return (localMap != null) && localMap.containsKey(key2);
 	}
 
 	/**
@@ -492,7 +492,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	public boolean removeValue(K1 key1, V obj)
 	{
 		Map<K2, V> localMap = map.get(key1);
-		return (localMap == null) ? false : localMap.values().remove(obj);
+		return (localMap != null) && localMap.values().remove(obj);
 	}
 
 	/**

@@ -256,7 +256,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	public boolean containsListFor(K1 key1, K2 key2)
 	{
 		MapToList<K2, V> localMap = mtmtl.get(key1);
-		return (localMap == null) ? false : localMap.containsListFor(key2);
+		return (localMap != null) && localMap.containsListFor(key2);
 	}
 
 	/**
