@@ -105,6 +105,7 @@
     <exclude name="AbstractClassWithoutAnyMethod" />
     <exclude name="TooFewBranchesForASwitchStatement" />
     <exclude name="LogicInversion" />
+    <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
     <exclude name="UseVarargs" />
     <exclude name="FieldDeclarationsShouldBeAtStartOfClass" />
     <exclude name="GodClass" />
@@ -156,7 +157,9 @@
   <!--<rule ref="rulesets/java/naming.xml" />-->
   <rule ref="rulesets/java/optimizations.xml">
     <exclude name="RedundantFieldInitializer" />
+    <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
     <exclude name="MethodArgumentCouldBeFinal" />
+    <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
     <exclude name="LocalVariableCouldBeFinal" />
     <exclude name="AvoidInstantiatingObjectsInLoops" />
     <exclude name="PrematureDeclaration" />
@@ -181,6 +184,7 @@
     <exclude name="AppendCharacterWithChar" />
     <exclude name="ConsecutiveLiteralAppends" />
     <exclude name="AvoidStringBufferField" />
+    <!-- This is excluded because it's a micro-optimization (JIT compilation would eliminate the performance penalty) and enforcing it encourages writing less readable code -->
     <exclude name="ConsecutiveAppendsShouldReuse" />
     <exclude name="UseIndexOfChar" />
     <exclude name="UseEqualsToCompareStrings" />
@@ -199,11 +203,13 @@
     <exclude name="SignatureDeclareThrowsException" />
   </rule>
   <rule ref="rulesets/java/unnecessary.xml">
+    <!-- This is excluded because we use "useless" parenthesis for readability -->
     <exclude name="UselessParentheses" />
     <exclude name="UselessOverridingMethod" />
     <exclude name="UnnecessaryReturn" />
     <exclude name="UselessQualifiedThis" />
     <exclude name="UnnecessaryFinalModifier" />
+    <!-- This is excluded because we use "public" in Interfaces almost universally (as a semantic hint as to its real behavior) -->
     <exclude name="UnnecessaryModifier" />
   </rule>
   <rule ref="rulesets/java/unusedcode.xml">
