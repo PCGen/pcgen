@@ -17,14 +17,15 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import plugin.pretokens.parser.PreRuleParser;
 
 /**

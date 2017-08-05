@@ -1,9 +1,10 @@
 
 package pcgen.inttest.game_35e;
 
+import pcgen.inttest.PcgenFtlTestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests a 35e Psion.

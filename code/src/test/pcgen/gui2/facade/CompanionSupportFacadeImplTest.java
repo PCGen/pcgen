@@ -17,8 +17,6 @@
  */
 package pcgen.gui2.facade;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
@@ -35,10 +33,12 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.util.TestHelper;
+
+import org.junit.Test;
 
 /**
  * The Class <code></code> ...

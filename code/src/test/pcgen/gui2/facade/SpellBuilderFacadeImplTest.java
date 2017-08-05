@@ -17,9 +17,6 @@
  */
 package pcgen.gui2.facade;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
@@ -34,6 +31,9 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**

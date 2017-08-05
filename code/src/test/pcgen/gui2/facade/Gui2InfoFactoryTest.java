@@ -28,6 +28,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.TestHelper;
+
 import plugin.lsttokens.choose.StringToken;
 
 /**

@@ -17,8 +17,6 @@
  */
 package pcgen.gui2.facade;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -31,6 +29,8 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.TestHelper;
+
+import org.junit.Test;
 import plugin.lsttokens.choose.StringToken;
 
 /**

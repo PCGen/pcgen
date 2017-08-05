@@ -1,10 +1,9 @@
 package pcgen.core.utils;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class LastGroupSeparatorTest extends TestCase
 {
