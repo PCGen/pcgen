@@ -19,6 +19,7 @@
 package pcgen.gui2.util.event;
 
 import java.util.Collection;
+
 import javax.swing.event.ListDataEvent;
 
 /**

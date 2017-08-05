@@ -20,6 +20,7 @@
 package pcgen.gui2.util;
 
 import java.util.Comparator;
+
 import pcgen.gui2.util.table.Row;
 
 /**

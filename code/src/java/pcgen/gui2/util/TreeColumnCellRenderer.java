@@ -19,6 +19,7 @@
 package pcgen.gui2.util;
 
 import java.awt.Component;
+
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 

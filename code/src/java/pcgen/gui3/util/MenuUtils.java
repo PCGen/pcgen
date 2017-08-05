@@ -22,6 +22,7 @@ package pcgen.gui3.util;
 
 import java.util.List;
 import java.util.function.Function;
+
 import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Menu;

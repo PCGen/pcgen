@@ -21,6 +21,7 @@ package pcgen.gui2.util;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+
 import javax.swing.Icon;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;

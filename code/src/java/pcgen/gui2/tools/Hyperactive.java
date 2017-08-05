@@ -20,12 +20,13 @@
 package pcgen.gui2.tools;
 
 import java.io.IOException;
-import pcgen.util.Logging;
 
 import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
+
+import pcgen.util.Logging;
 
 /**
  * This makes URLs load in a browser when clicked.

@@ -23,10 +23,11 @@
  */
 package pcgen.gui2.util;
 
-import javax.swing.JPanel;
-import javax.swing.Scrollable;
 import java.awt.Dimension;
 import java.awt.Rectangle;
+
+import javax.swing.JPanel;
+import javax.swing.Scrollable;
 
 /**
  * The Class {@code ScrollablePanel} provides a panel which can be

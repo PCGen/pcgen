@@ -23,13 +23,13 @@
  */
 package pcgen.gui2.util;
 
-import pcgen.cdom.base.Constants;
-import pcgen.facade.core.UIDelegate;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.MessageWrapper;
-
 import java.util.Observable;
 import java.util.Observer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.MessageWrapper;
+import pcgen.facade.core.UIDelegate;
 
 public class ShowMessageGuiObserver implements Observer
 {

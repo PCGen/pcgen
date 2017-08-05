@@ -20,7 +20,11 @@
 
 package pcgen.gui2.util;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.io.Serializable;
 
 /**

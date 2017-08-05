@@ -21,6 +21,7 @@ package pcgen.gui2.tools;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.io.StringReader;
+
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
@@ -30,6 +31,7 @@ import javax.swing.event.HyperlinkListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.EditorKit;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.system.LanguageBundle;
 

@@ -23,6 +23,7 @@ package pcgen.gui3.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.TransformationList;

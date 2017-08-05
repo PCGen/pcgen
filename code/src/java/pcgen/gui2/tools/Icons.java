@@ -20,9 +20,10 @@ package pcgen.gui2.tools;
 import java.net.URL;
 import java.util.Map;
 import java.util.WeakHashMap;
-import javafx.scene.image.ImageView;
 
 import javax.swing.ImageIcon;
+
+import javafx.scene.image.ImageView;
 
 public enum Icons
 {

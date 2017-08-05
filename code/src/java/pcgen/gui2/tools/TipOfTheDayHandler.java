@@ -29,14 +29,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The singleton class {@code TipOfTheDayHandler} manages the list of tips.

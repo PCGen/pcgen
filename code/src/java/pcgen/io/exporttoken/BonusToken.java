@@ -20,6 +20,8 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
@@ -29,8 +31,6 @@ import pcgen.io.ExportHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with BONUS token

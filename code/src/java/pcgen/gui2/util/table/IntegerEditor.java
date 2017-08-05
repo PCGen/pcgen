@@ -33,6 +33,15 @@ package pcgen.gui2.util.table;
 /*
  * IntegerEditor is used by TableFTFEditDemo.java.
  */
+
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 import javax.swing.AbstractAction;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JFormattedTextField;
@@ -41,13 +50,6 @@ import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.NumberFormatter;
 

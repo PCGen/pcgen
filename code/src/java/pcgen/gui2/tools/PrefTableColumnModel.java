@@ -19,7 +19,9 @@
 package pcgen.gui2.tools;
 
 import java.beans.PropertyChangeEvent;
+
 import javax.swing.table.TableColumn;
+
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.system.PropertyContext;

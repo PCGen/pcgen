@@ -19,8 +19,10 @@
 package pcgen.gui2.util.table;
 
 import java.util.List;
+
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 
 /**
