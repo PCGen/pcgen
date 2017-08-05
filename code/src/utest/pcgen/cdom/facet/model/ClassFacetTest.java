@@ -21,10 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -36,6 +32,9 @@ import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class ClassFacetTest extends TestCase
 {

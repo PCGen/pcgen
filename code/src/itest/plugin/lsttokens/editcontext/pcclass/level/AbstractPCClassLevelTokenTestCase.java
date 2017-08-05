@@ -20,11 +20,6 @@ package plugin.lsttokens.editcontext.pcclass.level;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -34,6 +29,10 @@ import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 

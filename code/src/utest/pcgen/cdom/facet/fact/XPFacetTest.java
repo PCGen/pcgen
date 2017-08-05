@@ -20,14 +20,13 @@ package pcgen.cdom.facet.fact;
 import java.util.HashMap;
 import java.util.Map;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelTableFacet;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class XPFacetTest extends TestCase
 {

@@ -17,9 +17,9 @@
  */
 package plugin.lsttokens.editcontext.pcclass.level;
 
-import org.junit.Test;
-
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractSpellCastingTokenTestCase extends
 		AbstractPCClassLevelTokenTestCase

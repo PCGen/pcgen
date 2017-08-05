@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.input;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.SkillCost;
@@ -29,6 +25,9 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class GlobalAddedSkillCostFacetTest extends TestCase
 {

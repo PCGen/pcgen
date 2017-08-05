@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,6 +27,8 @@ import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.util.enumeration.Load;
+
+import org.junit.Test;
 
 public class UnencumberedArmorFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Load>

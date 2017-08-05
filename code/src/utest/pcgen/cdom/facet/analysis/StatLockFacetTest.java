@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -32,6 +30,8 @@ import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+
+import org.junit.Test;
 
 public class StatLockFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, StatLock>

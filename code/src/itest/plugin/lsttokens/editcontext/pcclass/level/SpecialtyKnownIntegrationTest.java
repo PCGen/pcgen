@@ -19,6 +19,7 @@ package plugin.lsttokens.editcontext.pcclass.level;
 
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.pcclass.level.SpecialtyknownToken;
 
 public class SpecialtyKnownIntegrationTest extends

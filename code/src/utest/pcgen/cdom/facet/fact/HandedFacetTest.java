@@ -17,15 +17,14 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class HandedFacetTest extends TestCase
 {

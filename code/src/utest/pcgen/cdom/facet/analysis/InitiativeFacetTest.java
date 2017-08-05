@@ -21,15 +21,14 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class InitiativeFacetTest extends TestCase
 {

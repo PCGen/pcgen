@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.kit.ability;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
@@ -27,6 +25,8 @@ import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>

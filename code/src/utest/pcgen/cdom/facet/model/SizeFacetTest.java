@@ -21,10 +21,6 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -40,6 +36,9 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.AbstractReferenceContext;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class SizeFacetTest extends TestCase

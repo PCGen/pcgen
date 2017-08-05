@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
@@ -33,6 +29,9 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class LocalSkillCostFacetTest extends TestCase
 {

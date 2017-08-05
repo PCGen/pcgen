@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -29,6 +25,9 @@ import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class RegionFacetTest extends TestCase
 {

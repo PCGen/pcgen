@@ -17,16 +17,15 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class NonProficiencyPenaltyFacetTest extends TestCase
 {
