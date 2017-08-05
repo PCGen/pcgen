@@ -17,13 +17,13 @@
  */
 package plugin.lsttokens.kit;
 
-import org.junit.Test;
-
 import pcgen.core.Race;
 import pcgen.core.kit.KitRace;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 public class RaceTokenTest extends AbstractKitTokenTestCase<KitRace>
