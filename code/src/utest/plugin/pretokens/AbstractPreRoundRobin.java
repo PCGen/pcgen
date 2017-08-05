@@ -20,7 +20,6 @@ package plugin.pretokens;
 import java.io.StringWriter;
 import java.util.Collection;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.core.prereq.Prerequisite;
@@ -31,6 +30,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
+
+import junit.framework.TestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractPreRoundRobin extends TestCase

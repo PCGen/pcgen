@@ -17,12 +17,13 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.base.format.StringManager;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.facet.FacetInitialization;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreFactParser;
 import plugin.pretokens.writer.PreFactWriter;

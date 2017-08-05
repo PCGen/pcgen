@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
 		AbstractCDOMTokenTestCase<T>

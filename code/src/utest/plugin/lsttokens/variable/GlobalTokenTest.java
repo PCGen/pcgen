@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.variable;
 
-import org.junit.Test;
-
 import pcgen.base.lang.ObjectUtil;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;

@@ -24,6 +24,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.DomainToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
