@@ -18,6 +18,7 @@
 package pcgen.output.model;
 
 import pcgen.core.AgeSet;
+
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 

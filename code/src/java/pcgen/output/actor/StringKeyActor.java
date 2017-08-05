@@ -22,6 +22,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.output.base.OutputActor;
 import pcgen.output.base.SimpleWrapperLibrary;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 

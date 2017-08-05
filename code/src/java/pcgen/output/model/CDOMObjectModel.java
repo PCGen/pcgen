@@ -22,6 +22,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.CDOMWrapperInfoFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.output.base.OutputActor;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;

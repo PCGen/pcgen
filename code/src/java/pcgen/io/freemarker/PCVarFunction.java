@@ -21,6 +21,7 @@ package pcgen.io.freemarker;
 import java.util.List;
 
 import pcgen.core.PlayerCharacter;
+
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
 

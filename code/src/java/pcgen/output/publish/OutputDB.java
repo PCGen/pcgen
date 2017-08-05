@@ -31,6 +31,7 @@ import pcgen.output.base.ModelFactory;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
 import pcgen.output.model.BooleanOptionModel;
+
 import freemarker.template.TemplateModel;
 
 /**

@@ -20,10 +20,10 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-
-import java.util.StringTokenizer;
 
 /**
  * The Abstract Token class for Export Tokens

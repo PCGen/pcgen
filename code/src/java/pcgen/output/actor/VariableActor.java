@@ -27,6 +27,7 @@ import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.output.base.OutputActor;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 

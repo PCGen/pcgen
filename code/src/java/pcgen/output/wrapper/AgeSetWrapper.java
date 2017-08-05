@@ -20,6 +20,7 @@ package pcgen.output.wrapper;
 import pcgen.core.AgeSet;
 import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.AgeSetModel;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 

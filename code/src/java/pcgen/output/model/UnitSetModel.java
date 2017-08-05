@@ -19,6 +19,7 @@ package pcgen.output.model;
 
 import pcgen.core.UnitSet;
 import pcgen.output.base.SimpleWrapperLibrary;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;

@@ -17,16 +17,20 @@
  */
 package pcgen.io.filters;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.utils.CoreUtility;
-import pcgen.util.Delta;
-import pcgen.util.Logging;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.utils.CoreUtility;
 import pcgen.system.ConfigurationSettings;
+import pcgen.util.Delta;
+import pcgen.util.Logging;
 
 public class CharacterFilter implements OutputFilter
 {

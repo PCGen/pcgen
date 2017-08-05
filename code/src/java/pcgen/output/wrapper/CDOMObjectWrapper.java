@@ -25,6 +25,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.output.base.OutputActor;
 import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.model.CDOMObjectModel;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModelException;
 

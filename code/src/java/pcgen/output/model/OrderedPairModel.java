@@ -19,12 +19,13 @@ package pcgen.output.model;
 
 import java.util.function.Supplier;
 
+import pcgen.base.math.OrderedPair;
+import pcgen.output.base.SimpleWrapperLibrary;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 import freemarker.template.TemplateSequenceModel;
-import pcgen.base.math.OrderedPair;
-import pcgen.output.base.SimpleWrapperLibrary;
 
 /**
  * A OrderedPairModel wraps a OrderedPair object into a TemplateScalarModel and

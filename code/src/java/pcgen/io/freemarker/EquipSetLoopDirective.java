@@ -26,6 +26,7 @@ import java.util.Map;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.EquipSet;
+
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
