@@ -21,14 +21,15 @@
 
 package plugin.initiative;
 
-import gmgen.plugin.PcgCombatant;
-import plugin.initiative.gui.TableColumnInformation;
-
-import javax.swing.table.AbstractTableModel;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+import javax.swing.table.AbstractTableModel;
+
+import gmgen.plugin.PcgCombatant;
+import plugin.initiative.gui.TableColumnInformation;
 
 /**
  * <p>

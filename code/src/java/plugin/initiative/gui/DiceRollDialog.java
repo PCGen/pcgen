@@ -17,13 +17,13 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.GMGenSystem;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Collection;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -31,7 +31,10 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 import pcgen.core.RollingMethods;
+
+import gmgen.GMGenSystem;
 import plugin.initiative.DiceRollModel;
 
 /**

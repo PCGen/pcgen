@@ -18,11 +18,12 @@
  */
 package plugin.initiative.gui;
 
+import java.util.Enumeration;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
-import java.util.Enumeration;
 
 /**
  * <p>GradesViewColumnModel</p>

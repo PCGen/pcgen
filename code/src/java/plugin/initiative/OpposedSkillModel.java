@@ -21,18 +21,17 @@
 
 package plugin.initiative;
 
-import gmgen.plugin.PcgCombatant;
-
 import java.util.List;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.RollingMethods;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 
-import pcgen.core.RollingMethods;
+import gmgen.plugin.PcgCombatant;
 
 /**
  * <p>

@@ -1,11 +1,12 @@
 package plugin.jepcommands;
 
-import org.nfunk.jep.ParseException;
+import java.util.Stack;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 
-import java.util.Stack;
+import org.nfunk.jep.ParseException;
 
 /**
  * Deals with JEP command for charbonusto

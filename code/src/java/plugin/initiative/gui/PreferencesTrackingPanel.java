@@ -21,7 +21,9 @@
 package plugin.initiative.gui;
 
 import javax.swing.SwingConstants;
+
 import pcgen.core.SettingsHandler;
+
 import plugin.initiative.InitiativePlugin;
 
 /**

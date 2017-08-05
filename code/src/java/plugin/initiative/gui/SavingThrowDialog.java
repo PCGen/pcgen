@@ -20,12 +20,6 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.plugin.Combatant;
-import gmgen.plugin.dice.Dice;
-import gmgen.plugin.PcgCombatant;
-import gmgen.plugin.PlayerCharacterOutput;
-import gmgen.plugin.SystemAttribute;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
@@ -37,6 +31,12 @@ import javax.swing.JTextField;
 import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
+
+import gmgen.plugin.Combatant;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.PlayerCharacterOutput;
+import gmgen.plugin.SystemAttribute;
+import gmgen.plugin.dice.Dice;
 import plugin.initiative.SaveModel;
 import plugin.initiative.XMLCombatant;
 

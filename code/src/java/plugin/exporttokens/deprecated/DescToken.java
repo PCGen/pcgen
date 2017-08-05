@@ -18,12 +18,12 @@
  */
 package plugin.exporttokens.deprecated;
 
+import java.util.StringTokenizer;
+
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with tokens:

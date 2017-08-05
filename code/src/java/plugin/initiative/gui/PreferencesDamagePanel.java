@@ -20,8 +20,6 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.gui.PreferencesPanel;
-
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -31,6 +29,8 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
+
+import gmgen.gui.PreferencesPanel;
 import plugin.initiative.InitiativePlugin;
 
 /**

@@ -1,6 +1,7 @@
 package plugin.jepcommands;
 
-import org.nfunk.jep.ParseException;
+import java.util.Stack;
+
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessorEq;
@@ -8,7 +9,7 @@ import pcgen.core.VariableProcessorPC;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 
-import java.util.Stack;
+import org.nfunk.jep.ParseException;
 
 /**
  * JEP command for get vars

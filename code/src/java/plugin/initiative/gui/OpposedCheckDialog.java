@@ -51,13 +51,13 @@ import javax.swing.JTable;
 import javax.swing.TransferHandler;
 import javax.swing.table.TableModel;
 
-import gmgen.GMGenSystem;
-import gmgen.plugin.InitHolder;
-import gmgen.plugin.PcgCombatant;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Skill;
 
+import gmgen.GMGenSystem;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.PcgCombatant;
 import plugin.initiative.OpposedSkillBasicModel;
 import plugin.initiative.OpposedSkillModel;
 import plugin.initiative.OpposedSkillTypeModel;

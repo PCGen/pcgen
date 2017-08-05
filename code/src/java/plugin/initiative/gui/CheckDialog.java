@@ -20,9 +20,11 @@ package plugin.initiative.gui;
 import java.awt.Component;
 import java.awt.HeadlessException;
 import java.text.DecimalFormat;
+
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.text.NumberFormatter;
+
 import plugin.initiative.DiceRollModel;
 
 /**

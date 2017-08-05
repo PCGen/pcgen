@@ -21,8 +21,10 @@
 package plugin.initiative.gui;
 
 import javax.swing.SwingConstants;
+
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
+
 import plugin.initiative.InitiativePlugin;
 
 /**

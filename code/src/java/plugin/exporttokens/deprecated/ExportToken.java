@@ -18,13 +18,13 @@
  */
 package plugin.exporttokens.deprecated;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.system.PCGenPropBundle;
-
-import java.text.DateFormat;
-import java.util.Date;
 
 /**
  * Deals with Tokens:

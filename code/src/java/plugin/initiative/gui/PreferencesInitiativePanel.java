@@ -29,6 +29,7 @@ import javax.swing.JScrollPane;
 
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
+
 import plugin.initiative.InitiativePlugin;
 
 /**

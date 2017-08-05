@@ -27,6 +27,7 @@ import javax.swing.JPanel;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.dialog.AbstractDialog;
 import pcgen.util.Logging;
+
 import plugin.initiative.InitiativePlugin;
 import plugin.initiative.XMLCombatant;
 

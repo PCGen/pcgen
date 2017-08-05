@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.gamemode;
 
-import pcgen.core.GameMode;
-import pcgen.persistence.lst.GameModeLstToken;
-
 import java.net.URI;
 import java.util.StringTokenizer;
+
+import pcgen.core.GameMode;
+import pcgen.persistence.lst.GameModeLstToken;
 
 /**
  * {@code StatRollTextToken}

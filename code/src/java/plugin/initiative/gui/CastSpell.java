@@ -20,8 +20,6 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.plugin.Spell;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -31,6 +29,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import gmgen.plugin.Spell;
 import plugin.initiative.SpellModel;
 
 /**

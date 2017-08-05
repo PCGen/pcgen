@@ -1,6 +1,6 @@
 package plugin.jepcommands;
 
-import org.nfunk.jep.ParseException;
+import java.util.Stack;
 
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
@@ -9,7 +9,7 @@ import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
 
-import java.util.Stack;
+import org.nfunk.jep.ParseException;
 
 /**
  * JEP command for class level (cl)

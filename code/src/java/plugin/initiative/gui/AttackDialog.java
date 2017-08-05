@@ -20,14 +20,6 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.GMGenSystem;
-import gmgen.plugin.PcgCombatant;
-import plugin.initiative.AttackModel;
-
-import javax.swing.*;
-import javax.swing.event.TableModelEvent;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.text.DefaultFormatter;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -37,7 +29,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
+
+import javax.swing.AbstractAction;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.text.DefaultFormatter;
+
 import pcgen.core.RollingMethods;
+
+import gmgen.GMGenSystem;
+import gmgen.plugin.PcgCombatant;
+import plugin.initiative.AttackModel;
 
 /**
  *
