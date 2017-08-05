@@ -24,6 +24,7 @@ import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.base.SimpleWrapperLibrary;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 

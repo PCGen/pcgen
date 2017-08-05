@@ -18,13 +18,14 @@
  */
 package plugin.exporttokens;
 
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import pcgen.core.PlayerCharacter;
-//import pcgen.core.bonus.TypedBonus;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-import java.util.StringTokenizer;
-import java.util.Map;
+//import pcgen.core.bonus.TypedBonus;
 
 /**
  * Deals with BONUSLIST token

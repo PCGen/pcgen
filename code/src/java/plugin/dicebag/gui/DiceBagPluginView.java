@@ -17,19 +17,21 @@
  */
 package plugin.dicebag.gui;
 
-import pcgen.core.SettingsHandler;
-import plugin.dicebag.DiceBagPlugin;
+import java.awt.Color;
+import java.awt.Component;
+import java.io.File;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
-import java.awt.Color;
-import java.awt.Component;
-import java.io.File;
-import java.util.Observable;
-import java.util.Observer;
+
+import pcgen.core.SettingsHandler;
+
+import plugin.dicebag.DiceBagPlugin;
 
 /**
  *

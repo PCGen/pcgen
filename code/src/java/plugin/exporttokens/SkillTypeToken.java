@@ -18,15 +18,15 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SkillToken;
 import pcgen.util.Logging;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * {@code SkillTypeToken} outputs the value of the Skill at

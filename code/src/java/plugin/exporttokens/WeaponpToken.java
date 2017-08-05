@@ -18,12 +18,12 @@
  */
 package plugin.exporttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.WeaponToken;
-
-import java.util.StringTokenizer;
 
 /**
  * {@code WeaponpToken}.

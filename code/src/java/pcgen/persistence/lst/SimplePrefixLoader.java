@@ -19,12 +19,12 @@ package pcgen.persistence.lst;
 
 import java.util.Objects;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.Loadable;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
 {

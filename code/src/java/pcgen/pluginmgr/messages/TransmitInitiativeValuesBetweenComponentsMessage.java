@@ -19,8 +19,9 @@
  */
 package pcgen.pluginmgr.messages;
 
-import gmgen.plugin.InitHolderList;
 import pcgen.pluginmgr.PCGenMessage;
+
+import gmgen.plugin.InitHolderList;
 
 /**
  * The Class {@code TransmitInitiativeValuesBetweenComponentsMessage} sends the

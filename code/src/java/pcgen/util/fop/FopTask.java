@@ -33,6 +33,10 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
 
+import pcgen.cdom.base.Constants;
+import pcgen.system.ConfigurationSettings;
+import pcgen.util.Logging;
+
 import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
@@ -45,10 +49,6 @@ import org.apache.fop.events.EventFormatter;
 import org.apache.fop.events.EventListener;
 import org.apache.fop.events.model.EventSeverity;
 import org.apache.fop.render.Renderer;
-
-import pcgen.cdom.base.Constants;
-import pcgen.system.ConfigurationSettings;
-import pcgen.util.Logging;
 
 /**
  * This class is used to generate pdf files from an xml source. There are two ways to define the

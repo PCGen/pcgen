@@ -20,6 +20,7 @@ package pcgen.output.wrapper;
 import pcgen.base.math.OrderedPair;
 import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.OrderedPairModel;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 

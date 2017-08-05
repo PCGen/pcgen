@@ -21,6 +21,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.model.CNAbilitySelectionModel;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 

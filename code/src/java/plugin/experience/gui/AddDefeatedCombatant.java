@@ -30,6 +30,7 @@ import javax.swing.SpinnerNumberModel;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.dialog.AbstractDialog;
+
 import plugin.experience.DefeatedCombatant;
 import plugin.experience.ExperienceAdjusterModel;
 import plugin.experience.ExperienceAdjusterPlugin;

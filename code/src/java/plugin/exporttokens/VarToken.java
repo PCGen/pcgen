@@ -18,13 +18,13 @@
  */
 package plugin.exporttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * {@code VarToken} produces the output for the output token VAR.

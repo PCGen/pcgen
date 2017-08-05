@@ -18,6 +18,9 @@
  */
 package plugin.exporttokens;
 
+import java.math.BigDecimal;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -27,9 +30,6 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.BigDecimalHelper;
-
-import java.math.BigDecimal;
-import java.util.StringTokenizer;
 
 /**
  * Deals with EQCONTAINERW Token

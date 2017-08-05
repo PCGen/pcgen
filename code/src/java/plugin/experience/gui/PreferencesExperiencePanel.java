@@ -17,13 +17,19 @@
  */
 package plugin.experience.gui;
 
+import java.awt.BorderLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
+
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
-import plugin.experience.ExperienceAdjusterPlugin;
 
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import java.awt.BorderLayout;
+import plugin.experience.ExperienceAdjusterPlugin;
 
 public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 {

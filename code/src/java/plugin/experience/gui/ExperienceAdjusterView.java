@@ -37,6 +37,7 @@ import javax.swing.event.ListSelectionListener;
 
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
+
 import plugin.experience.ExperienceAdjusterModel;
 
 /**

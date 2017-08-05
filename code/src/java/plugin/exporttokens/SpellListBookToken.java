@@ -18,6 +18,8 @@
  */
 package plugin.exporttokens;
 
+import java.util.List;
+
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -25,8 +27,6 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
-
-import java.util.List;
 
 /**
  * {@code SpellListBookToken} gives a comma delimited list of spells
