@@ -126,14 +126,6 @@ public class EncounterPlugin extends MouseAdapter
 	private PCGenMessageHandler messageHandler;
 
 	/**
-	 * Creates an instance of this class creating a new {@code InitHolderList}.
-	 */
-	public EncounterPlugin()
-	{
-		super();
-	}
-
-	/**
 	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
 	@Override
@@ -299,16 +291,12 @@ public class EncounterPlugin extends MouseAdapter
 	/**
 	 * Handles the <b>Add Creature</b> button.
 	 */
-	public void handleAddCreature()
+	private void handleAddCreature()
 	{
 		if (!theView.getLibraryCreatures().isSelectionEmpty())
 		{
-			Object[] values = theView.getLibraryCreatures().getSelectedValues();
-
-			for (int i = 0; i < values.length; i++)
-			{
-				theModel.addElement(values[i]);
-			}
+			List<Object> values = theView.getLibraryCreatures().getSelectedValuesList();
+			values.forEach(theModel::addElement);
 
 			updateUI();
 		}
