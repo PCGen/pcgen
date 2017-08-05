@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext.race;
 import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
 import plugin.lsttokens.race.HandsToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;

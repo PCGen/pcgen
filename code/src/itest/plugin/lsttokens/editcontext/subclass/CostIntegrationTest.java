@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext.subclass;
 import pcgen.core.SubClass;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
 import plugin.lsttokens.subclass.CostToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;

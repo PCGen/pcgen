@@ -25,6 +25,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.editcontext.testsupport.AbstractItemIntegrationTestCase;
 import plugin.lsttokens.spell.StatToken;
 import plugin.lsttokens.testsupport.BuildUtilities;

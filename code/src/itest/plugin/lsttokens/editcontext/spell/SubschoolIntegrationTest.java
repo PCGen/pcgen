@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext.spell;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationTestCase;
 import plugin.lsttokens.spell.SubschoolToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
