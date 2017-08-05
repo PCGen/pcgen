@@ -17,11 +17,11 @@
  */
 package pcgen.io;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
+
+import org.junit.Test;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.choose.ClassToken;
 import plugin.lsttokens.template.FavoredclassToken;

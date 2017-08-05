@@ -17,8 +17,6 @@
  */
 package pcgen.io.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -36,6 +34,8 @@ import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.SkillRankControl;
+
+import org.junit.Test;
 import plugin.lsttokens.CcskillLst;
 import plugin.lsttokens.CskillLst;
 import plugin.lsttokens.TypeLst;

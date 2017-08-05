@@ -21,6 +21,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.SelectLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractFormulaIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;

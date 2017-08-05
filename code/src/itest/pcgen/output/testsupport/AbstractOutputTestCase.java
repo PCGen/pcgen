@@ -22,15 +22,16 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Map;
 
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.publish.OutputDB;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import junit.framework.TestCase;
 
 public abstract class AbstractOutputTestCase extends TestCase
 {

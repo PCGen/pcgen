@@ -26,6 +26,7 @@ import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
 import pcgen.persistence.PersistenceLayerException;
+
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest

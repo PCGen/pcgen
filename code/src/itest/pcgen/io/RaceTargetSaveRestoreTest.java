@@ -17,13 +17,13 @@
  */
 package pcgen.io;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
+
+import org.junit.Test;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.choose.ClassToken;
 import plugin.lsttokens.choose.SkillToken;

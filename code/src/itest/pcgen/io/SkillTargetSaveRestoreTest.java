@@ -22,6 +22,7 @@ import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
+
 import plugin.lsttokens.pcclass.HdToken;
 
 public class SkillTargetSaveRestoreTest extends

@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.editcontext;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.SrLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractFormulaIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;

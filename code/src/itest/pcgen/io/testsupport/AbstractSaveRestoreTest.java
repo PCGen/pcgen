@@ -17,13 +17,12 @@
  */
 package pcgen.io.testsupport;
 
-import compare.InequalityTesterInst;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Collections;
-import junit.framework.TestCase;
+
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -79,6 +78,9 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
+
+import compare.InequalityTesterInst;
+import junit.framework.TestCase;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
