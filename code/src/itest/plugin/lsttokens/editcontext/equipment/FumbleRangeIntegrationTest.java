@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext.equipment;
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.editcontext.testsupport.AbstractStringIntegrationTestCase;
 import plugin.lsttokens.equipment.FumblerangeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;

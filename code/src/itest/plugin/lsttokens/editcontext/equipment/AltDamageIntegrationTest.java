@@ -19,6 +19,7 @@ package plugin.lsttokens.editcontext.equipment;
 
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.equipment.AltdamageToken;
 
 public class AltDamageIntegrationTest extends AbstractDamageIntegrationTestCase

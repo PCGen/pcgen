@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.editcontext.equipment;
 
-import org.junit.Test;
-
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.equipment.AlteqmodToken;
 
 public class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase

@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.editcontext.deity;
 
-import org.junit.Test;
-
 import pcgen.core.Deity;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.deity.DeityweapToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
