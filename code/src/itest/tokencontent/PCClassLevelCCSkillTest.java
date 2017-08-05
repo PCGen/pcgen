@@ -17,8 +17,6 @@
  */
 package tokencontent;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
@@ -32,6 +30,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
+
+import org.junit.Test;
 import plugin.lsttokens.pcclass.level.CcskillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
 import tokenmodel.testsupport.AbstractTokenModelTest;

@@ -19,8 +19,6 @@ package tokenmodel;
 
 import java.util.Collection;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
@@ -35,6 +33,8 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Test;
 import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.ability.MultToken;
 import plugin.lsttokens.choose.LangToken;

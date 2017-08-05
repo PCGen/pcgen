@@ -19,8 +19,9 @@
  */
 package gmgen.pluginmgr.messages;
 
-import gmgen.gui.PreferencesPanel;
 import pcgen.pluginmgr.PCGenMessage;
+
+import gmgen.gui.PreferencesPanel;
 
 /**
  * The Class {@code RequestAddPreferencesPanelMessage} encapsulates

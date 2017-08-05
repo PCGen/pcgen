@@ -20,8 +20,6 @@ package tokenmodel;
 import java.util.Arrays;
 import java.util.Collection;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -33,6 +31,9 @@ import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.deprecated.VFeatLst;

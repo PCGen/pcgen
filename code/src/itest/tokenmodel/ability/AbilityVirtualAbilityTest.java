@@ -19,6 +19,7 @@ package tokenmodel.ability;
 
 import pcgen.core.Ability;
 import pcgen.rules.persistence.token.CDOMToken;
+
 import tokenmodel.testsupport.AbstractAbilityGrantCheckTest;
 
 public class AbilityVirtualAbilityTest extends AbstractAbilityGrantCheckTest

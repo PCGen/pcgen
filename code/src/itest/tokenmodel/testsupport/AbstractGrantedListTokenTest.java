@@ -17,8 +17,6 @@
  */
 package tokenmodel.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
 import pcgen.core.EquipmentModifier;
@@ -26,6 +24,8 @@ import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
 import pcgen.core.character.CompanionMod;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		extends AbstractAddListTokenTest<T>

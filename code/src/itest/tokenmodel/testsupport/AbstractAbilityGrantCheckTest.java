@@ -26,6 +26,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.choose.NoChoiceToken;
 import plugin.lsttokens.testsupport.TokenRegistration;

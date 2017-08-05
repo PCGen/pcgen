@@ -22,6 +22,7 @@ import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.auto.WeaponProfToken;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 

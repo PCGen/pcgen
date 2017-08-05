@@ -19,8 +19,9 @@
  */
 package gmgen.pluginmgr.messages;
 
-import gmgen.plugin.Combatant;
 import pcgen.pluginmgr.PCGenMessage;
+
+import gmgen.plugin.Combatant;
 
 /**
  * The Class {@code CombatantHasBeenUpdatedMessage} encapsulates a

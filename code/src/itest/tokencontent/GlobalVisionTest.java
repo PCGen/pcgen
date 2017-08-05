@@ -24,6 +24,7 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.Vision;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.VisionLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 

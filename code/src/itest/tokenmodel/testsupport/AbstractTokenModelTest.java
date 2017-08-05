@@ -17,7 +17,6 @@
  */
 package tokenmodel.testsupport;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -61,6 +60,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
+
+import junit.framework.TestCase;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.ability.MultToken;
