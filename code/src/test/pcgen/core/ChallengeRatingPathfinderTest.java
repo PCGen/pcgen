@@ -28,6 +28,7 @@ import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**

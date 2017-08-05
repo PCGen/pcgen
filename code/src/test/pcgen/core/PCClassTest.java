@@ -24,8 +24,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.format.StringManager;
 import pcgen.base.lang.UnreachableError;
@@ -59,6 +57,9 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreVariableParser;
 

@@ -19,14 +19,15 @@ package pcgen.core;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.util.TestHelper;
+
+import junit.framework.TestCase;
 import plugin.pretokens.parser.PreAbilityParser;
 
 /**

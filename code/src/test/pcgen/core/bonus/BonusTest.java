@@ -37,6 +37,7 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
+
 import plugin.bonustokens.Var;
 
 /**

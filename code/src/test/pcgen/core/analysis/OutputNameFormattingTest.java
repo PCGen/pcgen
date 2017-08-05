@@ -19,6 +19,7 @@ package pcgen.core.analysis;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
+
 import junit.framework.TestCase;
 
 /**

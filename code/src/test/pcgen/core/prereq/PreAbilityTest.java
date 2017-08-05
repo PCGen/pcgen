@@ -18,8 +18,6 @@
 
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,6 +27,9 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.pretokens.parser.PreAbilityParser;
 
 /**

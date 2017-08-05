@@ -21,8 +21,7 @@ package pcgen.core;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
@@ -33,6 +32,9 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
  * A collection of tests to validate the functioning of the core BioSet class.

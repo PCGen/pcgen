@@ -18,11 +18,11 @@
 
 package pcgen.core;
 
-import junit.framework.TestCase;
 import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.rules.context.LoadContext;
 
+import junit.framework.TestCase;
 import org.junit.Before;
 import plugin.lsttokens.campaign.UrlToken;
 import plugin.lsttokens.testsupport.TokenRegistration;

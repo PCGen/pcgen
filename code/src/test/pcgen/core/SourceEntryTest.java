@@ -20,10 +20,11 @@ package pcgen.core;
 
 import javax.xml.transform.Source;
 
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
+
+import junit.framework.TestCase;
 
 /**
  * <code>SourceEntryTest</code> verifies the function of the SourceEntry class.

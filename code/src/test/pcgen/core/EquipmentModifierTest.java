@@ -20,7 +20,6 @@ package pcgen.core;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -29,6 +28,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 import junit.framework.Test;
+import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 

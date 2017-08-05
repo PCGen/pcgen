@@ -18,8 +18,6 @@
 
 package pcgen.core;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
@@ -29,6 +27,8 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import org.junit.Test;
 
 /**
  * <code>StatListTest</code> checks the function of the 

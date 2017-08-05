@@ -26,7 +26,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -62,6 +61,8 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
+
+import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**

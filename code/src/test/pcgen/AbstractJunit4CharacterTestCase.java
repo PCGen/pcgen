@@ -18,12 +18,7 @@
  */
 package pcgen;
 
-import static org.junit.Assert.fail;
-
 import java.math.BigDecimal;
-
-import org.junit.After;
-import org.junit.Before;
 
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
@@ -54,7 +49,12 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import org.junit.After;
+import org.junit.Before;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import static org.junit.Assert.fail;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
