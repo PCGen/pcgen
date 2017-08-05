@@ -22,6 +22,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.testsupport.AbstractItemTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
