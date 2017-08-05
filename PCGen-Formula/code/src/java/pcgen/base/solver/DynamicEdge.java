@@ -110,18 +110,15 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	}
 
 	@Override
-	public int getNodeInterfaceType(Object node)
+	public boolean isSource(Object node)
 	{
-		int interfaceType = DirectionalEdge.UNCONNECTED;
-		if (getNodeAt(0).equals(node))
-		{
-			interfaceType |= DirectionalEdge.SOURCE;
-		}
-		if (getNodeAt(1).equals(node))
-		{
-			interfaceType |= DirectionalEdge.SINK;
-		}
-		return interfaceType;
+		return getNodeAt(0).equals(node);
+	}
+
+	@Override
+	public boolean isSink(Object node)
+	{
+		return getNodeAt(1).equals(node);
 	}
 
 	/**

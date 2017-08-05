@@ -49,5 +49,17 @@ public interface WriteableVariableStore extends VariableStore
 	 *         given VariableID
 	 */
 	public <T> T put(VariableID<T> varID, T value);
+	
+	/**
+	 * Imports the VariableIDs and values from the given VariableStore to this
+	 * WriteableVariableStore. If a value for any VariableID already exists in this
+	 * WriteableVariableStore, the value is overwritten by the value in the given
+	 * VariableStore.
+	 * 
+	 * @param vs
+	 *            The VariableStore from which the VariableIDs and values should be
+	 *            imported.
+	 */
+	public void importFrom(VariableStore vs);
 
 }

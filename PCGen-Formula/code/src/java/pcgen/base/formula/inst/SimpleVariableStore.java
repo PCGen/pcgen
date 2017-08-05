@@ -17,10 +17,13 @@
  */
 package pcgen.base.formula.inst;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableStore;
 import pcgen.base.formula.base.WriteableVariableStore;
 
 /**
@@ -95,6 +98,32 @@ public class SimpleVariableStore implements WriteableVariableStore
 		@SuppressWarnings("unchecked")
 		T obj = (T) resultsMap.put(varID, value);
 		return obj;
+	}
+
+	@Override
+	public Collection<VariableID<?>> getVariables()
+	{
+		return Collections.unmodifiableCollection(resultsMap.keySet());
+	}
+
+	@Override
+	public void importFrom(VariableStore vs)
+	{
+		for (VariableID<?> varID : vs.getVariables())
+		{
+			importVariable(vs, varID);
+		}
+	}
+
+	/**
+	 * Performs a Generic-safe import
+	 * 
+	 * @param vs The VariableStore from which the variable value should be imported
+	 * @param varID The VariableID of the variable to be imported from the given VariableStore
+	 */
+	private <T> void importVariable(VariableStore vs, VariableID<T> varID)
+	{
+		put(varID, vs.get(varID));
 	}
 
 }

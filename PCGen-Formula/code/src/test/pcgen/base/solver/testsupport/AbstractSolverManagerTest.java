@@ -26,6 +26,7 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SolverManager;
@@ -407,6 +408,69 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	public VariableLibrary getVarLibrary()
 	{
 		return varLibrary;
+	}
+
+	@Test
+	public void testIndependence()
+	{
+		ScopeInstance source = globalScopeInst;
+		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
+		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
+
+		ComplexNEPFormula handsformula = new ComplexNEPFormula("fingers/5");
+		Modifier<Number> handsMod = AbstractModifier.add(handsformula, 100);
+
+		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
+		VariableID<Number> limbs =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst,
+					"Limbs");
+		varLibrary.assertLegalVariableID("arms", globalScope, numberManager);
+		VariableID<Number> arms =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst,
+					"Arms");
+		varLibrary.assertLegalVariableID("Fingers", globalScope, numberManager);
+		VariableID<Number> fingers =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst,
+					"Fingers");
+		varLibrary.assertLegalVariableID("legs", globalScope, numberManager);
+		VariableID<Number> legs =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst,
+					"Legs");
+		assertEquals(null, store.get(limbs));
+		getManager().addModifier(limbs, limbsMod, source);
+
+
+		assertEquals(0, store.get(arms));
+		getManager().addModifier(arms, handsMod, source);
+		assertEquals(0, store.get(arms));
+
+		AbstractModifier<Number> ten = AbstractModifier.setNumber(10, 5);
+		getManager().addModifier(fingers, ten, source);
+		assertEquals(2, store.get(arms));
+		assertEquals(2, store.get(limbs));
+
+		SimpleVariableStore altstore = new SimpleVariableStore();
+		SolverManager alt = getManager().createReplacement(altstore);
+		
+		AbstractModifier<Number> four = AbstractModifier.setNumber(2, 5);
+		assertEquals(0, store.get(legs));
+		assertEquals(0, altstore.get(legs));
+		getManager().addModifier(legs, four, source);
+		assertEquals(2, store.get(arms));
+		assertEquals(2, store.get(legs));
+		assertEquals(4, store.get(limbs));
+
+		assertEquals(2, altstore.get(arms));
+		assertEquals(2, altstore.get(limbs));
+
+		alt.removeModifier(arms, handsMod, source);
+		assertEquals(2, store.get(arms));
+		assertEquals(2, store.get(legs));
+		assertEquals(4, store.get(limbs));
+
+		assertEquals(0, altstore.get(arms));
+		assertEquals(0, altstore.get(limbs));
+
 	}
 
 }

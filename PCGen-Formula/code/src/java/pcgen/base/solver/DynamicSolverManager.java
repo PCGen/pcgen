@@ -18,6 +18,7 @@ package pcgen.base.solver;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.Stack;
@@ -493,4 +494,33 @@ public class DynamicSolverManager implements SolverManager
 		return solverFactory.getDefault(varFormat);
 	}
 
+	@Override
+	public DynamicSolverManager createReplacement(WriteableVariableStore newVarStore)
+	{
+		DynamicSolverManager replacement = new DynamicSolverManager(
+			formulaManager.getWith(FormulaManager.RESULTS, newVarStore), managerFactory,
+			solverFactory, newVarStore);
+		newVarStore.importFrom(resultStore);
+		for (VariableID<?> varID : dependencies.getNodeList())
+		{
+			replacement.dependencies.addNode(varID);
+		}
+		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : dependencies.getEdgeList())
+		{
+			replacement.dependencies.addEdge(edge);
+		}
+		for (Object obj : dynamic.getNodeList())
+		{
+			replacement.dynamic.addNode(obj);
+		}
+		for (DynamicEdge edge : dynamic.getEdgeList())
+		{
+			replacement.dynamic.addEdge(edge);
+		}
+		for (Entry<VariableID<?>, Solver<?>> entry : scopedChannels.entrySet())
+		{
+			replacement.scopedChannels.put(entry.getKey(), entry.getValue().createReplacement());
+		}
+		return replacement;
+	}
 }

@@ -61,12 +61,6 @@ public class SimpleFormulaManager implements FormulaManager
 	private final ScopeInstanceFactory siFactory;
 
 	/**
-	 * The active VariableStore used to cache results of items processed through this
-	 * FormulaManager (thus serves as a storage location for variable values).
-	 */
-	private final VariableStore resultStore;
-
-	/**
 	 * Constructs a new FormulaManager from the provided FunctionLibrary, OperatorLibrary,
 	 * VariableLibrary, and VariableStore.
 	 * 
@@ -89,7 +83,7 @@ public class SimpleFormulaManager implements FormulaManager
 		this.opLibrary = Objects.requireNonNull(opLibrary);
 		this.varLibrary = Objects.requireNonNull(varLibrary);
 		this.siFactory = Objects.requireNonNull(siFactory);
-		this.resultStore = Objects.requireNonNull(resultStore);
+		map.put(RESULTS, Objects.requireNonNull(resultStore));
 		this.defaultStore = Objects.requireNonNull(defaultStore);
 	}
 	
@@ -98,7 +92,6 @@ public class SimpleFormulaManager implements FormulaManager
 		this.opLibrary = original.opLibrary;
 		this.varLibrary = original.varLibrary;
 		this.siFactory = original.siFactory;
-		this.resultStore = original.resultStore;
 		this.defaultStore = original.defaultStore;
 		this.map.putAll(map);
 	}
@@ -112,19 +105,6 @@ public class SimpleFormulaManager implements FormulaManager
 	public VariableLibrary getFactory()
 	{
 		return varLibrary;
-	}
-
-	/**
-	 * Returns the VariableStore used to hold variables values for items processed through
-	 * this FormulaManager.
-	 * 
-	 * @return The VariableStore used to hold variables values for items processed through
-	 *         this FormulaManager
-	 */
-	@Override
-	public VariableStore getResolver()
-	{
-		return resultStore;
 	}
 
 	/**

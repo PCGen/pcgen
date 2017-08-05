@@ -306,4 +306,59 @@ public class SolverTest extends TestCase
 		solver.removeModifier(add1, inst);
 		assertTrue(Arrays.equals(new Number[]{3, 6}, solver.process(evalManager)));
 	}
+
+	@Test
+	public void testArrayIndependenceAdd()
+	{
+		Solver<Number[]> solver =
+				new Solver<Number[]>(AbstractModifier.setEmptyArray(0));
+		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
+		Modifier<Number[]> add1 = AbstractModifier.addToArray(1, 10);
+		solver.addModifier(add1, inst);
+		assertTrue(Arrays.equals(new Number[]{1}, solver.process(evalManager)));
+		Modifier<Number[]> add2 = AbstractModifier.addToArray(2, 11);
+		solver.addModifier(add2, inst);
+		assertTrue(Arrays.equals(new Number[]{1, 2}, solver.process(evalManager)));
+		Modifier<Number[]> add3 = AbstractModifier.addToArray(3, 12);
+		solver.addModifier(add3, inst);
+		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, solver.process(evalManager)));
+		Solver<Number[]> other = solver.createReplacement();
+		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, other.process(evalManager)));
+		Modifier<Number> addm = AbstractModifier.add(1, 100);
+		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(0, addm);
+		solver.addModifier(addTo1, inst);
+		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process(evalManager)));
+		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, other.process(evalManager)));
+		Modifier<Number> multm = AbstractModifier.multiply(6, 100);
+		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(1, multm);
+		other.addModifier(multTo2, inst);
+		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process(evalManager)));
+		assertTrue(Arrays.equals(new Number[]{1, 12, 3}, other.process(evalManager)));
+	}
+
+	@Test
+	public void testArrayIndependenceSource()
+	{
+		Modifier<Number> addm = AbstractModifier.add(1, 100);
+		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
+		Modifier<Number> setm = AbstractModifier.setNumber(4, 100);
+		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
+		Solver<Number> solver = new Solver<Number>(mod);
+		assertEquals(Integer.valueOf(6), solver.process(evalManager));
+		//now do real stuff
+		solver.addModifier(addm, inst);
+		solver.addModifier(multm, str);
+		solver.addModifier(setm, inst);
+		assertEquals(Integer.valueOf(9), solver.process(evalManager));
+		Solver<Number> other = solver.createReplacement();
+		assertEquals(Integer.valueOf(9), other.process(evalManager));
+		solver.removeFromSource(inst);
+		assertEquals(Integer.valueOf(12), solver.process(evalManager));
+		assertEquals(Integer.valueOf(9), other.process(evalManager));
+		other.removeFromSource(str);
+		assertEquals(Integer.valueOf(12), solver.process(evalManager));
+		assertEquals(Integer.valueOf(5), other.process(evalManager));
+	}
+
+
 }

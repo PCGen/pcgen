@@ -373,7 +373,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		if (formatManager != null)
 		{
 			VariableID<?> id = varLibrary.getVariableID(scopeInst, varName);
-			VariableStore resolver = fm.getResolver();
+			VariableStore resolver = fm.get(FormulaManager.RESULTS);
 			if (resolver.containsKey(id))
 			{
 				return resolver.get(id);

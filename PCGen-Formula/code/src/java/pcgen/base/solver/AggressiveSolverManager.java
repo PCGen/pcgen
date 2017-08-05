@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.Stack;
+import java.util.Map.Entry;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -400,4 +401,25 @@ public class AggressiveSolverManager implements SolverManager
 		return solverFactory.getDefault(varFormat);
 	}
 
+	@Override
+	public AggressiveSolverManager createReplacement(WriteableVariableStore newVarStore)
+	{
+		newVarStore.importFrom(resultStore);
+		AggressiveSolverManager replacement = new AggressiveSolverManager(
+			formulaManager.getWith(FormulaManager.RESULTS, newVarStore), managerFactory,
+			solverFactory, newVarStore);
+		for (VariableID<?> varID : dependencies.getNodeList())
+		{
+			replacement.dependencies.addNode(varID);
+		}
+		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : dependencies.getEdgeList())
+		{
+			replacement.dependencies.addEdge(edge);
+		}
+		for (Entry<VariableID<?>, Solver<?>> entry : scopedChannels.entrySet())
+		{
+			replacement.scopedChannels.put(entry.getKey(), entry.getValue().createReplacement());
+		}
+		return replacement;
+	}
 }

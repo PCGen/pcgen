@@ -309,4 +309,20 @@ public class Solver<T>
 		}
 
 	}
+
+	/**
+	 * Creates a replacement Solver for this Solver, giving it independent modifier and
+	 * source lists.
+	 * 
+	 * @return A replacement Solver for this Solver, with independent modifier and source
+	 *         lists.
+	 */
+	public Solver<T> createReplacement()
+	{
+		Solver<T> replacement = new Solver<>(defaultModifier);
+		replacement.modifierList.addAllLists(modifierList);
+		replacement.sourceList.addAllLists(sourceList);
+		return replacement;
+	}
+	
 }

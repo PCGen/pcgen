@@ -17,7 +17,7 @@
  */
 package pcgen.base.formula.base;
 
-
+import java.util.Collection;
 
 /**
  * A VariableStore is a storage location for the values of Variables.
@@ -71,5 +71,12 @@ public interface VariableStore
 	 *         VariableID; false otherwise
 	 */
 	public boolean containsKey(VariableID<?> varID);
+
+	/**
+	 * Returns a Collection of the VariableID objects in this VariableStore.
+	 * 
+	 * @return A Collection of the VariableID objects in this VariableStore.
+	 */
+	public Collection<VariableID<?>> getVariables();
 
 }

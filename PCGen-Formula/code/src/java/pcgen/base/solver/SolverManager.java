@@ -19,6 +19,7 @@ import java.util.List;
 
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.WriteableVariableStore;
 
 /**
  * A SolverManager manages a series of Solver objects in order to manage dependencies
@@ -154,4 +155,18 @@ public interface SolverManager
 	 *            for triggering Solvers to be processed
 	 */
 	public void solveChildren(VariableID<?> varID);
+
+	/**
+	 * Creates a replacement SolverManager for this SolverManager. The replacement will
+	 * have the given VariableStore as the destination for calculations. Any underlying
+	 * system of calculation in the resulting SolverManager must be independent of this
+	 * SolverManager. For example, an addition of a Modifier to either SolverManager must
+	 * not modify the other.
+	 * 
+	 * @param newVarStore
+	 *            The WriteableVariableStore for the new SolverManager
+	 * @return A SolverManager sharing the same default values, existing values, but with
+	 *         independent calculation pathways from this SolverManager
+	 */
+	public SolverManager createReplacement(WriteableVariableStore newVarStore);
 }

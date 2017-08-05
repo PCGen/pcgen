@@ -43,20 +43,16 @@ public interface FormulaManager
 	public final TypedKey<FunctionLibrary> FUNCTION = new TypedKey<>();
 
 	/**
+	 * A TypedKey for containing a VariableStore in the FormulaManager
+	 */
+	public final TypedKey<VariableStore> RESULTS = new TypedKey<>();
+
+	/**
 	 * Returns the VariableLibrary used to get VariableIDs.
 	 * 
 	 * @return The VariableLibrary used to get VariableIDs
 	 */
 	public VariableLibrary getFactory();
-
-	/**
-	 * Returns the VariableStore used to hold variables values for items
-	 * processed through this FormulaManager.
-	 * 
-	 * @return The VariableStore used to hold variables values for items
-	 *         processed through this FormulaManager
-	 */
-	public VariableStore getResolver();
 
 	/**
 	 * Returns the OperatorLibrary used to store valid operations in this
