@@ -20,6 +20,7 @@ package plugin.lsttokens.add;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.Skill;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
 public class SkillTokenTest extends

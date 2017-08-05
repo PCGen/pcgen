@@ -20,6 +20,7 @@ package plugin.lsttokens.add;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.Language;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
 public class LanguageTokenTest extends AbstractAddTokenTestCase<Language>
