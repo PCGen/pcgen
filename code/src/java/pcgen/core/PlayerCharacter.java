@@ -7321,10 +7321,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		aClone.defaultDomainSource = defaultDomainSource;
 
 		aClone.ageSetKitSelections = new boolean[ageSetKitSelections.length];
-		for (int i = 0; i < ageSetKitSelections.length; i++)
-		{
-			aClone.ageSetKitSelections[i] = ageSetKitSelections[i];
-		}
+		System.arraycopy(ageSetKitSelections, 0, aClone.ageSetKitSelections, 0, ageSetKitSelections.length);
 
 		// Not sure what this is for
 		aClone.importing = false;
