@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;

@@ -19,8 +19,8 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;

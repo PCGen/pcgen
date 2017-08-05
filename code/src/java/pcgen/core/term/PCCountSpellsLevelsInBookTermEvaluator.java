@@ -22,9 +22,9 @@ package pcgen.core.term;
 
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 
 public class PCCountSpellsLevelsInBookTermEvaluator

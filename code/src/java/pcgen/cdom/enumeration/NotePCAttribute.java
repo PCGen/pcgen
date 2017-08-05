@@ -16,6 +16,7 @@
 package pcgen.cdom.enumeration;
 
 import java.util.stream.Stream;
+
 import pcgen.system.LanguageBundle;
 
 public enum NotePCAttribute implements StringPCAttribute

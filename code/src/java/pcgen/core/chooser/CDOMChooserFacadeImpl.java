@@ -20,8 +20,6 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -31,13 +29,15 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.facade.core.ChooserFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code GeneraChooserFacadeBase} is a base from which a

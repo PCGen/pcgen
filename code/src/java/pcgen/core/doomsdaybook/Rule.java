@@ -17,9 +17,9 @@
  */
  package pcgen.core.doomsdaybook;
 
-import pcgen.util.Logging;
-
 import java.util.ArrayList;
+
+import pcgen.util.Logging;
 
 
 public class Rule extends ArrayList<String> implements DataElement

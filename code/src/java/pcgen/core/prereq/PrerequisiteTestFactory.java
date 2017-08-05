@@ -21,9 +21,9 @@ package pcgen.core.prereq;
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.system.LanguageBundle;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
-import pcgen.system.LanguageBundle;
 
 
 public final class PrerequisiteTestFactory implements PluginLoader{

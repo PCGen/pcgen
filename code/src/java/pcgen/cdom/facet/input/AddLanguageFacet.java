@@ -21,8 +21,8 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.meta.CorePerspective;
-import pcgen.cdom.meta.FacetBehavior;
 import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.FacetBehavior;
 import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.Language;
 

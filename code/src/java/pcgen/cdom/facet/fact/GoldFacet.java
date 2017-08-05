@@ -18,8 +18,8 @@
 package pcgen.cdom.facet.fact;
 
 import java.math.BigDecimal;
-
 import java.math.RoundingMode;
+
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;

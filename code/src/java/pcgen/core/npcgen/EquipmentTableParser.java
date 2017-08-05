@@ -28,15 +28,15 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
-
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SystemCollections;
 import pcgen.util.Logging;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * Parse a equipment table (random treasure) data file.

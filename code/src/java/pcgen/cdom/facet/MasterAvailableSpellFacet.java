@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;

@@ -36,8 +36,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
+
 import javax.swing.SwingConstants;
-import org.apache.commons.lang3.SystemUtils;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -49,6 +50,8 @@ import pcgen.persistence.PersistenceManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  *

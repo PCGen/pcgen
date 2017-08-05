@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import java.util.Collection;
+
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.base.MasterListInterface;

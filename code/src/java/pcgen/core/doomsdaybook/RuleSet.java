@@ -17,9 +17,9 @@
  */
  package pcgen.core.doomsdaybook;
 
-import gmgen.plugin.dice.Dice;
-
 import java.util.ArrayList;
+
+import gmgen.plugin.dice.Dice;
 
 /**
  * This class deals with RuleSets for Random name generation

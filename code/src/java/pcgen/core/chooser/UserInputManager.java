@@ -19,8 +19,6 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.core.Globals;
@@ -28,6 +26,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class UserInputManager extends CDOMChoiceManager<String>
 {

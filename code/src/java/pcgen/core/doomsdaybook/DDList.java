@@ -17,9 +17,9 @@
  */
  package pcgen.core.doomsdaybook;
 
-import gmgen.plugin.dice.Dice;
-
 import java.util.ArrayList;
+
+import gmgen.plugin.dice.Dice;
 
 
 public class DDList extends ArrayList<WeightedDataValue> implements DataElement

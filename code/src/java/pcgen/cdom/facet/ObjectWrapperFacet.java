@@ -27,6 +27,7 @@ import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.output.wrapper.CDOMReferenceWrapper;
 import pcgen.output.wrapper.CNAbilitySelectionWrapper;
 import pcgen.rules.context.LoadContext;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 

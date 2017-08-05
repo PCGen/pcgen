@@ -276,6 +276,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
+
 import org.jetbrains.annotations.TestOnly;
 
 public class PlayerCharacter implements Cloneable, VariableContainer

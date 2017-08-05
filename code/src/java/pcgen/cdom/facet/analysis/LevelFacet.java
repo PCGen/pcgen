@@ -27,11 +27,11 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
-import pcgen.cdom.facet.model.RaceFacet;
-import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 

@@ -20,8 +20,8 @@ package pcgen.cdom.helper;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.core.Equipment;
 import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
 
 /**
  * An ArmorProfProvider is an object that contains the ability to contain Armor

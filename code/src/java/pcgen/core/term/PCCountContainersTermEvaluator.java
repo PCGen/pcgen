@@ -24,9 +24,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.Equipment;
 import pcgen.cdom.base.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
 
 public class PCCountContainersTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator

@@ -20,12 +20,12 @@
 
 package pcgen.core.term;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentUtilities;
+import pcgen.core.PlayerCharacter;
 
 public class PCCountEquipmentTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator

@@ -20,8 +20,8 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 
 public class PCCLTermEvaluator

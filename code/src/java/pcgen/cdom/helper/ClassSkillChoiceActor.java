@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.helper;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -33,6 +31,8 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * A ClassSkillChoiceActor is a PersistentChoiceActor that can apply skill

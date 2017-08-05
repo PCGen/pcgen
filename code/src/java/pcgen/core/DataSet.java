@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.AlignmentFacade;
@@ -61,7 +62,6 @@ import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
-import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.enumeration.View;
 

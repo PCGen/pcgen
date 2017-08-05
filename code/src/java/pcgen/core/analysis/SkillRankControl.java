@@ -21,8 +21,6 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -41,6 +39,8 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
 
 public final class SkillRankControl
 {

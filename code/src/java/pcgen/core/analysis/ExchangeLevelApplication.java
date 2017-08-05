@@ -28,9 +28,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 

@@ -22,9 +22,9 @@ package pcgen.core.term;
 
 import java.math.BigDecimal;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
-import pcgen.cdom.enumeration.IntegerKey;
 
 public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
