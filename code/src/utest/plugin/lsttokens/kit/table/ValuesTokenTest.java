@@ -19,13 +19,13 @@ package plugin.lsttokens.kit.table;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.core.EquipmentModifier;
 import pcgen.core.kit.KitTable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.kit.basekit.LookupToken;
 import plugin.lsttokens.kit.gear.EqmodToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;

@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import org.junit.Test;
-
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public abstract class AbstractSpellCastingTokenTestCase extends

@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import org.junit.Test;
-
 import pcgen.base.formula.DividingFormula;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,6 +26,8 @@ import pcgen.cdom.processor.HitDieLock;
 import pcgen.cdom.processor.HitDieStep;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase

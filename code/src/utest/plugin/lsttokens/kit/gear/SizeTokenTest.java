@@ -19,14 +19,14 @@ package plugin.lsttokens.kit.gear;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.core.SizeAdjustment;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 

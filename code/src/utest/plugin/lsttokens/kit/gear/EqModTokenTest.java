@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.kit.gear;
 
-import org.junit.Test;
-
 import pcgen.core.EquipmentModifier;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>

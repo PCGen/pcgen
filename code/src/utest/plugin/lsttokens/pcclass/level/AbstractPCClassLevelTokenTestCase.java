@@ -20,12 +20,6 @@ package plugin.lsttokens.pcclass.level;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
@@ -40,6 +34,11 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
+
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;

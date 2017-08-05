@@ -17,13 +17,13 @@
  */
 package plugin.lsttokens.kit.levelability;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.kit.KitLevelAbility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 public class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbility>
