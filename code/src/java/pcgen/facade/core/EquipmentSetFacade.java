@@ -18,12 +18,11 @@
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
-
 import java.util.EventListener;
 import java.util.EventObject;
 
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 /**
  * {@code EquipmentSetFacade}defines the interface layer between the UI

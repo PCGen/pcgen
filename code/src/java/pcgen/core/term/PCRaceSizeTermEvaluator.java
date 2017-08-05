@@ -20,8 +20,8 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.core.PlayerCharacter;
 
 public class PCRaceSizeTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator

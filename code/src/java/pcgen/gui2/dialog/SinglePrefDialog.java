@@ -19,10 +19,12 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;

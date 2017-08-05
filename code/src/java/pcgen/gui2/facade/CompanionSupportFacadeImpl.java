@@ -23,8 +23,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.CompanionList;
@@ -40,18 +38,20 @@ import pcgen.facade.core.CompanionStubFacade;
 import pcgen.facade.core.CompanionSupportFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.facade.core.RaceFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultMapFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.MapFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.DefaultListFacade;
-import pcgen.facade.util.DefaultMapFacade;
-import pcgen.facade.util.ListFacade;
-import pcgen.facade.util.MapFacade;
 import pcgen.system.CharacterManager;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This class implements the basic CompanionSupportFacade

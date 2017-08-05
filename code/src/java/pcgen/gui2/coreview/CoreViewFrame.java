@@ -33,8 +33,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
@@ -53,6 +51,8 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class CoreViewFrame extends JFrame
 {

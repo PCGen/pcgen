@@ -34,9 +34,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
 import javax.swing.undo.UndoManager;
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
+
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -183,6 +183,9 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code CharacterFacadeImpl} is an implementation of

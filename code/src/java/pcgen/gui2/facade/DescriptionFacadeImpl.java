@@ -22,12 +22,12 @@ import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import org.apache.commons.lang3.StringUtils;
+
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
-import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.facade.core.ChronicleEntryFacade;
@@ -39,6 +39,8 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code DescriptionFacadeImpl} is an implementation of

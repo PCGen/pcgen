@@ -20,10 +20,10 @@ package pcgen.facade.util;
 
 import javax.swing.event.EventListenerList;
 
-import org.apache.commons.lang3.ObjectUtils;
-
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
+
+import org.apache.commons.lang3.ObjectUtils;
 
 
 public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>

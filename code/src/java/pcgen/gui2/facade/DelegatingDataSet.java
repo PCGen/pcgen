@@ -41,13 +41,13 @@ import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TemplateFacade;
-import pcgen.facade.util.event.MapEvent;
-import pcgen.facade.util.event.MapListener;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
+import pcgen.facade.util.event.MapEvent;
+import pcgen.facade.util.event.MapListener;
 
 /**
  * This class implements a {@code DataSetFacade} by delegating to another

@@ -20,11 +20,11 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.Equipment;
-import pcgen.core.WeaponProf;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.WeaponProf;
 
 public class PCSizeIntEQTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator

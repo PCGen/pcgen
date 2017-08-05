@@ -22,9 +22,9 @@ package pcgen.core.term;
 
 import java.util.Collection;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 

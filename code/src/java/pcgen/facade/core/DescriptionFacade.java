@@ -17,9 +17,9 @@
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 /**
  * The Class {@code DescriptionFacade} tracks descriptive entries about the character,

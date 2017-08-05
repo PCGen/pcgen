@@ -18,8 +18,8 @@
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 
 public interface LanguageChooserFacade

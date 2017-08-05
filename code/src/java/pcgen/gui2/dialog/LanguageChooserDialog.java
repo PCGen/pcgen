@@ -44,11 +44,11 @@ import javax.swing.WindowConstants;
 
 import pcgen.facade.core.LanguageChooserFacade;
 import pcgen.facade.core.LanguageFacade;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeListModel;

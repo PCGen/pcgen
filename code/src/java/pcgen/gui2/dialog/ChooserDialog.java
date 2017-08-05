@@ -47,19 +47,17 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.chooser.InfoWrapper;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
@@ -73,6 +71,8 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code ChooserDialog} provides a general dialog to allow the

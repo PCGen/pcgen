@@ -18,9 +18,9 @@
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
-
 import java.io.File;
+
+import pcgen.facade.util.ReferenceFacade;
 
 
 public interface CharacterStubFacade

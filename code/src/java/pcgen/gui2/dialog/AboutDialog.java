@@ -46,8 +46,6 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
 import pcgen.gui2.PCGenFrame;
@@ -58,6 +56,8 @@ import pcgen.gui2.util.JLabelPane;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 
 public class AboutDialog extends JDialog

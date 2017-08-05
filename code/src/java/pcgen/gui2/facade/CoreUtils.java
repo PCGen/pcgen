@@ -37,8 +37,8 @@ import pcgen.cdom.meta.CoreViewNodeBase;
 import pcgen.cdom.meta.FacetView;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
-import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.util.Logging;
 
 class CoreUtils

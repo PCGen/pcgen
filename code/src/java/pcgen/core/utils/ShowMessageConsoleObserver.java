@@ -17,10 +17,10 @@
  */
 package pcgen.core.utils;
 
-import pcgen.util.Logging;
-
 import java.util.Observable;
 import java.util.Observer;
+
+import pcgen.util.Logging;
 
 
 public class ShowMessageConsoleObserver implements Observer {
