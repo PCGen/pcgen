@@ -22,9 +22,9 @@ import javax.swing.JTable;
 
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ChangeEvent;
 import pcgen.facade.util.event.ChangeListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 

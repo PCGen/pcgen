@@ -17,11 +17,6 @@
  */
 package pcgen.gui2.facade;
 
-import gmgen.plugin.InitHolder;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-
 import java.io.File;
 import java.util.Iterator;
 
@@ -39,6 +34,11 @@ import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.pluginmgr.messages.RequestToSavePlayerCharacterMessage;
 import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.CharacterManager;
+
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
 
 /**
  * The Class {@code GMGenMessageHandler} processes any requests

@@ -18,8 +18,6 @@
  */
 package pcgen.gui2.tabs;
 
-import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
-
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -102,6 +100,8 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
+
+import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 
 /**
  * A character tab providing the user with the ability to buy and sell

@@ -23,12 +23,12 @@ import java.util.List;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.PObject;
 import pcgen.facade.core.ChooserFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.system.LanguageBundle;
 
 /**

@@ -40,9 +40,9 @@ import javax.swing.event.ListSelectionListener;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.NoteFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.bio.BiographyInfoPane;
 import pcgen.gui2.tabs.bio.CampaignHistoryInfoPane;
 import pcgen.gui2.tabs.bio.NoteInfoPane;

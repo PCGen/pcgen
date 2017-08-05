@@ -32,8 +32,8 @@ import javax.swing.border.TitledBorder;
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.UIPropertyContext;
-import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.JComboBoxEx;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 

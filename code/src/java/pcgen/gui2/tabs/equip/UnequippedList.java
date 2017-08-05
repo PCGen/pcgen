@@ -27,12 +27,12 @@ import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
 import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.util.AbstractListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.AbstractListFacade;
 import pcgen.util.Logging;
 
 public class UnequippedList extends AbstractListFacade<EquipmentFacade> implements EquipmentListFacade, EquipmentListListener, ListListener<EquipmentFacade>, ReferenceListener<EquipmentSetFacade>

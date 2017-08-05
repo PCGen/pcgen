@@ -18,8 +18,6 @@
  */
 package pcgen.gui2.tabs;
 
-import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -61,9 +59,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.core.BodyStructure;
 import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CharacterFacade;
@@ -93,6 +88,11 @@ import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 
 /**
  * EquipInfoTab is a character tab for managing where gear is distributed for a

@@ -24,10 +24,10 @@ import java.awt.event.FocusListener;
 import javax.swing.ComboBoxModel;
 import javax.swing.SwingUtilities;
 
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.FacadeListModel;
 
 /**
