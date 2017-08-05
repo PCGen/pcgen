@@ -27,6 +27,7 @@ import pcgen.core.FollowerOption;
 import pcgen.core.Race;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.CompanionListLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 

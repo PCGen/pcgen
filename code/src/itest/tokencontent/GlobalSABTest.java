@@ -23,6 +23,7 @@ import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.core.SpecialAbility;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.SabLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 

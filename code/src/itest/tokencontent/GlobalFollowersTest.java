@@ -23,6 +23,7 @@ import pcgen.cdom.facet.analysis.FollowerLimitFacet;
 import pcgen.cdom.list.CompanionList;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.FollowersLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 

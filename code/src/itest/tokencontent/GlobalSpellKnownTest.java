@@ -36,6 +36,7 @@ import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.SpellknownLst;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;

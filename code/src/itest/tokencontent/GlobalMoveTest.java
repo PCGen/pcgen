@@ -23,6 +23,7 @@ import pcgen.cdom.facet.analysis.MovementFacet;
 import pcgen.core.Movement;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.MoveLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 

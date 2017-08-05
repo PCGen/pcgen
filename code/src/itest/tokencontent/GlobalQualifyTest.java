@@ -17,8 +17,6 @@
  */
 package tokencontent;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.QualifyFacet;
@@ -32,6 +30,8 @@ import pcgen.core.character.CompanionMod;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Test;
 import plugin.lsttokens.QualifyToken;
 import tokencontent.testsupport.AbstractContentTokenTest;
 

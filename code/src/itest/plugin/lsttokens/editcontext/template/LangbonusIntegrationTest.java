@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.editcontext.template;
 
-import org.junit.Test;
-
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.template.LangbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;

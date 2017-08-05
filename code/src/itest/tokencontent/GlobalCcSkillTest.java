@@ -17,8 +17,6 @@
  */
 package tokencontent;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.FacetLibrary;
@@ -30,6 +28,8 @@ import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Test;
 import plugin.lsttokens.CcskillLst;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
