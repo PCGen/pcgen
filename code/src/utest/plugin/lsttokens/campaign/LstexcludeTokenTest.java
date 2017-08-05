@@ -21,6 +21,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.testsupport.AbstractCampaignTokenTestCase;
 
 public class LstexcludeTokenTest extends AbstractCampaignTokenTestCase

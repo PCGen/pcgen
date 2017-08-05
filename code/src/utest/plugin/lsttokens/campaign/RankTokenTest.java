@@ -21,6 +21,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Campaign;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
