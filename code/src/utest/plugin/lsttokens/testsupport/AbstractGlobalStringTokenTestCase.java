@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractGlobalStringTokenTestCase extends
 		AbstractGlobalTokenTestCase

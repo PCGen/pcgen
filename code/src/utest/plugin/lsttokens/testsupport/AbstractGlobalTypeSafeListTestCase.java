@@ -19,11 +19,11 @@ package plugin.lsttokens.testsupport;
 
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
 public abstract class AbstractGlobalTypeSafeListTestCase<T> extends

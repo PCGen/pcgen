@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
 public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>

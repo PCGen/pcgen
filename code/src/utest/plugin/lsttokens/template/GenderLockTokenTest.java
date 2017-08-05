@@ -19,8 +19,6 @@ package plugin.lsttokens.template;
 
 import java.util.Locale;
 
-import org.junit.Test;
-
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,6 +26,8 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;

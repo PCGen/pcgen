@@ -19,16 +19,16 @@ package plugin.lsttokens.template;
 
 import java.net.URISyntaxException;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;

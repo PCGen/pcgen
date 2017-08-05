@@ -22,12 +22,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Locale;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.AbilityCategory;
@@ -45,6 +39,11 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 public abstract class AbstractGlobalTokenTestCase extends TestCase
 {

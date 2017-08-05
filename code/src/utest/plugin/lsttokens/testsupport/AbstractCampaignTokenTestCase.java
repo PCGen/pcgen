@@ -20,12 +20,12 @@ package plugin.lsttokens.testsupport;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
+
+import org.junit.Test;
 
 public abstract class AbstractCampaignTokenTestCase extends
 		AbstractCDOMTokenTestCase<Campaign>
