@@ -29,6 +29,7 @@ import javax.swing.event.EventListenerList;
 
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
 import plugin.overland.util.Localized;
 
 /**

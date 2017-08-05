@@ -19,8 +19,8 @@
 package plugin.pretokens.parser;
 
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteException;
+import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;

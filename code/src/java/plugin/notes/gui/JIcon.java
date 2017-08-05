@@ -18,24 +18,38 @@
  */
 package plugin.notes.gui;
 
-import gmgen.GMGenSystem;
-import pcgen.util.Logging;
-import plugin.notes.NotesPlugin;
-
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-
-import org.apache.commons.lang3.SystemUtils;
-
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Desktop;
 import java.awt.SystemColor;
-import java.awt.Color;
-import java.awt.BorderLayout;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
+
 import pcgen.gui2.tools.Icons;
+import pcgen.util.Logging;
+
+import gmgen.GMGenSystem;
+import org.apache.commons.lang3.SystemUtils;
+import plugin.notes.NotesPlugin;
 
 /**
  *  JIcon is a small form that uses an image, a button and some text to

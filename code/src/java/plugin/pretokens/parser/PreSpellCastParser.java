@@ -17,13 +17,13 @@
  */
 package plugin.pretokens.parser;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-
-import java.util.StringTokenizer;
 
 /**
  * A prerequisite parser class that handles the parsing of pre spell cast tokens.

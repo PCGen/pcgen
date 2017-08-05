@@ -21,12 +21,12 @@ import java.io.File;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
+import pcgen.util.Logging;
+
 import org.jdom2.DocType;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
-
-import pcgen.util.Logging;
 import plugin.overland.gui.XMLFilter;
 import plugin.overland.util.PairList;
 import plugin.overland.util.RBCost;

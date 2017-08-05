@@ -18,15 +18,15 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+import java.util.List;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
-
-import java.io.IOException;
-import java.io.Writer;
-import java.util.List;
 
 public class PreLevelWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface

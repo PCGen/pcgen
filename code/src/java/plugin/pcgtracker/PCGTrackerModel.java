@@ -17,10 +17,11 @@
  */
  package plugin.pcgtracker;
 
-import gmgen.plugin.PlayerCharacterOutput;
+import javax.swing.DefaultListModel;
+
 import pcgen.core.PlayerCharacter;
 
-import javax.swing.DefaultListModel;
+import gmgen.plugin.PlayerCharacterOutput;
 
 public class PCGTrackerModel extends DefaultListModel
 {

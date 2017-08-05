@@ -17,8 +17,6 @@
  */
 package plugin.notes.gui;
 
-import gmgen.util.LogUtilities;
-
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -36,6 +34,8 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
+
+import gmgen.util.LogUtilities;
 
 /**
  * Panel that tracks the misc preferences
