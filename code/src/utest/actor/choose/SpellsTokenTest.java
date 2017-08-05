@@ -19,8 +19,9 @@ package actor.choose;
 
 import pcgen.cdom.base.Chooser;
 import pcgen.core.spell.Spell;
-import plugin.lsttokens.choose.SpellsToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import plugin.lsttokens.choose.SpellsToken;
 
 public class SpellsTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Spell>

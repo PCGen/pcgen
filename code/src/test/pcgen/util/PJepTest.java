@@ -20,16 +20,15 @@ package pcgen.util;
 
 import java.util.Iterator;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-
-import org.nfunk.jep.SymbolTable;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import org.nfunk.jep.SymbolTable;
 
 /**
  * Tests {@link PJEP}.

@@ -18,13 +18,13 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+
+import org.junit.Test;
 import plugin.pretokens.parser.PreTypeParser;
+
+import static org.junit.Assert.assertEquals;
 
 @SuppressWarnings("nls")
 public class PreTypeParserTest extends EnUsLocaleDependentTestCase

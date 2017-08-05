@@ -30,7 +30,8 @@ import pcgen.rules.context.LoadContext;
 import org.junit.Before;
 import org.junit.Test;
 import plugin.lsttokens.choose.AbilityToken;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * The Class {@code AbilityTokenTest} verifies the AbilityToken

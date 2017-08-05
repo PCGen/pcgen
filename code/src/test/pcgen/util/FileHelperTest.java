@@ -19,9 +19,8 @@ package pcgen.util;
 
 import java.io.File;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import junit.framework.TestCase;
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * FileHelperTest

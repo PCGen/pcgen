@@ -17,8 +17,6 @@
  */
 package plugin.exporttokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -41,6 +39,9 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.io.exporttoken.SkillToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
  * <code>SkillTokenTest</code> contains tests to verify that the

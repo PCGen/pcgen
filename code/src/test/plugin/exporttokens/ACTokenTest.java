@@ -19,8 +19,6 @@ package plugin.exporttokens;
 
 import java.util.Collections;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.content.ACControl;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -37,6 +35,9 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
  * <code>ACTokenTest</code> tests the function of the AC token and 

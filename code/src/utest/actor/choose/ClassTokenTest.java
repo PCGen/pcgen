@@ -19,8 +19,9 @@ package actor.choose;
 
 import pcgen.cdom.base.Chooser;
 import pcgen.core.PCClass;
-import plugin.lsttokens.choose.ClassToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import plugin.lsttokens.choose.ClassToken;
 
 public class ClassTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCClass>

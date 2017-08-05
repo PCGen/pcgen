@@ -19,6 +19,7 @@
 package pcgen.util.testchecker;
 
 import java.lang.reflect.Array;
+
 import pcgen.util.TestChecker;
 
 /**

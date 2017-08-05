@@ -17,8 +17,6 @@
  */
 package plugin.jepcommands;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -28,6 +26,9 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**

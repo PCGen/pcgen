@@ -17,8 +17,6 @@
  */
 package plugin;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -28,6 +26,8 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * <code>FacetDefinitionTest</code> verifies that all facets are registered in the 

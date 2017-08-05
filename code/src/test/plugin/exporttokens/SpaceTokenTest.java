@@ -17,10 +17,11 @@
  */
 package plugin.exporttokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.display.CharacterDisplay;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.exporttokens.deprecated.SpaceToken;
 
 /**

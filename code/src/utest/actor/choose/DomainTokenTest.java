@@ -19,8 +19,9 @@ package actor.choose;
 
 import pcgen.cdom.base.Chooser;
 import pcgen.core.Domain;
-import plugin.lsttokens.choose.DomainToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import plugin.lsttokens.choose.DomainToken;
 
 public class DomainTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Domain>

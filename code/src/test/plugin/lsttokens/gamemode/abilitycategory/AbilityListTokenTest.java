@@ -21,7 +21,6 @@ package plugin.lsttokens.gamemode.abilitycategory;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import junit.framework.TestCase;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
@@ -30,6 +29,8 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import junit.framework.TestCase;
 
 
 /**

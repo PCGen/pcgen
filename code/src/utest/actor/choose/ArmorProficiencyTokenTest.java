@@ -19,8 +19,9 @@ package actor.choose;
 
 import pcgen.cdom.base.Chooser;
 import pcgen.core.ArmorProf;
-import plugin.lsttokens.choose.ArmorProficiencyToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import plugin.lsttokens.choose.ArmorProficiencyToken;
 
 public class ArmorProficiencyTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<ArmorProf>

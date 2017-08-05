@@ -18,8 +18,9 @@
 package actor.choose;
 
 import pcgen.cdom.base.Chooser;
-import plugin.lsttokens.choose.StringToken;
+
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
+import plugin.lsttokens.choose.StringToken;
 
 public class StringTokenTest extends
 		AbstractPersistentChoiceActorTestCase<String>

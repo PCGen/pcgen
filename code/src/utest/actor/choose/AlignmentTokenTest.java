@@ -19,8 +19,9 @@ package actor.choose;
 
 import pcgen.cdom.base.Chooser;
 import pcgen.core.PCAlignment;
-import plugin.lsttokens.choose.AlignmentToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import plugin.lsttokens.choose.AlignmentToken;
 
 public class AlignmentTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCAlignment>

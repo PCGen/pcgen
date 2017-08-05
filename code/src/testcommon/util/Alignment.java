@@ -17,6 +17,7 @@ package util;
 
 import pcgen.core.Globals;
 import pcgen.rules.context.AbstractReferenceContext;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public final class Alignment

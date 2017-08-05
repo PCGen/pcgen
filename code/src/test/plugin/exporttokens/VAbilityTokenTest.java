@@ -20,8 +20,6 @@ package plugin.exporttokens;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -45,6 +43,9 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
  * <code>VAbilityTokenTest</code> tests the functioning of the VABILITY 
