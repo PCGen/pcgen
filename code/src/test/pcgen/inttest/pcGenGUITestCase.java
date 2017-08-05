@@ -9,12 +9,12 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
-import org.custommonkey.xmlunit.XMLTestCase;
-
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.system.Main;
 import pcgen.util.TestHelper;
+
+import org.custommonkey.xmlunit.XMLTestCase;
 
 /**
  * A pcGenGUITestCase is an XMLTestCase.  It is an abstract 

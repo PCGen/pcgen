@@ -20,12 +20,13 @@ package pcgen.persistence.lst.prereq;
 
 import java.util.Locale;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 
 
 @SuppressWarnings("nls")

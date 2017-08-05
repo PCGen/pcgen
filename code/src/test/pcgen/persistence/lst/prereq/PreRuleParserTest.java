@@ -17,14 +17,14 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-
-import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+
+import org.junit.Test;
 import plugin.pretokens.parser.PreRuleParser;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 /**
  * <code>PreRuleParserTest</code> is ...

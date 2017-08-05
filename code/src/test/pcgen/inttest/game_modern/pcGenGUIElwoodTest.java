@@ -20,6 +20,7 @@
 package pcgen.inttest.game_modern;
 
 import pcgen.inttest.PcgenFtlTestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 

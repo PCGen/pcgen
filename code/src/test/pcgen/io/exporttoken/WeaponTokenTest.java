@@ -20,8 +20,6 @@ package pcgen.io.exporttoken;
 import java.math.BigDecimal;
 import java.util.Locale;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
@@ -58,6 +56,9 @@ import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
  * <code>WeaponTokenTest</code> contains tests to verify that the

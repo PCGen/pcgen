@@ -17,12 +17,13 @@
  */
 package pcgen.io.migration;
 
-import junit.framework.TestCase;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 import pcgen.io.migration.AbilityMigration.CategorisedKey;
+
+import junit.framework.TestCase;
 
 /**
  * AbilityMigrationTest checks the function of AbilityMigration.

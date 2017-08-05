@@ -17,18 +17,18 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.pretokens.parser.PreAbilityParser;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * <code>PreAbilityParserTest</code> tests the function of the 

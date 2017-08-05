@@ -17,9 +17,10 @@
  */
 package pcgen.inttest.game_pathfinder;
 
+import pcgen.inttest.PcgenFtlTestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests loading and exporting a pathfinder paladin.

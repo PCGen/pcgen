@@ -17,14 +17,9 @@
  */
 package pcgen.io.freemarker;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import java.io.File;
 import java.net.URI;
 import java.util.Collections;
-
-import org.junit.Test;
 
 import pcgen.AbstractJunit4CharacterTestCase;
 import pcgen.core.Ability;
@@ -35,6 +30,11 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * The Class <code>PCHasVarFunctionTest</code> verifies the correctness of 

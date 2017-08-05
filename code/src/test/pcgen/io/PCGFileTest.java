@@ -1,8 +1,10 @@
 package pcgen.io;
 
 import java.io.File;
-import junit.framework.TestCase;
+
 import pcgen.cdom.base.Constants;
+
+import junit.framework.TestCase;
 
 /**
  * Tests {@link PCGFile}.

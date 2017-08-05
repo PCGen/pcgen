@@ -20,14 +20,16 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.util.List;
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 /**
  * A collection of tests to validate the functioning of the BioSetLoader class.

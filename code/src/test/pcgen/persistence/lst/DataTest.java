@@ -17,8 +17,6 @@
  */
 package pcgen.persistence.lst;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,12 +29,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
@@ -51,6 +43,14 @@ import pcgen.system.PCGenTask;
 import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.SystemUtils;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * The Class <code>DataTest</code> checks the data files for known issues.

@@ -20,8 +20,6 @@ package pcgen.io.exporttoken;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
@@ -40,6 +38,9 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
  * <code>AbilityTokenTest</code> tests the functioning of the ABILITY 

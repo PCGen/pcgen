@@ -18,15 +18,15 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.util.TestHelper;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.pretokens.parser.PreStatParser;
+
+import static org.junit.Assert.assertEquals;
 
 
 @SuppressWarnings("nls")

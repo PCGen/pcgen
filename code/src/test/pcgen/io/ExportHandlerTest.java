@@ -25,8 +25,6 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -53,6 +51,9 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
  * <code>SkillTokenTest</code> contains tests to verify that the

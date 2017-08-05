@@ -17,9 +17,6 @@
  */
 package pcgen.inttest.game_pathfinder;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,10 +24,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-
-import org.custommonkey.xmlunit.XMLUnit;
-import org.junit.Ignore;
-import org.junit.Test;
 
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
@@ -43,6 +36,13 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConsoleUIDelegate;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
+
+import org.custommonkey.xmlunit.XMLUnit;
+import org.junit.Ignore;
+import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Tests loading and exporting a character in both the old sheet and the 

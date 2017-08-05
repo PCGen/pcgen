@@ -19,8 +19,6 @@ package pcgen.io.exporttoken;
 
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -35,6 +33,9 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.exporttokens.SpellMemToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 

@@ -17,13 +17,14 @@
  */
 package pcgen.io.exporttoken;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.exporttokens.TextToken;
 
 /**

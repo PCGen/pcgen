@@ -18,6 +18,7 @@
 package pcgen.inttest.game_pathfinder;
 
 import pcgen.inttest.PcgenFtlTestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 

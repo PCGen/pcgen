@@ -17,11 +17,12 @@
  */
 package pcgen.io.migration;
 
-import junit.framework.TestCase;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
+
+import junit.framework.TestCase;
 
 /**
  * RaceMigrationTest checks the function of RaceMigration. 

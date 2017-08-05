@@ -17,10 +17,6 @@
  */
 package pcgen.persistence.lst;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,14 +25,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.LogRecord;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.AfterClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -60,6 +48,18 @@ import pcgen.system.PCGenTaskListener;
 import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
+import org.junit.AfterClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * The Class <code>DataLoadTest</code> checks each basic source for errors on load.

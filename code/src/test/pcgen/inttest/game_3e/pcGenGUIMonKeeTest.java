@@ -20,6 +20,7 @@
 package pcgen.inttest.game_3e;
 
 import pcgen.inttest.pcGenGUITestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 

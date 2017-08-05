@@ -3,6 +3,7 @@
 package pcgen.inttest.game_pathfinder;
 
 import pcgen.inttest.pcGenGUITestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 

@@ -20,9 +20,6 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Test;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -30,8 +27,13 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.GameModeFileLoader;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.pretokens.parser.PreAlignParser;
 import util.Alignment;
+
+import static org.junit.Assert.assertEquals;
 
 @SuppressWarnings("nls")
 public class PreAlignParserTest extends EnUsLocaleDependentTestCase
