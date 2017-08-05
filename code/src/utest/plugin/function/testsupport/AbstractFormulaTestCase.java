@@ -19,7 +19,6 @@ package plugin.function.testsupport;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.formatmanager.FormatUtilities;
@@ -51,6 +50,8 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import junit.framework.TestCase;
 
 public abstract class AbstractFormulaTestCase extends TestCase
 {

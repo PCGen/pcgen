@@ -19,7 +19,6 @@ package plugin.function;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -47,6 +46,8 @@ import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.rules.context.LoadContext;
+
+import junit.framework.TestCase;
 
 public abstract class AbstractFormulaTestCase extends TestCase
 {

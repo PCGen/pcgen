@@ -21,7 +21,8 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.fail;
 
 
 /**

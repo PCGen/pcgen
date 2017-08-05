@@ -20,7 +20,8 @@ package pcgen.io.filters;
 import pcgen.io.EntityEncoder;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * PatternFilterTest checks the functioning of the PatternFilter class.

@@ -17,15 +17,14 @@
  */
 package pcgen.cdom.testsupport;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public abstract class AbstractItemFacetTest<T> extends TestCase
 {

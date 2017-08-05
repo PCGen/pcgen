@@ -19,7 +19,9 @@ package pcgen.core.system;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * MigrationRuleTest checks the functions of the MigrationRule class.

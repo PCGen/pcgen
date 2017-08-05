@@ -17,8 +17,6 @@
  */
 package plugin.function;
 
-import org.junit.Test;
-
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
@@ -37,6 +35,8 @@ import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.formula.VariableChannel;
 import pcgen.output.channel.ChannelUtilities;
+
+import org.junit.Test;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
 

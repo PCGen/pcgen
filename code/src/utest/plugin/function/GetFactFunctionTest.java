@@ -17,9 +17,6 @@
  */
 package plugin.function;
 
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.base.format.StringManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
@@ -42,6 +39,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class GetFactFunctionTest extends AbstractFormulaTestCase
 {

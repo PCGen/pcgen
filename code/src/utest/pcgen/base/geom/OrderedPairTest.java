@@ -19,6 +19,7 @@ package pcgen.base.geom;
 import pcgen.base.math.OrderedPair;
 
 import org.junit.Test;
+
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.fail;
 

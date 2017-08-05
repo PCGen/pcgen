@@ -20,9 +20,6 @@ package plugin.function;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.EvaluationManager;
@@ -45,6 +42,9 @@ import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatFactory;
 import pcgen.cdom.formula.ManagerKey;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
 

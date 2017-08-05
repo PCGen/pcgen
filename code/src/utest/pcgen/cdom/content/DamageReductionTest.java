@@ -21,7 +21,9 @@ package pcgen.cdom.content;
 import pcgen.cdom.base.FormulaFactory;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 /**
  * This class tests the handling of DRs in PCGen
