@@ -19,8 +19,6 @@ package plugin.lsttokens.race;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -34,6 +32,8 @@ import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 

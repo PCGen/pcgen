@@ -19,8 +19,6 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.Bonus;
@@ -30,6 +28,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.bonustokens.MonNonSkillHD;
 import plugin.bonustokens.MonSkillPts;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;

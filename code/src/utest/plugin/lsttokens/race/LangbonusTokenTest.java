@@ -23,6 +23,7 @@ import pcgen.core.Language;
 import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 

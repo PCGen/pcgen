@@ -19,12 +19,12 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.bonustokens.MonNonSkillHD;
 import plugin.bonustokens.MonSkillPts;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;

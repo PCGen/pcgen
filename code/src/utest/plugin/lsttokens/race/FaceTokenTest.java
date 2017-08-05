@@ -19,8 +19,6 @@ package plugin.lsttokens.race;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
@@ -30,6 +28,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ModifierFactory;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
