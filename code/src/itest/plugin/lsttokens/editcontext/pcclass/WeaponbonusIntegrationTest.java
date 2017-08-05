@@ -19,14 +19,14 @@ package plugin.lsttokens.editcontext.pcclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.pcclass.WeaponbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;

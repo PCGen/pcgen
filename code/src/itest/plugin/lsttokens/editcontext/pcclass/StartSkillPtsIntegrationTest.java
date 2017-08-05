@@ -23,6 +23,7 @@ import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.editcontext.testsupport.AbstractFormulaIntegrationTestCase;
 import plugin.lsttokens.pcclass.StartskillptsToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;

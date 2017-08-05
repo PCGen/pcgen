@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.editcontext.equipmentmodifier;
 
-import org.junit.Test;
-
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationTestCase;
 import plugin.lsttokens.equipmentmodifier.ReplacesToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;

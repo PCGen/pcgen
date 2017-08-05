@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext.equipmentmodifier;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.editcontext.testsupport.AbstractTextPropertyIntegrationTestCase;
 import plugin.lsttokens.equipmentmodifier.SpropToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
