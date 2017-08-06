@@ -32,7 +32,7 @@ import java.util.stream.Stream;
  * WriteOnceReadManyList is a List designed to be written to for logging or other
  * functions that cannot be "erased" from the list if provided to other objects.
  * 
- * Note: As a corollary to Write-once, read-many behavior, sorting of the list is 
+ * Note: As a corollary to Write-once, read-many behavior, sorting of the list is
  * prohibited, as that is considered a write.
  *
  * @param <T>
@@ -43,7 +43,12 @@ public class WriteOnceReadManyList<T> implements List<T>
 	/**
 	 * The underlying list for this WriteOnceReadManyList.
 	 */
-	public final List<T> underlying;
+	private final List<T> underlying;
+
+	/**
+	 * A read-only version of the underlying list.
+	 */
+	private final List<T> readonly;
 
 	/**
 	 * Constructs a new WriteOnceReadManyList.
@@ -54,17 +59,19 @@ public class WriteOnceReadManyList<T> implements List<T>
 	 * unless ownership of the provided List is fully provided to this
 	 * WriteOnceReadManyList.
 	 * 
-	 * @param list The underlying List for this WriteOnceReadManyList
+	 * @param list
+	 *            The underlying List for this WriteOnceReadManyList
 	 */
 	public WriteOnceReadManyList(List<T> list)
 	{
 		underlying = Objects.requireNonNull(list);
+		readonly = Collections.unmodifiableList(underlying);
 	}
 
 	@Override
 	public void forEach(Consumer<? super T> action)
 	{
-		Collections.unmodifiableList(underlying).forEach(action);
+		readonly.forEach(action);
 	}
 
 	@Override
@@ -88,7 +95,7 @@ public class WriteOnceReadManyList<T> implements List<T>
 	@Override
 	public Iterator<T> iterator()
 	{
-		return Collections.unmodifiableList(underlying).iterator();
+		return readonly.iterator();
 	}
 
 	@Override
@@ -203,7 +210,7 @@ public class WriteOnceReadManyList<T> implements List<T>
 	@Override
 	public Stream<T> parallelStream()
 	{
-		return underlying.parallelStream();
+		return readonly.parallelStream();
 	}
 
 	@Override
@@ -221,25 +228,25 @@ public class WriteOnceReadManyList<T> implements List<T>
 	@Override
 	public ListIterator<T> listIterator()
 	{
-		return Collections.unmodifiableList(underlying).listIterator();
+		return readonly.listIterator();
 	}
 
 	@Override
 	public ListIterator<T> listIterator(int index)
 	{
-		return Collections.unmodifiableList(underlying).listIterator(index);
+		return readonly.listIterator(index);
 	}
 
 	@Override
 	public List<T> subList(int fromIndex, int toIndex)
 	{
-		return Collections.unmodifiableList(underlying).subList(fromIndex, toIndex);
+		return readonly.subList(fromIndex, toIndex);
 	}
 
 	@Override
 	public Spliterator<T> spliterator()
 	{
-		return Collections.unmodifiableList(underlying).spliterator();
+		return readonly.spliterator();
 	}
 
 	@Override
