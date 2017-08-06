@@ -38,6 +38,7 @@ import java.util.stream.Stream;
  * @param <T>
  *            The type of object stored in this WriteOnceReadManyList
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public class WriteOnceReadManyList<T> implements List<T>
 {
 	/**
