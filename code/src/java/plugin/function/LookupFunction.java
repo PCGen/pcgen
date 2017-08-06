@@ -19,19 +19,23 @@ package plugin.function;
 
 import java.util.Arrays;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
+import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.ComparableManager;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.format.table.ColumnFormatManager;
 import pcgen.cdom.format.table.DataTable;
+import pcgen.cdom.format.table.DataTable.LookupType;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatManager;
 import pcgen.cdom.formula.ManagerKey;
@@ -74,10 +78,10 @@ public class LookupFunction implements Function
 		FormulaSemantics semantics)
 	{
 		int argCount = args.length;
-		if (argCount != 3)
+		if ((argCount < 3) || (argCount > 4))
 		{
 			semantics.setInvalid("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 3 got " + args.length
+				+ " received incorrect # of arguments, expected: 3-4 got " + args.length
 				+ ' ' + Arrays.asList(args));
 			return null;
 		}
@@ -133,6 +137,33 @@ public class LookupFunction implements Function
 			return null;
 		}
 		ColumnFormatManager<?> cf = (ColumnFormatManager<?>) resultColumn;
+		if (argCount == 4)
+		{
+			if (!(args[3] instanceof ASTQuotString))
+			{
+				semantics.setInvalid("Parse Error: Invalid lookup type argument: Must be a String");
+				return null;
+			}
+			ASTQuotString typeNode = (ASTQuotString) args[3];
+			String lookupTypeName = typeNode.getText();
+			try
+			{
+				LookupType lookupType = DataTable.LookupType.valueOf(lookupTypeName);
+				if (lookupType.requiresComparison() && !(lookupFormat instanceof ComparableManager))
+				{
+					semantics.setInvalid("Parse Error: Lookup type: " + lookupTypeName
+						+ " (which requries comparison) was requested on a format that is not Comparable: "
+						+ lookupFormat.getIdentifierType());
+					return null;
+				}
+			}
+			catch (IllegalArgumentException e)
+			{
+				semantics.setInvalid(
+					"Parse Error: Invalid lookup type: " + lookupTypeName);
+				return null;
+			}
+		}
 		return cf.getComponentManager();
 	}
 
@@ -166,7 +197,14 @@ public class LookupFunction implements Function
 			FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 			return fm.getDefault(fmt.getManagedClass());
 		}
-		if (!dataTable.hasRow(lookupValue))
+		String lookupRule = "EXACT";
+		if (args.length == 4)
+		{
+			lookupRule = (String) args[3].jjtAccept(visitor,
+				manager.getWith(EvaluationManager.ASSERTED, FormatUtilities.STRING_MANAGER));
+		}
+		LookupType lookupType = DataTable.LookupType.valueOf(lookupRule);
+		if (!dataTable.hasRow(lookupType, lookupValue))
 		{
 			FormatManager<?> fmt = column.getFormatManager();
 			System.out.println("Lookup called on invalid item: '" + lookupValue
@@ -175,7 +213,7 @@ public class LookupFunction implements Function
 			FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 			return fm.getDefault(fmt.getManagedClass());
 		}
-		return dataTable.lookupExact(lookupValue, columnName);
+		return dataTable.lookup(lookupType, lookupValue, columnName);
 	}
 
 	@Override
