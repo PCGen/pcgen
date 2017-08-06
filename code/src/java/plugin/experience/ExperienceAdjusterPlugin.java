@@ -39,6 +39,9 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+import plugin.experience.gui.AddDefeatedCombatant;
+import plugin.experience.gui.ExperienceAdjusterView;
+import plugin.experience.gui.PreferencesExperiencePanel;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
@@ -49,9 +52,6 @@ import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
 import gmgen.pluginmgr.messages.FileMenuSaveMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-import plugin.experience.gui.AddDefeatedCombatant;
-import plugin.experience.gui.ExperienceAdjusterView;
-import plugin.experience.gui.PreferencesExperiencePanel;
 
 /**
  * The {@code ExperienceAdjusterController} handles the functionality of

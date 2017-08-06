@@ -22,13 +22,15 @@ package pcgen.gui3;
 
 import java.util.List;
 import java.util.function.Function;
+
+import pcgen.gui3.util.MappedList;
+
 import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
-import pcgen.gui3.util.MappedList;
 
 /**
  *

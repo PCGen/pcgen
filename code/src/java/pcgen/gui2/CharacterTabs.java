@@ -40,19 +40,19 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.SharedTabPane;
 import pcgen.system.CharacterManager;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This is the tabbed pane for PCGen characters. Unlike normal tabbed panes, the

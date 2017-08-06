@@ -20,6 +20,8 @@
  */
 package pcgen.gui3;
 
+import pcgen.gui2.tools.Icons;
+
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -30,7 +32,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCombination;
-import pcgen.gui2.tools.Icons;
 
 /**
  *

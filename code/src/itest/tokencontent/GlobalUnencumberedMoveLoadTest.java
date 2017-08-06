@@ -24,6 +24,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Load;
 import plugin.lsttokens.UnencumberedmoveLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalUnencumberedMoveLoadTest extends AbstractContentTokenTest

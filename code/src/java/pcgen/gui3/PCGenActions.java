@@ -22,8 +22,10 @@ package pcgen.gui3;
 
 import java.util.HashMap;
 import java.util.Map;
-import javafx.event.ActionEvent;
+
 import pcgen.gui2.tools.Icons;
+
+import javafx.event.ActionEvent;
 
 /**
  *

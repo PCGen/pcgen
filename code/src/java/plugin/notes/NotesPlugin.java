@@ -26,6 +26,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.PCGFile;
@@ -35,6 +36,8 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.system.LanguageBundle;
+import plugin.notes.gui.NotesView;
+import plugin.notes.gui.PreferencesNotesPanel;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
@@ -44,8 +47,6 @@ import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import org.apache.commons.lang3.StringUtils;
-import plugin.notes.gui.NotesView;
-import plugin.notes.gui.PreferencesNotesPanel;
 
 /**
  * The {@code NotesPlugin} controls the various classes that are involved

@@ -24,6 +24,7 @@ import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.DefineLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalDefineVariableTest extends AbstractContentTokenTest

@@ -22,6 +22,7 @@ import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.core.Language;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 
 public class AutoLangTest extends AbstractGrantedListTokenTest<Language>

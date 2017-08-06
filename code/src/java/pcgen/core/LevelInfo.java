@@ -17,9 +17,9 @@
  */
 package pcgen.core;
 
-import pcgen.util.Logging;
-
 import java.math.BigDecimal;
+
+import pcgen.util.Logging;
 
 /**
  * {@code LevelInfo} describes the data associated with a level

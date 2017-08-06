@@ -17,8 +17,6 @@
  */
 package tokenmodel;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
@@ -27,6 +25,8 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.race.MonsterclassToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class RaceMonsterClassTest extends AbstractTokenModelTest

@@ -17,8 +17,6 @@
  */
 package tokenmodel;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
@@ -34,6 +32,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.MultToken;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class AutoLangListTest extends AbstractTokenModelTest
