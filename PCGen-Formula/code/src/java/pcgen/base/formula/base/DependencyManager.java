@@ -21,9 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import pcgen.base.util.NonNullValueKey;
-import pcgen.base.util.OptionalItemKey;
-import pcgen.base.util.ValidatingKey;
+import pcgen.base.util.TypedKey;
 
 /**
  * A DependencyManager is a class to capture Formula dependencies.
@@ -38,56 +36,56 @@ public class DependencyManager
 	 * A NonNullValueKey used for a location to write messages while processing
 	 * dependencies.
 	 */
-	public static final NonNullValueKey<List<String>> LOG =
-			new NonNullValueKey<List<String>>(true);
+	public static final TypedKey<List<String>> LOG =
+			new TypedKey<List<String>>();
 
 	/**
 	 * A ValidatingKey used for storing the FormulaManager contained in this
 	 * DependencyManager
 	 */
-	public static final NonNullValueKey<FormulaManager> FMANAGER =
-			new NonNullValueKey<FormulaManager>(true);
+	public static final TypedKey<FormulaManager> FMANAGER =
+			new TypedKey<FormulaManager>();
 
 	/**
-	 * A ValidatingKey used for storing the ScopeInstance contained in this
-	 * DependencyManager
+	 * A TypedKey used for storing the ScopeInstance contained in this DependencyManager
 	 */
-	public static final OptionalItemKey<ScopeInstance> INSTANCE =
-			new OptionalItemKey<ScopeInstance>();
+	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<ScopeInstance>();
 
 	/**
-	 * A OptionalItemKey used for storing the (static) Variables contained in this
+	 * A TypedKey used for storing the Format currently asserted for the formula served by
+	 * this DependencyManager
+	 */
+	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
+
+	/**
+	 * A TypedKey used for storing the dynamic variables for the formula served by this
 	 * DependencyManager.
 	 */
-	public static final NonValidatingKey<VariableList> VARIABLES =
-			new NonValidatingKey<VariableList>();
+	public static final TypedKey<DynamicManager> DYNAMIC = new TypedKey<DynamicManager>();
 
 	/**
-	 * A OptionalItemKey used for determining how encountered variables are processed.
-	 * This can be a VariableStrategy that simply provides static behavior, or one that is
-	 * aware of dynamic variables.
+	 * A TypedKey used for storing the (static) Variables contained in this DependencyManager.
 	 */
-	public static final DependentKey<VariableStrategy> VARSTRATEGY =
-			new DependentKey<VariableStrategy>(VARIABLES);
+	public static final TypedKey<ArrayList<VariableID<?>>> VARIABLES =
+			new TypedKey<ArrayList<VariableID<?>>>();
 
 	/**
-	 * A OptionalItemKey used for storing the Format currently asserted for the formula
-	 * served by this DependencyManager
+	 * A TypedKey used for determining how encountered variables are processed. This can
+	 * be a VariableStrategy that simply provides static behavior, or one that is aware of
+	 * dynamic variables.
 	 */
-	public static final NonValidatingKey<Class<?>> ASSERTED =
-			new NonValidatingKey<Class<?>>();
-
-	/**
-	 * A OptionalItemKey used for storing the dynamic variables for the formula served by
-	 * this DependencyManager.
-	 */
-	public static final NonValidatingKey<DynamicManager> DYNAMIC =
-			new NonValidatingKey<DynamicManager>();
+	public static final TypedKey<VariableStrategy> VARSTRATEGY =
+			new TypedKey<VariableStrategy>();
 
 	/**
 	 * The underlying map for this DependencyManager that contains the target objects.
 	 */
-	private final ValidatingMap<Object> map = new ValidatingMap<Object>();
+	private final Map<TypedKey<?>, Object> map = new HashMap<TypedKey<?>, Object>();
+
+	private DependencyManager()
+	{
+		
+	}
 
 	/**
 	 * Constructs a new DependencyManager object.
@@ -109,7 +107,7 @@ public class DependencyManager
 	 * @param value
 	 *            The value to be set in the DependencyManager for the given TypeKey
 	 */
-	public <T> DependencyManager getWith(ValidatingKey<T> key, T value)
+	public <T> DependencyManager getWith(TypedKey<T> key, T value)
 	{
 		DependencyManager replacement = new DependencyManager();
 		replacement.map.putAll(map);
@@ -128,7 +126,7 @@ public class DependencyManager
 	 *            The TypeKey for which the value should be returned
 	 * @return The value of the DependencyManager for the given ValidatingKey
 	 */
-	public <T> T get(ValidatingKey<T> key)
+	public <T> T get(TypedKey<T> key)
 	{
 		Object value = map.get(Objects.requireNonNull(key));
 		return (value == null) ? key.getDefaultValue() : key.cast(value);
