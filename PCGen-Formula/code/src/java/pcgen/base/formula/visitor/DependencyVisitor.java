@@ -43,7 +43,6 @@ import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.Indirect;
 
 /**
  * A DependencyVisitor captures the dependencies that exist in a Formula.
@@ -274,22 +273,12 @@ public class DependencyVisitor implements FormulaParserVisitor
 	{
 		DependencyManager manager = (DependencyManager) data;
 		FormatManager<?> asserted = manager.get(DependencyManager.ASSERTED);
-		if (asserted == null)
-		{
-			return data;
-		}
-		/*
-		 * We want this convertIndirect call outside of the IF below, because it can
-		 * actually throw an exception...
-		 */
-		@SuppressWarnings("PMD.PrematureDeclaration")
-		Indirect<?> indirect = asserted.convertIndirect(node.getText());
-		if (!asserted.isDirect())
+		if ((asserted != null) && !asserted.isDirect())
 		{
 			IndirectDependency refManager = manager.get(DependencyManager.INDIRECTS);
 			if (refManager != null)
 			{
-				refManager.add(indirect);
+				refManager.add(asserted.convertIndirect(node.getText()));
 			}
 		}
 		return data;

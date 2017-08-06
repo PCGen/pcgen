@@ -418,7 +418,21 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	{
 		FormulaSemantics semantics = (FormulaSemantics) data;
 		FormatManager<?> asserted = semantics.get(FormulaSemantics.ASSERTED);
-		return (asserted == null) ? FormatUtilities.STRING_MANAGER : asserted;
+		if (asserted == null)
+		{
+			return FormatUtilities.STRING_MANAGER;
+		}
+		try
+		{
+			asserted.convertIndirect(node.getText());
+			return asserted;
+		}
+		catch (IllegalArgumentException e)
+		{
+			semantics.setInvalid(
+				"Invalid " + asserted.getIdentifierType() + ": " + e.getMessage());
+			return null;
+		}
 	}
 
 	/**

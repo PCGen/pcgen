@@ -257,6 +257,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	{
 		ComplexNEPFormula five = new ComplexNEPFormula("5");
 		ComplexNEPFormula fiveString = new ComplexNEPFormula("\"4\"");
+		ComplexNEPFormula yucky = new ComplexNEPFormula("\"4,4\"");
 
 		FormulaSemantics fs = getSemantics();
 		five.isValid(numberMgr, fs);
@@ -279,6 +280,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		fiveString.isValid(stringMgr, fs.getWith(FormulaSemantics.ASSERTED, numberMgr));
 		assertEquals(false, fs.isValid());
 
+		yucky.isValid(numberMgr, fs.getWith(FormulaSemantics.ASSERTED, numberMgr));
+		assertEquals(false, fs.isValid());
 	}
 
 	private FormulaSemantics getSemantics()
