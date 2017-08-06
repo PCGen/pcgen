@@ -63,6 +63,9 @@ OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules
 !PRECAMPAIGN:1,INCLUDES=Mythic Adventures
 !PRECAMPAIGN:1,INCLUDES=Critical Fumble Deck
 
+FORWARDREF:CLASSSPELLLIST|Occultist,Psychic,Spiritualist,Mesmerist,Medium
+
+
 ############################
 # PFS Additional Resources #
 ############################
@@ -87,10 +90,7 @@ PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
 PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
 # Lords of Chaos - book of the damned vol 2
 PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/_book_of_the_damned_volume_2.pcc
-
-
 PCC:@/pathfinder/paizo/campaign_setting/city_of_strangers/_city_of_strangers.pcc
-
 PCC:@/pathfinder/paizo/campaign_setting/chronicle_of_the_righteous/_chronicle_of_the_righteous.pcc
 
 PCC:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.pcc
@@ -104,18 +104,18 @@ PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_gu
 PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
 PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
 
-# PCC:@/pathfinder/paizo/campaign_setting/cities_of_golarion/cities_of_golarion.pcc
+PCC:@/pathfinder/paizo/campaign_setting/cities_of_golarion/_cities_of_golarion.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/classic_horrors_revisited/classic_horrors_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/classic_monsters_revisited/classic_monsters_revisited.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/classic_treasures_revisited/classic_treasures_revisited.pcc
+PCC:@/pathfinder/paizo/campaign_setting/classic_treasures_revisited/_classic_treasures_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/demons_revisited/demons_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/dungeon_denizens_revisited/dungeon_denizens_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/dungeons_of_golarion/dungeons_of_golarion.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/giants_revisited/giants_revisited.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/gods_and_magic/gods_and_magic.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/horseman_of_the_apocalypse/horseman_of_the_apocalypse.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/inner_sea_gods/inner_sea_gods.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/inner_sea_magic/inner_sea_magic.pcc
+PCC:@/pathfinder/paizo/campaign_setting/inner_sea_gods/_inner_sea_gods.pcc
+PCC:@/pathfinder/paizo/campaign_setting/inner_sea_magic/inner_sea_magic.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/lands_of_the_linnorm_kings/lands_of_the_linnorm_kings.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/lost_kingdoms/lost_kingdoms.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/magnimar_city_of_monuments/magnimar_city_of_monuments.pcc
@@ -126,7 +126,7 @@ PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pc
 # PCC:@/pathfinder/paizo/campaign_setting/paths_of_prestige/paths_of_prestige.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/rival_guide/rival_guide.pcc
 # PCC:@/pathfinder/paizo/campaign_setting/ships_of_the_inner_sea/ships_of_the_inner_sea.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/technology_guide/technology_guide.pcc
+PCC:@/pathfinder/paizo/campaign_setting/technology_guide/_technology_guide.pcc
 
 PCC:@/pathfinder/paizo/player_companion/adventurers_armory/_adventurers_armory.pcc
 PCC:@/pathfinder/paizo/player_companion/alchemy_manual/_alchemy_manual.pcc
