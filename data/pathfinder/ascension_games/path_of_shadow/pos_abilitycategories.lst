@@ -6,3 +6,5 @@ ABILITYCATEGORY:Nightblade Path	TYPE:Nightblade Path		CATEGORY:Special Ability	E
 
 
 ABILITYCATEGORY:Shadow Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ShadowBloodragerBloodline		ABILITYLIST:Special Bloodline Feat				PLURAL:Shadow Bloodrager Bloodline Feats	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Nightblade Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:NightbladeArchetype	PLURAL:Nightblade Archetypes	DISPLAYLOCATION:Archetype
