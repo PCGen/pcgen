@@ -17,8 +17,8 @@ Samurai ~ Class Skill		CATEGORY:Internal		CSKILL:Bluff|Climb|TYPE=Craft|Diplomac
 
 ###Block:
 # Ability Name			Define							Auto Weapon Prof			Ability
-CATEGORY=Class|Gunslinger.MOD									AUTO:WEAPONPROF|TYPE=Firearm	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Firearms)|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-CATEGORY=Class|Gunslinger.MOD														ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+#CATEGORY=Class|Gunslinger.MOD									AUTO:WEAPONPROF|TYPE=Firearm	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Firearms)|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+#CATEGORY=Class|Gunslinger.MOD														ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 
 
 CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Proficiencies|0
