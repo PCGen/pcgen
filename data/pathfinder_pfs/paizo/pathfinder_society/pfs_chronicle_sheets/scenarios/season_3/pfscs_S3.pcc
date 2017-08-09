@@ -27,6 +27,9 @@ ABILITY:pfscs_S3_abilities.lst
 ABILITYCATEGORY:pfscs_S3_abilitycategories.lst
 EQUIPMENT:pfscs_S3_equip.lst
 
+# needed for Cornered Fury
+ABILITY:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/arg_abilities_race.lst|(INCLUDE:CATEGORY=Special Ability,Ratfolk ~ Cornered Fury)|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+
 #
 # DONE
 #
