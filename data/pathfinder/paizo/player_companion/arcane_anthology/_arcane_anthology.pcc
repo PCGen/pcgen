@@ -50,21 +50,11 @@ SPELL:arca_spells.lst
 TEMPLATE:arca_templates.lst
 
 # Support
-ABILITY:support/arca_feats_pop.lst|PRECAMPAIGN:1,INCLUDES=Paths of Prestige
+# |PRECAMPAIGN:1,INCLUDES=Paths of Prestige
+ABILITY:support/arca_feats_pop.lst
 ABILITY:support/arca_feats_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
 
-
-
-FORWARDREF:CLASSSPELLLIST|Occultist
-
-
-FORWARDREF:CLASSSPELLLIST|Psychic
-
-FORWARDREF:CLASSSPELLLIST|Spiritualist
-
-
-FORWARDREF:CLASSSPELLLIST|Mesmerist
-FORWARDREF:CLASSSPELLLIST|Medium
+FORWARDREF:CLASSSPELLLIST|Occultist,Psychic,Spiritualist,Mesmerist,Medium
 
 # ENTRY DATE: 2016-02
 # LST MONKEY:Johannes Eichenseer

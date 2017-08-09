@@ -172,7 +172,7 @@ public final class Tips
 	{
 		// header stuff
 		Calendar now = Calendar.getInstance();
-		bw.write("msgid \"\"\n" + "msgstr \"\"\n" + "\"Project-Id-Version: PCGen-tips 6.x/SVN?\\n\"\n"
+		bw.write("msgid \"\"\n" + "msgstr \"\"\n" + "\"Project-Id-Version: PCGen-tips 6.x\\n\"\n"
 			+ "\"Report-Msgid-Bugs-To: \\n\"\n" + "\"POT-Creation-Date: "
 			+ DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(now) + "\\n\"\n"
 			+ "\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n"

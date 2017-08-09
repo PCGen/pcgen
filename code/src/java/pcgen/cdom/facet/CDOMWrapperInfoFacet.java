@@ -47,6 +47,7 @@ import pcgen.output.actor.DescriptionActor;
 import pcgen.output.actor.DisplayNameActor;
 import pcgen.output.actor.EqTypeActor;
 import pcgen.output.actor.InfoActor;
+import pcgen.output.actor.IsVisibleToActor;
 import pcgen.output.actor.KeyActor;
 import pcgen.output.actor.OutputNameActor;
 import pcgen.output.actor.SourceActor;
@@ -105,6 +106,7 @@ public class CDOMWrapperInfoFacet
 		set(dsID, SizeAdjustment.class, "outputname", outputNameActor);
 		set(dsID, WeaponProf.class, "outputname", outputNameActor);
 		set(dsID, Equipment.class, "type", new EqTypeActor());
+		set(dsID, CDOMObject.class, "visibleto", new IsVisibleToActor());
 	}
 
 	/**

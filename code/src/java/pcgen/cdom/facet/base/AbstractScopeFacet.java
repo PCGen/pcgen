@@ -29,7 +29,6 @@ import java.util.TreeMap;
 
 import pcgen.base.util.GenericMapToList;
 import pcgen.base.util.MapToList;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
@@ -70,7 +69,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		boolean isNew = (sources == null);
 		if (isNew)
 		{
-			sources = new WrappedMapSet<>(IdentityHashMap.class);
+			sources = Collections.newSetFromMap(new IdentityHashMap<>());
 			scopeMap.put(obj, sources);
 		}
 		sources.add(source);
@@ -100,7 +99,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			boolean isNew = (sources == null);
 			if (isNew)
 			{
-				sources = new WrappedMapSet<>(IdentityHashMap.class);
+				sources = Collections.newSetFromMap(new IdentityHashMap<>());
 				scopeMap.put(obj, sources);
 			}
 			sources.add(source);

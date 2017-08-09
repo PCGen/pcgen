@@ -164,4 +164,10 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	{
 		return resultFormat;
 	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return false;
+	}
 }

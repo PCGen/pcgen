@@ -49,4 +49,15 @@ public class VariableStoreFacet extends
 		this.solverFactoryFacet = solverFactoryFacet;
 	}
 
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		MonitorableVariableStore obj = get(source);
+		if (obj != null)
+		{
+			MonitorableVariableStore replacement = new MonitorableVariableStore();
+			replacement.importFrom(get(source));
+			setCache(copy, replacement);
+		}
+	}
 }

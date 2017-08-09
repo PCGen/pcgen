@@ -40,6 +40,7 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SolverFactory;
+import pcgen.base.solver.SolverManager;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.IdentityList;
@@ -529,6 +530,29 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public PlayerCharacter() {
 		this(Collections.emptyList());
+	}
+
+	/**
+	 * Constructor.
+	 *
+	 * @param loadedCampaigns The currently loaded campaign objects.
+	 */
+	private PlayerCharacter(PlayerCharacter from)
+	{
+		LoadContext context = Globals.getContext();
+		id = CharID.getID(context.getDataSetID());
+
+		display = new CharacterDisplay(id);
+		SA_TO_STRING_PROC = new SAtoStringProcessor(this);
+		SA_PROC = new SAProcessor(this);
+		PlayerCharacterTrackingFacet trackingFacet =
+				FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+		trackingFacet.associatePlayerCharacter(id, this);
+
+		variableProcessor = new VariableProcessorPC(this);
+		controller = from.controller;
+
+		theUserPoolBonuses = new HashMap<>(from.theUserPoolBonuses);
 	}
 
 	/**
@@ -7225,8 +7249,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// new data instances for all the final variables and I won't
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
-		aClone = new PlayerCharacter(campaignFacet.getSet(id));
-		//aClone.variableProcessor = new VariableProcessorPC(aClone);
+		aClone = new PlayerCharacter(this);
 		try
 		{
 			aClone.assocSupt = assocSupt.clone();
@@ -7239,6 +7262,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		for (AbstractStorageFacet bean : beans)
 		{
 			bean.copyContents(id, aClone.id);
+		}
+		SolverManager sm = solverManagerFacet.get(id);
+		if (sm != null)
+		{
+			SolverManager replacement = sm.createReplacement(variableStoreFacet.get(aClone.id));
+			solverManagerFacet.set(aClone.id, replacement);
 		}
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 
@@ -7289,9 +7318,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		aClone.autoSortGear = autoSortGear;
 		aClone.outputSheetHTML = outputSheetHTML;
 		aClone.outputSheetPDF = outputSheetPDF;
-		aClone.ageSetKitSelections = new boolean[10];
 		aClone.defaultDomainSource = defaultDomainSource;
 
+		aClone.ageSetKitSelections = new boolean[ageSetKitSelections.length];
 		System.arraycopy(ageSetKitSelections, 0, aClone.ageSetKitSelections, 0, ageSetKitSelections.length);
 
 		// Not sure what this is for

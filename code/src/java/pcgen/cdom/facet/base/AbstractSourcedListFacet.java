@@ -28,7 +28,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -89,7 +88,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		boolean fireNew = (set == null);
 		if (fireNew)
 		{
-			set = new WrappedMapSet<>(IdentityHashMap.class);
+			set = Collections.newSetFromMap(new IdentityHashMap<>());
 			map.put(obj, set);
 		}
 		set.add(source);
@@ -341,7 +340,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	{
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
 		Set<Object> set =
-				map.computeIfAbsent(obj, k -> new WrappedMapSet<>(IdentityHashMap.class));
+				map.computeIfAbsent(obj, k -> Collections.newSetFromMap(new IdentityHashMap<>()));
 
 		return set;
 	}

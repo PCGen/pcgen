@@ -296,7 +296,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected WriteableVariableStore getVariableStore()
 	{
 		return (WriteableVariableStore) localSetup.getFormulaManager()
-			.getResolver();
+			.get(FormulaManager.RESULTS);
 	}
 
 	protected LegalScope getGlobalScope()

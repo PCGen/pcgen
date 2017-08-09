@@ -2,15 +2,18 @@
 SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEWEB:http://paizo.com/products/btpy9j6p?Pathfinder-Roleplaying-Game-Ultimate-Intrigue	SOURCEDATE:2016-04
 
 Acrobatics.MOD				SITUATION:In forests
+Bluff.MOD					SITUATION:Appear Innocent
 Bluff.MOD					SITUATION:True from current identity's point of view
 Climb.MOD					SITUATION:In forests
 Diplomacy.MOD				SITUATION:Bargain with a conjured creature
 Diplomacy.MOD				SITUATION:Bribery attempts
 Diplomacy.MOD				SITUATION:Interacting with criminals
+Heal.MOD					SITUATION:Notice medical evidence tampering
 Intimidate.MOD				SITUATION:In Vigilante Identity
 Intimidate.MOD				SITUATION:Interacting with criminals
 Perception.MOD				SITUATION:Pierce disguise
 Sense Motive.MOD				SITUATION:Avoid surprise attack
+Sleight of Hand.MOD			SITUATION:Draw Hidden Weapon
 Stealth.MOD					SITUATION:Move at half speed or less
 
 Appraise.MOD				SITUATION:In Social Identity

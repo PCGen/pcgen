@@ -759,9 +759,11 @@
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
-			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
-			<special_property>${pcstring('ABILITYALL.Special Ability.${NaturalAttack}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}</special_property>
+			<special_property>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; ability , ability_has_next>
+			${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}
 			</@loop>
+			</special_property>
 		</martialarts>
 		<#else>
 		<unarmed>
@@ -783,9 +785,11 @@
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
-			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
-			<special_property>${pcstring('ABILITYALL.Special Ability.${NaturalAttack}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}</special_property>
+			<special_property>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; ability , ability_has_next>
+			${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}
 			</@loop>
+			</special_property>
 						<!-- Commenting this out (will need a test as well)
 			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.	-->
 			<#if (gamemodename = "3e")>

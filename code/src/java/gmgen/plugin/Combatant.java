@@ -25,11 +25,6 @@ import gmgen.plugin.dice.Dice;
 
 public abstract class Combatant implements InitHolder
 {
-	/*
-	 *  History:
-	 *  March 20, 2003: Cleanup for Version 1.0
-	 */
-
 	/**  The object that contains all initiative information */
 	public SystemInitiative init;
 	protected String comType = "Enemy";
@@ -265,8 +260,6 @@ public abstract class Combatant implements InitHolder
 
 	/**
 	 * Decrements the duration
-	 *
-	 *@return    new duration
 	 */
 	public void decDuration()
 	{

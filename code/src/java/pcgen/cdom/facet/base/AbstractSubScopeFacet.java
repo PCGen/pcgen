@@ -27,7 +27,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.SubScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.SubScopeFacetChangeListener;
@@ -74,7 +73,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		boolean isNew = (sources == null);
 		if (isNew)
 		{
-			sources = new WrappedMapSet<>(IdentityHashMap.class);
+			sources = Collections.newSetFromMap(new IdentityHashMap<>());
 			scope2Map.put(obj, sources);
 		}
 		sources.add(source);
