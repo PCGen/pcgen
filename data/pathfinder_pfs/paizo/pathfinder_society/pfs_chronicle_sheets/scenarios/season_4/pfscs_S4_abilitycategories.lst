@@ -28,9 +28,9 @@ ABILITYCATEGORY:Chronicle_S04-23						VISIBLE:QUALIFY	EDITABLE:YES								CATEGO
 ABILITYCATEGORY:Chronicle_S04-24						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-24											DISPLAYNAME:PFS Scenario #4-24: The Price of Friendship								DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_S04-25						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-25											DISPLAYNAME:PFS Scenario #4-25: Glories of the Past, Part 3: The Secrets Stones Keep			DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_S04-26						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-26											DISPLAYNAME:PFS Scenario #4-26: The Waking Rune										DISPLAYLOCATION:Chronicles
-#ABILITYCATEGORY:Chronicle_S04-EX						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-EX											DISPLAYNAME:PFS Scenario #4-EX Day of the Demon										DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_S04-SP						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-SP											DISPLAYNAME:PFS Scenario #4-SP Race for the Runecarved Key								DISPLAYLOCATION:Chronicles
-#ABILITYCATEGORY:Chronicle_S04-S2	DISPLAYNAME:PFS Scenario #4-S2 Ruins of Bonekeep - Level 1: The Silent Grave						CATEGORY:Special Ability	EDITABLE:YES	TYPE:Chronicle_S04-S2	DISPLAYLOCATION:Chronicles	VISIBLE:QUALIFY
+#ABILITYCATEGORY:Chronicle_S04-EX						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-EX											DISPLAYNAME:PFS Scenario #4-EX: Day of the Demon										DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-SP						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-SP											DISPLAYNAME:PFS Scenario #4-SP: Race for the Runecarved Key								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-S2						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-S2											DISPLAYNAME:PFS Scenario #4-S2: Ruins of Bonekeep, Level 1: The Silent Grave				DISPLAYLOCATION:Chronicles
 
 ABILITYCATEGORY:Ocher Rhomboid Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat								PLURAL:Ocher Rhomboid Feats																		DISPLAYLOCATION:Feats
 
