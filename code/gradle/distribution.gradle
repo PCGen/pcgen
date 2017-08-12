@@ -36,6 +36,12 @@ ext {
         }
     }
 
+    rootDistsImage = copySpec {
+        from('output') {
+            include '*'
+        }
+    }
+
     programDistsImage = copySpec {
         from("$buildDir/libs") {
             include 'pcgen-*.jar'
@@ -43,13 +49,8 @@ ext {
             rename "(.+)-$version(.+)", '$1$2'
         }
         from('.') {
-            include 'pcgen_low_mem.bat'
             include 'plugins/**'
             include 'logging.properties'
-        }
-        from('code') {
-            include 'pcgen.sh'
-            fileMode = 0755
         }
         from('code') {
             include 'LICENSE'
@@ -73,7 +74,6 @@ ext {
     }
 }
 
-
 task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot']) {
     classifier = 'full'
     into(zipRootFolder) {
@@ -84,8 +84,10 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot'])
         with autobuildSpec
         with charactersImage
     }
+    into("") {
+        with rootDistsImage
+    }
 }
-
 
 task dataZip(type: Zip) {
     classifier = 'data'
