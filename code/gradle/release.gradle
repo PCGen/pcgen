@@ -285,7 +285,7 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
                 args = ["/V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
             }
         }
-    } else if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('linux')){
+    } else {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
                 workingDir = "${buildDir}/nsis"
@@ -293,8 +293,6 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
                 args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
             }
         }
-    } else {
-        printf "Unhandled OS: " + System.properties['os.name']
     }
 }
 buildNsis.mustRunAfter createExe
