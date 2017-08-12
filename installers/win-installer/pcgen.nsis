@@ -1,12 +1,3 @@
-; Last Editor: $Author: jdempsey $
-; Last Edited: $Date: 2013-11-30 13:35:43 +1100 (Sat, 30 Nov 2013) $
-
-; Known issues
-
-; Outstanding Issues
-;		java -Dpcgen.inputfile=Ilse.pcg -Dpcgen.outputfile=Ilse.pdf -Dpcgen.templatefile=csheet_fantasy_std_blackandwhite.xslt -jar pcgen.jar
-
-
 ; Begin Script ----------------------------------------------------------------------------
 ; Include the externally defined constants
 !include "project.nsh"
