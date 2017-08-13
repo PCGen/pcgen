@@ -245,7 +245,7 @@ task copyToRoot(type: Copy, dependsOn: [cleanCreateExe, createExe, copyToLibs,
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
     }
-    into "$projectDir/output"
+    into "$projectDir"
 
     rename "(.+)-$version(.+)", '$1$2'
 }
