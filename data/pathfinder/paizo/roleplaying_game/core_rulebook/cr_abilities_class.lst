@@ -1681,7 +1681,7 @@ CATEGORY=Special Ability|Wizard ~ Bonus Feats.MOD																															
 CATEGORY=Special Ability|Wizard ~ Bonus Feats.MOD																																																																																																																																																			BONUS:ABILITYPOOL|Wizard Bonus Feat|-1|PREVARGTEQ:WizardLvl,20|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeat20
 
 # Familiar Alertness Feature Ability Pool Display
-CATEGORY=Internal|Default.MOD																																																																																																																																																							BONUS:ABILITYPOOL|Familiar Alertness Choice|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar
+CATEGORY=Internal|Default.MOD																																																																																																																																																							BONUS:ABILITYPOOL|Familiar Alertness Choice|1|PREVARGTEQ:FamiliarLVL,1
 Familiar's Alertness ability active				KEY:Familiar Alertness Choice ~ Alertness active	CATEGORY:Special Ability	TYPE:FamiliarAlertnessChoice.SpecialQuality.Extraordinary											DESC:PC has a familiar that has the Alertness (Ex) ability and it is within arms' reach, the master gains the Alertness feat.																																																																																ABILITY:FEAT|VIRTUAL|Alertness
 Familiar's Alertness ability inactive			KEY:Familiar Alertness Choice ~ Alertness inactive	CATEGORY:Special Ability	TYPE:FamiliarAlertnessChoice.SpecialQuality.Extraordinary											DESC:PC does not have a familiar with the Alertness class feature or is not within arm's reach.
 
