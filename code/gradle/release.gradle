@@ -187,12 +187,10 @@ task downloadJRE doLast {
         def filename = "zulu${azul}-jdk${major}.${micro}.${update}-win_x64"
         def jre64URL = "http://cdn.azul.com/zulu/bin/${filename}.zip"
         println("Downloading JRE ${major}.${minor}.${update} from ${jre64URL}")
-        if(!jre64Dir.exists()){
-            download {
-                src jre64URL
-                dest new File("${projectDir}/jre/", "jre_64.${extension}")
-                overwrite false
-            }
+        download {
+            src jre64URL
+            dest new File("${projectDir}/jre/", "jre_64.${extension}")
+            overwrite false
         }
         //Now untar them
         fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
