@@ -37,14 +37,15 @@ ext {
         }
     }
 
-    rootDistsImage = copySpec {
-        from('.') {
-            include 'pcgen.exe'
-		include 'pcgen.jar'
-		include 'pcgen-batch-convert.jar'
-		include 'pcgen.sh'
-        }
-    }
+// Redundancy this is root above ziproot
+//    rootDistsImage = copySpec {
+//        from('.') {
+//            include 'pcgen.exe'
+//		include 'pcgen.jar'
+//		include 'pcgen-batch-convert.jar'
+//		include 'pcgen.sh'
+//       }
+//    }
 
     programDistsImage = copySpec {
         from("$buildDir/libs") {
@@ -89,9 +90,10 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot'])
         with autobuildSpec
         with charactersImage
     }
-    into("") {
-        with rootDistsImage
-    }
+// Redundancy, not required with copyToRoot above
+//    into("") {
+//        with rootDistsImage
+//    }
 }
 
 task dataZip(type: Zip) {

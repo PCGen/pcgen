@@ -19,7 +19,6 @@
 package pcgen.gui2;
 
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.io.File;
 
 import pcgen.cdom.base.Constants;
