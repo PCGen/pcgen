@@ -72,7 +72,7 @@ public final class UIPropertyContext extends PropertyContext
 		setColor(NOT_QUALIFIED_COLOR, Color.RED);
 		setColor(AUTOMATIC_COLOR, Color.decode("0xB2B200"));
 		setColor(VIRTUAL_COLOR, Color.MAGENTA);
-		setColor(QUALIFIED_COLOR, SystemColor.text);
+		setColor(QUALIFIED_COLOR, Color.BLACK);
 
 	}
 
@@ -185,7 +185,7 @@ public final class UIPropertyContext extends PropertyContext
 
 	public static Color getSourceStatusReleaseColor()
 	{
-		return getInstance().initColor(SOURCE_STATUS_RELEASE_COLOR, SystemColor.text);
+		return getInstance().initColor(SOURCE_STATUS_RELEASE_COLOR, Color.black);
 	}
 
 	public static void setSourceStatusAlphaColor(Color color)
