@@ -121,7 +121,7 @@ public class JTreeTable extends JTableEx
 			// we'd better all be using the same one!
 			setRowHeight(tree.getRowHeight());
 		}
-		setForeground(SystemColor.text);
+		
 	}
 
 	public TreeTableModel getTreeTableModel()

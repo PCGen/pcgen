@@ -27,6 +27,7 @@ ext {
             include 'outputsheets/**'
             include 'system/**'
             include 'preview/**'
+		exclude 'data/zen_test'
         }
     }
 
@@ -37,8 +38,11 @@ ext {
     }
 
     rootDistsImage = copySpec {
-        from('output') {
-            include '*'
+        from('.') {
+            include 'pcgen.exe'
+		include 'pcgen.jar'
+		include 'pcgen-batch-convert.jar'
+		include 'pcgen.sh'
         }
     }
 
