@@ -218,7 +218,7 @@ task downloadJRE doLast {
     }
 }
 
-task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
+task layoutNsisOptional(type: Copy) {
     description="Assemble the optional files for PCGen installations"
     into nsisOptionFolder
 
@@ -228,20 +228,6 @@ task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
     with pdfOutput
     with optionalData
 }
-
-// The perl executable is flagged as an error - not using currently.
-// Generate the publisher/data list for the Windows installer script
-// task genDataList doLast {
-//     new ByteArrayOutputStream().withStream { os ->
-//         exec {
-//             workingDir = "${projectDir}/installers/win-installer"
-//             executable = 'perl'
-//             args = ['gendatalist.pl']
-//             standardOutput = os
-//         }
-//         println os.toString()
-//     }
-// }
 
 
 // Create the version specific config files for NSIS

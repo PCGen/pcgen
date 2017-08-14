@@ -41,6 +41,7 @@ targetCompatibility = 1.8
 
 ext {
     binDir = "code/bin"
+    distDir = "$projectDir/pcgen"
 }
 
 //The gradle plugin for netbeans sets the 'mainClass' property instead of 'mainClassName'
@@ -235,43 +236,22 @@ task copyToLibs(type: Copy) {
     from configurations.runtime
 }
 
-import org.apache.tools.ant.filters.FixCrLfFilter;
-task copyToRoot(type: Copy, dependsOn: [cleanCreateExe, createExe, copyToLibs, 
-        jar, converterJar]) {
-    from "$buildDir/libs/pcgen-${version}.jar"
-    from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-    from "$buildDir/launch4j/pcgen.exe"
-    from("$projectDir/code/pcgen.sh") {
-        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
-        fileMode 0755
-    }
-    into "$projectDir/output"
-
-    rename "(.+)-$version(.+)", '$1$2'
-}
-
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.dir("$projectDir/libs")
+    outputs.dir("$distDir/libs")
     inputs.files(fileTree("$buildDir/libs"))
 
     from "$buildDir/libs"
-    into "$projectDir/libs"
+    into "$distDir/libs"
     exclude "pcgen-*.jar"
 }
 
 task cleanRoot(type: Delete) {
     description="Clean up things copied to the root folder by the build"
-    delete "$projectDir/pcgen.jar"
-    delete "$projectDir/pcgen-batch-convert.jar"
-    delete "$projectDir/batch-convert.jar"
-    delete "$projectDir/pcgen.sh"
-    delete "$projectDir/output"
-    delete "$projectDir/libs"
-    delete "$projectDir/autobuild.properties"
+    delete "$distDir"
 }
 
 build {
-    it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    it.dependsOn 'syncLibsToRoot'
     mustRunAfter clean
 }
 
