@@ -277,6 +277,11 @@ task genProjectNsis doLast {
 // Call NSIS to generate windows installer - Removed "genDataList"
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
         genProjectNsis, downloadJRE]) doLast {
+    exec {
+	workingDir = "${projectDir}/installers/win-installer"
+	executable =  'perl'
+	args = ['gendatalist.pl']
+    }
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
@@ -285,7 +290,7 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
                 args = ["/V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
             }
         }
-    } else if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('linux')){
+    } else {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
                 workingDir = "${buildDir}/nsis"
@@ -293,8 +298,6 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
                 args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
             }
         }
-    } else {
-        printf "Unhandled OS: " + System.properties['os.name']
     }
 }
 buildNsis.mustRunAfter createExe

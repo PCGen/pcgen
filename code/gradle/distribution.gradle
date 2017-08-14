@@ -27,6 +27,7 @@ ext {
             include 'outputsheets/**'
             include 'system/**'
             include 'preview/**'
+		exclude 'data/zen_test'
         }
     }
 
@@ -35,6 +36,16 @@ ext {
             include 'docs/**'
         }
     }
+
+// Redundancy this is root above ziproot
+//    rootDistsImage = copySpec {
+//        from('.') {
+//            include 'pcgen.exe'
+//		include 'pcgen.jar'
+//		include 'pcgen-batch-convert.jar'
+//		include 'pcgen.sh'
+//       }
+//    }
 
     programDistsImage = copySpec {
         from("$buildDir/libs") {
@@ -46,10 +57,6 @@ ext {
             include 'pcgen_low_mem.bat'
             include 'plugins/**'
             include 'logging.properties'
-        }
-        from('code') {
-            include 'pcgen.sh'
-            fileMode = 0755
         }
         from('code') {
             include 'LICENSE'
@@ -73,7 +80,6 @@ ext {
     }
 }
 
-
 task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot']) {
     classifier = 'full'
     into(zipRootFolder) {
@@ -84,8 +90,11 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot'])
         with autobuildSpec
         with charactersImage
     }
+// Redundancy, not required with copyToRoot above
+//    into("") {
+//        with rootDistsImage
+//    }
 }
-
 
 task dataZip(type: Zip) {
     classifier = 'data'

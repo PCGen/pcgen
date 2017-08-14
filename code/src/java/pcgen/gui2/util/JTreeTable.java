@@ -20,7 +20,6 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Comparator;
@@ -121,7 +120,7 @@ public class JTreeTable extends JTableEx
 			// we'd better all be using the same one!
 			setRowHeight(tree.getRowHeight());
 		}
-		setForeground(SystemColor.text);
+		
 	}
 
 	public TreeTableModel getTreeTableModel()
