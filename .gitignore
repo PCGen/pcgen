@@ -2,23 +2,23 @@
 *.ini
 
 batch-convert.jar
-plugins/*.jar
-plugins/*plugins/
+pcgen/plugins/*.jar
+pcgen/plugins/*plugins/
 
-code/bin/
-code/build/
-code/comp-manifest
-code/manifest
+pcgen/code/bin/
+pcgen/code/build/
+pcgen/code/comp-manifest
+pcgen/code/manifest
 
 hs_err_*.log
 checkstyle-cachefile
 config.ini.junit
 
-code/build.eclipse/
-code/manifest-tests
+pcgen/code/build.eclipse/
+pcgen/code/manifest-tests
 pcgendev.iml
 
-outputsheets/d20/*/htmlxml/*.htm
+pcgen/outputsheets/d20/*/htmlxml/*.htm
 
 pcgen.exe
 pcgen.jar
@@ -29,8 +29,8 @@ pcgen_low_mem.bat
 
 output/
 build/
-libs/
-code/testsuite/output/
+pcgen/libs/
+pcgen/code/testsuite/output/
 .gradle/
 pcgen-batch-convert.jar
 /.metadata
@@ -42,12 +42,12 @@ pcgen-batch-convert.jar
 
 .idea/
 
-data/customsources/*
-!data/customsources/readme-customsources.txt
+pcgen/data/customsources/*
+!pcgen/data/customsources/readme-customsources.txt
 /.nb-gradle/
 /jre/
-/installers/win-installer/project.nsh
-/installers/win-installer/includes/constants.nsh
+/pcgen/installers/win-installer/project.nsh
+/pcgen/installers/win-installer/includes/constants.nsh
 /.checkstyle
-/installers/win-installer/includes/data.nsh
+/pcgen/installers/win-installer/includes/data.nsh
 /.nb-gradle-properties
