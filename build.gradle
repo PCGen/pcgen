@@ -41,7 +41,7 @@ targetCompatibility = 1.8
 
 ext {
     binDir = "pcgen/code/bin"
-    distDir = "$projectDir/pcgen/output"
+    distDir = "$projectDir/pcgen"
 }
 
 //The gradle plugin for netbeans sets the 'mainClass' property instead of 'mainClassName'
@@ -247,11 +247,15 @@ task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
 
 task cleanRoot(type: Delete) {
     description="Clean up things copied to the root folder by the build"
-    delete "$distDir"
+    delete "$distDir/pcgen.jar"
+    delete "$distDir/pcgen-batch-convert.jar"
+    delete "$distDir/pcgen.exe"
+    delete "$distDir/config.ini"
+    delete "$distDir/libs"
 }
 
 build {
-    it.dependsOn 'syncLibsToRoot'
+    it.dependsOn 'binDist'
     mustRunAfter clean
 }
 

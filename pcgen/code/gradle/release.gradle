@@ -182,7 +182,7 @@ task downloadJRE doLast {
     def micro = 0
     def update = 131
     def extension = 'zip'
-    def jre64Dir = new File("${projectDir}/jre/jre_64")
+    def jre64Dir = new File("${projectDir}/pcgen/jre/jre_64")
     if(!jre64Dir.exists()){
         //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
         //See more information about Azul here: http://www.azul.com/downloads/zulu/
@@ -192,28 +192,28 @@ task downloadJRE doLast {
         if(!jre64Dir.exists()){
             download {
                 src jre64URL
-                dest new File("${projectDir}/jre/", "jre_64.${extension}")
+                dest new File("${projectDir}/pcgen/jre/", "jre_64.${extension}")
                 overwrite false
             }
         }
         //Now untar them
-        fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
+        fileTree(dir: "${projectDir}/pcgen/jre/").include("*.${extension}").each { simLib ->
             copy {
                 println "Unzip $simLib.name"
                 def name = simLib.name - '.$extension'
-                def zipFile = file("${projectDir}/jre/${simLib.name}")
-                def outputDir = "${projectDir}/jre/"
+                def zipFile = file("${projectDir}/pcgen/jre/${simLib.name}")
+                def outputDir = "${projectDir}/pcgen/jre/"
                 from zipTree(zipFile)
                 into outputDir
             }
-            new File("${projectDir}/jre/${simLib.name}").delete()
+            new File("${projectDir}/pcgen/jre/${simLib.name}").delete()
         }
-        def jre64 = new File("${projectDir}/jre/${filename}")
+        def jre64 = new File("${projectDir}/pcgen/jre/${filename}")
         //Removing the folder with specific version so it's easier to handle in NSIS script.
         if(jre64.exists()){
             copy {
                 from jre64
-                into "${projectDir}/jre/jre_64"
+                into "${projectDir}/pcgen/jre/jre_64"
             }
             jre64.deleteDir()
         }
