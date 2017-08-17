@@ -198,7 +198,7 @@ NAME:	foreach $filename (@nondots)
 		print SCRIPT "\n";
 
 		print SCRIPT "	SetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\$dirname\\" . $filename . "\"\n";
-		print SCRIPT "	File /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\$dirname\\" . $filename . "\\*.*\"\n";
+		print SCRIPT "	File /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\pcgen\\data\\$dirname\\" . $filename . "\\*.*\"\n";
 
 		print SCRIPT "	SectionEnd\n\n";
 	}

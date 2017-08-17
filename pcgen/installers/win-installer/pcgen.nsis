@@ -1,7 +1,7 @@
 ; Begin Script ----------------------------------------------------------------------------
 ; Include the externally defined constants
 !include "project.nsh"
-!define INCLUDES_DIR "${PROJECT_BUILD_DIR}\..\installers\win-installer\includes"
+!define INCLUDES_DIR "${PROJECT_BUILD_DIR}\..\pcgen\installers\win-installer\includes"
 !include ${INCLUDES_DIR}\constants.nsh
 ;File association
 !include ${INCLUDES_DIR}\FileAssociation.nsh
@@ -17,12 +17,12 @@
 ;Change the icons
 !include "MUI2.nsh"
 
-!define MUI_ICON "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\pcgen.ico"
+!define MUI_ICON "${PROJECT_BUILD_DIR}\..\pcgen\installers\win-installer\Local\pcgen.ico"
 !define MUI_HEADERIMAGE
-!define MUI_HEADERIMAGE_BITMAP "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\splash.bmp"
+!define MUI_HEADERIMAGE_BITMAP "${PROJECT_BUILD_DIR}\..\pcgen\installers\win-installer\Local\splash.bmp"
 !define MUI_HEADERIMAGE_RIGHT
 ;Uncomment when a better images is available.
-;!define MUI_WELCOMEFINISHPAGE_BITMAP "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\splash.bmp" 
+;!define MUI_WELCOMEFINISHPAGE_BITMAP "${PROJECT_BUILD_DIR}\..\pcgen\installers\win-installer\Local\splash.bmp" 
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
@@ -96,7 +96,7 @@ SubSection /e "PlugIns" Section3
 
 	SectionIn 1 2 3
 	SetOutPath "$INSTDIR\${APPDIR}\libs"
-	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\plugin\skin\libs\*.*"
+	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\pcgen\plugin\skin\libs\*.*"
 
 	SectionEnd
 
@@ -104,9 +104,9 @@ SubSection /e "PlugIns" Section3
 
 	SectionIn 1 2 3
 	SetOutPath "$INSTDIR\${APPDIR}\libs"
-	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\plugin\pdf\libs\*.*"
+	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\pcgen\plugin\pdf\libs\*.*"
 	SetOutPath "$INSTDIR\${APPDIR}\outputsheets"
-	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\plugin\pdf\outputsheets\*.*"
+	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\pcgen\plugin\pdf\outputsheets\*.*"
 
 	SectionEnd
 
@@ -114,7 +114,7 @@ SubSection /e "PlugIns" Section3
 
 	SectionIn 1 2 3
 	SetOutPath "$INSTDIR\${APPDIR}\plugins"
-	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\plugin\gmgen\plugins\*.*"
+	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\pcgen\plugin\gmgen\plugins\*.*"
 
 	SectionEnd
 

@@ -60,7 +60,7 @@ ext {
     }
 
     basePlugins = copySpec {
-        from("${projectDir}/plugins") {
+        from("${projectDir}/pcgen/plugins") {
             include '*plugins/**'
             include 'Random Names/**'
             include 'DoomsdayBook.jar'
@@ -69,7 +69,7 @@ ext {
     }
 
     gmgenPlugins = copySpec {
-        from("${projectDir}/plugins") {
+        from("${projectDir}/pcgen/plugins") {
             exclude '*plugins/**'
             exclude 'Random Names/**'
             exclude 'DoomsdayBook.jar'
@@ -78,21 +78,21 @@ ext {
     }
 
     nonPdfOutput = copySpec {
-        from("${projectDir}/outputsheets") {
+        from("${projectDir}/pcgen/outputsheets") {
             exclude '**/pdf/**'
         }
         into ('/pcgen/outputsheets')
     }
 
     pdfOutput = copySpec {
-        from("${projectDir}/outputsheets") {
+        from("${projectDir}/pcgen/outputsheets") {
             include '**/pdf/**'
         }
         into ('/pcgen/plugin/pdf/outputsheets')
     }
 
     baseData = copySpec {
-        from("${projectDir}/data") {
+        from("${projectDir}/pcgen/data") {
             include 'customsources/**'
             include 'homebrew/**'
             include 'publisher_logos/**'
@@ -101,7 +101,7 @@ ext {
     }
 
     optionalData = copySpec {
-        from("${projectDir}/data") {
+        from("${projectDir}/pcgen/data") {
             exclude 'customsources/**'
             exclude 'homebrew/**'
             exclude 'publisher_logos/**'
@@ -118,10 +118,10 @@ task layoutNsisBase(type: Copy, dependsOn: [copyToLibs, cleanCreateExe, createEx
     //}
 
     into nsisBaseFolder
-    from ("${projectDir}/installers/win-installer/Local") {
+    from ("${projectDir}/pcgen/installers/win-installer/Local") {
         into "../Local"
     }
-    from ("${projectDir}/installers/win-installer/") {
+    from ("${projectDir}/pcgen/installers/win-installer/") {
         into "/docs/acknowledgments/"
         include "PCGenLicense.txt"
     }
@@ -137,6 +137,8 @@ task layoutNsisBase(type: Copy, dependsOn: [copyToLibs, cleanCreateExe, createEx
     }
     from ("${projectDir}") {
         include 'logging.properties'
+    }
+    from ("${projectDir}/pcgen/") {
         include 'system/**' // Later we want to split out the game modes to optional
         include 'docs/**'
         include 'preview/**'
@@ -238,7 +240,7 @@ task genProjectNsis doLast {
 !define PROJECT_DIST_BIN_DIR "${buildDir}\\nsis"
 !define PROJECT_DIST_DIR "${buildDir}"
 !define PROJECT_FINAL_NAME "pcgen"
-!define PROJECT_LICENSE_FILE "${projectDir}\\code\\LICENSE"
+!define PROJECT_LICENSE_FILE "${projectDir}\\pcgen\\code\\LICENSE"
 !define PROJECT_LICENSE_TEXT "This program is Licensed under The GNU Lesser General Public License, Version 2.1."
 !define PROJECT_NAME "PCGen"
 !define PROJECT_ORGANIZATION "SourceForge"
@@ -291,7 +293,6 @@ buildNsis.mustRunAfter createExe
 task cleanNsis(type: Delete) {
     delete nsisBaseFolder, nsisOptionFolder, "${buildDir}/nsis/Local"
 }
-
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     description = "build source jar file"
