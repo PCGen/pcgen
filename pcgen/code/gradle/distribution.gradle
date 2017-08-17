@@ -1,0 +1,140 @@
+/*
+ * PCGen distributable generation tasks. This file specifies the
+ * archives included in the PCGen autobuild and PCGen releases. It
+ * is called from the main build.gradle file.
+ *
+ * Usage: gradle builddist
+ */
+import org.apache.tools.ant.filters.FixCrLfFilter;
+ext {
+    zipRootFolder = "pcgen"
+    
+    buildTimestamp = new Date().format('yyyy-MM-dd HH:mm, Z')
+
+    autobuildSpec = copySpec{}
+
+    if (System.env.BUILD_NUMBER) {
+        autobuildSpec = copySpec {
+            from("$projectDir/pcgen/code/gradle/autobuild.template")
+            rename('.+','autobuild.properties')
+            expand(buildnumber: System.env.BUILD_NUMBER, version: version, 
+                timestamp: buildTimestamp)
+        }
+    }
+
+    dataDistsImage = copySpec {
+        from("$projectDir/pcgen/") {
+            include 'data/**'
+            include 'outputsheets/**'
+            include 'system/**'
+            include 'preview/**'
+            exclude 'data/zen_test'
+        }
+    }
+
+    docsDistsImage = copySpec {
+        from("$projectDir/pcgen/") {
+            include 'docs/**'
+        }
+    }
+
+    programDistsImage = copySpec {
+        from("$buildDir/libs") {
+            include 'pcgen-*.jar'
+            // Use a regular expression to map the file name
+            rename "(.+)-$version(.+)", '$1$2'
+        }
+        from('.') {
+            include 'pcgen_low_mem.bat'
+            include 'logging.properties'
+        }
+        from("$projectDir/pcgen/") {
+            include 'plugins/**'
+        }
+        from("$projectDir/pcgen/code/") {
+            include 'LICENSE'
+        }
+        from("$buildDir/launch4j") {
+            include 'pcgen.exe'
+        }
+        from("$projectDir/pcgen/code/pcgen.sh") {
+            filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
+            fileMode 0755
+        }
+    }
+
+    libsDistsImage = copySpec {
+        from("$buildDir/libs") {
+            into 'libs'
+            exclude 'pcgen-*.jar'
+        }
+    }
+
+    charactersImage = copySpec {
+        from('pcgen/') {
+            include 'characters/*.pcg'
+        }
+    }
+}
+
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs']) {
+    classifier = 'full'
+    into(zipRootFolder) {
+        with dataDistsImage
+        with docsDistsImage
+        with programDistsImage
+        with libsDistsImage
+        with autobuildSpec
+        with charactersImage
+    }
+}
+
+task dataZip(type: Zip) {
+    classifier = 'data'
+    into(zipRootFolder) {
+        with dataDistsImage
+        with autobuildSpec
+    }
+}
+
+task docsZip(type: Zip) {
+    classifier = 'docs'
+    into(zipRootFolder) {
+        with docsDistsImage
+        with autobuildSpec
+    }
+}
+
+task programZip(type: Zip, dependsOn: 'converterJar') {
+    classifier = 'program'
+    into(zipRootFolder) {
+        with programDistsImage
+        with autobuildSpec
+    }
+}
+
+task binDist(type: Copy, dependsOn: [converterJar, createExe, 'downloadJRE', \
+'syncLibsToRoot']) {
+    from("$buildDir/launch4j") {
+        include 'pcgen.exe'
+    }
+    from("$buildDir/libs") {
+        include 'pcgen-*.jar'
+        // Use a regular expression to map the file name
+        rename "(.+)-$version(.+)", '$1$2'
+    }
+    into "$distDir"
+}
+
+task libsZip(type: Zip, dependsOn: 'copyToLibs') {
+    classifier = 'libs'
+    into(zipRootFolder) {
+        with libsDistsImage
+        with autobuildSpec
+    }
+}
+
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', \
+'fullZip']) {
+    description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
+}

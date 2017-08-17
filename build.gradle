@@ -24,7 +24,7 @@ plugins {
     id 'maven'
     id 'pmd'
     id "de.undercouch.download" version "3.2.0"
-    id 'edu.sc.seis.launch4j' version '2.3.0'
+    id 'edu.sc.seis.launch4j' version '2.4.1'
     id 'com.github.ben-manes.versions' version '0.15.0'
     id 'nebula.lint' version '7.9.5'
     id "com.dorongold.task-tree" version "1.3"
@@ -40,7 +40,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    binDir = "code/bin"
+    binDir = "pcgen/code/bin"
+    distDir = "$projectDir/pcgen"
 }
 
 //The gradle plugin for netbeans sets the 'mainClass' property instead of 'mainClassName'
@@ -48,22 +49,22 @@ ext {
 //feel free to add them here.
 mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main';
 
-applicationDistribution.from('plugins') {
+applicationDistribution.from('pcgen/plugins') {
     into "plugins"
 }
-applicationDistribution.from('docs') {
+applicationDistribution.from('pcgen/docs') {
     into "docs"
 }
-applicationDistribution.from('data') {
+applicationDistribution.from('pcgen/data') {
     into "data"
 }
-applicationDistribution.from('outputsheets') {
+applicationDistribution.from('pcgen/outputsheets') {
     into "outputsheets"
 }
-applicationDistribution.from('system') {
+applicationDistribution.from('pcgen/system') {
     into "system"
 }
-applicationDistribution.from('preview') {
+applicationDistribution.from('pcgen/preview') {
     into "preview"
 }
 
@@ -89,10 +90,10 @@ repositories {
 sourceSets {
     main {
         java {
-            srcDirs 'code/src/java'
+            srcDirs 'pcgen/code/src/java'
         }
         resources {
-            srcDirs = ['code/src/java', 'code/resources' ]
+            srcDirs = ['pcgen/code/src/java', 'pcgen/code/resources' ]
             include '**/*.properties'
             include '**/*.xml'
             include '**/*.gif'
@@ -102,17 +103,17 @@ sourceSets {
     }
     test {
         java {
-            srcDirs = ['code/src/utest', 'code/src/testcommon']
+            srcDirs = ['pcgen/code/src/utest', 'pcgen/code/src/testcommon']
         }
     }
     itest {
         java {
-            srcDirs = ['code/src/itest', 'code/src/testcommon']
+            srcDirs = ['pcgen/code/src/itest', 'pcgen/code/src/testcommon']
         }
     }
     slowtest {
         java {
-            srcDirs = ['code/src/test', 'code/src/testcommon']
+            srcDirs = ['pcgen/code/src/test', 'pcgen/code/src/testcommon']
         }
     }
 }
@@ -123,17 +124,17 @@ task copyMasterSheets(type: Copy) {
 
     include 'eqsheet_fantasy_std.htm'
     include 'psheet_fantasy_std.htm'
-    from 'outputsheets/d20/fantasy/htmlxml'
-    into 'outputsheets/d20/historical/htmlxml'
+    from 'pcgen/outputsheets/d20/fantasy/htmlxml'
+    into 'pcgen/outputsheets/d20/historical/htmlxml'
 
     into ('../../horror/htmlxml') {
-        from 'outputsheets/d20/fantasy/htmlxml'
+        from 'pcgen/outputsheets/d20/fantasy/htmlxml'
     }
     into ('../../sciencefiction/htmlxml') {
-        from 'outputsheets/d20/fantasy/htmlxml'
+        from 'pcgen/outputsheets/d20/fantasy/htmlxml'
     }
     into ('../../western/htmlxml') {
-        from 'outputsheets/d20/fantasy/htmlxml'
+        from 'pcgen/outputsheets/d20/fantasy/htmlxml'
     }
 }
 
@@ -194,7 +195,7 @@ dependencies {
 }
 
 ant.importBuild 'build-gradle.xml'
-ant.properties['src.java.dir']="code/src/java"
+ant.properties['src.java.dir']="pcgen/code/src/java"
 ant.properties['build.classes.dir']="build/classes/java/main"
 
 configure('jar-all-plugins') {
@@ -235,43 +236,26 @@ task copyToLibs(type: Copy) {
     from configurations.runtime
 }
 
-import org.apache.tools.ant.filters.FixCrLfFilter;
-task copyToRoot(type: Copy, dependsOn: [cleanCreateExe, createExe, copyToLibs, 
-        jar, converterJar]) {
-    from "$buildDir/libs/pcgen-${version}.jar"
-    from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-    from "$buildDir/launch4j/pcgen.exe"
-    from("$projectDir/code/pcgen.sh") {
-        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
-        fileMode 0755
-    }
-    into "$projectDir/output"
-
-    rename "(.+)-$version(.+)", '$1$2'
-}
-
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.dir("$projectDir/libs")
+    outputs.dir("$distDir/libs")
     inputs.files(fileTree("$buildDir/libs"))
 
     from "$buildDir/libs"
-    into "$projectDir/libs"
+    into "$distDir/libs"
     exclude "pcgen-*.jar"
 }
 
 task cleanRoot(type: Delete) {
     description="Clean up things copied to the root folder by the build"
-    delete "$projectDir/pcgen.jar"
-    delete "$projectDir/pcgen-batch-convert.jar"
-    delete "$projectDir/batch-convert.jar"
-    delete "$projectDir/pcgen.sh"
-    delete "$projectDir/output"
-    delete "$projectDir/libs"
-    delete "$projectDir/autobuild.properties"
+    delete "$distDir/pcgen.jar"
+    delete "$distDir/pcgen-batch-convert.jar"
+    delete "$distDir/pcgen.exe"
+    delete "$distDir/config.ini"
+    delete "$distDir/libs"
 }
 
 build {
-    it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    it.dependsOn 'binDist'
     mustRunAfter clean
 }
 
@@ -374,8 +358,8 @@ dependencyUpdates.resolutionStrategy = {
   }
 }
 
-apply from: 'code/gradle/autobuild.gradle'
-apply from: 'code/gradle/distribution.gradle'
-apply from: 'code/gradle/reporting.gradle'
-apply from: 'code/gradle/release.gradle'
+apply from: 'pcgen/code/gradle/autobuild.gradle'
+apply from: 'pcgen/code/gradle/distribution.gradle'
+apply from: 'pcgen/code/gradle/reporting.gradle'
+apply from: 'pcgen/code/gradle/release.gradle'
 

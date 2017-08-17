@@ -1,0 +1,63 @@
+/* PCGen code quality tasks. This file specifies the code quality
+ * reports to be run as part of the PCGen nightly build. It is
+ * called from the main build.gradle file.
+ *
+ * Usage: gradle allReports
+ */
+
+buildScan {
+	licenseAgreementUrl = 'https://gradle.com/terms-of-service';
+	licenseAgree = 'yes'
+}
+
+checkstyle {
+	configFile = new File('pcgen/code/standards/checkstyle.xml')
+	ignoreFailures = true
+	showViolations = false
+	toolVersion = '8.1'
+	sourceSets = []
+}
+
+pmd {
+	// turn off the default rules
+	ruleSets = []
+	ruleSetFiles = files('pcgen/code/standards/pmdruleset.xml')
+	consoleOutput = true
+	sourceSets = []
+	toolVersion = "5.8.1"
+}
+
+findbugs {
+	ignoreFailures = true
+//	effort = 'max'
+	sourceSets = []
+}
+
+task findbugs(type: FindBugs) {
+   pluginClasspath = project.configurations.findbugsPlugins
+}
+
+tasks.withType(FindBugs) {
+	reports {
+		xml.enabled false
+		html.enabled true
+		html.stylesheet resources.text.fromFile('pcgen/code/standards/fancy-hist.xsl')
+		excludeFilterConfig resources.text.fromFile('pcgen/code/standards/findbugs_ignore.xml')
+		reportLevel 'low'
+		// While these can be filtered out later, there is a minor speedup to disabling them here.
+		omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'FinalParameters', 'ImmatureClass',
+						'DoInsideDoPrivileged', 'CyclomaticComplexity']
+	}
+}
+
+gradleLint.rules = [
+	'dependency-parentheses',
+	'unused-exclude-by-dep',
+	'unused-exclude-by-conf',
+	'rename-nebula-stash',
+	'overridden-dependency-version',
+	'archaic-wrapper',
+	'all-nebula-renames',
+]
+
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain', 'lintGradle'] }
