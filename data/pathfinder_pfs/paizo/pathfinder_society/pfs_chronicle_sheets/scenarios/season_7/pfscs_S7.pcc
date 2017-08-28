@@ -27,6 +27,8 @@ ABILITY:pfscs_S7_abilities.lst
 ABILITYCATEGORY:pfscs_S7_abilitycategories.lst
 EQUIPMENT:pfscs_S7_equip.lst
 EQUIPMOD:pfscs_S7_equipmods.lst
+SPELL:pfscs_S7_spells.lst
+EQUIPMENT:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_equip_general.lst|(INCLUDE:Formula Book)|!PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 
 #
 # DONE
