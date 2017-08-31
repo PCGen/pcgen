@@ -15,10 +15,7 @@ build_script:
   gradlew.bat build --info --no-daemon
 
 test_script:
-  gradlew.bat test compileSlowtest datatest pfinttest --info --no-daemon
-
-distribution_script:
-  gradlew.bat buildDist buildNsis
+  gradlew.bat test compileSlowtest datatest pfinttest buildDist buildNsis --info --no-daemon
 
 environment:
   matrix:
