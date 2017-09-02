@@ -1,0 +1,696 @@
+<?xml version="1.0" ?>
+
+
+
+
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+
+	<fo:layout-master-set>
+
+
+		<fo:simple-page-master master-name="A4" page-height="|PAPERINFO.HEIGHT=297mm|" page-width="|PAPERINFO.WIDTH=210mm|" margin-top="|PAPERINFO.MARGINTOP=10mm|" margin-bottom="|PAPERINFO.MARGINBOTTOM=15mm|" margin-left="|PAPERINFO.MARGINLEFT=10mm|" margin-right="|PAPERINFO.MARGINRIGHT=10mm|">
+
+
+			<fo:region-body />
+
+
+		</fo:simple-page-master>
+
+
+		<fo:simple-page-master master-name="A4-2column" page-height="|PAPERINFO.HEIGHT=297mm|" page-width="|PAPERINFO.WIDTH=210mm|" margin-top="|PAPERINFO.MARGINTOP=10mm|" margin-bottom="|PAPERINFO.MARGINBOTTOM=15mm|" margin-left="|PAPERINFO.MARGINLEFT=10mm|" margin-right="|PAPERINFO.MARGINRIGHT=10mm|">
+
+
+			<fo:region-body column-count="2" column-gap="2mm" />
+
+
+		</fo:simple-page-master>
+
+
+		<fo:simple-page-master master-name="A4-3column" page-height="|PAPERINFO.HEIGHT=297mm|" page-width="|PAPERINFO.WIDTH=210mm|" margin-top="|PAPERINFO.MARGINTOP=10mm|" margin-bottom="|PAPERINFO.MARGINBOTTOM=20mm|" margin-left="|PAPERINFO.MARGINLEFT=10mm|" margin-right="|PAPERINFO.MARGINRIGHT=10mm|">
+
+			<fo:region-body column-count="3" column-gap="5mm" margin-top="8mm" margin-bottom="12mm"/>
+
+			<fo:region-before extent="8mm" />
+
+
+			<fo:region-after extent="10mm" />
+
+
+
+
+		</fo:simple-page-master>
+
+
+	</fo:layout-master-set>
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN Spell pages -->
+
+
+	<fo:page-sequence master-reference="A4-3column">
+
+
+		<fo:static-content flow-name="xsl-region-after" font-family="sans-serif">
+
+
+			<fo:table>
+
+
+				<fo:table-column column-width="190mm" />
+
+
+				<fo:table-body>
+
+
+					<fo:table-row>
+
+
+						<fo:table-cell background-color="black" padding-top="2pt" text-align="left">
+
+
+							<fo:block font-size="7pt" color="white"></fo:block>
+
+
+						</fo:table-cell>
+
+
+					</fo:table-row>
+
+
+					<fo:table-row>
+
+
+						<fo:table-cell background-color="white" padding-top="2pt" text-align="center" border-top-color="black" border-top-style="solid" border-top-width="0.1pt">
+
+
+							<fo:block font-size="7pt" color="black" font-weight="bold">
+
+
+								<fo:page-number />
+
+
+							</fo:block>
+
+
+						</fo:table-cell>
+
+
+					</fo:table-row>
+
+
+				</fo:table-body>
+
+
+			</fo:table>
+
+
+		</fo:static-content>
+
+
+		<fo:flow flow-name="xsl-region-body" font-family="sans-serif">
+
+
+			<!--|%| -->
+
+
+
+
+
+			<!-- Known spells -->
+
+
+		<fo:block span="all">
+
+
+			<fo:table space-after="2mm">
+
+
+				<fo:table-column column-width="190mm" />
+
+
+				<fo:table-body>
+
+
+					<fo:table-row>
+
+
+							<fo:table-cell background-color="black" padding-top="2pt" text-align="center">
+
+
+								<fo:block font-size="12pt" color="white" font-weight="bold">
+
+
+									|NAME| - Known Spells
+
+
+								</fo:block>
+
+
+							</fo:table-cell>
+
+
+					</fo:table-row>
+
+
+				</fo:table-body>
+
+
+			</fo:table>
+
+
+		</fo:block>
+
+
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES],1,0|
+
+
+|%SPELLLISTCLASS.%class|
+
+
+		<fo:block span="all" font-size="12pt" font-weight="bold">
+
+
+			|SPELLLISTCLASS.%class|
+
+
+|IIF(SPELLLISTCLASS.%class:Psychic Warrior.OR.SPELLLISTCLASS.%class:Psion)|
+
+
+                Powers
+
+
+|ELSE|
+
+
+                Spells
+
+
+|ENDIF|
+
+
+		</fo:block>
+
+
+		<fo:block span="all">
+
+
+			<!--
+
+
+			////////////////////////////////
+
+
+			//   Start Known Spells/day
+
+
+			////////////////////////////////-->
+
+
+			<fo:table border-collapse="collapse">
+
+
+				<fo:table-column column-width="40mm" />
+
+
+				<fo:table-column column-width="20mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="9mm" />
+
+
+				<fo:table-column column-width="40mm" />
+
+
+				<fo:table-body>
+
+
+					<fo:table-row height="2mm"  keep-with-next.within-column="always">
+						<fo:table-cell />
+					</fo:table-row>
+
+
+					<fo:table-row keep-with-next.within-column="always">
+
+
+						<fo:table-cell />
+
+
+						<fo:table-cell border-width="0.5pt" border-style="solid" border-color="black" background-color="lightgrey">
+
+
+							<fo:block font-size="6pt" margin-left="1mm" font-weight="bold" space-start="2pt" space-before="2pt" space-after="1pt" color="black">LEVEL</fo:block>
+
+
+						</fo:table-cell>
+
+
+|FOR,%level,0,9,1,1|
+
+
+						<fo:table-cell text-align="center" border-width="0.5pt" border-style="solid" border-color="black" background-color="white">
+
+
+							<fo:block space-before="2pt" space-after="1pt" font-size="6pt" color="black">%level</fo:block>
+
+
+						</fo:table-cell>
+
+
+|ENDFOR|
+
+
+						<fo:table-cell />
+
+
+					</fo:table-row>
+
+
+					<fo:table-row keep-with-next.within-column="always">
+
+
+						<fo:table-cell />
+
+
+						<fo:table-cell border-width="0.5pt" border-style="solid" border-color="black" background-color="lightgrey">
+
+
+							<fo:block font-size="6pt" margin-left="1mm" font-weight="bold" space-start="2pt" space-before="2pt" space-after="1pt" color="black">KNOWN</fo:block>
+
+
+						</fo:table-cell>
+
+
+|FOR,%level,0,9,1,1|
+
+
+						<fo:table-cell text-align="center" border-width="0.5pt" border-style="solid" border-color="black" background-color="white">
+
+
+							<fo:block font-size="6pt" space-before="2pt" space-after="1pt" color="black">|SPELLLISTKNOWN.%class.%level|</fo:block>
+
+
+						</fo:table-cell>
+
+
+|ENDFOR|
+
+
+						<fo:table-cell />
+
+
+					</fo:table-row>
+
+
+					<fo:table-row padding-bottom="2mm">
+
+
+						<fo:table-cell />
+
+
+						<fo:table-cell border-width="0.5pt" border-style="solid" border-color="black" background-color="lightgrey">
+
+
+							<fo:block font-size="6pt" margin-left="1mm" font-weight="bold" space-start="2pt" space-before="2pt" space-after="1pt" color="black">PER DAY</fo:block>
+
+
+						</fo:table-cell>
+
+
+|FOR,%level,0,9,1,1|
+
+
+						<fo:table-cell text-align="center" border-width="0.5pt" border-style="solid" border-color="black" background-color="white">
+
+
+							<fo:block font-size="6pt" space-before="2pt" space-after="1pt" color="black">|SPELLLISTCAST.%class.%level|</fo:block>
+
+
+						</fo:table-cell>
+
+
+|ENDFOR|
+
+
+						<fo:table-cell />
+
+
+					</fo:table-row>
+
+
+					<fo:table-row height="2mm" >
+						<fo:table-cell />
+					</fo:table-row>
+
+
+				</fo:table-body>
+
+
+			</fo:table>
+
+
+			<!--
+
+
+			////////////////////////////////
+
+
+			//   End Known Spells/day
+
+
+			////////////////////////////////-->
+
+
+		</fo:block>
+
+
+|%|
+
+
+|ENDFOR|
+
+
+|FOR.0,COUNT[SPELLSKNOWN]-1,1,<fo:block/><fo:table space-after="2mm">	<fo:table-column column-width="60mm"/>	<fo:table-body>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="10pt" font-weight="bold" >\SPELLMEM.-1.-1.-1.%.NAME\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt" text-indent="5mm">\SPELLMEM.-1.-1.-1.%.FULLSCHOOL\</fo:block>			</fo:table-cell>		</fo:table-row><fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt"><fo:inline font-weight="bold">Level: </fo:inline>\SPELLMEM.-1.-1.-1.%.SOURCELEVEL\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt"><fo:inline font-weight="bold">Components: </fo:inline>\SPELLMEM.-1.-1.-1.%.COMPONENTS\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt"><fo:inline font-weight="bold">Casting Time: </fo:inline>\SPELLMEM.-1.-1.-1.%.CASTINGTIME\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt"><fo:inline font-weight="bold">Range: </fo:inline>\SPELLMEM.-1.-1.-1.%.RANGE\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt"><fo:inline font-weight="bold">Target: </fo:inline>\SPELLMEM.-1.-1.-1.%.TARGET\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt" ><fo:inline font-weight="bold">Duration: </fo:inline>\SPELLMEM.-1.-1.-1.%.DURATION\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt" ><fo:inline font-weight="bold">Saving Throw: </fo:inline>\SPELLMEM.-1.-1.-1.%.SAVEINFO\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt" ><fo:inline font-weight="bold">Spell Resistance: </fo:inline>\SPELLMEM.-1.-1.-1.%.SR\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row keep-with-next.within-column="always">			<fo:table-cell>				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Effect: </fo:inline>\SPELLMEM.-1.-1.-1.%.EFFECT\</fo:block>			</fo:table-cell>		</fo:table-row>		<fo:table-row>			<fo:table-cell>				<fo:block font-size="5pt" text-indent="3mm">\SPELLMEM.-1.-1.-1.%.SOURCE\</fo:block>			</fo:table-cell>		</fo:table-row>	</fo:table-body></fo:table>, , ,1|
+
+
+
+
+
+
+
+
+			<!-- Innate Spells -->
+
+
+|%SPELLLISTBOOK.0.0.1|
+
+
+		<fo:block break-before="page" />
+
+
+		<fo:block span="all" break-before="page">
+
+
+			<fo:table>
+
+
+				<fo:table-column column-width="190mm" />
+
+
+				<fo:table-body>
+
+
+					<fo:table-row>
+
+
+						<fo:table-cell background-color="black" padding-top="2pt" text-align="center">
+
+
+							<fo:block font-size="12pt" color="white" font-weight="bold">
+
+
+								|NAME| - Innate Spells
+
+
+							</fo:block>
+
+
+						</fo:table-cell>
+
+
+					</fo:table-row>
+
+
+				</fo:table-body>
+
+
+			</fo:table>
+
+
+		</fo:block>
+
+
+|FOR,%spell,0,COUNT[SPELLSINBOOK.0.1.0]-1,1,0|
+
+
+<fo:table>
+
+
+	<fo:table-column column-width="60mm"/>
+
+
+	<fo:table-body>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="10pt" space-before="2mm" font-weight="bold" margin-left="5mm" text-indent="-5mm">|SPELLMEM.0.1.0.%spell.BONUSSPELL| |SPELLMEM.0.1.0.%spell.NAME|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" text-indent="5mm">|SPELLMEM.0.1.0.%spell.FULLSCHOOL|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Level: </fo:inline>|SPELLMEM.0.1.0.%spell.SOURCELEVEL|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Components: </fo:inline>|SPELLMEM.0.1.0.%spell.COMPONENTS|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Casting Time: </fo:inline>|SPELLMEM.0.1.0.%spell.CASTINGTIME|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Range: </fo:inline>|SPELLMEM.0.1.0.%spell.RANGE|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Target: </fo:inline>|SPELLMEM.0.1.0.%spell.TARGET|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Duration: </fo:inline>|SPELLMEM.0.1.0.%spell.DURATION|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Saving Throw: </fo:inline>|SPELLMEM.0.1.0.%spell.SAVEINFO|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Spell Resistance: </fo:inline>|SPELLMEM.0.1.0.%spell.SR|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row keep-with-next.within-column="always">
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="8pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Effect: </fo:inline>|SPELLMEM.0.1.0.%spell.EFFECT|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+		<fo:table-row>
+
+
+			<fo:table-cell>
+
+
+				<fo:block font-size="5pt" text-indent="3mm">|SPELLMEM.0.1.0.%spell.SOURCE|</fo:block>
+
+
+			</fo:table-cell>
+
+
+		</fo:table-row>
+
+
+	</fo:table-body>
+
+
+</fo:table>
+
+
+|ENDFOR|
+
+
+|%|
+
+
+		</fo:flow>
+
+
+	</fo:page-sequence>
+
+
+<!-- END Spell pages -->
+
+
+
+
+
+</fo:root>
+
+
+
+
+
+
+
+
+
+
+
