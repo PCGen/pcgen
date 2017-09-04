@@ -213,30 +213,30 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
-          <td align="center" width="100" class="font6"><br />CURRENT STAMINA</td>
+          <td align="center" width="100" class="font6"><br />CURRENT HP</td>
           <td align="center"></td>
           <td align="center" width="100" class="font6"><br />SUBDUAL DAMAGE</td>
           <td align="center"></td>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
-          <td align="center" width="75" class="font6"><br />CURRENT HP</td>
+          <td align="center" width="75" class="font6"><br />CURRENT STAMINA</td>
           <td align="center"></td>
           <td align="center" width="60" class="font6"><br />DAMAGE<br />REDUCTION</td>
           <td align="center"></td>
           <td align="center" width="120" class="font6"><br />SPEED</td>
           </tr>
         <tr>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>SP</b></font>
-            <font style="font-size:5pt" color="white"><br />Stamina</font></td>
+          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HP</b></font>
+            <font style="font-size:5pt" color="white"><br />Hit Points</font></td>
           <td align="center" class="border9"><b>${pcstring('HP')}</b></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HP</b></span>
-            <font style="font-size:5pt" color="white"><br />Hit Points</font></td>
+          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>SP</b></span>
+            <font style="font-size:5pt" color="white"><br />Stamina Points</font></td>
           <td align="center" class="border9"><b>${pcstring('ALTHP')}</b></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
@@ -349,60 +349,55 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 <!-- START Armor Class Table -->
       <table summary="AC Table">
         <tr>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>AC</b></font>
-            <font style="font-size:5pt" color="white"><br />Armour Class</font></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Total')}</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Touch')}</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Flatfooted')}</b></td>
+          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>EAC</b></font>
+            <font style="font-size:5pt" color="white"><br />Energy Armor Class</font></td>
+          <td align="center" class="border9"><b>${pcstring('AC.EAC')}</b></td>
           <td align="center" class="font7"><b>=</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Armor')}</b></td>
-
+          <td align="center" class="border9"><b>${pcstring('AC.Ability')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Shield')}</b></td>
-
+          <td align="center" class="border9"><b>${pcstring('AC.EAC_Armor')}</b></td>
+          <td align="center" class="font7"><b>+</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
+			<td align="center" class="font7"><b></b></td>
+		  <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>KAC</b></font>
+            <font style="font-size:5pt" color="white"><br /> Kinetic Armor Class</font></td>
+          <td align="center" class="border9"><b>${pcstring('AC.KAC')}</b></td>
+          <td align="center" class="font7"><b>=</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Ability')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Size')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.NaturalArmor')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Dodge')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Deflection')}</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.KAC_Armor')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
+
           </tr>
         <tr>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOUCH</b></font></td>
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>BASE</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>FLAT</b></font></td>
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>STAT</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">BASE</td>
+          <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>ARMOR</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">ARMOR<br />BONUS</td>
+          <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>MISC</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">SHIELD<br />BONUS</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">STAT<br />BONUS</td>
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">SIZE<br />BONUS</td>
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>BASE</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">NATURAL<br />ARMOR</td>
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>STAT</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">DODGE<br />BONUS</td>
+          <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>ARMOR</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">DEFLECTION<br />BONUS</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">MISC<br />BONUS</td>
+          <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>MISC</b></font></td>
           </tr>
+
         </table>
 <!-- STOP AC Table -->
       </td>
