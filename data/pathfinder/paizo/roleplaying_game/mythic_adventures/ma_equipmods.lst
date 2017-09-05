@@ -16,6 +16,11 @@ Sacrosanct		KEY:SACROSANCT	TYPE:Weapon			COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.
 # Modifier Name	Unique Key		Type															Type granted	Source Page		Ability
 Legendary		KEY:LEGENDARY	TYPE:Weapon.Armor.Shield.Ring.Amulet.Cape.Headgear.Staff.Rod.Gear.Item.WornItem.Boot	ITYPE:Legendary	SOURCEPAGE:p.170	ABILITY:Special Ability|AUTOMATIC|Legendary Item ~ Legendary Power|Legendary Item ~ Legendary Surge|Legendary Item ~ Mythic Bond
 
+MinorArtifact	KEY:MinorArtifact	TYPE:Legendary	ITYPE:MinorArtifact
+MajorArtifact	KEY:MajorArtifact	TYPE:Legendary	ITYPE:MajorArtifact
+
+
+
 ###Block: Legendary Item Abilities
 # Modifier Name		Unique Key				Type			Visible		Type granted		Source Page		Required Type									Special Property																																																																																																																																																											Choose
 Adroit			KEY:LEGEND_ADROIT			TYPE:Legendary	VISIBLE:QUALIFY					SOURCEPAGE:p.171												SPROP:As a swift action, the item's bonded creature can expend one use of legendary power to gain a +20 insight bonus on the next check she attempts with % before the end of her turn. The item must have a legendary surge that augments skill checks to have this ability.|%LIST																																																																																																																CHOOSE:SKILL|TYPE=Base

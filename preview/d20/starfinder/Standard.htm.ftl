@@ -213,30 +213,38 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
-          <td align="center" width="100" class="font6"><br />CURRENT STAMINA</td>
+
+          <td align="center" width="100" class="font6"><br />CURRENT HP</td>
+
           <td align="center"></td>
           <td align="center" width="100" class="font6"><br />SUBDUAL DAMAGE</td>
           <td align="center"></td>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
-          <td align="center" width="75" class="font6"><br />CURRENT HP</td>
+
+          <td align="center" width="75" class="font6"><br />CURRENT STAMINA</td>
+
           <td align="center"></td>
           <td align="center" width="60" class="font6"><br />DAMAGE<br />REDUCTION</td>
           <td align="center"></td>
           <td align="center" width="120" class="font6"><br />SPEED</td>
           </tr>
         <tr>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>SP</b></font>
-            <font style="font-size:5pt" color="white"><br />Stamina</font></td>
+
+          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HP</b></font>
+            <font style="font-size:5pt" color="white"><br />Hit Points</font></td>
+
           <td align="center" class="border9"><b>${pcstring('HP')}</b></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HP</b></span>
-            <font style="font-size:5pt" color="white"><br />Hit Points</font></td>
+
+          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>SP</b></span>
+            <font style="font-size:5pt" color="white"><br />Stamina Points</font></td>
+
           <td align="center" class="border9"><b>${pcstring('ALTHP')}</b></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
@@ -349,60 +357,59 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 <!-- START Armor Class Table -->
       <table summary="AC Table">
         <tr>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>AC</b></font>
-            <font style="font-size:5pt" color="white"><br />Armour Class</font></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Total')}</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Touch')}</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Flatfooted')}</b></td>
+
+          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>EAC</b></font>
+            <font style="font-size:5pt" color="white"><br />Energy Armor Class</font></td>
+          <td align="center" class="border9"><b>${pcstring('AC.EAC')}</b></td>
           <td align="center" class="font7"><b>=</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Armor')}</b></td>
-
+          <td align="center" class="border9"><b>${pcstring('AC.Ability')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Shield')}</b></td>
-
+          <td align="center" class="border9"><b>${pcstring('AC.EAC_Armor')}</b></td>
+          <td align="center" class="font7"><b>+</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
+			<td align="center" class="font7"><b></b></td>
+		  <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>KAC</b></font>
+            <font style="font-size:5pt" color="white"><br /> Kinetic Armor Class</font></td>
+          <td align="center" class="border9"><b>${pcstring('AC.KAC')}</b></td>
+          <td align="center" class="font7"><b>=</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Ability')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Size')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.NaturalArmor')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Dodge')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Deflection')}</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.KAC_Armor')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
+
+
           </tr>
         <tr>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOUCH</b></font></td>
+
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>BASE</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>FLAT</b></font></td>
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>STAT</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">BASE</td>
+          <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>ARMOR</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">ARMOR<br />BONUS</td>
+          <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>MISC</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">SHIELD<br />BONUS</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">STAT<br />BONUS</td>
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">SIZE<br />BONUS</td>
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>BASE</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">NATURAL<br />ARMOR</td>
+          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>STAT</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">DODGE<br />BONUS</td>
+          <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>ARMOR</b></font></td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">DEFLECTION<br />BONUS</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">MISC<br />BONUS</td>
+          <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>MISC</b></font></td>
           </tr>
+
+
         </table>
 <!-- STOP AC Table -->
       </td>
@@ -724,6 +731,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 </#if>
 
 <!-- START Unarmed Attack Table -->
+
+<#if (pcvar('VAR.DisplayUnarmedOff.INTVAL') > 0)>
+
+<#else>
+
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
     <tr>
      <td align="center" height="25" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>UNARMED</b></font></td>
@@ -745,6 +757,9 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	</@loop>
    </table>
    <font style="font-size:2pt"><br /></font>
+
+   </#if>
+
 <!-- STOP Unarmed Attack Table -->
 	<#-- create variable x -->
 	<#assign fab = pcstring('WEAPONH.TOTALHIT')?keep_before("/")?number>
@@ -1891,11 +1906,44 @@ ${pcstring('ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE=Racial Trait.DES
 </#if>
 <!-- STOP Racial Traits Table -->
 
+<!-- START Theme Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Theme","TYPE=Theme","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b> ${pcstring('ABILITYALL.Theme.VISIBLE.0.TYPE=Theme.ASPECT.Title')} THEME & BENEFITS</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Theme","TYPE=Theme","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
+<#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.SOURCE')}]</td>
+<tr>
+<#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Theme Table -->
+
+
 <!-- START Class Features Table -->
 <#if (pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>CLASS FEATURE</b></font></th>
+
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>CLASS FEATURES</b></font></th>
+
     </tr>
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
 <#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
@@ -1920,6 +1968,7 @@ ${pcstring('ABILITYALL.Class Feature.VISIBLE.${ClassFeature}.TYPE=Class Feature.
    </table>
 </#if>
 <!-- STOP Class Features Table -->
+
 
 
 

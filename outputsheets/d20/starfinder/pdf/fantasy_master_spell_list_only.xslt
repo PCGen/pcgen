@@ -25,7 +25,7 @@
 	<xsl:import href="common_sheet/block_protection.xslt"/>
 	<xsl:import href="common_sheet/block_psionics.xslt"/>
 	<xsl:import href="common_sheet/block_skills.xslt"/>
-	<xsl:import href="common_sheet/block_spells_condensed.xslt"/>
+	<xsl:import href="common_sheet/block_spells_list.xslt"/>	
 	<xsl:import href="common_sheet/block_stat_block.xslt"/>
 	<xsl:import href="common_sheet/block_weapons.xslt"/>
 <!-- END -->
@@ -35,18 +35,9 @@
 	<xsl:variable name="vAttribs_tree">
 		<myAttribs:myAttribs>
 			<xsl:copy-of select="$vAttribs/*"/>
-      <pfs_chronicles.title><subattrib centre="" inverse=""/></pfs_chronicles.title>
-      <pfs_chronicles.border><subattrib border="" normal=""/></pfs_chronicles.border>
-      <pfs_chronicles.lightline><subattrib light=""/></pfs_chronicles.lightline>
-      <pfs_chronicles.darkline><subattrib medium=""/></pfs_chronicles.darkline>
-      <pfs_boons.title><subattrib centre="" inverse=""/></pfs_boons.title>
-      <pfs_boons.border><subattrib border="" normal=""/></pfs_boons.border>
-      <pfs_boons.lightline><subattrib light=""/></pfs_boons.lightline>
-      <pfs_boons.darkline><subattrib medium=""/></pfs_boons.darkline>
-    </myAttribs:myAttribs>
+		</myAttribs:myAttribs>
 	</xsl:variable>
 	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
-
 	<xsl:variable name="pageHeight">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/height, 'in')">
@@ -231,7 +222,7 @@
 ====================================-->
 	<xsl:template name="page.footer.content">
 		<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
-		<fo:table table-layout="fixed" width="100%">
+		<fo:table table-layout="fixed">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.25 * $pagePrintableWidth" />mm</xsl:attribute>
 			</fo:table-column>
@@ -271,8 +262,6 @@
 		<xsl:variable name="first_page_skills_count">
 			<xsl:call-template name="view.skills.num"/>
 		</xsl:variable>
-		<xsl:message>Number of weapons on first page = <xsl:value-of select="$first_page_weapon_count"/></xsl:message>
-		<xsl:message>Number of skills on first page = <xsl:value-of select="$first_page_skills_count"/></xsl:message>
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
 			<xsl:call-template name="page.layouts"/>
 			<!--
@@ -286,10 +275,11 @@
 				<fo:flow flow-name="body" font-size="8pt">
 					<!--	CHARACTER HEADER	-->
 					<fo:block span="all" space-after.optimum="3pt">
-						<xsl:apply-templates select="basics"/>
+ <!-- We Display only the Spells in List Form -->
+						<xsl:apply-templates select="spells"/>	
 					</fo:block>
 					<fo:block span="all">
-						<fo:table table-layout="fixed" width="100%">
+						<fo:table table-layout="fixed">
 							<fo:table-column>
 								<xsl:attribute name="column-width"><xsl:value-of select="0.29 * $pagePrintableWidth" />mm</xsl:attribute>
 							</fo:table-column>
@@ -301,169 +291,15 @@
 							</fo:table-column>
 							<fo:table-body>
 								<fo:table-row>
-									<fo:table-cell number-rows-spanned="2" border-width="1pt" border-color="red">
-										<xsl:apply-templates select="abilities"/>
-									</fo:table-cell>
-									<fo:table-cell number-columns-spanned="2" border-width="1pt" border-color="red">
-										<xsl:apply-templates select="." mode="hp_table"/>
-										<xsl:apply-templates select="armor_class"/>
-										<xsl:apply-templates select="initiative"/>
-									</fo:table-cell>
-								</fo:table-row>
-								<fo:table-row>
-									<fo:table-cell>
-								<!-->		<xsl:apply-templates select="basics/bab" mode="bab"/>	-->
-										<xsl:call-template name="encumbrance"/>
-									</fo:table-cell>
-									<fo:table-cell number-rows-spanned="2">
-										<xsl:apply-templates select="skills">
-											<xsl:with-param name="first_skill" select="0"/>
-											<xsl:with-param name="last_skill" select="$first_page_skills_count"/>
-											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
-										</xsl:apply-templates>
-										<xsl:apply-templates select="skillinfo"/>
-										<xsl:apply-templates select="class_features/bardic_music"/>
-										<xsl:apply-templates select="class_features/turning[@kind='UNDEAD']">
-											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
-										</xsl:apply-templates>
-										<xsl:apply-templates select="class_features/eclipse_channeling"/>
-										<xsl:apply-templates select="class_features/channel_energy"/>
-										<xsl:apply-templates select="checklists"/>
-									</fo:table-cell>
-								</fo:table-row>
-								<fo:table-row>
 									<fo:table-cell number-columns-spanned="2">
-										<xsl:apply-templates select="saving_throws"/>
-										<xsl:apply-templates select="resistances"/>
-										<xsl:apply-templates select="attack" mode="conditional"/>
-										<xsl:apply-templates select="attack" mode="ranged_melee"/>
-										<xsl:apply-templates select="weapons/martialarts"/>
-										<xsl:apply-templates select="weapons/unarmed"/>
-										<xsl:apply-templates select="weapons/naturalattack"/>
-										<xsl:apply-templates select="weapons/spiritweaponmelee"/>
-										<xsl:apply-templates select="weapons/spiritweaponranged"/>
-										<xsl:apply-templates select="weapons">
-											<xsl:with-param name="first_weapon" select="1"/>
-											<xsl:with-param name="last_weapon" select="$first_page_weapon_count"/>
-											<xsl:with-param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-										</xsl:apply-templates>
-										<xsl:apply-templates select="protection"/>
-										<xsl:apply-templates select="class_features/rage"/>
-										<xsl:apply-templates select="class_features/wildshape"/>
-										<xsl:apply-templates select="class_features/stunning_fist"/>
-										<xsl:apply-templates select="class_features/ki_pool"/>
-										<xsl:apply-templates select="class_features/wholeness_of_body"/>
-										<xsl:apply-templates select="class_features/layonhands"/>
-										<xsl:apply-templates select="class_features/psionics"/>
 									</fo:table-cell>
 								</fo:table-row>
 							</fo:table-body>
 						</fo:table>
 					</fo:block>
 				</fo:flow>
-		
 			</fo:page-sequence>
-			<!--
-				Start the Second page
-				-->
-			<fo:page-sequence>
-		
-				<xsl:attribute name="master-reference">Portrait 2 Column</xsl:attribute>
-				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
-				<xsl:call-template name="page.footer"/>
-				<fo:flow flow-name="body" font-size="8pt">
-					<fo:block>
-						<xsl:apply-templates select="weapons">
-							<xsl:with-param name="first_weapon" select="$first_page_weapon_count+1"/>
-							<xsl:with-param name="last_weapon" select="9999"/>
-							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
-						</xsl:apply-templates>
-						<xsl:apply-templates select="skills">
-							<xsl:with-param name="first_skill" select="$first_page_skills_count+1"/>
-							<xsl:with-param name="last_skill" select="9999"/>
-							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
-						</xsl:apply-templates>
-						<xsl:apply-templates select="class_features/turning[@kind!='UNDEAD']">
-							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
-						</xsl:apply-templates>
-						<xsl:apply-templates select="equipment" />
-						<xsl:apply-templates select="weight_allowance"/>
-						<xsl:call-template name="money"/>
-						<xsl:apply-templates select="misc/magics"/>
-						<xsl:apply-templates select="languages"/>
-						<xsl:apply-templates select="misc/companions"/>
-						<xsl:apply-templates select="archetypes"/>	
-						<xsl:apply-templates select="animal_tricks"/>	
-						<xsl:apply-templates select="special_abilities"/>
-						<xsl:apply-templates select="traits"/>
-						<xsl:apply-templates select="drawbacks"/>
-						<xsl:apply-templates select="afflictions"/>
-						<xsl:apply-templates select="racial_traits"/>
-						<xsl:apply-templates select="class_features"/>
-						<xsl:apply-templates select="special_attacks"/>
-						<xsl:apply-templates select="special_qualities"/>
-						<xsl:apply-templates select="prestige_awards"/>
-						<xsl:apply-templates select="intelligent_items"/>
-						<xsl:apply-templates select="talents"/>	
-						<xsl:apply-templates select="words_of_powers"/>	
-						<!-- Eclipse Section - Having it's own section is creating an additional blank page -->
-						<xsl:apply-templates select="charcreations"/>
-						<xsl:apply-templates select="disadvantages"/>
-						<xsl:apply-templates select="spellcasteroutputs"/>
-						<xsl:apply-templates select="eclipse_abilities"/>
-						<xsl:apply-templates select="martial_arts"/>
-						<xsl:apply-templates select="mystic_artists"/>
-						<xsl:apply-templates select="witchcrafts"/>
-						<xsl:apply-templates select="channelings"/>
-						<xsl:apply-templates select="dominions"/>
-						<xsl:apply-templates select="path_dragons"/>	
-						<!-- McWoD Edition Style -->
-						<xsl:apply-templates select="vampire_disciplines"/>
-						<xsl:apply-templates select="demon_cants"/>
-						<xsl:apply-templates select="werewolf_rites"/>
-						<xsl:apply-templates select="mage_gnosises"/>	
-						<!-- End McWoD Edition Style -->
-						<!-- Saga Edition Style -->
-						<xsl:apply-templates select="force_techniques"/>
-						<xsl:apply-templates select="force_powers"/>
-						<xsl:apply-templates select="force_secrets"/>	
-						<!-- End Saga Edition Style -->
-						<!-- 4th Edition Style -->	
-						<xsl:apply-templates select="powers_classfeatures"/>
-						<xsl:apply-templates select="powers_featpowers"/>
-						<xsl:apply-templates select="powers_atwills"/>
-						<xsl:apply-templates select="powers_encounters"/>
-						<xsl:apply-templates select="powers_dailies"/>
-						<xsl:apply-templates select="powers_utilities"/>	
-						<!-- End 4th Edition Style -->
-						<xsl:apply-templates select="salient_divine_abilities"/>
-						<xsl:apply-templates select="feats"/>
-						<xsl:apply-templates select="pfs_chronicles"/>
-            <xsl:apply-templates select="pfs_boons"/>
-
-            <xsl:apply-templates select="domains"/>
-						<xsl:apply-templates select="weapon_proficiencies"/>
-<!-->						<xsl:apply-templates select="proficiency_specials"/>-->
-						<xsl:apply-templates select="templates"/>
-						<xsl:apply-templates select="tempbonuses"/>
-						<xsl:apply-templates select="prohibited_schools"/>
-						<xsl:apply-templates select="companions"/>
-					</fo:block>
-				</fo:flow>
-			</fo:page-sequence>
-<!-->	ADITIONAL PAGES for Spells	-->
-			<xsl:apply-templates select="spells"/>	
-			<xsl:apply-templates select="basics" mode="bio"/>
-			<xsl:apply-templates select="basics/notes" mode="bio"/>	
-			<xsl:apply-templates select="basics/campaign_histories"/>
-
 		</fo:root>
 	</xsl:template>
-
-
-
-
-
-
 	<!-- End Character -->
 </xsl:stylesheet>
