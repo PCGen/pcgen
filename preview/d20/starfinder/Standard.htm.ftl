@@ -213,30 +213,38 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
+
           <td align="center" width="100" class="font6"><br />CURRENT HP</td>
+
           <td align="center"></td>
           <td align="center" width="100" class="font6"><br />SUBDUAL DAMAGE</td>
           <td align="center"></td>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
+
           <td align="center" width="75" class="font6"><br />CURRENT STAMINA</td>
+
           <td align="center"></td>
           <td align="center" width="60" class="font6"><br />DAMAGE<br />REDUCTION</td>
           <td align="center"></td>
           <td align="center" width="120" class="font6"><br />SPEED</td>
           </tr>
         <tr>
+
           <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HP</b></font>
             <font style="font-size:5pt" color="white"><br />Hit Points</font></td>
+
           <td align="center" class="border9"><b>${pcstring('HP')}</b></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
+
           <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>SP</b></span>
             <font style="font-size:5pt" color="white"><br />Stamina Points</font></td>
+
           <td align="center" class="border9"><b>${pcstring('ALTHP')}</b></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
@@ -349,6 +357,7 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 <!-- START Armor Class Table -->
       <table summary="AC Table">
         <tr>
+
           <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>EAC</b></font>
             <font style="font-size:5pt" color="white"><br />Energy Armor Class</font></td>
           <td align="center" class="border9"><b>${pcstring('AC.EAC')}</b></td>
@@ -373,11 +382,13 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
 
+
           </tr>
         <tr>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
           <td align="center"></td>
+
           <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>BASE</b></font></td>
           <td align="center"></td>
           <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>STAT</b></font></td>
@@ -397,6 +408,7 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center"></td>
           <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>MISC</b></font></td>
           </tr>
+
 
         </table>
 <!-- STOP AC Table -->
@@ -719,9 +731,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 </#if>
 
 <!-- START Unarmed Attack Table -->
+
 <#if (pcvar('VAR.DisplayUnarmedOff.INTVAL') > 0)>
 
 <#else>
+
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
     <tr>
      <td align="center" height="25" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>UNARMED</b></font></td>
@@ -743,7 +757,9 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	</@loop>
    </table>
    <font style="font-size:2pt"><br /></font>
+
    </#if>
+
 <!-- STOP Unarmed Attack Table -->
 	<#-- create variable x -->
 	<#assign fab = pcstring('WEAPONH.TOTALHIT')?keep_before("/")?number>
@@ -1889,6 +1905,7 @@ ${pcstring('ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE=Racial Trait.DES
    </table>
 </#if>
 <!-- STOP Racial Traits Table -->
+
 <!-- START Theme Table -->
 <#if (pcvar('count("ABILITIES","CATEGORY=Theme","TYPE=Theme","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
@@ -1919,11 +1936,14 @@ ${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.DESC')}</td>
 </#if>
 <!-- STOP Theme Table -->
 
+
 <!-- START Class Features Table -->
 <#if (pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
+
      <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>CLASS FEATURES</b></font></th>
+
     </tr>
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
 <#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
