@@ -27,8 +27,10 @@ BONUSSTACKS:Defense.Dodge.Circumstance.Racial.NotRanged.NotFlatFooted
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Gold
-CURRENCYUNITABBREV:gp
+
+CURRENCYUNIT:Credit
+CURRENCYUNITABBREV:cr
+
 
 #
 #define this game mode's default unit set
@@ -151,49 +153,43 @@ CLASSTYPE:Monster		CRFORMULA:0		ISMONSTER:YES	XPPENALTY:NO
 CLASSTYPE:Companion	CRFORMULA:NONE	ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
-ACTYPE:Total				ADD:TOTAL		REMOVE:TouchMisc|CMD
-# Since TouchMisc should only add to the Touch, and not the total AC I'm deviating from the standard and using Remove in the Total.
-ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:TouchMisc|CMD	REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
-ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|Shield|ShieldEnhancement|NaturalArmor|NaturalArmorEnhancement|CMD	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
-ACTYPE:TouchMisc				ADD:TouchMisc
+
 ACTYPE:Base					ADD:Base
-ACTYPE:Armor				ADD:Armor|ArmorEnhancement
-ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
-ACTYPE:Shield				ADD:Shield|ShieldEnhancement
-ACTYPE:ShieldEnhancement		ADD:ShieldEnhancement
+# Dex
 ACTYPE:Ability				ADD:Ability
+# Actual AC representation
+ACTYPE:EAC					ADD:Base|EAC|Ability|EAC_Armor|Misc
+ACTYPE:KAC					ADD:Base|KAC|Ability|KAC_Armor|Misc
+# Armor Modification
+ACTYPE:EAC_Armor				ADD:EAC_Armor
+ACTYPE:KAC_Armor				ADD:KAC_Armor
+# No word if Size matters yet
 ACTYPE:Size					ADD:Size
-ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
-ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
-ACTYPE:Dodge				ADD:Dodge
-ACTYPE:Deflection				ADD:Deflection
-ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|ArmorEnhancement|Shield|ShieldEnhancement|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|TouchMisc|CMD
-ACTYPE:Circumstance			ADD:Circumstance
-ACTYPE:Insight				ADD:Insight
-ACTYPE:Morale				ADD:Morale
-ACTYPE:Profane				ADD:Profane
-ACTYPE:Sacred				ADD:Sacred
-ACTYPE:CMD					ADD:Circumstance|Deflection|Dodge|Insight|Luck|Morale|Profane|Sacred
-ACTYPE:ClassDefense			ADD:ClassDefense
+# The catch-all
+ACTYPE:Misc					ADD:TOTAL	REMOVE:Base|Ability|EAC|KAC|EAC_Armor|KAC_Armor|Size
 
 
-
-
-ACTYPE:EAC					ADD:EAC|Ability
-ACTYPE:KAC					ADD:KAC|Ability
-
-
-
-
-
-
-
-
-
-
-
-
-
+### These are no longer in use for the purposes of Starfinder.
+ACTYPE:Total				
+# Since TouchMisc should only add to the Touch, and not the total AC I'm deviating from the standard and using Remove in the Total.
+ACTYPE:Flatfooted				
+ACTYPE:Touch				
+ACTYPE:TouchMisc				
+ACTYPE:Armor				
+ACTYPE:ArmorEnhancement			
+ACTYPE:Shield				
+ACTYPE:ShieldEnhancement		
+ACTYPE:NaturalArmor			
+ACTYPE:NaturalArmorEnhancement	
+ACTYPE:Dodge				
+ACTYPE:Deflection				
+ACTYPE:Circumstance			
+ACTYPE:Insight				
+ACTYPE:Morale				
+ACTYPE:Profane				
+ACTYPE:Sacred				
+ACTYPE:CMD					
+ACTYPE:ClassDefense			
 
 
 
@@ -217,7 +213,15 @@ BASEDICE:2d10	UP:4d8,6d8,8d8,12d8					DOWN:2d8,2d6,1d10,1d8
 BASEDICE:3d6	UP:4d6,6d6,8d6,12d6					DOWN:2d6,1d10,1d8,1d6,1d4
 
 # Penalty to attacks for different sized weapons
-EQSIZEPENALTY:35 Size Penalty		BONUS:WEAPON|TOHIT|(PC.SIZE.INT-EQUIP.SIZE.INT)*-2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|TYPE=DifferentEQSizePenalty|!PRETYPE:2,Melee,Natural|!PRETYPE:1,NoAttackPenalty	BONUS:WEAPON|TOHIT|(EQUIP.SIZE.INT-PC.SIZE.INT)*-2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|TYPE=DifferentEQSizePenalty|!PRETYPE:2,Melee,Natural|!PRETYPE:1,NoAttackPenalty	BONUS:WEAPON|TOHIT|SizeIncrease*2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:SizeIncrease,1	BONUS:WEAPON|TOHIT|SizeDecrease*2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:SizeDecrease,1	BONUS:WEAPON|TOHIT|ActivateEnlargePerson*2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:ActivateEnlargePerson,1	BONUS:WEAPON|TOHIT|ActivateReducePerson*2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:ActivateReducePerson,1	BONUS:WEAPON|TOHIT|2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|PREABILITY:1,CATEGORY=Special Ability,Oversized Weapon	BONUS:WEAPON|TOHIT|min(OversizeWeaponToHitBonus,((EQUIP.SIZE.INT-PC.SIZE.INT)*2))|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural
+
+# EQSIZEPENALTY:35 Size Penalty		BONUS:WEAPON|TOHIT|(PC.SIZE.INT-EQUIP.SIZE.INT)*-2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|TYPE=DifferentEQSizePenalty|!PRETYPE:2,Melee,Natural|!PRETYPE:1,NoAttackPenalty	BONUS:WEAPON|TOHIT|(EQUIP.SIZE.INT-PC.SIZE.INT)*-2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|TYPE=DifferentEQSizePenalty|!PRETYPE:2,Melee,Natural|!PRETYPE:1,NoAttackPenalty	BONUS:WEAPON|TOHIT|SizeIncrease*2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:SizeIncrease,1	BONUS:WEAPON|TOHIT|SizeDecrease*2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:SizeDecrease,1	BONUS:WEAPON|TOHIT|ActivateEnlargePerson*2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:ActivateEnlargePerson,1	BONUS:WEAPON|TOHIT|ActivateReducePerson*2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:ActivateReducePerson,1	BONUS:WEAPON|TOHIT|2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|PREABILITY:1,CATEGORY=Special Ability,Oversized Weapon	BONUS:WEAPON|TOHIT|min(OversizeWeaponToHitBonus,((EQUIP.SIZE.INT-PC.SIZE.INT)*2))|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural
+EQSIZEPENALTY:Starfinder Size Penalty	BONUS:WEAPON|TOHIT|if(PC.SIZE.INT-EQUIP.SIZE.INT==1,-4,0)+if(PC.SIZE.INT-EQUIP.SIZE.INT>=2,-40,0)+if(EQUIP.SIZE.INT-PC.SIZE.INT==1,-4,0)+if(EQUIP.SIZE.INT-PC.SIZE.INT>=2,-40,0)
+#BONUS:WEAPON|TOHIT|(PC.SIZE.INT-EQUIP.SIZE.INT)*-4|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|TYPE=DifferentEQSizePenalty|!PRETYPE:2,Melee,Natural|!PRETYPE:1,NoAttackPenalty	BONUS:WEAPON|TOHIT|(EQUIP.SIZE.INT-PC.SIZE.INT)*-4|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|TYPE=DifferentEQSizePenalty|!PRETYPE:2,Melee,Natural|!PRETYPE:1,NoAttackPenalty	BONUS:WEAPON|TOHIT|SizeIncrease*2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:SizeIncrease,1	BONUS:WEAPON|TOHIT|SizeDecrease*2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:SizeDecrease,1	BONUS:WEAPON|TOHIT|ActivateEnlargePerson*2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:ActivateEnlargePerson,1	BONUS:WEAPON|TOHIT|ActivateReducePerson*2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|PREVARGTEQ:ActivateReducePerson,1	BONUS:WEAPON|TOHIT|2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|PREABILITY:1,CATEGORY=Special Ability,Oversized Weapon	BONUS:WEAPON|TOHIT|min(OversizeWeaponToHitBonus,((EQUIP.SIZE.INT-PC.SIZE.INT)*2))|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural
+
+#	
+
+
+
 
 # Long and Short weapon damage types
 WEAPONTYPE:Bludgeoning|B
@@ -246,32 +250,42 @@ WEAPONCATEGORY:GRENADES
 WEAPONCATEGORY:Natural
 WEAPONCATEGORY:Special Weapons
 
+WEAPONCATEGORY:Starship Weapons
+
+
+
 
 # Non-proficient penalty
 WEAPONNONPROFPENALTY:-4
 
 # Number of hands required to wield weapon categories
-#											Object Size difference
-#													Damage multiplier: hands = multiplier
-WIELDCATEGORY:Light				HANDS:1		FINESSABLE:Yes	SIZEDIFF:-1	DAMAGEMULT:1=1,2=1
-WIELDCATEGORY:OneHanded				HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1.5
-WIELDCATEGORY:TwoHanded				HANDS:2					SIZEDIFF:1	DAMAGEMULT:2=1.5
+
+WIELDCATEGORY:None				HANDS:0
+WIELDCATEGORY:OneHanded				HANDS:1					
+WIELDCATEGORY:TwoHanded				HANDS:2					
+WIELDCATEGORY:OneHandOnly			HANDS:1
+WIELDCATEGORY:TwoHandsOnly			HANDS:2
+
+
+
+WIELDCATEGORY:Starship_1			HANDS:1
+WIELDCATEGORY:Starship_2			HANDS:2
+WIELDCATEGORY:Starship_3			HANDS:3
+WIELDCATEGORY:Starship_4			HANDS:4
+WIELDCATEGORY:Starship_5			HANDS:5
+
+
+
+#
+WIELDCATEGORY:TwoHandsOnlyTooSmall		HANDS:999
+WIELDCATEGORY:TwoHandsOnlyTooLarge		HANDS:999
+WIELDCATEGORY:OneHandOnlyTooSmall		HANDS:999
+WIELDCATEGORY:OneHandOnlyTooLarge		HANDS:999
 WIELDCATEGORY:TooSmall				HANDS:999
 WIELDCATEGORY:TooLarge				HANDS:999
 WIELDCATEGORY:Unusable				HANDS:999
-WIELDCATEGORY:None				HANDS:0
-WIELDCATEGORY:OneHandOnly			HANDS:1
-WIELDCATEGORY:OneHandOnlyTooSmall		HANDS:999
-WIELDCATEGORY:OneHandOnlyTooLarge		HANDS:999
-WIELDCATEGORY:TwoHandsOnly			HANDS:2
-WIELDCATEGORY:TwoHandsOnlyTooSmall		HANDS:999
-WIELDCATEGORY:TwoHandsOnlyTooLarge		HANDS:999
 
-# Light weapon vs PC size changes
-WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TooSmall
-WIELDCATEGORY:Light		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:OneHanded
-WIELDCATEGORY:Light		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TwoHanded
-WIELDCATEGORY:Light		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3	SWITCH:TooLarge
+
 
 # OneHanded weapon vs PC size changes
 WIELDCATEGORY:OneHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:TooSmall
@@ -349,14 +363,15 @@ WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
 ###COMMENT: Internal Category is for all hidden abilities.
 
 
-PREVIEWDIR:d20/fantasy
+
+PREVIEWDIR:d20/starfinder
 PREVIEWSHEET:Standard.htm.ftl
 
-OUTPUTSHEET:DIRECTORY|d20/fantasy
+OUTPUTSHEET:DIRECTORY|d20/starfinder
 OUTPUTSHEET:DEFAULT.PDF|csheet_fantasy_std_blue.xslt
 OUTPUTSHEET:DEFAULT.HTM|csheet_fantasy_std.htm
 
-INFOSHEET:SUMMARY|preview/summary/pfrpg_info.html.ftl
+INFOSHEET:SUMMARY|preview/summary/sf_info.html.ftl
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
@@ -366,10 +381,11 @@ DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 RESIZABLEEQUIPTYPE:Shield|Armor|Resizable
 
 # Character Types:
-CHARACTERTYPE:PC|NPC|Monster
 
-# With the basic loader giving several offerings, we don't need this, plus it's using the character traits which was replaced by APG.
-#DEFAULTDATASET:Paizo - Pathfinder Roleplaying Game Core Rulebook,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement|Pathfinder RPG for Players
+CHARACTERTYPE:PC|NPC|Monster|Starship
+
+#DEFAULTDATASET:Starfinder Core Rulebook
+
 #
 # DONE
 #

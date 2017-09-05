@@ -20,7 +20,9 @@
 	<xsl:template match="character" mode="hp_table">	
 		<fo:table table-layout="fixed" width="100%">
 			<xsl:choose>
+
 				<xsl:when test="hit_points/starfinder = 0">
+
 					<fo:table-column column-width="12mm" />
 					<!-- TITLE -->
 					<fo:table-column column-width="2mm"/>
@@ -141,7 +143,9 @@
 						</fo:table-row>
 					</fo:table-body>
 
+
 				</xsl:when>
+
 
 				<xsl:otherwise>	
 					<fo:table-column column-width="12mm" />
@@ -217,8 +221,10 @@
 								<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'hp.title'"/>
 								</xsl:call-template>
+
 								<fo:block line-height="10pt" font-weight="bold" font-size="10pt" space-before="1pt">HP</fo:block>
 								<fo:block line-height="4pt" font-size="4pt">Hit Points</fo:block>
+
 							</fo:table-cell>
 							<fo:table-cell><fo:block/></fo:table-cell><!-- space -->
 							<fo:table-cell>
@@ -248,8 +254,10 @@
 								<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'hp.title'"/>
 								</xsl:call-template>
+
 								<fo:block line-height="10pt" font-weight="bold" font-size="10pt" space-before="1pt">SP</fo:block>
 								<fo:block line-height="4pt" font-size="4pt">Stamina Points</fo:block>
+
 							</fo:table-cell>
 							<fo:table-cell><fo:block/></fo:table-cell><!-- space -->
 							<fo:table-cell>
@@ -295,6 +303,7 @@
 		<fo:table table-layout="fixed" width="100%" space-before="2pt">
 			<fo:table-column column-width="12mm"/>	<!--	1	-->
 			<!-- TITLE -->
+
 			<fo:table-column column-width="2mm"/>	<!--	2	-->
 			<!-- space -->
 			<fo:table-column column-width="8mm"/>	<!--	3	-->
@@ -313,11 +322,13 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>	<!--	9	-->
 			<!-- ARMOR -->
+
 			<fo:table-column column-width="2mm"/>	<!--	10	-->
 			<!-- + -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>	<!--	11	-->
 			</fo:table-column>
+
 			<!-- MISC -->
 			<fo:table-column column-width="2mm"/>	<!--	12	-->
 			<!-- SPACE -->
@@ -337,30 +348,39 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>	<!--	17	-->
 			<!--BASE -->
+
 			<fo:table-column column-width="2mm"/>	<!--	18	-->
 			<!-- + -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>	<!--	19	-->
+
 			<!-- STAT -->
+
 			<fo:table-column column-width="2mm"/>	<!--	20	-->
 			<!-- + -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.09 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>	<!--	21	-->
+
 			<!-- ARMOR -->
+
 			<fo:table-column column-width="2mm"/>	<!--	22	-->
 			<!-- + -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.09 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>	<!--	23	-->
+
 			<!-- MISC -->
+
 			<fo:table-column column-width="2mm"/>	<!--	24	-->
 			<!-- + -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>		<!--	25	-->
+
 			<!-- SPACE-->
+
 			<fo:table-column column-width="2mm"/>	<!--	26	-->
 			<!-- space -->
 			<fo:table-column>
@@ -381,7 +401,9 @@
 			<!-- armour check-->
 			<fo:table-column column-width="2mm"/>	<!--	32	-->
 			<!-- space -->
+
 				<!--	33	-->
+
 			<!-- SR <33 columns> -->
 			<fo:table-body>
 				<fo:table-row>
@@ -390,8 +412,10 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac.title'"/>
 						</xsl:call-template>
+
 						<fo:block line-height="10pt" font-weight="bold" font-size="10pt" space-before="1pt">EAC</fo:block>
 						<fo:block line-height="4pt" font-size="4pt">energy armor class</fo:block>
+
 					</fo:table-cell>	<!--	1	-->
 					<fo:table-cell><fo:block/></fo:table-cell>	<!--	2	-->
 					<fo:table-cell display-align="center">
@@ -399,40 +423,48 @@
 							<xsl:with-param name="attribute" select="'ac.total'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="eac"/>
 						</fo:block>
 					</fo:table-cell>	<!--	3	-->
 					<fo:table-cell display-align="center">
 						<fo:block text-align="center" font-size="6pt">=</fo:block>
+
 					</fo:table-cell>	<!--	4	-->
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac.flatfooted'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="base"/>
 						</fo:block>
 					</fo:table-cell>	<!--	5	-->
 					<fo:table-cell display-align="center">
 						<fo:block text-align="center" font-size="6pt">+</fo:block>
+
 					</fo:table-cell>	<!--	6	-->
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac.touch'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="stat_mod"/>
 						</fo:block>
 					</fo:table-cell>	<!--	7	-->
 					<fo:table-cell display-align="center">
 						<fo:block text-align="center" font-size="6pt">+</fo:block>
+
 					</fo:table-cell>	<!--	8	-->
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="eac_armor"/>
+
 						</fo:block>
 					</fo:table-cell>	<!--	9	-->
 					<fo:table-cell display-align="center">
@@ -443,6 +475,7 @@
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="misc"/>
 						</fo:block>
 					</fo:table-cell>	<!--	11	-->
@@ -458,24 +491,29 @@
 					</fo:table-cell>	<!--	13	-->
 					<fo:table-cell display-align="center">
 						<fo:block text-align="center" font-size="6pt"> </fo:block>
+
 					</fo:table-cell>	<!--	14	-->
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="kac"/>
 						</fo:block>
 					</fo:table-cell>	<!--	15	-->
 					<fo:table-cell display-align="center">
 						<fo:block text-align="center" font-size="6pt">=</fo:block>
+
 					</fo:table-cell>	<!--	16	-->
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="base"/>
+
 						</fo:block>
 					</fo:table-cell>	<!--	17	-->
 					<fo:table-cell display-align="center">
@@ -486,7 +524,9 @@
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="stat_mod"/>
+
 						</fo:block>
 					</fo:table-cell>	<!--	19	-->
 					<fo:table-cell display-align="center">
@@ -497,7 +537,9 @@
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="kac_armor"/>
+
 						</fo:block>
 					</fo:table-cell>	<!--	21	-->
 					<fo:table-cell display-align="center">
@@ -508,6 +550,7 @@
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+
 							<xsl:value-of select="misc"/>
 						</fo:block>
 					</fo:table-cell>	<!--	23	-->
@@ -531,6 +574,7 @@
 	-->	<!--	32	-->
 				<!-->	<fo:table-cell><fo:block/></fo:table-cell>
 	-->	<!--	33	-->
+
 				<!-->	<fo:table-cell><fo:block/></fo:table-cell>
 	-->
 				</fo:table-row>
@@ -547,6 +591,7 @@
 					</fo:table-cell>	<!--	3	-->
 					<fo:table-cell><fo:block/></fo:table-cell>	<!--	4	-->
 					<fo:table-cell>
+
 						<fo:block text-align="center" font-size="6pt">BASE</fo:block>
 					</fo:table-cell>	<!--	5	-->
 					<fo:table-cell><fo:block/></fo:table-cell>	<!--	6	-->
@@ -605,6 +650,7 @@
 	-->	<!--	32	-->
 									<!-->	<fo:table-cell><fo:block/></fo:table-cell>
 	-->	<!--	33	-->
+
 		<!-->			<fo:table-cell><fo:block/></fo:table-cell> -->	<!--	34	-->
 
 				</fo:table-row>

@@ -62,6 +62,7 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+
 		<!--
 ====================================
 ====================================
@@ -80,18 +81,21 @@
 		</xsl:if>
 	</xsl:template>
 
+
 	<!--
 ====================================
 ====================================
 	TEMPLATE - Racial Traits
 ====================================
 ====================================-->
+
 	<xsl:template match="scr_racial_traits">
 		<xsl:if test="count(scr_racial_trait) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'feats'" />
 				<xsl:with-param name="title" select="'Racial Traits'" />
 				<xsl:with-param name="list" select="scr_racial_trait"/>
+
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
@@ -103,12 +107,14 @@
 	TEMPLATE - CLASS FEATURES
 ====================================
 ====================================-->
+
 	<xsl:template match="scr_class_features">
 		<xsl:if test="count(scr_class_feature) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'feats'" />
 				<xsl:with-param name="title" select="'Class Features'" />
 				<xsl:with-param name="list" select="scr_class_feature"/>
+
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
@@ -202,23 +208,8 @@
 		</xsl:if>
 	</xsl:template>
 
-	<!--
-====================================
-====================================
-	TEMPLATE - TALENTS
-====================================
-====================================-->
-	<xsl:template match="talents">
-		<xsl:if test="count(talent) &gt; 0">
-			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'talents'"/>
-				<xsl:with-param name="title" select="'Talents'"/>
-				<xsl:with-param name="list" select="talent"/>
-				<xsl:with-param name="name.tag" select="'name'"/>
-				<xsl:with-param name="desc.tag" select="'description'"/>
-			</xsl:call-template>
-		</xsl:if>
-	</xsl:template>
+
+
 
 	<!--
 ====================================
@@ -237,6 +228,7 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+
 
 	<!--
 ====================================
@@ -277,6 +269,7 @@
 	<!--
 ====================================
 ====================================
+
 	TEMPLATE - FEATS
 ====================================
 ====================================-->

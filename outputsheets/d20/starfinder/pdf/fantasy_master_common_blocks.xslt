@@ -398,14 +398,17 @@
 						<xsl:apply-templates select="traits"/>
 						<xsl:apply-templates select="drawbacks"/>
 						<xsl:apply-templates select="afflictions"/>
+
 						<xsl:apply-templates select="scr_racial_traits"/>
 						<xsl:apply-templates select="scr_themes"/>
 						<xsl:apply-templates select="scr_class_features"/>
+
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="prestige_awards"/>
 						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="talents"/>	
+
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="pfs_chronicles"/>
             <xsl:apply-templates select="pfs_boons"/>
