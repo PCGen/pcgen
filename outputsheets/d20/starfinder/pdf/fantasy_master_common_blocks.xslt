@@ -398,45 +398,14 @@
 						<xsl:apply-templates select="traits"/>
 						<xsl:apply-templates select="drawbacks"/>
 						<xsl:apply-templates select="afflictions"/>
-						<xsl:apply-templates select="racial_traits"/>
-						<xsl:apply-templates select="class_features"/>
+						<xsl:apply-templates select="scr_racial_traits"/>
+						<xsl:apply-templates select="scr_themes"/>
+						<xsl:apply-templates select="scr_class_features"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="prestige_awards"/>
 						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="talents"/>	
-						<xsl:apply-templates select="words_of_powers"/>	
-						<!-- Eclipse Section - Having it's own section is creating an additional blank page -->
-						<xsl:apply-templates select="charcreations"/>
-						<xsl:apply-templates select="disadvantages"/>
-						<xsl:apply-templates select="spellcasteroutputs"/>
-						<xsl:apply-templates select="eclipse_abilities"/>
-						<xsl:apply-templates select="martial_arts"/>
-						<xsl:apply-templates select="mystic_artists"/>
-						<xsl:apply-templates select="witchcrafts"/>
-						<xsl:apply-templates select="channelings"/>
-						<xsl:apply-templates select="dominions"/>
-						<xsl:apply-templates select="path_dragons"/>	
-						<!-- McWoD Edition Style -->
-						<xsl:apply-templates select="vampire_disciplines"/>
-						<xsl:apply-templates select="demon_cants"/>
-						<xsl:apply-templates select="werewolf_rites"/>
-						<xsl:apply-templates select="mage_gnosises"/>	
-						<!-- End McWoD Edition Style -->
-						<!-- Saga Edition Style -->
-						<xsl:apply-templates select="force_techniques"/>
-						<xsl:apply-templates select="force_powers"/>
-						<xsl:apply-templates select="force_secrets"/>	
-						<!-- End Saga Edition Style -->
-						<!-- 4th Edition Style -->	
-						<xsl:apply-templates select="powers_classfeatures"/>
-						<xsl:apply-templates select="powers_featpowers"/>
-						<xsl:apply-templates select="powers_atwills"/>
-						<xsl:apply-templates select="powers_encounters"/>
-						<xsl:apply-templates select="powers_dailies"/>
-						<xsl:apply-templates select="powers_utilities"/>	
-						<!-- End 4th Edition Style -->
-						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="pfs_chronicles"/>
             <xsl:apply-templates select="pfs_boons"/>
