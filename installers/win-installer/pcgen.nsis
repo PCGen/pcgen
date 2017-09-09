@@ -165,7 +165,11 @@ Section "JRE" Section5
         ;Use the right java version
         DetailPrint "JRE extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /nonfatal /a /r "${SrcDir}\..\..\jre\jre_64\*.*"
+        !ifdef PLATFORM64
+            File /nonfatal /a /r "${SrcDir}\..\..\jre\jre_64\*.*"
+        !else
+            File /nonfatal /a /r "${SrcDir}\..\..\jre\jre_32\*.*"
+        !endif
         DetailPrint "JRE extraction complete!"
 SectionEnd
 
