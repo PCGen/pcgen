@@ -160,11 +160,10 @@ launch4j {
     initialHeapSize = 128
     maxHeapSize = 512
     stayAlive = false
-    bundledJre64Bit = true
     dontWrapJar = true
     bundledJrePath = 'jre'
     jar = "pcgen.jar"
-    jreRuntimeBits = 64
+    jreRuntimeBits = "64/32"
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
     splashTimeout = 60
