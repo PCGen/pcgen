@@ -11,17 +11,17 @@ CATEGORY=Internal|Default.MOD								BONUS:VAR|Caster_Level_Highest|max(Caster_L
 
 
 # Comment: PC and NPCs are usually playable races that follow age rules, Monsters don't normally follow age rules.
-CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Age|PREVAREQ:UseAgeRules,1		DEFINE:UseAgeRules|0	BONUS:VAR|UseAgeRules|1|TYPE=Bool|PRECHARACTERTYPE:1,PC,NPC
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Age|PREVAREQ:UseAgeRules,1		DEFINE:UseAgeRules|0	BONUS:VAR|UseAgeRules|1|TYPE=Bool|PRECHARACTERTYPE:1,PC,NPC		DEFINE:AgeProgression|0
 
 ###Block: Age Adjustments
-Age	CATEGORY:Internal		DEFINE:UseAgeRulesYoung|0	DEFINE:UseAgeRulesNegateAgePenalties|0
+Age	CATEGORY:Internal		DEFINE:UseAgeRulesYoung|0	DEFINE:UseAgeRulesNegateAgePenalties|0	BONUS:VAR|AgeProgression|1|PREAGESET:1,Young	BONUS:VAR|AgeProgression|1|PREAGESET:1,Adult	BONUS:VAR|AgeProgression|1|PREAGESET:1,Middle-Aged	BONUS:VAR|AgeProgression|1|PREAGESET:1,Old	BONUS:VAR|AgeProgression|1|PREAGESET:1,Venerable
 
 # Determines which Age category ability to grant
-CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Young|PREAGESET:1,Young
-CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Adult|PREAGESET:1,Adult
-CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Middle-Aged|PREAGESET:1,Middle-Aged
-CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Old|PREAGESET:1,Old
-CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Venerable|PREAGESET:1,Venerable
+CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Young|PREVAREQ:AgeProgression,1
+CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Adult|PREVAREQ:AgeProgression,2
+CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Middle-Aged|PREVAREQ:AgeProgression,3
+CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Old|PREVAREQ:AgeProgression,4
+CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Venerable|PREVAREQ:AgeProgression,5
 
 
 ###Block: Game Specific bonuses - Bonuses and Penalties assigned by each age category.
