@@ -267,10 +267,8 @@ SectionEnd
 Function .onInit
   #Determine the bitness of the OS and enable the correct section
   ${If} ${RunningX64}
-    SectionSetFlags ${Section6}  ${SECTION_OFF}
     SectionSetFlags ${Section5}  ${SF_SELECTED}
   ${Else}
-    SectionSetFlags ${Section6}  ${SECTION_OFF}
     SectionSetFlags ${Section5}  ${SF_SELECTED}
   ${EndIf}
 FunctionEnd
