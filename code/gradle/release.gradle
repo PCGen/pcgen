@@ -289,7 +289,7 @@ task genProjectNsis doLast {
 
 // Call NSIS to generate windows installer - Removed "genDataList"
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
-        genProjectNsis, downloadJRE]) doLast {
+        genProjectNsis, downloadJRE, cleanCreateExe, createExe]) doLast {
     exec {
 	workingDir = "${projectDir}/installers/win-installer"
 	executable =  'perl'
