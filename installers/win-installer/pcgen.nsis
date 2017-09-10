@@ -167,7 +167,7 @@ Section "JRE 64 Bit" Section5
         ;Use the right java version
         DetailPrint "JRE extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /nonfatal /a /r "${SrcDir}\..\..\jre\jre_64\jre\*.*"
+        File /a /r "${SrcDir}\..\..\jre\jre_64\jre\*.*"
         DetailPrint "JRE extraction complete!"
 SectionEnd
 
@@ -177,7 +177,7 @@ Section "JRE 32 Bit" Section6
         ;Use the right java version
         DetailPrint "JRE extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /nonfatal /a /r "${SrcDir}\..\..\jre\jre_32\jre\*.*"
+        File /a /r "${SrcDir}\..\..\jre\jre_32\jre\*.*"
         DetailPrint "JRE extraction complete!"
 SectionEnd
 
@@ -267,9 +267,11 @@ SectionEnd
 Function .onInit
   #Determine the bitness of the OS and enable the correct section
   ${If} ${RunningX64}
-    SectionSetFlags ${Section5}  17 # Selected and read only
+    SectionSetFlags ${Section5}  ${SF_SELECTED} | ${SF_RO}
+    SectionSetFlags ${Section6}  ${SECTION_OFF}
   ${Else}
-    SectionSetFlags ${Section5}  17 # Selected and read only
+    SectionSetFlags ${Section5} ${SECTION_OFF} 
+    SectionSetFlags ${Section6} ${SF_SELECTED} | ${SF_RO}
   ${EndIf}
 FunctionEnd
 
