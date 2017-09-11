@@ -152,44 +152,53 @@ CLASSTYPE:NPC		CRFORMULA:CL	ISMONSTER:NO	XPPENALTY:NO	CRMOD:-2	CRMODPRIORITY:2
 CLASSTYPE:Monster		CRFORMULA:0		ISMONSTER:YES	XPPENALTY:NO
 CLASSTYPE:Companion	CRFORMULA:NONE	ISMONSTER:YES	XPPENALTY:NO
 
-#AC Types
+ACTYPE:Total				ADD:TOTAL
+# Actual AC representation
+ACTYPE:EAC					ADD:TOTAL	REMOVE:KAC|KAC_Armor|KACArmorEnhancement
+# ADD:Base|EAC|Ability|EAC_Armor|Misc
+ACTYPE:KAC					ADD:TOTAL	REMOVE:EAC|EAC_Armor|EACArmorEnhancement
+#ADD:Base|KAC|Ability|KAC_Armor|Misc
 
+#AC Types
 ACTYPE:Base					ADD:Base
 # Dex
 ACTYPE:Ability				ADD:Ability
-# Actual AC representation
-ACTYPE:EAC					ADD:Base|EAC|Ability|EAC_Armor|Misc
-ACTYPE:KAC					ADD:Base|KAC|Ability|KAC_Armor|Misc
 # Armor Modification
-ACTYPE:EAC_Armor				ADD:EAC_Armor
-ACTYPE:KAC_Armor				ADD:KAC_Armor
-# No word if Size matters yet
-ACTYPE:Size					ADD:Size
+ACTYPE:EAC_Armor				ADD:EAC_Armor|EACArmorEnhancement
+ACTYPE:KAC_Armor				ADD:KAC_Armor|KACArmorEnhancement
 # The catch-all
 ACTYPE:Misc					ADD:TOTAL	REMOVE:Base|Ability|EAC|KAC|EAC_Armor|KAC_Armor|Size
 
+ACTYPE:EACArmorEnhancement		ADD:EACArmorEnhancement			
+ACTYPE:KACArmorEnhancement		ADD:KACArmorEnhancement			
+
+
+
+
 
 ### These are no longer in use for the purposes of Starfinder.
-ACTYPE:Total				
+# No word if Size matters yet
+ACTYPE:Size					ADD:Size
 # Since TouchMisc should only add to the Touch, and not the total AC I'm deviating from the standard and using Remove in the Total.
-ACTYPE:Flatfooted				
-ACTYPE:Touch				
-ACTYPE:TouchMisc				
-ACTYPE:Armor				
-ACTYPE:ArmorEnhancement			
-ACTYPE:Shield				
-ACTYPE:ShieldEnhancement		
-ACTYPE:NaturalArmor			
-ACTYPE:NaturalArmorEnhancement	
-ACTYPE:Dodge				
-ACTYPE:Deflection				
-ACTYPE:Circumstance			
-ACTYPE:Insight				
-ACTYPE:Morale				
-ACTYPE:Profane				
-ACTYPE:Sacred				
-ACTYPE:CMD					
-ACTYPE:ClassDefense			
+ACTYPE:Flatfooted				ADD:Flatfooted				
+ACTYPE:Touch				ADD:Touch				
+ACTYPE:TouchMisc				ADD:TouchMisc				
+ACTYPE:Armor				ADD:Armor				
+ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement			
+ACTYPE:Shield				ADD:Shield				
+ACTYPE:ShieldEnhancement		ADD:ShieldEnhancement		
+ACTYPE:NaturalArmor			ADD:NaturalArmor			
+ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement	
+ACTYPE:Dodge				ADD:Dodge				
+ACTYPE:Deflection				ADD:Deflection				
+ACTYPE:Circumstance			ADD:Circumstance			
+ACTYPE:Insight				ADD:Insight				
+ACTYPE:Morale				ADD:Morale				
+ACTYPE:Profane				ADD:Profane				
+ACTYPE:Sacred				ADD:Sacred				
+ACTYPE:CMD					ADD:CMD					
+ACTYPE:ClassDefense			ADD:ClassDefense			
+ACTYPE:RaceAC				ADD:RaceAC			
 
 
 
@@ -211,6 +220,12 @@ BASEDICE:2d6	UP:3d6,4d6,6d6,8d6,12d6					DOWN:1d10,1d8,1d6,1d4
 BASEDICE:2d8	UP:3d8,4d8,6d8,8d8,12d8					DOWN:2d6,1d10,1d8,1d6
 BASEDICE:2d10	UP:4d8,6d8,8d8,12d8					DOWN:2d8,2d6,1d10,1d8
 BASEDICE:3d6	UP:4d6,6d6,8d6,12d6					DOWN:2d6,1d10,1d8,1d6,1d4
+
+# Solarian Die Track	1,6  ,9.  12, 13, 14, 15, 16,17, 18,  19,  20
+BASEDICE:1d5	UP:1d6,2d6,3d6,4d6,5d6,6d6,7d6,8d6,9d6,10d6,11d6,12d6
+
+
+#1d6 at 6th level, 9th level, 12th level, and every level thereafter.
 
 # Penalty to attacks for different sized weapons
 
@@ -287,25 +302,25 @@ WIELDCATEGORY:Unusable				HANDS:999
 
 
 
-# OneHanded weapon vs PC size changes
-WIELDCATEGORY:OneHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:TooSmall
-WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:Light
-WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHanded
-WIELDCATEGORY:OneHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TooLarge
-
-# TwoHanded weapon vs PC size changes
-WIELDCATEGORY:TwoHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3	SWITCH:TooSmall
-WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:Light
-WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHanded
-WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
-
-# For Bows
-WIELDCATEGORY:TwoHandsOnly	PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TwoHandsOnlyTooSmall
-WIELDCATEGORY:TwoHandsOnly	PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHandsOnlyTooLarge
-
-# Other
-WIELDCATEGORY:OneHandOnly	PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHandOnlyTooSmall
-WIELDCATEGORY:OneHandOnly	PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:OneHandOnlyTooLarge
+#	# OneHanded weapon vs PC size changes
+#	WIELDCATEGORY:OneHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:TooSmall
+#	WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:Light
+#	WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHanded
+#	WIELDCATEGORY:OneHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TooLarge
+#	
+#	# TwoHanded weapon vs PC size changes
+#	WIELDCATEGORY:TwoHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3	SWITCH:TooSmall
+#	WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:Light
+#	WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHanded
+#	WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
+#	
+#	# For Bows
+#	WIELDCATEGORY:TwoHandsOnly	PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TwoHandsOnlyTooSmall
+#	WIELDCATEGORY:TwoHandsOnly	PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHandsOnlyTooLarge
+#	
+#	# Other
+#	WIELDCATEGORY:OneHandOnly	PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHandOnlyTooSmall
+#	WIELDCATEGORY:OneHandOnly	PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:OneHandOnlyTooLarge
 
 
 
@@ -337,8 +352,8 @@ ROLLMETHOD:Classic (3d6)			METHOD:3d6
 ROLLMETHOD:Heroic (2d6+6)			METHOD:2d6+6
 
 # Unit Set
-UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1	HEIGHTPATTERN:#	DISTANCEUNIT:ft.	DISTANCEFACTOR:1		DISTANCEPATTERN:#.##	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##
-UNITSET:Metric	HEIGHTUNIT:cm	HEIGHTFACTOR:2.54	HEIGHTPATTERN:#	DISTANCEUNIT:m	DISTANCEFACTOR:0.3	DISTANCEPATTERN:#.##	WEIGHTUNIT:kg	WEIGHTFACTOR:0.5	WEIGHTPATTERN:#.###
+UNITSET:Starfinder	HEIGHTUNIT:ftin	HEIGHTFACTOR:1	HEIGHTPATTERN:#	DISTANCEUNIT:ft.	DISTANCEFACTOR:1		DISTANCEPATTERN:#.##	WEIGHTUNIT:bulk	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##
+#UNITSET:Metric	HEIGHTUNIT:cm	HEIGHTFACTOR:2.54	HEIGHTPATTERN:#	DISTANCEUNIT:m	DISTANCEFACTOR:0.3	DISTANCEPATTERN:#.##	WEIGHTUNIT:kg	WEIGHTFACTOR:0.5	WEIGHTPATTERN:#.###
 
 # CR calculation and XP awards
 CRTHRESHOLD:BASECR
