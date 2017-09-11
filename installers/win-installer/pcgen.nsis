@@ -5,6 +5,8 @@
 !include ${INCLUDES_DIR}\constants.nsh
 ;File association
 !include ${INCLUDES_DIR}\FileAssociation.nsh
+;Windows 32 or 64 bit version
+!include "x64.nsh"
 
 ; Define constants
 !define APPNAME "PCGen"
@@ -159,13 +161,23 @@ Section "-Local" Section4
 
 SectionEnd
 
-Section "JRE" Section5
+Section "JRE 64 Bit" Section5
         SectionIn RO
 
         ;Use the right java version
         DetailPrint "JRE extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /nonfatal /a /r "${SrcDir}\..\..\jre\jre_64\*.*"
+        File /a /r "${SrcDir}\..\..\jre\jre_64\jre\*.*"
+        DetailPrint "JRE extraction complete!"
+SectionEnd
+
+Section "JRE 32 Bit" Section6
+        SectionIn RO
+
+        ;Use the right java version
+        DetailPrint "JRE extraction..."
+        SetOutPath "$INSTDIR\${APPDIR}\jre"
+        File /a /r "${SrcDir}\..\..\jre\jre_32\jre\*.*"
         DetailPrint "JRE extraction complete!"
 SectionEnd
 
@@ -251,5 +263,17 @@ Section Uninstall
 	RMDir "$INSTDIR\${APPDIR}"
 
 SectionEnd
+
+Function .onInit
+  #Determine the bitness of the OS and enable the correct section
+  IntOp $0 ${SF_SELECTED} | ${SF_RO}
+  ${If} ${RunningX64}
+    SectionSetFlags ${Section5} $0
+    SectionSetFlags ${Section6} ${SECTION_OFF}
+  ${Else}
+    SectionSetFlags ${Section5} ${SECTION_OFF} 
+    SectionSetFlags ${Section6} $0
+  ${EndIf}
+FunctionEnd
 
 ; eof
