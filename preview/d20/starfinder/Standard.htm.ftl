@@ -382,6 +382,12 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
 
+			<td align="center" class="font7"><b></b></td>
+		  <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>Resolve</b></font>
+            <font style="font-size:5pt" color="white"><br />Points</font></td>
+          <td align="center" class="font7"><b></b></td>
+          <td align="center" class="border9"><b>${pcvar('VAR.Resolve')}</b></td>
+
 
           </tr>
         <tr>
@@ -407,6 +413,10 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>ARMOR</b></font></td>
           <td align="center"></td>
           <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>MISC</b></font></td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center" width="25" class="font6"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
           </tr>
 
 
@@ -1080,7 +1090,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 <#if (pcstring("ARMOR.${count}.NAME") != "") >
 <table cellpadding="0" cellspacing="0" width="100%" border="0" summary="Armor Table">
 <tr><td align="center" height="20" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>${pcstring("ARMOR.EQUIPPED.${count}.NAME")}<br /></b></font></td><td align="center" bgcolor="black" width="20%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td><td align="center" bgcolor="black" width="20%" height="15"><font style="font-size:6pt" color="white"><b>ARMOR BONUS</b></font></td><td align="center" bgcolor="black" width="20%" height="15"><font style="font-size:6pt" color="white"><b>MAX DEX BONUS</b></font></td></tr>
-<tr><td align="center" bgcolor="white" class="border8"><b>${pcstring("ARMOR.EQUIPPED.${count}.TYPE")}<br /></b></td><td align="center" bgcolor="white" class="border8"><b>${pcstring("ARMOR.EQUIPPED.${count}.TOTALAC")}<br /></b></td><td align="center" bgcolor="white" class="border8"><b>${pcstring("ARMOR.EQUIPPED.${count}.MAXDEX")}<br /></b></td></tr>
+<tr><td align="center" bgcolor="white" class="border8"><b>${pcstring("ARMOR.EQUIPPED.${count}.TYPE")}<br /></b></td><td align="center" bgcolor="white" class="border8"><b>See Below<br /></b></td><td align="center" bgcolor="white" class="border8"><b>${pcstring("ARMOR.EQUIPPED.${count}.MAXDEX")}<br /></b></td></tr>
 </table>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table">
 <tr><td align="center" height="15" bgcolor="black" width="60"><font style="font-size:5pt" color="white"><b>CHECK PENALTY</b></font></td><td align="center" bgcolor="black" width="60" height="15"><font style="font-size:5pt" color="white"><b>SPELL FAILURE</b></font></td><td align="center" bgcolor="black" width="237" height="15"><font style="font-size:6pt" color="white"><b>SPECIAL PROPERTIES</b></font></td></tr>
@@ -2140,11 +2150,9 @@ ${pcstring('TEMPBONUS.${temp}')}
 
 <#include "common/common-spells.ftl">
 
-<#if (pcstring("BIO") != '' || pcstring('DESC') != '') >
 <br style="page-break-after: always" />
 <!--<center><font size="-1">Created using <a href="http://pcgen.org/">PCGen</a> ${pcstring('EXPORT.VERSION')} on ${pcstring('EXPORT.DATE')} <br />Player: ${pcstring('PLAYERNAME')}; Character Name: ${pcstring('NAME')}</font></center><br />
 -->
-<div class="pcgen">Created using <a href="http://pcgen.org/">PCGen</a> ${pcstring('EXPORT.VERSION')} on ${pcstring('EXPORT.DATE')} <br />Player: ${pcstring('PLAYERNAME')}; Character Name: ${pcstring('NAME')}</div>
 <!-- START Bio Table -->
 <table width="100%" cellspacing="0" cellpadding="2" id="Bio">
  <tr>
@@ -2189,10 +2197,9 @@ ${pcstring('TEMPBONUS.${temp}')}
  <tr><td class="borderbottom" colspan="2"><font style="font-size: large">Biography</font></td></tr>
  <tr><td colspan="2"><font style="font-size: small"><span class="notes">${pcstring('BIO')}</span></font></td></tr>
 </table>
-</#if>
+
 <#if (pcvar("COUNT[NOTES]") > 0) >
 <br style="page-break-after: always" />
-<div class="pcgen">Created using <a href="http://pcgen.org/">PCGen</a> ${pcstring('EXPORT.VERSION')} on ${pcstring('EXPORT.DATE')}<br/>Player: ${pcstring('PLAYERNAME')}; Character Name: ${pcstring('NAME')}</div>
 
 <table width="100%" cellspacing="0" cellpadding="5">
  <tr>

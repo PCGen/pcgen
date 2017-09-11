@@ -52,17 +52,10 @@
 				</td>
 				<td>
 					<table>
-						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Load(L):</b>&nbsp;${pcstring('WEIGHT.LIGHT')} ${pcstring('UNITSET.WEIGHTUNIT')}</td></tr>
-						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Curr. Load:</b>&nbsp;${pcstring('TOTAL.LOAD')} ${pcstring('TOTAL.WEIGHT')}</td></tr>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Load (Unencumbered):</b>&nbsp;${pcstring('WEIGHT.UNENCUMBERED')} ${pcstring('UNITSET.WEIGHTUNIT')}</td></tr>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Curr. Bulk:</b>&nbsp;${pcstring('TOTAL.WEIGHT')}</td></tr>
 						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Armor Check Penalty:</b>&nbsp;${pcstring('ACCHECK')}</td></tr>
 						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Max. Dex.:</b>&nbsp;${pcstring('MAXDEX')}</td></tr>
-						<tr><td><img src="images/icon)bod.png"/></td><td>&nbsp;<b>Move Ahhh:</b>&nbsp;<@loop from=0 to=pcvar('COUNT[MOVE]-1') ; movement , movement_has_next><#-- TODO: Loop was of early exit type 1 -->
-${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
-<#if (pcstring("MOVE.${movement}.NAME") = "Fly")>
-(${pcstring('ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability')})
-</#if>
-</@loop>
-						
 						<tr><td><img src="images/icon_move.png"/></td><td>&nbsp;<b>Move:</b>&nbsp;${pcstring('MOVEMENT')}</td></tr>
 						<tr><td><img src="images/icon_unarmed.png"/></td><td>&nbsp;<b>CMB:</b>&nbsp;${pcstring('VAR.CMB.INTVAL.SIGN')}</td></tr>
 						<tr><td><img src="images/icon_unarmed.png"/></td><td>&nbsp;<b>CMD:</b>&nbsp;${pcstring('VAR.CMD.INTVAL')}</td></tr>
@@ -70,20 +63,6 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 				</td>
 			</tr>
 		</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		<#else>
@@ -134,8 +113,8 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 				</td>
 				<td>
 					<table>
-						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Load(L):</b>&nbsp;${pcstring('WEIGHT.LIGHT')} ${pcstring('UNITSET.WEIGHTUNIT')}</td></tr>
-						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Curr. Load:</b>&nbsp;${pcstring('TOTAL.LOAD')} ${pcstring('TOTAL.WEIGHT')}</td></tr>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Load (Unencumbered):</b>&nbsp;${pcstring('WEIGHT.UNENCUMBERED')} ${pcstring('UNITSET.WEIGHTUNIT')}</td></tr>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Curr. Bulk:</b>&nbsp;${pcstring('TOTAL.WEIGHT')}</td></tr>
 						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Armor Check Penalty:</b>&nbsp;${pcstring('ACCHECK')}</td></tr>
 						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Max. Dex.:</b>&nbsp;${pcstring('MAXDEX')}</td></tr>
 						<tr><td><img src="images/icon_move.png"/></td><td>&nbsp;<b>Move:</b>&nbsp;${pcstring('MOVEMENT')}</td></tr>
