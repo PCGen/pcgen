@@ -338,22 +338,19 @@
 			<!-- TITLE / KAC AC -->
 			<fo:table-column column-width="2mm"/>	<!--	14	-->
 			<!-- SPACE -->
-			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
-			</fo:table-column>		<!--	15	-->
+			<fo:table-column column-width="8mm"/>	<!--	14	-->
+					<!--	15	-->
 			<!-- TOTAL -->
 			<fo:table-column column-width="2mm"/>	<!--	16	-->
 			<!-- = -->
-			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
-			</fo:table-column>	<!--	17	-->
+						<fo:table-column column-width="6mm"/>	<!--	14	-->
+	<!--	17	-->
 			<!--BASE -->
 
 			<fo:table-column column-width="2mm"/>	<!--	18	-->
 			<!-- + -->
-			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
-			</fo:table-column>	<!--	19	-->
+						<fo:table-column column-width="6mm"/>	<!--	14	-->
+	<!--	19	-->
 
 			<!-- STAT -->
 
@@ -376,7 +373,7 @@
 			<fo:table-column column-width="2mm"/>	<!--	24	-->
 			<!-- + -->
 			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.16 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>		<!--	25	-->
 
 			<!-- SPACE-->
@@ -384,7 +381,7 @@
 			<fo:table-column column-width="2mm"/>	<!--	26	-->
 			<!-- space -->
 			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.11 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>	<!--	27	-->
 			<!-- miss chance -->
 			<fo:table-column column-width="2mm"/>	<!--	28	-->
@@ -396,10 +393,10 @@
 			<fo:table-column column-width="2mm"/>	<!--	30	-->
 			<!-- space -->
 			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.06 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>	<!--	31	-->
 			<!-- armour check-->
-			<fo:table-column column-width="2mm"/>	<!--	32	-->
+			<fo:table-column column-width="1mm"/>	<!--	32	-->
 			<!-- space -->
 
 				<!--	33	-->
@@ -554,7 +551,29 @@
 							<xsl:value-of select="misc"/>
 						</fo:block>
 					</fo:table-cell>	<!--	23	-->
-					<!-->	<fo:table-cell><fo:block/></fo:table-cell>
+
+<fo:table-cell><fo:block/></fo:table-cell>
+										<fo:table-cell>	
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'ac.title'"/>
+						</xsl:call-template>
+						<fo:block line-height="10pt" font-weight="bold" font-size="7pt" space-before="1pt">Resolve</fo:block>
+						<fo:block line-height="5pt" font-size="7pt">Points</fo:block>
+					</fo:table-cell>	<!--	13	-->
+					<fo:table-cell display-align="center">
+						<fo:block text-align="center" font-size="6pt"> </fo:block>
+
+					</fo:table-cell>	<!--	14	-->
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'ac'"/>
+						</xsl:call-template>
+						<fo:block font-size="10pt">
+
+							<xsl:value-of select="resolve"/>
+						</fo:block>
+					</fo:table-cell>	<!--	15	-->
+<!-->	<fo:table-cell><fo:block/></fo:table-cell>
 	-->	<!--	24	-->
 					<!-->	<fo:table-cell><fo:block/></fo:table-cell>
 	-->	<!--	25	-->
@@ -630,10 +649,10 @@
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="6pt">MISC</fo:block>
 					</fo:table-cell>	<!--	23	-->
-					<!-->	<fo:table-cell><fo:block/></fo:table-cell>
-	-->	<!--	24	-->
-					<!-->	<fo:table-cell><fo:block/></fo:table-cell>
-	-->	<!--	25	-->
+						<fo:table-cell><fo:block/>Blank</fo:table-cell>
+		<!--	24	-->
+						<fo:table-cell><fo:block/>Total</fo:table-cell>
+		<!--	25	-->
 					<!-->	<fo:table-cell><fo:block/></fo:table-cell>
 	-->	<!--	26	-->
 					<!-->	<fo:table-cell><fo:block/></fo:table-cell>

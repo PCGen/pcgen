@@ -178,7 +178,7 @@
 		</personality>
 		<portrait>
 			<portrait>${pcstring('PORTRAIT')}</portrait>
-			<portrait_thumb>${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
+			<portrait_thumb>file://localhost/${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
 		</portrait>
 		<phobias>${pcstring('PHOBIAS')}</phobias>
 		<#if (pcstring("ABILITYALL.ANY.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
@@ -360,6 +360,8 @@
 			<psionic/>
 			<spell/>
 		</resistance>
+		<resolve>${pcvar('resolve')}</resolve>
+
 	</armor_class>
 	<!--
 	  ====================================
