@@ -43,7 +43,7 @@ BIO
 			<favoredweapon>Scimitar</favoredweapon>
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
-			<source>Paizo Inc. - Advanced Player's Guide, p.91</source>
+			<source>Paizo Inc. - Advanced Player&#39;s Guide, p.91</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -2352,17 +2352,6 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Age ~ Adult</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Age ~ Young</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
