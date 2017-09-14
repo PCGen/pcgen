@@ -35,4 +35,4 @@ Numbing Chill			KEY:Witch Hex ~ Numbing Chill				CATEGORY:Special Ability	TYPE:S
 
 ###Block:
 # Ability Name							Multiple Requirements																		FACT
-CATEGORY=Archetype|Witch Archetype ~ Winter Witch.MOD	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Witch Archetype ~ Winter Witch],[!PREFACT:1,ABILITIES,Witch_Archetype_Hex=True]	FACT:Witch_Archetype_Hex|true	FACT:Witch_CF_Hex4|true
+CATEGORY=Archetype|Witch Archetype ~ Winter Witch.MOD	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Witch Archetype ~ Winter Witch],[!PREFACT:1,ABILITIES,Witch_Archetype_Hex=True,Witch_Archetype_Familiar=true]	FACT:Witch_Archetype_Hex|true	FACT:Witch_Archetype_Familiar|true	FACT:Witch_CF_Hex4|true	FACT:Witch_CF_Familiar|true
