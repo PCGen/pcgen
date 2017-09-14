@@ -1179,6 +1179,30 @@ Occultist Spell ~ Statue.MOD							OUTPUTNAME:Statue									CLASSES:.CLEARALL	C
 Occultist Spell ~ Transformation.MOD					OUTPUTNAME:Transformation									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
 
 ###Block:
+# amplify stench not found; .MOD skipped.
+# blood in the water not found; .MOD skipped.
+# bouyancy not found; .MOD skipped.
+# fleshy facade not found; .MOD skipped.
+# ironskin not found; .MOD skipped.
+# air breathing not found; .MOD skipped.
+# bleed glory not found; .MOD skipped.
+# contagious zeal not found; .MOD skipped.
+# isolate not found; .MOD skipped.
+# restore mythic power not found; .MOD skipped.
+# share glory not found; .MOD skipped.
+# swarm of fangs not found; .MOD skipped.
+# transfer regeneration not found; .MOD skipped.
+# deathless not found; .MOD skipped.
+# mythic severance not found; .MOD skipped.
+# lend path not found; .MOD skipped.
+# spellsteal not found; .MOD skipped.
+# steal power not found; .MOD skipped.
+# planar adaption (mass) not found; .MOD skipped.
+# synthesia (mass) not found; .MOD skipped.
+# terraform not found; .MOD skipped.
+# ascension not found; .MOD skipped.
+# spell immunity (greater communal) not found; .MOD skipped.
+
 #0-Level Psychic Spells: 
 beguiling gift.MOD		CLASSES:Psychic=1
 blend.MOD		CLASSES:Psychic=1
@@ -1293,7 +1317,6 @@ acute senses.MOD		CLASSES:Psychic=2
 adhesive blood.MOD		CLASSES:Psychic=2
 adoration.MOD		CLASSES:Psychic=2
 alter self.MOD		CLASSES:Psychic=2
-amplify stench.MOD		CLASSES:Psychic=2
 ancestral regression.MOD		CLASSES:Psychic=2
 animal aspect.MOD		CLASSES:Psychic=2
 animal messenger.MOD		CLASSES:Psychic=2
@@ -1310,13 +1333,11 @@ bestow weapon proficiency.MOD		CLASSES:Psychic=2
 blindness/deafness.MOD		CLASSES:Psychic=2
 blood armor.MOD		CLASSES:Psychic=2
 blood blaze.MOD		CLASSES:Psychic=2
-blood in the water.MOD		CLASSES:Psychic=2
 blur.MOD		CLASSES:Psychic=2
 boiling blood.MOD		CLASSES:Psychic=2
 bullet shield.MOD		CLASSES:Psychic=2
 bullet ward.MOD		CLASSES:Psychic=2
 bull's strength.MOD		CLASSES:Psychic=2
-bouyancy.MOD		CLASSES:Psychic=2
 calm emotions.MOD		CLASSES:Psychic=2
 cat's grace.MOD		CLASSES:Psychic=2
 chill metal.MOD		CLASSES:Psychic=2
@@ -1344,7 +1365,6 @@ extreme flexibility.MOD		CLASSES:Psychic=2
 false life.MOD		CLASSES:Psychic=2
 feast of ashes.MOD		CLASSES:Psychic=2
 find traps.MOD		CLASSES:Psychic=2
-fleshy facade.MOD		CLASSES:Psychic=2
 focused scrutiny.MOD		CLASSES:Psychic=2
 fox's cunning.MOD		CLASSES:Psychic=2
 ghost whip.MOD		CLASSES:Psychic=2
@@ -1366,7 +1386,6 @@ instant armor.MOD		CLASSES:Psychic=2
 instigate psychic duel.MOD		CLASSES:Psychic=2
 investigative mind.MOD		CLASSES:Psychic=2
 invisibility.MOD		CLASSES:Psychic=2
-ironskin.MOD		CLASSES:Psychic=2
 jitterbugs.MOD		CLASSES:Psychic=2
 kinetic reverberation.MOD		CLASSES:Psychic=2
 knock.MOD		CLASSES:Psychic=2
@@ -1447,7 +1466,6 @@ zone of truth.MOD		CLASSES:Psychic=2
 ablative barrier.MOD		CLASSES:Psychic=3
 adjustable disguise.MOD		CLASSES:Psychic=3
 agonizing rebuke.MOD		CLASSES:Psychic=3
-air breathing.MOD		CLASSES:Psychic=3
 analyze aura.MOD		CLASSES:Psychic=3
 anchored step.MOD		CLASSES:Psychic=3
 apport animal.MOD		CLASSES:Psychic=3
@@ -1455,7 +1473,6 @@ arcane sight.MOD		CLASSES:Psychic=3
 aura sight.MOD		CLASSES:Psychic=3
 babble.MOD		CLASSES:Psychic=3
 blink.MOD		CLASSES:Psychic=3
-bleed glory.MOD		CLASSES:Psychic=3
 blood biography.MOD		CLASSES:Psychic=3
 blood scent.MOD		CLASSES:Psychic=3
 borrow fortune.MOD		CLASSES:Psychic=3
@@ -1463,8 +1480,7 @@ burst of speed.MOD		CLASSES:Psychic=3
 catatonia.MOD		CLASSES:Psychic=3
 chain of perdition.MOD		CLASSES:Psychic=3
 clairaudience/clairvoyance.MOD		CLASSES:Psychic=3
-cognitive block .MOD		CLASSES:Psychic=3
-contagious zeal.MOD		CLASSES:Psychic=3
+cognitive block.MOD		CLASSES:Psychic=3
 contingent action.MOD		CLASSES:Psychic=3
 continual flame.MOD		CLASSES:Psychic=3
 countless eyes.MOD		CLASSES:Psychic=3
@@ -1496,7 +1512,6 @@ hostile levitation.MOD		CLASSES:Psychic=3
 id insinuation II.MOD		CLASSES:Psychic=3
 illusory script.MOD		CLASSES:Psychic=3
 invisibility sphere.MOD		CLASSES:Psychic=3
-isolate.MOD		CLASSES:Psychic=3
 ki leech.MOD		CLASSES:Psychic=3
 loathsome veil.MOD		CLASSES:Psychic=3
 locate weakness.MOD		CLASSES:Psychic=3
@@ -1517,16 +1532,14 @@ pellet blast.MOD		CLASSES:Psychic=3
 pierce disguise.MOD		CLASSES:Psychic=3
 protection from arrows (communal).MOD		CLASSES:Psychic=3
 protection from energy.MOD		CLASSES:Psychic=3
-purge spirit .MOD		CLASSES:Psychic=3
+purge spirit.MOD		CLASSES:Psychic=3
 rage.MOD		CLASSES:Psychic=3
 rain of frogs.MOD		CLASSES:Psychic=3
 reckless infatuation.MOD		CLASSES:Psychic=3
 resinous skin.MOD		CLASSES:Psychic=3
 resist energy (communal).MOD		CLASSES:Psychic=3
-restore mythic power.MOD		CLASSES:Psychic=3
 returning weapon (communal).MOD		CLASSES:Psychic=3
 sands of time.MOD		CLASSES:Psychic=3
-share glory.MOD		CLASSES:Psychic=3
 share senses.MOD		CLASSES:Psychic=3
 shrink item.MOD		CLASSES:Psychic=3
 slow.MOD		CLASSES:Psychic=3
@@ -1535,14 +1548,12 @@ spider climb (communal).MOD		CLASSES:Psychic=3
 strangling hair.MOD		CLASSES:Psychic=3
 stunning barrier (greater).MOD		CLASSES:Psychic=3
 summon monster III.MOD		CLASSES:Psychic=3
-swarm of fangs.MOD		CLASSES:Psychic=3
 synaptic pulse.MOD		CLASSES:Psychic=3
 synesthesia.MOD		CLASSES:Psychic=3
 telekinetic maneuver.MOD		CLASSES:Psychic=3
 thought shield II.MOD		CLASSES:Psychic=3
 tongues.MOD		CLASSES:Psychic=3
 touch injection.MOD		CLASSES:Psychic=3
-transfer regeneration.MOD		CLASSES:Psychic=3
 twilight knife.MOD		CLASSES:Psychic=3
 unadulterated loathing.MOD		CLASSES:Psychic=3
 vampiric touch.MOD		CLASSES:Psychic=3
@@ -1577,7 +1588,6 @@ crushing despair.MOD		CLASSES:Psychic=4
 curse of burning sleep.MOD		CLASSES:Psychic=4
 curse of magic negation.MOD		CLASSES:Psychic=4
 darkvision (greater).MOD		CLASSES:Psychic=4
-deathless.MOD		CLASSES:Psychic=4
 debilitating portent.MOD		CLASSES:Psychic=4
 detect scrying.MOD		CLASSES:Psychic=4
 dimension door.MOD		CLASSES:Psychic=4
@@ -1614,9 +1624,9 @@ mind probe.MOD		CLASSES:Psychic=4
 mind thrust IV.MOD		CLASSES:Psychic=4
 mindwipe.MOD		CLASSES:Psychic=4
 minor creation.MOD		CLASSES:Psychic=4
-minor phantom objectARG mirror transport.MOD		CLASSES:Psychic=4
+minor phantom object.MOD		CLASSES:Psychic=4
+mirror transport.MOD		CLASSES:Psychic=4
 moonstruck.MOD		CLASSES:Psychic=4
-mythic severance.MOD		CLASSES:Psychic=4
 named bullet.MOD		CLASSES:Psychic=4
 nondetection (communal).MOD		CLASSES:Psychic=4
 oneiric horror (greater).MOD		CLASSES:Psychic=4
@@ -1680,7 +1690,7 @@ ego whip III.MOD		CLASSES:Psychic=5
 entrap spirit.MOD		CLASSES:Psychic=5
 erase impressions.MOD		CLASSES:Psychic=5
 ethereal envelope.MOD		CLASSES:Psychic=5
-etheric shards .MOD		CLASSES:Psychic=5
+etheric shards.MOD		CLASSES:Psychic=5
 explode head.MOD		CLASSES:Psychic=5
 fabricate.MOD		CLASSES:Psychic=5
 false vision.MOD		CLASSES:Psychic=5
@@ -1693,7 +1703,6 @@ hostile juxtaposition.MOD		CLASSES:Psychic=5
 id insinuation IV.MOD		CLASSES:Psychic=5
 intellect fortress II.MOD		CLASSES:Psychic=5
 interposing hand.MOD		CLASSES:Psychic=5
-lend path.MOD		CLASSES:Psychic=5
 life bubble.MOD		CLASSES:Psychic=5
 mage's private sanctum.MOD		CLASSES:Psychic=5
 major creation.MOD		CLASSES:Psychic=5
@@ -1727,8 +1736,6 @@ song of discord.MOD		CLASSES:Psychic=5
 sonic thrust.MOD		CLASSES:Psychic=5
 spell immunity (communal).MOD		CLASSES:Psychic=5
 spell resistance.MOD		CLASSES:Psychic=5
-spellsteal.MOD		CLASSES:Psychic=5
-steal power.MOD		CLASSES:Psychic=5
 stoneskin (communal).MOD		CLASSES:Psychic=5
 suffocation.MOD		CLASSES:Psychic=5
 suggestion (mass).MOD		CLASSES:Psychic=5
@@ -1799,13 +1806,12 @@ named bullet (greater).MOD		CLASSES:Psychic=6
 object possession (greater).MOD		CLASSES:Psychic=6
 owl's wisdom (mass).MOD		CLASSES:Psychic=6
 permanent image.MOD		CLASSES:Psychic=6
-planar adaption (mass).MOD		CLASSES:Psychic=6
 planar ally.MOD		CLASSES:Psychic=6
 planar binding.MOD		CLASSES:Psychic=6
 primal regression.MOD		CLASSES:Psychic=6
 programmed image.MOD		CLASSES:Psychic=6
 psychic crush II.MOD		CLASSES:Psychic=6
-psychic surgery .MOD		CLASSES:Psychic=6
+psychic surgery.MOD		CLASSES:Psychic=6
 repress memory.MOD		CLASSES:Psychic=6
 sonic form.MOD		CLASSES:Psychic=6
 spellcrash.MOD		CLASSES:Psychic=6
@@ -1861,12 +1867,10 @@ sequester.MOD		CLASSES:Psychic=7
 simulacrum.MOD		CLASSES:Psychic=7
 spell turning.MOD		CLASSES:Psychic=7
 summon monster VII.MOD		CLASSES:Psychic=7
-synthesia (mass).MOD		CLASSES:Psychic=7
 telekinetic sphere.MOD		CLASSES:Psychic=7
 teleport (greater).MOD		CLASSES:Psychic=7
 teleport object.MOD		CLASSES:Psychic=7
 temporary resurrection.MOD		CLASSES:Psychic=7
-terraform.MOD		CLASSES:Psychic=7
 tower of iron will III.MOD		CLASSES:Psychic=7
 unshakable zeal.MOD		CLASSES:Psychic=7
 vision.MOD		CLASSES:Psychic=7
@@ -1920,7 +1924,6 @@ trap the soul.MOD		CLASSES:Psychic=8
 
 #9th-Level Psychic Spells:
 akashic form.MOD		CLASSES:Psychic=9
-ascension.MOD		CLASSES:Psychic=9
 astral projection.MOD		CLASSES:Psychic=9
 create demiplane (greater).MOD		CLASSES:Psychic=9
 crushing hand.MOD		CLASSES:Psychic=9
@@ -1942,7 +1945,6 @@ power word kill.MOD		CLASSES:Psychic=9
 psychic crush V.MOD		CLASSES:Psychic=9
 psychic image.MOD		CLASSES:Psychic=9
 soul bind.MOD		CLASSES:Psychic=9
-spell immunity (greater communal).MOD		CLASSES:Psychic=9
 suffocation (mass).MOD		CLASSES:Psychic=9
 summon monster IX.MOD		CLASSES:Psychic=9
 telekinetic storm.MOD		CLASSES:Psychic=9
@@ -1955,3 +1957,27 @@ wall of suppression.MOD		CLASSES:Psychic=9
 weird.MOD		CLASSES:Psychic=9
 wish.MOD		CLASSES:Psychic=9
 
+# Outside Core Sources
+#amplify stench.MOD		CLASSES:Psychic=2
+#blood in the water.MOD		CLASSES:Psychic=2
+#bouyancy.MOD		CLASSES:Psychic=2
+#fleshy facade.MOD		CLASSES:Psychic=2
+#ironskin.MOD		CLASSES:Psychic=2
+#air breathing.MOD		CLASSES:Psychic=3
+#bleed glory.MOD		CLASSES:Psychic=3
+#contagious zeal.MOD		CLASSES:Psychic=3
+#isolate.MOD		CLASSES:Psychic=3
+#restore mythic power.MOD		CLASSES:Psychic=3
+#share glory.MOD		CLASSES:Psychic=3
+#swarm of fangs.MOD		CLASSES:Psychic=3
+#transfer regeneration.MOD		CLASSES:Psychic=3
+#deathless.MOD		CLASSES:Psychic=4
+#mythic severance.MOD		CLASSES:Psychic=4
+#lend path.MOD		CLASSES:Psychic=5
+#spellsteal.MOD		CLASSES:Psychic=5
+#steal power.MOD		CLASSES:Psychic=5
+#planar adaption (mass).MOD		CLASSES:Psychic=6
+#synthesia (mass).MOD		CLASSES:Psychic=7
+#terraform.MOD		CLASSES:Psychic=7
+#ascension.MOD		CLASSES:Psychic=9
+#spell immunity (greater communal).MOD		CLASSES:Psychic=9
