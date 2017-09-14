@@ -1267,6 +1267,9 @@ Spark Soul				KEY:Wind Spirit ~ Spark Soul			CATEGORY:Special Ability	TYPE:Shama
 Elemental Form			KEY:Wind Spirit ~ Elemental Form		CATEGORY:Special Ability	TYPE:Shaman Class Feature.SpecialQuality.Supernatural																																														DEFINE:ShamanWindElementalFormDuration|0							DESC:As a standard action, the shaman assumes the form of a Huge (or smaller) lightning elemental, as if using elemental body IV with a duration of %1 hours. The shaman can use this ability once per day.|ShamanWindElementalFormDuration																																																																												BONUS:VAR|ShamanWindElementalFormDuration|ShamanSpiritLVL																	SOURCEPAGE:p.47
 Manifestation			KEY:Wind Spirit ~ Manifestation		CATEGORY:Special Ability	TYPE:Shaman Class Feature.SpecialQuality.Supernatural																																																											DESC:The shaman becomes a being of air and electricity. The shaman gains electricity resistance 30. She can also apply any one of the following feats to any air or electricity spell she casts without increasing the spell's level or casting time: Enlarge Spell, Extend Spell, Silent Spell, or Still Spell. She doesn't need to possess these feats to use this ability.																																																							BONUS:VAR|ElectricityeResistanceBonus|20																				SOURCEPAGE:p.47
 
+##Block: Extra Channel Energy support
+Shaman Extra Channel			CATEGORY:Special Ability	TYPE:ExtraChannel																			PRECLASS:1,Shaman=1								BONUS:VAR|ShamanChannelTimes|2
+
 
 # ==============================
 # Skald class features
