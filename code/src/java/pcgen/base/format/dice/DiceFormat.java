@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-7 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2016 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -83,18 +83,5 @@ public class DiceFormat implements FormatManager<Dice>
 	{
 		return null;
 	}
-	
-	@Override
-	public int hashCode()
-	{
-		return 74538940;
-	}
-	
-	@Override
-	public boolean equals(Object o)
-	{
-		return (o == this) || (o instanceof DiceFormat);
-	}
-
 
 }
