@@ -31,24 +31,21 @@ public class DiceFormat implements FormatManager<Dice>
 	public Dice convert(String inputStr)
 	{
 		int dLoc = inputStr.indexOf("d");
-		int sides, quantity;
 		if (dLoc == -1)
 		{
-			sides = 1;
-			quantity = Integer.parseInt(inputStr);
+			throw new IllegalArgumentException(
+				inputStr + " is not valid for Dice");
+		}
+		int quantity;
+		if (dLoc == 0)
+		{
+			quantity = 1;
 		}
 		else
 		{
-			sides = Integer.parseInt(inputStr.substring(dLoc + 1));
-			if (dLoc == 0)
-			{
-				quantity = 1;
-			}
-			else
-			{
-				quantity = Integer.parseInt(inputStr.substring(0, dLoc));
-			}
+			quantity = Integer.parseInt(inputStr.substring(0, dLoc));
 		}
+		int sides = Integer.parseInt(inputStr.substring(dLoc + 1));
 		Die d = new Die(sides);
 		return new Dice(quantity, d);
 	}
@@ -64,12 +61,8 @@ public class DiceFormat implements FormatManager<Dice>
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(d.getQuantity());
-		int sides = d.getDie().getSides();
-		if (sides != 1)
-		{
-			sb.append('d');
-			sb.append(sides);
-		}
+		sb.append('d');
+		sb.append(d.getDie().getSides());
 		return sb.toString();
 	}
 
