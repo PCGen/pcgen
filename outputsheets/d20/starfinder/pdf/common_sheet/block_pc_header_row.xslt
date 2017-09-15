@@ -165,7 +165,7 @@
 								</xsl:call-template>
 								<fo:block>
 									<xsl:variable name="portrait_file" select="portrait/portrait_thumb"/>
-									<fo:external-graphic src="file:{$portrait_file}" content-width="22mm" content-height="scale-to-fit" scaling="uniform">
+									<fo:external-graphic src="file:/{$portrait_file}" content-width="22mm" content-height="scale-to-fit" scaling="uniform">
 										<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
 									</fo:external-graphic>
 								</fo:block>
