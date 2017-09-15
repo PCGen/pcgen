@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-7 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2016 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
@@ -69,21 +69,5 @@ public class Dice
 	{
 		return quantity;
 	}
-	
-	@Override
-	public int hashCode()
-	{
-		return quantity - die.hashCode();
-	}
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o instanceof Dice)
-		{
-			Dice other = (Dice) o;
-			return (other.quantity == quantity) && other.die.equals(die);
-		}
-		return false;
-	}
 }
