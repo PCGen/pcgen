@@ -35,6 +35,7 @@ COPYRIGHT:PCGen dataset conversion for "Hell's Rebels Player's Guide" Copyright 
 
 # Data files
 ABILITY:hrpg_abilities.lst
+ABILITY:hrpg_feats.lst
 
 # ENTRY DATE: 2016-04
 # LST MONKEY: Pieter Lexis, Andrew Maitland
