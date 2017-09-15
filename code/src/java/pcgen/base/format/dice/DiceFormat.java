@@ -21,9 +21,6 @@ import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 
-/**
- * DiceFormat is a FormatManager for Dice objects.
- */
 public class DiceFormat implements FormatManager<Dice>
 {
 
