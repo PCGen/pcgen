@@ -83,7 +83,7 @@
 										<xsl:with-param name="RunningTotal" select="0"/>
 									</xsl:call-template>
 								</xsl:variable>
-								<xsl:value-of select="format-number($TotalValue, '##,##0.#')"/>gp
+								<xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> cr
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
@@ -335,9 +335,9 @@
 										<xsl:with-param name="RunningTotal" select="0"/>
 									</xsl:call-template>
 								</xsl:variable>
-								Total= <xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> gp
+								Total= <xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> cr
 								<xsl:if test="misc/gold != 0">
-								[Unspent Funds = <xsl:value-of select="misc/gold"/> gp]
+								[Unspent Funds = <xsl:value-of select="misc/gold"/> cr]
 								</xsl:if>
 							</fo:block>
 						</fo:table-cell>

@@ -179,8 +179,8 @@
 			<trait>${pcstring('PERSONALITY2')}</trait>
 		</personality>
 		<portrait>
-			<portrait>${pcstring('PORTRAIT')}</portrait>
-			<portrait_thumb>${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
+			<portrait>${pcstring('PORTRAIT')?url_path('utf-8')}</portrait>
+			<portrait_thumb>${pcstring('PORTRAIT.THUMB')?url_path('utf-8')}</portrait_thumb>
 		</portrait>
 		<phobias>${pcstring('PHOBIAS')}</phobias>
 		<race>${pcstring('RACE')}</race>

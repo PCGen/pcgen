@@ -177,8 +177,8 @@
 			<trait>${pcstring('PERSONALITY2')}</trait>
 		</personality>
 		<portrait>
-			<portrait>${pcstring('PORTRAIT')}</portrait>
-			<portrait_thumb>file://localhost/${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
+			<portrait>${pcstring('PORTRAIT')?url_path('utf-8')}</portrait>
+			<portrait_thumb>${pcstring('PORTRAIT.THUMB')?url_path('utf-8')}</portrait_thumb>
 		</portrait>
 		<phobias>${pcstring('PHOBIAS')}</phobias>
 		<#if (pcstring("ABILITYALL.ANY.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
@@ -1917,6 +1917,18 @@
 	</domains>
 	</#if>	<!-- Domains -->
 	<weapon_proficiencies>${pcstring('WEAPONPROFS')}</weapon_proficiencies>
+	<!--
+	  ====================================
+	  ====================================
+			Weapon Proficiencies
+	  ====================================
+	  ====================================-->
+	<scr_proficiencies>
+	<@abilityBlock category="Proficiency" nature="ALL" hidden=false typeName="Proficiency" nodeName="scr_proficiency" />
+	</scr_proficiencies>
+
+
+
 	<languages>${pcstring('LANGUAGES')}</languages>
 	<#if (pcvar("COUNT[TEMPLATES]") > 0) >
 	<templates>
