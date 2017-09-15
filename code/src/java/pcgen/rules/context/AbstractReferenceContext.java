@@ -30,7 +30,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.base.format.dice.DiceFormat;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
@@ -91,7 +90,6 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	public AbstractReferenceContext()
 	{
 		FormatUtilities.loadDefaultFormats(fmtLibrary);
-		fmtLibrary.addFormatManager(new DiceFormat());
 		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(this));
 		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(this));
 	}
