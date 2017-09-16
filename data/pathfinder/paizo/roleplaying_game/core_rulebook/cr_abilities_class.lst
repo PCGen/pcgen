@@ -2337,6 +2337,28 @@ Summon Instrument		KEY:Spell ~ Summon Instrument		CATEGORY:Internal		TYPE:SLA_LV
 Touch of Fatigue		KEY:Spell ~ Touch of Fatigue		CATEGORY:Internal		TYPE:SLA_LVL0.Wizard_SLA_LVL0									ABILITY:Spell-Like Ability|AUTOMATIC|Touch of Fatigue
 Virtue			KEY:Spell ~ Virtue			CATEGORY:Internal		TYPE:SLA_LVL0.Druid_SLA_LVL0.Cleric_SLA_LVL0						ABILITY:Spell-Like Ability|AUTOMATIC|Virtue
 
+###Block: Level 1 Spells CRB per PRD
+Calm Animals			KEY:Spell ~ Calm Animals			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Calm Animals
+Charm Animal			KEY:Spell ~ Charm Animal			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Charm Animal
+Cure Light Wounds			KEY:Spell ~ Cure Light Wounds			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1.Cleric_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Cure Light Wounds
+Detect Animals or Plants			KEY:Spell ~ Detect Animals or Plants			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Detect Animals or Plants
+Detect Snares and Pits			KEY:Spell ~ Detect Snares and Pits			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Detect Snares and Pits
+Endure Elements			KEY:Spell ~ Endure Elements			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1.Cleric_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Endure Elements
+Entangle			KEY:Spell ~ Entangle			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Entangle
+Faerie Fire			KEY:Spell ~ Faerie Fire			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Faerie Fire
+Goodberry			KEY:Spell ~ Goodberry			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Goodberry
+Hide from Animals			KEY:Spell ~ Hide from Animals			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Hide from Animals
+Jump			KEY:Spell ~ Jump			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Jump
+Keen Senses			KEY:Spell ~ Keen Senses			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Keen Senses
+Longstrider			KEY:Spell ~ Longstrider			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Longstrider
+Magic Fang			KEY:Spell ~ Magic Fang			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Magic Fang
+Magic Stone			KEY:Spell ~ Magic Stone			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1.Cleric_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Magic Stone
+Obscuring Mist			KEY:Spell ~ Obscuring Mist			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1.Cleric_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Obscuring Mist
+Pass without Trace			KEY:Spell ~ Pass without Trace			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Pass without Trace
+Produce Flame			KEY:Spell ~ Produce Flame			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Produce Flame
+Shillelagh			KEY:Spell ~ Shillelagh			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Shillelagh
+Speak with Animals			KEY:Spell ~ Speak with Animals			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Speak with Animals
+Summon Nature's Ally I			KEY:Spell ~ Summon Nature's Ally I			CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1						ABILITY:Spell-Like Ability|AUTOMATIC|Summon Nature's Ally I
 
 # obsolete
 ###Block: Cleric Domain Powers
