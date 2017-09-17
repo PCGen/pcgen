@@ -199,9 +199,7 @@ Spell-Like Ability	KEY:Tiefling ~ Spell-Like Ability	CATEGORY:Special Ability	TY
 
 
 ###Block: Set up Duergar default abilities
-# Ability Name							Category of Ability	Ability
 
-#Race Traits ~ Duergar
 # Ability Name						Category of Ability	Ability
 Race Traits ~ Duergar					CATEGORY:Internal
 CATEGORY=Internal|Race Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Superior Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSuperiorDarkvision
@@ -212,7 +210,7 @@ CATEGORY=Internal|Race Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUT
 CATEGORY=Internal|Race Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ SLA Enlarge Person|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAEnlargePerson
 CATEGORY=Internal|Race Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Light Sensitivity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarLightSensitivity
 
-###Block: Default Duergar Abilities (POOL=7)
+###Block: 
 # Ability Name				Unique Key					Category of Ability		Type															Multiple Requirements																									Define					Innate Spells													Description																									Modify VAR											Source Page		Aspects					Ignore Encumberance
 Superior Darkvision			KEY:Duergar ~ Superior Darkvision	CATEGORY:Special Ability	TYPE:DuergarRacialTrait.DuergarRacialDefault.RacialVision						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Duergar ~ Superior Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSuperiorDarkvision]																								DESC:Duergar can see in the dark up to 120 feet.																		BONUS:VAR|DarkvisionRange|120|TYPE=Base	BONUS:VAR|HasRacialVision|1	SOURCEPAGE:p.186
 Slow and Steady				KEY:Duergar ~ Slow and Steady		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DuergarRacialTrait.DuergarRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Duergar ~ Steady],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSteady]																												DESC:Duergars' speed is never modified by armor or encumbrance.																												SOURCEPAGE:p.184							UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor
