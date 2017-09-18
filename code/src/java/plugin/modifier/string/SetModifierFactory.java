@@ -17,14 +17,14 @@
  */
 package plugin.modifier.string;
 
-import pcgen.rules.persistence.token.AbstractSetModifierFactory;
+import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
  * A {@code SetModifierFactory} is a {@code ModifierFactory<String>} that returns a specific
  * value (independent of the input) when a Modifier produced by this
  * {@code SetModifierFactory} is processed.
  */
-public class SetModifierFactory extends AbstractSetModifierFactory<String>
+public class SetModifierFactory extends AbstractFixedSetModifierFactory<String>
 {
 
 	/**

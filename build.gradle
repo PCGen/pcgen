@@ -79,7 +79,7 @@ repositories {
         name "fileRepo"
         url 'http://librepo.pcgen.org'
     }
-        ivy {
+    ivy {
         name "tempRepo"
         url 'http://52.90.171.70:8080/librepo/'
     }

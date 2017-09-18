@@ -160,11 +160,10 @@ launch4j {
     initialHeapSize = 128
     maxHeapSize = 512
     stayAlive = false
-    bundledJre64Bit = true
     dontWrapJar = true
     bundledJrePath = 'jre'
     jar = "pcgen.jar"
-    jreRuntimeBits = 64
+    jreRuntimeBits = "64/32"
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
     splashTimeout = 60
@@ -174,19 +173,17 @@ launch4j {
 }
 
 task downloadJRE doLast {
-    def azul= '8.21.0.1'
-    def major = 8
-    def minor = 1
-    def micro = 0
-    def update = 131
+    def major = 1
+    def micro = 8
+    def update = 121
     def extension = 'zip'
     def jre64Dir = new File("${projectDir}/jre/jre_64")
+    def jre32Dir = new File("${projectDir}/jre/jre_32")
     if(!jre64Dir.exists()){
-        //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
-        //See more information about Azul here: http://www.azul.com/downloads/zulu/
-        def filename = "zulu${azul}-jdk${major}.${micro}.${update}-win_x64"
-        def jre64URL = "http://cdn.azul.com/zulu/bin/${filename}.zip"
-        println("Downloading JRE ${major}.${minor}.${update} from ${jre64URL}")
+        //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
+        def filename = "jre-${major}.${micro}.${update}-windows-x64"
+        def jre64URL = "http://maven.nuiton.org/nexus/content/repositories/jvm/com/oracle/jre/${major}.${micro}.${update}/${filename}.zip"
+        println("Downloading JRE ${major}.${micro}.${update} from ${jre64URL}")
         if(!jre64Dir.exists()){
             download {
                 src jre64URL
@@ -200,20 +197,36 @@ task downloadJRE doLast {
                 println "Unzip $simLib.name"
                 def name = simLib.name - '.$extension'
                 def zipFile = file("${projectDir}/jre/${simLib.name}")
-                def outputDir = "${projectDir}/jre/"
+                def outputDir = "${projectDir}/jre/jre_64/"
                 from zipTree(zipFile)
                 into outputDir
             }
             new File("${projectDir}/jre/${simLib.name}").delete()
         }
-        def jre64 = new File("${projectDir}/jre/${filename}")
-        //Removing the folder with specific version so it's easier to handle in NSIS script.
-        if(jre64.exists()){
-            copy {
-                from jre64
-                into "${projectDir}/jre/jre_64"
+    }
+    if(!jre32Dir.exists()){
+        //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
+        def filename = "jre-${major}.${micro}.${update}-windows-i586"
+        def jre32URL = "http://maven.nuiton.org/nexus/content/repositories/jvm/com/oracle/jre/${major}.${micro}.${update}/${filename}.zip"
+        println("Downloading JRE ${major}.${micro}.${update} from ${jre32URL}")
+        if(!jre32Dir.exists()){
+            download {
+                src jre32URL
+                dest new File("${projectDir}/jre/", "jre_32.${extension}")
+                overwrite false
             }
-            jre64.deleteDir()
+        }
+        //Now untar them
+        fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
+            copy {
+                println "Unzip $simLib.name"
+                def name = simLib.name - '.$extension'
+                def zipFile = file("${projectDir}/jre/${simLib.name}")
+                def outputDir = "${projectDir}/jre/jre_32/"
+                from zipTree(zipFile)
+                into outputDir
+            }
+            new File("${projectDir}/jre/${simLib.name}").delete()
         }
     }
 }
@@ -276,7 +289,7 @@ task genProjectNsis doLast {
 
 // Call NSIS to generate windows installer - Removed "genDataList"
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
-        genProjectNsis, downloadJRE]) doLast {
+        genProjectNsis, downloadJRE, cleanCreateExe, createExe]) doLast {
     exec {
 	workingDir = "${projectDir}/installers/win-installer"
 	executable =  'perl'

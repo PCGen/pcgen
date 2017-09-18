@@ -414,7 +414,7 @@
             <xsl:apply-templates select="pfs_boons"/>
 
             <xsl:apply-templates select="domains"/>
-						<xsl:apply-templates select="weapon_proficiencies"/>
+						<xsl:apply-templates select="scr_proficiencies"/>
 <!-->						<xsl:apply-templates select="proficiency_specials"/>-->
 						<xsl:apply-templates select="templates"/>
 						<xsl:apply-templates select="tempbonuses"/>

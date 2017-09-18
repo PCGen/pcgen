@@ -43,14 +43,14 @@ public class SolverManagerFacet extends
 		return get(id).diagnose(varID);
 	}
 
-	public <T> void addModifier(CharID id, VarModifier<T> vm, VarScoped target,
+	public <T> boolean addModifier(CharID id, VarModifier<T> vm, VarScoped target,
 		ScopeInstance source)
 	{
 		ScopeInstance scope = scopeFacet.get(id, vm.getLegalScope().getName(), target);
 		VariableID<T> varID =
 				(VariableID<T>) variableLibraryFacet.getVariableID(
 					id.getDatasetID(), scope, vm.getVarName());
-		get(id).addModifier(varID, vm.getModifier(), source);
+		return get(id).addModifierAndSolve(varID, vm.getModifier(), source);
 	}
 
 	public <T> void removeModifier(CharID id, VarModifier<T> vm,

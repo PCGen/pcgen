@@ -90,12 +90,6 @@
 					<fo:table-cell><fo:block/></fo:table-cell>
 
 				</fo:table-row>
-				<xsl:apply-templates select="grapple" mode="to_hit">
-					<xsl:with-param name="title" select="'GRAPPLE'"/>
-				</xsl:apply-templates>
-				<xsl:apply-templates select="cmb" mode="to_hit">
-					<xsl:with-param name="title" select="'CMB'"/>
-				</xsl:apply-templates>
 			</fo:table-body>
 		</fo:table>
 		<xsl:apply-templates select="cmb" mode="moves"/>
