@@ -9,4 +9,4 @@ Staff of Spirit-Talking	TYPE:Magic.Staff	COST:39050	WT:5		EQMOD:CHARGED_STAFF|CH
 # Equipment Name		Type					Cost		Weight	Modifier					Source Page		Special Property
 Cloak of the Jungle	TYPE:Magic.Wondrous.Cloak	COST:2400	WT:1		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.28	SPROP:Once per day, assume the form of a Large tree or shrub, as Tree Shape, for up to 1 hour.
 Expedition Pavilion	TYPE:Magic.Wondrous		COST:6400	WT:10								SOURCEPAGE:p.28
-Jungle Boots		TYPE:Magic.Wondrous.Boots	COST:6000	WT:1								SOURCEPAGE:p.29	SPROP:Move through normal undergrowth without hindrance.
+Jungle Boots		TYPE:Magic.Wondrous.Boot	COST:6000	WT:1								SOURCEPAGE:p.29	SPROP:Move through normal undergrowth without hindrance.
