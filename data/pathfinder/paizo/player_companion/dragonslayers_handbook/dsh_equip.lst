@@ -40,11 +40,11 @@ Trickster's Kit							TYPE:Kit							COST:474	WT:23			SOURCEPAGE:p.7	SPROP:This 
 # New Magic items
 # ==============================
 
-Boots of the Vengeful Behir					TYPE:Magic.Wondrous.Boots				COST:5400	WT:1			SOURCEPAGE:p.30
+Boots of the Vengeful Behir					TYPE:Magic.Wondrous.Boot				COST:5400	WT:1			SOURCEPAGE:p.30
 Elixir of Elemental Protection				TYPE:Magic.Wondrous.Consumable			COST:1800	WT:0			SOURCEPAGE:p.30
 Hexing Runes							TYPE:Magic.Wondrous.Amulet				COST:10000	WT:0			SOURCEPAGE:p.30
 Incense of Dulled Senses					TYPE:Magic.Wondrous.Consumable			COST:1500	WT:0			SOURCEPAGE:p.30
-Perilous Gloves							TYPE:Magic.Wondrous.Gloves				COST:10000	WT:1			SOURCEPAGE:p.31
+Perilous Gloves							TYPE:Magic.Wondrous.Glove				COST:10000	WT:1			SOURCEPAGE:p.31
 Ring of Fear Reflection						TYPE:Magic.Ring						COST:48000	WT:0			SOURCEPAGE:p.31
 Scaled Sash								TYPE:Magic.Wondrous.Shirt				COST:73000	WT:1			SOURCEPAGE:p.31
 Staff of Hunting							TYPE:Magic.Staff						COST:51000	WT:5			SOURCEPAGE:p.31			BASEITEM:Staff		EQMOD:CHARGED_STAFF|CHARGES[10]
