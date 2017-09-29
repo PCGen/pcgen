@@ -36,7 +36,7 @@ Arms of the Marilith										TYPE:Magic.Wondrous.Cloak		COST:30000	WT:10		SOURC
 Corset of Delicate Moves									TYPE:Magic.Wondrous.Shirt		COST:2000	WT:0		SOURCEPAGE:p.28
 Crown of Challenge										TYPE:Magic.Wondrous.Headgear		COST:21000	WT:1		SOURCEPAGE:p.28
 Eyes of the Liar											TYPE:Magic.Wondrous.Eyes		COST:16000	WT:0		SOURCEPAGE:p.29
-Gladiator's Sandals										TYPE:Magic.Wondrous.Boots		COST:6000	WT:0.5	SOURCEPAGE:p.29
+Gladiator's Sandals										TYPE:Magic.Wondrous.Boot		COST:6000	WT:0.5	SOURCEPAGE:p.29
 Ratcheting Gauntlets										TYPE:Magic.Wondrous.Glove		COST:12000	WT:5		SOURCEPAGE:p.29
 Serpentform Belt											TYPE:Magic.Wondrous.Belt		COST:20000	WT:0.5	SOURCEPAGE:p.29
 Swordmaster's Shirt										TYPE:Magic.Wondrous.Shirt		COST:10000	WT:0		SOURCEPAGE:p.29
