@@ -141,6 +141,22 @@
   <td bgcolor="black" class="sptop"><b>${level}</b></td>
 </@loop>
  </tr>
+<#assign spellClassName = pcstring('SPELLLISTCLASS.${class}')/>
+<#if pcvar('VAR.${spellClassName}CastLVL_1') gt 0>
+ <tr>
+  <td class="sptab"><b>PREPARED</b></td>
+<@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
+  <td class="sptab"><b>${pcstring('SPELLLISTCAST.${class}.${level}')}</b></td>
+</@loop>
+ </tr>
+ <tr bgcolor="#DDDDDD">
+  <td class="sptab"><b>PER DAY</b></td>
+  <td class="sptab"><b>*</b></td>
+<@loop from=1 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
+  <td class="sptab"><b>${pcvar('VAR.${spellClassName}CastLVL_${level}')}</b></td>
+</@loop>
+ </tr>
+<#else>
  <tr>
   <td class="sptab"><b>KNOWN</b></td>
 <@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
@@ -153,6 +169,7 @@
   <td class="sptab"><b>${pcstring('SPELLLISTCAST.${class}.${level}')}</b></td>
 </@loop>
  </tr>
+</#if>
 </table>
 <!-- End Spell List Header Table (Known) -->
 <!-- Start Known Spells -->
@@ -220,7 +237,7 @@
   <@loop from=1 to=pcvar("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES")>&#9744;</@loop></font><#lt>
      </td>
 </#if>
-     <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</td>
+     <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b><#if pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC') != ''> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</#if></td>
     </tr>
 </@loop>
    </table>
@@ -256,7 +273,7 @@
     <@loop from=1 to=pcvar("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES")>&#9744;</@loop></font>
      </td>
    </#if>
-     <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</td>
+     <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b><#if pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC') != ''> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</#if></td>
     </tr>
   </@loop>
    </table>
@@ -309,7 +326,7 @@
      <td align="right"><font style="font-size: medium">
 	  <@loop from=1 to=pcvar("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES")>&#9744;</@loop></font>
      </td>
-     <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</td>
+     <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b><#if pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC') != ''> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</#if></td>
     </tr>
 </@loop>
    </table>
@@ -333,7 +350,7 @@
      <td align="right"><font style="font-size: medium">
 <@loop from=1 to=pcvar("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES")>&#9744;</@loop></font>
      </td>
-     <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</td>
+     <td class="font9"><b>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</b><#if pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC') != ''> (DC:${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})</#if></td>
     </tr>
 </@loop>
    </table>
