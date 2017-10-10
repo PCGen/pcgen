@@ -11,7 +11,7 @@ CATEGORY=Internal|Default.MOD								BONUS:VAR|Caster_Level_Highest|max(Caster_L
 
 
 # Comment: PC and NPCs are usually playable races that follow age rules, Monsters don't normally follow age rules.
-CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Age|PREVAREQ:UseAgeRules,1		DEFINE:UseAgeRules|0	BONUS:VAR|UseAgeRules|1|TYPE=Bool|PRECHARACTERTYPE:1,PC,NPC		DEFINE:AgeProgression|0
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Age|PREVAREQ:UseAgeRules,1		DEFINE:UseAgeRules|0	BONUS:VAR|UseAgeRules|1|TYPE=Bool|PRECHARACTERTYPE:1,PC,NPC		DEFINE:AgeProgression|0	DEFINE:LEGS|0
 
 ###Block: Age Adjustments
 Age	CATEGORY:Internal		DEFINE:UseAgeRulesYoung|0	DEFINE:UseAgeRulesNegateAgePenalties|0	BONUS:VAR|AgeProgression|1|PREAGESET:1,Young	BONUS:VAR|AgeProgression|1|PREAGESET:1,Adult	BONUS:VAR|AgeProgression|1|PREAGESET:1,Middle-Aged	BONUS:VAR|AgeProgression|1|PREAGESET:1,Old	BONUS:VAR|AgeProgression|1|PREAGESET:1,Venerable

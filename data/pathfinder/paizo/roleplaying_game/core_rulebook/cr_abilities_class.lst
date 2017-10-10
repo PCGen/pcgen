@@ -1992,7 +1992,7 @@ CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Disarm|0	DEFINE:CMD_Disarm|0										BONUS
 CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Grapple|0	DEFINE:CMD_Grapple|0										BONUS:VAR|CMB_Grapple|CMB	BONUS:VAR|CMD_Grapple|CMD	BONUS:VAR|CMB_Grapple|1|PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Grapple)	BONUS:VAR|CMB_Grapple|1|PREABILITY:1,CATEGORY=FEAT,Greater Weapon Focus (Grapple)
 CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Overrun|0	DEFINE:CMD_Overrun|0										BONUS:VAR|CMB_Overrun|CMB	BONUS:VAR|CMD_Overrun|CMD
 CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Sunder|0	DEFINE:CMD_Sunder|0										BONUS:VAR|CMB_Sunder|CMB	BONUS:VAR|CMD_Sunder|CMD
-CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Trip|0	DEFINE:CMD_Trip|0												BONUS:VAR|CMB_Trip|CMB	BONUS:VAR|CMD_Trip|CMD	BONUS:VAR|CMD_Trip|(var("LEGS")-2)*2|PRELEGSGT:2
+CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Trip|0	DEFINE:CMD_Trip|0												BONUS:VAR|CMB_Trip|CMB	BONUS:VAR|CMD_Trip|CMD	BONUS:VAR|CMD_Trip|(LEGS-2)*2|PREVARGTEQ:LEGS,2
 
 ###Block: Spellcasting Removal
 # Ability Name	Unique Key				Category of Ability		Type						Bonus to spell cast/day
