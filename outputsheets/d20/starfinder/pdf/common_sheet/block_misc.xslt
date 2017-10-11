@@ -41,7 +41,7 @@
 		<xsl:if test="count(scr_proficiency) &gt; 0">
 			<xsl:call-template name="nosource.list">
 				<xsl:with-param name="attribute" select="'feats'" />
-				<xsl:with-param name="title" select="'Weapon Proficiencies'" />
+				<xsl:with-param name="title" select="'Proficiencies'" />
 				<xsl:with-param name="list" select="scr_proficiency"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
