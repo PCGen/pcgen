@@ -1109,9 +1109,16 @@ Monster is a PC																								BONUS:VAR|IsPC|1
 
 
 
-Assign RaceType ~ Outsider		VISIBLE:NO																																							RACETYPE:Outsider
-Assign RaceType ~ Fey			VISIBLE:NO																																							RACETYPE:Fey
-Assign RaceSubType ~ Extraplanar	VISIBLE:NO																																											RACESUBTYPE:Extraplanar
+Assign RaceType ~ Aberration			VISIBLE:NO																																							RACETYPE:Aberration		
+Assign RaceType ~ Construct			VISIBLE:NO																																							RACETYPE:Construct		
+Assign RaceType ~ Dragon			VISIBLE:NO																																							RACETYPE:Dragon		
+Assign RaceType ~ Outsider			VISIBLE:NO																																							RACETYPE:Outsider		
+Assign RaceType ~ Fey				VISIBLE:NO																																							RACETYPE:Fey			
+Assign RaceType ~ Plant				VISIBLE:NO																																							RACETYPE:Plant			
+Assign RaceType ~ Humanoid			VISIBLE:NO																																							RACETYPE:Humanoid		
+Assign RaceType ~ Monstrous Humanoid	VISIBLE:NO																																							RACETYPE:Monstrous Humanoid
+Assign RaceType ~ Undead			VISIBLE:NO																																							RACETYPE:Undead		
+Assign RaceSubType ~ Extraplanar		VISIBLE:NO																																											RACESUBTYPE:Extraplanar
 
 
 
