@@ -1,0 +1,59 @@
+
+# Display for Lashunta Race choice
+Korasha	SUBRACE:Korasha		VISIBLE:NO	
+Damaya	SUBRACE:Damaya		VISIBLE:NO
+Bleachling	SUBRACE:Bleachling	VISIBLE:NO
+Feychild	SUBRACE:Feychild		VISIBLE:NO
+
+#
+SIZE ~ Tiny		SIZE:T	VISIBLE:NO
+SIZE ~ Small	SIZE:S	VISIBLE:NO
+SIZE ~ Medium	SIZE:M	VISIBLE:NO
+
+
+
+
+
+
+
+Medium	REACH:5	FACE:5	VISIBLE:NO
+Large L	PREVAREQ:RaceIsLong,1	VISIBLE:NO
+Large T	PREVAREQ:RaceIsLong,0	VISIBLE:NO
+
+
+
+Hands Tracker	VISIBLE:NO	DEFINE:PC_Hands|0		ABILITY:Internal|AUTOMATIC|Hands ~ 01|PREVAREQ:PC_Hands,01	ABILITY:Internal|AUTOMATIC|Hands ~ 02|PREVAREQ:PC_Hands,02	ABILITY:Internal|AUTOMATIC|Hands ~ 03|PREVAREQ:PC_Hands,03	ABILITY:Internal|AUTOMATIC|Hands ~ 04|PREVAREQ:PC_Hands,04	ABILITY:Internal|AUTOMATIC|Hands ~ 05|PREVAREQ:PC_Hands,05	ABILITY:Internal|AUTOMATIC|Hands ~ 06|PREVAREQ:PC_Hands,06	ABILITY:Internal|AUTOMATIC|Hands ~ 07|PREVAREQ:PC_Hands,07	ABILITY:Internal|AUTOMATIC|Hands ~ 08|PREVAREQ:PC_Hands,08	ABILITY:Internal|AUTOMATIC|Hands ~ 09|PREVAREQ:PC_Hands,09	ABILITY:Internal|AUTOMATIC|Hands ~ 10|PREVAREQ:PC_Hands,10
+Legs Tracker	VISIBLE:NO
+
+Test	VISIBLE:NO	ABILITY:Weapon Specialization Selection|AUTOMATIC|Weapon Specialization ~ Basic Melee Weapons
+
+Hands ~ 01	HANDS:01	VISIBLE:NO
+Hands ~ 02	HANDS:02	VISIBLE:NO
+Hands ~ 03	HANDS:03	VISIBLE:NO
+Hands ~ 04	HANDS:04	VISIBLE:NO
+Hands ~ 05	HANDS:05	VISIBLE:NO
+Hands ~ 06	HANDS:06	VISIBLE:NO
+Hands ~ 07	HANDS:07	VISIBLE:NO
+Hands ~ 08	HANDS:08	VISIBLE:NO
+Hands ~ 09	HANDS:09	VISIBLE:NO
+Hands ~ 10	HANDS:10	VISIBLE:NO
+
+First Level Base Class	VISIBLE:NO	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=BaseClass]	REMOVABLE:NO
+###Block: Choices
+# Template Name	Visible	Required Class			Removable?		Type				
+Envoy			VISIBLE:NO	PRECLASS:1,Envoy=1		REMOVABLE:NO	TYPE:BaseClass	BONUS:VAR|CS_First_Acrobatics|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Intimidate|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Athletics|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Medicine|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Bluff|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Perception|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Computers|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Piloting|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Culture|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Profession|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Diplomacy|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_SenseMotive|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Disguise|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_SleightofHand|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Engineering|1|TYPE=EnvoyClass	BONUS:VAR|CS_First_Stealth|1|TYPE=EnvoyClass
+Mechanic		VISIBLE:NO	PRECLASS:1,Mechanic=1		REMOVABLE:NO	TYPE:BaseClass	BONUS:VAR|CS_First_Athletics|1|TYPE=MechanicClass	BONUS:VAR|CS_First_Perception|1|TYPE=MechanicClass	BONUS:VAR|CS_First_Computers|1|TYPE=MechanicClass	BONUS:VAR|CS_First_PhysicalScience|1|TYPE=MechanicClass	BONUS:VAR|CS_First_Engineering|1|TYPE=MechanicClass	BONUS:VAR|CS_First_Piloting|1|TYPE=MechanicClass	BONUS:VAR|CS_First_Medicine|1|TYPE=MechanicClass	BONUS:VAR|CS_First_Profession|1|TYPE=MechanicClass
+Mystic		VISIBLE:NO	PRECLASS:1,Mystic=1		REMOVABLE:NO	TYPE:BaseClass	BONUS:VAR|CS_First_Bluff|1|TYPE=MysticClass	BONUS:VAR|CS_First_Medicine|1|TYPE=MysticClass	BONUS:VAR|CS_First_Culture|1|TYPE=MysticClass	BONUS:VAR|CS_First_Mysticism|1|TYPE=MysticClass	BONUS:VAR|CS_First_Diplomacy|1|TYPE=MysticClass	BONUS:VAR|CS_First_Perception|1|TYPE=MysticClass	BONUS:VAR|CS_First_Disguise|1|TYPE=MysticClass	BONUS:VAR|CS_First_Profession|1|TYPE=MysticClass	BONUS:VAR|CS_First_Intimidate|1|TYPE=MysticClass	BONUS:VAR|CS_First_SenseMotive|1|TYPE=MysticClass	BONUS:VAR|CS_First_LifeScience|1|TYPE=MysticClass	BONUS:VAR|CS_First_Survival|1|TYPE=MysticClass
+Operative		VISIBLE:NO	PRECLASS:1,Operative=1		REMOVABLE:NO	TYPE:BaseClass	BONUS:VAR|CS_First_Acrobatics|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Medicine|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Athletics|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Perception|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Bluff|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Piloting|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Computers|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Profession|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Culture|1|TYPE=OperativeClass	BONUS:VAR|CS_First_SenseMotive|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Disguise|1|TYPE=OperativeClass	BONUS:VAR|CS_First_SleightofHand|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Engineering|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Stealth|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Intimidate|1|TYPE=OperativeClass	BONUS:VAR|CS_First_Survival|1|TYPE=OperativeClass
+Solarian		VISIBLE:NO	PRECLASS:1,Solarian=1		REMOVABLE:NO	TYPE:BaseClass	BONUS:VAR|CS_First_Acrobatics|1|TYPE=SolarianClass	BONUS:VAR|CS_First_Perception|1|TYPE=SolarianClass	BONUS:VAR|CS_First_Athletics|1|TYPE=SolarianClass	BONUS:VAR|CS_First_PhysicalScience|1|TYPE=SolarianClass	BONUS:VAR|CS_First_Diplomacy|1|TYPE=SolarianClass	BONUS:VAR|CS_First_Profession|1|TYPE=SolarianClass	BONUS:VAR|CS_First_Intimidate|1|TYPE=SolarianClass	BONUS:VAR|CS_First_SenseMotive|1|TYPE=SolarianClass	BONUS:VAR|CS_First_Mysticism|1|TYPE=SolarianClass	BONUS:VAR|CS_First_Stealth|1|TYPE=SolarianClass
+Soldier		VISIBLE:NO	PRECLASS:1,Soldier=1		REMOVABLE:NO	TYPE:BaseClass	BONUS:VAR|CS_First_Acrobatics|1|TYPE=SoldierClass	BONUS:VAR|CS_First_Medicine|1|TYPE=SoldierClass	BONUS:VAR|CS_First_Athletics|1|TYPE=SoldierClass	BONUS:VAR|CS_First_Piloting|1|TYPE=SoldierClass	BONUS:VAR|CS_First_Engineering|1|TYPE=SoldierClass	BONUS:VAR|CS_First_Profession|1|TYPE=SoldierClass	BONUS:VAR|CS_First_Intimidate|1|TYPE=SoldierClass	BONUS:VAR|CS_First_Survival|1|TYPE=SoldierClass
+Technomancer	VISIBLE:NO	PRECLASS:1,Technomancer=1	REMOVABLE:NO	TYPE:BaseClass	BONUS:VAR|CS_First_Computers|1|TYPE=TechnomancerClass	BONUS:VAR|CS_First_PhysicalScience|1|TYPE=TechnomancerClass	BONUS:VAR|CS_First_Engineering|1|TYPE=TechnomancerClass	BONUS:VAR|CS_First_Piloting|1|TYPE=TechnomancerClass	BONUS:VAR|CS_First_LifeScience|1|TYPE=TechnomancerClass	BONUS:VAR|CS_First_Profession|1|TYPE=TechnomancerClass	BONUS:VAR|CS_First_Mysticism|1|TYPE=TechnomancerClass	BONUS:VAR|CS_First_SleightofHand|1|TYPE=TechnomancerClass
+
+#
+Class ~ Envoy		VISIBLE:NO		ABILITY:PROFICIENCY|AUTOMATIC|Armor Prof ~ Light Armor|Weapon Prof ~ Basic Melee Weapons|Weapon Prof ~ Grenades|Weapon Prof ~ Small Arms
+Class ~ Mechanic		VISIBLE:NO		ABILITY:PROFICIENCY|AUTOMATIC|Armor Prof ~ Light Armor|Weapon Prof ~ Basic Melee Weapons|Weapon Prof ~ Grenades|Weapon Prof ~ Small Arms
+Class ~ Mystic		VISIBLE:NO		ABILITY:PROFICIENCY|AUTOMATIC|Armor Prof ~ Light Armor|Weapon Prof ~ Basic Melee Weapons|Weapon Prof ~ Small Arms
+Class ~ Operative		VISIBLE:NO		ABILITY:PROFICIENCY|AUTOMATIC|Armor Prof ~ Light Armor|Weapon Prof ~ Basic Melee Weapons|Weapon Prof ~ Small Arms|Weapon Prof ~ Sniper Weapons
+Class ~ Solarian		VISIBLE:NO		ABILITY:PROFICIENCY|AUTOMATIC|Armor Prof ~ Light Armor|Weapon Prof ~ Basic Melee Weapons|Weapon Prof ~ Small Arms|Weapon Prof ~ Advanced Melee Weapons
+Class ~ Soldier		VISIBLE:NO		ABILITY:PROFICIENCY|AUTOMATIC|Armor Prof ~ Light Armor|Armor Prof ~ Heavy Armor|Weapon Prof ~ Basic Melee Weapons|Weapon Prof ~ Small Arms|Weapon Prof ~ Advanced Melee Weapons|Weapon Prof ~ Longarms|Weapon Prof ~ Heavy Weapons|Weapon Prof ~ Sniper Weapons|Weapon Prof ~ Grenades	BONUS:ABILITYPOOL|Soldier Key Ability|1	DEFINE:SoldierKeyAbilityScore|0	DEFINE:SoldierKeyAbilityBonus|0	
+Class ~ Technomancer	VISIBLE:NO		ABILITY:PROFICIENCY|AUTOMATIC|Armor Prof ~ Light Armor|Weapon Prof ~ Basic Melee Weapons|Weapon Prof ~ Small Arms
