@@ -61,7 +61,7 @@ Gnoll Killer ~ Spellcaster	CATEGORY:Internal	ASPECT:CombatBonus|+1 trait bonus t
 
 
 
-Finding Haleen							KEY:Trait ~ Finding Haleen								CATEGORY:Special Ability	TYPE:Trait.CampaignTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Finding Haleen],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait]		DESC:You never knew your parents--perhaps they died when you were a child, or maybe you were taken from them and raised elsewhere as a slave. You owe your sanity and your life to a woman named Haleen.	SOURCEPAGE:p.11	BONUS:HP|CURRENTMAX|FindingHaleen_FavoredClassLVL	BONUS:ABILITYPOOL|Favored Class Bonus ~ Skill Rank|FindingHaleen_FavoredClassLVL	CHOOSE:CLASS|TYPE=Base	MULT:YES	STACK:NO	DEFINE:FindingHaleen_FavoredClassLVL|0	BONUS:VAR|FindingHaleen_FavoredClassLVL|CL=%LIST
+Finding Haleen							KEY:Trait ~ Finding Haleen								CATEGORY:Special Ability	TYPE:Trait.CampaignTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Finding Haleen],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait]		DESC:You never knew your parents--perhaps they died when you were a child, or maybe you were taken from them and raised elsewhere as a slave. You owe your sanity and your life to a woman named Haleen.	SOURCEPAGE:p.11	BONUS:HP|CURRENTMAX|FindingHaleen_FavoredClassLVL	BONUS:ABILITYPOOL|Favored Class Bonus ~ Skill Rank|FindingHaleen_FavoredClassLVL	CHOOSE:NUMCHOICES=1|CLASS|TYPE=Base	MULT:YES	STACK:NO	DEFINE:FindingHaleen_FavoredClassLVL|0	BONUS:VAR|FindingHaleen_FavoredClassLVL|CL=%LIST
 
 
 ###Block:
