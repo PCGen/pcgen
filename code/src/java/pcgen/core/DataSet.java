@@ -76,7 +76,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<AlignmentFacade> alignments;
 	private final DefaultListFacade<KitFacade> kits;
 	private final DefaultListFacade<StatFacade> stats;
-    private final AbilityMap abilityMap;
+	private final AbilityMap abilityMap;
 //	private DefaultListFacade<AbilityCategoryFacade> categories;
 //	private Map<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
 	private final LoadContext context;
@@ -101,7 +101,7 @@ public class DataSet implements DataSetFacade
 		stats = new DefaultListFacade<>();
 //		categories = new DefaultListFacade<AbilityCategoryFacade>();
 //		abilityMap = new HashMap<AbilityCategoryFacade, ListFacade<AbilityFacade>>();
-        abilityMap = new AbilityMap();
+		abilityMap = new AbilityMap();
 		bodyStructures = new DefaultListFacade<>();
 		equipment = new DefaultListFacade<>();
 		xpTableNames = new DefaultListFacade<>();
@@ -275,8 +275,9 @@ public class DataSet implements DataSetFacade
 	 */
 	private void createGearBuySellSchemes()
 	{
-		BigDecimal fullPrice = new BigDecimal("100.0");
-		BigDecimal halfPrice = new BigDecimal("50.0");
+		BigDecimal fullPrice = new BigDecimal(100.0);
+		BigDecimal halfPrice = new BigDecimal(50.0);
+		BigDecimal tenPercent = new BigDecimal(10.0);
 		BigDecimal free = BigDecimal.ZERO;
 		gearBuySellSchemes = new DefaultListFacade<>();
 		// TODO i18n this
@@ -284,6 +285,7 @@ public class DataSet implements DataSetFacade
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Character build", fullPrice, fullPrice, fullPrice));
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Cashless", free, free, free));
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Crafting", halfPrice, halfPrice, fullPrice));
+		gearBuySellSchemes.addElement(new GearBuySellScheme("Starfinder", fullPrice, tenPercent, fullPrice));
 	}
 
     @Override
