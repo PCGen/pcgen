@@ -575,7 +575,6 @@ public final class BioSet extends PObject implements NonInteractive
 
 				break;
 			}
-			genderTok.nextToken(); // burn next token
 		}
 	}
 
