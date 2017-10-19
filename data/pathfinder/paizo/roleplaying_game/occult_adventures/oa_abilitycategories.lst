@@ -28,6 +28,21 @@ ABILITYCATEGORY:Kineticist Expanded Element	POOL:Pool_KineticistExpandedElement	
 ABILITYCATEGORY:Kineticist Utility Wild Talent	POOL:Pool_KineticistUtilityWildTalents	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Utility Wild Talent							PLURAL:Utility Wild Talents						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Kineticist Infusion Wild Talent	POOL:Pool_KineticistInfusion			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent							PLURAL:Infusion Wild Talents						DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Aether				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Aether.Utility Wild Talent Aether							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Air				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Air.Utility Wild Talent Air								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Earth				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Earth.Utility Wild Talent Earth							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Fire				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Fire.Utility Wild Talent Fire							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Water				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Water.Utility Wild Talent Water							DISPLAYLOCATION:Class Features
+
+
+
+
+
+
+
+
+
+
 # Medium class features
 # Ability Category					VIsible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Medium Spirit Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumSpirit			PLURAL:Medium Spirit Choices			DISPLAYLOCATION:Class Features
