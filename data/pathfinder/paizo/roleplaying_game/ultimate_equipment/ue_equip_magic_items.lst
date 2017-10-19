@@ -821,7 +821,7 @@ Gravewatch Pendant														TYPE:Magic.Wondrous.Amulet.LesserMedium									
 Guardian Gorget															TYPE:Magic.Wondrous.Amulet.LesserMedium																																COST:12000	WT:1																								SOURCEPAGE:p.258																																																																										BONUS:COMBAT|AC|2|TYPE=Armor
 Hand of Glory.MOD															TYPE:LesserMedium																																				COST:8000	WT:2																								SOURCEPAGE:p.259
 Hand of Stone															TYPE:Magic.Wondrous.Amulet.GreaterMedium																																COST:27000	WT:2																								SOURCEPAGE:p.259
-Hand of the Mage.MOD														TYPE:LesserMinor																																				COST:900	WT:2																								SOURCEPAGE:p.259																												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
+Hand of the Mage.MOD														TYPE:LesserMinor																																				COST:900	WT:2																								SOURCEPAGE:p.259																												SPELLS:Hand of the Mage|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
 Medallion of Thoughts.MOD													TYPE:LesserMedium																																				COST:12000	WT:0																								SOURCEPAGE:p.259
 Mind Sentinel Medallion														TYPE:Magic.Wondrous.Amulet.LesserMinor																																COST:3500	WT:0																								SOURCEPAGE:p.259
 Mummer's Ruff															TYPE:Magic.Wondrous.Amulet.LesserMinor																																COST:3500	WT:0																								SOURCEPAGE:p.259																												SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Ventriloquism																																																																																		BONUS:SITUATION|Bluff=Imitate Voice|10
