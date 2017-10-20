@@ -340,7 +340,7 @@ task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports'])
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.1'
+    gradleVersion = '4.2.1'
 }
 
 allprojects {
