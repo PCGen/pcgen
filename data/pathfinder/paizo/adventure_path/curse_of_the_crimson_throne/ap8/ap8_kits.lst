@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ -- Sun Oct 22 03:57:13 2017 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
 
@@ -42,10 +42,10 @@ ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 ABILITY:CATEGORY=FEAT|Skill Focus(Use Magic Device)
-GEAR:Wand					LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Charm Person]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
+GEAR:Wand					LOCATION:Equipped		EQMOD:SPELLEFFECT_SPELL_TRIGGER|SPELLNAME[Charm Person]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
 GEAR:Poison (Giant wasp poison)	LOCATION:Equipped
-GEAR:Wand					LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Remove Disease] CASTER[Cleric] SPELLTYPE[Divine] SPELLLEVEL[3] CASTERLEVEL[5] CHARGES[7]
-GEAR:Dagger					LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Wand					LOCATION:Equipped		EQMOD:SPELLEFFECT_SPELL_TRIGGER|SPELLNAME[Remove Disease] CASTER[Cleric] SPELLTYPE[Divine] SPELLLEVEL[3] CASTERLEVEL[5] CHARGES[7]
+GEAR:Dagger					LOCATION:Primary Hand	EQMOD:MASTERWORK_WEAPON
 GEAR:Bracers of Armor +2		LOCATION:Equipped
 
 
@@ -69,7 +69,7 @@ ABILITY:CATEGORY=FEAT|Diehard
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Sap)
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Unarmed Strike
 GEAR:Chainmail						LOCATION:Equipped
-GEAR:Sap							LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Sap							LOCATION:Primary Hand	EQMOD:MASTERWORK_WEAPON
 GEAR:Coin (Gold Piece)			QTY:20	LOCATION:Equipped
 GEAR:Lavender's Luxuriant Liniment			LOCATION:Equipped
 
@@ -107,8 +107,8 @@ ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
 ABILITY:CATEGORY=Weapon Training I|Weapon Training 1 Blades Light
 GEAR:Potion of Blur					LOCATION:Pouch (Belt)
 GEAR:Potion of Shield of Faith +3			LOCATION:Pouch (Belt)
-GEAR:Chain Shirt						LOCATION:Equipped		EQMOD:PLUS1A
-GEAR:Rapier							LOCATION:Primary Hand	EQMOD:PLUS1W.ALCHM
+GEAR:Chain Shirt						LOCATION:Equipped		EQMOD:PLUS1_ARMOR
+GEAR:Rapier							LOCATION:Primary Hand	EQMOD:PLUS1_WEAPON.MATERIAL_ALCHEMICAL_SILVER
 GEAR:Coin (Gold Piece)			QTY:30	LOCATION:Pouch (Belt)
 GEAR:Pouch (Belt)						LOCATION:Equipped
 
@@ -142,7 +142,7 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Bracers of Armor +2	LOCATION:Equipped
-GEAR:Shortspear			LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Shortspear			LOCATION:Primary Hand	EQMOD:PLUS1_WEAPON
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Barkskin|Bull's Strength|Charm Animal|Cure Light Wounds|Cure Moderate Wounds|Detect Magic|Detect Poison|Faerie Fire|Flare|Magic Fang (Greater)|Read Magic|Resist Energy|Resistance|Speak with Animals
 TEMPLATE:Yvicca's Magic Buffs
 
@@ -184,12 +184,12 @@ ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
 GEAR:Potion of Invisibility	QTY:3		LOCATION:Pouch (Belt)
 GEAR:Potion of Remove Disease	QTY:2		LOCATION:Pouch (Belt)
-GEAR:Wand						LOCATION:Pouch (Belt)	EQMOD:SPL_CHRG|SPELLNAME[Cat's Grace]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[11]
+GEAR:Wand						LOCATION:Pouch (Belt)	EQMOD:SPELLEFFECT_SPELL_TRIGGER|SPELLNAME[Cat's Grace]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[11]
 GEAR:Smokestick			QTY:5		LOCATION:Pouch (Belt)
-GEAR:Studded Leather				LOCATION:Equipped		EQMOD:PLUS1A.GLAM
+GEAR:Studded Leather				LOCATION:Equipped		EQMOD:PLUS1_ARMOR.ARMOR_SA_GLAMERED
 GEAR:Bolt (Crossbow)		QTY:30	LOCATION:Carried
-GEAR:Crossbow (Light)				LOCATION:Carried		EQMOD:PLUS1W
-GEAR:Dagger						LOCATION:Primary Hamd	EQMOD:MWORKW
+GEAR:Crossbow (Light)				LOCATION:Carried		EQMOD:PLUS1_WEAPON
+GEAR:Dagger						LOCATION:Primary Hamd	EQMOD:MASTERWORK_WEAPON
 GEAR:Alchemist's Fire (Flask)	QTY:2.0	LOCATION:Pouch (Belt)
 GEAR:Flint and Steel				LOCATION:Pouch (Belt)
 GEAR:Manacles (Medium)				LOCATION:Pouch (Belt)
@@ -219,9 +219,9 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=Fighter Bonus Feat|Quick Draw
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
-GEAR:Full Plate			LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Full Plate			LOCATION:Equipped		EQMOD:MASTERWORK_ARMOR
 GEAR:Shield (Heavy/Steel)	LOCATION:Equipped
-GEAR:Longsword			LOCATION:Promary Hand	EQMOD:MWORKW
+GEAR:Longsword			LOCATION:Promary Hand	EQMOD:MASTERWORK_WEAPON
 GEAR:Arrows (20)			LOCATION:Carried
 GEAR:Longbow (Composite +0)	LOCATION:Carried
 
@@ -251,7 +251,7 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Leather			LOCATION:Equipped
 GEAR:Healer's Kit			LOCATION:Equipped
-GEAR:Club				LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Club				LOCATION:Both Hands	EQMOD:MASTERWORK_WEAPON
 GEAR:Plaguebringer's Mask	LOCATION:Equipped
 
 
@@ -305,8 +305,8 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Quick Draw
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Potion of Remove Disease		LOCATION:Equipped
-GEAR:Rapier					LOCATION:Primary Hand	EQMOD:PLUS1W.BANE|Humanoids (human)
-GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:PLUS1A.MITHRAL_ARMR_LT
+GEAR:Rapier					LOCATION:Primary Hand	EQMOD:PLUS1_WEAPON.WEAPON_SA_BANE|Humanoids (Human)
+GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:PLUS1_ARMOR.MATERIAL_MITHRAL_ARMOR_LIGHT
 GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Cause Fear|Charm Person|Dancing Lights|Detect Magic|Disguise Self|Ghost Sound|Hideous Laughter|Invisibility|Mage Hand|Mending|Misdirection|Prestidigitation
 
@@ -345,8 +345,8 @@ ABILITY:CATEGORY=Arcane Opposition School|Transmutation Opposition School
 ABILITY:CATEGORY=Necromancer Channeling|Power Over Undead ~ Command Undead
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
-GEAR:Wand						LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[43]
-GEAR:Dagger						LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Wand						LOCATION:Equipped		EQMOD:SPELLEFFECT_SPELL_TRIGGER|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[43]
+GEAR:Dagger						LOCATION:Primary Hand	EQMOD:MASTERWORK_WEAPON
 GEAR:Cloak of Resistance +1			LOCATION:Equipped
 GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
 GEAR:Ring of Protection +1			LOCATION:Equipped
@@ -373,9 +373,9 @@ SKILL:Spellcraft			RANK:2
 ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
-GEAR:Scythe					LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Scythe					LOCATION:Both Hands	EQMOD:MASTERWORK_WEAPON
 GEAR:Potion of Cure Moderate Wounds	LOCATION:Equipped
-GEAR:Breastplate				LOCATION:Equipped		EQMOD:PLUS1A
+GEAR:Breastplate				LOCATION:Equipped		EQMOD:PLUS1_ARMOR
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds|Detect Magic|Divine Favor|Resistance|Shield of Faith
 # Domain Spells, Note: PCGen does not currently Add Cleric Domain spells
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Magic Weapon
@@ -412,10 +412,10 @@ ABILITY:CATEGORY=FEAT|Spell Focus(Necromancy)
 ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Scythe)
 ABILITY:CATEGORY=FEAT|Weapon Focus (Scythe)					FREE:YES
 ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
-GEAR:Scythe				LOCATION:Both Hands	EQMOD:PLUS1W.VICIOUS
-GEAR:Breastplate			LOCATION:Equipped		EQMOD:PLUS1A
+GEAR:Scythe				LOCATION:Both Hands	EQMOD:PLUS1_WEAPON.MELEE_SA_VICIOUS
+GEAR:Breastplate			LOCATION:Equipped		EQMOD:PLUS1_ARMOR
 GEAR:Cloak of Resistance +2	LOCATION:Equipped
-GEAR:Periapt			LOCATION:Equipped		EQMOD:BNS_ENHC_AB|WIS=+2
+GEAR:Periapt			LOCATION:Equipped		EQMOD:BONUS_ABILITY_ENHANCEMENT|WIS=+2
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Air Walk|Bear's Endurance|Blindness/Deafness|Command (Greater)|Contagion|Cure Critical Wounds|Cure Light Wounds=2|Cure Moderate Wounds=2|Dispel Magic|Status|Guidance|Light=2|Shield of Faith|Shield of Faith[Extend Spell]|Status[Extend Spell]
 # Domain Spells, Note: PCGen does not currently Add Cleric Domain spells
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Power|Magic Vestment|Magic Weapon|Slay Living|Spiritual Weapon
@@ -463,8 +463,8 @@ ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Craft (Alchemy))
 ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Heal)
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
-GEAR:Wand						LOCATION:Equipped	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
-GEAR:Potion					QTY:2	LOCATION:Equipped	EQMOD:SPL_1USE|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
-GEAR:Ring of Protection +2			LOCATION:Equipped
-GEAR:Cape of the Mountebank			LOCATION:Equipped
-GEAR:Spellbook (Wizard's/Blank)		LOCATION:Equipped
+GEAR:Wand					LOCATION:Equipped	EQMOD:SPELLEFFECT_SPELL_TRIGGER|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
+GEAR:Potion				QTY:2	LOCATION:Equipped	EQMOD:SPELLEFFECT_SINGLE_USE|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
+GEAR:Ring of Protection +2		LOCATION:Equipped
+GEAR:Cape of the Mountebank		LOCATION:Equipped
+GEAR:Spellbook				LOCATION:Equipped

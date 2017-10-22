@@ -1,9 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEWEB:http://paizo.com/products/btpy9j6p?Pathfinder-Roleplaying-Game-Ultimate-Intrigue	SOURCEDATE:2016-04
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEDATE:2016-04
 
 #Vigilante
-# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																																				Save bonus																				Modify VAR																																																						FACT
-CLASS:Vigilante	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:VigilanteLVL|0	BONUS:COMBAT|BASEAB|VigilanteLVL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0,VigilanteIsAvenger,0	BONUS:COMBAT|BASEAB|VigilanteLVL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0,VigilanteIsAvenger,1	BONUS:SAVE|BASE.Fortitude|VigilanteLVL/3	BONUS:SAVE|BASE.Reflex|VigilanteLVL/2+2	BONUS:SAVE|BASE.Will|VigilanteLVL/2+2	BONUS:VAR|VigilanteLVL|CL	BONUS:VAR|ClassBABModerate|VigilanteLVL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|VigilanteLVL|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|VigilanteLVL|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|VigilanteLVL|PREVAREQ:UseFractionalSave,1	FACT:Abb|Vig	FACT:ClassType|PC
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus																																				Save bonus																				Modify VAR																																																						FACT:ClassType
+CLASS:Vigilante	HD:8		TYPE:Base.PC	FACT:Abb|Vig	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:VigilanteLVL|0	BONUS:COMBAT|BASEAB|VigilanteLVL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0,VigilanteIsAvenger,0	BONUS:COMBAT|BASEAB|VigilanteLVL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0,VigilanteIsAvenger,1	BONUS:SAVE|BASE.Fortitude|VigilanteLVL/3	BONUS:SAVE|BASE.Reflex|VigilanteLVL/2+2	BONUS:SAVE|BASE.Will|VigilanteLVL/2+2	BONUS:VAR|VigilanteLVL|CL	BONUS:VAR|ClassBABModerate|VigilanteLVL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|VigilanteLVL|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|VigilanteLVL|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|VigilanteLVL|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC
 # Class Name	Skill Pts/Lvl
 CLASS:Vigilante	STARTSKILLPTS:6
 ###Block
@@ -21,5 +22,3 @@ CLASS:Vigilante	STARTSKILLPTS:6
 11	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Frightening Appearance|PREVAREQ:Vigilante_CF_FrighteningAppearance,0|PREVARGTEQ:Vigilante_CFP_Level,11
 17	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Stunning Appearance|PREVAREQ:Vigilante_CF_StunningAppearance,0|PREVARGTEQ:Vigilante_CFP_Level,17
 20	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Vengeance Strike|PREVAREQ:Vigilante_CF_VengeanceStrike,0|PREVARGTEQ:Vigilante_CFP_Level,20
-
-

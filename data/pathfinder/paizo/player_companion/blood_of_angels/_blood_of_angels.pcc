@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 CAMPAIGN:Blood of Angels
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
@@ -11,9 +11,9 @@ PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Pl
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
-SOURCELONG:Blood of Angels
+SOURCELONG:Pathfinder Player Companion: Blood of Angels
 SOURCESHORT:BOA
-SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels
+SOURCEWEB:http://paizo.com/products/btpy8sa7
 SOURCEDATE:2012-07
 ISOGL:YES
 
@@ -42,13 +42,13 @@ SKILL:boa_skills.lst
 SPELL:boa_spells.lst
 TEMPLATE:boa_templates.lst
 
-# ENTRY DATE: 
-# LST MONKEY: 
-# LICENSE MONKEY: 
+# ENTRY DATE:
+# LST MONKEY:
+# LICENSE MONKEY:
 # RELEASE REVIEW #
-# BETA: 
+# BETA:
 # RELEASE:
-# Built for PCGen Version: 
+# Built for PCGen Version:
 # Updated to work with version: 6.06.01
 # MINVER:6.6
 # MINDEVVER:6.6

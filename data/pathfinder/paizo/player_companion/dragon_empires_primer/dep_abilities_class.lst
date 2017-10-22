@@ -1,5 +1,5 @@
-# CVS $Revision: 14888 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
+# CVS $Revision: 14888 $ $Author: amaitland $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0	SOURCEDATE:2012-01
 # Original Entry by:Stefan Radermacher
 
 ###Block: Archetypes
@@ -70,7 +70,7 @@ CATEGORY=Special Ability|Rogue Talent ~ Thoughtful Reexamining.MOD	TYPE:WhiteHai
 Moonfire		KEY:Domain Power ~ Moonfire	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.DomainPower	DESC:You can launch a blast of blazing moonlight from your eyes at a single target within 30 feet as a standard action. Moonfire deals %1d8 points of damage, and the target is dazzled for %2 rounds. This damage is the result of raw divine power, and cannot be blocked by energy resistance. A successful Reflex saving throw (DC %3) reduces the damage by half and negates the dazzle effect. You can use this ability %4 times per day.|DomainDarknessLVL/2|DomainDarknessLVL|DomainDarknessDC|DomainDarknessLVL/4-1	SOURCEPAGE:p.27	ASPECT:Ability Benefit|(%1/day)|DomainDarknessLVL/4-1	ASPECT:CheckCount|%1|DomainDarknessLVL/4-1	ASPECT:CheckType|Uses per Day
 
 ###Block: Sorcerer bloodlines
-# Ability Name	Unique Key				Category of Ability		Type										Description																																							Ability																																																																																																					Bonus Ability Pool							Class Skill		Source Page
+# Ability Name	Unique Key				Category of Ability		Type										Description																																							Ability																																																																																																																	Bonus Ability Pool							Class Skill		Source Page
 Oni Bloodline	KEY:Sorcerer Bloodline ~ Oni	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassSpecialization.SorcererBloodline	DESC:As slaves of capricious oni lords, your ancestors were forced to yield to their masters' hedonistic desires, inevitably tainting their descendants with oni blood. Now, you wield the powers of the oni thanks to your vile heritage.	ABILITY:Special Ability|AUTOMATIC|Bloodline Arcana (Oni)|Oni Bloodline ~ Touch of Agony|Oni Bloodline Bonus Spells	ABILITY:Special Ability|AUTOMATIC|Oni Bloodline ~ Altered Form|PREVARGTEQ:BloodlineProgressionLVL,3|PREVARLT:BloodlineProgressionLVL,17	ABILITY:Special Ability|AUTOMATIC|Oni Bloodline ~ Altered Form Unlimited|PREVARGTEQ:BloodlineProgressionLVL,17	ABILITY:Special Ability|AUTOMATIC|Oni Bloodline ~ Windborne|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Oni Bloodline ~ Oni Healing|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Oni Bloodline ~ Hedonistic Master|PREVARGTEQ:BloodlineProgressionLVL,20	BONUS:ABILITYPOOL|Oni Bloodline Feat|BloodlineFeatCount	CSKILL:Intimidate	SOURCEPAGE:p.28
 
 ###Block: Sorcerer Bloodline Bonus Spells

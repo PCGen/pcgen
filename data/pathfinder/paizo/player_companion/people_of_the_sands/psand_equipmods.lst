@@ -1,5 +1,5 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:People of the Sands	SOURCESHORT:PSand	SOURCEWEB:http://paizo.com/products/btpy92lx?Pathfinder-Player-Companion-People-of-the-Sands	SOURCEDATE:2014-02
+# CVS $Revision: $ $Author: $ -- Fri Oct 20 19:33:19 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: People of the Sands	SOURCESHORT:PSand	SOURCEWEB:http://paizo.com/products/btpy92lx	SOURCEDATE:2014-02
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 11 March 2017
 
@@ -7,4 +7,5 @@ SOURCELONG:People of the Sands	SOURCESHORT:PSand	SOURCEWEB:http://paizo.com/prod
 # New Equipment Modification
 # ==============================
 
-Armor Vents		KEY:VENTS_A		TYPE:Armor		COST:100		VISIBLE:QUALIFY		SOURCEPAGE:p.28		PRETYPE:2,Armor,Medium,Heavy		BONUS:EQM|WEIGHTADD|-5		SPROP:Armor with armor vents imposes only a -2 penalty (instead of -4) on Fortitude saves to avoid taking nonlethal damage from heat exposure, but also has 10 fewer hit points than normal because of its more intricate construction.
+# Modifier Name	Unique Key					Type		Cost		Visible		Source Page		Required Type			Bonus Equip Mods		Special Property
+Armor Vents		KEY:MODIFICATION_ARMOR_ARMOR_VENTS	TYPE:Armor	COST:100	VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:2,Armor,Medium,Heavy	BONUS:EQM|WEIGHTADD|-5	SPROP:Armor with armor vents imposes only a -2 penalty (instead of -4) on Fortitude saves to avoid taking nonlethal damage from heat exposure, but also has 10 fewer hit points than normal because of its more intricate construction.

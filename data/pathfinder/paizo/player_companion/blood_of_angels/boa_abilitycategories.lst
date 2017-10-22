@@ -1,5 +1,5 @@
 # CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-#SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2012-04
+#SOURCELONG:Pathfinder Player Companion: Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2012-04
 
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list																																																																			Plural description for UI		Display Location
 ABILITYCATEGORY:Aasimar Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AasimarRaceTrait																																																																								PLURAL:Aasimar Race Traits		DISPLAYLOCATION:Traits

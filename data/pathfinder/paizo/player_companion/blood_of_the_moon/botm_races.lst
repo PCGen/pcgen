@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Sun Oct 22 01:03:22 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 
-# Race Name	Starting Feats	Size		Move			Modify VAR				Ability								Nb Legs	Nb Hands	Main Race Type	Race Subtype			Source Page
-Skinwalker	STARTFEATS:1	SIZE:M	MOVE:Walk,30	BONUS:VAR|HasLowlightVision|1	ABILITY:Internal|AUTOMATIC|Race Traits ~ Skinwalker	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Shapechanger	SOURCEPAGE:p.7
+# Race Name	Starting Feats	Size		Move			Bonus Languages	Modify VAR				Auto Language	Ability								Nb Legs	Nb Hands	Main Race Type	Race Subtype			Type			Source Page		FACT
+Skinwalker	STARTFEATS:1	SIZE:M	MOVE:Walk,30	LANGBONUS:ALL	BONUS:VAR|HasLowlightVision|1	AUTO:LANG|Common	ABILITY:Internal|AUTOMATIC|Race Traits ~ Skinwalker	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Shapechanger	TYPE:Base.PC	SOURCEPAGE:p.7	FACT:IsPC|true
 
 # Conversion version
 #	MODIFYOTHER:STAT|Wisdom|Bonus.Race|ADD|2

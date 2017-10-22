@@ -1,109 +1,109 @@
-# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-of-Fiends	SOURCEDATE:2012-04
+# CVS $Revision: $ $Author: $ -- Fri Oct 20 01:26:43 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz	SOURCEDATE:2012-04
 # ORIGINAL ENTRY: N/A
 # ORIGINAL ENTRY DATE: 24 July 2015
 
-# Ability Name				Unique Key							SORTKEY						Category of Ability		Type
-Skeleton 1HD				KEY:Tiefling ~ Skeleton 1HD				SORTKEY:Tiefling ~ Variant Ability 001	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-All-around vision				KEY:Tiefling ~ All-around vision			SORTKEY:Tiefling ~ Variant Ability 002	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Slash joy					KEY:Tiefling ~ Slash joy				SORTKEY:Tiefling ~ Variant Ability 003	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Mage hand 3/d				KEY:Tiefling ~ Mage hand 3/d				SORTKEY:Tiefling ~ Variant Ability 004	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Inherited memories			KEY:Tiefling ~ Inherited memories			SORTKEY:Tiefling ~ Variant Ability 005	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Levitate					KEY:Tiefling ~ Levitate					SORTKEY:Tiefling ~ Variant Ability 006	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Eat ruin					KEY:Tiefling ~ Eat ruin					SORTKEY:Tiefling ~ Variant Ability 007	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Damage good outsiders			KEY:Tiefling ~ Damage good outsiders		SORTKEY:Tiefling ~ Variant Ability 008	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Racial CHA Bonus				KEY:Tiefling ~ Racial CHA Bonus			SORTKEY:Tiefling ~ Variant Ability 009	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Bite						KEY:Tiefling ~ Bite					SORTKEY:Tiefling ~ Variant Ability 010	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Burst of speed				KEY:Tiefling ~ Burst of speed				SORTKEY:Tiefling ~ Variant Ability 011	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Optional sleep				KEY:Tiefling ~ Optional sleep				SORTKEY:Tiefling ~ Variant Ability 012	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Disease save bonus			KEY:Tiefling ~ Disease save bonus			SORTKEY:Tiefling ~ Variant Ability 013	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Base speed +5				KEY:Tiefling ~ Base speed +5				SORTKEY:Tiefling ~ Variant Ability 014	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Racial diplomacy bonus			KEY:Tiefling ~ Racial diplomacy bonus		SORTKEY:Tiefling ~ Variant Ability 015	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Large limbs					KEY:Tiefling ~ Large limbs				SORTKEY:Tiefling ~ Variant Ability 016	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Talons					KEY:Tiefling ~ Talons					SORTKEY:Tiefling ~ Variant Ability 017	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Damage resistance/bludgeoning		KEY:Tiefling ~ Damage resistance/bludgeoning	SORTKEY:Tiefling ~ Variant Ability 018	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Swim						KEY:Tiefling ~ Swim speed				SORTKEY:Tiefling ~ Variant Ability 019	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Racial CMB bonus				KEY:Tiefling ~ Racial CMB bonus			SORTKEY:Tiefling ~ Variant Ability 020	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Fiendish luck				KEY:Tiefling ~ Fiendish luck				SORTKEY:Tiefling ~ Variant Ability 021	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Detect evil 3/d				KEY:Tiefling ~ Detect evil 3/d			SORTKEY:Tiefling ~ Variant Ability 022	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-No drink					KEY:Tiefling ~ No drink					SORTKEY:Tiefling ~ Variant Ability 023	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Dagger barb					KEY:Tiefling ~ Dagger barb				SORTKEY:Tiefling ~ Variant Ability 024	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Acid resistance				KEY:Tiefling ~ Acid resistance			SORTKEY:Tiefling ~ Variant Ability 025	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Body heat					KEY:Tiefling ~ Body heat				SORTKEY:Tiefling ~ Variant Ability 026	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Bonus languages				KEY:Tiefling ~ Bonus languages			SORTKEY:Tiefling ~ Variant Ability 027	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Summon evil bonus				KEY:Tiefling ~ Summon evil bonus			SORTKEY:Tiefling ~ Variant Ability 028	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Reflex save bonus				KEY:Tiefling ~ Reflex save bonus			SORTKEY:Tiefling ~ Variant Ability 029	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Shadow shape				KEY:Tiefling ~ Shadow shape				SORTKEY:Tiefling ~ Variant Ability 030	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Burrow					KEY:Tiefling ~ Burrow					SORTKEY:Tiefling ~ Variant Ability 031	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Sense weakness				KEY:Tiefling ~ Sense weakness				SORTKEY:Tiefling ~ Variant Ability 032	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Damage resistance/silver		KEY:Tiefling ~ Damage resistance/silver		SORTKEY:Tiefling ~ Variant Ability 033	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Tiefling resilience			KEY:Tiefling ~ Tiefling resilience			SORTKEY:Tiefling ~ Variant Ability 034	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Climb bonus					KEY:Tiefling ~ Climb bonus				SORTKEY:Tiefling ~ Variant Ability 035	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Contact telepathy				KEY:Tiefling ~ Contact telepathy			SORTKEY:Tiefling ~ Variant Ability 036	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Death knell 1/d				KEY:Tiefling ~ Death knell 1/d			SORTKEY:Tiefling ~ Variant Ability 037	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Tremorsense 1rd				KEY:Tiefling ~ Tremorsense 1rd			SORTKEY:Tiefling ~ Variant Ability 038	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Double speed				KEY:Tiefling ~ Double speed				SORTKEY:Tiefling ~ Variant Ability 039	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Spell blood					KEY:Tiefling ~ Spell blood				SORTKEY:Tiefling ~ Variant Ability 040	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Spell resistance				KEY:Tiefling ~ Spell resistance			SORTKEY:Tiefling ~ Variant Ability 041	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Raise via animate dead 1d4/life	KEY:Tiefling ~ Raise via animate dead 1d4/life	SORTKEY:Tiefling ~ Variant Ability 042	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Variant fiendish sorcery		KEY:Tiefling ~ Variant fiendish sorcery		SORTKEY:Tiefling ~ Variant Ability 043	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Size small					KEY:Tiefling ~ Size small				SORTKEY:Tiefling ~ Variant Ability 044	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Disguise bonus				KEY:Tiefling ~ Disguise bonus				SORTKEY:Tiefling ~ Variant Ability 045	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Racial INT bonus				KEY:Tiefling ~ Racial INT bonus			SORTKEY:Tiefling ~ Variant Ability 046	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Curse water 3/d				KEY:Tiefling ~ Curse water 3/d			SORTKEY:Tiefling ~ Variant Ability 047	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Undead invisibility			KEY:Tiefling ~ Undead invisibility			SORTKEY:Tiefling ~ Variant Ability 048	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Positive negative channeled heal	KEY:Tiefling ~ Positive negative channeled heal	SORTKEY:Tiefling ~ Variant Ability 049	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Natural armor				KEY:Tiefling ~ Natural armor				SORTKEY:Tiefling ~ Variant Ability 050	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Bird speak					KEY:Tiefling ~ Bird speak				SORTKEY:Tiefling ~ Variant Ability 051	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Poison save bonus				KEY:Tiefling ~ Poison save bonus			SORTKEY:Tiefling ~ Variant Ability 052	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Scent special ability			KEY:Tiefling ~ Scent special ability		SORTKEY:Tiefling ~ Variant Ability 053	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Damage resistance/piercing		KEY:Tiefling ~ Damage resistance/piercing		SORTKEY:Tiefling ~ Variant Ability 054	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Sleight of Hands bonus			KEY:Tiefling ~ Sleight of Hands bonus		SORTKEY:Tiefling ~ Variant Ability 055	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Acid spit 1/d				KEY:Tiefling ~ Acid spit 1/d				SORTKEY:Tiefling ~ Variant Ability 056	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Icy touch					KEY:Tiefling ~ Icy touch				SORTKEY:Tiefling ~ Variant Ability 057	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Double healing from rest		KEY:Tiefling ~ Double healing from rest		SORTKEY:Tiefling ~ Variant Ability 058	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Will save bonus				KEY:Tiefling ~ Will save bonus			SORTKEY:Tiefling ~ Variant Ability 059	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Night initiative bonus			KEY:Tiefling ~ Night initiative bonus		SORTKEY:Tiefling ~ Variant Ability 060	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Manipulate armor				KEY:Tiefling ~ Manipulate armor			SORTKEY:Tiefling ~ Variant Ability 061	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Deathwatch 3/d				KEY:Tiefling ~ Deathwatch 3/d				SORTKEY:Tiefling ~ Variant Ability 062	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Gaze save bonus				KEY:Tiefling ~ Gaze save bonus			SORTKEY:Tiefling ~ Variant Ability 063	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-See through					KEY:Tiefling ~ See through				SORTKEY:Tiefling ~ Variant Ability 064	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Racial acrobatics bonus			KEY:Tiefling ~ Racial acrobatics bonus		SORTKEY:Tiefling ~ Variant Ability 065	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Drink ruin					KEY:Tiefling ~ Drink ruin				SORTKEY:Tiefling ~ Variant Ability 066	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-See in darkness				KEY:Tiefling ~ See in darkness			SORTKEY:Tiefling ~ Variant Ability 067	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Damage resistance/cold iron		KEY:Tiefling ~ Damage resistance/cold iron	SORTKEY:Tiefling ~ Variant Ability 068	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Fog cloud 1/d				KEY:Tiefling ~ Fog cloud 1/d				SORTKEY:Tiefling ~ Variant Ability 069	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Undetectable alignment			KEY:Tiefling ~ Undetectable alignment		SORTKEY:Tiefling ~ Variant Ability 070	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Corpse eating				KEY:Tiefling ~ Corpse eating				SORTKEY:Tiefling ~ Variant Ability 071	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Evil telepathy				KEY:Tiefling ~ Evil telepathy				SORTKEY:Tiefling ~ Variant Ability 072	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Minor image 3/d				KEY:Tiefling ~ Minor image 3/d			SORTKEY:Tiefling ~ Variant Ability 073	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Animate object				KEY:Tiefling ~ Animate object				SORTKEY:Tiefling ~ Variant Ability 074	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Sonic resistance				KEY:Tiefling ~ Sonic resistance			SORTKEY:Tiefling ~ Variant Ability 075	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Hold breath					KEY:Tiefling ~ Hold breath				SORTKEY:Tiefling ~ Variant Ability 076	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Insect speak				KEY:Tiefling ~ Insect speak				SORTKEY:Tiefling ~ Variant Ability 077	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Spiky skin					KEY:Tiefling ~ Spiky skin				SORTKEY:Tiefling ~ Variant Ability 078	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Fortitude save bonus			KEY:Tiefling ~ Fortitude save bonus			SORTKEY:Tiefling ~ Variant Ability 079	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Racial CMD bonus				KEY:Tiefling ~ Racial CMD bonus			SORTKEY:Tiefling ~ Variant Ability 080	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Rage 1/d					KEY:Tiefling ~ Rage 1/d					SORTKEY:Tiefling ~ Variant Ability 081	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Mind-affecting save bonus		KEY:Tiefling ~ Mind-affecting save bonus		SORTKEY:Tiefling ~ Variant Ability 082	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Burning heal				KEY:Tiefling ~ Burning heal				SORTKEY:Tiefling ~ Variant Ability 083	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Stillness immunity			KEY:Tiefling ~ Stillness immunity			SORTKEY:Tiefling ~ Variant Ability 084	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Perception bonus				KEY:Tiefling ~ Perception bonus			SORTKEY:Tiefling ~ Variant Ability 085	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Fortification effect			KEY:Tiefling ~ Fortification effect			SORTKEY:Tiefling ~ Variant Ability 086	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Quarter rations				KEY:Tiefling ~ Quarter rations			SORTKEY:Tiefling ~ Variant Ability 087	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Evil damage					KEY:Tiefling ~ Evil damage				SORTKEY:Tiefling ~ Variant Ability 088	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Inflict light wounds 1/d		KEY:Tiefling ~ Inflict light wounds 1/d		SORTKEY:Tiefling ~ Variant Ability 089	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Racial WIS bonus				KEY:Tiefling ~ Racial WIS bonus			SORTKEY:Tiefling ~ Variant Ability 090	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Damage resistance/slashing		KEY:Tiefling ~ Damage resistance/slashing		SORTKEY:Tiefling ~ Variant Ability 091	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Ethereal view				KEY:Tiefling ~ Ethereal view				SORTKEY:Tiefling ~ Variant Ability 092	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Speak with dead 1/d			KEY:Tiefling ~ Speak with dead 1/d			SORTKEY:Tiefling ~ Variant Ability 093	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Nausea save bonus				KEY:Tiefling ~ Nausea save bonus			SORTKEY:Tiefling ~ Variant Ability 094	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Racial escape artist bonus		KEY:Tiefling ~ Racial escape artist bonus		SORTKEY:Tiefling ~ Variant Ability 095	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Ventriloquism				KEY:Tiefling ~ Ventriloquism				SORTKEY:Tiefling ~ Variant Ability 096	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Suppress fiendish 1/d			KEY:Tiefling ~ Suppress fiendish 1/d		SORTKEY:Tiefling ~ Variant Ability 097	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Bonus hit point				KEY:Tiefling ~ Bonus hit point			SORTKEY:Tiefling ~ Variant Ability 098	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Commune 1/w					KEY:Tiefling ~ Commune 1/w				SORTKEY:Tiefling ~ Variant Ability 099	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Two Variations				KEY:Tiefling ~ Two Variations				SORTKEY:Tiefling ~ Variant Ability 100	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+# Ability Name				SORTKEY						Unique Key							Category of Ability		Type
+Skeleton 1HD				SORTKEY:Tiefling ~ Variant Ability 001	KEY:Tiefling ~ Skeleton 1HD				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+All-around vision				SORTKEY:Tiefling ~ Variant Ability 002	KEY:Tiefling ~ All-around vision			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Slash joy					SORTKEY:Tiefling ~ Variant Ability 003	KEY:Tiefling ~ Slash joy				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Mage hand 3/d				SORTKEY:Tiefling ~ Variant Ability 004	KEY:Tiefling ~ Mage hand 3/d				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Inherited memories			SORTKEY:Tiefling ~ Variant Ability 005	KEY:Tiefling ~ Inherited memories			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Levitate					SORTKEY:Tiefling ~ Variant Ability 006	KEY:Tiefling ~ Levitate					CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Eat ruin					SORTKEY:Tiefling ~ Variant Ability 007	KEY:Tiefling ~ Eat ruin					CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Damage good outsiders			SORTKEY:Tiefling ~ Variant Ability 008	KEY:Tiefling ~ Damage good outsiders		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Racial CHA Bonus				SORTKEY:Tiefling ~ Variant Ability 009	KEY:Tiefling ~ Racial CHA Bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Bite						SORTKEY:Tiefling ~ Variant Ability 010	KEY:Tiefling ~ Bite					CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Burst of speed				SORTKEY:Tiefling ~ Variant Ability 011	KEY:Tiefling ~ Burst of speed				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Optional sleep				SORTKEY:Tiefling ~ Variant Ability 012	KEY:Tiefling ~ Optional sleep				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Disease save bonus			SORTKEY:Tiefling ~ Variant Ability 013	KEY:Tiefling ~ Disease save bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Base speed +5				SORTKEY:Tiefling ~ Variant Ability 014	KEY:Tiefling ~ Base speed +5				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Racial diplomacy bonus			SORTKEY:Tiefling ~ Variant Ability 015	KEY:Tiefling ~ Racial diplomacy bonus		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Large limbs					SORTKEY:Tiefling ~ Variant Ability 016	KEY:Tiefling ~ Large limbs				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Talons					SORTKEY:Tiefling ~ Variant Ability 017	KEY:Tiefling ~ Talons					CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Damage resistance/bludgeoning		SORTKEY:Tiefling ~ Variant Ability 018	KEY:Tiefling ~ Damage resistance/bludgeoning	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Swim						SORTKEY:Tiefling ~ Variant Ability 019	KEY:Tiefling ~ Swim speed				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Racial CMB bonus				SORTKEY:Tiefling ~ Variant Ability 020	KEY:Tiefling ~ Racial CMB bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Fiendish luck				SORTKEY:Tiefling ~ Variant Ability 021	KEY:Tiefling ~ Fiendish luck				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Detect evil 3/d				SORTKEY:Tiefling ~ Variant Ability 022	KEY:Tiefling ~ Detect evil 3/d			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+No drink					SORTKEY:Tiefling ~ Variant Ability 023	KEY:Tiefling ~ No drink					CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Dagger barb					SORTKEY:Tiefling ~ Variant Ability 024	KEY:Tiefling ~ Dagger barb				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Acid resistance				SORTKEY:Tiefling ~ Variant Ability 025	KEY:Tiefling ~ Acid resistance			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Body heat					SORTKEY:Tiefling ~ Variant Ability 026	KEY:Tiefling ~ Body heat				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Bonus languages				SORTKEY:Tiefling ~ Variant Ability 027	KEY:Tiefling ~ Bonus languages			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Summon evil bonus				SORTKEY:Tiefling ~ Variant Ability 028	KEY:Tiefling ~ Summon evil bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Reflex save bonus				SORTKEY:Tiefling ~ Variant Ability 029	KEY:Tiefling ~ Reflex save bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Shadow shape				SORTKEY:Tiefling ~ Variant Ability 030	KEY:Tiefling ~ Shadow shape				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Burrow					SORTKEY:Tiefling ~ Variant Ability 031	KEY:Tiefling ~ Burrow					CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Sense weakness				SORTKEY:Tiefling ~ Variant Ability 032	KEY:Tiefling ~ Sense weakness				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Damage resistance/silver		SORTKEY:Tiefling ~ Variant Ability 033	KEY:Tiefling ~ Damage resistance/silver		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Tiefling resilience			SORTKEY:Tiefling ~ Variant Ability 034	KEY:Tiefling ~ Tiefling resilience			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Climb bonus					SORTKEY:Tiefling ~ Variant Ability 035	KEY:Tiefling ~ Climb bonus				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Contact telepathy				SORTKEY:Tiefling ~ Variant Ability 036	KEY:Tiefling ~ Contact telepathy			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Death knell 1/d				SORTKEY:Tiefling ~ Variant Ability 037	KEY:Tiefling ~ Death knell 1/d			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Tremorsense 1rd				SORTKEY:Tiefling ~ Variant Ability 038	KEY:Tiefling ~ Tremorsense 1rd			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Double speed				SORTKEY:Tiefling ~ Variant Ability 039	KEY:Tiefling ~ Double speed				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Spell blood					SORTKEY:Tiefling ~ Variant Ability 040	KEY:Tiefling ~ Spell blood				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Spell resistance				SORTKEY:Tiefling ~ Variant Ability 041	KEY:Tiefling ~ Spell resistance			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Raise via animate dead 1d4/life	SORTKEY:Tiefling ~ Variant Ability 042	KEY:Tiefling ~ Raise via animate dead 1d4/life	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Variant fiendish sorcery		SORTKEY:Tiefling ~ Variant Ability 043	KEY:Tiefling ~ Variant fiendish sorcery		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Size small					SORTKEY:Tiefling ~ Variant Ability 044	KEY:Tiefling ~ Size small				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Disguise bonus				SORTKEY:Tiefling ~ Variant Ability 045	KEY:Tiefling ~ Disguise bonus				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Racial INT bonus				SORTKEY:Tiefling ~ Variant Ability 046	KEY:Tiefling ~ Racial INT bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Curse water 3/d				SORTKEY:Tiefling ~ Variant Ability 047	KEY:Tiefling ~ Curse water 3/d			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Undead invisibility			SORTKEY:Tiefling ~ Variant Ability 048	KEY:Tiefling ~ Undead invisibility			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Positive negative channeled heal	SORTKEY:Tiefling ~ Variant Ability 049	KEY:Tiefling ~ Positive negative channeled heal	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Natural armor				SORTKEY:Tiefling ~ Variant Ability 050	KEY:Tiefling ~ Natural armor				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Bird speak					SORTKEY:Tiefling ~ Variant Ability 051	KEY:Tiefling ~ Bird speak				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Poison save bonus				SORTKEY:Tiefling ~ Variant Ability 052	KEY:Tiefling ~ Poison save bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Scent special ability			SORTKEY:Tiefling ~ Variant Ability 053	KEY:Tiefling ~ Scent special ability		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Damage resistance/piercing		SORTKEY:Tiefling ~ Variant Ability 054	KEY:Tiefling ~ Damage resistance/piercing		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Sleight of Hands bonus			SORTKEY:Tiefling ~ Variant Ability 055	KEY:Tiefling ~ Sleight of Hands bonus		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Acid spit 1/d				SORTKEY:Tiefling ~ Variant Ability 056	KEY:Tiefling ~ Acid spit 1/d				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Icy touch					SORTKEY:Tiefling ~ Variant Ability 057	KEY:Tiefling ~ Icy touch				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Double healing from rest		SORTKEY:Tiefling ~ Variant Ability 058	KEY:Tiefling ~ Double healing from rest		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Will save bonus				SORTKEY:Tiefling ~ Variant Ability 059	KEY:Tiefling ~ Will save bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Night initiative bonus			SORTKEY:Tiefling ~ Variant Ability 060	KEY:Tiefling ~ Night initiative bonus		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Manipulate armor				SORTKEY:Tiefling ~ Variant Ability 061	KEY:Tiefling ~ Manipulate armor			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Deathwatch 3/d				SORTKEY:Tiefling ~ Variant Ability 062	KEY:Tiefling ~ Deathwatch 3/d				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Gaze save bonus				SORTKEY:Tiefling ~ Variant Ability 063	KEY:Tiefling ~ Gaze save bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+See through					SORTKEY:Tiefling ~ Variant Ability 064	KEY:Tiefling ~ See through				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Racial acrobatics bonus			SORTKEY:Tiefling ~ Variant Ability 065	KEY:Tiefling ~ Racial acrobatics bonus		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Drink ruin					SORTKEY:Tiefling ~ Variant Ability 066	KEY:Tiefling ~ Drink ruin				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+See in darkness				SORTKEY:Tiefling ~ Variant Ability 067	KEY:Tiefling ~ See in darkness			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Damage resistance/cold iron		SORTKEY:Tiefling ~ Variant Ability 068	KEY:Tiefling ~ Damage resistance/cold iron	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Fog cloud 1/d				SORTKEY:Tiefling ~ Variant Ability 069	KEY:Tiefling ~ Fog cloud 1/d				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Undetectable alignment			SORTKEY:Tiefling ~ Variant Ability 070	KEY:Tiefling ~ Undetectable alignment		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Corpse eating				SORTKEY:Tiefling ~ Variant Ability 071	KEY:Tiefling ~ Corpse eating				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Evil telepathy				SORTKEY:Tiefling ~ Variant Ability 072	KEY:Tiefling ~ Evil telepathy				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Minor image 3/d				SORTKEY:Tiefling ~ Variant Ability 073	KEY:Tiefling ~ Minor image 3/d			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Animate object				SORTKEY:Tiefling ~ Variant Ability 074	KEY:Tiefling ~ Animate object				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Sonic resistance				SORTKEY:Tiefling ~ Variant Ability 075	KEY:Tiefling ~ Sonic resistance			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Hold breath					SORTKEY:Tiefling ~ Variant Ability 076	KEY:Tiefling ~ Hold breath				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Insect speak				SORTKEY:Tiefling ~ Variant Ability 077	KEY:Tiefling ~ Insect speak				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Spiky skin					SORTKEY:Tiefling ~ Variant Ability 078	KEY:Tiefling ~ Spiky skin				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Fortitude save bonus			SORTKEY:Tiefling ~ Variant Ability 079	KEY:Tiefling ~ Fortitude save bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Racial CMD bonus				SORTKEY:Tiefling ~ Variant Ability 080	KEY:Tiefling ~ Racial CMD bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Rage 1/d					SORTKEY:Tiefling ~ Variant Ability 081	KEY:Tiefling ~ Rage 1/d					CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Mind-affecting save bonus		SORTKEY:Tiefling ~ Variant Ability 082	KEY:Tiefling ~ Mind-affecting save bonus		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Burning heal				SORTKEY:Tiefling ~ Variant Ability 083	KEY:Tiefling ~ Burning heal				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Stillness immunity			SORTKEY:Tiefling ~ Variant Ability 084	KEY:Tiefling ~ Stillness immunity			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Perception bonus				SORTKEY:Tiefling ~ Variant Ability 085	KEY:Tiefling ~ Perception bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Fortification effect			SORTKEY:Tiefling ~ Variant Ability 086	KEY:Tiefling ~ Fortification effect			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Quarter rations				SORTKEY:Tiefling ~ Variant Ability 087	KEY:Tiefling ~ Quarter rations			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Evil damage					SORTKEY:Tiefling ~ Variant Ability 088	KEY:Tiefling ~ Evil damage				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Inflict light wounds 1/d		SORTKEY:Tiefling ~ Variant Ability 089	KEY:Tiefling ~ Inflict light wounds 1/d		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Racial WIS bonus				SORTKEY:Tiefling ~ Variant Ability 090	KEY:Tiefling ~ Racial WIS bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Damage resistance/slashing		SORTKEY:Tiefling ~ Variant Ability 091	KEY:Tiefling ~ Damage resistance/slashing		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Ethereal view				SORTKEY:Tiefling ~ Variant Ability 092	KEY:Tiefling ~ Ethereal view				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Speak with dead 1/d			SORTKEY:Tiefling ~ Variant Ability 093	KEY:Tiefling ~ Speak with dead 1/d			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Nausea save bonus				SORTKEY:Tiefling ~ Variant Ability 094	KEY:Tiefling ~ Nausea save bonus			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Racial escape artist bonus		SORTKEY:Tiefling ~ Variant Ability 095	KEY:Tiefling ~ Racial escape artist bonus		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Ventriloquism				SORTKEY:Tiefling ~ Variant Ability 096	KEY:Tiefling ~ Ventriloquism				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Suppress fiendish 1/d			SORTKEY:Tiefling ~ Variant Ability 097	KEY:Tiefling ~ Suppress fiendish 1/d		CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Bonus hit point				SORTKEY:Tiefling ~ Variant Ability 098	KEY:Tiefling ~ Bonus hit point			CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Commune 1/w					SORTKEY:Tiefling ~ Variant Ability 099	KEY:Tiefling ~ Commune 1/w				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Two Variations				SORTKEY:Tiefling ~ Variant Ability 100	KEY:Tiefling ~ Two Variations				CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 
 ###Block:
 # Ability Name											Description

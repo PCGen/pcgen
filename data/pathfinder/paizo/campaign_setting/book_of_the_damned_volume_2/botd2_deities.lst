@@ -1,16 +1,16 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2	SOURCESHORT:BOTD2	SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos	SOURCEDATE:2010-10
 # ORIGINAL ENTRY: elro the onk (Paul Shipley)
 
 ###Block: Other Deities
-# Deity Name	Product Identity?	Domains											Description of Deity/Title				FACTSET							Deity Weapon			Align		Source Page			Prohibited Campaign(s)
+# Deity Name	Product Identity?	Domains											Description of Deity/Title				Pantheon							Deity Weapon			Align		Source Page			Prohibited Campaign(s)
 Camazotz		NAMEISPI:YES	DOMAINS:Animal,Chaos,Darkness,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:God of bats, blood, caverns			FACTSET:Pantheon|Pathfinder Chronicles		DEITYWEAP:Javelin			ALIGN:CE	SOURCEPAGE:Rear Cover
-Droskar		NAMEISPI:YES	DOMAINS:Artifice,Charm,Darkness,Evil,Trickery|PREALIGN:TN,LE,NE,CE	DESC:God of cheating, slavery, toil, slavery	FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	DEITYWEAP:Hammer (Light)	ALIGN:NE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Dwarves of Golarion
+Droskar		NAMEISPI:YES	DOMAINS:Artifice,Charm,Darkness,Evil,Trickery|PREALIGN:TN,LE,NE,CE	DESC:God of cheating, slavery, toil, slavery	FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	DEITYWEAP:Hammer (Light)	ALIGN:NE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Pathfinder Companion: Dwarves of Golarion
 Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE			DESC:Goddess of exortion, hatred, spite		FACTSET:Pantheon|Pathfinder Chronicles		DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Inner Sea World Guide
 #Lamashtu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Strength,Trickery|PREALIGN:NE,CN,CE		DESC:Goddess of madness, monsters, nightmares	DEITYWEAP:Falchion		ALIGN:CE	PANTHEON:Pathfinder Chronicles		SOURCEPAGE:p.45
 
 ###Block: Demon Lords
-# Deity Name	Product Identity?	Domains									Description of Deity/Title										FACTSET				Deity Weapon			Align		Source Page		Prohibited Campaign(s)
+# Deity Name	Product Identity?	Domains									Description of Deity/Title										Pantheon				Deity Weapon			Align		Source Page		Prohibited Campaign(s)
 Abraxas		NAMEISPI:YES	DOMAINS:Chaos,Evil,Knowledge,Magic|PREALIGN:NE,CN,CE		DESC:Master of the Final Incantation; Demon lord of forbidden lore, magic, snakes	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.9	!PRECAMPAIGN:1,Inner Sea World Guide
 Aldinach		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Sun|PREALIGN:NE,CN,CE			DESC:She of the Six Venoms; Demon lord of sand, scorpions, thirst				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Kukri			ALIGN:CE	SOURCEPAGE:p.10
 Andirifhku		NAMEISPI:YES	DOMAINS:Chaos,Evil,Luck,Trickery|PREALIGN:NE,CN,CE		DESC:The Razor Princess; Demon lord of illusions, traps, knives				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Kukri			ALIGN:CE	SOURCEPAGE:p.10
@@ -44,7 +44,7 @@ Zevgavizeb		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Strength|PREALIGN:NE,CN,CE		D
 Zura			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:NE,CN,CE		DESC:The Vampire Queen; Demon lord of blood, cannibalism, vampires			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Rapier			ALIGN:CE	SOURCEPAGE:p.29	!PRECAMPAIGN:1,Inner Sea World Guide
 
 ###Block: Nascent Demon Lords
-# Deity Name	Product Identity?	Domains									Description of Deity/Title											FACTSET				Deity Weapon			Align		Source Page
+# Deity Name	Product Identity?	Domains									Description of Deity/Title											Pantheon				Deity Weapon			Align		Source Page
 Daclau-Sar		NAMEISPI:YES	DOMAINS:Animal,Chaos,Destruction,Evil|PREALIGN:NE,CN,CE	DESC:The Lord of Carrion; Nascent demon lord of carrion, scavengers				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Gauntlet (Spiked)	ALIGN:CE	SOURCEPAGE:p.38
 Izyagna		NAMEISPI:YES	DOMAINS:Chaos,Evil,Fire,War|PREALIGN:NE,CN,CE			DESC:She of the Sevenfold Swarm; Nascent demon lord of angry mobs, ants				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Trident			ALIGN:CE	SOURCEPAGE:p.38
 Menxyr		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:The Coffin Groom; Nascent demon lord of graverobbing, necrophilia				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Pick (Heavy)		ALIGN:CE	SOURCEPAGE:p.38
@@ -57,11 +57,11 @@ Treerazer		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Plant|PREALIGN:NE,CN,CE	D
 Yamasoth		NAMEISPI:YES	DOMAINS:Artifice,Chaos,Earth,Evil|PREALIGN:NE,CN,CE		DESC:The Polymorph Plague; Nascent demon lord of cursed kingdoms, vile experiments		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Halberd			ALIGN:CE	SOURCEPAGE:p.39
 
 ###Block: Barghest Hero Gods
-# Deity Name	Product Identity?	Domains									Description of Deity/Title						FACTSET							Deity Weapon		Align		Source Page			Prohibited Campaign(s)
-Hadregash		NAMEISPI:YES	DOMAINS:Evil,Law,Strength,War|PREALIGN:LE,NE,LN			DESC:Barghest hero god of goblins, slavery, territory		FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Flail		ALIGN:LE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Goblins of Golarion
-Venkelvore		NAMEISPI:YES	DOMAINS:Death,Destruction,Earth,Evil|PREALIGN:TN,LE,NE,CE	DESC:Barghest hero god of famine, graves, torture		FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Spear		ALIGN:NE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Goblins of Golarion
-Zarongel		NAMEISPI:YES	DOMAINS:Animal,Evil,Fire,Travel|PREALIGN:TN,LE,NE,CE		DESC:Barghest hero god of dog killing, fire, mounted combat	FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Dogslicer	ALIGN:NE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Goblins of Golarion
-Zogmugot		NAMEISPI:YES	DOMAINS:Chaos,Evil,Trickery,Water|PREALIGN:NE,CN,CE		DESC:Barghest hero god of drowning, flotsam, scavenging	FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Sickle		ALIGN:CE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Goblins of Golarion
+# Deity Name	Product Identity?	Domains									Description of Deity/Title						Pantheon							Deity Weapon		Align		Source Page			Prohibited Campaign(s)
+Hadregash		NAMEISPI:YES	DOMAINS:Evil,Law,Strength,War|PREALIGN:LE,NE,LN			DESC:Barghest hero god of goblins, slavery, territory		FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Flail		ALIGN:LE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Pathfinder Player Companion: Goblins of Golarion
+Venkelvore		NAMEISPI:YES	DOMAINS:Death,Destruction,Earth,Evil|PREALIGN:TN,LE,NE,CE	DESC:Barghest hero god of famine, graves, torture		FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Spear		ALIGN:NE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Pathfinder Player Companion: Goblins of Golarion
+Zarongel		NAMEISPI:YES	DOMAINS:Animal,Evil,Fire,Travel|PREALIGN:TN,LE,NE,CE		DESC:Barghest hero god of dog killing, fire, mounted combat	FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Dogslicer	ALIGN:NE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Pathfinder Player Companion: Goblins of Golarion
+Zogmugot		NAMEISPI:YES	DOMAINS:Chaos,Evil,Trickery,Water|PREALIGN:NE,CN,CE		DESC:Barghest hero god of drowning, flotsam, scavenging	FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Sickle		ALIGN:CE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Pathfinder Player Companion: Goblins of Golarion
 
 #
 # End

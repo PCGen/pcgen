@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 
-# Ability Name			Category of Ability	Type						Ability																																	Stat bonus
-Race Traits ~ Skinwalker	CATEGORY:Internal								BONUS:ABILITYPOOL|Skinwalker Heritage|1
+# Ability Name			Category of Ability	Type						Ability																																	Bonus Ability Pool				Stat bonus
+Race Traits ~ Skinwalker	CATEGORY:Internal																																										BONUS:ABILITYPOOL|Skinwalker Heritage|1
 
-Skinwalker				CATEGORY:Internal		TYPE:Skinwalker Subrace.Default	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Animal-Minded	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Change Shape	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Spell-Like Ability	BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial
+Skinwalker				CATEGORY:Internal		TYPE:Skinwalker Subrace.Default	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Animal-Minded	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Change Shape	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Spell-Like Ability								BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial
 ###Block: Skinwalker Defaults
 # Ability Name		Unique Key					Category of Ability		Type										Description																																																																																																																																																																																																																										Source Page
 Animal-Minded		KEY:Skinwalker ~ Animal-Minded	CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait.SpecialQuality			DESC:(2 RP): Skinwalkers have a +2 racial bonus on Handle Animal and wild empathy checks.																																																																																																																																																																																																													SOURCEPAGE:p.7
@@ -83,7 +83,7 @@ Animal Skin		KEY:Witch Major Hex ~ Animal Skin		CATEGORY:Special Ability	TYPE:Wi
 Delicious Fright	KEY:Witch Major Hex ~ Delicious Fright	CATEGORY:Special Ability	TYPE:Witch Class Feature.SpecialQuality.WitchHex.MajorHex	PREVARGTEQ:WitchHexAbilityLVL,10	DESC:The witch can feed on the fear of her victim. The target of this hex becomes shaken for a number of rounds equal to 3 + the witch's Intelligence modifier. As long as the witch remains within 30 feet of her target, she gains a +1 morale bonus on attack rolls and a +i morale bonus on saving throws as long as this effect persists. A successful Will save reduces the duration of this hex to 1 round. This is a mind-affecting fear effect.																																																																																										SOURCEPAGE:p.15
 
 ###Block: Alchemist Discovery
-# Ability Name		Unique Key					Category of Ability		Type														Required Class		Description																																																																																																		Source Page
+# Ability Name		Unique Key					Category of Ability		Type														Required Class		Description																																																																																																	Source Page
 Psychoactive Bomb*	KEY:Discovery ~ Psychoactive Bomb	CATEGORY:Special Ability	TYPE:AlchemistClassFeatures.SpecialAttack.AlchemistDiscovery.AlchemistBombModifier	PRECLASS:1,Alchemist=6	DESC:Psychoactive bombs are mixed with neurotoxic extracts that heighten certain sensations. A creature struck by a psychoactive bomb takes a -1 penalty on saving throws against charm, emotion, fear, and pain effects, and the DC for Intimidate checks against the victim decreases by 2. This effect lasts for 1 hour per alchemist leve l. These penalties do not stack, and a creature can only be affected by a single psychoactive bomb at a time. A psychoactive bomb deals 1d6 fewer hit points of damage than normal. An alchemist must be at least 6th level before selecting this discovery.	SOURCEPAGE:p.15
 
 ###Block: NEW ROGUE TALENTS

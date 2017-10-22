@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Ironfang Invasion, Chapter 2 - Fangs of War
 KEY:Ironfang Invasion (Fangs of War)
 GAMEMODE:Pathfinder|Pathfinder_PFS
@@ -7,7 +8,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Ironfang Invasion Player's Guide,INCLUDES=Ultimate Combat,INCLUDES=PF - Weapon Master's Handbook
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Ironfang Invasion Player's Guide,INCLUDES=Ultimate Combat,INCLUDES=Weapon Master's Handbook
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

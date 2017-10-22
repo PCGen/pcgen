@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: New FACT Archetype System
 # Ability Name	Category of Ability	Ability
@@ -21,6 +21,7 @@ Samurai ~ Class Skill		CATEGORY:Internal		CSKILL:Bluff|Climb|TYPE=Craft|Diplomac
 #CATEGORY=Class|Gunslinger.MOD														ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 
 
+# Ability Name			Define
 CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Proficiencies|0
 CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_ClassSkills|0
 CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Gunsmith|0

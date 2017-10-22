@@ -1,6 +1,7 @@
+# CVS $Revision$ $Author$ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Kobolds of Golarion
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
@@ -12,7 +13,7 @@ PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
 SOURCELONG:Pathfinder Player Companion: Kobolds of Golarion
 SOURCESHORT:KOG
-SOURCEWEB:http://paizo.com/products/btpy8yw0?Pathfinder-Player-Companion-Kobolds-of-Golarion
+SOURCEWEB:http://paizo.com/products/btpy8yw0
 SOURCEDATE:2013-06
 ISOGL:YES
 

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Magical Marketplace
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
@@ -11,9 +11,9 @@ PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Pl
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Magical Marketplace
+SOURCELONG:Pathfinder Player Companion: Magical Marketplace
 SOURCESHORT:MM
-SOURCEWEB:http://paizo.com/products/btpy92lv?Pathfinder-Player-Companion-Magical-Marketplace
+SOURCEWEB:http://paizo.com/products/btpy92lv
 SOURCEDATE:2013-12
 ISOGL:YES
 

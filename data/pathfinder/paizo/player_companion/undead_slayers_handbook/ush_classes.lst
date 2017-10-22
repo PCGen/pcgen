@@ -1,5 +1,5 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Undead Slayer's Handbook	SOURCESHORT:USH	SOURCEWEB:http://paizo.com/products/btpy94vx?Pathfinder-Player-Companion-Undead-Slayer-s-Handbook	SOURCEDATE:2014-04
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Undead Slayer's Handbook	SOURCESHORT:USH	SOURCEWEB:http://paizo.com/products/btpy94vx	SOURCEDATE:2014-04
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 27 May 2016
 
@@ -9,12 +9,12 @@ SOURCELONG:Undead Slayer's Handbook	SOURCESHORT:USH	SOURCEWEB:http://paizo.com/p
 
 ###Block: Soul Warden ------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																						Modify VAR																																																																		FACT
-CLASS:Soul Warden		HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.376	DEFINE:SoulWardenLVL|0		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SoulWardenLVL|CL	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|SlW
-# Class Name		Multiple Requirements												Required Skill					Req. Known Spell
-CLASS:Soul Warden		PREMULT:1,[PREALIGN:LG,NG,CG,LN,TN,CN],[PREVAREQ:BypassClassAlignment_Soul_Warden,1]	PRESKILL:1,Knowledge (Religion)=5		PRESPELL:1,Command Undead,Consecrate
-# Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Soul Warden		STARTSKILLPTS:2	CSKILL:Fly|Heal|Perception|Sense Motive|Spellcraft|Use Magic Device
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus																	Save bonus																							Modify VAR																																																																	FACT:ClassType
+CLASS:Soul Warden	HD:8		TYPE:PC.Prestige	FACT:Abb|SlW	MAXLEVEL:10	SOURCEPAGE:p.376	DEFINE:SoulWardenLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SoulWardenLVL|CL	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC
+# Class Name	Multiple Requirements												Required Skill				Req. Known Spell
+CLASS:Soul Warden	PREMULT:1,[PREALIGN:LG,NG,CG,LN,TN,CN],[PREVAREQ:BypassClassAlignment_Soul_Warden,1]	PRESKILL:1,Knowledge (Religion)=5	PRESPELL:1,Command Undead,Consecrate
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Soul Warden	STARTSKILLPTS:2	CSKILL:Fly|Heal|Perception|Sense Motive|Spellcraft|Use Magic Device
 ###Block:
 1	ADD:SPELLCASTER|ANY
 2	ADD:SPELLCASTER|ANY
@@ -48,8 +48,8 @@ CLASS:Soul Warden		STARTSKILLPTS:2	CSKILL:Fly|Heal|Perception|Sense Motive|Spell
 
 
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																						Modify VAR																																																																		FACT
-CLASS:Arcane Trickster	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.376	DEFINE:ArcaneTricksterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ArcaneTricksterLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Art
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus																	Save bonus																						Modify VAR																																																																		FACT:ClassType
+CLASS:Arcane Trickster	HD:6		TYPE:PC.Prestige	FACT:Abb|Art	MAXLEVEL:10	SOURCEPAGE:p.376	DEFINE:ArcaneTricksterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ArcaneTricksterLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC
 # Class Name		Multiple Requirements												Required Skill									Req. Known Spell		Req. Spell Type		Var. Min. Value
 CLASS:Arcane Trickster	PREMULT:1,[PREALIGN:NG,TN,NE,CG,CN,CE],[PREVAREQ:BypassClassAlignment_Arcane_Trickster,1]	PRESKILL:3,Disable Device=4,Escape Artist=4,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=2	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -73,4 +73,3 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Di
 5	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Tricky Spells
 9	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Invisible Thief
 10	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Surprise Spells
-

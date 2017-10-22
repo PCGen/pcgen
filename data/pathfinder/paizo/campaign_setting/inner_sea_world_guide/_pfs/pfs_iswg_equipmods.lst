@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: $ $Author: $ -- Fri Oct 20 19:33:19 2017 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Pathfinder RPG Entry by: Stefan Radermacher & Paul Shipley
 
-# Modifier Name	Type
-LEAF.MOD		TYPE:PFSNotLegal
-STONE.MOD		TYPE:PFSNotLegal
-PAUELIEL.MOD	TYPE:PFSNotLegal
+# Modifier Name		Type			!PRECHARACTERTYPE
+MATERIAL_LEAF.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+MATERIAL_STONE.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+MATERIAL_PAUELIEL.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

@@ -1,9 +1,9 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Faiths of Balance	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb	SOURCEDATE:2011-07
+# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Faiths of Balance	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/products/btpy8lvb	SOURCEDATE:2011-07
 # Original Entry by: Stefan Radermacher
 
 ###Block: Minor Deities
-# Deity Name	Product Identity?	Domains											Description of Deity/Title				FACTSET						Deity Weapon			Align		Source Page
+# Deity Name	Product Identity?	Domains											Description of Deity/Title				Pantheon						Deity Weapon			Align		Source Page
 Alseta		NAMEISPI:YES	DOMAINS:Community,Law,Magic,Protection|PREALIGN:LG,LN,NG,TN			DESC:Goddess of doors and portals			FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Dagger			ALIGN:LN	SOURCEPAGE:p.20
 Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,War,Water,Weather|PREALIGN:CG,TN,CN,CE		DESC:Goddess of piracy, strife, sea monsters	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Rapier			ALIGN:CN	SOURCEPAGE:p.20
 Brigh			NAMEISPI:YES	DOMAINS:Artifice,Earth,Fire,Knowledge|PREALIGN:LN,NG,TN,NE,CN		DESC:Goddess of inventors				FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Hammer (Light)	ALIGN:TN	SOURCEPAGE:p.20
@@ -13,7 +13,7 @@ Naderi		NAMEISPI:YES	DOMAINS:Charm,Repose,Water|PREALIGN:LN,NG,TN,NE,CN				DESC:
 Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN	DESC:Goddess of illusions, reflections, mystery	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Bladed Scarf		ALIGN:TN	SOURCEPAGE:p.21
 
 ###Block: Eldest
-# Deity Name	Product Identity?	Domains										Description of Deity/Title						FACTSET			Deity Weapon		Align		Source Page
+# Deity Name	Product Identity?	Domains										Description of Deity/Title						Pantheon			Deity Weapon		Align		Source Page
 Count Ranalc	NAMEISPI:YES	DOMAINS:Chaos,Darkness,Nobility,Travel|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of betrayal, exiles, shadows			FACTSET:Pantheon|Eldest	DEITYWEAP:Rapier		ALIGN:CN	SOURCEPAGE:p.21
 Imbrex		NAMEISPI:YES	DOMAINS:Community,Earth,Law,Strength|PREALIGN:LG,LN,NG,TN		DESC:Eldest lord of endings, statues, twins			FACTSET:Pantheon|Eldest	DEITYWEAP:Flail (Dire)	ALIGN:LN	SOURCEPAGE:p.21
 The Lantern King	NAMEISPI:YES	DOMAINS:Chaos,Charm,Madness,Trickery|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of laughter, mischief, transformation	FACTSET:Pantheon|Eldest	DEITYWEAP:Dagger		ALIGN:CN	SOURCEPAGE:p.21

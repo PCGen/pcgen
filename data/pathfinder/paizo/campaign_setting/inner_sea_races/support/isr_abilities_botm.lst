@@ -1,3 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 
-Werecrocodile-kin (Alternate)		KEY:Werecrocodile-Kin (ISR)	CATEGORY:Internal		TYPE:Skinwalker Subrace.Skinwalker_Heritage	DEFINE:BestialFeatures|0	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Scare						TEMPLATE:Werecrocodile-Kin	ABILITY:Internal|AUTOMATIC|Bestial Feature ~ Werecrocodile-Kin|PREVAREQ:BestialFeatures,1	BONUS:SITUATION|Diplomacy=Wild Empathy|2		BONUS:SKILL|Stealth|2				BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial	COST:0																				TEMPBONUS:PC|VAR|BestialFeatures|1			SOURCEPAGE:p.249
-
+# Ability Name			Unique Key				Category of Ability	Type								Define				Innate Spells						Template				Ability														Bonus to Situation				Bonus to skill		Stat bonus									Cost		Source Page		Temporary Bonus
+Werecrocodile-kin (Alternate)	KEY:Werecrocodile-Kin (ISR)	CATEGORY:Internal		TYPE:Skinwalker Subrace.Skinwalker_Heritage	DEFINE:BestialFeatures|0	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Scare	TEMPLATE:Werecrocodile-Kin	ABILITY:Internal|AUTOMATIC|Bestial Feature ~ Werecrocodile-Kin|PREVAREQ:BestialFeatures,1	BONUS:SITUATION|Diplomacy=Wild Empathy|2	BONUS:SKILL|Stealth|2	BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial	COST:0	SOURCEPAGE:p.249	TEMPBONUS:PC|VAR|BestialFeatures|1

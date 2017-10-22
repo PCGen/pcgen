@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Cities of Golarion
 KEY:PFS ~ Cities of Golarion
 #GAMEMODE:Pathfinder|Pathfinder_PFS
@@ -15,7 +16,7 @@ SOURCELONG:Pathfinder Chronicles: Cities of Golarion
 SOURCESHORT:CoG
 SOURCEWEB:http://paizo.com/products/btpy8b9l?Pathfinder-Chronicles-Cities-of-Golarion
 SOURCEDATE:2009-11
-ISOGL:Yes
+ISOGL:YES
 
 #COVER:cities_of_golarion.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png

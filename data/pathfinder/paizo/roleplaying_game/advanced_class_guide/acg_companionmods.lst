@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
 # Original Entry by: Mark Means and Douglas Limmer
@@ -6,17 +6,17 @@ SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/produ
 # COMMENT: Can't seem to get mastervar to work in 6.04
 #      Wrong number of arguments error when companion loaded
 
-# Class of the Master			Type				Ability																		Bonus Ability Pool				Modify VAR
-FOLLOWER:HunterAnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:FEAT|AUTOMATIC|Outflank|PREABILITY:1,CATEGORY=Special Ability,Hunter Precise Companion Feat ~ Outflank	DEFINE:HunterSkirmisherAnimalTrick|0	BONUS:VAR|HunterSkirmisherAnimalTrick|1
+# Class of the Master			Type				Ability																		Define						Bonus Ability Pool				Modify VAR
+FOLLOWER:HunterAnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:FEAT|AUTOMATIC|Outflank|PREABILITY:1,CATEGORY=Special Ability,Hunter Precise Companion Feat ~ Outflank	DEFINE:HunterSkirmisherAnimalTrick|0								BONUS:VAR|HunterSkirmisherAnimalTrick|1
 #	BONUS:VAR|BonusTricks|mastervar("HunterBonusTricks")
 #	BONUS:ABILITYPOOL|Hunter Animal Focus|mastervar("HunterAnimalFocusACPool")
 
-FOLLOWER:HunterBonusTricks=1		TYPE:Animal Companion																											BONUS:VAR|BonusTricks|1
-FOLLOWER:HunterBonusTricks=2		TYPE:Animal Companion																											BONUS:VAR|BonusTricks|1
-FOLLOWER:HunterBonusTricks=3		TYPE:Animal Companion																											BONUS:VAR|BonusTricks|1
+FOLLOWER:HunterBonusTricks=1		TYPE:Animal Companion																																		BONUS:VAR|BonusTricks|1
+FOLLOWER:HunterBonusTricks=2		TYPE:Animal Companion																																		BONUS:VAR|BonusTricks|1
+FOLLOWER:HunterBonusTricks=3		TYPE:Animal Companion																																		BONUS:VAR|BonusTricks|1
 
-FOLLOWER:HunterAnimalFocusACPool=1	TYPE:Animal Companion																				BONUS:ABILITYPOOL|Hunter Animal Focus|1
-FOLLOWER:HunterAnimalFocusACPool=2	TYPE:Animal Companion																				BONUS:ABILITYPOOL|Hunter Animal Focus|1
+FOLLOWER:HunterAnimalFocusACPool=1	TYPE:Animal Companion																											BONUS:ABILITYPOOL|Hunter Animal Focus|1
+FOLLOWER:HunterAnimalFocusACPool=2	TYPE:Animal Companion																											BONUS:ABILITYPOOL|Hunter Animal Focus|1
 
 ###Block: Spirit Animal Abilities
 # Class of the Master				Type			Ability

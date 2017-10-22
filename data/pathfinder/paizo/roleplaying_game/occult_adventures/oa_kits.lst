@@ -1,3 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Mon Oct  2 23:36:56 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 
 STARTPACK:Phantom Default	VISIBLE:NO
@@ -5,3 +6,10 @@ STARTPACK:Phantom Default	VISIBLE:NO
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
 
+STARTPACK:Kineticist's kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:8
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin (Filled)		QTY:1		SIZE:PC	LOCATION:Backpack

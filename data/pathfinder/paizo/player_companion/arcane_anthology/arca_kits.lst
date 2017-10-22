@@ -1,5 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 
-STARTPACK:Eldritch Rogue Starting Gear	TOTALCOST:0	VISIBLE:NO	APPLY:INSTANT
-GEAR:Spellbook (Wizard's/Blank)	SIZE:PC	LOCATION:Equipped
-
+STARTPACK:Eldritch Rogue Starting Gear	VISIBLE:NO	APPLY:INSTANT	TOTALCOST:0
+GEAR:Spellbook	SIZE:PC	LOCATION:Equipped

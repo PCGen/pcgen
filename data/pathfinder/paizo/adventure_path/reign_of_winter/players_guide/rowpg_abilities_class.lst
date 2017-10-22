@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
 # Original Entry by: Andrew Maitland
@@ -34,5 +34,5 @@ Inexorable Cold			KEY:Winter Witch ~ Inexorable Cold			CATEGORY:Special Ability	
 Numbing Chill			KEY:Witch Hex ~ Numbing Chill				CATEGORY:Special Ability	TYPE:Supernatural.WitchHex.MajorHex.SpecialQuality				PREVARGTEQ:WitchHexAbilityLVL,10	DESC:Whenever the winter witch casts a spell that deals cold damage, she can imbue the spell with a debilitating eldritch chill as a swift action. She chooses one of the spell's targets or a creature within the spell effect. If that creature takes cold damage from the spell, it must also succeed at a Fortitude save or take 1d4 points of Dexterity damage and be staggered for 1 round. The creature need only make this saving throw once per spell, even if the spell deals damage multiple times. If the target saves successfully, it is immune to this hex for 1 day. This is a cold effect.																																																	SOURCEPAGE:p.13
 
 ###Block:
-# Ability Name							Multiple Requirements																		FACT
+# Ability Name							Multiple Requirements																							FACT
 CATEGORY=Archetype|Witch Archetype ~ Winter Witch.MOD	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Witch Archetype ~ Winter Witch],[!PREFACT:1,ABILITIES,Witch_Archetype_Hex=True,Witch_Archetype_Familiar=true]	FACT:Witch_Archetype_Hex|true	FACT:Witch_Archetype_Familiar|true	FACT:Witch_CF_Hex4|true	FACT:Witch_CF_Familiar|true

@@ -1,5 +1,5 @@
-# CVS $Revision: $ $Author: $ -- Fri Apr 22 15:03:00 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/products/btpy93nc?Pathfinder-Player-Companion-Champions-of-Balance	SOURCEDATE:2014-03
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/products/btpy93nc	SOURCEDATE:2014-03
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 6 April 2016
 
@@ -7,8 +7,8 @@ SOURCELONG:Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/produ
 # Envoy of Balance Prestige Class
 # ==============================
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																																				Modify VAR																																																																						FACT
-CLASS:Envoy of Balance	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.30	DEFINE:EnvoyOfBalanceLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|EnvoyOfBalanceLVL|CL	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EoBLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|EoB
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus																	Save bonus																																				Modify VAR																																																																						FACT:ClassType
+CLASS:Envoy of Balance	HD:6		TYPE:PC.Prestige	FACT:Abb|EoB	MAXLEVEL:10	SOURCEPAGE:p.30	DEFINE:EnvoyOfBalanceLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|EnvoyOfBalanceLVL|CL	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EoBLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC
 # Class Name		Required Ability													Required AL	Required Skill						Req. Spell Type				Required Text
 CLASS:Envoy of Balance	PREABILITY:1,CATEGORY=FEAT,Augment Summoning,Improved Counterspell,Versatile Channeler	PREALIGN:TN	PRESKILL:2,Knowledge (Planes)=5,Spellcraft=5	PRESPELLTYPE:1,Arcane=3,Divine=3	PRETEXT:If the character gains spells from a deity, this deity's alignment must be neutral and it must be able to grant followers the ability to channel both positive and negative energy.
 # Class Name		Skill Pts/Lvl	Class Skill
