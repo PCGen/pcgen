@@ -40,14 +40,14 @@ LOADMULT:1
 # 
 ENCUMBRANCE:Unencumbered|1/2||0
 ENCUMBRANCE:Encumbered|1||0
-ENCUMBRANCE:Overburdened|1.01||0
+ENCUMBRANCE:Overburdened|1.1||0
 
 # these values are hardcode Tom - get error message when removed from the system
 # 15:27:30.478 SEVERE Thread-12 EncumbranceToken:144 Warning: load.lst for game mode Starfinder does not contain load category definitions for 'Light', 'Medium' and 'Heavy'. Please refer to the documentation for the Load List file. See: null
 
 ENCUMBRANCE:Light|1/2||0
-ENCUMBRANCE:Medium|9999999999999||0
-ENCUMBRANCE:Heavy|99999999999999||0
+ENCUMBRANCE:Medium|100||0
+ENCUMBRANCE:Heavy|100||0
 
 ENCUMBRANCE:OverHead|1||
 ENCUMBRANCE:OffGround|2||
