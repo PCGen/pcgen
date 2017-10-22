@@ -1199,12 +1199,13 @@ ${pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE.ASPECT.BonusSave
       <td bgcolor="black" align="center" colspan="6"><font color="white" style="font-size: small"><b>BULK ALLOWANCE</b></font></td>
      </tr>
      <tr>
+	 <#assign overburdened = pcstring('WEIGHT.Overburdened')?number>
       <td valign="top" class="border8" align="right"><b>Light</b></td>
       <td valign="top" class="border8">${pcstring('WEIGHT.LIGHT')}</td>
-      <td valign="top" class="border8" align="right"><b>Medium</b></td>
-      <td valign="top" class="border8">${pcstring('WEIGHT.MEDIUM')}</td>
-      <td valign="top" class="border8" align="right"><b>Heavy</b></td>
-      <td valign="top" class="border8">${pcstring('WEIGHT.HEAVY')}</td>
+      <td valign="top" class="border8" align="right"><b>Encumbered</b></td>
+      <td valign="top" class="border8">${pcstring('WEIGHT.Encumbered')}</td>
+      <td valign="top" class="border8" align="right"><b>Overburdened</b></td>
+      <td valign="top" class="border8">${overburdened+1}</td>
      </tr>
     </table>
 <!-- STOP Weight Table -->
