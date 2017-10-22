@@ -2,7 +2,7 @@
 CAMPAIGN:People of the North (PFS)
 KEY:PFS ~ People of the North
 #GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -12,9 +12,9 @@ PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Pl
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
-SOURCELONG:People of the North
+SOURCELONG:Pathfinder Player Companion: People of the North
 SOURCESHORT:POTN
-SOURCEWEB:http://paizo.com/products/btpy8v35?Pathfinder-Player-Companion-People-of-the-North
+SOURCEWEB:http://paizo.com/products/btpy8v35
 SOURCEDATE:2013-01
 ISOGL:YES
 
@@ -37,8 +37,8 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: People of the North" C
 # Additional Resources
 # Last Updated Wednesday, March 22, 2017
 #
-# Pathfinder Player Companion: People of the North 
-# The kellid, snowcaster elves, ulfen, erutaki, and jadwiga sections of the book are legal for play. 
+# Pathfinder Player Companion: People of the North
+# The kellid, snowcaster elves, ulfen, erutaki, and jadwiga sections of the book are legal for play.
 # The traits on pages 6–13 are only legal if your character is of the same ethnicity as the section with the trait.
 # Archetypes: all archetypes on pages 24–25 are legal for play
 # Equipment: buoyant harpoon, cloak of the saga keeper, helm of the mammoth lord, hex nail, and mammoth lance are legal for play

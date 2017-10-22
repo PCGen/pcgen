@@ -1,6 +1,7 @@
+# CVS $Revision$ $Author$ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Blood of Shadows
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -12,7 +13,7 @@ PUBNAMESHORT:Paizo
 #PUBNAMEWEB:http://www.paizo.com
 SOURCELONG:Pathfinder Player Companion: Blood of Shadows
 SOURCESHORT:BOS
-SOURCEWEB:http://paizo.com/products/btpy9j6s?Pathfinder-Player-Companion-Blood-of-Shadows
+SOURCEWEB:http://paizo.com/products/btpy9j6s
 SOURCEDATE:2016-02
 ISOGL:YES
 
@@ -59,7 +60,7 @@ FORWARDREF:DEITY|Nocticula
 # LICENSE MONKEY: Paul Grosse
 # RELEASE REVIEW #
 # BETA: Andrew Maitland
-# RELEASE: 
+# RELEASE:
 # Built for PCGen Version: 6.07.03
 # Updated to work with version: -
 # MINVER:6.7

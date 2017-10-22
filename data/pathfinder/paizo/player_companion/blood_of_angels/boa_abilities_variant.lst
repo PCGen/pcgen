@@ -1,112 +1,112 @@
-# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
-SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-07
+# CVS $Revision: $ $Author: $ -- Fri Oct 20 01:26:43 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Andrew Wilson (nuance)
 # ORIGINAL ENTRY DATE: 30 September 2013
 
-# Ability Name											Unique Key								SORTKEY						Category of Ability		Type							Define																											Innate Spells														Description																																					Multiple?	Choose			Selections	Move			Ability									Bonus Ability Pool					Save bonus					Bonus to skill						Stat bonus		Modify VAR																																Spell Res.				Damage Reduction	Aspects
-Unnatural Aura											KEY:Aasimar ~ Unnatural Aura												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	DEFINE:UnnaturalAuraDC|0																																								DESC:Animals do not willingly approach you unless the animal's master makes a DC %1 Handle Animal, Ride, or wild empathy check.|UnnaturalAuraDC																																																													BONUS:VAR|UnnaturalAuraDC|25
+# Ability Name											SORTKEY						Unique Key								Category of Ability		Type							Define																											Innate Spells														Description																																					Multiple?	Choose			Selections	Move			Ability									Bonus Ability Pool					Save bonus					Bonus to skill						Stat bonus		Modify VAR																																Spell Res.				Damage Reduction	Aspects
+Unnatural Aura																		KEY:Aasimar ~ Unnatural Aura					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	DEFINE:UnnaturalAuraDC|0																																								DESC:Animals do not willingly approach you unless the animal's master makes a DC %1 Handle Animal, Ride, or wild empathy check.|UnnaturalAuraDC																																																													BONUS:VAR|UnnaturalAuraDC|25
 
 
-Channel 1d6												KEY:Aasimar ~ Channel 1d6					SORTKEY:Aasimar ~ Variant Ability 001	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Stabilize 3/day											KEY:Aasimar ~ Stabilize 3/day					SORTKEY:Aasimar ~ Variant Ability 002	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Halo													KEY:Aasimar ~ Halo						SORTKEY:Aasimar ~ Variant Ability 003	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Holy water healing										KEY:Aasimar ~ Holy water healing				SORTKEY:Aasimar ~ Variant Ability 004	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Knowledge Religion										KEY:Aasimar ~ Knowledge Religion				SORTKEY:Aasimar ~ Variant Ability 005	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Talons												KEY:Aasimar ~ Talons						SORTKEY:Aasimar ~ Variant Ability 006	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-DR/evil												KEY:Aasimar ~ DR/evil						SORTKEY:Aasimar ~ Variant Ability 007	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Charisma for breath										KEY:Aasimar ~ Charisma for breath				SORTKEY:Aasimar ~ Variant Ability 008	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial STR Bonus											KEY:Aasimar ~ Racial STR Bonus				SORTKEY:Aasimar ~ Variant Ability 009	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Honey and wine											KEY:Aasimar ~ Honey and wine					SORTKEY:Aasimar ~ Variant Ability 010	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Breathe thin air											KEY:Aasimar ~ Breathe thin air				SORTKEY:Aasimar ~ Variant Ability 011	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Swim speed												KEY:Aasimar ~ Swim speed					SORTKEY:Aasimar ~ Variant Ability 012	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Crit confirmation											KEY:Aasimar ~ Crit confirmation				SORTKEY:Aasimar ~ Variant Ability 013	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Unnatural aura											KEY:Aasimar ~ Unnatural aura					SORTKEY:Aasimar ~ Variant Ability 014	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Aasimar Resilliance										KEY:Aasimar ~ Aasimar Resilliance				SORTKEY:Aasimar ~ Variant Ability 015	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Exceptional grace											KEY:Aasimar ~ Exceptional grace				SORTKEY:Aasimar ~ Variant Ability 016	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Spear of Purity 1/day										KEY:Aasimar ~ Spear of Purity 1/day				SORTKEY:Aasimar ~ Variant Ability 017	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Poision saving throw Bonus									KEY:Aasimar ~ Poision saving throw Bonus			SORTKEY:Aasimar ~ Variant Ability 018	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Ageless												KEY:Aasimar ~ Ageless						SORTKEY:Aasimar ~ Variant Ability 019	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial DEX bonus											KEY:Aasimar ~ Racial DEX bonus				SORTKEY:Aasimar ~ Variant Ability 020	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Manipulate armor											KEY:Aasimar ~ Manipulate armor				SORTKEY:Aasimar ~ Variant Ability 021	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Will save bonus											KEY:Aasimar ~ Will save bonus					SORTKEY:Aasimar ~ Variant Ability 022	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Create water 3/day										KEY:Aasimar ~ Create water 3/day				SORTKEY:Aasimar ~ Variant Ability 023	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Sonic resistance											KEY:Aasimar ~ Sonic resistance				SORTKEY:Aasimar ~ Variant Ability 024	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Burst of speed											KEY:Aasimar ~ Burst of speed					SORTKEY:Aasimar ~ Variant Ability 025	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Dodge humans											KEY:Aasimar ~ Dodge humans					SORTKEY:Aasimar ~ Variant Ability 026	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Craft check bonus											KEY:Aasimar ~ Craft check bonus				SORTKEY:Aasimar ~ Variant Ability 027	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Aasimar tongues											KEY:Aasimar ~ Aasimar tongues					SORTKEY:Aasimar ~ Variant Ability 028	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Initiative bonus											KEY:Aasimar ~ Initiative bonus				SORTKEY:Aasimar ~ Variant Ability 029	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Nonlethal conversion										KEY:Aasimar ~ Nonlethal conversion				SORTKEY:Aasimar ~ Variant Ability 030	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Charm save bonus											KEY:Aasimar ~ Charm save bonus				SORTKEY:Aasimar ~ Variant Ability 031	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Shield other 1/day										KEY:Aasimar ~ Shield other 1/day				SORTKEY:Aasimar ~ Variant Ability 032	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Coin cleaner											KEY:Aasimar ~ Coin cleaner					SORTKEY:Aasimar ~ Variant Ability 033	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Dodge evil outsiders										KEY:Aasimar ~ Dodge evil outsiders				SORTKEY:Aasimar ~ Variant Ability 034	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Aid 1/day												KEY:Aasimar ~ Aid 1/day						SORTKEY:Aasimar ~ Variant Ability 035	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Insect repellant											KEY:Aasimar ~ Insect repellant				SORTKEY:Aasimar ~ Variant Ability 036	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Perform bonus											KEY:Aasimar ~ Perform bonus					SORTKEY:Aasimar ~ Variant Ability 037	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Aura													KEY:Aasimar ~ Aura						SORTKEY:Aasimar ~ Variant Ability 038	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Mimic animal sound										KEY:Aasimar ~ Mimic animal sound				SORTKEY:Aasimar ~ Variant Ability 039	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial INT bonus											KEY:Aasimar ~ Racial INT bonus				SORTKEY:Aasimar ~ Variant Ability 040	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Aasimar lullabye											KEY:Aasimar ~ Aasimar lullabye				SORTKEY:Aasimar ~ Variant Ability 041	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Better aid												KEY:Aasimar ~ Better aid					SORTKEY:Aasimar ~ Variant Ability 042	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Fear saving bonus											KEY:Aasimar ~ Fear saving bonus				SORTKEY:Aasimar ~ Variant Ability 043	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Grave scanner											KEY:Aasimar ~ Grave scanner					SORTKEY:Aasimar ~ Variant Ability 044	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Perception bonus											KEY:Aasimar ~ Perception bonus				SORTKEY:Aasimar ~ Variant Ability 045	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Frosty breath 1/day										KEY:Aasimar ~ Frosty breath 1/day				SORTKEY:Aasimar ~ Variant Ability 046	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Sick of evil											KEY:Aasimar ~ Sick of evil					SORTKEY:Aasimar ~ Variant Ability 047	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Weapon of awe 1/day										KEY:Aasimar ~ Weapon of awe 1/day				SORTKEY:Aasimar ~ Variant Ability 048	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial reflex save bonus									KEY:Aasimar ~ Racial reflex save bonus			SORTKEY:Aasimar ~ Variant Ability 049	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial WIS bonus											KEY:Aasimar ~ Racial WIS bonus				SORTKEY:Aasimar ~ Variant Ability 050	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Ripen fruit												KEY:Aasimar ~ Ripen fruit					SORTKEY:Aasimar ~ Variant Ability 051	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Understand writing										KEY:Aasimar ~ Understand writing				SORTKEY:Aasimar ~ Variant Ability 052	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial CMD bonus											KEY:Aasimar ~ Racial CMD bonus				SORTKEY:Aasimar ~ Variant Ability 053	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Dazzle save bonus											KEY:Aasimar ~ Dazzle save bonus				SORTKEY:Aasimar ~ Variant Ability 054	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Augury 1/day											KEY:Aasimar ~ Augury 1/day					SORTKEY:Aasimar ~ Variant Ability 055	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Zone of truth 1/day										KEY:Aasimar ~ Zone of truth 1/day				SORTKEY:Aasimar ~ Variant Ability 056	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial heal bonus											KEY:Aasimar ~ Racial heal bonus				SORTKEY:Aasimar ~ Variant Ability 057	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Poisionous												KEY:Aasimar ~ Poisionous					SORTKEY:Aasimar ~ Variant Ability 058	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Summon good bonus											KEY:Aasimar ~ Summon good bonus				SORTKEY:Aasimar ~ Variant Ability 059	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Track the sun											KEY:Aasimar ~ Track the sun					SORTKEY:Aasimar ~ Variant Ability 060	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Damage evil outsiders										KEY:Aasimar ~ Damage evil outsiders				SORTKEY:Aasimar ~ Variant Ability 061	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Negative level save bonus									KEY:Aasimar ~ Negative level save bonus			SORTKEY:Aasimar ~ Variant Ability 062	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Strong and stable build										KEY:Aasimar ~ Strong and stable build			SORTKEY:Aasimar ~ Variant Ability 063	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial intimidate bonus										KEY:Aasimar ~ Racial intimidate bonus			SORTKEY:Aasimar ~ Variant Ability 064	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Summon holy symbol 1/day									KEY:Aasimar ~ Summon holy symbol 1/day			SORTKEY:Aasimar ~ Variant Ability 065	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Immune to create spawn										KEY:Aasimar ~ Immune to create spawn			SORTKEY:Aasimar ~ Variant Ability 066	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial Sense motive bonus									KEY:Aasimar ~ Racial Sense motive bonus			SORTKEY:Aasimar ~ Variant Ability 067	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Whispering wind 1/day										KEY:Aasimar ~ Whispering wind 1/day				SORTKEY:Aasimar ~ Variant Ability 068	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Tears cure disease										KEY:Aasimar ~ Tears cure disease				SORTKEY:Aasimar ~ Variant Ability 069	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial CON bonus											KEY:Aasimar ~ Racial CON bonus				SORTKEY:Aasimar ~ Variant Ability 070	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Sustenance from sunlight									KEY:Aasimar ~ Sustenance from sunlight			SORTKEY:Aasimar ~ Variant Ability 071	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Spell resistance											KEY:Aasimar ~ Spell resistance				SORTKEY:Aasimar ~ Variant Ability 072	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Raise dead 1d4/life										KEY:Aasimar ~ Raise dead 1d4/life				SORTKEY:Aasimar ~ Variant Ability 073	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Invigorating kiss											KEY:Aasimar ~ Invigorating kiss				SORTKEY:Aasimar ~ Variant Ability 074	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Sense pregnancy											KEY:Aasimar ~ Sense pregnancy					SORTKEY:Aasimar ~ Variant Ability 075	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial curse save bonus										KEY:Aasimar ~ Racial curse save bonus			SORTKEY:Aasimar ~ Variant Ability 076	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial Knowledge (planes) bonus								KEY:Aasimar ~ Racial Knowledge (planes) bonus		SORTKEY:Aasimar ~ Variant Ability 077	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Comfortably warm											KEY:Aasimar ~ Comfortably warm				SORTKEY:Aasimar ~ Variant Ability 078	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Track stars												KEY:Aasimar ~ Track stars					SORTKEY:Aasimar ~ Variant Ability 079	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Fire resistance											KEY:Aasimar ~ Fire resistance					SORTKEY:Aasimar ~ Variant Ability 080	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Double healing from rest									KEY:Aasimar ~ Double healing from rest			SORTKEY:Aasimar ~ Variant Ability 081	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Mending 3/day											KEY:Aasimar ~ Mending 3/day					SORTKEY:Aasimar ~ Variant Ability 082	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Energising ancestor										KEY:Aasimar ~ Energising ancestor				SORTKEY:Aasimar ~ Variant Ability 083	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial heat resistance										KEY:Aasimar ~ Racial heat resistance			SORTKEY:Aasimar ~ Variant Ability 084	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Ability restoration bonus									KEY:Aasimar ~ Ability restoration bonus			SORTKEY:Aasimar ~ Variant Ability 085	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Blessing of courage and life 1/day								KEY:Aasimar ~ Blessing of courage and life 1/day	SORTKEY:Aasimar ~ Variant Ability 086	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial handle animal and Ride bonus								KEY:Aasimar ~ Racial handle animal and Ride bonus	SORTKEY:Aasimar ~ Variant Ability 087	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Holy weapon 1/day											KEY:Aasimar ~ Holy weapon 1/day				SORTKEY:Aasimar ~ Variant Ability 088	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial resist disease bonus									KEY:Aasimar ~ Racial resist disease bonus			SORTKEY:Aasimar ~ Variant Ability 089	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial CHA bonus											KEY:Aasimar ~ Racial CHA bonus				SORTKEY:Aasimar ~ Variant Ability 090	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Reanimation immunity										KEY:Aasimar ~ Reanimation immunity				SORTKEY:Aasimar ~ Variant Ability 091	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial Fort bonus											KEY:Aasimar ~ Racial Fort bonus				SORTKEY:Aasimar ~ Variant Ability 092	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Summon lantern archon 1/day									KEY:Aasimar ~ Summon lantern archon 1/day			SORTKEY:Aasimar ~ Variant Ability 093	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Speak to horses											KEY:Aasimar ~ Speak to horses					SORTKEY:Aasimar ~ Variant Ability 094	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial diplomacy bonus										KEY:Aasimar ~ Racial diplomacy bonus			SORTKEY:Aasimar ~ Variant Ability 095	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Racial Use magic device bonus									KEY:Aasimar ~ Racial Use magic device bonus		SORTKEY:Aasimar ~ Variant Ability 096	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Damage resistance/magic										KEY:Aasimar ~ Damage resistance/magic			SORTKEY:Aasimar ~ Variant Ability 097	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Compassionate ally 1/day									KEY:Aasimar ~ Compassionate ally 1/day			SORTKEY:Aasimar ~ Variant Ability 098	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Fly speed												KEY:Aasimar ~ Fly speed						SORTKEY:Aasimar ~ Variant Ability 099	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
-Two Variations											KEY:Aasimar ~ Two Variations					SORTKEY:Aasimar ~ Variant Ability 100	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Channel 1d6												SORTKEY:Aasimar ~ Variant Ability 001	KEY:Aasimar ~ Channel 1d6					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Stabilize 3/day											SORTKEY:Aasimar ~ Variant Ability 002	KEY:Aasimar ~ Stabilize 3/day					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Halo													SORTKEY:Aasimar ~ Variant Ability 003	KEY:Aasimar ~ Halo						CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Holy water healing										SORTKEY:Aasimar ~ Variant Ability 004	KEY:Aasimar ~ Holy water healing				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Knowledge Religion										SORTKEY:Aasimar ~ Variant Ability 005	KEY:Aasimar ~ Knowledge Religion				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Talons												SORTKEY:Aasimar ~ Variant Ability 006	KEY:Aasimar ~ Talons						CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+DR/evil												SORTKEY:Aasimar ~ Variant Ability 007	KEY:Aasimar ~ DR/evil						CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Charisma for breath										SORTKEY:Aasimar ~ Variant Ability 008	KEY:Aasimar ~ Charisma for breath				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial STR Bonus											SORTKEY:Aasimar ~ Variant Ability 009	KEY:Aasimar ~ Racial STR Bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Honey and wine											SORTKEY:Aasimar ~ Variant Ability 010	KEY:Aasimar ~ Honey and wine					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Breathe thin air											SORTKEY:Aasimar ~ Variant Ability 011	KEY:Aasimar ~ Breathe thin air				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Swim speed												SORTKEY:Aasimar ~ Variant Ability 012	KEY:Aasimar ~ Swim speed					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Crit confirmation											SORTKEY:Aasimar ~ Variant Ability 013	KEY:Aasimar ~ Crit confirmation				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Unnatural aura											SORTKEY:Aasimar ~ Variant Ability 014	KEY:Aasimar ~ Unnatural aura					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Aasimar Resilliance										SORTKEY:Aasimar ~ Variant Ability 015	KEY:Aasimar ~ Aasimar Resilliance				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Exceptional grace											SORTKEY:Aasimar ~ Variant Ability 016	KEY:Aasimar ~ Exceptional grace				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Spear of Purity 1/day										SORTKEY:Aasimar ~ Variant Ability 017	KEY:Aasimar ~ Spear of Purity 1/day				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Poision saving throw Bonus									SORTKEY:Aasimar ~ Variant Ability 018	KEY:Aasimar ~ Poision saving throw Bonus			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Ageless												SORTKEY:Aasimar ~ Variant Ability 019	KEY:Aasimar ~ Ageless						CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial DEX bonus											SORTKEY:Aasimar ~ Variant Ability 020	KEY:Aasimar ~ Racial DEX bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Manipulate armor											SORTKEY:Aasimar ~ Variant Ability 021	KEY:Aasimar ~ Manipulate armor				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Will save bonus											SORTKEY:Aasimar ~ Variant Ability 022	KEY:Aasimar ~ Will save bonus					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Create water 3/day										SORTKEY:Aasimar ~ Variant Ability 023	KEY:Aasimar ~ Create water 3/day				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Sonic resistance											SORTKEY:Aasimar ~ Variant Ability 024	KEY:Aasimar ~ Sonic resistance				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Burst of speed											SORTKEY:Aasimar ~ Variant Ability 025	KEY:Aasimar ~ Burst of speed					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Dodge humans											SORTKEY:Aasimar ~ Variant Ability 026	KEY:Aasimar ~ Dodge humans					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Craft check bonus											SORTKEY:Aasimar ~ Variant Ability 027	KEY:Aasimar ~ Craft check bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Aasimar tongues											SORTKEY:Aasimar ~ Variant Ability 028	KEY:Aasimar ~ Aasimar tongues					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Initiative bonus											SORTKEY:Aasimar ~ Variant Ability 029	KEY:Aasimar ~ Initiative bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Nonlethal conversion										SORTKEY:Aasimar ~ Variant Ability 030	KEY:Aasimar ~ Nonlethal conversion				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Charm save bonus											SORTKEY:Aasimar ~ Variant Ability 031	KEY:Aasimar ~ Charm save bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Shield other 1/day										SORTKEY:Aasimar ~ Variant Ability 032	KEY:Aasimar ~ Shield other 1/day				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Coin cleaner											SORTKEY:Aasimar ~ Variant Ability 033	KEY:Aasimar ~ Coin cleaner					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Dodge evil outsiders										SORTKEY:Aasimar ~ Variant Ability 034	KEY:Aasimar ~ Dodge evil outsiders				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Aid 1/day												SORTKEY:Aasimar ~ Variant Ability 035	KEY:Aasimar ~ Aid 1/day						CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Insect repellant											SORTKEY:Aasimar ~ Variant Ability 036	KEY:Aasimar ~ Insect repellant				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Perform bonus											SORTKEY:Aasimar ~ Variant Ability 037	KEY:Aasimar ~ Perform bonus					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Aura													SORTKEY:Aasimar ~ Variant Ability 038	KEY:Aasimar ~ Aura						CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Mimic animal sound										SORTKEY:Aasimar ~ Variant Ability 039	KEY:Aasimar ~ Mimic animal sound				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial INT bonus											SORTKEY:Aasimar ~ Variant Ability 040	KEY:Aasimar ~ Racial INT bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Aasimar lullabye											SORTKEY:Aasimar ~ Variant Ability 041	KEY:Aasimar ~ Aasimar lullabye				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Better aid												SORTKEY:Aasimar ~ Variant Ability 042	KEY:Aasimar ~ Better aid					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Fear saving bonus											SORTKEY:Aasimar ~ Variant Ability 043	KEY:Aasimar ~ Fear saving bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Grave scanner											SORTKEY:Aasimar ~ Variant Ability 044	KEY:Aasimar ~ Grave scanner					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Perception bonus											SORTKEY:Aasimar ~ Variant Ability 045	KEY:Aasimar ~ Perception bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Frosty breath 1/day										SORTKEY:Aasimar ~ Variant Ability 046	KEY:Aasimar ~ Frosty breath 1/day				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Sick of evil											SORTKEY:Aasimar ~ Variant Ability 047	KEY:Aasimar ~ Sick of evil					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Weapon of awe 1/day										SORTKEY:Aasimar ~ Variant Ability 048	KEY:Aasimar ~ Weapon of awe 1/day				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial reflex save bonus									SORTKEY:Aasimar ~ Variant Ability 049	KEY:Aasimar ~ Racial reflex save bonus			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial WIS bonus											SORTKEY:Aasimar ~ Variant Ability 050	KEY:Aasimar ~ Racial WIS bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Ripen fruit												SORTKEY:Aasimar ~ Variant Ability 051	KEY:Aasimar ~ Ripen fruit					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Understand writing										SORTKEY:Aasimar ~ Variant Ability 052	KEY:Aasimar ~ Understand writing				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial CMD bonus											SORTKEY:Aasimar ~ Variant Ability 053	KEY:Aasimar ~ Racial CMD bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Dazzle save bonus											SORTKEY:Aasimar ~ Variant Ability 054	KEY:Aasimar ~ Dazzle save bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Augury 1/day											SORTKEY:Aasimar ~ Variant Ability 055	KEY:Aasimar ~ Augury 1/day					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Zone of truth 1/day										SORTKEY:Aasimar ~ Variant Ability 056	KEY:Aasimar ~ Zone of truth 1/day				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial heal bonus											SORTKEY:Aasimar ~ Variant Ability 057	KEY:Aasimar ~ Racial heal bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Poisionous												SORTKEY:Aasimar ~ Variant Ability 058	KEY:Aasimar ~ Poisionous					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Summon good bonus											SORTKEY:Aasimar ~ Variant Ability 059	KEY:Aasimar ~ Summon good bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Track the sun											SORTKEY:Aasimar ~ Variant Ability 060	KEY:Aasimar ~ Track the sun					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Damage evil outsiders										SORTKEY:Aasimar ~ Variant Ability 061	KEY:Aasimar ~ Damage evil outsiders				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Negative level save bonus									SORTKEY:Aasimar ~ Variant Ability 062	KEY:Aasimar ~ Negative level save bonus			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Strong and stable build										SORTKEY:Aasimar ~ Variant Ability 063	KEY:Aasimar ~ Strong and stable build			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial intimidate bonus										SORTKEY:Aasimar ~ Variant Ability 064	KEY:Aasimar ~ Racial intimidate bonus			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Summon holy symbol 1/day									SORTKEY:Aasimar ~ Variant Ability 065	KEY:Aasimar ~ Summon holy symbol 1/day			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Immune to create spawn										SORTKEY:Aasimar ~ Variant Ability 066	KEY:Aasimar ~ Immune to create spawn			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial Sense motive bonus									SORTKEY:Aasimar ~ Variant Ability 067	KEY:Aasimar ~ Racial Sense motive bonus			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Whispering wind 1/day										SORTKEY:Aasimar ~ Variant Ability 068	KEY:Aasimar ~ Whispering wind 1/day				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Tears cure disease										SORTKEY:Aasimar ~ Variant Ability 069	KEY:Aasimar ~ Tears cure disease				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial CON bonus											SORTKEY:Aasimar ~ Variant Ability 070	KEY:Aasimar ~ Racial CON bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Sustenance from sunlight									SORTKEY:Aasimar ~ Variant Ability 071	KEY:Aasimar ~ Sustenance from sunlight			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Spell resistance											SORTKEY:Aasimar ~ Variant Ability 072	KEY:Aasimar ~ Spell resistance				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Raise dead 1d4/life										SORTKEY:Aasimar ~ Variant Ability 073	KEY:Aasimar ~ Raise dead 1d4/life				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Invigorating kiss											SORTKEY:Aasimar ~ Variant Ability 074	KEY:Aasimar ~ Invigorating kiss				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Sense pregnancy											SORTKEY:Aasimar ~ Variant Ability 075	KEY:Aasimar ~ Sense pregnancy					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial curse save bonus										SORTKEY:Aasimar ~ Variant Ability 076	KEY:Aasimar ~ Racial curse save bonus			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial Knowledge (planes) bonus								SORTKEY:Aasimar ~ Variant Ability 077	KEY:Aasimar ~ Racial Knowledge (planes) bonus		CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Comfortably warm											SORTKEY:Aasimar ~ Variant Ability 078	KEY:Aasimar ~ Comfortably warm				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Track stars												SORTKEY:Aasimar ~ Variant Ability 079	KEY:Aasimar ~ Track stars					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Fire resistance											SORTKEY:Aasimar ~ Variant Ability 080	KEY:Aasimar ~ Fire resistance					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Double healing from rest									SORTKEY:Aasimar ~ Variant Ability 081	KEY:Aasimar ~ Double healing from rest			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Mending 3/day											SORTKEY:Aasimar ~ Variant Ability 082	KEY:Aasimar ~ Mending 3/day					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Energising ancestor										SORTKEY:Aasimar ~ Variant Ability 083	KEY:Aasimar ~ Energising ancestor				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial heat resistance										SORTKEY:Aasimar ~ Variant Ability 084	KEY:Aasimar ~ Racial heat resistance			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Ability restoration bonus									SORTKEY:Aasimar ~ Variant Ability 085	KEY:Aasimar ~ Ability restoration bonus			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Blessing of courage and life 1/day								SORTKEY:Aasimar ~ Variant Ability 086	KEY:Aasimar ~ Blessing of courage and life 1/day	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial handle animal and Ride bonus								SORTKEY:Aasimar ~ Variant Ability 087	KEY:Aasimar ~ Racial handle animal and Ride bonus	CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Holy weapon 1/day											SORTKEY:Aasimar ~ Variant Ability 088	KEY:Aasimar ~ Holy weapon 1/day				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial resist disease bonus									SORTKEY:Aasimar ~ Variant Ability 089	KEY:Aasimar ~ Racial resist disease bonus			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial CHA bonus											SORTKEY:Aasimar ~ Variant Ability 090	KEY:Aasimar ~ Racial CHA bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Reanimation immunity										SORTKEY:Aasimar ~ Variant Ability 091	KEY:Aasimar ~ Reanimation immunity				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial Fort bonus											SORTKEY:Aasimar ~ Variant Ability 092	KEY:Aasimar ~ Racial Fort bonus				CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Summon lantern archon 1/day									SORTKEY:Aasimar ~ Variant Ability 093	KEY:Aasimar ~ Summon lantern archon 1/day			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Speak to horses											SORTKEY:Aasimar ~ Variant Ability 094	KEY:Aasimar ~ Speak to horses					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial diplomacy bonus										SORTKEY:Aasimar ~ Variant Ability 095	KEY:Aasimar ~ Racial diplomacy bonus			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Racial Use magic device bonus									SORTKEY:Aasimar ~ Variant Ability 096	KEY:Aasimar ~ Racial Use magic device bonus		CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Damage resistance/magic										SORTKEY:Aasimar ~ Variant Ability 097	KEY:Aasimar ~ Damage resistance/magic			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Compassionate ally 1/day									SORTKEY:Aasimar ~ Variant Ability 098	KEY:Aasimar ~ Compassionate ally 1/day			CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Fly speed												SORTKEY:Aasimar ~ Variant Ability 099	KEY:Aasimar ~ Fly speed						CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
+Two Variations											SORTKEY:Aasimar ~ Variant Ability 100	KEY:Aasimar ~ Two Variations					CATEGORY:Special Ability	TYPE:AasimarVariantAbility.SpecialQuality
 
 
 CATEGORY=Special Ability|Aasimar ~ Channel 1d6.MOD																																																																													DESC:You can channel 1d6 points of positive energy once per day as a supernatural ability.

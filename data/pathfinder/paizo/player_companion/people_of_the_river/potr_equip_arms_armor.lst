@@ -1,5 +1,5 @@
-# CVS $Revision: $ $Author: $ -- Sun Sep  4 16:33:31 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/products/btpy978r?Pathfinder-Player-Companion-People-of-the-River	SOURCEDATE:2014-08
+# CVS $Revision: $ $Author: $ -- Fri Oct 20 01:26:43 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/products/btpy978r	SOURCEDATE:2014-08
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 27 April 2017
 
@@ -7,10 +7,11 @@ SOURCELONG:People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/produ
 # Magical Shield
 # ==============================
 
-Shield of Hags				PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Magic.Light.Specific.Close.Weapon.Resizable.Melee.ShieldBash				COST:3	WT:5		ACCHECK:-1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:MAGIC_COST|19120.PLUS1S.WOOD		WIELD:Light			SIZE:M	SOURCEPAGE:p.28	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0			BONUS:VAR|ArmorCheckPenalty|1		BONUS:WEAPON|TOHIT|4|PREWEAPONPROF:1,Shieldbash		SPROP:On command 3/day, emits either terrified screams (30 ft. fear effect) or tortured voice calling for help.
+# Equipment Name		Required Weapon Proficiency	Required Shield Proficiency		Type															Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier								Wield Category	Size		Source Page		% of Spell Failure	Combat bonus								Modify VAR				Weapon prop. bonus					Special Property
+Shield of Hags							PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Magic.Light.Specific.Close.Weapon.Resizable.Melee.ShieldBash			COST:3	WT:5		ACCHECK:-1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:MAGIC_COST|19120.PLUS1_SHIELD.MATERIAL_WOOD	WIELD:Light		SIZE:M	SOURCEPAGE:p.28	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0	BONUS:VAR|ArmorCheckPenalty|1	BONUS:WEAPON|TOHIT|4|PREWEAPONPROF:1,Shieldbash	SPROP:On command 3/day, emits either terrified screams (30 ft. fear effect) or tortured voice calling for help.
 
 # ==============================
 # Magical Weapon
 # ==============================
 
-Black Eagle's Blade			PROFICIENCY:WEAPON|Greatsword		TYPE:Weapon.Magic.Resizable.Melee.TwoHanded.Martial.Specific.Slashing.Sword.BladeHeavy		COST:50	WT:8					CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:MAGIC_COST|12000.PLUS1W.STEEL		WIELD:TwoHanded		SIZE:M	SOURCEPAGE:p.29	SPROP:1/day, after slaying a creature, can become +2 bane against same creature type as that just slain. Lasts 8 rounds or until it slays another creature.
+Black Eagle's Blade	PROFICIENCY:WEAPON|Greatsword							TYPE:Weapon.Magic.Resizable.Melee.TwoHanded.Martial.Specific.Slashing.Sword.BladeHeavy	COST:50	WT:8					CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:MAGIC_COST|12000.PLUS1_WEAPON.MATERIAL_STEEL	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.29																												SPROP:1/day, after slaying a creature, can become +2 bane against same creature type as that just slain. Lasts 8 rounds or until it slays another creature.

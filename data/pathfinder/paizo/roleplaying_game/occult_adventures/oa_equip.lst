@@ -1,137 +1,139 @@
+# CVS $Revision: $ $Author: $ -- Sun Sep 24 03:54:26 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 
-Artist's poster				SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:15	WT:0
-Aura goggles				SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:15	WT:1
-Automatic writing planchette		SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:25	WT:0
-Censer					SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:5	WT:.5
-Dowsing rod					SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:10	WT:1
-Fraudulent medium's kit			SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:50	WT:10
-Hoodwink cowl				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:75	WT:3
-Hypnotist's locket (locket)		SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:15	WT:1
-Hypnotist's locket (pocket watch)	SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:250	WT:1
-Incense (10 sticks)			SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:.7	WT:0
-Kineticist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:8	WT:22
-Medium's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:40	WT:14
-Mesmerist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:35	WT:26.5
-Occult reference material		SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:80	WT:1
-Occultist's implement			SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:10	WT:.5
-Occultist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:45	WT:32.5
-Performer's token				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:.2	WT:0
-Phrenologist's kit			SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:50	WT:5
-Portable solarium				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:800	WT:35
-Portable sweat lodge			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:25	WT:25
-Prismatic crystal				SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:30	WT:.5
-Prognostication manual			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:30	WT:3
-Psychic's kit				SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:35	WT:27
-Psychometrist's gloves			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:10	WT:5
-Ritual bell					SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:2	WT:1
-Spirit trumpet				SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:25	WT:1
-Spiritualist's kit			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:50	WT:34
-Straitjacket (common)			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:5	WT:1
-Straitjacket (masterwork)		SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:50	WT:1
-Talking board				SOURCEPAGE:p.251	TYPE:Adventuring Gear	COST:15	WT:2
-Ventriloquist's dummy			SOURCEPAGE:p.251	TYPE:Adventuring Gear	COST:100	WT:7
-Wind chime					SOURCEPAGE:p.251	TYPE:Adventuring Gear	COST:1	WT:1
+# Equipment Name				Unique Key						Type					Cost		Weight	Source Page		Quality and value		Special Property
+Artist's poster											TYPE:Adventuring Gear		COST:15	WT:0		SOURCEPAGE:p.248
+Aura goggles											TYPE:Adventuring Gear		COST:15	WT:1		SOURCEPAGE:p.248
+Automatic writing planchette									TYPE:Adventuring Gear		COST:25	WT:0		SOURCEPAGE:p.248
+Censer												TYPE:Adventuring Gear		COST:5	WT:.5		SOURCEPAGE:p.248
+Dowsing rod												TYPE:Adventuring Gear		COST:10	WT:1		SOURCEPAGE:p.248
+Fraudulent medium's kit										TYPE:Adventuring Gear		COST:50	WT:10		SOURCEPAGE:p.248
+Hoodwink cowl											TYPE:Adventuring Gear		COST:75	WT:3		SOURCEPAGE:p.249
+Hypnotist's locket (locket)									TYPE:Adventuring Gear		COST:15	WT:1		SOURCEPAGE:p.249
+Hypnotist's locket (pocket watch)								TYPE:Adventuring Gear		COST:250	WT:1		SOURCEPAGE:p.249
+Incense (10 sticks)										TYPE:Adventuring Gear		COST:.7	WT:0		SOURCEPAGE:p.249
+#Kineticist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:8	WT:22
+Medium's kit											TYPE:Adventuring Gear		COST:40	WT:14		SOURCEPAGE:p.249
+Mesmerist's kit											TYPE:Adventuring Gear		COST:35	WT:26.5	SOURCEPAGE:p.249
+Occult reference material									TYPE:Adventuring Gear		COST:80	WT:1		SOURCEPAGE:p.249
+Occultist's implement										TYPE:Adventuring Gear		COST:10	WT:.5		SOURCEPAGE:p.249
+Occultist's kit											TYPE:Adventuring Gear		COST:45	WT:32.5	SOURCEPAGE:p.249
+Performer's token											TYPE:Adventuring Gear		COST:.2	WT:0		SOURCEPAGE:p.249
+Phrenologist's kit										TYPE:Adventuring Gear		COST:50	WT:5		SOURCEPAGE:p.249
+Portable solarium											TYPE:Adventuring Gear		COST:800	WT:35		SOURCEPAGE:p.249
+Portable sweat lodge										TYPE:Adventuring Gear		COST:25	WT:25		SOURCEPAGE:p.250
+Prismatic crystal											TYPE:Adventuring Gear		COST:30	WT:.5		SOURCEPAGE:p.250
+Prognostication manual										TYPE:Adventuring Gear		COST:30	WT:3		SOURCEPAGE:p.250
+Psychic's kit											TYPE:Adventuring Gear		COST:35	WT:27		SOURCEPAGE:p.250
+Psychometrist's gloves										TYPE:Adventuring Gear		COST:10	WT:5		SOURCEPAGE:p.250
+Ritual bell												TYPE:Adventuring Gear		COST:2	WT:1		SOURCEPAGE:p.250
+Spirit trumpet											TYPE:Adventuring Gear		COST:25	WT:1		SOURCEPAGE:p.250
+Spiritualist's kit										TYPE:Adventuring Gear		COST:50	WT:34		SOURCEPAGE:p.250
+Straitjacket (common)										TYPE:Adventuring Gear		COST:5	WT:1		SOURCEPAGE:p.250
+Straitjacket (masterwork)									TYPE:Adventuring Gear		COST:50	WT:1		SOURCEPAGE:p.250
+Talking board											TYPE:Adventuring Gear		COST:15	WT:2		SOURCEPAGE:p.251
+Ventriloquist's dummy										TYPE:Adventuring Gear		COST:100	WT:7		SOURCEPAGE:p.251
+Wind chime												TYPE:Adventuring Gear		COST:1	WT:1		SOURCEPAGE:p.251
 
 #
-Ectoplasmic residue	SOURCEPAGE:p.252	TYPE:Alchemical Item	COST:20	WT:2	QUALITY:CraftDC|25
-Magnetized paper		SOURCEPAGE:p.252	TYPE:Alchemical Item	COST:11	WT:1	QUALITY:CraftDC|15
-Snake oil			SOURCEPAGE:p.252	TYPE:Alchemical Item	COST:20	WT:0	QUALITY:CraftDC|20
+Ectoplasmic residue										TYPE:Alchemical Item		COST:20	WT:2		SOURCEPAGE:p.252	QUALITY:CraftDC|25
+Magnetized paper											TYPE:Alchemical Item		COST:11	WT:1		SOURCEPAGE:p.252	QUALITY:CraftDC|15
+Snake oil												TYPE:Alchemical Item		COST:20	WT:0		SOURCEPAGE:p.252	QUALITY:CraftDC|20
 
-Ring of Psychic Mastery		COST:50000	SOURCEPAGE:p.252	TYPE:Magic.SLOT_Ring.Ring
-Ring of the hidden psyche	COST:160000	SOURCEPAGE:p.252	TYPE:Magic.SLOT_Ring.Ring
+Ring of Psychic Mastery										TYPE:Magic.SLOT_Ring.Ring	COST:50000			SOURCEPAGE:p.252
+Ring of the hidden psyche									TYPE:Magic.SLOT_Ring.Ring	COST:160000			SOURCEPAGE:p.252
 
 
 #Lesser Medium Rods Price
-Furious metamagic rod, lesser		KEY:Furious metamagic rod (Lesser)			COST:3000		TYPE:Rod.Magic.Lesser Medium	WT:1
-Logical metamagic rod, lesser		KEY:Logical metamagic rod (Lesser)			COST:3000		TYPE:Rod.Magic.Lesser Medium	WT:1
-Scarring metamagic rod, lesser	KEY:Scarring metamagic rod (Lesser)		COST:3000		TYPE:Rod.Magic.Lesser Medium	WT:1
-Refocusing rod				KEY:Refocusing rod					COST:5000		TYPE:Rod.Magic.Lesser Medium	WT:1
-Fearsome metamagic rod, lesser	KEY:Fearsome metamagic rod (Lesser)		COST:9000		TYPE:Rod.Magic.Lesser Medium	WT:1
-Traumatic metamagic rod, lesser	KEY:Traumatic metamagic rod (Lesser)		COST:9000		TYPE:Rod.Magic.Lesser Medium	WT:1
-Furious metamagic rod			KEY:Furious metamagic rod				COST:11000		TYPE:Rod.Magic.Lesser Medium	WT:1
-Logical metamagic rod			KEY:Logical metamagic rod				COST:11000		TYPE:Rod.Magic.Lesser Medium	WT:1
-Scarring metamagic rod			KEY:Scarring metamagic rod				COST:11000		TYPE:Rod.Magic.Lesser Medium	WT:1
+Furious metamagic rod, lesser		KEY:Furious metamagic rod (Lesser)		TYPE:Rod.Magic.Lesser Medium	COST:3000	WT:1
+Logical metamagic rod, lesser		KEY:Logical metamagic rod (Lesser)		TYPE:Rod.Magic.Lesser Medium	COST:3000	WT:1
+Scarring metamagic rod, lesser	KEY:Scarring metamagic rod (Lesser)		TYPE:Rod.Magic.Lesser Medium	COST:3000	WT:1
+Refocusing rod				KEY:Refocusing rod				TYPE:Rod.Magic.Lesser Medium	COST:5000	WT:1
+Fearsome metamagic rod, lesser	KEY:Fearsome metamagic rod (Lesser)		TYPE:Rod.Magic.Lesser Medium	COST:9000	WT:1
+Traumatic metamagic rod, lesser	KEY:Traumatic metamagic rod (Lesser)	TYPE:Rod.Magic.Lesser Medium	COST:9000	WT:1
+Furious metamagic rod			KEY:Furious metamagic rod			TYPE:Rod.Magic.Lesser Medium	COST:11000	WT:1
+Logical metamagic rod			KEY:Logical metamagic rod			TYPE:Rod.Magic.Lesser Medium	COST:11000	WT:1
+Scarring metamagic rod			KEY:Scarring metamagic rod			TYPE:Rod.Magic.Lesser Medium	COST:11000	WT:1
 #Lesser Major Rods Price
-Furious metamagic rod, greater	KEY:Furious metamagic rod (Greater)		COST:24500		TYPE:Rod.Magic.Lesser Major	WT:1
-Logical metamagic rod, greater	KEY:Logical metamagic rod (Greater)		COST:24500		TYPE:Rod.Magic.Lesser Major	WT:1
-Scarring metamagic rod, greater	KEY:Scarring metamagic rod (Greater)		COST:24500		TYPE:Rod.Magic.Lesser Major	WT:1
-Overflowing rod				KEY:Overflowing rod					COST:25000		TYPE:Rod.Magic.Lesser Major	WT:1
-Witching rod				KEY:Witching rod					COST:31000		TYPE:Rod.Magic.Lesser Major	WT:1
-Fearsome metamagic rod			KEY:Fearsome metamagic rod				COST:32500		TYPE:Rod.Magic.Lesser Major	WT:1
-Traumatic metamagic rod			KEY:Traumatic metamagic rod				COST:32500		TYPE:Rod.Magic.Lesser Major	WT:1
+Furious metamagic rod, greater	KEY:Furious metamagic rod (Greater)		TYPE:Rod.Magic.Lesser Major	COST:24500	WT:1
+Logical metamagic rod, greater	KEY:Logical metamagic rod (Greater)		TYPE:Rod.Magic.Lesser Major	COST:24500	WT:1
+Scarring metamagic rod, greater	KEY:Scarring metamagic rod (Greater)	TYPE:Rod.Magic.Lesser Major	COST:24500	WT:1
+Overflowing rod				KEY:Overflowing rod				TYPE:Rod.Magic.Lesser Major	COST:25000	WT:1
+Witching rod				KEY:Witching rod					TYPE:Rod.Magic.Lesser Major	COST:31000	WT:1
+Fearsome metamagic rod			KEY:Fearsome metamagic rod			TYPE:Rod.Magic.Lesser Major	COST:32500	WT:1
+Traumatic metamagic rod			KEY:Traumatic metamagic rod			TYPE:Rod.Magic.Lesser Major	COST:32500	WT:1
 #Greater Major Rods Price
-Fearsome metamagic rod, greater	KEY:Fearsome metamagic rod (Greater)		COST:73000		TYPE:Rod.Magic.Greater Major	WT:1
-Traumatic metamagic rod, greater	KEY:Traumatic metamagic rod (Greater)		COST:73000		TYPE:Rod.Magic.Greater Major	WT:1
-Hollow rod					KEY:Hollow rod						COST:121500		TYPE:Rod.Magic.Greater Major	WT:1
-Caduceus rod				KEY:Caduceus rod					COST:142000		TYPE:Rod.Magic.Greater Major	WT:1
+Fearsome metamagic rod, greater	KEY:Fearsome metamagic rod (Greater)	TYPE:Rod.Magic.Greater Major	COST:73000	WT:1
+Traumatic metamagic rod, greater	KEY:Traumatic metamagic rod (Greater)	TYPE:Rod.Magic.Greater Major	COST:73000	WT:1
+Hollow rod					KEY:Hollow rod					TYPE:Rod.Magic.Greater Major	COST:121500	WT:1
+Caduceus rod				KEY:Caduceus rod					TYPE:Rod.Magic.Greater Major	COST:142000	WT:1
 
-Vril Staff		COST:200000	TYPE:Magic.Staff	SPROP:Mage hand (1 charge)  *  Cure light wounds (1 charge)  *  Cure moderate wounds (2 charges)  *  Telekinesis (2 charges)  *  Repulsion (3 charges) If the wielder of a vril staff is a spellcaster, as a standard action, she can expend 1 charge and sacrifice a prepared spell or unused spell slot of 1st level or higher to channel the power through the staff as a blast of raw magical energy known as vril. This ray resolves as a ranged touch attack with a range of 30 feet, and the wielder chooses whether it deals damage or heals. The amount of damage dealt or healed by the ray is equal to 1d6 points per level of the spell sacrificed + 1 point per caster level of the wielder. In the hands of a kineticist, the staff functions differently. By spending 1 charge from the staff as part of her kinetic blast, the kineticist can use a new basic energy blast called a vril blast. This blast deals untyped damage. A vril blast works only with form and substance infusions that specify that they work on any blast. If the kineticist instead spends 3 charges, her vril blast's intensity increases and it ignores spell resistance. A kineticist can use a vril staff without attempting a Use Magic Device check. A spellcaster can recharge a vril staff normally. A kineticist can restore a single charge to a vril staff by accepting 3 points of burn.
+Vril Staff												TYPE:Magic.Staff			COST:200000										SPROP:Mage hand (1 charge)  *  Cure light wounds (1 charge)  *  Cure moderate wounds (2 charges)  *  Telekinesis (2 charges)  *  Repulsion (3 charges) If the wielder of a vril staff is a spellcaster, as a standard action, she can expend 1 charge and sacrifice a prepared spell or unused spell slot of 1st level or higher to channel the power through the staff as a blast of raw magical energy known as vril. This ray resolves as a ranged touch attack with a range of 30 feet, and the wielder chooses whether it deals damage or heals. The amount of damage dealt or healed by the ray is equal to 1d6 points per level of the spell sacrificed + 1 point per caster level of the wielder. In the hands of a kineticist, the staff functions differently. By spending 1 charge from the staff as part of her kinetic blast, the kineticist can use a new basic energy blast called a vril blast. This blast deals untyped damage. A vril blast works only with form and substance infusions that specify that they work on any blast. If the kineticist instead spends 3 charges, her vril blast's intensity increases and it ignores spell resistance. A kineticist can use a vril staff without attempting a Use Magic Device check. A spellcaster can recharge a vril staff normally. A kineticist can restore a single charge to a vril staff by accepting 3 points of burn.
 
 ###Block: Wondrous Items
-Animal divining pot						KEY:Animal divining pot						WT:5	SOURCEPAGE:p.256		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1400
-Candle of spirit protection					KEY:Candle of spirit protection				WT:1	SOURCEPAGE:p.256		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1500
-Dreamcatcher							KEY:Dreamcatcher							WT:2	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:2800
-False coin								KEY:False coin							WT:0	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:375
-Flying skiff							KEY:Flying skiff							WT:2500	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:180000
-Flying sled								KEY:Flying sled							WT:100	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:80000
-Four-leaf clover							KEY:Four-leaf clover						WT:0	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:3750
-Ganji doll								KEY:Ganji doll							WT:.5	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:16000
-Ganji doll, greater						KEY:Ganji doll (Greater)					WT:.5	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:36000
-Ghost powder							KEY:Ghost powder							WT:.5	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1400
-Incense of corporeality						KEY:Incense of corporeality					WT:.5	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1400
-Incense of open thoughts					KEY:Incense of open thoughts					WT:1	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:2800
-Indomitable jewel							KEY:Indomitable jewel						WT:1	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12000
-Kineticist's diadem						KEY:Kineticist's diadem						WT:0	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:50000
-Kineticist's diadem, greater					KEY:Kineticist's diadem (Greater)				WT:0	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:98000
-Kineticist's diadem, lesser					KEY:Kineticist's diadem (Lesser)				WT:0	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:18000
-Lithomancy stones							KEY:Lithomancy stones						WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12000
-Lucky horseshoe							KEY:Lucky horseshoe						WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:6800
-Lucky horseshoe, communal					KEY:Lucky horseshoe (Communal)				WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:15000
-Magic talking board						KEY:Magic talking board						WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:20000
-Mask of the mesmerist						KEY:Mask of the mesmerist					WT:4	SOURCEPAGE:p.261		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:25000
-Orgone accumulator						KEY:Orgone accumulator						WT:150	SOURCEPAGE:p.261		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:48000
-Sensory deprivation hood					KEY:Sensory deprivation hood					WT:5	SOURCEPAGE:p.261		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:27500
-Shrunken head							KEY:Shrunken head							WT:1	SOURCEPAGE:p.262		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:90000
-Soultheft glass							KEY:Soultheft glass						WT:1	SOURCEPAGE:p.262		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:33000
-Spirit mirror							KEY:Spirit mirror							WT:4	SOURCEPAGE:p.262		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:18900
-Spirit revivification incense					KEY:Spirit revivification incense				WT:0	SOURCEPAGE:p.263		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:800
-Spirit slate							KEY:Spirit slate							WT:2	SOURCEPAGE:p.263		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12000
-Talisman of arrow protection, greater			KEY:Talisman of arrow protection (Greater)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:6000
-Talisman of arrow protection, lesser			KEY:Talisman of arrow protection (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:600
-Talisman of beneficial winds, greater			KEY:Talisman of beneficial winds (Greater)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:500
-Talisman of beneficial winds, lesser			KEY:Talisman of beneficial winds (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:50
-Talisman of danger sense, greater				KEY:Talisman of danger sense (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:7500
-Talisman of danger sense, lesser				KEY:Talisman of danger sense (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:750
-Talisman of freedom, greater					KEY:Talisman of freedom (Greater)				WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:9000
-Talisman of freedom, lesser					KEY:Talisman of freedom (Lesser)				WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:900
-Talisman of good fortune, greater				KEY:Talisman of good fortune (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:16800
-Talisman of good fortune, lesser				KEY:Talisman of good fortune (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1680
-Talisman of healing power, greater				KEY:Talisman of healing power (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:24000
-Talisman of healing power, lesser				KEY:Talisman of healing power (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:2400
-Talisman of life's breath, greater				KEY:Talisman of life's breath (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:35000
-Talisman of life's breath, lesser				KEY:Talisman of life's breath (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:3500
-Talisman of protection from flames, greater		KEY:Talisman of protection from flames (Greater)	WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12500
-Talisman of protection from flames, lesser		KEY:Talisman of protection from flames (Lesser)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1250
-Talisman of sealed summons, greater				KEY:Talisman of sealed summons (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:4500
-Talisman of sealed summons, lesser				KEY:Talisman of sealed summons (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:450
-Talisman of warrior's courage, greater			KEY:Talisman of warrior's courage (Greater)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:4500
-Talisman of warrior's courage, lesser			KEY:Talisman of warrior's courage (Lesser)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:450
-Thaumaturgic powder						KEY:Thaumaturgic powder						WT:0	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:4000
-Tin cap								KEY:Tin cap								WT:2	SOURCEPAGE:p.265		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:15000
-Tome of origami animals						KEY:Tome of origami animals					WT:15	SOURCEPAGE:p.265		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:13500
-Waxen image								KEY:Waxen image							WT:.5	SOURCEPAGE:p.265		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:500
+# Equipment Name						Unique Key								Type									Cost		Weight	Source Page
+Animal divining pot					KEY:Animal divining pot						TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:1400	WT:5		SOURCEPAGE:p.256
+Candle of spirit protection				KEY:Candle of spirit protection				TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:1500	WT:1		SOURCEPAGE:p.256
+Dreamcatcher						KEY:Dreamcatcher							TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:2800	WT:2		SOURCEPAGE:p.257
+False coin							KEY:False coin							TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:375	WT:0		SOURCEPAGE:p.257
+Flying skiff						KEY:Flying skiff							TYPE:Magic.Wondrous Item.Greater Major Wondrous Item	COST:180000	WT:2500	SOURCEPAGE:p.257
+Flying sled							KEY:Flying sled							TYPE:Magic.Wondrous Item.Greater Major Wondrous Item	COST:80000	WT:100	SOURCEPAGE:p.257
+Four-leaf clover						KEY:Four-leaf clover						TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:3750	WT:0		SOURCEPAGE:p.258
+Ganji doll							KEY:Ganji doll							TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:16000	WT:.5		SOURCEPAGE:p.258
+Ganji doll, greater					KEY:Ganji doll (Greater)					TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item	COST:36000	WT:.5		SOURCEPAGE:p.258
+Ghost powder						KEY:Ghost powder							TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:1400	WT:.5		SOURCEPAGE:p.258
+Incense of corporeality					KEY:Incense of corporeality					TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:1400	WT:.5		SOURCEPAGE:p.259
+Incense of open thoughts				KEY:Incense of open thoughts					TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:2800	WT:1		SOURCEPAGE:p.259
+Indomitable jewel						KEY:Indomitable jewel						TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:12000	WT:1		SOURCEPAGE:p.259
+Kineticist's diadem					KEY:Kineticist's diadem						TYPE:Magic.Wondrous Item.Greater Major Wondrous Item	COST:50000	WT:0		SOURCEPAGE:p.259
+Kineticist's diadem, greater				KEY:Kineticist's diadem (Greater)				TYPE:Magic.Wondrous Item.Greater Major Wondrous Item	COST:98000	WT:0		SOURCEPAGE:p.259
+Kineticist's diadem, lesser				KEY:Kineticist's diadem (Lesser)				TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item	COST:18000	WT:0		SOURCEPAGE:p.259
+Lithomancy stones						KEY:Lithomancy stones						TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:12000	WT:2		SOURCEPAGE:p.260
+Lucky horseshoe						KEY:Lucky horseshoe						TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item	COST:6800	WT:2		SOURCEPAGE:p.260
+Lucky horseshoe, communal				KEY:Lucky horseshoe (Communal)				TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:15000	WT:2		SOURCEPAGE:p.260
+Magic talking board					KEY:Magic talking board						TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item	COST:20000	WT:2		SOURCEPAGE:p.260
+Mask of the mesmerist					KEY:Mask of the mesmerist					TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item	COST:25000	WT:4		SOURCEPAGE:p.261
+Orgone accumulator					KEY:Orgone accumulator						TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item	COST:48000	WT:150	SOURCEPAGE:p.261
+Sensory deprivation hood				KEY:Sensory deprivation hood					TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item	COST:27500	WT:5		SOURCEPAGE:p.261
+Shrunken head						KEY:Shrunken head							TYPE:Magic.Wondrous Item.Greater Major Wondrous Item	COST:90000	WT:1		SOURCEPAGE:p.262
+Soultheft glass						KEY:Soultheft glass						TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item	COST:33000	WT:1		SOURCEPAGE:p.262
+Spirit mirror						KEY:Spirit mirror							TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item	COST:18900	WT:4		SOURCEPAGE:p.262
+Spirit revivification incense				KEY:Spirit revivification incense				TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:800	WT:0		SOURCEPAGE:p.263
+Spirit slate						KEY:Spirit slate							TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:12000	WT:2		SOURCEPAGE:p.263
+Talisman of arrow protection, greater		KEY:Talisman of arrow protection (Greater)		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item	COST:6000	WT:1		SOURCEPAGE:p.264
+Talisman of arrow protection, lesser		KEY:Talisman of arrow protection (Lesser)			TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:600	WT:1		SOURCEPAGE:p.264
+Talisman of beneficial winds, greater		KEY:Talisman of beneficial winds (Greater)		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:500	WT:1		SOURCEPAGE:p.264
+Talisman of beneficial winds, lesser		KEY:Talisman of beneficial winds (Lesser)			TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:50	WT:1		SOURCEPAGE:p.264
+Talisman of danger sense, greater			KEY:Talisman of danger sense (Greater)			TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item	COST:7500	WT:1		SOURCEPAGE:p.264
+Talisman of danger sense, lesser			KEY:Talisman of danger sense (Lesser)			TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:750	WT:1		SOURCEPAGE:p.264
+Talisman of freedom, greater				KEY:Talisman of freedom (Greater)				TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:9000	WT:1		SOURCEPAGE:p.264
+Talisman of freedom, lesser				KEY:Talisman of freedom (Lesser)				TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:900	WT:1		SOURCEPAGE:p.264
+Talisman of good fortune, greater			KEY:Talisman of good fortune (Greater)			TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:16800	WT:1		SOURCEPAGE:p.264
+Talisman of good fortune, lesser			KEY:Talisman of good fortune (Lesser)			TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:1680	WT:1		SOURCEPAGE:p.264
+Talisman of healing power, greater			KEY:Talisman of healing power (Greater)			TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item	COST:24000	WT:1		SOURCEPAGE:p.264
+Talisman of healing power, lesser			KEY:Talisman of healing power (Lesser)			TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:2400	WT:1		SOURCEPAGE:p.264
+Talisman of life's breath, greater			KEY:Talisman of life's breath (Greater)			TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item	COST:35000	WT:1		SOURCEPAGE:p.264
+Talisman of life's breath, lesser			KEY:Talisman of life's breath (Lesser)			TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:3500	WT:1		SOURCEPAGE:p.264
+Talisman of protection from flames, greater	KEY:Talisman of protection from flames (Greater)	TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:12500	WT:1		SOURCEPAGE:p.264
+Talisman of protection from flames, lesser	KEY:Talisman of protection from flames (Lesser)		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:1250	WT:1		SOURCEPAGE:p.264
+Talisman of sealed summons, greater			KEY:Talisman of sealed summons (Greater)			TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item	COST:4500	WT:1		SOURCEPAGE:p.264
+Talisman of sealed summons, lesser			KEY:Talisman of sealed summons (Lesser)			TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:450	WT:1		SOURCEPAGE:p.264
+Talisman of warrior's courage, greater		KEY:Talisman of warrior's courage (Greater)		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item	COST:4500	WT:1		SOURCEPAGE:p.264
+Talisman of warrior's courage, lesser		KEY:Talisman of warrior's courage (Lesser)		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:450	WT:1		SOURCEPAGE:p.264
+Thaumaturgic powder					KEY:Thaumaturgic powder						TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item	COST:4000	WT:0		SOURCEPAGE:p.264
+Tin cap							KEY:Tin cap								TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:15000	WT:2		SOURCEPAGE:p.265
+Tome of origami animals					KEY:Tome of origami animals					TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item	COST:13500	WT:15		SOURCEPAGE:p.265
+Waxen image							KEY:Waxen image							TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item	COST:500	WT:.5		SOURCEPAGE:p.265
 
 # Cursed
-Haunted Doll							KEY:Haunted Doll							WT:1	SOURCEPAGE:p.265		TYPE:Magic.Wondrous Item.Cursed
-Maniac Hand																	WT:2	SOURCEPAGE:p.266		TYPE:Magic.Wondrous Item.Cursed
-Mirror of Soul Snaring															WT:45	SOURCEPAGE:p.266		TYPE:Magic.Wondrous Item.Cursed
-Monkey's Paw																WT:.5	SOURCEPAGE:p.267		TYPE:Magic.Wondrous Item.Cursed
+Haunted Doll						KEY:Haunted Doll							TYPE:Magic.Wondrous Item.Cursed						WT:1		SOURCEPAGE:p.265
+Maniac Hand																TYPE:Magic.Wondrous Item.Cursed						WT:2		SOURCEPAGE:p.266
+Mirror of Soul Snaring														TYPE:Magic.Wondrous Item.Cursed						WT:45		SOURCEPAGE:p.266
+Monkey's Paw															TYPE:Magic.Wondrous Item.Cursed						WT:.5		SOURCEPAGE:p.267
 
 # Artifact
-Portal Network																WT:64000	SOURCEPAGE:p.267	TYPE:Magic.Artifact
-Primordial Symbol																WT:1	SOURCEPAGE:p.268	TYPE:Magic.Artifact
-Soul Portrait																WT:25	SOURCEPAGE:p.268	TYPE:Magic.Artifact
-Stannum Crown																WT:2	SOURCEPAGE:p.269	TYPE:Magic.Artifact
-Thought Record																WT:2	SOURCEPAGE:p.269	TYPE:Magic.Artifact
-
+Portal Network															TYPE:Magic.Artifact								WT:64000	SOURCEPAGE:p.267
+Primordial Symbol															TYPE:Magic.Artifact								WT:1		SOURCEPAGE:p.268
+Soul Portrait															TYPE:Magic.Artifact								WT:25		SOURCEPAGE:p.268
+Stannum Crown															TYPE:Magic.Artifact								WT:2		SOURCEPAGE:p.269
+Thought Record															TYPE:Magic.Artifact								WT:2		SOURCEPAGE:p.269

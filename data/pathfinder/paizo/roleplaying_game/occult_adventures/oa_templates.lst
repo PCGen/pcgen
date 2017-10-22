@@ -1,5 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 
-SMALL		VISIBLE:NO	SIZE:S
-MEDIUM	VISIBLE:NO	SIZE:M
-LARGE		VISIBLE:NO	SIZE:L
+# Template Name	Size		Visible
+SMALL			SIZE:S	VISIBLE:NO
+MEDIUM		SIZE:M	VISIBLE:NO
+LARGE			SIZE:L	VISIBLE:NO

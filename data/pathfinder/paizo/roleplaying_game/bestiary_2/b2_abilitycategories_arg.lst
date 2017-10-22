@@ -1,4 +1,4 @@
-# CVS $Revision: 20126 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 20126 $ $Author: zaister $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: ? and Douglas Limmer
@@ -14,4 +14,4 @@ ABILITYCATEGORY:Sylph Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FR
 ABILITYCATEGORY:Undine Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UndineRacialTrait		PLURAL:Undine Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Grippli Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GrippliRacialTrait		PLURAL:Grippli Racial Traits		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Dhampir Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:DhampirSubrace												DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dhampir Subrace		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:DhampirSubrace								DISPLAYLOCATION:Racial Abilities

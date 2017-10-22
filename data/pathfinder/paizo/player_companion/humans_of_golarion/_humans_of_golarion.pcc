@@ -2,7 +2,7 @@
 CAMPAIGN:Humans of Golarion
 KEY:Humans of Golarion
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
@@ -12,9 +12,9 @@ PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Humans of Golarion
+SOURCELONG:Pathfinder Player Companion: Humans of Golarion
 SOURCESHORT:HoG
-#SOURCEWEB:http://paizo.com/products/xxx
+SOURCEWEB:http://paizo.com/products/btpy8l3k
 SOURCEDATE:2014-08
 ISOGL:YES
 
@@ -22,7 +22,7 @@ COVER:PZO9417_180.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-#URL:Paizo Publishing|http://paizo.com/products/xxx|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy8l3k|Buy this publication from Paizo Publishing!
 #DESC:
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

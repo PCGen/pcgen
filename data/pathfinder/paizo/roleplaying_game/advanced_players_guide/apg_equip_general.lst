@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sun Oct 22 04:08:03 2017 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
@@ -95,7 +95,7 @@ Sextant												TYPE:Goods.Tools													COST:500	WT:2		SOURCEPAGE:p.182
 #Alchemists formula Book - DO NOT DELETE
 Formula Book											TYPE:Goods.Tools.Spellbook			NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3
 Symptom Kit												TYPE:Goods.Tools													COST:25	WT:5		SOURCEPAGE:p.182
-Traveling Spellbook (Blank)									TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.182
+Traveling Spellbook										TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.182
 
 ###Block: Clothing
 # Equipment Name		Output Name				Type							Cost		Weight	Source Page

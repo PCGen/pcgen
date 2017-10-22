@@ -2,7 +2,7 @@
 CAMPAIGN:Cheliax, Empire of Devils
 KEY:Cheliax - Empire of Devils
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
@@ -12,9 +12,9 @@ PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Cheliax, Empire of Devils
+SOURCELONG:Pathfinder Companion: Cheliax, Empire of Devils
 SOURCESHORT:CEOD
-SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca
+SOURCEWEB:http://paizo.com/products/btpy89ca
 SOURCEDATE:2009-08
 ISOGL:YES
 

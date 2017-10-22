@@ -1,7 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- #reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Faiths & Philosophies
 CAMPAIGN:Faiths and Philosophies
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
@@ -10,9 +11,9 @@ SETTING:Pathfinder|Golarion
 PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:http://paizo.com/
-SOURCELONG:Faiths and Philosophies
+SOURCELONG:Pathfinder Player Companion: Faiths & Philosophies
 SOURCESHORT:FAP
-SOURCEWEB:http://paizo.com/products/btpy8yw8?Pathfinder-Player-Companion-Faiths-Philosophies
+SOURCEWEB:http://paizo.com/products/btpy8yw8
 SOURCEDATE:2013-08
 ISOGL:YES
 

@@ -1,7 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEWEB:http://paizo.com/products/btpy9j6p?Pathfinder-Roleplaying-Game-Ultimate-Intrigue	SOURCEDATE:2016-04
 
 # ==============================
 # Social Grace Support
 # ==============================
 
-Artistry		KEY:Social Grace ~ Artistry			CATEGORY:Internal		TYPE:SocialGraceSkillChoice		BONUS:SITUATION|Artistry=In Social Identity|SocialGraceBonus|TYPE=Circumstance
+# Ability Name	Unique Key				Category of Ability	Type					Bonus to Situation
+Artistry		KEY:Social Grace ~ Artistry	CATEGORY:Internal		TYPE:SocialGraceSkillChoice	BONUS:SITUATION|Artistry=In Social Identity|SocialGraceBonus|TYPE=Circumstance

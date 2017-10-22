@@ -1,4 +1,4 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 20121 $ $Author: zaister $ -- Sun Oct 22 01:03:22 2017 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Eric Smith (Maredudd), Stefan Radermacher
 
 # Conditional skills for bard's Versatile Performance ability
@@ -46,8 +46,8 @@ Acrobatics.MOD									BONUS:SITUATION|Acrobatics=Jump|floor((var("MOVE[Walk]")-
 Ride.MOD		DEFINE:RideACP|0	DEFINE:SamuraiMountACP|0	BONUS:SITUATION|Samurai Mount|SamuraiMountACP						BONUS:VAR|RideACP|var("ARMOR.0.ACCHECK")	BONUS:VAR|SamuraiMountACP|RideACP-(RideACP*2)
 #BONUS:SKILLRANK|Samurai Mount|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai	BONUS:SKILL|Samurai Mount|var("SKILL.Ride.MISC")
 ###Block: New Skill
-# Skill Name			Key Stat	Untrained?		Type				Source, Long Desc.		Source, Short Desc.	Source URI																		Source Page		Bonus to skill																						Source Pub. Date
-Profession (Fortune-teller)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP		SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEPAGE:p.103	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=ClassSkill|PRECSKILL:1,Profession (Fortune-teller)|PRESKILL:1,Profession (Fortune-teller)=1	SOURCEDATE:2010-11
+# Skill Name			Key Stat	Untrained?		Type				Source, Long Desc.							Source, Short Desc.	Source URI							Source Pub. Date		Source Page		Bonus to skill
+Profession (Fortune-teller)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCELONG:Pathfinder Player Companion: Inner Sea Primer	SOURCESHORT:ISP		SOURCEWEB:http://paizo.com/products/btpy8hih	SOURCEDATE:2010-11	SOURCEPAGE:p.103	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=ClassSkill|PRECSKILL:1,Profession (Fortune-teller)|PRESKILL:1,Profession (Fortune-teller)=1
 
 ###Block: Skill Focus implementation
 # Skill Name				Key Stat	Untrained?		Type					Var. Must Be Lower			Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to skill
@@ -264,7 +264,7 @@ Intimidate.MOD			SITUATION:Demoralize
 Perception.MOD			SITUATION:At night
 Perception.MOD			SITUATION:Avoid Surprise
 Perception.MOD			SITUATION:Find Secret Doors
-Perception.MOD			SITUATION:See Through Disguise 
+Perception.MOD			SITUATION:See Through Disguise
 Sleight of Hand.MOD		SITUATION:Pick pockets of stunned or disabled victims
 Spellcraft.MOD			SITUATION:Counterspell
 Spellcraft.MOD			SITUATION:Identity magic item

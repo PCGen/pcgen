@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 
 # Name								Dataformat			Required	Selectable		Visible	Displayname						Explanation
@@ -305,7 +305,7 @@ FACTDEF:ABILITY|Summoner_Archetype_ShareSpells			DATAFORMAT:BOOLEAN	REQUIRED:NO	
 
 FACTDEF:ABILITY|Summoner_Archetype_EidolonBaseForm		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Base Form		EXPLANATION:Determines whether the archetype affects - Eidolon Base Form
 FACTDEF:ABILITY|Summoner_Archetype_EidolonType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Type		EXPLANATION:Determines whether the archetype affects - Eidolon Type
-FACTDEF:ABILITY|Summoner_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills		EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Summoner_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
 
 
 FACTDEF:ABILITY|Summoner_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ArmorProficiencies	EXPLANATION:Remove Summoner ArmorProficiencies
@@ -324,7 +324,7 @@ FACTDEF:ABILITY|Summoner_CF_MergeForms				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTA
 
 FACTDEF:ABILITY|Summoner_CF_EidolonBaseForm			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Base Form		EXPLANATION:Determines whether the archetype affects - Eidolon Base Form
 FACTDEF:ABILITY|Summoner_CF_EidolonType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Type		EXPLANATION:Determines whether the archetype affects - Eidolon Type
-FACTDEF:ABILITY|Summoner_CF_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills		EXPLANATION:Remove Summoner ClassSkills
+FACTDEF:ABILITY|Summoner_CF_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Remove Summoner ClassSkills
 
 
 FACTDEF:ABILITY|Summoner_CF_GreaterAspect				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:GreaterAspect		EXPLANATION:Remove Summoner GreaterAspect

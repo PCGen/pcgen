@@ -1,7 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Updated Background Skills
-# Skill Name					Type
+# Skill Name					Type			Source, Long Desc.			Source, Short Desc.	Source Page
 Appraise.MOD					TYPE:Background
 Handle Animal.MOD					TYPE:Background
 Knowledge (engineering).MOD			TYPE:Background
@@ -14,7 +14,7 @@ Sleight of Hand.MOD				TYPE:Background
 Craft (Alchemy).MOD				TYPE:Background
 Craft (Armor).MOD					TYPE:Background
 Craft (Baskets).MOD				TYPE:Background
-Craft (Blacksmithing).MOD			TYPE:Background	SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEPAGE:p.51
+Craft (Blacksmithing).MOD			TYPE:Background	SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU		SOURCEPAGE:p.51
 Craft (Books).MOD					TYPE:Background
 Craft (Bows).MOD					TYPE:Background
 Craft (Calligraphy).MOD				TYPE:Background

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
 # Original Entry by: Paul Shipley (elro the onk)
 
@@ -15,7 +15,7 @@ CLASS:Cleric.MOD
 
 ###Block: Summoner ~ First Worlder
 
-# Class Name		Output Name			Hit Dice	Type				Max Level		Source Page		Ability					Define			Combat bonus																	Save bonus																																																	Modify VAR																																																																FACT
+# Class Name		Output Name			Hit Dice	Type				Max Level		Source Page		Ability					Define			Combat bonus																	Save bonus																																																	Modify VAR																																																																FACT:ClassType
 CLASS:Eidolon (Fey)	OUTPUTNAME:Eidolon	HD:6		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.35	ABILITY:FEAT|AUTOMATIC|CMB Output	DEFINE:EidolonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EidolonLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|Companion
 # Class Name		Reg. Race Type
 CLASS:Eidolon (Fey)	PRERACETYPE:Eidolon
@@ -58,8 +58,8 @@ SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Fea
 
 ###Block: Cyphermage
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																				Modify VAR																																																																	FACT
-CLASS:Cyphermage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	DEFINE:CyphermageLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|CyphermageLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Cyp
+# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus																	Save bonus																																				Modify VAR																																																																	FACT:ClassType
+CLASS:Cyphermage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	FACT:Abb|Cyp	MAXLEVEL:10	SOURCEPAGE:p.44	DEFINE:CyphermageLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|CyphermageLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC
 # Class Name	Required Ability							Required Language				Required Skill										Required Casting Type
 CLASS:Cyphermage	PREABILITY:2,CATEGORY=FEAT,Cypher Magic,Scribe Scroll	PRELANG:2,Thassilonian,Varisian	PRESKILL:3,Knowledge (Arcana)=5,Knowledge (History)=5,Linguistics=5	PRESPELLCAST:TYPE=Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -82,8 +82,8 @@ CLASS:Cyphermage	STARTSKILLPTS:4	CSKILL:Appraise|Climb|Disable Device|Fly|TYPE=K
 
 ###Block: Divine Scion
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																				Modify VAR																																																																		FACT
-CLASS:Divine Scion	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.46	DEFINE:DivineScionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DivineScionLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|DSc
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus																	Save bonus																																				Modify VAR																																																																		FACT:ClassType
+CLASS:Divine Scion	HD:8		TYPE:PC.Prestige	FACT:Abb|DSc	MAXLEVEL:10	SOURCEPAGE:p.46	DEFINE:DivineScionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DivineScionLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC
 # Class Name		Required Ability							Required AL		Required Deity	Required Skill										Required Casting Type
 CLASS:Divine Scion	PREABILITY:2,CATEGORY=FEAT,Iron Will,Weapon Focus	PREALIGN:Deity	PREDEITY:1,Y	PRESKILL:3,Knowledge (Planes)=5,Knowledge (Religion)=5,Spellcraft=5	PRESPELLCAST:TYPE=Divine
 # Class Name		Skill Pts/Lvl	Class Skill

@@ -1,5 +1,5 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Oct 20 19:33:19 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 
-# Modifier Name	Type		Plus		Visible		Source Page		Required Type		Special Property
-Pitfall		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.27	PRETYPE:1,Enhancement	SPROP:When holding a pitfall weapon, apply the weapon's enhancement bonus to your initiative checks, Reflex saves made to avoid traps, and AC against attacks made by traps.
+# Modifier Name	Unique Key			Type		Plus		Visible		Source Page		Required Type						Special Property
+Pitfall		KEY:MELEE_SA_PITFALL	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.27	PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee	SPROP:When holding a pitfall weapon, apply the weapon's enhancement bonus to your initiative checks, Reflex saves made to avoid traps, and AC against attacks made by traps.

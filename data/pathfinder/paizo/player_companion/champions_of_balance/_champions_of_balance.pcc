@@ -1,20 +1,20 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Champions of Balance
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
-PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
+#PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Champions of Balance
+SOURCELONG:Pathfinder Player Companion: Champions of Balance
 SOURCESHORT:COB
-SOURCEWEB:http://paizo.com/products/btpy93nc?Pathfinder-Player-Companion-Champions-of-Balance
+SOURCEWEB:http://paizo.com/products/btpy93nc
 SOURCEDATE:2014-03
 ISOGL:YES
 
@@ -33,6 +33,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Champions o
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+
+DEITY:support/cob_deities_deg.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
 
 ABILITY:cob_abilities.lst
 ABILITY:cob_abilities_class.lst

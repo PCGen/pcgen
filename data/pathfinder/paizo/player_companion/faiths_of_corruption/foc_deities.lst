@@ -1,9 +1,9 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc?Pathfinder-Player-Companion-Faiths-of-Corruption	SOURCEDATE:2011-10
+# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Oct 17 19:43:58 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc	SOURCEDATE:2011-10
 # Original Entry by: Stefan Radermacher
 
 ###Block: Minor Deities
-# Deity Name	Product Identity?	Domains											Description of Deity/Title						FACTSET						Deity Weapon			Align		Source Page
+# Deity Name	Product Identity?	Domains											Description of Deity/Title						Pantheon						Deity Weapon			Align		Source Page
 Achaekek		NAMEISPI:YES	DOMAINS:Death,Evil,Law,Trickery,War|PREALIGN:LN,LE,NE				DESC:God of The Red Mantis, assassination				FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Sawtooth Sabre	ALIGN:LE	SOURCEPAGE:p.16
 Dahak			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Scalykind,Trickery|PREALIGN:NE,CN,CE	DESC:God of destruction, evil dragons, greed, treachery	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Bite|Whip		ALIGN:CE	SOURCEPAGE:p.17
 Ghlaunder		NAMEISPI:YES	DOMAINS:Air,Animal,Chaos,Destruction,Evil|PREALIGN:NE,CN,CE			DESC:God of parasites, infection, stagnation			FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.19
@@ -13,7 +13,7 @@ Ydersius		NAMEISPI:YES	DOMAINS:Chaos,Evil,Nobility,Scalykind,War|PREALIGN:NE,CN,
 Zyphus		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Plant,War|PREALIGN:TN,LE,NE,CE		DESC:God of accidental death, graveyards, tragedy		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Pick (Heavy)		ALIGN:NE	SOURCEPAGE:p.21
 
 ###Block: Archdevils
-# Deity Name	Product Identity?	Domains								Description of Deity/Title					FACTSET				Deity Weapon		Align		Source Page
+# Deity Name	Product Identity?	Domains								Description of Deity/Title					Pantheon				Deity Weapon		Align		Source Page
 Baalzebul		NAMEISPI:YES	DOMAINS:Air,Death,Evil,Law|PREALIGN:LN,LE,NE		DESC:Devil lord arrogance, flies, lies			FACTSET:Pantheon|Archdevils	DEITYWEAP:Spear		ALIGN:LE	SOURCEPAGE:p.16
 Barbatos		NAMEISPI:YES	DOMAINS:Evil,Law,Magic,Travel|PREALIGN:LN,LE,NE		DESC:Devil lord of animals, corruption, gateways	FACTSET:Pantheon|Archdevils	DEITYWEAP:Quarterstaff	ALIGN:LE	SOURCEPAGE:p.16
 Belial		NAMEISPI:YES	DOMAINS:Charm,Destruction,Evil,Law|PREALIGN:LN,LE,NE	DESC:Devil lord of adultery, deception, desire		FACTSET:Pantheon|Archdevils	DEITYWEAP:Ranseur		ALIGN:LE	SOURCEPAGE:p.16
@@ -24,7 +24,7 @@ Mephistopheles	NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Rune|PREALIGN:LN,LE,NE	DE
 Moloch		NAMEISPI:YES	DOMAINS:Evil,Fire,Law,War|PREALIGN:LN,LE,NE		DESC:Devil lord of fire, obedience, war			FACTSET:Pantheon|Archdevils	DEITYWEAP:Whip		ALIGN:LE	SOURCEPAGE:p.17
 
 ###Block: Demon Lords
-# Deity Name	Product Identity?	Domains									Description of Deity/Title					FACTSET				Deity Weapon			Align		Source Page
+# Deity Name	Product Identity?	Domains									Description of Deity/Title					Pantheon				Deity Weapon			Align		Source Page
 Abraxas		NAMEISPI:YES	DOMAINS:Chaos,Evil,Knowledge,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of forbidden lore, magic, snakes	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.18
 Angazhan		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Plant|PREALIGN:NE,CN,CE		DESC:Demon lord of apes, jungles, tyrants			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.18
 Baphomet		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Strength|PREALIGN:NE,CN,CE		DESC:Demon lord of beasts, labyrinths, minotaurs	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Glaive			ALIGN:CE	SOURCEPAGE:p.18
@@ -41,21 +41,21 @@ Socothbenoth	NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Travel|PREALIGN:NE,CN,CE		DES
 Zura			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:NE,CN,CE		DESC:Demon lord of blood, cannibalism, vampires		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Rapier			ALIGN:CE	SOURCEPAGE:p.19
 
 ###Block: Elemental Lords
-# Deity Name	Product Identity?	Domains									Description of Deity/Title	FACTSET					Deity Weapon		Align		Source Page
+# Deity Name	Product Identity?	Domains									Description of Deity/Title	Pantheon					Deity Weapon		Align		Source Page
 Ayrzul		NAMEISPI:YES	DOMAINS:Destruction,Earth,Strength|PREALIGN:TN,LE,NE,CE	DESC:Elemental lord of earth	FACTSET:Pantheon|Elemental Lords	DEITYWEAP:Morningstar	ALIGN:NE	SOURCEPAGE:p.19
 Hshurha		NAMEISPI:YES	DOMAINS:Air,Destruction,Weather|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of air	FACTSET:Pantheon|Elemental Lords	DEITYWEAP:Longbow		ALIGN:NE	SOURCEPAGE:p.19
 Kelizandri		NAMEISPI:YES	DOMAINS:Destruction,Travel,Water|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of water	FACTSET:Pantheon|Elemental Lords	DEITYWEAP:Trident		ALIGN:NE	SOURCEPAGE:p.19
 Ymeri			NAMEISPI:YES	DOMAINS:Destruction,Fire,War|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of fire	FACTSET:Pantheon|Elemental Lords	DEITYWEAP:Longsword	ALIGN:NE	SOURCEPAGE:p.19
 
 ###Block: Horsemen
-# Deity Name	Product Identity?	Domains									Description of Deity/Title	FACTSET				Deity Weapon			Align		Source Page
+# Deity Name	Product Identity?	Domains									Description of Deity/Title	Pantheon				Deity Weapon			Align		Source Page
 Apollyon		NAMEISPI:YES	DOMAINS:Air,Darkness,Destruction,Evil|PREALIGN:TN,LE,NE,CE	DESC:Horseman of Pestilence	FACTSET:Pantheon|Horsemen	DEITYWEAP:Scythe			ALIGN:NE	SOURCEPAGE:p.19
 Charon		NAMEISPI:YES	DOMAINS:Death,Evil,Knowledge,Water|PREALIGN:TN,LE,NE,CE	DESC:Horseman of Death		FACTSET:Pantheon|Horsemen	DEITYWEAP:Quarterstaff		ALIGN:NE	SOURCEPAGE:p.19
 Szuriel		NAMEISPI:YES	DOMAINS:Evil,Fire,Strength,War|PREALIGN:TN,LE,NE,CE		DESC:Horseman of War		FACTSET:Pantheon|Horsemen	DEITYWEAP:Greatsword		ALIGN:NE	SOURCEPAGE:p.19
 Trelmarixian	NAMEISPI:YES	DOMAINS:Earth,Evil,Madness,Weather|PREALIGN:TN,LE,NE,CE	DESC:Horseman of Famine		FACTSET:Pantheon|Horsemen	DEITYWEAP:Gauntlet (Spiked)	ALIGN:NE	SOURCEPAGE:p.19
 
 ###Block: Great Old Ones
-# Deity Name	Product Identity?	Domains										FACTSET							Deity Weapon		Align		Source Page
+# Deity Name	Product Identity?	Domains										Pantheon							Deity Weapon		Align		Source Page
 Great Old Ones	NAMEISPI:YES	DOMAINS:Chaos,Knowledge,Madness,Rune,Void|PREALIGN:CG,TN,CN,CE	FACTSET:Pantheon|Great Old Ones & Outer Gods	DEITYWEAP:Dagger		ALIGN:CN	SOURCEPAGE:p.20
 Azathoth		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Madness,Sun,Void|PREALIGN:CG,TN,CN,CE	FACTSET:Pantheon|Great Old Ones & Outer Gods	DEITYWEAP:Warhammer	ALIGN:CN	SOURCEPAGE:p.20
 Bokrug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Water,Weather|PREALIGN:CG,TN,CN,CE	FACTSET:Pantheon|Great Old Ones & Outer Gods	DEITYWEAP:Ranseur		ALIGN:CN	SOURCEPAGE:p.20
