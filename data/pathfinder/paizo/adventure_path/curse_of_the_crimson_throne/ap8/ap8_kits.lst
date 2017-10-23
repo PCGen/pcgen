@@ -429,7 +429,7 @@ RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
 NAME:Ramoska Arkminos
 STAT:STR=8|DEX=12|CON=10|WIS=14|INT=17|CHA=13
-TEMPLATE:Nosferatu
+TEMPLATE:Nosferatu ~ Humanoid
 CLASS:Wizard	LEVEL:8	SUBCLASS:Universalist
 ABILITY:CATEGORY=Favored Class|Wizard
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
@@ -459,8 +459,8 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Persuasive
 ABILITY:CATEGORY=FEAT|Spell Focus (Enchantment)
 ABILITY:CATEGORY=FEAT|Greater Spell Focus (Enchantment)
-ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Craft (Alchemy))
-ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Heal)
+ABILITY:CATEGORY=Skill Focus|Skill Focus(Craft (Alchemy))
+ABILITY:CATEGORY=Skill Focus|Skill Focus(Heal)
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
 GEAR:Wand						LOCATION:Equipped	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
