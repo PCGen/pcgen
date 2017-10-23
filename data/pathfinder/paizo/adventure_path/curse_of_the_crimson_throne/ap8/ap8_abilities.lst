@@ -19,6 +19,9 @@ Spider Climb		KEY:Nosferatu Spider Climb		CATEGORY:Special Ability	TYPE:SpecialQ
 Swarm Form			KEY:Nosferatu Swarm Form		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:As a standard action, a nosferatu can change into a bat swarm, centipede swarm, rat swarm, or spider swarm. The nosferatu gains the natural weapons and extraordinary special attacks of the swarm it has transformed into. The swarm has the same number of hit points as the nosferatu. While in swarm form, a nosferatu can't use its claw attacks or any of its special attacks. It retains the defensive abilities, weaknesses, and special qualities it gains from being a nosferatu, counts as an undead creature, and can use any of the swarm's abilities and defenses. It can remain in swarm form until it assumes another form or until the next sunrise.	SOURCEPAGE:p.269
 Telepathy			KEY:Nosferatu Telepathy			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:A nosferatu can communicate telepathically with any creature within 60 feet that speaks the same language it does. In addition, a nosferatu can use this ability to communicate with any animal, magical beast, or vermin.																																																																								SOURCEPAGE:p.269
 
+Nosferatu ~ Humanoid			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Nosferatu ~ Humanoid			
+Nosferatu ~ Monstrous Humanoid	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Nosferatu ~ Monstrous Humanoid	
+
 #
 # End
 #
