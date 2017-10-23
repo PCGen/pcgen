@@ -429,7 +429,7 @@ RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
 NAME:Ramoska Arkminos
 STAT:STR=8|DEX=12|CON=10|WIS=14|INT=17|CHA=13
-TEMPLATE:Nosferatu ~ Humanoid
+TEMPLATE:Nosferatu
 CLASS:Wizard	LEVEL:8	SUBCLASS:Universalist
 ABILITY:CATEGORY=Favored Class|Wizard
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
