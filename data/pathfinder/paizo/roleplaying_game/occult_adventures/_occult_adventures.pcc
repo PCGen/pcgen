@@ -63,7 +63,8 @@ SPELL:support/oa_spells_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 ABILITY:support/oa_feats_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 SPELL:support/oa_spells_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 SPELL:support/oa_spells_ma.lst|PRECAMPAIGN:1,INCLUDES=Mythic Adventures
-SPELL:support/oa_spells_mc.lst|PRECAMPAIGN:1,INCLUDES=Monster Codex
+# TODO: If Monster Codex is created, enable this.
+#SPELL:support/oa_spells_mc.lst|PRECAMPAIGN:1,INCLUDES=Monster Codex
 
 # Needed for a Medium archetype
 ABILITY:support/oa_abilities_race_b3.lst|!PRECAMPAIGN:1,INCLUDES=Bestiary 3

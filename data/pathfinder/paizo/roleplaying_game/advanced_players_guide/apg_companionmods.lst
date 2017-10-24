@@ -35,7 +35,9 @@ FOLLOWER:EidolonAspect=2		TYPE:Eidolon																			BONUS:ABILITYPOOL|Eidol
 FOLLOWER:EidolonAspect=3		TYPE:Eidolon																			BONUS:ABILITYPOOL|Eidolon Evolution|-1
 
 # Base Eidolon
-FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon															DEFINE:MasterLevel|0																							BONUS:VAR|MasterLevel|mastervar("EidolonCompanionLVL")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon															DEFINE:MasterLevel|0																							BONUS:VAR|MasterLevel|mastervar("EidolonCompanionLVL")		DEFINE:EidolonDisableSkillPointProgression|0	BONUS:VAR|EidolonDisableSkillPointProgression|mastervar("EidolonDisableSkillPointProgression")	
+
+
 
 ###Block - HD Progression
 # Class of the Master			Type			Hit Dice
