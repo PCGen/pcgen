@@ -6,13 +6,13 @@ SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHOR
 # For the offical Pathfinder RPG version of the mantis mask, use the mask of the mantis from the Pathfinder Campaign Setting: Inner Sea World Guide dataset.
 
 # Equipment Name			Type					Cost		Weight	Source Page
-Elixir of Shadewalking		TYPE:Magic.Potion.Consumable	COST:3500	WT:1		SOURCEPAGE:p.19
-Shoanti War Paint (Black)	TYPE:Magic.Potion.Consumable	COST:1800	WT:0		SOURCEPAGE:p.14
-Shoanti War Paint (Blue)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
-Shoanti War Paint (Green)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
-Shoanti War Paint (Orange)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
-Shoanti War Paint (Red)		TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
-Shoanti War Paint (Silver)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
-Shoanti War Paint (White)	TYPE:Magic.Potion.Consumable	COST:1800	WT:0		SOURCEPAGE:p.14
-Shoanti War Paint (Yellow)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
-Bone House				TYPE:Artifact			COST:0	WT:2		SOURCEPAGE:p.21
+Elixir of Shadewalking		TYPE:Magic.Wondrous.Consumable	COST:3500	WT:1		SOURCEPAGE:p.19
+Shoanti War Paint (Black)	TYPE:Magic.Wondrous.Consumable	COST:1800	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Blue)	TYPE:Magic.Wondrous.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Green)	TYPE:Magic.Wondrous.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Orange)	TYPE:Magic.Wondrous.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Red)		TYPE:Magic.Wondrous.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Silver)	TYPE:Magic.Wondrous.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (White)	TYPE:Magic.Wondrous.Consumable	COST:1800	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Yellow)	TYPE:Magic.Wondrous.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Bone House				TYPE:Magic.Artifact			COST:0	WT:2		SOURCEPAGE:p.21
