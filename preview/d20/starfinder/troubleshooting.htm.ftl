@@ -458,6 +458,26 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
+
+<#if (pcvar('count("ABILITIES","CATEGORY=Class Feature")') != 0)>
+<b>Class Feature</b>
+</#if>
+<blockquote>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Class Feature")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITYALL.Class Feature.${ability}.KEY')}</b> [<i>${pcstring('ABILITYALL.Class Feature.${ability}.SOURCE')}</i>]<br>
+</@loop>
+</blockquote>
+
+<#if (pcvar('count("ABILITIES","CATEGORY=Proficiency")') != 0)>
+<b>Proficiency</b>
+</#if>
+<blockquote>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Proficiency")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITYALL.Proficiency.${ability}.KEY')}</b> [<i>${pcstring('ABILITYALL.Proficiency.${ability}.SOURCE')}</i>]<br>
+</@loop>
+</blockquote>
+
+
 <#if (pcvar('count("ABILITIES","CATEGORY=Natural Attack")') != 0)>
 <b>Natural Attack Abilities</b>
 </#if>
