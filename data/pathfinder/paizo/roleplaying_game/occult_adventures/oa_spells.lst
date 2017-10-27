@@ -1981,3 +1981,11 @@ wish.MOD		CLASSES:Psychic=9
 #terraform.MOD		CLASSES:Psychic=7
 #ascension.MOD		CLASSES:Psychic=9
 #spell immunity (greater communal).MOD		CLASSES:Psychic=9
+
+# Monster Codex Support:
+#Mesmerist 2
+# Spell Name		Type			Classes of caster
+#Blood in the Water.MOD	TYPE:Psychic	CLASSES:Mesmerist=2
+
+#Mesmerist 3
+#Isolate.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
