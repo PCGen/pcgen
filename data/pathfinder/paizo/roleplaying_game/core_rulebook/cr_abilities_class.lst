@@ -922,7 +922,7 @@ CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																													
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryBABBonus|FlurryLVL-MonkBAB
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryLVL|MonkLVL
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|MonkBAB|MonkLVL*3/4
-CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryAttacks|2+(MonkLVL>=6)+(MonkLVL>=8)+(MonkLVL>=11)+(MonkLVL>=15)+(MonkLVL>=16)
+CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryAttacks|2+(FlurryLVL>=6)+(FlurryLVL>=8)+(FlurryLVL>=11)+(FlurryLVL>=15)+(FlurryLVL>=16)
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB|-1+(FlurryLVL>=5)+(FlurryLVL>=9)+(FlurryLVL>=18)
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB_1|FAB
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB_2|FAB
