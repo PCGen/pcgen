@@ -2035,6 +2035,8 @@ Wind Stance						KEY:Wind Stance						CATEGORY:Crossblooded Sorcerer	TYPE:Crossb
 Skill Focus						KEY:Skill Focus ~ Perform				CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatSkillFocusPerform																																																																	MULT:YES	CHOOSE:SKILL|TYPE=Perform	ABILITY:FEAT|AUTOMATIC|Skill Focus (%LIST)
 Skill Focus						KEY:Skill Focus ~ Craft					CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatSkillFocusCraft																																																																	MULT:YES	CHOOSE:SKILL|TYPE=Craft		ABILITY:FEAT|AUTOMATIC|Skill Focus (%LIST)
 
+Craft Construct					KEY:Craft Construct					CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatCraftConstruct			ABILITY:FEAT|AUTOMATIC|Craft Construct			
+Craft Magic Arms and Armor			KEY:Craft Magic Arms and Armor			CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatCraftMagicArmsandArmor		ABILITY:FEAT|AUTOMATIC|Craft Magic Arms and Armor	
 
 ###Block: Crossblooded power choices
 
