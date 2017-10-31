@@ -206,7 +206,7 @@ Power Attack (Natural Primary - Single)	CATEGORY:FEAT		VISIBLE:NO															
 #Arcane Strike.MOD					BONUS:VAR|ArcaneStrikeLVL|min((1+(charbonusto("CASTERLEVEL","Wizard")+var("BL=Wizard")+charbonusto("CASTERLEVEL","Sorcerer")+var("BL=Sorcerer")+charbonusto("CASTERLEVEL","Bard")+var("BL=Bard")+charbonusto("CASTERLEVEL","Summoner")+var("BL=Summoner")+charbonusto("CASTERLEVEL","Witch")+var("BL=Witch")+charbonusto("CASTERLEVEL","Magus")+var("BL=Magus"))/5),5)
 CATEGORY=FEAT|Arcane Strike.MOD							BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Wizard")+var("BL=Wizard")+charbonusto("CASTERLEVEL","Sorcerer")+var("BL=Sorcerer")+charbonusto("CASTERLEVEL","Bard")+var("BL=Bard")
 
-###Block: Modified Feats for Sorcerer Bloodlines
+###Block: Modified Feats for Sorcerer Bloodlines -Converted to new system
 # Ability Name					Type
 CATEGORY=FEAT|Arcane Strike.MOD		TYPE:DestinedBloodline
 CATEGORY=FEAT|Augment Summoning.MOD		TYPE:AbyssalBloodline

@@ -427,3 +427,104 @@ Pink and green Sphere		KEY:Ioun Stone / Pink and green Sphere		CATEGORY:Special 
 Pink Rhomboid			KEY:Ioun Stone / Pink Rhomboid			CATEGORY:Special Ability	TYPE:Ioun Stone.Equipment.Pink Rhomboid.Ioun														STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:STAT|CON|2|TYPE=Enhancement							SOURCEPAGE:p.520
 Scarlet and blue Sphere		KEY:Ioun Stone / Scarlet and blue Sphere		CATEGORY:Special Ability	TYPE:Ioun Stone.Equipment.Scarlet and blue Sphere.Ioun												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:STAT|INT|2|TYPE=Enhancement							SOURCEPAGE:p.520
 Vibrant purple Prism		KEY:Ioun Stone / Vibrant purple Prism		CATEGORY:Special Ability	TYPE:Ioun Stone.Equipment.Vibrant purple.Ioun			DESC:Stores three levels of spells, as a ring of spell storing	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																							SOURCEPAGE:p.520
+
+
+# CLASS SKILL GRANTS:
+Acrobatics					CATEGORY:Class Skill	CSKILL:Acrobatics					
+Appraise					CATEGORY:Class Skill	CSKILL:Appraise					
+Bluff						CATEGORY:Class Skill	CSKILL:Bluff						
+Climb						CATEGORY:Class Skill	CSKILL:Climb						
+Craft (Alchemy)				CATEGORY:Class Skill	CSKILL:Craft (Alchemy)				
+Craft (Armor)				CATEGORY:Class Skill	CSKILL:Craft (Armor)				
+Craft (Baskets)				CATEGORY:Class Skill	CSKILL:Craft (Baskets)				
+Craft (Blacksmithing)			CATEGORY:Class Skill	CSKILL:Craft (Blacksmithing)			
+Craft (Books)				CATEGORY:Class Skill	CSKILL:Craft (Books)				
+Craft (Bows)				CATEGORY:Class Skill	CSKILL:Craft (Bows)				
+Craft (Calligraphy)			CATEGORY:Class Skill	CSKILL:Craft (Calligraphy)			
+Craft (Carpentry)				CATEGORY:Class Skill	CSKILL:Craft (Carpentry)				
+Craft (Cloth)				CATEGORY:Class Skill	CSKILL:Craft (Cloth)				
+Craft (Clothing)				CATEGORY:Class Skill	CSKILL:Craft (Clothing)				
+Craft (Gemcutting)			CATEGORY:Class Skill	CSKILL:Craft (Gemcutting)			
+Craft (Glass)				CATEGORY:Class Skill	CSKILL:Craft (Glass)				
+Craft (Jewelry)				CATEGORY:Class Skill	CSKILL:Craft (Jewelry)				
+Craft (Leather)				CATEGORY:Class Skill	CSKILL:Craft (Leather)				
+Craft (Locks)				CATEGORY:Class Skill	CSKILL:Craft (Locks)				
+Craft (Paintings)				CATEGORY:Class Skill	CSKILL:Craft (Paintings)				
+Craft (Pottery)				CATEGORY:Class Skill	CSKILL:Craft (Pottery)				
+Craft (Sculptures)			CATEGORY:Class Skill	CSKILL:Craft (Sculptures)			
+Craft (Ships)				CATEGORY:Class Skill	CSKILL:Craft (Ships)				
+Craft (Shoes)				CATEGORY:Class Skill	CSKILL:Craft (Shoes)				
+Craft (Stonemasonry)			CATEGORY:Class Skill	CSKILL:Craft (Stonemasonry)			
+Craft (Traps)				CATEGORY:Class Skill	CSKILL:Craft (Traps)				
+Craft (Weapons)				CATEGORY:Class Skill	CSKILL:Craft (Weapons)				
+Craft (Untrained)				CATEGORY:Class Skill	CSKILL:Craft (Untrained)				
+Diplomacy					CATEGORY:Class Skill	CSKILL:Diplomacy					
+Disable Device				CATEGORY:Class Skill	CSKILL:Disable Device				
+Disguise					CATEGORY:Class Skill	CSKILL:Disguise					
+Escape Artist				CATEGORY:Class Skill	CSKILL:Escape Artist				
+Fly						CATEGORY:Class Skill	CSKILL:Fly						
+Handle Animal				CATEGORY:Class Skill	CSKILL:Handle Animal				
+Heal						CATEGORY:Class Skill	CSKILL:Heal						
+Intimidate					CATEGORY:Class Skill	CSKILL:Intimidate					
+Knowledge (Arcana)			CATEGORY:Class Skill	CSKILL:Knowledge (Arcana)			
+Knowledge (Dungeoneering)		CATEGORY:Class Skill	CSKILL:Knowledge (Dungeoneering)		
+Knowledge (Engineering)			CATEGORY:Class Skill	CSKILL:Knowledge (Engineering)			
+Knowledge (Geography)			CATEGORY:Class Skill	CSKILL:Knowledge (Geography)			
+Knowledge (History)			CATEGORY:Class Skill	CSKILL:Knowledge (History)			
+Knowledge (Local)				CATEGORY:Class Skill	CSKILL:Knowledge (Local)				
+Knowledge (Nature)			CATEGORY:Class Skill	CSKILL:Knowledge (Nature)			
+Knowledge (Nobility)			CATEGORY:Class Skill	CSKILL:Knowledge (Nobility)			
+Knowledge (Planes)			CATEGORY:Class Skill	CSKILL:Knowledge (Planes)			
+Knowledge (Religion)			CATEGORY:Class Skill	CSKILL:Knowledge (Religion)			
+Knowledge (Untrained)			CATEGORY:Class Skill	CSKILL:Knowledge (Untrained)			
+Linguistics					CATEGORY:Class Skill	CSKILL:Linguistics					
+Perception					CATEGORY:Class Skill	CSKILL:Perception					
+Perform (Act)				CATEGORY:Class Skill	CSKILL:Perform (Act)				
+Perform (Comedy)				CATEGORY:Class Skill	CSKILL:Perform (Comedy)				
+Perform (Dance)				CATEGORY:Class Skill	CSKILL:Perform (Dance)				
+Perform (Keyboard Instruments)	CATEGORY:Class Skill	CSKILL:Perform (Keyboard Instruments)	
+Perform (Oratory)				CATEGORY:Class Skill	CSKILL:Perform (Oratory)				
+Perform (Percussion Instruments)	CATEGORY:Class Skill	CSKILL:Perform (Percussion Instruments)	
+Perform (Sing)				CATEGORY:Class Skill	CSKILL:Perform (Sing)				
+Perform (String Instruments)		CATEGORY:Class Skill	CSKILL:Perform (String Instruments)		
+Perform (Wind Instruments)		CATEGORY:Class Skill	CSKILL:Perform (Wind Instruments)		
+Perform (Untrained)			CATEGORY:Class Skill	CSKILL:Perform (Untrained)			
+Profession (Architect)			CATEGORY:Class Skill	CSKILL:Profession (Architect)			
+Profession (Baker)			CATEGORY:Class Skill	CSKILL:Profession (Baker)			
+Profession (Barrister)			CATEGORY:Class Skill	CSKILL:Profession (Barrister)			
+Profession (Brewer)			CATEGORY:Class Skill	CSKILL:Profession (Brewer)			
+Profession (Butcher)			CATEGORY:Class Skill	CSKILL:Profession (Butcher)			
+Profession (Clerk)			CATEGORY:Class Skill	CSKILL:Profession (Clerk)			
+Profession (Cook)				CATEGORY:Class Skill	CSKILL:Profession (Cook)				
+Profession (Courtesan)			CATEGORY:Class Skill	CSKILL:Profession (Courtesan)			
+Profession (Driver)			CATEGORY:Class Skill	CSKILL:Profession (Driver)			
+Profession (Engineer)			CATEGORY:Class Skill	CSKILL:Profession (Engineer)			
+Profession (Farmer)			CATEGORY:Class Skill	CSKILL:Profession (Farmer)			
+Profession (Fisherman)			CATEGORY:Class Skill	CSKILL:Profession (Fisherman)			
+Profession (Gambler)			CATEGORY:Class Skill	CSKILL:Profession (Gambler)			
+Profession (Gardener)			CATEGORY:Class Skill	CSKILL:Profession (Gardener)			
+Profession (Herbalist)			CATEGORY:Class Skill	CSKILL:Profession (Herbalist)			
+Profession (Innkeeper)			CATEGORY:Class Skill	CSKILL:Profession (Innkeeper)			
+Profession (Librarian)			CATEGORY:Class Skill	CSKILL:Profession (Librarian)			
+Profession (Merchant)			CATEGORY:Class Skill	CSKILL:Profession (Merchant)			
+Profession (Midwife)			CATEGORY:Class Skill	CSKILL:Profession (Midwife)			
+Profession (Miller)			CATEGORY:Class Skill	CSKILL:Profession (Miller)			
+Profession (Miner)			CATEGORY:Class Skill	CSKILL:Profession (Miner)			
+Profession (Porter)			CATEGORY:Class Skill	CSKILL:Profession (Porter)			
+Profession (Sailor)			CATEGORY:Class Skill	CSKILL:Profession (Sailor)			
+Profession (Scribe)			CATEGORY:Class Skill	CSKILL:Profession (Scribe)			
+Profession (Shepherd)			CATEGORY:Class Skill	CSKILL:Profession (Shepherd)			
+Profession (Soldier)			CATEGORY:Class Skill	CSKILL:Profession (Soldier)			
+Profession (Soothsayer)			CATEGORY:Class Skill	CSKILL:Profession (Soothsayer)			
+Profession (Stable Master)		CATEGORY:Class Skill	CSKILL:Profession (Stable Master)		
+Profession (Tanner)			CATEGORY:Class Skill	CSKILL:Profession (Tanner)			
+Profession (Trapper)			CATEGORY:Class Skill	CSKILL:Profession (Trapper)			
+Profession (Woodcutter)			CATEGORY:Class Skill	CSKILL:Profession (Woodcutter)			
+Ride						CATEGORY:Class Skill	CSKILL:Ride						
+Sense Motive				CATEGORY:Class Skill	CSKILL:Sense Motive				
+Sleight of Hand				CATEGORY:Class Skill	CSKILL:Sleight of Hand				
+Spellcraft					CATEGORY:Class Skill	CSKILL:Spellcraft					
+Stealth					CATEGORY:Class Skill	CSKILL:Stealth					
+Survival					CATEGORY:Class Skill	CSKILL:Survival					
+Swim						CATEGORY:Class Skill	CSKILL:Swim						
+Use Magic Device				CATEGORY:Class Skill	CSKILL:Use Magic Device				
