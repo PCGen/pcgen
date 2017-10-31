@@ -5,6 +5,7 @@
 ###Block: Master Category
 # Ability Category			Visible	Editable?	Change Pool?	Fractional values?	Category of Object
 ABILITYCATEGORY:Special Ability	VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability
+ABILITYCATEGORY:Class Skill		VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Class Skill
 
 ###Block: Racial Ability Categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
@@ -107,6 +108,11 @@ ABILITYCATEGORY:Undead Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 ABILITYCATEGORY:Ranger Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerBonusFeat															PLURAL:Ranger Bonus Feats		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Wizard Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WizardBonus.ItemCreation.Metamagic												PLURAL:Wizard Bonus Feats		DISPLAYLOCATION:Feats
 
+ABILITYCATEGORY:Sorcerer Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SorcererBloodlineFeat								PLURAL:Sorcerer Bloodline Feats	DISPLAYLOCATION:Feats
+
+
+
+
 ###Block: Class Feature Categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object						Plural description for UI			Display Location
 ABILITYCATEGORY:Rage Power					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Rage_Power				CATEGORY:Special Ability	TYPE:RagePower.Rage Power				PLURAL:Rage Powers				DISPLAYLOCATION:Class Features
@@ -127,7 +133,7 @@ ABILITYCATEGORY:Combat Style					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACT
 ABILITYCATEGORY:Hunter's Bond					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:HuntersBond						PLURAL:Hunter's Bond				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Rogue Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RogueTalent						PLURAL:Rogue Talents				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Advanced Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RogueAdvancedTalent				PLURAL:Rogue Advanced Talents			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sorcerer Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:SorcererBloodline					PLURAL:Sorcerer Bloodlines			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:SorcererBloodline					PLURAL:Sorcerer Bloodlines			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcane Bond					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcaneBond						PLURAL:Arcane Bonds				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:New Arcana					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:SorcererNewArcana												DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcane Opposition School			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ArcaneOppositionSchool		CATEGORY:Special Ability	TYPE:ArcaneOppositionSchool				PLURAL:Arcane Opposition Schools		DISPLAYLOCATION:Class Features
@@ -231,7 +237,10 @@ ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ABILITYCATEGORY:Raging Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:RageSelection																					DISPLAYLOCATION:Class Features
 
 # For keeping the output the same
-ABILITYCATEGORY:Sorcerer Draconic Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Sorcerer Draconic Bloodline
+#ABILITYCATEGORY:Sorcerer Draconic Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Sorcerer Draconic Bloodline
+
+ABILITYCATEGORY:Sorcerer Draconic Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:Sorcerer Draconic Bloodline Choice																			DISPLAYLOCATION:Class Features	
+ABILITYCATEGORY:Sorcerer Elemental Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:Sorcerer Elemental Bloodline Choice																			DISPLAYLOCATION:Class Features	
 
 ABILITYCATEGORY:Dragon Disciple Draconic Bloodline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability											ABILITYLIST:Dragon Disciple ~ Draconic Bloodline								DISPLAYLOCATION:Class Features
 
