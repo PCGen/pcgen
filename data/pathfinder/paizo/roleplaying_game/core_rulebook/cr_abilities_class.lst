@@ -1489,7 +1489,6 @@ Bloodline Tracker								CATEGORY:Internal															DEFINE:BloodlineLVL|0	D
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,7|PREVAREQ:Sorcerer_CF_BloodlineFeat7,1
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,13|PREVAREQ:Sorcerer_CF_BloodlineFeat13,1
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,19|PREVAREQ:Sorcerer_CF_BloodlineFeat19,1
-CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD		BONUS:ABILITYPOOL|Sorcerer Bloodline Feat|BloodlineFeatCount
 ###Block: Defines
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodlineFeatArcaneStrike|0			
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodlineFeatAugmentSummoning|0		
@@ -1575,7 +1574,26 @@ Weapon Focus			KEY:Sorcerer Bloodline Feat ~ Weapon Focus		CATEGORY:Special Abil
 
 
 
+# NEW SYSTEM
+# 
+# Sorcerer Bloodline <> KEY:Sorcerer ~ BS (short for Bloodline Selection) is used to select any available qualified bloodline. It grants a tracker which determines when powers and such are available
+# Crossblooded has a similar mechanism, only no automatic grants
+# Eldritch Heritage likewise selects, and a tracker allows for auto grants based upon the ability.
 
+# This is the only feasible model I can come up with that uses one list, but allows for the vast versatility required to support archetypes, feats, and other future incursions. It's not fool proof, but I think it'll be better
+# than what we currently have, which requires a lot more work to maintain.
+
+# Bonus Spells and Feats system for the Crossblooded is in progress as well.
+# 	DEFINE:Sorcerer_xxx_BloodlineLVL|0			= Total Power Level
+#	DEFINE:Sorcerer_xxx_BloodlineProgessionLVL|0	= Progression Tracker for level gained abilities
+#	DEFINE:Sorcerer_xxx_BloodlineArcana1|0		= Whether to grant the bloodline arcana
+#	DEFINE:Sorcerer_xxx_BloodlineSpells1|0		= Whether to grant the bloodline bonus spells
+#	DEFINE:Sorcerer_xxx_BloodlinePower1|0		= Whether to grant the bloodline power gained at level 1
+#	DEFINE:Sorcerer_xxx_BloodlinePower3|0		= Whether to grant the bloodline power gained at level 3
+#	DEFINE:Sorcerer_xxx_BloodlinePower9|0		= Whether to grant the bloodline power gained at level 9
+#	DEFINE:Sorcerer_xxx_BloodlinePower15|0		= Whether to grant the bloodline power gained at level 15
+#	DEFINE:Sorcerer_xxx_BloodlinePower20|0		= Whether to grant the bloodline power gained at level 20
+#	DEFINE:Sorcerer_xxx_BloodlineClassSkill1|0	= Whether to grant the bloodline class skill
 
 
 
@@ -1589,7 +1607,7 @@ Weapon Focus			KEY:Sorcerer Bloodline Feat ~ Weapon Focus		CATEGORY:Special Abil
 
 
 ###Block: Sorcerer Bloodlines - Converted to new system
-Sorcerer Bloodline	KEY:Sorcerer ~ BS				CATEGORY:Internal			TYPE:SorcererBloodline		CHOOSE:ABILITYSELECTION|Special Ability|!PC,QUALIFIED[TYPE=NewSorcererBloodline]	MULT:YES	STACK:NO	ABILITY:Special Ability|AUTOMATIC|%LIST
+Sorcerer Bloodline	KEY:Sorcerer ~ BS				CATEGORY:Internal			TYPE:SorcererBloodline		CHOOSE:ABILITYSELECTION|Special Ability|!PC,QUALIFIED[TYPE=SorcererBloodlineChoice]	MULT:YES	STACK:NO	ABILITY:Special Ability|AUTOMATIC|%LIST
 
 
 
@@ -1597,9 +1615,9 @@ Sorcerer Bloodline	KEY:Sorcerer ~ BS				CATEGORY:Internal			TYPE:SorcererBloodli
 Aberrant Bloodline	
 	KEY:Sorcerer Bloodline ~ Aberrant
 	CATEGORY:Special Ability
-	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
-	DEFINE:AberrantBloodlineLVL|0
-	DEFINE:AberrantBloodlineProgessionLVL|0
+	TYPE:SpecialQuality.SorcererBloodlineChoice
+	DEFINE:Sorcerer_Aberrant_BloodlineLVL|0
+	DEFINE:Sorcerer_Aberrant_BloodlineProgessionLVL|0
 	DEFINE:Sorcerer_Aberrant_BloodlineArcana1|0
 	DEFINE:Sorcerer_Aberrant_BloodlineSpells1|0
 	DEFINE:Sorcerer_Aberrant_BloodlinePower1|0
@@ -1612,27 +1630,27 @@ Aberrant Bloodline
 	ABILITY:Class Skill|AUTOMATIC|Knowledge (Dungeoneering)|PREVARGTEQ:Sorcerer_Aberrant_BloodlineClassSkill1,1	
 	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Bloodline Arcana|PREVARGTEQ:Sorcerer_Aberrant_BloodlineArcana1,1	
 	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Bonus Spells|PREVARGTEQ:Sorcerer_Aberrant_BloodlineSpells1,1
-	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Acidic Ray|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower1,1
-	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Long Limbs|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower3,1|PREVARGTEQ:BloodlineProgressionLVL,3
-	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Unusual Anatomy|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower9,1|PREVARGTEQ:BloodlineProgressionLVL,9|PREVARLT:BloodlineLVL,20
-	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Alien Resistance|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower15,1|PREVARGTEQ:BloodlineProgressionLVL,15
-	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Aberrant Form|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower20,1|PREVARGTEQ:BloodlineProgressionLVL,20
+	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Acidic Ray|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower1,1
+	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Long Limbs|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower3,1|PREVARGTEQ:BloodlineProgressionLVL,3
+	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Unusual Anatomy|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower9,1|PREVARGTEQ:BloodlineProgressionLVL,9|PREVARLT:BloodlineLVL,20
+	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Alien Resistance|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower15,1|PREVARGTEQ:BloodlineProgressionLVL,15
+	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Aberrant Form|PREVARGTEQ:Sorcerer_Aberrant_BloodlinePower20,1|PREVARGTEQ:BloodlineProgressionLVL,20
 	SOURCEPAGE:p.72
 	
 
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Aberrant.MOD	ABILITY:Internal|AUTOMATIC|Aberrant Tracker ~ Standard Bloodline|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Aberrant)
+CATEGORY=Special Ability|Sorcerer Bloodline ~ Aberrant.MOD	ABILITY:Internal|AUTOMATIC|Aberrant Bloodline Tracker ~ Standard Bloodline|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Aberrant)
 
-Aberrant Tracker ~ Standard Bloodline	CATEGORY:Internal
-	BONUS:VAR|AberrantBloodlineLVL|BloodlineLVL
-	BONUS:VAR|AberrantBloodlineProgessionLVL|SorcererLVL
+Aberrant Bloodline Tracker ~ Standard Bloodline	CATEGORY:Internal
+	BONUS:VAR|Sorcerer_Aberrant_BloodlineLVL|BloodlineLVL
+	BONUS:VAR|Sorcerer_Aberrant_BloodlineProgessionLVL|SorcererLVL
 	BONUS:VAR|Sorcerer_Aberrant_BloodlineArcana1|1
 	BONUS:VAR|Sorcerer_Aberrant_BloodlineSpells1|1
 	BONUS:VAR|Sorcerer_Aberrant_BloodlineClassSkill1|1
-	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower1|1
-	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower3|(AberrantBloodlineProgessionLVL>=3)
-	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower9|(AberrantBloodlineProgessionLVL>=9)
-	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower15|(AberrantBloodlineProgessionLVL>=15)
-	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower20|(AberrantBloodlineProgessionLVL>=20)
+	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower1|1|PREVAREQ:Sorcerer_CF_BloodlinePower1,0
+	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower3|(AberrantBloodlineProgessionLVL>=3)|PREVAREQ:Sorcerer_CF_BloodlinePower3,0
+	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower9|(AberrantBloodlineProgessionLVL>=9)|PREVAREQ:Sorcerer_CF_BloodlinePower9,0
+	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower15|(AberrantBloodlineProgessionLVL>=15)|PREVAREQ:Sorcerer_CF_BloodlinePower15,0
+	BONUS:VAR|Sorcerer_Aberrant_BloodlinePower20|(AberrantBloodlineProgessionLVL>=20)|PREVAREQ:Sorcerer_CF_BloodlinePower20,0
 	BONUS:VAR|SorcererBloodlineFeatCombatCasting|1
 	BONUS:VAR|SorcererBloodlineFeatImprovedGrapple|1
 	BONUS:VAR|SorcererBloodlineFeatImprovedUnarmedStrike|1
@@ -1642,11 +1660,11 @@ Aberrant Tracker ~ Standard Bloodline	CATEGORY:Internal
 	BONUS:VAR|SorcererBloodlineFeatIronWill|1
 	BONUS:ABILITYPOOL|Aberrant Bloodline Feat|BloodlineFeatCount
 
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Aberrant.MOD	ABILITY:Internal|AUTOMATIC|Aberrant Tracker ~ Crossblooded Bloodline|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ Crossblooded BS(Sorcerer Bloodline ~ Aberrant)
+CATEGORY=Special Ability|Sorcerer Bloodline ~ Aberrant.MOD	ABILITY:Internal|AUTOMATIC|Aberrant Bloodline Tracker ~ Crossblooded Bloodline|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ Crossblooded BS(Sorcerer Bloodline ~ Aberrant)
 
 
-Aberrant Tracker ~ Crossblooded Bloodline	CATEGORY:Internal
-	BONUS:VAR|AberrantBloodlineLVL|BloodlineLVL
+Aberrant Bloodline Tracker ~ Crossblooded Bloodline	CATEGORY:Internal
+	BONUS:VAR|Sorcerer_Aberrant_BloodlineLVL|BloodlineLVL
 	BONUS:VAR|Sorcerer_Aberrant_BloodlineArcana1|1
 	BONUS:VAR|SorcererBloodlineFeatCombatCasting|1
 	BONUS:VAR|SorcererBloodlineFeatImprovedGrapple|1
@@ -1658,13 +1676,15 @@ Aberrant Tracker ~ Crossblooded Bloodline	CATEGORY:Internal
 	BONUS:ABILITYPOOL|Sorcerer Bloodline Feat|BloodlineFeatCount
 
 
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Aberrant.MOD	ABILITY:Internal|AUTOMATIC|Aberrant Tracker ~ Eldritch Heritage|PREABILITY:1,CATEGORY=FEAT,Eldritch Heritage(Sorcerer Bloodline ~ Aberrant)
+CATEGORY=Special Ability|Sorcerer Bloodline ~ Aberrant.MOD	ABILITY:Internal|AUTOMATIC|Aberrant Bloodline Tracker ~ Eldritch Heritage|PREABILITY:1,CATEGORY=Internal,Eldritch Heritage Bloodline Selection(Sorcerer Bloodline ~ Aberrant)
 
-Aberrant Tracker ~ Eldritch Heritage	CATEGORY:Internal
+Aberrant Bloodline Tracker ~ Eldritch Heritage	CATEGORY:Internal
+	BONUS:VAR|Sorcerer_Aberrant_BloodlineLVL|TL
+	BONUS:VAR|Sorcerer_Aberrant_BloodlineLVL|-2|!PREABILITY:1,CATEGORY=FEAT,Greater Eldritch Heritage
 	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Acidic Ray
-	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Long Limbs|PREABILITY:1,CATEGORY=Internal,Improved Eldritch Heritage(Level 3)
-	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Unusual Anatomy|PREABILITY:1,CATEGORY=Internal,Improved Eldritch Heritage(Level 9),Greater Eldritch Heritage(Level 15)
-	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Alien Resistance|PREABILITY:1,CATEGORY=Internal,Greater Eldritch Heritage(Level 15)
+	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Long Limbs|PREABILITY:1,CATEGORY=Internal,Eldrith Heritage Level 3
+	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Unusual Anatomy|PREABILITY:1,CATEGORY=Internal,Eldrith Heritage Level 9
+	ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodline ~ Alien Resistance|PREABILITY:1,CATEGORY=Internal,Eldrith Heritage Level 15
 
 
 
@@ -1672,16 +1692,249 @@ Aberrant Tracker ~ Eldritch Heritage	CATEGORY:Internal
 
 
 
+Abyssal Bloodline
+	KEY:Sorcerer Bloodline ~ Abyssal
+	CATEGORY:Special Ability
+	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
+	DEFINE:AbyssalBloodlineLVL|0
+	BONUS:VAR|AbyssalBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Abyssal)
+	DESC:Some time ago, a demon spread its filth into your heritage. While it does not manifest in all of your kin, for you it is particularly strong, calling on you to bring ruin to those around you.
+	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Bloodline Arcana
+	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Claws|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Demon Resistances|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3|PREVARLT:BloodlineLVL,20
+	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Strength of the Abyss|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9
+	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Added Summonings|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15
+	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Demonic Might|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20
+	BONUS:ABILITYPOOL|Abyssal Bloodline Feat|BloodlineFeatCount
+	CSKILL:Knowledge (Planes)
+	SOURCEPAGE:p.72
+	BONUS:VAR|SorcererBloodlineFeatAugmentSummoning|1
+	BONUS:VAR|SorcererBloodlineFeatCleave|1
+	BONUS:VAR|SorcererBloodlineFeatImprovedBullRush|1
+	BONUS:VAR|SorcererBloodlineFeatImprovedSunder|1
+	BONUS:VAR|SorcererBloodlineFeatEmpowerSpell|1
+	BONUS:VAR|SorcererBloodlineFeatGreatFortitude|1
+	BONUS:VAR|SorcererBloodlineFeatPowerAttack|1
+	
 
-Abyssal Bloodline		KEY:Sorcerer Bloodline ~ Abyssal	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline	DEFINE:AbyssalBloodlineLVL|0		BONUS:VAR|AbyssalBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Abyssal)							DESC:Some time ago, a demon spread its filth into your heritage. While it does not manifest in all of your kin, for you it is particularly strong, calling on you to bring ruin to those around you.																																							ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Bloodline Arcana		ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Claws|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Demon Resistances|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3|PREVARLT:BloodlineLVL,20	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Strength of the Abyss|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Added Summonings|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodline ~ Demonic Might|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20					BONUS:ABILITYPOOL|Abyssal Bloodline Feat|BloodlineFeatCount																																			CSKILL:Knowledge (Planes)		SOURCEPAGE:p.72	BONUS:VAR|SorcererBloodlineFeatAugmentSummoning|1		BONUS:VAR|SorcererBloodlineFeatCleave|1				BONUS:VAR|SorcererBloodlineFeatImprovedBullRush|1		BONUS:VAR|SorcererBloodlineFeatImprovedSunder|1			BONUS:VAR|SorcererBloodlineFeatEmpowerSpell|1			BONUS:VAR|SorcererBloodlineFeatGreatFortitude|1			BONUS:VAR|SorcererBloodlineFeatPowerAttack|1		
-Arcane Bloodline		KEY:Sorcerer Bloodline ~ Arcane	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline	DEFINE:ArcaneBloodlineLVL|0		BONUS:VAR|ArcaneBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Arcane)		DEFINE:FamiliarMasterLVL|0	DESC:Your family has always been skilled in the art of magic. While many of your relatives were accomplished wizards, your powers developed without the need for study and practice.																																									ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ Bloodline Arcana		ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true		ABILITY:Special Ability|AUTOMATIC|Wizard ~ Arcane Bond|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ Metamagic Adept|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3|PREVARLT:BloodlineLVL,20	ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ New Arcana|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ Arcane Apotheosis|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20																																BONUS:ABILITYPOOL|Arcane Bloodline Feat|BloodlineFeatCount	BONUS:ABILITYPOOL|Arcane Bloodline School Power|1|PREVARGTEQ:BloodlineProgressionLVL,15|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	BONUS:ABILITYPOOL|Knowledge Class Skill|1	BONUS:VAR|FamiliarMasterLVL|BloodlineLVL							SOURCEPAGE:p.73	BONUS:VAR|SorcererBloodlineFeatCombatCasting|1			BONUS:VAR|SorcererBloodlineFeatImprovedCounterspell|1		BONUS:VAR|SorcererBloodlineFeatScribeScroll|1			BONUS:VAR|SorcererBloodlineFeatImprovedInitiative|1		BONUS:VAR|SorcererBloodlineFeatSpellFocus|1			BONUS:VAR|SorcererBloodlineFeatIronWill|1				BONUS:VAR|SorcererBloodlineFeatStillSpell|1		
-Celestial Bloodline	KEY:Sorcerer Bloodline ~ Celestial	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline	DEFINE:CelestialBloodlineLVL|0	BONUS:VAR|CelestialBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Celestial)						DESC:Your bloodline is blessed by a celestial power, either through having a celestial relative or through divine intervention. Although this power drives you along the path of good, your fate is your own to determine.																																			ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Bloodline Arcana	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Heavenly Fire|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Celestial Resistances|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Wings of Heaven|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Conviction|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Ascension|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20							BONUS:ABILITYPOOL|Celestial Bloodline Feat|BloodlineFeatCount																																		CSKILL:Heal					SOURCEPAGE:p.74	BONUS:VAR|SorcererBloodlineFeatWeaponFinesse|1		BONUS:VAR|SorcererBloodlineFeatMobility|1			BONUS:VAR|SorcererBloodlineFeatIronWill|1			BONUS:VAR|SorcererBloodlineFeatExtendSpell|1		BONUS:VAR|SorcererBloodlineFeatDodge|1			BONUS:VAR|SorcererBloodlineFeatMountedCombat|1		BONUS:VAR|SorcererBloodlineFeatRideByAttack|1	
-Destined Bloodline	KEY:Sorcerer Bloodline ~ Destined	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline	DEFINE:DestinedBloodlineLVL|0		BONUS:VAR|DestinedBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Destined)							DESC:Your family is destined for greatness in some way. Your birth could have been foretold in prophecy, or perhaps it occurred during an especially auspicious event, such as a solar eclipse. Regardless of its origin, you have a great future ahead of you.																													ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Bloodline Arcana		ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Touch of Destiny|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Fated|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ It Was Meant To Be|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Within Reach|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Destiny Realized|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20								BONUS:ABILITYPOOL|Destined Bloodline Feat|BloodlineFeatCount																																		CSKILL:Knowledge (History)		SOURCEPAGE:p.74	BONUS:VAR|SorcererBloodlineFeatArcaneStrike|1			BONUS:VAR|SorcererBloodlineFeatDiehard|1				BONUS:VAR|SorcererBloodlineFeatEndurance|1			BONUS:VAR|SorcererBloodlineFeatLeadership|1			BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1		BONUS:VAR|SorcererBloodlineFeatMaximizeSpell|1			BONUS:VAR|SorcererBloodlineFeatWeaponFocus|1			BONUS:VAR|SorcererBloodlineFeatEndurance|1			BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1		BONUS:VAR|SorcererBloodlineFeatLeadership|1			BONUS:VAR|SorcererBloodlineFeatMaximizeSpell|1		
-Draconic Bloodline	KEY:Sorcerer Bloodline ~ Draconic	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline	DEFINE:DraconicBloodlineLVL|0		BONUS:VAR|DraconicBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Draconic)							DESC:At some point in your family's history, a dragon interbred with your bloodline, and now its ancient power flows through your veins.																															BONUS:ABILITYPOOL|Sorcerer Draconic Bloodline|1													ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Bloodline Arcana		ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Claws|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Dragon Resistances|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Breath Weapon|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Wings|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Power of Wyrms|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20	BONUS:ABILITYPOOL|Draconic Bloodline Feat|BloodlineFeatCount																																		CSKILL:Perception				SOURCEPAGE:p.75	BONUS:VAR|SorcererBloodlineFeatBlindFight|1			BONUS:VAR|SorcererBloodlineFeatImprovedInitiative|1		BONUS:VAR|SorcererBloodlineFeatToughness|1			BONUS:VAR|SorcererBloodlineFeatPowerAttack|1			BONUS:VAR|SorcererBloodlineFeatQuickenSpell|1			BONUS:VAR|SorcererBloodlineFeatGreatFortitude|1			ABILITY:Sorcerer Draconic Bloodline|AUTOMATIC|%LIST	
-Elemental Bloodline	KEY:Sorcerer Bloodline ~ Elemental	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline	DEFINE:ElementalBloodlineLVL|0	BONUS:VAR|ElementalBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Elemental)						DESC:The power of the elements resides in you, and at times you can hardly control its fury. This influence comes from an elemental outsider in your family history or a time when you or your relatives were exposed to a powerful elemental force.													BONUS:ABILITYPOOL|Sorcerer Elemental Bloodline|1												ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Bloodline Arcana	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Ray|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Resistance|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Blast|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Movement|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Body|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20						BONUS:ABILITYPOOL|Elemental Bloodline Feat|BloodlineFeatCount																																		CSKILL:Knowledge (Planes)		SOURCEPAGE:p.75	BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1		BONUS:VAR|SorcererBloodlineFeatDodge|1				BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1		BONUS:VAR|SorcererBloodlineFeatImprovedInitiative|1		BONUS:VAR|SorcererBloodlineFeatEmpowerSpell|1			BONUS:VAR|SorcererBloodlineFeatPowerAttack|1			BONUS:VAR|SorcererBloodlineFeatGreatFortitude|1			BONUS:VAR|SorcererBloodlineFeatWeaponFinesse|1		
-Fey Bloodline		KEY:Sorcerer Bloodline ~ Fey		CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline	DEFINE:FeyBloodlineLVL|0		BONUS:VAR|FeyBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Fey)								DESC:The capricious nature of the fey runs in your family due to some intermingling of fey blood or magic. This tends to make you more emotional than most, prone to bouts of extreme joy and rage.																																							ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Bloodline Arcana		ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true		ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Laughing Touch|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Woodland Stride|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Fleeting Glance|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Fey Magic|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Soul of the Fey|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20														BONUS:ABILITYPOOL|Fey Bloodline Feat|BloodlineFeatCount																																			CSKILL:Knowledge (Nature)		SOURCEPAGE:p.76	BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1		BONUS:VAR|SorcererBloodlineFeatPointBlankShot|1			BONUS:VAR|SorcererBloodlineFeatPreciseShot|1			BONUS:VAR|SorcererBloodlineFeatDodge|1				BONUS:VAR|SorcererBloodlineFeatImprovedInitiative|1		BONUS:VAR|SorcererBloodlineFeatMobility|1				BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1		BONUS:VAR|SorcererBloodlineFeatQuickenSpell|1		
-Infernal Bloodline	KEY:Sorcerer Bloodline ~ Infernal	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline	DEFINE:InfernalBloodlineLVL|0		BONUS:VAR|InfernalBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Infernal)							DESC:Somewhere in your family's history, a relative made a deal with a devil, and that pact has influenced the line ever since. Now it manifests in direct and obvious ways, granting you powers and abilities. While your fate is still your own, you can't help but wonder if your ultimate reward is bound to the Pit.																			ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Bloodline Arcana		ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Corrupting Touch|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Infernal Resistances|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3|PREVARLT:BloodlineLVL,20	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Hellfire|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ On Dark Wings|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Power of the Pit|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20			BONUS:ABILITYPOOL|Infernal Bloodline Feat|BloodlineFeatCount																																		CSKILL:Diplomacy				SOURCEPAGE:p.76	BONUS:VAR|SorcererBloodlineFeatBlindFight|1			BONUS:VAR|SorcererBloodlineFeatSpellPenetration|1		BONUS:VAR|SorcererBloodlineFeatCombatExpertise|1		BONUS:VAR|SorcererBloodlineFeatDeceitful|1			BONUS:VAR|SorcererBloodlineFeatImprovedDisarm|1			BONUS:VAR|SorcererBloodlineFeatIronWill|1				BONUS:VAR|SorcererBloodlineFeatExtendSpell|1		
-Undead Bloodline		KEY:Sorcerer Bloodline ~ Undead	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline	DEFINE:UndeadBloodlineLVL|0		BONUS:VAR|UndeadBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Undead)							DESC:The touch of the grave runs through your family. Perhaps one of your ancestors became a powerful lich or vampire, or maybe you were born dead before suddenly returning to life. Either way, the forces of death move through you and touch your every action.																												ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Bloodline Arcana		ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true		ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Grave Touch|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Death's Gift|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3|PREVARLT:BloodlineLVL,20	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Grasp of the Dead|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Incorporeal Form|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ One of Us|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20								BONUS:ABILITYPOOL|Undead Bloodline Feat|BloodlineFeatCount																																			CSKILL:Knowledge (Religion)		SOURCEPAGE:p.77	BONUS:VAR|SorcererBloodlineFeatDiehard|1			BONUS:VAR|SorcererBloodlineFeatEndurance|1		BONUS:VAR|SorcererBloodlineFeatCombatCasting|1		BONUS:VAR|SorcererBloodlineFeatEndurance|1		BONUS:VAR|SorcererBloodlineFeatIronWill|1			BONUS:VAR|SorcererBloodlineFeatSpellFocus|1		BONUS:VAR|SorcererBloodlineFeatStillSpell|1		BONUS:VAR|SorcererBloodlineFeatToughness|1	
+
+
+
+Arcane Bloodline
+	KEY:Sorcerer Bloodline ~ Arcane
+	CATEGORY:Special Ability
+	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
+	DEFINE:ArcaneBloodlineLVL|0
+	BONUS:VAR|ArcaneBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Arcane)
+	DEFINE:FamiliarMasterLVL|0
+	DESC:Your family has always been skilled in the art of magic. While many of your relatives were accomplished wizards, your powers developed without the need for study and practice.
+	ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ Bloodline Arcana
+	ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Arcane Bond|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ Metamagic Adept|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3|PREVARLT:BloodlineLVL,20
+	ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ New Arcana|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9
+	ABILITY:Special Ability|AUTOMATIC|Arcane Bloodline ~ Arcane Apotheosis|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20
+	BONUS:ABILITYPOOL|Arcane Bloodline Feat|BloodlineFeatCount
+	BONUS:ABILITYPOOL|Arcane Bloodline School Power|1|PREVARGTEQ:BloodlineProgressionLVL,15|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	BONUS:ABILITYPOOL|Knowledge Class Skill|1
+	BONUS:VAR|FamiliarMasterLVL|BloodlineLVL
+	SOURCEPAGE:p.73
+	BONUS:VAR|SorcererBloodlineFeatCombatCasting|1
+	BONUS:VAR|SorcererBloodlineFeatImprovedCounterspell|1
+	BONUS:VAR|SorcererBloodlineFeatScribeScroll|1
+	BONUS:VAR|SorcererBloodlineFeatImprovedInitiative|1
+	BONUS:VAR|SorcererBloodlineFeatSpellFocus|1
+	BONUS:VAR|SorcererBloodlineFeatIronWill|1
+	BONUS:VAR|SorcererBloodlineFeatStillSpell|1
+	
+
+
+
+Celestial Bloodline
+	KEY:Sorcerer Bloodline ~ Celestial
+	CATEGORY:Special Ability
+	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
+	DEFINE:CelestialBloodlineLVL|0
+	BONUS:VAR|CelestialBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Celestial)
+	DESC:Your bloodline is blessed by a celestial power, either through having a celestial relative or through divine intervention. Although this power drives you along the path of good, your fate is your own to determine.
+	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Bloodline Arcana
+	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Heavenly Fire|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Celestial Resistances|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3
+	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Wings of Heaven|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9
+	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Conviction|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15
+	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodline ~ Ascension|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20
+	BONUS:ABILITYPOOL|Celestial Bloodline Feat|BloodlineFeatCount
+	CSKILL:Heal
+	SOURCEPAGE:p.74
+	BONUS:VAR|SorcererBloodlineFeatWeaponFinesse|1
+	BONUS:VAR|SorcererBloodlineFeatMobility|1
+	BONUS:VAR|SorcererBloodlineFeatIronWill|1
+	BONUS:VAR|SorcererBloodlineFeatExtendSpell|1
+	BONUS:VAR|SorcererBloodlineFeatDodge|1
+	BONUS:VAR|SorcererBloodlineFeatMountedCombat|1
+	BONUS:VAR|SorcererBloodlineFeatRideByAttack|1
+	
+Destined Bloodline
+	KEY:Sorcerer Bloodline ~ Destined
+	CATEGORY:Special Ability
+	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
+	DEFINE:DestinedBloodlineLVL|0
+	BONUS:VAR|DestinedBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Destined)
+	DESC:Your family is destined for greatness in some way. Your birth could have been foretold in prophecy, or perhaps it occurred during an especially auspicious event, such as a solar eclipse. Regardless of its origin, you have a great future ahead of you.
+	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Bloodline Arcana
+	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Touch of Destiny|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Fated|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3
+	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ It Was Meant To Be|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9
+	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Within Reach|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15
+	ABILITY:Special Ability|AUTOMATIC|Destined Bloodline ~ Destiny Realized|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20
+	BONUS:ABILITYPOOL|Destined Bloodline Feat|BloodlineFeatCount
+	CSKILL:Knowledge (History)
+	SOURCEPAGE:p.74
+	BONUS:VAR|SorcererBloodlineFeatArcaneStrike|1
+	BONUS:VAR|SorcererBloodlineFeatDiehard|1
+	BONUS:VAR|SorcererBloodlineFeatEndurance|1
+	BONUS:VAR|SorcererBloodlineFeatLeadership|1
+	BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1
+	BONUS:VAR|SorcererBloodlineFeatMaximizeSpell|1
+	BONUS:VAR|SorcererBloodlineFeatWeaponFocus|1
+	BONUS:VAR|SorcererBloodlineFeatEndurance|1
+	BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1
+	BONUS:VAR|SorcererBloodlineFeatLeadership|1
+	BONUS:VAR|SorcererBloodlineFeatMaximizeSpell|1
+	
+Draconic Bloodline
+	KEY:Sorcerer Bloodline ~ Draconic
+	CATEGORY:Special Ability
+	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
+	DEFINE:DraconicBloodlineLVL|0
+	BONUS:VAR|DraconicBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Draconic)
+	DESC:At some point in your family's history, a dragon interbred with your bloodline, and now its ancient power flows through your veins.
+	BONUS:ABILITYPOOL|Sorcerer Draconic Bloodline|1
+	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Bloodline Arcana
+	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Claws|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Dragon Resistances|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3
+	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Breath Weapon|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9
+	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Wings|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15
+	ABILITY:Special Ability|AUTOMATIC|Draconic Bloodline ~ Power of Wyrms|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20
+	BONUS:ABILITYPOOL|Draconic Bloodline Feat|BloodlineFeatCount
+	CSKILL:Perception
+	SOURCEPAGE:p.75
+	BONUS:VAR|SorcererBloodlineFeatBlindFight|1
+	BONUS:VAR|SorcererBloodlineFeatImprovedInitiative|1
+	BONUS:VAR|SorcererBloodlineFeatToughness|1
+	BONUS:VAR|SorcererBloodlineFeatPowerAttack|1
+	BONUS:VAR|SorcererBloodlineFeatQuickenSpell|1
+	BONUS:VAR|SorcererBloodlineFeatGreatFortitude|1
+	ABILITY:Sorcerer Draconic Bloodline|AUTOMATIC|%LIST
+	
+Elemental Bloodline
+	KEY:Sorcerer Bloodline ~ Elemental
+	CATEGORY:Special Ability
+	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
+	DEFINE:ElementalBloodlineLVL|0
+	BONUS:VAR|ElementalBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Elemental)
+	DESC:The power of the elements resides in you, and at times you can hardly control its fury. This influence comes from an elemental outsider in your family history or a time when you or your relatives were exposed to a powerful elemental force.
+	BONUS:ABILITYPOOL|Sorcerer Elemental Bloodline|1
+	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Bloodline Arcana
+	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Ray|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Resistance|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3
+	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Blast|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9
+	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Movement|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15
+	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodline ~ Elemental Body|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20
+	BONUS:ABILITYPOOL|Elemental Bloodline Feat|BloodlineFeatCount
+	CSKILL:Knowledge (Planes)
+	SOURCEPAGE:p.75
+	BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1
+	BONUS:VAR|SorcererBloodlineFeatDodge|1
+	BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1
+	BONUS:VAR|SorcererBloodlineFeatImprovedInitiative|1
+	BONUS:VAR|SorcererBloodlineFeatEmpowerSpell|1
+	BONUS:VAR|SorcererBloodlineFeatPowerAttack|1
+	BONUS:VAR|SorcererBloodlineFeatGreatFortitude|1
+	BONUS:VAR|SorcererBloodlineFeatWeaponFinesse|1
+	
+Fey Bloodline
+	KEY:Sorcerer Bloodline ~ Fey
+	CATEGORY:Special Ability
+	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
+	DEFINE:FeyBloodlineLVL|0
+	BONUS:VAR|FeyBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Fey)
+	DESC:The capricious nature of the fey runs in your family due to some intermingling of fey blood or magic. This tends to make you more emotional than most, prone to bouts of extreme joy and rage.
+	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Bloodline Arcana
+	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Laughing Touch|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Woodland Stride|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3
+	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Fleeting Glance|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9
+	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Fey Magic|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15
+	ABILITY:Special Ability|AUTOMATIC|Fey Bloodline ~ Soul of the Fey|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20
+	BONUS:ABILITYPOOL|Fey Bloodline Feat|BloodlineFeatCount
+	CSKILL:Knowledge (Nature)
+	SOURCEPAGE:p.76
+	BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1
+	BONUS:VAR|SorcererBloodlineFeatPointBlankShot|1
+	BONUS:VAR|SorcererBloodlineFeatPreciseShot|1
+	BONUS:VAR|SorcererBloodlineFeatDodge|1
+	BONUS:VAR|SorcererBloodlineFeatImprovedInitiative|1
+	BONUS:VAR|SorcererBloodlineFeatMobility|1
+	BONUS:VAR|SorcererBloodlineFeatLightningReflexes|1
+	BONUS:VAR|SorcererBloodlineFeatQuickenSpell|1
+	
+Infernal Bloodline
+	KEY:Sorcerer Bloodline ~ Infernal
+	CATEGORY:Special Ability
+	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
+	DEFINE:InfernalBloodlineLVL|0
+	BONUS:VAR|InfernalBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Infernal)
+	DESC:Somewhere in your family's history, a relative made a deal with a devil, and that pact has influenced the line ever since. Now it manifests in direct and obvious ways, granting you powers and abilities. While your fate is still your own, you can't help but wonder if your ultimate reward is bound to the Pit.
+	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Bloodline Arcana
+	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Corrupting Touch|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Infernal Resistances|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3|PREVARLT:BloodlineLVL,20
+	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Hellfire|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9
+	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ On Dark Wings|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15
+	ABILITY:Special Ability|AUTOMATIC|Infernal Bloodline ~ Power of the Pit|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20
+	BONUS:ABILITYPOOL|Infernal Bloodline Feat|BloodlineFeatCount
+	CSKILL:Diplomacy
+	SOURCEPAGE:p.76
+	BONUS:VAR|SorcererBloodlineFeatBlindFight|1
+	BONUS:VAR|SorcererBloodlineFeatSpellPenetration|1
+	BONUS:VAR|SorcererBloodlineFeatCombatExpertise|1
+	BONUS:VAR|SorcererBloodlineFeatDeceitful|1
+	BONUS:VAR|SorcererBloodlineFeatImprovedDisarm|1
+	BONUS:VAR|SorcererBloodlineFeatIronWill|1
+	BONUS:VAR|SorcererBloodlineFeatExtendSpell|1
+	
+Undead Bloodline
+	KEY:Sorcerer Bloodline ~ Undead
+	CATEGORY:Special Ability
+	TYPE:SorcererClassFeatures.SpecialQuality.ClassSpecialization.SorcererBloodlineR.NewSorcererBloodline
+	DEFINE:UndeadBloodlineLVL|0
+	BONUS:VAR|UndeadBloodlineLVL|BloodlineLVL|PREABILITY:1,CATEGORY=Internal,Sorcerer ~ BS(Sorcerer Bloodline ~ Undead)
+	DESC:The touch of the grave runs through your family. Perhaps one of your ancestors became a powerful lich or vampire, or maybe you were born dead before suddenly returning to life. Either way, the forces of death move through you and touch your every action.
+	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Bloodline Arcana
+	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Bonus Spells|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlineBonusSpellProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Grave Touch|PREVAREQ:Sorcerer_CF_BloodlinePower1,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true
+	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Death's Gift|PREVAREQ:Sorcerer_CF_BloodlinePower3,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,3|PREVARLT:BloodlineLVL,20
+	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Grasp of the Dead|PREVAREQ:Sorcerer_CF_BloodlinePower9,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,9
+	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ Incorporeal Form|PREVAREQ:Sorcerer_CF_BloodlinePower15,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,15
+	ABILITY:Special Ability|AUTOMATIC|Undead Bloodline ~ One of Us|PREVAREQ:Sorcerer_CF_BloodlinePower20,0|!PREFACT:1,ABILITIES,Sorcerer_Disable_BloodlinePowerProgression=true|PREVARGTEQ:BloodlineProgressionLVL,20
+	BONUS:ABILITYPOOL|Undead Bloodline Feat|BloodlineFeatCount
+	CSKILL:Knowledge (Religion)
+	SOURCEPAGE:p.77
+	BONUS:VAR|SorcererBloodlineFeatDiehard|1
+	BONUS:VAR|SorcererBloodlineFeatEndurance|1
+	BONUS:VAR|SorcererBloodlineFeatCombatCasting|1
+	BONUS:VAR|SorcererBloodlineFeatEndurance|1
+	BONUS:VAR|SorcererBloodlineFeatIronWill|1
+	BONUS:VAR|SorcererBloodlineFeatSpellFocus|1
+	BONUS:VAR|SorcererBloodlineFeatStillSpell|1
+	BONUS:VAR|SorcererBloodlineFeatToughness|1
+	
 
 
 
@@ -1733,10 +1986,10 @@ Undead Bloodline ~ Bonus Spells	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:N
 ###Block: Sorcerer Aberrant Bloodline Abilties
 # Ability Name	Unique Key						Category of Ability		Type										Define				Description																																																																																					Modify VAR																						Vision			Spell Res.			Damage Reduction	Source Page		Aspects
 Bloodline Arcana	KEY:Aberrant Bloodline ~ Bloodline Arcana	CATEGORY:Special Ability	TYPE:SorcererBloodlinePower.SorcererClassFeatures.SpecialQuality									DESC:Whenever you cast a spell of the polymorph subschool, increase the duration of the spell by 50%% (minimum 1 round). This bonus does not stack with the increase granted by the Extend Spell feat.																																																																																							SOURCEPAGE:p.72
-Acidic Ray		KEY:Aberrant Bloodline ~ Acidic Ray		CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialAttack.Supernatural		DEFINE:AcidicRayDamage|0	DESC:You can fire an acidic ray as a standard action, targeting any foe within 30 feet as a ranged touch attack. This ray deals 1d6 points of acid damage. You can use this ability %1 times per day.|BloodlinePowerTimes|PREVAREQ:AcidicRayDamage,0	DESC:You can fire an acidic ray as a standard action, targeting any foe within 30 feet as a ranged touch attack. This ray deals 1d6+%1 points of acid damage.  You can use this ability %2 times per day.|AcidicRayDamage|BloodlinePowerTimes|PREVARGT:AcidicRayDamage,0	BONUS:VAR|AcidicRayDamage|AberrantBloodlineLVL/2																												SOURCEPAGE:p.72	ASPECT:Ability Benefit|(1d6+%1, %2/day)|AcidicRayDamage|BloodlinePowerTimes	ASPECT:CheckCount|%1|BloodlinePowerTimes	ASPECT:CheckType|Uses per Day
-Long Limbs		KEY:Aberrant Bloodline ~ Long Limbs		CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialAttack.Extraordinary	DEFINE:LongLimbsReach|0		DESC:Your reach increases to %1 feet whenever you make a melee touch attack. This ability does not increase your threatened area.|LongLimbsReach																																																														BONUS:VAR|LongLimbsReach|5	BONUS:VAR|LongLimbsReach|5|PREVARGTEQ:AberrantBloodlineLVL,11	BONUS:VAR|LongLimbsReach|5|PREVARGTEQ:AberrantBloodlineLVL,17												SOURCEPAGE:p.72
-Unusual Anatomy	KEY:Aberrant Bloodline ~ Unusual Anatomy	CATEGORY:Special Ability	TYPE:SorcererBloodlinePower.SorcererClassFeatures.SpecialQuality.Extraordinary	DEFINE:UnusualAnatomy|0		DESC:Your anatomy changes, giving you a %1%% chance of ignoring any critical hit or sneak attack scored against you.|UnusualAnatomy																																																																	BONUS:VAR|UnusualAnatomy|25	BONUS:VAR|UnusualAnatomy|25|PREVARGTEQ:AberrantBloodlineLVL,13																				SOURCEPAGE:p.72
-Alien Resistance	KEY:Aberrant Bloodline ~ Alien Resistance	CATEGORY:Special Ability	TYPE:SorcererBloodlinePower.SorcererClassFeatures.SpecialQuality.Supernatural	DEFINE:AlienResistance|0	DESC:You gain spell resistance %1.|AlienResistance																																																																														BONUS:VAR|AlienResistance|10+AberrantBloodlineLVL																					SR:AlienResistance				SOURCEPAGE:p.72
+Acidic Ray		KEY:Aberrant Bloodline ~ Acidic Ray		CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialAttack.Supernatural		DEFINE:AcidicRayDamage|0	DESC:You can fire an acidic ray as a standard action, targeting any foe within 30 feet as a ranged touch attack. This ray deals 1d6 points of acid damage. You can use this ability %1 times per day.|BloodlinePowerTimes|PREVAREQ:AcidicRayDamage,0	DESC:You can fire an acidic ray as a standard action, targeting any foe within 30 feet as a ranged touch attack. This ray deals 1d6+%1 points of acid damage.  You can use this ability %2 times per day.|AcidicRayDamage|BloodlinePowerTimes|PREVARGT:AcidicRayDamage,0	BONUS:VAR|AcidicRayDamage|Sorcerer_Aberrant_BloodlineLVL/2																												SOURCEPAGE:p.72	ASPECT:Ability Benefit|(1d6+%1, %2/day)|AcidicRayDamage|BloodlinePowerTimes	ASPECT:CheckCount|%1|BloodlinePowerTimes	ASPECT:CheckType|Uses per Day
+Long Limbs		KEY:Aberrant Bloodline ~ Long Limbs		CATEGORY:Special Ability	TYPE:SorcererClassFeatures.SpecialAttack.Extraordinary	DEFINE:LongLimbsReach|0		DESC:Your reach increases to %1 feet whenever you make a melee touch attack. This ability does not increase your threatened area.|LongLimbsReach																																																														BONUS:VAR|LongLimbsReach|5	BONUS:VAR|LongLimbsReach|5|PREVARGTEQ:Sorcerer_Aberrant_BloodlineLVL,11	BONUS:VAR|LongLimbsReach|5|PREVARGTEQ:Sorcerer_Aberrant_BloodlineLVL,17												SOURCEPAGE:p.72
+Unusual Anatomy	KEY:Aberrant Bloodline ~ Unusual Anatomy	CATEGORY:Special Ability	TYPE:SorcererBloodlinePower.SorcererClassFeatures.SpecialQuality.Extraordinary	DEFINE:UnusualAnatomy|0		DESC:Your anatomy changes, giving you a %1%% chance of ignoring any critical hit or sneak attack scored against you.|UnusualAnatomy																																																																	BONUS:VAR|UnusualAnatomy|25	BONUS:VAR|UnusualAnatomy|25|PREVARGTEQ:Sorcerer_Aberrant_BloodlineLVL,13																				SOURCEPAGE:p.72
+Alien Resistance	KEY:Aberrant Bloodline ~ Alien Resistance	CATEGORY:Special Ability	TYPE:SorcererBloodlinePower.SorcererClassFeatures.SpecialQuality.Supernatural	DEFINE:AlienResistance|0	DESC:You gain spell resistance %1.|AlienResistance																																																																														BONUS:VAR|AlienResistance|10+Sorcerer_Aberrant_BloodlineLVL																					SR:AlienResistance				SOURCEPAGE:p.72
 Aberrant Form	KEY:Aberrant Bloodline ~ Aberrant Form	CATEGORY:Special Ability	TYPE:SorcererBloodlinePower.SorcererClassFeatures.SpecialQuality.Extraordinary						DESC:Your body becomes truly unnatural. You are immune to critical hits and sneak attacks. In addition, you gain blindsight with a range of 60 feet and damage reduction 5/-.																																																																																	VISION:Blindsight (60')					DR:5/-		SOURCEPAGE:p.72
 
 ###Block: Sorcerer Abyssal Bloodline Abilties

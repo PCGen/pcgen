@@ -109,9 +109,13 @@ ABILITYCATEGORY:Flexible Enhancement Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI			Display Location
 ABILITYCATEGORY:Metal Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalOpposedSchool				PLURAL:Metal Opposition School Choice	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Wood Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodOpposedSchool				PLURAL:Wood Opposition School Choice	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eldritch Heritage Bloodline Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EldritchHeritageSelection									DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Improved Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedEldritchHeritageSelection								DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Greater Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GreaterEldritchHeritageSelection								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Eldritch Heritage Bloodline Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Eldritch Heritage Bloodline Selection									DISPLAYLOCATION:Feats
+#ABILITYCATEGORY:Improved Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedEldritchHeritageSelection								DISPLAYLOCATION:Feats
+#ABILITYCATEGORY:Greater Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GreaterEldritchHeritageSelection								DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Eldritch Heritage Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Eldritch Heritage Selection								DISPLAYLOCATION:Feats
+
+
 
 #
 ABILITYCATEGORY:Black Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice											DISPLAYLOCATION:Class Features
