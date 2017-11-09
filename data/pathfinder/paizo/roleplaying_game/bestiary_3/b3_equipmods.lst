@@ -4,5 +4,5 @@
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
 # Modifier Name	Unique Key	Type		Plus		Visible		Source Page		Required Type			Special Property
-Bleed			KEY:BLEED	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.62	PRETYPE:1,Enhancement.Weapon	SPROP:deals 2d6 points of bleed damage per hit
-Paper Cut		KEY:PPRCT	TYPE:Weapon			VISIBLE:QUALIFY	SOURCEPAGE:p.76	PRETYPE:1,Weapon			SPROP:deals 1d6 points of bleed damage per hit
+Bleed			KEY:MONSTER_SA_BLEED	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.62	PRETYPE:1,Enhancement.Weapon	SPROP:deals 2d6 points of bleed damage per hit
+Paper Cut		KEY:MONSTER_SA_PAPER_CUT	TYPE:Weapon			VISIBLE:QUALIFY	SOURCEPAGE:p.76	PRETYPE:1,Weapon			SPROP:deals 1d6 points of bleed damage per hit

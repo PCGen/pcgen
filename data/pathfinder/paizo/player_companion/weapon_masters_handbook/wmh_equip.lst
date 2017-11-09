@@ -16,9 +16,9 @@ Longbow (Composite).COPY=Windreader's Bow
 Spear.COPY=Spear of the Honored Ancestors
 
 
-Cailean Fighting Tankard.MOD					NAMEISPI:YES	COST:10301	EQMOD:PLUS1W								SOURCEPAGE:p.30
-Crusader's Longsword.MOD										COST:47315	EQMOD:Bane|Demon.C_Iron.Holy.PLUS1W			SOURCEPAGE:p.31
-Shieldmarshal's Pistol.MOD										COST:20050	EQMOD:PLUS1W								SOURCEPAGE:p.31
-Spear of the Honored Ancestors.MOD								COST:15302	EQMOD:GHOST.PLUS1W							SOURCEPAGE:p.31
-Valorous Blade.MOD												COST:20315	EQMOD:PLUS1W.Valiant						SOURCEPAGE:p.31
-Windreader's Bow.MOD											COST:54400	EQMOD:Adaptive.PLUS1W.SEEK					SOURCEPAGE:p.31
+Cailean Fighting Tankard.MOD					NAMEISPI:YES	COST:10301	EQMOD:WEAPON_PLUS1								SOURCEPAGE:p.30
+Crusader's Longsword.MOD										COST:47315	EQMOD:WEAPON_SA_BANE|Demon.MATERIAL_COLD_IRON.WEAPON_SA_HOLY.WEAPON_PLUS1			SOURCEPAGE:p.31
+Shieldmarshal's Pistol.MOD										COST:20050	EQMOD:WEAPON_PLUS1								SOURCEPAGE:p.31
+Spear of the Honored Ancestors.MOD								COST:15302	EQMOD:WEAPON_SA_GHOST_TOUCH.WEAPON_PLUS1							SOURCEPAGE:p.31
+Valorous Blade.MOD												COST:20315	EQMOD:WEAPON_PLUS1.MELEE_SA_VALIANT						SOURCEPAGE:p.31
+Windreader's Bow.MOD											COST:54400	EQMOD:RANGED_SA_ADAPTIVE.WEAPON_PLUS1.RANGED_SA_SEEKING					SOURCEPAGE:p.31

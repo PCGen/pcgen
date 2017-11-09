@@ -2,4 +2,4 @@
 
 
 # Modifier Name	Type		Plus		Visible		Source Page		Required Type		Special Property
-Pitfall		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.27	PRETYPE:1,Enhancement	SPROP:When holding a pitfall weapon, apply the weapon's enhancement bonus to your initiative checks, Reflex saves made to avoid traps, and AC against attacks made by traps.
+Pitfall	KEY:WEAPON_SA_PITFALL		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.27	PRETYPE:1,Enhancement	SPROP:When holding a pitfall weapon, apply the weapon's enhancement bonus to your initiative checks, Reflex saves made to avoid traps, and AC against attacks made by traps.

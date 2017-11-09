@@ -4,7 +4,7 @@ SOURCELONG:Critical Fumble Deck	SOURCESHORT:CFD	SOURCEWEB:http://paizo.com/store
 
 ###Block:Magic Weapon Special Abilities
 # Modifier Name	Unique Key	Type		Plus		Visible		Required Type			Special Property
-Sure Grip		KEY:SURE	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	PRETYPE:2,Enhancement,Weapon	SPROP:only confirm critical fumbles on a natural 1
+Sure Grip		KEY:WEAPON_SA_SURE_GRIP	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	PRETYPE:2,Enhancement,Weapon	SPROP:only confirm critical fumbles on a natural 1
 
 #
 # End
