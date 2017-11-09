@@ -46,7 +46,7 @@ Lantern (Bullseye).MOD																			TYPE:Lantern
 Lantern (Hooded).MOD																			TYPE:Lantern
 Magnet																					TYPE:Goods.General								COST:0.5	WT:0.5																	SOURCEPAGE:p.7
 Marbles																					TYPE:Goods.General.Consumable							COST:0.1	WT:2																		SOURCEPAGE:p.7								SPROP:DC 10 Reflex to avoid falling unless move at half-speed
-Manacles (Mithral)						OUTPUTNAME:[NAME] Manacles									TYPE:Goods.General								COST:1000	WT:2								EQMOD:MITHRAL_ITEM							SOURCEPAGE:p.7								SPROP:hardness 15, 30 hit points, and a break DC of 30
+Manacles (Mithral)						OUTPUTNAME:[NAME] Manacles									TYPE:Goods.General								COST:1000	WT:2								EQMOD:MATERIAL_MITHRAL_ITEM							SOURCEPAGE:p.7								SPROP:hardness 15, 30 hit points, and a break DC of 30
 Paper (Sheet).MOD																																																													SPROP:hardness 0, 1 hit point, and break DC 5
 Perfume/Cologne																				TYPE:Goods.General								COST:5	WT:0																		SOURCEPAGE:p.7
 Pickle Extractor																				TYPE:Goods.General								COST:0.2	WT:2																		SOURCEPAGE:p.7

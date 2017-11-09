@@ -40,5 +40,5 @@ Wayfarer Loaf (per wk)		OUTPUTNAME:Wayfarer Loaf (per wk.)							TYPE:Goods.Food
 Unholy Water															TYPE:Goods.Flask.Consumable									COST:75	WT:1																									SOURCEPAGE:p.8
 
 # Weapons
-Shocklash											PROFICIENCY:WEAPON|Whip		TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail	COST:350	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:DISARM.LEATHER.MWORKW.NONLETHAL.TRIP	WIELD:OneHanded			REACH:15	SIZE:M	SOURCEPAGE:p.7
-Thundernet											PROFICIENCY:WEAPON|Net		TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Thrown					COST:250	WT:7		CRITMULT:-					EQMOD:ROPE							WIELD:OneHanded	RANGE:10			SIZE:M	SOURCEPAGE:p.8
+Shocklash											PROFICIENCY:WEAPON|Whip		TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail	COST:350	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:SPROP_DISARM.MATERIAL_LEATHER.MASTERWORK_WEAPON.SPROP_NONLETHAL.SPROP_TRIP	WIELD:OneHanded			REACH:15	SIZE:M	SOURCEPAGE:p.7
+Thundernet											PROFICIENCY:WEAPON|Net		TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Thrown					COST:250	WT:7		CRITMULT:-					EQMOD:MATERIAL_ROPE							WIELD:OneHanded	RANGE:10			SIZE:M	SOURCEPAGE:p.8
