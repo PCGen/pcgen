@@ -916,14 +916,17 @@ CATEGORY=Special Ability|Monk ~ Slow Fall.MOD	BONUS:VAR|SlowFallLVL|-2|PREVARGTE
 CATEGORY=Special Ability|Monk ~ Slow Fall.MOD	BONUS:VAR|SlowFallLVL|-2|PREVARGTEQ:MonkLVL,18|PREVAREQ:Monk_CF_SlowFall90,1
 
 
-###Block: Flurry of Blows update
+###Block: Flurry of Blows update 2.
+### Modified to correct attack bonus from 13th level to 20th level.
+### and to allow other classes to act as the Monk class for the purpose of improving Flurry of Blows' attack bonus and number of attacks.
 # Ability Name							Category of Ability	Type			Var. Must Be Grater	Define						Ability																																										Bonus Ability Pool							Modify VAR															Source Page
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryExtraAttacks|min((FlurryLVL+6)/7,3)
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryBABBonus|FlurryLVL-MonkBAB
-CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryLVL|MonkLVL
-CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|MonkBAB|MonkLVL*3/4
+CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryLVL|(FlurryBABRaw)
+CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryBAB|FlurryBABRaw*3/4
+### Changed MonkLVL to FlurryLVL to allow extra attacks due to other classes to show up.
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryAttacks|2+(FlurryLVL>=6)+(FlurryLVL>=8)+(FlurryLVL>=11)+(FlurryLVL>=15)+(FlurryLVL>=16)
-CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB|-1+(FlurryLVL>=5)+(FlurryLVL>=9)+(FlurryLVL>=18)
+CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB|-1+(FlurryLVL>=5)+(FlurryLVL>=9)+(FlurryLVL>=13)+(FlurryLVL>=17)+FlurryDiff
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB_1|FAB
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB_2|FAB
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB_3|FAB-5
@@ -932,10 +935,12 @@ CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																													
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB_6|FAB-10
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FAB_7|FAB-15
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																																								SOURCEPAGE:p.57
+CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryBABRaw|MonkLVL
+CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD																																																																								BONUS:VAR|FlurryDiff|FlurryBAB-BAB
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FlurryLVL|0
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FlurryExtraAttacks|0
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FlurryBABBonus|0
-CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:MonkBAB|0
+CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FlurryBAB|0
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FlurryAttackBonus|0
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FlurryAttacks|0
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FAB|0
@@ -946,6 +951,8 @@ CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FAB_4|0
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FAB_5|0
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FAB_6|0
 CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FAB_7|0
+CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FlurryBABRaw|0
+CATEGORY=Special Ability|Monk ~ Flurry of Blows.MOD												DEFINE:FlurryDiff|0
 
 
 #
