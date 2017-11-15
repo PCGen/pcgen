@@ -4,7 +4,7 @@
 #
 # Lists the DEFAULT number of slots for each type
 #
-NUMSLOTS:DEFAULT	HEAD:1	HANDS:2	TORSO:1	LEGS:3	SHIELD:1
+NUMSLOTS:DEFAULT	HEAD:1	HANDS:2	TORSO:1	LEGS:2	SHIELD:1
 #
 # Name of Slot	Type of items can contain	Where to get # from
 #								and number in each slot
