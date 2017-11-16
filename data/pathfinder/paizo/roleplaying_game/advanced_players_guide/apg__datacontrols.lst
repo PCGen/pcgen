@@ -306,6 +306,7 @@ FACTDEF:ABILITY|Summoner_Archetype_ShareSpells			DATAFORMAT:BOOLEAN	REQUIRED:NO	
 FACTDEF:ABILITY|Summoner_Archetype_EidolonBaseForm		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Base Form		EXPLANATION:Determines whether the archetype affects - Eidolon Base Form
 FACTDEF:ABILITY|Summoner_Archetype_EidolonType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Type		EXPLANATION:Determines whether the archetype affects - Eidolon Type
 FACTDEF:ABILITY|Summoner_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills		EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Summoner_Archetype_SpellsKnown			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Spells Known		EXPLANATION:Determines whether the archetype affects - Spells Known
 
 
 FACTDEF:ABILITY|Summoner_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ArmorProficiencies	EXPLANATION:Remove Summoner ArmorProficiencies
