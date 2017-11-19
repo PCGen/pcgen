@@ -47,3 +47,67 @@ Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Comple
 #
 ###END
 #
+
+
+
+
+#Old KEYs
+Magical Tattoo	KEY:TattooBelt		TYPE:Wonderous.Belt		VISIBLE:NO	ITYPE:TattooBelt		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.BELT|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooGirdle		TYPE:Wonderous.Girdle		VISIBLE:NO	ITYPE:TattooBelt		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.GIRDLE|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooBodywear	TYPE:Wonderous.Bodywear		VISIBLE:NO	ITYPE:TattooBody		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Bodywear|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooRobe		TYPE:Wonderous.Robe		VISIBLE:NO	ITYPE:TattooBody		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Robe|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooMantle		TYPE:Wonderous.Mantle		VISIBLE:NO	ITYPE:TattooBody		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Mantle|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooVest		TYPE:Wonderous.Vest		VISIBLE:NO	ITYPE:TattooBody		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Vest|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooShirt		TYPE:Wonderous.Shirt		VISIBLE:NO	ITYPE:TattooChest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Shirt|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooChest		TYPE:Wonderous.Chest		VISIBLE:NO	ITYPE:TattooChest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Chest|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooMantle		TYPE:Wonderous.Mantle		VISIBLE:NO	ITYPE:TattooChest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Mantle|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooVest		TYPE:Wonderous.Vest		VISIBLE:NO	ITYPE:TattooChest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Vest|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooFootwear	TYPE:Wonderous.Footwear		VISIBLE:NO	ITYPE:TattooFeet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Footwear|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooBoot		TYPE:Wonderous.Boot		VISIBLE:NO	ITYPE:TattooFeet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Boot|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooFeet		TYPE:Wonderous.Feet		VISIBLE:NO	ITYPE:TattooFeet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Feet|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooShoes		TYPE:Wonderous.Shoes		VISIBLE:NO	ITYPE:TattooFeet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Shoes|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooSlippers	TYPE:Wonderous.Slippers		VISIBLE:NO	ITYPE:TattooFeet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Slippers|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooHandwear	TYPE:Wonderous.Handwear		VISIBLE:NO	ITYPE:TattooHands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Handwear|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooGlove		TYPE:Wonderous.Glove		VISIBLE:NO	ITYPE:TattooHands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Glove|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooHands		TYPE:Wonderous.Hands		VISIBLE:NO	ITYPE:TattooHands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Hands|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooGauntlet	TYPE:Wonderous.Gauntlet		VISIBLE:NO	ITYPE:TattooHands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Gauntlet|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooHeadgear	TYPE:Wonderous.Headgear		VISIBLE:NO	ITYPE:TattooHead		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Headgear|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooHead		TYPE:Wonderous.Head		VISIBLE:NO	ITYPE:TattooHead		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Head|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooCirclet		TYPE:Wonderous.Circlet		VISIBLE:NO	ITYPE:TattooHead		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Circlet|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooCrown		TYPE:Wonderous.Crown		VISIBLE:NO	ITYPE:TattooHead		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Crown|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooHat		TYPE:Wonderous.Hat		VISIBLE:NO	ITYPE:TattooHead		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Hat|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooHelm		TYPE:Wonderous.Helm		VISIBLE:NO	ITYPE:TattooHead		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Helm|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooMask		TYPE:Wonderous.Mask		VISIBLE:NO	ITYPE:TattooHead		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Mask|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooNeckwear	TYPE:Wonderous.Neckwear		VISIBLE:NO	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Neckwear|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooAmulet		TYPE:Wonderous.Amulet		VISIBLE:NO	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Amulet|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooNeck		TYPE:Wonderous.Neck		VISIBLE:NO	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Neck|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooBrooch		TYPE:Wonderous.Brooch		VISIBLE:NO	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Brooch|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooMedallion	TYPE:Wonderous.Medallion	VISIBLE:NO	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Medallion|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooNecklace	TYPE:Wonderous.Necklace		VISIBLE:NO	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Necklace|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooPeriapt		TYPE:Wonderous.Periapt		VISIBLE:NO	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Periapt|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooScarab		TYPE:Wonderous.Scarab		VISIBLE:NO	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Scarab|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooRing		TYPE:Wonderous.Ring		VISIBLE:NO	ITYPE:TattooRing		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Ring|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooCape		TYPE:Wonderous.Cape		VISIBLE:NO	ITYPE:TattooShoulders	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Cape|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooShoulders	TYPE:Wonderous.Shoulders	VISIBLE:NO	ITYPE:TattooShoulders	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Shoulders|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooCloak		TYPE:Wonderous.Cloak		VISIBLE:NO	ITYPE:TattooShoulders	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Cloak|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooArmwear		TYPE:Wonderous.Armwear		VISIBLE:NO	ITYPE:TattooWrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Armwear|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:TattooBracer		TYPE:Wonderous.Bracer		VISIBLE:NO	ITYPE:TattooWrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Bracer|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooWrist		TYPE:Wonderous.Wrist		VISIBLE:NO	ITYPE:TattooWrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Wrist|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:TattooBracelet	TYPE:Wonderous.Bracelet		VISIBLE:NO	ITYPE:TattooWrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Bracelet|BASECOST	SPROP:Tattoo
+
+
+###Block: Spell Tattoo
+# Modifier Name					Unique Key		Naming Option	Type				Cost											Visible		Type granted				Source Page			Required Type			Prohibited Type			Choose
+Divine						KEY:TATTOO_DIVINE				TYPE:SpellTattoo													VISIBLE:NO	ITYPE:Divine													!PRETYPE:1,Divine,Arcane
+Arcane						KEY:TATTOO_ARCANE				TYPE:SpellTattoo													VISIBLE:NO	ITYPE:Arcane													!PRETYPE:1,Divine,Arcane
+
+Spell Effect (Single Use/Completion)	KEY:TATTA_1USE	NAMEOPT:SPELL	TYPE:SpellTattoo.Arcane	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:NO	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:2,SpellTattoo,Arcane						CHOOSE:EQBUILDER.SPELL|Arcane|0|9
+Spell Effect (Single Use/Completion)	KEY:TATTD_1USE	NAMEOPT:SPELL	TYPE:SpellTattoo.Divine	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:NO	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:2,SpellTattoo,Divine						CHOOSE:EQBUILDER.SPELL|Divine|0|9
+
+###Block: Riffle Scroll
+# Modifier Name					Unique Key		Naming Option	Type					Cost											Visible		Type granted				Source Page			Required Type			Prohibited Type			Choose
+Divine						KEY:RIFFLE_DIVINE				TYPE:RiffleScroll														VISIBLE:NO	ITYPE:Divine													!PRETYPE:1,Divine,Arcane
+Arcane						KEY:RIFFLE_ARCANE				TYPE:RiffleScroll														VISIBLE:NO	ITYPE:Arcane													!PRETYPE:1,Divine,Arcane
+
+Spell Effect (Single Use/Completion)	KEY:RIFFA_1USE	NAMEOPT:SPELL	TYPE:RiffleScroll.Arcane	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:NO	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:2,RiffleScroll,Arcane						CHOOSE:EQBUILDER.SPELL|Arcane|0|8
+Spell Effect (Single Use/Completion)	KEY:RIFFD_1USE	NAMEOPT:SPELL	TYPE:RiffleScroll.Divine	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:NO	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:2,RiffleScroll,Divine						CHOOSE:EQBUILDER.SPELL|Divine|0|8
