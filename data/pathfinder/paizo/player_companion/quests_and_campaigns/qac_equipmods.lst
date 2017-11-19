@@ -2,8 +2,8 @@
 
 ###Block: Equipment Modifiers
 # Modifier Name	Type		Plus		Visible		Source Page		Required Type
-Fervent	KEY:WEAPON_SA_FERVENT		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Heretical	KEY:WEAPON_SA_HERETICAL		TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Kinslayer	KEY:WEAPON_SA_KINSLAYER		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Patriotic	KEY:WEAPON_SA_PATRIOTIC		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Treasonous	KEY:WEAPON_SA_TREASONOUS		TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Fervent	KEY:Special Ability ~ Fervent ~ Weapon		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Heretical	KEY:Special Ability ~ Heretical ~ Weapon		TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Kinslayer	KEY:Special Ability ~ Kinslayer ~ Weapon		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Patriotic	KEY:Special Ability ~ Patriotic ~ Weapon		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Treasonous	KEY:Special Ability ~ Treasonous ~ Weapon		TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement

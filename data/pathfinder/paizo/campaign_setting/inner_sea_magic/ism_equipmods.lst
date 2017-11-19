@@ -4,51 +4,45 @@
 
 #EQSLOT:Belt		CONTAINS:Belt,Girdle=1										NUMBER:TORSO
 # Modifier Name	Unique Key			Type					Visible		Type granted		Bonus Equip Mods		Modify the item cost				Special Property
-Magical Tattoo	KEY:TATTOO_BELT		TYPE:Wonderous.Belt		VISIBLE:QUALIFY	ITYPE:TattooBelt		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.BELT|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Belt		TYPE:Wonderous.Belt		VISIBLE:QUALIFY	ITYPE:TattooBelt		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.BELT|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Body		CONTAINS:Bodywear,Robe,Body,Vestments=1							NUMBER:TORSO
-Magical Tattoo	KEY:TATTOO_BODY		TYPE:Wonderous.Body		VISIBLE:QUALIFY	ITYPE:TattooBody		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Body|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Body		TYPE:Wonderous.Body		VISIBLE:QUALIFY	ITYPE:TattooBody		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Body|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Chest		CONTAINS:Shirt,Chest,Mantle,Vest=1								NUMBER:TORSO
-Magical Tattoo	KEY:TATTOO_CHEST		TYPE:Wonderous.Chest		VISIBLE:QUALIFY	ITYPE:TattooChest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Chest|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Chest		TYPE:Wonderous.Chest		VISIBLE:QUALIFY	ITYPE:TattooChest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Chest|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Feet		CONTAINS:Footwear,Boot,Feet,Shoes,Slippers=1						NUMBER:LEGS
-Magical Tattoo	KEY:TATTOO_FEET		TYPE:Wonderous.Feet		VISIBLE:QUALIFY	ITYPE:TattooFeet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Feet|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Feet		TYPE:Wonderous.Feet		VISIBLE:QUALIFY	ITYPE:TattooFeet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Feet|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Hands		CONTAINS:Handwear,Glove,Hands,Gauntlet=1							NUMBER:HANDS
-Magical Tattoo	KEY:TATTOO_HANDS		TYPE:Wonderous.Hands		VISIBLE:QUALIFY	ITYPE:TattooHands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Hands|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Hands		TYPE:Wonderous.Hands		VISIBLE:QUALIFY	ITYPE:TattooHands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Hands|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Head		CONTAINS:Headgear,Head,Circlet,Crown,Hat,Helm,Mask=1					NUMBER:HEAD
-Magical Tattoo	KEY:TATTOO_HEAD		TYPE:Wonderous.Head		VISIBLE:QUALIFY	ITYPE:TattooHead		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Head|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Head		TYPE:Wonderous.Head		VISIBLE:QUALIFY	ITYPE:TattooHead		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Head|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Neck		CONTAINS:Neckwear,Amulet,Neck,Brooch,Medallion,Necklace,Periapt,Scarab=1	NUMBER:HEAD
-Magical Tattoo	KEY:TATTOO_NECK		TYPE:Wonderous.Neck		VISIBLE:QUALIFY	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Neck|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Neck		TYPE:Wonderous.Neck		VISIBLE:QUALIFY	ITYPE:TattooNeck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Neck|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Ring		CONTAINS:Ring=2											NUMBER:TORSO
-Magical Tattoo	KEY:TATTOO_RING		TYPE:Wonderous.Ring		VISIBLE:QUALIFY	ITYPE:TattooRing		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Ring|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Ring		TYPE:Wonderous.Ring		VISIBLE:QUALIFY	ITYPE:TattooRing		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Ring|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Shoulders	CONTAINS:Cape,Shoulders,Cloak=1								NUMBER:TORSO
-Magical Tattoo	KEY:TATTOO_SHOULDERS	TYPE:Wonderous.Shoulders	VISIBLE:QUALIFY	ITYPE:TattooShoulders	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Shoulders|BASECOST	SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Shoulders	TYPE:Wonderous.Shoulders	VISIBLE:QUALIFY	ITYPE:TattooShoulders	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Shoulders|BASECOST	SPROP:Tattoo
 
 #EQSLOT:Wrist		CONTAINS:Armwear,Bracer,Wrist,Bracelet=1							NUMBER:HANDS
-Magical Tattoo	KEY:TATTOO_WRIST		TYPE:Wonderous.Wrist		VISIBLE:QUALIFY	ITYPE:TattooWrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Wrist|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Wrist		TYPE:Wonderous.Wrist		VISIBLE:QUALIFY	ITYPE:TattooWrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Wrist|BASECOST		SPROP:Tattoo
 
 
 ###Block: Spell Tattoo
 # Modifier Name					Unique Key		Naming Option	Type				Cost											Visible		Type granted				Source Page			Required Type			Prohibited Type			Choose
-Divine						KEY:SPELL_TATTOO_DIVINE				TYPE:SpellTattoo													VISIBLE:QUALIFY	ITYPE:Divine													!PRETYPE:1,Divine,Arcane
-Arcane						KEY:SPELL_TATTOO_ARCANE				TYPE:SpellTattoo													VISIBLE:QUALIFY	ITYPE:Arcane													!PRETYPE:1,Divine,Arcane
-
-Spell Effect (Single Use/Completion)	KEY:SPELLEFFECT_COMPLETION_ARCANE_SPELL_TATTOO	NAMEOPT:SPELL	TYPE:SpellTattoo.Arcane	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:p.16	PRETYPE:2,SpellTattoo,Arcane						CHOOSE:EQBUILDER.SPELL|Arcane|0|9
-Spell Effect (Single Use/Completion)	KEY:SPELLEFFECT_COMPLETION_DIVINE_SPELL_TATTOO	NAMEOPT:SPELL	TYPE:SpellTattoo.Divine	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:p.16	PRETYPE:2,SpellTattoo,Divine						CHOOSE:EQBUILDER.SPELL|Divine|0|9
+Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Spell Tattoo / Arcane	NAMEOPT:SPELL	TYPE:SpellTattoo.Arcane	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Arcane	SOURCEPAGE:p.16	PRETYPE:1,SpellTattoo	!PRETYPE:1,Divine						CHOOSE:EQBUILDER.SPELL|Arcane|0|9
+Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Spell Tattoo / Divine	NAMEOPT:SPELL	TYPE:SpellTattoo.Divine	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Divine	SOURCEPAGE:p.16	PRETYPE:1,SpellTattoo	!PRETYPE:1,Arcane						CHOOSE:EQBUILDER.SPELL|Divine|0|9
 
 ###Block: Riffle Scroll
 # Modifier Name					Unique Key		Naming Option	Type					Cost											Visible		Type granted				Source Page			Required Type			Prohibited Type			Choose
-Divine						KEY:RIFFLE_SCROLL_DIVINE				TYPE:RiffleScroll														VISIBLE:QUALIFY	ITYPE:Divine													!PRETYPE:1,Divine,Arcane
-Arcane						KEY:RIFFLE_SCROLL_ARCANE				TYPE:RiffleScroll														VISIBLE:QUALIFY	ITYPE:Arcane													!PRETYPE:1,Divine,Arcane
-
-Spell Effect (Single Use/Completion)	KEY:SPELLEFFECT_COMPLETION_ARCANE_RIFFLE_SCROLL	NAMEOPT:SPELL	TYPE:RiffleScroll.Arcane	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:p.14	PRETYPE:2,RiffleScroll,Arcane						CHOOSE:EQBUILDER.SPELL|Arcane|0|8
-Spell Effect (Single Use/Completion)	KEY:SPELLEFFECT_COMPLETION_DIVINE_RIFFLE_SCROLL	NAMEOPT:SPELL	TYPE:RiffleScroll.Divine	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:p.14	PRETYPE:2,RiffleScroll,Divine						CHOOSE:EQBUILDER.SPELL|Divine|0|8
+Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Riffle Scroll / Arcane	NAMEOPT:SPELL	TYPE:RiffleScroll.Arcane	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Arcane	SOURCEPAGE:p.14	PRETYPE:1,RiffleScroll	!PRETYPE:1,Divine						CHOOSE:EQBUILDER.SPELL|Arcane|0|8
+Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Riffle Scroll / Divine	NAMEOPT:SPELL	TYPE:RiffleScroll.Divine	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Divine	SOURCEPAGE:p.14	PRETYPE:1,RiffleScroll	!PRETYPE:1,Arcane						CHOOSE:EQBUILDER.SPELL|Divine|0|8
 
 #
 ###END
