@@ -47,8 +47,8 @@ Incense of Dulled Senses					TYPE:Magic.Wondrous.Consumable			COST:1500	WT:0			S
 Perilous Gloves							TYPE:Magic.Wondrous.Glove				COST:10000	WT:1			SOURCEPAGE:p.31
 Ring of Fear Reflection						TYPE:Magic.Ring						COST:48000	WT:0			SOURCEPAGE:p.31
 Scaled Sash								TYPE:Magic.Wondrous.Shirt				COST:73000	WT:1			SOURCEPAGE:p.31
-Staff of Hunting							TYPE:Magic.Staff						COST:51000	WT:5			SOURCEPAGE:p.31			BASEITEM:Staff		EQMOD:CHARGED_STAFF|CHARGES[10]
-Staff of Internal Assault					TYPE:Magic.Staff						COST:20800	WT:5			SOURCEPAGE:p.31			BASEITEM:Staff		EQMOD:CHARGED_STAFF|CHARGES[10]
+Staff of Hunting							TYPE:Magic.Staff						COST:51000	WT:5			SOURCEPAGE:p.31			BASEITEM:Staff		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]
+Staff of Internal Assault					TYPE:Magic.Staff						COST:20800	WT:5			SOURCEPAGE:p.31			BASEITEM:Staff		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]
 
 # ==============================
 # New Artifacts

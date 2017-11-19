@@ -52,15 +52,15 @@ Fortunate Charm				TYPE:Magic.Wondrous.Neck								COST:3000	WT:0.01							SOURC
 Pathfinder's Coin				TYPE:Magic.Wondrous									COST:1500	WT:0.01							SOURCEPAGE:p.53
 Pipes of Shifting Tempo			TYPE:Magic.Wondrous									COST:18000	WT:2								SOURCEPAGE:p.53
 Ring of the Beast				TYPE:Magic.Wondrous.Ring								COST:8000	WT:0.01							SOURCEPAGE:p.53
-Runestone of Power (1st Level)	TYPE:Magic.Wondrous.LesserMinor							COST:2000	WT:0.0	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.53
-Runestone of Power (2nd Level)	TYPE:Magic.Wondrous.GreaterMinor							COST:8000	WT:0.0	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.53
-Runestone of Power (3rd Level)	TYPE:Magic.Wondrous.LesserMedium							COST:18000	WT:0.0	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.53
-Runestone of Power (4th Level)	TYPE:Magic.Wondrous.LesserMedium							COST:32000	WT:0.0	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.53
-Runestone of Power (5th Level)	TYPE:Magic.Wondrous.GreaterMedium							COST:50000	WT:0.0	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.53
-Runestone of Power (6th Level)	TYPE:Magic.Wondrous.LesserMajor							COST:72000	WT:0.0	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.53
-Runestone of Power (7th Level)	TYPE:Magic.Wondrous.LesserMajor							COST:98000	WT:0.0	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.53
-Runestone of Power (8th Level)	TYPE:Magic.Wondrous.GreaterMajor							COST:128000	WT:0.0	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.53
-Runestone of Power (9th Level)	TYPE:Magic.Wondrous.GreaterMajor							COST:162000	WT:0.0	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.53
+Runestone of Power (1st Level)	TYPE:Magic.Wondrous.LesserMinor							COST:2000	WT:0.0	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.53
+Runestone of Power (2nd Level)	TYPE:Magic.Wondrous.GreaterMinor							COST:8000	WT:0.0	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.53
+Runestone of Power (3rd Level)	TYPE:Magic.Wondrous.LesserMedium							COST:18000	WT:0.0	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.53
+Runestone of Power (4th Level)	TYPE:Magic.Wondrous.LesserMedium							COST:32000	WT:0.0	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.53
+Runestone of Power (5th Level)	TYPE:Magic.Wondrous.GreaterMedium							COST:50000	WT:0.0	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.53
+Runestone of Power (6th Level)	TYPE:Magic.Wondrous.LesserMajor							COST:72000	WT:0.0	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.53
+Runestone of Power (7th Level)	TYPE:Magic.Wondrous.LesserMajor							COST:98000	WT:0.0	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.53
+Runestone of Power (8th Level)	TYPE:Magic.Wondrous.GreaterMajor							COST:128000	WT:0.0	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.53
+Runestone of Power (9th Level)	TYPE:Magic.Wondrous.GreaterMajor							COST:162000	WT:0.0	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.53
 
 Sandals of the Lightest Step		TYPE:Magic.Wondrous.Feet								COST:5000	WT:0.5							SOURCEPAGE:p.54
 Staff of Courage				TYPE:Magic.Wondrous									COST:10400	WT:5								SOURCEPAGE:p.54																																								SPROP:Bless (1 charge), Remove fear (1 charge), Remove paralysis (2 charges), Prayer (2 charges)

@@ -3,4 +3,4 @@ SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHOR
 # Original Entry by: Paul Grosse
 
 # Modifier Name	Unique Key	Type					Plus		Visible		Source Page		Required Type							Weapon prop. bonus									Special Property																Apply to both heads
-Guided		KEY:WEAPON_SA_GUIDED	TYPE:Weapon.Melee.Thrown	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.22	PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Melee,Thrown	BONUS:WEAPON|TOHIT,DAMAGE|WIS-STR|PRETYPE:1,Weapon	SPROP:A weapon with the guided property allows its wielder to use his instinct when striking blows with it	ASSIGNTOALL:NO
+Guided		KEY:Special Ability ~ Guided ~ Weapon	TYPE:Weapon.Melee.Thrown	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.22	PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Melee,Thrown	BONUS:WEAPON|TOHIT,DAMAGE|WIS-STR|PRETYPE:1,Weapon	SPROP:A weapon with the guided property allows its wielder to use his instinct when striking blows with it	ASSIGNTOALL:NO

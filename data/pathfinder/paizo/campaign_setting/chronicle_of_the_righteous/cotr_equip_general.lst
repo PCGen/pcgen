@@ -10,4 +10,4 @@ SOURCELONG:Chronicle of the Righteous	SOURCESHORT:COTR	SOURCEWEB:http://paizo.co
 Angel's Clarion							TYPE:Magic.Wondrous.Instrument		COST:23400	WT:1		SOURCEPAGE:p.52
 Chronicle of the Righteous		NAMEISPI:Yes	TYPE:Artifact.Major				COST:0	WT:12		SOURCEPAGE:p.52
 Splendorous Ring							TYPE:Magic.Ring					COST:9900	WT:0		SOURCEPAGE:p.53
-Staff of Wings							TYPE:Magic.Staff					COST:59400	WT:5		SOURCEPAGE:p.53		BASEITEM:Staff		EQMOD:CHARGED_STAFF|CHARGES[10]
+Staff of Wings							TYPE:Magic.Staff					COST:59400	WT:5		SOURCEPAGE:p.53		BASEITEM:Staff		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]
