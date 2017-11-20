@@ -361,7 +361,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		for (int i = 0; i < fileLines.length; i++)
 		{
 			String line = fileLines[i];
-			if ((line.isEmpty())
+			if ((line.trim().isEmpty())
 				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
@@ -399,10 +399,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			if (line.startsWith("SOURCE")) //$NON-NLS-1$
 			{
 				SourceLoader.parseLine(context, line, uri);
-			}
-			else if (line.trim().isEmpty())
-			{
-				// Ignore the line
 			}
 			else if (firstToken.indexOf(COPY_SUFFIX) > 0)
 			{
