@@ -81,38 +81,38 @@ Profession (Woodcutter).MOD			TYPE:Background
 
 ###Block: New Skills
 # Skill Name							Key Stat	Untrained?		Classes	Type						Required Var. value
-Artistry								KEYSTAT:INT						TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (           )						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Artistry								KEYSTAT:INT						TYPE:Intelligence.Base.Background		PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (           )						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
 
-Lore (A particular small city)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (One district of a large city or metropolis)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (A particular monastery)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Taverns in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Bandits in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Famous battles in a region)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (The spice trade)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Cats)								KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Drow matriarchs)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Dwarven history)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Frost giants)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Sarenrae)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Dagon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Phlegethon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (Military commanders)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (A particular small city)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (One district of a large city or metropolis)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (A particular monastery)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Taverns in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Bandits in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Famous battles in a region)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (The spice trade)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Cats)								KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Drow matriarchs)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Dwarven history)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Frost giants)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Sarenrae)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Dagon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Phlegethon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Military commanders)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
 
 
 
 ###Block: Consolidated Skills
 #Acrobatics		KEY:Consolidated Skill ~ Acrobatics		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....
 # Skill Name	Unique Key						Key Stat	Untrained?		Skill Penalty?	Required Var. value			Description
-Athletics		KEY:Consolidated Skill ~ Athletics		KEYSTAT:STR	USEUNTRAINED:YES	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
-Finesse		KEY:Consolidated Skill ~ Finesse		KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
-Influence		KEY:Consolidated Skill ~ Influence		KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
-Nature		KEY:Consolidated Skill ~ Nature		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Athletics		KEY:Consolidated Skill ~ Athletics		KEYSTAT:STR	USEUNTRAINED:YES	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Finesse		KEY:Consolidated Skill ~ Finesse		KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Influence		KEY:Consolidated Skill ~ Influence		KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Nature		KEY:Consolidated Skill ~ Nature		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
 #Perception		KEY:Consolidated Skill ~ Perception		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....
-Performance		KEY:Consolidated Skill ~ Performance	KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
-Religion		KEY:Consolidated Skill ~ Religion		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
-Society		KEY:Consolidated Skill ~ Society		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Performance		KEY:Consolidated Skill ~ Performance	KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Religion		KEY:Consolidated Skill ~ Religion		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Society		KEY:Consolidated Skill ~ Society		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
 #Spellcraft		KEY:Consolidated Skill ~ Spellcraft		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
 #Stealth		KEY:Consolidated Skill ~ Stealth		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....
 #Survival		KEY:Consolidated Skill ~ Survival		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....
