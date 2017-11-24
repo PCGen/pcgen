@@ -95,6 +95,7 @@ HIDETYPE:EQUIP|AmuletOfMightyFists
 
 # Hide key stat types for skills
 HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Base|Background
+HIDETYPE:SKILL|ACHECK
 
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
