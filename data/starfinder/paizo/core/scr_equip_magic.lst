@@ -10,11 +10,11 @@ Amulet of Camouflage					TYPE:Magic.Amulet.WornMagic				QUALITY:Level|3	COST:300
 Charge Cloak						TYPE:Magic.Cloak.WornMagic				QUALITY:Level|1	COST:200		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.223
 Glove of Storing						TYPE:Magic.Glove.WornMagic				QUALITY:Level|6	COST:4600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.223
 Ring of Cosmic Alignment				TYPE:Magic.Ring.WornMagic				QUALITY:Level|11	COST:25000		QUALITY:Bulk|-	SOURCEPAGE:p.224
-Ring of Resistance Mk 1					TYPE:Magic.Ring.WornMagic				QUALITY:Level|2	COST:735		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+1 on weakest (or choice of weakest) base save
-Ring of Resistance Mk 2					TYPE:Magic.Ring.WornMagic				QUALITY:Level|6	COST:4200		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+2 on weakest (or choice of weakest) base save
-Ring of Resistance Mk 3					TYPE:Magic.Ring.WornMagic				QUALITY:Level|10	COST:18100		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+3 on weakest (or choice of weakest) base save
-Ring of Resistance Mk 4					TYPE:Magic.Ring.WornMagic				QUALITY:Level|14	COST:70000		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+4 on weakest (or choice of weakest) base save
-Ring of Resistance Mk 5					TYPE:Magic.Ring.WornMagic				QUALITY:Level|18	COST:361500		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+5 on weakest (or choice of weakest) base save
+Ring of Resistance Mk 1					TYPE:Magic.Ring.WornMagic				QUALITY:Level|2	COST:735		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+1 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +1|1
+Ring of Resistance Mk 2					TYPE:Magic.Ring.WornMagic				QUALITY:Level|6	COST:4200		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+2 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +2|1
+Ring of Resistance Mk 3					TYPE:Magic.Ring.WornMagic				QUALITY:Level|10	COST:18100		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+3 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +3|1
+Ring of Resistance Mk 4					TYPE:Magic.Ring.WornMagic				QUALITY:Level|14	COST:70000		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+4 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +4|1
+Ring of Resistance Mk 5					TYPE:Magic.Ring.WornMagic				QUALITY:Level|18	COST:361500		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+5 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +5|1
 Ring of Sustenance					TYPE:Magic.Ring.WornMagic				QUALITY:Level|5	COST:2925		QUALITY:Bulk|-	SOURCEPAGE:p.223
 Ring of Whispers						TYPE:Magic.Ring.WornMagic				QUALITY:Level|1	COST:300		QUALITY:Bulk|-	SOURCEPAGE:p.223
 Rod of Cancellation					TYPE:Magic.Rod						QUALITY:Level|9	COST:2100		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224

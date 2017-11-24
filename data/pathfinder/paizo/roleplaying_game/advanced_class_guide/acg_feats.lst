@@ -259,6 +259,10 @@ Shaman Hex		KEY:Hex Selection ~ Shaman Hex	CATEGORY:Internal		TYPE:Hex Selection
 CATEGORY=FEAT|Raging Vitality.MOD	BONUS:VAR|BloodrageConBonus|2	
 CATEGORY=FEAT|Arcane Strike.MOD	BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Bloodrager")+var("BL=Bloodrager")
 
+###Block: support for skald's raging song as a bardic performance
+CATEGORY=FEAT|Extra Performance.MOD	PRE:.CLEAR
+CATEGORY=FEAT|Extra Performance.MOD	BONUS:VAR|SkaldRagingSongRoundsPerDay|6
+CATEGORY=FEAT|Extra Performance.MOD	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,TYPE.SkaldRagingSong],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Bardic Performance]
 
 #
 # End

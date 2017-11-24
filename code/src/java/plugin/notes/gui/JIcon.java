@@ -1,5 +1,4 @@
 /*
- *  JIcon.java - 'icon' used for launching files from the notes plugin
  *  Copyright (C) 2003 Devon Jones
  *
  *  This library is free software; you can redistribute it and/or
@@ -24,6 +23,7 @@ import plugin.notes.NotesPlugin;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileSystemView;
 
 import org.apache.commons.lang3.SystemUtils;
 
@@ -35,7 +35,6 @@ import java.awt.BorderLayout;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
-import pcgen.gui2.tools.Icons;
 
 /**
  *  JIcon is a small form that uses an image, a button and some text to
@@ -54,9 +53,9 @@ class JIcon extends JPanel
 	private JPopupMenu contextMenu;
 
 	/**
-	 *  Creates new form JIcon
+	 * Creates new form JIcon
 	 *
-	 *@param  name  Name of the file to load (full path)
+	 * @param name file object for the JIcon
 	 * @param plugin
 	 */
 	JIcon(File name, NotesPlugin plugin)
@@ -73,7 +72,7 @@ class JIcon extends JPanel
 			label.setText(' ' + name.getName() + ' ');
 		}
 
-		button.setIcon(getIconForType(name.getName()));
+		button.setIcon(getIconForType(name));
 		button.setToolTipText(name.getName());
 		this.launch = name;
 	}
@@ -84,57 +83,23 @@ class JIcon extends JPanel
 	 *@param  filename  File name that this represents
 	 *@return           The icon
 	 */
-	private ImageIcon getIconForType(String filename)
+	private Icon getIconForType(File file)
 	{
 		// TODO: this blows, it's hardcoded.  This needs to be in a properties file.
 		// XXX ideally this should be use mime type
-		String ext = filename.replaceFirst(".*\\.", "");
+		String ext = file.getName().replaceFirst(".*\\.", "");
+		String labelText = ' ' + file.getName() + ' ';
 
-		if (ext.equalsIgnoreCase("html") || ext.equalsIgnoreCase("htm"))
+		if (file.getName().length() > 18)
 		{
-			return Icons.createImageIcon("gnome-text-html.png");
+			labelText = ' ' + file.getName().substring(0, 15) + "... ";
 		}
-		else if (ext.equalsIgnoreCase("doc"))
-		{
-			return Icons.createImageIcon("win-word.png");
-		}
-		else if (ext.equalsIgnoreCase("pdf"))
-		{
-			return Icons.createImageIcon("win-acrobat.png");
-		}
-		else if (ext.equalsIgnoreCase("rtf"))
-		{
-			return Icons.createImageIcon("gnome-application-rtf.png");
-		}
-		else if (ext.equalsIgnoreCase("xls"))
-		{
-			return Icons.createImageIcon("win-excel.png");
-		}
-		else if (ext.equalsIgnoreCase("ppt"))
-		{
-			return Icons.createImageIcon("gnome-application-vnd.ms-powerpoint.png");
-		}
-		else if (ext.equalsIgnoreCase("txt"))
-		{
-			return Icons.createImageIcon("gnome-text-plain.png");
-		}
-		else if (ext.equalsIgnoreCase("fcw"))
-		{
-			return Icons.createImageIcon("win-cc2.png");
-		}
-		else if (ext.equalsIgnoreCase("zip"))
-		{
-			return Icons.createImageIcon("win-zip.png");
-		}
-		else if (ext.equalsIgnoreCase("jpg") || ext.equalsIgnoreCase("gif")
-			|| ext.equalsIgnoreCase("png"))
-		{
-			return Icons.createImageIcon("gnome-image-generic.png");
-		}
-		else
-		{
-			return Icons.createImageIcon("gnome-generic.png");
-		}
+		label.setText(labelText);
+
+		Icon ico = FileSystemView.getFileSystemView().getSystemIcon(file);
+		button.setIcon(ico);
+		button.setToolTipText(file.getName());
+		return ico;
 	}
 
 	/**  Delete the file from disk that this icon represents */
@@ -388,6 +353,4 @@ class JIcon extends JPanel
 		                                         
 		launchFile();
 	}
-
-	// End of variables declaration                   
 }

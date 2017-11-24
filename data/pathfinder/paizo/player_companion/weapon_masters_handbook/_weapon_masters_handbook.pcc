@@ -37,6 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Weapon Mast
 #EXTRAFILE:OGL.txt
 
 # Data files
+ABILITYCATEGORY:wmh_abilitycategories.lst
 ABILITY:wmh_abilities.lst
 EQUIPMENT:wmh_equip.lst
 EQUIPMOD:wmh_equipmods.lst
