@@ -520,7 +520,7 @@ public final class BioSet extends PObject implements NonInteractive
 		final String htwt = getTokenNumberInMaps("SEX", 0, pc.getDisplay().getRegionString(), pc
 			.getRace().getKeyName().trim());
 
-		if (htwt == null)
+		if (htwt == null || htwt == "0")
 		{
 			return;
 		}
@@ -575,7 +575,6 @@ public final class BioSet extends PObject implements NonInteractive
 
 				break;
 			}
-			genderTok.nextToken(); // burn next token
 		}
 	}
 

@@ -17,15 +17,16 @@
  */
 package pcgen.cdom.primitive;
 
+import org.jetbrains.annotations.NotNull;
+import pcgen.cdom.base.PrimitiveCollection;
+
 import java.text.Collator;
 import java.util.Collection;
 import java.util.Comparator;
-
-import pcgen.cdom.base.PrimitiveCollection;
+import java.util.stream.Collectors;
 
 public final class PrimitiveUtilities
 {
-
 	/**
 	 * A COLLATOR used to sort Strings in a locale-aware method.
 	 */
@@ -33,45 +34,19 @@ public final class PrimitiveUtilities
 
 	private PrimitiveUtilities()
 	{
-		// Cannot construct utility class
 	}
 
 	public static final Comparator<PrimitiveCollection<?>> COLLECTION_SORTER =
-			new Comparator<PrimitiveCollection<?>>()
-	{
-		@Override
-		public int compare(PrimitiveCollection<?> lstw1,
-				PrimitiveCollection<?> lstw2)
-		{
-			return COLLATOR.compare(lstw1.getLSTformat(false), lstw2.getLSTformat(false));
-		}
-	};
+			(lstw1, lstw2) -> COLLATOR.compare(lstw1.getLSTformat(false), lstw2.getLSTformat(false));
 
+	@NotNull
 	public static String joinLstFormat(
-			Collection<? extends PrimitiveCollection<?>> pcfCollection,
-			String separator, boolean useAny)
+			@NotNull Collection<? extends PrimitiveCollection<?>> pcfCollection,
+			@NotNull CharSequence separator, boolean useAny)
 	{
-		if (pcfCollection == null)
-		{
-			return "";
-		}
-
-		final StringBuilder result = new StringBuilder(
-				pcfCollection.size() * 10);
-
-		boolean needjoin = false;
-
-		for (PrimitiveCollection<?> pcf : pcfCollection)
-		{
-			if (needjoin)
-			{
-				result.append(separator);
-			}
-			needjoin = true;
-			result.append(pcf.getLSTformat(useAny));
-		}
-
-		return result.toString();
+		return pcfCollection.stream()
+				  .map(pcf -> pcf.getLSTformat(useAny))
+				  .collect(Collectors.joining(separator));
 	}
 
 }

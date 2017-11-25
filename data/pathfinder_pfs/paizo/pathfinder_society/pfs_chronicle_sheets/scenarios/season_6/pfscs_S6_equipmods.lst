@@ -2,4 +2,10 @@
 SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
 
 # Modifier Name	Unique Key			Type													Cost							Visible		Type granted			Keys to replace		Source Page		Required Type				Modify VAR							Bonus Equip Mods						Bonus Armor Mods																			Weapon prop. bonus																	Special Property			Ability										Change Armor Type		Choose		Apply to both heads	Nb of Charges
+Charges (60)	KEY:Special Ability ~ Charged Item / 60 Maximum														COST:((BASECOST/60)*%CHARGES)-BASECOST	VISIBLE:NO																																																																																																	CHOOSE:NOCHOICE					CHARGES:1|60
+
+
+
+
+#Old KEYs
 Charges (60)	KEY:CHARGED_ITEM_60														COST:((BASECOST/60)*%CHARGES)-BASECOST	VISIBLE:NO																																																																																																	CHOOSE:NOCHOICE					CHARGES:1|60

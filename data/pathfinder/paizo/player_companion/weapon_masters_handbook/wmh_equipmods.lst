@@ -2,13 +2,13 @@
 SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy?Pathfinder-Player-Companion-Weapon-Masters-Handbook	SOURCEDATE:2015-12
 
 # Modifier Name	Type		Plus		Cost		Visible		Source Page		Required Type
-Driving		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
-Heart-Piercing	TYPE:Weapon	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,Enhancement
-Leveraging		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
-Liberating		TYPE:Weapon			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Quaking		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
-Sharding		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
-Vampiric		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+Driving		KEY:Special Ability ~ Driving ~ Weapon	TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
+Heart-Piercing	KEY:Special Ability ~ Heart-Piercing ~ Weapon	TYPE:Weapon	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,Enhancement
+Leveraging		KEY:Special Ability ~ Leveraging ~ Weapon	TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+Liberating		KEY:Special Ability ~ Liberating ~ Weapon	TYPE:Weapon			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Quaking		KEY:Special Ability ~ Quaking ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
+Sharding		KEY:Special Ability ~ Sharding ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
+Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
 
 
 
@@ -29,3 +29,15 @@ Vampiric		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	P
 #Shield (1 DP): The weapon counts as a light shield made of wood or metal and can have armor spikes (your choice). Add the gp price of the shield and any armor spikes that the weapon gains from this quality to the weapon's gp price. This quality can be added only to one-handed melee weapons.
 #Spring-Loaded (2 DP): The weapon's wielder can activate or suspend its reach as a swift action. This quality can be added only to one-handed or two-handed melee weapons with the reach special feature.
 #Strong (1 DP): The weapon's wielder gains a +2 bonus to her Combat Maneuver Defense to resist sunder combat maneuvers attempted against the weapon.
+
+
+
+
+#Old KEYs
+Driving		TYPE:Weapon	PLUS:1			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
+Heart-Piercing	TYPE:Weapon	PLUS:5			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,Enhancement
+Leveraging		TYPE:Weapon	PLUS:1			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+Liberating		TYPE:Weapon			COST:7000	VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Quaking		TYPE:Weapon	PLUS:2			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
+Sharding		TYPE:Weapon	PLUS:2			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
+Vampiric		TYPE:Weapon	PLUS:2			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement

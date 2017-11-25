@@ -3,5 +3,5 @@ SOURCELONG:Blood of Shadows	SOURCESHORT:BOS	SOURCEWEB:http://paizo.com/products/
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 14 April 2016
 
-BEAMING.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-FOCUSSHADOW.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Special Ability ~ Beaming ~ Ranged.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Special Quality ~ Shadowcraft / Focused ~ Melee.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

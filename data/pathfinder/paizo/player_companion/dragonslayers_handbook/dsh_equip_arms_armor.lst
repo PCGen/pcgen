@@ -16,12 +16,12 @@ Siege Engine Ammunition (Weighted Bolt)			TYPE:Ammunition.Resizable.SiegeAmmo			
 # New Magic Armor
 # ==============================
 
-Death's Preservation Banded Mail		PROFICIENCY:ARMOR|Banded Mail			TYPE:Armor.Magic.Heavy.ArmorProfHeavy.Suit.Specific							COST:250	WT:35		ACCHECK:-6		EQMOD:FRT_LGHT.MAGIC_COST|13000.PLUS2A.STEEL	MAXDEX:1		SOURCEPAGE:p.30	SPELLFAILURE:35																			BONUS:COMBAT|AC|7|TYPE=Armor									BONUS:VAR|ArmorCheckPenalty|6
-Dragonform Armor					PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.Light.ArmorProfLight.Suit.Specific.Nonmetal					COST:10	WT:15		ACCHECK:0		EQMOD:MAGIC_COST|22950.PLUS1A.LEATHER		MAXDEX:6		SOURCEPAGE:p.30	SPELLFAILURE:10																			BONUS:COMBAT|AC|2|TYPE=Armor									BONUS:VAR|ArmorCheckPenalty|0
+Death's Preservation Banded Mail		PROFICIENCY:ARMOR|Banded Mail			TYPE:Armor.Magic.Heavy.ArmorProfHeavy.Suit.Specific							COST:250	WT:35		ACCHECK:-6		EQMOD:Special Ability ~ Fortification / Light ~ Armor.Special Ability ~ Enhancement Cost|13000.Special Ability ~ +2 ~ Armor.Material ~ Steel	MAXDEX:1		SOURCEPAGE:p.30	SPELLFAILURE:35																			BONUS:COMBAT|AC|7|TYPE=Armor									BONUS:VAR|ArmorCheckPenalty|6
+Dragonform Armor					PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.Light.ArmorProfLight.Suit.Specific.Nonmetal					COST:10	WT:15		ACCHECK:0		EQMOD:Special Ability ~ Enhancement Cost|22950.Special Ability ~ +1 ~ Armor.Material ~ Leather		MAXDEX:6		SOURCEPAGE:p.30	SPELLFAILURE:10																			BONUS:COMBAT|AC|2|TYPE=Armor									BONUS:VAR|ArmorCheckPenalty|0
 
 # ==============================
 # New Magic Weapons
 # ==============================
 
-Dragon's Tail					PROFICIENCY:WEAPON|Guisarme			TYPE:Weapon.Magic.Resizable.Melee.TwoHanded.Martial.Reach.Specific.Slashing.Polearm		COST:9	WT:12		CRITMULT:x3		CRITRANGE:1			DAMAGE:2d4			EQMOD:BANE.MAGIC_COST|14000.PLUS2W.STEEL.TRIP								WIELD:TwoHanded													REACHMULT:2		SIZE:M	SOURCEPAGE:p.30			SPROP:Dragonbane
-Net of Snaring					PROFICIENCY:WEAPON|Net				TYPE:Weapon.Magic.Resizable.Exotic.Ranged.Specific.Thrown						COST:20	WT:6													EQMOD:DISTNC.PLUS1W												WIELD:OneHandOnly						RANGE:10									SIZE:M	SOURCEPAGE:p.31
+Dragon's Tail					PROFICIENCY:WEAPON|Guisarme			TYPE:Weapon.Magic.Resizable.Melee.TwoHanded.Martial.Reach.Specific.Slashing.Polearm		COST:9	WT:12		CRITMULT:x3		CRITRANGE:1			DAMAGE:2d4			EQMOD:Special Ability ~ Bane ~ Weapon|Dragons.Special Ability ~ Enhancement Cost|14000.Special Ability ~ +2 ~ Weapon.Material ~ Steel.Special Quality ~ Trip								WIELD:TwoHanded													REACHMULT:2		SIZE:M	SOURCEPAGE:p.30			
+Net of Snaring					PROFICIENCY:WEAPON|Net				TYPE:Weapon.Magic.Resizable.Exotic.Ranged.Specific.Thrown						COST:20	WT:6													EQMOD:Special Ability ~ Distance ~ Ranged.Special Ability ~ +1 ~ Weapon												WIELD:OneHandOnly						RANGE:10									SIZE:M	SOURCEPAGE:p.31

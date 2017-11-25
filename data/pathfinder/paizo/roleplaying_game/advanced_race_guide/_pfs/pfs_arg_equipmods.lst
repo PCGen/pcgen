@@ -1,6 +1,6 @@
 # CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
 
 # Modifier Name		Type			!PRECHARACTERTYPE
-Wyroot(1 Life Point)	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Wyroot(2 Life Points)	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Wyroot(3 Life Points)	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Material ~ Wyroot / 1 Life Point.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Material ~ Wyroot / 2 Life Points.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Material ~ Wyroot / 3 Life Points.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

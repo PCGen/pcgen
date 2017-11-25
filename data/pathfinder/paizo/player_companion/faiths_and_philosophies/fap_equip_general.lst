@@ -21,5 +21,5 @@ Propitious Metumbe																TYPE:Magic.Wondrous														COST:8000	WT:
 Tome of Heretical Revelation															TYPE:Magic.Wondrous.Cursed													COST:0	WT:5																								SOURCEPAGE:p.31
 Vest of Shed Servitude																TYPE:Magic.Wondrous														COST:4000	WT:2																								SOURCEPAGE:p.31
 
-Shield of Countless Causes									PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Resizable.Heavy.Specific										COST:7	WT:10		ACCHECK:-2								EQMOD:MAGIC_COST|10000.PLUS2S.WOOD								SOURCEPAGE:p.31	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield
-Warden's Cudgel						PROFICIENCY:WEAPON|Club								TYPE:Weapon.Magic.Resizable.Melee.OneHanded.Ranged.Thrown.Simple.Specific.Bludgeoning.Club.Hammer	COST:0	WT:3					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:MAGIC_COST|9850.PLUS1W.GRNWD	WIELD:OneHanded	RANGE:10	SIZE:M	SOURCEPAGE:p31
+Shield of Countless Causes									PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Resizable.Heavy.Specific										COST:7	WT:10		ACCHECK:-2								EQMOD:Special Ability ~ Enhancement Cost|10000.Special Ability ~ +2 ~ Shield.Material ~ Wood								SOURCEPAGE:p.31	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield
+Warden's Cudgel						PROFICIENCY:WEAPON|Club								TYPE:Weapon.Magic.Resizable.Melee.OneHanded.Ranged.Thrown.Simple.Specific.Bludgeoning.Club.Hammer	COST:0	WT:3					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Special Ability ~ Enhancement Cost|9850.Special Ability ~ +1 ~ Weapon.Material ~ Greenwood	WIELD:OneHanded	RANGE:10	SIZE:M	SOURCEPAGE:p31

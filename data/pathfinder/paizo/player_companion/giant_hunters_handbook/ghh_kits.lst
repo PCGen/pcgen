@@ -29,5 +29,5 @@ GEAR:Pole (10 Ft)			QTY:1	SIZE:PC
 # ==============================
 
 STARTPACK:Trunau Native Kit	TYPE:Character Trait	VISIBLE:NO	TOTALCOST:0
-GEAR:Dagger				QTY:1	SIZE:PC	LOCATION:Carried	EQMOD:MWORKW
+GEAR:Dagger				QTY:1	SIZE:PC	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon
 

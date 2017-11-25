@@ -2,4 +2,10 @@
 
 
 # Modifier Name	Unique Key			Type		Modify the item cost
-Combat-Trained	KEY:COMBAT_TRAINED	TYPE:Animal	BONUS:ITEMCOST|TYPE.Animal|(BASECOST/2)
+Combat-Trained	KEY:Special Quality ~ Combat-Trained ~ Animal	TYPE:Animal	BONUS:ITEMCOST|TYPE.Animal|(BASECOST/2)	SOURCEPAGE:p.14
+
+
+
+
+#Old KEYs
+Combat-Trained	KEY:COMBAT_TRAINED	TYPE:Animal	BONUS:ITEMCOST|TYPE.Animal|(BASECOST/2)	VISIBLE:NO

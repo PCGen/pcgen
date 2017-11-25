@@ -3,6 +3,6 @@ SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOU
 # Original Entry by Eddy Anthony (MoSaT)
 
 # Equipment Name		Output Name				Type									Cost		Weight	Base Quantity	Modifier	Requires Modification?	Source Page		Special Property
-Bolt (Acid)			OUTPUTNAME:Acid Bolt		TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:40	WT:0.1	BASEQTY:1		EQMOD:STEEL	MODS:YES			SOURCEPAGE:p.18	SPROP:1d4 points of additional acid damage
-Bolt (Fire)			OUTPUTNAME:Fire Bolt		TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:50	WT:0.1	BASEQTY:1		EQMOD:STEEL	MODS:YES			SOURCEPAGE:p.18	SPROP:1d4 points of additional fire damage
-Bolt (Drow/Poison)	OUTPUTNAME:Drow Poison Bolt	TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:100	WT:0.1	BASEQTY:1		EQMOD:STEEL	MODS:YES			SOURCEPAGE:p.18	SPROP:DC 13 Fortitude save or fall unconscious for 1 minute
+Bolt (Acid)			OUTPUTNAME:Acid Bolt		TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:40	WT:0.1	BASEQTY:1		EQMOD:Material ~ Steel	MODS:YES			SOURCEPAGE:p.18	SPROP:1d4 points of additional acid damage
+Bolt (Fire)			OUTPUTNAME:Fire Bolt		TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:50	WT:0.1	BASEQTY:1		EQMOD:Material ~ Steel	MODS:YES			SOURCEPAGE:p.18	SPROP:1d4 points of additional fire damage
+Bolt (Drow/Poison)	OUTPUTNAME:Drow Poison Bolt	TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:100	WT:0.1	BASEQTY:1		EQMOD:Material ~ Steel	MODS:YES			SOURCEPAGE:p.18	SPROP:DC 13 Fortitude save or fall unconscious for 1 minute

@@ -46,7 +46,7 @@ Lantern (Bullseye).MOD																			TYPE:Lantern
 Lantern (Hooded).MOD																			TYPE:Lantern
 Magnet																					TYPE:Goods.General								COST:0.5	WT:0.5																	SOURCEPAGE:p.7
 Marbles																					TYPE:Goods.General.Consumable							COST:0.1	WT:2																		SOURCEPAGE:p.7								SPROP:DC 10 Reflex to avoid falling unless move at half-speed
-Manacles (Mithral)						OUTPUTNAME:[NAME] Manacles									TYPE:Goods.General								COST:1000	WT:2								EQMOD:MITHRAL_ITEM							SOURCEPAGE:p.7								SPROP:hardness 15, 30 hit points, and a break DC of 30
+Manacles (Mithral)						OUTPUTNAME:[NAME] Manacles									TYPE:Goods.General								COST:1000	WT:2								EQMOD:Material ~ Mithril ~ Weapon / Item							SOURCEPAGE:p.7								SPROP:hardness 15, 30 hit points, and a break DC of 30
 Paper (Sheet).MOD																																																													SPROP:hardness 0, 1 hit point, and break DC 5
 Perfume/Cologne																				TYPE:Goods.General								COST:5	WT:0																		SOURCEPAGE:p.7
 Pickle Extractor																				TYPE:Goods.General								COST:0.2	WT:2																		SOURCEPAGE:p.7
@@ -61,17 +61,17 @@ Pump Water Canister																			TYPE:Goods.General								COST:75	WT:5				
 Rice Paper (Sheet)																			TYPE:Goods.General.Writing.Documents					COST:0.05	WT:0																		SOURCEPAGE:p.8								SPROP:hardness 0, 1 hit point, and break DC 2
 #Already in core, just adds description in the book. Scroll Case	TYPE:Goods.General.Container	COST:1	WT:0.5	SOURCEPAGE:p.8	CONTAINS:UNLIM|Scroll
 Sextant																					TYPE:Goods.General								COST:500	WT:2																		SOURCEPAGE:p.8								SPROP:+4 circumstance to Survival to avoid getting lost
-Shaving Kit																					TYPE:Goods.General.Rezisable							COST:1.5	WT:0.5							EQMOD:CHARGED_ITEM_50|CHARGES[50]					SOURCEPAGE:p.8
+Shaving Kit																					TYPE:Goods.General.Rezisable							COST:1.5	WT:0.5							EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]					SOURCEPAGE:p.8
 # Shield Sconce is an EQMOD for shields
 Shovel																					TYPE:Goods.General								COST:0.02	WT:3																		SOURCEPAGE:p.8
 Signal Horn																					TYPE:Goods.General								COST:1	WT:2																		SOURCEPAGE:p.8
 Skeleton Key																				TYPE:Goods.General								COST:85	WT:0																		SOURCEPAGE:p.8
 # For some reason this is far cheaper than the soap from Core
-Soap																						TYPE:Goods.General								COST:0.01	WT:0.5							EQMOD:CHARGED_ITEM_50|CHARGES[50]					SOURCEPAGE:p.8
+Soap																						TYPE:Goods.General								COST:0.01	WT:0.5							EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]					SOURCEPAGE:p.8
 Spear-thrower																				TYPE:Goods.General								COST:1	WT:1																		SOURCEPAGE:p.8								SPROP:Double range of dart, javelin, or shortspear. Move action to load.
 Spellbook (Traveling/blank)																		TYPE:Goods.Tools.Spellbook							COST:10	WT:1																		SOURCEPAGE:p.8
 Stationary																					TYPE:Goods.General.Writing.Documents					COST:1	WT:0																		SOURCEPAGE:p.8
-Stove Can																					TYPE:Goods.General								COST:10	WT:1								EQMOD:CHARGED_ITEM_10|CHARGES[10]					SOURCEPAGE:p.8
+Stove Can																					TYPE:Goods.General								COST:10	WT:1								EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]					SOURCEPAGE:p.8
 # 2 differents items?
 String (50 feet)																				TYPE:Goods.General								COST:0.01	WT:0.5																	SOURCEPAGE:p.8
 Twine (50 feet)																				TYPE:Goods.General								COST:0.01	WT:0.5																	SOURCEPAGE:p.8
@@ -119,7 +119,7 @@ Invisible Ink (Good)																			TYPE:Goods.General.Writing.Liquid.Vial			
 Invisible Ink (Superior)																		TYPE:Goods.General.Writing.Liquid.Vial					COST:75	WT:0																		SOURCEPAGE:p.10								SPROP:DC 35 Craft (Alchemy) to reveal without trigger
 Itching Powder																				TYPE:Goods.Alchemical.Consumable						COST:60	WT:2																		SOURCEPAGE:p.10								SPROP: Fort DC12 to resist or -2 penalty to attack, save, skill, and ability checks.
 Kaava Musk																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:0.5																	SOURCEPAGE:p.10								SPROP:+5 bonus to tracking target with musk on by scent
-Keros Oil (Flask)														PROFICIENCY:WEAPON|Spells (Touch)	TYPE:Goods.Alchemical.Weapon.Ranged.Fire					COST:5			CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:CHARGED_ITEM_10|CHARGES[10]	RANGE:5	SIZE:M	SOURCEPAGE:p.11								SPROP:Taking a mouthful from the bottle is a standard action.
+Keros Oil (Flask)														PROFICIENCY:WEAPON|Spells (Touch)	TYPE:Goods.Alchemical.Weapon.Ranged.Fire					COST:5			CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	RANGE:5	SIZE:M	SOURCEPAGE:p.11								SPROP:Taking a mouthful from the bottle is a standard action.
 Liquid Ice																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:2																		SOURCEPAGE:p.11
 Marker Dye (Flask)																			TYPE:Goods.Alchemical.Flask.Consumable					COST:15	WT:1																		SOURCEPAGE:p.11								SPROP:Creates obvious stain.
 Scent Cloak																					TYPE:Goods.Alchemical.Consumable						COST:20	WT:2																		SOURCEPAGE:p.11								SPROP:Add +10 to the DC for target being tracked by sent. Lasts 1 hour.

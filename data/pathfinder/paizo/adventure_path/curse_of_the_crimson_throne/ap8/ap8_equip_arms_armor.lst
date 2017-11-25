@@ -3,4 +3,4 @@ SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOUR
 
 # Weapons
 # Equipment Name	Required Weapon Proficiency	Type													Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Range		Size
-Wand of Misery	PROFICIENCY:WEAPON|Club		TYPE:Weapon.Resizable.Melee.Ranged.Thrown.Simple.Standard.Bludgeoning.Club	COST:5	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:WOOD	WIELD:OneHanded	RANGE:10	SIZE:M
+Wand of Misery	PROFICIENCY:WEAPON|Club		TYPE:Weapon.Resizable.Melee.Ranged.Thrown.Simple.Standard.Bludgeoning.Club	COST:5	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Wood	WIELD:OneHanded	RANGE:10	SIZE:M

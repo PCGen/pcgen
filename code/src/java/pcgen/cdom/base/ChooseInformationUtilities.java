@@ -17,35 +17,24 @@
  */
 package pcgen.cdom.base;
 
-import java.util.ArrayList;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.stream.Collectors;
 
-import pcgen.base.lang.StringUtil;
-
-public final class ChooseInformationUtilities
+final class ChooseInformationUtilities
 {
-
 	private ChooseInformationUtilities()
 	{
-		//Utility class should not be constructed
 	}
 
-	static  <T> CharSequence buildEncodedString(ChooseInformation<T> info,
-		Collection<? extends T> collection)
+	@NotNull
+	static  <T> CharSequence buildEncodedString(@NotNull Collection<? extends T> collection)
 	{
-		if (collection == null)
-		{
-			return Constants.EMPTY_STRING;
-		}
-		List<String> list = new ArrayList<>(collection.size());
-		for (T sl : collection)
-		{
-			list.add(String.valueOf(sl));
-		}
-		Collections.sort(list);
-		return StringUtil.joinToStringBuilder(list, ", ");
+		return collection.stream()
+							.map(String::valueOf)
+							.sorted()
+							.collect(Collectors.joining(", "));
 	}
 
 }

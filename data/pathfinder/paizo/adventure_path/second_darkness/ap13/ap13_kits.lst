@@ -120,7 +120,7 @@ SKILL:Stealth		RANK:1
 SKILL:Use Magic Device	RANK:1
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Improved Initiative
-GEAR:Leather				LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Leather				LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Rapier					LOCATION:Primary Hand
 GEAR:Crossbow (Light)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
@@ -162,8 +162,8 @@ SKILL:Sleight of Hand		RANK:4
 ABILITY:CATEGORY=FEAT|Skill Focus (Bluff)
 ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Leather					LOCATION:Equipped		EQMOD:PLUS1A
-GEAR:Rapier						LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Leather					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Rapier						LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Key Stump					LOCATION:Secondary Hand
 GEAR:Pouch (Belt)					LOCATION:Carried
 GEAR:Coin (Gold Piece)		QTY:25	LOCATION:Pouch (Belt)
@@ -197,7 +197,7 @@ ABILITY:CATEGORY=FEAT|Alertness
 ABILITY:CATEGORY=FEAT|Spell Focus (Transmutation)
 #FEAT:Varisian Tattoo (Transmutation)
 GEAR:Bracers of Armor +1	LOCATION:Equipped
-GEAR:Dagger				LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Dagger				LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Pouch (Belt)			LOCATION:Carried
 LANGBONUS:Halfling|Varisian
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Daze Monster
@@ -256,8 +256,8 @@ SKILL:Acrobatics		RANK:1
 ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Scimitar)
 ABILITY:CATEGORY=FEAT|Deceitful
 ABILITY:CATEGORY=FEAT|Persuasive
-GEAR:Studded Leather					LOCATION:Equipped		EQMOD:PLUS1A
-GEAR:Scimitar						LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Studded Leather					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Scimitar						LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Crossbow (Light)					LOCATION:Carried
 GEAR:Bolt (Crossbow)			QTY:10	LOCATION:Carried
 GEAR:Potion of Bull's Strength	QTY:2		LOCATION:Carried
@@ -286,8 +286,8 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 GEAR:Banded Mail			LOCATION:Equipped
-GEAR:Shield (Heavy/Steel)	LOCATION:Equipped		EQMOD:PLUS1S
-GEAR:Longsword			LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Shield (Heavy/Steel)	LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Shield
+GEAR:Longsword			LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Cloak of Resistance +1	LOCATION:Equipped
 
 
@@ -360,11 +360,11 @@ SKILL:Survival			RANK:4
 ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=Ranger Combat Style Feat|Ranger Combat Style Feat ~ Rapid Shot
-GEAR:Leather						LOCATION:Equipped		EQMOD:PLUS1A
-GEAR:Longbow (Composite)				LOCATION:Both Hands	EQMOD:BOWSTR|+2.PLUS1W
+GEAR:Leather						LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Longbow (Composite)				LOCATION:Both Hands	EQMOD:Special Quality ~ Composite Bow Strength Rating|+2.Special Ability ~ +1 ~ Weapon
 GEAR:Dagger							LOCATION:Carried
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Arrow					QTY:8		LOCATION:Carried		EQMOD:ALCHM
+GEAR:Arrow					QTY:8		LOCATION:Carried		EQMOD:Material ~ Alchemical Silver
 GEAR:Alchemist's Fire (Flask)		QTY:2		LOCATION:Carried
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Animal Messenger
@@ -397,7 +397,7 @@ SKILL:Swim			RANK:1
 ABILITY:CATEGORY=FEAT|Alertness
 ABILITY:CATEGORY=FEAT|Stealthy
 GEAR:Chain Shirt				LOCATION:Equipped
-GEAR:Dagger					LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Dagger					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Shortbow				LOCATION:Carried
 GEAR:Arrow			QTY:20	LOCATION:Carried
 GEAR:Thieves' Tools			LOCATION:Carried
@@ -427,9 +427,9 @@ SKILL:Survival			RANK:2
 ABILITY:CATEGORY=FEAT|Skill Focus (Handle Animal)
 ABILITY:CATEGORY=FEAT|Animal Affinity
 ABILITY:CATEGORY=Ranger Combat Style Feat|Ranger Combat Style Feat ~ Two-Weapon Fighting
-GEAR:Chain Shirt					LOCATION:Equipped		EQMOD:PLUS1A
-GEAR:Battleaxe					LOCATION:Primary Hand	EQMOD:MWORKW
-GEAR:Handaxe					LOCATION:Secondary Hand	EQMOD:MWORKW
+GEAR:Chain Shirt					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Battleaxe					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Handaxe					LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Axe (Throwing)			QTY:3	LOCATION:Carried
 GEAR:Potion of Cure Light Wounds		LOCATION:Carried
 LANGBONUS:Orc
@@ -458,10 +458,10 @@ ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=Fighter Bonus Feat|Dodge
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Crossbow (Hand))
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Crossbow (Hand))
-GEAR:Chainmail						LOCATION:Equipped		EQMOD:PLUS1A.MITHRAL_ARMR_MED
+GEAR:Chainmail						LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Mithril ~ Armor / Medium
 GEAR:Buckler						LOCATION:Equipped
-GEAR:Sword (Short)					LOCATION:Primary Hand	EQMOD:MWORKW
-GEAR:Crossbow (Hand)					LOCATION:Secondary Hand	EQMOD:MWORKW
+GEAR:Sword (Short)					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Crossbow (Hand)					LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Bolt (Crossbow)			QTY:20	LOCATION:Carried
 GEAR:Ring of Feather Falling				LOCATION:Equipped
 GEAR:Slippers of Spider Climbing			LOCATION:Equipped
@@ -497,9 +497,9 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Leather						LOCATION:Equipped
-GEAR:Dagger							LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Dagger							LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Thunderstone				QTY:4		LOCATION:Carried
-GEAR:Thieves' Tools					LOCATION:Carried		EQMOD:MWORKT
+GEAR:Thieves' Tools					LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
 GEAR:Potion of Shield of Faith +3			LOCATION:Carried
 GEAR:Potion of Spider Climb				LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:178	LOCATION:Carried
@@ -522,5 +522,5 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Morningstar)
 GEAR:Studded Leather			LOCATION:Equipped
-GEAR:Morningstar				LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Morningstar				LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Coin (Silver Piece)	QTY:8	LOCATION:Carried
