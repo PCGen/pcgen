@@ -8,7 +8,8 @@
 # Modifier Name	Unique Key		Type		Plus		Cost		Visible		Source Page		Required Type													Bonus to skill						Modify VAR						Special Property
 Amorphous		KEY:Special Ability ~ Amorphous ~ Armor	TYPE:Armor			COST:4500	VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor	PRETYPE:1,EQMOD=Material ~ Cloth,EQMOD=Material ~ Leather,EQMOD=Material ~ Rope,HideArmor	BONUS:SKILL|Escape Artist|5|TYPE=Competence	BONUS:VAR|CMD_Grapple|5|TYPE=Competence	SPROP:1/day take form of viscous liquid
 # COMMENT: Can this be bonified?
-Burdenless		KEY:Special Ability ~ Burdenless ~ Armor	TYPE:Armor			COST:4000	VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor																										SPROP:Carrying capacity increased by 50%
+
+Burdenless		KEY:Special Ability ~ Burdenless ~ Armor	TYPE:Armor			COST:4000	VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor				BONUS:LOADMULT|TYPE=SIZE|0.50																									SPROP:Carrying capacity increased by 50%
 Calming		KEY:Special Ability ~ Calming ~ Armor		TYPE:Armor	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor																										SPROP:10 rounds/day create 5' aura that supresses rage or emotion effects (DC 15 Will negates)
 Jarring		KEY:Special Ability ~ Jarring ~ Armor		TYPE:Armor	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																										SPROP:3/day daze attacker for 1 round (DC 16 Fortitude negates)
 Restful		KEY:Special Ability ~ Restful ~ Armor		TYPE:Armor			COST:4500	VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																										SPROP:Only need 2 hours of uninterrupted sleep, and heals as in comfortable bed; not fatigued by sleeping in this armor
