@@ -348,6 +348,11 @@
 		<profane>${pcstring('AC.Profane')}</profane>
 		<miss_chance/>
 		<max_dex>${pcstring('MAXDEX')}</max_dex>
+		<#if (gamemodename = "Pathfinder" || gamemodename = "Pathfinder_RPG") >
+			<spell_failure>${pcstring('VAR.SPELLFAILURE_Total.INTVAL')}</spell_failure>
+		<#else>
+			<spell_failure>${pcstring('SPELLFAILURE')}</spell_failure>
+		</#if>
 		<spell_failure>${pcstring('SPELLFAILURE')}</spell_failure>
 		<check_penalty>${pcstring('ACCHECK')}</check_penalty>
 		<spell_resistance>${pcstring('SR')}</spell_resistance>

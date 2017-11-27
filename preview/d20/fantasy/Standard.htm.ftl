@@ -448,7 +448,11 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
         <tr>
           <td align="center" class="border9"><br /></td>
           <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('SPELLFAILURE')}</b></td>
+		  <#if (gamemodename = "Pathfinder" || gamemodename = "Pathfinder_RPG") >
+			  <td align="center" class="border9"><b>${pcstring('VAR.SPELLFAILURE_Total.INTVAL')}</b></td>
+		  <#else>
+			  <td align="center" class="border9"><b>${pcstring('SPELLFAILURE')}</b></td>
+          </#if>
           <td align="center"></td>
           <td align="center" class="border9"><b>${pcstring('ACCHECK')}</b></td>
           <td align="center"></td>
