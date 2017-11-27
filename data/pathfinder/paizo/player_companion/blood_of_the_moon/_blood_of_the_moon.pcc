@@ -13,7 +13,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:3,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -58,9 +58,10 @@ TEMPLATE:botm_templates.lst
 # RELEASE:
 # Built for PCGen Version: 6.05.01
 # Updated to work with version: -
-# MINVER:6.5
-# MINDEVVER:6.05.1
+# MINVER:6.07.05
+# MINDEVVER:6.07.05
 # COMMENTS: updated Oct 2015 by Wayne Tonjes added tempbonuses to the Beast Pelts
+# COMMENTS: Updated Nov 2017 by Regan Anderson to correct race abilities
 
 
 #

@@ -2,11 +2,11 @@
 
 
 # Template Name	Visible
-Werebat-Kin		VISIBLE:NO
-Werebear-Kin	VISIBLE:NO
-Wereboar-Kin	VISIBLE:NO
-Werecrocodile-Kin	VISIBLE:NO
-Wererat-Kin		VISIBLE:NO
-Wereshark-Kin	VISIBLE:NO
-Weretiger-Kin	VISIBLE:NO
-Werewolf-Kin	VISIBLE:NO
+Werebat-Kin		VISIBLE:NO	SUBRACE:YES
+Werebear-Kin	VISIBLE:NO	SUBRACE:YES
+Wereboar-Kin	VISIBLE:NO	SUBRACE:YES
+Werecrocodile-Kin	VISIBLE:NO	SUBRACE:YES
+Wererat-Kin		VISIBLE:NO	SUBRACE:YES
+Wereshark-Kin	VISIBLE:NO	SUBRACE:YES
+Weretiger-Kin	VISIBLE:NO	SUBRACE:YES
+Werewolf-Kin	VISIBLE:NO	SUBRACE:YES
