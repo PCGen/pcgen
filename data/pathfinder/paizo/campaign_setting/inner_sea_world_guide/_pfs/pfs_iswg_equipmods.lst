@@ -3,6 +3,6 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 # Pathfinder RPG Entry by: Stefan Radermacher & Paul Shipley
 
 # Modifier Name	Type
-LEAF.MOD		TYPE:PFSNotLegal
-STONE.MOD		TYPE:PFSNotLegal
-PAUELIEL.MOD	TYPE:PFSNotLegal
+Material ~ Leaf.MOD		TYPE:PFSNotLegal
+Material ~ Stone.MOD		TYPE:PFSNotLegal
+Material ~ Paueliel Wood.MOD	TYPE:PFSNotLegal

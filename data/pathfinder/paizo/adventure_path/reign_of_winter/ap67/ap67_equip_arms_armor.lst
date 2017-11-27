@@ -4,7 +4,7 @@ SOURCELONG:Reign of Winter, Part 1: The Snows of Summer	SOURCESHORT:AP67	SOURCEW
 
 ###Block: New Weapons
 # Equipment Name	Required Weapon Proficiency	Type													Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Range		Size		Source Page
-Pitchfork		PROFICIENCY:WEAPON|Pitchfork	TYPE:Weapon.Resizable.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing	COST:5	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:STEEL.WOOD	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.84
+Pitchfork		PROFICIENCY:WEAPON|Pitchfork	TYPE:Weapon.Resizable.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing	COST:5	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Steel.Material ~ Wood	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.84
 
 #
 # End

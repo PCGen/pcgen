@@ -15,12 +15,12 @@ Palelight Torch									TYPE:Magic.Wondrous					COST:250		WT:1			SOURCEPAGE:p.21
 Penumbra Tattoo									TYPE:Magic.Wondrous					COST:24000					SOURCEPAGE:p.12
 Radiant Panel									TYPE:Magic.Wondrous					COST:12000					SOURCEPAGE:p.21
 Rod (Delumination)		OUTPUTNAME:Rod of [NAME]		TYPE:Magic.Rod						COST:35000		WT:5			SOURCEPAGE:p.26		BASEITEM:Rod
-Rod (Eclipsed/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:1500		WT:5			SOURCEPAGE:p.26		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]
-Rod (Eclipsed)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:5500		WT:5			SOURCEPAGE:p.26		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]
-Rod (Eclipsed/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:12250		WT:5			SOURCEPAGE:p.26		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]
-Rod (Snuffing/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:9000		WT:5			SOURCEPAGE:p.27		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]
-Rod (Snuffing)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:32500		WT:5			SOURCEPAGE:p.27		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]
-Rod (Snuffing/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:73000		WT:5			SOURCEPAGE:p.27		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]
+Rod (Eclipsed/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:1500		WT:5			SOURCEPAGE:p.26		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]
+Rod (Eclipsed)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:5500		WT:5			SOURCEPAGE:p.26		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]
+Rod (Eclipsed/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:12250		WT:5			SOURCEPAGE:p.26		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]
+Rod (Snuffing/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:9000		WT:5			SOURCEPAGE:p.27		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]
+Rod (Snuffing)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:32500		WT:5			SOURCEPAGE:p.27		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]
+Rod (Snuffing/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic				COST:73000		WT:5			SOURCEPAGE:p.27		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]
 Shadowbond Tunic									TYPE:Magic.Wondrous.Shirt				COST:12000		WT:5			SOURCEPAGE:p.26
 Shawl of Shadowy Disguise							TYPE:Magic.Wondrous.Headgear				COST:1350		WT:1			SOURCEPAGE:p.27
 Soles of the Silent Stride							TYPE:Magic.Wondrous.Boot				COST:8250					SOURCEPAGE:p.27

@@ -41,7 +41,7 @@ SKILL:Survival		RANK:1
 ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Animal
 GEAR:Studded Leather			SIZE:S	LOCATION:Equipped
-GEAR:Horsechopper						LOCATION:Both Hands	EQMOD:MWORKW.STEEL
+GEAR:Horsechopper						LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon.Material ~ Steel
 GEAR:Shortbow				SIZE:S	LOCATION:Carried
 GEAR:Arrow			QTY:20	SIZE:S	LOCATION:Carried
 
@@ -82,10 +82,10 @@ ABILITY:CATEGORY=Favored Class|Monk
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 GEAR:Potion of Cure Light Wounds	LOCATION:Equipped
-GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:BOWSTR|+1.WOOD
+GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:Special Quality ~ Composite Bow Strength Rating|+1.Material ~ Wood
 GEAR:Ring of Protection +1		LOCATION:Equipped
-GEAR:Thieves' Tools			LOCATION:Equipped		EQMOD:MWORKT
-GEAR:Musical Instrument (Flute)	LOCATION:Equipped		EQMOD:MWORKT
+GEAR:Thieves' Tools			LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Item
+GEAR:Musical Instrument (Flute)	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Item
 GEAR:Flurry of Blows			LOCATION:Equipped
 
 
@@ -103,9 +103,9 @@ ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 TEMPLATE:Waters of Lamashtu (Koruvus's Mutation)
-GEAR:Longsword	LOCATION:Primary Hand	EQMOD:PLUS1W
-GEAR:Handaxe	LOCATION:Secondary Hand	EQMOD:MWORKW
-GEAR:Dagger		LOCATION:Carried		EQMOD:ALCHM
+GEAR:Longsword	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Handaxe	LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Dagger		LOCATION:Carried		EQMOD:Material ~ Alchemical Silver
 
 
 STARTPACK:NPC (Gogmurt)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p.35	NAMEISPI:YES
@@ -126,8 +126,8 @@ SKILL:Survival			RANK:4
 ABILITY:CATEGORY=FEAT|Brew Potion
 ABILITY:CATEGORY=FEAT|Combat Casting
 GEAR:Potion of Cure Light Wounds	QTY:2			LOCATION:Carried
-GEAR:Wand								LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
-GEAR:Leather					SIZE:S	LOCATION:Equipped		EQMOD:PLUS1A.LEATHER
+GEAR:Wand								LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
+GEAR:Leather					SIZE:S	LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Leather
 GEAR:Spear						SIZE:S	LOCATION:Both Hands
 GEAR:Sling						SIZE:S	LOCATION:Carried
 GEAR:Cloak of Resistance +1					LOCATION:Equipped
@@ -156,8 +156,8 @@ ABILITY:CATEGORY=Fighter Bonus Feat|Ride-By Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Spirited Charge
 GEAR:Potion of Barkskin +2					LOCATION:Carried
 GEAR:Potion of Cure Moderate Wounds	QTY:2			LOCATION:Carried
-GEAR:Breastplate					SIZE:S	LOCATION:Equipped	EQMOD:MWORKA.STEEL
-GEAR:Dogslicer					SIZE:S	LOCATION:Equipped	EQMOD:PLUS1W.STEEL
+GEAR:Breastplate					SIZE:S	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor.Material ~ Steel
+GEAR:Dogslicer					SIZE:S	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Steel
 
 
 STARTPACK:NPC (Bruthazamus)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]	SOURCEPAGE:p.44	NAMEISPI:YES
@@ -178,9 +178,9 @@ ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Elf)
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 GEAR:Studded Leather					LOCATION:Equipped
 GEAR:Flail (Heavy)					LOCATION:Both Hands
-GEAR:Longbow (Composite)				LOCATION:Carried		EQMOD:BOWSTR|+3.MWORKW
+GEAR:Longbow (Composite)				LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Arrow					QTY:4		LOCATION:Carried		EQMOD:PLUS1W.BANE|Humanoids (Elf)
+GEAR:Arrow					QTY:4		LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Bane ~ Weapon|Humanoids (Elf)
 
 
 STARTPACK:NPC (Orik Vancaskerkin)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.46	NAMEISPI:YES
@@ -204,9 +204,9 @@ ABILITY:CATEGORY=FEAT|Blind-Fight
 ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
-GEAR:Banded Mail						LOCATION:Equipped		EQMOD:PLUS1A
-GEAR:Shield (Heavy/Steel)				LOCATION:Equipped		EQMOD:MWORKA
-GEAR:Sword (Bastard)					LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Banded Mail						LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Shield (Heavy/Steel)				LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Sword (Bastard)					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow					QTY:20	LOCATION:Carried
 GEAR:Longbow (Composite +0)				LOCATION:Carried
 GEAR:Everburning Torch					LOCATION:Carried
@@ -235,7 +235,7 @@ SKILL:Stealth			RANK:3
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Spell Focus (Evocation)
-GEAR:Wand						LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
+GEAR:Wand						LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
 GEAR:Potion of Cure Light Wounds		LOCATION:Carried
 GEAR:Scroll (Sleep)				LOCATION:Carried
 GEAR:Scroll (Comprehend Languages/Arcane)	LOCATION:Carried
@@ -334,10 +334,10 @@ ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency (Sword (Bastard))
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
 TEMPLATE:Lamashtu's Gift
-GEAR:Breastplate					LOCATION:Equipped		EQMOD:PLUS1A
-GEAR:Sword (Bastard)				LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Breastplate					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Sword (Bastard)				LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Sihedron Medallion				LOCATION:Equipped
-GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:BOWSTR|+3.MWORKW
+GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow				QTY:20	LOCATION:Carried
 GEAR:Holy Symbol (Silver)			LOCATION:Carried
 GEAR:Coin (Platinum Piece)	QTY:7		LOCATION:Carried

@@ -352,35 +352,35 @@ Musical Instrument (Pan Pipes).MOD																																						SOURCEPA
 Musical Instrument (Recorder).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Trumpet).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork
-Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)
-Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)
-Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)
-Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)
-Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)
-Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)
-Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)
-Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)
-Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)
-Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)
-Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)
-Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)
-Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)
-Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)
-Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Parasol																				TYPE:Goods.Tools													COST:1	WT:2					SOURCEPAGE:p.78
 Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3					SOURCEPAGE:p.78
 Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20					SOURCEPAGE:p.79
@@ -765,7 +765,7 @@ Pellet Grenade (Adamantine)		OUTPUTNAME:Pellet Grenade, Adamantine	PROFICIENCY:W
 Shard Gel (Flask)											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Splash							COST:25	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4							RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:The target's square and each square adjacent to it are covered in shards that function like caltrops for 5 rounds
 Skyrocket (Firework)										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:50	WT:1									DAMAGE:2d6							RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Takes flight one round after being lit at a speed of 90 ft for 1d6 rounds. Damage is a 10-ft-radius burst. Anyone who takes damage from the explosion is either blinded or deafened (50% chance of either) for 1 round.
 Sneezing Powder											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Poison								COST:60	WT:2																	RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Causes uncontrollable sneezing for 1d4+1 rounds. Anyone standing in the square of impact must succeed at a DC 12 Fortitude save to resist the powder, while those in adjacent squares must make DC 8 Fortitude saves. Affected creatures must make a DC 10 Fortitude save every round for the duration or be staggered until their next turn.
-Star Candle (Firework)										PROFICIENCY:WEAPON|Star Candle Firework	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:5						CRITMULT:-	CRITRANGE:1	DAMAGE:1	EQMOD:NONLETHAL				RANGE:5	SIZE:M	SOURCEPAGE:p.109	SPROP:Launches every round for 4 rounds after being lit. Deals 1 point of nonlethal damage and 1 point of fire damage; on a critical hit, the target is also blinded for 1 round.
+Star Candle (Firework)										PROFICIENCY:WEAPON|Star Candle Firework	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:5						CRITMULT:-	CRITRANGE:1	DAMAGE:1	EQMOD:Special Quality ~ Nonlethal				RANGE:5	SIZE:M	SOURCEPAGE:p.109	SPROP:Launches every round for 4 rounds after being lit. Deals 1 point of nonlethal damage and 1 point of fire damage; on a critical hit, the target is also blinded for 1 round.
 Starfountain (Firework)										PROFICIENCY:WEAPON|Spells (Ray)		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:500	WT:100								DAMAGE:1							RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Indoors or in a closed area, the ricocheting fireworks deal damage each round in a 20-foot-radius spread (Reflex DC 15 halves). Creatures who fail their save are blinded for 1d4 rounds and deafened for 1 hour.
 Tangleburn Bag											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire.Splash								COST:150	WT:5									DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:An entangled creature takes a -2 penalty on attack rolls and a -4 penalty to Dexterity and must make a DC 15 Reflex save or be glued to the floor, unable to move. A direct hit on a creature deals 1d6 points of fire damage, and the creature must make a DC 20 Reflex save or catch on fire.
 Tanglefoot Bag.MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:50	WT:4																	RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:An entangled creature takes a -2 penalty on attack rolls and a -4 penalty to Dexterity and must make a DC 15 Reflex save or be glued to the floor, unable to move

@@ -72,7 +72,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Weapon Focus (Warhammer)
-GEAR:Warhammer	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS2W.DISRPT
+GEAR:Warhammer	SIZE:PC	LOCATION:Both Hands	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Disruption ~ Weapon
 
 
 STARTPACK:Angel (Planetar) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Planetar)],[!PRERACE:1,%]	SOURCEPAGE:p.11
@@ -101,7 +101,7 @@ ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-GEAR:Greatsword	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS3W.HOLY
+GEAR:Greatsword	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Holy ~ Weapon
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Earthquake
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Fire Storm
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Holy Word
@@ -172,9 +172,9 @@ ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-GEAR:Full Plate			SIZE:L	LOCATION:Equipped		EQMOD:PLUS5A
-GEAR:Greatsword			SIZE:L	LOCATION:Both Hands	EQMOD:PLUS5W.DANCE
-GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried		EQMOD:PLUS5W.BOWSTR|+9
+GEAR:Full Plate			SIZE:L	LOCATION:Equipped		EQMOD:Special Ability ~ +5 ~ Armor
+GEAR:Greatsword			SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Dancing ~ Melee
+GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried		EQMOD:Special Ability ~ +5 ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+9
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Etherealness
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal (Mass)
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Miracle
@@ -323,7 +323,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-GEAR:Greatsword	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Greatsword	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Archon (Lantern) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Lantern)],[!PRERACE:1,%]	SOURCEPAGE:p.20
@@ -360,7 +360,7 @@ ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Persuasive
 ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS4W
+GEAR:Greatsword	LOCATION:Both Hands	EQMOD:Special Ability ~ +4 ~ Weapon
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds (Mass)
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds (Mass)
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Banishment
@@ -419,8 +419,8 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-GEAR:Scimitar			LOCATION:Primary Hand	EQMOD:PLUS1W
-GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:PLUS1W.BOWSTR|+5
+GEAR:Scimitar			LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
 
 
 STARTPACK:Azata (Ghaele) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Ghaele)],[!PRERACE:1,%]	SOURCEPAGE:p.25
@@ -444,7 +444,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Improved Trip
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS2W.HOLY
+GEAR:Greatsword	LOCATION:Both Hands	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Holy ~ Weapon
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Holy Word
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Banishment
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal
@@ -494,8 +494,8 @@ ABILITY:CATEGORY=FEAT|Hover
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-GEAR:Longsword				SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS1W
-GEAR:Musical Instrument (Harp)	SIZE:PC	LOCATION:Carried		EQMOD:MWORKT
+GEAR:Longsword				SIZE:PC	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Musical Instrument (Harp)	SIZE:PC	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Monster
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Hold Person
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Invisibility
@@ -1144,8 +1144,8 @@ ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Telekinesis)
 ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-GEAR:Longsword	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS1W.VORPAL.UNHOLY
-GEAR:Whip		SIZE:L	LOCATION:Secondary Hand	EQMOD:PLUS1W.VORPAL.FLAME
+GEAR:Longsword	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Vorpal ~ Melee.Special Ability ~ Unholy ~ Weapon
+GEAR:Whip		SIZE:L	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Vorpal ~ Melee.Special Ability ~ Flaming ~ Weapon
 
 
 STARTPACK:Demon (Dretch) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Dretch)],[!PRERACE:1,%]	SOURCEPAGE:p.60
@@ -1447,8 +1447,8 @@ ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=FEAT|Rapid Shot
 ABILITY:CATEGORY=FEAT|Shot on the Run
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-GEAR:Longsword			LOCATION:Both Hands	EQMOD:PLUS1W
-GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:PLUS1W.FLAME.BOWSTR|+5
+GEAR:Longsword			LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
 GEAR:Rope (Hemp/50 ft)		LOCATION:Carried
 
 
@@ -1474,7 +1474,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
 ABILITY:CATEGORY=FEAT|Weapon Focus (Chain (Spiked))
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-GEAR:Chain (Spiked)	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS1W.UNHOLY
+GEAR:Chain (Spiked)	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Unholy ~ Weapon
 
 
 STARTPACK:Devil (Ice) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Ice)],[!PRERACE:1,%]	SOURCEPAGE:p.77
@@ -1503,7 +1503,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Weapon Focus (Spear)
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
-GEAR:Spear	SIZE:L	LOCATION:Both Hands	EQMOD:PLUS1W.FROST
+GEAR:Spear	SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Frost ~ Weapon
 
 
 STARTPACK:Devil (Imp) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Imp)],[!PRERACE:1,%]	SOURCEPAGE:p.78
@@ -3149,8 +3149,8 @@ ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 ABILITY:CATEGORY=FEAT|Weapon Focus (Mace (Heavy))
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
-GEAR:Mace (Heavy)					LOCATION:Both Hands	EQMOD:MWORKW
-GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:MWORKW.BOWSTR|+2
+GEAR:Mace (Heavy)					LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+2
 GEAR:Arrow				QTY:20	LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Blindness/Deafness	PREVARGT:IsDriderCleric,0
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Meld into Stone	PREVARGT:IsDriderCleric,0
@@ -3253,9 +3253,9 @@ STAT:STR=12|DEX=13|CON=14|INT=8|WIS=15|CHA=10
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Knell|Hold Person|Silence
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless|Cause Fear|Cure Light Wounds|Protection from Law
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bleed|Detect Poison|Read Magic|Resistance
-GEAR:Breastplate						SIZE:M	LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Breastplate						SIZE:M	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Shield (Heavy/Steel)				SIZE:M	LOCATION:Equipped
-GEAR:Rapier							SIZE:M	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Rapier							SIZE:M	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Crossbow (Hand)					SIZE:M	LOCATION:Carried
 GEAR:Bolt (Crossbow)			QTY:20			LOCATION:Carried
 GEAR:Poison (Drow Poison)		QTY:4				LOCATION:Carried
@@ -3280,7 +3280,7 @@ ABILITY:CATEGORY=FEAT|Stealthy
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 GEAR:Dagger						LOCATION:Carried
-GEAR:Longbow (Composite +0)			LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Longbow (Composite +0)			LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow				QTY:20	LOCATION:Carried
 
 
@@ -4015,7 +4015,7 @@ ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Wind Stance
-GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Genie (Djinni/Noble) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Djinni/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.139
@@ -4035,7 +4035,7 @@ ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Wind Stance
-GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Genie (Efreeti) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Efreeti)],[!PRERACE:1,%]	SOURCEPAGE:p.140
@@ -4057,7 +4057,7 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Deceitful
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Scorching Ray)
-GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Genie (Efreeti/Noble) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Efreeti/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.140
@@ -4080,7 +4080,7 @@ ABILITY:CATEGORY=FEAT|Deceitful
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Scorching Ray)
-GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Genie (Janni) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Janni)],[!PRERACE:1,%]	SOURCEPAGE:p.141
@@ -4099,7 +4099,7 @@ SKILL:Stealth		RANK:6
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Mobility
-GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:BOWSTR|3
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|3
 GEAR:Scimitar			LOCATION:Primary Hand
 GEAR:Chainmail			LOCATION:Equipped
 
@@ -4120,7 +4120,7 @@ SKILL:Stealth		RANK:6
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Mobility
-GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:BOWSTR|3
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|3
 GEAR:Scimitar			LOCATION:Primary Hand
 GEAR:Chainmail			LOCATION:Equipped
 
@@ -4145,7 +4145,7 @@ ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Improved Natural Attack (Slam)
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Genie (Marid/Noble) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Marid/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.142
@@ -4168,7 +4168,7 @@ ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Improved Natural Attack (Slam)
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Genie (Shaitan) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Shaitan)],[!PRERACE:1,%]	SOURCEPAGE:p.143
@@ -4190,7 +4190,7 @@ ABILITY:CATEGORY=FEAT|Improved Bull Rush
 ABILITY:CATEGORY=FEAT|Greater Bull Rush
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Glitterdust)
-GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Genie (Shaitan/Noble) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Shaitan/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.143
@@ -4211,7 +4211,7 @@ ABILITY:CATEGORY=FEAT|Improved Bull Rush
 ABILITY:CATEGORY=FEAT|Improved Natural Attack (Slam)
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Glitterdust)
-GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Ghoul Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoul],[!PRERACE:1,%]	SOURCEPAGE:p.146
@@ -4382,9 +4382,9 @@ ABILITY:CATEGORY=FEAT|Improved Vital Strike
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Greatsword			SIZE:H	LOCATION:Both Hands	EQMOD:MWORKW
-GEAR:Longbow (Composite)	SIZE:H	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|14
-GEAR:Breastplate			SIZE:H	LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Greatsword			SIZE:H	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Longbow (Composite)	SIZE:H	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating|14
+GEAR:Breastplate			SIZE:H	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
 
 
 STARTPACK:Gibbering Mouther Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gibbering Mouther],[!PRERACE:1,%]	SOURCEPAGE:p.153
@@ -5052,7 +5052,7 @@ ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand
-GEAR:Longbow	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW
+GEAR:Longbow	SIZE:PC	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Mephit (Air) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Air)]	SOURCEPAGE:p.202
 RACE:Mephit (Air)	!PRERACE:1,%
@@ -5446,7 +5446,7 @@ ABILITY:CATEGORY=FEAT|Agile Maneuvers
 ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Dagger	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Dagger	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Detect Magic|Guidance|Light|Stabilize
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Charm Animal|Endure Elements|Entangle|Obscuring Mist|Produce Flame
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Barkskin|Flame Blade|Resist Energy|Tree Shape
@@ -5514,7 +5514,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword			SIZE:PC	LOCATION:Both Hands
-GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:BOWSTR|+7
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+7
 GEAR:Arrows (20)			SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Orc Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orc,RACESUBTYPE=Orc]	SOURCEPAGE:p.222
@@ -5679,7 +5679,7 @@ SPELLS:Dancing Lights|Detect Magic|Ghost Sound|Mage Hand|Mending|Message|Prestid
 SPELLS:Charm Person|Mage Armor|Magic Missile|Shield|Silent Image
 SPELLS:Acid Arrow|Invisibility|Minor Image
 SPELLS:Lightning Bolt|Suggestion
-GEAR:Kukri	LOCATION:Equipped	EQMOD:PLUS1W
+GEAR:Kukri	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon
 
 STARTPACK:Rat (Dire) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Dire)]	SOURCEPAGE:p.232
 RACE:Rat (Dire)	!PRERACE:1,%
@@ -5848,7 +5848,7 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger							LOCATION:Primary Hand
 GEAR:Shortbow						LOCATION:Carried
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:MWORKT
+GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
 
 STARTPACK:Scorpion (Greensting) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Greensting)]	SOURCEPAGE:p.242
 RACE:Scorpion (Greensting)	!PRERACE:1,%
@@ -6049,8 +6049,8 @@ RACE:Skeleton (Human)	!PRERACE:1,%
 NAME:Human Skeleton
 ALIGN:NE
 STAT:STR=15|DEX=12|CON=10|INT=10|WIS=10|CHA=10
-GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped	EQMOD:BROKEA
-GEAR:Scimitar	SIZE:PC	LOCATION:Primary	EQMOD:BROKEW
+GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped	EQMOD:Special Quality ~ Broken ~ Armor
+GEAR:Scimitar	SIZE:PC	LOCATION:Primary	EQMOD:Special Quality ~ Broken ~ Weapon
 
 STARTPACK:Skeletal Champion (Human) Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeletal Champion (Human)]	SOURCEPAGE:p.252
 RACE:Skeletal Champion (Human)	!PRERACE:1,%
@@ -6067,7 +6067,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Cleave
 STAT:STR=15|DEX=11|CON=10|INT=9|WIS=10|CHA=12
 GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
-GEAR:Longsword			SIZE:PC	LOCATION:Primary	EQMOD:MWORKW
+GEAR:Longsword			SIZE:PC	LOCATION:Primary	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Shield (Heavy/Steel)	SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Skum Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skum]	SOURCEPAGE:p.253
@@ -6957,7 +6957,7 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 TEMPLATE:Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Wererat
-GEAR:Studded Leather			LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Studded Leather			LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Sword (Short)			LOCATION:Primary Hand
 GEAR:Crossbow (Light)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried

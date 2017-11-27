@@ -28,7 +28,7 @@ Runeslave Cauldron																														WT:900																SOURCEPAGE
 Runewell (Minor)																															WT:900																SOURCEPAGE:p.424
 Runewell Amulet																															WT:0																	SOURCEPAGE:p.425
 Runewell of Greed																															WT:900																SOURCEPAGE:p.425
-Sadist's Lash												PROFICIENCY:WEAPON|Whip		TYPE:Weapon.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail	COST:22301	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:PLUS1W.WOUND	WIELD:Light		SIZE:M	SOURCEPAGE:p.425	SPROP:Deliver enchantment spells with range touch. Additionally, target DC 15 Will save or suffers -5 penalty on Will saves against all enchantment effects created by wielder.
+Sadist's Lash												PROFICIENCY:WEAPON|Whip		TYPE:Weapon.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail	COST:22301	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Wounding ~ Weapon	WIELD:Light		SIZE:M	SOURCEPAGE:p.425	SPROP:Deliver enchantment spells with range touch. Additionally, target DC 15 Will save or suffers -5 penalty on Will saves against all enchantment effects created by wielder.
 Sihedron Medallion								NAMEISPI:YES						TYPE:Neck.Amulet										COST:3500	WT:0																	SOURCEPAGE:p.426
 Sihedron Ring									NAMEISPI:YES						TYPE:Magic.Ring										COST:35000	WT:0																	SOURCEPAGE:p.426
 Sihedron Tome									NAMEISPI:YES						TYPE:Minor Artifact.Magic										WT:5																	SOURCEPAGE:p.426

@@ -2,4 +2,4 @@
 SOURCELONG:Second Darkness, Chapter 5: A Memory of Darkness	SOURCESHORT:AP17	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86j6	SOURCEDATE:2008-12
 
 # Equipment Name	Required Weapon Proficiency	Type									Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Requires Modification?	Size		Special Property
-Blackaxe		PROFICIENCY:WEAPON|Greataxe	TYPE:Weapon.Resizable.Melee.Martial.Slashing.Axe	COST:80	WT:60		CRITMULT:x3	CRITRANGE:1	DAMAGE:4d6	EQMOD:PLUS5W	WIELD:TwoHanded	MODS:NO			SIZE:H	SPROP:+1d6 acid damage/+2d10 acid damage on a successful critical hit. Treated as an adamantine weapon for overcoming hardness and DR.
+Blackaxe		PROFICIENCY:WEAPON|Greataxe	TYPE:Weapon.Resizable.Melee.Martial.Slashing.Axe	COST:80	WT:60		CRITMULT:x3	CRITRANGE:1	DAMAGE:4d6	EQMOD:Special Ability ~ +5 ~ Weapon	WIELD:TwoHanded	MODS:NO			SIZE:H	SPROP:+1d6 acid damage/+2d10 acid damage on a successful critical hit. Treated as an adamantine weapon for overcoming hardness and DR.

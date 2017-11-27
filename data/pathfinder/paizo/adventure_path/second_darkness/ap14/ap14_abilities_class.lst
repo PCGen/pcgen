@@ -9,3 +9,6 @@ Controlled Charge								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordin
 Stubborn Mind								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	DESC:a Chevalier gains an incredibly stubborn determination																	SOURCEPAGE:p.62
 Chevalier Poison Immunity	OUTPUTNAME:Poison Immunity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	DESC:a Chevalier is immune to poison																				SOURCEPAGE:p.63
 Chevalier Smite Evil		OUTPUTNAME:Smite Evil		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:1/day, adds + %1 to attack roll and deals %2 extra points of damage|CHA|TL-HD													SOURCEPAGE:p.63
+
+###Block:
+Noqual Armor Save Bonus	CATEGORY:Internal																						ASPECT:SaveBonus|+2 resistance bonus vs. spells and spell-like abilities

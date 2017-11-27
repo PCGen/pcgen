@@ -19,12 +19,12 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Weapon Focus (Axe (Throwing))
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 ABILITY:CATEGORY=Angazhani Martial Weapon Proficiency|Martial Weapon Proficiency (Axe (Throwing))
-GEAR:Hide				SIZE:L	LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Axe (Throwing)		SIZE:L	LOCATION:Primary Hand		EQMOD:MWORKW
-GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand		EQMOD:MWORKW
-GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand 2	EQMOD:MWORKW
-GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand 3	EQMOD:MWORKW
-GEAR:Axe (Throwing)	QTY:4	SIZE:L	LOCATION:Carried			EQMOD:MWORKW
+GEAR:Hide				SIZE:L	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Axe (Throwing)		SIZE:L	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand 2	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand 3	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Axe (Throwing)	QTY:4	SIZE:L	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Botfly (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Botfly (Giant)]	SOURCEPAGE:p.59
 RACE:Botfly (Giant)	!PRERACE:1,%
