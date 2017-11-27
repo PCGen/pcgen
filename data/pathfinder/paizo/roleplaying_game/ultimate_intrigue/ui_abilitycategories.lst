@@ -32,4 +32,6 @@ ABILITYCATEGORY:Majordomo Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 
 ABILITYCATEGORY:Courtly Hunter Animal Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CourtlyHunterAnimalFocusAbility				PLURAL:Courtly Hunter Animal Foci						DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Black Asp Forbidden Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Forbidden Ki Power							PLURAL:Black Asp Forbidden Powers						DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Intrigue Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IntrigueRevelation.GeneralRevelation				PLURAL:Intrigue Mystery Revelations						DISPLAYLOCATION:Class Features
