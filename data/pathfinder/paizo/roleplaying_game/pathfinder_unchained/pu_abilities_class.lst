@@ -171,11 +171,17 @@ CATEGORY=Class|Rogue ~ Unchained Class.MOD	ABILITY:Unchained Rogue Class Feature
 CATEGORY=Class|Rogue ~ Unchained Class.MOD	ABILITY:Unchained Rogue Class Feature|AUTOMATIC|Unchained Rogue ~ Master Strike|PREVAREQ:Rogue_CF_MasterStrike,0|PREVARGTEQ:Rogue_CFP_Level,20
 ###Block:
 # Ability Name						Define
+CATEGORY=Class|Rogue ~ Unchained Class.MOD	DEFINE:Rogue_CF_FinesseTraining|0
+CATEGORY=Class|Rogue ~ Unchained Class.MOD	DEFINE:Rogue_CF_DebilitatingInjury|0
+CATEGORY=Class|Rogue ~ Unchained Class.MOD	DEFINE:Rogue_CF_RoguesEdge|0
 CATEGORY=Class|Rogue ~ Unchained Class.MOD	DEFINE:Rogue_CF_FinesseTraining2|0
 CATEGORY=Class|Rogue ~ Unchained Class.MOD	DEFINE:Rogue_CF_FinesseTraining3|0
 CATEGORY=Class|Rogue ~ Unchained Class.MOD	DEFINE:Rogue_CF_FinesseTraining4|0
 ###Block:
 # Ability Name						Modify VAR
+CATEGORY=Class|Rogue ~ Unchained Class.MOD	BONUS:VAR|Rogue_CF_FinesseTraining|1|PREFACT:1,ABILITIES,Rogue_CF_FinesseTraining=true
+CATEGORY=Class|Rogue ~ Unchained Class.MOD	BONUS:VAR|Rogue_CF_DebilitatingInjury|1|PREFACT:1,ABILITIES,Rogue_CF_DebilitatingInjury=true
+CATEGORY=Class|Rogue ~ Unchained Class.MOD	BONUS:VAR|Rogue_CF_RoguesEdge|1|PREFACT:1,ABILITIES,Rogue_CF_RoguesEdge=true
 CATEGORY=Class|Rogue ~ Unchained Class.MOD	BONUS:VAR|Rogue_CF_FinesseTraining2|1|PREFACT:1,ABILITIES,Rogue_CF_FinesseTraining2=true
 CATEGORY=Class|Rogue ~ Unchained Class.MOD	BONUS:VAR|Rogue_CF_FinesseTraining3|1|PREFACT:1,ABILITIES,Rogue_CF_FinesseTraining3=true
 CATEGORY=Class|Rogue ~ Unchained Class.MOD	BONUS:VAR|Rogue_CF_FinesseTraining4|1|PREFACT:1,ABILITIES,Rogue_CF_FinesseTraining4=true
