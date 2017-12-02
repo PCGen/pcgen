@@ -3,6 +3,7 @@ SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEWEB:http://paizo.com/products/
 
 Acrobatics.MOD				SITUATION:In forests
 Bluff.MOD					SITUATION:Appear Innocent
+Bluff.MOD					SITUATION:Stay in character
 Bluff.MOD					SITUATION:True from current identity's point of view
 Climb.MOD					SITUATION:In forests
 Diplomacy.MOD				SITUATION:Bargain with a conjured creature
