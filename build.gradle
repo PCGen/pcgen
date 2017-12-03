@@ -14,7 +14,7 @@
 import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
-    id 'com.gradle.build-scan' version '1.8'
+    id 'com.gradle.build-scan' version '1.9'
 
     id 'application'
     id 'build-dashboard'
@@ -340,7 +340,7 @@ task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports'])
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.2.1'
+    gradleVersion = '4.3.1'
 }
 
 allprojects {
@@ -365,10 +365,10 @@ dependencyUpdates.resolutionStrategy = {
         selection.reject('unofficial release')
       }
       if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
-	selection.reject('older than current')
+        selection.reject('older than current')
       }
       if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
-	selection.reject('older than current')
+        selection.reject('older than current')
       }
     }
   }
@@ -378,4 +378,3 @@ apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'
 apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
-
