@@ -23,6 +23,7 @@ import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.DefineStatLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalDefineUnlockedStatTest extends AbstractContentTokenTest

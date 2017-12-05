@@ -19,6 +19,7 @@
 package pcgen.gui2;
 
 import javax.swing.JToolBar;
+
 import pcgen.gui2.util.ToolBarUtilities;
 
 /**

@@ -21,6 +21,10 @@
 package pcgen.gui3;
 
 import java.io.File;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.DataSetFacade;
+
 import javafx.application.Application;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -29,8 +33,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
-import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.DataSetFacade;
 
 /**
  *

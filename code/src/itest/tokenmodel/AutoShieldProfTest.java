@@ -27,6 +27,7 @@ import pcgen.core.ShieldProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.auto.ShieldProfToken;
+
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 
 public class AutoShieldProfTest extends

@@ -17,8 +17,6 @@
  */
 package tokencontent;
 
-import org.junit.Test;
-
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.input.RaceInputFacet;
@@ -32,6 +30,8 @@ import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.choose.ClassToken;
 import plugin.lsttokens.race.FavclassToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class RaceFavClassTest extends AbstractTokenModelTest

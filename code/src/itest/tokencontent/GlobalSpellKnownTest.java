@@ -40,6 +40,7 @@ import plugin.lsttokens.SpellknownLst;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.test.PreVariableTester;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalSpellKnownTest extends AbstractContentTokenTest

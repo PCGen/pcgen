@@ -19,8 +19,6 @@ package plugin.lsttokens;
 
 import java.util.TreeSet;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.formula.Formula;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
@@ -35,6 +33,8 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code DefineStatLst} parses the DEFINESTAT tag. Valid sub tags are:

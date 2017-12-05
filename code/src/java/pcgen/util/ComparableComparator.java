@@ -19,8 +19,8 @@
  */
 package pcgen.util;
 
-import java.util.Comparator;
 import java.io.Serializable;
+import java.util.Comparator;
 
 /**
  * A {@code Comparator} to compare objects as
