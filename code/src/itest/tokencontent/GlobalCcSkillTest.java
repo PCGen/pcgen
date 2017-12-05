@@ -17,8 +17,6 @@
  */
 package tokencontent;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.FacetLibrary;
@@ -33,6 +31,8 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.CcskillLst;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
+
+import org.junit.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalCcSkillTest extends AbstractContentTokenTest

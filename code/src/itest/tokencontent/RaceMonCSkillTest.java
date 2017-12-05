@@ -17,8 +17,6 @@
  */
 package tokencontent;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
@@ -40,6 +38,8 @@ import plugin.lsttokens.pcclass.HdToken;
 import plugin.lsttokens.pcclass.IsmonsterToken;
 import plugin.lsttokens.race.MoncskillToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class RaceMonCSkillTest extends AbstractTokenModelTest

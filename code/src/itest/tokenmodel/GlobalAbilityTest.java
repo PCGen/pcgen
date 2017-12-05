@@ -29,6 +29,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
+
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 
 public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>

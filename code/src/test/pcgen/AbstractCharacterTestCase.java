@@ -32,7 +32,6 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
-
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**

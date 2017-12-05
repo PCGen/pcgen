@@ -17,8 +17,6 @@
  */
 package tokenmodel;
 
-import org.junit.Test;
-
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
@@ -27,6 +25,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.pcclass.level.DomainToken;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class PCClassLevelDomainTest extends AbstractTokenModelTest

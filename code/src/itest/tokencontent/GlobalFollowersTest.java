@@ -24,6 +24,7 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.FollowersLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalFollowersTest extends AbstractContentTokenTest

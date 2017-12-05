@@ -17,8 +17,6 @@
  */
 package tokencontent;
 
-import org.junit.Test;
-
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.BaseMovementFacet;
 import pcgen.core.Movement;
@@ -27,6 +25,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.race.MoveToken;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class RaceMoveTest extends AbstractTokenModelTest
