@@ -689,8 +689,8 @@ Wizard's Kit			TYPE:Kit	COST:21	WT:21		SOURCEPAGE:p.75										SPROP:This kit i
 # Equipment Name			Type						Cost		Weight	Source Page		Bonus to skill						Modify VAR						Special Property
 Alchemical Grease.MOD		TYPE:Goods.Alchemical.Consumable	COST:5	WT:1		SOURCEPAGE:p.100	BONUS:SKILL|Escape Artist|5|TYPE=Alchemical	BONUS:VAR|CMD_Grapple|5|TYPE=Alchemical
 Alchemist's Kindness.MOD							COST:1			SOURCEPAGE:p.100
-Antiplague				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:Gain a +5 alchemical bonus on Fortitude saving throws against disease for the next hour. If already infected, you may also make two saving throws (without the +5 bonus) that day and use the better result.
-Antitoxin				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:gain a +5 alchemical bonus on Fortitude saving throws against poison for 1 hour.
+Antiplague (Vial).MOD				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:Gain a +5 alchemical bonus on Fortitude saving throws against disease for the next hour. If already infected, you may also make two saving throws (without the +5 bonus) that day and use the better result.
+Antitoxin (Vial).MOD				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:gain a +5 alchemical bonus on Fortitude saving throws against poison for 1 hour.
 Bladeguard.MOD			TYPE:Goods.Alchemical.Consumable	COST:40			SOURCEPAGE:p.100																SPROP:Protects a weapon from harmful attacks made by oozes and rust monsters, as well as from similar effects that corrode or melt weapons, rendering the weapon immune for 24 hours.
 Fire Ward Gel			TYPE:Goods.Alchemical.Consumable	COST:150			SOURCEPAGE:p.100																SPROP:Gain fire resistance 5 until 20 points of fire damage have been absorbed.
 Frost Ward Gel			TYPE:Goods.Alchemical.Consumable	COST:150			SOURCEPAGE:p.100																SPROP:Gain cold resistance 5 until 20 points of cold damage have been absorbed.
