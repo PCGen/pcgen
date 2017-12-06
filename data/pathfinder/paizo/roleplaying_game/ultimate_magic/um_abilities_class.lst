@@ -700,7 +700,7 @@ CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD	COMPANIONLIST:Familiar|Famil
 #Block: Witch familiar
 CATEGORY=Special Ability|Witch ~ Familiar.MOD		COMPANIONLIST:Familiar|Familiar (Blue-Ringed Octopus),Familiar (Centipede (House)),Familiar (Crab (Giant King)),Familiar (Donkey Rat),Familiar (Fox),Familiar (Goat),Familiar (Hedgehog),Familiar (Pig),Familiar (Scorpion (Greensting)),Familiar (Spider (Scarlet)),Familiar (Thrush),Familiar (Turtle)
 #Block: Shaman Spirit Animal
-CATEGORY=Special Ability|Shaman ~ Spirit Animal.MOD		COMPANIONLIST:Familiar|Familiar (Blue-Ringed Octopus),Familiar (Centipede (House)),Familiar (Crab (Giant King)),Familiar (Donkey Rat),Familiar (Fox),Familiar (Goat),Familiar (Hedgehog),Familiar (Pig),Familiar (Scorpion (Greensting)),Familiar (Spider (Scarlet)),Familiar (Thrush),Familiar (Turtle)
+#CATEGORY=Special Ability|Shaman ~ Spirit Animal.MOD		COMPANIONLIST:Familiar|Familiar (Blue-Ringed Octopus),Familiar (Centipede (House)),Familiar (Crab (Giant King)),Familiar (Donkey Rat),Familiar (Fox),Familiar (Goat),Familiar (Hedgehog),Familiar (Pig),Familiar (Scorpion (Greensting)),Familiar (Spider (Scarlet)),Familiar (Thrush),Familiar (Turtle)
 
 
 ###Block: Versatile Channeler Abilities
