@@ -1,6 +1,7 @@
 # CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
 
 # Name											Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Vigilante_Archetype_Savingthrows				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
 FACTDEF:ABILITY|Vigilante_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
 FACTDEF:ABILITY|Vigilante_Archetype_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
 FACTDEF:ABILITY|Vigilante_Archetype_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
@@ -36,9 +37,12 @@ FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent14				DATAFORMAT:BOOLEAN	REQU
 FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent16				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
 FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent18				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
 FACTDEF:ABILITY|Vigilante_Archetype_VigilanteTalent20				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
-
+FACTDEF:ABILITY|Vigilante_Archetype_SkillRanks					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype alters - 
 
 # Name											Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Vigilante_CF_FortSaves						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_ReflexSaves						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
+FACTDEF:ABILITY|Vigilante_CF_WillSaves						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
 FACTDEF:ABILITY|Vigilante_CF_ClassSkills						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
 FACTDEF:ABILITY|Vigilante_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 
 FACTDEF:ABILITY|Vigilante_CF_ArmorProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vigilante Class Features		EXPLANATION:Determines whether the archetype replaces - 

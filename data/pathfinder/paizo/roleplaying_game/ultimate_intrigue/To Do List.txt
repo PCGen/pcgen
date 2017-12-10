@@ -1,3 +1,7 @@
+Psychometrist implements need implemented, if possible. Unsure how to do.
+
+Figure out how to grant Magic Child archetype multiple familiars.
+
 Force eidolon choice (Fey) on Fey Caller unchained summoner archetype
 
 Activate spellcasting in vigilante archetypes

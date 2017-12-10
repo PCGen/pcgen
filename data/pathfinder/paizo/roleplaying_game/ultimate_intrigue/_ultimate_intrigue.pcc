@@ -61,8 +61,10 @@ EQUIPMENT:ui_equip_magic_items.lst
 EQUIPMOD:ui_equipmods.lst
 ABILITY:ui_feats.lst
 KIT:ui_kits.lst
+WEAPONPROF:ui_profs_weapon.lst
 SKILL:ui_skills.lst
 SPELL:ui_spells.lst
+TEMPLATE:ui_templates.lst
 
 
 ABILITY:support/ui_abilities_class_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
