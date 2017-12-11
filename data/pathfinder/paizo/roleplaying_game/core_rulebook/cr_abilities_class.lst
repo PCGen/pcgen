@@ -1492,7 +1492,7 @@ CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFe
 ###Block: Defines
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodlineFeatArcaneStrike|0			
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodlineFeatAugmentSummoning|0		
-CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodlineFeatBlind-Fight|0			
+CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodlineFeatBlindFight|0			
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodlineFeatCleave|0				
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodlineFeatCombatCasting|0			
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodlineFeatCombatExpertise|0		
@@ -1533,7 +1533,7 @@ CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	DEFINE:SorcererBloodl
 ###Block: Bloodline Feats
 Arcane Strike			KEY:Sorcerer Bloodline Feat ~ Arcane Strike		CATEGORY:Special Ability	TYPE:SorcererBloodlineFeat.DestinedBloodline													PREVARGTEQ:SorcererBloodlineFeatArcaneStrike,1										ABILITY:FEAT|AUTOMATIC|Arcane Strike		
 Augment Summoning			KEY:Sorcerer Bloodline Feat ~ Augment Summoning		CATEGORY:Special Ability	TYPE:SorcererBloodlineFeat.AbyssalBloodline													PREVARGTEQ:SorcererBloodlineFeatAugmentSummoning,1										ABILITY:FEAT|AUTOMATIC|Augment Summoning		
-Blind-Fight				KEY:Sorcerer Bloodline Feat ~ Blind-Fight			CATEGORY:Special Ability	TYPE:SorcererBloodlineFeat.DraconicBloodline.InfernalBloodline										PREVARGTEQ:SorcererBloodlineFeatBlind-Fight,1											ABILITY:FEAT|AUTOMATIC|Blind-Fight			
+Blind-Fight				KEY:Sorcerer Bloodline Feat ~ Blind-Fight			CATEGORY:Special Ability	TYPE:SorcererBloodlineFeat.DraconicBloodline.InfernalBloodline										PREVARGTEQ:SorcererBloodlineFeatBlindFight,1											ABILITY:FEAT|AUTOMATIC|Blind-Fight			
 Cleave				KEY:Sorcerer Bloodline Feat ~ Cleave			CATEGORY:Special Ability	TYPE:SorcererBloodlineFeat.AbyssalBloodline													PREVARGTEQ:SorcererBloodlineFeatCleave,1											ABILITY:FEAT|AUTOMATIC|Cleave			
 Combat Casting			KEY:Sorcerer Bloodline Feat ~ Combat Casting		CATEGORY:Special Ability	TYPE:SorcererBloodlineFeat.AberrantBloodline.ArcaneBloodline.UndeadBloodline								PREVARGTEQ:SorcererBloodlineFeatCombatCasting,1										ABILITY:FEAT|AUTOMATIC|Combat Casting		
 Combat Expertise			KEY:Sorcerer Bloodline Feat ~ Combat Expertise		CATEGORY:Special Ability	TYPE:SorcererBloodlineFeat.InfernalBloodline													PREVARGTEQ:SorcererBloodlineFeatCombatExpertise,1										ABILITY:FEAT|AUTOMATIC|Combat Expertise		
