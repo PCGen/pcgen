@@ -31,7 +31,7 @@ ABILITYCATEGORY:Warpriest Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		F
 ###Block: Class Ability Categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Arcanist Exploit			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistExploit			PLURAL:Arcanist Exploits			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcanist Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistBloodline			PLURAL:Arcanist Bloodlines			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:ArcanistBloodline			PLURAL:Arcanist Bloodlines			DISPLAYLOCATION:Class Features
 #ABILITYCATEGORY:Arcanist Draconic Bloodline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistDraconicBloodline	PLURAL:Arcanist Draconic Bloodlines		DISPLAYLOCATION:Class Features
 #ABILITYCATEGORY:Arcanist Elemental Bloodline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistElementalBloodline	PLURAL:Arcanist Elemental Bloodlines	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcanist School			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistSchool										DISPLAYLOCATION:Class Features
