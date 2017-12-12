@@ -11,13 +11,13 @@ ABILITYCATEGORY:Psychic Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 ABILITYCATEGORY:Spiritualist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Spiritualist Class Feature.SpiritualistClassFeatures	PLURAL:Spiritualist Class Features	DISPLAYLOCATION:Class Features
 
 # Archetypes
-# Ability Category				VIsible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Kineticist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Kineticist Archetype	PLURAL:Kineticist Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Medium Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Medium Archetype		PLURAL:Medium Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Mesmerist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Mesmerist Archetype	PLURAL:Mesmerist Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Occultist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Occultist Archetype	PLURAL:Occultist Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Psychic Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Psychic Archetype		PLURAL:Psychic Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Spiritualist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Spiritualist Archetype	PLURAL:Spiritualist Archetypes	DISPLAYLOCATION:Archetype
+# Ability Category				VIsible		Editable?		Change Pool?	Category of Object		Type of Object							Plural description for UI		Display Location
+ABILITYCATEGORY:Kineticist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Kineticist Archetype.KineticistArchetype		PLURAL:Kineticist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Medium Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Medium Archetype.MediumArchetype			PLURAL:Medium Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Mesmerist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Mesmerist Archetype.MesmeristArchetype		PLURAL:Mesmerist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Occultist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Occultist Archetype.OccultistArchetype		PLURAL:Occultist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Psychic Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Psychic Archetype.PsychicArchetype			PLURAL:Psychic Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Spiritualist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Spiritualist Archetype.SpiritualistArchetype	PLURAL:Spiritualist Archetypes	DISPLAYLOCATION:Archetype
 
 # Kineticist class features
 # Ability Category
