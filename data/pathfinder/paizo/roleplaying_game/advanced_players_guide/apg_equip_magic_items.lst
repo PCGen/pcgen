@@ -125,7 +125,7 @@ Amulet of Magecraft	TYPE:Magic.Wondrous.Amulet	COST:20000	WT:2		SOURCEPAGE:p.300
 Amulet of Spell Cunning	TYPE:Magic.Wondrous.Amulet	COST:10000	WT:1		SOURCEPAGE:p.300	SPROP:Allows a wizard to prepare an additional 3 levels of spells per day.|PRETYPE:1,EQMOD=Special Quality ~ Bonded Object
 Annihilation Spectacles	TYPE:Magic.Wondrous.Eyes	COST:2500	WT:0.25	SOURCEPAGE:p.300	SPROP:Once per day, he may use the spectacles to spontaneously cast disintegrate in place of one of his prepared transmutation wizard spells of 6th level or higher, even if he doesn't know that spell.
 Apple of Eternal Sleep	TYPE:Magic.Wondrous		COST:2500	WT:0.01	SOURCEPAGE:p.300
-Assisting Glove		TYPE:Magic.Wondrous.Glove	COST:180	WT:1		SOURCEPAGE:p.300
+Assisting Gloves		TYPE:Magic.Wondrous.Glove	COST:180	WT:1		SOURCEPAGE:p.300
 
 ###Block:B
 # Equipment Name					Type							Cost		Weight	Source Page		Ability																													Modify VAR
