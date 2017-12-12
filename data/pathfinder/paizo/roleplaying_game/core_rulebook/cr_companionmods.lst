@@ -49,8 +49,8 @@ FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
 
 ###Block: Familiar
-# Class of the Master	Type			Ability									Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Define Stat									Modify VAR																					Main Race Type
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar											COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	DEFINE:MasterLevel|0	DEFINESTAT:MINVALUE|INT|5+((1+MASTERVAR("FamiliarLVL"))/2)	BONUS:VAR|AC_Natural_Armor|(1+MASTERVAR("FamiliarLVL"))/2|TYPE=NaturalArmor.STACK	BONUS:VAR|MasterLevel|MASTERVAR("FamiliarLVL")	RACETYPE:Animal/Magical Beast	BONUS:VAR|CompanionHD|MasterLevel	DEFINE:CompanionHD|0
+# Class of the Master	Type			Ability									Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define											Modify VAR																Main Race Type
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar											COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/FamiliarHPDivisor)	USEMASTERSKILL:YES	DEFINE:MasterLevel|0	DEFINE:FamiliarHPDivisor|0	BONUS:VAR|MasterLevel|MASTERVAR("FamiliarLVL")	BONUS:VAR|FamiliarHPDivisor|2		RACETYPE:Animal/Magical Beast	BONUS:VAR|CompanionHD|MasterLevel	DEFINE:CompanionHD|0
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Companion ~ Familiar
 
 ###Block: Specific Familiars
