@@ -1,0 +1,4 @@
+
+CATEGORY=Special Ability|Sorcerer Bloodline ~ Orc.MOD			ABILITY:Internal|AUTOMATIC|Orc Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Orc)
+
+Orc Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Orc_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Orc Bloodline ~ Power LVL 01

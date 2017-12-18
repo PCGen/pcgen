@@ -3471,7 +3471,8 @@ LANGBONUS:Gnome
 CLASS:Sorcerer	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Sorcerer
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Sorcerer Bloodline|Sorcerer Bloodline ~ Elemental (Fire)
+ABILITY:CATEGORY=Special Ability|Sorcerer Bloodline ~ Elemental
+ABILITY:CATEGORY=Special Ability|Sorcerer Elemental Bloodline (Fire)
 SKILL:Bluff				RANK:1
 SKILL:Knowledge (Arcana)	RANK:1
 SKILL:Spellcraft			RANK:1
