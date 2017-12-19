@@ -174,19 +174,18 @@ CATEGORY=Special Ability|Sorcerer Bloodline ~ Elemental.MOD		ABILITY:Internal|AU
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Fey.MOD			ABILITY:Internal|AUTOMATIC|Fey Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Fey)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Infernal.MOD		ABILITY:Internal|AUTOMATIC|Infernal Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Infernal)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Maestro.MOD		ABILITY:Internal|AUTOMATIC|Maestro Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Maestro)
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Marid.MOD		ABILITY:Internal|AUTOMATIC|Marid Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Marid)
+#CATEGORY=Special Ability|Sorcerer Bloodline ~ Marid.MOD		ABILITY:Internal|AUTOMATIC|Marid Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Marid)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Protean.MOD		ABILITY:Internal|AUTOMATIC|Protean Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Protean)
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Imperious.MOD		ABILITY:Internal|AUTOMATIC|Imperious Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Imperious)
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Kobold.MOD		ABILITY:Internal|AUTOMATIC|Kobold Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Kobold)
+#CATEGORY=Special Ability|Sorcerer Bloodline ~ Imperious.MOD		ABILITY:Internal|AUTOMATIC|Imperious Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Imperious)
+#CATEGORY=Special Ability|Sorcerer Bloodline ~ Kobold.MOD		ABILITY:Internal|AUTOMATIC|Kobold Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Kobold)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Rakshasa.MOD		ABILITY:Internal|AUTOMATIC|Rakshasa Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Rakshasa)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Serpentine.MOD	ABILITY:Internal|AUTOMATIC|Serpentine Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Serpentine)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Shadow.MOD		ABILITY:Internal|AUTOMATIC|Shadow Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Shadow)
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Shaitan.MOD		ABILITY:Internal|AUTOMATIC|Shaitan Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Shaitan)
+#CATEGORY=Special Ability|Sorcerer Bloodline ~ Shaitan.MOD		ABILITY:Internal|AUTOMATIC|Shaitan Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Shaitan)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Starsoul.MOD		ABILITY:Internal|AUTOMATIC|Starsoul Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Starsoul)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Stormborn.MOD		ABILITY:Internal|AUTOMATIC|Stormborn Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Stormborn)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Undead.MOD		ABILITY:Internal|AUTOMATIC|Undead Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Undead)
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Verdant.MOD		ABILITY:Internal|AUTOMATIC|Verdant Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Verdant)
-
 
 
 
@@ -209,14 +208,14 @@ Elemental Bloodline Tracker ~ Arcanist Bloodline Development	CATEGORY:Internal	B
 Fey Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Fey_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Fey Bloodline ~ Power LVL 01
 Infernal Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Infernal_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Infernal Bloodline ~ Power LVL 01
 Maestro Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Maestro_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Maestro Bloodline ~ Power LVL 01
-Marid Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Marid_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Marid Bloodline ~ Power LVL 01
+#Marid Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Marid_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Marid Bloodline ~ Power LVL 01
 Protean Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Protean_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Protean Bloodline ~ Power LVL 01
-Imperious Bloodline Tracker ~ Arcanist Bloodline Development	CATEGORY:Internal	BONUS:VAR|Sorcerer_Imperious_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Imperious Bloodline ~ Power LVL 01
-Kobold Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Kobold_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Kobold Bloodline ~ Power LVL 01
+#Imperious Bloodline Tracker ~ Arcanist Bloodline Development	CATEGORY:Internal	BONUS:VAR|Sorcerer_Imperious_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Imperious Bloodline ~ Power LVL 01
+#Kobold Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Kobold_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Kobold Bloodline ~ Power LVL 01
 Rakshasa Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Rakshasa_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Rakshasa Bloodline ~ Power LVL 01
 Serpentine Bloodline Tracker ~ Arcanist Bloodline Development	CATEGORY:Internal	BONUS:VAR|Sorcerer_Serpentine_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Serpentine Bloodline ~ Power LVL 01
 Shadow Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Shadow_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Shadow Bloodline ~ Power LVL 01
-Shaitan Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Shaitan_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Shaitan Bloodline ~ Power LVL 01
+#Shaitan Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Shaitan_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Shaitan Bloodline ~ Power LVL 01
 Starsoul Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Starsoul_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Starsoul Bloodline ~ Power LVL 01
 Stormborn Bloodline Tracker ~ Arcanist Bloodline Development	CATEGORY:Internal	BONUS:VAR|Sorcerer_Stormborn_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Stormborn Bloodline ~ Power LVL 01
 Undead Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Undead_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Undead Bloodline ~ Power LVL 01
