@@ -200,8 +200,18 @@ CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_JackOfAllTrades|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_ClassSkills|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_Proficiencies|0
 
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_BardDistraction|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_Fascinate|0
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_FrighteningPerformance|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_InspireCourage|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_InspireCompetence|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_Suggestion|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_DirgeOfDoom|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_InspireGreatness|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_SoothingPerformance|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_FrighteningTune|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_InspireHeroics|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_MassSuggestion|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_DeadlyPerformance|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_InspireCourage1|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_InspireCourage2|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_InspireCourage3|0
@@ -226,8 +236,18 @@ CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_JackOfAl
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_ClassSkills=True
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_Proficiencies=True
 
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_BardDistraction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardDistraction=True
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_Fascinate|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_Fascinate=True
-CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_FrighteningPerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_FrighteningPerformance=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_InspireCourage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_InspireCourage=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_InspireCompetence|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_InspireCompetence=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_Suggestion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_Suggestion=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_DirgeOfDoom|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_DirgeOfDoom=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_InspireGreatness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_InspireGreatness=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_SoothingPerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_SoothingPerformance=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_FrighteningTune|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_FrighteningTune=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_InspireHeroics|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_InspireHeroics=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_MassSuggestion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_MassSuggestion=True
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_DeadlyPerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_DeadlyPerformance=True
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_InspireCourage1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_InspireCourage1=True
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_InspireCourage2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_InspireCourage2=True
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_InspireCourage3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_InspireCourage3=True
@@ -242,6 +262,7 @@ CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_InspireC
 # Old TYPE version Support
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_CounterSong|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardCounterSong
+CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_BardDistraction|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardDistraction
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_BardicPerformance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_ArmoredCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting
 CATEGORY=Class|Bard.MOD																															BONUS:VAR|Bard_CF_Cantrips|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips
