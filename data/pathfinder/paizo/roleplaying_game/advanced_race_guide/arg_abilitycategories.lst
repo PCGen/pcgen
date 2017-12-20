@@ -165,6 +165,7 @@ ABILITYCATEGORY:Humanoid Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO			
 
 ABILITYCATEGORY:Shards Bonus						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ShardsBonus																								PLURAL:Shards Bonuses		DISPLAYLOCATION:Racial Abilities
 
+ABILITYCATEGORY:Outsider Plane Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:Outsider Plane Choice																											DISPLAYLOCATION:Race Builder Design
 
 ###Block: Racial Subtypes (aka Backgrounds)
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list			Plural description for UI		Display Location
