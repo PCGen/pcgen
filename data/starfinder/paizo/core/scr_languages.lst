@@ -12,7 +12,7 @@ Triaxian			TYPE:Spoken.World			DESC:(inhabitants of Triaxus)
 Vercite			TYPE:Spoken.World			DESC:(inhabitants of Verces)
 Vesk				TYPE:Spoken.World			DESC:(vesk, inhabitants of the Veskarium)
 Ysoki				TYPE:Spoken				DESC:(ysoki)
-Lashunta			TYPE:Spoken				DESC:(lashunta)
+#Lashunta			TYPE:Spoken				DESC:(lashunta)
 
 
 Abyssal			TYPE:Spoken			DESC:(demons, chaotic evil outsiders, inhabitants of the Abyss)
