@@ -241,7 +241,7 @@ Musical Instrument (Recorder)		TYPE:Goods.Tools.Instrument.Wind.Resizable							
 Musical Instrument (Trumpet)		TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Scale (Merchant's)			TYPE:Goods.Tools																		COST:2	WT:1						SOURCEPAGE:p.161																SPROP:+2 to appraise items valued by weight
 Spell Component Pouch			TYPE:Goods.Tools.Container					CONTAINS:UNLIM									COST:5	WT:2								SOURCEPAGE:p.161
-Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook								NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3									SOURCEPAGE:p.161
+Spellbook		TYPE:Goods.Tools.Book.Spellbook								NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3									SOURCEPAGE:p.161
 Thieves' Tools				TYPE:Goods.Tools.Thief.ThiefTools															COST:30	WT:1							SOURCEPAGE:p.161	BONUS:SKILL|Disable Device|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Unholy Symbol (Wooden)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:1									SOURCEPAGE:p.161
 Unholy Symbol (Silver)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.161

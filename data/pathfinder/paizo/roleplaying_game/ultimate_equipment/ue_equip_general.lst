@@ -325,7 +325,7 @@ Climber's Kit.MOD																																									SOURCEPAGE:p.76
 Disguise Kit.MOD																																									SOURCEPAGE:p.76
 Footprint Book.MOD																		TYPE:Goods.Tools.Book												COST:50	WT:3					SOURCEPAGE:p.76
 Forger's Kit																			TYPE:Goods.Tools													COST:200	WT:6					SOURCEPAGE:p.77										BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance
-Spellbook (Wizard's/Blank).COPY=Formula Book (Alchemist's/Blank)
+Formula Book.MOD	SOURCEPAGE:p.77
 Fortune-Teller's Deck (Common).MOD																TYPE:Goods.Tools													COST:1	WT:0.5				SOURCEPAGE:p.77
 Fortune-Teller's Deck (Quality).MOD																TYPE:Goods.Tools													COST:25	WT:1					SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
 Fortune-Teller's Deck (Masterwork).MOD															TYPE:Goods.Tools													COST:50	WT:1					SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
@@ -387,7 +387,7 @@ Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE
 Portable Altar																			TYPE:Goods.Tools													COST:250	WT:40					SOURCEPAGE:p.79
 Portrait Book.MOD																			TYPE:Goods.Tools.Book												COST:10	WT:3					SOURCEPAGE:p.79
 Spell Component Pouch.MOD																																							SOURCEPAGE:p.79
-Spellbook (Wizard's/Blank).MOD																																						SOURCEPAGE:p.79
+Spellbook.MOD																																						SOURCEPAGE:p.79
 Stretcher																				TYPE:Goods.Tools													COST:1	WT:10					SOURCEPAGE:p.79
 Surgeon's Tools																			TYPE:Goods.Tools													COST:20	WT:5					SOURCEPAGE:p.79
 Surgeon's Tools.COPY=Surgeon's Tools (Small)
@@ -396,9 +396,8 @@ Symptom Kit.MOD																			TYPE:Goods.Tools													COST:25	WT:5					
 Thieves' Tools.MOD																																								SOURCEPAGE:p.79
 Thieves' Tools.COPY=Thieves' Tools (Masterwork)
 Thieves' Tools (Masterwork).MOD																															COST:100	WT:2					SOURCEPAGE:p.79																				BONUS:SKILL|Disable Device|2|TYPE=Circumstance
-Traveling Spellbook (Blank).COPY=Traveling Formula Book (Blank)
-Traveling Formula Book (Blank).MOD
-Traveling Spellbook (Blank).MOD																TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1					SOURCEPAGE:p.79
+Traveling Spellbook.COPY=Traveling Formula Book	SOURCEPAGE:p.79
+Traveling Spellbook.MOD																											SOURCEPAGE:p.79
 Veterinarian's Kit																		TYPE:Goods.Tools													COST:25	WT:1					SOURCEPAGE:p.79										BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
 
 ###Block: Adventuring Gear
