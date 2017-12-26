@@ -11,6 +11,13 @@
 # NEWCATEGORY:Spell-like Ability
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
+EQUIPMENT:Spellbook (Wizard's/Blank)					MAXVER:6.07.05	NEWKEY:Spellbook
+EQUIPMENT:Spellbook (Arcanist's/Blank)					MAXVER:6.07.05	NEWKEY:Spellbook
+EQUIPMENT:Magus Spellbook							MAXVER:6.07.05	NEWKEY:Spellbook
+EQUIPMENT:Spellbook (Traveling/Blank)					MAXVER:6.07.05	NEWKEY:Traveling Spellbook
+EQUIPMENT:Traveling Spellbook (Blank)					MAXVER:6.07.05	NEWKEY:Traveling Spellbook
+EQUIPMENT:Spellbook (Compact)							MAXVER:6.07.05	NEWKEY:Compact Spellbook
+EQUIPMENT:Formula Book (Alchemist's/Blank)				MAXVER:6.07.05	NEWKEY:Formula Book
 
 ABILITY:Special Ability|Wayang ~ Dissolutions Child			MAXVER:6.07.01	NEWKEY:Wayang ~ Dissolution's Child
 

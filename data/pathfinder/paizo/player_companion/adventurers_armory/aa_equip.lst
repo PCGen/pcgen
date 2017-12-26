@@ -69,7 +69,7 @@ Skeleton Key																				TYPE:Goods.General								COST:85	WT:0										
 # For some reason this is far cheaper than the soap from Core
 Soap																						TYPE:Goods.General								COST:0.01	WT:0.5							EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]					SOURCEPAGE:p.8
 Spear-thrower																				TYPE:Goods.General								COST:1	WT:1																		SOURCEPAGE:p.8								SPROP:Double range of dart, javelin, or shortspear. Move action to load.
-Spellbook (Traveling/blank)																		TYPE:Goods.Tools.Spellbook							COST:10	WT:1																		SOURCEPAGE:p.8
+Traveling Spellbook																		TYPE:Goods.Tools.Book.Spellbook							COST:10	WT:1																		SOURCEPAGE:p.8	NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)
 Stationary																					TYPE:Goods.General.Writing.Documents					COST:1	WT:0																		SOURCEPAGE:p.8
 Stove Can																					TYPE:Goods.General								COST:10	WT:1								EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]					SOURCEPAGE:p.8
 # 2 differents items?

@@ -71,7 +71,6 @@ Cestus.MOD										TYPE:Weapon Group Melee Light Piercing
 #Starknife (Sparkwake).MOD							TYPE:Weapon Group Melee Light Piercing
 Sword Cane.MOD									TYPE:Weapon Group Melee OneHanded Piercing
 #Trident of Stability.MOD							TYPE:Weapon Group Melee OneHanded Piercing
-Spellbook (Arcanist's/Blank)							TYPE:Goods.Tools.Spellbook									NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3																	SOURCEPAGE:p.
 
 # ACG - these weapons are not sourced from the ACG
 # COMMENTS: wrong name?

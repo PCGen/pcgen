@@ -467,4 +467,4 @@ GEAR:Wand						LOCATION:Equipped	EQMOD:Special Ability ~ Spell Effect / Spell Tr
 GEAR:Potion					QTY:2	LOCATION:Equipped	EQMOD:Special Ability ~ Spell Effect / Single Use|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
 GEAR:Ring of Protection +2			LOCATION:Equipped
 GEAR:Cape of the Mountebank			LOCATION:Equipped
-GEAR:Spellbook (Wizard's/Blank)		LOCATION:Equipped
+GEAR:Spellbook		LOCATION:Equipped
