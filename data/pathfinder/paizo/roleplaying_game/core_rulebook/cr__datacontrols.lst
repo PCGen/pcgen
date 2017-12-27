@@ -188,6 +188,7 @@ FACTDEF:ABILITY|Barbarian_CF_ImprovedUncannyDodge		DATAFORMAT:BOOLEAN	REQUIRED:N
 FACTDEF:ABILITY|Bard_Archetype_Alignment				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Alignment			EXPLANATION:Determines whether the archetype affects - Alignment
 FACTDEF:ABILITY|Bard_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Bard_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Bard_Archetype_Spellcasting			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Spellcasting		EXPLANATION:Determines whether the archetype affects - Spellcasting
 FACTDEF:ABILITY|Bard_Archetype_BardicKnowledge			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BardicKnowledge		EXPLANATION:Determines whether the archetype affects - BardicKnowledge
 FACTDEF:ABILITY|Bard_Archetype_CounterSong			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:CounterSong			EXPLANATION:Determines whether the archetype affects - CounterSong
 FACTDEF:ABILITY|Bard_Archetype_BardicPerformance		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BardicPerformance		EXPLANATION:Determines whether the archetype affects - BardicPerformance
