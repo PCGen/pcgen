@@ -524,6 +524,12 @@ CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood10|0
 CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood13|0
 CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood16|0
 CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood19|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty3|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty6|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty9|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty12|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty15|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty18|0
 
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_AuraOfEvil=True
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_DetectGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_DetectGood=True
@@ -552,6 +558,12 @@ CATEGORY=Class|Antipaladin.MOD																																																		
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood13=True
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood16=True
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood19=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty3=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty6=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty9=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty12=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty15=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty18=True
 
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfEvil|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfEvil
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_DetectGood|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectGood

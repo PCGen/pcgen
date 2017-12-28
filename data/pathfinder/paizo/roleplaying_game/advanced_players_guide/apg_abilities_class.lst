@@ -930,13 +930,23 @@ Unholy Champion					KEY:Antipaladin ~ Unholy Champion		CATEGORY:Special Ability	
 CATEGORY=Special Ability|Aura of Evil.MOD													TYPE:AntipaladinClassFeatures
 ###Block: Archetype Support
 # Ability Name					Modify VAR
-CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,1|PREVAREQ:Antipaladin_CF_SmiteGood1,0
-CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,4|PREVAREQ:Antipaladin_CF_SmiteGood4,0
-CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,7|PREVAREQ:Antipaladin_CF_SmiteGood7,0
-CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,10|PREVAREQ:Antipaladin_CF_SmiteGood10,0
-CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,13|PREVAREQ:Antipaladin_CF_SmiteGood13,0
-CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,16|PREVAREQ:Antipaladin_CF_SmiteGood16,0
-CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,19|PREVAREQ:Antipaladin_CF_SmiteGood19,0
+CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,1|PREVAREQ:Antipaladin_CF_SmiteGood1,1
+CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,4|PREVAREQ:Antipaladin_CF_SmiteGood4,1
+CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,7|PREVAREQ:Antipaladin_CF_SmiteGood7,1
+CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,10|PREVAREQ:Antipaladin_CF_SmiteGood10,1
+CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,13|PREVAREQ:Antipaladin_CF_SmiteGood13,1
+CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,16|PREVAREQ:Antipaladin_CF_SmiteGood16,1
+CATEGORY=Special Ability|Smite Good.MOD	BONUS:VAR|SmiteGoodTimes|-1|PREVARGTEQ:DetectGoodLVL,19|PREVAREQ:Antipaladin_CF_SmiteGood19,1
+
+CATEGORY=Special Ability|Antipaladin ~ Cruelty	BONUS:ABILITYPOOL|Cruelty|-1|PREVARGTEQ:CrueltyLVL,3|PREVAREQ:Antipaladin_CF_Cruelty3,1
+CATEGORY=Special Ability|Antipaladin ~ Cruelty	BONUS:ABILITYPOOL|Cruelty|-1|PREVARGTEQ:CrueltyLVL,6|PREVAREQ:Antipaladin_CF_Cruelty6,1
+CATEGORY=Special Ability|Antipaladin ~ Cruelty	BONUS:ABILITYPOOL|Cruelty|-1|PREVARGTEQ:CrueltyLVL,9|PREVAREQ:Antipaladin_CF_Cruelty9,1
+CATEGORY=Special Ability|Antipaladin ~ Cruelty	BONUS:ABILITYPOOL|Cruelty|-1|PREVARGTEQ:CrueltyLVL,12|PREVAREQ:Antipaladin_CF_Cruelty12,1
+CATEGORY=Special Ability|Antipaladin ~ Cruelty	BONUS:ABILITYPOOL|Cruelty|-1|PREVARGTEQ:CrueltyLVL,15|PREVAREQ:Antipaladin_CF_Cruelty15,1
+CATEGORY=Special Ability|Antipaladin ~ Cruelty	BONUS:ABILITYPOOL|Cruelty|-1|PREVARGTEQ:CrueltyLVL,18|PREVAREQ:Antipaladin_CF_Cruelty18,1
+
+##NOTE: Supports archetypes that are not CE alignment
+Antipaladin Alternate Alignment		KEY:Antipaladin Archetype ~ Alternate Alignment		CATEGORY:Archetype		TYPE:Archetype.AntipaladinArchetype																						DESC:This option allows you to change your alignment to qualify for antipaladin archetypes that are not necessarily Chaotic Evil.																																																																					PRECLASS:1,Antipaladin=1	BONUS:VAR|BypassClassAlignment_Antipaladin|1|TYPE=Bypass		COST:0
 
 ###Block: Antipaladin Aura abilities
 # Ability Name	Unique Key					Category of Ability		Type											Description																																																							Damage Reduction	Source Page
