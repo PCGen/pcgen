@@ -434,6 +434,7 @@ Acrobatics					CATEGORY:Class Skill	CSKILL:Acrobatics
 Appraise					CATEGORY:Class Skill	CSKILL:Appraise					
 Bluff						CATEGORY:Class Skill	CSKILL:Bluff						
 Climb						CATEGORY:Class Skill	CSKILL:Climb						
+Craft						CATEGORY:Class Skill	CSKILL:TYPE=Craft				
 Craft (Alchemy)				CATEGORY:Class Skill	CSKILL:Craft (Alchemy)				
 Craft (Armor)				CATEGORY:Class Skill	CSKILL:Craft (Armor)				
 Craft (Baskets)				CATEGORY:Class Skill	CSKILL:Craft (Baskets)				
@@ -466,6 +467,7 @@ Fly						CATEGORY:Class Skill	CSKILL:Fly
 Handle Animal				CATEGORY:Class Skill	CSKILL:Handle Animal				
 Heal						CATEGORY:Class Skill	CSKILL:Heal						
 Intimidate					CATEGORY:Class Skill	CSKILL:Intimidate					
+Knowledge					CATEGORY:Class Skill	CSKILL:TYPE=Knowledge				
 Knowledge (Arcana)			CATEGORY:Class Skill	CSKILL:Knowledge (Arcana)			
 Knowledge (Dungeoneering)		CATEGORY:Class Skill	CSKILL:Knowledge (Dungeoneering)		
 Knowledge (Engineering)			CATEGORY:Class Skill	CSKILL:Knowledge (Engineering)			
@@ -479,6 +481,7 @@ Knowledge (Religion)			CATEGORY:Class Skill	CSKILL:Knowledge (Religion)
 Knowledge (Untrained)			CATEGORY:Class Skill	CSKILL:Knowledge (Untrained)			
 Linguistics					CATEGORY:Class Skill	CSKILL:Linguistics					
 Perception					CATEGORY:Class Skill	CSKILL:Perception					
+Perform					CATEGORY:Class Skill	CSKILL:TYPE=Perform				
 Perform (Act)				CATEGORY:Class Skill	CSKILL:Perform (Act)				
 Perform (Comedy)				CATEGORY:Class Skill	CSKILL:Perform (Comedy)				
 Perform (Dance)				CATEGORY:Class Skill	CSKILL:Perform (Dance)				
@@ -489,6 +492,7 @@ Perform (Sing)				CATEGORY:Class Skill	CSKILL:Perform (Sing)
 Perform (String Instruments)		CATEGORY:Class Skill	CSKILL:Perform (String Instruments)		
 Perform (Wind Instruments)		CATEGORY:Class Skill	CSKILL:Perform (Wind Instruments)		
 Perform (Untrained)			CATEGORY:Class Skill	CSKILL:Perform (Untrained)			
+Profession					CATEGORY:Class Skill	CSKILL:TYPE=Profession				
 Profession (Architect)			CATEGORY:Class Skill	CSKILL:Profession (Architect)			
 Profession (Baker)			CATEGORY:Class Skill	CSKILL:Profession (Baker)			
 Profession (Barrister)			CATEGORY:Class Skill	CSKILL:Profession (Barrister)			
