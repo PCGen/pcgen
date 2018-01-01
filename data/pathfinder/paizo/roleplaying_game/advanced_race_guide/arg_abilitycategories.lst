@@ -17,6 +17,7 @@ ABILITYCATEGORY:Umbral Scion Spell				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		
 ###Block: Class Bonus Feat Categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list					Plural description for UI		Display Location
 ABILITYCATEGORY:Imperious Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ImperiousBloodline	ABILITYLIST:Skill Focus(Perform (Oratory))	PLURAL:Imperious Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Kobold Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:KoboldBloodline									PLURAL:Kobold Bloodline Feats		DISPLAYLOCATION:Feats
 
 ###Block: Core Races ability categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
@@ -53,7 +54,6 @@ ABILITYCATEGORY:Runeforger Option				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		F
 ABILITYCATEGORY:Wave Warden Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WaveWardenBonusFeat					PLURAL:Wave Warden Bonus Feats		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Augmented Form Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AugmentedFormSelection					PLURAL:Augmented Form Selections		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Experimental Gunsmith Innovation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExperimentalGunsmithInnovation				PLURAL:Experimental Gunsmith Innovations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Kobold Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KoboldBloodlineFeat					PLURAL:Kobold Bloodline Feats			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Spell Binder Bonded Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpellBinderBondedSpell					PLURAL:Spell Binder Bonded Spells		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Swordmaster Trance				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SwordmasterTrance						PLURAL:Swordmaster Trances			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Plant Bond Option				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PlantBondOption						PLURAL:Plant Bond Options			DISPLAYLOCATION:Class Abilities
