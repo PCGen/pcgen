@@ -347,7 +347,7 @@ CLASS:Sorcerer	HD:6		TYPE:Base.PC.SpontaneousArcane.Spontaneous	MAXLEVEL:20	SOUR
 # Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Memorize	Caster level
-CLASS:Sorcerer	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Caster_Level_BL_Stripped_Sorcerer
+CLASS:Sorcerer	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Caster_Level_BL_Stripped_Sorcerer	
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Sorcerer
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Sorcerer|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
