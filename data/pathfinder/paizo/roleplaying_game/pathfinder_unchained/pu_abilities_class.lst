@@ -725,18 +725,18 @@ CATEGORY=Special Ability|Unchained Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TI
 CATEGORY=Special Ability|Unchained Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster VIII|PREVAREQ:SummonerSummonMonsterLVL,8
 CATEGORY=Special Ability|Unchained Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster IX|PREVARGTEQ:SummonerSummonMonsterLVL,9
 
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Agathion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Agathiont=True		
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Angel|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Angelt=True			
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Archon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Archont=True		
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Azata|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Azatat=True			
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Daemon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Daemont=True		
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Demon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Demont=True			
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Devil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Devilt=True			
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Div|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Divt=True			
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Elemental|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Elementalt=True	
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Inevitable|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Inevitablet=True	
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Protean|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Proteant=True		
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Psychopomp|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Psychopompt=True	
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Agathion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Agathion=True		
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Angel|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Angel=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Archon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Archon=True		
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Azata|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Azata=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Daemon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Daemon=True		
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Demon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Demon=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Devil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Devil=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Div|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Div=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Elemental|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Elemental=True	
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Inevitable|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Inevitable=True	
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Protean|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Protean=True		
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Psychopomp|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Psychopomp=True	
 
 
 
