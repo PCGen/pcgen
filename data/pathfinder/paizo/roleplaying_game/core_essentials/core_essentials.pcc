@@ -61,3 +61,4 @@ ARMORPROF:ce_profs_armor.lst
 WEAPONPROF:ce_profs_weapon.lst
 
 DATACONTROL:ce__datacontrols.lst
+SIZE:ce__sizes.lst
