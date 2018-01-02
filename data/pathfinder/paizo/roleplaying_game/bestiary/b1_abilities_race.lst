@@ -1298,3 +1298,7 @@ Deathless		KEY:Bloody Skeleton ~ Deathless	CATEGORY:Special Ability	TYPE:Special
 Fiery Aura		KEY:Burning Skeleton ~ Fiery Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura										DESC:Creatures adjacent to a burning skeleton take 1d6 points of fire damage at the start of their turn. Anyone striking a burning skeleton with an unarmed strike or natural attack takes 1d6 points of fire damage.																																														SOURCEPAGE:p.251
 Fiery Death		KEY:Burning Skeleton ~ Fiery Death	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DEFINE:FieryDeathDice|0	DEFINE:FieryDeathSaveDC|0	DESC:A burning skeleton explodes into a burst of flame when it dies. Anyone adjacent to the skeleton when it is destroyed takes %1d6 points of fire damage. A DC %2 Reflex save halves this damage.|FieryDeathDice|FieryDeathSaveDC																														BONUS:VAR|FieryDeathSaveDC|10+(HD/2)+CHA	BONUS:VAR|FieryDeathDice|max(1,HD/2)	SOURCEPAGE:p.251
 Fire			KEY:Burning Skeleton ~ Fire Damage	CATEGORY:Special Ability	TYPE:SpecialAttack													DESC:A burning skeleton's melee attacks (including both those made with a natural weapon and those made with a manufactured weapon) deal an additional 1d6 points of fire damage.																																																				SOURCEPAGE:p.251	ASPECT:Ability Benefit|(1d6/melee hit)
+
+
+Monster ~ Skeleton	CATEGORY:Internal	BONUS:ABILITYPOOL|Size|1
+Monster ~ Zombie		CATEGORY:Internal	BONUS:ABILITYPOOL|Size|1
