@@ -2640,7 +2640,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 			TransparentCategorizedReferenceManufacturer tcrm = (TransparentCategorizedReferenceManufacturer) rm;
 			String category = tcrm.getCDOMCategory();
 			Class catClass = tcrm.getCategoryClass();
-			mfg = rc.getManufacturer((Class) c, catClass, category);
+			mfg = (ReferenceManufacturer<T>) rc.getManufacturer((Class) c, catClass, category);
 		}
 		else
 		{
