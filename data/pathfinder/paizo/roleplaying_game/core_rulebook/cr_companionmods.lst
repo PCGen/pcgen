@@ -27,7 +27,7 @@ FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTO
 
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
 # Class of the Master		Type				Ability										Auto Armor Prof				Define			Define Stat				Modify VAR								Main Race Type
-FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Base Companion ~ Special Mount	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|MasterLevel|MASTERVAR("SpecialMountLVL")	RACETYPE:Animal
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Base Companion ~ Special Mount|Animal Tricks and Training	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|MasterLevel|MASTERVAR("SpecialMountLVL")	RACETYPE:Animal	DEFINE:BonusTricks|0	BONUS:VAR|BonusTricks|1+MASTERVAR("SpecialMountLVL")/3
 ###Block: HD
 # Class of the Master		Type				Hit Dice
 FOLLOWER:SpecialMountLVL=2	TYPE:Special Mount	HD:1

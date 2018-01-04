@@ -7007,7 +7007,7 @@ GENDER:Female
 TEMPLATE:Vampire
 CLASS:Sorcerer	LEVEL:8
 ABILITY:CATEGORY=Ability Bonus|+2 Charisma
-ABILITY:CATEGORY=Sorcerer Bloodline|Sorcerer Bloodline ~ Undead
+ABILITY:CATEGORY=Special Ability|Sorcerer Bloodline ~ Undead
 ABILITY:CATEGORY=Favored Class|Sorcerer
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point

@@ -2,6 +2,8 @@
 SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEWEB:http://paizo.com/products/btpy97vo	SOURCEDATE:2015-04
 # Original Entry by: Stefan Radermacher, Andrew Wilson & Andrew Maitland
 
+CATEGORY=Internal|Default.MOD	DEFINE:EidolonSubtype_Agathion|0	DEFINE:EidolonSubtype_Angel|0	DEFINE:EidolonSubtype_Archon|0	DEFINE:EidolonSubtype_Azata|0	DEFINE:EidolonSubtype_Daemon|0	DEFINE:EidolonSubtype_Demon|0	DEFINE:EidolonSubtype_Devil|0	DEFINE:EidolonSubtype_Div|0	DEFINE:EidolonSubtype_Elemental|0	DEFINE:EidolonSubtype_Inevitable|0	DEFINE:EidolonSubtype_Protean|0	DEFINE:EidolonSubtype_Psychopomp|0
+
 
 ###Block:
 # Ability Name			Category of Ability	Type				Ability							Class Skill		Cost
@@ -697,6 +699,18 @@ Greater Aspect								KEY:Unchained Summoner ~ Greater Aspect			CATEGORY:Special
 Twin Eidolon								KEY:Unchained Summoner ~ Twin Eidolon			CATEGORY:Special Ability	TYPE:Unchained Summoner Class Feature.SpecialQuality.Supernatural.Twin Eidolon																			DESC:At 20th level, a summoner and his eidolon share a true connection. As a standard action, the summoner can assume the shape of his eidolon, copying all of its evolutions, form, and abilities. His Strength, Dexterity, and Constitution scores change to match the base scores of his eidolon. He can choose to have any gear that he carries become absorbed by his new form, as with spells from the polymorph subschool. Items with continuous effects continue to function while absorbed in this way. The summoner loses his natural attacks and all racial traits (except bonus feats, skills, and languages) in favor of the abilities granted by his eidolon's evolutions. The summoner retains all of his class features. The summoner can keep this form for a number of minutes per day equal to his summoner level. This duration does not need to be consecutive, but it must be spent in 1-minute increments. The summoner can end this effect as a free action.																																																																																																																																																																																																																																																																																																																																																																																																																		SOURCEPAGE:p.28
 
 CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD																																			DEFINE:EidolonEvolution|0	DEFINE:Eidolon_CF_EvolutionProgression|0																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					BONUS:VAR|EidolonEvolution|1+(EidolonCompanionLVL>=2)+(EidolonCompanionLVL>=3)+(EidolonCompanionLVL>=5)+(EidolonCompanionLVL>=6)+(EidolonCompanionLVL>=7)+(EidolonCompanionLVL>=9)+(EidolonCompanionLVL>=10)+(EidolonCompanionLVL>=11)+(EidolonCompanionLVL>=13)+(EidolonCompanionLVL>=14)+(EidolonCompanionLVL>=15)+(EidolonCompanionLVL>=17)+(EidolonCompanionLVL>=18)+(EidolonCompanionLVL>=19)|PREVAREQ:Eidolon_CF_EvolutionProgression,0
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Agathion|1|PREVAREQ:Summoner_CF_EidolonSubtype_Agathion,0	
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Angel|1|PREVAREQ:Summoner_CF_EidolonSubtype_Angel,0		
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Archon|1|PREVAREQ:Summoner_CF_EidolonSubtype_Archon,0	
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Azata|1|PREVAREQ:Summoner_CF_EidolonSubtype_Azata,0		
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Daemon|1|PREVAREQ:Summoner_CF_EidolonSubtype_Daemon,0	
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Demon|1|PREVAREQ:Summoner_CF_EidolonSubtype_Demon,0		
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Devil|1|PREVAREQ:Summoner_CF_EidolonSubtype_Devil,0		
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Div|1|PREVAREQ:Summoner_CF_EidolonSubtype_Div,0		
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Elemental|1|PREVAREQ:Summoner_CF_EidolonSubtype_Elemental,0	
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Inevitable|1|PREVAREQ:Summoner_CF_EidolonSubtype_Inevitable,0
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Protean|1|PREVAREQ:Summoner_CF_EidolonSubtype_Protean,0	
+CATEGORY=Special Ability|Unchained Summoner ~ Eidolon.MOD	BONUS:VAR|EidolonSubtype_Psychopomp|1|PREVAREQ:Summoner_CF_EidolonSubtype_Psychopomp,0	
 
 
 ###Block:
@@ -710,6 +724,28 @@ CATEGORY=Special Ability|Unchained Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TI
 CATEGORY=Special Ability|Unchained Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster VII|PREVAREQ:SummonerSummonMonsterLVL,7
 CATEGORY=Special Ability|Unchained Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster VIII|PREVAREQ:SummonerSummonMonsterLVL,8
 CATEGORY=Special Ability|Unchained Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster IX|PREVARGTEQ:SummonerSummonMonsterLVL,9
+
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Agathion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Agathion=True		
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Angel|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Angel=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Archon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Archon=True		
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Azata|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Azata=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Daemon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Daemon=True		
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Demon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Demon=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Devil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Devil=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Div|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Div=True			
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Elemental|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Elemental=True	
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Inevitable|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Inevitable=True	
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Protean|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Protean=True		
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|EidolonSubtype_Psychopomp|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_EidolonSubtype_Psychopomp=True	
+
+
+
+
+
+
+
+
+
 
 
 ###Block: Insert correct version into Class

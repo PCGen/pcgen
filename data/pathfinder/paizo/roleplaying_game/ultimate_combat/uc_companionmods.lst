@@ -3,7 +3,7 @@
 
 
 # Class of the Master			Type				Hit Dice	Ability																														Define							Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type
-FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|AUTOMATIC|Animal Training ~ Combat Riding	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	BONUS:ABILITYPOOL|Animal Trick|-6							BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
+FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0								BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
 FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
 #FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Archetype|AUTOMATIC|Companion ~ Block Share Spells Archetypes
 FOLLOWER:SamuraiMountLVL=2		TYPE:Samurai Mount	HD:1																																																					BONUS:VAR|MasterLevel|1
@@ -83,7 +83,7 @@ FOLLOWER:EmpyrealCompanion=20	TYPE:Special Mount	HD:1																											
 
 
 # Class of the Master		Type				Hit Dice	Spell Res.		Ability																					Auto Armor Prof				Define							Define Stat				Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type		Template
-FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Animal Training ~ Combat Training|Animal Tricks and Training	ABILITY:FEAT|AUTOMATIC|Endurance							DEFINE:MasterLevel|0	DEFINE:BonusTricks|0						BONUS:ABILITYPOOL|Animal Trick|-6							BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
+FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Endurance							DEFINE:MasterLevel|0	DEFINE:BonusTricks|0													BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
 FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
 FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells
 FOLLOWER:BeastRiderLvl=2	TYPE:Animal Companion	HD:1																																																										BONUS:VAR|MasterLevel|1

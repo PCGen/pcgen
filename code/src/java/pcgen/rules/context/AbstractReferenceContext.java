@@ -507,7 +507,7 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		{
 			//Do categorized.
 			Category category = ((CategorizedClassIdentity) identity).getCategory();
-			return getManufacturer(cl, category);
+			return (ReferenceManufacturer<T>) getManufacturer(cl, category);
 		}
 		else
 		{

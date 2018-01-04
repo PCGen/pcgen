@@ -245,7 +245,7 @@ GEAR:Scroll (Whispering Wind)			LOCATION:Carried
 GEAR:Dagger						LOCATION:Primary Hand
 GEAR:Cloak of Resistance +1			LOCATION:Equipped
 GEAR:Everburning Torch				LOCATION:Carried
-GEAR:Spellbook (Wizard's/Blank)		LOCATION:Carried
+GEAR:Spellbook		LOCATION:Carried
 
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Burning Hands
@@ -273,40 +273,40 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Shatter
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Sleep
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Spider Climb
 
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Acid Splash
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Arcane Mark
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Burning Hands
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Comprehend Languages
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Dancing Lights
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Daze
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Detect Magic
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Detect Poison
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Detect Secret Doors
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Disrupt Undead
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Flare
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Floating Disk
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Ghost Sound
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Identify
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Light
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Locate Object
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mage Armor
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mage Hand
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mending
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Message
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Minor Image
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mirror Image
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Obscuring Mist
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Open/Close
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Prestidigitation
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Ray of Enfeeblement
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Ray of Frost
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Read Magic
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Resistance
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|See Invisibility
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Shatter
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Sleep
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Spider Climb
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Touch of Fatigue
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Acid Splash
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Arcane Mark
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Burning Hands
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Comprehend Languages
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Dancing Lights
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Daze
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Detect Poison
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Detect Secret Doors
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Disrupt Undead
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Flare
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Floating Disk
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Ghost Sound
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Identify
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Light
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Locate Object
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Mage Armor
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Mage Hand
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Mending
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Message
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Minor Image
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Mirror Image
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Obscuring Mist
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Open/Close
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Prestidigitation
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Ray of Frost
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Read Magic
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Resistance
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|See Invisibility
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Shatter
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Sleep
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Spider Climb
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Touch of Fatigue
 
 
 STARTPACK:NPC (Nualia)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aasimar]	SOURCEPAGE:p.52	NAMEISPI:YES

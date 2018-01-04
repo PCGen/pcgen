@@ -78,7 +78,7 @@ GEAR:Scroll (Pyrotechnics)				LOCATION:Carried
 GEAR:Scroll (Shrink Item)				LOCATION:Carried
 GEAR:Bracers of Armor +1				LOCATION:Equipped
 GEAR:Sickle							LOCATION:Primary Hand
-GEAR:Spellbook (Wizard's/Blank)			LOCATION:Carried
+GEAR:Spellbook			LOCATION:Carried
 LANGBONUS:Infernal|Varisian
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Hold Portal
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Magic Missile
@@ -94,10 +94,10 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Open/Close
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Hold Portal
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Magic Missile
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Shield
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Grease
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Identify
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Magic Aura
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|True Strike
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Grease
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Identify
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Magic Aura
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|True Strike
 
 
 STARTPACK:NPC (Thuvalia Barabbio)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.18	NAMEISPI:YES

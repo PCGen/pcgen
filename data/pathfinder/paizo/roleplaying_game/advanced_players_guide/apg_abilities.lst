@@ -236,17 +236,21 @@ Feat ~ Cosmopolitan										CATEGORY:Internal																BONUS:ABILITYPOOL|
 Spindle of Perfect Knowledge	KEY:Equipment ~ Spindle of Perfect Knowledge	CATEGORY:Internal		STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge															BONUS:SKILL|LIST|5
 
 ###Block: Optional System Rules
-# Ability Name			Unique Key						Category of Ability	Type				PRECHARACTERTYPE		Ability							Cost
-Use Hero Points			KEY:Rules ~ Use Hero Points			CATEGORY:Internal		TYPE:OptionalRules	PRECHARACTERTYPE:1,PC									COST:0
-Use Hero Points (Antihero)	KEY:Rules ~ Use Hero Points (Antihero)	CATEGORY:Internal		TYPE:OptionalRules	PRECHARACTERTYPE:1,PC	ABILITY:Special Ability|AUTOMATIC|Antihero	COST:0
+# Ability Name			Unique Key						Category of Ability	Type				PRECHARACTERTYPE														Ability							Cost
+Use Hero Points			KEY:Rules ~ Use Hero Points			CATEGORY:Internal		TYPE:OptionalRules	PRECHARACTERTYPE:1,PC	!PREABILITY:1,CATEGORY=Internal,Rules ~ Use Hero Points (Antihero)	ABILITY:Special Ability|AUTOMATIC|Hero Points	COST:0	BONUS:VAR|HeroPointsMax|3
+Use Hero Points (Antihero)	KEY:Rules ~ Use Hero Points (Antihero)	CATEGORY:Internal		TYPE:OptionalRules	PRECHARACTERTYPE:1,PC	!PREABILITY:1,CATEGORY=Internal,Rules ~ Use Hero Points			ABILITY:Special Ability|AUTOMATIC|Antihero	COST:0
 
 ###Block: Hero Points System
 # Ability Name			Define										Ability									Modify VAR
-CATEGORY=Internal|Default.MOD	DEFINE:Heroic|0	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|0	ABILITY:Internal|AUTOMATIC|Hero Points|PREVAREQ:Heroic,1	BONUS:VAR|Heroic|1|PREMULT:2,[PRECHARACTERTYPE:1,PC],[PREABILITY:1,CATEGORY=Internal,Rules ~ Use Hero Points]	BONUS:VAR|HeroPointsMax|3|PREVAREQ:Heroic,1
+CATEGORY=Internal|Default.MOD	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|0		
 
 ###Block: Ability
 # Ability Name				Category of Ability		Type				Visible		Description																																			Bonus Ability Pool			Modify VAR			Cost		Source Page		Aspects																																							Temporary Bonus					TEMPVALUE
-Hero Points					CATEGORY:Internal			TYPE:Internal		VISIBLE:DISPLAY																																																																																												TEMPBONUS:ANYPC|VAR|HeroPoints|%CHOICE	TEMPVALUE:MIN=0|MAX=HeroPointsMax|TITLE=Current Hero Points
+Hero Points					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:Current Points = %1; Max Allowed = %2 [Alter these values in GM Awards]|HeroPoints|HeroPointsMax																																																																																											
+
++1 Hero Point Current Value	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:Increase Hero Point Current Total by +1.		MULT:YES	STACK:YES	CHOOSE:NOCHOICE	BONUS:VAR|HeroPoints|1		COST:0	PREVARLT:HeroPoints,HeroPointsMax
++1 Hero Point Maximum Value	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM Awarded a +1 to the Hero Point maximum value.	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	BONUS:VAR|HeroPointsMax|1	COST:0
+
 
 Antihero					CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:You have elected to rely only on your skills and abilities. You do not receive hero points, regardless of the source, and can never benefit from their use. In exchange, you receive a bonus feat at 1st level.	BONUS:ABILITYPOOL|Antihero Feat|1	BONUS:VAR|Heroic|-1	COST:0	SOURCEPAGE:p.324
 

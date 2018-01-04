@@ -433,3 +433,9 @@ Yeti				STARTFEATS:1	SIZE:L	MOVE:Walk,40,Climb,30	FACE:10	REACH:10	BONUS:SITUATI
 ###Block: Z
 # Race Name			Size		Move			Face/Space	Reach		Monster Class Name and Starting Level	Main Race Type	Template		Challenge Rating	Source Page		Apply Kit
 Zombie (Human)		SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	MONSTERCLASS:Undead (Mindless):1		RACETYPE:Undead	TEMPLATE:Zombie	CR:1/2		SOURCEPAGE:p.288	KIT:1|NE
+
+
+Skeleton					MOVE:Walk,0		RACETYPE:Undead	TEMPLATE:Skeleton	ABILITY:Internal|AUTOMATIC|Monster ~ Skeleton	MONSTERCLASS:Undead (Mindless):1		
+Zombie					MOVE:Walk,0		RACETYPE:Undead	TEMPLATE:Zombie	ABILITY:Internal|AUTOMATIC|Monster ~ Zombie	MONSTERCLASS:Undead (Mindless):1	SOURCEPAGE:p.288	KIT:1|NE
+
+

@@ -67,3 +67,7 @@ Regional Affinity (Thuvia)			VISIBLE:NO	SOURCEPAGE:p.186	LANGBONUS:Kelish					RE
 Regional Affinity (Ustalav)			VISIBLE:NO	SOURCEPAGE:p.190	LANGBONUS:Skald,Varisian			REGION:Ustalav
 Regional Affinity (Varisia)			VISIBLE:NO	SOURCEPAGE:p.194	LANGBONUS:Shoanti,Varisian			REGION:Varisia
 Regional Affinity (Worldwound)		VISIBLE:NO	SOURCEPAGE:p.198	LANGBONUS:Abyssal,Hallit			REGION:The Worldwound
+
+
+Gillman		KEY:RaceSubtype ~ Gillman				VISIBLE:NO					RACESUBTYPE:Gillman			TYPE:Racial Heritage
+Strix			KEY:RaceSubtype ~ Strix					VISIBLE:NO					RACESUBTYPE:Strix				TYPE:Racial Heritage

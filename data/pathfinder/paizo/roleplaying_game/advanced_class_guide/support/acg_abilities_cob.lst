@@ -1,0 +1,5 @@
+
+
+CATEGORY=Special Ability|Sorcerer Bloodline ~ Impossible.MOD	ABILITY:Internal|AUTOMATIC|Impossible Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Impossible)
+
+Impossible Bloodline Tracker ~ Arcanist Bloodline Development	CATEGORY:Internal	BONUS:VAR|Sorcerer_Impossible_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Impossible Bloodline ~ Power LVL 01
