@@ -207,8 +207,9 @@ public class BonusManager
 		}
 		
 		// cache value only if it has been positively found
-		if (found)
+		if (found) {
 			cachedActiveBonusSumsMap.put(fullyQualifiedBonusType, bonus);
+		}
 		return bonus;
 	}
 
