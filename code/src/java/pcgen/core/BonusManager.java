@@ -99,6 +99,8 @@ public class BonusManager
 		}
 			
 		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+		if (fullyQualifiedBonusType.indexOf("ABERRANT_BLOODLINEPOWER")>-1)
+			System.out.print("");
 		if (cachedActiveBonusSumsMap.containsKey(fullyQualifiedBonusType))
 		{
 			return cachedActiveBonusSumsMap.get(fullyQualifiedBonusType);
@@ -166,6 +168,10 @@ public class BonusManager
 
 			if (currentTypedBonusNameInfo.startsWith(fullyQualifiedBonusType))
 			{
+				if (fullyQualifiedBonusType.indexOf("ABERRANT_BLOODLINEPOWER3")>-1)
+					System.out.print("");
+				if (fullyQualifiedBonusType.indexOf("ABERRANT_BLOODLINEPOWER9")>-1)
+					System.out.print("");
 				found = true;
 				aList.add(currentTypedBonusNameInfo);
 				aList.add(currentTypedBonusNameInfo + ".STACK");
