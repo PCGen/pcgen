@@ -7,5 +7,5 @@
 	<classpathentry kind="src" path="code/src/testcommon"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="org.springsource.ide.eclipse.gradle.classpathcontainer"/>
-	<classpathentry kind="output" path="code/build.eclipse"/>
+	<classpathentry kind="output" path="code/build.eclipse" />
 </classpath>
