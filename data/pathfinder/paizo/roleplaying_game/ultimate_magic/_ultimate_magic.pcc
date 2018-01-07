@@ -98,3 +98,6 @@ ABILITY:um_abilities_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
 ABILITYCATEGORY:um_abilitycategories_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
 ABILITY:um_feats_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
 SPELL:um_spells_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
+
+FORWARDREF:ABILITY=Special Ability|Shaman ~ Spirit Animal
+
