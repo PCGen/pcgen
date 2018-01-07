@@ -43,7 +43,7 @@ import pcgen.cdom.formula.ManagerKey;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.StringPClassUtil;
 
-public class GetFact implements Function
+public class GetFactFunction implements Function
 {
 
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
