@@ -54,7 +54,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		super.setUp();
 		SimpleFormatManagerLibrary formatLibrary = new SimpleFormatManagerLibrary();
 		FormatUtilities.loadDefaultFormats(formatLibrary);
-		getFunctionLibrary().addFunction(new GetFact());
+		getFunctionLibrary().addFunction(new GetFactFunction());
 		getOperatorLibrary().addAction(new NumberMinus());
 	}
 
