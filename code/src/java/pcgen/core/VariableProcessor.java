@@ -99,7 +99,12 @@ public abstract class VariableProcessor
 		CachableResult(Float result, boolean cachable)
 		{
 			this.result = result;
-			this.cachable = cachable;
+			// following commented out by Bryan McRoberts 6-Jan-2018
+			// this.cachable = cachable; // unreliable!
+			// turning off caching here because it sometimes is based on values that haven't
+			// fully loaded yet. better to rely on the caching at the variable level in BonusManager
+			// because it knows if the data is loaded or not.
+			this.cachable = false;
 		}
 	}
 
