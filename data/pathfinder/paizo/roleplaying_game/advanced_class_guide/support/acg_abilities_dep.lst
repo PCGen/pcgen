@@ -1,4 +1,2 @@
 
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Oni.MOD			ABILITY:Internal|AUTOMATIC|Oni Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Oni)
-
-Oni Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Oni_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Oni Bloodline ~ Power LVL 01
+Oni Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	BONUS:VAR|Sorcerer_Oni_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Oni Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Oni

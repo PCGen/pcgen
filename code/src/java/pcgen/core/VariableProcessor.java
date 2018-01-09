@@ -99,7 +99,7 @@ public abstract class VariableProcessor
 		CachableResult(Float result, boolean cachable)
 		{
 			this.result = result;
-			this.cachable = cachable;
+			this.cachable = cachable; // unreliable!
 		}
 	}
 

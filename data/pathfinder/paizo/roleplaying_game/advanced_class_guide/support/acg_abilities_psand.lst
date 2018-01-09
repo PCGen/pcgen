@@ -1,7 +1,2 @@
 
-
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Div.MOD			ABILITY:Internal|AUTOMATIC|Div Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Div)
-
-Div Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Div_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Div Bloodline ~ Power LVL 01
-
-
+Div Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	BONUS:VAR|Sorcerer_Div_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Div Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Div
