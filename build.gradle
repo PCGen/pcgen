@@ -36,6 +36,7 @@ checkstyle {
 
 pmd {
     toolVersion = '6.0.0'
+    ignoreFailures = true
 }
 
 group = 'net.sourceforge.pcgen'

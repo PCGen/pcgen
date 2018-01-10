@@ -26,6 +26,7 @@ pmd {
 	consoleOutput = true
 	sourceSets = []
 	toolVersion = "6.0.0"
+	ignoreFailures = true
 }
 
 findbugs {
