@@ -1030,6 +1030,8 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ArcaneBond|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Cantrips|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeats|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SpellBook|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Familiar|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BondedObject|0
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ClassSkills=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneSchool=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_WeaponProficiencies=True
@@ -1038,6 +1040,8 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneBond|1|TYPE=Boolean|P
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Cantrips=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BonusFeats=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_SpellBook|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SpellBook=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Familiar|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Familiar=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BondedObject|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BondedObject=True
 # Old Style
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
@@ -1046,6 +1050,16 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneBond|1|TYPE=Boolean|P
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Cantrips|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_SpellBook|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardSpellBook
+
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_AbjurationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AbjurationOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ConjurationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ConjurationOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_DivinationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_DivinationOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_EnchantmentOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_EnchantmentOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_EvocationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_EvocationOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_IllusionOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_IllusionOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_NecromancyOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_NecromancyOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_TransmutationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_TransmutationOppositionSchool=True
+
 ###Block: Wizard School Replacement Support
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_AcidDart|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AcidDart=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_AuraOfDespair|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AuraOfDespair=True
@@ -1066,7 +1080,14 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ProtectiveWard|1|TYPE=Boole
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ScryingAdept|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ScryingAdept=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_TelekineticFist|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_TelekineticFist=True
 
-
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AbjurationOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ConjurationOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_DivinationOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EnchantmentOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EvocationOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_IllusionOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_NecromancyOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_TransmutationOppositionSchool|0
 
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AcidDart|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AuraOfDespair|0
