@@ -5,7 +5,7 @@ SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/prod
 # Class Name
 CLASS:Wizard.MOD
 SUBCLASS:Void Elemental	CHOICE:SCHOOL|VoidElementalSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|VoidElementalSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Void Elemental School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Feature|AUTOMATIC|Void Elemental School
 
 #
 # End
