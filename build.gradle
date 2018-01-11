@@ -31,7 +31,7 @@ plugins {
 }
 
 checkstyle {
-    toolVersion = '8.5'
+    toolVersion = '8.7'
 }
 
 pmd {
@@ -198,7 +198,7 @@ dependencies {
     findbugs 'com.google.code.findbugs:findbugs:3.0.1'
     findbugs configurations.findbugsPlugins.dependencies
 
-    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:7.0.5'
+    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:7.2.0'
 }
 
 ant.importBuild 'build-gradle.xml'
@@ -347,8 +347,11 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
 task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
 }
 
+task almostAll(dependsOn: ['build', 'slowtest', 'javadoc', 'allReports']) {
+}
+
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.2.1'
+    gradleVersion = '4.4.1'
 }
 
 allprojects {
