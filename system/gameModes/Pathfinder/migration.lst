@@ -11,6 +11,13 @@
 # NEWCATEGORY:Spell-like Ability
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
+SOURCE:Adventurer's Armory (PFS)						MAXVER:6.07.05	NEWKEY:PFS ~ Adventurer's Armory
+SOURCE:PF - Demon Hunter's Handbook						MAXVER:6.07.05	NEWKEY:Demon Hunter's Handbook
+SOURCE:PF - Dirty Tactics Toolbox						MAXVER:6.07.05	NEWKEY:Dirty Tactics Toolbox
+SOURCE:People of the Stars (PFS)						MAXVER:6.07.05	NEWKEY:PFS ~ People of the Stars
+SOURCE:PF - Quests and Campaigns						MAXVER:6.07.05	NEWKEY:Quests and Campaigns
+SOURCE:PF - Weapon Master's Handbook					MAXVER:6.07.05	NEWKEY:Weapon Master's Handbook
+
 ABILITY:Special Ability|Mythic Path Ability ~ Relentless Healing	MAXVER:6.07.05	NEWKEY:Mythic Path Ability ~ Relentless Healing (Guardian)
 
 ABILITY:FEAT|Mythic Feat ~ Drink Is Life					MAXVER:6.07.05	NEWKEY:Drink Is Life			NEWCATEGORY:Mythic Feat
