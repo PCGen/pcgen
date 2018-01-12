@@ -1,7 +1,7 @@
 CAMPAIGN:Heroes of the Streets
 GAMEMODE:Pathfinder|Pathfinder_PFS
 RANK:3
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -11,8 +11,8 @@ PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 #PUBNAMEWEB:http://www.paizo.com
 SOURCELONG:Pathfinder Player Companion: Heroes of the Streets
-SOURCESHORT:HotS
-SOURCEWEB:http://paizo.com/products/btpy9ghc?Pathfinder-Player-Companion-Heroes-of-the-Streets
+SOURCESHORT:HOTS
+SOURCEWEB:http://paizo.com/products/btpy9ghc
 SOURCEDATE:2015-10
 ISOGL:YES
 
@@ -21,7 +21,7 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy9ghc?Pathfinder-Player-Companion-Heroes-of-the-Streets|Buy this publication from Paizo Publishing!
-DESC:Not every adventure awaits within a sealed tomb or mad wizard’s tower. In seemingly civilized cities, dangers lurk down every twisting alley, and backroom deals might spell the end for nosy investigators. Pathfinder Player Companion: Heroes of the Streets provides the resources to take your Pathfinder RPG character from a dungeon-delver to a witty and backstabbing urbanite.
+DESC:Not every adventure awaits within a sealed tomb or mad wizard's tower. In seemingly civilized cities, dangers lurk down every twisting alley, and backroom deals might spell the end for nosy investigators. Pathfinder Player Companion: Heroes of the Streets provides the resources to take your Pathfinder RPG character from a dungeon-delver to a witty and backstabbing urbanite.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 

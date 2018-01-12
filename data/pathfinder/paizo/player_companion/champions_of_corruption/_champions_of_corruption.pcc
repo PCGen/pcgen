@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Champions of Corruption
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -11,7 +11,7 @@ PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Pl
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Champions of Corruption
+SOURCELONG:Pathfinder Player Companion: Champions of Corruption
 SOURCESHORT:COC
 SOURCEWEB:http://paizo.com/products/btpy991x
 SOURCEDATE:2014-09
@@ -22,7 +22,7 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy991x|Buy this publication from Paizo Publishing!
-DESC:Evil Triumphs! Summon monsters from the blood of your enemies with twisted Sarkorian magic, lord over your minions to further the causes of your dark masters, and use any means necessary to achieve your despicable goals.
+DESC:Claim what's rightfully yours with Pathfinder Player Companion: Champions of Corruption! Summon monsters from the blood of your enemies with twisted Sarkorian magic, lord over your minions to further the causes of your dark masters, and use any means necessary to achieve your despicable goals. With Champions of Corruption, everything is fair game as long as you prosper and your enemies suffer.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
