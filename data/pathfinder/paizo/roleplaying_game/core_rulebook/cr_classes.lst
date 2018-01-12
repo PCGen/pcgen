@@ -387,31 +387,31 @@ CLASS:Wizard	STARTSKILLPTS:2
 CLASS:Wizard	SPELLSTAT:INT	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|Caster_Level_BL_Stripped_Wizard
 #
 SUBCLASS:Abjurer		COST:0	CHOICE:SCHOOL|Abjuration
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School																		PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Conjurer		COST:0	CHOICE:SCHOOL|Conjuration
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Conjuration School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Conjuration School																		PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Diviner		COST:0	CHOICE:SCHOOL|Divination
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Divination School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Divination School																		PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Enchanter	COST:0	CHOICE:SCHOOL|Enchantment
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Enchantment School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Enchantment School																		PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Evoker		COST:0	CHOICE:SCHOOL|Evocation
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Evocation School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Evocation School																		PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Illusionist	COST:0	CHOICE:SCHOOL|Illusion
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Illusion School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Illusion School																		PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Necromancer	COST:0	CHOICE:SCHOOL|Necromancy
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancy School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancy School																		PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Transmuter	COST:0	CHOICE:SCHOOL|Transmutation
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School																		PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Universalist	COST:0
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|PREVAREQ:Wizard_CF_ArcaneSchool,0|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
 1	ABILITY:Class|AUTOMATIC|Wizard
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wizard|PREVAREQ:Wizard_CF_WeaponProficiencies,0
+1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Wizard|PREVAREQ:Wizard_CF_WeaponProficiencies,0
 ###Block:
 1	ABILITY:FEAT|AUTOMATIC|Scribe Scroll|PREVAREQ:Wizard_CF_ScribeScroll,0
 ###Block:
-#1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
+#1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|PREVAREQ:Wizard_CF_ArcaneSchool,0|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane School|PREVAREQ:Wizard_CF_ArcaneSchool,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|PREVAREQ:Wizard_CF_ArcaneBond,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|PREVAREQ:Wizard_CF_Cantrips,0
