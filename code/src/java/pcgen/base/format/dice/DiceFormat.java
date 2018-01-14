@@ -104,10 +104,8 @@ public class DiceFormat implements FormatManager<Dice>
 	}
 
 	@Override
-	public boolean isDirect() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isDirect()
+	{
+		return true;
 	}
-
-
 }
