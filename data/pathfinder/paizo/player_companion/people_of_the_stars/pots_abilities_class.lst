@@ -41,11 +41,11 @@ The Stars Are Right	KEY:Stars Subdomain ~ The Stars Are Right			CATEGORY:Special
 
 ###Block: Trait ~ Outer Dragon Blood Sorcerer Draconic Bloodline additions
 # Ability Name	Unique Key	Category of Ability				Type						Required Ability									Define					Modify VAR
-Lunar			KEY:Lunar	CATEGORY:Sorcerer Draconic Bloodline	TYPE:Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Lunar|0	BONUS:VAR|DraconicBloodline_BW_Line|1	BONUS:VAR|DraconicBloodline_Cold|1	BONUS:VAR|DraconicBloodline_Lunar|1
-Solar			KEY:Solar	CATEGORY:Sorcerer Draconic Bloodline	TYPE:Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Solar|0	BONUS:VAR|DraconicBloodline_BW_Line|1	BONUS:VAR|DraconicBloodline_Fire|1	BONUS:VAR|DraconicBloodline_Solar|1
-Time			KEY:Time	CATEGORY:Sorcerer Draconic Bloodline	TYPE:Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Time|0	BONUS:VAR|DraconicBloodline_BW_Cone|1	BONUS:VAR|DraconicBloodline_Electricity|1	BONUS:VAR|DraconicBloodline_Time|1
-Void			KEY:Void	CATEGORY:Sorcerer Draconic Bloodline	TYPE:Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Void|0	BONUS:VAR|DraconicBloodline_BW_Cone|1	BONUS:VAR|DraconicBloodline_Cold|1	BONUS:VAR|DraconicBloodline_Void|1
-Vortex		KEY:Vortex	CATEGORY:Sorcerer Draconic Bloodline	TYPE:Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Vortex|0	BONUS:VAR|DraconicBloodline_BW_Cone|1	BONUS:VAR|DraconicBloodline_Fire|1	BONUS:VAR|DraconicBloodline_Vortex|1
+Lunar			KEY:Draconic Bloodline Choice ~ Lunar	CATEGORY:Special Ability	TYPE:Sorcerer Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Lunar|0	BONUS:VAR|DraconicBloodline_BW_Line|1	BONUS:VAR|DraconicBloodline_Cold|1	BONUS:VAR|DraconicBloodline_Lunar|1
+Solar			KEY:Draconic Bloodline Choice ~ Solar	CATEGORY:Special Ability	TYPE:Sorcerer Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Solar|0	BONUS:VAR|DraconicBloodline_BW_Line|1	BONUS:VAR|DraconicBloodline_Fire|1	BONUS:VAR|DraconicBloodline_Solar|1
+Time			KEY:Draconic Bloodline Choice ~ Time	CATEGORY:Special Ability	TYPE:Sorcerer Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Time|0	BONUS:VAR|DraconicBloodline_BW_Cone|1	BONUS:VAR|DraconicBloodline_Electricity|1	BONUS:VAR|DraconicBloodline_Time|1
+Void			KEY:Draconic Bloodline Choice ~ Void	CATEGORY:Special Ability	TYPE:Sorcerer Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Void|0	BONUS:VAR|DraconicBloodline_BW_Cone|1	BONUS:VAR|DraconicBloodline_Cold|1	BONUS:VAR|DraconicBloodline_Void|1
+Vortex		KEY:Draconic Bloodline Choice ~ Vortex	CATEGORY:Special Ability	TYPE:Sorcerer Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Vortex|0	BONUS:VAR|DraconicBloodline_BW_Cone|1	BONUS:VAR|DraconicBloodline_Fire|1	BONUS:VAR|DraconicBloodline_Vortex|1
 
 ###Block:
 # Ability Name								Aspects
