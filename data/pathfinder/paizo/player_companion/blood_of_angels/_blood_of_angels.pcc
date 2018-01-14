@@ -7,7 +7,10 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
@@ -41,6 +44,9 @@ RACE:boa_races.lst
 SKILL:boa_skills.lst
 SPELL:boa_spells.lst
 TEMPLATE:boa_templates.lst
+
+ABILITY:support/boa_abilities_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+CLASS:support/boa_classes_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
 # ENTRY DATE: 
 # LST MONKEY: 
