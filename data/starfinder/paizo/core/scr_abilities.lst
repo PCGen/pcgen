@@ -1224,7 +1224,7 @@ Hover				KEY:Drone Chasis ~ Hover	CATEGORY:Internal	TYPE:Drone Chasis Selection	
 Stealth			KEY:Drone Chasis ~ Stealth	CATEGORY:Internal	TYPE:Drone Chasis Selection		TEMPLATE:SIZE ~ Small	BONUS:VAR|Walk|40	BONUS:VAR|Climb|20	BONUS:VAR|DroneGoodSave_Reflex|1	BONUS:STAT|DEX,WIS|DroneAbilityIncrease	KIT:1|Drone ~ Stealth		ABILITY:DRONE Skill Unit|AUTOMATIC|DRONE Skill Unit ~ Stealth	ABILITY:Drone Mod|AUTOMATIC|Drone Mod ~ Climbing Claws|Drone Mod ~ Reactive Camouflage|Drone Mod ~ Weapon Mount	BONUS:VAR|AC_DroneKAC|2	
 
 #
-Drone Special Abilities	CATEGORY:Internal	ABILITY:Class Feature|AUTOMATIC|TYPE=Drone Special Ability LVL 1|PREVARGTEQ:DroneMasterLVL,1	ABILITY:Class Feature|AUTOMATIC|TYPE=Drone Special Ability LVL 7|PREVARGTEQ:DroneMasterLVL,7	ABILITY:Class Feature|AUTOMATIC|TYPE=Drone Special Ability LVL 11|PREVARGTEQ:DroneMasterLVL,11	ABILITY:Class Feature|AUTOMATIC|TYPE=Drone Special Ability LVL 20|PREVARGTEQ:DroneMasterLVL,20
+Drone Special Abilities	CATEGORY:Internal	ABILITY:Class Feature|AUTOMATIC|TYPE=Drone Special Ability LVL 1|PREVARGTEQ:DroneMasterLVL,1	ABILITY:Class Feature|AUTOMATIC|TYPE=Drone Special Ability LVL 7|PREVARGTEQ:DroneMasterLVL,7	ABILITY:Class Feature|AUTOMATIC|TYPE=Drone Special Ability LVL 10|PREVARGTEQ:DroneMasterLVL,10	ABILITY:Class Feature|AUTOMATIC|TYPE=Drone Special Ability LVL 11|PREVARGTEQ:DroneMasterLVL,11	ABILITY:Class Feature|AUTOMATIC|TYPE=Drone Special Ability LVL 20|PREVARGTEQ:DroneMasterLVL,20
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
 # Drone Special Abilities
