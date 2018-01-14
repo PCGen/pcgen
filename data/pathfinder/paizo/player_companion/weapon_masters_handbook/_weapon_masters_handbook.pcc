@@ -9,6 +9,7 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder Player Companion
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
