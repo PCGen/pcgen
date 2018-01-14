@@ -6,7 +6,7 @@
 ###Block: Bardic Masterpiece activation
 
 # Class Name
-CLASS:Bard.MOD
+CLASS:Skald.MOD
 1	TEMPLATE:Masterpiece Activation Aasimar
 
 #
