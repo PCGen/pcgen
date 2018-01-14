@@ -43,7 +43,7 @@ SPELL:boa_spells.lst
 TEMPLATE:boa_templates.lst
 
 ABILITY:support/boa_abilities_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
-CLASS:boa_classes_acg.lst|PRECAMPAIGN:INCLUDES=Advanced Class Guide
+CLASS:boa_classes_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
 # ENTRY DATE: 
 # LST MONKEY: 
