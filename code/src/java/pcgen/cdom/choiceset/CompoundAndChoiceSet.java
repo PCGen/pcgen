@@ -15,10 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on October 29, 2006.
  * 
- * Current Ver: $Revision: 1111 $ Last Editor: $Author: boomer70 $ Last Edited:
- * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.choiceset;
 
@@ -50,8 +47,8 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * The list of underlying PrimitiveChoiceSets that this CompoundAndChoiceSet
 	 * contains
 	 */
-	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<PrimitiveChoiceSet<T>>(
-			ChoiceSetUtilities.WRITEABLE_SORTER);
+	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(
+			ChoiceSetUtilities::compareChoiceSets);
 
 	/**
 	 * Constructs a new CompoundAndChoiceSet which will contain objects

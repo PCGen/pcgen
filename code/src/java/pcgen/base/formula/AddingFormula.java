@@ -18,7 +18,6 @@
 package pcgen.base.formula;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * An AddingFormula represents a 'deferred calculation' of sorts, designed to be
  * stored and capable of adding a predetermined value to a given input number.
@@ -72,7 +71,7 @@ public class AddingFormula implements ReferenceFormula<Integer>
 			throw new IllegalArgumentException(
 					"AddingFormula only has one back-reference");
 		}
-		return Integer.valueOf(numbers[0].intValue() + add);
+		return numbers[0].intValue() + add;
 	}
 
 	/**

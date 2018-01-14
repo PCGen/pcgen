@@ -33,7 +33,7 @@ public class RegionTokenTest extends
 {
 
 	static RegionToken token = new RegionToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -69,12 +69,6 @@ public class RegionTokenTest extends
 	protected boolean requiresPreconstruction()
 	{
 		return false;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override
@@ -137,7 +131,7 @@ public class RegionTokenTest extends
 	@Test
 	public void testUnparseIllegal() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		Region o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
@@ -148,7 +142,7 @@ public class RegionTokenTest extends
 	@Test
 	public void testUnparseLegalWithFalse() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		Region o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, false);

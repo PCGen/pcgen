@@ -70,7 +70,7 @@ public final class TokenUtilities
 	public static <T extends Loadable> CDOMGroupRef<T> getTypeReference(
 			SelectionCreator<T> rm, String s)
 	{
-		if (s.length() == 0)
+		if (s.isEmpty())
 		{
 			Logging.errorPrint("Type may not be empty in: " + s);
 			return null;
@@ -84,7 +84,7 @@ public final class TokenUtilities
 		String[] types = s.split("\\.");
 		for (String type : types)
 		{
-			if (type.length() == 0)
+			if (type.isEmpty())
 			{
 				Logging.errorPrint("Attempt to acquire empty Type in: " + s);
 				return null;

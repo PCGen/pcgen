@@ -23,8 +23,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  * Factorized Preferences Dialog.
- *
- * @author Vincent Lhote
  */
 public abstract class AbstractPreferencesDialog extends AbstractDialog
 {
@@ -39,9 +37,9 @@ public abstract class AbstractPreferencesDialog extends AbstractDialog
 	 * @param applicationName application name for the preference 
 	 * @param modal
 	 */
-	public AbstractPreferencesDialog(JFrame parent, String applicationName, boolean modal)
+	protected AbstractPreferencesDialog(JFrame parent, String applicationName, boolean modal)
 	{
-		super(parent, LanguageBundle.getFormattedString(LB_TITLE, applicationName), modal);
+		super(parent, LanguageBundle.getFormattedString(AbstractPreferencesDialog.LB_TITLE, applicationName), modal);
 	}
 
 	@Override

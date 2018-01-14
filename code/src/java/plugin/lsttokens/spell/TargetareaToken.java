@@ -43,7 +43,7 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 	@Override
 	public ParseResult parseToken(LoadContext context, Spell spell, String value)
 	{
-		if (value == null || value.length() == 0)
+		if (value == null || value.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " arguments may not be empty", context);
@@ -73,7 +73,7 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 		boolean globalClear =
 				context.getObjectContext().wasRemoved(spell,
 					StringKey.TARGET_AREA);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (globalClear)
 		{
 			list.add(Constants.LST_DOT_CLEAR);

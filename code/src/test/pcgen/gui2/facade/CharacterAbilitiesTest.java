@@ -1,5 +1,4 @@
 /**
- * CharacterAbilitiesTest.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 01/05/2011 9:46:34 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -43,11 +38,7 @@ import plugin.lsttokens.choose.StringToken;
  * CharacterAbilities class.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 {
@@ -112,7 +103,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());
 
 		// Now add the choice
-		finalize(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);
+		finalizeTest(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);
 		ca.rebuildAbilityLists();
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());
@@ -121,7 +112,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

@@ -1,5 +1,4 @@
 /*
- * AbstractPrerequisiteTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,15 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 19-Dec-2003
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package pcgen.core.prereq;
 
@@ -37,8 +27,6 @@ import pcgen.system.LanguageBundle;
  * This is the base class for Prerequisites, if a given prerequisite does not
  * implement a method it falls through to this and is dealt with in some kind of
  * sensible fashion.
- *
- * @author  wardc
  */
 public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 {
@@ -123,10 +111,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	{
 		return LanguageBundle.getFormattedString(
 			    "AbstractPrerequisiteTest.toHtml",
-			    new Object[]
-			    {
-				    prereq.getKind(), prereq.getKey(),
-				    prereq.getOperator().toDisplayString(), prereq.getOperand()
-			    }); // $NON-NLS-1$
+				prereq.getKind(), prereq.getKey(),
+				prereq.getOperator().toDisplayString(), prereq.getOperand()); // $NON-NLS-1$
 	}
 }

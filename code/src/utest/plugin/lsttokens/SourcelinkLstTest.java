@@ -29,7 +29,7 @@ public class SourcelinkLstTest extends AbstractGlobalStringTokenTestCase
 {
 
 	static SourcelinkLst token = new SourcelinkLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

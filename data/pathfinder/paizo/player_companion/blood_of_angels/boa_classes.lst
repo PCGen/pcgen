@@ -9,6 +9,10 @@
 CLASS:Bard.MOD
 1	TEMPLATE:Masterpiece Activation Aasimar
 
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Aasimar
+
 #
 # End
 #

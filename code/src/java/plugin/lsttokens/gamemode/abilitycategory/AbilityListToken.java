@@ -1,5 +1,4 @@
 /*
- * AbilityListToken.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2008 (C) James Dempsey
  * 
@@ -33,7 +32,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * The Class <code>AbilityListToken</code> is responsible for parsing the
+ * The Class {@code AbilityListToken} is responsible for parsing the
  * ABILITYLIST token. This allows the specific named abilities to be included in
  * a 'child' ability category. The list may also specify ability subsets, e.g.
  * Weapon Focus(Sap) to be included.
@@ -43,10 +42,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * sum of the sets defined by the two tags.
  * <p>
  * 
- * Last Editor: $Author: $ Last Edited: $Date: $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 public class AbilityListToken extends
 		AbstractTokenWithSeparator<AbilityCategory> implements

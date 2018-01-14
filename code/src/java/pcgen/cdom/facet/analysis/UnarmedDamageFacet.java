@@ -44,7 +44,6 @@ import pcgen.core.analysis.SizeUtilities;
  * UnarmedDamageFacet is a Facet that tracks the Unarmed Damage info that have
  * been added to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<String>>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -132,7 +131,7 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 
 	/**
 	 * Returns a new (empty) Map for this UnarmedDamageFacet. This does not
-	 * require the IdentityHashMap since List<String> is composed of only
+	 * require the IdentityHashMap since {@code List<String>} is composed of only
 	 * well-formed Java objects that behave properly with .equals() and
 	 * .hashCode() in terms of maintaining identity (whereas many CDOMObjects do
 	 * not as of 5.16)
@@ -148,7 +147,7 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 	@Override
 	protected Map<List<String>, Set<Object>> getComponentMap()
 	{
-		return new HashMap<List<String>, Set<Object>>();
+		return new HashMap<>();
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)

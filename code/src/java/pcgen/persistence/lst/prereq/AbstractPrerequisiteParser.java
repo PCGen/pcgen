@@ -1,5 +1,4 @@
 /*
- * AbstractPreParser.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,11 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 28, 2003
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst.prereq;
@@ -30,10 +25,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author wardc
- *
- */
+
 public abstract class AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
@@ -104,7 +96,7 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 			return new ParseResult.Fail("PRE"+kind
 				+ " arguments may not end with " + separator + " : " + value);
 		}
-		if (value.indexOf(String.valueOf(new char[]{separator, separator})) != -1)
+		if (value.contains(String.valueOf(new char[]{separator, separator})))
 		{
 			return new ParseResult.Fail("PRE"+kind
 				+ " arguments uses double separator " + separator + separator

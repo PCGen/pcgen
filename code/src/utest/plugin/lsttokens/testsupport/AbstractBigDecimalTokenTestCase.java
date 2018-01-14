@@ -19,12 +19,12 @@ package plugin.lsttokens.testsupport;
 
 import java.math.BigDecimal;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
@@ -50,15 +50,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testInvalidInputSet() throws PersistenceLayerException
 	{
-		BigDecimal con;
-		if (isPositiveAllowed())
-		{
-			con = new BigDecimal(3);
-		}
-		else
-		{
-			con = new BigDecimal(-3);
-		}
+		BigDecimal con = new BigDecimal(isPositiveAllowed() ? 3 : -3);
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
 		assertEquals(con, primaryProf.get(getObjectKey()));
@@ -114,7 +106,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		if (isPositiveAllowed())
 		{
 			assertTrue(parse("4.5"));
-			assertEquals(new BigDecimal(4.5), primaryProf.get(getObjectKey()));
+			assertEquals(new BigDecimal("4.5"), primaryProf.get(getObjectKey()));
 			assertTrue(parse("5"));
 			assertEquals(new BigDecimal(5), primaryProf.get(getObjectKey()));
 			assertTrue(parse("1"));
@@ -171,27 +163,13 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	@Override
 	protected String getLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "1";
-		}
-		else
-		{
-			return "-1";
-		}
+		return isPositiveAllowed() ? "1" : "-1";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "2.2";
-		}
-		else
-		{
-			return "-2.2";
-		}
+		return isPositiveAllowed() ? "2.2" : "-2.2";
 	}
 
 	@Test
@@ -203,7 +181,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testUnparseOne() throws PersistenceLayerException
 	{
-		BigDecimal val = new BigDecimal(4.5);
+		BigDecimal val = new BigDecimal("4.5");
 		if (isPositiveAllowed())
 		{
 			primaryProf.put(getObjectKey(), val);

@@ -32,7 +32,7 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
 
 	static SkillToken token = new SkillToken();
-	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<KitSkill>(
+	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitSkill.class);
 
 	@Override

@@ -17,8 +17,6 @@
  */
 package selectionactor.domain;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.helper.ClassSource;
@@ -27,19 +25,14 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+
 import plugin.lsttokens.domain.CcskillToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class CcskillTokenTest extends AbstractSelectionActorTest<Skill>
 {
 
-	static CcskillToken cra = new CcskillToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final CcskillToken cra = new CcskillToken();
 
 	@Override
 	public ChooseSelectionActor<Skill> getActor()

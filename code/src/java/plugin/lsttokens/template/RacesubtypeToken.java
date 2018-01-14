@@ -60,7 +60,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate>
 			if (aType.startsWith(".REMOVE."))
 			{
 				String substring = aType.substring(8);
-				if (substring.length() == 0)
+				if (substring.isEmpty())
 				{
 					return new ParseResult.Fail("Invalid .REMOVE. in " + getTokenName()
 						+ " requires an argument", context);

@@ -14,17 +14,8 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.experience;
-
-import gmgen.io.ReadXML;
-import gmgen.plugin.Combatant;
-import gmgen.plugin.InitHolder;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.State;
-import gmgen.util.LogUtilities;
 
 import java.io.File;
 import java.util.Observable;
@@ -33,33 +24,37 @@ import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
 import plugin.experience.gui.PreferencesExperiencePanel;
 
+import gmgen.io.ReadXML;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.State;
+import gmgen.util.LogUtilities;
+
 /**
- * This <code>class</code> holds all the necessary data in order to have
+ * This {@code class} holds all the necessary data in order to have
  * functionality for the experience adjuster.<br>
- * Created on February 19, 2003<br>
- * Updated on February 26, 2003
- * @version 2.10
  */
 public class ExperienceAdjusterModel extends Observable
 {
 	private ReadXML experienceTable = null;
-	protected ExperienceList enemies = new ExperienceList();
+	private ExperienceList enemies = new ExperienceList();
 	protected ExperienceList party = new ExperienceList();
 	protected InitHolderList combat;
 	protected File dir;
 	protected double multiplier = 1.0;
 
 	/** The value of experience gotten from a group. */
-	protected int partyExperience;
+	private int partyExperience;
 
 	/**
 	 * Class constructor for ExperienceAdjusterView taking a
 	 * parent directory.  This will call the
-	 * function <code>initComponents</code> to initialise all the GUI
-	 * components on the <code>JPanel</code>.
+	 * function {@code initComponents} to initialise all the GUI
+	 * components on the {@code JPanel}.
 	 * @param parentDir the directory this is running out of
 	 */
-	public ExperienceAdjusterModel(File parentDir)
+	ExperienceAdjusterModel(File parentDir)
 	{
 		dir = parentDir;
 	}
@@ -71,15 +66,6 @@ public class ExperienceAdjusterModel extends Observable
 	public void setCombat(InitHolderList combat)
 	{
 		this.combat = combat;
-	}
-
-	/**
-	 * Set enemies
-	 * @param enemies
-	 */
-	public void setEnemies(ExperienceList enemies)
-	{
-		this.enemies = enemies;
 	}
 
 	/**
@@ -133,7 +119,7 @@ public class ExperienceAdjusterModel extends Observable
 	 * @param item
 	 * @param experience the value to add to the character.
 	 */
-	public void addExperienceToCharacter(ExperienceListItem item, int experience)
+	void addExperienceToCharacter(ExperienceListItem item, int experience)
 	{
 		Combatant cbt = item.getCombatant();
 		cbt.setXP(cbt.getXP() + experience);
@@ -144,7 +130,7 @@ public class ExperienceAdjusterModel extends Observable
 	/**
 	 * Adds experience to a group of combatants.
 	 */
-	public void addExperienceToParty()
+	void addExperienceToParty()
 	{
 		int expType =
 				SettingsHandler.getGMGenOption(
@@ -180,7 +166,7 @@ public class ExperienceAdjusterModel extends Observable
 	/**
 	 * Clear enemies
 	 */
-	public void clearEnemies()
+	void clearEnemies()
 	{
 		for (int i = 0; i < enemies.size(); i++)
 		{
@@ -194,7 +180,7 @@ public class ExperienceAdjusterModel extends Observable
 	/**
 	 * Populate lists
 	 */
-	public void populateLists()
+	void populateLists()
 	{
 		if (combat != null)
 		{
@@ -230,7 +216,7 @@ public class ExperienceAdjusterModel extends Observable
 	 * Remove enemy
 	 * @param enemy
 	 */
-	public void removeEnemy(ExperienceListItem enemy)
+	void removeEnemy(ExperienceListItem enemy)
 	{
 		combat.remove(enemy.getCombatant());
 		enemies.removeElement(enemy);
@@ -241,7 +227,7 @@ public class ExperienceAdjusterModel extends Observable
 	 * @param cbt
 	 * @return combatant experience
 	 */
-	public int getCombatantExperience(Combatant cbt)
+	private int getCombatantExperience(Combatant cbt)
 	{
 		float enemyCR;
 		int tableCR;
@@ -361,7 +347,7 @@ public class ExperienceAdjusterModel extends Observable
 	 * Gets the group experience,
 	 * @return the experience for the group.
 	 */
-	public int getPartyExperience()
+	int getPartyExperience()
 	{
 		return partyExperience;
 	}
@@ -369,7 +355,7 @@ public class ExperienceAdjusterModel extends Observable
 	/**
 	 * Updates the value displayed on the GUI for group experience.
 	 */
-	public void updatePartyExperience()
+	void updatePartyExperience()
 	{
 		int expType =
 				SettingsHandler.getGMGenOption(

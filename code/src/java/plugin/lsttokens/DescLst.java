@@ -37,8 +37,6 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Handles DESC token processing
- *
- * @author djones4
  */
 public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
@@ -155,7 +153,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<String> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{

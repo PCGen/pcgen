@@ -16,9 +16,6 @@ import java.util.Stack;
  * So, given if(x,y,z), y is returned if x != 0, and z is returned
  * otherise.
  * </p>
- *
- * @author Ross M. Lodge
- *
  */
 public class IfCommand extends PCGenCommand
 {
@@ -27,7 +24,6 @@ public class IfCommand extends PCGenCommand
 	 * Initializes the number of parameters to = 3, indicating three number
 	 * of parameters.
 	 * </p>
-	 *
 	 */
 	public IfCommand()
 	{
@@ -75,7 +71,7 @@ public class IfCommand extends PCGenCommand
 
 		if (param1 instanceof Number)
 		{
-			condition = (((Number) param1).doubleValue() != 0d);
+			condition = (((Number) param1).doubleValue() != 0.0d);
 		}
 		else if (param1 instanceof Boolean)
 		{

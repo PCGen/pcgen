@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jun 17, 2006
- *
- * $Id: InfoKnownSpells.java 1030 2006-05-26 08:25:10Z jdempsey $
- *
  */
 package plugin.exporttokens;
 
@@ -34,12 +29,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deal with FOLLOWERLIST Token
  * 
- *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-05-26 18:25:10 +1000 (Fri, 26 May 2006) $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1030 $
  */
 public class FollowerListToken extends AbstractExportToken
 {
@@ -65,7 +54,7 @@ public class FollowerListToken extends AbstractExportToken
 	/**
 	 * Get FOLLOWERLIST Token
 	 *
-	 * @param pc The character to be queried
+	 * @param display The character to be queried
 	 * @return The list of followers.
 	 */
 	public static String getFollowerListToken(CharacterDisplay display)

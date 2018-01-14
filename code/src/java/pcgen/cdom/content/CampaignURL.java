@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 28/01/2008
- *
- * $Id$
  */
 
 package pcgen.cdom.content;
@@ -26,14 +22,11 @@ package pcgen.cdom.content;
 import java.net.URI;
 
 /**
- * <code>CampaignURL</code> encapsulates a typed and labelled URL for a
+ * {@code CampaignURL} encapsulates a typed and labelled URL for a
  * campaign.
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-12-23 16:50:16 -0500
  * (Tue, 23 Dec 2008) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CampaignURL implements Comparable<CampaignURL>
 {
@@ -156,7 +149,7 @@ public class CampaignURL implements Comparable<CampaignURL>
 		if (obj instanceof CampaignURL)
 		{
 			CampaignURL that = (CampaignURL) obj;
-			return that.getUrlKind().equals(urlKind)
+			return that.getUrlKind() == urlKind
 					&& that.getUrlName().equals(urlName)
 					&& that.getUri().equals(uri)
 					&& urlDesc.equals(that.getUrlDesc());

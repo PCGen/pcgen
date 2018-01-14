@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 3/05/2008
- *
- * $Id: ResizableEquipTypeToken.java 6171 2008-05-03 12:35:57Z jdempsey $
  */
 package plugin.lsttokens.gamemode;
 
@@ -28,19 +24,13 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 /**
- * <code>ResizableEquipTypeToken</code> parses the list of equipment
+ * {@code ResizableEquipTypeToken} parses the list of equipment
  * types designated as able to be automatically resized. 
- *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2008-05-03 14:35:57 +0200 (Sa, 03 Mai 2008) $
- *
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 6171 $
  */
 public class MonsterRoleDefaultToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
@@ -49,7 +39,7 @@ public class MonsterRoleDefaultToken implements GameModeLstToken
 		return "MONSTERROLEDEFAULT";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
 	 */
     @Override

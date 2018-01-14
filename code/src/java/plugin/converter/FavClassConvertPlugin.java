@@ -63,7 +63,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 
 		StringTokenizer tok = new StringTokenizer(choices, Constants.PIPE);
 
-		List<CDOMReference<? extends PCClass>> refList = new ArrayList<CDOMReference<? extends PCClass>>();
+		List<CDOMReference<? extends PCClass>> refList = new ArrayList<>();
 		LoadContext context = tpe.getContext();
 		while (tok.hasMoreTokens())
 		{
@@ -124,8 +124,8 @@ public class FavClassConvertPlugin extends AbstractToken implements
 			{
 				Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
 						.getCDOMCategory();
-				chooseValue.append(parent.toString());
-				chooseValue.append(".");
+				chooseValue.append(parent);
+				chooseValue.append('.');
 			}
 			chooseValue.append(ref.getLSTformat(false));
 		}

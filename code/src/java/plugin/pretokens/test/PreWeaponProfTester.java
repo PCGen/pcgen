@@ -1,5 +1,4 @@
 /*
- * PreWeaponProficiency.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.test;
 
@@ -38,37 +30,33 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-/**
- * @author wardc
- *
- */
-public class PreWeaponProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+
+public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 {
 
 	/**
-	 * <b>Tag Name</b>: <code>PREWEAPONPROF:x,y,y</code><br />
-	 * &nbsp; <b>Variables Used (x)</b>: <i>Number</i> (The number of proficiencies that must match the specified requirements). <br/>
-	 * &nbsp; <b>Variables Used (y)</b>: <i>Text</i> (The name of a weapon proficiency). <br />
-	 * &nbsp; <b>Variables Used (y)</b>: <code>TYPE.</code><i>Text</i> (The name of a weaponprof type). <br />
-	 * &nbsp; <b>Variables Used (y)</b>: <code>DEITYWEAPON</code> (The favored weapon of the character's deity). <br />
-	 * <p />
-	 * <b>What it does:</b><br />
+	 * <b>Tag Name</b>: {@code PREWEAPONPROF:x,y,y}<br>
+	 * &nbsp; <b>Variables Used (x)</b>: <i>Number</i> (The number of proficiencies that must match the specified requirements). <br>
+	 * &nbsp; <b>Variables Used (y)</b>: <i>Text</i> (The name of a weapon proficiency). <br>
+	 * &nbsp; <b>Variables Used (y)</b>: {@code TYPE.}<i>Text</i> (The name of a weaponprof type). <br>
+	 * &nbsp; <b>Variables Used (y)</b>: {@code DEITYWEAPON} (The favored weapon of the character's deity). <br>
+	 * <p>
+	 * <b>What it does:</b><br>
 	 * &nbsp; Sets weapon proficiency requirements.
-	 * <p />
-	 * <b>Examples</b>: <br/>
-	 * &nbsp; <code>PREWEAPONPROF:2,Kama,Katana</code><br />
+	 * <p>
+	 * <b>Examples</b>: <br>
+	 * &nbsp; {@code PREWEAPONPROF:2,Kama,Katana}<br>
 	 * &nbsp; &nbsp; Character must have both "Kama" and "Katana".
-	 * <p />
-	 * &nbsp; <code>PREWEAPONPROF:1,TYPE.Exotic</code> <br />
+	 * <p>
+	 * &nbsp; {@code PREWEAPONPROF:1,TYPE.Exotic} <br>
 	 * &nbsp; &nbsp; Character must have proficiency with any one exotic weaponprof type.
-	 * <p />
-	 * &nbsp; <code>PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)</code> <br />
+	 * <p>
+	 * &nbsp; {@code PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)} <br>
 	 * &nbsp; &nbsp; Character must have proficiency with either the Chain (Spiked) or any martial weapon.
-	 * <p />
-	 * &nbsp; <code>PREWEAPONPROF:1,DEITYWEAPON</code> <br />
+	 * <p>
+	 * &nbsp; {@code PREWEAPONPROF:1,DEITYWEAPON} <br>
 	 * &nbsp; &nbsp; Weapon Prof in question must be one of the chosen deity's favored weapons.
 	 * 
 	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter, CDOMObject)

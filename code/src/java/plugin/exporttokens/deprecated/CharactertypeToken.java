@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision: 5645 $
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2008-03-20 13:57:06 +0100 (Do, 20 Mar 2008) $
- *
  */
 package plugin.exporttokens.deprecated;
 

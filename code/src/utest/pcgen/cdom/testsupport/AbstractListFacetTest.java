@@ -226,7 +226,7 @@ public abstract class AbstractListFacetTest<T>
 	@Test
 	public void testAddAllUseless()
 	{
-		getFacet().addAll(id, new ArrayList<T>());
+		getFacet().addAll(id, new ArrayList<>());
 		testListUnsetZeroCount();
 		testListUnsetEmpty();
 		testListUnsetEmptySet();
@@ -238,7 +238,7 @@ public abstract class AbstractListFacetTest<T>
 	{
 		T t1 = getObject();
 		T t2 = getObject();
-		List<T> pct = new ArrayList<T>();
+		List<T> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		getFacet().addAll(id, pct);
@@ -265,7 +265,7 @@ public abstract class AbstractListFacetTest<T>
 	public void testAddAllTwice()
 	{
 		T t1 = getObject();
-		List<T> pct = new ArrayList<T>();
+		List<T> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t1);
 		getFacet().addAll(id, pct);
@@ -283,7 +283,7 @@ public abstract class AbstractListFacetTest<T>
 	{
 		T t1 = getObject();
 		T t2 = getObject();
-		List<T> pct = new ArrayList<T>();
+		List<T> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(null);
 		pct.add(t2);
@@ -438,7 +438,7 @@ public abstract class AbstractListFacetTest<T>
 	@Test
 	public void testRemoveAllUseless()
 	{
-		getFacet().removeAll(id, new ArrayList<T>());
+		getFacet().removeAll(id, new ArrayList<>());
 		testListUnsetZeroCount();
 		testListUnsetEmpty();
 		testListUnsetEmptySet();
@@ -451,7 +451,7 @@ public abstract class AbstractListFacetTest<T>
 		T t1 = getObject();
 		T t2 = getObject();
 		T t3 = getObject();
-		List<T> pct = new ArrayList<T>();
+		List<T> pct = new ArrayList<>();
 		getFacet().add(id, t1);
 		getFacet().add(id, t2);
 		getFacet().add(id, t3);
@@ -479,7 +479,7 @@ public abstract class AbstractListFacetTest<T>
 	{
 		T t1 = getObject();
 		T t2 = getObject();
-		List<T> pct = new ArrayList<T>();
+		List<T> pct = new ArrayList<>();
 		getFacet().add(id, t1);
 		getFacet().add(id, t2);
 		pct.add(t1);
@@ -500,7 +500,7 @@ public abstract class AbstractListFacetTest<T>
 	{
 		T t1 = getObject();
 		T t2 = getObject();
-		List<T> pct = new ArrayList<T>();
+		List<T> pct = new ArrayList<>();
 		getFacet().add(id, t1);
 		getFacet().add(id, t2);
 		pct.add(t1);
@@ -581,7 +581,7 @@ public abstract class AbstractListFacetTest<T>
 		{
 			// This is ok too
 		}
-		List<T> pct = new ArrayList<T>();
+		List<T> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		try
@@ -719,11 +719,7 @@ public abstract class AbstractListFacetTest<T>
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}

@@ -43,10 +43,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-/**
- * @author djones4
- *
- */
+
 public class SpelllevelLst extends AbstractSpellListToken implements
 		CDOMPrimaryToken<CDOMObject>
 {
@@ -70,7 +67,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		// SPELLLEVEL:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
 
 		String workingValue = value;
-		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		List<Prerequisite> prereqs = new ArrayList<>();
 		while (true)
 		{
 			int lastPipeLoc = workingValue.lastIndexOf('|');
@@ -176,7 +173,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		StringTokenizer clTok = new StringTokenizer(casterString,
 				Constants.COMMA);
 		List<CDOMReference<? extends CDOMList<Spell>>> slList =
-				new ArrayList<CDOMReference<? extends CDOMList<Spell>>>();
+				new ArrayList<>();
 		while (clTok.hasMoreTokens())
 		{
 			String classString = clTok.nextToken();
@@ -222,7 +219,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 
 		Collection<CDOMReference<? extends CDOMList<?>>> changedDomainLists = context
 				.getListContext().getChangedLists(obj, DomainSpellList.class);

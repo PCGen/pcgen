@@ -34,7 +34,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	static HdToken token = new HdToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -55,12 +55,6 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Test
 	public void testInvalidInputUnset() throws PersistenceLayerException
 	{
 		testInvalidInputs(null);
@@ -70,7 +64,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputSet() throws PersistenceLayerException
 	{
-		Integer con = Integer.valueOf(3);
+		Integer con = 3;
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
 		assertEquals(con.intValue(), primaryProf.get(ObjectKey.LEVEL_HITDIE)

@@ -1,5 +1,4 @@
 /*
- * RunConvertPanel.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18/01/2009 11:31:57 AM
- *
- * $Id$
  */
 
 package pcgen.gui2.converter.panel;
@@ -38,7 +33,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -78,14 +72,10 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>RunConvertPanel</code> provides a display while 
+ * The Class {@code RunConvertPanel} provides a display while
  * the conversion is being run.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class RunConvertPanel extends ConvertSubPanel implements Observer, ConversionDecider
 {
@@ -100,8 +90,8 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	private boolean errorState = false;
 	private String lastNotifiedFilename = "";
 	private String currFilename = "";
-	private Component statusField;
-	private File changeLogFile;
+	private final Component statusField;
+	private final File changeLogFile;
 
 	public RunConvertPanel(Component statusField)
 	{
@@ -114,7 +104,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		changeLogFile = new File(dataLogFileName);
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -123,7 +113,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -133,7 +123,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
-		totalCampaigns = new ArrayList<Campaign>(pc.getSafeListFor(ListKey.CAMPAIGN));
+		totalCampaigns = new ArrayList<>(pc.getSafeListFor(ListKey.CAMPAIGN));
 		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
 		{
 			// Add all sub-files to the main campaign, regardless of exclusions
@@ -247,7 +237,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#setupDisplay(javax.swing.JPanel, pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -306,7 +296,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		Graphics g = statusField.getGraphics();
 		FontMetrics fm = g.getFontMetrics();
 		String message =
-				(filename == null || filename.length() == 0) ? ""
+				(filename == null || filename.isEmpty()) ? ""
 					: "Converting " + filename;
 		int width = fm.stringWidth(message);
 		if (width >= statusField.getWidth())
@@ -321,7 +311,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 	public void addMessage(String message)
 	{
-		if (currFilename.length() > 0 && !currFilename.equals(lastNotifiedFilename))
+		if (!currFilename.isEmpty() && !currFilename.equals(lastNotifiedFilename))
 		{
 			getMessageArea().append("\n" + currFilename + "\n");
 			lastNotifiedFilename = currFilename;
@@ -332,7 +322,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	/**
 	 * Keeps track if there has been set an error message.
 	 *
-	 * @param errorState <code>true</code> if there was an error message
+	 * @param errorState {@code true} if there was an error message
 	 */
 	public void setErrorState(boolean errorState)
 	{
@@ -502,7 +492,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	}
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.ConversionDecider#getConversionDecision(java.lang.String, java.util.List, java.util.List)
 	 */
 	@Override
@@ -527,11 +517,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		{
 			SwingUtilities.invokeAndWait(showDialog);
 		}
-		catch (InterruptedException e)
-		{
-			Logging.errorPrint("Failed to display user choice, due to: ", e);
-		}
-		catch (InvocationTargetException e)
+		catch (InterruptedException | InvocationTargetException e)
 		{
 			Logging.errorPrint("Failed to display user choice, due to: ", e);
 		}
@@ -557,11 +543,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		{
 			SwingUtilities.invokeAndWait(showDialog);
 		}
-		catch (InterruptedException e)
-		{
-			Logging.errorPrint("Failed to display user choice, due to: ", e);
-		}
-		catch (InvocationTargetException e)
+		catch (InterruptedException | InvocationTargetException e)
 		{
 			Logging.errorPrint("Failed to display user choice, due to: ", e);
 		}
@@ -575,15 +557,16 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	 */
 	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
-		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
-		{
-			@Override
-			public int compare(Campaign c1, Campaign c2)
-			{
-				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
-			}
+		aSelectedCampaignsList.sort(new Comparator<Campaign>()
+        {
+            @Override
+            public int compare(Campaign c1, Campaign c2)
+            {
+                return c1.getSafe(IntegerKey.CAMPAIGN_RANK) -
+                        c2.getSafe(IntegerKey.CAMPAIGN_RANK);
+            }
 
-		});
+        });
 
 	}
 

@@ -45,7 +45,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 		QualifyingObject
 {
 
-	private static ChangeProfFacet changeProfFacet = FacetLibrary
+	private static final ChangeProfFacet changeProfFacet = FacetLibrary
 			.getFacet(ChangeProfFacet.class);
 
 	/**
@@ -77,7 +77,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 	{
 		if (direct == null)
 		{
-			direct = new ArrayList<CDOMSingleRef<WeaponProf>>();
+			direct = new ArrayList<>();
 		}
 		direct.add(ref);
 	}
@@ -93,7 +93,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 	{
 		if (type == null)
 		{
-			type = new ArrayList<CDOMGroupRef<WeaponProf>>();
+			type = new ArrayList<>();
 		}
 		type.add(ref);
 	}
@@ -129,7 +129,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 	 */
 	public Collection<WeaponProf> getContainedProficiencies(CharID id)
 	{
-		List<WeaponProf> list = new ArrayList<WeaponProf>();
+		List<WeaponProf> list = new ArrayList<>();
 		if (all == null)
 		{
 			if (direct != null)

@@ -115,7 +115,7 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		Set<T> returnSet = new HashSet<T>();
+		Set<T> returnSet = new HashSet<>();
 		for (T item : underlyingPCS.getSet(pc))
 		{
 			if (item.qualifies(pc, item))

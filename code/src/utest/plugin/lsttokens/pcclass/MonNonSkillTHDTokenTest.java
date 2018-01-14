@@ -45,7 +45,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	static MonnonskillhdToken token = new MonnonskillhdToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
@@ -226,7 +226,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 
-	private BonusObj getBonus(int bonusValue) throws PersistenceLayerException
+	private BonusObj getBonus(int bonusValue)
 	{
 		BonusObj bon = Bonus.newBonus(primaryContext, "MONNONSKILLHD|NUMBER|" + bonusValue);
 		assertNotNull(bon);

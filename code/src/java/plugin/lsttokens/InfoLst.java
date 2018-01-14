@@ -68,7 +68,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 		String key = value.substring(0, pipeLoc);
 		//key length 0 caught by charAt(0) test above
 		String val = value.substring(pipeLoc + 1);
-		if (val.length() == 0)
+		if (val.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expecting non-empty value, "
@@ -104,7 +104,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CaseInsensitiveString key : changes.getAdded().keySet())
 		{
 			MessageFormat value = changes.getAdded().get(key);
@@ -138,7 +138,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 				String[] vars = obj.get(infoVarKey, s);
 				if (vars == null)
 				{
-					Logging.errorPrint(obj.getClass().getSimpleName() + " "
+					Logging.errorPrint(obj.getClass().getSimpleName() + ' '
 						+ obj.getKeyName() + " was loaded with INFO: " + s
 						+ " that requires " + required
 						+ " arguments, but no arguments"
@@ -147,7 +147,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 				}
 				else if (vars.length != required)
 				{
-					Logging.errorPrint(obj.getClass().getSimpleName() + " "
+					Logging.errorPrint(obj.getClass().getSimpleName() + ' '
 						+ obj.getKeyName() + " was loaded with INFO: " + s
 						+ " that requires " + required + " arguments, but "
 						+ vars.length + " arguments in INFOVARS were provided",
@@ -162,7 +162,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!infoKeys.contains(s))
 			{
 				Logging.errorPrint(
-					obj.getClass().getSimpleName() + " " + obj.getKeyName()
+					obj.getClass().getSimpleName() + ' ' + obj.getKeyName()
 						+ " was loaded with INFOVARS: " + s
 						+ " but no matching INFO was provided", context);
 				returnValue = false;

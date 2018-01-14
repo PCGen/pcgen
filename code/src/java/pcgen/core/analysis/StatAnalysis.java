@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (c) Tom Parker <thpr@users.sourceforge.net>
- * Derived from StatList.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -22,8 +21,12 @@ package pcgen.core.analysis;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 
-public class StatAnalysis
+public final class StatAnalysis
 {
+	private StatAnalysis()
+	{
+	}
+
 	/**
 	 * Retrieve a correctly calculated attribute value where one or more
 	 * types are excluded.

@@ -14,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on June 18, 2005.
- *
- * Current Ver: $Revision: 513 $
- * Last Editor: $Author: soulcatcher $
- * Last Edited: $Date: 2006-03-29 12:17:43 -0500 (Wed, 29 Mar 2006) $
  */
 package pcgen.cdom.enumeration;
 
@@ -32,7 +26,6 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 
 /**
- * @author Tom Parker <thpr@users.sourceforge.net>
  * 
  * This is a Typesafe enumeration of legal Characteristics of an Association. It
  * is designed to act as an index to a specific Objects within an item that
@@ -59,14 +52,14 @@ public final class AssociationListKey<T>
 	 * This is closely related to the transition to ChooseSelectionActor instead
 	 * of ChooseResultActor, so this item is related to CODE-1902
 	 */
-	public static final AssociationListKey<FixedStringList> CHOICES = new AssociationListKey<FixedStringList>();
+	public static final AssociationListKey<FixedStringList> CHOICES = new AssociationListKey<>();
 
 	/*
 	 * ADD is a widely used key used to store the information about items added to the PC.
 	 * These items are stored against he TransitionChoice.
 	 * This is a candidate to be sunset as part of CODE-1908
 	 */
-	public static final AssociationListKey<Object> ADD = new AssociationListKey<Object>();
+	public static final AssociationListKey<Object> ADD = new AssociationListKey<>();
 
 	/*
 	 * End non-local token-related keys
@@ -103,7 +96,7 @@ public final class AssociationListKey<T>
 		AssociationListKey<OT> key = (AssociationListKey<OT>) map.get(keyName);
 		if (key == null)
 		{
-			key = new AssociationListKey<OT>();
+			key = new AssociationListKey<>();
 			map.put(keyName, key);
 		}
 		return key;
@@ -111,7 +104,7 @@ public final class AssociationListKey<T>
 
 	private static void buildMap()
 	{
-		map = new CaseInsensitiveMap<AssociationListKey<?>>();
+		map = new CaseInsensitiveMap<>();
 		Field[] fields = AssociationListKey.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
 		{
@@ -129,11 +122,7 @@ public final class AssociationListKey<T>
 								(AssociationListKey<?>) obj);
 					}
 				}
-				catch (IllegalArgumentException e)
-				{
-					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				catch (IllegalArgumentException | IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

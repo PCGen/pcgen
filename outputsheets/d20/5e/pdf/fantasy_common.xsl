@@ -312,6 +312,7 @@
 								</xsl:otherwise>
 							</xsl:choose>
 						</fo:table-row>
+					</xsl:if>
 
 						<xsl:if test="$desc.tag!=''">
 							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
@@ -338,7 +339,7 @@
 								</fo:table-cell>
 							</fo:table-row>
 						</xsl:if>
-					</xsl:if>
+					
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
@@ -555,8 +556,7 @@
 		<xsl:param name="attribute"/>
 		<xsl:param name="title" />
 		<xsl:param name="deitytitle.tag"  />
-		<xsl:param name="list" />
-		<xsl:param name="name.tag" />
+        <xsl:param name="name.tag" />
 		<xsl:param name="desc.tag" />
 		<xsl:param name="alignment.tag"  />
 		<xsl:param name="domainlist.tag"  />

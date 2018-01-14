@@ -28,7 +28,6 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -42,7 +41,6 @@ import pcgen.core.FollowerOption;
  * FollowerOptionFacet is a Facet that tracks the FollowerOptions that have been
  * granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, CDOMObject>
@@ -114,7 +112,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		Set<CDOMObject> set = foMap.get(fo);
 		if (set == null)
 		{
-			set = new WrappedMapSet<CDOMObject>(IdentityHashMap.class);
+			set = Collections.newSetFromMap(new IdentityHashMap<>());
 			foMap.put(fo, set);
 		}
 		set.add(cdo);
@@ -129,15 +127,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 					.values().iterator(); it.hasNext();)
 			{
 				Map<FollowerOption, Set<CDOMObject>> foMap = it.next();
-				for (Iterator<Set<CDOMObject>> it2 = foMap.values().iterator(); it2
-						.hasNext();)
-				{
-					Set<CDOMObject> set = it2.next();
-					if (set.remove(source) && set.isEmpty())
-					{
-						it2.remove();
-					}
-				}
+				foMap.values().removeIf(set -> set.remove(source) && set.isEmpty());
 				if (foMap.isEmpty())
 				{
 					it.remove();
@@ -189,13 +179,13 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap == null)
 		{
-			componentMap = new CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>>();
+			componentMap = new CaseInsensitiveMap<>();
 			setCache(id, componentMap);
 		}
 		Map<FollowerOption, Set<CDOMObject>> foMap = componentMap.get(name);
 		if (foMap == null)
 		{
-			foMap = new IdentityHashMap<FollowerOption, Set<CDOMObject>>();
+			foMap = new IdentityHashMap<>();
 			componentMap.put(name, foMap);
 		}
 		return foMap;
@@ -242,8 +232,8 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		{
 			return Collections.emptyMap();
 		}
-		Map<FollowerOption, CDOMObject> ret = new TreeMap<FollowerOption, CDOMObject>(
-				comp);
+		Map<FollowerOption, CDOMObject> ret = new TreeMap<>(
+                comp);
 		for (Map.Entry<FollowerOption, Set<CDOMObject>> me : foMap.entrySet())
 		{
 			FollowerOption fo = me.getKey();

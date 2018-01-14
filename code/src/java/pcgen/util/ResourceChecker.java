@@ -1,5 +1,4 @@
 /*
- * ResourceChecker.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
  */
 package pcgen.util;
 
@@ -33,10 +30,13 @@ public final class ResourceChecker
 
 	/**
 	 * Handle to resource bundle message for when there is a missing resource
-	 *
 	 */
 	static final String missingLibMsg =
 			LanguageBundle.getString("MissingLibMessage").replace('|', '\n');
+
+	private ResourceChecker()
+	{
+	}
 
 	/**
 	 * Return TRUE if the resource exists in the jar
@@ -46,8 +46,7 @@ public final class ResourceChecker
 	 * @param sb
 	 * @return TRUE if the resource exists in the jar
 	 */
-	public static boolean hasResource(final String resourceName,
-		final String jarName, StringBuilder sb)
+	static boolean hasResource(final String resourceName, final String jarName, StringBuilder sb)
 	{
 		try
 		{

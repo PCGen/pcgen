@@ -1,5 +1,4 @@
 /*
- * OutputPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 20/11/2010 19:50:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -42,7 +37,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang3.BooleanUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SkillFilter;
@@ -59,81 +54,77 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>OutputPanel</code> is responsible for 
+ * The Class {@code OutputPanel} is responsible for
  * displaying character output related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class OutputPanel extends PCGenPrefsPanel
 {
-	private static String in_output =
+	private static final String in_output =
 			LanguageBundle.getString("in_Prefs_output");
 
-	private static String in_alwaysOverwrite =
+	private static final String in_alwaysOverwrite =
 			LanguageBundle.getString("in_Prefs_alwaysOverwrite");
-	private static String in_invalidToHitText =
+	private static final String in_invalidToHitText =
 			LanguageBundle.getString("in_Prefs_invalidToHitText");
-	private static String in_invalidDmgText =
+	private static final String in_invalidDmgText =
 			LanguageBundle.getString("in_Prefs_invalidDmgText");
-	private static String in_outputSheetEqSet =
+	private static final String in_outputSheetEqSet =
 			LanguageBundle.getString("in_Prefs_templateEqSet");
-	private static String in_paperType =
+	private static final String in_paperType =
 			LanguageBundle.getString("in_Prefs_paperType");
-	private static String in_postExportCommandStandard =
+	private static final String in_postExportCommandStandard =
 			LanguageBundle.getString("in_Prefs_postExportCommandStandard");
-	private static String in_postExportCommandPDF =
+	private static final String in_postExportCommandPDF =
 			LanguageBundle.getString("in_Prefs_postExportCommandPDF");
-	private static String in_removeTemp =
+	private static final String in_removeTemp =
 			LanguageBundle.getString("in_Prefs_removeTemp");
-	private static String in_saveOutputSheetWithPC =
+	private static final String in_saveOutputSheetWithPC =
 			LanguageBundle.getString("in_Prefs_saveOutputSheetWithPC");
-	private static String in_showSingleBoxPerBundle =
+	private static final String in_showSingleBoxPerBundle =
 			LanguageBundle.getString("in_Prefs_showSingleBoxPerBundle");
-	private static String in_weaponProfPrintout =
+	private static final String in_weaponProfPrintout =
 			LanguageBundle.getString("in_Prefs_weaponProfPrintout");
-	private static String in_skillFilter =
+	private static final String in_skillFilter =
 			LanguageBundle.getString("in_Prefs_skillFilterLabel");
-	private static String in_choose =
+	private static final String in_choose =
 			LanguageBundle.getString("...");
-	private static String in_generateTempFileWithPdf = LanguageBundle.getString("in_Prefs_generateTempFileWithPdf");
+	private static final String in_generateTempFileWithPdf = LanguageBundle.getString("in_Prefs_generateTempFileWithPdf");
 
-	private JCheckBox printSpellsWithPC = new JCheckBox();
-	private JCheckBox removeTempFiles = new JCheckBox(in_removeTemp);
-	private JCheckBox saveOutputSheetWithPC = new JCheckBox();
-	private JCheckBox generateTempFileWithPdf = new JCheckBox(in_generateTempFileWithPdf);
+	private final JCheckBox printSpellsWithPC = new JCheckBox();
+	private final JCheckBox removeTempFiles = new JCheckBox(in_removeTemp);
+	private final JCheckBox saveOutputSheetWithPC = new JCheckBox();
+	private final JCheckBox generateTempFileWithPdf = new JCheckBox(in_generateTempFileWithPdf);
 
-	private JCheckBox weaponProfPrintout;
-	private JButton outputSheetEqSetButton;
-	private JButton outputSheetHTMLDefaultButton;
-	private JButton outputSheetPDFDefaultButton;
-	private JButton outputSheetSpellsDefaultButton;
+	private final JCheckBox weaponProfPrintout;
+	private final JButton outputSheetEqSetButton;
+	private final JButton outputSheetHTMLDefaultButton;
+	private final JButton outputSheetPDFDefaultButton;
+	private final JButton outputSheetSpellsDefaultButton;
 
-	private JTextField outputSheetEqSet;
-	private JTextField outputSheetHTMLDefault;
-	private JTextField outputSheetPDFDefault;
-	private JTextField outputSheetSpellsDefault;
+	private final JTextField outputSheetEqSet;
+	private final JTextField outputSheetHTMLDefault;
+	private final JTextField outputSheetPDFDefault;
+	private final JTextField outputSheetSpellsDefault;
 
 	private JComboBoxEx paperType = new JComboBoxEx();
-	private JComboBoxEx skillFilter = new JComboBoxEx();
-	private JComboBox exportChoice = new JComboBox(ExportChoices.values());
+	private final JComboBoxEx skillFilter = new JComboBoxEx();
+	private final JComboBox exportChoice = new JComboBox(ExportChoices.values());
 
-	private JTextField postExportCommandStandard;
-	private JTextField postExportCommandPDF;
-	private JTextField invalidToHitText;
-	private JTextField invalidDmgText;
-	private JCheckBox alwaysOverwrite;
-	private JCheckBox showSingleBoxPerBundle;
+	private final JTextField postExportCommandStandard;
+	private final JTextField postExportCommandPDF;
+	private final JTextField invalidToHitText;
+	private final JTextField invalidDmgText;
+	private final JCheckBox alwaysOverwrite;
+	private final JCheckBox showSingleBoxPerBundle;
 
 	private String[] paperNames = null;
 
 	// Listeners
-	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
+	private final PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private final TextFocusLostListener textFieldListener =
 			new TextFocusLostListener();
 
@@ -372,7 +363,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		button.setMargin(new Insets(0, 3, 0, 3));
 		return button;
 	}
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -381,7 +372,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		return in_output;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -438,7 +429,7 @@ public class OutputPanel extends PCGenPrefsPanel
 				generateTempFileWithPdf.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override
@@ -636,14 +627,11 @@ public class OutputPanel extends PCGenPrefsPanel
 
 	// This is the focus listener so that text field values may be manually entered.
 	// sage_sam April 2003 for FREQ 707022
-	private final class TextFocusLostListener implements FocusListener
+	private static final class TextFocusLostListener implements FocusListener
 	{
 		private String initialValue = null;
 		private boolean dialogOpened = false;
 
-		/**
-		 * @see java.awt.event.FocusListener#focusGained(FocusEvent)
-		 */
 		@Override
 		public void focusGained(FocusEvent e)
 		{
@@ -659,9 +647,6 @@ public class OutputPanel extends PCGenPrefsPanel
 			}
 		}
 
-		/**
-		 * @see java.awt.event.FocusListener#focusLost(FocusEvent)
-		 */
 		@Override
 		public void focusLost(FocusEvent e)
 		{
@@ -676,7 +661,7 @@ public class OutputPanel extends PCGenPrefsPanel
 
 				if ((!fieldFile.exists())
 					&& (!fieldValue.equalsIgnoreCase("null"))
-					&& (fieldValue.trim().length() > 0) && (!dialogOpened))
+					&& (!fieldValue.trim().isEmpty()) && (!dialogOpened))
 				{
 					// display error dialog and restore previous value
 					dialogOpened = true;

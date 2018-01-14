@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package plugin.lsttokens.gamemode;
 
@@ -30,9 +26,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * This class handles the PREVIEWDIR game mode token.
  * 
- * @author boomer70 <boomer70@yahoo.com>
  * 
- * @since 5.13.2
  */
 public class PreviewDirToken implements GameModeLstToken
 {

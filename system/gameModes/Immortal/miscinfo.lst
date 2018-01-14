@@ -1,5 +1,4 @@
 #
-# Current Ver: $Revision$
 # Last Editor: $Author$
 # Last Edited: $Date$
 #
@@ -290,7 +289,7 @@ DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 #RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
 
 
-#DEFAULTDATASET:3.5 RSRD|SRD 3.5 for Game Masters (includes Monsters)
+#DEFAULTDATASET:3.5 RSRD
 
 #
 # DONE

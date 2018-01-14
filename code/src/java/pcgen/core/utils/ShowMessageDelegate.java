@@ -1,5 +1,4 @@
 /*
- * GuiFacade.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * $Id$
  */
 package pcgen.core.utils;
 
@@ -26,18 +21,14 @@ import java.util.Observable;
 
 /**
  * This is a facade for gui objects in the core code.
- *
- * @author     Jonas Karlsson
- * @version    $Revision$
  */
 public final class ShowMessageDelegate extends Observable
 {
-	private static ShowMessageDelegate instance = new ShowMessageDelegate();
+	private static final ShowMessageDelegate instance = new ShowMessageDelegate();
 
 
 	private ShowMessageDelegate()
 	{
-		super();
 	}
 
 
@@ -53,7 +44,7 @@ public final class ShowMessageDelegate extends Observable
 	{
 		instance.setChanged();
 		instance.notifyObservers(messageWrapper);
-		if (instance.countObservers() == 0 && messageWrapper.getMessage() != null && messageWrapper.getMessage().toString().length() > 0)
+		if (instance.countObservers() == 0 && messageWrapper.getMessage() != null && !messageWrapper.getMessage().toString().isEmpty())
 		{
 			System.out.println(messageWrapper.getTitle() + ": " + messageWrapper.getMessage());
 		}

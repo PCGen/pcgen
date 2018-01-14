@@ -34,7 +34,7 @@ public class DeityWeapTokenTest extends
 		AbstractListTokenTestCase<Deity, WeaponProf>
 {
 	static DeityweapToken token = new DeityweapToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public char getJoinCharacter()
@@ -94,12 +94,6 @@ public class DeityWeapTokenTest extends
 	protected WeaponProf construct(LoadContext loadContext, String one)
 	{
 		return loadContext.getReferenceContext().constructCDOMObject(WeaponProf.class, one);
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

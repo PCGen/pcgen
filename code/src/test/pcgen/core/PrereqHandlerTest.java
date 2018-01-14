@@ -10,12 +10,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 /**
  * <code>PrereqHandlerTest</code> tests the operation of the
  * PrereqHandler class.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class PrereqHandlerTest extends AbstractCharacterTestCase

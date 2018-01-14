@@ -36,7 +36,6 @@ import pcgen.core.SpecialAbility;
 /**
  * SpecialAbilityFacet tracks the SpecialAbility objects on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpecialAbilityFacet extends
 		AbstractQualifiedListFacet<SpecialAbility> implements
@@ -82,7 +81,7 @@ public class SpecialAbilityFacet extends
 	 */
 	public List<SpecialAbility> getResolved(CharID id, Object source)
 	{
-		List<SpecialAbility> returnList = new ArrayList<SpecialAbility>();
+		List<SpecialAbility> returnList = new ArrayList<>();
 		SAProcessor proc = new SAProcessor(trackingFacet.getPC(id));
 		for (SpecialAbility sa : getQualifiedSet(id, source))
 		{

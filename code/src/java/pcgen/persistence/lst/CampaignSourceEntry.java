@@ -1,5 +1,4 @@
 /*
- * CampaignSourceEntry.java
  * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 17, 2003, 12:29 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -50,9 +45,9 @@ import pcgen.util.Logging;
 public class CampaignSourceEntry implements SourceEntry
 {
 	private Campaign campaign = null;
-	private List<String> excludeItems = new ArrayList<String>();
-	private List<String> includeItems = new ArrayList<String>();
-	private List<Prerequisite> prerequisites = new ArrayList<Prerequisite>();
+	private List<String> excludeItems = new ArrayList<>();
+	private List<String> includeItems = new ArrayList<>();
+	private List<Prerequisite> prerequisites = new ArrayList<>();
 	private URIEntry uri = null;
 
 	/**
@@ -178,7 +173,7 @@ public class CampaignSourceEntry implements SourceEntry
 		}
 		
 		// Check if include/exclude items were present
-		int pipePos = value.indexOf("|");
+		int pipePos = value.indexOf('|');
 
 		CampaignSourceEntry cse;
 
@@ -294,7 +289,7 @@ public class CampaignSourceEntry implements SourceEntry
 	static List<String> parseSuffix(String suffix, URI sourceUri,
 		String value)
 	{
-		List<String> tagList = new ArrayList<String>();
+		List<String> tagList = new ArrayList<>();
 		String currentTag = "";
 		int bracketLevel = 0;
 
@@ -323,7 +318,7 @@ public class CampaignSourceEntry implements SourceEntry
 				{
 					currentTag += token;
 				}
-				else if (currentTag.length() > 0)
+				else if (!currentTag.isEmpty())
 				{
 					tagList.add(currentTag);
 					currentTag = "";
@@ -334,7 +329,7 @@ public class CampaignSourceEntry implements SourceEntry
 				currentTag += token;
 			}
 		}
-		if (currentTag.length() > 0)
+		if (!currentTag.isEmpty())
 		{
 			tagList.add(currentTag);
 		}
@@ -376,7 +371,7 @@ public class CampaignSourceEntry implements SourceEntry
 			{
 				final PrerequisiteWriter prereqWriter =
 						new PrerequisiteWriter();
-				ArrayList<Prerequisite> displayList = new ArrayList<Prerequisite>();
+				ArrayList<Prerequisite> displayList = new ArrayList<>();
 				displayList.add(prereq);
 				String lstString =
 						prereqWriter.getPrerequisiteString(displayList,
@@ -402,9 +397,9 @@ public class CampaignSourceEntry implements SourceEntry
 	{
 		boolean hasCategory = false;
 		boolean hasKeyOnly = false;
-		List<String> catKeyList = new ArrayList<String>();
+		List<String> catKeyList = new ArrayList<>();
 		String target = inExString.substring(8);
-		if (target == null || target.length() == 0)
+		if (target == null || target.isEmpty())
 		{
 			Logging.errorPrint("Must Specify Items after :");
 			return null;
@@ -469,7 +464,7 @@ public class CampaignSourceEntry implements SourceEntry
 
 	private StringBuilder joinIncExcList(List<String> list)
 	{
-		MapToList<String, String> map = new HashMapToList<String, String>();
+		MapToList<String, String> map = new HashMapToList<>();
 		for (String s : list)
 		{
 			int commaLoc = s.indexOf(',');

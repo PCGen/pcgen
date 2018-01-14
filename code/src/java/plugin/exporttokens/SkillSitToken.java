@@ -16,11 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 5, 2004
- *
- * $Id: SkillToken.java 23287 2014-02-18 01:27:57Z thpr $
- *
  */
 package plugin.exporttokens;
 
@@ -29,7 +24,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -103,7 +98,7 @@ public class SkillSitToken extends Token
 		try
 		{
 			int i = Integer.parseInt(details.getSkillId());
-			final List<Skill> pcSkills = new ArrayList<Skill>(getSkillList(pc));
+			final List<Skill> pcSkills = new ArrayList<>(getSkillList(pc));
 
 			SkillFilter filter = details.getSkillFilter();
 			if (filter == null || filter == SkillFilter.Selected)
@@ -138,8 +133,8 @@ public class SkillSitToken extends Token
 				}
 				i--; //wasn't the base skill
 				List<String> situations =
-						new ArrayList<String>(
-							sk.getUniqueListFor(ListKey.SITUATION));
+						new ArrayList<>(
+								sk.getUniqueListFor(ListKey.SITUATION));
 				if (situations != null)
 				{
 					int numSits = situations.size();
@@ -150,8 +145,8 @@ public class SkillSitToken extends Token
 					for (String situation : situations)
 					{
 						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
-							+ "=" + situation);
-						if (bonus > .01 || bonus < -0.01)
+							+ '=' + situation);
+						if (bonus > 0.01 || bonus < -0.01)
 						{
 							if (i == 0)
 							{
@@ -166,7 +161,7 @@ public class SkillSitToken extends Token
 		catch (NumberFormatException exc)
 		{
 			String skillName = details.getSkillId();
-			int equalLoc = skillName.indexOf("=");
+			int equalLoc = skillName.indexOf('=');
 			if (equalLoc == -1)
 			{
 				//Allowing SKILL.Spot.<subtoken>
@@ -180,7 +175,7 @@ public class SkillSitToken extends Token
 				Skill sk = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Skill.class, skillName.substring(0, equalLoc));
 				double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
-					+ "=" + situation);
+					+ '=' + situation);
 				return new SkillSituation(sk, situation, bonus);
 			}
 		}
@@ -278,7 +273,7 @@ public class SkillSitToken extends Token
 					String name = QualifiedName.qualifiedName(pc, skill);
 					if (isSituation)
 					{
-						name += " (" + situation + ")";
+						name += " (" + situation + ')';
 					}
 					retValue.append(name);
 					break;
@@ -388,7 +383,7 @@ public class SkillSitToken extends Token
 					boolean b = (skill.getSafe(ObjectKey.EXCLUSIVE) || !skill.getSafe(ObjectKey.USE_UNTRAINED)) && (etRank == 0);
 					if (b)
 					{
-						retValue.append("0");
+						retValue.append('0');
 					}
 					else
 					{
@@ -410,7 +405,7 @@ public class SkillSitToken extends Token
 					boolean isNotTrained = !skill.getSafe(ObjectKey.USE_UNTRAINED) && (tRank == 0);
 					if (isNotTrained)
 					{
-						retValue.append("0");
+						retValue.append('0');
 					}
 					else
 					{
@@ -456,13 +451,13 @@ public class SkillSitToken extends Token
 					if (isSituation)
 					{
 						i += pc.getSizeAdjustmentBonusTo("SITUATION",
-							skill.getKeyName() + "=" + situation);
+							skill.getKeyName() + '=' + situation);
 					}
 					retValue.append(Integer.toString(i));
 					break;
 
 				case SkillToken.SKILL_CLASSES:
-					List<String> classes = new ArrayList<String>();
+					List<String> classes = new ArrayList<>();
 					for (PCClass aClass : pc.getClassList())
 					{
 						if (pc.getSkillCostForClass(skill, aClass) == SkillCost.CLASS)

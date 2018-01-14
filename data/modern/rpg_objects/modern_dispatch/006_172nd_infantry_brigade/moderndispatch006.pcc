@@ -1,5 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Jan 21 00:58:47 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Modern Dispatch - #6 - 172nd Infantry Brigade [Sep]
+KEY:RPGO - Modern Dispatch - #6 - 172nd Infantry Brigade
 RANK:6
 GAMEMODE:Modern
 GENRE:Military
@@ -11,7 +12,7 @@ PRECAMPAIGN:1,RPGObjects - Blood and Guts - Modern Military
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/
-SOURCELONG:Modern Dispatch #6 - 172nd Infantry Brigade [Sep]
+SOURCELONG:Modern Dispatch #6 - 172nd Infantry Brigade
 SOURCESHORT:MD06-172nd
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3990
 SOURCEDATE:2004-01

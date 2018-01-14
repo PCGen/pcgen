@@ -34,7 +34,6 @@ import pcgen.core.Language;
  * AutoLanguageFacet is a Facet that tracks the Languages that have been granted
  * to a Player Character through the AUTO:LANG and LANGAUTO tokens
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoLanguageGrantedFacet extends
 		AbstractSourcedListFacet<CharID, Language> implements PerspectiveLocation
@@ -48,9 +47,9 @@ public class AutoLanguageGrantedFacet extends
 	{
 		Collection<Language> current = getSet(id);
 		Collection<Language> qualified = autoLanguageFacet.getAutoLanguage(id);
-		List<Language> toRemove = new ArrayList<Language>(current);
+		List<Language> toRemove = new ArrayList<>(current);
 		toRemove.removeAll(qualified);
-		List<Language> toAdd = new ArrayList<Language>(qualified);
+		List<Language> toAdd = new ArrayList<>(qualified);
 		toAdd.removeAll(current);
 		for (Language lang : toRemove)
 		{

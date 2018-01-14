@@ -1,5 +1,4 @@
 /*
- * KitSpells.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 23, 2002, 9:29 PM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -49,20 +44,17 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 /**
- * <code>KitSpells</code>.
- *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
+ * {@code KitSpells}.
  */
 public final class KitSpells extends BaseKit
 {
 	private String spellBook;
 	private CDOMSingleRef<PCClass> castingClass;
 	DoubleKeyMap<KnownSpellIdentifier, List<CDOMSingleRef<Ability>>, Integer> spells =
-			new DoubleKeyMap<KnownSpellIdentifier, List<CDOMSingleRef<Ability>>, Integer>();
+            new DoubleKeyMap<>();
 	private Formula countFormula;
 
-	private transient List<KitSpellBookEntry> theSpells = null;
+	private List<KitSpellBookEntry> theSpells = null;
 
 	/**
 	 * @param formula the count formula to set
@@ -136,7 +128,7 @@ public final class KitSpells extends BaseKit
 
 		String workingBook =
 				spellBook == null ? Globals.getDefaultSpellBook() : spellBook;
-		List<KitSpellBookEntry> aSpellList = new ArrayList<KitSpellBookEntry>();
+		List<KitSpellBookEntry> aSpellList = new ArrayList<>();
 		if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
 			&& !workingBook.equals(Globals.getDefaultSpellBook()))
 		{
@@ -202,9 +194,9 @@ public final class KitSpells extends BaseKit
 			{
 				xs = Globals.getChoiceFromList("Choose " + aClass.getKeyName()
 						+ " spell(s) for " + workingBook, aSpellList,
-						new ArrayList<KitSpellBookEntry>(), numberOfChoices, aPC);
+                        new ArrayList<>(), numberOfChoices, aPC);
 
-				if (xs.size() != 0)
+				if (!xs.isEmpty())
 				{
 					break;
 				}
@@ -221,7 +213,7 @@ public final class KitSpells extends BaseKit
 				obj.setPCClass(aClass);
 				if (theSpells == null)
 				{
-					theSpells = new ArrayList<KitSpellBookEntry>();
+					theSpells = new ArrayList<>();
 				}
 				theSpells.add(obj);
 			}
@@ -231,7 +223,7 @@ public final class KitSpells extends BaseKit
 			}
 		}
 
-		if (theSpells != null && theSpells.size() > 0)
+		if (theSpells != null && !theSpells.isEmpty())
 		{
 			return true;
 		}
@@ -317,14 +309,14 @@ public final class KitSpells extends BaseKit
 		final CharacterSpell cs = new CharacterSpell(owner, spell);
 		final List<CDOMSingleRef<Ability>> modifierList = aSpell.getModifiers();
 		int adjustedLevel = spLevel;
-		List<Ability> metamagicFeatList = new ArrayList<Ability>();
+		List<Ability> metamagicFeatList = new ArrayList<>();
 		for (CDOMSingleRef<Ability> feat : modifierList)
 		{
 			Ability anAbility = feat.get();
 			adjustedLevel += anAbility.getSafe(IntegerKey.ADD_SPELL_LEVEL);
 			metamagicFeatList.add(anAbility);
 		}
-		if (metamagicFeatList.size() <= 0)
+		if (metamagicFeatList.isEmpty())
 		{
 			metamagicFeatList = null;
 		}
@@ -338,7 +330,7 @@ public final class KitSpells extends BaseKit
 			final String aString =
 					pc.addSpell(cs, metamagicFeatList, pcClass.getKeyName(),
 						aSpell.getBookName(), adjustedLevel, spLevel);
-			if (aString.length() != 0)
+			if (!aString.isEmpty())
 			{
 				Logging.errorPrint("Add spell failed:" + aString);
 				return;

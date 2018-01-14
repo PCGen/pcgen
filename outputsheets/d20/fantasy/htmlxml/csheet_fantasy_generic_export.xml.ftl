@@ -1,7 +1,6 @@
 <#ftl encoding="UTF-8" strip_whitespace=true >
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	$Id: base.xml 24177 2014-06-16 22:41:07Z jdempsey $
 -->
 <character>
 	<export>
@@ -170,8 +169,8 @@
 			<trait>${pcstring('PERSONALITY2')}</trait>
 		</personality>
 		<portrait>
-			<portrait>${pcstring('PORTRAIT')}</portrait>
-			<portrait_thumb>${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
+			<portrait>${pcstring('PORTRAIT')?url_path('utf-8')}</portrait>
+			<portrait_thumb>${pcstring('PORTRAIT.THUMB')?url_path('utf-8')}</portrait_thumb>
 		</portrait>
 		<phobias>${pcstring('PHOBIAS')}</phobias>
 		<#if (pcstring("ABILITYALL.ANY.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
@@ -2550,6 +2549,15 @@
 	<pfs_chronicles>
 	<@abilityBlock category="PFS Chronicle" nature="ALL" hidden=false typeName="PFSChronicle" nodeName="pfs_chronicle" />
 	</pfs_chronicles>
+	<!--
+	  ====================================
+	  ====================================
+			PFS Boons
+	  ====================================
+	  ====================================-->
+	<pfs_boons>
+	<@abilityBlock category="PFS Boon" nature="ALL" hidden=false typeName="PFSBoon" nodeName="pfs_boon" />
+	</pfs_boons>
 	<!--
 	====================================
 	  ====================================

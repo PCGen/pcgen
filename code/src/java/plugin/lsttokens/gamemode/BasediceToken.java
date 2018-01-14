@@ -25,7 +25,7 @@ public class BasediceToken implements GameModeLstToken
 	{
 		try
 		{
-			SimpleLoader<BaseDice> baseDiceLoader = new SimpleLoader<BaseDice>(
+			SimpleLoader<BaseDice> baseDiceLoader = new SimpleLoader<>(
 					BaseDice.class);
 			baseDiceLoader.parseLine(gameMode.getModeContext(), value, source);
 			return true;

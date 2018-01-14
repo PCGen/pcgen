@@ -1,5 +1,4 @@
 /*
- * SizeAdjustmentLoader.java
  * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
@@ -17,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 22, 2002, 10:29 PM
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -30,14 +27,10 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- * 
- * @author David Rice <david-pcgen@jcuz.com>
- * @version $Revision$
- */
+
 public final class SizeAdjustmentLoader extends LstLineFileLoader
 {
-	private OverlapLoader<SizeAdjustment> loader = new OverlapLoader<SizeAdjustment>(
+	private OverlapLoader<SizeAdjustment> loader = new OverlapLoader<>(
 			SizeAdjustment.class);
 
 	@Override

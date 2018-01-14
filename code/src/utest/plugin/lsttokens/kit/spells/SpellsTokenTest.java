@@ -35,7 +35,7 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 {
 
 	static SpellsToken token = new SpellsToken();
-	static CDOMSubLineLoader<KitSpells> loader = new CDOMSubLineLoader<KitSpells>(
+	static CDOMSubLineLoader<KitSpells> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitSpells.class);
 
 	@Override

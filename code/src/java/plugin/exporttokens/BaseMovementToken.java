@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.exporttokens;
 
@@ -45,12 +38,12 @@ import pcgen.util.enumeration.Load;
  * TRUE = Add Movement Measurement type to String.
  * FALSE = Dont Add Movement Measurement type to String
  * del     := "."
- * <p/>
+ * <p>
  * i.e. BASEMOVEMENT.0.LIGHT.TRUE
  * Would output 30' for a normal human
  * and    BASEMOVEMENT.0.LIGHT.FALSE
  * Would output 30 for the same human.
- * <p/>
+ * <p>
  */
 public class BaseMovementToken extends AbstractExportToken
 {
@@ -122,7 +115,7 @@ public class BaseMovementToken extends AbstractExportToken
 
 	/**
 	 * Get the base movement token
-	 * @param pc
+	 * @param display
 	 * @param moveType
 	 * @param load
 	 * @param displayFlag
@@ -139,7 +132,7 @@ public class BaseMovementToken extends AbstractExportToken
 		if (displayFlag)
 		{
 			return moveType
-				+ " "
+				+ ' '
 				+ Globals.getGameModeUnitSet()
 					.displayDistanceInUnitSet(baseMovement)
 				+ Globals.getGameModeUnitSet().getDistanceUnit();

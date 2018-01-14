@@ -13,9 +13,7 @@
  * library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite
  * 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -38,8 +36,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 /**
  * Definition and games rules for an Ability.
  *
- * @author   ???
- * @version  $Revision$
  */
 @SuppressWarnings("serial")
 public final class Ability extends PObject implements Categorized<Ability>,
@@ -112,11 +108,11 @@ public final class Ability extends PObject implements Categorized<Ability>,
 				final Ability ab = (Ability) obj;
 				Category<Ability> cat = getCDOMCategory();
 				Category<Ability> othercat = ab.getCDOMCategory();
-				if (cat == null && othercat != null)
+				if ((cat == null) && (othercat != null))
 				{
 					return -1;
 				}
-				else if (cat != null && othercat == null)
+				else if ((cat != null) && (othercat == null))
 				{
 					return 1;
 				}
@@ -152,7 +148,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
     @Override
 	public boolean equals(final Object other)
 	{
-		return other instanceof Ability && this.compareTo(other) == 0;
+		return (other instanceof Ability) && (this.compareTo(other) == 0);
 	}
     
     /**
@@ -189,7 +185,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 	public List<String> getTypes()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
-		List<String> typeNames = new ArrayList<String>();
+		List<String> typeNames = new ArrayList<>();
 		for (Type type : trueTypeList) {
 			typeNames.add(type.toString());
 		}

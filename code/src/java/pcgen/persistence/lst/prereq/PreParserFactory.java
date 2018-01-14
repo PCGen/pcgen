@@ -1,5 +1,4 @@
 /*
- * PreParserFactory.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -14,13 +13,9 @@
  * You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to
  * the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst.prereq;
@@ -36,15 +31,12 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
-/**
- * @author wardc
- *
- */
-public class PreParserFactory implements PluginLoader
+
+public final class PreParserFactory implements PluginLoader
 {
 	private static PreParserFactory instance = null;
 	private static Map<String, PrerequisiteParserInterface> parserLookup =
-			new HashMap<String, PrerequisiteParserInterface>();
+            new HashMap<>();
 
 	private PreParserFactory() throws PersistenceLayerException
 	{
@@ -106,10 +98,10 @@ public class PreParserFactory implements PluginLoader
 		}
 	}
 
-	public List<Prerequisite> parse(final List<String> preStrings)
+	public static List<Prerequisite> parse(final List<String> preStrings)
 	{
 		final List<Prerequisite> ret =
-				new ArrayList<Prerequisite>(preStrings.size());
+                new ArrayList<>(preStrings.size());
 		for (String prestr : preStrings)
 		{
 			try
@@ -200,7 +192,7 @@ public class PreParserFactory implements PluginLoader
 	public static boolean isPreReqString(String token)
 	{
 		return (token.startsWith("PRE") || token.startsWith("!PRE"))
-			&& (token.indexOf(":") > 0);
+			&& (token.indexOf(':') > 0);
 	}
 	
 	public static void clear()

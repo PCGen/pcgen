@@ -1,5 +1,4 @@
 /*
- * LanguageChooserFacade.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,17 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 10, 2010, 12:37:07 PM
  */
 package pcgen.facade.core;
 
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public interface LanguageChooserFacade
 {
 

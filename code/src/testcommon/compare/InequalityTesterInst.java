@@ -24,7 +24,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -32,7 +31,9 @@ import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.solver.AggressiveSolverManager;
+import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.test.InequalityTester;
+import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellSupportForPCClass;
@@ -40,10 +41,10 @@ import pcgen.core.SpellSupportForPCClass;
 public final class InequalityTesterInst implements InequalityTester
 {
 
-	public static InequalityTester instance;
+	private static InequalityTester instance;
 
-	public static Map<Class<?>, InequalityTest> INEQ_MAP =
-			new HashMap<Class<?>, InequalityTest>();
+	private static final Map<Class<?>, InequalityTest> INEQ_MAP =
+			new HashMap<>();
 
 	static
 	{
@@ -51,11 +52,12 @@ public final class InequalityTesterInst implements InequalityTester
 		INEQ_MAP.put(Map.class, new MapInequality());
 		INEQ_MAP.put(WeakReference.class, new WeakReferenceInequality());
 		INEQ_MAP.put(IdentityHashMap.class, new IdentityHashMapInequality());
-		INEQ_MAP.put(pcgen.cdom.facet.model.ClassFacet.ClassInfo.class, new ClassFacetInfoInequality());
+		INEQ_MAP.put(ClassFacet.ClassInfo.class, new ClassFacetInfoInequality());
 		INEQ_MAP.put(PlayerCharacter.class, new IgnoreInequality());
 		INEQ_MAP.put(SpellSupportForPCClass.class, new IgnoreInequality());
 		INEQ_MAP.put(ScopeInstanceFactory.class, new IgnoreInequality());
 		INEQ_MAP.put(AggressiveSolverManager.class, new IgnoreInequality());
+		INEQ_MAP.put(DynamicSolverManager.class, new IgnoreInequality());
 		//TODO SimpleVariableStore should not be ignored - but needs (hard?) custom comparator due to scopes...
 		INEQ_MAP.put(SimpleVariableStore.class, new IgnoreInequality());
 		//TODO MonitorableVariableStore should not be ignored - but needs (hard?) custom comparator due to scopes...
@@ -65,7 +67,6 @@ public final class InequalityTesterInst implements InequalityTester
 	@Override
 	public String testEquality(Object o1, Object o2, String location)
 	{
-		List<String> reasons = new ArrayList<String>();
 		if (o1 == null)
 		{
 			if (o2 == null)
@@ -85,6 +86,7 @@ public final class InequalityTesterInst implements InequalityTester
 		}
 		Class<?> c1 = o1.getClass();
 		Class<?> c2 = o2.getClass();
+		Collection<String> reasons = new ArrayList<>();
 		if (c1.equals(c2))
 		{
 			if (INEQ_MAP.containsKey(c1))
@@ -131,10 +133,9 @@ public final class InequalityTesterInst implements InequalityTester
 		return reasons.isEmpty() ? null : StringUtil.join(reasons, "\n");
 	}
 
-	private Set<Class<?>> getInterfaces(Class<?> c1)
+	private static Set<Class<?>> getInterfaces(Class<?> c1)
 	{
-		HashSet<Class<?>> if1 = new HashSet<Class<?>>();
-		if1.addAll(Arrays.asList(c1.getInterfaces()));
+		Set<Class<?>> if1 = new HashSet<>(Arrays.asList(c1.getInterfaces()));
 		Class<?> sc = c1.getSuperclass();
 		if (sc != null)
 		{

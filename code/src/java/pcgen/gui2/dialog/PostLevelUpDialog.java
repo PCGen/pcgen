@@ -1,5 +1,4 @@
 /*
- * PostLevelUpDialog.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 11/09/2012 7:16:42 AM
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -47,8 +42,8 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-import org.apache.commons.lang.math.NumberUtils;
-import org.apache.commons.lang.mutable.MutableInt;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.commons.lang3.mutable.MutableInt;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
@@ -62,24 +57,19 @@ import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>PostLevelUpDialog</code> provides a display of the results 
+ * The Class {@code PostLevelUpDialog} provides a display of the results
  * of levelling up a character. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
-public class PostLevelUpDialog extends JDialog implements ActionListener
+public final class PostLevelUpDialog extends JDialog implements ActionListener
 {
 
 	private final CharacterLevelsFacade levels;
 	private final LevelTableModel tableModel;
 	private final int oldLevel;
-	private int numLevels;
+	private final int numLevels;
 
 	private PostLevelUpDialog(Frame frame, CharacterFacade character, int oldLevel)
 	{
@@ -109,11 +99,11 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 		{
 			return;
 		}
-		
+
 		Frame frame = JOptionPane.getFrameForComponent(parent);
 		PostLevelUpDialog dialog =
 				new PostLevelUpDialog(frame, character, oldLevel);
-		Utility.setDialogRelativeLocation(frame, dialog);
+		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
 
@@ -138,9 +128,6 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 				return super.getCellEditor(row, column);
 			}
 
-			/**
-			 * {@inheritDoc}
-			 */
 			@Override
 			public TableCellRenderer getCellRenderer(int row, int column)
 			{
@@ -193,17 +180,17 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 
 	private class LevelTableModel extends AbstractTableModel implements HitPointListener
 	{
-		public static final int COL_LEVEL = 0;
-		public static final int COL_CLASS = 1;
-		public static final int COL_GAINED_HP = 2;
-		public static final int COL_ROLLED_HP = 3;
-		public static final int COL_SKILL_POINTS = 4;
+		static final int COL_LEVEL = 0;
+		static final int COL_CLASS = 1;
+		static final int COL_GAINED_HP = 2;
+		static final int COL_ROLLED_HP = 3;
+		static final int COL_SKILL_POINTS = 4;
 		
 		private final Object[] columns;
 		private final Object[][] data;
-		private Map<ClassFacade, MutableInt> classLevelMap;
+		private final Map<ClassFacade, MutableInt> classLevelMap;
 
-		public LevelTableModel()
+		LevelTableModel()
 		{
 			columns = new Object[]
 					{
@@ -219,7 +206,7 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 			int gainedTotal = 0;
 			int rolledTotal = 0;
 			int pointTotal = 0;
-			for (int i = oldLevel; i < numLevels+oldLevel; i++)
+			for (int i = oldLevel; i < (numLevels + oldLevel); i++)
 			{
 				CharacterLevelFacade level = levels.getElementAt(i);
 				Object[] dataRow = data[i - oldLevel];

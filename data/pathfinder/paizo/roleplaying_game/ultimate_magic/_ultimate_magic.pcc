@@ -83,6 +83,9 @@ WEAPONPROF:um_profs_weapon.lst
 
 HIDETYPE:FEAT|RevelationTargetOneOnly|FeatSkillFocusCraft|CrossbloodlineFeat|FeatSkillFocusPerform
 
+#Support
+ABILITY:support/um_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+
 #MOVE TO CORE ESSENTIALS
 ABILITY:um_abilities_companion.lst
 CLASS:um_classes_companion.lst
@@ -95,3 +98,6 @@ ABILITY:um_abilities_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
 ABILITYCATEGORY:um_abilitycategories_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
 ABILITY:um_feats_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
 SPELL:um_spells_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
+
+FORWARDREF:ABILITY=Special Ability|Shaman ~ Spirit Animal
+

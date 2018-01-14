@@ -34,7 +34,6 @@ import pcgen.util.enumeration.Load;
  * underlying Load information used for these calculations is defined in the
  * Game Mode LST files.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LoadFacet
 {
@@ -126,8 +125,9 @@ public class LoadFacet
 			return (float) formulaResolvingFacet.resolve(id,
 					FormulaFactory.getFormulaFor(formula), "").intValue();
 		}
-		return new Float(loadValue.doubleValue() * mult
-				* getLoadMultForSize(id));
+		return (float) (
+				loadValue.doubleValue() * mult
+						* getLoadMultForSize(id));
 	}
 
 	/**

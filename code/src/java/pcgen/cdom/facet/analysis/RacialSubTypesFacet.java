@@ -34,7 +34,6 @@ import pcgen.core.Race;
  * RacialSubTypesFacet is a Facet that tracks the Racial Sub Types of a
  * PlayerCharacter
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RacialSubTypesFacet
 {
@@ -61,34 +60,25 @@ public class RacialSubTypesFacet
 	 */
 	public Collection<RaceSubType> getRacialSubTypes(CharID id)
 	{
-		List<RaceSubType> racialSubTypes = new ArrayList<RaceSubType>();
+		List<RaceSubType> racialSubTypes = new ArrayList<>();
 		Race race = raceFacet.get(id);
 		if (race != null)
 		{
-			for (RaceSubType st : race.getSafeListFor(ListKey.RACESUBTYPE))
-			{
-				racialSubTypes.add(st);
-			}
+			racialSubTypes.addAll(race.getSafeListFor(ListKey.RACESUBTYPE));
 		}
 		Collection<PCTemplate> templates = templateFacet.getSet(id);
 		if (!templates.isEmpty())
 		{
-			List<RaceSubType> added = new ArrayList<RaceSubType>();
-			List<RaceSubType> removed = new ArrayList<RaceSubType>();
+			List<RaceSubType> added = new ArrayList<>();
+			List<RaceSubType> removed = new ArrayList<>();
 			for (PCTemplate aTemplate : templates)
 			{
 				added.addAll(aTemplate.getSafeListFor(ListKey.RACESUBTYPE));
 				removed.addAll(aTemplate
 						.getSafeListFor(ListKey.REMOVED_RACESUBTYPE));
 			}
-			for (RaceSubType st : added)
-			{
-				racialSubTypes.add(st);
-			}
-			for (RaceSubType st : removed)
-			{
-				racialSubTypes.remove(st);
-			}
+			racialSubTypes.addAll(added);
+			racialSubTypes.removeAll(removed);
 		}
 
 		return Collections.unmodifiableList(racialSubTypes);

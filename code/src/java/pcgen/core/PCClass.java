@@ -1,5 +1,4 @@
 /*
- * PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * $Id$
  */
 package pcgen.core;
 
@@ -31,7 +26,7 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -87,11 +82,9 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 
 /**
- * <code>PCClass</code>.
- *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * {@code PCClass}.
  */
-public class PCClass extends PObject implements ClassFacade
+public class PCClass extends PObject implements ClassFacade, Cloneable
 {
 
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS;
@@ -244,7 +237,7 @@ public class PCClass extends PObject implements ClassFacade
 				{
 					final String aString = breakOnPipes.nextToken();
 					final List<Prerequisite> localPreReqList =
-							new ArrayList<Prerequisite>();
+                            new ArrayList<>();
 					if (bonus.hasPrerequisites())
 					{
 						localPreReqList.addAll(bonus.getPrerequisiteList());
@@ -613,7 +606,7 @@ public class PCClass extends PObject implements ClassFacade
 		for (Map.Entry<AttackType, Integer> me : getMapFor(MapKey.ATTACK_CYCLE)
 				.entrySet())
 		{
-			if (at.equals(me.getKey()))
+			if (at == me.getKey())
 			{
 				return me.getValue();
 			}
@@ -723,7 +716,7 @@ public class PCClass extends PObject implements ClassFacade
 				}
 			}
 
-			aClass.levelMap = new TreeMap<Integer, PCClassLevel>();
+			aClass.levelMap = new TreeMap<>();
 			for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
 			{
 				aClass.levelMap.put(me.getKey(), me.getValue().clone());
@@ -825,7 +818,7 @@ public class PCClass extends PObject implements ClassFacade
 		//
 		// Check the UDAM list for monk-like damage
 		//
-		List<CDOMObject> classObjects = new ArrayList<CDOMObject>();
+		List<CDOMObject> classObjects = new ArrayList<>();
 		//Negative increment to start at highest level until an UDAM is found
 		for (int i = aLevel; i >= 1; i--)
 		{
@@ -1215,7 +1208,7 @@ public class PCClass extends PObject implements ClassFacade
 				// level
 
 				final List<PCLevelInfoStat> moddedStats =
-						new ArrayList<PCLevelInfoStat>();
+                        new ArrayList<>();
 				if (pcl.getModifiedStats(true) != null)
 				{
 					moddedStats.addAll(pcl.getModifiedStats(true));
@@ -1436,14 +1429,14 @@ public class PCClass extends PObject implements ClassFacade
 		put(ObjectKey.LEVEL_HITDIE, otherClass.get(ObjectKey.LEVEL_HITDIE));
 	}
 
-	private SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<Integer, PCClassLevel>();
+	private SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<>();
 
 	public PCClassLevel getOriginalClassLevel(int lvl)
 	{
 		if (!levelMap.containsKey(lvl))
 		{
 			PCClassLevel classLevel = new PCClassLevel();
-			classLevel.put(IntegerKey.LEVEL, Integer.valueOf(lvl));
+			classLevel.put(IntegerKey.LEVEL, lvl);
 			classLevel.setName(getDisplayName() + "(" + lvl + ")");
 			classLevel.put(StringKey.QUALIFIED_KEY, getQualifiedKey());
 			classLevel.put(ObjectKey.SOURCE_CAMPAIGN, get(ObjectKey.SOURCE_CAMPAIGN));
@@ -1519,9 +1512,6 @@ public class PCClass extends PObject implements ClassFacade
 		}
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
 	@Override
 	public boolean qualifies(PlayerCharacter aPC, Object owner)
 	{

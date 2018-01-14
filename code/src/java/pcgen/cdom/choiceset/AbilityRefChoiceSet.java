@@ -15,10 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on October 29, 2006.
  * 
- * Current Ver: $Revision: 1111 $ Last Editor: $Author: boomer70 $ Last Edited:
- * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.choiceset;
 
@@ -103,7 +100,6 @@ public class AbilityRefChoiceSet implements
 	public AbilityRefChoiceSet(CDOMSingleRef<AbilityCategory> cat,
 			Collection<? extends CDOMReference<Ability>> arCollection, Nature nat)
 	{
-		super();
 		if (arCollection == null)
 		{
 			throw new IllegalArgumentException(
@@ -114,7 +110,7 @@ public class AbilityRefChoiceSet implements
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		abilityRefSet = new HashSet<CDOMReference<Ability>>(arCollection);
+		abilityRefSet = new HashSet<>(arCollection);
 		if (nat == null)
 		{
 			throw new IllegalArgumentException("Choice Nature cannot be null");
@@ -140,8 +136,8 @@ public class AbilityRefChoiceSet implements
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		Set<CDOMReference<?>> sortedSet = new TreeSet<>(
+                ReferenceUtilities.REFERENCE_SORTER);
 		for (CDOMReference<Ability> ar : abilityRefSet)
 		{
 			sortedSet.add(ar);
@@ -188,7 +184,7 @@ public class AbilityRefChoiceSet implements
 	@Override
 	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
 	{
-		Set<CNAbilitySelection> returnSet = new LinkedHashSet<CNAbilitySelection>();
+		Set<CNAbilitySelection> returnSet = new LinkedHashSet<>();
 		for (CDOMReference<Ability> ref : abilityRefSet)
 		{
 			for (Ability a : ref.getContainedObjects())
@@ -222,7 +218,7 @@ public class AbilityRefChoiceSet implements
 				isPattern = true;
 				nameRoot = subName.substring(0, percIdx);
 			}
-			else if (subName.length() != 0)
+			else if (!subName.isEmpty())
 			{
 				nameRoot = subName;
 			}
@@ -250,7 +246,7 @@ public class AbilityRefChoiceSet implements
 			{
 				List<CDOMReference<WeaponProf>> dwp = deity
 						.getSafeListFor(ListKey.DEITYWEAPON);
-				Set<String> set = new HashSet<String>();
+				Set<String> set = new HashSet<>();
 				for (CDOMReference<WeaponProf> ref : dwp)
 				{
 					for (WeaponProf wp : ref.getContainedObjects())
@@ -261,7 +257,7 @@ public class AbilityRefChoiceSet implements
 				availableList.retainAll(set);
 			}
 		}
-		else if (nameRoot != null && nameRoot.length() != 0)
+		else if ((nameRoot != null) && !nameRoot.isEmpty())
 		{
 			for (int n = availableList.size() - 1; n >= 0; --n)
 			{
@@ -286,8 +282,8 @@ public class AbilityRefChoiceSet implements
 			}
 		}
 
-		List<CNAbilitySelection> returnList = new ArrayList<CNAbilitySelection>(
-				availableList.size());
+		List<CNAbilitySelection> returnList = new ArrayList<>(
+                availableList.size());
 		for (String s : availableList)
 		{
 			returnList.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(category.get(),
@@ -299,7 +295,7 @@ public class AbilityRefChoiceSet implements
 	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
 		ChooseInformation<T> chooseInfo)
 	{
-		final List<String> availableList = new ArrayList<String>();
+		final List<String> availableList = new ArrayList<>();
 		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
 		// chooseInfo may have sent us back weaponprofs, abilities or
 		// strings, so we have to do a conversion here

@@ -1,7 +1,6 @@
 <#ftl encoding="UTF-8" strip_whitespace=true >
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	$Id: base.xml 24177 2014-06-16 22:41:07Z jdempsey $
 -->
 <character>
 	<export>
@@ -178,8 +177,8 @@
 			<trait>${pcstring('PERSONALITY2')}</trait>
 		</personality>
 		<portrait>
-			<portrait>${pcstring('PORTRAIT')}</portrait>
-			<portrait_thumb>${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
+			<portrait>${pcstring('PORTRAIT')?url_path('utf-8')}</portrait>
+			<portrait_thumb>${pcstring('PORTRAIT.THUMB')?url_path('utf-8')}</portrait_thumb>
 		</portrait>
 		<phobias>${pcstring('PHOBIAS')}</phobias>
 		<#if (pcstring("ABILITYALL.ANY.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
@@ -349,6 +348,11 @@
 		<profane>${pcstring('AC.Profane')}</profane>
 		<miss_chance/>
 		<max_dex>${pcstring('MAXDEX')}</max_dex>
+		<#if (gamemodename = "Pathfinder" || gamemodename = "Pathfinder_RPG") >
+			<spell_failure>${pcstring('VAR.SPELLFAILURE_Total.INTVAL')}</spell_failure>
+		<#else>
+			<spell_failure>${pcstring('SPELLFAILURE')}</spell_failure>
+		</#if>
 		<spell_failure>${pcstring('SPELLFAILURE')}</spell_failure>
 		<check_penalty>${pcstring('ACCHECK')}</check_penalty>
 		<spell_resistance>${pcstring('SR')}</spell_resistance>
@@ -760,9 +764,11 @@
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
-			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
-			<special_property>${pcstring('ABILITYALL.Special Ability.${NaturalAttack}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}</special_property>
+			<special_property>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; ability , ability_has_next>
+			${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}
 			</@loop>
+			</special_property>
 		</martialarts>
 		<#else>
 		<unarmed>
@@ -784,9 +790,11 @@
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
-			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
-			<special_property>${pcstring('ABILITYALL.Special Ability.${NaturalAttack}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}</special_property>
+			<special_property>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; ability , ability_has_next>
+			${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}
 			</@loop>
+			</special_property>
 						<!-- Commenting this out (will need a test as well)
 			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.	-->
 			<#if (gamemodename = "3e")>
@@ -1120,7 +1128,7 @@
 		<#if (pcboolean('ABILITYALL.Special Ability.0.TYPE=RageDescription.HASASPECT.RageDescription')) >
 		<description>${pcstring('ABILITYALL.Special Ability.0.TYPE=RageDescription.ASPECT.RageDescription')}</description>
 		<#else>
-		<description>The Barbarian gains +${pcstring('VAR.RageStrBonus.INTVAL')} to Strength, +${pcstring('VAR.RageConBonus.INTVAL')} to Constitution, and a +${pcstring('VAR.RageMorale.INTVAL')} morale bonus on Will saves, but suffers a -${pcstring('VAR.RageACPenalty.INTVAL')} penalty to AC for ${pcvar('VAR.RageConBonus.INTVAL+3')} rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
+		<description>The Barbarian gains +${pcstring('VAR.RageStrBonus.INTVAL')} to Strength, +${pcstring('VAR.RageConBonus.INTVAL')} to Constitution, and a +${pcstring('VAR.RageMorale.INTVAL')} morale bonus on Will saves, but suffers a -${pcstring('VAR.RageACPenalty.INTVAL')} penalty to AC for ${pcvar('VAR.RageConBonus.INTVAL')} rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
 		</#if>
 	</rage>
 	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->
@@ -1734,6 +1742,26 @@
 	<animal_tricks>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="AnimalTrick" nodeName="animal_trick" />
 	</animal_tricks>
+
+		<!--
+	  ====================================
+	  ====================================
+			Racial Trait
+	  ====================================
+	  ====================================-->
+	<racial_traits>
+	<@abilityBlock category="Racial Trait" nature="ALL" hidden=false typeName="Racial Trait" nodeName="racial_trait" />
+	</racial_traits>
+
+		<!--
+	  ====================================
+	  ====================================
+			Class Feature
+	  ====================================
+	  ====================================-->
+	<class_features>
+	<@abilityBlock category="Class Feature" nature="ALL" hidden=false typeName="Class Feature" nodeName="class_feature" />
+	</class_features>
 
 	<!--
 	  ====================================
@@ -2591,6 +2619,25 @@
 	</traits>
 
 	<!--
+	  ====================================
+	  ====================================
+			Drawbacks
+	  ====================================
+	  ====================================-->
+	<drawbacks>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=drawback","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; drawback , drawback_has_next>
+		<drawback>
+			<#if (pcstring("VABILITY.Special Ability.VISIBLE.${drawback}.TYPE=drawback") != "")><#-- TODO: THis doesn't work unless all the virtual abilities are at the start of the loop. Need a new subtag on ABILITYALL of nature -->
+			<name>${pcstring('VABILITY.Special Ability.VISIBLE.${drawback}.TYPE=drawback')} (Granted)</name>
+			<#else>
+			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${drawback}.TYPE=drawback')}</name>
+			</#if>
+			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${drawback}.TYPE=drawback.DESC')}</description>
+			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${drawback}.TYPE=drawback.SOURCE')}</source>
+		</drawback>
+	</@loop>
+	</drawbacks>
+	<!--
 	====================================
 	====================================
 	MASTER ABILITY
@@ -2660,6 +2707,15 @@
 	<pfs_chronicles>
 	<@abilityBlock category="PFS Chronicle" nature="ALL" hidden=false typeName="PFSChronicle" nodeName="pfs_chronicle" />
 	</pfs_chronicles>
+	<!--
+	  ====================================
+	  ====================================
+			PFS Boons
+	  ====================================
+	  ====================================-->
+	<pfs_boons>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="PFSBoon" nodeName="pfs_boon" />
+	</pfs_boons>
 	<!--
 	====================================
 	  ====================================
@@ -3301,7 +3357,7 @@
 			<!-- FOR,${bar},COUNT[SPELLSINBOOK0.${spellbook}.0],COUNT[SPELLSINBOOK0.${spellbook}.0],1,1 -->
 			<#if (foo = 0 || bar = 0) >
 			<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}">
+			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}" type="${pcstring('SPELLBOOK.${spellbook}.TYPE')}">
 			<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-1') ; class , class_has_next><#-- TODO: Loop was of early exit type 1 -->
 			<class number="${class}" spelllistclass="${pcstring('SPELLLISTCLASS.${class}')}" spellcasterlevel="${pcstring('SPELLLISTCLASS.${class}.LEVEL')}" spellcastertype="${pcstring('SPELLLISTTYPE.${class}')}" memorize="${pcstring('SPELLLISTMEMORIZE.${class}')}">
 			 <@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->

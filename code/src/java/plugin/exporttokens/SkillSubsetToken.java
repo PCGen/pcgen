@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 5, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -35,16 +30,10 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>SkillSubsetToken</code> outputs the value of the Skill at
+ * {@code SkillSubsetToken} outputs the value of the Skill at
  * position x in a subset of character's skill list. The format
  * for this tag is SKILLSUBSET.pos.subname.property
  * eg SKILLSUBSET.2.KNOWLEDGE.RANK
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 // SKILLSUBSET
@@ -113,7 +102,7 @@ public class SkillSubsetToken extends SkillToken
 		// Build the list of matching skills
 		String skillPrefix = details.getProperty(0);
 		int prefixLength = skillPrefix.length();
-		List<Skill> skillSubset = new ArrayList<Skill>();
+		List<Skill> skillSubset = new ArrayList<>();
 		final List<Skill> skills =
 				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
 					.getPartialSkillList(View.VISIBLE_EXPORT));

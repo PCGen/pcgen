@@ -1,5 +1,4 @@
 /*
- * WeaponhToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -47,10 +42,8 @@ import pcgen.io.ExportHandler;
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>WeaponhToken</code>.
+ * {@code WeaponhToken}.
  *
- * @author	binkley
- * @version	$Revision$
  */
 public class WeaponhToken extends WeaponToken
 {
@@ -107,7 +100,7 @@ public class WeaponhToken extends WeaponToken
 	/**
 	 * Create a fake Unarmed Strike equipment so we don't need it in the .lst files anymore
 	 *
-	 * @param pc The character used to generate the size.
+	 * @param display The character used to generate the size.
 	 * @return The Unarmed Strike equipment.
 	 */
 	public static Equipment getWeaponEquipment(CharacterDisplay display)
@@ -126,7 +119,7 @@ public class WeaponhToken extends WeaponToken
 		Equipment eq = new Equipment();
 		eq.setName(LanguageBundle.getString("Equipment.UnarmedStrike"));
 		eq.put(StringKey.KEY_NAME, "KEY_Unarmed Strike");
-		eq.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
+		eq.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<>(wp));
 		eq.put(StringKey.OUTPUT_NAME, LanguageBundle.getString("Equipment.UnarmedStrike"));
 		eq.addType(Type.WEAPON);
 		eq.addType(Type.MELEE);

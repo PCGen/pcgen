@@ -17,24 +17,17 @@
  */
 package actor.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.core.PCTemplate;
-import plugin.lsttokens.add.TemplateToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import plugin.lsttokens.add.TemplateToken;
 
 public class TemplateTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCTemplate>
 {
 
-	static TemplateToken pca = new TemplateToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final Persistent<PCTemplate> pca = new TemplateToken();
 
 	@Override
 	public Persistent<PCTemplate> getActor()

@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -25,8 +24,12 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
 
-public class BonusActivation
+public final class BonusActivation
 {
+
+	private BonusActivation()
+	{
+	}
 
 	public static void deactivateBonuses(CDOMObject po, PlayerCharacter aPC)
 	{

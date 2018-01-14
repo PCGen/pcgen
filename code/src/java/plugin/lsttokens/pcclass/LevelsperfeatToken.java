@@ -83,7 +83,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 						+ getTokenName() + Constants.COLON + value, context);
 			}
 			String levelType = levelTypeTag.substring(10);
-			if (levelType == null || levelType.length() == 0)
+			if (levelType == null || levelType.isEmpty())
 			{
 				return new ParseResult.Fail("If " + getTokenName()
 						+ " has a | it must be of the form: " + getTokenName()
@@ -146,7 +146,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 		}
 		StringBuilder result = new StringBuilder();
 		result.append(lpf);
-		if (levelType != null && levelType.length() > 0)
+		if (levelType != null && !levelType.isEmpty())
 		{
 			result.append("|LEVELTYPE=");
 			result.append(levelType);

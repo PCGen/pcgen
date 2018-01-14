@@ -1,5 +1,4 @@
 /*
- * SkillChoice.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.core.npcgen;
 
@@ -34,22 +29,20 @@ import pcgen.core.Skill;
  * to treat them special.
  * 
  * <p>As an example, if the user specifies that TYPE.Profession skills are to 
- * have a certain weight the assumption is that that weight applies to picking
+ * have a certain weight the assumption is that weight applies to picking
  * a single Profession skill and not to each Profession skill individually.
  * 
- * @author boomer70 <boomer70@yahoo.com>
  * 
- * @since 5.11.1
  */
 public class SkillChoice
 {
 	private String theKey = null;
-	private WeightedCollection<Skill> theSkillList = new WeightedCollection<Skill>();
+	private final WeightedCollection<Skill> theSkillList = new WeightedCollection<>();
 	
 	/**
 	 * Creates a new SkillChoice.
 	 * 
-	 * <p>If the key passed in starts with &quot;<code>TYPE.</code>&quot;, the
+	 * <p>If the key passed in starts with &quot;{@code TYPE.}&quot;, the
 	 * group of skills of that type will be stored as this chice.
 	 * 
 	 * @param aKey A Skill key or TYPE.&lt;skill type&gt;
@@ -146,19 +139,29 @@ public class SkillChoice
 	public boolean equals(Object obj)
 	{
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (getClass() != obj.getClass())
+		{
 			return false;
+		}
 		final SkillChoice other = (SkillChoice) obj;
 		if (theKey == null)
 		{
 			if (other.theKey != null)
+			{
 				return false;
+			}
 		}
 		else if (!theKey.equals(other.theKey))
+		{
 			return false;
+		}
 		return true;
 	}
 }

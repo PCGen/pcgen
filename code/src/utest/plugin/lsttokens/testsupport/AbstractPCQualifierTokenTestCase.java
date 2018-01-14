@@ -18,8 +18,6 @@ package plugin.lsttokens.testsupport;
 
 import java.util.Collection;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,6 +27,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 
 public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
@@ -37,9 +37,9 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 
 	private static ChooseLst token = new ChooseLst();
 	private static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+			new CDOMTokenLoader<>();
 
-	public AbstractPCQualifierTokenTestCase()
+	protected AbstractPCQualifierTokenTestCase()
 	{
 		super("PC", null);
 	}
@@ -177,8 +177,7 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 
 	protected abstract void addToPCSet(TransparentPlayerCharacter pc, T item);
 
-	private void initializeObjects() throws InstantiationException,
-		IllegalAccessException
+	private void initializeObjects()
 	{
 		wp1 = (T) construct(primaryContext, "Eq1");
 		primaryContext.unconditionallyProcess(wp1, "TYPE", "Boring");

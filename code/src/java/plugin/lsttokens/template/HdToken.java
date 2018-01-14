@@ -162,7 +162,7 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		Changes<PCTemplate> changes = context.getObjectContext()
 				.getListChanges(pct, ListKey.HD_TEMPLATES);
 		Collection<PCTemplate> added = changes.getAdded();
-		List<String> ret = new ArrayList<String>();
+		List<String> ret = new ArrayList<>();
 		boolean globalClear = changes.includesGlobalClear();
 		if (globalClear)
 		{
@@ -170,7 +170,7 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		}
 		if (added != null)
 		{
-			Set<String> set = new TreeSet<String>();
+			Set<String> set = new TreeSet<>();
 			for (PCTemplate pctChild : added)
 			{
 				StringBuilder sb = new StringBuilder();

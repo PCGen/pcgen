@@ -1,6 +1,4 @@
 /*
- * Created on 23-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
@@ -39,11 +37,9 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
- *
- * @author frugal@purplewombat.co.uk
  */
 @SuppressWarnings("nls")
-abstract public class AbstractCharacterTestCase extends PCGenTestCase
+public abstract class AbstractCharacterTestCase extends PCGenTestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;
@@ -192,17 +188,16 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	}
 
 	/**
-	 * Constructs a new <code>AbstractCharacterTestCase</code>.
+	 * Constructs a new {@code AbstractCharacterTestCase}.
 	 *
 	 * @see PCGenTestCase#PCGenTestCase()
 	 */
 	public AbstractCharacterTestCase()
 	{
-		super();
 	}
 
 	/**
-	 * Constructs a new <code>AbstractCharacterTestCase</code> with the given
+	 * Constructs a new {@code AbstractCharacterTestCase} with the given
 	 * <var>name</var>.
 	 *
 	 * @param name the test case name
@@ -233,18 +228,10 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	}
 
 	/**
-	 * @param aCharacter The character to set.
-	 */
-	public void setCharacter(final PlayerCharacter aCharacter)
-	{
-		this.character = aCharacter;
-	}
-
-	/**
 	 * Set the value of the stat for the character.
 	 *
 	 * @param pc The Player Character
-	 * @param statName The name of the stat to be set (eg DEX)
+	 * @param stat The name of the stat to be set (eg DEX)
 	 * @param value The value to be set (eg 18)
 	 */
 	public void setPCStat(final PlayerCharacter pc, final PCStat stat,
@@ -325,13 +312,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 			UserSelection.getInstance(), UserSelection.getInstance());
 	}
 
-	protected Ability addMultYesAbility(AbilityCategory cat, Ability a)
-	{
-		return a;
-	}
-	
-	protected CNAbility finalize(Ability a, String string,
-		PlayerCharacter pc, AbilityCategory cat)
+	protected CNAbility finalizeTest(Ability a, String string,
+	                                 PlayerCharacter pc, AbilityCategory cat)
 	{
 		return applyAbility(pc, cat, a, string);
 	}

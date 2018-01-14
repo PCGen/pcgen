@@ -35,8 +35,8 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 
 	private final Class<? super T> refClass;
 
-	private final Set<PrimitiveCollection<T>> primCollection = new TreeSet<PrimitiveCollection<T>>(
-			PrimitiveUtilities.COLLECTION_SORTER);
+	private final Set<PrimitiveCollection<T>> primCollection = new TreeSet<>(
+            PrimitiveUtilities.COLLECTION_SORTER);
 
 	public CompoundOrPrimitive(Collection<? extends PrimitiveCollection<T>> pcfCollection)
 	{
@@ -59,7 +59,7 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 				Logging.log(Level.WARNING, "Found duplicate item in "
 						+ pcfCollection);
 			}
-			primCollection.add(PrimitiveCollection.FIXED.<T>invalid());
+			primCollection.add(PrimitiveCollection.FIXED.invalid());
 		}
 		for (PrimitiveCollection<T> pcf : primCollection)
 		{
@@ -89,7 +89,7 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
-		Set<R> returnSet = new LinkedHashSet<R>();
+		Set<R> returnSet = new LinkedHashSet<>();
 		for (PrimitiveCollection<T> cs : primCollection)
 		{
 			returnSet.addAll(cs.getCollection(pc, c));

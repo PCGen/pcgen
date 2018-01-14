@@ -155,7 +155,7 @@ public class PatternMatchingReference<T extends Loadable> extends
 	@Override
 	public Collection<T> getContainedObjects()
 	{
-		List<T> list = new ArrayList<T>();
+		List<T> list = new ArrayList<>();
 		for (T obj : all.getContainedObjects())
 		{
 			if (obj.getKeyName().startsWith(pattern))

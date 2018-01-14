@@ -19,6 +19,7 @@ package pcgen.cdom.meta;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
@@ -38,20 +39,20 @@ public final class CorePerspectiveDB
 	}
 
 	private static DoubleKeyMap<CorePerspective, Object, FacetView<?>> map =
-			new DoubleKeyMap<CorePerspective, Object, FacetView<?>>();
+            new DoubleKeyMap<>();
 	private static HashMap<CorePerspective, FacetView<?>> rootmap =
-			new HashMap<CorePerspective, FacetView<?>>();
+            new HashMap<>();
 	private static HashMap<Object, FacetView<?>> facetToView =
-			new HashMap<Object, FacetView<?>>();
-	private static HashMap<Object, CorePerspective> facetToPerspective =
-			new HashMap<Object, CorePerspective>();
+            new HashMap<>();
+	private static Map<Object, CorePerspective> facetToPerspective =
+            new HashMap<>();
 	private static HashMapToList<Object, Object> virtualParents =
-			new HashMapToList<Object, Object>();
+            new HashMapToList<>();
 
 	public static <S, D> Object register(CorePerspective perspective,
 		FacetBehavior behavior, AbstractItemConvertingFacet<S, D> facet)
 	{
-		FacetView<Object> view = new ConvertingFacetView<S, D>(facet);
+		FacetView<Object> view = new ConvertingFacetView<>(facet);
 		finishRegistration(perspective, behavior, view, facet);
 		return view;
 	}
@@ -59,7 +60,7 @@ public final class CorePerspectiveDB
 	public static <T> Object register(CorePerspective perspective,
 		FacetBehavior behavior, AbstractSourcedListFacet<CharID, T> facet)
 	{
-		FacetView<T> view = new ListFacetView<T>(facet);
+		FacetView<T> view = new ListFacetView<>(facet);
 		finishRegistration(perspective, behavior, view, facet);
 		return view;
 	}
@@ -67,7 +68,7 @@ public final class CorePerspectiveDB
 	public static <T> Object register(CorePerspective perspective,
 		FacetBehavior behavior, AbstractSingleSourceListFacet<T, ?> facet)
 	{
-		FacetView<T> view = new SingleSourceListFacetView<T>(facet);
+		FacetView<T> view = new SingleSourceListFacetView<>(facet);
 		finishRegistration(perspective, behavior, view, facet);
 		return view;
 	}
@@ -76,7 +77,7 @@ public final class CorePerspectiveDB
 		CorePerspective perspective, FacetBehavior behavior,
 		AbstractQualifiedListFacet<T> facet)
 	{
-		FacetView<T> view = new QualifiedFacetView<T>(facet);
+		FacetView<T> view = new QualifiedFacetView<>(facet);
 		finishRegistration(perspective, behavior, view, facet);
 		return view;
 	}
@@ -100,16 +101,14 @@ public final class CorePerspectiveDB
 		}
 	}
 
-	private static class Location
+	private static final class Location
 	{
 
 		private final String location;
 
-		public Location(FacetBehavior behavior, String source)
+		private Location(FacetBehavior behavior, String source)
 		{
-			location =
-					new StringBuilder(40).append(behavior).append(" (")
-						.append(source).append(")").toString();
+			location = String.valueOf(behavior) + " (" + source + ")";
 		}
 
 		@Override
@@ -117,11 +116,6 @@ public final class CorePerspectiveDB
 		{
 			return location;
 		}
-	}
-
-	public static Collection<CorePerspective> getPerspectives()
-	{
-		return map.getKeySet();
 	}
 
 	public static Collection<Object> getLocations(CorePerspective perspective)

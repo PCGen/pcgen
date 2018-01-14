@@ -1,5 +1,4 @@
 /*
- * ThumbnailPane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 9, 2011, 3:11:44 PM
  */
 package pcgen.gui2.tabs.bio;
 
@@ -31,10 +29,7 @@ import javax.swing.JComponent;
 
 import pcgen.cdom.base.Constants;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 class ThumbnailPane extends JComponent
 {
 

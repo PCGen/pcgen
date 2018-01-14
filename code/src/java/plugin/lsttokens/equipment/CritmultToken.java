@@ -50,7 +50,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 				context);
 		}
 		Integer cm = null;
-		if ((value.length() > 0) && (value.charAt(0) == 'x'))
+		if ((!value.isEmpty()) && (value.charAt(0) == 'x'))
 		{
 			try
 			{
@@ -68,7 +68,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 		else if ("-".equals(value))
 		{
-			cm = Integer.valueOf(-1);
+			cm = -1;
 		}
 		if (cm == null)
 		{

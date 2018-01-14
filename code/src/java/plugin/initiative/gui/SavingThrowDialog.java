@@ -21,7 +21,7 @@
 package plugin.initiative.gui;
 
 import gmgen.plugin.Combatant;
-import gmgen.plugin.Dice;
+import gmgen.plugin.dice.Dice;
 import gmgen.plugin.PcgCombatant;
 import gmgen.plugin.PlayerCharacterOutput;
 import gmgen.plugin.SystemAttribute;
@@ -44,9 +44,6 @@ import plugin.initiative.XMLCombatant;
  * <p>
  * Dialog class that represents a d20 saving throw.
  * </p>
- *
- * @author Devon Jones
- *
  */
 public class SavingThrowDialog extends javax.swing.JDialog
 {
@@ -390,9 +387,9 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	{
 		saveBase.setText(Integer.toString(base));
 		saveAbility.setText(Integer.toString(ability));
-		saveMagic.setValue(Integer.valueOf(magic));
+		saveMagic.setValue(magic);
 		saveMisc.setText(Integer.toString(misc));
-		saveTemp.setValue(Integer.valueOf(temp));
+		saveTemp.setValue(temp);
 		calculate();
 	}
 
@@ -423,7 +420,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 */
 	private void setSaveType(int dc, int saveType)
 	{
-		saveDC.setValue(Integer.valueOf(dc));
+		saveDC.setValue(dc);
 
 		if (saveType == FORT_SAVE)
 		{
@@ -440,7 +437,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	}
 
 	/**
-	 * <p>If the <code>cbt</code> is an <code>XMLCombatant</code>, sets
+	 * <p>If the {@code cbt} is an <code>XMLCombatant</code>, sets
 	 * the combatants save values based on the totals for the dialog box.</p>
 	 * @param total
 	 */
@@ -469,7 +466,6 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 *
 	 * <p>Calculates the save total based on the current values
 	 * of all fields.</p>
-	 *
 	 */
 	private void calculate()
 	{
@@ -561,7 +557,6 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	/**
 	 *
 	 * <p>Updates DC and save type values back to the dialog's model.</p>
-	 *
 	 */
 	private void updateModel()
 	{
@@ -600,7 +595,6 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	/**
 	 *
 	 * <p>Initializes all form components</p>
-	 *
 	 */
 	private void initComponents()
 	{
@@ -660,50 +654,22 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
 		rollButton.setText("Roll");
-		rollButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				rollButtonActionPerformed(evt);
-			}
-		});
+		rollButton.addActionListener(this::rollButtonActionPerformed);
 
 		jPanel1.add(rollButton);
 
 		passButton.setText("Pass");
-		passButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				passButtonActionPerformed(evt);
-			}
-		});
+		passButton.addActionListener(this::passButtonActionPerformed);
 
 		jPanel1.add(passButton);
 
 		failButton.setText("Fail");
-		failButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				failButtonActionPerformed(evt);
-			}
-		});
+		failButton.addActionListener(this::failButtonActionPerformed);
 
 		jPanel1.add(failButton);
 
 		cancelButton.setText("Cancel");
-		cancelButton.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				cancelButtonActionPerformed(evt);
-			}
-		});
+		cancelButton.addActionListener(this::cancelButtonActionPerformed);
 
 		jPanel1.add(cancelButton);
 
@@ -866,40 +832,19 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		fortitudeSelection.setText("Fortitude");
 		saveTypeGroup.add(fortitudeSelection);
 		fortitudeSelection
-			.addActionListener(new java.awt.event.ActionListener()
-			{
-            @Override
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					saveSelectedActionPerformed(evt);
-				}
-			});
+			.addActionListener(this::saveSelectedActionPerformed);
 
 		jPanel3.add(fortitudeSelection);
 
 		reflexSelection.setText("Reflex");
 		saveTypeGroup.add(reflexSelection);
-		reflexSelection.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				saveSelectedActionPerformed(evt);
-			}
-		});
+		reflexSelection.addActionListener(this::saveSelectedActionPerformed);
 
 		jPanel3.add(reflexSelection);
 
 		willSelection.setText("Will");
 		saveTypeGroup.add(willSelection);
-		willSelection.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				saveSelectedActionPerformed(evt);
-			}
-		});
+		willSelection.addActionListener(this::saveSelectedActionPerformed);
 
 		jPanel3.add(willSelection);
 

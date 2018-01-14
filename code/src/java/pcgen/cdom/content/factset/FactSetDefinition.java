@@ -67,7 +67,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	@Override
 	protected void activateOutput(DataSetID dsID)
 	{
-		FactSetKeyActor<F> fca = new FactSetKeyActor<F>(getFactSetKey());
+		FactSetKeyActor<F> fca = new FactSetKeyActor<>(getFactSetKey());
 		CDOMWrapperInfoFacet wiFacet =
 				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		if (!wiFacet.set(dsID, getUsableLocation(), factSetName.toLowerCase(), fca))
@@ -87,16 +87,16 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	@Override
 	protected void activateTokens(LoadContext context)
 	{
-		context.loadLocalToken(new FactSetParser<T, F>(this));
+		context.loadLocalToken(new FactSetParser<>(this));
 		Boolean required = getRequired();
 		if ((required != null) && required.booleanValue())
 		{
-			context.loadLocalToken(new FactSetDefinitionEnforcer<T, F>(this));
+			context.loadLocalToken(new FactSetDefinitionEnforcer<>(this));
 		}
 		Boolean selectable = getSelectable();
 		if ((selectable != null) && selectable.booleanValue())
 		{
-			context.loadLocalToken(new FactSetGroupDefinition<T, F>(this));
+			context.loadLocalToken(new FactSetGroupDefinition<>(this));
 		}
 	}
 
@@ -114,7 +114,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		{
 			throw new IllegalArgumentException("Fact Set Name cannot be null");
 		}
-		if (name.length() == 0)
+		if (name.isEmpty())
 		{
 			throw new IllegalArgumentException("Fact Set Name cannot be empty");
 		}

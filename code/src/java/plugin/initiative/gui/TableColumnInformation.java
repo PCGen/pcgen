@@ -23,15 +23,11 @@ import java.util.List;
 /**
  * <p>
  * This class assists in managing a set of columns for a custom
- * table model.  It is <strong>not</strong> a <code>TableColumnModel</code>,
- * but a utility class for maintaining column information inside a <code>TableModel</code>.
+ * table model.  It is <strong>not</strong> a {@code TableColumnModel},
+ * but a utility class for maintaining column information inside a {@code TableModel}.
  * </p>
  *
- * <p>Current Ver: $Revision$</p>
- * <p>Last Editor: $Author$</p>
- * <p>Last Edited: $Date$</p>
  * 
- * @author LodgeR
  */
 public class TableColumnInformation
 {
@@ -86,7 +82,7 @@ public class TableColumnInformation
 		}
 	}
 
-	/** An arraylist of <code>ColStructs</code> */
+	/** An arraylist of {@code ColStructs} */
 	private List<ColStruct> columns = null;
 
 	/**
@@ -99,7 +95,7 @@ public class TableColumnInformation
 	 */
 	public TableColumnInformation(int initialCapacity)
 	{
-		columns = new ArrayList<ColStruct>(initialCapacity);
+		columns = new ArrayList<>(initialCapacity);
 	}
 
 	/**
@@ -304,7 +300,6 @@ public class TableColumnInformation
 	 * Removes all columns
 	 * </p>
 	 * 
-	 *
 	 */
 	public void removeAll()
 	{

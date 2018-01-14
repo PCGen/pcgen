@@ -17,19 +17,15 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  PreferencesTrackingPanel.java
- *
- *  Created on August 29, 2002, 2:41 PM
  */
 package plugin.initiative.gui;
 
+import javax.swing.SwingConstants;
 import pcgen.core.SettingsHandler;
 import plugin.initiative.InitiativePlugin;
 
 /**
  *  Dialog for editing preferences.
- *
- *@author     devon
- *@since    April 7, 2003
  */
 public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 {
@@ -185,7 +181,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 		gridBagConstraints.insets = new java.awt.Insets(0, 25, 0, 0);
 		add(spellCheckBox, gridBagConstraints);
 
-		jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+		jSeparator1.setOrientation(SwingConstants.VERTICAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;

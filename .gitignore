@@ -11,6 +11,8 @@ code/comp-manifest
 code/manifest
 
 hs_err_*.log
+checkstyle-cachefile
+config.ini.junit
 
 code/build.eclipse/
 code/manifest-tests
@@ -25,6 +27,7 @@ pcgen.log
 pcgen.log.*
 pcgen_low_mem.bat
 
+output/
 build/
 libs/
 code/testsuite/output/
@@ -42,7 +45,9 @@ pcgen-batch-convert.jar
 data/customsources/*
 !data/customsources/readme-customsources.txt
 /.nb-gradle/
-/installers/win-installer/project.nsh
-/installers/win-installer/includes/data.nsh
-/installers/win-installer/includes/constants.nsh
 /jre/
+/installers/win-installer/project.nsh
+/installers/win-installer/includes/constants.nsh
+/.checkstyle
+/installers/win-installer/includes/data.nsh
+/.nb-gradle-properties

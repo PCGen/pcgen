@@ -658,6 +658,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}<br /></b></font></td>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('REACH')}<br /></b></font></td>
     </tr>
+    	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ability , ability_has_next>
+	<tr>
+		<td colspan="5" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>SPROP: ${pcstring('ABILITYALL.Special Ability.VISIBLE.${ability}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}<br /></b></font></td>
+	</tr>
+	</@loop>
    </table>
    <font style="font-size:2pt"><br /></font>
 <!-- STOP Unarmed Attack Table -->
@@ -1653,6 +1658,28 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${trait}.TYPE=Trait.DESC')}
 	</table>
 </#if>
 <!-- STOP Traits Table -->
+
+
+<!-- START Drawbacks Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Drawback","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Drawbacks Table" class="sa-table">
+    <tr>
+     <th colspan="2">Drawbacks</th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Drawback","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; drawback , drawback_has_next>
+<#if (drawback % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" class="font8" width="70%"><b>${pcstring('ABILITYALL.Special Ability.VISIBLE.${drawback}.TYPE=Drawback')}</b></td>
+	<td valign="top" class="font8" width="30%" align="right">[${pcstring('ABILITYALL.Special Ability.VISIBLE.${drawback}.TYPE=Drawback.SOURCE')}]</td>
+	<tr>
+<#if (drawback % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${drawback}.TYPE=Drawback.DESC')}
+	</td>
+	</tr>
+</@loop>
+	</table>
+</#if>
+<!-- STOP Drawbacks Table -->
 
 <#macro typeOfAbilitySuffix typeOfAbility >
 <#if (typeOfAbility?contains("extraordinary"))>

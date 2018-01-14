@@ -19,8 +19,6 @@ package plugin.initiative;
 
 /**
  * <p>This class models a spell.</p>
- *
- * @author Ross M. Lodge
  */
 public class SpellModel extends PObjectModel
 {

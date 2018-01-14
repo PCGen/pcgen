@@ -1,5 +1,4 @@
 /*
- * LanguageTableModel.java
  * Copyright 2010 (C) Connor Petty <cpmeister@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on May 11, 2010, 2:01:06 PM
  */
 package pcgen.gui2.tabs.summary;
 
@@ -200,8 +198,8 @@ public class LanguageTableModel extends AbstractTableModel
 	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
 	{
 
-		private final String ADD_ID = "Add";
-		private final String REMOVE_ID = "Remove";
+		private static final String ADD_ID = "Add";
+		private static final String REMOVE_ID = "Remove";
 		private JPanel cellPanel = new JPanel();
 		private CardLayout cardLayout = new CardLayout();
 		private JLabel addLabel = new JLabel();
@@ -267,7 +265,7 @@ public class LanguageTableModel extends AbstractTableModel
 				LanguageChooserFacade chooser = choosers.getElementAt(
 						table.getEditingRow() - languages.getSize());
 				LanguageChooserDialog dialog = new LanguageChooserDialog(frame, chooser);
-				Utility.setDialogRelativeLocation(frame, dialog);
+				Utility.setComponentRelativeLocation(frame, dialog);
 				dialog.setVisible(true);
 			}
 			else
@@ -289,8 +287,8 @@ public class LanguageTableModel extends AbstractTableModel
 	private class Renderer extends JPanel implements TableCellRenderer
 	{
 
-		private final String ADD_ID = "Add";
-		private final String REMOVE_ID = "Remove";
+		private static final String ADD_ID = "Add";
+		private static final String REMOVE_ID = "Remove";
 		private CardLayout cardLayout = new CardLayout();
 		//private JPanel cellPanel = new JPanel();
 		private JLabel cellLabel = new JLabel();

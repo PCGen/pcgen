@@ -1,5 +1,4 @@
 /**
- * TestHelper.java
  * Copyright 2005 (c) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Version: $Revision$
- * Last Editor:     $Author$
- * Last Edited:     $Date$
- *
  */
 
 package pcgen.util;
@@ -38,8 +34,6 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
-
-import org.apache.commons.lang.SystemUtils;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMObject;
@@ -79,12 +73,14 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.PCClassLoader;
-import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.Main;
 import pcgen.system.PCGenTask;
 import pcgen.system.PropertyContextFactory;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -94,7 +90,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class TestHelper
 {
 	private static boolean loaded = false;
-	private static LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<Equipment>(Equipment.class);
+	private static LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
 	private static LstObjectFileLoader<Ability>   abLoader = new AbilityLoader();
 	private static CampaignSourceEntry source = null;
 
@@ -466,22 +462,6 @@ public class TestHelper
 		return wp != null && pc.hasWeaponProf(wp);
 	}
 
-	public static void createAllAlignments()
-	{
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		ref.importObject(BuildUtilities.createAlignment("Lawful Good", "LG"));
-		ref.importObject(BuildUtilities.createAlignment("Lawful Neutral", "LN"));
-		ref.importObject(BuildUtilities.createAlignment("Lawful Evil", "LE"));
-		ref.importObject(BuildUtilities.createAlignment("Neutral Good", "NG"));
-		ref.importObject(BuildUtilities.createAlignment("True Neutral", "TN"));
-		ref.importObject(BuildUtilities.createAlignment("Neutral Evil", "NE"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Good", "CG"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Neutral", "CN"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Evil", "CE"));
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
-		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
-	}
-
 	/**
 	 * Locate the data folder which contains the primary set of LST data. This 
 	 * defaults to the data folder under the current directory, but can be 
@@ -596,7 +576,7 @@ public class TestHelper
 		while (tok.hasMoreTokens())
 		{
 			String line = tok.nextToken();
-			if (line.trim().length() > 0)
+			if (!StringUtils.isBlank(line))
 			{
 				System.out.println("Processing line:'" + line + "'.");
 				reconstClass =

@@ -1,5 +1,4 @@
 /*
- * FilteredListFacade.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 27, 2011, 11:36:59 PM
  */
 package pcgen.gui2.filter;
 
@@ -28,14 +26,11 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.AbstractListFacade;
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements ListListener<E>
 {
 
-	private List<E> data = new ArrayList<E>();
+	private final List<E> data = new ArrayList<>();
 	private ListFacade<E> delegate = null;
 	private Filter<? super C, ? super E> filter = null;
 	private C context = null;
@@ -92,7 +87,7 @@ public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements L
 		data.clear();
 		if (delegate != null)
 		{
-			List<E> list = new ArrayList<E>(delegate.getSize());
+			List<E> list = new ArrayList<>(delegate.getSize());
 			for (E element : delegate)
 			{
 				if (filter == null || filter.accept(context, element))

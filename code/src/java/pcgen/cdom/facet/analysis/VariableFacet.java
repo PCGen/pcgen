@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
@@ -24,7 +25,6 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.VariableKey;
@@ -38,7 +38,6 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * VariableFacet is a Facet that tracks the Variables that are contained in a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, CDOMObject>
@@ -99,13 +98,13 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<Formula, Set<CDOMObject>> subMap = map.get(vk);
 		if (subMap == null)
 		{
-			subMap = new HashMap<Formula, Set<CDOMObject>>();
+			subMap = new HashMap<>();
 			map.put(vk, subMap);
 		}
 		Set<CDOMObject> sources = subMap.get(formula);
 		if (sources == null)
 		{
-			sources = new WrappedMapSet<CDOMObject>(IdentityHashMap.class);
+			sources = Collections.newSetFromMap(new IdentityHashMap<>());
 			subMap.put(formula, sources);
 		}
 		sources.add(cdo);
@@ -151,7 +150,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap == null)
 		{
-			componentMap = new HashMap<VariableKey, Map<Formula, Set<CDOMObject>>>();
+			componentMap = new HashMap<>();
 			setCache(id, componentMap);
 		}
 		return componentMap;
@@ -178,15 +177,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 					.iterator(); mit.hasNext();)
 			{
 				Map<Formula, Set<CDOMObject>> fMap = mit.next();
-				for (Iterator<Set<CDOMObject>> sit = fMap.values().iterator(); sit
-						.hasNext();)
-				{
-					Set<CDOMObject> set = sit.next();
-					if (set.remove(source) && set.isEmpty())
-					{
-						sit.remove();
-					}
-				}
+				fMap.values().removeIf(set -> set.remove(source) && set.isEmpty());
 				if (fMap.isEmpty())
 				{
 					mit.remove();
@@ -206,7 +197,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 *            The CharID identifying the Player Character for which the
 	 *            numeric variable value is to be returned
 	 * @param key
-	 *            The VariableKey identifying the variable which which the value
+	 *            The VariableKey identifying the variable which the value
 	 *            is to be returned
 	 * @param isMax
 	 *            Used to determine if this method returns the maximum (true) or

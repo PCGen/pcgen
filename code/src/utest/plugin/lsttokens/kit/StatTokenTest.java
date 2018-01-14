@@ -34,7 +34,7 @@ public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 {
 
 	static StatToken token = new StatToken();
-	static CDOMSubLineLoader<KitStat> loader = new CDOMSubLineLoader<KitStat>(
+	static CDOMSubLineLoader<KitStat> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitStat.class);
 
 	@Override

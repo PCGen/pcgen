@@ -30,7 +30,7 @@ public class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static GearToken token = new GearToken();
-	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
+	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitGear.class);
 
 	@Override

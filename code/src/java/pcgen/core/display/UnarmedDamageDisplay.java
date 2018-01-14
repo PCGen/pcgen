@@ -24,7 +24,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Delta;
 
-public class UnarmedDamageDisplay
+public final class UnarmedDamageDisplay
 {
 
 	/**

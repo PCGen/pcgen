@@ -1,5 +1,4 @@
 /*
- * PCGenUIManager.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,18 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Jul 14, 2008, 8:43:48 PM
  */
 package pcgen.gui2;
 
-import gmgen.GMGenSystem;
-
-import java.awt.Window;
-
 import javax.swing.SwingUtilities;
-
-import org.apache.commons.lang.SystemUtils;
 
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.facade.GMGenMessageHandler;
@@ -34,13 +25,15 @@ import pcgen.gui2.plaf.MacGUIHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.Main;
 
+import gmgen.GMGenSystem;
+import org.apache.commons.lang3.SystemUtils;
+
 /**
  * The PCGenUIManager is responsible for starting up and shutting down PCGen's
  * main window. This class also provides static methods for outside UI
  * frameworks such as the application toolbar for Macs.
  *
  * @see pcgen.gui2.PCGenFrame
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public final class PCGenUIManager
 {
@@ -51,22 +44,10 @@ public final class PCGenUIManager
 	{
 	}
 
-	public static void refreshUITree()
-	{
-		for (Window window : Window.getWindows())
-		{
-			SwingUtilities.updateComponentTreeUI(window);
-		}
-	}
-
-	private boolean checkBounds()
-	{
-		return false;
-	}
-
 	public static void initializeGUI()
 	{
-		if (SystemUtils.IS_OS_MAC_OSX)
+		// Don't start macOS GUI if we're on Java 9 since it doesn't work.
+		if (SystemUtils.IS_OS_MAC_OSX && (System.getProperty("java.runtime.version").charAt(0) != '9'))
 		{
 			MacGUIHandler.initialize();
 		}
@@ -78,16 +59,7 @@ public final class PCGenUIManager
 
 	public static void startGUI()
 	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
-
-			@Override
-			public void run()
-			{
-				pcgenFrame.startPCGenFrame();
-			}
-
-		});
+		SwingUtilities.invokeLater(pcgenFrame::startPCGenFrame);
 	}
 
 	public static void displayPreferencesDialog()
@@ -111,7 +83,7 @@ public final class PCGenUIManager
 		Main.shutdown();
 	}
 
-	public static void displayGmGen()
+	static void displayGmGen()
 	{
 		if (GMGenSystem.inst == null)
 		{

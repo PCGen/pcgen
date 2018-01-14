@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.exporttokens;
 
@@ -93,7 +86,7 @@ public class HitDiceToken extends Token
 		for (PCClass pcClass : display.getClassSet())
 		{
 			HashMap<Integer, Integer> hdMap =
-					new LinkedHashMap<Integer, Integer>();
+					new LinkedHashMap<>();
 
 			for (int i = 0; i < display.getLevel(pcClass); i++)
 			{
@@ -117,9 +110,9 @@ public class HitDiceToken extends Token
 			{
 				Integer value = hdMap.get(key);
 				ret.append(del);
-				ret.append("(");
-				ret.append(value).append("d").append(key);
-				ret.append(")");
+				ret.append('(');
+				ret.append(value).append('d').append(key);
+				ret.append(')');
 				del = "+";
 			}
 		}
@@ -150,7 +143,7 @@ public class HitDiceToken extends Token
 		Integer total = 0;
 
 		HashMap<Integer, Integer> hdMap =
-				new LinkedHashMap<Integer, Integer>();
+				new LinkedHashMap<>();
 
 		CharacterDisplay display = pc.getDisplay();
 		for (PCClass pcClass : display.getClassSet())
@@ -183,7 +176,7 @@ public class HitDiceToken extends Token
 		{
 			Integer value = hdMap.get(key);
 			ret.append(del);
-			ret.append(value).append("d").append(key);
+			ret.append(value).append('d').append(key);
 			total += value;
 			del = "+";
 		}
@@ -204,7 +197,7 @@ public class HitDiceToken extends Token
 
 	/**
 	 * Get the short version of the HITDICE token
-	 * @param pc
+	 * @param display
 	 * @return the short version of the HITDICE token
 	 */
 	public static String getShortToken(CharacterDisplay display)
@@ -216,7 +209,7 @@ public class HitDiceToken extends Token
 		for (PCClass pcClass : display.getClassSet())
 		{
 			HashMap<Integer, Integer> hdMap =
-					new LinkedHashMap<Integer, Integer>();
+					new LinkedHashMap<>();
 
 			for (int i = 0; i < display.getLevel(pcClass); i++)
 			{

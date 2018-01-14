@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountSpellTimesTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 23:22:14
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -65,11 +59,11 @@ public class PCCountSpellTimesTermEvaluator
 		if (!"".equals(bookName))
 		{
 			List<CharacterSpell> csList =
-					new ArrayList<CharacterSpell>();
+                    new ArrayList<>();
 
 			if (classNum == -1)
 			{
-				csList = new ArrayList<CharacterSpell>();
+				csList = new ArrayList<>();
 
 				for (PObject cl : pc.getDisplay().getClassSet())
 				{
@@ -111,7 +105,7 @@ public class PCCountSpellTimesTermEvaluator
 			}
 		}
 
-		return 0f;		
+		return 0.0f;
 	}
 
 	@Override

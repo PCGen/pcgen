@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from Ability.java and Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -32,8 +31,12 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
-public class QualifiedName
+public final class QualifiedName
 {
+
+	private QualifiedName()
+	{
+	}
 
 	/**
 	 * This method generates a name for this Ability which includes any choices
@@ -71,7 +74,7 @@ public class QualifiedName
 	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc, 
 		ChooseInformation<T> chooseInfo, List<CNAbility> list)
 	{
-		List<T> allSelections = new ArrayList<T>();
+		List<T> allSelections = new ArrayList<>();
 		for (CNAbility cna : list)
 		{
 			if (pc.hasAssociations(cna))
@@ -82,7 +85,7 @@ public class QualifiedName
 			}
 		}
 		String choiceInfo = chooseInfo.composeDisplay(allSelections).toString();
-		if (choiceInfo.length() > 0)
+		if (!choiceInfo.isEmpty())
 		{
 			aStrBuf.append(" (");
 			aStrBuf.append(choiceInfo);

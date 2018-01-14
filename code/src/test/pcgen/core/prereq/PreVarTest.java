@@ -1,6 +1,4 @@
 /*
- * Created on 22-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
@@ -153,11 +151,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			character.incrementClassLevel(1, warrior);
 			assertTrue(notawarrior.qualifies(character, notawarrior));
 		}
-		catch (URISyntaxException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (PersistenceLayerException e)
+		catch (URISyntaxException | PersistenceLayerException e)
 		{
 			fail(e.getMessage());
 		}
@@ -184,11 +178,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			setPCStat(character, intel, 16);
 			assertTrue(spellcaster.qualifies(character, spellcaster));
 		}
-		catch (URISyntaxException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (PersistenceLayerException e)
+		catch (URISyntaxException | PersistenceLayerException e)
 		{
 			fail(e.getMessage());
 		}
@@ -222,11 +212,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			assertEquals(5, SkillModifier.modifier(concentration, character)
 					.intValue());
 		}
-		catch (URISyntaxException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (PersistenceLayerException e)
+		catch (URISyntaxException | PersistenceLayerException e)
 		{
 			fail(e.getMessage());
 		}
@@ -262,11 +248,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			assertEquals(5, SkillModifier.modifier(concentration, character)
 					.intValue());
 		}
-		catch (URISyntaxException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (PersistenceLayerException e)
+		catch (URISyntaxException | PersistenceLayerException e)
 		{
 			fail(e.getMessage());
 		}
@@ -308,11 +290,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			assertEquals(5, SkillModifier.modifier(concentration, character)
 					.intValue());
 		}
-		catch (URISyntaxException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (PersistenceLayerException e)
+		catch (URISyntaxException | PersistenceLayerException e)
 		{
 			fail(e.getMessage());
 		}
@@ -345,11 +323,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			character.incrementClassLevel(1, warrior);
 			assertTrue(sab.qualifies(character, warrior));
 		}
-		catch (URISyntaxException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (PersistenceLayerException e)
+		catch (URISyntaxException | PersistenceLayerException e)
 		{
 			fail(e.getMessage());
 		}
@@ -383,11 +357,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			character.incrementClassLevel(1, notawarrior);
 			assertTrue(sab.qualifies(character, notawarrior));
 		}
-		catch (URISyntaxException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (PersistenceLayerException e)
+		catch (URISyntaxException | PersistenceLayerException e)
 		{
 			fail(e.getMessage());
 		}

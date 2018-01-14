@@ -1,5 +1,4 @@
 /*
- * DescriptionTest.java
  *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author: $
- *
- * Last Edited: $Date$
- *
  */
 package pcgen.core;
 
@@ -51,29 +43,20 @@ import pcgen.util.TestHelper;
 @SuppressWarnings("nls")
 public class DescriptionTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Constructs a new <code>DescriptionTest</code>.
-	 */
-	public DescriptionTest()
-	{
-		super();
-	}
 
 	/**
 	 * Tests outputting an empty description.
-	 *
 	 */
 	public void testEmptyDesc()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final Description desc = new Description(Constants.EMPTY_STRING);
-		assertTrue(desc.getDescription(this.getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals(""));
+		assertTrue(desc.getDescription(this.getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).isEmpty());
 	}
 
 	/**
 	 * Tests outputting a simple description.
-	 *
 	 */
 	public void testSimpleDesc()
 	{
@@ -166,7 +149,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("%CHOICE");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
 		PlayerCharacter pc = getCharacter();
-		assertTrue(getCharacter().getDescription(pobj).equals(""));
+		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
 		assertTrue(getCharacter().getDescription(pobj).equals("Foo"));
@@ -185,7 +168,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("%LIST");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
 		PlayerCharacter pc = getCharacter();
-		assertTrue(getCharacter().getDescription(pobj).equals(""));
+		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
 		
@@ -200,7 +183,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Deity pobj = new Deity();
 
 		final Description desc = new Description("%1");
-		assertTrue(getCharacter().getDescription(pobj).equals(""));
+		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 	}
 
 	/**
@@ -247,8 +230,8 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		AbilityCategory category = AbilityCategory.FEAT;
 
-		CNAbility cna = finalize(dummy, "Associated 1", pc, category);
-		finalize(dummy, "Associated 2", pc, category);
+		CNAbility cna = finalizeTest(dummy, "Associated 1", pc, category);
+		finalizeTest(dummy, "Associated 2", pc, category);
 		assertEquals("2 test  ", desc.getDescription(pc, wrappedDummy));
 
 		desc.addVariable("%CHOICE");

@@ -36,25 +36,20 @@ import pcgen.cdom.reference.TransparentFactory;
 import pcgen.cdom.reference.UnconstructedValidator;
 
 /**
- * The Class <code>GameReferenceContext</code> is a ReferenceContext which is 
+ * The Class {@code GameReferenceContext} is a ReferenceContext which is
  * capable of delegating its transparent references to references built later 
  * in the process.  Transparent references are a new concept, they are basically 
  * references that allow later resolution to other references (meaning in the 
  * long run, they delegate to another reference of the same general type, though 
  * they can be created before the delegate target is created)
  *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
- * @author Tom Parker <thpr@users.sourceforge.net> on 12 Jun 2008
- * @version $Revision:  $
  */
 public class GameReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<Class<?>, ReferenceManufacturer<?>>();
+	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<>();
 
-	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>>();
+	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<>();
 
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
@@ -79,14 +74,14 @@ public class GameReferenceContext extends AbstractReferenceContext
 	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
 		Class<T> cl)
 	{
-		return new SimpleReferenceManufacturer<T>(new TransparentFactory<T>(cl));
+		return new SimpleReferenceManufacturer<>(new TransparentFactory<>(cl));
 	}
 
 	@Override
 	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<ReferenceManufacturer<?>>(
-				map.values());
+		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<>(
+                map.values());
 		for (Class<?> cl : catmap.getKeySet())
 		{
 			returnList.addAll(catmap.values(cl));
@@ -103,7 +98,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 				.get(cl, cat);
 		if (mfg == null)
 		{
-			mfg = new TransparentCategorizedReferenceManufacturer<T>(new TransparentCategorizedFactory<T>(cl, cat), catClass, cat);
+			mfg = new TransparentCategorizedReferenceManufacturer<>(new TransparentCategorizedFactory<>(cl, cat), catClass, cat);
 			catmap.put(cl, cat, mfg);
 		}
 		return mfg;

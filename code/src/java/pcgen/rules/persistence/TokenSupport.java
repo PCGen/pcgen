@@ -49,13 +49,13 @@ import pcgen.util.Logging;
 
 public class TokenSupport
 {
-	private TokenFamily localTokens = new TokenFamily(new Revision(0, 0, 0));
+	private final TokenFamily localTokens = new TokenFamily(new Revision(0, 0, 0));
 	
-	private DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
-		new DoubleKeyMapToList<Class<?>, String, CDOMToken<?>>();
+	private final DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
+            new DoubleKeyMapToList<>();
 
-	private TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
-		new TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
+	private final TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
+            new TripleKeyMapToList<>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	public <T extends Loadable> boolean processToken(LoadContext context,
 		T derivative, String typeStr, String argument)
@@ -90,27 +90,27 @@ public class TokenSupport
 				if (Logging.isLoggable(Logging.LST_INFO))
 				{
 					Logging.addParseMessage(Logging.LST_INFO,
-						"Failed in parsing typeStr: " + typeStr + " " + argument);
+						"Failed in parsing typeStr: " + typeStr + ' ' + argument);
 				}
 			}
 		}
 		if (typeStr.startsWith(" "))
 		{
 			Logging.addParseMessage(Logging.LST_ERROR, "Illegal whitespace at start of token '" + typeStr
-				+ "' '" + argument + "' for " + cl.getName() + " "
+				+ "' '" + argument + "' for " + cl.getName() + ' '
 				+ derivative.getDisplayName() + " in " + context.getSourceURI());
 		}
 		else
 		{
 			Logging.addParseMessage(Logging.LST_ERROR, "Illegal Token '" + typeStr
-				+ "' '" + argument + "' for " + cl.getName() + " "
+				+ "' '" + argument + "' for " + cl.getName() + ' '
 				+ derivative.getDisplayName() + " in " + context.getSourceURI());
 		}
 		return false;
 	}
 
-	public <T extends Loadable> List<? extends CDOMToken<T>> getTokens(Class<T> cl,
-		String name)
+	private <T extends Loadable> List<? extends CDOMToken<T>> getTokens(Class<T> cl,
+	                                                                    String name)
 	{
 		List list = tokenCache.getListFor(cl, name);
 		if (list == null)
@@ -121,7 +121,7 @@ public class TokenSupport
 				tokenCache.addToListFor(cl, name, local);
 			}
 			for (Iterator<? extends CDOMToken<T>> it =
-				new TokenIterator<T, CDOMToken<T>>(cl, name); it.hasNext();)
+                 new TokenIterator<>(cl, name); it.hasNext();)
 			{
 				CDOMToken<T> token = it.next();
 				tokenCache.addToListFor(cl, name, token);
@@ -131,8 +131,8 @@ public class TokenSupport
 		return list;
 	}
 
-	public <T> List<? extends CDOMToken<T>> getTokens(
-		Class<T> cl, String name, String subtoken)
+	private <T> List<? extends CDOMToken<T>> getTokens(
+			Class<T> cl, String name, String subtoken)
 	{
 		List list = subTokenCache.getListFor(cl, name, subtoken);
 		if (list == null)
@@ -143,7 +143,7 @@ public class TokenSupport
 				subTokenCache.addToListFor(cl, name, subtoken, local);
 			}
 			for (Iterator<CDOMSubToken<T>> it =
-					new SubTokenIterator<T, CDOMSubToken<T>>(cl, name, subtoken); it
+                 new SubTokenIterator<>(cl, name, subtoken); it
 				.hasNext();)
 			{
 				CDOMToken<T> token = it.next();
@@ -183,11 +183,11 @@ public class TokenSupport
 	public <T> String[] unparseSubtoken(LoadContext context, T cdo, String tokenName)
 	{
 		char separator = tokenName.charAt(0) == '*' ? ':' : '|';
-		Collection<String> set = new WeightedCollection<String>(
-				String.CASE_INSENSITIVE_ORDER);
+		Collection<String> set = new WeightedCollection<>(
+                String.CASE_INSENSITIVE_ORDER);
 		Class<T> cl = (Class<T>) cdo.getClass();
 		TokenFamilySubIterator<T> it =
-				new TokenFamilySubIterator<T>(cl, tokenName);
+                new TokenFamilySubIterator<>(cl, tokenName);
 		while (it.hasNext())
 		{
 			CDOMSecondaryToken<? super T> token = it.next();
@@ -222,10 +222,10 @@ public class TokenSupport
 
 	public <T> Collection<String> unparse(LoadContext context, T cdo)
 	{
-		Collection<String> set = new WeightedCollection<String>(
-				String.CASE_INSENSITIVE_ORDER);
+		Collection<String> set = new WeightedCollection<>(
+                String.CASE_INSENSITIVE_ORDER);
 		Class<T> cl = (Class<T>) cdo.getClass();
-		TokenFamilyIterator<T> it = new TokenFamilyIterator<T>(cl);
+		TokenFamilyIterator<T> it = new TokenFamilyIterator<>(cl);
 		while (it.hasNext())
 		{
 			CDOMPrimaryToken<? super T> token = it.next();
@@ -273,7 +273,7 @@ public class TokenSupport
 			}
 
 		}
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 		if (CDOMPrimaryToken.class.isAssignableFrom(token.getClass()))
 		{
 			@SuppressWarnings("unchecked")
@@ -302,13 +302,13 @@ public class TokenSupport
 		{
 			return null;
 		}
-		return result.toArray(new String[]{});
+		return result.toArray(new String[result.size()]);
 	}
 
 	public Collection<DeferredToken<? extends Loadable>> getDeferredTokens()
 	{
 		List<DeferredToken<? extends Loadable>> c =
-				new ArrayList<DeferredToken<? extends Loadable>>();
+                new ArrayList<>();
 		c.addAll(localTokens.getDeferredTokens());
 		c.addAll(TokenFamily.CURRENT.getDeferredTokens());
 		return c;

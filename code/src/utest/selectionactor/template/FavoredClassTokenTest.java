@@ -17,23 +17,16 @@
  */
 package selectionactor.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.PCClass;
+
 import plugin.lsttokens.template.FavoredclassToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class FavoredClassTokenTest extends AbstractSelectionActorTest<PCClass>
 {
 
-	static FavoredclassToken cra = new FavoredclassToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final ChooseSelectionActor<PCClass> cra = new FavoredclassToken();
 
 	@Override
 	public ChooseSelectionActor<PCClass> getActor()

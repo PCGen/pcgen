@@ -80,24 +80,6 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Override
-	public boolean isTypeLegal()
-	{
-		return true;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Override
-	public boolean allowsParenAsSub()
-	{
-		return false;
-	}
-
-	@Override
 	public boolean allowsFormula()
 	{
 		return true;
@@ -199,12 +181,12 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	@Test
 	public void testUnparseSingleRanked() throws PersistenceLayerException
 	{
-		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
+		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		addSingleRef(refs, "TestWP1");
-		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, 3));
@@ -215,16 +197,16 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	@Test
 	public void testUnparseUntrained() throws PersistenceLayerException
 	{
-		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
-		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+		List<CDOMReference<Skill>> refs = new ArrayList<>();
+		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
 				"UNTRAINED", Skill.class, getAllRef(), ObjectKey.USE_UNTRAINED,
 				Boolean.TRUE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
-		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
@@ -235,16 +217,16 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	@Test
 	public void testUnparseTrained() throws PersistenceLayerException
 	{
-		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
-		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+		List<CDOMReference<Skill>> refs = new ArrayList<>();
+		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
 				"TRAINED", Skill.class, getAllRef(), ObjectKey.USE_UNTRAINED,
 				Boolean.FALSE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
-		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
@@ -255,16 +237,16 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	@Test
 	public void testUnparseExclusive() throws PersistenceLayerException
 	{
-		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
-		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+		List<CDOMReference<Skill>> refs = new ArrayList<>();
+		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
 				"EXCLUSIVE", Skill.class, getAllRef(), ObjectKey.EXCLUSIVE,
 				Boolean.TRUE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
-		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
@@ -275,16 +257,16 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	@Test
 	public void testUnparseNonExclusive() throws PersistenceLayerException
 	{
-		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
-		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+		List<CDOMReference<Skill>> refs = new ArrayList<>();
+		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
 				"NONEXCLUSIVE", Skill.class, getAllRef(), ObjectKey.EXCLUSIVE,
 				Boolean.FALSE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
-		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<>(
 				getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));

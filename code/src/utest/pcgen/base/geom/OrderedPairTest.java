@@ -16,11 +16,15 @@
  */
 package pcgen.base.geom;
 
-import junit.framework.TestCase;
 import pcgen.base.math.OrderedPair;
 
-public class OrderedPairTest extends TestCase
+import org.junit.Test;
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.fail;
+
+public class OrderedPairTest
 {
+	@Test
 	public void testValueOfNull()
 	{
 		try
@@ -28,16 +32,13 @@ public class OrderedPairTest extends TestCase
 			OrderedPair.valueOf(null);
 			fail("null value should fail");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
 		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
 	}
 
+	@Test
 	public void testValueOfNotNumeric()
 	{
 		try
@@ -51,6 +52,7 @@ public class OrderedPairTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testValueOfTooManyCommas()
 	{
 		try
@@ -64,6 +66,7 @@ public class OrderedPairTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testValueOfNoTrailingNumber()
 	{
 		try
@@ -77,6 +80,7 @@ public class OrderedPairTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testValueOfNoLeadingNumber()
 	{
 		try
@@ -91,6 +95,7 @@ public class OrderedPairTest extends TestCase
 	}
 
 
+	@Test
 	public void testValueOfBadFirstNumber()
 	{
 		try
@@ -114,6 +119,7 @@ public class OrderedPairTest extends TestCase
 	}
 
 
+	@Test
 	public void testValueOfBadSecondNumber()
 	{
 		try
@@ -136,11 +142,12 @@ public class OrderedPairTest extends TestCase
 		}
 	}
 	
+	@Test
 	public void testValueOf()
 	{
 		OrderedPair gp = OrderedPair.valueOf("4,6");
-		assertEquals(Integer.valueOf(4), gp.getPreciseX());
-		assertEquals(Integer.valueOf(6), gp.getPreciseY());
+		assertEquals(4, gp.getPreciseX());
+		assertEquals(6, gp.getPreciseY());
 		assertEquals("4,6", gp.toString());
 	}
 

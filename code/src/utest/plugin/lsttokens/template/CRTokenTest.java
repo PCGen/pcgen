@@ -25,13 +25,12 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractBigDecimalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class CRTokenTest extends AbstractBigDecimalTokenTestCase<PCTemplate>
 {
 
 	static CrToken token = new CrToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -61,12 +60,6 @@ public class CRTokenTest extends AbstractBigDecimalTokenTestCase<PCTemplate>
 	protected String getLegalValue()
 	{
 		return "-3";
-	}
-
-	@Override
-	protected ConsolidationRule getConsolidationRule()
-	{
-		return ConsolidationRule.OVERWRITE;
 	}
 
 	@Override

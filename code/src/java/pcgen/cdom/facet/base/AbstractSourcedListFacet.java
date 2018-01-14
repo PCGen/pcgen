@@ -28,7 +28,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -89,7 +88,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		boolean fireNew = (set == null);
 		if (fireNew)
 		{
-			set = new WrappedMapSet<Object>(IdentityHashMap.class);
+			set = Collections.newSetFromMap(new IdentityHashMap<>());
 			map.put(obj, set);
 		}
 		set.add(source);
@@ -251,7 +250,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 			return Collections.emptySet();
 		}
 		return Collections
-			.unmodifiableSet(new ListSet<T>(componentMap.keySet()));
+			.unmodifiableSet(new ListSet<>(componentMap.keySet()));
 	}
 
 	/**
@@ -340,12 +339,9 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	private Set<Object> getConstructingCachedSetFor(IDT id, T obj)
 	{
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
-		Set<Object> set = map.get(obj);
-		if (set == null)
-		{
-			set = new WrappedMapSet<Object>(IdentityHashMap.class);
-			map.put(obj, set);
-		}
+		Set<Object> set =
+				map.computeIfAbsent(obj, k -> Collections.newSetFromMap(new IdentityHashMap<>()));
+
 		return set;
 	}
 
@@ -417,7 +413,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	 */
 	protected Map<T, Set<Object>> getComponentMap()
 	{
-		return new IdentityHashMap<T, Set<Object>>();
+		return new IdentityHashMap<>();
 	}
 
 	/**
@@ -531,7 +527,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 			 * This list exists primarily to eliminate the possibility of a
 			 * concurrent modification exception on a recursive remove
 			 */
-			List<T> removedKeys = new ArrayList<T>();
+			List<T> removedKeys = new ArrayList<>();
 			for (Iterator<Map.Entry<T, Set<Object>>> it =
 					componentMap.entrySet().iterator(); it.hasNext();)
 			{
@@ -584,14 +580,12 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	 */
 	public List<? extends T> getSet(IDT id, Object owner)
 	{
-		List<T> list = new ArrayList<T>();
+		List<T> list = new ArrayList<>();
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Entry<T, Set<Object>> me : componentMap.entrySet())
 			{
-				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				if (set.contains(owner))
 				{
@@ -622,10 +616,8 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Entry<T, Set<Object>> me : componentMap.entrySet())
 			{
-				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				if (set.contains(owner))
 				{
@@ -658,10 +650,8 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		int count = 0;
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Entry<T, Set<Object>> me : componentMap.entrySet())
 			{
-				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				if (set.contains(owner))
 				{

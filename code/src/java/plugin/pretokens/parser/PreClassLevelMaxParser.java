@@ -1,5 +1,4 @@
 /*
- * PreClassLevelMaxParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,15 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.parser;
 
@@ -36,7 +26,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre class level max tokens.
- *
  */
 public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
 		implements PrerequisiteParserInterface
@@ -91,7 +80,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
 	//
 	// Change all occurrences of PRECLASSLEVELMAX to PRECLASS
 	//
-	private void changeFromLevelMax(Prerequisite p)
+	private static void changeFromLevelMax(Prerequisite p)
 	{
 		for (Prerequisite subreq : p.getPrerequisites())
 		{
@@ -134,7 +123,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
 			}
 			catch (NumberFormatException nfe)
 			{
-				oper = "(" + oper + ")+1";
+				oper = '(' + oper + ")+1";
 			}
 			p.setOperand(oper);
 			p.setOperator(PrerequisiteOperator.LT);

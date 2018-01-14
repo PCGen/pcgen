@@ -1,5 +1,4 @@
 /*
- * PCGenToolBar.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 18, 2008, 5:12:43 PM
  */
 package pcgen.gui2;
 
 import javax.swing.JToolBar;
+
 import pcgen.gui2.util.ToolBarUtilities;
 
 /**
@@ -28,7 +27,6 @@ import pcgen.gui2.util.ToolBarUtilities;
  * common PCGen activities.
  *
  * @see pcgen.gui2.PCGenFrame
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public final class PCGenToolBar extends JToolBar
 {

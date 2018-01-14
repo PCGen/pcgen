@@ -1,5 +1,4 @@
 /*
- * EqToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -181,18 +176,15 @@ public class EqToken extends Token
 			//Merge
 			String token = aTok.nextToken();
 			int merge = Constants.MERGE_ALL;
-			if (token.indexOf("MERGE") >= 0)
+			if (token.contains("MERGE"))
 			{
 				merge = returnMergeType(token);
 				token = aTok.nextToken();
 			}
 
 			// Get the list of equipment
-			eqList = new ArrayList<Equipment>();
-			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))
-			{
-				eqList.add(eq);
-			}
+			eqList = new ArrayList<>();
+			eqList.addAll(pc.getEquipmentListInOutputOrder(merge));
 
 			//Begin Not code...
 			while (aTok.hasMoreTokens())
@@ -252,7 +244,7 @@ public class EqToken extends Token
 							aTok));
 				 
 				// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse treatment
-				if (!"".equals(bFilter))
+				if (bFilter != null && !bFilter.isEmpty())
 				{
 					aTok = new StringTokenizer(bFilter, ".");
 
@@ -319,7 +311,7 @@ public class EqToken extends Token
 			//Need a special breakout based on PlayerCharacter reset of IntegerKey.RANGE
 			if (eq.isType("Both") && eq.isType("Melee"))
 			{
-				return Integer.valueOf(0);
+				return 0;
 			}
 			return ((Number) eq.getLocalVariable(pc.getCharID(), rangeVar)).intValue();
 		}
@@ -330,7 +322,7 @@ public class EqToken extends Token
 		{
 			final String aRange = eq.getWeaponInfo("RANGE", true);
 	
-			if (aRange.length() != 0)
+			if (!aRange.isEmpty())
 			{
 				range = Integer.valueOf(aRange);
 			}
@@ -402,7 +394,7 @@ public class EqToken extends Token
 	 */
 	public static String getAcCheckToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getAcCheckTokenInt(pc, eq) + "";
+		return String.valueOf(getAcCheckTokenInt(pc, eq));
 	}
 
 	/**
@@ -432,7 +424,7 @@ public class EqToken extends Token
 	 */
 	public static String getAcModToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getAcModTokenInt(pc, eq) + "";
+		return String.valueOf(getAcModTokenInt(pc, eq));
 	}
 
 	/**
@@ -443,7 +435,7 @@ public class EqToken extends Token
 	 */
 	public static int getAcModTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getACMod(pc).intValue();
+		return eq.getACMod(pc);
 	}
 
 	/**
@@ -499,7 +491,7 @@ public class EqToken extends Token
 	 */
 	public static String getAttacksToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getAttacksTokenDouble(pc, eq) + "";
+		return String.valueOf(getAttacksTokenDouble(pc, eq));
 	}
 
 	/**
@@ -520,7 +512,7 @@ public class EqToken extends Token
 	 */
 	public static String getCarriedToken(Equipment eq)
 	{
-		return getCarriedTokenFloat(eq) + "";
+		return String.valueOf(getCarriedTokenFloat(eq));
 	}
 
 	/**
@@ -530,7 +522,7 @@ public class EqToken extends Token
 	 */
 	public static float getCarriedTokenFloat(Equipment eq)
 	{
-		return eq.numberCarried().floatValue();
+		return eq.numberCarried();
 	}
 
 	/**
@@ -544,7 +536,7 @@ public class EqToken extends Token
 		int charges = getChargesTokenInt(eq);
 		if (charges >= 0)
 		{
-			retString = charges + "";
+			retString = String.valueOf(charges);
 		}
 		return retString;
 	}
@@ -570,7 +562,7 @@ public class EqToken extends Token
 		int charges = getChargesUsedTokenInt(eq);
 		if (charges >= 0)
 		{
-			retString = charges + "";
+			retString = String.valueOf(charges);
 		}
 		return retString;
 	}
@@ -652,7 +644,7 @@ public class EqToken extends Token
 	 */
 	public static String getContentsNumToken(Equipment eq)
 	{
-		return getContentsNumTokenInt(eq) + "";
+		return String.valueOf(getContentsNumTokenInt(eq));
 	}
 
 	/**
@@ -740,7 +732,7 @@ public class EqToken extends Token
 	 */
 	public static String getEdrToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getEdrTokenInt(pc, eq) + "";
+		return String.valueOf(getEdrTokenInt(pc, eq));
 	}
 
 	/**
@@ -874,7 +866,7 @@ public class EqToken extends Token
 		int charges = getMaxChargesTokenInt(eq);
 		if (charges >= 0)
 		{
-			retString = charges + "";
+			retString = String.valueOf(charges);
 		}
 		return retString;
 	}
@@ -998,7 +990,7 @@ public class EqToken extends Token
 	public static String getRangeToken(Equipment eq, PlayerCharacter pc)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			getRange(pc, eq).intValue())
+				getRange(pc, eq))
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
@@ -1024,7 +1016,6 @@ public class EqToken extends Token
 
 	/**
 	 * Get Equipment Slot Token
-	 * @param pc
 	 * @param eq
 	 * @return Equipment Slot Token
 	 */
@@ -1307,7 +1298,7 @@ public class EqToken extends Token
 					}
 					return "";
 				}
-				Set<String> qualities = new TreeSet<String>();
+				Set<String> qualities = new TreeSet<>();
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
 					qualities.add(new StringBuilder().append(me.getKey())

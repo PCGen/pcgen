@@ -41,10 +41,8 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Class deals with LEVEL Token
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-06-11 19:34:55 -0400
  * (Wed, 11 Jun 2008) $
  * 
- * @version $Revision$
  */
 public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		implements CDOMPrimaryToken<PCTemplate>
@@ -150,7 +148,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		Changes<PCTemplate> changes = context.getObjectContext()
 				.getListChanges(pct, ListKey.LEVEL_TEMPLATES);
 		Collection<PCTemplate> added = changes.getAdded();
-		List<String> ret = new ArrayList<String>();
+		List<String> ret = new ArrayList<>();
 		boolean globalClear = changes.includesGlobalClear();
 		if (globalClear)
 		{
@@ -158,7 +156,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		}
 		if(added != null)
 		{
-			Set<String> set = new TreeSet<String>();
+			Set<String> set = new TreeSet<>();
 			for (PCTemplate pctChild : added)
 			{
 				StringBuilder sb = new StringBuilder();

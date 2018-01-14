@@ -17,10 +17,12 @@
  */
 package pcgen.output.model;
 
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.core.Ability;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -75,9 +77,15 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 	public TemplateModel get(String key) throws TemplateModelException
 	{
 		Object towrap;
-		if ("category".equals(key))
+		if ("pool".equals(key))
 		{
 			towrap = cnas.getCNAbility().getAbilityCategory();
+		}
+		else if ("category".equals(key))
+		{
+			Category<Ability> cat = cnas.getCNAbility().getAbilityCategory();
+			Category<Ability> parent = cat.getParentCategory();
+			towrap = (parent == null) ? cat : parent;
 		}
 		else if ("nature".equals(key))
 		{

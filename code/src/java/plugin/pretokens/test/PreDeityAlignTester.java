@@ -1,6 +1,4 @@
 /*
- * Created on 02-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
@@ -25,7 +23,7 @@ import pcgen.util.Logging;
 public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -37,7 +35,7 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 		//
 		int runningTotal = 0;
 
-		if (Globals.getGameModeAlignmentText().length() == 0)
+		if (Globals.getGameModeAlignmentText().isEmpty())
 		{
 			runningTotal = 1;
 		}
@@ -64,7 +62,7 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
+	private static PCAlignment getPCAlignment(String desiredAlignIdentifier)
 	{
 		PCAlignment desiredAlign =
 				Globals
@@ -90,7 +88,7 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 		return "DEITYALIGN"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override

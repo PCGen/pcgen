@@ -1,5 +1,4 @@
 /*
- * NoChoiceManager.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.chooser;
 
@@ -34,10 +32,10 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	private final ChooseDriver owner;
 	private final int choicesPerUnitCost;
 	private ChooseController<String> controller =
-			new ChooseController<String>();
+            new ChooseController<>();
 	private final ChooseInformation<String> info;
 
-	private transient int preChooserChoices;
+	private int preChooserChoices;
 
 	public NoChoiceManager(ChooseDriver cdo,
 		ChooseInformation<String> chooseType, int cost)
@@ -96,7 +94,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 		final List<String> reservedList)
 	{
 		selectedList.add("");
-		return new ArrayList<String>(selectedList);
+		return new ArrayList<>(selectedList);
 	}
 
     @Override

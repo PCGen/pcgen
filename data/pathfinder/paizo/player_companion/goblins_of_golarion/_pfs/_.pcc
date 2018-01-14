@@ -8,13 +8,15 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
+
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Goblins of Golarion
+SOURCELONG:Pathfinder Player Companion: Goblins of Golarion
 SOURCESHORT:GOOG
-SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion
+SOURCEWEB:http://paizo.com/products/btpy8dmh
 SOURCEDATE:2011-07
 ISOGL:YES
 
@@ -22,7 +24,7 @@ ISOGL:YES
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy8dmh|Buy this publication from Paizo Publishing!
 DESC:We Be Goblins! The goblins are on the loose! Unleash the homicidal hijinks of GolarionUs most maniacal menaces with this guide to all things goblin. Infamous for their unpredictable attacks, catchy raiding songs, and fear of horses, goblins blend mischief and murderousness like no other monsters. But thereUs more to goblins than dogslicers and games of killgull. Now you can join in the quirky carnage with everything you need to know about goblins, whether you plan to do battle against their unpredictable tribes, or lead them as a goblin hero!
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

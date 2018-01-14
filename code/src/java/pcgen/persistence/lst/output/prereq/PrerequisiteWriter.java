@@ -1,5 +1,4 @@
 /*
- * PrerequisiteWriter.java
  *
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  *
@@ -17,13 +16,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst.output.prereq;
@@ -89,7 +84,7 @@ public class PrerequisiteWriter
 		String prereqString = null;
 		if (prereqs != null && !prereqs.isEmpty())
 		{
-			TreeSet<String> list = new TreeSet<String>();
+			TreeSet<String> list = new TreeSet<>();
 			for (Prerequisite p : prereqs)
 			{
 				StringWriter swriter = new StringWriter();

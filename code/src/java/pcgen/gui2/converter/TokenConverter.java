@@ -45,11 +45,11 @@ import pcgen.util.Logging;
 public class TokenConverter
 {
 
-	private static final DoubleKeyMap<Class<?>, String, TokenProcessorPlugin> map = new DoubleKeyMap<Class<?>, String, TokenProcessorPlugin>();
+	private static final DoubleKeyMap<Class<?>, String, TokenProcessorPlugin> map = new DoubleKeyMap<>();
 
-	private static final DoubleKeyMap<Class<?>, String, Boolean> cached = new DoubleKeyMap<Class<?>, String, Boolean>();
+	private static final DoubleKeyMap<Class<?>, String, Boolean> cached = new DoubleKeyMap<>();
 
-	private static final DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin> tokenCache = new DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin>();
+	private static final DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin> tokenCache = new DoubleKeyMapToList<>();
 
 	private static final DefaultTokenProcessor defaultProc = new DefaultTokenProcessor();
 
@@ -60,7 +60,7 @@ public class TokenConverter
 		if (old != null)
 		{
 			Logging.errorPrint("More than one Conversion token for "
-					+ tpp.getProcessedClass().getSimpleName() + " "
+					+ tpp.getProcessedClass().getSimpleName() + ' '
 					+ tpp.getProcessedToken() + " found");
 		}
 	}
@@ -116,7 +116,7 @@ public class TokenConverter
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint("Parse of " + tpe.getKey() + ":"
+			Logging.errorPrint("Parse of " + tpe.getKey() + ':'
 					+ tpe.getValue() + " failed");
 			ex.printStackTrace();
 		}

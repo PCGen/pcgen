@@ -16,10 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package plugin.lsttokens;
 
@@ -59,21 +55,21 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * This class implments the parsing for the COMPANIONLIST token.
- * <p />
- * <b>Tag Name</b>: <code>COMPANIONLIST</code>:x|y,y|z
- * <p />
+ * <p>
+ * <b>Tag Name</b>: {@code COMPANIONLIST}:x|y,y|z
+ * <p>
  * <b>Variables Used (x)</b>: <i>Text</i> (The type of companion list to add
- * to).<br />
+ * to).<br>
  * <b>Variables Used (y)</b>: <i>Text</i> (A race of companion to allow to the
- * character).<br />
- * <b>Variables Used (y)</b>: <code>RACETYPE</code>=<i>Text</i> (all races
- * with the specified <code>RACETYPE</code> are available as this type of
- * companion). <br />
- * <b>Variables Used (y)</b>: <code>ANY</code> (Any race can be a companion
- * of this type).<br />
- * <b>Variables Used (z)</b>: <code>FOLLOWERADJUSTMENT</code>=<i>Number</i>
+ * character).<br>
+ * <b>Variables Used (y)</b>: {@code RACETYPE}=<i>Text</i> (all races
+ * with the specified {@code RACETYPE} are available as this type of
+ * companion). <br>
+ * <b>Variables Used (y)</b>: {@code ANY} (Any race can be a companion
+ * of this type).<br>
+ * <b>Variables Used (z)</b>: {@code FOLLOWERADJUSTMENT}=<i>Number</i>
  * (Adjustment to the follower level variable).
- * <p />
+ * <p>
  * <b>What it does:</b>
  * <ul>
  * <li>Adds a specific race or races to the list of available companions for
@@ -84,27 +80,23 @@ import pcgen.rules.persistence.token.ParseResult;
  * in the list but will be listed in red and cannot be added as a companion.
  * </li>
  * </ul>
- * <p />
- * <b>Examples:</b><br />
- * <code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,
- * Snake (Tiny/Viper),Toad,Weasel</code><br />
+ * <p>
+ * <b>Examples:</b><br>
+ * {@code COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,
+ * Snake (Tiny/Viper),Toad,Weasel}<br>
  * Would build the list of standard familiars available to a Sorcerer or Wizard.
- * <p />
- * <code>COMPANIONLIST:Pet|RACETYPE=Animal</code><br />
+ * <p>
+ * {@code COMPANIONLIST:Pet|RACETYPE=Animal}<br>
  * Would build a list of all animals to available as a Pet.
- * <p />
- * <code>COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|
- * PREALIGN:CE</code><br />
+ * <p>
+ * {@code COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|
+ * PREALIGN:CE}<br>
  * A Quasit can be chosen as a Familiar but only if the master is evil and has
  * the Special Familiar feat.
- * <p />
- * <code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code>
- * <br />
+ * <p>
+ * {@code COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3}
  * An Ape companion to a 4th level Druid gains the benefits normally granted to
  * a companion of a 1st level Druid.
- *
- * @author divaa01
- *
  */
 public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>
@@ -160,7 +152,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		StringTokenizer subTok = new StringTokenizer(list, LstUtils.COMMA);
 
-		Set<CDOMReference<Race>> races = new HashSet<CDOMReference<Race>>();
+		Set<CDOMReference<Race>> races = new HashSet<>();
 		boolean foundAny = false;
 		while (subTok.hasMoreTokens())
 		{
@@ -173,12 +165,12 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			else if (tokString.startsWith("RACETYPE="))
 			{
 				String raceType = tokString.substring(9);
-				if (raceType.length() == 0)
+				if (raceType.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " Error: RaceType was not specified.", context);
 				}
-				races.add(new ObjectMatchingReference<Race, RaceType>(tokString,
+				races.add(new ObjectMatchingReference<>(tokString,
 						Race.class,
 						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ObjectKey.RACETYPE, RaceType.getConstant(raceType)));
@@ -186,12 +178,12 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			else if (tokString.startsWith("RACESUBTYPE="))
 			{
 				String raceSubType = tokString.substring(12);
-				if (raceSubType.length() == 0)
+				if (raceSubType.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " Error: RaceSubType was not specified.", context);
 				}
-				races.add(new ListMatchingReference<Race, RaceSubType>(tokString,
+				races.add(new ListMatchingReference<>(tokString,
 						Race.class,
 						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ListKey.RACESUBTYPE, RaceSubType.getConstant(raceSubType)));
@@ -274,7 +266,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			optArg = tok.nextToken();
 		}
 
-		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		List<Prerequisite> prereqs = new ArrayList<>();
 
 		while (true)
 		{
@@ -340,13 +332,13 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 		TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<?>>, Integer, CDOMReference<Race>> m =
-				new TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<?>>, Integer, CDOMReference<Race>>();
+				new TripleKeyMapToList<>();
 		for (FollowerOption fo : added)
 		{
-			m.addToListFor(new HashSet<Prerequisite>(fo.getPrerequisiteList()),
+			m.addToListFor(new HashSet<>(fo.getPrerequisiteList()),
 					fo.getListRef(), fo.getAdjustment(), fo.getRaceRef());
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		StringBuilder sb = new StringBuilder();
 		for (Set<Prerequisite> prereqs : m.getKeySet())
 		{
@@ -364,7 +356,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 					sb.setLength(0);
 					sb.append(cl.getLSTformat(false));
 					sb.append(Constants.PIPE);
-					Set<CDOMReference<Race>> raceSet = new TreeSet<CDOMReference<Race>>(
+					Set<CDOMReference<Race>> raceSet = new TreeSet<>(
 							ReferenceUtilities.REFERENCE_SORTER);
 					raceSet.addAll(m.getListFor(prereqs, cl, fa));
 					sb.append(ReferenceUtilities.joinLstFormat(raceSet,

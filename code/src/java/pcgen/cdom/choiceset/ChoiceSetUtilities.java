@@ -18,7 +18,6 @@
 package pcgen.cdom.choiceset;
 
 import java.util.Collection;
-import java.util.Comparator;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
 
@@ -33,23 +32,7 @@ public final class ChoiceSetUtilities
 
 	private ChoiceSetUtilities()
 	{
-		// Cannot construct utility class
 	}
-
-	/**
-	 * A Comparator to consistently sort PrimitiveChoiceSet objects. This is
-	 * done using the ChoiceSetUtilities.compareChoiceSets method.
-	 */
-	public static final Comparator<PrimitiveChoiceSet<?>> WRITEABLE_SORTER = new Comparator<PrimitiveChoiceSet<?>>()
-	{
-
-		@Override
-		public int compare(PrimitiveChoiceSet<?> arg0,
-				PrimitiveChoiceSet<?> arg1)
-		{
-			return compareChoiceSets(arg0, arg1);
-		}
-	};
 
 	/**
 	 * Compares two PrimitiveChoiceSet objects to establish which should "sort"

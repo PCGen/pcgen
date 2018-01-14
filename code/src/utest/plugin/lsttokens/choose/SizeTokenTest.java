@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCCheck;
 import pcgen.core.Race;
@@ -39,7 +37,7 @@ public class SizeTokenTest extends
 	static ChooseLst token = new ChooseLst();
 	static SizeToken subtoken = new SizeToken();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -69,12 +67,6 @@ public class SizeTokenTest extends
 	public Class<SizeAdjustment> getTargetClass()
 	{
 		return SizeAdjustment.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

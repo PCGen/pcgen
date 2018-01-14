@@ -44,7 +44,6 @@ import pcgen.core.SettingsHandler;
  * ChallengeRatingFacet is a Facet that calculates the Challenge Rating of a
  * Player Character
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ChallengeRatingFacet
 {
@@ -101,7 +100,7 @@ public class ChallengeRatingFacet
 		// calculate and add in the MISC bonus to CR
 		cr += (int) bonusCheckingFacet.getBonus(id, "MISC", "CR");
 
-		return Integer.valueOf(cr);
+		return cr;
 	}
 
 	/**
@@ -226,7 +225,7 @@ public class ChallengeRatingFacet
 			if (classRoleList != null) 
 			{
 				classRoleList.retainAll(raceRoleList);
-				if (classRoleList.size() > 0)
+				if (!classRoleList.isEmpty())
 				{
 					levelsKey += levels;
 				}
@@ -259,7 +258,7 @@ public class ChallengeRatingFacet
 		while (levelsNonKey > 1)
 		{
 			cr++;
-			// TODO: maybe the divisor 2 should be be made configurable, 
+			// TODO: maybe the divisor 2 should be made configurable, 
 			// or the whole calculation put into a formula
 			levelsNonKey -= 2;
 			levelsConverted += 2;
@@ -274,7 +273,7 @@ public class ChallengeRatingFacet
 		}
 		cr += levelsKey;
 	
-		return Integer.valueOf(cr);
+		return cr;
 	}
 
 	private Integer getClassRaceCRMod(CharID id, PCClass cl)
@@ -445,7 +444,7 @@ public class ChallengeRatingFacet
 	{
 		Map<Integer, Integer> xpAwardsMap = SettingsHandler.getGame().getXPAwards();
 
-		if (xpAwardsMap.size() > 0)
+		if (!xpAwardsMap.isEmpty())
 		{
 			Integer cr = getCR(id);
 			if (cr == null)

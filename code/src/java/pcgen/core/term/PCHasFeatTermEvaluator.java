@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCHasFeatTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 12:05:11
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -47,7 +41,7 @@ public class PCHasFeatTermEvaluator
 		boolean hasFeat =
 				pc.hasAbilityKeyed(AbilityCategory.FEAT, feat)
 					|| pc.hasAbilityKeyed(AbilityCategory.FEAT, AbilityUtilities.removeChoicesFromName(feat));
-		return hasFeat ? 1f : 0f;
+		return hasFeat ? 1.0f : 0.0f;
 	}
 
 	@Override

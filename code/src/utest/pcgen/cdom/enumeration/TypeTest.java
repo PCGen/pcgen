@@ -1,5 +1,4 @@
 /*
- * TypeTest.java
  * Copyright 2008 (C) Jasper Spaans <jasperspaans@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,25 +17,19 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
-
-import junit.framework.TestCase;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 
 /**
- * The Class <code>TypeTest</code> tests that the Type
- * class is functioning correctly. 
+ * The Class {@code TypeTest} tests that the Type
+ * class is functioning correctly.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
- * 
- * @author Jasper Spaans <jasperspaans@users.sourceforge.net>
- * @version $Revision:  $
  */
-public class TypeTest extends TestCase
+public class TypeTest
 {
 	
 	/**
@@ -48,13 +41,13 @@ public class TypeTest extends TestCase
 	{
 		try
 		{
-			Set<Type> typeset = new HashSet<Type>();
+			Collection<Type> typeset = new HashSet<>();
 			typeset.add(Type.getConstant("testitem 1"));
 			typeset.add(Type.getConstant("testitem 2"));
 		}
 		catch (ClassCastException cce)
 		{
-			fail();
+			fail("type can't be sorted by adding to hashset");
 		}
 
 	}

@@ -1,5 +1,4 @@
 /*
- * AbilitySelectionTokenTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,16 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/06/2013
- *
- * $Id$
  */
 package plugin.lsttokens.choose;
 
 import java.net.URISyntaxException;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
@@ -47,9 +40,6 @@ public class AbilitySelectionTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Ability>
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -63,7 +53,7 @@ public class AbilitySelectionTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static AbilitySelectionToken subtoken = new AbilitySelectionToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -93,12 +83,6 @@ public class AbilitySelectionTokenTest extends
 	public Class<Ability> getTargetClass()
 	{
 		return Ability.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

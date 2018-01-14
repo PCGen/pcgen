@@ -1,5 +1,4 @@
 /*
- * PObjectUtilitiesTest.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Apr 1, 2006
- *
- * $Id:  $
- *
  */
 package pcgen.core;
 
@@ -31,12 +25,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 /**
  * <code>PObjectUtilitiesTest</code> verifies that the PObjectUtilities
  * class is working correctly.
- *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 @SuppressWarnings("nls")
 public class PObjectUtilitiesTest extends AbstractCharacterTestCase
@@ -44,14 +32,6 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 	private PCClass arcaneClass = null;
 	private PCClass divineClass = null;
 	private PCClass psionicClass = null;
-
-	/**
-	 * Default Constructor
-	 */
-	public PObjectUtilitiesTest()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()

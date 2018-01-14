@@ -1,5 +1,4 @@
 /*
- * SpellNodeDataView.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,7 +22,7 @@ package pcgen.gui2.tabs.spells;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import pcgen.facade.core.InfoFactory;
 
 import pcgen.facade.core.SpellFacade;
@@ -99,9 +98,6 @@ class SpellNodeDataView implements DataView<SuperNode>
 		return columns;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getPrefsKey()
 	{

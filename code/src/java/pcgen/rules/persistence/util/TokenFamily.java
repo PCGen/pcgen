@@ -81,7 +81,7 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	 * where the token can be used and the token name.
 	 */
 	private final DoubleKeyMap<Class<?>, String, CDOMToken<?>> tokenMap =
-			new DoubleKeyMap<Class<?>, String, CDOMToken<?>>();
+            new DoubleKeyMap<>();
 
 	/**
 	 * The CDOMSecondaryTokens available in this TokenFamily. This is stored by
@@ -89,21 +89,21 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	 * and the subtoken name.
 	 */
 	private final TripleKeyMap<Class<?>, String, String, CDOMSecondaryToken<?>> subTokenMap =
-			new TripleKeyMap<Class<?>, String, String, CDOMSecondaryToken<?>>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
+            new TripleKeyMap<>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	/**
 	 * The PRExxx tokens available in this TokenFamily. This is stored by the
 	 * token name.
 	 */
 	private final Map<CaseInsensitiveString, PrerequisiteParserInterface> preTokenMap =
-			new HashMap<CaseInsensitiveString, PrerequisiteParserInterface>();
+            new HashMap<>();
 
 	/**
 	 * The DeferredTokens defined for this TokenFamily. This set of tokens will
 	 * be run after the initial pass of the data load is complete
 	 */
 	private final List<DeferredToken<? extends Loadable>> deferredTokenList =
-			new ArrayList<DeferredToken<? extends Loadable>>();
+            new ArrayList<>();
 
 	/**
 	 * The Group Definitions available for this TokenFamily. These are FACT and
@@ -111,7 +111,7 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	 * the Token name.
 	 */
 	private final DoubleKeyMap<Class<?>, String, GroupDefinition<?>> groupDefinitionMap =
-			new DoubleKeyMap<Class<?>, String, GroupDefinition<?>>(HashMap.class, CaseInsensitiveMap.class);
+            new DoubleKeyMap<>(HashMap.class, CaseInsensitiveMap.class);
 	
 	/**
 	 * Constructs a new TokenFamily for the given Revision.
@@ -297,7 +297,7 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	 */
 	private static void buildMap()
 	{
-		typeMap = new TreeMap<Revision, TokenFamily>();
+		typeMap = new TreeMap<>();
 		Class<TokenFamily> cl = TokenFamily.class;
 		Field[] fields = cl.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
@@ -425,14 +425,14 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	 */
 	public List<DeferredToken<? extends Loadable>> getDeferredTokens()
 	{
-		return new ArrayList<DeferredToken<? extends Loadable>>(
-				deferredTokenList);
+		return new ArrayList<>(
+                deferredTokenList);
 	}
 
 	/**
 	 * Adds a new DeferredToken to this TokenLibrary.
 	 * 
-	 * @param tok
+	 * @param newToken
 	 *            The DeferredToken to be added to this TokenLibrary
 	 */
 	public void addDeferredToken(DeferredToken<?> newToken)

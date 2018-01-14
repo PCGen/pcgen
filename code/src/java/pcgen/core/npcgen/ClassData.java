@@ -1,5 +1,4 @@
 /*
- * ClassData.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.core.npcgen;
 
@@ -43,9 +38,7 @@ import pcgen.core.spell.Spell;
 /**
  * Stores information about how to randomly generate selections for a class.
  * 
- * @author boomer70 <boomer70@yahoo.com>
  * 
- * @since 5.11.1
  */
 public class ClassData
 {
@@ -84,7 +77,7 @@ public class ClassData
 	{
 		if ( theStatWeights == null )
 		{
-			theStatWeights = new WeightedCollection<PCStat>();
+			theStatWeights = new WeightedCollection<>();
 		}
 		theStatWeights.add(stat, aWeight);
 	}
@@ -114,7 +107,7 @@ public class ClassData
 	{
 		if ( theSkillWeights == null )
 		{
-			theSkillWeights = new WeightedCollection<SkillChoice>();
+			theSkillWeights = new WeightedCollection<>();
 		}
 		for ( final SkillChoice sc : theSkillWeights )
 		{
@@ -155,12 +148,12 @@ public class ClassData
 	{
 		if ( theAbilityWeights == null )
 		{
-			theAbilityWeights = new HashMap<AbilityCategory, WeightedCollection<Ability>>();
+			theAbilityWeights = new HashMap<>();
 		}
 		WeightedCollection<Ability> abilities = theAbilityWeights.get(aCategory);
 		if ( abilities == null )
 		{
-			abilities = new WeightedCollection<Ability>();
+			abilities = new WeightedCollection<>();
 			theAbilityWeights.put(aCategory, abilities);
 		}
 		if ( ! abilities.contains(anAbility) )
@@ -211,7 +204,7 @@ public class ClassData
 	{
 		if ( theDeityWeights == null )
 		{
-			theDeityWeights = new WeightedCollection<Deity>();
+			theDeityWeights = new WeightedCollection<>();
 		}
 		
 		theDeityWeights.add(aDeity, aWeight);
@@ -233,12 +226,12 @@ public class ClassData
 	{
 		if ( theDomainWeights == null )
 		{
-			theDomainWeights  = new HashMap<String, WeightedCollection<Domain>>();
+			theDomainWeights  = new HashMap<>();
 		}
 		WeightedCollection<Domain> domains = theDomainWeights.get(aDeityKey);
 		if ( domains == null )
 		{
-			domains = new WeightedCollection<Domain>();
+			domains = new WeightedCollection<>();
 			theDomainWeights.put( aDeityKey, domains );
 		}
 		domains.add(aDomain, aWeight);
@@ -248,12 +241,12 @@ public class ClassData
 	{
 		if ( theDomainWeights == null )
 		{
-			theDomainWeights  = new HashMap<String, WeightedCollection<Domain>>();
+			theDomainWeights  = new HashMap<>();
 		}
 		WeightedCollection<Domain> domains = theDomainWeights.get(aDeityKey);
 		if ( domains == null )
 		{
-			domains = new WeightedCollection<Domain>();
+			domains = new WeightedCollection<>();
 			Deity deity = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Deity.class, aDeityKey);
 			for (CDOMReference<Domain> deityDomains : deity.getSafeListMods(Deity.DOMAINLIST))
 			{
@@ -269,12 +262,12 @@ public class ClassData
 	{
 		if ( theKnownSpellWeights == null )
 		{
-			theKnownSpellWeights = new HashMap<Integer, WeightedCollection<Spell>>();
+			theKnownSpellWeights = new HashMap<>();
 		}
 		WeightedCollection<Spell> spells = theKnownSpellWeights.get(aLevel);
 		if ( spells == null )
 		{
-			spells = new WeightedCollection<Spell>();
+			spells = new WeightedCollection<>();
 			theKnownSpellWeights.put(aLevel, spells);
 		}
 		if ( ! spells.contains(aSpell) )
@@ -301,12 +294,12 @@ public class ClassData
 	{
 		if ( theKnownSpellWeights == null )
 		{
-			theKnownSpellWeights = new HashMap<Integer, WeightedCollection<Spell>>();
+			theKnownSpellWeights = new HashMap<>();
 		}
 		WeightedCollection<Spell> spells = theKnownSpellWeights.get(aLevel);
 		if ( spells == null )
 		{
-			spells = new WeightedCollection<Spell>();
+			spells = new WeightedCollection<>();
 			
 			for (final Spell spell : pc.getSpellsIn(theClass.get(ObjectKey.CLASS_SPELLLIST),
 				aLevel))
@@ -321,12 +314,12 @@ public class ClassData
 	{
 		if ( thePreparedSpellWeights == null )
 		{
-			thePreparedSpellWeights = new HashMap<Integer, WeightedCollection<Spell>>();
+			thePreparedSpellWeights = new HashMap<>();
 		}
 		WeightedCollection<Spell> spells = thePreparedSpellWeights.get(aLevel);
 		if ( spells == null )
 		{
-			spells = new WeightedCollection<Spell>();
+			spells = new WeightedCollection<>();
 			thePreparedSpellWeights.put(aLevel, spells);
 		}
 		if ( ! spells.contains(aSpell) )
@@ -353,12 +346,12 @@ public class ClassData
 	{
 		if ( thePreparedSpellWeights == null )
 		{
-			thePreparedSpellWeights = new HashMap<Integer, WeightedCollection<Spell>>();
+			thePreparedSpellWeights = new HashMap<>();
 		}
 		WeightedCollection<Spell> spells = thePreparedSpellWeights.get(aLevel);
 		if ( spells == null )
 		{
-			spells = new WeightedCollection<Spell>();
+			spells = new WeightedCollection<>();
 			
 			for (final Spell spell : pc.getSpellsIn(theClass.get(ObjectKey.CLASS_SPELLLIST),
 				aLevel))
@@ -373,7 +366,7 @@ public class ClassData
 	{
 		if ( theSubClassWeights == null )
 		{
-			theSubClassWeights = new WeightedCollection<String>();
+			theSubClassWeights = new WeightedCollection<>();
 		}
 		theSubClassWeights.add(aKey, aWeight);
 	}

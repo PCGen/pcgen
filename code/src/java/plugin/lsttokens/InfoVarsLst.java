@@ -72,7 +72,7 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 					+ " found an error. " + name
 					+ " is not a legal variable name in scope "
 					+ scope.getName() + " in " + cdo.getClass().getSimpleName()
-					+ " " + cdo.getKeyName(), context);
+					+ ' ' + cdo.getKeyName(), context);
 			}
 		}
 		CaseInsensitiveString cis = new CaseInsensitiveString(key);
@@ -89,7 +89,7 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CaseInsensitiveString key : changes.getAdded().keySet())
 		{
 			String[] value = changes.getAdded().get(key);

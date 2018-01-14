@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 
 public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFilter<WeaponProf>
 {
-	private PrimitiveCollection<WeaponProf> pcs = null;
+	private PrimitiveCollection<WeaponProf> pcs;
 	
 	@Override
 	public String getTokenName()
@@ -119,7 +119,7 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 	@Override
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
 	{
-		return pcs.getCollection(pc, new AddFilterConverter<WeaponProf, R>(c, this));
+		return pcs.getCollection(pc, new AddFilterConverter<>(c, this));
 	}
 
 	@Override

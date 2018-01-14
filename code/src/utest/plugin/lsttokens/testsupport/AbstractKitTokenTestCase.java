@@ -56,7 +56,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	public static void classSetUp() throws URISyntaxException
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
 				"file:/Test%20Case"));
@@ -95,11 +95,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		{
 			return getCDOMClass().newInstance();
 		}
-		catch (InstantiationException e)
-		{
-			throw new InternalError(e.getMessage());
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			throw new InternalError(e.getMessage());
 		}
@@ -118,11 +114,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
@@ -177,7 +169,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
-	public boolean parse(String str) throws PersistenceLayerException
+	public boolean parse(String str)
 	{
 		ParseResult pr = getToken()
 				.parseToken(primaryContext, primaryProf, str);
@@ -195,7 +187,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		return pr.passed();
 	}
 
-	public boolean parseSecondary(String str) throws PersistenceLayerException
+	public boolean parseSecondary(String str)
 	{
 		boolean b = getToken().parseToken(secondaryContext, secondaryProf, str).passed();
 		if (b)

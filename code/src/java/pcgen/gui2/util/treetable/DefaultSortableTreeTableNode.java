@@ -1,5 +1,4 @@
 /*
- * DefaultSortableTreeTableNode.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 21, 2008, 3:11:09 PM
  */
 package pcgen.gui2.util.treetable;
 
@@ -27,7 +25,6 @@ import pcgen.gui2.util.table.Row;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
  */
 public class DefaultSortableTreeTableNode extends DefaultTreeTableNode
         implements SortableTreeTableNode
@@ -63,7 +60,7 @@ public class DefaultSortableTreeTableNode extends DefaultTreeTableNode
     {
         if (children != null)
         {
-            Collections.sort(children, comparator);
+            children.sort(comparator);
             for (int x = 0; x < children.size(); x++)
             {
                 SortableTreeTableNode child = (SortableTreeTableNode) children.get(x);

@@ -17,14 +17,15 @@
  */
 package pcgen.output.model;
 
-import pcgen.base.util.Reference;
+import java.util.function.Supplier;
+
 import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateModelException;
 
 /**
  * A BooleanModel wraps a boolean object into a TemplateScalarModel
  */
-public class BooleanModel implements TemplateBooleanModel, Reference<Boolean>
+public class BooleanModel implements TemplateBooleanModel, Supplier<Boolean>
 {
 	/**
 	 * The underlying boolean object

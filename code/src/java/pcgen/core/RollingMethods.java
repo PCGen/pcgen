@@ -1,5 +1,4 @@
 /*
- * RollingMethods.java
  * Copyright 2001 (C) Mario Bonassin
  *
  * This library is free software; you can redistribute it and/or
@@ -16,32 +15,28 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * $Id$
  */
 package pcgen.core;
-
-import pcgen.base.util.RandomUtil;
-import pcgen.util.Logging;
 
 import java.util.Arrays;
 import java.util.Stack;
 import java.util.Vector;
-import org.nfunk.jep.*;
+import java.util.stream.IntStream;
+
+import pcgen.base.util.RandomUtil;
+import pcgen.util.Logging;
+
+import org.nfunk.jep.JEP;
+import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.List;
 import org.nfunk.jep.function.PostfixMathCommand;
 
-/**
- * <code>RollingMethods</code>.
- *
- * @author Mario Bonassin <zebuleon@users.sourceforge.net>
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision$
- */
 public final class RollingMethods
 {
+
+    private RollingMethods()
+    {
+    }
 
     /**
      * Roll <var>times</var> number of dice with <var>sides</var>
@@ -54,7 +49,7 @@ public final class RollingMethods
      */
     public static int roll(final int times, final int sides)
     {
-        return roll(times, sides, times, 0, 0);
+        return roll(times, sides, times, 0);
     }
 
     /**
@@ -84,86 +79,26 @@ public final class RollingMethods
     public static int roll(int times, final int sides, final int[] keep)
     {
         // return roll (times, sides, keep, 0, 0);
-        final int[] rolls = new int[times];
-
-        while (--times >= 0)
-        {
-            rolls[times] = RandomUtil.getRandomInt(sides);
-        }
-
-        java.util.Arrays.sort(rolls);
-
-        int total = keep.length; // keep the +1 at the end
-
-        for (int i = 0; i < keep.length; ++i)
-        {
-            total += rolls[keep[i]]; // 0-indexed
-        }
-
-        return total;
+        int[] ints = IntStream.generate(() -> RandomUtil.getRandomInt(sides))
+                              .limit(times)
+                              .sorted()
+                              .toArray();
+        // keep the +1 at the end
+        return Arrays.stream(keep)
+                     .reduce(keep.length, (a, aKeep) -> a + ints[aKeep]);
     }
 
-    /**
-     * Roll <var>times</var> bizarre dice.
-     *
-     * @param times int how many dice to roll?
-     * @param shape int[] array of values of sides of die
-     *
-     * @return what the die says
-     */
-    public static int roll(int times, final int[] shape)
+    private static int getLeftIndex(final StringBuilder expression, int startIndex)
     {
-        int total = 0;
-
-        while (--times >= 0)
-        {
-            total += shape[RandomUtil.getRandomInt(shape.length)];
-        }
-
-        return total;
-    }
-
-    /**
-     * Roll <var>times</var> bizarre dice, keeping
-     * <var>keep</keep> of them in ascending order.
-     *
-     * @param times int how many dice to roll?
-     * @param shape int[] array of values of sides of die
-     * @param keep int[] which dice to keep
-     *
-     * @return what the die says
-     */
-    public static int roll(int times, final int[] shape, final int[] keep)
-    {
-        final int[] rolls = new int[times];
-
-        while (--times >= 0)
-        {
-            rolls[times] = shape[RandomUtil.getRandomInt(shape.length)];
-        }
-
-        Arrays.sort(rolls);
-
-        int total = 0;
-
-        for (int i = 0; i < keep.length; ++i)
-        {
-            total += rolls[keep[i]]; // 0-indexed
-        }
-
-        return total;
-    }
-
-    private static int getLeftIndex(StringBuilder expression, int startIndex)
-    {
+        int startIndex1 = startIndex;
         int parenth = 0;
         char c;
         do
         {
-            startIndex--;
-            if (startIndex >= 0)
+            startIndex1--;
+            if (startIndex1 >= 0)
             {
-                c = expression.charAt(startIndex);
+                c = expression.charAt(startIndex1);
             }
             else
             {
@@ -177,21 +112,22 @@ public final class RollingMethods
             {
                 parenth--;
             }
-        } while (parenth > 0 || c == 'd' || c == '*' || c == '/' || c == ' ' ||
+        } while ((parenth > 0) || (c == 'd') || (c == '*') || (c == '/') || (c == ' ') ||
                 Character.isDigit(c));
-        return startIndex + 1;
+        return startIndex1 + 1;
     }
 
-    private static int getRightIndex(StringBuilder expression, int startIndex)
+    private static int getRightIndex(final StringBuilder expression, int startIndex)
     {
+        int startIndex1 = startIndex;
         int parenth = 0;
         char c;
         do
         {
-            startIndex++;
-            if (startIndex < expression.length())
+            startIndex1++;
+            if (startIndex1 < expression.length())
             {
-                c = expression.charAt(startIndex);
+                c = expression.charAt(startIndex1);
             }
             else
             {
@@ -205,9 +141,9 @@ public final class RollingMethods
             {
                 parenth--;
             }
-        } while (parenth > 0 || c == '*' || c == '/' || c == ' ' ||
+        } while ((parenth > 0) || (c == '*') || (c == '/') || (c == ' ') ||
                 Character.isDigit(c));
-        return startIndex;
+        return startIndex1;
     }
 
     /**
@@ -216,8 +152,6 @@ public final class RollingMethods
      * operations (including exponentiation) are supported
      * Functions builtin include max, min, roll
      *  Add new functions to DiceExpressionFunctions
-     *
-     * @see pcgen.util.DiceExpression
      *
      * @param method String formatted string representing dice roll
      *
@@ -231,7 +165,7 @@ public final class RollingMethods
         {
             return r;
         }
-        StringBuilder expression = new StringBuilder(method.replaceAll("d%",
+        final StringBuilder expression = new StringBuilder(method.replaceAll("d%",
                                                                        "1d100"));
         int index = expression.lastIndexOf("d");
         while (index != -1)
@@ -243,7 +177,7 @@ public final class RollingMethods
         }
         String exp = expression.toString();
         exp = exp.replaceAll("\\[", "list(").replaceAll("\\]", ")");
-        JEP jep = new JEP();
+        final JEP jep = new JEP();
         jep.addStandardFunctions();
         jep.addFunction("roll", new Roll());
         jep.addFunction("top", new Top());
@@ -263,86 +197,54 @@ public final class RollingMethods
     }
 
     /**
-     * Roll {<code>times</code>} 1d{<code>sides</code>}, reroll any result <= {<code>reroll</code>}.
-     * Add together the highest {<code>numToKeep</code>} dice then add {<code>modifier</code>}
+     * Roll {{@code times}} 1d{{@code sides}}, reroll any result <= {{@code reroll}}.
+     * Add together the highest {{@code numToKeep}} dice then add {{@code modifier}}
      * and return the result.
      *
      * @param times
      * @param sides
      * @param numToKeep
      * @param reroll
-     * @param modifier
      * @return the result of the die roll
      */
     private static int roll(
             final int times,
             final int sides,
             final int numToKeep,
-            final int reroll,
-            final int modifier)
+            final int reroll)
     {
-        final int[] dieRoll = new int[times];
-        int total = 0;
-        final int keep = (numToKeep > times) ? times : numToKeep;
-
-        for (int i = 0; i < times; ++i)
-        {
-            dieRoll[i] = roll(sides - reroll) + reroll;
-        }
-
-        Arrays.sort(dieRoll);
-
-        if (Logging.isDebugMode())
-        {
-            final StringBuilder rollString = new StringBuilder(times << 2);
-            rollString.append(dieRoll[0]);
-
-            if (times > 1)
-            {
-                for (int i = 1; i < times; ++i)
-                {
-                    rollString.append(" + ").append(dieRoll[i]);
-                }
-            }
-            Logging.debugPrint(rollString.toString());
-        }
-
-        // Now add together the highest "keep" dice
-
-        for (int j = times - keep; j < times; j++)
-        {
-            total += dieRoll[j];
-        }
-
-        return total + modifier;
+        return IntStream.generate(() -> roll(sides - reroll) + reroll)
+            .limit(times)
+            .sorted()
+            .skip(times-numToKeep)
+            .sum();
     }
 
     /**
-     * @author RossLodge
      * 
      * <p>This class forms the basis for the dJEP extensions to the JEP library.
-     * It evaluates a <code>ROLL</code> token, which is an operator that comes
+     * It evaluates a {@code ROLL} token, which is an operator that comes
      * in precedence between multiplicative and additive operators.</p>
      * 
      * <p>The class receives two parameters, the number of rolls and the number of
      * faces per die, as in "3d6," or whatever.  It initializes a random number
-     * generator, which must be a subclass of <code>edu.cornell.lassp.houle.RngPack.RandomElement</code>.
+     * generator, which must be a subclass of {@code edu.cornell.lassp.houle.RngPack.RandomElement}.
      * A default randomizer class is provided that wraps the java.util.Random class.
      * The class used may be changed via setRandomClassName.</p>
      * 
      * <p>The class provides very minimal retrieval of individual rolls, via the
-     * <code>getRolls()</code> method.</p>
+     * {@code getRolls()} method.</p>
      */
-    private static class Roll extends PostfixMathCommand
+    private static final class Roll extends PostfixMathCommand
     {
 
         /**
          * 
          * <p>The default (and only) constructor.  Sets the number
-         * of parameters for the JEP package, and calls <code>setRandom()</code> to
+         * of parameters for the JEP package, and calls {@code setRandom()} to
          * initialize the randomizer.</p>
          */
-        public Roll()
+        private Roll()
         {
             numberOfParameters = -1;
         }
@@ -356,10 +258,10 @@ public final class RollingMethods
          * @see org.nfunk.jep.function.PostfixMathCommandI#run(java.util.Stack)
          */
         @Override
-        public void run(Stack inStack) throws ParseException
+        public void run(final Stack stack) throws ParseException
         {
             // check the stack
-            checkStack(inStack);
+            checkStack(stack);
             if (curNumberOfParameters < 2)
             {
                 throw new ParseException("Too few parameters");
@@ -374,16 +276,16 @@ public final class RollingMethods
             int reroll = 0;
             while (curNumberOfParameters > 2)
             {
-                Object param = inStack.pop();
-                if (param instanceof Top.TopRolls && numToKeep == 0)
+                final Object param = stack.pop();
+                if ((param instanceof Top.TopRolls) && (numToKeep == 0))
                 {
                     numToKeep = ((Top.TopRolls) param).getRolls();
                 }
-                else if (param instanceof Reroll.Rerolls && reroll == 0)
+                else if ((param instanceof Reroll.Rerolls) && (reroll == 0))
                 {
                     reroll = ((Reroll.Rerolls) param).getRolls();
                 }
-                else if (param instanceof Vector && curNumberOfParameters == 3)
+                else if ((param instanceof Vector) && (curNumberOfParameters == 3))
                 {
                     if (numToKeep != 0)
                     {
@@ -393,12 +295,11 @@ public final class RollingMethods
                     {
                         throw new ParseException("Reroll not compatable with older syntax, use top(NUMBER) instead");
                     }
-                    Vector vec = (Vector) param;
+                    final Vector vec = (Vector) param;
                     keep = new int[vec.size()];
                     for (int x = 0; x < vec.size(); x++)
                     {
-                        keep[x] = ((int) Math.round(((Double) vec.get(x)).doubleValue())) -
-                                1;
+                        keep[x] = ((int) Math.round((Double) vec.get(x))) - 1;
                     }
                 }
                 else
@@ -409,23 +310,23 @@ public final class RollingMethods
             }
 
             // get the parameter from the stack
-            Object faces = inStack.pop();
-            Object numberOfRolls = inStack.pop();
+            Object faces = stack.pop();
+            final Object numberOfRolls = stack.pop();
             if (faces instanceof Vector)
             {
-                Vector vec = (Vector) faces;
+                final java.util.List vec = (java.util.List) faces;
                 faces = vec.get(RandomUtil.getRandomInt(vec.size()));
             }
             // check whether the argument is of the right type
-            if (faces instanceof Double &&
-                    numberOfRolls instanceof Double)
+            if ((faces instanceof Double) &&
+                    (numberOfRolls instanceof Double))
             {
                 // calculate the result
                 //Integer.MAX_VALUE
-                double dRolls = ((Double) numberOfRolls).doubleValue();
-                double dFaces = ((Double) faces).doubleValue();
-                if (dRolls > Integer.MAX_VALUE || dFaces >
-                        Integer.MAX_VALUE)
+                final double dRolls = (Double) numberOfRolls;
+                final double dFaces = (Double) faces;
+                if ((dRolls > Integer.MAX_VALUE) || (dFaces >
+                        Integer.MAX_VALUE))
                 {
                     throw new ParseException("Values greater than " +
                                              Integer.MAX_VALUE +
@@ -440,14 +341,14 @@ public final class RollingMethods
                 double result = 0;
                 if (keep == null)
                 {
-                    result = roll(iRolls, iFaces, numToKeep, reroll, 0);
+                    result = roll(iRolls, iFaces, numToKeep, reroll);
                 }
                 else
                 {
                     result = roll(iRolls, iFaces, keep);
                 }
                 // push the result on the inStack
-                inStack.push(new Double(result));
+                stack.push(result);
             }
             else
             {
@@ -457,30 +358,30 @@ public final class RollingMethods
 
     }
 
-    private static class Top extends PostfixMathCommand
+    private static final class Top extends PostfixMathCommand
     {
 
-        public Top()
+        private Top()
         {
             numberOfParameters = 1;
         }
 
         @Override
-        public void run(Stack inStack) throws ParseException
+        public void run(final Stack stack) throws ParseException
         {
-            Object param = inStack.pop();
+            final Object param = stack.pop();
             if (param instanceof Double)
             {
-                double dRolls = ((Double) param).doubleValue();
+                final double dRolls = (Double) param;
                 if (dRolls > Integer.MAX_VALUE)
                 {
                     throw new ParseException("Values greater than " +
                                              Integer.MAX_VALUE + " not allowed.");
                 }
-                int iRolls = (int) Math.round(dRolls);
+                final int iRolls = (int) Math.round(dRolls);
                 if (iRolls > 0)
                 {
-                    inStack.push(new TopRolls(iRolls));
+                    stack.push(new TopRolls(iRolls));
                 }
                 else
                 {
@@ -493,12 +394,12 @@ public final class RollingMethods
             }
         }
 
-        public static class TopRolls
+        static final class TopRolls
         {
 
-            private Integer rolls;
+            private final Integer rolls;
 
-            public TopRolls(Integer rolls)
+            private TopRolls(final Integer rolls)
             {
                 this.rolls = rolls;
             }
@@ -511,30 +412,30 @@ public final class RollingMethods
         }
     }
 
-    private static class Reroll extends PostfixMathCommand
+    private static final class Reroll extends PostfixMathCommand
     {
 
-        public Reroll()
+        private Reroll()
         {
             numberOfParameters = 1;
         }
 
         @Override
-        public void run(Stack inStack) throws ParseException
+        public void run(final Stack stack) throws ParseException
         {
-            Object param = inStack.pop();
+            final Object param = stack.pop();
             if (param instanceof Double)
             {
-                double dRolls = ((Double) param).doubleValue();
+                final double dRolls = (Double) param;
                 if (dRolls > Integer.MAX_VALUE)
                 {
                     throw new ParseException("Values greater than " +
                                              Integer.MAX_VALUE + " not allowed.");
                 }
-                int iRolls = (int) Math.round(dRolls);
+                final int iRolls = (int) Math.round(dRolls);
                 if (iRolls > 0)
                 {
-                    inStack.push(new Rerolls(iRolls));
+                    stack.push(new Rerolls(iRolls));
                 }
                 else
                 {
@@ -547,12 +448,12 @@ public final class RollingMethods
             }
         }
 
-        public static class Rerolls
+        static final class Rerolls
         {
 
-            private Integer rolls;
+            private final Integer rolls;
 
-            public Rerolls(Integer rolls)
+            private Rerolls(final Integer rolls)
             {
                 this.rolls = rolls;
             }

@@ -45,7 +45,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * The list of underlying references that this CDOMCompoundOrReference
 	 * contains
 	 */
-	private final ArrayList<CDOMReference<T>> references = new ArrayList<CDOMReference<T>>();
+	private final ArrayList<CDOMReference<T>> references = new ArrayList<>();
 
 	/**
 	 * Creates a new CDOMCompoundOrReference with the given name which will
@@ -209,7 +209,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	@Override
 	public Collection<T> getContainedObjects()
 	{
-		Set<T> set = new HashSet<T>();
+		Set<T> set = new HashSet<>();
 		for (CDOMReference<T> ref : references)
 		{
 			set.addAll(ref.getContainedObjects());

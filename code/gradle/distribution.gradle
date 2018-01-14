@@ -4,8 +4,6 @@
  * is called from the main build.gradle file.
  *
  * Usage: gradle builddist
- *
- * Author: James Dempsey
  */
 
 ext {
@@ -29,6 +27,7 @@ ext {
             include 'outputsheets/**'
             include 'system/**'
             include 'preview/**'
+		exclude 'data/zen_test'
         }
     }
 
@@ -38,8 +37,18 @@ ext {
         }
     }
 
+// Redundancy this is root above ziproot
+//    rootDistsImage = copySpec {
+//        from('.') {
+//            include 'pcgen.exe'
+//		include 'pcgen.jar'
+//		include 'pcgen-batch-convert.jar'
+//		include 'pcgen.sh'
+//       }
+//    }
+
     programDistsImage = copySpec {
-        from('build/libs') {
+        from("$buildDir/libs") {
             include 'pcgen-*.jar'
             // Use a regular expression to map the file name
             rename "(.+)-$version(.+)", '$1$2'
@@ -48,22 +57,17 @@ ext {
             include 'pcgen_low_mem.bat'
             include 'plugins/**'
             include 'logging.properties'
-            include 'svn.properties'
-        }
-        from('.') {
-            include 'pcgen.sh'
-            fileMode = 0755
         }
         from('code') {
             include 'LICENSE'
         }
-        from('build/release') {
+        from("$buildDir/launch4j") {
             include 'pcgen.exe'
         }
     }
 
     libsDistsImage = copySpec {
-        from('build/libs') {
+        from("$buildDir/libs") {
             into 'libs'
             exclude 'pcgen-*.jar'
         }
@@ -74,17 +78,9 @@ ext {
             include 'characters/*.pcg'
         }
     }
-
-    jreDistro = copySpec {
-        from('jre/jre_64') {
-            into 'jre'
-        }
-    }
 }
 
-
-task fullZip(type: Zip, dependsOn: ['downloadJRE', 'createExe', 'converterJar',
-     'copyToLibs']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -93,11 +89,12 @@ task fullZip(type: Zip, dependsOn: ['downloadJRE', 'createExe', 'converterJar',
         with libsDistsImage
         with autobuildSpec
         with charactersImage
-        with jreDistro
     }
+// Redundancy, not required with copyToRoot above
+//    into("") {
+//        with rootDistsImage
+//    }
 }
-fullZip.mustRunAfter createExe
-
 
 task dataZip(type: Zip) {
     classifier = 'data'
@@ -131,8 +128,7 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'fullZip', 'createExe']) {
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', \
+'fullZip']) {
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }
-
-buildDist.mustRunAfter createExe

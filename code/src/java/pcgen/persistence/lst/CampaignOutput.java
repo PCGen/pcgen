@@ -1,5 +1,4 @@
 /*
- * CampaignOutput.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  */
 package pcgen.persistence.lst;
 
@@ -39,10 +37,8 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
 /**
- * <code>CampaignOutput</code> writes out data sets to PCC files.
+ * {@code CampaignOutput} writes out data sets to PCC files.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
  */
 public final class CampaignOutput
 {
@@ -90,21 +86,13 @@ public final class CampaignOutput
 				}
 			}
 		}
-		catch (FileNotFoundException exc)
+		catch (FileNotFoundException | UnsupportedEncodingException exc)
 		{
 			Logging.errorPrint("Error while writing to " + outFile.toString(),
 				exc);
 
 			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
-		}
-		catch (UnsupportedEncodingException exc)
-		{
-			Logging.errorPrint("Error while writing to " + outFile.toString(),
-				exc);
-
-			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
-		}
-		finally
+		} finally
 		{
 			try
 			{

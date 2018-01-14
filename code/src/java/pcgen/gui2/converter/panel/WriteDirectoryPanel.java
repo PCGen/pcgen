@@ -17,23 +17,22 @@
  */
 package pcgen.gui2.converter.panel;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
-
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -47,33 +46,19 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 
 	private File path = null;
 
-	private SpringLayout layout = new SpringLayout();
+	private final SpringLayout layout = new SpringLayout();
 
 	private final JLabel fileLabel;
 	private final JLabel warningLabel;
 
-	private FilenameFilter pccFileFilter = new FilenameFilter()
+	private final FilenameFilter pccFileFilter = (parentDir, fileName) ->
 	{
 
-        @Override
-		public boolean accept(File parentDir, String fileName)
+		if (StringUtils.endsWithIgnoreCase(fileName, ".pcc"))
 		{
-			/*
-			 * This is a specific "hack" in order to speed loading when
-			 * in a development (Subversion-based) environment - Tom
-			 * Parker 1/17/07
-			 */
-			if (".svn".equals(fileName))
-			{
-				return false;
-			}
-			if (StringUtils.endsWithIgnoreCase(fileName, ".pcc"))
-			{
-				return true;
-			}
-			return new File(parentDir, fileName).isDirectory();
+			return true;
 		}
-
+		return new File(parentDir, fileName).isDirectory();
 	};
 
 	private List<Campaign> campaignList;
@@ -82,11 +67,6 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 	{
 		fileLabel = new JLabel();
 		warningLabel = new JLabel();
-	}
-
-	public String getPath()
-	{
-		return path.getAbsolutePath();
 	}
 
 	@Override
@@ -120,7 +100,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#returnAllowed()
 	 */
 	@Override
@@ -133,9 +113,9 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 	public void setupDisplay(JPanel panel, final CDOMObject pc)
 	{
 		panel.setLayout(layout);
-		JLabel label = new JLabel(
+		Component label = new JLabel(
 				"Please select the Directory where Converted files should be written: ");
-		JButton button = new JButton("Browse...");
+		AbstractButton button = new JButton("Browse...");
 		button.setMnemonic('r');
 		button.addActionListener(new ActionListener()
 		{
@@ -207,15 +187,15 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 	{
 		List<Campaign> existingCampaigns = getExistingPccs();
 		StringBuilder warning = new StringBuilder("<html>");
-		if (existingCampaigns.size() > 0)
+		if (!existingCampaigns.isEmpty())
 		{
-			int i = 1;
-			final int maxCampaigns = 15;
 			warning.append("<b>Warning</b>: Some converted campaigns already exist in this ");
 			warning.append("destination folder and will be skipped:\n<UL>");
+			final int maxCampaigns = 15;
+			int i = 1;
 			for (Campaign camp : existingCampaigns)
 			{
-				if (i >= maxCampaigns && existingCampaigns.size() > maxCampaigns)
+				if ((i >= maxCampaigns) && (existingCampaigns.size() > maxCampaigns))
 				{
 					warning.append("<li>"
 						+ (existingCampaigns.size() - maxCampaigns + 1)
@@ -235,10 +215,10 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 	
 	private List<Campaign> getExistingPccs()
 	{
-		List<File> existingFiles = new ArrayList<File>();
+		List<File> existingFiles = new ArrayList<>();
 		findPCCFiles(path, existingFiles);
 		
-		List<Campaign> matchingCampaigns = new ArrayList<Campaign>();
+		List<Campaign> matchingCampaigns = new ArrayList<>();
 		
 		for (Campaign camp : campaignList)
 		{
@@ -258,19 +238,19 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 
 	private void findPCCFiles(File aDirectory, List<File> existingFiles)
 	{
-		if (!aDirectory.exists() || !aDirectory.isDirectory())
+		if (aDirectory.isDirectory())
 		{
-			return;
-		}
-		for (File file : aDirectory.listFiles(pccFileFilter))
-		{
-			if (file.isDirectory())
+			for (File file : aDirectory.listFiles(pccFileFilter))
 			{
-				findPCCFiles(file, existingFiles);
-				continue;
+				if (file.isDirectory())
+				{
+					findPCCFiles(file, existingFiles);
+					continue;
+				}
+				existingFiles.add(file);
 			}
-			existingFiles.add(file);
 		}
+
 	}
 	
 }

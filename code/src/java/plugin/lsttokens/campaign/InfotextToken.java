@@ -65,7 +65,7 @@ public class InfotextToken extends AbstractNonEmptyToken<Campaign> implements
 		Changes<String> changes =
 				context.getObjectContext().getListChanges(campaign,
 					ListKey.INFO_TEXT);
-		List<String> set = new ArrayList<String>();
+		List<String> set = new ArrayList<>();
 		Collection<String> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{

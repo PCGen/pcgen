@@ -2,7 +2,6 @@
  * Copyright 2014 (c) Tom Parker <thpr@users.sourceforge.net>
  * derived from BonusManager
  * Copyright 2009 (c) Tom Parker <thpr@users.sourceforge.net>
- * derived from PlayerCharacter.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -25,8 +24,12 @@ import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
-public class BonusDisplay
+public final class BonusDisplay
 {
+
+	private BonusDisplay()
+	{
+	}
 
 	/**
 	 * Returns a String which can be used to display in the GUI
@@ -37,7 +40,7 @@ public class BonusDisplay
 	{
 		final StringBuilder buffer = new StringBuilder(50);
 	
-		buffer.append(ti.source.toString());
+		buffer.append(ti.source);
 		buffer.append(" [");
 	
 		Object targetObj = ti.target;

@@ -17,13 +17,13 @@
  */
 package pcgen.base.util;
 
-import junit.framework.TestCase;
 
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 import pcgen.cdom.base.FormulaFactory;
 
-public class NamedFormulaTest extends TestCase
+public class NamedFormulaTest
 {
 
 	@Test
@@ -34,7 +34,7 @@ public class NamedFormulaTest extends TestCase
 			new NamedFormula(null, FormulaFactory.getFormulaFor("1"));
 			fail("Expected NamedFormula to reject null argument in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// OK
 		}
@@ -43,7 +43,7 @@ public class NamedFormulaTest extends TestCase
 			new NamedFormula("Name", null);
 			fail("Expected NamedFormula to reject null argument in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// OK
 		}

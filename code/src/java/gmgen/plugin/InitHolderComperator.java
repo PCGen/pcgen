@@ -15,22 +15,16 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  InitHolderComperator.java
- *
- *  Created on January 16, 2002, 1:13 PM
  */
 package gmgen.plugin;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
  * Compares InitHolder objects
- *@author     devon
- *@since    April 7, 2003
- *@version $Revision$
  */
-public class InitHolderComperator implements Comparator<InitHolder>
+public class InitHolderComperator implements Comparator<InitHolder>, Serializable
 {
 	/**
 	 *  Description of the Method
@@ -42,20 +36,18 @@ public class InitHolderComperator implements Comparator<InitHolder>
     @Override
 	public int compare(InitHolder o1, InitHolder o2)
 	{
-		InitHolder i1 = o1;
-		InitHolder i2 = o2;
-		SystemInitiative init1 = i1.getInitiative();
-		SystemInitiative init2 = i2.getInitiative();
-		Integer initval1 = Integer.valueOf(init1.getCurrentInitiative());
-		Integer initval2 = Integer.valueOf(init2.getCurrentInitiative());
+		SystemInitiative init1 = o1.getInitiative();
+		SystemInitiative init2 = o2.getInitiative();
+		Integer initval1 = init1.getCurrentInitiative();
+		Integer initval2 = init2.getCurrentInitiative();
 
 		int comp = initval2.compareTo(initval1);
 		if (comp != 0)
 		{
 			return comp;
 		}
-		Integer dexval1 = Integer.valueOf(init1.getAttribute().getValue());
-		Integer dexval2 = Integer.valueOf(init2.getAttribute().getValue());
+		Integer dexval1 = init1.getAttribute().getValue();
+		Integer dexval2 = init2.getAttribute().getValue();
 
 		return dexval1.compareTo(dexval2);
 	}

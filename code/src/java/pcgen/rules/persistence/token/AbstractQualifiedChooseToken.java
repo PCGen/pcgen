@@ -1,5 +1,4 @@
 /*
- * AbstractQualifiedChooseToken.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -75,7 +74,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 					title = title.substring(1, title.length() - 1);
 				}
 				activeValue = value.substring(0, pipeLoc);
-				if (title == null || title.length() == 0)
+				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + ":"
 						+ getTokenName() + " had TITLE= but no title: " + value, context);
@@ -102,8 +101,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<T>(coll);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
+		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(coll);
+		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

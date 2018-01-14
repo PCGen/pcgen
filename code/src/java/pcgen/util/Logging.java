@@ -1,5 +1,4 @@
 /*
- * Logging.java
  * Copyright 2003 (C) Jonas Karlsson <jujutsunerd@sf.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,9 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 12, 2003, 3:20 AM
  */
 package pcgen.util;
 
-import pcgen.rules.context.LoadContext;
-import pcgen.system.LanguageBundle;
 import java.awt.Toolkit;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -39,18 +34,18 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-import org.apache.commons.lang.SystemUtils;
-
 import pcgen.core.SettingsHandler;
+import pcgen.rules.context.LoadContext;
+import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * This contains logging functions. It is a proxy for the 
  * Java logging API.
- * 
- * @author     Jonas Karlsson <jujutsunerd@sf.net>
- * @version    $Revision$
  */
-public class Logging
+@SuppressWarnings("PMD.MoreThanOneLogger")
+public final class Logging
 {
 	private static boolean debugMode = false;
 	private static final Toolkit s_TOOLKIT = Toolkit.getDefaultToolkit();
@@ -105,13 +100,7 @@ public class Logging
 		{
 			LogManager.getLogManager().readConfiguration();
 		}
-		catch (SecurityException e)
-		{
-			System.err
-				.println("Failed to read logging configuration. Error was:");
-			e.printStackTrace();
-		}
-		catch (IOException e)
+		catch (SecurityException | IOException e)
 		{
 			System.err
 				.println("Failed to read logging configuration. Error was:");
@@ -119,8 +108,12 @@ public class Logging
 		}
 	}
 
+	private Logging()
+	{
+	}
+
 	/**
-	 * Set debugging state: <code>true</code> is on.
+	 * Set debugging state: {@code true} is on.
 	 *
 	 * @param argDebugMode boolean debugging state
 	 */
@@ -206,8 +199,7 @@ public class Logging
 	 * Print localised information message if PCGen is debugging.
 	 *
 	 * @param message String information message (usually variable)
-	 * @param param1 Object information message (usually value)
-	 * @param param2 Object information message (usually value)
+	 * @param params Object information message (usually value)
 	 */
 	public static void debugPrintLocalised(final String message, Object... params)
 	{
@@ -244,7 +236,7 @@ public class Logging
 	 */
 	public static void errorPrintLocalised(final String aKey)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -258,7 +250,7 @@ public class Logging
 	 * method will issue a beep if the application is running in Debug mode.
 	 * <p>
 	 * This method accepts a variable number of parameters and will replace
-	 * <code>{argno}</code> in the string with each passed paracter in turn.
+	 * {@code {argno}} in the string with each passed paracter in turn.
 	 * 
 	 * @param aKey
 	 *            A key for the localized string in the language bundle
@@ -267,7 +259,7 @@ public class Logging
 	 */
 	public static void errorPrintLocalised(final String aKey, Object... varargs)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -299,7 +291,7 @@ public class Logging
 	public static void deprecationPrint(final String s,
 		final LoadContext context)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -353,7 +345,7 @@ public class Logging
 		{
 			if (sourceUri != null)
 			{
-				l.log(lvl, " (Source: " + sourceUri + ")");
+				l.log(lvl, " (Source: " + sourceUri + ')');
 			}
 			else
 			{
@@ -369,7 +361,7 @@ public class Logging
 	 */
 	public static void errorPrint(final String s)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -390,7 +382,7 @@ public class Logging
 	 */
 	public static void errorPrint(final String s, final Object... params)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -410,7 +402,7 @@ public class Logging
 	 */
 	public static void errorPrint(final String s, final LoadContext context)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -437,7 +429,7 @@ public class Logging
 	 */
 	public static void errorPrint(final String s, final URI sourceURI)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -468,7 +460,7 @@ public class Logging
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
 		thr.printStackTrace(ps);
-		errorPrint(s + "\n" + baos.toString());
+		errorPrint(s + '\n' + baos.toString());
 	}
 
 	/**
@@ -535,7 +527,7 @@ public class Logging
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
 		thr.printStackTrace(ps);
-		errorPrint(LanguageBundle.getString(s) + "\n" + baos.toString());
+		errorPrint(LanguageBundle.getString(s) + '\n' + baos.toString());
 	}
 
 	/**
@@ -623,7 +615,7 @@ public class Logging
 			{
 				b.append("  ");
 				b.append(element.toString());
-				b.append("\n");
+				b.append('\n');
 			}
 
 		}
@@ -657,7 +649,7 @@ public class Logging
 	 */
 	public static List<Level> getLoggingLevels()
 	{
-		List<Level> levels = new ArrayList<Level>();
+		List<Level> levels = new ArrayList<>();
 		levels.add(ERROR);
 		levels.add(LST_ERROR);
 		levels.add(WARNING);
@@ -689,7 +681,7 @@ public class Logging
 	}
 
 	private static LinkedList<QueuedMessage> queuedMessages =
-			new LinkedList<QueuedMessage>();
+            new LinkedList<>();
 
 	public static void addParseMessage(Level lvl, String msg)
 	{

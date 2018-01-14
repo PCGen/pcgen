@@ -1,5 +1,4 @@
 /*
- * ClassDataParser.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.core.npcgen;
 
@@ -65,14 +60,12 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Parse a generator class data file.
  * 
- * @author boomer70 <boomer70@yahoo.com>
  * 
- * @since 5.11.1
  */
 public class ClassDataParser
 {
-	private SAXParser theParser;
-	private GameMode theMode;
+	private final SAXParser theParser;
+	private final GameMode theMode;
 	
 	/**
 	 * Creates a new <tt>ClassDataParser</tt> for the specified game mode.
@@ -106,7 +99,7 @@ public class ClassDataParser
 	public List<ClassData> parse( final File aFileName ) 
 		throws SAXException, IOException
 	{
-		final List<ClassData> ret = new ArrayList<ClassData>();
+		final List<ClassData> ret = new ArrayList<>();
 		
 		try
 		{
@@ -124,13 +117,10 @@ public class ClassDataParser
  * This is the parsing event handler class.  The methods in this class are
  * called by the SAX parser as it finds various elements in the XML file.
  * 
- * @author boomer70 <boomer70@yahoo.com>
- *
- * @since 5.11.1
  */
 class ClassDataHandler extends DefaultHandler
 {
-	private List<ClassData> theList;
+	private final List<ClassData> theList;
 	
 	private GameMode theGameMode = null;
 	private boolean theValidFlag = false;
@@ -175,7 +165,7 @@ class ClassDataHandler extends DefaultHandler
 	
 	// Weight for any skills added from *
 	private transient int remainingWeight = -1;
-	private transient List<String> removeList = new ArrayList<String>();
+	private transient List<String> removeList = new ArrayList<>();
 	
 	/**
 	 * Constructs the handler
@@ -321,7 +311,7 @@ class ClassDataHandler extends DefaultHandler
 							final List<Skill> skillsOfType = Globals.getPObjectsOfType(Globals
 									.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class),
 									key.substring(5));
-							if ( skillsOfType.size() == 0 )
+							if (skillsOfType.isEmpty())
 							{
 								Logging.debugPrint("NPCGenerator: No skills of type found (" + key + ")"); //$NON-NLS-1$ //$NON-NLS-2$
 							}
@@ -447,7 +437,8 @@ class ClassDataHandler extends DefaultHandler
 					}
 					else
 					{
-						final Spell spell = Globals.getSpellKeyed(key);
+						final Spell spell = Globals.getContext().getReferenceContext()
+								.silentlyGetConstructedCDOMObject(Spell.class, key);
 						if ( spell != null )
 						{
 							if ( theCurrentSpellType == SpellType.KNOWN )
@@ -508,7 +499,7 @@ class ClassDataHandler extends DefaultHandler
 			{
 				theCurrentData.removeSkill(remove);
 			}
-			removeList = new ArrayList<String>();
+			removeList = new ArrayList<>();
 			theState = ParserState.CLASSDATA;
 		}
 		else if ( "abilities".equals(qName) && theState == ParserState.ABILITYDATA ) //$NON-NLS-1$
@@ -534,7 +525,7 @@ class ClassDataHandler extends DefaultHandler
 								theCurrentCategory, remove);
 				theCurrentData.removeAbility(theCurrentCategory, ability);
 			}
-			removeList = new ArrayList<String>();
+			removeList = new ArrayList<>();
 			theCurrentCategory = null;
 			theState = ParserState.CLASSDATA;
 		}
@@ -568,7 +559,7 @@ class ClassDataHandler extends DefaultHandler
 			}
 			for ( final String remove : removeList )
 			{
-				final Spell spell = Globals.getSpellKeyed( remove );
+				final Spell spell = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class,  remove );
 				if ( theCurrentSpellType == SpellType.KNOWN )
 				{
 					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
@@ -578,7 +569,7 @@ class ClassDataHandler extends DefaultHandler
 					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
 				}
 			}
-			removeList = new ArrayList<String>();
+			removeList = new ArrayList<>();
 			theCurrentLevel = -1;
 			theState = ParserState.SPELLDATA;
 		}
@@ -614,8 +605,8 @@ class ClassDataHandler extends DefaultHandler
 	 */
 	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
 	{
-		MasterListInterface masterLists = Globals.getMasterLists();
-		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<CDOMReference<CDOMList<Spell>>>();
+		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
+		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<>();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			for (CDOMList<Spell> list : spellLists)
@@ -628,7 +619,7 @@ class ClassDataHandler extends DefaultHandler
 			}
 		}
 		boolean allLevels = level == -1;
-		Set<Spell> spellList = new HashSet<Spell>();
+		Set<Spell> spellList = new HashSet<>();
 		for (CDOMReference<CDOMList<Spell>> ref : useLists)
 		{
 			for (Spell spell : masterLists.getObjects(ref))
@@ -653,6 +644,6 @@ class ClassDataHandler extends DefaultHandler
 				}
 			}
 		}
-		return new ArrayList<Spell>(spellList);
+		return new ArrayList<>(spellList);
 	}
 }

@@ -31,6 +31,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * AlignToken is a Primitive that represents the Alignment of a Deity.
+ */
 public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 {
 
@@ -67,7 +70,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + alignment.getLSTformat(false);
+		return getTokenName() + '=' + alignment.getLSTformat(false);
 	}
 
 	@Override

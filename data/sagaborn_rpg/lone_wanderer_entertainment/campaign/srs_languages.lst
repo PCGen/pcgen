@@ -1,0 +1,11 @@
+Common	TYPE:Spoken.Default
+
+Dwarven	TYPE:Spoken
+Northern	TYPE:Spoken
+Ishian	TYPE:Spoken	NAMEISPI:YES
+Elven		TYPE:Spoken
+Fey		TYPE:Spoken
+Navirite	TYPE:Spoken	NAMEISPI:YES
+Uthgardian	TYPE:Spoken	NAMEISPI:YES
+Goblin	TYPE:Spoken
+

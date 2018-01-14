@@ -1,5 +1,4 @@
 /*
- * PCGenActionMap.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,8 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 14, 2008, 3:51:27 PM
  */
 package pcgen.gui2;
-
-import gmgen.GMGenSystem;
 
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -38,12 +34,12 @@ import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.ItemFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TemplateFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.coreview.CoreViewFrame;
@@ -62,6 +58,8 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
+import gmgen.GMGenSystem;
+
 /**
  * The PCGenActionMap is the action map for the PCGenFrame, and as such
  * hold all of the actions that the PCGenFrame uses. The purpose of this
@@ -69,7 +67,6 @@ import pcgen.util.Logging;
  * and accessory popup menus that may use them. Since all of the action
  * handlers are Action objects they can be disabled or enabled to cause
  * all buttons that use the actions to update themselves accordingly.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public final class PCGenActionMap extends ActionMap
 {
@@ -337,7 +334,7 @@ public final class PCGenActionMap extends ActionMap
 			KitSelectionDialog kitDialog =
 					new KitSelectionDialog(frame, frame
 						.getSelectedCharacterRef().get());
-			Utility.setDialogRelativeLocation(frame, kitDialog);
+			Utility.setComponentRelativeLocation(frame, kitDialog);
 			kitDialog.setVisible(true);			
 		}
 
@@ -430,7 +427,7 @@ public final class PCGenActionMap extends ActionMap
 			{
 				dialog = new DebugDialog(frame);
 			}
-			Utility.setDialogRelativeLocation(frame, dialog);
+			Utility.setComponentRelativeLocation(frame, dialog);
 			dialog.setVisible(true);
 		}
 
@@ -453,7 +450,7 @@ public final class PCGenActionMap extends ActionMap
 			{
 				dialog = new CalculatorDialog(frame);
 			}
-			Utility.setDialogRelativeLocation(frame, dialog);
+			Utility.setComponentRelativeLocation(frame, dialog);
 			dialog.setVisible(true);
 		}
 
@@ -490,7 +487,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			SolverViewFrame svf = new SolverViewFrame(frame);
+			SolverViewFrame svf = new SolverViewFrame();
 			svf.setVisible(true);
 		}
 
@@ -539,7 +536,7 @@ public final class PCGenActionMap extends ActionMap
 	private class NewAction extends PCGenAction
 	{
 
-		private ReferenceFacade<?> ref;
+		private final ReferenceFacade<?> ref;
 
 		public NewAction()
 		{
@@ -629,7 +626,7 @@ public final class PCGenActionMap extends ActionMap
 	private class SaveAction extends PCGenAction implements ReferenceListener<CharacterFacade>
 	{
 
-		private FileRefListener fileListener = new FileRefListener();
+		private final FileRefListener fileListener = new FileRefListener();
 
 		public SaveAction()
 		{
@@ -929,9 +926,6 @@ public final class PCGenActionMap extends ActionMap
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
 		{
@@ -963,9 +957,6 @@ public final class PCGenActionMap extends ActionMap
 			frame.unloadSources();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
 		{
@@ -1212,7 +1203,7 @@ public final class PCGenActionMap extends ActionMap
 	private abstract class CharacterAction extends PCGenAction
 	{
 
-		private ReferenceFacade<?> ref;
+		private final ReferenceFacade<?> ref;
 
 		public CharacterAction(String prop)
 		{

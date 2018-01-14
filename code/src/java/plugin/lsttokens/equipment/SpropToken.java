@@ -80,7 +80,7 @@ public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<SpecialProperty> added = changes.getAdded();
 		boolean globalClear = changes.includesGlobalClear();
 		if (globalClear)

@@ -163,8 +163,8 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Converter<T, R> conv = c;
-		conv = negated ? new NegateFilterConverter<T, R>(conv) : conv;
-		conv = new AddFilterConverter<T, R>(conv, this);
+		conv = negated ? new NegateFilterConverter<>(conv) : conv;
+		conv = new AddFilterConverter<>(conv, this);
 		return pcs.getCollection(pc, conv);
 	}
 

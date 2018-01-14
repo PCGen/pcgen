@@ -107,7 +107,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 	{
 		Collection<? extends Ability> collection = pcs.getSet(pc);
 		List<CNAbility> pcfeats = pc.getPoolAbilities(AbilityCategory.FEAT);
-		Set<CNAbility> returnSet = new HashSet<CNAbility>();
+		Set<CNAbility> returnSet = new HashSet<>();
 		for (CNAbility cna : pcfeats)
 		{
 			Ability a = cna.getAbility();

@@ -1,5 +1,4 @@
 /*
- * InputPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/11/2010 19:50:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -37,25 +32,21 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>InputPanel</code> is responsible for 
+ * The Class {@code InputPanel} is responsible for
  * displaying input related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class InputPanel extends PCGenPrefsPanel
 {
-	private static String in_input =
+	private static final String in_input =
 		LanguageBundle.getString("in_Prefs_input");
 
-	private static String in_printDeprecation = LanguageBundle
+	private static final String in_printDeprecation = LanguageBundle
 		.getString("in_Prefs_printDeprecation");
-	private static String in_printUnconstructed = LanguageBundle
+	private static final String in_printUnconstructed = LanguageBundle
 		.getString("in_Prefs_printUnconstructed");
 
 	private JCheckBox printDeprecationMessages = new JCheckBox();
@@ -102,7 +93,7 @@ public class InputPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -111,7 +102,7 @@ public class InputPanel extends PCGenPrefsPanel
 		return in_input;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -123,7 +114,7 @@ public class InputPanel extends PCGenPrefsPanel
 			.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

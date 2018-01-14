@@ -17,23 +17,16 @@
  */
 package selectionactor.auto;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.WeaponProf;
+
 import plugin.lsttokens.auto.WeaponProfToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class WeaponProfTokenTest extends AbstractSelectionActorTest<WeaponProf>
 {
 
-	static WeaponProfToken cra = new WeaponProfToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final ChooseSelectionActor cra = new WeaponProfToken();
 
 	@Override
 	public ChooseSelectionActor<WeaponProf> getActor()

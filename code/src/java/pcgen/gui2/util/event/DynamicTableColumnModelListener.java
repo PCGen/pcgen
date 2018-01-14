@@ -1,5 +1,4 @@
 /*
- * DynamicTableColumnModelListener.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 28, 2008, 7:47:48 PM
  */
 
 package pcgen.gui2.util.event;
@@ -26,7 +24,6 @@ import javax.swing.event.TableColumnModelEvent;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
  */
 public interface DynamicTableColumnModelListener extends EventListener
 {

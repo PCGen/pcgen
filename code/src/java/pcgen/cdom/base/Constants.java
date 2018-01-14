@@ -1,5 +1,4 @@
 /*
- * Constants.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
 package pcgen.cdom.base;
 
+import java.awt.SystemColor;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
@@ -28,9 +26,6 @@ import java.text.DecimalFormat;
  *
  * (The reason for an interface rather than a class
  * is that an interface uses a little less memory.)
- *
- * @author     Jonas Karlsson
- * @version    $Revision$
  */
 public interface Constants
 {
@@ -96,17 +91,11 @@ public interface Constants
 	/** The prefix of a character template file name. */
 	String CHARACTER_TEMPLATE_PREFIX = "csheet"; //$NON-NLS-1$
 
-	/** The prefix of an equipment template file name.. */
-	String EQUIPMENT_TEMPLATE_PREFIX = "eqsheet"; //$NON-NLS-1$
-
-	/** The prefix of a a party template file name. */
+	/** The prefix of a party template file name. */
 	String PARTY_TEMPLATE_PREFIX = "psheet"; //$NON-NLS-1$
 
 	/** A constant string representing the type custom. */
 	String TYPE_CUSTOM = "Custom"; //$NON-NLS-1$
-
-	/** Custom Equipment. */
-	String SOURCE_CUSTOM = "Custom Equipment"; //$NON-NLS-1$
 
 	/** Default */
 	String DEFAULT = "Default"; //$NON-NLS-1$
@@ -129,7 +118,7 @@ public interface Constants
 	/** The constant string "None". */
 	String NONE = "None"; //$NON-NLS-1$
 
-	/** The constant string "<none selected>". */
+	/** The constant string {@literal "<none selected>" }. */
 	String NONESELECTED = "<none selected>"; //$NON-NLS-1$
 
 	/** The extension for a campaign file. */
@@ -198,8 +187,6 @@ public interface Constants
 
 	/** PCGen. */
 	String SYSTEM_PCGEN = "PCGen"; //$NON-NLS-1$
-	/** Tokens. */
-	String SYSTEM_TOKENS = "Tokens"; //$NON-NLS-1$
 	/** GMGen. */
 	String SYSTEM_GMGEN = "GMGen"; //$NON-NLS-1$
 
@@ -327,21 +314,9 @@ public interface Constants
 	int HP_AVERAGE_ROUNDED_UP = 5;
 
 
-
-
-	/**
-	 * A constant representing an arbitrary invalid level used in the spell code
-	 * to basically say "no real level".*/
-	int INVALID_LEVEL = 9999;
-
 	/**
 	 * The highest possible maxDex value. */
 	int MAX_MAXDEX = 100;
-
-	/**
-	 * A constant defining the number of recently open characters to display in
-	 * the recently opened menu item. */
-	int MAX_OPEN_RECENT_ENTRIES = 5;
 
 	/**
 	 * The highest spell level we are catering for. */
@@ -371,7 +346,7 @@ public interface Constants
 
 	// TODO: this is broken in some sad way whereby if you change the case
 	// of FEAT to Feat, the pre-req tree fails on the Feats tab.
-	/** For accessing <code>CategorisableStore</code>. */
+	/** For accessing {@code CategorisableStore}. */
 	String FEAT_CATEGORY = "FEAT"; //$NON-NLS-1$
 
 	/** An empty string. */
@@ -506,48 +481,6 @@ public interface Constants
 	 */
 	int DEFAULT_MAX_WAND_SPELL_LEVEL = 4;
 
-	/**
-	 * The default colour of automatic feats in the GUI. 0xB2B200 is dark yellow. This
-	 * is used to initialise the value in the settings handler if the user has not
-	 * overridden it.
-	 */
-	int DEFAULT_FEAT_AUTO_COLOUR = 0xB2B200;
-
-	/**
-	 * The default colour of virtual feats in the GUI. 0xFF00FF is magenta. This
-	 * is used to initialise the value in the settings handler if the user has not
-	 * overridden it.
-	 */
-	int DEFAULT_FEAT_VIRTUAL_COLOUR = 0xFF00FF;
-
-	/**
-	 * The default colour of released sources in the GUI. 0x000000 is black. This
-	 * is used to initialise the value in the settings handler if the user has not
-	 * overridden it.
-	 */
-	int DEFAULT_SOURCE_STATUS_RELEASE_COLOUR = 0x000000;
-
-	/**
-	 * The default colour of alpha sources in the GUI. 0xFF0000 is red. This
-	 * is used to initialise the value in the settings handler if the user has not
-	 * overridden it.
-	 */
-	int DEFAULT_SOURCE_STATUS_ALPHA_COLOUR = 0xFF0000; // red
-
-	/**
-	 * The default colour of beta sources in the GUI. 0x800000 is maroon. This
-	 * is used to initialise the value in the settings handler if the user has not
-	 * overridden it.
-	 */
-	int DEFAULT_SOURCE_STATUS_BETA_COLOUR = 0x800000;
-
-	/**
-	 * The default colour of test sources in the GUI. 0xFF00FF is magenta. This
-	 * is used to initialise the value in the settings handler if the user has not
-	 * overridden it.
-	 */
-	int DEFAULT_SOURCE_STATUS_TEST_COLOUR = 0xFF00FF;
-
 
 	/** The default percentage of hit points to grant when granting a percentage of hitpoints. */
 	int DEFAULT_HP_PERCENT = 100;
@@ -568,20 +501,15 @@ public interface Constants
 
 	/**
 	 * The default colour of items in the GUI which the character does qualify
-	 * for. 0x000000 is black. This  is used to initialise the value in the settings
+	 * for.  This is used to initialise the value in the settings
 	 * handler if the user has not overridden it. */
-	int DEFAULT_PREREQ_QUALIFY_COLOUR = 0x000000;
-
+	int DEFAULT_PREREQ_QUALIFY_COLOUR = SystemColor.text.getRGB() & 0x00FFFFFF;
 
 	/** A constant used to define an array of age sets. */
 	int NUMBER_OF_AGESET_KIT_SELECTIONS = 10;
 
 	/** If an ID path is longer than this, then the item is contained in something. */
 	int ID_PATH_LENGTH_FOR_NON_CONTAINED = 3;
-
-	/**
-	 * Used when initialising a string buffer for and error message.  */
-	int ARBITRARY_INITIAL_STRINGBUILDER_LENGTH = 256;
 
 	/**
 	 * Used when sorting skills to move some items right to the end of the

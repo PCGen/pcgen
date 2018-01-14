@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -34,11 +33,15 @@ import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
-public class SubstitutionClassApplication
+public final class SubstitutionClassApplication
 {
 
+	private SubstitutionClassApplication()
+	{
+	}
+
 	public static void checkForSubstitutionClass(PCClass cl, final int aLevel,
-			final PlayerCharacter aPC)
+	                                             final PlayerCharacter aPC)
 	{
 		List<SubstitutionClass> substitutionClassList = cl
 				.getListFor(ListKey.SUBSTITUTION_CLASS);
@@ -47,7 +50,7 @@ public class SubstitutionClassApplication
 			return;
 		}
 
-		List<PCClass> choiceList = new ArrayList<PCClass>();
+		List<PCClass> choiceList = new ArrayList<>();
 		buildSubstitutionClassChoiceList(cl, choiceList, aPC.getLevel(cl), aPC);
 		if (choiceList.size() <= 1)
 		{
@@ -57,9 +60,9 @@ public class SubstitutionClassApplication
 		}
 
 		CDOMChooserFacadeImpl<PCClass> chooserFacade =
-				new CDOMChooserFacadeImpl<PCClass>(
-					LanguageBundle.getString("in_SubstLvlChoice"), choiceList, //$NON-NLS-1$
-					new ArrayList<PCClass>(), 1);
+                new CDOMChooserFacadeImpl<>(
+                        LanguageBundle.getString("in_SubstLvlChoice"), choiceList, //$NON-NLS-1$
+                        new ArrayList<>(), 1);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);

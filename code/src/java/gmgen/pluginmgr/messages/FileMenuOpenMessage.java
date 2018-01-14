@@ -1,5 +1,4 @@
 /*
- * FileMenuOpenMessage.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,24 +15,17 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/02/2014 10:00:49 pm
  *
- * $Id$
  */
 package gmgen.pluginmgr.messages;
 
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>FileMenuOpenMessage</code> encapsulates an advisory that the
+ * The Class {@code FileMenuOpenMessage} encapsulates an advisory that the
  * GMGen open file menu item has been selected.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class FileMenuOpenMessage extends PCGenMessage

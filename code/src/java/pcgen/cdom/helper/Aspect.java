@@ -1,5 +1,4 @@
 /*
- * Aspect.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/08/2008 16:36:13
  *
- * $Id$
  */
 package pcgen.cdom.helper;
 
@@ -39,24 +36,19 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>Aspect</code> represents a generic name field for 
+ * The Class {@code Aspect} represents a generic name field for
  * abilities. It is a name/value characteristic allowing substitution of 
  * values.
  * 
  * <p>Variable substitution is performed by replacing a placeholder indicated
  * by %# with the #th variable in the variable list.  For example, the string
- * <br /><code>&quot;This is %1 variable %3 %2&quot;</code>
- * <br />would be replaced with the string &quot;This is a variable substitution
+ * <br>{@code "This is %1 variable %3 %2"}
+ * <br>would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  * 
- * @since 5.15.2
  */
 public class Aspect extends ConcretePrereqObject
 {
@@ -65,7 +57,7 @@ public class Aspect extends ConcretePrereqObject
 	 */
 	private final AspectName key;
 
-	private final List<String> theComponents = new ArrayList<String>();
+	private final List<String> theComponents = new ArrayList<>();
 	private List<String> theVariables = null;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
@@ -134,7 +126,7 @@ public class Aspect extends ConcretePrereqObject
 		while ((percentInd = aString.indexOf('%', currentInd)) != -1)
 		{
 			final String preText = aString.substring(currentInd, percentInd);
-			if (preText.length() > 0)
+			if (!preText.isEmpty())
 			{
 				theComponents.add(preText);
 			}
@@ -211,7 +203,7 @@ public class Aspect extends ConcretePrereqObject
 	{
 		if (theVariables == null)
 		{
-			theVariables = new ArrayList<String>();
+			theVariables = new ArrayList<>();
 		}
 		theVariables.add(aVariable);
 	}
@@ -249,7 +241,7 @@ public class Aspect extends ConcretePrereqObject
 	{
 		final StringBuilder buf = new StringBuilder(50);
 		
-		if ((abilities == null) || (abilities.size() == 0))
+		if ((abilities == null) || (abilities.isEmpty()))
 		{
 			return "";
 		}
@@ -276,7 +268,7 @@ public class Aspect extends ConcretePrereqObject
 				}
 				else if (var.equals(VAR_LIST))
 				{
-					List<String> assocList = new ArrayList<String>();
+					List<String> assocList = new ArrayList<>();
 					for (CNAbility cna : abilities)
 					{
 						assocList.addAll(aPC.getAssociationList(cna));
@@ -316,7 +308,6 @@ public class Aspect extends ConcretePrereqObject
 	 * 
 	 * @return A String in LST file format for this description.
 	 * 
-	 * @see pcgen.cdom.base.PrereqObject#getPCCText()
 	 */
 	public String getPCCText()
 	{
@@ -396,7 +387,7 @@ public class Aspect extends ConcretePrereqObject
 	public static String printAspect(PlayerCharacter pc, AspectName key,
 		List<CNAbility> abilities, boolean printName)
 	{
-		if (abilities.size() == 0)
+		if (abilities.isEmpty())
 		{
 			return "";
 		}

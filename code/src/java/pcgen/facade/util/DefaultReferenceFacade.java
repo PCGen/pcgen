@@ -1,5 +1,4 @@
 /*
- * DefaultReferenceFacade.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,25 +15,21 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 3:28:19 PM
  */
 package pcgen.facade.util;
 
 import javax.swing.event.EventListenerList;
 
-import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang3.ObjectUtils;
 
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 {
 
-	private EventListenerList listenerList = new EventListenerList();
+	private final EventListenerList listenerList = new EventListenerList();
 	protected E object;
 
 	public DefaultReferenceFacade()
@@ -86,16 +81,13 @@ public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ReferenceEvent<E>(source, old, newer);
+					e = new ReferenceEvent<>(source, old, newer);
 				}
 				((ReferenceListener) listeners[i + 1]).referenceChanged(e);
 			}
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

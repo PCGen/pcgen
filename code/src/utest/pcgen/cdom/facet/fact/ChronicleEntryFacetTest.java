@@ -73,7 +73,7 @@ public class ChronicleEntryFacetTest extends
 	public void testAddAllTwice()
 	{
 		ChronicleEntry t1 = getObject();
-		List<ChronicleEntry> pct = new ArrayList<ChronicleEntry>();
+		List<ChronicleEntry> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t1);
 		getFacet().addAll(id, pct);

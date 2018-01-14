@@ -20,8 +20,6 @@ package plugin.lsttokens.testsupport;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -38,19 +36,15 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.AddLst;
 
 public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 		AbstractSelectionTokenTestCase<CDOMObject, TC>
 {
 	static AddLst token = new AddLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
-
-	@Override
-	public char getJoinCharacter()
-	{
-		return ',';
-	}
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<? extends CDOMObject> getCDOMClass()
@@ -92,9 +86,9 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 
 	protected void buildTC(Formula count, List<CDOMReference<TC>> refs)
 	{
-		ReferenceChoiceSet<TC> rcs = new ReferenceChoiceSet<TC>(refs);
-		ChoiceSet<TC> cs = new ChoiceSet<TC>(getSubToken().getTokenName(), rcs);
-		PersistentTransitionChoice<TC> tc = new ConcretePersistentTransitionChoice<TC>(
+		ReferenceChoiceSet<TC> rcs = new ReferenceChoiceSet<>(refs);
+		ChoiceSet<TC> cs = new ChoiceSet<>(getSubToken().getTokenName(), rcs);
+		PersistentTransitionChoice<TC> tc = new ConcretePersistentTransitionChoice<>(
 				cs, count);
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		tc.setChoiceActor(getActor());
@@ -104,7 +98,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	public void testUnparseSingle() throws PersistenceLayerException
 	{
 		String name = "TestWP1";
-		List<CDOMReference<TC>> refs = new ArrayList<CDOMReference<TC>>();
+		List<CDOMReference<TC>> refs = new ArrayList<>();
 		addSingleRef(refs, name);
 		buildTC(FormulaFactory.ONE, refs);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -114,7 +108,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	@Test
 	public void testUnparseSingleThree() throws PersistenceLayerException
 	{
-		List<CDOMReference<TC>> refs = new ArrayList<CDOMReference<TC>>();
+		List<CDOMReference<TC>> refs = new ArrayList<>();
 		addSingleRef(refs, "TestWP1");
 		buildTC(FormulaFactory.getFormulaFor(3), refs);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -124,7 +118,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	@Test
 	public void testUnparseSingleNegative() throws PersistenceLayerException
 	{
-		List<CDOMReference<TC>> refs = new ArrayList<CDOMReference<TC>>();
+		List<CDOMReference<TC>> refs = new ArrayList<>();
 		addSingleRef(refs, "TestWP1");
 		buildTC(FormulaFactory.getFormulaFor(-3), refs);
 		assertBadUnparse();
@@ -133,7 +127,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	@Test
 	public void testUnparseSingleZero() throws PersistenceLayerException
 	{
-		List<CDOMReference<TC>> refs = new ArrayList<CDOMReference<TC>>();
+		List<CDOMReference<TC>> refs = new ArrayList<>();
 		addSingleRef(refs, "TestWP1");
 		buildTC(FormulaFactory.getFormulaFor(0), refs);
 		assertBadUnparse();
@@ -142,7 +136,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	@Test
 	public void testUnparseSingleVariable() throws PersistenceLayerException
 	{
-		List<CDOMReference<TC>> refs = new ArrayList<CDOMReference<TC>>();
+		List<CDOMReference<TC>> refs = new ArrayList<>();
 		addSingleRef(refs, "TestWP1");
 		buildTC(FormulaFactory.getFormulaFor("Formula"), refs);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -152,7 +146,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	@Test
 	public void testUnparseType() throws PersistenceLayerException
 	{
-		List<CDOMReference<TC>> refs = new ArrayList<CDOMReference<TC>>();
+		List<CDOMReference<TC>> refs = new ArrayList<>();
 		addTypeRef(refs, "Bar", "Foo");
 		buildTC(FormulaFactory.ONE, refs);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -165,7 +159,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	{
 		if (isAllLegal())
 		{
-			List<CDOMReference<TC>> refs = new ArrayList<CDOMReference<TC>>();
+			List<CDOMReference<TC>> refs = new ArrayList<>();
 			addSingleRef(refs, "TestWP1");
 			addAllRef(refs);
 			buildTC(FormulaFactory.ONE, refs);
@@ -178,7 +172,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	{
 		if (isAllLegal())
 		{
-			List<CDOMReference<TC>> refs = new ArrayList<CDOMReference<TC>>();
+			List<CDOMReference<TC>> refs = new ArrayList<>();
 			addAllRef(refs);
 			buildTC(FormulaFactory.ONE, refs);
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -191,7 +185,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 	{
 		if (isAllLegal())
 		{
-			List<CDOMReference<TC>> refs = new ArrayList<CDOMReference<TC>>();
+			List<CDOMReference<TC>> refs = new ArrayList<>();
 			addTypeRef(refs, "Bar", "Foo");
 			addAllRef(refs);
 			buildTC(FormulaFactory.ONE, refs);

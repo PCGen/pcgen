@@ -18,7 +18,6 @@
 package pcgen.base.formula;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * A DividingFormula represents a 'deferred calculation' of sorts, designed to
  * be stored and capable of dividing a given input number by a predetermined
@@ -87,7 +86,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 		 * rounding, and rounding first results in a faster & more accurate
 		 * calculation.
 		 */
-		return Integer.valueOf(numbers[0].intValue() / denominator);
+		return numbers[0].intValue() / denominator;
 	}
 
 	/**

@@ -1,5 +1,4 @@
 /*
- * AllJUnitTests.java
  * Copyright 2001 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,39 +14,25 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on May 2, 2001, 9:25 AM
  */
 package pcgen.core;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import pcgen.core.utils.CoreUtilityTest;
 import pcgen.persistence.lst.FeatTest;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 //import pcgen.core.LevelAbilityTest;
 
 /**
  * TestSuite that is composed of the individual test classes.  Pick up all the
  * individual PCGen core test cases into this one.
- *
- * @author B. K. Oxley (binkley) <binkley@alumni.rice.edu>
- * @version $Revision$
- * @see <a href="http://www-106.ibm.com/developerworks/library/j-ant/?dwzone=java">Incremental
- *      development with Ant and JUnit</a>
  */
-@SuppressWarnings("nls")
-public class AllJUnitTests extends TestCase
+public final class AllJUnitTests
 {
-
-	/**
-	 * Constructor
-	 * @param name
-	 */
-	public AllJUnitTests(final String name)
+	private AllJUnitTests()
 	{
-		super(name);
 	}
 
 	/**

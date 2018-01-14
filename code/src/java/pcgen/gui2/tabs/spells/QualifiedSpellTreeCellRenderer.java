@@ -1,5 +1,4 @@
 /*
- * QualifiedSpellTreeCellRenderer.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 05/06/2012 9:40:42 PM
  *
- * $Id$
  */
 package pcgen.gui2.tabs.spells;
 
@@ -37,16 +34,9 @@ import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>QualifiedSpellTreeCellRenderer</code> renders a spell tree
+ * The Class {@code QualifiedSpellTreeCellRenderer} renders a spell tree
  * cell with colouring indicating if the item can be known by the character. It
  * is heavily based on QualifiedTreeCellRenderer
- *
- * <br/>
- * Last Editor: $Author$ Last Edited: $Date: 2012-06-05 04:45:57
- * -0700 (Tue, 05 Jun 2012) $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 {
@@ -56,9 +46,6 @@ public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 	 */
 	private static final long serialVersionUID = -5763535370085434234L;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Component getTreeCellRendererComponent(JTree tree, Object value,
 			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)

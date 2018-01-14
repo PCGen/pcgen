@@ -1,0 +1,19 @@
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+
+# ==============================
+# New Traits
+# ==============================
+
+Absalom Bouncer				KEY:Trait ~ Absalom Bouncer				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait			PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Absalom Bouncer]										SOURCEPAGE:p.11	DESC:When you make an attack that deals nonlethal damage with an unarmed strike, you gain a +1 bonus on your damage roll.
+Failed Aspirant				KEY:Trait ~ Failed Aspirant							CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait			PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Failed Aspirant]										SOURCEPAGE:p.11	DESC:Choose a single combat maneuver. Once per day, you can perform that combat maneuver without provoking an attack of opportunity, and you gain a +2 bonus on that attempt.
+Hellknight Devotion			KEY:Trait ~ Hellknight Devotion			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait			PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Hellknight Devotion]									SOURCEPAGE:p.25	DESC:Once per day as a swift action, you can empower the next single melee attack you make to be treated as lawful-aligned for the purpose of overcoming damage reduction.
+Lastwall Defender				KEY:Trait ~ Lastwall Defender				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait			PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Lastwall Defender]									SOURCEPAGE:p.25	DESC:You gain a +1 trait bonus on attack and damage rolls against undead creatures that you have personally identified using the Knowledge (religion) skill.
+
+Erutaki Sky Reader			KEY:Trait ~ Erutaki Sky Reader			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:Trait.RegionalTrait				PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RegionalTrait],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Erutaki Sky Reader]		PREREGION:Crown of the World			SOURCEPAGE:p.17	DESC:Once per day, you gain a +2 luck bonus on a single saving throw. You can apply this bonus after the saving throw is rolled but before the results are revealed.
+
+# ==============================
+# New Regional Affinity
+# ==============================
+
+Crown of the World	NAMEISPI:YES	CATEGORY:Background	TYPE:Region			VISIBLE:DISPLAY	DESC:Sprawling Arctic Desert			TEMPLATE:Regional Affinity (Crown of the World)		SOURCEPAGE:ISWG p.206

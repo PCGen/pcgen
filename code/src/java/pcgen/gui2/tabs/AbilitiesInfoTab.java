@@ -1,5 +1,4 @@
 /*
- * AbilitiesInfoTab.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 15, 2008, 6:58:51 PM
  */
 package pcgen.gui2.tabs;
 
@@ -49,7 +47,6 @@ import pcgen.util.enumeration.Tab;
  * manage the states of all the AbilityChooserTab.
  *
  * @see AbilityChooserTab
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
 public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab, TodoHandler
@@ -94,13 +91,13 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 	private class AbilityTabsModel implements ListListener<AbilityCategoryFacade>, ChangeListener
 	{
 
-		private final Map<String, TabInfo> typeMap = new HashMap<String, TabInfo>();
-		private final List<TabInfo> tabs = new ArrayList<TabInfo>();
+		private final Map<String, TabInfo> typeMap = new HashMap<>();
+		private final List<TabInfo> tabs = new ArrayList<>();
         private final MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> categoryMap;
 		private final CharacterFacade character;
 		private boolean isInstalled = false;
 		private String selectedTitle = null;
-		private ListFacade<AbilityCategoryFacade> activeCategories;
+		private final ListFacade<AbilityCategoryFacade> activeCategories;
 
 		public AbilityTabsModel(CharacterFacade character)
 		{
@@ -188,13 +185,13 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		public void elementsChanged(ListEvent<AbilityCategoryFacade> e)
 		{
 			Map<String, List<AbilityCategoryFacade>> tempMap;
-			tempMap = new HashMap<String, List<AbilityCategoryFacade>>();
+			tempMap = new HashMap<>();
 			for (AbilityCategoryFacade category : categoryMap.getKeys())
 			{
 				String type = category.getType();
 				if (!tempMap.containsKey(type))
 				{
-					tempMap.put(type, new ArrayList<AbilityCategoryFacade>());
+					tempMap.put(type, new ArrayList<>());
 				}
 				tempMap.get(type).add(category);
 			}
@@ -288,17 +285,14 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			public TabInfo(String title, CharacterFacade character)
 			{
 				this.title = title;
-				this.categoryList = new DefaultListFacade<AbilityCategoryFacade>();
-				this.fullCategoryList = new DefaultListFacade<AbilityCategoryFacade>();
+				this.categoryList = new DefaultListFacade<>();
+				this.fullCategoryList = new DefaultListFacade<>();
 				this.tabData =
 						abilityTab.createState(character, categoryList,
 							fullCategoryList, title);
 				typeMap.put(title, this);
 			}
 
-			/**
-			 * {@inheritDoc}
-			 */
 			@SuppressWarnings("nls")
 			@Override
 			public String toString()
@@ -309,9 +303,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@SuppressWarnings("nls")
 		@Override
 		public String toString()
@@ -322,9 +313,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

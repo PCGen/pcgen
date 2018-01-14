@@ -1,5 +1,4 @@
 /*
- * PreHasDeity.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,13 +16,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 19-Dec-2003
  *
- * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
@@ -35,10 +30,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- * @author wardc
- *
- */
+
 public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {

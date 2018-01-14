@@ -1,5 +1,4 @@
 /*
- * CampaignTest.java
  * Copyright 2007 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,44 +14,35 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 28/01/2008
- *
- * $Id$
  */
 
 package pcgen.core;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Before;
 import plugin.lsttokens.campaign.UrlToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 /**
  * <code>CampaignTest</code> is ...
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-11-11 18:34:19 -0500
  * (Tue, 11 Nov 2008) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
-public class CampaignTest extends PCGenTestCase
+public class CampaignTest extends TestCase
 {
 
 	Campaign testCamp = new Campaign();
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		TokenRegistration.register(new UrlToken());
 	}
 

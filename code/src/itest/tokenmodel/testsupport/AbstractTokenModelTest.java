@@ -95,9 +95,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		setUpContext();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

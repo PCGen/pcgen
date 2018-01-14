@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from Domain.java and PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -43,8 +42,12 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
-public class DomainApplication
+public final class DomainApplication
 {
+	private DomainApplication()
+	{
+	}
+
 	/**
 	 * Sets the locked flag on a PC
 	 * 

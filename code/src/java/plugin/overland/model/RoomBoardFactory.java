@@ -21,10 +21,10 @@ import java.io.File;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
-import org.jdom.DocType;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
 
 import pcgen.util.Logging;
 import plugin.overland.gui.XMLFilter;
@@ -34,8 +34,6 @@ import plugin.overland.util.RBCost;
 /**
  * Factory for RoomBoard. Read from XML files.
  *
- * @author Juliean Galak (method code)
- * @author Vincent Lhote (move to factory)
  */
 public final class RoomBoardFactory
 {
@@ -45,9 +43,9 @@ public final class RoomBoardFactory
 	public static RoomBoard load(File dataDir)
 	{
 		//Create a new list for the room and board
-		PairList<RBCost> inns = new PairList<RBCost>();
-		PairList<RBCost> foods = new PairList<RBCost>();
-		PairList<RBCost> animals = new PairList<RBCost>();
+		PairList<RBCost> inns = new PairList<>();
+		PairList<RBCost> foods = new PairList<>();
+		PairList<RBCost> animals = new PairList<>();
 
 		File path = new File(dataDir, DIR_RNBPRICE);
 

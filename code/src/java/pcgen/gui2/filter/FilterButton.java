@@ -1,5 +1,4 @@
 /*
- * FilterButton.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 15, 2010, 4:27:27 PM
  */
 package pcgen.gui2.filter;
 
@@ -24,7 +22,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JToggleButton;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.system.PropertyContext;
 
@@ -33,7 +31,6 @@ import pcgen.system.PropertyContext;
  * (i.e. pressed) the filter assigned to this button will become active. When deselected the filter
  * will become inactive. Selecting and deselecting the button will trigger its FilterHandler
  * to refilter its contents.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class FilterButton<C, E> extends JToggleButton
 		implements DisplayableFilter<C, E>, ActionListener
@@ -41,7 +38,7 @@ public class FilterButton<C, E> extends JToggleButton
 
 	private FilterHandler filterHandler;
 	private Filter<C, E> filter;
-	private PropertyContext filterContext;
+	private final PropertyContext filterContext;
 
 	public FilterButton(String prefKey)
 	{

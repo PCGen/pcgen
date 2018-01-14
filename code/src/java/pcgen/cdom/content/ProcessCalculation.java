@@ -19,7 +19,7 @@ package pcgen.cdom.content;
 
 import pcgen.base.calculation.AbstractNEPCalculation;
 import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.FormatManager;
 	
 /**
@@ -52,7 +52,7 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	 *            BasicCalculation when this ProcessCalculation is processed
 	 * @param calc
 	 *            The BasicCalculation which defines the operation to be
-	 *            performed when this this ProcessCalculation is processed
+	 *            performed when this ProcessCalculation is processed
 	 */
 	public ProcessCalculation(T object, BasicCalculation<T> calc,
 		FormatManager<T> fmtManager)
@@ -62,36 +62,26 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 		this.formatManager = fmtManager;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public T process(T input, ScopeInformation scopeInfo, Object source)
+	public T process(EvaluationManager evalManager)
 	{
+		@SuppressWarnings("unchecked")
+		T input = evalManager == null ? null : (T) evalManager.get(EvaluationManager.INPUT);
 		return getBasicCalculation().process(input, obj);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getInstructions()
 	{
 		return formatManager.unconvert(obj);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return obj.hashCode() ^ getBasicCalculation().hashCode();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

@@ -110,7 +110,7 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 		Changes<CDOMReference<WeaponProf>> changes = context
 				.getObjectContext().getListChanges(deity, ListKey.DEITYWEAPON);
 		Collection<CDOMReference<WeaponProf>> removedItems = changes.getRemoved();
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
 			context.addWriteMessage(Constants.LST_DOT_CLEAR_DOT

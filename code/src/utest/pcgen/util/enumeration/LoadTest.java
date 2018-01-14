@@ -17,11 +17,11 @@
  */
 package pcgen.util.enumeration;
 
-import junit.framework.TestCase;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-public class LoadTest extends TestCase
+public class LoadTest
 {
 
 	private final Load light = Load.valueOf("LIGHT");
@@ -32,21 +32,21 @@ public class LoadTest extends TestCase
 	@Test
 	public void testLoadOrder()
 	{
-		assertTrue(light.compareTo(light) == 0);
+		assertEquals(0, light.compareTo(light));
 		assertTrue(light.compareTo(medium) < 0);
 		assertTrue(light.compareTo(heavy) < 0);
 		assertTrue(light.compareTo(overload) < 0);
 		assertTrue(medium.compareTo(light) > 0);
-		assertTrue(medium.compareTo(medium) == 0);
+		assertEquals(0, medium.compareTo(medium));
 		assertTrue(medium.compareTo(heavy) < 0);
 		assertTrue(medium.compareTo(overload) < 0);
 		assertTrue(heavy.compareTo(light) > 0);
 		assertTrue(heavy.compareTo(medium) > 0);
-		assertTrue(heavy.compareTo(heavy) == 0);
+		assertEquals(0, heavy.compareTo(heavy));
 		assertTrue(heavy.compareTo(overload) < 0);
 		assertTrue(overload.compareTo(light) > 0);
 		assertTrue(overload.compareTo(medium) > 0);
 		assertTrue(overload.compareTo(heavy) > 0);
-		assertTrue(overload.compareTo(overload) == 0);
+		assertEquals(0, overload.compareTo(overload));
 	}
 }

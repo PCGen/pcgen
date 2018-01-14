@@ -1,5 +1,4 @@
 /*
- * EquipmentPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/11/2010 19:50:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -43,62 +38,58 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>EquipmentPanel</code> is responsible for 
+ * The Class {@code EquipmentPanel} is responsible for
  * displaying equipment related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class EquipmentPanel extends PCGenPrefsPanel
 {
-	private static String in_equipment =
+	private static final String in_equipment =
 		LanguageBundle.getString("in_Prefs_equipment"); //$NON-NLS-1$
 
 	// Used to create the entries for the max spell level combos
 	private static final int SPELLLVLMIN = 0;
 	private static final int SPELLLVLMAX = 9;
 
-	private static String[] potionSpellLevel =
+	private static final String[] potionSpellLevel =
 		new String[SPELLLVLMAX - SPELLLVLMIN + 1];
-	private static String[] wandSpellLevel =
+	private static final String[] wandSpellLevel =
 		new String[SPELLLVLMAX - SPELLLVLMIN + 1];
-	private static String in_allowMetamagic =
+	private static final String in_allowMetamagic =
 		LanguageBundle.getString("in_Prefs_allowMetamagic"); //$NON-NLS-1$
-	private static String in_anyAutoEquip =
+	private static final String in_anyAutoEquip =
 		LanguageBundle.getString("in_Prefs_anyAutoEquip"); //$NON-NLS-1$
-	private static String in_autoEquip =
+	private static final String in_autoEquip =
 		LanguageBundle.getString("in_Prefs_autoEquip"); //$NON-NLS-1$
-	private static String in_autoEquipRace =
+	private static final String in_autoEquipRace =
 		LanguageBundle.getString("in_Prefs_autoEquipRace"); //$NON-NLS-1$
-	private static String in_autoEquipMasterwork =
+	private static final String in_autoEquipMasterwork =
 		LanguageBundle.getString("in_Prefs_autoEquipMasterwork"); //$NON-NLS-1$
-	private static String in_autoEquipMagic =
+	private static final String in_autoEquipMagic =
 		LanguageBundle.getString("in_Prefs_autoEquipMagic"); //$NON-NLS-1$
-	private static String in_autoEquipExotic =
+	private static final String in_autoEquipExotic =
 		LanguageBundle.getString("in_Prefs_autoEquipExotic"); //$NON-NLS-1$
-	private static String in_noAutoEquip =
+	private static final String in_noAutoEquip =
 		LanguageBundle.getString("in_Prefs_noAutoEquip"); //$NON-NLS-1$
-	private static String in_potionMax =
+	private static final String in_potionMax =
 		LanguageBundle.getString("in_Prefs_potionMax"); //$NON-NLS-1$
-	private static String in_wandMax =
+	private static final String in_wandMax =
 		LanguageBundle.getString("in_Prefs_wandMax"); //$NON-NLS-1$
 
-	private JCheckBox allowMetamagicInEqBuilder = new JCheckBox();
-	private JCheckBox autoMethod1 = new JCheckBox();
-	private JCheckBox autoMethod2 = new JCheckBox();
-	private JCheckBox autoMethod3 = new JCheckBox();
-	private JCheckBox autoMethod4 = new JCheckBox();
-	private JSpinner potionMaxLevel = new JSpinner();
-	private SpinnerNumberModel potionModel;
-	private JSpinner wandMaxLevel = new JSpinner();
-	private SpinnerNumberModel wandModel;
-	private JRadioButton autoEquipCreate;
-	private JRadioButton noAutoEquipCreate;
+	private final JCheckBox allowMetamagicInEqBuilder = new JCheckBox();
+	private final JCheckBox autoMethod1 = new JCheckBox();
+	private final JCheckBox autoMethod2 = new JCheckBox();
+	private final JCheckBox autoMethod3 = new JCheckBox();
+	private final JCheckBox autoMethod4 = new JCheckBox();
+	private final JSpinner potionMaxLevel = new JSpinner();
+	private final SpinnerNumberModel potionModel;
+	private final JSpinner wandMaxLevel = new JSpinner();
+	private final SpinnerNumberModel wandModel;
+	private final JRadioButton autoEquipCreate;
+	private final JRadioButton noAutoEquipCreate;
 
 	
 	/**
@@ -205,7 +196,7 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -214,7 +205,7 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		return in_equipment;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -243,7 +234,7 @@ public class EquipmentPanel extends PCGenPrefsPanel
 			autoEquipCreate.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -37,8 +36,12 @@ import pcgen.gui2.util.PrettyIntegerFormat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
-public class StatApplication
+public final class StatApplication
 {
+
+	private StatApplication()
+	{
+	}
 
 	//
 	// Ask user to select a stat to increment. This can happen before skill
@@ -46,8 +49,8 @@ public class StatApplication
 	// are calculated, so an increase to the appropriate stat can give more
 	// skill points
 	//
-	public static final int askForStatIncrease(final PlayerCharacter aPC, 
-		final int statsToChoose, final boolean isPre)
+	public static int askForStatIncrease(final PlayerCharacter aPC,
+	                                     final int statsToChoose, final boolean isPre)
 	{
 		//
 		// If 1st time here (checks for preincrement), then will only ask if
@@ -75,13 +78,13 @@ public class StatApplication
 		}
 	
 		int iCount = 0;
-		Set<PCStat> statsAlreadyBonused = new HashSet<PCStat>();
+		Set<PCStat> statsAlreadyBonused = new HashSet<>();
 		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
 		DecimalFormat formatter = PrettyIntegerFormat.getFormat();
 
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
-			final List<String> selectableStats = new ArrayList<String>();
+			final List<String> selectableStats = new ArrayList<>();
 	
 			for (PCStat aStat : aPC.getDisplay().getStatSet())
 			{
@@ -113,9 +116,9 @@ public class StatApplication
 			}
 	
 			CDOMChooserFacadeImpl<String> chooserFacade =
-					new CDOMChooserFacadeImpl<String>(
-						LanguageBundle.getString(titleKey), selectableStats, //$NON-NLS-1$
-						new ArrayList<String>(), 1);
+                    new CDOMChooserFacadeImpl<>(
+                            LanguageBundle.getString(titleKey), selectableStats, //$NON-NLS-1$
+                            new ArrayList<>(), 1);
 			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 			chooserFacade.setPreferRadioSelection(true);
 			chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));

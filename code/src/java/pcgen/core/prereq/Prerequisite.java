@@ -11,13 +11,6 @@
  *
  * You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to
  * the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 16, 2002, 3:30 PM
- *
- * Current Ver: $Revision$ 
- * Last Editor: $Author$ 
- * Last Edited: $Date$
- *
  */
 package pcgen.core.prereq;
 
@@ -30,7 +23,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>Prerequisite</code> is the storage format for all 
+ * The Class {@code Prerequisite} is the storage format for all
  * prerequisites. It is populated by a parser, written out by a writer
  * and tested by a Tester class. Each kind of prerequisite will have 
  * one of each of these three classes that is responsible for managing
@@ -192,7 +185,7 @@ public class Prerequisite implements Cloneable
 	{
 		if (prerequisites == null)
 		{
-			prerequisites = new ArrayList<Prerequisite>();
+			prerequisites = new ArrayList<>();
 		}
 		prerequisites.add(prereq);
 	}
@@ -303,7 +296,7 @@ public class Prerequisite implements Cloneable
 		{
 			for ( Prerequisite prereq : prerequisites )
 			{
-				buf.append(prereq.toString());
+				buf.append(prereq);
 			}
 		}
 
@@ -344,7 +337,7 @@ public class Prerequisite implements Cloneable
 
 		if (prerequisites != null)
 		{
-			copy.prerequisites = new ArrayList<Prerequisite>();
+			copy.prerequisites = new ArrayList<>();
 			for ( Prerequisite subreq : prerequisites )
 			{
 				copy.prerequisites.add(subreq.clone());
@@ -412,7 +405,7 @@ public class Prerequisite implements Cloneable
 			buf.append(operand);
 		}
 
-		if (prerequisites != null && prerequisites.size() > 0 && !shortForm)
+		if (prerequisites != null && !prerequisites.isEmpty() && !shortForm)
 		{
 			buf.append(" ("); //$NON-NLS-1$
 			for ( Prerequisite subreq : prerequisites )
@@ -503,7 +496,7 @@ public class Prerequisite implements Cloneable
 				return false;
 			}
 			ArrayList<Prerequisite> removed =
-					new ArrayList<Prerequisite>(prerequisites);
+                    new ArrayList<>(prerequisites);
 			removed.removeAll(otherPRL);
 			if (!removed.isEmpty())
 			{
@@ -572,7 +565,7 @@ public class Prerequisite implements Cloneable
 
 		if (prerequisites != null)
 		{
-			copy.prerequisites = new ArrayList<Prerequisite>();
+			copy.prerequisites = new ArrayList<>();
 			for ( Prerequisite subreq : prerequisites )
 			{
 				copy.prerequisites.add(subreq.specify(assoc));

@@ -19,17 +19,19 @@ package plugin.qualifier.pobject;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstToken;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.RaceToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
@@ -41,12 +43,12 @@ public class AnyQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Race>
 {
 
-	static ChooseLst token = new ChooseLst();
-	static RaceToken subtoken = new RaceToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	private static final CDOMPrimaryToken token = new ChooseLst();
+	private static final CDOMSecondaryToken subtoken = new RaceToken();
+	private static final CDOMLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private Race s1, s2, s3;
 
-	private static final plugin.qualifier.pobject.AnyToken ANY_TOKEN = new plugin.qualifier.pobject.AnyToken();
+	private static final LstToken ANY_TOKEN = new AnyToken();
 
 	public AnyQualifierTokenTest()
 	{
@@ -99,7 +101,7 @@ public class AnyQualifierTokenTest extends
 	@Override
 	protected Class<? extends QualifierToken> getQualifierClass()
 	{
-		return plugin.qualifier.pobject.AnyToken.class;
+		return AnyToken.class;
 	}
 
 	@Test
@@ -109,7 +111,7 @@ public class AnyQualifierTokenTest extends
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|ANY[ALL]"));
 		finishLoad();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+		PlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
@@ -127,7 +129,7 @@ public class AnyQualifierTokenTest extends
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|ANY[TYPE=Masterful]"));
 		finishLoad();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+		PlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);

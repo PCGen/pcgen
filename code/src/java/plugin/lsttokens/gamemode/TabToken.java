@@ -1,5 +1,4 @@
 /*
- * TabToken.java
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 17, 2005, 2:31 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.lsttokens.gamemode;
 
@@ -34,9 +26,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * <code>TabToken</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * {@code TabToken}
  */
 public class TabToken implements GameModeLstToken
 {

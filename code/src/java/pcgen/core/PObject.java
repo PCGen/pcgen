@@ -14,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core;
 
@@ -47,15 +40,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.system.PCGenSettings;
 
 /**
- * <code>PObject</code><br>
+ * {@code PObject}<br>
  * This is the base class for several objects in the PCGen database.
- *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
- */
-/**
- * @author Joe.Frazier
- *
  */
 public class PObject extends CDOMObject implements Cloneable, Serializable, Comparable<Object>,
 	KeyedListContainer, QualifyingObject
@@ -185,14 +171,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param aType
 	 * @return Whether the item is of this type
 	 * 
-	 * Note:  This method is overridden in Equipment.java
 	 */
 	@Override
 	public boolean isType(final String aType)
 	{
 		final String myType;
 
-		if (aType.length() == 0)
+		if (aType.isEmpty())
 		{
 			return false;
 		}

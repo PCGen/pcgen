@@ -1,5 +1,4 @@
 /*
- * PCAlignment.java
  * Copyright 2002 (C) Greg Bingleman (byngl@hotmail.com)
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on October 14, 2002 10:01PM
  */
 package pcgen.core;
 
@@ -25,10 +22,8 @@ import pcgen.cdom.base.SortKeyRequired;
 import pcgen.facade.core.AlignmentFacade;
 
 /**
- * <code>PCAlignment</code>.
+ * {@code PCAlignment}.
  * 
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
  */
 public final class PCAlignment extends PObject implements AlignmentFacade,
 		NonInteractive, SortKeyRequired

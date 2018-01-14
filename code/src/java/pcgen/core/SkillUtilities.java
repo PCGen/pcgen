@@ -1,5 +1,4 @@
 /*
- * SkillUtilities.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,34 +14,21 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 25, 2005
- *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core;
 
 import java.math.BigDecimal;
 
-/**
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
- */
 public final class SkillUtilities
 {
 
 	private SkillUtilities()
 	{
-		//Don't allow instantiation of utility class
 	}
 
 	/**
 	 * Returns the maximum number of ranks a character can have in a class skill
-	 * at the specified level. <p/>Should this be moved to PCClass?
+	 * at the specified level. <p>Should this be moved to PCClass?
 	 *
 	 * @param level
 	 *            character level to get max skill ranks for
@@ -64,7 +50,7 @@ public final class SkillUtilities
 	}
 
 	/**
-	 * Returns the maximum number of ranks a character can <p/>have in a
+	 * Returns the maximum number of ranks a character can <p>have in a
 	 * cross-class skill at the specified level.
 	 *
 	 * @param level

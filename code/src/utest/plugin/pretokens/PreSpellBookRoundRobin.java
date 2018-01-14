@@ -17,27 +17,13 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSpellBookParser;
 import plugin.pretokens.writer.PreSpellBookWriter;
 
 public class PreSpellBookRoundRobin extends AbstractPreRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSpellBookRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSpellBookRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

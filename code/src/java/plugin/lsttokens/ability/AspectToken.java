@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/08/2008 18:13:11
- *
- * $Id: $
  */
 package plugin.lsttokens.ability;
 
@@ -45,21 +41,18 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>AspectToken</code> parses a generic detail field for
+ * The Class {@code AspectToken} parses a generic detail field for
  * abilities. It is a name/value characteristic allowing substitution of values.
  * 
  * <p>
  * Variable substitution is performed by replacing a placeholder indicated by %#
- * with the #th variable in the variable list. For example, the string <br />
- * <code>&quot;This is %1 variable %3 %2&quot;</code> <br />
+ * with the #th variable in the variable list. For example, the string <br>
+ * {@code "This is %1 variable %3 %2"} <br>
  * would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;,
  * &quot;substitution&quot;.
  * 
- * Last Editor: $Author: $ Last Edited: $Date: $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		CDOMPrimaryToken<Ability>
@@ -85,7 +78,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 					+ "AspectName|Aspect value|Variable|... was: " + value, context);
 		}
 		String key = value.substring(0, pipeLoc);
-		if (key.length() == 0)
+		if (key.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty type, "
@@ -93,7 +86,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 					+ value, context);
 		}
 		String val = value.substring(pipeLoc + 1);
-		if (val.length() == 0)
+		if (val.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "
@@ -114,7 +107,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		List<Aspect> aspects = fullMap.get(a.getKey());
 		if (aspects == null)
 		{
-			aspects = new ArrayList<Aspect>();
+			aspects = new ArrayList<>();
 		}
 		aspects.add(a);
 		context.getObjectContext().put(ability, MapKey.ASPECT, a.getKey(), aspects);
@@ -190,7 +183,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		Set<AspectName> keys = changes.getAdded().keySet();
 		for (AspectName an : keys)
 		{

@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.pcgtracker;
 
@@ -27,7 +25,7 @@ import javax.swing.DefaultListModel;
 public class PCGTrackerModel extends DefaultListModel
 {
 	/**
-	 * Creates an instance of a <code>PCGTrackerModel</code>.  This class holds
+	 * Creates an instance of a {@code PCGTrackerModel}.  This class holds
 	 * all the characters that are loaded.
 	 */
 	public PCGTrackerModel()
@@ -106,9 +104,9 @@ public class PCGTrackerModel extends DefaultListModel
 			}
 
 			outbuf.append(pcOut.getName()).append(" (");
-			outbuf.append(pcOut.getRaceName()).append(" ");
-			outbuf.append(pcOut.getClasses()).append(" ");
-			outbuf.append(pcOut.getGender()).append(")");
+			outbuf.append(pcOut.getRaceName()).append(' ');
+			outbuf.append(pcOut.getClasses()).append(' ');
+			outbuf.append(pcOut.getGender()).append(')');
 
 			return outbuf.toString();
 		}

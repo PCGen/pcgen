@@ -37,7 +37,7 @@ public class FavoredClassIntegrationTest extends
 {
 
 	static FavoredclassToken token = new FavoredclassToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

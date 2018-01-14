@@ -29,7 +29,7 @@ public class BaseItemIntegrationTest extends
 {
 
 	static BaseitemToken token = new BaseitemToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

@@ -1,5 +1,4 @@
 /*
- * SizeAdjustment.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 13, 2001, 4:24 PM
  */
 package pcgen.core;
 
@@ -28,10 +26,8 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.SizeAdjustmentFacade;
 
 /**
- * <code>SizeAdjustment</code>.
+ * {@code SizeAdjustment}.
  *
- * @author Greg Bingleman <byngl@users.sourceforge.net>
- * @version $Revision$
  */
 public final class SizeAdjustment extends PObject implements
 		SizeAdjustmentFacade, VarScoped

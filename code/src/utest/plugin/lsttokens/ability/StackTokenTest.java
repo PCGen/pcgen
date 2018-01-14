@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.ability;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.persistence.CDOMLoader;
@@ -30,7 +28,7 @@ public class StackTokenTest extends AbstractYesNoTokenTestCase<Ability>
 {
 
 	static StackToken token = new StackToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -56,9 +54,4 @@ public class StackTokenTest extends AbstractYesNoTokenTestCase<Ability>
 		return ObjectKey.STACKS;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

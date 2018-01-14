@@ -32,6 +32,8 @@ import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
  * provided as convenience to hold a set of choices and the number of choices
@@ -46,7 +48,7 @@ public class SpellLevelChooseInformation implements
 {
 
 	private static final ClassIdentity<SpellLevel> SPELLLEVEL_INFO =
-			BasicClassIdentity.getInstance(SpellLevel.class);
+			BasicClassIdentity.getIdentity(SpellLevel.class);
 
 	private final List<SpellLevelInfo> info;
 
@@ -90,7 +92,7 @@ public class SpellLevelChooseInformation implements
 				"PrimitiveChoiceSet cannot be null");
 		}
 		// Need to populate info first to avoid thread issues
-		info = new ArrayList<SpellLevelInfo>(choice);
+		info = new ArrayList<>(choice);
 		if (info.isEmpty())
 		{
 			throw new IllegalArgumentException(
@@ -238,7 +240,7 @@ public class SpellLevelChooseInformation implements
 	@Override
 	public Collection<SpellLevel> getSet(PlayerCharacter pc)
 	{
-		Set<SpellLevel> list = new HashSet<SpellLevel>();
+		Set<SpellLevel> list = new HashSet<>();
 		for (SpellLevelInfo sli : info)
 		{
 			list.addAll(sli.getLevels(pc));
@@ -303,13 +305,13 @@ public class SpellLevelChooseInformation implements
 	@Override
 	public ChoiceManagerList<SpellLevel> getChoiceManager(ChooseDriver owner, int cost)
 	{
-		return new CDOMChoiceManager<SpellLevel>(owner, this, null, cost);
+		return new CDOMChoiceManager<>(owner, this, null, cost);
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends SpellLevel> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends SpellLevel> collection)
 	{
-		return ChooseInformationUtilities.buildEncodedString(this, collection);
+		return ChooseInformationUtilities.buildEncodedString(collection);
 	}
 
 	@Override

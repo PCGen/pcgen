@@ -1,5 +1,4 @@
 /*
- * CollectionMaps.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 18, 2008, 6:19:13 PM
  */
 package pcgen.util;
 
@@ -27,10 +25,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Connor Petty <mistercpp2000@gmail.com>
- */
+
 public final class CollectionMaps
 {
 
@@ -51,27 +46,12 @@ public final class CollectionMaps
         return null;
     }
 
-    public static <K, V, C extends Collection<V>> CollectionMap<K, V, C> createCollectionMap(Class<? extends Map> mapClass,
-                                                                                               Class<C> collectionClass)
-    {
-        try
-        {
-            return new BasicCollectionMap<K, V, C>(mapClass, collectionClass);
-        }
-        catch (Exception ex)
-        {
-            Logger.getLogger(CollectionMaps.class.getName()).log(Level.SEVERE,
-                                                                 null, ex);
-        }
-        return null;
-    }
-
     public static <K, V, C extends List<V>> ListMap<K, V, C> createListMap(Class<? extends Map> mapClass,
-                                                                             Class<C> listClass)
+                                                                             Class<? extends List> listClass)
     {
         try
         {
-            return new BasicListMap<K, V, C>(mapClass, listClass);
+            return new BasicListMap(mapClass, listClass);
         }
         catch (Exception ex)
         {

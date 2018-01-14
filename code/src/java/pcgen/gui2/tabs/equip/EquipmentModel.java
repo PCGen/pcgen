@@ -1,5 +1,4 @@
 /*
- * EquipmentModel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 7, 2010, 3:18:39 PM
  */
 package pcgen.gui2.tabs.equip;
 
@@ -57,8 +55,6 @@ import pcgen.gui2.util.JTreeTable;
 /**
  * The parent model for the selected panel. Maps the various equipment sets for
  * a character.
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class EquipmentModel implements ListListener<EquipmentSetFacade>, ReferenceListener<EquipmentSetFacade>,
 		TableModelListener
@@ -82,7 +78,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		this.treeTable = table;
 		treeRenderer = (TreeRenderer) treeTable.getTreeCellRenderer();
 
-		equipsetMap = new HashMap<EquipmentSetFacade, EquipmentTreeTableModel>();
+		equipsetMap = new HashMap<>();
 		equipsets = character.getEquipmentSets();
 		for (EquipmentSetFacade equipset : equipsets)
 		{
@@ -252,7 +248,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 	private static class TreeRenderer extends CharacterTreeCellRenderer
 	{
 
-		private Map<String, ImageIcon> iconCache = new HashMap<String, ImageIcon>();
+		private final Map<String, ImageIcon> iconCache = new HashMap<>();
 
 		@Override
 		public Component getTreeCellRendererComponent(final JTree tree,

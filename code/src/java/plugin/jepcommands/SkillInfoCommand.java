@@ -44,8 +44,8 @@ public class SkillInfoCommand extends PCGenCommand
 
 	/**
 	 * Runs skill on the inStack. The parameter is popped
-	 * off the <code>inStack</code>, and the variable's value is
-	 * pushed back to the top of <code>inStack</code>.
+	 * off the {@code inStack}, and the variable's value is
+	 * pushed back to the top of {@code inStack}.
 	 * @param inStack the jep stack
 	 * @throws ParseException
 	 */

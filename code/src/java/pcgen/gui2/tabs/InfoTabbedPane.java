@@ -1,5 +1,4 @@
 /*
- * InfoTabbedPane.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 29, 2009, 1:00:39 PM
  */
 package pcgen.gui2.tabs;
 
@@ -62,8 +60,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * This class is the tabbed pane that contains all of the CharacterInfoTabs and
  * manages the models for those tabs.
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
 public final class InfoTabbedPane extends JTabbedPane
@@ -84,13 +80,13 @@ public final class InfoTabbedPane extends JTabbedPane
 	private final DoubleKeyMap<CharacterFacade, CharacterInfoTab, ModelMap> stateMap;
 	private final Map<CharacterFacade, Integer> tabSelectionMap;
 	private final TabModelService modelService;
-	private final List<CharacterInfoTab> fullTabList = new ArrayList<CharacterInfoTab>();
+	private final List<CharacterInfoTab> fullTabList = new ArrayList<>();
 	private CharacterFacade currentCharacter = null;
 
 	public InfoTabbedPane()
 	{
-		this.stateMap = new DoubleKeyMap<CharacterFacade, CharacterInfoTab, ModelMap>();
-		this.tabSelectionMap = new WeakHashMap<CharacterFacade, Integer>();
+		this.stateMap = new DoubleKeyMap<>();
+		this.tabSelectionMap = new WeakHashMap<>();
 		this.modelService = new TabModelService();
 		initComponent();
 	}
@@ -286,9 +282,6 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void stateChanged(ChangeEvent e)
 	{
@@ -304,7 +297,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	 * This class handles the concurrent processing of storing and restoring tab
 	 * models. Conceptually this process consists of two separate processing
 	 * queues. One queue is the orderly execution of restoring tab models which
-	 * takes place in a a semi-concurrent manner. Each tab has its models
+	 * takes place in a semi-concurrent manner. Each tab has its models
 	 * restored as a separate task on the EventDispatchThread which allows for
 	 * the UI to remain responsive to other events. If the user selects a
 	 * different character while tab models are being restored then the model
@@ -334,7 +327,7 @@ public final class InfoTabbedPane extends JTabbedPane
 
 		public TabModelService()
 		{
-			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(), new ThreadFactory()
+			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new ThreadFactory()
 			{
 
 				@Override
@@ -348,9 +341,9 @@ public final class InfoTabbedPane extends JTabbedPane
 				}
 
 			});
-			this.timingMap = new HashMap<CharacterInfoTab, Long>();
-			storeQueue = new LinkedList<CharacterInfoTab>();
-			restoreQueue = new LinkedList<Future<?>>();
+			this.timingMap = new HashMap<>();
+			storeQueue = new LinkedList<>();
+			restoreQueue = new LinkedList<>();
 		}
 
 		@Override
@@ -399,7 +392,7 @@ public final class InfoTabbedPane extends JTabbedPane
 				handleDisplayAware();
 			}
 
-			PriorityQueue<CharacterInfoTab> queue = new PriorityQueue<CharacterInfoTab>(states.keySet().size(), this);
+			PriorityQueue<CharacterInfoTab> queue = new PriorityQueue<>(states.keySet().size(), this);
 			queue.addAll(states.keySet());
 			queue.remove(firstTab);
 
@@ -481,7 +474,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	private class TabActionListener implements PropertyChangeListener
 	{
 
-		private Component component;
+		private final Component component;
 
 		public TabActionListener(Component component)
 		{

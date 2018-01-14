@@ -1,5 +1,4 @@
 /*
- * OrCommandTest.java
  * Copyright 2007 (C) andrew wilson <nuance@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,30 +14,21 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Oct 26, 2007
- *
- * $Id$
- *
  */
 package plugin.jepcommands;
+
+import java.util.Stack;
+
+import pcgen.PCGenTestCase;
+import pcgen.util.testchecker.CompareEqualDouble;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
-import pcgen.PCGenTestCase;
-
-import java.util.Stack;
 
 /**
  * <code>OrCommandTest</code> tests the functioning of the jep or plugin
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class OrCommandTest extends PCGenTestCase
 {
@@ -81,7 +71,7 @@ public class OrCommandTest extends PCGenTestCase
     public void testOr01()
     {
         final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Object>         s = new Stack<Object>();
+        final Stack<Object>         s = new Stack<>();
 
         s.push(1.0);
         s.push(2.0);
@@ -99,7 +89,7 @@ public class OrCommandTest extends PCGenTestCase
     public void testOr02()
     {
         final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Double>         s = new Stack<Double>();
+        final Stack<Double>         s = new Stack<>();
 
         s.push(0.0);
         s.push(2.0);
@@ -117,7 +107,7 @@ public class OrCommandTest extends PCGenTestCase
     public void testOr03()
     {
         final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Boolean>        s = new Stack<Boolean>();
+        final Stack<Boolean>        s = new Stack<>();
 
         s.push(false);
         s.push(false);
@@ -168,6 +158,6 @@ public class OrCommandTest extends PCGenTestCase
 
         final Object result = s.pop();
 
-        is(result, eq(0.0), "if (false,false,false,false) returns 0.0");
+        is(result, new CompareEqualDouble(0.0), "if (false,false,false,false) returns 0.0");
     }
 }

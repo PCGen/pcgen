@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.exporttokens.deprecated;
 
@@ -33,10 +26,8 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * <code>WeaponProfsToken</code>.
+ * {@code WeaponProfsToken}.
  *
- * @author	binkley
- * @version	$Revision$
  */
 public class WeaponProfsToken extends AbstractExportToken
 {
@@ -56,7 +47,7 @@ public class WeaponProfsToken extends AbstractExportToken
 	 * Get the value of the supplied output token. Simply calls getWeaponProfsToken.
 	 *
 	 * @param tokenSource The full source of the token
-	 * @param pc The character to retrieve the value for.
+	 * @param display The character to retrieve the value for.
 	 * @param eh The ExportHandler that is managing the export
 	 * @return The value of the token.
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)

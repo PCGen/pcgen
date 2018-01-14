@@ -77,7 +77,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 		}
 
 		List<QualifiedObject<CDOMSingleRef<Domain>>> toAdd =
-				new ArrayList<QualifiedObject<CDOMSingleRef<Domain>>>();
+				new ArrayList<>();
 		boolean foundClear = false;
 		while (true)
 		{
@@ -95,7 +95,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 			{
 				CDOMSingleRef<Domain> domain = context.getReferenceContext().getCDOMReference(
 					DOMAIN_CLASS, tok);
-				QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<CDOMSingleRef<Domain>>(
+				QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<>(
 						domain);
 				toAdd.add(qo);
 				context.getObjectContext().addToList(pcc, ListKey.DOMAIN, qo);
@@ -146,7 +146,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 	{
 		Changes<QualifiedObject<CDOMSingleRef<Domain>>> changes = context
 				.getObjectContext().getListChanges(pcc, ListKey.DOMAIN);
-		List<String> returnList = new ArrayList<String>();
+		List<String> returnList = new ArrayList<>();
 		if (changes.includesGlobalClear())
 		{
 			returnList.add(Constants.LST_DOT_CLEAR);
@@ -163,13 +163,13 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 		if (added != null && !added.isEmpty())
 		{
 			HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>> m =
-					new HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>>();
+					new HashMapToList<>();
 			for (QualifiedObject<CDOMSingleRef<Domain>> qo : added)
 			{
 				m.addToListFor(qo.getPrerequisiteList(), qo.getRawObject());
 			}
 
-			Set<String> returnSet = new TreeSet<String>();
+			Set<String> returnSet = new TreeSet<>();
 			for (List<Prerequisite> prereqs : m.getKeySet())
 			{
 				StringBuilder sb = new StringBuilder();

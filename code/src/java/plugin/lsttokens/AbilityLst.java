@@ -16,10 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package plugin.lsttokens;
 
@@ -68,15 +64,15 @@ import pcgen.rules.persistence.token.ParseResult;
  * Implements the ABILITY: global LST token.
  *
  * <p>
- * <b>Tag Name</b>: <code>ABILITY</code>:x|y|z|z<br />
- * <b>Variables Used (x)</b>: Ability Category (The Ability Category this ability will be added to).<br />
+ * <b>Tag Name</b>: {@code ABILITY}:x|y|z|z<br>
+ * <b>Variables Used (x)</b>: Ability Category (The Ability Category this ability will be added to).<br>
  * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability:
- * <tt>NORMAL</tt>, <tt>AUTOMATIC</tt>, or <tt>VIRTUAL</tt>)<br />
+ * <tt>NORMAL</tt>, <tt>AUTOMATIC</tt>, or <tt>VIRTUAL</tt>)<br>
  * <b>Variables Used (z)</b>: Ability Key or TYPE(The Ability to add. Can have
- * choices specified in &quot;()&quot;)<br />
- * <b>Prereqs Allowed</b>: Yes <br />
- * <p />
- * <b>What it does:</b><br/>
+ * choices specified in &quot;()&quot;)<br>
+ * <b>Prereqs Allowed</b>: Yes <br>
+ * <p>
+ * <b>What it does:</b><br>
  * <ul>
  * <li>Adds an Ability to a character.</li>
  * <li>The Ability is added to the Ability Category specied and that category's
@@ -92,22 +88,17 @@ import pcgen.rules.persistence.token.ParseResult;
  * <li>This tag is a replacement for the following tags: <tt>FEAT</tt>,
  * <tt>VFEAT</tt>, and <tt>FEATAUTO</tt>.
  * </ul>
- * <b>Where it is used:</b><br />
+ * <b>Where it is used:</b><br>
  * Global tag can be used anywhere.
- * <p />
- * <b>Examples:</b><br />
- * <code>ABILITY:FEAT|AUTOMATIC|TYPE=Metamagic</code><br />
+ * <p>
+ * <b>Examples:</b><br>
+ * {@code ABILITY:FEAT|AUTOMATIC|TYPE=Metamagic}<br>
  * Adds a Metamagic feat as an Auto feat.
- * <p />
+ * <p>
  *
- * <code>ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist</code><br />
+ * {@code ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist}<br>
  * Adds the Stunning Fist feat as a virtual class feature.
- * <p />
- *
- * @author boomer70 <boomer70@yahoo.com>
- *
- * @since 5.11.1
- *
+ * <p>
  */
 public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
@@ -179,11 +170,11 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				+ getTokenName() + ": " + value, context);
 		}
 
-		String lkString = "GA_CA_" + cat + "_" + natureKey;
+		String lkString = "GA_CA_" + cat + '_' + natureKey;
 		ListKey glk = ListKey.getKeyFor(ChooseSelectionActor.class, lkString);
 		ListKey<ChooseSelectionActor<?>> lk = glk;
 
-		ArrayList<PrereqObject> edgeList = new ArrayList<PrereqObject>();
+		ArrayList<PrereqObject> edgeList = new ArrayList<>();
 
 		CDOMReference<AbilityList> abilList =
 				AbilityList.getAbilityListReference(acRef, nature);
@@ -251,7 +242,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				List<String> choices = null;
 				if (token.indexOf('(') != -1)
 				{
-					choices = new ArrayList<String>();
+					choices = new ArrayList<>();
 					AbilityUtilities.getUndecoratedName(token, choices);
 					if (choices.size() == 1)
 					{
@@ -332,17 +323,17 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					.getChangedLists(obj, AbilityList.class);
 		Changes<ListKey<ChooseSelectionActor<?>>> actors = context.getObjectContext()
 				.getListChanges(obj, ListKey.GA_CAKEYS);
-		Set<String> returnSet = new TreeSet<String>();
+		Set<String> returnSet = new TreeSet<>();
 		TripleKeyMapToList<Nature, CDOMSingleRef<AbilityCategory>, List<Prerequisite>, CDOMReference<Ability>> m =
-				new TripleKeyMapToList<Nature, CDOMSingleRef<AbilityCategory>, List<Prerequisite>, CDOMReference<Ability>>();
+				new TripleKeyMapToList<>();
 		TripleKeyMapToList<Nature, CDOMSingleRef<AbilityCategory>, List<Prerequisite>, CDOMReference<Ability>> clear =
-				new TripleKeyMapToList<Nature, CDOMSingleRef<AbilityCategory>, List<Prerequisite>, CDOMReference<Ability>>();
+				new TripleKeyMapToList<>();
 
 		Changes<ChooseSelectionActor<?>> listChanges =
 				context.getObjectContext().getListChanges(obj,
 					ListKey.NEW_CHOOSE_ACTOR);
 		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
-		if (listAdded != null && !listAdded.isEmpty())
+		if ((listAdded != null) && !listAdded.isEmpty())
 		{
 			for (ChooseSelectionActor<?> csa : listAdded)
 			{
@@ -429,7 +420,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					sb.append(nature);
 					List<CDOMReference<Ability>> clearList = clear
 							.removeListFor(nature, category, prereqs);
-					if (clearList != null && !clearList.isEmpty())
+					if ((clearList != null) && !clearList.isEmpty())
 					{
 						sb.append(Constants.PIPE);
 						sb.append(Constants.LST_DOT_CLEAR_DOT);
@@ -439,7 +430,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					sb.append(Constants.PIPE);
 					sb.append(ReferenceUtilities.joinLstFormat(m.getListFor(
 							nature, category, prereqs), Constants.PIPE));
-					if (prereqs != null && !prereqs.isEmpty())
+					if ((prereqs != null) && !prereqs.isEmpty())
 					{
 						sb.append(Constants.PIPE);
 						sb.append(getPrerequisiteString(context, prereqs));
@@ -462,7 +453,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					sb.append(ReferenceUtilities.joinLstFormat(clear
 							.getListFor(nature, category, prereqs),
 							Constants.PIPE + Constants.LST_DOT_CLEAR_DOT));
-					if (prereqs != null && !prereqs.isEmpty())
+					if ((prereqs != null) && !prereqs.isEmpty())
 					{
 						sb.append(Constants.PIPE);
 						sb.append(getPrerequisiteString(context, prereqs));
@@ -492,7 +483,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 							sb.append(ats.getNature()).append(Constants.PIPE)
 								.append(cra.getLstFormat());
 							List<Prerequisite> prereqs = ats.getPrerequisiteList();
-							if (prereqs != null && !prereqs.isEmpty())
+							if ((prereqs != null) && !prereqs.isEmpty())
 							{
 								sb.append(Constants.PIPE);
 								sb.append(getPrerequisiteString(context, prereqs));

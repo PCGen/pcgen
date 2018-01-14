@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCMaxCastableAnyTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 16-Sep-2008 00:47:07
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -40,7 +34,7 @@ public class PCMaxCastableAnyTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Float max = 0f;
+		Float max = 0.0f;
 		for (PCClass spClass : pc.getDisplay().getClassSet())
 		{
 			int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
@@ -58,7 +52,7 @@ public class PCMaxCastableAnyTermEvaluator
 			{
 				for (int i = 0; i < cutoff; i++)
 				{
-					if (pc.getSpellSupport(spClass).getKnownForLevel(i, "null", pc) != 0)
+					if (pc.getSpellSupport(spClass).getKnownForLevel(i, pc) != 0)
 					{
 						max = Math.max(max, i);
 					}

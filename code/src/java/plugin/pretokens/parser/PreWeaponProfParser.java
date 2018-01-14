@@ -1,6 +1,4 @@
 /*
- * PreWeaponProficiencyParser.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,28 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.parser;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre weaponprof tokens.
- *
  */
-public class PreWeaponProfParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
@@ -75,7 +62,7 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 		return prereq;
 	}
 
-	private void doTypeInvertFixUp(Prerequisite prereq)
+	private static void doTypeInvertFixUp(Prerequisite prereq)
 	{
 		if ("weaponprof".equalsIgnoreCase(prereq.getKind()))
 		{
@@ -107,9 +94,6 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected boolean allowsNegate()
 	{

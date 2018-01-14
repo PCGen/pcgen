@@ -35,7 +35,7 @@ public class AttackCycleIntegrationTest extends
 {
 
 	static AttackcycleToken token = new AttackcycleToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

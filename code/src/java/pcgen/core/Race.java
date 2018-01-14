@@ -1,5 +1,4 @@
 /*
- * Race.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * $Id$
  */
 package pcgen.core;
 
@@ -37,11 +32,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.facade.core.RaceFacade;
 
 /**
- * <code>Race</code>.
- *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @author Michael Osterlie
- * @version $Revision$
+ * {@code Race}.
  */
 public final class Race extends PObject implements RaceFacade, ChooseDriver
 {
@@ -55,7 +46,7 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 	{
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
 		return hda == null
-				|| Integer.MAX_VALUE == hda.get(hda.size() - 1).intValue();
+				|| hda.get(hda.size() - 1).intValue() == Integer.MAX_VALUE;
 	}
 
 	/**
@@ -85,23 +76,17 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 		return null;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getRaceType()
 	{
 		RaceType rt = getSafe(ObjectKey.RACETYPE);
 		return rt == null ? "" : rt.toString();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getRaceSubTypes()
 	{
-		List<String> subTypeNames = new ArrayList<String>();
+		List<String> subTypeNames = new ArrayList<>();
 		List<RaceSubType> rst = getListFor(ListKey.RACESUBTYPE);
 		if (rst != null)
 		{

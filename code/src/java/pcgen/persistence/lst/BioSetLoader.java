@@ -1,5 +1,4 @@
 /*
- * bioSetLoader.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on October 10, 2002, 10:29 PM
- *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -43,11 +38,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- *
- * @author  Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision$
- */
+
 public final class BioSetLoader extends LstLineFileLoader
 {
 	private static String regionName = Constants.NONE;
@@ -151,7 +142,7 @@ public final class BioSetLoader extends LstLineFileLoader
 				{
 					if (preReqList == null)
 					{
-						preReqList = new ArrayList<String>();
+						preReqList = new ArrayList<>();
 					}
 
 					preReqList.add(colString);
@@ -165,9 +156,9 @@ public final class BioSetLoader extends LstLineFileLoader
 						final StringBuilder sBuf = new StringBuilder(100+colString.length());
 						sBuf.append(colString);
 
-						for (int i = 0, x = preReqList.size(); i < x; ++i)
+						for (String aPreReqList : preReqList)
 						{
-							sBuf.append('[').append(preReqList.get(i)).append(
+							sBuf.append('[').append(aPreReqList).append(
 									']');
 						}
 

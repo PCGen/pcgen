@@ -32,7 +32,7 @@ public class DomainsIntegrationTest extends
 {
 
 	static DomainsToken token = new DomainsToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

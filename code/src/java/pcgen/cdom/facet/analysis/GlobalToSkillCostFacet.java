@@ -31,9 +31,7 @@ import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-/**
- * @author Thomas Parker (thpr [at] yahoo.com)
- */
+
 public class GlobalToSkillCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
 		ScopeFacetChangeListener<CharID, SkillCost, Skill>,

@@ -1,5 +1,4 @@
 /**
- * LanguageChooserFacadeImpl.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 15/07/2010 4:08:09 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -49,28 +44,23 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 
 /**
- * The Class <code>LanguageChooserFacadeImpl</code> is an implementation of the 
+ * The Class {@code LanguageChooserFacadeImpl} is an implementation of the
  * LanguageChooserFacade for the gui2 package. It is responsible for managing 
  * details of a possible selection of languages. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 {
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
-	private ChooseDriver source;
-	private String name;
-	private DefaultListFacade<LanguageFacade> availableList;
-	private DefaultListFacade<LanguageFacade> selectedList;
-	private DefaultListFacade<LanguageFacade> originalSelectedList;
-	private DefaultReferenceFacade<Integer> numSelectionsRemain;
-	private CharacterFacadeImpl pcFacade;
+	private final ChooseDriver source;
+	private final String name;
+	private final DefaultListFacade<LanguageFacade> availableList;
+	private final DefaultListFacade<LanguageFacade> selectedList;
+	private final DefaultListFacade<LanguageFacade> originalSelectedList;
+	private final DefaultReferenceFacade<Integer> numSelectionsRemain;
+	private final CharacterFacadeImpl pcFacade;
 	
 	/**
 	 * Create a new LanguageChooserFacadeImpl. This is initially empty but will be 
@@ -89,10 +79,10 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		this.name = name;
 		this.source = source;
 		
-		availableList = new DefaultListFacade<LanguageFacade>();
-		selectedList = new DefaultListFacade<LanguageFacade>();
-		originalSelectedList = new DefaultListFacade<LanguageFacade>();
-		numSelectionsRemain = new DefaultReferenceFacade<Integer>(0);
+		availableList = new DefaultListFacade<>();
+		selectedList = new DefaultListFacade<>();
+		originalSelectedList = new DefaultListFacade<>();
+		numSelectionsRemain = new DefaultReferenceFacade<>(0);
 	}
 	
 	/**
@@ -100,7 +90,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 */
 	private void buildLanguageList()
 	{
-		if (source == null || !(source instanceof Skill ))
+		if (!(source instanceof Skill))
 		{
 			buildBonusLangList();
 		}
@@ -118,7 +108,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		CNAbility cna = theCharacter.getBonusLanguageAbility();
 		Ability a = cna.getAbility();
 
-		List<Language> availLangs = new ArrayList<Language>();
+		List<Language> availLangs = new ArrayList<>();
 		ChooseInformation<Language> chooseInfo =
 				(ChooseInformation<Language>) a.get(ObjectKey.CHOOSE_INFO);
 		availLangs.addAll(chooseInfo.getSet(theCharacter));
@@ -155,7 +145,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 */
 	private void buildObjectLangList()
 	{
-		final List<Language> availLangs = new ArrayList<Language>();
+		final List<Language> availLangs = new ArrayList<>();
 		ChooseInformation<Language> chooseInfo =
 				(ChooseInformation<Language>) source.getChooseInfo();
 		availLangs.addAll(chooseInfo.getSet(theCharacter));
@@ -165,7 +155,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 					theCharacter);
 		if (selLangs == null)
 		{
-			selLangs = new ArrayList<Language>();
+			selLangs = new ArrayList<>();
 		}
 		
 		Set<Language> languageSet = charDisplay.getLanguageSet();
@@ -186,10 +176,10 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		{
 			ChoiceManagerList<Language> aMan =
 					ChooserUtilities.getConfiguredController(source,
-						theCharacter, null, new ArrayList<String>());
+						theCharacter, null, new ArrayList<>());
 			numSelections =
 					aMan.getNumEffectiveChoices(selLangs,
-						new ArrayList<String>(), theCharacter);
+                            new ArrayList<>(), theCharacter);
 		}
 		numSelectionsRemain.set(numSelections);
 	}
@@ -210,7 +200,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#addSelected(pcgen.core.facade.LanguageFacade)
 	 */
 	@Override
@@ -225,7 +215,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()-1);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#removeSelected(pcgen.core.facade.LanguageFacade)
 	 */
 	@Override
@@ -236,7 +226,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()+1);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getAvailableList()
 	 */
 	@Override
@@ -246,7 +236,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return availableList;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getName()
 	 */
 	@Override
@@ -255,7 +245,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return name;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getRemainingSelections()
 	 */
 	@Override
@@ -264,7 +254,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return numSelectionsRemain;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getSelectedList()
 	 */
 	@Override
@@ -273,7 +263,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return selectedList;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#commit()
 	 */
 	@Override
@@ -282,7 +272,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	{
 		ChoiceManagerList<Language> choiceManager = ChooserUtilities.getChoiceManager(source, theCharacter);
 		
-		List<Language> selected = new ArrayList<Language>(selectedList.getSize());
+		List<Language> selected = new ArrayList<>(selectedList.getSize());
 		for (LanguageFacade langFacade : selectedList)
 		{
 			selected.add((Language) langFacade);
@@ -293,7 +283,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		pcFacade.refreshLanguageList();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#rollback()
 	 */
 	@Override

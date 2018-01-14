@@ -29,7 +29,7 @@ public class XPCostIntegrationTest extends
 {
 
 	static XpcostToken token = new XpcostToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

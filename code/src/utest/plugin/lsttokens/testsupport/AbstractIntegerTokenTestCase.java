@@ -46,14 +46,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	public void testInvalidInputSet() throws PersistenceLayerException
 	{
 		Integer con;
-		if (isPositiveAllowed())
-		{
-			con = Integer.valueOf(3);
-		}
-		else
-		{
-			con = Integer.valueOf(-3);
-		}
+		con = isPositiveAllowed() ? 3 : -3;
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
 		assertEquals(con, primaryProf.get(getIntegerKey()));
@@ -129,7 +122,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testOutputOne() throws PersistenceLayerException
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 1);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isPositiveAllowed())
@@ -147,7 +140,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testOutputZero() throws PersistenceLayerException
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 0);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isZeroAllowed())
@@ -165,7 +158,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testOutputMinusTwo() throws PersistenceLayerException
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), -2);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isNegativeAllowed())
@@ -238,27 +231,13 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	@Override
 	protected String getLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "1";
-		}
-		else
-		{
-			return "-1";
-		}
+		return isPositiveAllowed() ? "1" : "-1";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "2";
-		}
-		else
-		{
-			return "-2";
-		}
+		return isPositiveAllowed() ? "2" : "-2";
 	}
 
 	@Test

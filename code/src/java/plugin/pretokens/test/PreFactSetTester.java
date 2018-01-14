@@ -33,12 +33,12 @@ import pcgen.output.publish.OutputDB;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>PreFactTester</code> is responsible for testing FACT values on an object.
+ * The Class {@code PreFactTester} is responsible for testing FACT values on an object.
  */
 public class PreFactSetTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -77,8 +77,8 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private <T> int getRunningTotal(final Prerequisite prereq, final int number,
-		Iterable<Reducible> objModel, String factval, FactSetKey<T> fk)
+	private static <T> int getRunningTotal(final Prerequisite prereq, final int number,
+	                                       Iterable<Reducible> objModel, String factval, FactSetKey<T> fk)
 	{
 		T targetVal = fk.getFormatManager().convert(factval);
 		int runningTotal = 0;
@@ -109,7 +109,7 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 		return "FACTSET"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override
@@ -123,8 +123,8 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 
 		final String foo = LanguageBundle.getFormattedString(
 				"PreFactSet.toHtml", //$NON-NLS-1$
-				new Object[] { prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), prereq.getKey() });
+				prereq.getOperator().toDisplayString(),
+				prereq.getOperand(), prereq.getKey());
 		return foo;
 	}
 

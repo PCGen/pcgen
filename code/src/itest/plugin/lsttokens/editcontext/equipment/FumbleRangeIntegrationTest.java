@@ -29,7 +29,7 @@ public class FumbleRangeIntegrationTest extends
 {
 
 	static FumblerangeToken token = new FumblerangeToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

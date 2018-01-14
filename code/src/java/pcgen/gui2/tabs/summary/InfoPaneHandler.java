@@ -1,5 +1,4 @@
 /*
- * InfoPaneHandler.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 23, 2010, 3:16:32 PM
  */
 package pcgen.gui2.tabs.summary;
 
@@ -38,12 +36,7 @@ import pcgen.system.LanguageBundle;
  * that is displayed in the summary tab to advise the user of important 
  * stats for their character. The output sheet to be displayed is specified in 
  * the game mode miscinfo.lst file using the INFOSHEET tag.
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *    
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision: $
  */
 public class InfoPaneHandler implements ReferenceListener<Object>,
 		ListListener<CharacterLevelFacade>
@@ -132,7 +125,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		installed = false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
 	 */
 	@Override
@@ -141,7 +134,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		scheduleRefresh();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
 	 */
 	@Override
@@ -150,7 +143,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		scheduleRefresh();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
 	 */
 	@Override
@@ -159,7 +152,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		scheduleRefresh();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ListListener#elementModified(pcgen.core.facade.event.ListEvent)
 	 */
 	@Override
@@ -168,7 +161,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		scheduleRefresh();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
 	 */
 	@Override

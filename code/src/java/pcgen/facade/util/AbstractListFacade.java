@@ -1,5 +1,4 @@
 /*
- * AbstractListFacade.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 2:46:15 PM
  */
 package pcgen.facade.util;
 
@@ -28,10 +26,7 @@ import javax.swing.event.EventListenerList;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public abstract class AbstractListFacade<E> implements ListFacade<E>
 {
 
@@ -95,11 +90,11 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
 	/**
-	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * {@code AbstractListFacade} subclasses must call this method
 	 * <b>after</b> one element is added from the model.
-	 * <code>index</code> is the index that has been added.
+	 * {@code index} is the index that has been added.
 	 *
-	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was added
 	 * @param index the index of the element that was added.
 	 * @see EventListenerList
@@ -114,7 +109,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ListEvent<E>(source, ListEvent.ELEMENT_ADDED, element, index);
+					e = new ListEvent<>(source, ListEvent.ELEMENT_ADDED, element, index);
 				}
 				((ListListener) listeners[i + 1]).elementAdded(e);
 			}
@@ -122,11 +117,11 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
 	/**
-	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * {@code AbstractListFacade} subclasses must call this method
 	 * <b>after</b> one element is removed from the model.
-	 * <code>index</code> is the index that has been removed.
+	 * {@code index} is the index that has been removed.
 	 *
-	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was removed
 	 * @param index the index of the element that was removed.
 	 * @see EventListenerList
@@ -141,7 +136,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ListEvent<E>(source, ListEvent.ELEMENT_REMOVED, element, index);
+					e = new ListEvent<>(source, ListEvent.ELEMENT_REMOVED, element, index);
 				}
 				((ListListener) listeners[i + 1]).elementRemoved(e);
 			}
@@ -149,10 +144,10 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
 	/**
-	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * {@code AbstractListFacade} subclasses must call this method
 	 * <b>after</b> the contents of this list have greatly changed.
 	 *
-	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @see EventListenerList
 	 */
 	protected void fireElementsChanged(Object source)
@@ -165,7 +160,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ListEvent<E>(source);
+					e = new ListEvent<>(source);
 				}
 				((ListListener) listeners[i + 1]).elementsChanged(e);
 			}
@@ -173,11 +168,11 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
 	/**
-	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * {@code AbstractListFacade} subclasses must call this method
 	 * <b>after</b> an element in the model has had its contents changed.
-	 * <code>index</code> is the index that has been modified.
+	 * {@code index} is the index that has been modified.
 	 *
-	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was modified
 	 * @param index the index of the element that was modified.
 	 * @see EventListenerList
@@ -192,7 +187,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ListEvent<E>(source, ListEvent.ELEMENT_MODIFIED, element, index);
+					e = new ListEvent<>(source, ListEvent.ELEMENT_MODIFIED, element, index);
 				}
 				((ListListener) listeners[i + 1]).elementModified(e);
 			}

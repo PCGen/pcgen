@@ -1,6 +1,4 @@
-/*
- * pcGenGUIBardTest.java
- */
+
 package pcgen.inttest.game_35e;
 
 import pcgen.inttest.PcgenFtlTestCase;
@@ -15,9 +13,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIBardTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIBardTest()
 	{
 		super("35e_bard");

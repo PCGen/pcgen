@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation,
  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$ Last Editor: $Author$ Last Edited: $Date$
- *
  */
 package pcgen.core.prereq;
 
@@ -30,20 +25,19 @@ import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 
-/**
- * @author wardc
- *
- */
-public class PrerequisiteTestFactory implements PluginLoader{
+
+public final class PrerequisiteTestFactory implements PluginLoader{
 	private static PrerequisiteTestFactory instance = null;
-	private static Map<String, PrerequisiteTest> testLookup = new HashMap<String, PrerequisiteTest>();
+	private static final Map<String, PrerequisiteTest> testLookup = new HashMap<>();
 
 	/**
 	 * @return Returns the instance.
 	 */
 	public static PrerequisiteTestFactory getInstance() {
 		if (instance == null)
+		{
 			instance = new PrerequisiteTestFactory();
+		}
 		return instance;
 	}
 

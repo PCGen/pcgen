@@ -119,7 +119,8 @@ public enum EqModNameOpt
 
 				if (SettingsHandler.guiUsesOutputNameSpells())
 				{
-					final Spell aSpell = Globals.getSpellKeyed(spellName);
+					final Spell aSpell = Globals.getContext().getReferenceContext()
+							.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 					if (aSpell != null)
 					{
@@ -132,7 +133,7 @@ public enum EqModNameOpt
 				final String info = EqModSpellInfo.getSpellInfoString(
 						listEntry, "VARIANT");
 
-				if (info.length() != 0)
+				if (!info.isEmpty())
 				{
 					sb.append(" (").append(info).append(')');
 				}
@@ -192,7 +193,7 @@ public enum EqModNameOpt
 	 */
 	private static void buildMap()
 	{
-		typeMap = new CaseInsensitiveMap<EqModNameOpt>();
+		typeMap = new CaseInsensitiveMap<>();
 		Class<EqModNameOpt> thisClass = EqModNameOpt.class;
 		for (Field f : thisClass.getDeclaredFields())
 		{
@@ -218,11 +219,7 @@ public enum EqModNameOpt
 						typeMap.put(name, tObj);
 					}
 				}
-				catch (IllegalArgumentException e)
-				{
-					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				catch (IllegalArgumentException | IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

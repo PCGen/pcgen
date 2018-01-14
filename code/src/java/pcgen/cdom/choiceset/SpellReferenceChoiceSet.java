@@ -38,7 +38,7 @@ import pcgen.util.Logging;
 
 /**
  * A SpellReferenceChoiceSet contains references to CDOMListObjects. This is a
- * specialized PrimitiveChoiceSet designed for use with CDOMListObject<Spell>
+ * specialized PrimitiveChoiceSet designed for use with {@code CDOMListObject<Spell>}
  * lists.
  * 
  * The contents of a SpellReferenceChoiceSet is defined at construction of the
@@ -95,8 +95,8 @@ public class SpellReferenceChoiceSet implements
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new HashSet<CDOMReference<? extends CDOMListObject<Spell>>>(
-				listRefCollection);
+		set = new HashSet<>(
+                listRefCollection);
 		if (set.size() != listRefCollection.size())
 		{
 			if (Logging.isLoggable(Level.WARNING))
@@ -120,11 +120,11 @@ public class SpellReferenceChoiceSet implements
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		Set<CDOMReference<?>> sortedSet = new TreeSet<>(
+                ReferenceUtilities.REFERENCE_SORTER);
 		sortedSet.addAll(set);
 		StringBuilder sb = new StringBuilder();
-		List<CDOMReference<?>> domainList = new ArrayList<CDOMReference<?>>();
+		List<CDOMReference<?>> domainList = new ArrayList<>();
 		boolean needComma = false;
 		for (CDOMReference<?> ref : sortedSet)
 		{
@@ -191,7 +191,7 @@ public class SpellReferenceChoiceSet implements
 	@Override
 	public Set<CDOMListObject<Spell>> getSet(PlayerCharacter pc)
 	{
-		Set<CDOMListObject<Spell>> returnSet = new HashSet<CDOMListObject<Spell>>();
+		Set<CDOMListObject<Spell>> returnSet = new HashSet<>();
 		for (CDOMReference<? extends CDOMListObject<Spell>> ref : set)
 		{
 			returnSet.addAll(ref.getContainedObjects());

@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.rules.persistence.CDOMLoader;
@@ -30,7 +28,7 @@ public class IsmatureTokenTest extends AbstractYesNoTokenTestCase<Campaign>
 {
 
 	static IsmatureToken token = new IsmatureToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -56,9 +54,4 @@ public class IsmatureTokenTest extends AbstractYesNoTokenTestCase<Campaign>
 		return ObjectKey.IS_MATURE;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

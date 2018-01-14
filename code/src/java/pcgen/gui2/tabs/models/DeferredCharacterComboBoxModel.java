@@ -1,5 +1,4 @@
 /*
- * DeferredCharacterComboBoxModel.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 
 package pcgen.gui2.tabs.models;
@@ -33,7 +31,7 @@ import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.FacadeListModel;
 
 /**
- * The Class <code>DeferredCharacterComboBoxModel</code> is a model for a combo 
+ * The Class {@code DeferredCharacterComboBoxModel} is a model for a combo
  * box that holds off setting the value until focus is lost. This gets around a bug 
  * with the keyboard navigation of JComboBox where each key press selects the 
  * highlighted entry. This model should be used where costly or permanent actions 
@@ -42,14 +40,9 @@ import pcgen.gui2.util.FacadeListModel;
  * Note: This class needs to be added as a FocusListener of the target JComboBox 
  * for selection to work.  
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  *  
  * @param <E> The type of object being managed, generally a Facade 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public abstract class DeferredCharacterComboBoxModel<E> extends
@@ -87,18 +80,12 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object getSelectedItem()
 	{
 		return selectedItem;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSelectedItem(Object item)
 	{
@@ -106,9 +93,6 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 		fireContentsChanged(this, -1, -1);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void referenceChanged(ReferenceEvent<E> e)
 	{
@@ -123,18 +107,12 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 	 */
 	public abstract void commitSelectedItem(Object item);
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void focusGained(FocusEvent e)
 	{
 		// Ignored
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void focusLost(FocusEvent e)
 	{

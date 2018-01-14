@@ -1,5 +1,4 @@
 /*
- * AbilityUtilities.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 25, 2005
- *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
- *
- *
  */
 package pcgen.core;
 
@@ -44,15 +38,11 @@ import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
 
 /**
  * General utilities related to the Ability class.
- *
- * @author   Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version  $Revision$
  */
-public class AbilityUtilities
+public final class AbilityUtilities
 {
 	private AbilityUtilities ()
 	{
-		// private constructor, do nothing
 	}
 
 	public static void finaliseAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
@@ -197,8 +187,9 @@ public class AbilityUtilities
 		{
 			return false;
 		}
-		return ability.getCDOMCategory() == AbilityCategory.FEAT
-			|| (ability.getCDOMCategory().getParentCategory() == AbilityCategory.FEAT);
+		return (ability.getCDOMCategory() == AbilityCategory.FEAT)
+				|| (
+				ability.getCDOMCategory().getParentCategory() == AbilityCategory.FEAT);
 	}
 
 	public static Ability validateCNAList(List<CNAbility> list)
@@ -244,7 +235,7 @@ public class AbilityUtilities
 		}
 		AbilityCategory category = (AbilityCategory) cna.getAbilityCategory();
 		// how many sub-choices to make
-		ArrayList<String> reservedList = new ArrayList<String>();
+		ArrayList<String> reservedList = new ArrayList<>();
 
 		ChoiceManagerList<?> aMan =
 				ChooserUtilities.getConfiguredController(cna, pc, category,
@@ -260,19 +251,19 @@ public class AbilityUtilities
 	private static <T> void processSelection(
 		PlayerCharacter pc, CNAbility cna, ChoiceManagerList<T> aMan, boolean toAdd)
 	{
-		ArrayList<T> availableList = new ArrayList<T>();
-		ArrayList<T> selectedList = new ArrayList<T>();
+		ArrayList<T> availableList = new ArrayList<>();
+		ArrayList<T> selectedList = new ArrayList<>();
 		aMan.getChoices(pc, availableList, selectedList);
 
-		if (availableList.size() == 0 && selectedList.size() == 0)
+		if (availableList.isEmpty() && selectedList.isEmpty())
 		{
 			//TODO Log error? (ignored choice?)
 			return;
 		}
 
-		List<T> origSelections = new ArrayList<T>(selectedList);
-		List<T> removedSelections = new ArrayList<T>(selectedList);
-		ArrayList<String> reservedList = new ArrayList<String>();
+		List<T> origSelections = new ArrayList<>(selectedList);
+		List<T> removedSelections = new ArrayList<>(selectedList);
+		ArrayList<String> reservedList = new ArrayList<>();
 
 		List<T> newSelections;
 		if (toAdd)

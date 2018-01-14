@@ -50,7 +50,7 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 		if (value.startsWith("FILE="))
 		{
 			String fileURI = value.substring(5);
-			if (fileURI.length() == 0)
+			if (fileURI.isEmpty())
 			{
 				return new ParseResult.Fail("Cannot have empty FILE in "
 						+ getTokenName(), context);
@@ -77,7 +77,7 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 		Changes<CampaignSourceEntry> filechanges =
 				context.getObjectContext().getListChanges(campaign,
 					ListKey.LICENSE_FILE);
-		List<String> set = new ArrayList<String>();
+		List<String> set = new ArrayList<>();
 		Collection<String> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{

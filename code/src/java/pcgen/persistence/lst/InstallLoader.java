@@ -1,5 +1,4 @@
 /*
- * InstallLoader.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 26/12/2007
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -31,15 +28,11 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * <code>InstallLoader</code> handles parsing the Install.lst file which 
+ * {@code InstallLoader} handles parsing the Install.lst file which
  * defines how a data set should be installed into an existing PCGen 
  * installation.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class InstallLoader extends LstLineFileLoader
 {
@@ -56,7 +49,7 @@ public class InstallLoader extends LstLineFileLoader
 		super.loadLstString(context, fileName, lstData);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URI)
 	 */
 	@Override

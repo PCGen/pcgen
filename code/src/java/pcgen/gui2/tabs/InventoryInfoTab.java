@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 29/09/2010 7:16:42 PM
- *
- * $Id: InventoryInfoTab.java 14613 2011-02-25 22:43:05Z cpmeister $
  */
 package pcgen.gui2.tabs;
 
@@ -28,14 +24,9 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>InventoryInfoTab</code> is a placeholder for the yet to be
+ * The Class {@code InventoryInfoTab} is a placeholder for the yet to be
  * implemented Inventory tab.
- * <br/>
- * Last Editor: $Author: cpmeister $ Last Edited: $Date: 2011-02-25 14:43:05
  * -0800 (Fri, 25 Feb 2011) $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 14613 $
  */
 @SuppressWarnings("serial")
 public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
@@ -102,9 +93,6 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, T
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

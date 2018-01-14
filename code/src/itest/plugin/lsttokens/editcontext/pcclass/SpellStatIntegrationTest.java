@@ -38,7 +38,7 @@ public class SpellStatIntegrationTest extends
 {
 
 	static SpellstatToken token = new SpellstatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	@Before

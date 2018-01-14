@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.base;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -55,7 +56,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 		AbstractStorageFacet<IDT>
 {
 	private final Map<Integer, DataFacetChangeListener<IDT, ? super T>[]> listeners =
-			new TreeMap<Integer, DataFacetChangeListener<IDT, ? super T>[]>();
+            new TreeMap<>();
 
 	/**
 	 * Adds a new DataFacetChangeListener to receive DataFacetChangeEvents
@@ -246,14 +247,14 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 					if (category == null)
 					{
 						ccEvent =
-								new DataFacetChangeEvent<IDT, T>(id, node,
-									this, type);
+                                new DataFacetChangeEvent<>(id, node,
+                                        this, type);
 					}
 					else
 					{
 						ccEvent =
-								new CategorizedDataFacetChangeEvent<IDT, T>(id,
-									node, this, type, category, nature);
+                                new CategorizedDataFacetChangeEvent<>(id,
+                                        node, this, type, category, nature);
 					}
 				}
 				DataFacetChangeListener dfcl = dfclArray[i];
@@ -275,14 +276,11 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	public DataFacetChangeListener<IDT, ? super T>[] getDataFacetChangeListeners()
 	{
 		List<DataFacetChangeListener<IDT, ? super T>> list =
-				new ArrayList<DataFacetChangeListener<IDT, ? super T>>();
+                new ArrayList<>();
 		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners
 			.values())
 		{
-			for (DataFacetChangeListener<IDT, ? super T> listener : dfclArray)
-			{
-				list.add(listener);
-			}
+			Collections.addAll(list, dfclArray);
 		}
 		return list.toArray(new DataFacetChangeListener[list.size()]);
 	}

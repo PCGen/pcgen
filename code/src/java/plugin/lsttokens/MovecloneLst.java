@@ -32,10 +32,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- * 
- */
+
 public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>
 {
@@ -168,7 +165,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 			// Zero indicates no Token
 			return null;
 		}
-		WeightedCollection<String> set = new WeightedCollection<String>(
+		WeightedCollection<String> set = new WeightedCollection<>(
 				String.CASE_INSENSITIVE_ORDER);
 		for (Movement m : added)
 		{

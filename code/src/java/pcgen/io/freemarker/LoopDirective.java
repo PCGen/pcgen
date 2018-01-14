@@ -1,5 +1,4 @@
 /*
- * LoopDirective.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 23/10/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 
@@ -44,7 +41,7 @@ import freemarker.template.TemplateNumberModel;
  * <ul>
  * <li><b>from</b> (optional) - The starting value, defaults to 0.</li>
  * <li><b>to</b> - The ending value (inclusive). If this is less than from then 
- * the contents will not be output.</p>
+ * the contents will not be output.
  * <li><b>step</b> (optional) - The amount to increment b each loop, defaults to 1.</li>
  * </ul>
  * 
@@ -56,8 +53,6 @@ import freemarker.template.TemplateNumberModel;
  * 
  * See http://freemarker.org/docs/pgui_datamodel_directive.html#autoid_37
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class LoopDirective implements TemplateDirectiveModel
 {
@@ -77,43 +72,43 @@ public class LoopDirective implements TemplateDirectiveModel
 			String paramName = (String) entry.getKey();
 			TemplateModel paramValue = (TemplateModel) entry.getValue();
 
-			if (paramName.equals("from"))
+			switch (paramName)
 			{
-				if (!(paramValue instanceof TemplateNumberModel))
-				{
-					throw new TemplateModelException("The \"" + paramName
-						+ "\" parameter " + "must be a number.");
-				}
-				fromVal =
-						((TemplateNumberModel) paramValue).getAsNumber()
-							.intValue();
-			}
-			else if (paramName.equals("to"))
-			{
-				if (!(paramValue instanceof TemplateNumberModel))
-				{
-					throw new TemplateModelException("The \"" + paramName
-						+ "\" parameter " + "must be a number.");
-				}
-				toVal =
-						((TemplateNumberModel) paramValue).getAsNumber()
-							.intValue();
-			}
-			else if (paramName.equals("step"))
-			{
-				if (!(paramValue instanceof TemplateNumberModel))
-				{
-					throw new TemplateModelException("The \"" + paramName
-						+ "\" parameter " + "must be a number.");
-				}
-				step =
-						((TemplateNumberModel) paramValue).getAsNumber()
-							.intValue();
-				if (step == 0)
-				{
-					throw new TemplateModelException("The \"" + paramName
-						+ "\" parameter must not be 0.");
-				}
+				case "from":
+					if (!(paramValue instanceof TemplateNumberModel))
+					{
+						throw new TemplateModelException("The \"" + paramName
+								                                 + "\" parameter " + "must be a number.");
+					}
+					fromVal =
+							((TemplateNumberModel) paramValue).getAsNumber()
+									.intValue();
+					break;
+				case "to":
+					if (!(paramValue instanceof TemplateNumberModel))
+					{
+						throw new TemplateModelException("The \"" + paramName
+								                                 + "\" parameter " + "must be a number.");
+					}
+					toVal =
+							((TemplateNumberModel) paramValue).getAsNumber()
+									.intValue();
+					break;
+				case "step":
+					if (!(paramValue instanceof TemplateNumberModel))
+					{
+						throw new TemplateModelException("The \"" + paramName
+								                                 + "\" parameter " + "must be a number.");
+					}
+					step =
+							((TemplateNumberModel) paramValue).getAsNumber()
+									.intValue();
+					if (step == 0)
+					{
+						throw new TemplateModelException("The \"" + paramName
+								                                 + "\" parameter must not be 0.");
+					}
+					break;
 			}
 		}
 

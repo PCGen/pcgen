@@ -38,7 +38,7 @@ class LegalScopeWrapper
 	 * @param legalScope
 	 *            The LegalScope that this LegalScopeWrapper will represent
 	 */
-	public LegalScopeWrapper(LegalScope legalScope)
+	LegalScopeWrapper(LegalScope legalScope)
 	{
 		this.legalScope = legalScope;
 	}
@@ -56,8 +56,6 @@ class LegalScopeWrapper
 	/**
 	 * Returns an informative String identifying the LegalScope underlying this
 	 * LegalScopeWrapper
-	 * 
-	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()

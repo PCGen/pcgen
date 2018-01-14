@@ -1,5 +1,4 @@
 /*
- * FopTask.java
  * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 3, 2016, 9:14:07 PM
  */
 package pcgen.util.fop;
 
@@ -57,10 +55,8 @@ import pcgen.util.Logging;
  * source of the task: files or inputstreams. The output of this task can either be an OutputStream
  * which you can point to a file, or a Renderer. The Renderer is used by print preview and for
  * direct printing.
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class FopTask implements Runnable
+public final class FopTask implements Runnable
 {
 	private static final FopFactory FOP_FACTORY = createFopFactory();
 	private static FOUserAgent userAgent;
@@ -69,16 +65,16 @@ public class FopTask implements Runnable
 
 	private static FopFactory createFopFactory()
 	{
-		FopConfParser parser;
-		FopFactoryBuilder builder;
 
 		// Allow optional customization with configuration file
 		String configPath = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fop.xconf";
 		Logging.log(Logging.INFO, "FoPTask checking for config file at " + configPath);
 		File userConfigFile = new File(configPath);
+		FopFactoryBuilder builder;
 		if (userConfigFile.exists())
 		{
 			Logging.log(Logging.INFO, "FoPTask using config file " + configPath);
+			FopConfParser parser;
 			try
 			{
 				parser = new FopConfParser(userConfigFile);
@@ -105,7 +101,7 @@ public class FopTask implements Runnable
 	private final Renderer renderer;
 	private final OutputStream outputStream;
 
-	private StringBuilder errorBuilder = new StringBuilder(32);
+	private final StringBuilder errorBuilder = new StringBuilder(32);
 
 	private FopTask(StreamSource inputXml, StreamSource xsltSource, Renderer renderer, OutputStream outputStream)
 	{
@@ -129,7 +125,7 @@ public class FopTask implements Runnable
 		return new StreamSource(xsltFile);
 	}
 
-	static public FopFactory getFactory()
+	public static FopFactory getFactory()
 	{
 		return FOP_FACTORY;
 	}
@@ -154,7 +150,7 @@ public class FopTask implements Runnable
 
 	/**
 	 * Creates a new FopTask that transforms the input stream using the given xsltFile and outputs a
-	 * pdf document to the given Renderer. This task can can be used for both previewing a pdf
+	 * pdf document to the given Renderer. This task can be used for both previewing a pdf
 	 * document as well as printing a pdf
 	 *
 	 * @param inputXmlStream the fop xml input stream
@@ -236,15 +232,12 @@ public class FopTask implements Runnable
 	}
 
 	/**
-	 * The Class <code>FOPErrorListener</code> listens for notifications of issues when generating
+	 * The Class {@code FOPErrorListener} listens for notifications of issues when generating
 	 * PDF files and responds accordingly.
 	 */
-	public static class FOPErrorListener implements ErrorListener
+	private static class FOPErrorListener implements ErrorListener
 	{
 
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void error(TransformerException exception)
 				throws TransformerException
@@ -254,9 +247,6 @@ public class FopTask implements Runnable
 			throw exception;
 		}
 
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void fatalError(TransformerException exception)
 				throws TransformerException
@@ -266,9 +256,6 @@ public class FopTask implements Runnable
 			throw exception;
 		}
 
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void warning(TransformerException exception)
 				throws TransformerException
@@ -277,7 +264,7 @@ public class FopTask implements Runnable
 			Logging.log(Logging.WARNING, getLocation(locator) + exception.getMessage());
 		}
 
-		private String getLocation(SourceLocator locator)
+		private static String getLocation(SourceLocator locator)
 		{
 			if (locator == null)
 			{
@@ -306,13 +293,13 @@ public class FopTask implements Runnable
 
 	}
 	
-	public static class FOPEventListener implements EventListener
+	private static class FOPEventListener implements EventListener
 	{
 		/**
 		 * @{inheritdoc}
 		 */
 		@Override
-	    public void processEvent(Event event)
+	    public void processEvent(final Event event)
 		{
 	        String msg = "[FOP] " + EventFormatter.format(event);
 	        

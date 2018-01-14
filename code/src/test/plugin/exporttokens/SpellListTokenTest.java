@@ -1,5 +1,4 @@
 /*
- * SpellListTokenTest.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,19 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jul 16, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.content.BonusSpellInfo;
@@ -42,16 +34,13 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>SpellListTokenTest</code> is ...
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class SpellListTokenTest extends AbstractCharacterTestCase
@@ -89,7 +78,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 
 		SettingsHandler.getGame().setSpellBaseDC("10+SPELLLEVEL+BASESPELLSTAT");
 
-		SimpleLoader<BonusSpellInfo> bonusSpellLoader = new SimpleLoader<BonusSpellInfo>(
+		SimpleLoader<BonusSpellInfo> bonusSpellLoader = new SimpleLoader<>(
 				BonusSpellInfo.class);
 		try
 		{
@@ -158,16 +147,11 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, divineClass, true);
 
 		SpellListBookToken token = new SpellListBookToken();
-		// These don't work yet, so skip them to avoid false errors.
-		if (true)
-		{
-			return;
-		}
-		//TODO: Get these tests to work
-		assertEquals("SpellListBookToken(1lv TA)", "", token.getToken(
-			"SPELLLISTBOOK.0.1", character, null));
-		assertEquals("SpellListBookToken(1lv TD)", "TestDivine", token
-			.getToken("SPELLLISTBOOK.1.1", character, null));
+		// TODO: These don't work yet, so skip them to avoid false errors.
+//		assertEquals("SpellListBookToken(1lv TA)", "", token.getToken(
+//			"SPELLLISTBOOK.0.1", character, null));
+//		assertEquals("SpellListBookToken(1lv TD)", "TestDivine", token
+//			.getToken("SPELLLISTBOOK.1.1", character, null));
 	}
 
 	/**

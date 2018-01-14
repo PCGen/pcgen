@@ -17,9 +17,10 @@
  */
 package pcgen.output.base;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Collection;
 import pcgen.output.wrapper.AgeSetWrapper;
 import pcgen.output.wrapper.BooleanWrapper;
 import pcgen.output.wrapper.CategoryWrapper;
@@ -28,34 +29,31 @@ import pcgen.output.wrapper.NumberWrapper;
 import pcgen.output.wrapper.OrderedPairWrapper;
 import pcgen.output.wrapper.StringWrapper;
 import pcgen.output.wrapper.TypeSafeConstantWrapper;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * SimpleWrapperLibrary stores information on simple wrappers used to wrap
  * objects into TemplateModel objects for FreeMarker.
  */
-public class SimpleWrapperLibrary
+public final class SimpleWrapperLibrary
 {
 
-	private static List<SimpleObjectWrapper> list =
-			new ArrayList<SimpleObjectWrapper>();
+	private static final Collection<SimpleObjectWrapper> WRAPPER_LIST =
+            new ArrayList<>();
 	
 	static
 	{
-		initialize();
+		WRAPPER_LIST.add(new StringWrapper());
+		WRAPPER_LIST.add(new NumberWrapper());
+		WRAPPER_LIST.add(new BooleanWrapper());
+		WRAPPER_LIST.add(new TypeSafeConstantWrapper());
+		WRAPPER_LIST.add(new CategoryWrapper());
+		WRAPPER_LIST.add(new EnumWrapper());
+		WRAPPER_LIST.add(new OrderedPairWrapper());
+		WRAPPER_LIST.add(new AgeSetWrapper());
 	}
 
-	public static void initialize()
+	private SimpleWrapperLibrary()
 	{
-		list.add(new StringWrapper());
-		list.add(new NumberWrapper());
-		list.add(new BooleanWrapper());
-		list.add(new TypeSafeConstantWrapper());
-		list.add(new CategoryWrapper());
-		list.add(new EnumWrapper());
-		list.add(new OrderedPairWrapper());
-		list.add(new AgeSetWrapper());
 	}
 
 	/**
@@ -82,7 +80,7 @@ public class SimpleWrapperLibrary
 		{
 			return null;
 		}
-		for (SimpleObjectWrapper ow : list)
+		for (SimpleObjectWrapper ow : WRAPPER_LIST)
 		{
 			try
 			{
@@ -93,9 +91,7 @@ public class SimpleWrapperLibrary
 				//No worries, Try the next one
 			}
 		}
-		String info =
-				(toWrap == null) ? "null" : toWrap.getClass()
-					.getCanonicalName();
+		String info = toWrap.getClass().getCanonicalName();
 		throw new TemplateModelException("Unable to find wrapping for " + info);
 	}
 }

@@ -1,5 +1,4 @@
 /*
- * PointBuyMethod.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on August 17, 2002, 11:45 PM
- *
- * $Id$
  */
 package pcgen.core;
 
@@ -33,10 +28,8 @@ import pcgen.cdom.base.Loadable;
 import pcgen.core.bonus.BonusObj;
 
 /**
- * <code>PointBuyMethod</code>.
+ * {@code PointBuyMethod}.
  * 
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
  */
 public final class PointBuyMethod implements BonusContainer, Loadable
 {
@@ -87,7 +80,7 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 	{
 		if (bonusList == null)
 		{
-			bonusList = new ArrayList<BonusObj>();
+			bonusList = new ArrayList<>();
 		}
 		bonusList.add(bon);
 	}
@@ -111,7 +104,7 @@ public final class PointBuyMethod implements BonusContainer, Loadable
     @Override
 	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final List<BonusObj> aList = new ArrayList<>();
 		for (BonusObj bonus : getBonuses())
 		{
 			if (pc.isApplied(bonus))

@@ -1,5 +1,4 @@
 /*
- * FilterButtonGroupPanel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 15, 2010, 5:01:27 PM
  */
 package pcgen.gui2.filter;
 
@@ -35,13 +33,12 @@ import javax.swing.JPanel;
  * that it is possible to deselect all of the buttons.
  * @param <C> The context that this filter is defined under
  * @param <E> The element type that will be filtered
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class FilterButtonGroupPanel<C, E> extends JPanel
 		implements DisplayableFilter<C, E>, ItemListener
 {
 
-	private List<FilterButton<C, E>> buttons = new ArrayList<FilterButton<C, E>>();
+	private final List<FilterButton<C, E>> buttons = new ArrayList<>();
 	private FilterHandler filterHandler;
 
 	public FilterButtonGroupPanel()

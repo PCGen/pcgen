@@ -11,9 +11,6 @@
  * it only in accordance with the terms of the license agreement
  * you entered into with Sun.
  *
- * Current Ver: $Revision: 5184 $
- * Last Editor: $Author: cpmeister $
- * Last Edited: $Date: 2008-02-13 17:03:32 -0800 (Wed, 13 Feb 2008) $
  *
  **/
 package pcgen.gui2.util;
@@ -67,10 +64,7 @@ import pcgen.util.Logging;
  * by using a JTree as a renderer (and editor) for the cells in a
  * particular column in the JTable.
  *
- * @version 1.2 10/27/98
  *
- * @author Philip Milne
- * @author Scott Violet
  **/
 public class JTreeTable extends JTableEx
 {
@@ -79,25 +73,6 @@ public class JTreeTable extends JTableEx
 	/** A subclass of JTree. */
 	private TreeTableCellRenderer tree;
 	private TreeTableModelAdapter adapter;
-
-	static
-	{
-		/*
-		JTreeTable's event handling assumes bad things about
-		mouse pressed/released that are not true on MacOS X.
-		For example, one gets NPEs thrown when the mouse is
-		hit because the event manager is waiting for released
-		and one never gets the release.
-		It turns out that the MetalLAF handles this happily and
-		thus we can use that to get appropriate line styles,
-		without knackering Mac support.
-		Fix done by LeeAnn Rucker, formerly at Apple for Javasoft.
-		Added to pcgen by Scott Ellsworth
-		 */
-//		UIManager.put("TreeTableUI", "javax.swing.plaf.metal.MetalTreeUI"); //$NON-NLS-1$ //$NON-NLS-2$
-//		UIManager.put("Tree.leftChildIndent", Integer.valueOf(3)); //$NON-NLS-1$
-//		UIManager.put("Tree.rightChildIndent", Integer.valueOf(8)); //$NON-NLS-1$
-	}
 
 	public JTreeTable()
 	{
@@ -145,6 +120,7 @@ public class JTreeTable extends JTableEx
 			// we'd better all be using the same one!
 			setRowHeight(tree.getRowHeight());
 		}
+		
 	}
 
 	public TreeTableModel getTreeTableModel()
@@ -208,12 +184,12 @@ public class JTreeTable extends JTableEx
 	}
 
 	/**
-	 * Forwards the <code>scrollRectToVisible()</code> message to the
-	 * <code>JComponent</code>'s parent. Components that can service
-	 * the request, such as <code>JViewport</code>,
+	 * Forwards the {@code scrollRectToVisible()} message to the
+	 * {@code JComponent}'s parent. Components that can service
+	 * the request, such as {@code JViewport},
 	 * override this method and perform the scrolling.
 	 *
-	 * @param aRect the visible <code>Rectangle</code>
+	 * @param aRect the visible {@code Rectangle}
 	 * @see javax.swing.JViewport
 	 */
 	@Override
@@ -271,9 +247,9 @@ public class JTreeTable extends JTableEx
 	 * Makes sure all the path components in path are expanded (except
 	 * for the last path component) and scrolls so that the
 	 * node identified by the path is displayed. Only works when this
-	 * <code>JTree</code> is contained in a <code>JScrollPane</code>.
+	 * {@code JTree} is contained in a {@code JScrollPane}.
 	 *
-	 * @param path  the <code>TreePath</code> identifying the node to
+	 * @param path  the {@code TreePath} identifying the node to
 	 *         bring into view
 	 */
 	private void scrollPathToVisible(TreePath path)
@@ -297,10 +273,6 @@ public class JTreeTable extends JTableEx
 	 * all of the event dispatching support provided by the superclass:
 	 * the AbstractTableModel.
 	 *
-	 * @version 1.2 10/27/98
-	 *
-	 * @author Philip Milne
-	 * @author Scott Violet
 	 */
 	private static class TreeTableModelAdapter extends AbstractTableModel
 			implements SortableTableModel, TreeModelListener,
@@ -469,16 +441,7 @@ public class JTreeTable extends JTableEx
 		 */
 		private void fireDelayedTableDataChanged()
 		{
-			SwingUtilities.invokeLater(new Runnable()
-			{
-
-				@Override
-				public void run()
-				{
-					fireTableDataChangedPreservingSelection();					
-				}
-
-			});
+			SwingUtilities.invokeLater(this::fireTableDataChangedPreservingSelection);
 		}
 
 		@Override
@@ -754,7 +717,7 @@ public class JTreeTable extends JTableEx
 		}
 
 		/**
-		 * If <code>updatingListSelectionModel</code> is false,
+		 * If {@code updatingListSelectionModel} is false,
 		 * this will reset the selected paths from the selected
 		 * rows in the list selection model.
 		 **/
@@ -953,7 +916,7 @@ public class JTreeTable extends JTableEx
 		addMouseListener(new PopupListener(this, aPopupMenu));
 	}
 
-	private class PopupListener extends MouseAdapter
+	private final class PopupListener extends MouseAdapter
 	{
 
 		private JPopupMenu theMenu;

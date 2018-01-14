@@ -1,5 +1,4 @@
 /*
- * PjepPool.java
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on June 29th 2004
  */
 package pcgen.util;
 
@@ -24,10 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PjepPool
+public final class PjepPool
 {
-	private Stack<PJEP> freeStack = new Stack<PJEP>();
-	private List<PJEP> usedList = new ArrayList<PJEP>();
+	private Stack<PJEP> freeStack = new Stack<>();
+	private List<PJEP> usedList = new ArrayList<>();
 	private static PjepPool instance = new PjepPool();
 
 	private PjepPool()
@@ -54,7 +51,7 @@ public class PjepPool
 	{
 		//System.out.println("aquireJep()");
 		PJEP jep;
-		if (freeStack.size() > 0)
+		if (!freeStack.isEmpty())
 		{
 			jep = freeStack.pop();
 		}

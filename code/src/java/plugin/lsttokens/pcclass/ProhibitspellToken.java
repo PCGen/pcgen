@@ -141,14 +141,14 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 	{
 		SpellProhibitor spellProb = new SpellProhibitor();
 		spellProb.setType(type);
-		if (args.length() == 0)
+		if (args.isEmpty())
 		{
-			Logging.errorPrint(getTokenName() + " " + type
+			Logging.errorPrint(getTokenName() + ' ' + type
 					+ " has no arguments");
 			return null;
 		}
 
-		String joinChar = getJoinChar(type, new LinkedList<String>());
+		String joinChar = getJoinChar(type, new LinkedList<>());
 		if (args.indexOf(joinChar) == 0)
 		{
 			Logging.errorPrint(getTokenName()
@@ -181,7 +181,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 					&& (!aValue.equalsIgnoreCase("CHAOTIC")))
 			{
 				Logging.errorPrint("Illegal PROHIBITSPELL:ALIGNMENT subtag '"
-						+ aValue + "'");
+						+ aValue + '\'');
 				return null;
 			}
 			else
@@ -203,7 +203,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			// Zero indicates no Token present
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (SpellProhibitor sp : added)
 		{
 			StringBuilder sb = new StringBuilder();
@@ -212,7 +212,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			sb.append('.');
 			Collection<String> valueSet = sp.getValueList();
 			String joinChar = getJoinChar(pst, valueSet);
-			sb.append(StringUtil.join(new TreeSet<String>(valueSet), joinChar));
+			sb.append(StringUtil.join(new TreeSet<>(valueSet), joinChar));
 
 			if (sp.hasPrerequisites())
 			{

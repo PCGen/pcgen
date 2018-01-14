@@ -30,14 +30,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 
 /**
- * The Class <code>ClassListToken</code> handles the restriction of a spell choice to a spell from a
+ * The Class {@code ClassListToken} handles the restriction of a spell choice to a spell from a
  * class spell list.
  *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
- * @version $Revision:  $
  */
 public class ClassListToken extends AbstractRestrictedSpellPrimitive
 {

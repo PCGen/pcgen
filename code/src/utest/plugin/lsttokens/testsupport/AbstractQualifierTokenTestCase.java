@@ -55,7 +55,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		extends AbstractCDOMTokenTestCase<T>
 {
 
-	private static QualifierToken<CDOMObject> qt = new QualifiedToken<CDOMObject>();
+	private static QualifierToken<CDOMObject> qt = new QualifiedToken<>();
 
 	public abstract CDOMSecondaryToken<?> getSubToken();
 
@@ -67,14 +67,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		token = tok;
 		target = tgt;
-		if (tgt == null)
-		{
-			qualifier = token;
-		}
-		else
-		{
-			qualifier = token + "=" + target;
-		}
+		qualifier = (tgt == null) ? token : (token + "=" + target);
 	}
 
 	@Override
@@ -1076,7 +1069,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputJoinedDotNotQualifierAlone()
 			throws PersistenceLayerException
 	{
-		boolean parse = parse(getSubTokenName() + '|' + "PC.!" + qualifier + "");
+		boolean parse = parse(getSubTokenName() + '|' + "PC.!" + qualifier);
 		if (parse)
 		{
 			assertConstructionError();
@@ -2032,7 +2025,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		QualifierToken<?> one = getQualifierClass().newInstance();
 		QualifierToken<?> two = getQualifierClass().newInstance();
-		assertTrue(one.equals(two));
+		assertEquals(one, two);
 	}
 
 	protected abstract Class<? extends QualifierToken> getQualifierClass();

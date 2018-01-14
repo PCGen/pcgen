@@ -1,5 +1,4 @@
 /*
- * PreAlignParser.java
  * 
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  * 
@@ -14,22 +13,16 @@
  * You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to
  * the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on 18-Dec-2003
  * 
- * Current Ver: $Revision$
  * 
- * Last Editor: $Author$
  * 
- * Last Edited: $Date$
  *  
  */
 package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -37,8 +30,8 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.GameModeFileLoader;
-import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreAlignParser;
+import util.Alignment;
 
 @SuppressWarnings("nls")
 public class PreAlignParserTest extends EnUsLocaleDependentTestCase
@@ -60,7 +53,7 @@ public class PreAlignParserTest extends EnUsLocaleDependentTestCase
 				+ "<prereq kind=\"align\" key=\"LE\" operator=\"EQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
 				+ "<prereq kind=\"align\" key=\"LG\" operator=\"EQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 	@Before
@@ -72,6 +65,6 @@ public class PreAlignParserTest extends EnUsLocaleDependentTestCase
 		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
-		TestHelper.createAllAlignments();
+		Alignment.createAllAlignments();
 	}
 }

@@ -1,5 +1,4 @@
 /*
- * IsgamemodeCommandTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,32 +14,23 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 8/09/2008 21:22:24
- *
- * $Id: $
  */
 package plugin.jepcommands;
 
 import java.util.Stack;
 
+import pcgen.PCGenTestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
-
-import pcgen.PCGenTestCase;
 
 /**
  * The Class <code>IsgamemodeCommandTest</code> is responsible for checking 
  * that IsgamemodeCommand is working correctly. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class IsgamemodeCommandTest extends PCGenTestCase
 {
@@ -58,8 +48,8 @@ public class IsgamemodeCommandTest extends PCGenTestCase
 	/*
 	 * @see TestCase#setUp()
 	 */
-	/* (non-Javadoc)
-	 * @see pcgen.PCGenTestCase#setUp()
+	/**
+	 * @see junit.framework.TestCase#setUp()
 	 */
     @Override
 	protected void setUp() throws Exception
@@ -96,7 +86,7 @@ public class IsgamemodeCommandTest extends PCGenTestCase
      */
     public void testIsGameModeTrue()
     {
-        final Stack<Object>         s = new Stack<Object>();
+        final Stack<Object>         s = new Stack<>();
 
         s.push("3.5");
 
@@ -112,7 +102,7 @@ public class IsgamemodeCommandTest extends PCGenTestCase
      */
     public void testIsGameModeFalse()
     {
-        final Stack<Object>         s = new Stack<Object>();
+        final Stack<Object>         s = new Stack<>();
 
         s.push("3e");
 

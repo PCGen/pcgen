@@ -26,7 +26,7 @@ import pcgen.rules.context.LoadContext;
 public class DataSetInitializationFacet
 {
 
-	private List<DataSetInitializedFacet> facetList = new ArrayList<DataSetInitializedFacet>();
+	private List<DataSetInitializedFacet> facetList = new ArrayList<>();
 	
 	public void addDataSetInitializedFacet(DataSetInitializedFacet cif)
 	{

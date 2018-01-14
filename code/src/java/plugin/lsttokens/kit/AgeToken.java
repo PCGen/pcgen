@@ -1,5 +1,4 @@
 /*
- * GenderToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 3, 2006
- *
- * Current Ver: $Revision: 17201 $
- * Last Editor: $Author: spraynpray $
- * Last Edited: $Date: 2012-09-10 09:52:40 +0200 (Mo, 10 Sep 2012) $
  */
 
 package plugin.lsttokens.kit;
@@ -60,7 +53,7 @@ public class AgeToken extends AbstractNonEmptyToken<KitBio> implements
 	{
 		try
 		{
-			kitName.setCharacterAge(new Integer(value));
+			kitName.setCharacterAge(Integer.valueOf(value));
 		}
 		catch(NumberFormatException e)
 		{

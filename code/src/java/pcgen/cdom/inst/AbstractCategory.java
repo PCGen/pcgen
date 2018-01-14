@@ -21,7 +21,6 @@ import java.net.URI;
 
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMAllRef;
 import pcgen.cdom.reference.CDOMCategorizedSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -33,7 +32,7 @@ import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.util.Logging;
 
 public abstract class AbstractCategory<T extends Categorized<T>> implements
-		Loadable, Category<T>, ManufacturableFactory<T>
+		Category<T>
 {
 
 	private String categoryName;
@@ -46,6 +45,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	}
 
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public Category<T> getParentCategory()
 	{
 		return null;
@@ -102,35 +102,26 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
-		return new CDOMAllRef<T>(getReferenceClass());
+		return new CDOMAllRef<>(getReferenceClass());
 	}
 
 	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
-		return new CDOMTypeRef<T>(getReferenceClass(), types);
+		return new CDOMTypeRef<>(getReferenceClass(), types);
 	}
 
 	@Override
 	public CDOMSingleRef<T> getReference(String ident)
 	{
-		return new CDOMCategorizedSingleRef<T>(getReferenceClass(), this, ident);
+		return new CDOMCategorizedSingleRef<>(getReferenceClass(), this, ident);
 	}
-
-	@Override
-	public abstract T newInstance();
 
 	@Override
 	public boolean isMember(T item)
 	{
 		return (item != null) && this.equals(item.getCDOMCategory());
 	}
-
-	@Override
-	public abstract Class<T> getReferenceClass();
-
-	@Override
-	public abstract String getReferenceDescription();
 
 	@Override
 	public boolean resolve(ReferenceManufacturer<T> rm, String name,
@@ -156,7 +147,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 
 	protected boolean report(UnconstructedValidator validator, String key)
 	{
-		return validator != null && validator.allow(getReferenceClass(), this, key);
+		return (validator != null) && validator.allow(getReferenceClass(), this, key);
 	}
 
 	@Override
@@ -168,6 +159,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	}
 
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public ManufacturableFactory<T> getParent()
 	{
 		return null;

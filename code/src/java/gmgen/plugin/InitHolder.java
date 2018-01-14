@@ -15,30 +15,16 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  InitHolder.java
- *
- *  Created on January 16, 2002, 1:01 PM
  */
 package gmgen.plugin;
 
 import java.util.List;
 import java.util.Vector;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 
-/**
- *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
- */
 public interface InitHolder
 {
-	/*
-	 *  History:
-	 *  March 20, 2003: Cleanup for Version 1.0
-	 */
-
 	/**
 	 *  Gets the SystemInitiative of the InitHolder
 	 *
@@ -101,7 +87,6 @@ public interface InitHolder
 
 	/**
 	 *  Does any end of round effects
-	 *
 	 */
 	public void endRound();
 	

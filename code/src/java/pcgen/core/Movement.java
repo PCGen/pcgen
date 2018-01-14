@@ -14,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on July 22, 2005.
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -29,9 +23,7 @@ import java.util.StringTokenizer;
 
 import pcgen.util.Logging;
 
-/**
- * @author Tom Parker <thpr@sourceforge.net>
- */
+
 public class Movement
 {
 
@@ -283,7 +275,7 @@ public class Movement
 			txt.append(',');
 			txt.append(movementTypes[1]);
 			txt.append(',');
-			if (movementMultOp[1].length() > 0)
+			if (!movementMultOp[1].isEmpty())
 			{
 				String multValue =
 						NumberFormat.getNumberInstance()
@@ -304,12 +296,12 @@ public class Movement
 			}
 
 			if ((movementTypes[index] != null)
-				&& (movementTypes[index].length() > 0))
+				&& (!movementTypes[index].isEmpty()))
 			{
 				txt.append(movementTypes[index]).append(',');
 			}
 
-			if (movementMultOp[index].length() > 0)
+			if (!movementMultOp[index].isEmpty())
 			{
 				txt.append(movementMultOp[index]).append(movementMult[index]);
 			}
@@ -371,7 +363,7 @@ public class Movement
 		movementMult[x] = 0.0d;
 		movementMultOp[x] = "";
 
-		if ((mod.length() > 0)
+		if ((!mod.isEmpty())
 			&& ((mod.charAt(0) == '*') || (mod.charAt(0) == '/')))
 		{
 			movements[x] = 0.0d;
@@ -393,7 +385,7 @@ public class Movement
 				movementMultOp[x] = "";
 			}
 		}
-		else if (mod.length() > 0)
+		else if (!mod.isEmpty())
 		{
 			movementMult[x] = 0.0d;
 			movementMultOp[x] = "";

@@ -1,5 +1,4 @@
 /*
- * ExportUtilities.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,23 +15,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 24/12/2013
  *
- * $Id$
  */
 package pcgen.io;
 
 import java.io.File;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * ExportUtilities is a collection of useful tools for exporting characters.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
-public class ExportUtilities
+public final class ExportUtilities
 {
 	/**
 	 * This class should not be constructed. 

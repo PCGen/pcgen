@@ -31,7 +31,7 @@ public class PlayerCharacterTrackingFacet extends AbstractStorageFacet<CharID>
 {
 	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
 	{
-		setCache(id, new WeakReference<PlayerCharacter>(pc));
+		setCache(id, new WeakReference<>(pc));
 	}
 
 	public PlayerCharacter getPC(CharID id)

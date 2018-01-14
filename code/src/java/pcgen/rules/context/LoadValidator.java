@@ -42,7 +42,7 @@ public class LoadValidator implements UnconstructedValidator
 
 	public LoadValidator(List<Campaign> campaigns)
 	{
-		campaignList = new ArrayList<Campaign>(campaigns);
+		campaignList = new ArrayList<>(campaigns);
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class LoadValidator implements UnconstructedValidator
 
 	private void buildSimpleMap()
 	{
-		simpleMap = new HashMapToList<Class<?>, String>();
+		simpleMap = new HashMapToList<>();
 		for (Campaign c : campaignList)
 		{
 			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
@@ -85,7 +85,7 @@ public class LoadValidator implements UnconstructedValidator
 
 	private void buildCategoryMap()
 	{
-		categoryMap = new DoubleKeyMapToList<Class<?>, String, String>();
+		categoryMap = new DoubleKeyMapToList<>();
 		for (Campaign c : campaignList)
 		{
 			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))

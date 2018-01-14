@@ -17,11 +17,13 @@
  */
 package pcgen.base.formula;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-public class AddingFormulaTest extends TestCase
+public class AddingFormulaTest
 {
 
+	@Test
 	public void testToString()
 	{
 		assertEquals("+1", new AddingFormula(1).toString());
@@ -31,21 +33,23 @@ public class AddingFormulaTest extends TestCase
 	}
 	
 
+	@Test
 	public void testIdentity()
 	{
 		AddingFormula f = new AddingFormula(1);
-		assertEquals(1, f.resolve(Integer.valueOf(0)).intValue());
-		assertEquals(3, f.resolve(Double.valueOf(2.5)).intValue());
+		assertEquals(1, f.resolve(0).intValue());
+		assertEquals(3, f.resolve(2.5).intValue());
 		testBrokenCalls(f);
 	}
 
+	@Test
 	public void testEquality()
 	{
 		AddingFormula f1 = new AddingFormula(1);
 		AddingFormula f2 = new AddingFormula(1);
 		AddingFormula f3 = new AddingFormula(2);
 		AddingFormula f4 = new AddingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
 		assertFalse(f1.equals(null));
@@ -55,27 +59,30 @@ public class AddingFormulaTest extends TestCase
 		assertFalse(f1.equals(f4));
 	}
 
+	@Test
 	public void testPositive()
 	{
 		AddingFormula f = new AddingFormula(3);
-		assertEquals(8, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(10, f.resolve(Double.valueOf(7.5)).intValue());
+		assertEquals(8, f.resolve(5).intValue());
+		assertEquals(10, f.resolve(7.5).intValue());
 		testBrokenCalls(f);
 	}
 
+	@Test
 	public void testZero()
 	{
 		AddingFormula f = new AddingFormula(0);
-		assertEquals(5, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(2, f.resolve(Double.valueOf(2.3)).intValue());
+		assertEquals(5, f.resolve(5).intValue());
+		assertEquals(2, f.resolve(2.3).intValue());
 		testBrokenCalls(f);
 	}
 
+	@Test
 	public void testNegative()
 	{
 		AddingFormula f = new AddingFormula(-2);
-		assertEquals(3, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(-8, f.resolve(Double.valueOf(-6.7)).intValue());
+		assertEquals(3, f.resolve(5).intValue());
+		assertEquals(-8, f.resolve(-6.7).intValue());
 		testBrokenCalls(f);
 	}
 
@@ -92,7 +99,7 @@ public class AddingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{});
+			f.resolve();
 			fail("empty array should be illegal");
 		}
 		catch (IllegalArgumentException e)
@@ -101,7 +108,7 @@ public class AddingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{Integer.valueOf(4), Double.valueOf(2.5)});
+			f.resolve(4, 2.5);
 			fail("two arguments in array should be illegal");
 		}
 		catch (IllegalArgumentException e)
@@ -110,7 +117,7 @@ public class AddingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(Integer.valueOf(4), Double.valueOf(2.5));
+			f.resolve(4, 2.5);
 			fail("two arguments should be illegal");
 		}
 		catch (IllegalArgumentException e)

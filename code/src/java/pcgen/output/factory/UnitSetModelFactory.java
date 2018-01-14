@@ -36,7 +36,7 @@ public class UnitSetModelFactory implements ModeModelFactory
 	 */
 	
 	/**
-	 * @see pcgen.output.base.ModeModelFactory#generate()
+	 * @see pcgen.output.base.ModeModelFactory#generate(pcgen.core.GameMode mode)
 	 */
 	@Override
 	public UnitSetModel generate(GameMode mode)

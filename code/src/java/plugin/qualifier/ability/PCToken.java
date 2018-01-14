@@ -50,12 +50,12 @@ public class PCToken extends AbstractPCQualifierToken<Ability>
 	@Override
 	protected Collection<Ability> getPossessed(PlayerCharacter pc)
 	{
-		HashSet<Ability> hs = new HashSet<Ability>();
+		HashSet<Ability> hs = new HashSet<>();
 		for (CNAbility cna : pc.getCNAbilities(category))
 		{
 			hs.add(cna.getAbility());
 		}
-		return new ArrayList<Ability>(hs);
+		return new ArrayList<>(hs);
 	}
 
 	@Override

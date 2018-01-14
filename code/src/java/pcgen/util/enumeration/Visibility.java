@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
 package pcgen.util.enumeration;
 
@@ -50,7 +48,6 @@ public enum Visibility
 	 * Determine if this visibility can be seen in the supplied view level.
 	 * 
 	 * @param view The view level.
-	 * @param isExporting Is the visibility being determined for an export function
 	 * @return true if the visibility can be viewed, false if not.
 	 */
 	public boolean isVisibleTo(View view)

@@ -1,5 +1,4 @@
 /*
- * KitDeity.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on October 3, 2005, 5:55 PM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -48,8 +43,8 @@ public class KitDeity extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient Deity theDeity = null;
-	private transient List<Domain> domainsToAdd = null;
+	private Deity theDeity = null;
+	private List<Domain> domainsToAdd = null;
 
 	/**
 	 * Add the domain
@@ -59,7 +54,7 @@ public class KitDeity extends BaseKit
 	{
 		if (theDomains == null)
 		{
-			theDomains = new ArrayList<CDOMSingleRef<Domain>>(3);
+			theDomains = new ArrayList<>(3);
 		}
 		theDomains.add(ref);
 	}
@@ -85,12 +80,12 @@ public class KitDeity extends BaseKit
 
 		buf.append(theDeityRef.getLSTformat(false));
 
-		if (theDomains != null && theDomains.size() > 0)
+		if (theDomains != null && !theDomains.isEmpty())
 		{
 			buf.append(" (");
 			if (choiceCount != null)
 			{
-				buf.append(choiceCount.toString());
+				buf.append(choiceCount);
 				buf.append(" of ");
 			}
 			for (Iterator<CDOMSingleRef<Domain>> i = theDomains.iterator(); i
@@ -124,7 +119,7 @@ public class KitDeity extends BaseKit
 		}
 		aPC.setDeity(theDeity);
 
-		if (theDomains == null || theDomains.size() == 0)
+		if (theDomains == null || theDomains.isEmpty())
 		{
 			// nothing else to do.
 			return true;
@@ -174,10 +169,10 @@ public class KitDeity extends BaseKit
 			{
 				xs =
 						Globals.getChoiceFromList("Choose Domains", theDomains,
-							new ArrayList<CDOMSingleRef<Domain>>(),
+                                new ArrayList<>(),
 							numberOfChoices, aPC);
 
-				if (xs.size() != 0)
+				if (!xs.isEmpty())
 				{
 					break;
 				}
@@ -212,7 +207,7 @@ public class KitDeity extends BaseKit
 			}
 			if (domainsToAdd == null)
 			{
-				domainsToAdd = new ArrayList<Domain>();
+				domainsToAdd = new ArrayList<>();
 			}
 			domainsToAdd.add(domain);
 

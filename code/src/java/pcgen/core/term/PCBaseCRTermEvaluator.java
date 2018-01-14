@@ -1,5 +1,4 @@
 /*
- * pcgen.core.term.PCBaseCRTermEvaluator.java
  * Copyright (c) 2014 Stefan Radermacher <zaister@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 30-Mar-2014 22:45:18
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -29,15 +21,9 @@ package pcgen.core.term;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>PCBaseCRTermEvaluator</code> is responsible for calculating
+ * The Class {@code PCBaseCRTermEvaluator} is responsible for calculating
  * the character's unmodified challenge rating, as specified by the 
  * CR tag in the race definition. 
- * 
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-01-07 18:57:16 +0100 (Sa, 07 Jan 2012) $
- * 
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 15744 $
  */
 public class PCBaseCRTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {

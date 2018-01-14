@@ -34,7 +34,6 @@ import pcgen.core.WeaponProf;
  * AutoWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
  * granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoWeaponProfFacet extends
 		AbstractQualifiedListFacet<WeaponProfProvider> implements
@@ -116,7 +115,7 @@ public class AutoWeaponProfFacet extends
 	 */
 	public Collection<WeaponProf> getWeaponProfs(CharID id)
 	{
-		Collection<WeaponProf> profs = new ArrayList<WeaponProf>();
+		Collection<WeaponProf> profs = new ArrayList<>();
 		for (WeaponProfProvider wpp : getQualifiedSet(id))
 		{
 			profs.addAll(wpp.getContainedProficiencies(id));

@@ -30,7 +30,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to act as an index to a
  * specific Formula item within a CDOMObject.
@@ -44,7 +43,7 @@ public class FormulaKey implements TypeSafeConstant
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static CaseInsensitiveMap<FormulaKey> typeMap = new CaseInsensitiveMap<FormulaKey>();
+	private static CaseInsensitiveMap<FormulaKey> typeMap = new CaseInsensitiveMap<>();
 
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class
@@ -107,7 +106,7 @@ public class FormulaKey implements TypeSafeConstant
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private FormulaKey(String name, Formula def)
 	{

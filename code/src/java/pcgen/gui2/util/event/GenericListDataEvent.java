@@ -1,5 +1,4 @@
 /*
- * GenericListDataEvent.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 2, 2008, 5:29:07 PM
  */
 package pcgen.gui2.util.event;
 
@@ -25,7 +23,6 @@ import javax.swing.event.ListDataEvent;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class GenericListDataEvent<E> extends ListDataEvent
 {

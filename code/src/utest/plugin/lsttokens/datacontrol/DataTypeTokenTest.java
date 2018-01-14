@@ -51,7 +51,7 @@ public class DataTypeTokenTest extends TestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	public static void classSetUp() throws URISyntaxException
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), new URI(
@@ -109,7 +109,7 @@ public class DataTypeTokenTest extends TestCase
 		{
 			assertFalse(token.parseToken(context, cd, "NotAType").passed());
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//This is ok too
 		}
@@ -121,7 +121,7 @@ public class DataTypeTokenTest extends TestCase
 		assertNull(cd.getFormatManager());
 		assertTrue(token.parseToken(context, cd, "STRING").passed());
 		assertNotNull(cd.getFormatManager());
-		assertEquals(StringManager.class, cd.getFormatManager().getClass());
+		assertSame(StringManager.class, cd.getFormatManager().getClass());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
@@ -134,7 +134,7 @@ public class DataTypeTokenTest extends TestCase
 		assertNull(cd.getFormatManager());
 		assertTrue(token.parseToken(context, cd, "ORDEREDPAIR").passed());
 		assertNotNull(cd.getFormatManager());
-		assertEquals(OrderedPairManager.class, cd.getFormatManager().getClass());
+		assertSame(OrderedPairManager.class, cd.getFormatManager().getClass());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);

@@ -32,7 +32,7 @@ public class CRIntegrationTest extends AbstractIntegrationTestCase<Race>
 {
 
 	static CrToken token = new CrToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

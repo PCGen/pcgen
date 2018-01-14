@@ -35,9 +35,8 @@ import pcgen.core.PCTemplate;
 /**
  * ConditionalTemplateFacet is a Facet that tracks the Conditional Templates
  * granted to the PlayerCharacter. Conditional Templates are those items that
- * are are set by HD, LEVEL, and REPEATLEVEL tokens in PCTemplates.
+ * are set by HD, LEVEL, and REPEATLEVEL tokens in PCTemplates.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTemplate>
 		implements DataFacetChangeListener<CharID, PCTemplate>, LevelChangeListener
@@ -115,7 +114,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 		Collection<PCTemplate> oldSet = getSet(id);
 		int totalLevels = levelFacet.getTotalLevels(id);
 		int totalHitDice = levelFacet.getMonsterLevelCount(id);
-		Map<PCTemplate, PCTemplate> newMap = new IdentityHashMap<PCTemplate, PCTemplate>();
+		Map<PCTemplate, PCTemplate> newMap = new IdentityHashMap<>();
 		for (PCTemplate sourceTempl : templateFacet.getSet(id))
 		{
 			List<PCTemplate> conditionalTemplates = sourceTempl

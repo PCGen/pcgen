@@ -1,5 +1,4 @@
 /*
- * SourceLoader.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -34,8 +33,12 @@ import pcgen.util.Logging;
 public class SourceLoader
 {
 
+	private SourceLoader()
+	{
+	}
+
 	public static void parseLine(LoadContext context, String lstLine,
-			URI sourceFile)
+	                             URI sourceFile)
 	{
 		final StringTokenizer colToken = new StringTokenizer(lstLine,
 				SystemLoader.TAB_DELIM);

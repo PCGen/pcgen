@@ -94,7 +94,7 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 				}
 			}
 			context.getObjectContext().addToList(race,
-					ListKey.HITDICE_ADVANCEMENT, Integer.valueOf(hd));
+					ListKey.HITDICE_ADVANCEMENT, hd);
 		}
 		return ParseResult.SUCCESS;
 	}

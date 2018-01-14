@@ -34,7 +34,6 @@ import pcgen.util.enumeration.Load;
  * UnencumberedLoadFacet is a Facet that tracks the Load objects for
  * Unencumbered movement that have been locked on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnencumberedLoadFacet extends AbstractSourcedListFacet<CharID, Load>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -106,7 +105,7 @@ public class UnencumberedLoadFacet extends AbstractSourcedListFacet<CharID, Load
 	@Override
 	protected Map<Load, Set<Object>> getComponentMap()
 	{
-		return new TreeMap<Load, Set<Object>>();
+		return new TreeMap<>();
 	}
 
 	/**

@@ -1,5 +1,4 @@
 /*
- * SpellChoicePanel.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 09/10/2013
- *
- * $Id$
  */
 package pcgen.gui2.equip;
 
@@ -50,8 +45,6 @@ import pcgen.system.LanguageBundle;
 /**
  * SpellChoicePanel provides the user interface for the user to select a spell.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class SpellChoicePanel extends JPanel
@@ -70,7 +63,7 @@ public class SpellChoicePanel extends JPanel
 	private CharacterComboBoxModel<String> variantModel;
 	private CharacterComboBoxModel<Integer> casterLevelModel;
 	private CharacterComboBoxModel<String> spellTypeModel;
-	private SpellBuilderFacade spellBuilderFacade;
+	private final SpellBuilderFacade spellBuilderFacade;
 	private MetamagicFeatListModel metamgicModel;
 	
 	/**
@@ -231,16 +224,13 @@ public class SpellChoicePanel extends JPanel
 			CharacterComboBoxModel<String>
 	{
 
-		private JComboBox box;
+		private final JComboBox box;
 
 		DisablingCharacterComboBoxModel(JComboBox box)
 		{
 			this.box = box;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<String> e)
 		{

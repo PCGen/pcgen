@@ -1,5 +1,4 @@
 /*
- * PreBaseSizeParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,15 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17-Dec-2003
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.parser;
 
@@ -40,7 +30,6 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * A prerequisite parser class that handles the parsing of pre base size tokens.
- *
  */
 public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
@@ -81,7 +70,7 @@ public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
 
 			// Get the comparator type BASESIZEGTEQ, BASESIZE, BASESIZENEQ etc.
 			String compType = kind.substring(8);
-			if (compType.length() == 0)
+			if (compType.isEmpty())
 			{
 				compType = "gteq";
 			}
@@ -104,7 +93,7 @@ public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ":" + formula
+				"Unable to parse the prerequisite :'" + kind + ':' + formula
 					+ "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;

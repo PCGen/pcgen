@@ -1,5 +1,4 @@
 /*
- * EquipSetMigration.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 05/05/2013 12:54:09 PM
  *
- * $Id$
  */
 package pcgen.io.migration;
 
@@ -26,7 +23,6 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -37,21 +33,20 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.utils.CoreUtility;
 
 /**
- * The Class <code>EquipSetMigration</code> updates a character's equipment 
+ * The Class {@code EquipSetMigration} updates a character's equipment
  * sets to match newer requirements.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
-public class EquipSetMigration
+public final class EquipSetMigration
 {
 
 	private static EquipSetOutputOrderComparator comparator =
 			new EquipSetOutputOrderComparator();
+
+	private EquipSetMigration()
+	{
+	}
 
 	/**
 	 * Update the character's equipment sets, if required.
@@ -95,7 +90,7 @@ public class EquipSetMigration
 	private static List<EquipSet> getSortedChildren(
 		Collection<EquipSet> allEquipSets, String parentIdPath)
 	{
-		List<EquipSet> children = new ArrayList<EquipSet>();
+		List<EquipSet> children = new ArrayList<>();
 		for (EquipSet equipSet : allEquipSets)
 		{
 			if (equipSet.getParentIdPath().equals(parentIdPath))
@@ -104,7 +99,7 @@ public class EquipSetMigration
 			}
 		}
 
-		Collections.sort(children, comparator);
+		children.sort(comparator);
 		return children;
 	}
 
@@ -141,9 +136,6 @@ public class EquipSetMigration
 			Comparator<EquipSet>
 	{
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int compare(EquipSet arg0, EquipSet arg1)
 		{

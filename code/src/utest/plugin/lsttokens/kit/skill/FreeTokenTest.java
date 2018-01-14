@@ -29,7 +29,7 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
 
 	static FreeToken token = new FreeToken();
-	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<KitSkill>(
+	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitSkill.class);
 
 	@Override

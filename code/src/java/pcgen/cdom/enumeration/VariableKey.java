@@ -24,7 +24,6 @@ import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to act as an index to a
  * specific variable (set by DEFINE: in LST terms) within a CDOMObject.
@@ -50,7 +49,7 @@ public final class VariableKey implements TypeSafeConstant
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private VariableKey(String name)
 	{
@@ -111,7 +110,7 @@ public final class VariableKey implements TypeSafeConstant
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<VariableKey>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

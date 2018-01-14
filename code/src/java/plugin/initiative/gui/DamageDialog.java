@@ -1,5 +1,4 @@
 /*
- *  Initiative - A role playing utility to track turns
  *  Copyright (C) 2002 Devon D Jones
  *
  *  This library is free software; you can redistribute it and/or
@@ -15,21 +14,13 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * DamageDialog.java
- *
- * Created on July 20, 2003, 10:30 AM
  */
 package plugin.initiative.gui;
 
-/**
- *
- * @author  soulcatcher
- */
 public class DamageDialog extends javax.swing.JDialog
 {
 	/** OK_VALUE = 0 */
-	public static final int OK_VALUE = 0;
+	static final int OK_VALUE = 0;
 	/** CANCEL_VALUE = 1 */
 	public static final int CANCEL_VALUE = 1;
 
@@ -46,7 +37,7 @@ public class DamageDialog extends javax.swing.JDialog
 	 * @param parent
 	 * @param modal
 	 */
-	public DamageDialog(java.awt.Frame parent, boolean modal)
+	DamageDialog(java.awt.Frame parent, boolean modal)
 	{
 		super(parent, modal);
 		initComponents();
@@ -92,7 +83,7 @@ public class DamageDialog extends javax.swing.JDialog
 	 * Check damage field
 	 * @throws NumberFormatException
 	 */
-	public void checkDamageField() throws NumberFormatException
+	private void checkDamageField() throws NumberFormatException
 	{
 		try
 		{
@@ -109,7 +100,7 @@ public class DamageDialog extends javax.swing.JDialog
 	/**
 	 * submit
 	 */
-	public void submit()
+	private void submit()
 	{
 		try
 		{
@@ -204,14 +195,7 @@ public class DamageDialog extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		getContentPane().add(jLabel1, gridBagConstraints);
 
-		damageField.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				damageFieldActionPerformed(evt);
-			}
-		});
+		damageField.addActionListener(this::damageFieldActionPerformed);
 		damageField.addKeyListener(new java.awt.event.KeyAdapter()
 		{
             @Override
@@ -233,14 +217,7 @@ public class DamageDialog extends javax.swing.JDialog
 		getContentPane().add(subdualField, gridBagConstraints);
 
 		bOK.setText("Ok");
-		bOK.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				bOKActionPerformed(evt);
-			}
-		});
+		bOK.addActionListener(this::bOKActionPerformed);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -249,14 +226,7 @@ public class DamageDialog extends javax.swing.JDialog
 		getContentPane().add(bOK, gridBagConstraints);
 
 		bCancel.setText("Cancel");
-		bCancel.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				bCancelActionPerformed(evt);
-			}
-		});
+		bCancel.addActionListener(this::bCancelActionPerformed);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;

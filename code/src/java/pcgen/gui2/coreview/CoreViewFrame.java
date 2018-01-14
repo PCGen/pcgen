@@ -33,7 +33,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.facade.core.AbilityFacade;
@@ -57,12 +57,12 @@ import pcgen.util.Logging;
 public class CoreViewFrame extends JFrame
 {
 
-	private JComboBoxEx perspectiveChooser;
+	private final JComboBoxEx perspectiveChooser;
 	private final JTreeViewTable<CoreViewNodeFacade> viewTable;
 
 	public CoreViewFrame(Frame frame, CharacterFacade character)
 	{
-		viewTable = new JTreeViewTable<CoreViewNodeFacade>();
+		viewTable = new JTreeViewTable<>();
 
 		perspectiveChooser = new JComboBoxEx();
 		for (CorePerspective pers : CorePerspective.getAllConstants())
@@ -107,7 +107,7 @@ public class CoreViewFrame extends JFrame
 		setTitle("Core Debug View");
 		getContentPane().setSize(500, 400);
 		pack();
-		Utility.centerFrame(this, true);
+		Utility.centerComponent(this, true);
 	}
 
 	private final class PerspectiveActionListener implements ActionListener
@@ -147,9 +147,9 @@ public class CoreViewFrame extends JFrame
 		@Override
 		public List<TreeViewPath<CoreViewNodeFacade>> getPaths(CoreViewNodeFacade pobj)
 		{
-			List<List<CoreViewNodeFacade>> abilityPaths = new ArrayList<List<CoreViewNodeFacade>>();
+			List<List<CoreViewNodeFacade>> abilityPaths = new ArrayList<>();
 			addPaths(abilityPaths, pobj.getGrantedByNodes(),
-					new ArrayList<CoreViewNodeFacade>());
+                    new ArrayList<>());
 			if (Logging.isDebugMode())
 			{
 				Logging.debugPrint("Converted " + pobj.getGrantedByNodes()
@@ -157,10 +157,10 @@ public class CoreViewFrame extends JFrame
 			}
 			if (abilityPaths.isEmpty())
 			{
-				return Collections.singletonList(new TreeViewPath<CoreViewNodeFacade>(pobj));
+				return Collections.singletonList(new TreeViewPath<>(pobj));
 			}
 
-			List<TreeViewPath<CoreViewNodeFacade>> paths = new ArrayList<TreeViewPath<CoreViewNodeFacade>>();
+			List<TreeViewPath<CoreViewNodeFacade>> paths = new ArrayList<>();
 			for (List<CoreViewNodeFacade> path : abilityPaths)
 			{
 				Collections.reverse(path);
@@ -229,51 +229,36 @@ public class CoreViewFrame extends JFrame
 		public void setPerspective(CorePerspective corePerspective)
 		{
 			List<CoreViewNodeFacade> coreViewNodes = character.getCoreViewTree(corePerspective);
-			coreViewList = new DefaultListFacade<CoreViewNodeFacade>(coreViewNodes);
+			coreViewList = new DefaultListFacade<>(coreViewNodes);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public ListFacade<? extends TreeView<CoreViewNodeFacade>> getTreeViews()
 		{
 			DefaultListFacade<TreeView<CoreViewNodeFacade>> views =
-					new DefaultListFacade<TreeView<CoreViewNodeFacade>>();
+                    new DefaultListFacade<>();
 			views.addElement(new GrantedTreeView());
 			return views;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public DataView<CoreViewNodeFacade> getDataView()
 		{
 			return this;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public ListFacade<CoreViewNodeFacade> getDataModel()
 		{
 			return coreViewList;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public Object getData(CoreViewNodeFacade obj, int column)
 		{
@@ -292,26 +277,17 @@ public class CoreViewFrame extends JFrame
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void setData(Object value, CoreViewNodeFacade element, int column)
 		{
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return dataColumns;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

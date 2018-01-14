@@ -1,7 +1,5 @@
 /*
- * WeightedCollection.java
  * Copyright 2007 (c) Tom Parker <thpr@users.sourceforge.net>
- *  Derived from WeightedList.java
  *  Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -30,8 +28,8 @@ import java.util.TreeSet;
  * An implementation of the <tt>Collection</tt> interface that allows objects
  * added to the Collection to have a &quot;weight&quot; associated with them.
  * This weight acts as though <i>weight</i> copies of the item were added to
- * the Collection. The <code>size()</code> method returns the total weight of
- * all items in the Collection. The <code>get()</code> method returns the
+ * the Collection. The {@code size()} method returns the total weight of
+ * all items in the Collection. The {@code get()} method returns the
  * &quot;weight&quot; element in the Collection.
  * <p>
  * As an example, if three items are added to the Collection
@@ -41,10 +39,9 @@ import java.util.TreeSet;
  * <li>Item 3, weight 1</li>
  * </ul>
  * The Collection will have a total weight of 3+2+1=6. The call
- * <code>get(4)</code> will return Item 2.
+ * {@code get(4)} will return Item 2.
  * <p>
  * 
- * @author boomer70 and Tom Parker (thpr@users.sourceforge.net)
  * @param <E>
  *            The Class stored in the WeightedCollection
  * @see java.util.Collection
@@ -55,14 +52,14 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	/**
 	 * The actual list where the data is stored.
 	 */
-	private Collection<WeightedItem<E>> theData;
+	private final Collection<WeightedItem<E>> theData;
 
 	/**
 	 * Default constructor. Creates an empty collection.
 	 */
 	public WeightedCollection()
 	{
-		theData = new ListSet<WeightedItem<E>>();
+		theData = new ListSet<>();
 	}
 
 	/**
@@ -76,7 +73,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 */
 	public WeightedCollection(int initialSize)
 	{
-		theData = new ListSet<WeightedItem<E>>(initialSize);
+		theData = new ListSet<>(initialSize);
 	}
 
 	/**
@@ -113,12 +110,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	{
 		if (comp == null)
 		{
-			theData = new ListSet<WeightedItem<E>>();
+			theData = new ListSet<>();
 		}
 		else
 		{
-			theData = new TreeSet<WeightedItem<E>>(
-					new WeightedItemComparator<E>(comp));
+			theData = new TreeSet<>(
+                    new WeightedItemComparator<>(comp));
 		}
 	}
 
@@ -199,7 +196,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 				return true;
 			}
 		}
-		return theData.add(new WeightedItem<E>(element, weight));
+		return theData.add(new WeightedItem<>(element, weight));
 	}
 
 	/**
@@ -281,7 +278,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @return An <tt>Iterator</tt> for the WeightedCollection.
 	 */
-	public Iterator<E> unweightedIterator()
+	Iterator<E> unweightedIterator()
 	{
 		return new UnweightedIterator();
 	}
@@ -448,7 +445,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	@Override
 	public String toString()
 	{
-		return "WeightedCollection: " + theData.toString();
+		return "WeightedCollection: " + theData;
 	}
 
 	/**
@@ -486,7 +483,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * This class is a simple wrapper to associate an object from a
 	 * <tt>WeightedList</tt> and its weight.
 	 * 
-	 * @author boomer70
 	 * 
 	 * @param <T>
 	 */
@@ -505,7 +501,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * @param weight
 		 *            The weight of the item within the list.
 		 */
-		public WeightedItem(T element, int weight)
+		WeightedItem(T element, int weight)
 		{
 			theElement = element;
 			theWeight = weight;
@@ -537,7 +533,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * @param weight
 		 *            an amount of weight to add.
 		 */
-		public void addWeight(int weight)
+		void addWeight(int weight)
 		{
 			theWeight += weight;
 		}
@@ -552,8 +548,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Equals method. Note this is required in order to have the .equals()
 		 * at the WeightedCollection level work properly (it is a deep equals)
-		 * 
-		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
 		@Override
 		public boolean equals(Object obj)
@@ -572,7 +566,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		@Override
 		public String toString()
 		{
-			return theElement + " (" + theWeight + ")";
+			return theElement + " (" + theWeight + ')';
 		}
 	}
 
@@ -641,8 +635,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Checks if there are any more elements in the iteration.
 		 * 
 		 * @return <tt>true</tt> if there are more elements.
-		 * 
-		 * @see java.util.Iterator#hasNext()
 		 */
 		@Override
 		public boolean hasNext()
@@ -654,8 +646,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Returns the next element in the iteration.
 		 * 
 		 * @return The next element.
-		 * 
-		 * @see java.util.Iterator#next()
 		 */
 		@Override
 		public E next()
@@ -666,8 +656,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Removes from the WeightedCollection the last element returned from
 		 * the iteration.
-		 * 
-		 * @see java.util.Iterator#remove()
 		 */
 		@Override
 		public void remove()
@@ -703,15 +691,13 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 *            objects underlying the WeightedItem objects compared by
 		 *            this WeightedItemComparator
 		 */
-		public WeightedItemComparator(Comparator<? super WICT> comp)
+		WeightedItemComparator(Comparator<? super WICT> comp)
 		{
 			delegate = comp;
 		}
 
 		/**
 		 * Compare two WeightedItem objects
-		 * 
-		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 		 */
 		@Override
 		public int compare(WeightedItem<WICT> item1, WeightedItem<WICT> item2)

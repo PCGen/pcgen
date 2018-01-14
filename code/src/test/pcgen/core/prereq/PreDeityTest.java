@@ -1,6 +1,4 @@
 /*
- * PreDeityTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
@@ -38,12 +34,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 /**
  * <code>PreDeityTest</code> tests that the PREDEITY tag is
  * working correctly.
- *
- * Last Editor: $Author: $
- * Last Edited: $Date$
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreDeityTest extends AbstractCharacterTestCase
 {
@@ -246,6 +236,6 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
 		StringManager sm = new StringManager();
 		FactSetKey<String> fsk = FactSetKey.getConstant("Pantheon", sm);
-		deity.addToSetFor(fsk, new BasicIndirect<String>(sm, "Celtic"));
+		deity.addToSetFor(fsk, new BasicIndirect<>(sm, "Celtic"));
 	}
 }

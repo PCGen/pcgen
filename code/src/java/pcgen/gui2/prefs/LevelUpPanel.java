@@ -1,5 +1,4 @@
 /*
- * LevelUpPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/11/2010 19:50:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -38,34 +33,30 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>LevelUpPanel</code> is responsible for 
+ * The Class {@code LevelUpPanel} is responsible for
  * displaying levelling up related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class LevelUpPanel extends PCGenPrefsPanel
 {
-	private static String in_levelUp =
+	private static final String in_levelUp =
 		LanguageBundle.getString("in_Prefs_levelUp");
 
 //	private static String in_enforceSpending =
 //		LanguageBundle.getString("in_Prefs_enforceSpending");
 //	private static String in_hpWindow =
 //		LanguageBundle.getString("in_Prefs_hpWindow");
-	private static String in_statWindow =
+	private static final String in_statWindow =
 		LanguageBundle.getString("in_Prefs_statWindow");
-	private static String in_warnFirstLevelUp =
+	private static final String in_warnFirstLevelUp =
 		LanguageBundle.getString("in_Prefs_warnFirstLevelUp");
 
 //	private JCheckBox hpDialogShownAtLevelUp = new JCheckBox();
-	private JCheckBox showWarningAtFirstLevelUp = new JCheckBox();
-	private JCheckBox statDialogShownAtLevelUp = new JCheckBox();
+	private final JCheckBox showWarningAtFirstLevelUp = new JCheckBox();
+	private final JCheckBox statDialogShownAtLevelUp = new JCheckBox();
 //	private JCheckBox enforceSpendingBeforeLevelUp = new JCheckBox();
 	//	private JCheckBox featDialogShownAtLevelUp = new JCheckBox();
 	
@@ -131,7 +122,7 @@ public class LevelUpPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -140,7 +131,7 @@ public class LevelUpPanel extends PCGenPrefsPanel
 		return in_levelUp;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -161,7 +152,7 @@ public class LevelUpPanel extends PCGenPrefsPanel
 //				.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

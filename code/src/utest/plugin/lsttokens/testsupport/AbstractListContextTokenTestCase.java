@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -29,6 +27,8 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractListInputTokenTestCase<T, TC>
@@ -152,13 +152,12 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 	// }
 	// }
 
-	protected AssociatedPrereqObject addToList(CDOMReference<TC> val)
+	protected void addToList(CDOMReference<TC> val)
 	{
 		SimpleAssociatedObject sao = new SimpleAssociatedObject();
 		sao.setAssociation(AssociationKey.TOKEN, getToken().getTokenName());
 		primaryProf.putToList(getListReference(), val, sao);
 		doCustomAssociations(sao);
-		return sao;
 	}
 
 	protected void doCustomAssociations(AssociatedPrereqObject apo)

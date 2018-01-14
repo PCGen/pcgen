@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14/02/2011 4:44:54 PM
- *
- * $Id$
  */
 package plugin.lsttokens.gamemode;
 
@@ -31,20 +27,15 @@ import pcgen.persistence.lst.EquipIconLstToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>IconToken</code> is responsible for matching icon 
+ * The Class {@code IconToken} is responsible for matching icon
  * paths to equipment types.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class IconToken implements EquipIconLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
@@ -53,7 +44,7 @@ public class IconToken implements EquipIconLstToken
 		return "ICON";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
 	 */
     @Override

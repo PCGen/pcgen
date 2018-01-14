@@ -9,3 +9,4 @@
 
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI		Display Location
 ABILITYCATEGORY:Winter Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WinterRevelation.GeneralRevelation	PLURAL:Winter Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Viking Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VikingBonusFeatChoice			PLURAL:Viking Bonus Feats		DISPLAYLOCATION:Class Features

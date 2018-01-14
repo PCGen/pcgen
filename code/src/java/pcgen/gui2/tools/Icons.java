@@ -1,5 +1,4 @@
 /*
- * Icons.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,21 +14,16 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Apr 4, 2010, 5:24:43 PM
  */
 package pcgen.gui2.tools;
 
 import java.net.URL;
 import java.util.Map;
 import java.util.WeakHashMap;
+import javafx.scene.image.ImageView;
 
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
 public enum Icons
 {
 
@@ -141,12 +135,14 @@ public enum Icons
 	stock_text_bold("-16.png"),
 	stock_text_italic("-16.png"),
 	stock_text_underline("-16.png");
-	
+
 	/** Path to icons file */
 	private static final String RESOURCE_URL = "/pcgen/resources/images/";
 
 	/** Image cache */
-	private static final Map<Icons, ImageIcon> iconMap = new WeakHashMap<Icons, ImageIcon>(Icons.values().length);
+	private static final Map<Icons, ImageIcon> iconMap = new WeakHashMap<>(Icons.values().length);
+
+	private static final Map<Icons, ImageView> imageViewMap = new WeakHashMap<>(Icons.values().length);
 
 	private final String extension;
 
@@ -156,13 +152,13 @@ public enum Icons
 	}
 
 	/**
-	 * Fetch an <code>ImageIcon</code> relative to the calling
+	 * Fetch an {@code ImageIcon} relative to the calling
 	 * location.
 	 *
-	 * @param fileName <code>String</code>, the path to the
-	 * <code>IconImage> source
+	 * @param fileName {@code String}, the path to the
+	 * {@code IconImage} source
 	 *
-	 * @return <code>ImageIcon</code>, the icon or <code>null</code>
+	 * @return {@code ImageIcon}, the icon or {@code null}
 	 * on failure
 	 * @deprecated Should be private to force use of cache. Filename should be defined in this file as enum.
 	 */
@@ -185,6 +181,17 @@ public enum Icons
 		{
 			image = createImageIcon(name() + extension);
 			iconMap.put(this, image);
+		}
+		return image;
+	}
+
+	public ImageView getImageView()
+	{
+		ImageView image = imageViewMap.get(this);
+		if (image == null)
+		{
+			image = new ImageView(RESOURCE_URL + name() + extension);
+			imageViewMap.put(this, image);
 		}
 		return image;
 	}

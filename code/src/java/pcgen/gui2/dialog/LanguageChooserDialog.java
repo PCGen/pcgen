@@ -1,5 +1,4 @@
 /*
- * LanguageChooserDialog.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 8, 2010, 3:35:32 PM
  */
 package pcgen.gui2.dialog;
 
@@ -63,10 +61,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class LanguageChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>
 {
 
@@ -81,11 +76,11 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 	{
 		super(frame, true);
 		this.chooser = chooser;
-		this.availTable = new JTreeViewTable<LanguageFacade>();
+		this.availTable = new JTreeViewTable<>();
 		this.remainingLabel = new JLabel();
 		this.treeViewModel = new LangTreeViewModel();
 		this.list = new JListEx();
-		this.listModel = new FacadeListModel<LanguageFacade>();
+		this.listModel = new FacadeListModel<>();
 
 		treeViewModel.setDelegate(chooser.getAvailableList());
 		listModel.setListFacade(chooser.getSelectedList());
@@ -223,7 +218,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			DataView<LanguageFacade>//, TreeView<LanguageFacade>
 	{
 		private static final ListFacade<TreeView<LanguageFacade>> views =
-				new DefaultListFacade<TreeView<LanguageFacade>>(Arrays.asList(LanguageTreeView.values()));
+                new DefaultListFacade<>(Arrays.asList(LanguageTreeView.values()));
 
 		@Override
 		public ListFacade<? extends TreeView<LanguageFacade>> getTreeViews()
@@ -266,9 +261,6 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			return Collections.emptyList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -282,7 +274,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		NAME("in_nameLabel"), //$NON-NLS-1$
 		TYPE_NAME("in_typeName"); //$NON-NLS-1$
 		
-		private String name;
+		private final String name;
 
 		private LanguageTreeView(String name)
 		{
@@ -298,15 +290,15 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		@Override
 		public List<TreeViewPath<LanguageFacade>> getPaths(LanguageFacade pobj)
 		{
-			List<TreeViewPath<LanguageFacade>> paths = new ArrayList<TreeViewPath<LanguageFacade>>();
+			List<TreeViewPath<LanguageFacade>> paths = new ArrayList<>();
 			switch (this)
 			{
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<LanguageFacade>(pobj));
+					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
 					for(String type : pobj.getTypes())
 					{
-						paths.add(new TreeViewPath<LanguageFacade>(pobj, type));
+						paths.add(new TreeViewPath<>(pobj, type));
 					}
 					return paths;
 				default:

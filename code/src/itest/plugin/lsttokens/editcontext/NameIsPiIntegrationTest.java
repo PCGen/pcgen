@@ -34,7 +34,7 @@ public class NameIsPiIntegrationTest extends
 {
 
 	static NameispiLst token = new NameispiLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

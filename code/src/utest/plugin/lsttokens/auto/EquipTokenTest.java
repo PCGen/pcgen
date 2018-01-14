@@ -18,7 +18,6 @@ package plugin.lsttokens.auto;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -38,14 +37,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "EQUIP|TestWP1|TestWP1|TestWP2|TestWP2|TestWP3" };
-			}
-		};
+		return strings -> new String[] { "EQUIP|TestWP1|TestWP1|TestWP2|TestWP2|TestWP3" };
 	}
 
 	@Override
@@ -66,12 +58,6 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 		return false;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected ChooseSelectionActor<Equipment> getActor()
 	{
@@ -88,7 +74,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 	protected void loadProf(CDOMSingleRef<Equipment> ref)
 	{
 		primaryProf.addToListFor(ListKey.EQUIPMENT,
-				new QualifiedObject<CDOMReference<Equipment>>(ref));
+				new QualifiedObject<>(ref));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -114,7 +100,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 		CDOMGroupRef<Equipment> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Equipment.class, types);
 		primaryProf.addToListFor(ListKey.EQUIPMENT,
-				new QualifiedObject<CDOMReference<Equipment>>(ref));
+				new QualifiedObject<>(ref));
 	}
 
 	@Override

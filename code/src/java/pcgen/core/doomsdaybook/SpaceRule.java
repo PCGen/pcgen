@@ -14,20 +14,15 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author  devon
- */
+
 public class SpaceRule implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<DataValue>();
+	ArrayList<DataValue> retList = new ArrayList<>();
 
 	/** Creates a new instance of SpaceRule */
 	public SpaceRule()

@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.exporttokens;
 
@@ -59,7 +52,7 @@ public class InitiativeMiscToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		return Delta.toString(getInitiativeMiscToken(pc)) + "";
+		return Delta.toString(getInitiativeMiscToken(pc));
 	}
 
 	/**

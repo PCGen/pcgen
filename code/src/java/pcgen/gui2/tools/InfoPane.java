@@ -1,5 +1,4 @@
 /*
- * InfoPane.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 26, 2008, 9:32:04 PM
  */
 package pcgen.gui2.tools;
 
@@ -35,10 +33,7 @@ import javax.swing.text.EditorKit;
 import pcgen.base.lang.UnreachableError;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class InfoPane extends JScrollPane
 {
 
@@ -97,11 +92,7 @@ public class InfoPane extends JScrollPane
 		{
 			kit.read(new StringReader(text), newDoc, 0);
 		}
-		catch (IOException ex)
-		{
-			throw new UnreachableError(ex);
-		}
-		catch (BadLocationException ex)
+		catch (IOException | BadLocationException ex)
 		{
 			throw new UnreachableError(ex);
 		}
@@ -114,7 +105,7 @@ public class InfoPane extends JScrollPane
 	 *  
 	 * @param linkListener The listener.
 	 */
-	public void addHyperlinkListener(HyperlinkListener linkListener)
+	void addHyperlinkListener(HyperlinkListener linkListener)
 	{
 		textPane.addHyperlinkListener(linkListener);
 	}
@@ -123,7 +114,7 @@ public class InfoPane extends JScrollPane
 	 * Removes a hyperlink listener.
 	 * @param linkListener The listener.
 	 */
-	public void removeHyperlinkListener(HyperlinkListener linkListener)
+	void removeHyperlinkListener(HyperlinkListener linkListener)
 	{
 		textPane.removeHyperlinkListener(linkListener);
 	}

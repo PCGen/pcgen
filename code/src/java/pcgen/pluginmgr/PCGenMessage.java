@@ -1,5 +1,4 @@
 /*
- * PCGenMessage.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,24 +15,17 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 15/02/2014 2:40:34 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr;
 
 import java.util.EventObject;
 
 /**
- * The Class <code>PCGenMessage</code> describes an event in PCGen which
+ * The Class {@code PCGenMessage} describes an event in PCGen which
  * listeners can respond to. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class PCGenMessage extends EventObject

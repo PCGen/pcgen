@@ -1,5 +1,4 @@
 /*
- * Original code moved from AttackToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision: 18723 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-12-19 16:06:23 -0500 (Wed, 19 Dec 2012) $
- *
  */
 package pcgen.core.analysis;
 
@@ -30,8 +22,12 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.util.Delta;
 import pcgen.util.enumeration.AttackType;
 
-public class AttackInfo
+public final class AttackInfo
 {
+
+	private AttackInfo()
+	{
+	}
 
 	/**
 	 * Get Attack Information for a PC.  
@@ -75,7 +71,7 @@ public class AttackInfo
 	/**
 	 * Get total ATTACK token
 	 * @param pc
-	 * @param aType
+	 * @param at
 	 * @return total ATTACK token
 	 */
 	public static int getTotalToken(PlayerCharacter pc, AttackType at)
@@ -148,7 +144,7 @@ public class AttackInfo
 	/**
 	 * Get the misc ATTACK token
 	 * @param pc
-	 * @param aType
+	 * @param at
 	 * @return misc ATTACK token
 	 */
 	public static int getMiscToken(PlayerCharacter pc, AttackType at)
@@ -190,8 +186,6 @@ public class AttackInfo
 
 	/**
 	 * get stat ATTACK token
-	 * @param pc
-	 * @param aType
 	 * @return stat ATTACK token
 	 */
 	public static int getStatToken(CharacterDisplay display, AttackType at)

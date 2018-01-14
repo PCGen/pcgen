@@ -18,7 +18,6 @@
 package plugin.pretokens.parser;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.core.prereq.Prerequisite;
@@ -87,12 +86,12 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		{
 			throw new PersistenceLayerException(parseResult.toString());
 		}
-		if (formula.indexOf("[") >= 0 || formula.indexOf("]") >= 0)
+		if (formula.contains("[") || formula.contains("]"))
 		{
 			throw new PersistenceLayerException("Prerequisite " + kind
 				+ " can not contain []: " + formula);
 		}
-		if (formula.indexOf("|") >= 0)
+		if (formula.contains("|"))
 		{
 			throw new PersistenceLayerException("Prerequisite " + kind
 				+ " can not contain |: " + formula);
@@ -110,7 +109,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("'" + elements[0]
+			throw new PersistenceLayerException('\'' + elements[0]
 				+ "' is not a valid integer");
 		}
 
@@ -118,7 +117,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		String[] fileElements  = filetype.split("\\.");
 		if (!OutputDB.isLegal(fileElements[0]))
 		{
-			throw new PersistenceLayerException("'" + elements[1]
+			throw new PersistenceLayerException('\'' + elements[1]
 				+ "' is not a valid location to check for a FACT");
 		}
 
@@ -145,7 +144,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		{
 			// Token now contains all of the possible matches,
 			// min contains the target number (if there is one)
-			// number contains the number of 'tokens' that be be at least 'min'
+			// number contains the number of 'tokens' that be at least 'min'
 			prereq.setOperator(PrerequisiteOperator.GTEQ);
 			// we have more than one option, so use a group
 			prereq.setKind(null);
@@ -176,7 +175,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 	 * @param factTest The key=value test to be checked.
 	 * @throws PersistenceLayerException If the fact key is not defined in the data.
 	 */
-	private void checkFactKey(String factTest) throws PersistenceLayerException
+	private static void checkFactKey(String factTest) throws PersistenceLayerException
 	{
 		String[] parts = factTest.split("=");
 		try
@@ -191,7 +190,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		}
 	}
 
-	private void setLocation(Prerequisite prereq, String location)
+	private static void setLocation(Prerequisite prereq, String location)
 		throws PersistenceLayerException
 	{
 		if (prereq.getPrerequisiteCount() == 0)
@@ -200,8 +199,8 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		}
 
 		// Copy to a temporary list as we will be adjusting the main one.
-		List<Prerequisite> prereqList =
-				new ArrayList<Prerequisite>(prereq.getPrerequisites());
+		Iterable<Prerequisite> prereqList =
+				new ArrayList<>(prereq.getPrerequisites());
 		for (Prerequisite p : prereqList)
 		{
 			if (p.getKind() == null) // PREMULT

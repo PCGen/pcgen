@@ -108,7 +108,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return pr;
 		}
 
-		List<CDOMReference<Language>> refs = new ArrayList<CDOMReference<Language>>();
+		List<CDOMReference<Language>> refs = new ArrayList<>();
 		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
 		while (tok.hasMoreTokens())
 		{
@@ -124,7 +124,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 			refs.add(lang);
 		}
 
-		ReferenceChoiceSet<Language> rcs = new ReferenceChoiceSet<Language>(
+		ReferenceChoiceSet<Language> rcs = new ReferenceChoiceSet<>(
 				refs);
 		if (!rcs.getGroupingState().isValid())
 		{
@@ -132,10 +132,10 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 
-		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
+		ChoiceSet<Language> cs = new ChoiceSet<>(getTokenName(), rcs);
 		cs.setTitle("Language Choice");
 		PersistentTransitionChoice<Language> tc =
-				new ConcretePersistentTransitionChoice<Language>(cs, count);
+				new ConcretePersistentTransitionChoice<>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;
@@ -153,7 +153,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 			// Zero indicates no Token
 			return null;
 		}
-		List<String> addStrings = new ArrayList<String>();
+		List<String> addStrings = new ArrayList<>();
 		for (TransitionChoice<?> container : addedItems)
 		{
 			SelectableSet<?> cs = container.getChoices();

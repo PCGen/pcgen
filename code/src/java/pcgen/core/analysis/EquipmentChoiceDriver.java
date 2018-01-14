@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from EquipmentModifier.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -33,8 +32,12 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.SignedInteger;
 import pcgen.util.chooser.ChooserFactory;
 
-public class EquipmentChoiceDriver
+public final class EquipmentChoiceDriver
 {
+	private EquipmentChoiceDriver()
+	{
+	}
+
 	/**
 	 * @param pool
 	 * @param parent
@@ -45,7 +48,7 @@ public class EquipmentChoiceDriver
 	{
 		String choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
 
-		if (choiceString.length() == 0)
+		if (choiceString.isEmpty())
 		{
 			return true;
 		}
@@ -57,7 +60,7 @@ public class EquipmentChoiceDriver
 			return true;
 		}
 
-		List<Object> selectedList = new ArrayList<Object>(parent.getAssociationList(eqMod));
+		List<Object> selectedList = new ArrayList<>(parent.getAssociationList(eqMod));
 
 		final EquipmentChoice equipChoice = buildEquipmentChoice(
 				pool,
@@ -82,9 +85,9 @@ public class EquipmentChoiceDriver
 				LanguageBundle.getFormattedString("in_equipChoiceMod", //$NON-NLS-1$
 					equipChoice.getTitle(), eqMod.getDisplayName(), "|");
 		CDOMChooserFacadeImpl<Object> chooserFacade =
-				new CDOMChooserFacadeImpl<Object>(
-						title, equipChoice.getAvailableList(), 
-					selectedList, effectiveChoices);
+                new CDOMChooserFacadeImpl<>(
+                        title, equipChoice.getAvailableList(),
+                        selectedList, effectiveChoices);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
@@ -98,7 +101,7 @@ public class EquipmentChoiceDriver
 
 	public static void setChoice(Equipment parent, EquipmentModifier eqMod, final String choice, final EquipmentChoice equipChoice)
 	{
-		final List<Object> tempList = new ArrayList<Object>();
+		final List<Object> tempList = new ArrayList<>();
 		tempList.add(choice);
 		setChoice(parent, eqMod, tempList, equipChoice);
 	}
@@ -117,7 +120,7 @@ public class EquipmentChoiceDriver
 
 				if (idx < 0)
 				{
-					final List<SignedInteger> secondaryChoice = new ArrayList<SignedInteger>();
+					final List<SignedInteger> secondaryChoice = new ArrayList<>();
 
 					for (
 						int j = equipChoice.getMinValue();
@@ -134,16 +137,16 @@ public class EquipmentChoiceDriver
 							LanguageBundle.getFormattedString(
 								"in_equipChoiceSelectMod", aString); //$NON-NLS-1$
 					CDOMChooserFacadeImpl<SignedInteger> chooserFacade =
-							new CDOMChooserFacadeImpl<SignedInteger>(title,
-								secondaryChoice,
-								new ArrayList<SignedInteger>(), 1);
+                            new CDOMChooserFacadeImpl<>(title,
+                                    secondaryChoice,
+                                    new ArrayList<>(), 1);
 					chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 					chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
 					ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 					
 					List<SignedInteger> chosenList =  chooserFacade.getFinalSelected();
 
-					if (chosenList.size() == 0)
+					if (chosenList.isEmpty())
 					{
 						continue;
 					}
@@ -182,7 +185,7 @@ public class EquipmentChoiceDriver
 		final EquipmentChoice equipChoice  = new EquipmentChoice(bAdd, pool);
 		String                choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
 
-		if (choiceString.length() == 0)
+		if (choiceString.isEmpty())
 		{
 			return equipChoice;
 		}

@@ -25,9 +25,8 @@ import pcgen.core.PCStat;
  * StatValueFacet stores the values of PCStat objects (such as Strength is 18)
  * for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StatValueFacet extends
-		AbstractAssociationFacet<CharID, PCStat, Integer>
+		AbstractAssociationFacet<CharID, PCStat, Number>
 {
 }

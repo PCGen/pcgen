@@ -133,12 +133,12 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<Race>
 		if (weaponbonus != null)
 		{
 			ReferenceChoiceSet<WeaponProf> rcs =
-					new ReferenceChoiceSet<WeaponProf>(weaponbonus);
+					new ReferenceChoiceSet<>(weaponbonus);
 			ChoiceSet<WeaponProf> cs =
-					new ChoiceSet<WeaponProf>(getTokenName(), rcs);
+					new ChoiceSet<>(getTokenName(), rcs);
 			cs.setTitle("Bonus WeaponProf Choice");
 			PersistentTransitionChoice<WeaponProf> tc =
-					new ConcretePersistentTransitionChoice<WeaponProf>(cs,
+					new ConcretePersistentTransitionChoice<>(cs,
 							FormulaFactory.ONE);
 			context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 			tc.setChoiceActor(this);

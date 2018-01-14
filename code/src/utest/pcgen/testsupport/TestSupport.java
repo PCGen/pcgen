@@ -20,15 +20,15 @@ package pcgen.testsupport;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import pcgen.core.Globals;
-import pcgen.rules.context.AbstractReferenceContext;
-import plugin.lsttokens.testsupport.BuildUtilities;
-
 /**
  * Support class for running Junit tests
  */
-public class TestSupport
+public final class TestSupport
 {
+
+	private TestSupport()
+	{
+	}
 
 	/**
 	 * Utility method for Unit tests to invoke private constructors
@@ -55,7 +55,7 @@ public class TestSupport
 		{
 			instance = constructor.newInstance();
 		}
-		catch (InvocationTargetException ite)
+		catch (InvocationTargetException | InstantiationException ite)
 		{
 			System.err.println("Instance creation failed with [" + ite.getCause() + "]");
 		}
@@ -63,27 +63,8 @@ public class TestSupport
 		{
 			System.err.println("Instance creation failed due to access violation.");
 		}
-		catch (InstantiationException ie)
-		{
-			System.err.println("Instance creation failed with [" + ie.getCause() + "]");
-		}
-		
+
 		return instance;
 	}
 
-	public static void createAllAlignments()
-	{
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		ref.importObject(BuildUtilities.createAlignment("Lawful Good", "LG"));
-		ref.importObject(BuildUtilities.createAlignment("Lawful Neutral", "LN"));
-		ref.importObject(BuildUtilities.createAlignment("Lawful Evil", "LE"));
-		ref.importObject(BuildUtilities.createAlignment("Neutral Good", "NG"));
-		ref.importObject(BuildUtilities.createAlignment("True Neutral", "TN"));
-		ref.importObject(BuildUtilities.createAlignment("Neutral Evil", "NE"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Good", "CG"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Neutral", "CN"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Evil", "CE"));
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
-		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
-	}	
 }

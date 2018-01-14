@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
-
-<!--
-    This configuration file was written by the eclipse-cs plugin configuration editor
--->
-<!--
-    Checkstyle-Configuration: PCG
-    Description: none
--->
 <module name="Checker">
-  <property name="severity" value="warning"/>
+  <property name="cacheFile" value="checkstyle-cachefile"/>
   <module name="TreeWalker">
-    <property name="cacheFile" value="checkstyle-cachefile"/>
+    <property name="severity" value="error"/>
+    <module name="UpperEll"/>
+    <module name="IllegalImport"/>
+  </module>
+  <module name="TreeWalker">
+    <property name="severity" value="warning"/>
     <module name="JavadocMethod">
       <property name="scope" value="public"/>
       <property name="allowUndeclaredRTE" value="true"/>
@@ -33,7 +30,6 @@
     <module name="StaticVariableName"/>
     <module name="TypeName"/>
     <module name="AvoidStarImport"/>
-    <module name="IllegalImport"/>
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
     <module name="LineLength">
@@ -57,6 +53,7 @@
     <module name="EmptyBlock"/>
     <module name="LeftCurly">
       <property name="option" value="nl"/>
+      <property name="tokens" value="INTERFACE_DEF,CLASS_DEF,ANNOTATION_DEF,ENUM_DEF,CTOR_DEF,METHOD_DEF,LITERAL_WHILE,LITERAL_TRY,LITERAL_CATCH,LITERAL_FINALLY,LITERAL_SYNCHRONIZED,LITERAL_SWITCH,LITERAL_DO,LITERAL_IF,LITERAL_ELSE,LITERAL_FOR"/>
     </module>
     <module name="NeedBraces"/>
     <module name="RightCurly">
@@ -70,10 +67,6 @@
     <module name="IllegalInstantiation"/>
     <module name="InnerAssignment"/>
     <module name="MissingSwitchDefault"/>
-    <module name="RedundantThrows">
-      <property name="severity" value="ignore"/>
-      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
-    </module>
     <module name="SimplifyBooleanExpression"/>
     <module name="SimplifyBooleanReturn"/>
     <module name="FinalClass"/>
@@ -84,7 +77,6 @@
     <module name="TodoComment">
       <property name="severity" value="info"/>
     </module>
-    <module name="UpperEll"/>
   </module>
   <module name="NewlineAtEndOfFile"/>
   <module name="Translation"/>

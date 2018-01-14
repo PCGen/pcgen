@@ -1,6 +1,4 @@
 /*
- * Created on 21-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
@@ -14,9 +12,7 @@ import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreSkillTotalParser;
 
-/**
- * @author Valued Customer
- */
+
 @SuppressWarnings("nls")
 public class PreSkillTotParserTest extends EnUsLocaleDependentTestCase
 {

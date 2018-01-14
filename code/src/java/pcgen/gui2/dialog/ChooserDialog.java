@@ -1,5 +1,4 @@
 /*
- * ChooserDialog.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/01/2012 9:23:01 AM
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -52,7 +47,7 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.chooser.InfoWrapper;
@@ -80,7 +75,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;
 
 /**
- * The Class <code>ChooserDialog</code> provides a general dialog to allow the 
+ * The Class {@code ChooserDialog} provides a general dialog to allow the
  * user to select from a number of predefined choices. A ChooserFacade instance 
  * must be supplied, this defines the choices available, the text to be displayed 
  * on screen and the actions to be taken when the user confirms their choices. The 
@@ -88,12 +83,7 @@ import pcgen.system.PropertyContext;
  * <p>
  * This class is based heavily on Connor Petty's LanguageChooserDialog class.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class ChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>, ListSelectionListener
@@ -125,13 +115,13 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		}
 		else
 		{
-			this.availTable = new JTreeViewTable<InfoFacade>();
+			this.availTable = new JTreeViewTable<>();
 			this.availInput = null;
 		}
 		this.remainingLabel = new JLabel();
 		this.treeViewModel = new GeneralTreeViewModel();
 		this.list = new JListEx();
-		this.listModel = new FacadeListModel<InfoFacade>();
+		this.listModel = new FacadeListModel<>();
 		this.infoPane = new InfoPane();
 
 		treeViewModel.setDelegate(chooser.getAvailableList());
@@ -142,9 +132,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		pack();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setVisible(boolean b)
 	{
@@ -273,7 +260,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			JSplitPane infoSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 			infoSplit.setTopComponent(split);
 			infoSplit.setBottomComponent(infoPane);
-			infoSplit.setResizeWeight(.8);
+			infoSplit.setResizeWeight(0.8);
 			pane.add(infoSplit, BorderLayout.CENTER);
 			if (availTable != null)
 			{
@@ -408,7 +395,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		public ListFacade<? extends TreeView<InfoFacade>> getTreeViews()
 		{
 			DefaultListFacade<TreeView<InfoFacade>> views =
-					new DefaultListFacade<TreeView<InfoFacade>>();
+                    new DefaultListFacade<>();
 			views.addElement(new ChooserTreeView(ChooserTreeViewType.NAME,
 				chooser.getAvailableTableTitle(), chooser));
 			views.addElement(new ChooserTreeView(ChooserTreeViewType.TYPE_NAME,
@@ -451,9 +438,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			return Collections.emptyList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -462,10 +446,10 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 
 	}
 
-	private class ChooserTreeView implements TreeView<InfoFacade>
+	private final class ChooserTreeView implements TreeView<InfoFacade>
 	{
 		
-		private String viewName;
+		private final String viewName;
 		private final ChooserFacade chooser;
 		private final ChooserTreeViewType viewType; 
 
@@ -488,10 +472,10 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			switch (viewType)
 			{
 				case TYPE_NAME:
-					List<TreeViewPath<InfoFacade>> paths = new ArrayList<TreeViewPath<InfoFacade>>();
+					List<TreeViewPath<InfoFacade>> paths = new ArrayList<>();
 					for(String type : chooser.getBranchNames(pobj))
 					{
-						paths.add(new TreeViewPath<InfoFacade>(pobj, type));
+						paths.add(new TreeViewPath<>(pobj, type));
 					}
 					if (!paths.isEmpty())
 					{
@@ -499,7 +483,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 					}
 					// Otherwise treat as a name entry
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<InfoFacade>(pobj));
+					return Collections.singletonList(new TreeViewPath<>(pobj));
 				default:
 					throw new InternalError();
 			}

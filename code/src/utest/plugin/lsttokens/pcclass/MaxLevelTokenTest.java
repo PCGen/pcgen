@@ -31,7 +31,7 @@ public class MaxLevelTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 {
 
 	static MaxlevelToken token = new MaxlevelToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

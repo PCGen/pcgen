@@ -89,7 +89,7 @@ public class SituationToken extends AbstractTokenWithSeparator<Skill> implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<String> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{

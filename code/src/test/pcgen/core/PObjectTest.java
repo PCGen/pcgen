@@ -1,5 +1,4 @@
 /*
- * PObjectTest.java
  * Copyright 2005 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Apr 9, 2005
- *
- * $Id$
- *
  */
 package pcgen.core;
 
@@ -31,7 +25,6 @@ import java.util.Iterator;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.PCGenTestCase;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.lang.UnreachableError;
@@ -59,7 +52,6 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * Test the PObject class.
- * @author jdempsey
  */
 @SuppressWarnings("nls")
 public class PObjectTest extends AbstractCharacterTestCase
@@ -163,7 +155,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		String racePCCText = race.getPCCText();
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 
-		GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
+		GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
 		CampaignSourceEntry source;
 		try
 		{
@@ -328,8 +320,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pobj.addToListFor(ListKey.DESCRIPTION, desc1);
 
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Description should match", pc
-			.getDescription(pobj), "Description 1.");
+		assertEquals("Description should match", "Description 1.", pc
+			.getDescription(pobj));
 
 		final Description desc2 = new Description("Description 2.");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc2);
@@ -382,7 +374,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		GenericLoader<Race> loader = new GenericLoader<Race>(Race.class);
+		GenericLoader<Race> loader = new GenericLoader<>(Race.class);
 		loader
 			.parseLine(
 				context,

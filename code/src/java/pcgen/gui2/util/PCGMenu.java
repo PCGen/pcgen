@@ -1,5 +1,4 @@
 /*
- * PCGMenu.java
  * Copyright 2014 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 21/01/2014
  *
- * $Id$
  */package pcgen.gui2.util;
 
 import java.awt.Dimension;
@@ -33,8 +30,6 @@ import javax.swing.JMenu;
  * are overriding the location of the tooltips for the menu.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class PCGMenu extends JMenu

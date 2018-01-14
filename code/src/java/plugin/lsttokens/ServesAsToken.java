@@ -66,7 +66,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 	public List<Class<? extends PObject>> getLegalTypes()
 	{
 		return Arrays.asList(
-			(Class<? extends PObject>) PCClass.class, Ability.class, Skill.class, Race.class
+				PCClass.class, Ability.class, Skill.class, Race.class
 		// Ability.class, Deity.class, Domain.class,Equipment.class,
 				// Race.class, Skill.class,Spell.class, PCTemplate.class,
 				// WeaponProf.class
@@ -81,7 +81,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Cannot use SERVESAS on a " + obj.getClass());
 			cpr.addErrorMessage("   bad use found in "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
+					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 			return cpr;
 		}
 		return super.parseNonEmptyToken(context, obj, value);

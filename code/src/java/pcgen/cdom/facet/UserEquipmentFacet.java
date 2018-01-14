@@ -28,7 +28,6 @@ import pcgen.core.Equipment;
  * Character. Possessed in this case does not mean active, it could be carried
  * or owned.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UserEquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
 		implements DataFacetChangeListener<CharID, Equipment>

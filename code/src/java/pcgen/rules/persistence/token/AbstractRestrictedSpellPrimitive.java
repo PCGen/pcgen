@@ -142,9 +142,6 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 			return sb.toString();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int hashCode()
 		{
@@ -164,9 +161,6 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 			return result;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean equals(Object obj)
 		{

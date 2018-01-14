@@ -89,7 +89,7 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
     @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		List<String> returnList = new ArrayList<String>();
+		List<String> returnList = new ArrayList<>();
 		Changes<String> ech = context.getObjectContext().getListChanges(campaign,
 				ListKey.HIDDEN_Equipment);
 		Changes<String> ach = context.getObjectContext().getListChanges(campaign,

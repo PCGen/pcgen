@@ -1,0 +1,14 @@
+Padded		TYPE:Light
+Leather		TYPE:Light
+Studded Leather	TYPE:Light
+Chain shirt		TYPE:Light
+
+Hide			TYPE:Medium
+Scale mail		TYPE:Medium
+Chainmail		TYPE:Medium
+Breastplate		TYPE:Medium
+
+Splint mail		TYPE:Heavy
+Banded mail		TYPE:Heavy
+Half-plate		TYPE:Heavy
+Full plate		TYPE:Heavy

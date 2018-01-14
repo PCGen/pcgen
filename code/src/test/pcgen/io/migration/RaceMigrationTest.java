@@ -1,5 +1,4 @@
 /*
- * RaceMigrationTest.java
  * Copyright 2014 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,14 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18/01/2014
- *
- * $Id$
  */
 package pcgen.io.migration;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
@@ -32,10 +27,8 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * RaceMigrationTest checks the function of RaceMigration. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
-public class RaceMigrationTest extends PCGenTestCase
+public class RaceMigrationTest extends TestCase
 {
 	
 	private String gameMode;
@@ -43,6 +36,7 @@ public class RaceMigrationTest extends PCGenTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
@@ -67,6 +61,7 @@ public class RaceMigrationTest extends PCGenTestCase
 		SystemCollections.addToMigrationRulesList(raceRuleDiffGame, "modern");
 	}
 
+	@Override
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();

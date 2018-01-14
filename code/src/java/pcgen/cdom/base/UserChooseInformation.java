@@ -17,10 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
+import org.jetbrains.annotations.NotNull;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
@@ -28,12 +25,16 @@ import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.UserInputManager;
 import pcgen.rules.context.LoadContext;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 public class UserChooseInformation implements ChooseInformation<String>,
 		Chooser<String>
 {
 	
 	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
-			.getInstance(String.class);
+			.getIdentity(String.class);
 
 	public static final String UCI_NAME = "User Input";
 	
@@ -85,9 +86,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends String> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends String> collection)
 	{
-		return ChooseInformationUtilities.buildEncodedString(this, collection);
+		return ChooseInformationUtilities.buildEncodedString(collection);
 	}
 
 	@Override
@@ -118,8 +119,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		}
 	}
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
-		ChooseSelectionActor<String> csa)
+	private static void applyChoice(ChooseDriver owner, PlayerCharacter pc, String
+			choice,
+	                                ChooseSelectionActor<String> csa)
 	{
 		csa.applyChoice(owner, choice, pc);
 	}
@@ -173,7 +175,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		title = chooseTitle;
 	}
 
-	private AssociationListKey<String> getListKey()
+	private static AssociationListKey<String> getListKey()
 	{
 		return AssociationListKey.getKeyFor(String.class, "CHOOSE*USERCHOICE");
 	}

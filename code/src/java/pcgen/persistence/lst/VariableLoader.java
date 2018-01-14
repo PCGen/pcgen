@@ -1,6 +1,5 @@
 /*
  * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from LstObjecttFileLoader and GenericLoader
  * Copyright 2008-10 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
@@ -82,7 +81,7 @@ public class VariableLoader extends Observable
 	{
 		// Track which sources have been loaded already
 		Set<CampaignSourceEntry> loadedFiles =
-				new HashSet<CampaignSourceEntry>();
+				new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry sourceEntry : fileList)
@@ -138,13 +137,13 @@ public class VariableLoader extends Observable
 		for (int i = 0; i < fileLines.length; i++)
 		{
 			String line = fileLines[i];
-			if ((line.length() == 0)
+			if ((line.isEmpty())
 				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
 			}
 
-			if (line.trim().length() == 0)
+			if (line.trim().isEmpty())
 			{
 				// Ignore the line
 			}

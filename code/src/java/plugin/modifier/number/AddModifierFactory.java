@@ -21,7 +21,7 @@ import pcgen.base.lang.NumberUtilities;
 import pcgen.rules.persistence.token.AbstractNumberModifierFactory;
 
 /**
- * An AddModifierFactory is a ModifierFactory<Number> that adds a specific value
+ * An AddModifierFactory is a {@code ModifierFactory<Number>} that adds a specific value
  * to the input set when a Modifier produced by this AddModifierFactory is
  * processed.
  */
@@ -32,7 +32,7 @@ public class AddModifierFactory extends AbstractNumberModifierFactory<Number>
 	 * Identifies that the Modifier objects built by this AddModifierFactory act
 	 * upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getVariableFormat()
+	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
 	 */
 	@Override
 	public Class<Number> getVariableFormat()
@@ -43,7 +43,7 @@ public class AddModifierFactory extends AbstractNumberModifierFactory<Number>
 	/**
 	 * Returns an Identifier for this type of Modifier
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getIdentification()
+	 * @see pcgen.base.calculation.CalculationInfo#getIdentification()
 	 */
 	@Override
 	public String getIdentification()

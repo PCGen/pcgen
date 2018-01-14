@@ -1,5 +1,4 @@
 /*
- * PrintPreviewDialog.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 7, 2011, 9:17:28 PM
  */
 package pcgen.gui2.dialog;
 
@@ -61,15 +59,6 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.FileFilterUtils;
-import org.apache.commons.io.filefilter.IOFileFilter;
-import org.apache.commons.io.filefilter.SuffixFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.apache.fop.apps.FOUserAgent;
-import org.apache.fop.render.awt.AWTRenderer;
-import org.apache.fop.render.awt.viewer.PreviewPanel;
-
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
@@ -80,19 +69,27 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.commons.io.filefilter.IOFileFilter;
+import org.apache.commons.io.filefilter.SuffixFileFilter;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.fop.apps.FOUserAgent;
+import org.apache.fop.render.awt.AWTRenderer;
+import org.apache.fop.render.awt.viewer.PreviewPanel;
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Dialog to allow the preview of character export.
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
-public class PrintPreviewDialog extends JDialog implements ActionListener
+public final class PrintPreviewDialog extends JDialog implements ActionListener
 {
 
 	public static void showPrintPreviewDialog(PCGenFrame frame)
 	{
 		JDialog dialog = new PrintPreviewDialog(frame);
-		Utility.setDialogRelativeLocation(frame, dialog);
+		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
 
@@ -161,12 +158,12 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		pageBox.addItem("0 of 0");
 		pageBox.setActionCommand(PAGE_COMMAND);
 		pageBox.addActionListener(this);
-		zoomBox.addItem(Double.valueOf(0.25));
-		zoomBox.addItem(Double.valueOf(0.50));
+		zoomBox.addItem(0.25);
+		zoomBox.addItem(0.50);
 
-		zoomBox.addItem(Double.valueOf(0.75));
-		zoomBox.addItem(Double.valueOf(1.00));
-		zoomBox.setSelectedItem(Double.valueOf(0.75));
+		zoomBox.addItem(0.75);
+		zoomBox.addItem(1.00);
+		zoomBox.setSelectedItem(0.75);
 		zoomBox.setRenderer(new DefaultListCellRenderer()
 		{
 
@@ -358,7 +355,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	private class PreviewLoader extends SwingWorker<AWTRenderer, Object>
 	{
 
-		private URI uri;
+		private final URI uri;
 
 		public PreviewLoader(URI uri)
 		{
@@ -430,7 +427,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	{
 
 		@Override
-		public boolean accept(File dir, String name)
+		public boolean accept(@NotNull File dir, @NotNull String name)
 		{
 			return dir.getName().equalsIgnoreCase("pdf");
 		}
@@ -443,17 +440,13 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			IOFileFilter sheetFilter = FileFilterUtils.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
 			IOFileFilter fileFilter = FileFilterUtils.and(pdfFilter, suffixFilter, sheetFilter);
 
-			IOFileFilter dirFilter = FileFilterUtils.makeSVNAware(TrueFileFilter.INSTANCE);
+			IOFileFilter dirFilter = TrueFileFilter.INSTANCE;
 			File dir = new File(ConfigurationSettings.getOutputSheetsDir());
 			Collection<File> files = FileUtils.listFiles(dir, fileFilter, dirFilter);
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
-			Object[] uriList = new Object[files.size()];
-			int i = 0;
-			for (File file : files)
-			{
-				uriList[i] = osPath.relativize(file.toURI());
-				i++;
-			}
+			Object[] uriList = files.stream()
+			                        .map(v -> osPath.relativize(v.toURI()))
+			                        .toArray();
 			return uriList;
 		}
 
@@ -462,7 +455,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 			try
 			{
-				DefaultComboBoxModel model = new DefaultComboBoxModel(get());
+				ComboBoxModel model = new DefaultComboBoxModel(get());
 				model.setSelectedItem(null);
 				sheetBox.setModel(model);
 			}

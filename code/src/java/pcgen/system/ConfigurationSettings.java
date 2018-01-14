@@ -1,5 +1,4 @@
 /*
- * SystemPropertyManager.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,28 +15,24 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 4, 2009, 8:22:09 PM
  */
 package pcgen.system;
 
 import java.io.File;
 
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public final class ConfigurationSettings extends PropertyContext
 {
 
-	public static final String USER_LANGUAGE = "language";
-	public static final String USER_COUNTRY = "country";
+	private static final String USER_LANGUAGE = "language";
+	private static final String USER_COUNTRY = "country";
 	public static final String SETTINGS_FILES_PATH = "settingsPath";
 	public static final String SYSTEMS_DIR = "systemsPath";
 	public static final String THEME_PACK_DIR = "themesPath";
 	public static final String OUTPUT_SHEETS_DIR = "osPath";
-	public static final String PLUGINS_DIR = "pluginsPath";
+	private static final String PLUGINS_DIR = "pluginsPath";
 	public static final String PREVIEW_DIR = "previewPath";
 	public static final String VENDOR_DATA_DIR = "vendordataPath";
 	public static final String HOMEBREW_DATA_DIR = "homebrewdataPath";
@@ -46,7 +41,7 @@ public final class ConfigurationSettings extends PropertyContext
 	public static final String CUSTOM_DATA_DIR = "customPath";
 	private static ConfigurationSettings instance = null;
 	/** APPLICATION directory name, used in <em>~/.&lt;APPLICATION&gt;</em>, etc. */
-	public static final String APPLICATION = "pcgen"; // $NON-NLS-1$
+	private static final String APPLICATION = "pcgen"; // $NON-NLS-1$
 
 	private ConfigurationSettings(String configFileName)
 	{
@@ -85,7 +80,7 @@ public final class ConfigurationSettings extends PropertyContext
 		setSystemProperty(USER_LANGUAGE, language);
 	}
 
-	public static String getCountry()
+	static String getCountry()
 	{
 		return getSystemProperty(USER_COUNTRY);
 	}
@@ -134,7 +129,7 @@ public final class ConfigurationSettings extends PropertyContext
 		return getDirectory(OUTPUT_SHEETS_DIR);
 	}
 
-	public static String getPluginsDir()
+	static String getPluginsDir()
 	{
 		return getDirectory(PLUGINS_DIR);
 	}
@@ -196,7 +191,7 @@ public final class ConfigurationSettings extends PropertyContext
 	{
 		if (path.startsWith(SystemUtils.USER_DIR + File.separator))
 		{
-			path = "@" + path.substring(SystemUtils.USER_DIR.length() + 1);
+			path = '@' + path.substring(SystemUtils.USER_DIR.length() + 1);
 		}
 		return path;
 	}
@@ -206,7 +201,7 @@ public final class ConfigurationSettings extends PropertyContext
 		setSystemProperty(property, unexpandRelativePath(getSystemProperty(property)));
 	}
 
-	public static enum SettingsFilesPath
+	public enum SettingsFilesPath
 	{
 
 		/** User Directory */
@@ -223,14 +218,14 @@ public final class ConfigurationSettings extends PropertyContext
 			switch (this)
 			{
 				case user:
-					return SystemUtils.USER_HOME + File.separator + "." + APPLICATION; // $NON-NLS-1$
+					return SystemUtils.USER_HOME + File.separator + '.' + APPLICATION; // $NON-NLS-1$
 				case pcgen:
 					return SystemUtils.USER_DIR + File.separator + "settings"; // $NON-NLS-1$
 				case mac_user:
 					return SystemUtils.USER_HOME + "/Library/Preferences/" + APPLICATION; // $NON-NLS-1$
 				case FD_USER:
 					String config = System.getenv("XDG_CONFIG_HOME"); // $NON-NLS-1$
-					if (config == null || config.isEmpty())
+					if ((config == null) || config.isEmpty())
 					{
 						config = SystemUtils.USER_HOME + File.separator + ".config"; // $NON-NLS-1$
 					}

@@ -186,7 +186,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<Skill>(Skill.class, context.getReferenceContext()
+			return new PatternMatchingReference<>(Skill.class, context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else
@@ -206,7 +206,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 						monsterList);
 		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
 				.getListChanges(race, ListKey.NEW_CHOOSE_ACTOR);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{

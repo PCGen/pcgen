@@ -19,8 +19,6 @@ package plugin.lsttokens.spell;
 
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -33,7 +31,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static RangeToken token = new RangeToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -81,12 +79,6 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 	public boolean isClearLegal()
 	{
 		return true;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

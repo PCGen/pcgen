@@ -22,13 +22,10 @@ import pcgen.core.term.TermEvaulatorException;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 10/04/2008
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  */
 
-public class TermUtilitiesTest extends PCGenTestCase {
+public class TermUtilitiesTest extends PCGenTestCase
+{
 
     public TermUtilitiesTest(String name) {
         super(name);

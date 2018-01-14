@@ -17,6 +17,7 @@ ABILITYCATEGORY:Umbral Scion Spell				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		
 ###Block: Class Bonus Feat Categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list					Plural description for UI		Display Location
 ABILITYCATEGORY:Imperious Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ImperiousBloodline	ABILITYLIST:Skill Focus(Perform (Oratory))	PLURAL:Imperious Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Kobold Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:KoboldBloodline									PLURAL:Kobold Bloodline Feats		DISPLAYLOCATION:Feats
 
 ###Block: Core Races ability categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
@@ -53,7 +54,6 @@ ABILITYCATEGORY:Runeforger Option				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		F
 ABILITYCATEGORY:Wave Warden Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WaveWardenBonusFeat					PLURAL:Wave Warden Bonus Feats		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Augmented Form Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AugmentedFormSelection					PLURAL:Augmented Form Selections		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Experimental Gunsmith Innovation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExperimentalGunsmithInnovation				PLURAL:Experimental Gunsmith Innovations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Kobold Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KoboldBloodlineFeat					PLURAL:Kobold Bloodline Feats			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Spell Binder Bonded Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpellBinderBondedSpell					PLURAL:Spell Binder Bonded Spells		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Swordmaster Trance				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SwordmasterTrance						PLURAL:Swordmaster Trances			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Plant Bond Option				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PlantBondOption						PLURAL:Plant Bond Options			DISPLAYLOCATION:Class Abilities
@@ -78,8 +78,8 @@ ABILITYCATEGORY:Wayang Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 
 
 ABILITYCATEGORY:Paladin Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance																			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Druid Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:DruidFavoredEnergyResistanceFavoredEnergyResistance															DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sorcerer Energy Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:SorcererFavoredEnergyResistanceFavoredEnergyResistance															DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Druid Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:DruidFavoredEnergyResistance																			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Energy Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:SorcererFavoredEnergyResistance																		DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Far Traveler Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Far Traveler Selection														PLURAL:Far Traveler Selections	DISPLAYLOCATION:Class Features
 
@@ -165,6 +165,7 @@ ABILITYCATEGORY:Humanoid Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO			
 
 ABILITYCATEGORY:Shards Bonus						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ShardsBonus																								PLURAL:Shards Bonuses		DISPLAYLOCATION:Racial Abilities
 
+ABILITYCATEGORY:Outsider Plane Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:Outsider Plane Choice																											DISPLAYLOCATION:Race Builder Design
 
 ###Block: Racial Subtypes (aka Backgrounds)
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list			Plural description for UI		Display Location
@@ -175,3 +176,10 @@ ABILITYCATEGORY:Half-Elf Racial Subtype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YE
 ABILITYCATEGORY:Half-Orc Racial Subtype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Orc Racial Subtype	ABILITYLIST:Racial Subtype ~ None	PLURAL:Half-Orc Racial Subtypes	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Halfling Racial Subtype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Halfling Racial Subtype	ABILITYLIST:Racial Subtype ~ None	PLURAL:Halfling Racial Subtypes	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Human Racial Subtype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Human Racial Subtype	ABILITYLIST:Racial Subtype ~ None	PLURAL:Human Racial Subtypes		DISPLAYLOCATION:Racial Abilities
+
+
+###Block: Builder Support
+ABILITYCATEGORY:Builder Racial Trait ~ Natural Attack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal	TYPE:Builder Racial Trait ~ Natural Attack			DISPLAYLOCATION:Race Builder Design
+
+
+ABILITYCATEGORY:Elder Dwarf Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		ABILITYLIST:Dwarf ~ Magic resistant|Dwarf ~ Stubborn	DISPLAYLOCATION:Racial Abilities

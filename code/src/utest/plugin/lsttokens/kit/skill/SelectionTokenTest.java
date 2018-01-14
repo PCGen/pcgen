@@ -30,7 +30,7 @@ public class SelectionTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
 
 	static SelectionToken token = new SelectionToken();
-	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<KitSkill>(
+	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitSkill.class);
 
 	@Override
@@ -82,7 +82,7 @@ public class SelectionTokenTest extends AbstractKitTokenTestCase<KitSkill>
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return ',';
 	}

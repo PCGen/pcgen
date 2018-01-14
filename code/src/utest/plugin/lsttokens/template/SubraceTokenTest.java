@@ -33,7 +33,7 @@ public class SubraceTokenTest extends
 {
 
 	static SubraceToken token = new SubraceToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -69,12 +69,6 @@ public class SubraceTokenTest extends
 	protected boolean requiresPreconstruction()
 	{
 		return false;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override
@@ -138,7 +132,7 @@ public class SubraceTokenTest extends
 	@Test
 	public void testUnparseIllegal() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
@@ -149,7 +143,7 @@ public class SubraceTokenTest extends
 	@Test
 	public void testUnparseLegalWithFalse() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, false);

@@ -41,7 +41,7 @@ class ObjectNameDisplayer
 	 * @param cdo
 	 *            The VarScoped that this ObjectNameDisplayer will represent
 	 */
-	public ObjectNameDisplayer(VarScoped cdo)
+	ObjectNameDisplayer(VarScoped cdo)
 	{
 		obj = cdo;
 	}
@@ -59,8 +59,6 @@ class ObjectNameDisplayer
 	/**
 	 * Returns an informative String identifying the VarScoped underlying this
 	 * ObjectNameDisplayer
-	 * 
-	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()

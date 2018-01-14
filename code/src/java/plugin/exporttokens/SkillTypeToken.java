@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 5, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -34,17 +29,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <code>SkillTypeToken</code> outputs the value of the Skill at
+ * {@code SkillTypeToken} outputs the value of the Skill at
  * position x in a subset of character's skill list.The subset is
  * those skills matching the supplied type. The format
  * for this tag is SKILLTYPE.pos.type.property
  * eg SKILLTYPE.2.KNOWLEDGE.RANK
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 // SKILLTYPE
@@ -108,7 +97,7 @@ public class SkillTypeToken extends SkillToken
 			return null;
 		}
 
-		final List<Skill> skillSubset = new ArrayList<Skill>();
+		final List<Skill> skillSubset = new ArrayList<>();
 		for (Skill bSkill : SkillDisplay.getSkillListInOutputOrder(pc))
 		{
 			if (bSkill.isType(details.getProperty(0)))

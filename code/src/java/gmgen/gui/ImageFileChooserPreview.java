@@ -16,9 +16,6 @@
  */
 package gmgen.gui;
 
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JFileChooser;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -26,9 +23,13 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
+
 /** Class provides a preview window for the selected image file
  */
-class ImageFileChooserPreview extends JComponent implements PropertyChangeListener
+public class ImageFileChooserPreview extends JComponent implements PropertyChangeListener
 {
 	private static final int previewWidth = 100;
 	private static final int previewHeight = 100;
@@ -47,7 +48,7 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 
 	/** Loads a new image into the preview window, and scales it if necessary.
 	 */
-	public void loadImage()
+	private void loadImage()
 	{
 		if (imageFile == null)
 		{
@@ -114,14 +115,14 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 	/** Callback (event handler) to indicate that a property of the
 	 * JFileChooser has changed. If the selected file has changed cause a new
 	 * thumbnail to load.
-	 * @param e
+	 * @param evt
 	 */
     @Override
-	public void propertyChange(PropertyChangeEvent e)
+	public void propertyChange(final PropertyChangeEvent evt)
 	{
-		if (e.getPropertyName().equals(JFileChooser.SELECTED_FILE_CHANGED_PROPERTY))
+		if (evt.getPropertyName().equals(JFileChooser.SELECTED_FILE_CHANGED_PROPERTY))
 		{
-			imageFile = (File) e.getNewValue();
+			imageFile = (File) evt.getNewValue();
 
 			if (isShowing())
 			{

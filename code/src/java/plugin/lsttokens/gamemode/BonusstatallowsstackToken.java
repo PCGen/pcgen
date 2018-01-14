@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 21/07/2008 22:49:45
- *
- * $Id: $
  */
 package plugin.lsttokens.gamemode;
 
@@ -29,22 +25,18 @@ import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>BonusstatallowsstackToken</code> deals
+ * The Class {@code BonusstatallowsstackToken} deals
  * with the BONUSSTATALLOWSSTACK tag. This tag is a boolean 
  * tag that specifies if the user may select the same stat
  * multiple times when offered multiple stat boosts at the same 
  * level.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class BonusstatallowsstackToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
@@ -53,7 +45,7 @@ public class BonusstatallowsstackToken implements GameModeLstToken
 		return "BONUSSTATALLOWSSTACK";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
 	 */
     @Override

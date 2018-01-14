@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17-Dec-2004
  */
 package plugin.exporttokens;
 
@@ -27,16 +25,10 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
 
-/**
- */
+
 /**
  * Handle the MaxSpellLevel token which outputs the maximum level spell 
  * castable by the character for the specified class. 
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @version $Revision$
  */
 public class MaxSpellLevelToken extends Token
 {

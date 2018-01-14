@@ -1,5 +1,4 @@
 /*
- * EditorListContext.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -22,7 +21,7 @@ package pcgen.rules.context;
 
 import pcgen.cdom.base.CDOMObject;
 
-public class EditorListContext extends AbstractListContext
+class EditorListContext extends AbstractListContext
 {
 
 	private final TrackingListCommitStrategy commit = new TrackingListCommitStrategy();
@@ -33,7 +32,7 @@ public class EditorListContext extends AbstractListContext
 		return commit;
 	}
 
-	public void purge(CDOMObject cdo)
+	void purge(CDOMObject cdo)
 	{
 		commit.purge(cdo);
 	}

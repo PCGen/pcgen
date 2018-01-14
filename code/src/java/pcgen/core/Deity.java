@@ -1,5 +1,4 @@
 /*
- * Deity.java
  * Copyright 2001 (C) Bryan McRoberts (merton_monk@yahoo.com)
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -41,10 +34,7 @@ import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.DeityFacade;
 
 /**
- * <code>Deity</code>.
- * 
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
+ * {@code Deity}.
  */
 public final class Deity extends PObject implements DeityFacade
 {
@@ -57,13 +47,10 @@ public final class Deity extends PObject implements DeityFacade
 		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getDomainNames()
 	{
-		List<String> domains = new ArrayList<String>();
+		List<String> domains = new ArrayList<>();
 		for (CDOMReference<Domain> ref : getSafeListMods(Deity.DOMAINLIST))
 		{
 			for (Domain d : ref.getContainedObjects())
@@ -88,7 +75,7 @@ public final class Deity extends PObject implements DeityFacade
     @Override
 	public Collection<String> getPantheons()
 	{
-		Set<String> charDeityPantheon = new TreeSet<String>();
+		Set<String> charDeityPantheon = new TreeSet<>();
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
 		for (Indirect<String> indirect : getSafeSetFor(fk))
 		{

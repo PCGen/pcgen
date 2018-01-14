@@ -17,8 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * PreferencesDamagePanel.java
- *
- * Created on July 11, 2003, 4:34 PM
  */
 package plugin.initiative.gui;
 
@@ -38,7 +36,6 @@ import plugin.initiative.InitiativePlugin;
 /**
  * Preference panel for damage related settings.
  * 
- * @author soulcatcher
  */
 public class PreferencesDamagePanel extends PreferencesPanel
 {

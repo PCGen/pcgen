@@ -1,5 +1,4 @@
 /*
- * KitProf.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 28, 2002, 11:50 PM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -41,23 +36,20 @@ import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 
 /**
- * <code>KitFeat</code>.
- *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
+ * {@code KitFeat}.
  */
 public final class KitProf extends BaseKit
 {
 	private Integer choiceCount;
 
 	private final List<CDOMSingleRef<WeaponProf>> profList =
-			new ArrayList<CDOMSingleRef<WeaponProf>>();
+            new ArrayList<>();
 	private Boolean racialProf;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient CDOMObject thePObject = null;
-	private transient List<WeaponProf> weaponProfs = null;
+	private CDOMObject thePObject = null;
+	private List<WeaponProf> weaponProfs = null;
 
 	/**
 	 * True if it is a racial proficiency
@@ -130,7 +122,7 @@ public final class KitProf extends BaseKit
 		else
 		{
 			Collection<PCClass> pcClasses = aPC.getClassSet();
-			if (pcClasses == null || pcClasses.size() == 0)
+			if (pcClasses == null || pcClasses.isEmpty())
 			{
 				warnings.add("PROF: No owning class found.");
 
@@ -164,7 +156,7 @@ public final class KitProf extends BaseKit
 			}
 		}
 
-		final List<WeaponProf> aProfList = new ArrayList<WeaponProf>();
+		final List<WeaponProf> aProfList = new ArrayList<>();
 
 		Collection<?> choices = wpPTC.getChoices().getSet(aPC);
 		for (CDOMSingleRef<WeaponProf> profKey : profList)
@@ -212,10 +204,10 @@ public final class KitProf extends BaseKit
 				xs =
 						Globals
 							.getChoiceFromList("Choose Proficiencies",
-								aProfList, new ArrayList<WeaponProf>(),
+								aProfList, new ArrayList<>(),
 								numberOfChoices, aPC);
 
-				if (xs.size() != 0)
+				if (!xs.isEmpty())
 				{
 					break;
 				}
@@ -229,7 +221,7 @@ public final class KitProf extends BaseKit
 		{
 			if (weaponProfs == null)
 			{
-				weaponProfs = new ArrayList<WeaponProf>();
+				weaponProfs = new ArrayList<>();
 			}
 			weaponProfs.add(prof);
 		}

@@ -1,5 +1,4 @@
 /**
- * EquipmentUtilitiesTest.java
  * Copyright 2006 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 17 March 2005
  *
  * $Author: nuance $
  * $Date: 2006-03-22 00:25:03 +0000 (Wed, 22 Mar 2006) $
@@ -32,10 +30,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
 
-/**
- * @author nuance
- *
- */
+
 public class EquipmentUtilitiesTest extends PCGenTestCase
 {
 
@@ -75,7 +70,7 @@ public class EquipmentUtilitiesTest extends PCGenTestCase
 		backpackSml.setName(newName);
 		backpackSml.setKeyName(backpackSml.createKeyForAutoResize(small));
 
-		List<Equipment> eqList = new ArrayList<Equipment>();
+		List<Equipment> eqList = new ArrayList<>();
 		eqList.add(towel);
 		eqList.add(backpackSml);
 		assertEquals("Expected to find backpack", backpackSml,

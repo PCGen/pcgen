@@ -53,6 +53,14 @@ public class SourceModel implements TemplateHashModel
 	 */
 	private final CDOMObject cdo;
 
+	/**
+	 * Constructs a new SourceModel with the underlying CharID and CDOMObject.
+	 * 
+	 * @param id
+	 *            The underlying CharID used to get items from the underlying SourceModel
+	 * @param cdo
+	 *            The underlying CDOMObject, from which information is retrieved
+	 */
 	public SourceModel(CharID id, CDOMObject cdo)
 	{
 		this.id = id;
@@ -65,7 +73,7 @@ public class SourceModel implements TemplateHashModel
 		if (key.equals("custom"))
 		{
 			Boolean isCustom =
-					Boolean.valueOf(cdo.isType(Constants.TYPE_CUSTOM));
+					cdo.isType(Constants.TYPE_CUSTOM);
 			return SimpleWrapperLibrary.wrap(isCustom);
 		}
 		else if (key.equals("long"))

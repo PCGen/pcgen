@@ -43,9 +43,9 @@ import pcgen.util.StringPClassUtil;
 public class ObjectInjector
 {
 
-	private final TripleKeyMapToList<URI, String, String, String> campaignData = new TripleKeyMapToList<URI, String, String, String>();
+	private final TripleKeyMapToList<URI, String, String, String> campaignData = new TripleKeyMapToList<>();
 
-	private final DoubleKeyMapToList<URI, File, String> fileData = new DoubleKeyMapToList<URI, File, String>();
+	private final DoubleKeyMapToList<URI, File, String> fileData = new DoubleKeyMapToList<>();
 
 	private final Collection<Loader> loaders;
 	private final File outDir;
@@ -112,7 +112,7 @@ public class ObjectInjector
 
 	public void writeInjectedObjects(List<Campaign> list) throws IOException
 	{
-		List<URI> affectedURIs = new ArrayList<URI>();
+		List<URI> affectedURIs = new ArrayList<>();
 		boolean first = true;
 		for (Campaign campaign : list)
 		{
@@ -270,7 +270,7 @@ public class ObjectInjector
 
 	private List<File> generateDirectoryHierarchy(File a)
 	{
-		List<File> l = new ArrayList<File>();
+		List<File> l = new ArrayList<>();
 		while (a != null)
 		{
 			l.add(0, a);

@@ -1,5 +1,4 @@
 /*
- * RuleConstants.java
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,25 +15,18 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 13, 2002, 9:19 AM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * $Id$
  */
 package pcgen.core;
 
 /**
- * <code>RuleConstants</code>
+ * {@code RuleConstants}
  * This interface holds all rules VAR names used in the code.
  *
  * (The reason for an interface rather than a class
  * is that an interface uses a little less memory.)
  *
- * @author     Greg Bingleman <byngl@hotmail.com>
- * @version    $Revision$
  */
 public interface RuleConstants
 {

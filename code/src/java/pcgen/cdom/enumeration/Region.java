@@ -24,7 +24,6 @@ import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to hold Regions in a
  * type-safe fashion, so that they can be quickly compared and use less memory
@@ -51,7 +50,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private Region(String name)
 	{
@@ -111,7 +110,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<Region>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

@@ -39,7 +39,7 @@ public class JEPFormula implements Formula
 	 * @param formulaString
 	 *            The String value of this JEPFormula.
 	 */
-	public JEPFormula(String formulaString)
+	JEPFormula(String formulaString)
 	{
 		formula = formulaString;
 	}

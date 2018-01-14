@@ -16,9 +16,7 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #
-# Created on 2013-04-13 08:30:00 AM
 #
-# $Id: $
 -->
 <#macro outputVarOrNbsp strVar>
 	<#if strVar?trim?length == 0>
@@ -31,6 +29,7 @@
 	
 
 <#escape x as x?html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>PCGen Variable Definition Report - ${.now?date}</title>
@@ -64,7 +63,7 @@ font-size: 11px; width:99%;}
 </table>
 <#list gameModeVarMap?keys as game>
 	<#assign lastVar = "">
-	<a name="${game}"/>
+	<a name="${game}"></a>
 	<h2>Variables for game mode ${game}</h2>
 	<p>Found ${gameModeVarMap[game]?size} defines of ${gameModeVarCountMap[game]} variables</p>
 	<#list gameModeVarMap[game] as varDefine>

@@ -58,7 +58,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements
 		{
 			hands = Constants.HANDS_SIZE_DEPENDENT;
 			context.getObjectContext().put(prof, integerKey(),
-				Integer.valueOf(hands));
+					hands);
 			return ParseResult.SUCCESS;
 		}
 		else

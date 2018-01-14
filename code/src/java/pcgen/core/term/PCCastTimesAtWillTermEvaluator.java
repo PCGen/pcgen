@@ -1,5 +1,4 @@
 /*
- * PCCastTimesAtWillTermEvaluator.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 10/07/2009 6:41:36 PM
- *
- * $Id$
  */
 package pcgen.core.term;
 
@@ -26,14 +21,10 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 
 /**
- * The Class <code>PCCastTimesAtWillTermEvaluator</code> supplies the 
+ * The Class {@code PCCastTimesAtWillTermEvaluator} supplies the
  * times per day value of the ATWILL constant. 
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PCCastTimesAtWillTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -48,12 +39,12 @@ public class PCCastTimesAtWillTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return -1f;
+		return -1.0f;
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
-		return -1f;
+		return -1.0f;
 	}
 
 	@Override

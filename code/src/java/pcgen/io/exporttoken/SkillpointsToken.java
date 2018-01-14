@@ -1,5 +1,4 @@
 /*
- * SkillpointsToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -50,18 +45,12 @@ public class SkillpointsToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "SKILLPOINTS";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
@@ -100,26 +89,16 @@ public class SkillpointsToken extends Token
 
 		if ("TOTAL".equals(bString) || "UNUSED".equals(bString))
 		{
-			if (classNum >= 0)
-			{
-				aTotalSkillPoints += getUnusedSkillPoints(pc, classNum);
-			}
-			else
-			{
-				aTotalSkillPoints += getUnusedSkillPoints(pc);
-			}
+			aTotalSkillPoints += (classNum >= 0) ?
+					getUnusedSkillPoints(pc, classNum) :
+					getUnusedSkillPoints(pc);
 		}
 
 		if ("TOTAL".equals(bString) || "USED".equals(bString))
 		{
-			if (classNum >= 0)
-			{
-				aTotalSkillPoints += getUsedSkillPoints(pc, classNum);
-			}
-			else
-			{
-				aTotalSkillPoints += getUsedSkillPoints(pc);
-			}
+			aTotalSkillPoints += (classNum >= 0) ?
+					getUsedSkillPoints(pc, classNum) :
+					getUsedSkillPoints(pc);
 		}
 
 		return BigDecimalHelper.trimZeros(new BigDecimal(aTotalSkillPoints));
@@ -182,7 +161,7 @@ public class SkillpointsToken extends Token
 				Double rank = pc.getSkillRankForClass(aSkill, pcc);
 				if (rank == null)
 				{
-					rank = Double.valueOf(0.0d);
+					rank = 0.0d;
 				}
 				SkillCost skillCost = pc.getSkillCostForClass(aSkill, pcc);
 				usedPoints += (rank * skillCost.getCost());
@@ -215,7 +194,7 @@ public class SkillpointsToken extends Token
 				Double rank = pc.getSkillRankForClass(aSkill, targetClass);
 				if (rank == null)
 				{
-					rank = Double.valueOf(0.0d);
+					rank = 0.0d;
 				}
 				SkillCost skillCost =
 						pc.getSkillCostForClass(aSkill, targetClass);

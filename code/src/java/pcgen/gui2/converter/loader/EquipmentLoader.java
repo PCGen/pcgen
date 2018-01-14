@@ -66,12 +66,12 @@ public class EquipmentLoader implements Loader
 		}
 		String objectName = tokens[0];
 		sb.append(objectName);
-		List<CDOMObject> list = new ArrayList<CDOMObject>();
+		List<CDOMObject> list = new ArrayList<>();
 		for (int tok = 1; tok < tokens.length; tok++)
 		{
 			String token = tokens[tok];
 			sb.append(FIELD_SEPARATOR);
-			if (token.length() == 0)
+			if (token.isEmpty())
 			{
 				continue;
 			}

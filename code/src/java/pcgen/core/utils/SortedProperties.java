@@ -1,6 +1,4 @@
 /*
- *  SortedProperties.java
- *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
  *  License as published by the Free Software Foundation; either
@@ -14,13 +12,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 07, 2003, 2:15 AM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core.utils;
 
@@ -31,9 +22,6 @@ import java.util.*;
 
 /**
  * An subclass of Properties whose output is sorted
- *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision$
  */
 public class SortedProperties extends Properties
 {
@@ -53,7 +41,7 @@ public class SortedProperties extends Properties
 	public void mystore(final FileOutputStream out, final String header)
 	{
 		BufferedWriter bw = null;
-		final SortedMap<Object, Object> aMap = new TreeMap<Object, Object>(this);
+		final SortedMap<Object, Object> aMap = new TreeMap<>(this);
 		final Iterator<Map.Entry<Object, Object>> entries = aMap.entrySet().iterator();
 		Map.Entry<Object, Object> entry;
 
@@ -76,11 +64,7 @@ public class SortedProperties extends Properties
 
 			bw.flush();
 		}
-		catch (UnsupportedEncodingException ex)
-		{
-			Logging.errorPrint("Error writing to the options.ini file: ", ex);
-		}
-		catch (IOException ex)
+		catch (final IOException ex)
 		{
 			Logging.errorPrint("Error writing to the options.ini file: ", ex);
 		}

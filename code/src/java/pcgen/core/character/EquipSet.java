@@ -1,6 +1,4 @@
 /*
- * EquipSet.java
- *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -14,14 +12,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * Created on April 29th, 2002, 11:26 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core.character;
 
@@ -61,7 +51,6 @@ import pcgen.util.Logging;
  * 0 == root
  * 1 == my parent
  * 3 == my Id
- *
  */
 
 /*
@@ -75,22 +64,19 @@ import pcgen.util.Logging;
  * value = Name of the Equipment stored in this item
  * item = Equipment item stored (optional)
  * qty = number of items this equipset contains (all same item)
- *
  */
 
 /**
- * <code>EquipSet.java</code>
- * @author Jayme Cox <jaymecox@excite.com>
- * @version $Revision$
+ * {@code EquipSet.java}
  */
 public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {
 	/** The root path of the default equipment set. */
-	public static String DEFAULT_SET_PATH = "0.1";
+	public static final String DEFAULT_SET_PATH = "0.1";
 	
 	private Equipment eq_item;
 	private Float qty = new Float(1);
-	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
+	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
 
 	private String id_path = Constants.EMPTY_STRING;
 	private String name = Constants.EMPTY_STRING;
@@ -422,7 +408,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * @return A new equip set, identical to this one.
 	 */
 	@Override
-	public Object clone()
+	public EquipSet clone()
 	{
 		EquipSet eqSet = null;
 
@@ -582,7 +568,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	{
 		final String aNote = getNote();
 
-		if ((aNote != null) && (aNote.length() > 0))
+		if ((aNote != null) && (!aNote.isEmpty()))
 		{
 			getItem().setNote(aNote);
 		}

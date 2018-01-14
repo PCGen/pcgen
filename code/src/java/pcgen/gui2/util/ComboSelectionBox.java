@@ -1,5 +1,4 @@
 /*
- * ComboSelectionBox.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 22, 2008, 4:58:45 PM
  */
 package pcgen.gui2.util;
 
@@ -32,10 +30,7 @@ import javax.swing.JPanel;
 import javax.swing.MutableComboBoxModel;
 import javax.swing.SwingUtilities;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class ComboSelectionBox extends JPanel implements ItemSelectable
 {
 
@@ -143,16 +138,7 @@ public class ComboSelectionBox extends JPanel implements ItemSelectable
         {
 
             SwingUtilities.invokeLater(
-                    new Runnable()
-                    {
-
-                    	@Override
-                        public void run()
-                        {
-                            dialog.display();
-                        }
-
-                    });
+                    dialog::display);
         }
 
     }

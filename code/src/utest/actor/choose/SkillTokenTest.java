@@ -17,8 +17,6 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.Skill;
 import plugin.lsttokens.choose.SkillToken;
@@ -29,12 +27,6 @@ public class SkillTokenTest extends
 {
 
 	static SkillToken pca = new SkillToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<Skill> getActor()

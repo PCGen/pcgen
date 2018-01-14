@@ -1,5 +1,4 @@
 /*
- * SpellBook.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jan 6, 2006
- *
- * $Id$
- *
  */
 package pcgen.core.character;
 
@@ -32,15 +26,9 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 
 /**
- * <code>SpellBook</code> contains details of a prepared spell list or 
+ * {@code SpellBook} contains details of a prepared spell list or
  * a spell book. The term spell book was used as that is the term used
  * throughout the rest of the code.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class SpellBook implements Cloneable
@@ -72,7 +60,6 @@ public class SpellBook implements Cloneable
 	 */
 	public SpellBook(String name, int type)
 	{
-		super();
 
 		this.name = name;
 		this.type = type;
@@ -274,7 +261,7 @@ public class SpellBook implements Cloneable
 	 * @see java.lang.Object#clone()
 	 */
 	@Override
-	public Object clone()
+	public SpellBook clone()
 	{
 		SpellBook aClone = null;
 		try

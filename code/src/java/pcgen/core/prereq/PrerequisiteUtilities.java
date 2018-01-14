@@ -17,22 +17,18 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Refactored out of PObject July 22, 2005
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.prereq;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
@@ -54,7 +50,6 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
  *
  * This is a utility class related to PreReq objects.
  */
@@ -90,7 +85,7 @@ public final class PrerequisiteUtilities
 
 		final StringBuilder pString = new StringBuilder(aList.size() * 20);
 
-		final List<Prerequisite> newList = new ArrayList<Prerequisite>();
+		final List<Prerequisite> newList = new ArrayList<>();
 		boolean first = true;
 
 		for (Prerequisite prereq : aList)
@@ -308,7 +303,7 @@ public final class PrerequisiteUtilities
 	 * with the character via the subkey, then a count of the number of instances is returned.
 	 *
 	 * Finally,the subkey may specify a wildcard.  If it does, the list of associations
-	 * between the ability object and the PC are checked. A count is returned of teh number
+	 * between the ability object and the PC are checked. A count is returned of the number
 	 * that begin with the wildcard string.
 	 *
 	 * @param prereq The prerequisite to be checked.
@@ -374,7 +369,7 @@ public final class PrerequisiteUtilities
 		int numMatches = 0;
 		for (String s : assocs)
 		{
-			if (subKey.equalsIgnoreCase(s))
+			if (subKey.equalsIgnoreCase(s) || s.endsWith("|"+subKey))
 			{
 				numMatches++;
 			}
@@ -386,7 +381,7 @@ public final class PrerequisiteUtilities
 	{
 		for (String s : assocs)
 		{
-			if (subKey.equalsIgnoreCase(s))
+			if (subKey.equalsIgnoreCase(s) || s.endsWith("|"+subKey))
 			{
 				return true;
 			}
@@ -432,7 +427,7 @@ public final class PrerequisiteUtilities
 		{
 			final String fString = assoc.toUpperCase();
 
-			if (preWilcard.length() == 0 || fString.startsWith(preWilcard))
+			if (preWilcard.isEmpty() || fString.startsWith(preWilcard))
 			{
 				runningTotal++;
 				if (!countMults)
@@ -484,7 +479,7 @@ public final class PrerequisiteUtilities
 		final PlayerCharacter character,
 		String categoryName)
 	{
-		final Set<Ability> abilityList = new WrappedMapSet<Ability>(IdentityHashMap.class);
+		final Set<Ability> abilityList = Collections.newSetFromMap(new IdentityHashMap<>());
 		if (character != null)
 		{
 			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(categoryName);
@@ -540,7 +535,8 @@ public final class PrerequisiteUtilities
 		for (String spell : selectedList)
 		{
 			//TODO Case sensitivity?
-			final Spell sp = Globals.getSpellKeyed(spell);
+			final Spell sp = Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(Spell.class, spell);
 
 			if (sp == null)
 			{
@@ -727,7 +723,7 @@ public final class PrerequisiteUtilities
 	 */
 	public static Collection<Prerequisite> getPreReqsOfKind(final Prerequisite prereq, String matchKind)
 	{
-		Set<Prerequisite> matchingPrereqs = new HashSet<Prerequisite>();
+		Set<Prerequisite> matchingPrereqs = new HashSet<>();
 		if (prereq == null)
 		{
 			return matchingPrereqs;

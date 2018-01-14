@@ -1,16 +1,14 @@
 /*
- * Created on 02-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
 package plugin.pretokens.test;
 
+import java.util.Collections;
 import java.util.Set;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.core.Deity;
@@ -23,7 +21,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author wardc
  *
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
@@ -31,7 +28,7 @@ import pcgen.system.LanguageBundle;
 public class PreDeityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -46,8 +43,8 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 			{
 				String pantheon = prereq.getKey().substring(9);
 				Deity deity = display.getDeity();
-				Set<String> charDeityPantheon =
-						new WrappedMapSet<String>(CaseInsensitiveMap.class);
+				Set<Object> charDeityPantheon =
+						Collections.newSetFromMap(new CaseInsensitiveMap<>());
 				if (deity != null)
 				{
 					FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");

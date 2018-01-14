@@ -50,8 +50,12 @@ public class NameToken implements CDOMPrimaryToken<Sponsor>
 	@Override
 	public String[] unparse(LoadContext context, Sponsor s)
 	{
-		// TODO Need to unparse
-		return null;
+		String name = s.getDisplayName();
+		if (name == null)
+		{
+			return null;
+		}
+		return new String[]{name};
 	}
 
 }

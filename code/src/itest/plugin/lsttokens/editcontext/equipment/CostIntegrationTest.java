@@ -29,7 +29,7 @@ public class CostIntegrationTest extends
 {
 
 	static CostToken token = new CostToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

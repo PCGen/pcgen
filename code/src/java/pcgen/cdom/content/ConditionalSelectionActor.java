@@ -178,6 +178,6 @@ public class ConditionalSelectionActor<T> extends ConcretePrereqObject implement
 
 	public static <GT> ConditionalSelectionActor<GT> getCSA(ChooseSelectionActor<GT> csa)
 	{
-		return new ConditionalSelectionActor<GT>(csa);
+		return new ConditionalSelectionActor<>(csa);
 	}
 }

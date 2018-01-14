@@ -1,5 +1,4 @@
 /*
- * PObjectLoaderTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,21 +16,14 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 13-Jan-2004
  *
- * Current Ver: $Revision$
  * 
- * Last Editor: $Author$
  * 
- * Last Edited: $Date$
- *
  */
 package pcgen.persistence.lst;
 
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -47,6 +39,9 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PObjectLoaderTest extends PCGenTestCase
@@ -70,7 +65,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 	/**
 	 * Sets up the test case by loading the system plugins.
 	 * 
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	public void setUp() throws Exception

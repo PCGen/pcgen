@@ -1,5 +1,4 @@
 /*
- * PersistenceLayerException.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,33 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on February 22, 2002, 10:29 PM
- *
- * $Id$
  */
 package pcgen.persistence;
 
-import pcgen.exception.PcgenException;
-
 /**
  * Exception thrown by the Persistance Layer
- * 
- * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision$
  */
-public final class PersistenceLayerException extends PcgenException
+public final class PersistenceLayerException extends Exception
 {
-	/**
-	 * Creates a new instance of <code>Exception</code> without detail message.
-	 */
-	public PersistenceLayerException()
-	{
-		super();
-	}
 
 	/**
-	 * Constructs an instance of <code>PersistenceLayerException</code> with the specified detail message.
+	 * Constructs an instance of {@code PersistenceLayerException} with the specified detail message.
 	 * @param msg the detail message.
 	 */
 	public PersistenceLayerException(String msg)
@@ -50,13 +33,13 @@ public final class PersistenceLayerException extends PcgenException
 	}
 
 	/**
-	 * Constructs an instance of <code>PersistenceLayerException</code> with the specified {@link Throwable rootCause}
+	 * Constructs an instance of {@code PersistenceLayerException} with the specified {@link Throwable rootCause}
 	 * and the specified detail message.
-	 * @param rootCause the root cause of the exception.
 	 * @param msg the detail message.
+	 * @param rootCause the root cause of the exception.
 	 */
-	public PersistenceLayerException(Throwable rootCause, String msg)
+	public PersistenceLayerException(String msg, Throwable rootCause)
 	{
-		super(rootCause, msg);
+		super(msg, rootCause);
 	}
 }

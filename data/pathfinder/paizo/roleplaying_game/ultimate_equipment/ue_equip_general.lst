@@ -325,7 +325,7 @@ Climber's Kit.MOD																																									SOURCEPAGE:p.76
 Disguise Kit.MOD																																									SOURCEPAGE:p.76
 Footprint Book.MOD																		TYPE:Goods.Tools.Book												COST:50	WT:3					SOURCEPAGE:p.76
 Forger's Kit																			TYPE:Goods.Tools													COST:200	WT:6					SOURCEPAGE:p.77										BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance
-Spellbook (Wizard's/Blank).COPY=Formula Book (Alchemist's/Blank)
+Formula Book.MOD	SOURCEPAGE:p.77
 Fortune-Teller's Deck (Common).MOD																TYPE:Goods.Tools													COST:1	WT:0.5				SOURCEPAGE:p.77
 Fortune-Teller's Deck (Quality).MOD																TYPE:Goods.Tools													COST:25	WT:1					SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
 Fortune-Teller's Deck (Masterwork).MOD															TYPE:Goods.Tools													COST:50	WT:1					SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
@@ -352,42 +352,42 @@ Musical Instrument (Pan Pipes).MOD																																						SOURCEPA
 Musical Instrument (Recorder).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Trumpet).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork
-Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)
-Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)
-Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)
-Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)
-Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)
-Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)
-Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)
-Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)
-Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)
-Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)
-Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)
-Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)
-Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)
-Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)
-Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Parasol																				TYPE:Goods.Tools													COST:1	WT:2					SOURCEPAGE:p.78
 Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3					SOURCEPAGE:p.78
 Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20					SOURCEPAGE:p.79
 Portable Altar																			TYPE:Goods.Tools													COST:250	WT:40					SOURCEPAGE:p.79
 Portrait Book.MOD																			TYPE:Goods.Tools.Book												COST:10	WT:3					SOURCEPAGE:p.79
 Spell Component Pouch.MOD																																							SOURCEPAGE:p.79
-Spellbook (Wizard's/Blank).MOD																																						SOURCEPAGE:p.79
+Spellbook.MOD																																						SOURCEPAGE:p.79
 Stretcher																				TYPE:Goods.Tools													COST:1	WT:10					SOURCEPAGE:p.79
 Surgeon's Tools																			TYPE:Goods.Tools													COST:20	WT:5					SOURCEPAGE:p.79
 Surgeon's Tools.COPY=Surgeon's Tools (Small)
@@ -396,9 +396,8 @@ Symptom Kit.MOD																			TYPE:Goods.Tools													COST:25	WT:5					
 Thieves' Tools.MOD																																								SOURCEPAGE:p.79
 Thieves' Tools.COPY=Thieves' Tools (Masterwork)
 Thieves' Tools (Masterwork).MOD																															COST:100	WT:2					SOURCEPAGE:p.79																				BONUS:SKILL|Disable Device|2|TYPE=Circumstance
-Traveling Spellbook (Blank).COPY=Traveling Formula Book (Blank)
-Traveling Formula Book (Blank).MOD
-Traveling Spellbook (Blank).MOD																TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1					SOURCEPAGE:p.79
+Traveling Spellbook.COPY=Traveling Formula Book	SOURCEPAGE:p.79
+Traveling Spellbook.MOD																											SOURCEPAGE:p.79
 Veterinarian's Kit																		TYPE:Goods.Tools													COST:25	WT:1					SOURCEPAGE:p.79										BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
 
 ###Block: Adventuring Gear
@@ -413,7 +412,7 @@ Bandolier																	TYPE:Goods.General.Resizable.Container		CONTAINS:UNLIM
 Banner (Simple)									OUTPUTNAME:Banner, Simple			TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.59																																																				SPROP:A simple banner with one field color and a simple insignia.
 Banner (Complex)									OUTPUTNAME:Banner, Complex			TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.59																																																				SPROP:A banner with two to four field colors and a complex insignia.
 Banner (Detailed)									OUTPUTNAME:Banner, Detailed			TYPE:Goods.General															COST:20	WT:2					SOURCEPAGE:p.59																																																				SPROP:A detailed banner with four or more field colors and a very complex insignia.
-Barbed Vest.MOD																TYPE:Goods.Clothing.Resizable.Shirt													COST:10	WT:4					SOURCEPAGE:p.59																																																				SPROP:Any creature that injures you with a natural or unarmed attack must make a DC 15 Reflex save or take 1 point of damage. If a creature swallows you, it takes 1 point of damage each round until it either spits you up, you escape, or you die. The vest can only be worn over light armor or no armor.
+Barbed Vest.MOD																TYPE:Goods.Clothing.Resizable.Shirt.Cloth													COST:10	WT:4					SOURCEPAGE:p.59																																																				SPROP:Any creature that injures you with a natural or unarmed attack must make a DC 15 Reflex save or take 1 point of damage. If a creature swallows you, it takes 1 point of damage each round until it either spits you up, you escape, or you die. The vest can only be worn over light armor or no armor.
 Barrel.MOD																																										SOURCEPAGE:p.59
 Basket.MOD																																										SOURCEPAGE:p.59
 Bedroll.MOD																																										SOURCEPAGE:p.59
@@ -562,7 +561,7 @@ Marbles.MOD																	TYPE:Goods.General															COST:0.1	WT:2					S
 Mess Kit																	TYPE:Goods.General															COST:0.2	WT:1					SOURCEPAGE:p.68
 Miner's Pick																TYPE:Goods.General															COST:3	WT:10					SOURCEPAGE:p.68
 Mirror (Small/Steel).MOD																																							SOURCEPAGE:p.68
-Mock Armor																	TYPE:Goods.Clothing.Armor.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
+Mock Armor																	TYPE:Goods.Cloth.Clothing.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
 Mug or Tankard (Clay).MOD																																							SOURCEPAGE:p.68
 Oil (1 Pint Flask).MOD																																								SOURCEPAGE:p.68
 Paper (Sheet).MOD																																									SOURCEPAGE:p.69
@@ -689,8 +688,8 @@ Wizard's Kit			TYPE:Kit	COST:21	WT:21		SOURCEPAGE:p.75										SPROP:This kit i
 # Equipment Name			Type						Cost		Weight	Source Page		Bonus to skill						Modify VAR						Special Property
 Alchemical Grease.MOD		TYPE:Goods.Alchemical.Consumable	COST:5	WT:1		SOURCEPAGE:p.100	BONUS:SKILL|Escape Artist|5|TYPE=Alchemical	BONUS:VAR|CMD_Grapple|5|TYPE=Alchemical
 Alchemist's Kindness.MOD							COST:1			SOURCEPAGE:p.100
-Antiplague				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:Gain a +5 alchemical bonus on Fortitude saving throws against disease for the next hour. If already infected, you may also make two saving throws (without the +5 bonus) that day and use the better result.
-Antitoxin				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:gain a +5 alchemical bonus on Fortitude saving throws against poison for 1 hour.
+Antiplague (Vial).MOD				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:Gain a +5 alchemical bonus on Fortitude saving throws against disease for the next hour. If already infected, you may also make two saving throws (without the +5 bonus) that day and use the better result.
+Antitoxin (Vial).MOD				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:gain a +5 alchemical bonus on Fortitude saving throws against poison for 1 hour.
 Bladeguard.MOD			TYPE:Goods.Alchemical.Consumable	COST:40			SOURCEPAGE:p.100																SPROP:Protects a weapon from harmful attacks made by oozes and rust monsters, as well as from similar effects that corrode or melt weapons, rendering the weapon immune for 24 hours.
 Fire Ward Gel			TYPE:Goods.Alchemical.Consumable	COST:150			SOURCEPAGE:p.100																SPROP:Gain fire resistance 5 until 20 points of fire damage have been absorbed.
 Frost Ward Gel			TYPE:Goods.Alchemical.Consumable	COST:150			SOURCEPAGE:p.100																SPROP:Gain cold resistance 5 until 20 points of cold damage have been absorbed.
@@ -765,7 +764,7 @@ Pellet Grenade (Adamantine)		OUTPUTNAME:Pellet Grenade, Adamantine	PROFICIENCY:W
 Shard Gel (Flask)											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Splash							COST:25	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4							RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:The target's square and each square adjacent to it are covered in shards that function like caltrops for 5 rounds
 Skyrocket (Firework)										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:50	WT:1									DAMAGE:2d6							RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Takes flight one round after being lit at a speed of 90 ft for 1d6 rounds. Damage is a 10-ft-radius burst. Anyone who takes damage from the explosion is either blinded or deafened (50% chance of either) for 1 round.
 Sneezing Powder											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Poison								COST:60	WT:2																	RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Causes uncontrollable sneezing for 1d4+1 rounds. Anyone standing in the square of impact must succeed at a DC 12 Fortitude save to resist the powder, while those in adjacent squares must make DC 8 Fortitude saves. Affected creatures must make a DC 10 Fortitude save every round for the duration or be staggered until their next turn.
-Star Candle (Firework)										PROFICIENCY:WEAPON|Star Candle Firework	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:5						CRITMULT:-	CRITRANGE:1	DAMAGE:1	EQMOD:NONLETHAL				RANGE:5	SIZE:M	SOURCEPAGE:p.109	SPROP:Launches every round for 4 rounds after being lit. Deals 1 point of nonlethal damage and 1 point of fire damage; on a critical hit, the target is also blinded for 1 round.
+Star Candle (Firework)										PROFICIENCY:WEAPON|Star Candle Firework	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:5						CRITMULT:-	CRITRANGE:1	DAMAGE:1	EQMOD:Special Quality ~ Nonlethal				RANGE:5	SIZE:M	SOURCEPAGE:p.109	SPROP:Launches every round for 4 rounds after being lit. Deals 1 point of nonlethal damage and 1 point of fire damage; on a critical hit, the target is also blinded for 1 round.
 Starfountain (Firework)										PROFICIENCY:WEAPON|Spells (Ray)		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:500	WT:100								DAMAGE:1							RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Indoors or in a closed area, the ricocheting fireworks deal damage each round in a 20-foot-radius spread (Reflex DC 15 halves). Creatures who fail their save are blinded for 1d4 rounds and deafened for 1 hour.
 Tangleburn Bag											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire.Splash								COST:150	WT:5									DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:An entangled creature takes a -2 penalty on attack rolls and a -4 penalty to Dexterity and must make a DC 15 Reflex save or be glued to the floor, unable to move. A direct hit on a creature deals 1d6 points of fire damage, and the creature must make a DC 20 Reflex save or catch on fire.
 Tanglefoot Bag.MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:50	WT:4																	RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:An entangled creature takes a -2 penalty on attack rolls and a -4 penalty to Dexterity and must make a DC 15 Reflex save or be glued to the floor, unable to move
@@ -869,7 +868,7 @@ Yak							TYPE:Goods.Trade.Pets.Transportation.Container	CONTAINS:*3120|Any	COST
 # Equipment Name				Type							Contains			Cost		Weight	Source Page
 Axe Beak (Combat-Trained)		TYPE:Mount.Goods.Transportation.Container	CONTAINS:*600|Any		COST:1500	WT:500	SOURCEPAGE:p.80
 Axe Beak Egg				TYPE:Mount.Goods									COST:1000	WT:10		SOURCEPAGE:p.80
-Camel						TYPE:Mount.Goods.Transportation.Container	CONTAINS:*1800|Any	COST:150	WT:1500	SOURCEPAGE:p.81
+Camel						TYPE:Mount.Goods.Transportation.Container	CONTAINS:*900|Any		COST:150	WT:1500	SOURCEPAGE:p.81
 Dire Bat (Riding)				TYPE:Mount.Goods.Transportation.Container	CONTAINS:*520|Any		COST:300	WT:400	SOURCEPAGE:p.82
 Dire bat (Riding/Combat-Trained)	TYPE:Mount.Goods.Transportation.Container	CONTAINS:*520|Any		COST:450	WT:450	SOURCEPAGE:p.82
 Dog (Riding).MOD																	WT:50		SOURCEPAGE:p.82

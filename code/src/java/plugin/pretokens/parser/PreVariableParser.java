@@ -1,6 +1,4 @@
 /*
- * PreVariableParser.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,15 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 19-Dec-2003
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.parser;
 
@@ -37,7 +26,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre variable tokens.
- *
  */
 public class PreVariableParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
@@ -76,7 +64,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 
 		// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
 		String compType = kind.substring(3);
-		if (compType.length() == 0)
+		if (compType.isEmpty())
 		{
 			compType = "gteq";
 		}
@@ -94,7 +82,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 				if (!ps.hasNext())
 				{
 					throw new PersistenceLayerException(
-							"Unable to parse prerequisite 'PRE" + kind + ":" + formula
+							"Unable to parse prerequisite 'PRE" + kind + ':' + formula
 								+ "'. Incorrect parameter count (must be even)");
 				}
 				String second = ps.next();
@@ -123,7 +111,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse prerequisite 'PRE" + kind + ":" + formula
+				"Unable to parse prerequisite 'PRE" + kind + ':' + formula
 					+ "'. " + pe.getLocalizedMessage());
 		}
 

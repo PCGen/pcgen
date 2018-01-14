@@ -51,7 +51,7 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 				context);
 		}
 		Integer cm = null;
-		if ((value.length() > 0) && (value.charAt(0) == 'x'))
+		if ((!value.isEmpty()) && (value.charAt(0) == 'x'))
 		{
 			try
 			{
@@ -69,7 +69,7 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 		}
 		else if ("-".equals(value))
 		{
-			cm = Integer.valueOf(-1);
+			cm = -1;
 		}
 		if (cm == null)
 		{

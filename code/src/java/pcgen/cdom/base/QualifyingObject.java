@@ -16,8 +16,6 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Current Version: $Revision: 6673 $ Last Editor: $Author: $ Last Edited:
- * $Date: 2008-06-15 23:05:01 -0400 (Sun, 15 Jun 2008) $
  * 
  */
 package pcgen.cdom.base;
@@ -29,6 +27,7 @@ import pcgen.core.PlayerCharacter;
  * list of Prerequisites is designed to serve as a list of conditions that must
  * be met before the QualifyingObject can be "used"
  */
+@FunctionalInterface
 public interface QualifyingObject
 {
 

@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PCTemplate.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -38,7 +37,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusCalc;
 
-public class TemplateModifier
+public final class TemplateModifier
 {
 
 	private static DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
@@ -77,11 +76,11 @@ public class TemplateModifier
 			}
 		}
 
-		Map<DamageReduction, Set<Object>> drMap = new IdentityHashMap<DamageReduction, Set<Object>>();
+		Map<DamageReduction, Set<Object>> drMap = new IdentityHashMap<>();
 		CharacterDisplay display = aPC.getDisplay();
 		int totalLevels = display.getTotalLevels();
 		int totalHitDice = display.totalHitDice();
-		List<PCTemplate> templList = new ArrayList<PCTemplate>();
+		List<PCTemplate> templList = new ArrayList<>();
 		templList.add(pct);
 		templList.addAll(pct.getConditionalTemplates(totalLevels, totalHitDice));
 		for (PCTemplate subt : templList)
@@ -95,14 +94,14 @@ public class TemplateModifier
 					Set<Object> set = drMap.get(dr);
 					if (set == null)
 					{
-						set = new HashSet<Object>();
+						set = new HashSet<>();
 						drMap.put(dr, set);
 					}
 					set.add(pct);
 				}
 			}
 		}
-		if (drMap.size() != 0)
+		if (!drMap.isEmpty())
 		{
 			mods.append("DR:").append(drFacet.getDRString(id, drMap));
 		}

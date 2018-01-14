@@ -34,6 +34,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
+/**
+ * FeatToken is a Primitive that includes the selections of a different Feat.
+ * 
+ * @param <T> The underlying format of object selected (CHOOSE) by the target Feat
+ */
+@Deprecated
 public class FeatToken<T> implements PrimitiveToken<T>
 {
 
@@ -79,16 +85,17 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + "]";
+		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + ']';
 	}
 
 	private <R> List<R> getList(PlayerCharacter pc, Ability a)
 	{
 		// workaround for cloning issue
-		List<R> availableList = new ArrayList<R>();
+		List<R> availableList = new ArrayList<>();
 		List<CNAbility> theFeats = pc.getMatchingCNAbilities(a);
 		for (CNAbility ability : theFeats)
 		{
+			@SuppressWarnings("unchecked")
 			List<? extends R> list =
 					(List<? extends R>) pc.getDetailedAssociations(ability);
 			if (list != null)
@@ -143,7 +150,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		{
 			return Collections.emptySet();
 		}
-		return new HashSet<R>(currentItems);
+		return new HashSet<>(currentItems);
 	}
 
 }

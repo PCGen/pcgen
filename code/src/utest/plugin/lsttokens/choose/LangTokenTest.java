@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Language;
 import pcgen.core.Race;
@@ -37,7 +35,7 @@ public class LangTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static LangToken subtoken = new LangToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -67,12 +65,6 @@ public class LangTokenTest extends
 	public Class<Language> getTargetClass()
 	{
 		return Language.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

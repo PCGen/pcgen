@@ -1,5 +1,4 @@
 /*
- *  JIcon.java - 'icon' used for launching files from the notes plugin
  *  Copyright (C) 2003 Devon Jones
  *
  *  This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Created on May 24, 2003
  */
 package plugin.notes.gui;
 
@@ -26,8 +23,9 @@ import plugin.notes.NotesPlugin;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileSystemView;
 
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 import java.awt.Container;
 import java.awt.Desktop;
@@ -37,49 +35,44 @@ import java.awt.BorderLayout;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
-import pcgen.gui2.tools.Icons;
 
 /**
  *  JIcon is a small form that uses an image, a button and some text to
  *  represent a file. You can launch files in supported operating systems from
  *  JIcon into their associated application.
- *
- *@author     soulcatcher
- *@since    August 1, 2003, 4:48 PM
  */
-public class JIcon extends JPanel
+class JIcon extends JPanel
 {
-	File launch;
-	NotesPlugin plugin;
+	private final File launch;
+	private NotesPlugin plugin;
 
 	// Variables declaration - do not modify                     
 	private JButton button;
 	private JLabel label;
 	private JMenuItem deleteMI;
-	private JMenuItem launchMI;
 	private JPopupMenu contextMenu;
 
 	/**
-	 *  Creates new form JIcon
+	 * Creates new form JIcon
 	 *
-	 *@param  name  Name of the file to load (full path)
+	 * @param name file object for the JIcon
 	 * @param plugin
 	 */
-	public JIcon(File name, NotesPlugin plugin)
+	JIcon(File name, NotesPlugin plugin)
 	{
 		this.plugin = plugin;
 		initComponents();
 
 		if (name.getName().length() > 18)
 		{
-			label.setText(" " + name.getName().substring(0, 15) + "... ");
+			label.setText(' ' + name.getName().substring(0, 15) + "... ");
 		}
 		else
 		{
-			label.setText(" " + name.getName() + " ");
+			label.setText(' ' + name.getName() + ' ');
 		}
 
-		button.setIcon(getIconForType(name.getName()));
+		button.setIcon(getIconForType(name));
 		button.setToolTipText(name.getName());
 		this.launch = name;
 	}
@@ -90,61 +83,27 @@ public class JIcon extends JPanel
 	 *@param  filename  File name that this represents
 	 *@return           The icon
 	 */
-	public ImageIcon getIconForType(String filename)
+	private Icon getIconForType(File file)
 	{
 		// TODO: this blows, it's hardcoded.  This needs to be in a properties file.
 		// XXX ideally this should be use mime type
-		String ext = filename.replaceFirst(".*\\.", "");
+		String ext = file.getName().replaceFirst(".*\\.", "");
+		String labelText = ' ' + file.getName() + ' ';
 
-		if (ext.equalsIgnoreCase("html") || ext.equalsIgnoreCase("htm"))
+		if (file.getName().length() > 18)
 		{
-			return Icons.createImageIcon("gnome-text-html.png");
+			labelText = ' ' + file.getName().substring(0, 15) + "... ";
 		}
-		else if (ext.equalsIgnoreCase("doc"))
-		{
-			return Icons.createImageIcon("win-word.png");
-		}
-		else if (ext.equalsIgnoreCase("pdf"))
-		{
-			return Icons.createImageIcon("win-acrobat.png");
-		}
-		else if (ext.equalsIgnoreCase("rtf"))
-		{
-			return Icons.createImageIcon("gnome-application-rtf.png");
-		}
-		else if (ext.equalsIgnoreCase("xls"))
-		{
-			return Icons.createImageIcon("win-excel.png");
-		}
-		else if (ext.equalsIgnoreCase("ppt"))
-		{
-			return Icons.createImageIcon("gnome-application-vnd.ms-powerpoint.png");
-		}
-		else if (ext.equalsIgnoreCase("txt"))
-		{
-			return Icons.createImageIcon("gnome-text-plain.png");
-		}
-		else if (ext.equalsIgnoreCase("fcw"))
-		{
-			return Icons.createImageIcon("win-cc2.png");
-		}
-		else if (ext.equalsIgnoreCase("zip"))
-		{
-			return Icons.createImageIcon("win-zip.png");
-		}
-		else if (ext.equalsIgnoreCase("jpg") || ext.equalsIgnoreCase("gif")
-			|| ext.equalsIgnoreCase("png"))
-		{
-			return Icons.createImageIcon("gnome-image-generic.png");
-		}
-		else
-		{
-			return Icons.createImageIcon("gnome-generic.png");
-		}
+		label.setText(labelText);
+
+		Icon ico = FileSystemView.getFileSystemView().getSystemIcon(file);
+		button.setIcon(ico);
+		button.setToolTipText(file.getName());
+		return ico;
 	}
 
 	/**  Delete the file from disk that this icon represents */
-	protected void deleteFile()
+	private void deleteFile()
 	{
 		int choice =
 				JOptionPane.showConfirmDialog(GMGenSystem.inst, "Delete file "
@@ -179,9 +138,9 @@ public class JIcon extends JPanel
 	/**
 	 *  Launches a file into the appropriate program for the OS we are running on
 	 */
-	protected void launchFile()
+	private void launchFile()
 	{
-		if (plugin.isRecognizedFileType(launch))
+		if (NotesPlugin.isRecognizedFileType(launch))
 		{
 			plugin.loadRecognizedFileType(launch);
 		}
@@ -210,21 +169,10 @@ public class JIcon extends JPanel
 
 			if (!opened)
 			{
-				// Unix
 				if (SystemUtils.IS_OS_UNIX )
 				{
-					String openCmd;
-					if (SystemUtils.IS_OS_MAC_OSX)
-					{
-						// From the command line, the open command acts as if the argument was double clicked from the finder
-						// (see: man open)
-						openCmd = "/usr/bin/open";
-					}
-					else
-					{
-						// Tries freedesktop.org xdg-open. Quite often installed on Linux/BSD
-						openCmd = "xdg-open";
-					}
+					String openCmd =
+							SystemUtils.IS_OS_MAC_OSX ? "/usr/bin/open" : "xdg-open";
 					String filePath = launch.getAbsolutePath();
 					String[] args = {openCmd, filePath};
 					Logging.debugPrintLocalised("Runtime.getRuntime().exec: [{0}] [{1}]", args[0], args[1]);
@@ -238,14 +186,12 @@ public class JIcon extends JPanel
 						Logging.errorPrint(e.getMessage(), e);
 					}
 				}
-	
-				//Windows
-				if(SystemUtils.IS_OS_WINDOWS)
+				else if (SystemUtils.IS_OS_WINDOWS)
 				{
 					try
 					{
 						String start =
-								(" rundll32 url.dll,FileProtocolHandler file://" + launch
+								("rundll32 url.dll,FileProtocolHandler file://" + launch
 									.getAbsoluteFile());
 						Runtime.getRuntime().exec(start);
 					}
@@ -333,31 +279,17 @@ public class JIcon extends JPanel
 	{
 		                          
 		contextMenu = new JPopupMenu();
-		launchMI = new JMenuItem();
+		JMenuItem launchMI = new JMenuItem();
 		deleteMI = new JMenuItem();
 		button = new JButton();
 		label = new JLabel();
 
 		launchMI.setText("Launch File (enter)");
-		launchMI.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				launchMIActionPerformed(evt);
-			}
-		});
+		launchMI.addActionListener(this::launchMIActionPerformed);
 
 		contextMenu.add(launchMI);
 		deleteMI.setText("Delete File (del)");
-		deleteMI.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				deleteMIActionPerformed(evt);
-			}
-		});
+		deleteMI.addActionListener(this::deleteMIActionPerformed);
 
 		contextMenu.add(deleteMI);
 
@@ -368,14 +300,7 @@ public class JIcon extends JPanel
 		button.setBackground((Color) UIManager.getDefaults().get(
 			"Button.background"));
 		button.setBorder(null);
-		button.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				buttonActionPerformed(evt);
-			}
-		});
+		button.addActionListener(this::buttonActionPerformed);
 
 		button.addFocusListener(new FocusAdapter()
 		{
@@ -428,6 +353,4 @@ public class JIcon extends JPanel
 		                                         
 		launchFile();
 	}
-
-	// End of variables declaration                   
 }

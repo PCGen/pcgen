@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.CDOMLoader;
@@ -30,7 +28,7 @@ public class ReachTokenTest extends AbstractIntegerTokenTestCase<PCTemplate>
 {
 
 	static ReachToken token = new ReachToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -72,12 +70,6 @@ public class ReachTokenTest extends AbstractIntegerTokenTestCase<PCTemplate>
 	public boolean isPositiveAllowed()
 	{
 		return true;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		//Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 }

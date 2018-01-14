@@ -1,5 +1,4 @@
 /*
- * EquipSlotLoader.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 24, 2003, 10:29 AM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -35,10 +30,7 @@ import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- * @author  Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision$
- **/
+
 public final class EquipSlotLoader extends LstLineFileLoader
 {
 

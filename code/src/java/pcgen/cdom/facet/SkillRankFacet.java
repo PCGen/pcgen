@@ -37,7 +37,6 @@ import pcgen.core.Skill;
  * SkillRankFacet stores the number of Skill Ranks for a specific Skill for a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SkillRankFacet extends AbstractStorageFacet<CharID>
 {
@@ -62,7 +61,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		Map<Skill, Map<PCClass, Double>> map = getInfo(id);
 		if (map == null)
 		{
-			map = new HashMap<Skill, Map<PCClass, Double>>();
+			map = new HashMap<>();
 			setCache(id, map);
 		}
 		return map;
@@ -99,7 +98,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		Map<PCClass, Double> clMap = map.get(skill);
 		if (clMap == null)
 		{
-			clMap = new IdentityHashMap<PCClass, Double>();
+			clMap = new IdentityHashMap<>();
 			map.put(skill, clMap);
 		}
 		clMap.put(pcc, value);
@@ -222,6 +221,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		support.addLevelChangeListener(listener);
 	}
 
+	@FunctionalInterface
 	public static interface SkillRankChangeListener extends EventListener
 	{
 		public void rankChanged(SkillRankChangeEvent lce);

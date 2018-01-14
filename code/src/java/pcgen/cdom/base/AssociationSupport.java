@@ -56,7 +56,7 @@ public class AssociationSupport implements AssociatedObject
 	{
 		if (associationMap == null)
 		{
-			associationMap = new HashMap<AssociationKey<?>, Object>();
+			associationMap = new HashMap<>();
 		}
 		associationMap.put(key, value);
 	}
@@ -101,7 +101,7 @@ public class AssociationSupport implements AssociatedObject
 	@Override
 	public Collection<AssociationKey<?>> getAssociationKeys()
 	{
-		return new HashSet<AssociationKey<?>>(associationMap.keySet());
+		return new HashSet<>(associationMap.keySet());
 	}
 
 	/**
@@ -122,8 +122,6 @@ public class AssociationSupport implements AssociatedObject
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this AssociationSupport
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -137,8 +135,6 @@ public class AssociationSupport implements AssociatedObject
 	 * keys associated with equal values. Equality of the keys and values is as
 	 * equality is defined by those objects in their .equals(java.lang.Object)
 	 * method.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -152,7 +148,7 @@ public class AssociationSupport implements AssociatedObject
 			AssociationSupport other = (AssociationSupport) obj;
 			if (associationMap == null || associationMap.isEmpty())
 			{
-				return other.associationMap == null
+				return (other.associationMap == null)
 						|| other.associationMap.isEmpty();
 			}
 			return associationMap.equals(other.associationMap);

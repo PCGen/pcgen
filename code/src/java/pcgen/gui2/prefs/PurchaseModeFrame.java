@@ -1,5 +1,4 @@
 /*
- * PurchaseModeFrame.java
  * Copyright 2002 (C) Chris Ryan
  *
  * This library is free software; you can redistribute it and/or
@@ -15,30 +14,28 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.gui2.prefs;
 
+import java.awt.Container;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -64,57 +61,32 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>PurchaseModeFrame</code> is responsible for displaying  
+ * The Class {@code PurchaseModeFrame} is responsible for displaying
  * the character stats purchase mode (aka point buy) configuration dialog.  
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author Chris Ryan
- * @version    $Revision$
  */
 public final class PurchaseModeFrame extends JDialog
 {
-	static final long serialVersionUID = -5244500546425680322L;
-	private static String s_TITLE = LanguageBundle.getString("in_Prefs_purModConf"); //$NON-NLS-1$
+	private static final long serialVersionUID = -5244500546425680322L;
+	private static final String TITLE = LanguageBundle.getString("in_Prefs_purModConf"); //$NON-NLS-1$
 	private static final int STANDARD_MIN_PURCHASE_SCORE = 8;
 	private static final int STANDARD_MAX_PURCHASE_SCORE = 18;
-	private JButton addMethodButton = null;
-	private JButton cancelButton;
-	private JButton okButton;
-	private JButton purchaseScoreMaxDecreaseButton;
-	private JButton purchaseScoreMaxIncreaseButton;
-	private JButton purchaseScoreMinDecreaseButton;
-	private JButton purchaseScoreMinIncreaseButton;
 	private JButton removeMethodButton = null;
-	private JButton resetButton;
 	private JComboBoxEx currentPurchaseMethods = null;
-	private JLabel methodPointsLabel = null;
-	private JLabel purchaseScoreMaxLabel;
-	private JLabel purchaseScoreMinLabel;
-	private JLabel savedMethodLabel = null;
 	private JLabel statusBar;
-	private JPanel jPanel1;
-	private JPanel jPanel2;
-	private JPanel jPanel3;
-	private JPanel purchaseMethodButtonPanel;
-	private JPanel purchaseMethodNamePanel;
 
-	//private JLabel purchaseMethodNegativeCostAllowedLabel;
-	private JPanel purchaseMethodPanel;
-	private JPanel purchaseMethodPointsPanel;
 	private JScrollPane jScrollPane1;
-	private JTable abilityScoreCostTable;
 	private JTextField purchaseMethodPointsEdit;
 	private JTextField purchaseScoreMaxEdit;
 	private JTextField purchaseScoreMinEdit;
 	private PurchaseModel purchaseModel = null;
 	
-	private int statMin = STANDARD_MIN_PURCHASE_SCORE;
-	private int statMax = STANDARD_MAX_PURCHASE_SCORE;
+	private int statMin = PurchaseModeFrame.STANDARD_MIN_PURCHASE_SCORE;
+	private int statMax = PurchaseModeFrame.STANDARD_MAX_PURCHASE_SCORE;
 
 	/** Creates new form PurchaseModeFrame */
-	public PurchaseModeFrame()
+	private PurchaseModeFrame()
 	{
 		initComponents();
 	}
@@ -122,7 +94,7 @@ public final class PurchaseModeFrame extends JDialog
 	/** Creates new form PurchaseModeFrame
 	 * @param parent
 	 * */
-	public PurchaseModeFrame(JDialog parent)
+	PurchaseModeFrame(Dialog parent)
 	{
 		super(parent);
 
@@ -169,10 +141,10 @@ public final class PurchaseModeFrame extends JDialog
 
 	private void cancelButtonActionPerformed()
 	{
-		this.dispose();
+		dispose();
 	}
 
-	private int convertStringToInt(String valueString)
+	private static int convertStringToInt(String valueString)
 	{
 		int value;
 
@@ -180,7 +152,7 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			value = Integer.parseInt(valueString);
 		}
-		catch (NumberFormatException nfe)
+		catch (final NumberFormatException nfe)
 		{
 			// bad value
 			value = -1;
@@ -216,50 +188,24 @@ public final class PurchaseModeFrame extends JDialog
 
 	private void initComponents()
 	{
-		GridBagConstraints gridBagConstraints;
 
-		jPanel1 = new JPanel();
-		purchaseScoreMinIncreaseButton = new JButton();
-		purchaseScoreMinDecreaseButton = new JButton();
-		purchaseScoreMaxIncreaseButton = new JButton();
-		purchaseScoreMaxDecreaseButton = new JButton();
-		cancelButton = new JButton();
-		resetButton = new JButton();
-		purchaseScoreMinLabel = new JLabel();
 		purchaseScoreMinEdit = new JTextField(3);
-		purchaseScoreMaxLabel = new JLabel();
 		purchaseScoreMaxEdit = new JTextField(3);
 		statusBar = new JLabel();
-		jPanel2 = new JPanel();
 		currentPurchaseMethods = new JComboBoxEx();
 		currentPurchaseMethods.setAutoSort(true);
-		savedMethodLabel = new JLabel();
-		methodPointsLabel = new JLabel();
 		purchaseMethodPointsEdit = new JTextField(4);
-		purchaseMethodPanel = new JPanel();
-		purchaseMethodNamePanel = new JPanel();
-		purchaseMethodPointsPanel = new JPanel();
-		purchaseMethodButtonPanel = new JPanel();
-		addMethodButton = new JButton();
 		removeMethodButton = new JButton();
 
-		jPanel3 = new JPanel();
-		okButton = new JButton();
-		okButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					CustomData.writePurchaseModeConfiguration();
-				}
-			});
+		AbstractButton okButton = new JButton();
+		okButton.addActionListener(e -> CustomData.writePurchaseModeConfiguration());
 
 		jScrollPane1 = new JScrollPane();
 
 		getContentPane().setLayout(new GridBagLayout());
 
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		setTitle(s_TITLE);
+		setTitle(PurchaseModeFrame.TITLE);
 		addWindowListener(new WindowAdapter()
 			{
 				@Override
@@ -269,22 +215,17 @@ public final class PurchaseModeFrame extends JDialog
 				}
 			});
 
+		Container jPanel1 = new JPanel();
 		jPanel1.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));
 
+		JLabel purchaseScoreMinLabel = new JLabel();
 		purchaseScoreMinLabel.setText(LanguageBundle.getString("in_Prefs_purchMin")); //$NON-NLS-1$
 		purchaseScoreMinLabel.setToolTipText(LanguageBundle.getString("in_Prefs_purchMinTip")); //$NON-NLS-1$
 		purchaseScoreMinLabel.setPreferredSize(new Dimension(140, 15));
 		jPanel1.add(purchaseScoreMinLabel);
 
 		purchaseScoreMinEdit.setHorizontalAlignment(SwingConstants.RIGHT);
-		purchaseScoreMinEdit.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				purchaseScoreMinValueActionPerformed();
-			}
-		});
+		purchaseScoreMinEdit.addActionListener(evt -> purchaseScoreMinValueActionPerformed());
 		purchaseScoreMinEdit.addFocusListener(new FocusAdapter()
 		{
 			@Override
@@ -296,33 +237,21 @@ public final class PurchaseModeFrame extends JDialog
 		});
 		jPanel1.add(purchaseScoreMinEdit);
 
+		AbstractButton purchaseScoreMinIncreaseButton = new JButton();
 		purchaseScoreMinIncreaseButton.setText(LanguageBundle.getString("in_Prefs_plus")); //$NON-NLS-1$
 		purchaseScoreMinIncreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_incMin")); //$NON-NLS-1$
-		purchaseScoreMinIncreaseButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					purchaseScoreMinIncreaseButtonActionPerformed();
-				}
-			});
+		purchaseScoreMinIncreaseButton.addActionListener(evt -> purchaseScoreMinIncreaseButtonActionPerformed());
 
 		jPanel1.add(purchaseScoreMinIncreaseButton);
 
+		AbstractButton purchaseScoreMinDecreaseButton = new JButton();
 		purchaseScoreMinDecreaseButton.setText(LanguageBundle.getString("in_Prefs_minus")); //$NON-NLS-1$
 		purchaseScoreMinDecreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_decMin")); //$NON-NLS-1$
-		purchaseScoreMinDecreaseButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					purchaseScoreMinDecreaseButtonActionPerformed();
-				}
-			});
+		purchaseScoreMinDecreaseButton.addActionListener(evt -> purchaseScoreMinDecreaseButtonActionPerformed());
 
 		jPanel1.add(purchaseScoreMinDecreaseButton);
 
-		gridBagConstraints = new GridBagConstraints();
+		GridBagConstraints gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
@@ -330,22 +259,17 @@ public final class PurchaseModeFrame extends JDialog
 		gridBagConstraints.weightx = 1.0;
 		getContentPane().add(jPanel1, gridBagConstraints);
 
+		Container jPanel2 = new JPanel();
 		jPanel2.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));
 
+		JLabel purchaseScoreMaxLabel = new JLabel();
 		purchaseScoreMaxLabel.setText(LanguageBundle.getString("in_Prefs_purchMax")); //$NON-NLS-1$
 		purchaseScoreMaxLabel.setToolTipText(LanguageBundle.getString("in_Prefs_purchMaxTip")); //$NON-NLS-1$
 		purchaseScoreMaxLabel.setPreferredSize(new Dimension(140, 15));
 		jPanel2.add(purchaseScoreMaxLabel);
 
 		purchaseScoreMaxEdit.setHorizontalAlignment(SwingConstants.RIGHT);
-		purchaseScoreMaxEdit.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				purchaseScoreMaxValueActionPerformed();
-			}
-		});
+		purchaseScoreMaxEdit.addActionListener(evt -> purchaseScoreMaxValueActionPerformed());
 		purchaseScoreMaxEdit.addFocusListener(new FocusAdapter()
 		{
 			@Override
@@ -357,68 +281,61 @@ public final class PurchaseModeFrame extends JDialog
 		});
 		jPanel2.add(purchaseScoreMaxEdit);
 
+		AbstractButton purchaseScoreMaxIncreaseButton = new JButton();
 		purchaseScoreMaxIncreaseButton.setText(LanguageBundle.getString("in_Prefs_plus")); //$NON-NLS-1$
 		purchaseScoreMaxIncreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_incMax")); //$NON-NLS-1$
-		purchaseScoreMaxIncreaseButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					purchaseScoreMaxIncreaseButtonActionPerformed();
-				}
-			});
+		purchaseScoreMaxIncreaseButton.addActionListener(evt -> purchaseScoreMaxIncreaseButtonActionPerformed());
 
 		jPanel2.add(purchaseScoreMaxIncreaseButton);
 
+		AbstractButton purchaseScoreMaxDecreaseButton = new JButton();
 		purchaseScoreMaxDecreaseButton.setText(LanguageBundle.getString("in_Prefs_minus")); //$NON-NLS-1$
 		purchaseScoreMaxDecreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_decMax")); //$NON-NLS-1$
-		purchaseScoreMaxDecreaseButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					purchaseScoreMaxDecreaseButtonActionPerformed();
-				}
-			});
+		purchaseScoreMaxDecreaseButton.addActionListener(evt -> purchaseScoreMaxDecreaseButtonActionPerformed());
 
 		jPanel2.add(purchaseScoreMaxDecreaseButton);
 
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-		gridBagConstraints.weightx = 1.0;
-		getContentPane().add(jPanel2, gridBagConstraints);
+		GridBagConstraints bagConstraints = new GridBagConstraints();
+		bagConstraints.gridx = 0;
+		bagConstraints.gridy = 2;
+		bagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		bagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		bagConstraints.weightx = 1.0;
+		getContentPane().add(jPanel2, bagConstraints);
 
+		JComponent purchaseMethodPanel = new JPanel();
 		purchaseMethodPanel.setLayout(new GridBagLayout());
 		purchaseMethodPanel.setBorder(BorderFactory.createTitledBorder(
 			LanguageBundle.getString("in_Prefs_allowPoints"))); //$NON-NLS-1$
 
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-		gridBagConstraints.weightx = 1.0;
-		getContentPane().add(purchaseMethodPanel, gridBagConstraints);
+		bagConstraints = new GridBagConstraints();
+		bagConstraints.gridx = 0;
+		bagConstraints.gridy = 3;
+		bagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		bagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		bagConstraints.weightx = 1.0;
+		getContentPane().add(purchaseMethodPanel, bagConstraints);
 
+		Container purchaseMethodNamePanel = new JPanel();
 		purchaseMethodNamePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));
+		JLabel savedMethodLabel = new JLabel();
 		savedMethodLabel.setText(LanguageBundle.getString("in_Prefs_savedMethods")); //$NON-NLS-1$
 		savedMethodLabel.setPreferredSize(new Dimension(140, 15));
 		purchaseMethodNamePanel.add(savedMethodLabel);
 		purchaseMethodNamePanel.add(currentPurchaseMethods);
 
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 0;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-		gridBagConstraints.weightx = 1.0;
-		getContentPane().add(purchaseMethodNamePanel, gridBagConstraints);
-		purchaseMethodPanel.add(purchaseMethodNamePanel, gridBagConstraints);
+		bagConstraints = new GridBagConstraints();
+		bagConstraints.gridx = 0;
+		bagConstraints.gridy = 0;
+		bagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		bagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		bagConstraints.weightx = 1.0;
+		getContentPane().add(purchaseMethodNamePanel, bagConstraints);
+		purchaseMethodPanel.add(purchaseMethodNamePanel, bagConstraints);
 
+		Container purchaseMethodPointsPanel = new JPanel();
 		purchaseMethodPointsPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));
+		JLabel methodPointsLabel = new JLabel();
 		methodPointsLabel.setText(LanguageBundle.getString("in_Prefs_points")); //$NON-NLS-1$
 		methodPointsLabel.setPreferredSize(new Dimension(140, 15));
 		purchaseMethodPointsPanel.add(methodPointsLabel);
@@ -428,116 +345,79 @@ public final class PurchaseModeFrame extends JDialog
 		//purchaseMethodPointsEdit.setText("10");
 		purchaseMethodPointsPanel.add(purchaseMethodPointsEdit);
 
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 1;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-		gridBagConstraints.weightx = 1.0;
+		bagConstraints = new GridBagConstraints();
+		bagConstraints.gridx = 0;
+		bagConstraints.gridy = 1;
+		bagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		bagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		bagConstraints.weightx = 1.0;
 
 //		getContentPane().add(purchaseMethodPointsPanel, gridBagConstraints);
-		purchaseMethodPanel.add(purchaseMethodPointsPanel, gridBagConstraints);
+		purchaseMethodPanel.add(purchaseMethodPointsPanel, bagConstraints);
 
 		currentPurchaseMethods.setPreferredSize(new Dimension(140, 21));
-		currentPurchaseMethods.addItemListener(new ItemListener()
-			{
-				@Override
-				public void itemStateChanged(ItemEvent evt)
-				{
-					currentPurchaseMethodsActionPerformed();
-				}
-			});
+		currentPurchaseMethods.addItemListener(evt -> currentPurchaseMethodsActionPerformed());
 
+		Container purchaseMethodButtonPanel = new JPanel();
 		purchaseMethodButtonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		AbstractButton addMethodButton = new JButton();
 		addMethodButton.setText(LanguageBundle.getString("in_Prefs_new")); //$NON-NLS-1$
-		addMethodButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					addMethodButtonActionPerformed();
-				}
-			});
+		addMethodButton.addActionListener(evt -> addMethodButtonActionPerformed());
 		purchaseMethodButtonPanel.add(addMethodButton);
 		removeMethodButton.setText(LanguageBundle.getString("in_Prefs_remove")); //$NON-NLS-1$
-		removeMethodButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					removeMethodButtonActionPerformed();
-				}
-			});
+		removeMethodButton.addActionListener(evt -> removeMethodButtonActionPerformed());
 		purchaseMethodButtonPanel.add(removeMethodButton);
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-		gridBagConstraints.weightx = 1.0;
-		purchaseMethodPanel.add(purchaseMethodButtonPanel, gridBagConstraints);
+		bagConstraints = new GridBagConstraints();
+		bagConstraints.gridx = 0;
+		bagConstraints.gridy = 2;
+		bagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		bagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		bagConstraints.weightx = 1.0;
+		purchaseMethodPanel.add(purchaseMethodButtonPanel, bagConstraints);
 
 		statusBar.setText(LanguageBundle.getString("in_Prefs_setCost")); //$NON-NLS-1$
 		statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 6;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.ipadx = 1;
-		gridBagConstraints.ipady = 1;
-		gridBagConstraints.insets = new Insets(1, 1, 1, 1);
-		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-		gridBagConstraints.weightx = 1.0;
-		getContentPane().add(statusBar, gridBagConstraints);
+		bagConstraints = new GridBagConstraints();
+		bagConstraints.gridx = 0;
+		bagConstraints.gridy = 6;
+		bagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		bagConstraints.ipadx = 1;
+		bagConstraints.ipady = 1;
+		bagConstraints.insets = new Insets(1, 1, 1, 1);
+		bagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		bagConstraints.weightx = 1.0;
+		getContentPane().add(statusBar, bagConstraints);
 
+		Container jPanel3 = new JPanel();
 		jPanel3.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
 		okButton.setText(LanguageBundle.getString("in_Prefs_OK")); //$NON-NLS-1$
 		okButton.setToolTipText(LanguageBundle.getString("in_Prefs_OKTip")); //$NON-NLS-1$
-		okButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					okButtonActionPerformed();
-				}
-			});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
 		jPanel3.add(okButton);
 
+		AbstractButton resetButton = new JButton();
 		resetButton.setText(LanguageBundle.getString("in_Prefs_Reset")); //$NON-NLS-1$
 		resetButton.setToolTipText(LanguageBundle.getString("in_Prefs_ResetTip")); //$NON-NLS-1$
-		resetButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					resetButtonActionPerformed();
-				}
-			});
+		resetButton.addActionListener(evt -> resetButtonActionPerformed());
 
 		jPanel3.add(resetButton);
+		AbstractButton cancelButton = new JButton();
 		cancelButton.setText(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
 		cancelButton.setToolTipText(LanguageBundle.getString("in_Prefs_CancelTip")); //$NON-NLS-1$
-		cancelButton.addActionListener(new ActionListener()
-			{
-			@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					cancelButtonActionPerformed();
-				}
-			});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 
 		jPanel3.add(cancelButton);
 
 /////////////////////////////////////////////////
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 5;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = GridBagConstraints.EAST;
-		gridBagConstraints.weightx = 1.0;
-		getContentPane().add(jPanel3, gridBagConstraints);
+		bagConstraints = new GridBagConstraints();
+		bagConstraints.gridx = 0;
+		bagConstraints.gridy = 5;
+		bagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		bagConstraints.anchor = GridBagConstraints.EAST;
+		bagConstraints.weightx = 1.0;
+		getContentPane().add(jPanel3, bagConstraints);
 
 		jScrollPane1.setViewportBorder(new BevelBorder(BevelBorder.LOWERED));
 		jScrollPane1.setPreferredSize(new Dimension(100, 200));
@@ -545,14 +425,14 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseModel = new PurchaseModel();
 		renewAbilityScoreCostTable();
 
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 0;
-		gridBagConstraints.fill = GridBagConstraints.BOTH;
-		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
-		gridBagConstraints.weightx = 1.0;
-		gridBagConstraints.weighty = 1.0;
-		getContentPane().add(jScrollPane1, gridBagConstraints);
+		bagConstraints = new GridBagConstraints();
+		bagConstraints.gridx = 0;
+		bagConstraints.gridy = 0;
+		bagConstraints.fill = GridBagConstraints.BOTH;
+		bagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		bagConstraints.weightx = 1.0;
+		bagConstraints.weighty = 1.0;
+		getContentPane().add(jScrollPane1, bagConstraints);
 
 		pack();
 
@@ -567,10 +447,9 @@ public final class PurchaseModeFrame extends JDialog
 		Collection<PointBuyMethod> methods = SettingsHandler.getGame()
 				.getModeContext().getReferenceContext()
 				.getConstructedCDOMObjects(PointBuyMethod.class);
-		if (methods.size() > 0)
+		if (!methods.isEmpty())
 		{
-			currentPurchaseMethods.setModel(new DefaultComboBoxModel(methods
-					.toArray()));
+			currentPurchaseMethods.setModel(new DefaultComboBoxModel(methods.toArray()));
 		}
 		currentPurchaseMethodsActionPerformed(); // Get into correct state
 	}
@@ -578,7 +457,7 @@ public final class PurchaseModeFrame extends JDialog
 	private void okButtonActionPerformed()
 	{
 		purchaseModel.keepNewValues();
-		this.dispose();
+		dispose();
 	}
 
 	private void purchaseScoreMaxDecreaseButtonActionPerformed()
@@ -589,7 +468,7 @@ public final class PurchaseModeFrame extends JDialog
 		String valueString = purchaseScoreMaxEdit.getText();
 
 		// convert it to an integer
-		int value = convertStringToInt(valueString);
+		int value = PurchaseModeFrame.convertStringToInt(valueString);
 		if (!validateNewMaxValue(value-1))
 		{
 			return;
@@ -615,23 +494,22 @@ public final class PurchaseModeFrame extends JDialog
 		String valueString = purchaseScoreMaxEdit.getText();
 
 		// convert it to an integer
-		int value = convertStringToInt(valueString);
+		int value = PurchaseModeFrame.convertStringToInt(valueString);
 		if (!validateNewMaxValue(value+1))
 		{
 			return;
 		}
-		boolean updateOk = false;
 
 		// increase the value in the model
 		statusBar.setText(""); //$NON-NLS-1$
-		updateOk = purchaseModel.setPurchaseScoreMax(value + 1);
+		boolean updateOk = purchaseModel.setPurchaseScoreMax(value + 1);
 
 		// ensure the edit value gets updated correctly
 		updatePurchaseScoreMax(oldValue);
 
 		if (updateOk)
 		{
-			purchaseModel.setValueAt(Integer.valueOf(purchaseModel.predictNextPurchaseCostMax()),
+			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMax(),
 			    purchaseModel.getRowCount() - 1, 1);
 		}
 	}
@@ -644,23 +522,22 @@ public final class PurchaseModeFrame extends JDialog
 		String valueString = purchaseScoreMaxEdit.getText();
 
 		// convert it to an integer
-		int value = convertStringToInt(valueString);
+		int value = PurchaseModeFrame.convertStringToInt(valueString);
 		if (!validateNewMaxValue(value))
 		{
 			return;
 		}
-		boolean updateOk = false;
 
 		// increase the value in the model
 		statusBar.setText(""); //$NON-NLS-1$
-		updateOk = purchaseModel.setPurchaseScoreMax(value);
+		boolean updateOk = purchaseModel.setPurchaseScoreMax(value);
 
 		// ensure the edit value gets updated correctly
 		updatePurchaseScoreMax(oldValue);
 
 		if (updateOk)
 		{
-			purchaseModel.setValueAt(Integer.valueOf(purchaseModel.predictNextPurchaseCostMax()),
+			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMax(),
 			    purchaseModel.getRowCount() - 1, 1);
 		}
 	}
@@ -690,22 +567,22 @@ public final class PurchaseModeFrame extends JDialog
 		String valueString = purchaseScoreMinEdit.getText();
 
 		// convert it to an integer
-		int value = convertStringToInt(valueString);
+		int value = PurchaseModeFrame.convertStringToInt(valueString);
 		if (!validateNewMinValue(value-1))
 		{
 			return;
 		}
-		boolean updateOk = false;
+		boolean updateOk = purchaseModel.setPurchaseScoreMin(value - 1);
 
 		// decrease the value in the model
-		if (!(updateOk = purchaseModel.setPurchaseScoreMin(value - 1)))
+		if (updateOk)
 		{
-			// set a status message
-			statusBar.setText(LanguageBundle.getString("in_Prefs_noMinBelow0")); //$NON-NLS-1$
+			statusBar.setText("");
 		}
 		else
 		{
-			statusBar.setText("");
+			// set a status message
+			statusBar.setText(LanguageBundle.getString("in_Prefs_noMinBelow0")); //$NON-NLS-1$
 		}
 
 		// ensure the edit value gets updated correctly
@@ -713,7 +590,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		if (updateOk)
 		{
-			purchaseModel.setValueAt(Integer.valueOf(purchaseModel.predictNextPurchaseCostMin()), 0, 1);
+			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMin(), 0, 1);
 		}
 	}
 	
@@ -725,7 +602,7 @@ public final class PurchaseModeFrame extends JDialog
 		String valueString = purchaseScoreMinEdit.getText();
 
 		// convert it to an integer
-		int value = convertStringToInt(valueString);
+		int value = PurchaseModeFrame.convertStringToInt(valueString);
 		if (!validateNewMinValue(value+1))
 		{
 			return;
@@ -752,7 +629,7 @@ public final class PurchaseModeFrame extends JDialog
 		String valueString = purchaseScoreMinEdit.getText();
 
 		// convert it to an integer
-		int value = convertStringToInt(valueString);
+		int value = PurchaseModeFrame.convertStringToInt(valueString);
 		if (!validateNewMinValue(value))
 		{
 			return;
@@ -813,7 +690,7 @@ public final class PurchaseModeFrame extends JDialog
 
 	private void renewAbilityScoreCostTable()
 	{
-		abilityScoreCostTable = new JTable();
+		JTable abilityScoreCostTable = new JTable();
 
 		abilityScoreCostTable.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		abilityScoreCostTable.setModel(purchaseModel);
@@ -860,7 +737,7 @@ public final class PurchaseModeFrame extends JDialog
 	/**
 	 * @param statMin The new lowest value a purchase mode can take a stat to.
 	 */
-	public void setStatMin(int statMin)
+	void setStatMin(int statMin)
 	{
 		this.statMin = statMin;
 	}
@@ -868,27 +745,27 @@ public final class PurchaseModeFrame extends JDialog
 	/**
 	 * @param statMax The new highest value a purchase mode can take a stat to.
 	 */
-	public void setStatMax(int statMax)
+	void setStatMax(int statMax)
 	{
 		this.statMax = statMax;
 	}
 
-	private class PurchaseModel extends AbstractTableModel
+	private final class PurchaseModel extends AbstractTableModel
 	{
-		private boolean[] canEdit = new boolean[]{ false, true };
-		private String[] columnHeaders = new String[]{ LanguageBundle.getString("in_Prefs_abScore"), //$NON-NLS-1$
-			LanguageBundle.getString("in_Prefs_cost") }; //$NON-NLS-1$
+		private static final long serialVersionUID = 8257526994109828957L;
+		private final boolean[] canEdit = {false, true};
+		private final String[] columnHeaders = {LanguageBundle.getString("in_Prefs_abScore"), //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_cost")}; //$NON-NLS-1$
 		private Object[][] currentValues = null;
 		private Object[][] savedValues = null;
-		private Class<?>[] types = new Class[]{ Integer.class, Integer.class };
+		private final Class<?>[] types = new Class[]{Integer.class, Integer.class};
 		private int currentPurchaseScoreMax = 10;
 		private int currentPurchaseScoreMin = 10; // Start at the average stat
 		private int savedPurchaseScoreMax = 0;
 		private int savedPurchaseScoreMin = 0;
 
-		PurchaseModel()
+		private PurchaseModel()
 		{
-			super();
 
 			// Initialize the saved values
 			initValues();
@@ -968,14 +845,14 @@ public final class PurchaseModeFrame extends JDialog
 		/**
 		 * Copy the saved purchase mode to the current one
 		 */
-		public void copySavedToCurrent()
+		private void copySavedToCurrent()
 		{
 			if (savedValues != null)
 			{
 				currentPurchaseScoreMin = savedPurchaseScoreMin;
 				currentPurchaseScoreMax = savedPurchaseScoreMax;
 
-				final int nrEntries = currentPurchaseScoreMax - currentPurchaseScoreMin + 1;
+				final int nrEntries = (currentPurchaseScoreMax - currentPurchaseScoreMin) + 1;
 
 				currentValues = new Object[nrEntries][2];
 
@@ -990,7 +867,7 @@ public final class PurchaseModeFrame extends JDialog
 		/**
 		 * Initialise the values
 		 */
-		public void initValues()
+		private void initValues()
 		{
 			// get the ability score costs from settings
 			int[] scoreCosts = SettingsHandler.getGame().getAbilityScoreCost();
@@ -1003,11 +880,11 @@ public final class PurchaseModeFrame extends JDialog
 
 				savedValues = new Object[scoreCosts.length][2];
 
-				for (int i = savedPurchaseScoreMin, index; i <= savedPurchaseScoreMax; ++i)
+				for (int i = savedPurchaseScoreMin; i <= savedPurchaseScoreMax; ++i)
 				{
-					index = i - savedPurchaseScoreMin;
-					savedValues[index][0] = Integer.valueOf(i);
-					savedValues[index][1] = Integer.valueOf(scoreCosts[index]);
+					int index = i - savedPurchaseScoreMin;
+					savedValues[index][0] = i;
+					savedValues[index][1] = scoreCosts[index];
 				}
 			}
 			else
@@ -1015,12 +892,9 @@ public final class PurchaseModeFrame extends JDialog
 				savedPurchaseScoreMin = 10;
 				savedPurchaseScoreMax = 10;
 
-				scoreCosts = new int[1];
-				scoreCosts[0] = 0;
-
 				savedValues = new Object[1][2];
-				savedValues[0][0] = Integer.valueOf(10);
-				savedValues[0][1] = Integer.valueOf(0);
+				savedValues[0][0] = 10;
+				savedValues[0][1] = 0;
 			}
 
 			//
@@ -1031,35 +905,37 @@ public final class PurchaseModeFrame extends JDialog
 		}
 
 		/** Scale rises in the maximum purchase cost <strong>after</strong> a new, empty cost row has been added.
-		 * @return int */
-		public int predictNextPurchaseCostMax()
+		 * @return int
+		 */
+		private int predictNextPurchaseCostMax()
 		{
 			int maxIndex = getRowCount() - 2; // have already added the new row
-			int max = ((Integer) getValueAt(maxIndex, 1)).intValue();
+			int max = (Integer) getValueAt(maxIndex, 1);
 
 			if (getRowCount() == 2) // initial and one empty
 			{
 				return max + 1;
 			}
 
-			int penultimate = ((Integer) getValueAt(maxIndex - 1, 1)).intValue();
+			int penultimate = (Integer) getValueAt(maxIndex - 1, 1);
 
 			return max + (max - penultimate);
 		}
 
 		/** Scale drops in the minimum purchase cost <strong>after</strong> a new, empty cost row has been added.
-		 * @return int*/
-		public int predictNextPurchaseCostMin()
+		 * @return int
+		 */
+		private int predictNextPurchaseCostMin()
 		{
 			int minIndex = 1; // Have already added the new row
-			int min = ((Integer) getValueAt(minIndex, 1)).intValue();
+			int min = (Integer) getValueAt(minIndex, 1);
 
 			if (getRowCount() == 2) // initial and one empty
 			{
 				return min - 1;
 			}
 
-			int penultimate = ((Integer) getValueAt(minIndex + 1, 1)).intValue();
+			int penultimate = (Integer) getValueAt(minIndex + 1, 1);
 
 			return min - (penultimate - min);
 		}
@@ -1068,7 +944,7 @@ public final class PurchaseModeFrame extends JDialog
 		 * @param purchaseScoreMax New value of property purchaseScoreMax.
 		 * @return true or false
 		 */
-		boolean setPurchaseScoreMax(int purchaseScoreMax)
+		private boolean setPurchaseScoreMax(int purchaseScoreMax)
 		{
 			if ((purchaseScoreMax >= 0) && (purchaseScoreMax >= currentPurchaseScoreMin))
 			{
@@ -1083,7 +959,7 @@ public final class PurchaseModeFrame extends JDialog
 		/** Getter for property purchaseScoreMax.
 		 * @return Value of property purchaseScoreMax.
 		 */
-		int getPurchaseScoreMax()
+		private int getPurchaseScoreMax()
 		{
 			return currentPurchaseScoreMax;
 		}
@@ -1092,7 +968,7 @@ public final class PurchaseModeFrame extends JDialog
 		 * @param purchaseScoreMin New value of property purchaseScoreMin.
 		 * @return true or false
 		 */
-		boolean setPurchaseScoreMin(int purchaseScoreMin)
+		private boolean setPurchaseScoreMin(int purchaseScoreMin)
 		{
 			if (purchaseScoreMin <= currentPurchaseScoreMax)
 			{
@@ -1107,14 +983,14 @@ public final class PurchaseModeFrame extends JDialog
 		/** Getter for property purchaseScoreMin.
 		 * @return Value of property purchaseScoreMin.
 		 */
-		int getPurchaseScoreMin()
+		private int getPurchaseScoreMin()
 		{
 			return currentPurchaseScoreMin;
 		}
 
-		void appendRows(int nrRows)
+		private void appendRows(int nrRows)
 		{
-			final int nrEntries = currentPurchaseScoreMax - currentPurchaseScoreMin + 1;
+			final int nrEntries = (currentPurchaseScoreMax - currentPurchaseScoreMin) + 1;
 
 			Object[][] newValues = new Object[nrEntries][2];
 
@@ -1132,23 +1008,23 @@ public final class PurchaseModeFrame extends JDialog
 
 				for (int i = 0; i < nrRows; ++i)
 				{
-					final int score = (i + currentPurchaseScoreMax) - nrRows + 1;
-					int preVal = -1;
-					newValues[i + preLength][0] = Integer.valueOf(score);
+					final int score = ((i + currentPurchaseScoreMax) - nrRows) + 1;
+					newValues[i + preLength][0] = score;
 
+					int preVal = -1;
 					if ((i + preLength) != 0)
 					{
-						preVal = ((Integer) newValues[(i + preLength) - 1][1]).intValue();
+						preVal = (Integer) newValues[(i + preLength) - 1][1];
 					}
 
-					newValues[i + preLength][1] = Integer.valueOf(preVal + 1);
+					newValues[i + preLength][1] = preVal + 1;
 				}
 			}
 
 			currentValues = newValues;
 		}
 
-		void keepNewValues()
+		private void keepNewValues()
 		{
 			// set the current values into the settings
 			SettingsHandler.getGame().clearPointBuyStatCosts();
@@ -1157,13 +1033,13 @@ public final class PurchaseModeFrame extends JDialog
 			{
 				PointBuyCost pbc = new PointBuyCost();
 				pbc.setName(Integer.toString(i));
-				pbc.setBuyCost(((Integer) currentValues[i - currentPurchaseScoreMin][1]).intValue());
+				pbc.setBuyCost((Integer) currentValues[i - currentPurchaseScoreMin][1]);
 				SettingsHandler.getGame().addPointBuyStatCost(pbc);
 			}
 
 			AbstractReferenceContext ref = SettingsHandler.getGame().getModeContext().getReferenceContext();
-			List<PointBuyMethod> methods = new ArrayList<PointBuyMethod>(ref
-					.getConstructedCDOMObjects(PointBuyMethod.class));
+			Collection<PointBuyMethod> methods = new ArrayList<>(ref
+                    .getConstructedCDOMObjects(PointBuyMethod.class));
 			for (int i = 0, x = currentPurchaseMethods.getItemCount(); i < x; ++i)
 			{
 				final PointBuyMethod pbm = (PointBuyMethod) currentPurchaseMethods.getItemAt(i);
@@ -1180,15 +1056,15 @@ public final class PurchaseModeFrame extends JDialog
 					masterPBM.setPointFormula(pbm.getPointFormula());
 				}
 			}
-			for (PointBuyMethod pbm : methods)
+			for (final PointBuyMethod pbm : methods)
 			{
 				ref.forget(pbm);
 			}
 		}
 
-		void prependRows(int nrRows)
+		private void prependRows(int nrRows)
 		{
-			final int nrEntries = currentPurchaseScoreMax - currentPurchaseScoreMin + 1;
+			final int nrEntries = (currentPurchaseScoreMax - currentPurchaseScoreMin) + 1;
 
 			Object[][] newValues = new Object[nrEntries][2];
 
@@ -1207,7 +1083,7 @@ public final class PurchaseModeFrame extends JDialog
 				for (int i = 0; i < nrRows; ++i)
 				{
 					final int score = i + currentPurchaseScoreMin;
-					newValues[i][0] = Integer.valueOf(score);
+					newValues[i][0] = score;
 
 //					newValues[i][1] = Integer.valueOf(tblStart - nrRows + i);
 				}
@@ -1220,7 +1096,7 @@ public final class PurchaseModeFrame extends JDialog
 		/**
 		 * Reset the cost of all rows, starting from 0 for the lowest.
 		 */
-		void resetAllCosts()
+		private void resetAllCosts()
 		{
 			int cost = 0;
 			for (int i = 0; i < currentValues.length; i++)

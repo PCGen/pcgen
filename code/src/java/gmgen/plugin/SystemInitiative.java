@@ -15,10 +15,10 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  SystemInitiative.java
  */
 package gmgen.plugin;
+
+import gmgen.plugin.dice.Dice;
 
 /**
  * Deals with the initiative part of the GMGen plugin 
@@ -27,8 +27,8 @@ public class SystemInitiative
 {
 	protected Dice die;
 	protected SystemAttribute attribute;
-	protected int incrementalBonus;
-	protected int currentInitiative = 0;
+	int incrementalBonus;
+	private int currentInitiative = 0;
 	protected int mod = 0;
 	protected int roll;
 
@@ -46,18 +46,9 @@ public class SystemInitiative
 
 	/**
 	 * Constructor
-	 * @param attribute
-	 */
-	public SystemInitiative(SystemAttribute attribute)
-	{
-		this(attribute, 0);
-	}
-
-	/**
-	 * Constructor
 	 * @param bonus
 	 */
-	public SystemInitiative(int bonus)
+	SystemInitiative(int bonus)
 	{
 		this(new SystemAttribute("Attribute", 10), bonus);
 	}
@@ -74,7 +65,7 @@ public class SystemInitiative
 	 * Set the attribute
 	 * @param attribute
 	 */
-	public void setAttribute(SystemAttribute attribute)
+	public void setAttribute(final SystemAttribute attribute)
 	{
 		this.attribute = attribute;
 	}
@@ -95,7 +86,7 @@ public class SystemInitiative
 	public void setBonus(int bonus)
 	{
 		this.incrementalBonus = bonus - attribute.getModifier();
-		if (getCurrentInitiative() > 0)
+		if (currentInitiative > 0)
 		{
 			setCurrentInitiative(roll + getModifier() + mod);
 		}
@@ -113,7 +104,7 @@ public class SystemInitiative
 	/**
 	 * Reset the current initiative to 0
 	 */
-	public void resetCurrentInitiative()
+	void resetCurrentInitiative()
 	{
 		currentInitiative = 0;
 	}
@@ -122,16 +113,9 @@ public class SystemInitiative
 	 * Set the current initiative
 	 * @param currentInitiative
 	 */
-	public void setCurrentInitiative(int currentInitiative)
+	public void setCurrentInitiative(final int currentInitiative)
 	{
-		if (currentInitiative >= 1)
-		{
-			this.currentInitiative = currentInitiative;
-		}
-		else
-		{
-			this.currentInitiative = 1;
-		}
+		this.currentInitiative = (currentInitiative >= 1) ? currentInitiative : 1;
 	}
 
 	/**
@@ -154,19 +138,10 @@ public class SystemInitiative
 
 	/**
 	 * Set the new curent initiative and return it
-	 * @return the new curent initiative
-	 */
-	public int check()
-	{
-		return check(0);
-	}
-
-	/**
-	 * Set the new curent initiative and return it
 	 * @param modifier
 	 * @return the new curent initiative
 	 */
-	public int check(int modifier)
+	public int check(final int modifier)
 	{
 		roll = die.roll();
 		this.mod = modifier;
@@ -180,9 +155,9 @@ public class SystemInitiative
 	 * @param aRoll
 	 * @return the new curent initiative
 	 */
-	public int checkExtRoll(int aRoll)
+	void checkExtRoll(int aRoll)
 	{
-		return checkExtRoll(aRoll, 0);
+		checkExtRoll(aRoll, 0);
 	}
 
 	/**
@@ -191,7 +166,7 @@ public class SystemInitiative
 	 * @param modifier
 	 * @return the new curent initiative
 	 */
-	public int checkExtRoll(int aRoll, int modifier)
+	private int checkExtRoll(int aRoll, int modifier)
 	{
 		this.roll = aRoll;
 		this.mod = modifier;
@@ -209,13 +184,4 @@ public class SystemInitiative
 		return checkExtRoll(20, 0);
 	}
 
-	/**
-	 * Refocus with a modifier, (calls checkExtRoll(modifer))
-	 * @param modifier
-	 * @return current initiative
-	 */
-	public int refocus(int modifier)
-	{
-		return checkExtRoll(20, modifier);
-	}
 }

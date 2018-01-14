@@ -1,5 +1,4 @@
 /*
- * MapKeyMapTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14/09/2008 09:53:37
- *
- * $Id: $
  */
 package pcgen.cdom.util;
 
@@ -27,25 +22,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.helper.Aspect;
 
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 /**
- * The Class <code>MapKeyMapTest</code> test that the MapKeyMap
+ * The Class {@code MapKeyMapTest} test that the MapKeyMap
  * class is functioning correctly. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
-public class MapKeyMapTest extends TestCase
+public class MapKeyMapTest
 {
 	
 	private static final String BREED = "shetland sheepdog";
@@ -63,31 +54,30 @@ public class MapKeyMapTest extends TestCase
 	private Aspect nameAspect;
 	private Aspect breedAspect;
 
-	/* (non-Javadoc)
-	 * @see pcgen.PCGenTestCase#setUp()
+	/**
+	 * @see junit.framework.TestCase#setUp()
 	 */
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		mapKeyMap = new MapKeyMap();
 		ageKey = AspectName.getConstant("agE");
 		nameKey = AspectName.getConstant("Name");
 		breedKey = AspectName.getConstant("breed");
 		
-		List<Aspect> ageList = new ArrayList<Aspect>();
+		List<Aspect> ageList = new ArrayList<>();
 		ageAspect = new Aspect("age", AGE);
 		ageList.add(ageAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageList);
-		List<Aspect> nameList = new ArrayList<Aspect>();
+		List<Aspect> nameList = new ArrayList<>();
 		nameAspect = new Aspect("name", NAME);
 		nameList.add(nameAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, nameKey, nameList);
-		List<Aspect> breedList = new ArrayList<Aspect>();
+		List<Aspect> breedList = new ArrayList<>();
 		breedAspect = new Aspect("breed", BREED);
 		breedList.add(breedAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, breedKey, breedList);
-		
-		super.setUp();
+
 	}
 
 	/**
@@ -112,8 +102,8 @@ public class MapKeyMapTest extends TestCase
 	{
 		MapKeyMap newMap = new MapKeyMap();
 
-		assertEquals("Expect an empty map intially", null, newMap
-			.get(MapKey.ASPECT, ageKey));
+		assertNull("Expect an empty map intially", newMap
+				.get(MapKey.ASPECT, ageKey));
 		
 		newMap.putAll(mapKeyMap);
 		assertEquals("Retrieve 3rd item by both keys", breedAspect, newMap
@@ -131,7 +121,7 @@ public class MapKeyMapTest extends TestCase
 		assertEquals("Validate initial value of age", ageAspect, mapKeyMap
 			.get(MapKey.ASPECT, ageKey).get(0));
 		Aspect newage = new Aspect("age", "2");
-		List<Aspect> ageList = new ArrayList<Aspect>();
+		List<Aspect> ageList = new ArrayList<>();
 		ageList.add(newage);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageList);
 		assertEquals("Validate new value of age", newage, mapKeyMap
@@ -148,8 +138,8 @@ public class MapKeyMapTest extends TestCase
 			.get(MapKey.ASPECT, breedKey).get(0));
 		assertTrue("Should be true as item is present", mapKeyMap
 			.removeFromMapFor(MapKey.ASPECT, breedKey));
-		assertEquals("Validate breed is no longer present", null, mapKeyMap
-			.get(MapKey.ASPECT, breedKey));
+		assertNull("Validate breed is no longer present", mapKeyMap
+				.get(MapKey.ASPECT, breedKey));
 		assertFalse("Should be false as item is no longer present", mapKeyMap
 			.removeFromMapFor(MapKey.ASPECT, breedKey));
 	}

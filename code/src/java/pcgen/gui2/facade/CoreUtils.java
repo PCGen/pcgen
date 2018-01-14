@@ -25,6 +25,7 @@ import java.util.Map;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Identified;
@@ -40,18 +41,20 @@ import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.util.Logging;
 
-public class CoreUtils
+class CoreUtils
 {
-	public static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc,
-		CorePerspective pers)
+	private CoreUtils()
+	{
+	}
+
+	static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc,
+	                                                       CorePerspective pers)
 	{
 		CharID id = pc.getCharID();
-		List<CoreViewNodeFacade> coreViewList = new ArrayList<CoreViewNodeFacade>();
+		List<CoreViewNodeFacade> coreViewList = new ArrayList<>();
 		Collection<Object> locations = CorePerspectiveDB.getLocations(pers);
-		HashMapToList<Object, FacetView<T>> sources =
-				new HashMapToList<Object, FacetView<T>>();
-		Map<FacetView<T>, CoreViewNodeBase> facetToNode =
-				new HashMap<FacetView<T>, CoreViewNodeBase>();
+		MapToList<Object, FacetView<T>> sources = new HashMapToList<>();
+		Map<FacetView<T>, CoreViewNodeBase> facetToNode = new HashMap<>();
 
 		/*
 		 * Create the nodes that are part of this perspective.
@@ -60,8 +63,7 @@ public class CoreUtils
 		{
 			//Create (w/ identifier)
 			FacetView<T> view = CorePerspectiveDB.getView(pers, location);
-			LocationCoreViewNode<T> node =
-					new LocationCoreViewNode<T>(location);
+			CoreViewNodeBase node = new LocationCoreViewNode<>(location);
 			facetToNode.put(view, node);
 			coreViewList.add(node);
 			//Store what facets listen to my content (for use later)
@@ -101,7 +103,7 @@ public class CoreUtils
 			 */
 			for (T obj : view.getSet(id))
 			{
-				List<String> sourceDesc = new ArrayList<String>();
+				List<String> sourceDesc = new ArrayList<>();
 				for (Object src : view.getSources(id, obj))
 				{
 					if (src instanceof Identified)
@@ -129,7 +131,7 @@ public class CoreUtils
 				}
 				//Insert the contents of the facet as children of this node
 				ObjectCoreViewNode<T> sourceNode =
-						new ObjectCoreViewNode<T>(pc, obj, sourceDesc);
+                        new ObjectCoreViewNode<>(pc, obj, sourceDesc);
 				sourceNode.addGrantedByNode(node);
 				coreViewList.add(sourceNode);
 			}
@@ -211,45 +213,30 @@ public class CoreUtils
 			this.object = object;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getNodeType()
 		{
 			return "Location";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKey()
 		{
 			return object.toString();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getRequirements()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{
@@ -268,25 +255,19 @@ public class CoreUtils
 		/**
 		 * Create a new instance of CoreUtils.LocationCoreViewNode
 		 */
-		public ObjectCoreViewNode(PlayerCharacter pc, T object, List<String> sourceDesc)
+		private ObjectCoreViewNode(PlayerCharacter pc, T object, List<String> sourceDesc)
 		{
 			this.pc = pc;
 			this.object = object;
 			this.sourceDesc = sourceDesc;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getNodeType()
 		{
 			return "Source";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKey()
 		{
@@ -297,27 +278,18 @@ public class CoreUtils
 			return object.toString();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
 			return StringUtil.join(sourceDesc, ", ");
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getRequirements()
 		{
 			return CoreUtils.getRequirementsInfo(pc, object);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{

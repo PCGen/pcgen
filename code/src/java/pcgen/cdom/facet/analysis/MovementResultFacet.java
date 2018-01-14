@@ -51,7 +51,6 @@ import pcgen.util.enumeration.Load;
  * this is storing the resulting values post aggregation of those Movement
  * objects.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, CDOMObject>
@@ -68,7 +67,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private LoadFacet loadFacet;
 
-	public static final double[] EMPTY_DOUBLE_ARRAY = new double[0];
+	private static final double[] EMPTY_DOUBLE_ARRAY = new double[0];
 
 	/**
 	 * Returns the movement value of the given type for the Player Character
@@ -247,7 +246,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 	
 					if (!found)
 					{
-						setMyMoveRates(moveType, 0.0, Double.valueOf(0.0), "", 0);
+						setMyMoveRates(moveType, 0.0, 0.0, "", 0);
 					}
 				}
 			}
@@ -309,8 +308,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 								movements[i] = moveRate;
 							}
 							if (multOp != null
-									&& (movementMultOp[i] == null || multOp
-											.length() > 0))
+									&& (movementMultOp[i] == null || !multOp.isEmpty()))
 							{
 								movementMult[i] = moveMult;
 								movementMultOp[i] = multOp;
@@ -524,7 +522,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 
 		public List<NamedValue> getMovementValues(CharID id)
 		{
-			List<NamedValue> list = new ArrayList<NamedValue>();
+			List<NamedValue> list = new ArrayList<>();
 			for (int i = 0; i < countMovementTypes(); i++)
 			{
 				list.add(new NamedValue(getMovementType(i), movement(id, i)));
@@ -628,7 +626,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 			{
 				String formula = SettingsHandler.getGame().getLoadInfo()
 						.getLoadMoveFormula(load.toString());
-				if (formula.length() != 0)
+				if (!formula.isEmpty())
 				{
 					formula = formula.replaceAll(Pattern.quote("$$MOVE$$"),
 							Double.toString(Math.floor(unencumberedMove)));

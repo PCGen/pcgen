@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Sun Sep  4 16:33:31 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/products/btpy978r?Pathfinder-Player-Companion-People-of-the-River	SOURCEDATE:2014-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 27 April 2017
+
+# ==============================
+# Magical Items
+# ==============================
+
+Drowning Medallion				TYPE:Magic.Wondrous.Amulet.Consumable		COST:1000	WT:1		SOURCEPAGE:p.28
+Metalseeker Swarm					TYPE:Magic.Wondrous					COST:5500	WT:3		SOURCEPAGE:p.28
+Oath Breaker's Brand				TYPE:Magic.Wondrous					COST:2500	WT:2		SOURCEPAGE:p.28
+Player's Prize					TYPE:Magic.Wondrous					COST:3000	WT:1		SOURCEPAGE:p.28
+Oakstewards' Favor	NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet				COST:6550			SOURCEPAGE:p.29
+Riverclub Ring					TYPE:Magic.Ring						COST:1000			SOURCEPAGE:p.29
+Riverseer Plate					TYPE:Magic.Wondrous					COST:5000	WT:.5		SOURCEPAGE:p.29
+Steelbone Frame					TYPE:Magic.Wondrous					COST:6000	WT:35		SOURCEPAGE:p.29

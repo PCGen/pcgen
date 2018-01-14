@@ -29,6 +29,9 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * SubSchoolToken is a Primitive that represents the SubSchools that are on a Spell.
+ */
 public class SubSchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
@@ -63,7 +66,7 @@ public class SubSchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + subschool;
+		return getTokenName() + '=' + subschool;
 	}
 
 	@Override

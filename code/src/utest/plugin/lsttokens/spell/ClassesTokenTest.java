@@ -44,7 +44,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 {
 
 	static ClassesToken token = new ClassesToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

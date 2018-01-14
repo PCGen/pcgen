@@ -17,20 +17,16 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  PreferencesTrackingPanel.java
- *
- *  Created on August 29, 2002, 2:41 PM
  */
 package plugin.initiative.gui;
 
+import javax.swing.SwingConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
 /**
  *  Panel that tracks the misc preferences
- *
- *@author     devon
- *@since    April 7, 2003
  */
 public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 {
@@ -141,7 +137,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 
 		setLayout(new java.awt.GridBagLayout());
 
-		jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+		jSeparator1.setOrientation(SwingConstants.VERTICAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;

@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -39,13 +37,7 @@ public class LstexcludeTokenTest extends AbstractCampaignTokenTestCase
 	@Override
 	public Character getSeparator()
 	{
-		return Character.valueOf('|');
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
+		return '|';
 	}
 
 	@Override

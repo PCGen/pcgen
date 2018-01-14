@@ -18,7 +18,7 @@ package compare;
 
 import pcgen.base.test.InequalityTester;
 
-public class IgnoreInequality implements InequalityTest<Object>
+class IgnoreInequality implements InequalityTest<Object>
 {
 
 	@Override

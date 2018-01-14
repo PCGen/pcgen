@@ -138,7 +138,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 		Collection<Qualifier> quals = changes.getAdded();
-		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<String, CDOMSingleRef<?>>();
+		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<>();
 		for (Qualifier qual : quals)
 		{
 			Class<? extends Loadable> cl = qual.getQualifiedClass();
@@ -153,9 +153,9 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			map.addToListFor(key, ref);
 		}
-		Set<CDOMSingleRef<?>> set = new TreeSet<CDOMSingleRef<?>>(
+		Set<CDOMSingleRef<?>> set = new TreeSet<>(
 				ReferenceUtilities.REFERENCE_SORTER);
-		Set<String> returnSet = new TreeSet<String>();
+		Set<String> returnSet = new TreeSet<>();
 		for (String key : map.getKeySet())
 		{
 			set.clear();

@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 28/01/2008
- *
- * $Id$
  */
 
 package plugin.lsttokens.campaign;
@@ -41,13 +37,10 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
- * <code>UrlToken</code> is responsible for parsing the URL campaign token.
+ * {@code UrlToken} is responsible for parsing the URL campaign token.
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-01-27 22:03:36
  * -0500 (Sun, 27 Jan 2008) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class UrlToken implements CDOMPrimaryToken<Campaign>
 {
@@ -137,7 +130,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		Collection<CampaignURL> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			List<String> list = new ArrayList<String>();
+			List<String> list = new ArrayList<>();
 			for (CampaignURL curl : added)
 			{
 				StringBuilder sb = new StringBuilder();

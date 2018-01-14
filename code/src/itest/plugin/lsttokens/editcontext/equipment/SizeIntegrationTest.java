@@ -37,7 +37,7 @@ public class SizeIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 {
 
 	static SizeToken token = new SizeToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

@@ -1,5 +1,4 @@
 /*
- * EquipmentTreeTableModel.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 29, 2011, 1:57:14 PM
  */
 package pcgen.gui2.tabs.equip;
 
@@ -49,12 +47,7 @@ import pcgen.util.ListMap;
  * tree structure showing the equipment by its equipped location for a 
  * particular character and equipment set.
  * 
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *  
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class EquipmentTreeTableModel implements TreeTableModel, ListListener<EquipNode>, EquipmentTreeListener
 {
@@ -72,7 +65,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		this.character = character;
 		this.equipSet = equipSet;
 		pathMap = CollectionMaps.createListMap(HashMap.class, ArrayList.class);
-		bodySlotNodes = new ArrayList<EquipNode>();
+		bodySlotNodes = new ArrayList<>();
 		initPathMap();
 		equipSet.getNodes().addListListener(this);
 		equipSet.addEquipmentTreeListener(this);

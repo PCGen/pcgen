@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jul 15, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -30,15 +25,9 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
 /**
- * <code>SpellListKnownToken</code> outputs the number of spells you 
+ * {@code SpellListKnownToken} outputs the number of spells you
  * can know for the specified spellcaster class and level. For Clerics 
  * with domains, this does not include domain spells.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class SpellListKnownToken extends SpellListToken
@@ -96,7 +85,7 @@ public class SpellListKnownToken extends SpellListToken
 		if (aObject instanceof PCClass)
 		{
 			PCClass aClass = (PCClass) aObject;
-			knownNum = pc.getSpellSupport(aClass).getKnownForLevel(level, "null", pc);
+			knownNum = pc.getSpellSupport(aClass).getKnownForLevel(level, pc);
 		}
 
 		return knownNum;

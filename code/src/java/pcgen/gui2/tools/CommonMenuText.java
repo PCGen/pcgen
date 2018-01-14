@@ -28,7 +28,6 @@ import pcgen.system.LanguageBundle;
  * 
  * Used by pcgen and gmgen.
  *
- * @author Vincent Lhote
  */
 public class CommonMenuText
 {
@@ -46,7 +45,9 @@ public class CommonMenuText
 		a.putValue(Action.NAME, getName(prop, substitutes));
 		String shortDesc = getShortDesc(prop, substitutes);
 		if (shortDesc != null && !shortDesc.isEmpty())
+		{
 			a.putValue(Action.SHORT_DESCRIPTION, shortDesc);
+		}
 		a.putValue(Action.MNEMONIC_KEY, getMnemonic(prop));
 	}
 
@@ -77,7 +78,9 @@ public class CommonMenuText
 		m.setText(getName(prop, substitutes));
 		String shortDesc = getShortDesc(prop, substitutes);
 		if (shortDesc != null && !shortDesc.isEmpty())
+		{
 			m.setToolTipText(shortDesc);
+		}
 		m.setMnemonic(getMnemonic(prop));
 	}
 
@@ -91,7 +94,9 @@ public class CommonMenuText
 		b.setText(getName(prop, substitutes));
 		String shortDesc = getShortDesc(prop, substitutes);
 		if (shortDesc != null && !shortDesc.isEmpty())
+		{
 			b.setToolTipText(shortDesc);
+		}
 		b.setMnemonic(getMnemonic(prop));
 	}
 

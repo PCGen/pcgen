@@ -23,6 +23,7 @@ import java.util.Map;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.enumeration.DataSetID;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractSubAssociationFacet;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
@@ -37,16 +38,20 @@ import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
+import pcgen.output.actor.DescriptionActor;
 import pcgen.output.actor.DisplayNameActor;
 import pcgen.output.actor.EqTypeActor;
 import pcgen.output.actor.InfoActor;
+import pcgen.output.actor.IsVisibleToActor;
 import pcgen.output.actor.KeyActor;
 import pcgen.output.actor.OutputNameActor;
 import pcgen.output.actor.SourceActor;
+import pcgen.output.actor.TypeActor;
 import pcgen.output.base.OutputActor;
 import pcgen.rules.context.LoadContext;
 
@@ -79,6 +84,9 @@ public class CDOMWrapperInfoFacet
 		set(dsID, CDOMObject.class, "info", new InfoActor());
 		set(dsID, CDOMObject.class, "key", new KeyActor());
 		set(dsID, CDOMObject.class, "displayname", new DisplayNameActor());
+		set(dsID, CDOMObject.class, "type", new TypeActor());
+		set(dsID, PObject.class, "desc", new DescriptionActor(ListKey.DESCRIPTION));
+		set(dsID, PObject.class, "benefit", new DescriptionActor(ListKey.BENEFIT));
 		OutputNameActor outputNameActor = new OutputNameActor();
 		set(dsID, Ability.class, "outputname", outputNameActor);
 		set(dsID, ArmorProf.class, "outputname", outputNameActor);
@@ -98,6 +106,7 @@ public class CDOMWrapperInfoFacet
 		set(dsID, SizeAdjustment.class, "outputname", outputNameActor);
 		set(dsID, WeaponProf.class, "outputname", outputNameActor);
 		set(dsID, Equipment.class, "type", new EqTypeActor());
+		set(dsID, CDOMObject.class, "visibleto", new IsVisibleToActor());
 	}
 
 	/**
@@ -129,13 +138,10 @@ public class CDOMWrapperInfoFacet
 		return actor;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Map<String, OutputActor<?>> getSubComponentMap()
 	{
-		return new HashMap<String, OutputActor<?>>();
+		return new HashMap<>();
 	}
 
 	public void setDataSetInitializationFacet(

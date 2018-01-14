@@ -1,5 +1,4 @@
 /*
- *
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,24 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 26, 2005, 10:32 PM
- *
- * @author	Greg Bingleman <byngl@hotmail.com>
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package pcgen.persistence.lst.output.prereq;
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -48,6 +35,7 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import util.Alignment;
 
 /**
  * Tests PrerequisiteWriter code
@@ -377,11 +365,9 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREMULT:3,[PRETYPE:1,type1],[PRETYPE:1,type2,type3],[!PRETYPE:1,type4]",		"PREMULT:3,[PRETYPE:1,type1],[PRETYPE:1,type2,type3],[!PRETYPE:1,type4]",
 		"PRETYPE:1,Animal",																"PRETYPE:1,Animal",
 		"!PRETYPE:1,Animal",															"!PRETYPE:1,Animal",
-	// From PrerequisiteLanguageWriterTest.java
 		"!PRELANG:1,Dwarven,Elven",														"!PRELANG:1,Dwarven,Elven",
 		"PRELANG:2,Any",																"PRELANG:2,Any",
 		"!PRELANG:2,Any",																"!PRELANG:2,Any",
-	// From PrerequisiteSkillWriterTest.java
 		"PRESKILL:1,Ride=10",															"PRESKILL:1,Ride=10",
 		"!PRESKILL:1,Ride=10",															"!PRESKILL:1,Ride=10",
 		"PRESKILL:1,Ride=10,Listen=5",													"PRESKILL:1,Ride=10,Listen=5",
@@ -466,7 +452,7 @@ public class PrerequisiteWriterTest extends TestCase
 		SystemCollections.addToGameModeList(gamemode);
 		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SettingsHandler.setGame("3.5");
-		TestHelper.createAllAlignments();
+		Alignment.createAllAlignments();
 		TestHelper.makeSizeAdjustments();
 		FactKey.getConstant("IsPC", STR_MGR);
 		FactKey.getConstant("LEGS", STR_MGR);

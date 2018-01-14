@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractCNASEnforcingFacet;
-import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -41,10 +40,8 @@ import pcgen.util.enumeration.View;
  * A GrantedAbilityFacet is a DataFacet that contains information about Ability
  * objects that are contained in a Player Character,
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
-		DataFacetChangeListener<CharID, CNAbilitySelection>,
 		SetFacet<CharID, CNAbilitySelection>
 {
 
@@ -72,7 +69,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		Category<Ability> cat)
 	{
 		List<List<SourcedCNAS>> list = getList(id);
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		List<CNAbility> returnList = new ArrayList<>();
 		if (list != null)
 		{
 			for (List<SourcedCNAS> array : list)
@@ -90,7 +87,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 	public Collection<CNAbility> getPoolAbilities(CharID id,
 		Category<Ability> cat, Nature n)
 	{
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		List<CNAbility> returnList = new ArrayList<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
@@ -98,7 +95,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 			{
 				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().equals(cat)
-					&& cna.getNature().equals(n))
+					&& cna.getNature() == n)
 				{
 					returnList.add(cna);
 				}
@@ -114,7 +111,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 			//warning
 		}
 
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		List<CNAbility> returnList = new ArrayList<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
@@ -132,7 +129,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 
 	public Collection<CNAbility> getCNAbilities(CharID id)
 	{
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		List<CNAbility> returnList = new ArrayList<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
@@ -147,7 +144,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 	public Collection<CNAbility> getCNAbilities(CharID id,
 		Category<Ability> cat, Nature n)
 	{
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		List<CNAbility> returnList = new ArrayList<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
@@ -155,7 +152,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 			{
 				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().getParentCategory().equals(cat)
-					&& cna.getNature().equals(n))
+					&& cna.getNature() == n)
 				{
 					returnList.add(cna);
 				}
@@ -166,7 +163,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 
 	public Collection<CNAbility> getCNAbilities(CharID id, Ability ability)
 	{
-		Set<CNAbility> returnList = new HashSet<CNAbility>();
+		Set<CNAbility> returnList = new HashSet<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{

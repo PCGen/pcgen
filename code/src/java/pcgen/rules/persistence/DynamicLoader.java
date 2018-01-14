@@ -76,7 +76,7 @@ public class DynamicLoader extends SimpleLoader<Dynamic>
 			return null;
 		}
 		String name = token.substring(colonLoc + 1);
-		if ((name == null) || (name.length() == 0))
+		if ((name == null) || (name.isEmpty()))
 		{
 			Logging.errorPrint("Invalid Token '" + key + "' had no value in "
 				+ sourceURI);

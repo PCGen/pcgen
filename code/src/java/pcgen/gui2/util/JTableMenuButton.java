@@ -1,5 +1,4 @@
 /*
- * JTableCornerButton.java
  * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 29, 2016, 11:48:12 PM
  */
 package pcgen.gui2.util;
 
@@ -40,7 +38,6 @@ import javax.swing.table.TableColumn;
  * round corners which look ill suited in the square corner. We use a
  * JTableHeader so that the button looks like an additional table column.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class JTableMenuButton extends JTableHeader
 {

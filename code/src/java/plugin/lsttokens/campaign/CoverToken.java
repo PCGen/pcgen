@@ -94,7 +94,7 @@ public class CoverToken extends AbstractTokenWithSeparator<Campaign> implements
 			//empty indicates no token
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CampaignSourceEntry cse : added)
 		{
 			set.add(cse.getLSTformat());

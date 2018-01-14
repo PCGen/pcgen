@@ -25,3 +25,9 @@ Dragon Empire ~ Nagaji		VISIBLE:NO	AUTO:LANG|Nagaji|Tien	LANGBONUS:Abyssal,Aklo,
 Dragon Empire ~ Samsaran	VISIBLE:NO	AUTO:LANG|Samsaran|Tien	LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Nagaji,Senzar,Tengu,Wayang,TYPE=HumanRegional
 Dragon Empire ~ Tengu		VISIBLE:NO	AUTO:LANG|Tengu|Tien	LANGBONUS:TYPE=Spoken
 Dragon Empire ~ Wayang		VISIBLE:NO	AUTO:LANG|Wayang|Tien	LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Nagaji,Samsaran,Senzar,Tengu,TYPE=HumanRegional
+
+Kitsune		KEY:RaceSubtype ~ Kitsune				VISIBLE:NO					RACESUBTYPE:Kitsune			TYPE:Racial Heritage
+Nagaji		KEY:RaceSubtype ~ Nagaji				VISIBLE:NO					RACESUBTYPE:Nagaji			TYPE:Racial Heritage
+Samsaran		KEY:RaceSubtype ~ Samsaran				VISIBLE:NO					RACESUBTYPE:Samsaran			TYPE:Racial Heritage
+Tengu			KEY:RaceSubtype ~ Tengu					VISIBLE:NO					RACESUBTYPE:Tengu				TYPE:Racial Heritage
+Wayang		KEY:RaceSubtype ~ Wayang				VISIBLE:NO					RACESUBTYPE:Wayang			TYPE:Racial Heritage

@@ -19,7 +19,7 @@ package plugin.lsttokens.race;
 
 import java.util.Collection;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.math.OrderedPair;
@@ -64,14 +64,14 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		}
 		if (value.indexOf(',') == -1)
 		{
-			value = value + "," + 0;
+			value = value + ',' + 0;
 		}
 		FormatManager<OrderedPair> formatManager =
 				(FormatManager<OrderedPair>) context.getReferenceContext()
 					.getFormatManager("ORDEREDPAIR");
 		ScopeInstance scopeInst = context.getActiveScope();
 		LegalScope scope = scopeInst.getLegalScope();
-		Modifier<OrderedPair> modifier;
+		PCGenModifier<OrderedPair> modifier;
 		try
 		{
 			modifier =
@@ -85,7 +85,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ MOD_IDENTIFICATION + " had value " + value
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
-		OrderedPair pair = modifier.process(null, null, null);
+		OrderedPair pair = modifier.process(null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
 			return new ParseResult.Fail(getTokenName() + " had value " + value
@@ -101,11 +101,11 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " internal error: found invalid var name: " + VAR_NAME
-				+ ", Modified on " + race.getClass().getSimpleName() + " "
+				+ ", Modified on " + race.getClass().getSimpleName() + ' '
 				+ race.getKeyName(), context);
 		}
 		VarModifier<OrderedPair> vm =
-				new VarModifier<OrderedPair>(VAR_NAME, scope, modifier);
+				new VarModifier<>(VAR_NAME, scope, modifier);
 		context.getObjectContext().addToList(race, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
 	}
@@ -121,14 +121,14 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		{
 			for (VarModifier<?> vm : added)
 			{
-				Modifier<?> modifier = vm.modifier;
-				if (VAR_NAME.equals(vm.varName)
-					&& (vm.legalScope.getParentScope() == null)
+				PCGenModifier<?> modifier = vm.getModifier();
+				if (VAR_NAME.equals(vm.getVarName())
+					&& (vm.getLegalScope().getParentScope() == null)
 					&& (modifier.getUserPriority() == MOD_PRIORITY)
-					&& (vm.modifier.getIdentification()
+					&& (vm.getModifier().getIdentification()
 						.equals(MOD_IDENTIFICATION)))
 				{
-					face = vm.modifier.getInstructions();
+					face = vm.getModifier().getInstructions();
 					if (face.endsWith(",0"))
 					{
 						face = face.substring(0, face.length() - 2);

@@ -1,5 +1,4 @@
 /*
- * PartyFacadeImpl.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 6, 2011, 7:51:52 PM
  */
 package pcgen.gui2.facade;
 
@@ -35,19 +33,16 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implements PartyFacade
 {
 
-	private DefaultReferenceFacade<File> fileRef = new DefaultReferenceFacade<File>();
+	private final DefaultReferenceFacade<File> fileRef = new DefaultReferenceFacade<>();
 
 	@Override
 	public void export(ExportHandler theHandler, BufferedWriter buf)
 	{
-		Collection<PlayerCharacter> characters = new ArrayList<PlayerCharacter>();
+		Collection<PlayerCharacter> characters = new ArrayList<>();
 		for (CharacterFacade character : this)
 		{
 			if (character instanceof CharacterFacadeImpl)
@@ -73,12 +68,12 @@ public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implemen
 	public void save()
 	{
 		File partyFile = fileRef.get();
-		List<File> characterFiles = new ArrayList<File>();
+		List<File> characterFiles = new ArrayList<>();
 		for (CharacterFacade character : this)
 		{
 			characterFiles.add(character.getFileRef().get());
 		}
-		(new PCGIOHandler()).write(partyFile, characterFiles);
+		PCGIOHandler.write(partyFile, characterFiles);
 	}
 
 }

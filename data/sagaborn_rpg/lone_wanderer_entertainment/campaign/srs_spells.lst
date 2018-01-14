@@ -1,0 +1,1723 @@
+Aid
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:1 creature
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:Aid grants the target a +1 morale bonus to attack rolls and saves against fear effects, plus temporary hit points equal to 1d8 + caster level.
+Alarm
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:25'
+	TARGETAREA:20' radius from target:point
+	DURATION:2 hours per level
+	SAVEINFO:None
+	DESC:Alarm sounds a mental or audible alarm each time a creature of Tiny or larger size enters the warded area or touches it. A creature that speaks the password (determined by you at the time of casting) does not set off the Alarm. You decide at the time of casting whether the Alarm will be mental or audible.
+Alter Self
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Self
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:You assume the form of a creature of the same type as your normal form. The new form must be within one size category of your normal size. The maximum HD of an assumed form is equal to your caster level, to a maximum of 5 HD at 5th level. You can change into a member of your own kind or even into yourself. You retain your own ability scores. Your class and level, hit points, alignment, base attack bonus, and base save bonuses all remain the same. You retain all supernatural and spell-like special attacks and qualities of your normal form, except for those requiring a body part that the new form does not have (such as a mouth for a breath weapon or eyes for a gaze attack). You keep all extraordinary special attacks and qualities derived from class levels, but you lose any from your normal form that are not derived from class levels. If the new form is capable of speech, you can communicate normally. You retain any spellcasting ability you had in your original form, but the new form must be able to speak intelligibly (that is, speak a language) to use verbal components and must have limbs capable of fine manipulation to use somatic or material components. When the change occurs, your equipment, if any, either remains worn or held by the new form (if it is capable of wearing or holding the item), or melds into the new form and becomes nonfunctional. When you revert to your true form, any objects previously melded into the new form reappear in the same location on your body they previously occupied and are once again functional. Any new items you wore in the assumed form and can't wear in your normal form fall off and land at your feet; any that you could wear in either form or carry in a body part common to both forms at the time of reversion are still held in the same way. Any part of the body or piece of equipment that is separated from the whole reverts to its true form.
+Animal Messenger
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:25'
+	TARGETAREA:One Tiny animal
+	DURATION:One day per level
+	SAVEINFO:None
+	DESC:You compel a Tiny animal to go to a spot you designate. The most common use for this spell is to get an animal to carry a message to your allies. The animal cannot be one tamed or trained by someone else, including such creatures as familiars and animal companions.
+Animal Trance
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:25'
+	TARGETAREA:Animals or magical beasts
+	DURATION:Concentration
+	SAVEINFO:Will negates
+	DESC:Your swaying motions and music (or singing, or chanting) compel animals and magical beasts to do nothing but watch you. Only a creature with an Intelligence score of 1 or 2 can be fascinated by this spell. Roll 2d6 to determine the total number of HD worth of creatures that you fascinate. The closest targets are selected first until no more targets within range can be affected. A magical beast, a dire animal, or an animal trained to attack or guard is allowed a saving throw; an animal not trained to attack or guard is not.
+Animate Dead
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One or more corpses
+	DURATION:See below
+	SAVEINFO:None
+	DESC:This spell turns the bones or bodies of dead creatures into undead skeletons or zombies that follow your spoken commands. The undead can follow you, or they can remain in an area and attack any creature (or just a specific kind of creature) entering the place. They remain animated until they are destroyed. (A destroyed skeleton or zombie can't be animated again.) Regardless of the type of undead you create with this spell, you can't create more HD of undead than twice your caster level with a single casting of animate dead. (The Desecrate spell doubles this limit.) The undead you create remain under your control indefinitely. No matter how many times you use this spell, however, you can control only 4 HD worth of undead creatures per caster level. If you exceed this number, all the newly-created creatures fall under your control, and any excess undead from previous castings become uncontrolled. (You choose which creatures are released.) If you are a cleric, any undead you might command by virtue of your power to command or rebuke undead do not count toward the limit.
+	DESC:&nl;Skeletons - A skeleton can be created only from a mostly-intact corpse or skeleton. The corpse must have bones. If a skeleton is made from a corpse, the flesh falls off the bones.
+	DESC:&nl;Zombies - A zombie can be created only from a mostly-intact corpse. The corpse must be that of a creature with a true anatomy.
+Animate Rope
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One ropelike object
+	DURATION:1 round per level
+	SAVEINFO:None
+	DESC:You can animate a nonliving ropelike object. The possible commands are "coil" (form a neat, coiled stack), "coil and knot", "loop", "loop and knot", "tie and knot" and the opposites of all of the above ("uncoil" and so forth). You can give one command each round as a move action, as if directing an active spell. The rope itself and any knots tied in it are not magical. The spell cannot animate objects carried or worn by a creature.
+Arcane Eye
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:10 minutes
+	RANGE:Unlimited
+	TARGETAREA:N/A
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:You create an invisible magical sensor that sends you visual information. You can create the Arcane Eye at any point you can see, but it can then travel outside your line of sight without hindrance. An Arcane Eye travels at 30' per round (300' per minute) if viewing an area ahead as a human would (primarily looking at the floor) or 10' per round (100' per minute) if examining the ceiling and walls as well as the floor ahead. It sees exactly as you would see if you were there. The Eye can travel in any direction as long as the spell lasts. Solid barriers block its passage, but it can pass through a hole or space as small as 1" in diameter. The Eye can't enter another plane of existence, even through a gate or similar magical portal. You must concentrate to use an Arcane Eye. If you do not concentrate, the Eye is inert until you again concentrate.
+Arcane Guard
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 hour per level
+	SAVEINFO:Will negates
+	DESC:You imbue a suit of armor or a shield with an enhancement bonus of +1 per four caster levels.
+Arcane Lock
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Door, chest, or portal
+	DURATION:Permanent
+	SAVEINFO:None
+	DESC:An Arcane Lock spell cast upon a door, chest, or portal magically locks it. You can freely pass your own Arcane Lock without affecting it; otherwise, a door or object secured with this spell can be opened only by breaking it or with a successful Dispel Magic or Knock spell. Add 10 to the normal DC to break open a door or portal affected by this spell. (A Knock spell does not remove an Arcane Lock; it only suppresses the effect for 10 minutes.)
+Arcane Mark
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Any non-living
+	DURATION:Permanent
+	SAVEINFO:None
+	DESC:This spell allows you to inscribe your personal rune or mark, which can consist of no more than six characters. The writing can be visible or invisible. An Arcane Mark spell enables you to etch the rune upon any substance without harm to the material upon which it is placed. If an invisible Mark is made, a Detect Magic spell causes it to glow and be visible, though not necessarily understandable.
+Barkskin
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Living creature touched
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:Barkskin toughens a creature's skin. The effect grants a +3 enhancement bonus to the creature's existing natural armor bonus.
+Bestow Curse
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:Permanent
+	SAVEINFO:Will negates
+	DESC:You place a curse on the subject. Choose one of the following three effects:- A -6 penalty to an ability score (minimum ability score 1). - A -4 penalty to attack rolls, saves, ability checks, and skill checks. - Each turn, the target has a 50%% chance to act normally; otherwise, it takes no action. You may also invent your own curse, but it should be no more powerful than those described above.
+Blessberry
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Edible berries
+	DURATION:1 hour per level
+	SAVEINFO:None
+	DESC:You enchant berries to enhance those who eat them. A single berry gives the consumer a +1 bonus to attack rolls and  saving throws.
+Blindness/Deafness
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One living creature
+	DURATION:Permanent
+	SAVEINFO:Fortitude negates
+	DESC:Twisting the energies of magic, you cause one subject to become blind or deaf, as you choose.
+Blur
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 minute per level
+	SAVEINFO:Will negates
+	DESC:The subject's outline appears blurred, shifting and wavering. This distortion grants the subject Concealment (20%% miss chance).
+Bull's Strength
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 hour per level
+	SAVEINFO:Will negates
+	DESC:The subject becomes stronger. The spell grants a 1d4+1 enhancement bonus to Strength, adding the usual benefits to melee attack rolls, melee damage rolls, and other uses of the Strength modifier.
+Call Element
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:50'
+	TARGETAREA:15' AoE
+	DURATION:Instant
+	SAVEINFO:Reflex for half damage
+	DESC:The caster calls down a rain of a chosen element on a 15' radius area. They may call fire, ice, earth, or water.
+Call the Wind
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:50'
+	TARGETAREA:One creature
+	DURATION:Instant
+	SAVEINFO:None
+	DESC:The caster calls forth a blast of wind that does 1d4+1 damage if they succeed at a ranged touch attack.
+Calm Animals
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Animals within 30' of each other
+	DURATION:1 minute per level
+	SAVEINFO:Will negates
+	DESC:This spell soothes and quiets animals, rendering them docile and harmless. Only ordinary animals (those with Intelligence scores of 1 or 2) can be affected by this spell. All the subjects must be of the same kind, and no two may be more than 30' apart. The maximum number of hit dice of animals you can affect is equal to 2d4 + caster level. A dire animal or an animal trained to attack or guard is allowed a saving throw; other animals are not. The affected creatures remain where they are and do not attack or flee. They are not helpless and defend themselves normally if attacked. Any threat breaks the spell on the threatened creatures.
+Cat's Grace
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 hour per level
+	SAVEINFO:Will negates
+	DESC:The transmuted creature becomes more graceful, agile, and coordinated. The spell grants a 1d4+1 enhancement bonus to Dexterity, adding the usual benefits to AC, Reflex saves, and other uses of the Dexterity modifier.
+Cause Fear
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:25'
+	TARGETAREA:One living creature with 5 or fewer HD
+	DURATION:1d4 rounds or 1 round; see text
+	SAVEINFO:Will partial
+	DESC:The affected creature becomes frightened. If the subject succeeds on a Will save, it is Shaken for 1 round. Creatures with 6 or more Hit Dice are immune to this effect.
+Charm Monster
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:25'
+	TARGETAREA:One creature
+	DURATION:1 hour per level
+	SAVEINFO:Will negates
+	DESC:This spell functions like charm person, except that the effect is not restricted by creature type or size.
+Charm Person
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:25'
+	TARGETAREA:One humanoid creature
+	DURATION:1 hour per level
+	SAVEINFO:Will negates
+	DESC:This spell makes a humanoid creature regard you as its trusted friend and ally (treat the target's attitude as friendly). If the creature is currently being threatened or attacked by you or your allies, however, it receives a +5 bonus on its saving throw. The spell does not enable you to control the charmed person as if it were an automaton, but it perceives your words and actions in the most favorable way. You can try to give the subject orders, but you must win an opposed Heroic Action to convince it to do anything it wouldn't ordinarily do. (Retries are not allowed.) An affected creature never obeys suicidal or obviously harmful orders, but it might be convinced that something very dangerous is worth doing. Any act by you or your apparent allies that threatens the Charmed person breaks the spell. You must speak the person's language to communicate your commands, or else be good at pantomiming.
+Chill Metal
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:25'
+	TARGETAREA:Metal equipment no more than 15' apart
+	DURATION:7 rounds
+	SAVEINFO:Will negates
+	DESC:Chill metal makes metal extremely cold. Unattended, non-magical metal gets no saving throw. Magical metal is allowed a saving throw against the spell. An item in a creature's possession uses the creature's saving throw bonus unless its own is higher. A creature takes cold damage if its equipment is chilled. It takes full damage if its armor is affected or if it is holding, touching, wearing, or carrying metal weighing one-fifth of its weight. The creature takes minimum damage (1 point or 2 points; see the table) if it's not wearing metal armor and the metal that it's carrying weighs less than one-fifth of its weight.
+	DESC:&nl;Round / Metal Temperature / Damage
+	DESC:&nl;1   Cold   None
+	DESC:&nl;2   Icy   1d4 points
+	DESC:&nl;3-5  Freezing   2d4 points
+	DESC:&nl;6   Icy   1d4 points
+	DESC:&nl;7   Cold  None
+	DESC:On the first round of the spell, the metal becomes chilly and uncomfortable to touch but deals no damage. The same effect also occurs on the last round of the spell's duration. During the second (and also the next-to-last) round, icy coldness causes pain and damage. In the third, fourth, and fifth rounds, the metal is freezing cold, causing more damage, as shown on the table above. Any heat intense enough to damage the creature negates cold damage from the spell (and vice versa) on a point-for-point basis. Underwater, chill metal deals no damage, but ice immediately forms around the affected metal, making it more buoyant. Chill Metal counters and dispels Heat Metal.
+Chill Touch
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature or creatures touched (up to one per level)
+	DURATION:Instant
+	SAVEINFO:Fortitude partial or Will negates
+	DESC:A touch from your hand, which glows with blue energy, disrupts the life force of living creatures. Each touch channels negative energy that deals 1d6 points of damage. The touched creature also takes 1 point of Strength damage unless it makes a successful Fortitude saving throw. You can use this melee touch attack up to one time per level. An undead creature you touch takes no damage of either sort, but it must make a successful Will saving throw or flee as if Panicked for 1d4 rounds +1 round per caster level.
+Clairaudience/Clairvoyance
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:10 minutes
+	RANGE:Long (400')
+	TARGETAREA:Magical sensor
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:Clairaudience/Clairvoyance creates an invisible magical sensor at a specific location that enables you to hear or see (your choice) almost as if you were there. You don't need line of sight or line of effect, but the locale must be known—a place familiar to you or an obvious one. Once you have selected the locale, the sensor doesn't move, but you can rotate it in all directions to view the area as desired. Unlike other scrying spells, this spell does not allow magically- or supernaturally-enhanced senses to work through it. If the chosen locale is magically dark, you see nothing. If it is naturally pitch black, you can see in a 10' radius around the center of the spell's effect. Clairaudience/Clairvoyance functions only on the plane of existence you are currently occupying.
+Command
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard time
+	RANGE:25'
+	TARGETAREA:One living creature
+	DURATION:1 round
+	SAVEINFO:Will negates
+	DESC:You give the subject a single command, which it obeys to the best of its ability at its earliest opportunity. You may select from the following options:Approach On its turn, the subject moves toward you as quickly and directly as possible for 1 round. The creature may do nothing but move during its turn, and it provokes attacks of opportunity for this movement as normal. Drop On its turn, the subject drops whatever it is holding. It can't pick up any dropped item until its next turn. Fall On its turn, the subject falls to the ground and remains prone for 1 round. It may act normally while prone but takes any appropriate penalties. Flee On its turn, the subject moves away from you as quickly as possible for 1 round. It may do nothing but move during its turn, and it provokes attacks of opportunity for this movement as normal. Halt The subject stands in place for 1 round. It may not take any actions but is not considered Helpless. If the subject can't carry out your command on its next turn, the spell automatically fails.
+Comprehend Languages
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:You
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:You can understand the spoken words of creatures or read otherwise incomprehensible written messages. In either case, you must touch the creature or the writing. The ability to read does not necessarily impart insight into the material, merely its literal meaning. The spell enables you to understand or read an unknown language, not speak or write it. Written material can be read at the rate of one page (250 words) per minute. Magical writing cannot be read, though the spell reveals that it is magical. This spell can be foiled by certain warding magic (such as the Secret Page and Illusory Script spells). It does not decipher codes or reveal messages concealed in otherwise normal text.
+Confusion
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:All creatures in 15' radius
+	DURATION:1 round per level
+	SAVEINFO:Will negates
+	DESC:This spell causes the targets to become confused, making them unable to independently determine what they will do. Roll on the following table at the beginning of each subject's turn each round to see what the subject does in that round. d%% Behavior 01-10 Attack caster with melee or ranged weapons (or close with caster if attack is not possible). 11-20 Act normally. 21-50 Do nothing but babble incoherently. 51-70 Flee away from caster at top possible speed. 71-100 Attack nearest creature (for this purpose, a familiar counts as part of the subject's self). A confused character who can't carry out the indicated action does nothing but babble incoherently. Attackers are not at any special advantage when attacking a confused character. Any confused character who is attacked automatically attacks its attackers on its next turn, as long as it is still confused when its turn comes. Note that a confused character will not make attacks of opportunity against any creature that it is not already devoted to attacking (either because of its most recent action or because it has just been attacked).
+Contagion
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Living creature touched
+	DURATION:Instant
+	SAVEINFO:Fortitude negates
+	DESC:The subject contracts a disease selected from the table below, which strikes immediately (no incubation period). The DC noted is for the subsequent saves (use Contagion's normal save DC for the initial saving throw).
+Continual Flame
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Object touched
+	DURATION:Permanent
+	SAVEINFO:None
+	DESC:A flame, equivalent in brightness to a torch, springs forth from an object that you touch. The effect looks like a regular flame, but it creates no heat and doesn't use oxygen. A continual flame can be covered and hidden but not smothered or quenched. Light spells counter and dispel darkness-based spells of an equal or lower level.
+Darkness
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Object touched
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:This spell causes an object to radiate shadowy illumination out to a 20' radius. All creatures in the area gain concealment (20%% miss chance). Even creatures that can normally see in such conditions (such as with darkvision or low-light vision) have the miss chance in an area shrouded in magical darkness. Normal lights (torches, candles, lanterns, and so forth) are incapable of brightening the area, as are light spells of lower level. Higher level light spells are not affected by Darkness. If Darkness is cast on a small object that is then placed inside or under a light-proof covering, the spell's effect is blocked until the covering is removed. Darkness counters or dispels any light-based spell of equal or lower spell level.
+Darkvision
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 hour per level
+	SAVEINFO:Will negates (harmless)
+	DESC:The subject gains the ability to see 60' even in total darkness. Darkvision is black and white only but otherwise like normal sight. Darkvision does not grant one the ability to see in magical darkness.
+Daylight
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Object touched
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:The object touched sheds light as bright as full daylight in a 60' radius, and dim light for an additional 60' beyond that. Creatures that take penalties in bright light also take them while within the radius of this magical light. Despite its name, this spell is not the equivalent of daylight for the purposes of creatures that are damaged or destroyed by bright light. If Daylight is cast on a small object that is then placed inside or under a light-proof covering, the spell's effects are blocked until the covering is removed. Daylight brought into an area of magical darkness (or vice versa) is temporarily negated, so that the otherwise prevailing light conditions exist in the overlapping areas of effect. Daylight counters or dispels any darkness-based spell of equal or lower level, such as Darkness.
+Daze
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:25'
+	TARGETAREA:One creature of 4 HD or less
+	DURATION:1 round
+	SAVEINFO:Will negates
+	DESC:This enchantment clouds the mind of a creature with 4 or fewer Hit Dice so that it loses its next action. Creatures of 5 or more HD are not affected. A dazed subject is not stunned, so attackers get no special advantage against it.
+Delay Poison
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 hour per level
+	SAVEINFO:Fortitude negates (harmless)
+	DESC:The subject becomes temporarily immune to poison. Any poison in its system or any poison to which it is exposed during the spell's duration does not affect the subject until the spell's duration has expired. Delay poison does not cure any damage that poison may have already done.
+Detect Magic
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:60'
+	TARGETAREA:Area Around Caster
+	DURATION:Concentration, up to 1 minute per level (D)
+	SAVEINFO:None
+	DESC:You detect magical auras. The amount of information revealed depends on how long you study a particular area or subject:1st Round Presence or absence of magical auras. 2nd Round Number of different magical auras and the power of the most potent aura. 3rd Round The strength and location of each aura. If the items or creatures bearing the auras are in line of sight, you can make Spellcraft skill checks to determine the type of magic involved in each. (Make one check per aura; DC 15 + spell level, or 15 + half caster level for a non-spell effect.) Magical areas, multiple types of magic, or strong local magical emanations may distort or conceal weaker auras. Aura Strength An aura's power depends on a spell's functioning spell level or an item's caster level. If an aura falls into more than one category, detect magic indicates the stronger of the two. Lingering Aura A magical aura lingers after its original source dissipates (in the case of a spell) or is destroyed (in the case of a magic item). If detect magic is cast and directed at such a location, the spell indicates an aura strength of dim (even weaker than a faint aura). How long the aura lingers at this dim level depends on its original power:Outsiders and elementals are not magical in themselves, but if they are summoned, the conjuration spell registers. Each round, you can turn to detect magic in a new area. The spell can penetrate barriers, but one foot of stone, one inch of common metal, a thin sheet of lead, or three feet of wood or dirt blocks it.
+Detect Navirites
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:60'
+	TARGETAREA:Area around caster
+	DURATION:Concentration up to 1 minute per level
+	SAVEINFO:No
+	DESC:You can detect the aura that surrounds creatures from the Navirim. The amount of information revealed depends on how long you study a particular area:1st Round Presence or absence of Navirite auras. 2nd Round Number of Navirite auras in the area and the strength of the strongest aura present. 3rd Round The strength and location of each Navirite aura. If an aura is outside your line of sight, then you discern its direction but not its exact location. Aura Strength The strength of an aura is determined by the HD of the creature, as given on the following table:HD  Strength 1 or lower Faint 2-4  Moderate 5-10  Strong 11 or higher Overwhelming Lingering Aura A Navirite aura lingers after its original source is destroyed. If Detect Navirite is cast and directed at such a location, the spell indicates an aura strength of dim (even weaker than a faint aura). How long the aura lingers at this dim level depends on its original power:Original Strength Duration of Lingering Aura Faint   1d6 rounds Moderate  1d6 minutes Strong   1d6×10 minutes Overwhelming  1d6 days Each round, you can turn to detect Navirites in a new area. The spell can penetrate barriers, but one foot of stone, one inch of common metal, a thin sheet of lead, or three feet of wood or dirt blocks it.
+Detect Poison
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:25'
+	TARGETAREA:One creature, one object, or a 5' cube
+	DURATION:Instantaneous
+	SAVEINFO:None
+	DESC:You determine whether a creature, object, or area has been poisoned or is poisonous. You can determine the exact type of poison with a DC 20 Wisdom check. The spell can penetrate barriers, but one foot of stone, one inch of common metal, a thin sheet of lead, or three feet of wood or dirt blocks it.
+Detect Scrying
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:40'
+	TARGETAREA:40' radius emanation centered on you
+	DURATION:24 hours
+	SAVEINFO:None
+	DESC:You immediately become aware of any attempt to observe you by means of a divination (scrying) spell or effect. The spell's area radiates from you and moves as you move. You know the location of every magical sensor within the spell's area.If the scrying attempt originates within the area, you also know its location; otherwise, you and the scrier immediately make opposed caster level checks (1d20 + caster level). If you at least match the scryer's result, you get a visual image of the scryer and an accurate sense of his or her direction and distance from you.
+Detect Secret Doors
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:60'
+	TARGETAREA:Cone-shaped emanation
+	DURATION:Concentration, up to 1 minute per level
+	SAVEINFO:None
+	DESC:You can detect secret doors, compartments, caches, and so forth. Only passages, doors, or openings that have been specifically constructed to escape detection are detected by this spell. The amount of information revealed depends on how long you study a particular area or subject:1st Round Presence or absence of secret doors. 2nd Round Number of secret doors and the location of each. If an aura is outside your line of sight, then you discern its direction but not its exact location. Each Additional Round The mechanism or trigger for one particular secret portal closely examined by you. Each round, you can turn to detect secret doors in a new area. The spell can penetrate barriers, but one foot of stone, one inch of common metal, a thin sheet of lead, or three feet of wood or dirt blocks it.
+Detect Snares and Pits
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:60'
+	TARGETAREA:cone-shaped emanation
+	DURATION:Concentration, up to 10 minutes per level
+	SAVEINFO:None
+	DESC:You can detect simple pits, deadfalls, and snares, as well as mechanical traps constructed of natural materials. The spell does not detect complex traps, including trapdoors. Detect Snares and Pits does detect certain natural hazards, such as quicksand (a snare), a sinkhole (a pit), or unsafe walls of natural rock (a deadfall). However, it does not reveal other potentially dangerous conditions. The spell does not detect magic traps (except those that operate by pit, deadfall, or snaring; see the spell Snare), nor mechanically complex ones, nor those that have been rendered safe or inactive. The amount of information revealed depends on how long you study a particular area:1st Round Presence or absence of hazards. 2nd Round Number of hazards and the location of each. If a hazard is outside your line of sight, then you discern its direction but not its exact location. Each Additional Round The general type and trigger for one particular hazard closely examined by you. Each round, you can turn to detect snares and pits in a new area. The spell can penetrate barriers, but one foot of stone, one inch of common metal, a thin sheet of lead, or three feet of wood or dirt blocks it.
+Detect Thoughts
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:60'
+	TARGETAREA:Cone-shaped emanation
+	DURATION:Concentration, up to 1 minute per level
+	SAVEINFO:Will negates; see text
+	DESC:You detect surface thoughts. The amount of information revealed depends on how long you study a particular area or subject:1st Round Presence or absence of thoughts (from conscious creatures with Intelligence scores of 1 or higher). 2nd Round Number of thinking minds and the Intelligence score of each. If the highest Intelligence is 26 or higher (and at least 10 points higher than your own Intelligence score), you are stunned for 1 round and the spell ends. This spell does not let you determine the location of the thinking minds if you can't see the creatures whose thoughts you are detecting. 3rd Round Surface thoughts of any mind in the area. A target's Will save prevents you from reading its thoughts, and you must cast detect thoughts again to have another chance. Creatures of animal intelligence (INT 1 or 2) have simple, instinctual thoughts that you can pick up. Each round, you can turn to detect thoughts in a new area. The spell can penetrate barriers, but one foot of stone, one inch of common metal, a thin sheet of lead, or three feet of wood or dirt blocks it.
+Dimensional Anchor
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100') + 10' per level
+	TARGETAREA:Ray
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:A green ray springs from your outstretched hand. You must make a ranged touch attack to hit the target. Any creature or object struck by the ray is covered with a shimmering emerald field that completely blocks extradimensional travel. Forms of movement barred by a Dimensional Anchor include Astral Projection, Blink, Dimension Door, Ethereal Jaunt, Etherealness, Gate, Maze, Plane Shift, Shadow Walk, Teleport, and similar spell-like or psionic abilities. The spell also prevents the use of a Gate or Teleportation Circle for the duration of the spell. A Dimensional Anchor does not interfere with the movement of creatures already in ethereal or astral form when the spell is cast, nor does it block extra-dimensional perception or attack forms. Also, Dimensional Anchor does not prevent summoned creatures from disappearing at the end of a summoning spell.
+Discern Lies
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:25' + 5' per /2 levels
+	TARGETAREA:One creature per level, no two of which can be more than 30' apart
+	DURATION:Concentration, up to 1 round per level
+	SAVEINFO:Will negates
+	DESC:Each round, you concentrate on one subject, who must be within range. You know if the subject deliberately and knowingly speaks a lie by discerning disturbances in its aura caused by lying. The spell does not reveal the truth, uncover unintentional inaccuracies, or necessarily reveal evasions. Each round, you may concentrate on a different subject.
+Disconnect
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Self
+	DURATION:1 hour per level
+	SAVEINFO:None
+	DESC:The spellcaster uses this spell to sever their ties to their body. They feel no pain or remorse, often focusing on the last thing they thought of before casting the spell. During this trance, the spellcaster has a much higher chance of connecting their consciousness to the Navirim. While affected by the Disconnect spell, the spellcaster's body can no longer be detected by Detect Thoughts.
+Disguise
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Self
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:You make yourself—including clothing, armor, weapons, and equipment—look different. You can seem up to one foot shorter or taller, thin, fat, or in between. You cannot change your body type. Otherwise, the extent of the apparent change is up to you. You could add or obscure a minor feature or look like an entirely different person. The spell does not provide the abilities or mannerisms of the chosen form, nor does it alter the perceived tactile (touch) or audible (sound) properties of you or your equipment. If you use this spell to create a disguise, you get a +10 bonus on the Disguise check. A creature that interacts with the glamor gets a Will save to recognize it as an illusion.
+Dismissal
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One extraplanar creature
+	DURATION:Instantaneous
+	SAVEINFO:Heroic Action, see text
+	DESC:This spell forces an extraplanar creature back to its proper plane if it fails a Heroic Action - Caster primary ability vs. Will of defender. If the spell is successful, the creature is instantly whisked away to the Navirim.
+Dispel Magic
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One spellcaster, creature, or object; or 20' radius burst
+	DURATION:Instantaneous
+	SAVEINFO:None
+	DESC:You can use Dispel Magic to end ongoing spells that have been cast on a creature or object, to temporarily suppress the magical abilities of a magic item, to end ongoing spells (or at least their effects) within an area, or to counter another spellcaster's spell. A dispelled spell ends as if its duration had expired. Some spells, as detailed in their descriptions, can't be defeated by Dispel Magic. Dispel Magic can dispel (but not counter) spell-like effects just as it does spells. Note:The effect of a spell with an instantaneous duration can't be dispelled, because the magical effect is already over before the Dispel Magic can take effect. You choose to use Dispel Magic in one of three ways:a targeted dispel, an area dispel, or a counterspell:Targeted Dispel One object, creature, or spell is the target of the Dispel Magic spell. You make a dispel check (1d20 + your caster level, maximum +10) against the spell or against each ongoing spell currently in effect on the object or creature. The DC for this dispel check is 11 + the spell's caster level. If you succeed on a particular check, that spell is dispelled; if you fail, that spell remains in effect. If you target an object or creature that is the effect of an ongoing spell (such as a monster summoned by monster summoning), you make a dispel check to end the spell that conjured the object or creature. If the object that you target is a magic item, you make a dispel check against the item's caster level. If you succeed, all the item's magical properties are suppressed for 1d4 rounds, after which the item recovers on its own. A suppressed item becomes non-magical for the duration of the effect. An interdimensional interface (such as a bag of holding) is temporarily closed. A magic item's physical properties are unchanged:A suppressed magic sword is still a sword (a masterwork sword, in fact). Artifacts and deities are unaffected by mortal magic such as this. You automatically succeed on your dispel check against any spell that you cast yourself. Area Dispel When Dispel Magic is used in this way, the spell affects everything within a 20' radius. For each creature within the area that is the subject of one or more spells, you make a dispel check against the spell with the highest caster level. If that check fails, you make dispel checks against progressively weaker spells until you dispel one spell (which discharges the Dispel Magic spell so far as that target is concerned) or until you fail all your checks. The creature's magic items are not affected. For each object within the area that is the target of one or more spells, you make dispel checks as with creatures. Magic items are not affected by an area dispel. For each ongoing area of effect spell whose point of origin is within the area of the Dispel Magic spell, you can make a dispel check to dispel the spell. For each ongoing spell whose area overlaps that of the Dispel Magic spell, you can make a dispel check to end the effect, but only within the overlapping area. If an object or creature that is the effect of an ongoing spell (such as a monster summoned by monster summoning) is in the area, you can make a dispel check to end the spell that conjured that object or creature (returning it whence it came) in addition to attempting to dispel spells targeting the creature or object. You may choose to automatically succeed on dispel checks against any spell that you have cast.
+Displacement
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 round per level
+	SAVEINFO:Will negates (harmless)
+	DESC:The subject of this spell appears to be about two feet away from its true location. The creature benefits from a 50%% miss chance as if it had Total Concealment. However, unlike actual Total Concealment, Displacement does not prevent enemies from targeting the creature normally. True Seeing reveals its true location.
+Dominate Animal
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 round
+	RANGE:Close (30')
+	TARGETAREA:One animal
+	DURATION:1 round per level
+	SAVEINFO:Will negates
+	DESC:You can enchant an animal and direct it with simple commands such as "Attack", "Run" and "Fetch". Suicidal or self-destructive commands (including an order to attack a creature two or more size categories larger than the dominated animal) are simply ignored. Dominate Animal establishes a mental link between you and the subject creature. The animal can be directed by silent mental command as long as it remains in range. You need not see the creature to control it. You do not receive direct sensory input from the creature, but you know what it is experiencing. Because you are directing the animal with your own intelligence, it may be able to undertake actions normally beyond its own comprehension. You need not concentrate exclusively on controlling the creature unless you are trying to direct it to do something it normally couldn't do. Changing your instructions or giving a dominated creature a new command is the equivalent of redirecting a spell counts as a move action.
+Doom
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One living creature
+	DURATION:1 minute per level
+	SAVEINFO:Will negates
+	DESC:This spell fills a single subject with a feeling of horrible dread that causes it to become shaken.
+Dream Call
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:15'
+	TARGETAREA:Cone-shaped burst
+	DURATION:Instant
+	SAVEINFO:Will Negates
+	DESC:A cone of swirling energy springs forth from your hand, causing creatures to become stunned, perhaps also blinded, and possibly knocking them unconscious. Each creature within the cone is affected according to its Hit Dice. 2 HD or less The creature is unconscious, blinded, and stunned for 2d4 rounds, then blinded and stunned for 1d4 rounds, and then stunned for 1 round. (Only living creatures are knocked unconscious.) 3 or 4 HD The creature is blinded and stunned for 1d4 rounds, then stunned for 1 round. 5 or more HD The creature is stunned for 1 round. Sightless creatures are not affected by Dream Call.
+Dreamwalk
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Self
+	DURATION:1 hour per level
+	DESC:A spellcaster can bring their waking consciousness into the Navirim during sleep. They can not control where they end up, but anything that happens to them in this state, also happens to their physical body. They can wake from this dream at any time, unless bound to the Navirim by another entity or spell.
+Emotion
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:All creatures in 15' radius
+	DURATION:Concentration
+	SAVEINFO:Will negates
+	DESC:This spell arouses a single emotion of your choice in the subjects. You can choose any one of the following versions:Despair The enchanted creatures suffer a –2 morale penalty to saving throws, attack rolls, ability checks, skill checks, and weapon damage rolls. Emotion:Despair dispels Emotion:Hope. Fear The enchanted creatures flee from you whenever they are in sight of you. Emotion:Fear dispels Emotion:Rage. Friendship The enchanted creatures react more positively toward others. Their attitude shifts to the next more favorable reaction (hostile to unfriendly, unfriendly to indifferent, indifferent to friendly, or friendly to helpful). Creatures involved in combat, however, continue to fight back normally. Emotion:Friendship dispels Emotion:Hate. Hate The enchanted creatures react more negatively toward others. Their attitude shifts to the next less favorable reaction (helpful to friendly, friendly to indifferent, indifferent to unfriendly, or unfriendly to hostile). Emotion:Hate dispels Emotion:Friendship. Hope The enchanted creatures gain a +2 morale bonus to saving throws, attack rolls, ability checks, skill checks, and weapon damage rolls. Emotion:Hope dispels Emotion:Despair. Rage The enchanted creatures gain a +2 morale bonus to Strength and Constitution scores, a +1 morale bonus on Will saves, and a -1 penalty to AC. They are compelled to fight heedless of danger. Emotion:Rage does not stack with barbarian Rage or with itself. Emotion:Rage dispels Emotion:Fear.
+Endurance
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 minute per level
+	SAVEINFO:Will negates (harmless)
+	DESC:The affected creature gains greater vitality and stamina. The spell grants the subject a 1d4+1 enhancement bonus to Constitution, which adds the usual benefits to hit points, Fortitude saves, Constitution checks, and so forth. Hit points gained by a temporary increase in Constitution score are not temporary hit points. They go away when the subject's Constitution drops back to normal. They are not lost first as temporary hit points are.
+Endure Elements
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:24 hours
+	SAVEINFO:Will negates (harmless)
+	DESC:A creature protected by endure elements suffers no harm from being in a hot or cold environment. It can exist comfortably in conditions between -50 and 140 degrees Fahrenheit without having to make Fortitude saves. The creature's equipment is likewise protected. Endure Elements doesn't provide any protection from fire or cold damage, nor does it protect against other environmental hazards such as smoke, lack of air, and so forth.
+Energy Arrow
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:One creature or object
+	DURATION:1 round +1 round per three levels
+	SAVEINFO:None
+	DESC:A magical arrow of a chosen energy type (fire, ice, acid, stone or wind) springs from your hand and speeds to its target. You must succeed on a ranged touch attack to hit your target. The arrow deals 2d4 points of damage with no splash damage. For every three caster levels (to a maximum of 18th), the effect, unless somehow neutralized, lasts for another round, dealing another 2d4 points of damage in that round.
+Enlarge
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 round
+	RANGE:Close (30')
+	TARGETAREA:One creature or object
+	DURATION:1 minute per level
+	SAVEINFO:Fortitude negates
+	DESC:This spell causes instant growth of a creature, doubling its height and multiplying its weight by 8. This increase changes the creature's size category to the next larger one. The target gains a +2 size bonus to Strength, a -2 size penalty to Dexterity (to a minimum of 1), and a -1 penalty on attack rolls and AC due to its increased size. A creature whose size increases to Large has a space of 10' and a natural reach of 10'. This spell does not change the target's speed. If insufficient room is available for the desired growth, the creature attains the maximum possible size and may make a Strength check (using its increased Strength) to burst any enclosures in the process. If it fails, it is constrained without harm by the materials enclosing it— the spell cannot be used to crush a creature by increasing its size. All equipment worn or carried by a creature is similarly enlarged by the spell. Melee and projectile weapons affected by this spell deal more damage. Other magical properties are not affected by this spell. Any enlarged item that leaves an enlarged creature's possession (including a projectile or thrown weapon) instantly returns to its normal size. This means that thrown weapons deal their normal damage, and projectiles deal damage based on the size of the weapon that fired them. Magical properties of enlarged items are not increased by this spell. Multiple magical effects that increase size do not stack.
+Erase
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One scroll, or two pages
+	DURATION:Instant
+	SAVEINFO:See text
+	DESC:Erase removes writings of either magical or mundane nature from a scroll or from one or two pages of paper, parchment, or similar surfaces. With this spell, you can remove Explosive Runes, a Glyph of Warding, a Sepia Snake Sigil, or an Arcane Mark, but not Illusory Script or a Symbol spell. Non-magical writing is automatically erased if you touch it and no one else is holding it. Otherwise, the chance of erasing non-magical writing is 90%%. Magic writing must be touched to be erased, and you also must succeed on a caster level check (1d20 + caster level) against DC 15. (A natural 1 or 2 is always a failure on this check.) If you fail to erase Explosive Runes, a Glyph of Warding, or a Sepia Snake Sigil, you accidentally activate that writing instead.
+Expeditious Retreat
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Self
+	DURATION:1 minute per level (D)
+	DESC:This spell doubles your base land speed. (This adjustment is treated as an enhancement bonus.) There is no effect on other modes of movement, such as burrow, climb, fly, or swim. As with any effect that increases your speed, this spell affects your jumping distance (see the Jump skill).
+Explosive Runes
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One touched object weighing no more than 10 lb.
+	DURATION:Permanent until discharged (D)
+	SAVEINFO:See text
+	DESC:You trace these mystic runes upon a book, map, scroll, or similar object bearing written information. The runes detonate when read, dealing 6d6 points of force damage. Anyone next to the runes (close enough to read them) takes the full damage with no saving throw; any other creature within 10' of the runes is entitled to a Reflex save for half damage. The object on which the runes were written also takes full damage (no saving throw). You and any characters you specifically instruct can read the protected writing without triggering the runes. Likewise, you can remove the runes whenever desired. Another creature can remove them with a successful Dispel Magic or Erase spell, but attempting to dispel or erase the runes and failing to do so triggers the explosion. Note:Magic traps such as Explosive Runes are hard to detect and disable. A rogue (only) can use the Search skill to find the runes and Disable Device to thwart them. The DC in each case is 25 + spell level, or 28 for explosive runes.
+Fear
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Cone-shaped burst
+	DURATION:1 round per level or 1 round; see text
+	SAVEINFO:Will partial
+	DESC:An invisible cone of terror causes each living creature in the area to become Panicked unless it succeeds on a Will save. If cornered, a Panicked creature begins Cowering. If the Will save succeeds, the creature is Shaken for 1 round.
+Feather Fall
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 immediate action
+	RANGE:Close (30')
+	TARGETAREA:One Medium or smaller freefalling object or creature per level, no two of which may be more than 20' apart
+	DURATION:Until landing or 1 round per level
+	SAVEINFO:Will negates (harmless) or Will negates (object)
+	DESC:The affected creatures or objects fall slowly. Feather Fall instantly changes the rate at which the targets fall to a mere 60' per round (equivalent to the end of a fall from a few feet), and the subjects take no damage upon landing while the spell is in effect. However, when the spell duration expires, a normal rate of falling resumes. The spell affects one or more Medium or smaller creatures (including gear and carried objects up to each creature's maximum load) or objects, or the equivalent in larger creatures:A Large creature or object counts as two Medium creatures or objects, a Huge creature or object counts as two Large creatures or objects, and so forth. You can cast this spell with an instant utterance, quickly enough to save yourself if you unexpectedly fall. Casting the spell is an immediate action, allowing you to cast this spell even when it isn't your turn. This spell has no special effect on ranged weapons unless they are falling quite a distance. If the spell is cast on a falling item the object does half normal damage based on its weight, with no bonus for the height of the drop. Feather Fall works only upon free-falling objects. It does not affect a sword blow or a charging or flying creature.
+Fey Fire
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:creatures and objects in a 5' radius
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:A pale glow surrounds and outlines the subjects. Outlined subjects shed light as candles. Outlined creatures do not benefit from the concealment normally provided by darkness-based effects (though a 2nd-level or higher magical Darkness effect functions normally), Blur, Displacement, Invisibility, or similar effects. The light is too dim to have any special effect on undead or dark-dwelling creatures vulnerable to light. The fey fire can be blue, green, or violet, according to your choice at the time of casting. The fey fire does not cause any harm to the objects or creatures thus outlined.
+Fiery Arrows
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:200'
+	TARGETAREA:Up to four creatures or objects
+	DURATION:Instant
+	SAVEINFO:None
+	DESC:Four bolts of flame shoot from your hand at up to four different targets for 1d6 damage per bolt. You must roll a ranged touch attack for each bolt.  The bolts set fire to combustibles and damages objects in the area. It can melt metals with low melting points, such as lead, gold, copper, silver, and bronze.
+Find Traps
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Self
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:You gain intuitive insight into the workings of traps. You can use the Awareness skill to detect traps just as a rogue can. In addition, you gain an insight bonus equal to one-half your caster level (maximum +5) on Awareness checks made to find traps while the spell is in effect. Note that Find Traps grants no ability to disable the traps that you may find.
+Fireball
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Long (400') + 40' per level
+	TARGETAREA:20' radius sphere
+	DURATION:Instantaneous
+	DESC:The fireball spell is an explosion of flame that detonates with a low roar and deals 5d6 points of fire damage to every creature within the area. Unattended objects also take this damage. The explosion creates almost no pressure. You point your finger and determine the range (distance and height) at which the fireball is to burst. A glowing, pea-sized bead streaks from the pointing digit and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, blossoms into the fireball at that point. (An early impact results in an early detonation.) If you attempt to send the bead through a narrow passage, such as through an arrow slit, you must "hit" the opening with a ranged touch attack, or else the bead strikes the barrier and detonates prematurely. The fireball sets fire to combustibles and damages objects in the area. It can melt metals with low melting points, such as lead, gold, copper, silver, and bronze. If the damage caused to an interposing barrier shatters or breaks through it, the fireball may continue beyond the barrier if the area permits; otherwise it stops at the barrier just as any other spell effect does.
+Fire Shield
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Self
+	DURATION:1 round per level (D)
+	DESC:This spell wreaths you in flame and causes damage to each creature that attacks you in melee. The flames also protect you from either cold-based or fire-based attacks (your choice). Any creature striking you with its body or a handheld weapon deals normal damage, but at the same time the attacker takes 1d6 points of damage +1 point per caster level (maximum +15). This damage is either cold damage (if the shield protects against fire-based attacks) or fire damage (if the shield protects against cold-based attacks). If the attacker has spell resistance, it applies to this effect. Creatures wielding weapons with exceptional reach are not subject to this damage if they attack you. When casting this spell, you appear to immolate yourself, but the flames are thin and wispy, giving off light equal to only half the illumination of a normal torch (10'). The color of the flames is determined randomly (50%% chance of either color)—blue or green if the chill shield is cast, violet or blue if the warm shield is employed. The special powers of each version are as follows:Warm Shield The flames are warm to the touch. You take only half damage from cold-based attacks. If such an attack allows a Reflex save for half damage, you take no damage on a successful save. Chill Shield The flames are cool to the touch. You take only half damage from fire-based attacks. If such an attack allows a Reflex save for half damage, you take no damage on a successful save.
+Fire Trap
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:10 minutes
+	RANGE:Touch
+	TARGETAREA:Object touched
+	DURATION:Permanent until discharged
+	SAVEINFO:Reflex half; see text
+	DESC:Fire Trap creates a fiery explosion when an intruder opens the item that the trap protects. A Fire Trap can ward any object that can be opened and closed. When casting Fire Trap, you select a point on the object as the spell's center. When someone other than you opens the object, a fiery explosion fills the area within a 5' radius around the spell's center. The flames deal 1d4 points of fire damage +1 point per caster level (maximum +8). The item protected by the trap is not harmed by this explosion. A Fire Trapped item cannot have a second closure or warding spell placed on it. A Knock spell does not bypass a Fire Trap. An unsuccessful Dispel Magic spell does not detonate the spell. Underwater, this ward deals half damage and creates a large cloud of steam. You can use the Fire Trapped object without discharging it, as can any individual to whom the object was specifically attuned when cast. Attuning a Fire Trapped object to an individual usually involves setting a password that you can share with friends. Note:Magic traps such as Fire Trap are hard to detect and disable. A rogue (only) can use the Awareness skill to find a Fire Trap and Thievery to thwart it. The DC in each case is 27.
+Flame Strike
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100') + 10' per level
+	TARGETAREA:Cylinder (10' radius, 40' high)
+	DURATION:Instantaneous
+	SAVEINFO:Reflex half
+	DESC:A flame strike produces a vertical column of divine fire roaring downward. The spell deals 8d6 points of damage. Half the damage is fire damage, but the other half is directly magic power and is therefore not subject to being reduced by resistance to fire-based attacks.
+Flaming Sphere
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:5' diameter sphere
+	DURATION:1 round per level
+	SAVEINFO:Reflex negates
+	DESC:A burning globe of fire rolls in whichever direction you point and burns those it strikes. It moves 30' per round. As part of this movement, it can ascend or jump up to 30' to strike a target. If it enters a space with a creature, it stops moving for the round and deals 2d6 points of fire damage to that creature, though a successful Reflex save negates that damage. A Flaming Sphere rolls over barriers less than 4' tall. It ignites flammable substances it touches and illuminates the same area as a torch would. The Flaming Sphere moves as long as you actively direct it (a move action for you); otherwise, it merely stays at rest and burns. It can be extinguished by any means that would put out a normal fire of its size. The surface of the Sphere has a spongy, yielding consistency and so does not cause damage except by its flame. It cannot push aside unwilling creatures or batter down large obstacles. A Flaming Sphere winks out if it exceeds the spell's range.
+Fly
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 minute per level
+	SAVEINFO:Will negates (harmless)
+	DESC:The subject can fly at a speed of 60' (or 40' if it wears medium or heavy armor, or if it carries a medium or heavy load). It can ascend at half speed and descend at double speed, and its maneuverability is good. Using a Fly spell requires only as much concentration as walking, so the subject can attack or cast spells normally. The subject of a Fly spell can charge but not run, and it cannot carry aloft more weight than its maximum load, plus any armor it wears. Should the spell duration expire while the subject is still aloft, the magic fails slowly. The subject floats downward 60' per round for 1d6 rounds. If it reaches the ground in that amount of time, it lands safely. If not, it falls the rest of the distance, taking 1d6 points of damage per 10' of fall. Since dispelling a spell effectively ends it, the subject also descends in this way if the Fly spell is dispelled, but not if it is negated by an antimagic field.
+Fog Cloud
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Medium (100') + 10' per level
+	TARGETAREA:Fog spreads in 20' radius, 20' high
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:A bank of fog billows out from the point you designate. The fog obscures all sight, including Darkvision, beyond 5'. A creature within 5' has Concealment (attacks have a 20%% miss chance). Creatures farther away have Total Concealment (50%% miss chance, and the attacker can't use sight to locate the target). A moderate wind (11+ mph) disperses the fog in 4 rounds; a strong wind (21+ mph) disperses the fog in 1 round. The spell does not function underwater.
+Force
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:60'
+	TARGETAREA:One creature of object
+	DURATION:Instant
+	SAVEINFO:Fortitude negates
+	DESC:The spellcaster issues a burst of invisible energy from their hand, pushing back an object or creature 1d6 feet and damaging it for 1d4 points of force damage.
+Freedom of Movement
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Self or touch
+	TARGETAREA:Self or creature touched
+	DURATION:10 minutes per level
+	DESC:This spell enables you or a creature you touch to move and attack normally for the duration of the spell, even under the influence of magic that usually impedes movement, such as Paralysis, Solid Fog, Slow, and Web. The subject automatically succeeds on any Heroic Action made to resist a Grapple attempt, as well as on Grapple checks or checks made to escape a grapple or a pin. The spell also allows the subject to move and attack normally while underwater, even with slashing weapons such as axes and swords or with bludgeoning weapons such as flails, hammers, and maces, provided that the weapon is wielded in the hand rather than hurled. The Freedom of Movement spell does not, however, allow water breathing.
+Gaseous Form
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Willing corporeal creature touched
+	DURATION:2 minutes per level
+	SAVEINFO:None
+	DESC:The subject and all its gear become insubstantial, misty, and translucent. Its material armor (including natural armor) becomes worthless, though its size, Dexterity, deflection bonuses, and armor bonuses from force effects still apply. The subject gains damage reduction 10 vs.magic and becomes immune to poison and critical hits. It can't attack or cast spells with verbal, somatic, material, or focus components while in gaseous form. The subject also loses supernatural abilities while in gaseous form. If it has a touch spell ready to use, that spell is discharged harmlessly when the gaseous form spell takes effect. A gaseous creature can't run, but it can fly at a speed of 10' (maneuverability perfect). It can pass through small holes or narrow openings, even mere cracks, with all it was wearing or holding in its hands, as long as the spell persists. The creature is subject to the effects of wind, and it can't enter water or other liquid. It also can't manipulate objects or activate items, even those carried along with its gaseous form. Continuously active items remain active, though in some cases their effects may be moot.
+Gentle Repose
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Corpse touched
+	DURATION:One day per level
+	SAVEINFO:Will negates (object)
+	DESC:You preserve the remains of a dead creature so that it does not decay. Doing so effectively extends the time limit on raising that creature from the dead (see Raise Dead). Days spent under the influence of this spell don't count against the time limit. Additionally, this spell makes transporting a fallen comrade more pleasant. The spell also works on severed body parts and the like.
+Ghost Lights
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Empty space
+	DURATION:1 minute
+	SAVEINFO:None
+	DESC:Depending on the version selected, you create up to four lights that resemble lanterns or torches (and cast that amount of light), or up to four glowing spheres of light (which look like will-o'-wisps), or one faintly glowing, vaguely humanoid shape. The Ghost Lights must stay within a 10' radius area in relation to each other but otherwise move as you desire (no concentration required):forward or back, up or down, straight or turning corners, or the like. The Lights can move up to 100' per round. A Light winks out if the distance between you and it exceeds the spell's range.
+Ghost Sound
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Illusory sounds
+	DURATION:1 round per level
+	SAVEINFO:Will disbelief (if interacted with)
+	DESC:Ghost Sound allows you to create a volume of sound that rises, recedes, approaches, or remains at a fixed place. You choose what type of sound Ghost Sound creates when casting it and cannot thereafter change the sound's basic character. Ghost sound can enhance the effectiveness of a Silent Image spell.
+Glitterdust
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Medium (100') + 10' per level
+	TARGETAREA:Creatures and objects within 10' radius spread
+	DURATION:1 round per level
+	SAVEINFO:Will negates (blinding only)
+	DESC:A cloud of golden particles covers everyone and everything in the area, causing creatures to become blinded and visibly outlining invisible things for the duration of the spell. All within the area are covered by the dust, which cannot be removed and continues to sparkle until it fades. Any creature covered by the dust takes a -40 penalty on Hide checks.
+Glyph of Warding
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:10 minutes
+	RANGE:Touch
+	TARGETAREA:Object touched or up to 5' square per level
+	DURATION:Permanent until discharged
+	SAVEINFO:See text
+	DESC:This powerful inscription harms those who enter, pass, or open the warded area or object. A Glyph of Warding can guard a bridge or passage, ward a portal, trap a chest or box, and so on. You set the conditions of the Ward. Typically, any creature entering the warded area or opening the warded object without speaking a password (which you set when casting the spell) is subject to the magic it stores. Alternatively, or in addition to a password trigger, Glyphs can be set according to physical characteristics (such as height or weight) or creature type, subtype, or kind. Glyphs can also be set with respect to good, evil, law, or chaos, or to pass those of your religion. They cannot be set according to class, Hit Dice, or level. Glyphs respond to invisible creatures normally but are not triggered by those who travel past them ethereally. Multiple Glyphs cannot be cast on the same area. However, if a cabinet has three drawers, each can be separately Warded. When casting the spell, you weave a tracery of faintly-glowing lines around the warding sigil. A Glyph can be placed to conform to any shape up to the limitations of your total square footage. When the spell is completed, the Glyph and tracery become nearly invisible. Glyphs cannot be affected or bypassed by such means as physical or magical probing, though they can be dispelled. Mislead, Polymorph, and Nondetection (and similar magical effects) can fool a Glyph, though non-magical disguises and the like can't. Read Magic allows you to identify a Glyph of Warding with a DC 13 Spellcraft check. Identifying the Glyph does not discharge it and allows you to know the basic nature of the Glyph (version, type of damage caused, what spell is stored). Note:Magic traps such as Glyph of Warding are hard to detect and disable. A rogue (only) can use the Search skill to find the Glyph and Disable Device to thwart it. The DC in each case is 25 + spell level, or 28 for Glyph of Warding. Depending on the version selected, a Glyph either blasts the intruder or activates a spell. Blast Glyph A Blast Glyph deals 1d8 points of damage per two caster levels (maximum 5d8) to the intruder and to all within 5' of him or her. The damage type is chosen by the caster upon casting (fire, ice, acid, electricity or sonic) Each creature affected can attempt a Reflex save to take half damage. Spell resistance applies against this effect. Spell Glyph You can store any harmful spell of 3rd level or lower that you know. All level-dependent features of the spell are based on your caster level at the time of casting the Glyph. If the spell has a target, it targets the intruder. If the spell has an area or an amorphous effect it is centered on the intruder. If the spell summons creatures, they appear as close as possible to the intruder and attack. Saving throws and spell resistance operate as normal, except that the DC is based on the level of the spell stored in the Glyph.
+Grease
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One object or a 10' square
+	DURATION:1 round per level (D)
+	SAVEINFO:See text
+	DESC:A Grease spell covers a solid surface with a layer of slippery grease. Any creature in the area when the spell is cast must make a successful Reflex save or fall. This save is repeated on your turn each round that the creature remains within the area. A creature can walk within or through the area of grease at half normal speed with a DC 10 Balance check. Failure means it can't move that round (and must then make a Reflex save or fall), while failure by 5 or more means it falls (see the Balance skill for details). The spell can also be used to create a greasy coating on an item. Material objects not in use are always affected by this spell, while an object wielded or employed by a creature receives a Reflex saving throw to avoid the effect. If the initial saving throw fails, the creature immediately drops the item. A saving throw must be made in each round that the creature attempts to pick up or use the greased item.
+Greater Magic Weapon
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One weapon
+	DURATION:1 hour per level
+	SAVEINFO:Will negates (harmless)
+	DESC:This spell functions like Magic Weapon, except that it gives a weapon a +3 enhancement bonus to attack and damage rolls. Alternatively, you can affect as many as fifty arrows, bolts, or bullets. The projectiles must be of the same kind, and they have to be together (in the same quiver or other container). Projectiles, but not thrown weapons, lose their transmutation when used. (Treat shuriken as projectiles, rather than as thrown weapons, for the purpose of this spell.)
+Gust of Wind
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:60'
+	TARGETAREA:Line-shaped gust of severe wind emanating out from you to the extreme of the range
+	DURATION:1 round
+	SAVEINFO:Fortitude negates
+	DESC:This spell creates a severe blast of air (approximately 50 mph) that originates from you, affecting all creatures in its path. A Tiny or smaller creature on the ground is knocked down and rolled 1d4×10', taking 1d4 points of nonlethal damage per 10'. If flying, a Tiny or smaller creature is blown back 2d6×10' and takes 2d6 points of nonlethal damage due to battering and buffeting. Small creatures are knocked prone by the force of the wind, or if flying are blown back 1d6×10'. Medium creatures are unable to move forward against the force of the wind, or if flying are blown back 1d6×5'. Large or larger creatures may move normally within a Gust of Wind effect. A Gust of Wind can't move a creature beyond the limit of its range. Any creature, regardless of size, takes a -4 penalty to ranged attacks and Awareness checks in the area of a Gust of Wind. The force of the Gust of Wind automatically extinguishes candles, torches, and similar unprotected flames. It causes protected flames, such as those of lanterns, to dance wildly and has a 50%% chance to extinguish those lights. In addition to the effects noted, a Gust of Wind can do anything that a sudden blast of wind would be expected to do. It can create a stinging spray of sand or dust, fan a large fire, overturn delicate awnings or hangings, heel over a small boat, and blow gases or vapors to the edge of its range.
+Hallucinatory Terrain
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:10 minutes
+	RANGE:Long (500')
+	TARGETAREA:One 30' cube per level (S)
+	DURATION:2 hours per level (D)
+	SAVEINFO:Will disbelief (if interacted with)
+	DESC:You make natural terrain look, sound, and smell like some other sort of natural terrain. Structures, equipment, and creatures within the area are not hidden or changed in appearance.
+Halt
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:60'
+	TARGETAREA:one creature
+	DURATION:1 round per level
+	SAVEINFO:Will negates
+	DESC:The spellcaster utters the word "Halt", and the targeted creature must obey unless they succeed at a Will save, DC 18. They can not move their feet, though they can still attack, cast a spell, or perform other actions which do not require movement.
+Harm
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:Instantaneous
+	SAVEINFO:Will half; see text
+	DESC:Harm charges a subject with negative energy that deals 1d8 +1 damage. If the creature successfully saves, harm deals half this amount.
+Haste
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One creature per level, no two of which can be more than 30' apart
+	DURATION:1 round per level
+	SAVEINFO:Fortitude negates (harmless)
+	DESC:The transmuted creatures move and act more quickly than normal. This extra speed has several effects:When making a full attack action, a hasted creature may make one extra attack with any weapon he is holding. The attack is made using the creature's full base attack bonus, plus any modifiers appropriate to the situation. (This effect is not cumulative with similar effects, such as that provided by a weapon of speed, nor does it actually grant an extra action, so you can't use it to cast a second spell or otherwise take an extra action in the round.) A hasted creature gains a +1 bonus to attack rolls and a +4 dodge bonus to AC and Reflex saves. Any condition that makes you lose your Dexterity bonus to Armor Class (if any) also makes you lose dodge bonuses. All of the hasted creature's modes of movement (including land movement, burrow, climb, fly, and swim) increase by 30', to a maximum of twice the subject's normal speed using that form of movement. This increase counts as an enhancement bonus, and it affects the creature's jumping distance as normal for increased speed. Multiple haste effects don't stack. Haste dispels and counters Slow.
+Healberry
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Fresh Berries
+	DURATION:Permanent until eaten
+	SAVEINFO:None
+	DESC:The spellcaster enchants 2d4 fresh berries, bestowing the ability for each to cure 1 hp (max 8 hp per 24 hours for any one creature). Eating one also provides the sustenance of an entire meal.
+Heal
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:Instantaneous
+	SAVEINFO:Will negates (harmless)
+	DESC:When laying your hand upon a living creature, you channel positive energy that cures 1d8 +1 points of damage.
+Heat Metal
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Metal equipment of one creature per two levels, no two of which can be more than 30' apart; or 25 lb. of metal per level, all of which must be within a 30' circle
+	DURATION:7 rounds
+	SAVEINFO:Will negates (object)
+	DESC:Heat Metal makes metal extremely warm. Unattended, non-magical metal gets no saving throw. Magical metal is allowed a saving throw against the spell. An item in a creature's possession uses the creature's saving throw bonus unless its own bonus is higher. A creature takes fire damage if its equipment is heated. It takes full damage if its armor is affected or if it is holding, touching, wearing, or carrying metal weighing one-fifth of its weight. The creature takes minimum damage (1 point or 2 points; see the table,) if it's not wearing metal armor and the metal that it's carrying weighs less than one-fifth of its weight. On the first round of the spell, the metal becomes warm and uncomfortable to touch but deals no damage. The same effect also occurs on the last round of the spell's duration. During the second (and also the next-to-last) round, intense heat causes pain and damage. In the third, fourth, and fifth rounds, the metal is searing hot, causing more damage, as shown on the table above. Any cold intense enough to damage the creature negates fire damage from the spell (and vice versa) on a point-for-point basis. If cast underwater, Heat Metal deals half damage and boils the surrounding water.
+Hold Creature
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One creature
+	DURATION:1 round per level; see text
+	SAVEINFO:Will negates; see text
+	DESC:This spell functions like Hold Person, except that it affects any living creature that fails its Will save.
+Hold Person
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One humanoid creature
+	DURATION:1 round per level; see text
+	SAVEINFO:Will negates; see text
+	DESC:The subject becomes paralyzed and freezes in place. It is aware and breathes normally but cannot take any actions, even speech. Each round on its turn, the subject may attempt a new saving throw to end the effect. (This is a full-round action that does not provoke attacks of opportunity.) A winged creature who is paralyzed cannot flap its wings and falls. A swimmer can't swim and may drown.
+Hold Portal
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One portal, up to 20' sq. per level
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:This spell magically holds shut a door, gate, window, or shutter of wood, metal, or stone. The magic affects the portal just as if it were securely closed and normally locked. A Knock spell or a successful Dispel Magic spell can negate a Hold Portal spell. For a portal affected by this spell, add 5 to the normal DC for forcing open the portal.
+Hypnotism
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 round
+	RANGE:Close (30')
+	TARGETAREA:Several living creatures, no two of which may be more than 30' apart
+	DURATION:2d4 rounds
+	SAVEINFO:Will negates
+	DESC:Your gestures and droning incantation fascinate nearby creatures, causing them to stop and stare blankly at you. In addition, you can use their rapt attention to make your suggestions and requests seem more plausible. Roll 2d4 to see how many total Hit Dice of creatures you affect. Creatures with fewer HD are affected before creatures with more HD. Only creatures that can see or hear you are affected, but they do not need to understand you to be fascinated. If you use this spell in combat, each target gains a +2 bonus to its saving throw. If the spell affects only a single creature not in combat at the time, the saving throw has a -2 penalty. While the subject is fascinated by this spell, it reacts as though it were two steps more friendly in attitude. This allows you to make a single request of the affected creature (provided you can communicate with it). The request must be brief and reasonable. Even after the spell ends, the creature retains its new attitude toward you, but only with respect to that particular request. A creature that fails its saving throw does not remember that you enspelled it.
+Ice Storm
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:Cylinder (20' radius, 40' high)
+	DURATION:1 full round
+	SAVEINFO:None
+	DESC:Great magical hailstones pound down for 1 full round, dealing 3d6 points of bludgeoning damage and 2d6 points of cold damage to every creature in the area. A -4 penalty applies to each Awareness check made within the ice storm's effect, and all land movement within its area is at half speed. At the end of the duration, the hail disappears, leaving no aftereffects (other than the damage dealt).
+Identify
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 hour
+	RANGE:Touch
+	TARGETAREA:One touched object
+	DURATION:Instantaneous
+	SAVEINFO:None
+	DESC:The spell determines all magic properties of a single magic item, including how to activate those functions (if appropriate), and how many charges are left (if any). Identify does not function when used on an artifact.
+Illusory Script
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 minute or longer; see text
+	RANGE:Touch
+	TARGETAREA:One touched object weighing no more than 10 lb.
+	DURATION:One day per level
+	SAVEINFO:Will negates; see text
+	DESC:You write instructions or other information on parchment, paper, or any suitable writing material. The illusory script appears to be some form of foreign or magical writing. Only the person (or people) designated by you at the time of the casting are able to read the writing; it's unintelligible to any other character. Any unauthorized creature attempting to read the Illusory Script triggers a potent illusory effect and must make a saving throw. A successful saving throw means the creature can look away with only a mild sense of disorientation. Failure means the creature is subject to a suggestion implanted in the script by you at the time the Illusory Script spell was cast. The suggestion lasts only 30 minutes. Typical suggestions include "Close the book and leave," "Forget the existence of the book," and so forth. If successfully dispelled by Dispel Magic, the Illusory Script and its secret message disappear. The hidden message can be read by a combination of the True Seeing spell with the Read Magic or Comprehend Languages spell. The casting time depends on how long a message you wish to write, but it is always at least 1 minute.
+Illusory Wall
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Image 1' x 10' x 10'
+	DURATION:Permanent
+	SAVEINFO:Will disbelief (if interacted with)
+	DESC:This spell creates the illusion of a wall, floor, ceiling, or similar surface. It appears absolutely real when viewed, but physical objects can pass through it without difficulty. When the spell is used to hide pits, traps, or normal doors, any detection abilities that do not require sight work normally. Touch or a probing search reveals the true nature of the surface, though such measures do not cause the illusion to disappear.
+Imbue Staff
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:2 minutes
+	RANGE:Touch
+	TARGETAREA:Staff or rod
+	DURATION:4 hours
+	SAVEINFO:None
+	DESC:The spellcaster's staff gains +1 to hit and damage, or gains +1 to hit and +1d4 subdual damage.
+Improved Invisibility
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Self or touch
+	TARGETAREA:You or a creature or object weighing no more than 100 lb. per level
+	DURATION:1 minute per level
+	SAVEINFO:Will negates (harmless) or Will negates (harmless, object)
+	DESC:This spell functions like Invisibility, except that it doesn't end if the subject attacks.
+Invisibility Purge
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:You
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:You surround yourself with a sphere of power with a radius of 5' per caster level that negates all forms of invisibility. Anything invisible becomes visible while in the area.
+Invisibility Sphere
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Self or touch
+	TARGETAREA:10' radius emanation around the creature or object touched
+	DURATION:1 minute per level
+	SAVEINFO:Will negates (harmless) or Will negates (harmless, object)
+	DESC:This spell functions like Invisibility, except that this spell confers invisibility upon all creatures within 10' of the recipient. The center of the effect is mobile with the recipient. Those affected by this spell can see each other and themselves as if unaffected by the spell. Any affected creature moving out of the area becomes visible, but creatures moving into the area after the spell is cast do not become invisible. Affected creatures (other than the recipient) who attack negate the invisibility only for themselves. If the spell recipient attacks, the invisibility sphere ends.
+Invisibility
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Self or touch
+	TARGETAREA:You or a creature or object weighing no more than 100 lb. per level
+	DURATION:1 minute per level
+	SAVEINFO:Will negates (harmless) or Will negates (harmless, object)
+	DESC:The creature or object touched becomes invisible, vanishing from sight, even from Darkvision. If the recipient is a creature carrying gear, that vanishes, too. If you cast the spell on someone else, neither you nor your allies can see the subject, unless you can normally see invisible things or you employ magic to do so. Items dropped or put down by an invisible creature become visible; items picked up disappear if tucked into the clothing or pouches worn by the invisible creature. Light, however, never becomes invisible, although a source of light can become so (thus, the effect is that of a light with no visible source). Any part of an item that the subject carries but that extends more than 10' from it becomes visible. Of course, the subject is not magically silenced, and certain other conditions can render the recipient detectable (such as stepping in a puddle). The spell ends if the subject attacks any creature. For purposes of this spell, an attack includes any spell targeting a foe or whose area or effect includes a foe. (Exactly who is a foe depends on the invisible character's perceptions.) Actions directed at unattended objects do not break the spell. Causing harm indirectly is not an attack. Thus, an invisible being can open doors, talk, eat, climb stairs, summon monsters and have them attack, cut the ropes holding a rope bridge while enemies are on the bridge, remotely trigger traps, open a portcullis to release attack dogs, and so forth. If the subject attacks directly, however, it immediately becomes visible along with all its gear. Spells such as Bless that specifically affect allies but not foes are not attacks for this purpose, even when they include foes in their area.
+Invisible Minion
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One invisible, mindless, shapeless servant
+	DURATION:1 hour per level
+	SAVEINFO:None
+	DESC:An Invisible Minion is an invisible, mindless, shapeless force that performs simple tasks at your command. It can run and fetch things, open unstuck doors, and hold chairs, as well as clean and mend. The servant can perform only one activity at a time, but it repeats the same activity over and over again if told to do so as long as you remain within range. It can open only normal doors, drawers, lids, and the like. It has an effective Strength score of 2 (so it can lift 20 pounds or drag 100 pounds). It can trigger traps and such, but it can exert only 20 pounds of force, which is not enough to activate certain pressure plates and other devices. It can't perform any task that requires a skill check with a DC higher than 10 or that requires a check using a skill that can't be used untrained. Its speed is 15'. The servant cannot attack in any way; it is never allowed an attack roll. It cannot be killed, but it dissipates if it takes 6 points of damage from area attacks. (It gets no saves against attacks.) If you attempt to send it beyond the spell's range (measured from your current position), the servant ceases to exist.
+Jump
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 minute per level
+	SAVEINFO:Will negates (harmless)
+	DESC:The subject gets a +30 enhancement bonus to Jump-focused Athletics checks.
+Keen Edge
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One weapon or fifty projectiles, all of which must be in contact with each other at the time of casting
+	DURATION:10 minute per level
+	SAVEINFO:Will negates (harmless, object)
+	DESC:This spell makes a weapon magically keen, improving its ability to deal telling blows. This transmutation doubles the critical hit range of the weapon. A threat range of 20 becomes 19-20, a threat range of 19-20 becomes 17-20, and a threat range of 18-20 becomes 15-20. The spell can be cast only on piercing or slashing weapons. If cast on arrows or crossbow bolts, the Keen Edge on a particular projectile ends after one use, whether or not the missile strikes its intended target. (Treat shuriken as arrows, rather than as thrown weapons, for the purpose of this spell.) Multiple effects that increase a weapon's threat range (such as the Keen Edge spell and the Improved Critical feat) don't stack. You can't cast this spell on a natural weapon, such as a claw.
+Knock
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One door, box, or chest with an area of up to 10' sq. per level
+	DURATION:Instantaneous; see text
+	DESC:The Knock spell opens stuck, barred, locked, Held, or Arcane Locked doors. It opens secret doors, as well as locked or trick-opening boxes or chests. It also loosens welds, shackles, or chains (provided they serve to hold closures shut). If used to open an Arcane Locked door, the spell does not remove the Arcane Lock but simply suspends its functioning for 10 minutes. In all other cases, the door does not relock itself or become stuck again on its own. Knock does not raise barred gates or similar impediments (such as a portcullis), nor does it affect ropes, vines, and the like. The effect is limited by the area. Each spell can undo as many as two means of preventing egress.
+Lesser Geas
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 round
+	RANGE:Close (30')
+	TARGETAREA:One living creature with 7 HD or less
+	DURATION:One day per level or until discharged
+	SAVEINFO:Will negates
+	DESC:A Lesser Geas places a magical command on a creature to carry out some service or to refrain from some action or course of activity, as desired by you. The creature must have 7 or fewer Hit Dice and be able to understand you. While a Geas cannot compel a creature to kill itself or perform acts that would result in certain death, it can cause almost any other course of activity. The geased creature must follow the given instructions until the geas is completed, no matter how long it takes. If the instructions involve some open-ended task that the recipient cannot complete through his own actions the spell remains in effect for a maximum of one day per caster level. A clever recipient can subvert some instructions:If the subject is prevented from obeying the Lesser Geas for 24 hours, it takes a -2 penalty to each of its ability scores. Each day, another -2 penalty accumulates, up to a total of -8. No ability score can be reduced to less than 1 by this effect. The ability score penalties are removed 24 hours after the subject resumes obeying the Lesser Geas. Dispel Magic does not affect a Lesser Geas.
+Lesser Restoration
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:3 rounds
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:Instantaneous
+	SAVEINFO:Will negates
+	DESC:Lesser Restoration dispels any magical effects reducing one of the subject's ability scores, or cures 1d4 points of temporary ability damage to one of the subject's ability scores. It also eliminates any fatigue suffered by the character, and improves an Exhausted condition to Fatigued. It does not restore permanent ability drain.
+Levitate
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Self or 25' + 5' per 2 levels
+	TARGETAREA:You or one willing creature or one object (total weight up to 100 lb. per level)
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:Levitate allows you to move yourself, another creature, or an object up and down as you wish. A creature must be willing to be levitated, and an object must be unattended or possessed by a willing creature. You can mentally direct the recipient to move up or down as much as 20' each round; doing so is a move action. You cannot move the recipient horizontally, but the recipient could clamber along the face of a cliff, for example, or push against a ceiling to move laterally (generally at half its base land speed). A levitating creature that attacks with a melee or ranged weapon finds itself increasingly unstable; the first attack has a -1 penalty to attack rolls, the second -2, and so on, to a maximum penalty of -5. A full round spent stabilizing allows the creature to begin again at -1.
+Lightning Bolt
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:120'
+	TARGETAREA:120' line
+	DURATION:Instantaneous
+	SAVEINFO:Reflex half
+	DESC:You release a powerful stroke of electrical energy that deals 5d6 points of electricity damage to each creature within its line of effect. The bolt begins at your fingertips. The Lightning Bolt sets fire to combustibles and damages objects in its path. It can melt metals with a low melting point, such as lead, gold, copper, silver, or bronze. If the damage caused to an interposing barrier shatters or breaks through it, the bolt may continue beyond the barrier if the spell's range permits; otherwise, it stops at the barrier just as any other spell effect does.
+Light
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Object touched
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:This spell causes an object to glow like a torch, shedding bright light in a 20' radius (and dim light for an additional 20') from the point you touch. The effect is immobile, but it can be cast on a movable object. Light taken into an area of magical darkness does not function. A Light spell (one with the light descriptor) counters and dispels a Darkness spell (one with the darkness descriptor) of an equal or lower level.
+Locate Creature
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:Circle, centered on you, with a radius of 400'
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:This spell functions like Locate Object, except this spell locates a known or familiar creature. You slowly turn and sense when you are facing in the direction of the creature to be located, provided it is within range. You also know in which direction the creature is moving, if any. The spell can locate a creature of a specific kind or a specific creature known to you. It cannot find a creature of a certain type. To find a kind of creature, you must have seen such a creature up close (within 30') at least once. Running water blocks the spell. It cannot detect objects. It can be fooled by Mislead, Nondetection, and Polymorph spells.
+Locate Object
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:Circle, centered on you, with a radius of 400' + 40' per level
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:You sense the direction of a well-known or clearly-visualized object. You can search for general items, in which case you locate the nearest one of its kind if more than one is within range. Attempting to find a certain item requires a specific and accurate mental image; if the image is not close enough to the actual object, the spell fails. You cannot specify a unique item unless you have observed that particular item first hand (not through Divination). The spell is blocked by even a thin sheet of lead. Creatures cannot be found by this spell. Polymorph Any Object fools it.
+Mage Bolt
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One creature per bolt
+	DURATION:Instant
+	SAVEINFO:None
+	DESC:A bolt of magical energy darts forth from your fingertip and strikes its target, dealing 1d4+1 points of force damage. The bolt strikes unerringly, even if the target is in melee combat or has less than total cover or total concealment. Specific parts of a creature can't be singled out. Inanimate objects are not damaged by the spell.
+Mage Fire
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:15'
+	TARGETAREA:Cone-shaped burst
+	DURATION:Instant
+	SAVEINFO:Reflex half
+	DESC:A cone of searing flame shoots from your fingertips. Any creature in the area of the flames takes 1d4 points of fire damage. Flammable materials burn if the flames touch them. A character can extinguish burning items as a full-round action.
+Magic Acorn
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:An acorn or plant seed
+	DURATION:Permanent
+	SAVEINFO:Reflex partial
+	DESC:The spellcaster enchants an acorn or other plant seed. The seed will then become a missile that causes 1d6+1 damage, with a chance to entangle the target. If the target rolls a successful reflex save, they do not become entangled.
+Magic Hand
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One non-magical, unattended object weighing up to 5 lb.
+	DURATION:Concentration
+	SAVEINFO:None
+	DESC:You point your finger at an object and can lift it and move it at will from a distance. As a move action, you can propel the object as far as 15' in any direction, though the spell ends if the distance between you and the object ever exceeds the spell's range.
+Magic Stone
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Up to three pebbles touched
+	DURATION:30 minutes or until discharged
+	SAVEINFO:Will negates (harmless, object)
+	DESC:You transmute as many as three pebbles, which can be no larger than sling bullets, so that they strike with great force when thrown or slung. If hurled, they have a range increment of 20'. If slung, treat them as sling bullets (range increment 50'). The spell gives them a +1 enhancement bonus to attack and damage rolls. The user of the stones makes a normal ranged attack. Each stone that hits deals 1d6+1 points of damage (including the spell's enhancement bonus).
+Magic Weapon
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Weapon touched
+	DURATION:1 minute per level
+	SAVEINFO:Will negates (harmless, object)
+	DESC:Magic Weapon gives a weapon a +1 enhancement bonus to attack and damage rolls. (An enhancement bonus does not stack with a masterwork weapon's +1 bonus to attack rolls.) You can't cast this spell on a natural weapon, such as an unarmed strike.
+Major Image
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:Empty space
+	DURATION:Concentration
+	SAVEINFO:Will disbelief (if interacted with)
+	DESC:As Silent Image, plus sound, smell and thermal effects.
+Message
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One creature per level.
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:You can whisper messages and receive whispered replies with little chance of being overheard. You point your finger at each creature you want to receive the Message. When you whisper, the whispered Message is audible to all targeted creatures within range. Magical Silence, one foot of stone, one inch of common metal (or a thin sheet of lead), or three feet of wood or dirt blocks the spell. The Message does not have to travel in a straight line. It can circumvent a barrier if there is an open path between you and the subject, and the path's entire length lies within the spell's range. The creatures that receive the Message can whisper a reply that you hear. The spell transmits sound, not meaning. It doesn't transcend language barriers.
+Minor Globe of Invulnerability
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:10'
+	TARGETAREA:10' radius sphere, centered on caster
+	DURATION:1 round per level.
+	SAVEINFO:None
+	DESC:An immobile, faintly shimmering magical sphere surrounds you and excludes all spell effects of 3rd level or lower. The area of effect of any such spells does not include the area of the Minor Globe of Invulnerability. Such spells fail to affect any target located within the Globe. Excluded effects include spell-like abilities and spells or spell-like effects from items. However, any type of spell can be cast through or out of the magical Globe. Spells of 4th level and higher are not affected by the Globe, nor are spells already in effect when the Globe is cast. The Globe can be brought down by a targeted Dispel Magic spell, but not by an area Dispel Magic. You can leave and return to the Globe without penalty. Note that spell effects are not disrupted unless their effects enter the Globe, and even then they are merely suppressed, not dispelled. If a given spell has more than one level depending on which character class is casting it, use the level appropriate to the caster to determine whether Lesser Globe of Invulnerability stops it.
+Minor Image
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:Empty space
+	DURATION:Concentration
+	SAVEINFO:Will disbelief (if interacted with)
+	DESC:This spell functions like Silent Image, except that Minor Image includes some minor sounds but not understandable speech.
+Minor Trick
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:10'
+	TARGETAREA:See text
+	DURATION:1 hour
+	SAVEINFO:See text
+	DESC:A minor trick that novice spellcasters use for practice. Once cast, a Minor Trick spell enables you to perform simple magical effects for 1 hour. The effects are minor and have severe limitations. A Minor Trick can slowly lift one pound of material. It can color, clean, or soil items in a 1' cube each round. It can chill, warm, or flavor one pound of non-living material. It cannot deal damage or affect the concentration of spellcasters. Minor Trick can create small objects, but they look crude and artificial. The materials created by a Minor Trick spell are extremely fragile, and they cannot be used as tools, weapons, or spell components. Finally, a Minor Trick lacks the power to duplicate any other spell effects. Any actual change to an object (beyond just moving, cleaning, or soiling it) persists only 1 hour.
+Mirror Image
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Self; see text
+	TARGETAREA:Self
+	DURATION:1 minute per level (D)
+	SAVEINFO:None
+	DESC:Several illusory duplicates of you pop into being, making it difficult for enemies to know which target to attack. The figments stay near you and disappear when struck. Mirror Image creates 1d4 images plus one image. These figments separate from you and remain in a cluster, each within 5' of at least one other figment or you. You can move into and through a mirror image. When you and the mirror image separate, observers can't use vision or hearing to tell which one is you and which the image. The figments may also move through each other. The figments mimic your actions, pretending to cast spells when you cast a spell, drink potions when you drink a potion, levitate when you levitate, and so on. Enemies attempting to attack you or cast spells at you must select from among indistinguishable targets. Generally, roll randomly to see whether the selected target is real or a figment. Any successful attack against an image destroys it. An image's AC is 10 + your size modifier + your DEX modifier. Figments seem to react normally to area spells (such as looking like they're burned or dead after being hit by a fireball). While moving, you can merge with and split off from figments so that enemies who have learned which image is real are again confounded. An attacker must be able to see the images to be fooled. If you are invisible or an attacker shuts his or her eyes, the spell has no effect. (Being unable to see carries the same penalties as being blinded.)
+Misdirection
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One creature or object, up to a 10' cube in size
+	DURATION:1 hour per level
+	SAVEINFO:None or Will negates; see text
+	DESC:By means of this spell, you misdirect the information from divination spells that reveal auras (Detect Magic, Discern Lies, and the like). On casting the spell, you choose another object within range. For the duration of the spell, the subject of Misdirection is detected as if it were the other object. (Neither the subject nor the other object gets a saving throw against this effect.) Detection spells provide information based on the second object rather than on the actual target of the detection unless the caster of the detection succeeds on a Will save. For instance, you could make yourself detect as a tree if one were within range at casting:not evil, not lying, not magical, neutral in alignment, and so forth. This spell does not affect other types of divination magic (Augury, Detect Thoughts, Clairaudience/Clairvoyance, and the like).
+Mystic Compass
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Self
+	DURATION:10 minutes
+	SAVEINFO:None
+	DESC:The spellcaster discerns which way is north. They see a faint blue glow in the direction north for the duration of the spell.
+Neutralize Poison
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature or object of up to 1' cubed per level touched
+	DURATION:10 minutes per level
+	SAVEINFO:Will negates (harmless, object)
+	DESC:You detoxify any sort of venom in the creature or object touched. A poisoned creature suffers no additional effects from the poison, and any temporary effects are ended, but the spell does not reverse instantaneous effects, such as hit point damage, temporary ability damage, or effects that don't go away on their own. The creature is immune to any poison it is exposed to during the duration of the spell. Unlike with Delay Poison, such effects aren't postponed until after the duration —the creature need not make any saves against poison effects applied to it during the length of the spell. This spell can instead neutralize the poison in a poisonous creature or object for the duration of the spell, at the caster's option.
+Nigel's Energy Transfer
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 round
+	RANGE:Medium (100')
+	TARGETAREA:Another spellcaster
+	DURATION:Instant
+	SAVEINFO:None
+	DESC:A spellcaster meditates for one round and transfers some of his mana and energy to another spellcaster. The transferring spellcaster can decide to transfer as much mana as they have, minus the one mana cost of the spell.
+Nigel's Sacrificial Energy
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 round
+	RANGE:Long (400')
+	TARGETAREA:Another spellcaster
+	DURATION:Instant
+	SAVEINFO:None
+	DESC:A spellcaster can transmute his health into mana for another spellcaster. Beyond the cost of the spell, the transfer is 3 hit points to 1 point of mana to another caster. This damage is full damage to the casting spellcaster.
+Nondetection
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature or object touched
+	DURATION:1 hour per level
+	SAVEINFO:Will negates (harmless, object)
+	DESC:The warded creature or object becomes difficult to detect by divination spells such as Clairaudience/Clairvoyance, Locate Object, and Detect spells. Nondetection also prevents location by such magic items as crystal balls. If a divination is attempted against the warded creature or item, the caster of the divination must succeed on a caster level check (1d20 + caster level) against a DC of 11 + the caster level of the spellcaster who cast Nondetection. If you cast Nondetection on yourself or on an item currently in your possession, the DC is 15 + your caster level. If cast on a creature, Nondetection wards the creature's gear as well as the creature itself.
+Obscure Object
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One object touched of up to 100 lb. per level
+	DURATION:8 hours
+	SAVEINFO:Will negates (object)
+	DESC:This spell hides an object from location by divination (scrying) effects, such as the Scrying spell or a crystal ball. Such an attempt automatically fails (if the divination is targeted on the object) or fails to perceive the object (if the divination is targeted on a nearby location, object, or person).
+Open/Close
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Object weighing up to 30 lb. or portal that can be opened or closed
+	DURATION:Instantaneous
+	SAVEINFO:Will negates (object)
+	DESC:You can open or close (your choice) a door, chest, box, window, bag, pouch, bottle, barrel, or other container. If anything resists this activity (such as a bar on a door or a lock on a chest), the spell fails. In addition, the spell can only open and close things weighing 30 pounds or less. Thus, doors, chests, and similar objects sized for enormous creatures may be beyond this spell's ability to affect.
+Pass without Trace
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One creature per level touched
+	DURATION:1 hour per level
+	SAVEINFO:Will negates (harmless)
+	DESC:The target or targets can move through any type of terrain and leave neither footprints nor scent. Tracking the subjects is impossible by non-magical means.
+Phantom Steed
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:10 minutes
+	RANGE:0'
+	TARGETAREA:space within 10'
+	DURATION:1 hour per level
+	SAVEINFO:None
+	DESC:You conjure a Large, quasi-real, horse-like creature. The Steed can be ridden only by you or by the one person for whom you specifically created the mount. A Phantom Steed has a black head and body, gray mane and tail, and smoke-colored, insubstantial hooves that make no sound. It has what seems to be a saddle, bit, and bridle. It does not fight, but animals shun it and refuse to attack it. The mount has an AC of 18 (-1 size, +4 natural armor, +5 DEX) and 7 hit points +1 hit point per caster level. If it loses all its hit points, the Phantom Steed disappears. A Phantom Steed has a speed of 20' per caster level, to a maximum of 160'. It can bear its rider's weight plus up to 10 pounds per caster level.
+Plant Growth
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:See text
+	TARGETAREA:See text
+	DURATION:Instantaneous
+	SAVEINFO:None
+	DESC:Plant Growth has different effects depending on the version chosen. Overgrowth This effect causes normal vegetation (grasses, briars, bushes, creepers, thistles, trees, vines) within long range (400') + 40' per caster level to become thick and overgrown. The plants entwine to form a thicket or jungle that creatures must hack or force a way through. Speed drops to 5', or 10' for Large or larger creatures. The area must have brush and trees in it for this spell to take effect. At your option, the area can be a 100' radius circle, a 150' radius semicircle, or a 200' radius quarter circle. You may designate places within the area that are not affected. Enrichment This effect targets plants within a range of one-half mile, raising their potential productivity over the course of the next year to one-third above normal. Plant Growth counters Diminish Plants. This spell has no effect on plant creatures.
+Poison
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Living creature touched
+	DURATION:Instant
+	SAVEINFO:Fortitude negates
+	DESC:Calling upon the venomous powers of natural predators, you infect the subject with a horrible poison by making a successful melee touch attack. The poison deals 1d10 points of temporary Constitution damage immediately and another 1d10 points of temporary Constitution damage one minute later. Each instance of damage can be negated by a Fortitude save.
+Polymorph Other
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Willing living creature touched
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:This spell functions like Alter Self, except that you change the willing subject into another form of living creature. The new form may be of the same type as the subject or any of the following types:aberration, animal, dragon, fey, giant, humanoid, magical beast, monstrous humanoid, ooze, plant, or vermin. The assumed form can't have more Hit Dice than your caster level (or the subject's HD, whichever is lower). You can't cause a subject to assume a form smaller than Fine, nor can you cause a subject to assume an incorporeal or gaseous form. The subject's creature type and subtype (if any) change to match the new form. Upon changing, the subject regains lost hit points as if it had rested for a night (though this healing does not restore temporary ability damage and provide other benefits of resting; and changing back does not heal the subject further). If slain, the subject reverts to its original form, though it remains dead. The subject gains the Strength, Dexterity, and Constitution scores of the new form but retains its own Intelligence, Wisdom, and Charisma scores. It also gains all extraordinary special attacks possessed by the form but does not gain the extraordinary special qualities possessed by the new form or any supernatural or spell-like abilities. Incorporeal or gaseous creatures are immune to being polymorphed, and a creature with the shapechanger subtype can revert to its natural form as a standard action.
+Polymorph Self
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Willing living creature touched
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:As Polymorph Other, except that you assume the form of a different creature.
+Protection from Arrows
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 hour per level or until discharged
+	SAVEINFO:Will negates (harmless)
+	DESC:The warded creature gains resistance to ranged weapons. The subject gains damage reduction 10 vs.magic against ranged weapons. (This spell doesn't grant you the ability to damage creatures with similar damage reduction.) Once the spell has prevented a total of 10 points of damage per caster level (maximum 100 points), it is discharged.
+Protection from Elements
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:10 minutes per level or until discharged
+	SAVEINFO:Fortitude negates (harmless)
+	DESC:Protection from Elements grants temporary immunity to the type of energy you specify when you cast it (acid, cold, electricity, fire, or sonic). When the spell absorbs 12 points per caster level of energy damage (to a maximum of 96 points at 8th level), it is discharged.
+Protection from Ravaging
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:10' radius sphere
+	DURATION:10 minutes per level or until discharged
+	SAVEINFO:Fortitude negates (harmless)
+	DESC:The spellcaster creates a 10' radius sphere of protection that ravaging effects can not penetrate.
+Protection from the Never
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:10'
+	TARGETAREA:A small object
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:All in a 10' radius of charmed object gain a +1 bonus vs. Creatures from the Navirim, or protection from scrying through dreams.
+Pyrotechnics
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:One fire source, up to a 20' cube
+	DURATION:1d4+1 rounds, or 1d4+1 rounds after creatures leave the smoke cloud; see text
+	SAVEINFO:Will negates or Fortitude negates; see text
+	DESC:Pyrotechnics turns a fire into either a burst of blinding fireworks or a thick cloud of choking smoke, depending on the version you choose. Fireworks The fireworks are a flashing, fiery, momentary burst of glowing, colored aerial lights. This effect causes creatures within 120' of the fire source to become blinded for 1d4+1 rounds (Will negates). These creatures must have line of sight to the fire to be affected. Spell resistance can prevent blindness. Smoke Cloud A writhing stream of smoke billows out from the source, forming a choking cloud. The cloud spreads 20' in all directions and lasts for one round per caster level. All sight, even Darkvision, is ineffective in or through the cloud. All within the cloud take -4 penalties to Strength and Dexterity (Fortitude negates). These effects last for 1d4+1 rounds after the cloud dissipates or after the creature leaves the area of the cloud. Spell resistance does not apply.
+Quench
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One 20' cube per level (S) or one fire-based magic item
+	DURATION:Instantaneous
+	SAVEINFO:None or Will negates (object)
+	DESC:Quench is often used to put out forest fires and other conflagrations. It extinguishes all non-magical fires in its area. The spell also dispels any fire spells in its area, though you must succeed on a Dispel check (1d20 +1 per caster level) against each spell to dispel it. The DC to dispel such spells is 11 + the caster level of the fire spell. Each elemental (fire) creature within the area of a quench spell takes 1d6 points of damage per caster level (maximum 8d6, no save allowed). Alternatively, you can target the spell on a single magic item that creates or controls flame. The item loses all its fire-based magical abilities for 1d4 hours unless it succeeds on a Will save. (Artifacts are immune to this effect.)
+Rainbow Pattern
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:Colorful lights with a 20' radius spread
+	DURATION:Concentration +1 round per level
+	SAVEINFO:Will negates
+	DESC:A glowing, rainbow-hued pattern of interweaving colors fascinates those within it. Rainbow Pattern fascinates a maximum of 24 Hit Dice of creatures. Creatures with the fewest HD are affected first. Among creatures with equal HD, those who are closest to the spell's point of origin are affected first. An affected creature that fails its saves is fascinated by the pattern. With a simple gesture (a free action), you can make the Rainbow Pattern move up to 30' per round (moving its effective point of origin). All fascinated creatures follow the moving rainbow of light, trying to get or remain within the effect. Fascinated creatures who are restrained and removed from the Pattern still try to follow it. If the Pattern leads its subjects into a dangerous area, each fascinated creature gets a second save. If the view of the lights is completely blocked creatures who can't see them are no longer affected. The spell does not affect sightless creatures.
+Ray of Enfeeblement
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:A coruscating ray springs from your hand. You must succeed on a ranged touch attack to strike a target. The subject takes a penalty to Strength equal to 1d6+1. The subject's Strength score cannot drop below 1.
+Reduce
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 minute per level
+	SAVEINFO:Fortitude negates
+	DESC:This spell causes instant diminution of a creature, halving its height, length, and width and dividing its weight by 8. This decrease changes the creature's size category to the next smaller one. The target gains a +2 size bonus to Dexterity, a -2 size penalty to Strength (to a minimum of 1), and a +1 bonus to attack rolls and AC due to its reduced size. A Small humanoid creature whose size decreases to Tiny has a space of 2½' and a natural reach of 0' (meaning that it must enter an opponent's square to attack). A Large humanoid creature whose size decreases to Medium has a space of 5' and a natural reach of 5'. This spell doesn't change the target's speed. All equipment worn or carried by a creature is similarly reduced by the spell. Melee and projectile weapons deal less damage. Other magical properties are not affected by this spell. Any reduced item that leaves the reduced creature's possession (including a projectile or thrown weapon) instantly returns to its normal size. This means that thrown weapons deal their normal damage (projectiles deal damage based on the size of the weapon that fired them). Multiple magical effects that reduce size do not stack. Reduce counters and dispels Enlarge.
+Remove Blindness/Deafness
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:Instantaneous
+	SAVEINFO:Fortitude negates (harmless)
+	DESC:Remove Blindness/Deafness cures blindness or deafness (your choice), whether the effect is normal or magical in nature. The spell does not restore ears or eyes that have been lost, but it repairs them if they are damaged. Remove Blindness/Deafness counters and dispels Blindness/Deafness.
+Remove Curse
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature or item touched
+	DURATION:Instantaneous
+	SAVEINFO:Will negates (harmless)
+	DESC:Remove Curse instantaneously removes all curses on an object or a creature. Remove Curse does not remove the curse from a cursed shield, weapon, or suit of armor, although the spell typically enables the creature afflicted with any such cursed item to remove and get rid of it. Certain special curses may not be countered by this spell or may be countered only by a caster of a certain level or higher. Remove Curse counters and dispels Bestow Curse.
+Remove Disease
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:Instant
+	SAVEINFO:Fortitude negates (harmless)
+	DESC:Remove Disease cures all diseases that the subject is suffering from. The spell also kills parasites, including green slime and others. Certain special diseases may not be countered by this spell or may be countered only by a caster of a certain level or higher. Note:Since the spell's duration is instantaneous, it does not prevent reinfection after a new exposure to the same disease at a later date
+Remove Fear
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One creature plus one additional creature per four levels, no two of which can be more than 30' apart
+	DURATION:10 minutes; see text
+	SAVEINFO:Will negates (harmless)
+	DESC:You instill courage in the subject, granting it a +4 morale bonus against fear effects for 10 minutes. If the subject is under the influence of a fear effect when receiving the spell, that effect is suppressed for the duration of the spell. Remove Fear counters and dispels Cause Fear.
+Remove Paralysis
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Up to four creatures, no two of which can be more than 30' apart
+	DURATION:Instant
+	SAVEINFO:Will negates (harmless)
+	DESC:You can free one or more creatures from the effects of any temporary paralysis or related magic, including a ghoul's touch or a Slow spell. If the spell is cast on one creature, the paralysis is negated. If cast on two creatures, each receives another save with a +4 resistance bonus against the effect that afflicts it. If cast on three or four creatures, each receives another save with a +2 resistance bonus. The spell does not restore ability scores reduced by penalties, damage, or drain effects.
+Repel Vermin
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:10'
+	DURATION:10 minutes per level
+	SAVEINFO:None or Will negates; see text
+	DESC:An invisible barrier holds back vermin. A vermin with Hit Dice of less than one-third your level cannot penetrate the barrier. A vermin with Hit Dice of one-third your level or more can penetrate the barrier if it succeeds on a Will save. Even so, crossing the barrier deals the vermin 2d6 points of damage, and pressing against the barrier causes pain, which deters most vermin.
+Resilient Sphere
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	DURATION:1 minute per level
+	SAVEINFO:Reflex negates
+	DESC:A globe of shimmering force encloses a creature, provided the creature is small enough to fit within the diameter of the Sphere. The Sphere contains its subject for the spell's duration. The Resilient Sphere is not subject to damage of any sort except from a rod of cancellation, a rod of negation, a Disintegrate spell, or a targeted Dispel Magic spell. These effects destroy the Sphere without harm to the subject. Nothing can pass through the sphere, inside or out, though the subject can breathe normally. The subject may struggle, but the Sphere cannot be physically moved either by people outside it or by the struggles of those within.
+Resistance
+	CLASSES:Mana=0	FACT:MANA|0
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 minute
+	SAVEINFO:Will negates (harmless)
+	DESC:You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus to saves.
+Resist Elements
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:10 minutes per level
+	SAVEINFO:Fortitude negates
+	DESC:This abjuration grants a creature limited protection from damage of whichever one of five energy types you select:acid, cold, electricity, fire, or sonic. The subject gains energy resistance 10 against the energy type chosen, meaning that each time the creature is subjected to such damage (whether from a natural or magical source), that damage is reduced by 10 points before being applied to the creature's hit points. The value of the energy resistance granted increases to 20 points at 7th level. The spell protects the recipient's equipment as well. Resist Energy absorbs only damage. The subject could still suffer unfortunate side effects.
+Restoration
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:3 rounds
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:Instantaneous
+	SAVEINFO:Will negates
+	DESC:This spell functions like Lesser Restoration, except that it also dispels negative levels and restores one experience level to a creature who has had a level drained. The drained level is restored only if the time since the creature lost the level is equal to or less than one day per caster level. A character who has a level restored by Restoration has exactly the minimum number of experience points necessary to restore him or her to his or her previous level. Restoration cures all temporary ability damage, and it restores all points permanently drained from a single ability score (your choice if more than one is drained). It also eliminates any Fatigue or Exhaustion suffered by the target.
+Rusting Grasp
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One non-magical ferrous object (or the volume of the object within 3' of the touched point) or one ferrous creature
+	DURATION:See text
+	SAVEINFO:None
+	DESC:Any iron or iron-alloy item you touch becomes instantaneously rusted, pitted, and worthless, effectively destroyed. If the item is so large that it cannot fit within a 3' radius, only a 3' radius volume of the metal is rusted and destroyed. Magic items made of metal are immune to this spell. You may employ Rusting Grasp in combat with a successful melee touch attack. Rusting Grasp used in this way instantaneously destroys 1d6 points of Armor Class gained from metal armor (to the maximum amount of protection the armor offered) through corrosion. Weapons in use by an opponent targeted by the spell are more difficult to grasp. You must succeed on a melee touch attack against the weapon. A metal weapon that is hit is destroyed. Note:Striking at an opponent's weapon provokes an attack of opportunity. Also, you must touch the weapon and not the other way around. Against a ferrous creature, Rusting Grasp instantaneously deals 3d6 points of damage +1 per caster level per successful attack. The spell lasts for one round per level, and you can make one melee touch attack per round.
+Sanctuary
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:1 round per level
+	SAVEINFO:Will negates
+	DESC:Any opponent attempting to strike or otherwise directly attack the warded creature, even with a targeted spell, must attempt a Will save. If the save succeeds, the opponent can attack normally and is unaffected by that casting of the spell. If the save fails, the opponent can't follow through with the attack, that part of its action is lost, and it can't directly attack the warded creature for the duration of the spell. Those not attempting to attack the subject remain unaffected. This spell does not prevent the warded creature from being attacked or affected by area of effect spells. The subject cannot attack without breaking the spell but may use non-attack spells or otherwise act.
+Scare
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One living creature per three levels, no two of which can be more than 30' apart
+	DURATION:1 round per level or 1 round; see text for cause fear
+	SAVEINFO:Will partial
+	DESC:You can see and hear some creature, which may be at any distance. If the subject succeeds on a Will save, the scrying attempt simply fails. The difficulty of the save depends on how well you know the subject and what sort of physical connection (if any) you have to that creature. Furthermore, if the subject is on another plane, it gets a +5 bonus to its Will save.
+Scrying
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 hour
+	RANGE:See text
+	TARGETAREA:Magical sensor
+	DURATION:1 minute per level
+	SAVEINFO:Will negates
+	DESC:You can see and hear some creature, which may be at any distance. If the subject succeeds on a Will save, the scrying attempt simply fails. The difficulty of the save depends on how well you know the subject and what sort of physical connection (if any) you have to that creature. Furthermore, if the subject is on another plane, it gets a +5 bonus on its Will save. If the save fails, you can see and hear the subject and the subject's immediate surroundings (approximately 10' in all directions of the subject). If the subject moves, the sensor follows at a speed of up to 150'. As with all divination (scrying) spells, the sensor has your full visual acuity, including any magical effects. In addition, the following spells have a 5%% chance per caster level of operating through the sensor:Detect Magic, and Message.  If the save succeeds, you can't attempt to scry on that subject again for at least 24 hours.
+Searing Light
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:Ray
+	DURATION:Instantaneous
+	SAVEINFO:None
+	DESC:Focusing divine power like a ray of the sun, you project a blast of light from your open palm. You must succeed on a ranged touch attack to strike your target. A creature struck by Searing Light takes 2d8 points of damage. An undead creature takes an additional 4 damage.
+Secret Page
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:10 minutes
+	RANGE:Touch
+	TARGETAREA:Page touched, up to 3' square in size
+	DURATION:Permanent
+	SAVEINFO:None
+	DESC:Secret page alters the contents of a page so that it appears to be something entirely different. The text of a spell can even be changed to show another spell. Explosive Runes or Sepia Snake Sigil can be cast upon the Secret Page. A Comprehend Languages spell alone cannot reveal a Secret Page's contents. You are able to reveal the original contents by speaking a special word. You can then peruse the actual page, and return it to its Secret Page form at will. You can also remove the spell by double repetition of the special word. A Detect Magic spell reveals dim magic on the page in question but does not reveal its true contents. True Seeing reveals the presence of the hidden material but does not reveal the contents unless cast in combination with Comprehend Languages. A Secret Page spell can be dispelled, and the hidden writings can be destroyed by means of an Erase spell.
+See Invisibility
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Self
+	DURATION:10 minutes per level
+	DESC:You can see any objects or beings that are invisible within your range of vision, as well as any that are ethereal, as if they were normally visible. Such creatures are visible to you as translucent shapes, allowing you easily to discern the difference between visible, invisible, and ethereal creatures. The spell does not reveal the method used to obtain invisibility. It does not reveal illusions or enable you to see through opaque objects. It does not reveal creatures who are simply hiding, concealed, or otherwise hard to see.
+Sending
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:10 minutes
+	RANGE:See text
+	TARGETAREA:One creature
+	DURATION:1 round; see text
+	SAVEINFO:None
+	DESC:You contact a particular creature with which you are familiar and send a short message of twenty-five words or less to the subject. The subject recognizes you if it knows you. It can answer in like manner immediately. A creature with an Intelligence score as low as 1 can understand the sending, though the subject's ability to react is limited as normal by its Intelligence score. Even if the sending is received, the subject is not obligated to act upon it in any manner. If the creature in question is not on the same plane of existence as you are, there is a 5%% chance that the sending does not arrive. (Local conditions on other planes may worsen this chance considerably.)
+Shape Nature
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:5 rounds
+	RANGE:60'
+	TARGETAREA:One raw item
+	DURATION:Permanent
+	SAVEINFO:None; see text
+	DESC:A spellcaster casts a spell which allows them to communicate to a natural object, such as a tree, stone, or ore. The caster may then ask the item to form to a desired item. The object can not destroy itself, nor can it change size.  This spell was learned from the elves, and was used often when building elven living spaces.
+Shape the Weather
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:3 rounds
+	RANGE:Long (400')
+	DURATION:10 minutes per level
+	SAVEINFO:None
+	DESC:A spellcaster chants, and may shape the weather. They may call a rain, or a wind. These can not be drastic changes, and the more a spellcaster tries to bend the weather to their will, the more taxing the spell can be (subdual damage).
+Shatter
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:5' radius spread; or one solid object or one crystalline creature
+	DURATION:Instantaneous
+	SAVEINFO:Will negates (object); Will negates (object) or Fortitude half; see text
+	DESC:Shatter creates a loud, ringing noise. It can break brittle, non-magical objects; sunder a single solid, non-magical object; or damage a crystalline creature. Used as an area attack, Shatter destroys non-magical objects of crystal, glass, ceramic, or porcelain. All such objects within a 5' radius of the point of origin are smashed into dozens of pieces by the spell. Objects weighing more than one pound per your level are not affected, but all other objects of the appropriate composition are shattered. Alternatively, you can target Shatter against a single solid object, regardless of composition, weighing up to ten pounds per caster level. Targeted against a crystalline creature (of any weight), shatter deals 1d6 points of sonic damage per caster level (maximum 10d6), with a Fortitude save for half damage.
+Shield
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Self
+	DURATION:1 minute per level (D)
+	SAVEINFO:None
+	DESC:Shield creates an invisible, tower shield-sized mobile disk of force that hovers in front of you. It negates Mage Bolt attacks directed at you. The disk also provides a +4 shield bonus to AC. This bonus applies against incorporeal touch attacks, since it is a force effect. Shield has no armor check penalty or arcane spell failure chance. Unlike with a normal tower shield, you can't use the Shield spell for cover.
+Shield Other
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One creature
+	DURATION:1 hour per level
+	SAVEINFO:Will negates (harmless)
+	DESC:This spell wards the subject and creates a mystic connection between you and the subject so that some of its wounds are transferred to you. The subject gains a +1 deflection bonus to AC and a +1 resistance bonus to saves. Additionally, the subject takes only half damage from all wounds and attacks (including that dealt by special abilities) that deal hit point damage. The amount of damage not taken by the warded creature is taken by you. Forms of harm that do not involve hit points, such as Charm effects, temporary ability damage, level draining, and death effects, are not affected. If the subject suffers a reduction of hit points from a lowered Constitution score, the reduction is not split with you because it is not hit point damage. When the spell ends, subsequent damage is no longer divided between the subject and you, but damage already split is not reassigned to the subject. If you and the subject of the spell move out of range of each other, the spell ends.
+Shocking Grasp
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature or object touched
+	DURATION:Instantaneous
+	SAVEINFO:None
+	DESC:Your successful melee touch attack deals 1d8 +1 points of electricity damage. When delivering the jolt, you gain a +3 bonus to attack rolls if the opponent is wearing metal armor (or made out of metal, carrying a lot of metal, or the like).
+Shout
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Cone-shaped burst
+	DURATION:Instantaneous
+	SAVEINFO:Fortitude partial or Reflex negates (object); see text
+	DESC:You emit an ear-splitting yell that deafens and damages creatures in its path. Any creature within the area is deafened for 2d6 rounds and takes 5d6 points of sonic damage. A successful save negates the deafness and reduces the damage by half. Any exposed brittle or crystalline object or crystalline creature takes 1d6 points of sonic damage per caster level. An affected creature is allowed a Fortitude save to reduce the damage by half, and a creature holding fragile objects can negate damage to them with a successful Reflex save. A Shout spell cannot penetrate a Silence spell.
+Shrink Item
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One touched object of up to 2' cubed per level
+	DURATION:One day per level; see text
+	SAVEINFO:Will negates (object)
+	DESC:You are able to shrink one non-magical item (if it is within the size limit) to 1/12 of its normal size in each dimension. This change effectively reduces the object's size by four categories. Optionally, you can also change its now shrunken composition to a cloth like one. Objects changed by a Shrink Item spell can be returned to normal composition and size merely by tossing them onto any solid surface or by a word of command from the original caster. Even a burning fire and its fuel can be shrunk by this spell. Restoring the shrunken object to its normal size and composition ends the spell.
+Silence
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:20' radius sphere centered on target creature, object, or space
+	DURATION:1 minute per level
+	SAVEINFO:Will negates; see text or none (object)
+	DESC:Upon the casting of this spell, complete silence prevails in the affected area. All sound is stopped:conversation is impossible, spells with verbal components cannot be cast, and no noise whatsoever issues from, enters, or passes through the area. The spell can be cast on a point in space, but the effect is stationary unless cast on a mobile object. The spell can be centered on a creature, and the effect then radiates from the creature and moves as it moves. An unwilling creature can attempt a Will save to negate the spell and can use spell resistance, if any. Items in a creature's possession or magic items that emit sound receive the benefits of saves and spell resistance, but unattended objects and points in space do not. This spell provides a defense against sonic or language-based attacks.
+Silent Image
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	DURATION:Concentration
+	SAVEINFO:Will disbelief (if interacted with)
+	DESC:This spell creates the visual illusion of an object, creature, or force, as visualized by you. The illusion does not create sound, smell, texture, or temperature. You can move the image within the limits of the size of the effect.
+Sleep
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 round
+	RANGE:Medium (100')
+	DURATION:1 minute per level
+	SAVEINFO:Will negates
+	DESC:A sleep spell causes a magical slumber to come upon 2d4 Hit Dice of creatures. Creatures with the fewest HD are affected first. Among creatures with equal HD, those who are closest to the spell's point of origin are affected first. Hit Dice that are not sufficient to affect a creature are wasted. Sleeping creatures are helpless. Slapping or wounding awakens an affected creature, but normal noise does not. Awakening a creature is a standard action (an application of the aid another action). Sleep does not target unconscious creatures, constructs, or undead creatures.
+Sleet Storm
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	DURATION:1 round per level
+	SAVEINFO:None
+	DESC:Driving sleet blocks all sight (even Darkvision) within it and causes the ground in the area to be icy. A creature can walk within or through the area of sleet at half normal speed with a DC 10 Balance check. Failure means it can't move in that round, while failure by 5 or more means it falls (see the Balance skill for details). Sleet Storm extinguishes torches and small fires.
+Slow
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:One creature per level, no two of which can be more than 30' apart
+	DURATION:1 round per level
+	SAVEINFO:Will negates
+	DESC:An affected creature moves and attacks at a drastically slowed rate. A Slowed creature can take only a single move action or standard action each turn, but not both (nor may it take full-round actions). Additionally, it takes a -1 penalty to attack rolls, AC, and Reflex saves. A slowed creature moves at half its normal speed (round down to the next 5' increment), which affects the creature's jumping distance as normal for decreased speed. Multiple Slow effects don't stack. Slow counters and dispels Haste.
+Snare
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:3 rounds
+	RANGE:Touch
+	TARGETAREA:Touched non-magical circle of vine, rope, or thong with a 2' diameter + 2' per level
+	DURATION:Until triggered or broken
+	SAVEINFO:None
+	DESC:Grasses, weeds, bushes, and even trees wrap, twist, and entwine about creatures in the area or those that enter the area, holding them fast and causing them to become entangled. The creature can break free and move half its normal speed by using a full-round action to make a DC 20 Strength check or a DC 20 Escape Artist check. A creature that succeeds on a Reflex save is not snared but can still move at only half speed through the area. Each round on your turn, the plants once again attempt to snare all creatures that have avoided or escaped entanglement.
+Soften Earth and Stone
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:10' sphere per level
+	DURATION:Instantaneous
+	SAVEINFO:None
+	DESC:When this spell is cast, all natural, undressed earth or stone in the spell's area is softened. Wet earth becomes thick mud, dry earth becomes loose sand or dirt, and stone becomes soft clay that is easily molded or chopped. You affect a 10' square area to a depth of one to four feet, depending on the toughness or resilience of the ground at that spot. Magical, enchanted, dressed, or worked stone cannot be affected. Earth or stone creatures are not affected. A creature in mud must succeed on a Reflex save or be caught for 1d2 rounds and unable to move, attack, or cast spells. A creature that succeeds on its save can move through the mud at half speed, and it can't run or charge. Loose dirt is not as troublesome as mud, but all creatures in the area can move at only half their normal speed and can't run or charge over the surface. Stone softened into clay does not hinder movement, but it does allow characters to cut, shape, or excavate areas they may not have been able to affect before. While Soften Earth and Stone does not affect dressed or worked stone, cavern ceilings or vertical surfaces such as cliff faces can be affected. Usually, this causes a moderate collapse or landslide as the loosened material peels away from the face of the wall or roof and falls. A moderate amount of structural damage can be dealt to a manufactured structure by softening the ground beneath it, causing it to settle. However, most well-built structures will only be damaged by this spell, not destroyed. .
+Solid Fog
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	DURATION:1 minute per level
+	SAVEINFO:No
+	DESC:This spell functions like Fog Cloud, but in addition to obscuring sight, the Solid Fog is so thick that any creature attempting to move through it progresses at a speed of 5', regardless of its normal speed, and it takes a -2 penalty to all melee attack and melee damage rolls. The vapors prevent effective ranged weapon attacks (except for magic rays and the like). A creature or object that falls into Solid Fog is slowed, so that each 10' of vapor that it passes through reduces falling damage by 1d6. A creature can't take a 5' step while in Solid Fog. However, unlike normal fog, only a severe wind (31+ mph) disperses these vapors, and it does so in 1 round.
+Sound Burst
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:10' radius spread
+	DURATION:Instantaneous
+	SAVEINFO:Fortitude partial
+	DESC:You blast an area with a tremendous cacophony. Every creature in the area takes 1d8 points of sonic damage and must succeed on a Fortitude save to avoid being Stunned for 1 round. Creatures that cannot hear are not Stunned but are still damaged.
+Speak with Animals
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Self
+	DURATION:1 minute per level
+	SAVEINFO:None
+	DESC:You can comprehend and communicate with animals. You are able to ask questions of and receive answers from animals, although the spell doesn't make them any more friendly or cooperative than normal. Furthermore, wary and cunning animals are likely to be terse and evasive, while the more stupid ones make inane comments. If an animal is friendly toward you, it may do some favor or service for you.
+Spell Immunity
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:10 minutes per level
+	SAVEINFO:Will negates (harmless)
+	DESC:The warded creature is immune to the effects of one specified spell per four levels you have. The spells must be of 4th level or lower. The warded creature effectively has unbeatable spell resistance regarding the specified spell or spells. Naturally, that immunity doesn't protect a creature from spells for which spell resistance doesn't apply. Spell Immunity protects against spells, spell-like effects of magic items, and innate spell-like abilities of creatures. It does not protect against supernatural or extraordinary abilities, such as breath weapons or gaze attacks. Only a particular spell can be protected against, not a certain domain or school of spells or a group of spells that are similar in effect. A creature can have only one Spell Immunity or Greater Spell Immunity spell in effect on it at a time.
+Spider Climb
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:10 minutes per level
+	SAVEINFO:Will negates (harmless)
+	DESC:The subject can climb and travel on vertical surfaces or even traverse ceilings as well as a spider does. The affected creature must have its hands free to climb in this manner. The subject gains a climb speed of 20'; furthermore, it need not make Climb checks to traverse a vertical or horizontal surface (even upside down). A Spider-Climbing creature retains its Dexterity bonus to Armor Class (if any) while climbing, and opponents get no special bonus to their attacks against it. It cannot, however, use the run action while climbing.
+Spiked Stones
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One 20' square
+	DURATION:1 hour per level
+	SAVEINFO:Reflex partial
+	DESC:Rocky ground, stone floors, and similar surfaces shape themselves into long, sharp points that blend into the background. Spike stones impede progress through an area and deal damage. Any creature moving on foot into or through the spell's area moves at half speed. In addition, each creature moving through the area takes 1d8 points of piercing damage for each 5' of movement through the spiked area. Any creature that takes damage from this spell must also succeed on a Reflex save to avoid injuries to its feet and legs. A failed save causes the creature's speed to be reduced to half normal for 24 hours or until the injured creature receives a Heal spell (which also restores lost hit points). Another character can remove the penalty by taking 10 minutes to dress the injuries and succeeding on a Heal check against the spell's save DC. Spike Stones is a magic trap that can't be disabled with the Disable Device skill.
+Spike Growth
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:One 20' square
+	DURATION:1 hour per level
+	SAVEINFO:Reflex partial
+	DESC:Any ground-covering vegetation in the spell's area becomes very hard and sharply pointed without changing its appearance. In areas of bare earth, roots and rootlets act in the same way. Typically, Spike Growth can be cast in any outdoor setting except open water, ice, heavy snow, sandy desert, or bare stone. Any creature moving on foot into or through the spell's area takes 1d4 points of piercing damage for each 5' of movement through the spiked area. Any creature that takes damage from this spell must also succeed on a Reflex save or suffer injuries to its feet and legs that slow its land speed by one-half. This speed penalty lasts for 24 hours or until the injured creature receives a Heal spell (which also restores lost hit points). Another character can remove the penalty by taking 10 minutes to dress the injuries and succeeding on a Heal check against the spell's save DC. Spike Growth can't be disabled with the Disable Device skill.
+Stinking Cloud
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:Cloud spreads in 20' radius, 20' high
+	DURATION:1 round per level
+	SAVEINFO:Fortitude negates; see text
+	DESC:Stinking Cloud creates a bank of fog like that created by Fog Cloud, except that the vapors are nauseating. Living creatures in the cloud become Nauseated. This condition lasts as long as the creature is in the cloud and for 1d4+1 rounds after it leaves. (Roll separately for each Nauseated character.) Any creature that succeeds on its save but remains in the cloud must continue to save each round on your turn.
+Stone Shape
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Stone or stone object touched, up to 10' cubed + 1' cube per level
+	DURATION:Instantaneous
+	SAVEINFO:None
+	DESC:You can form an existing piece of stone into any shape that suits your purpose. While it's possible to make crude coffers, doors, and so forth with Stone Shape, fine detail isn't possible. There is a 30%% chance that any shape including moving parts simply doesn't work.
+Stoneskin
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:10 minutes per level or until discharged
+	SAVEINFO:Will negates (harmless)
+	DESC:The warded creature gains resistance to blows, cuts, stabs, and slashes. The subject gains damage reduction 10/amarnium. (It ignores the first 10 points of damage each time it takes damage from a weapon, though an amarnium weapon bypasses the reduction.) Once the spell has prevented a total of 10 points of damage per caster level (maximum 150 points), it is discharged.
+Storm
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Long (400')
+	TARGETAREA:Cylinder 40' radius, 20' high
+	DURATION:1 round per level
+	SAVEINFO:None
+	DESC:Storm blocks all sight (even Darkvision) within it and causes the ground in the area to be icy. A creature can walk within or through the area of sleet at half normal speed with a DC 10 Balance check. Failure means it can't move in that round, while failure by 5 or more means it falls. The Storm spell extinguishes torches and small fires.
+Stunning Trap
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:10 minutes
+	RANGE:Touch
+	TARGETAREA:One touched book or written work
+	DURATION:Permanent until discharged
+	SAVEINFO:Will negates
+	DESC:The spellcaster creates a symbol hidden among the writing of a book. When someone reads the symbol, they must make a Will save or be stunned until released by the caster.  While trapped, the subject does not age, breathe, grow hungry, sleep, or regain spells. It is preserved in a state of suspended animation, unaware of its surroundings. It can be damaged by outside forces (and perhaps even killed), since the spell provides no protection against physical injury. However, a dying subject does not lose hit points or become stable until the spell ends.
+Suggestion
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:25' + 5' per 2 levels
+	TARGETAREA:One living creature
+	DURATION:1 hour per level or until completed
+	SAVEINFO:Will negates
+	DESC:You influence the actions of the target creature by suggesting a course of activity (limited to a sentence or two). The suggestion must be worded in such a manner as to make the activity sound reasonable. Asking the creature to do some obviously harmful act automatically negates the effect of the spell. The suggested course of activity can continue for the entire duration. If the suggested activity can be completed in a shorter time, the spell ends when the subject finishes what it was asked to do. You can instead specify conditions that will trigger a special activity during the duration. If the condition is not met before the spell duration expires, the activity is not performed. A very reasonable Suggestion causes the save to be made with a penalty (such as -1 or -2).
+Summon Creature I
+	CLASSES:Mana=1	FACT:MANA|1, see text
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Empty space
+	DURATION:1 round per level
+	SAVEINFO:None
+	DESC:This spell summons the consciousness of a creature in the Navirim and places it in a body formed of the caster's mana. It appears where you designate and acts immediately, on your turn. It attacks your opponents to the best of its ability.  If the spellcaster spends more mana, they may summon more powerful creatures. Examples of Summoned Creatures:Summoned creatures are not actually living creatures, but instead manifestations of the mage's power. They have the same powers, but may manifest in different forms to match the casters personality or desires. If the caster wishes, it can also take the form of an elemental-type creature. Imp (Demon), Wolf, Fox, Large Cat HP AC Initiative Attacks HD Mana cost 6 15 2 (2) +1 1d4 2 1 12 16 3 (2) +2 1d4+2 3 3 16 17 4 (2) +3 1d6+1, (1) 1d4 +1 4 5 22 18 5 (2) +4 1d8 +3, (1) 1d6 +1 5 7
+Syn's Unstoppable Laughter
+	NAMEISPI:YES
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:10 minutes per level
+	SAVEINFO:Will negates (harmless)
+	DESC:This spell afflicts the subject with uncontrollable laughter. It collapses into gales of manic laughter, falling prone. The subject can take no actions while laughing, but is not considered helpless. After the spell ends, it can act normally. A creature with an Intelligence score of 2 or lower is not affected. A creature whose type is different from the caster's receives a +4 bonus to its saving throw, because humor doesn't "translate" well.
+Tongues
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Creature touched
+	DURATION:10 minutes per level
+	SAVEINFO:Will negates (harmless)
+	DESC:This spell grants the creature touched the ability to speak and understand the language of any intelligent creature, whether it is a racial tongue or a regional dialect. The subject can speak only one language at a time, although it may be able to understand several languages. Tongues does not enable the subject to speak with creatures who don't speak. The subject can make itself understood as far as its voice carries. This spell does not predispose any creature addressed toward the subject in any way.
+Trap
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Object touched
+	DURATION:Permanent
+	SAVEINFO:None
+	DESC:This spell makes a lock or other small mechanism seem to be trapped to anyone who can detect traps. You place the spell upon any small mechanism or device, such as a lock, hinge, hasp, cork, cap, or ratchet. Any character able to detect traps, or who uses any spell or device enabling trap detection, is certain a real trap exists. Of course, the effect is illusory and nothing happens if the trap is "sprung"; its primary purpose is to frighten away thieves or make them waste precious time.
+True Strike
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Self
+	TARGETAREA:Self
+	DURATION:Single attack roll
+	SAVEINFO:See text
+	DESC:You gain temporary, intuitive insight into the immediate future during your next attack. Your next single attack roll (if it is made before the end of the next round) gains a +20 Insight bonus. Additionally, you are not affected by the miss chance that applies to attackers trying to strike a concealed target.
+Vampiric Touch
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Living creature touched
+	DURATION:Instantaneous plus 1 hour; see text
+	SAVEINFO:None
+	DESC:You must succeed on a melee touch attack. Your touch deals 2d6 points of damage. You gain temporary hit points equal to the damage you deal. However, you can't gain more than the subject's current hit points +10, which is enough to kill the subject. The temporary hit points disappear 1 hour later.
+Ventriloquism
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:Any
+	DURATION:1 minute per level
+	SAVEINFO:Will disbelief (if interacted with)
+	DESC:You can make your voice (or any sound that you can normally make vocally) seem to issue from someplace else. You can speak in any language you know. With respect to such voices and sounds, anyone who hears the sound and rolls a successful save recognizes it as illusory (but still hears it).
+Void Tentacles
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:20' radius
+	DURATION:Concentration + 1 round per level
+	SAVEINFO:None
+	DESC:This spell conjures a field of rubbery black tentacles, each 10' long. These waving members seem to spring forth from the earth, floor, or whatever surface is underfoot—including water. They grasp and entwine around creatures that enter the area, holding them fast and crushing them with great strength. Every creature within the area of the spell must make a Heroic Action vs. the tentacles. Treat the tentacles attacking a particular target as a Large creature with a base +4 attack bonus and a Strength score of 19. The tentacles are immune to all types of damage. Once the tentacles grapple an opponent, they may make a Heroic Action each round on your turn to deal 1d6+4 points of bludgeoning damage. The tentacles continue to crush the opponent until the spell ends or the opponent escapes. Any creature that enters the area of the spell is immediately attacked by the tentacles. Even creatures who aren't grappling with the tentacles may move through the area at only half normal speed.
+Wall of Fire
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:Chosen location
+	DURATION:Concentration + 1 round per level
+	SAVEINFO:None
+	DESC:An immobile, blazing curtain of shimmering violet fire springs into existence. One side of the wall, selected by you, sends forth waves of heat, dealing 2d4 points of fire damage to creatures within 10' and 1d4 points of fire damage to those past 10' but within 20'. The Wall of Fire deals this damage when it appears and on your turn each round to all creatures in the area. In addition, the Wall deals 3d6 +1 points of fire damage to any creature passing through it. The Wall deals double damage to undead creatures. If you evoke the Wall so that it appears where creatures are, each creature takes damage as if passing through the wall. If any 5' length of wall takes 20 points of cold damage or more in 1 round, that length goes out. (Do not divide cold damage by 4, as normal for objects.)
+Wall of Ice
+	CLASSES:Mana=7	FACT:MANA|7
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:Chosen location
+	DURATION:Concentration + 1 round per level
+	SAVEINFO:None
+	DESC:This spell creates an anchored plane of ice or a hemisphere of ice, depending on the version selected. A Wall of Ice cannot form in an area occupied by physical objects or creatures. Its surface must be smooth and unbroken when created. Any creature adjacent to the Wall of Ice when it is created may attempt a Reflex save to disrupt the wall as it is being formed. A successful save indicates that the spell automatically fails. Fire can melt a Wall of Ice, and it deals full damage to the Wall (instead of the normal half damage taken by objects). The sudden melting of a Wall of Ice creates a great cloud of steamy fog that lasts for 10 minutes. Ice Plane A sheet of strong, hard ice appears. The wall is one inch thick per caster level. It covers up to a 10' square area per caster level. The plane can be oriented in any fashion as long as it is anchored. A vertical wall need only be anchored on the floor, while a horizontal or slanting wall must be anchored on two opposite sides. Each 10' square of Wall has 3 hit points per inch of thickness. Creatures can hit the wall automatically. A section of wall whose hit points drop to 0 is breached. If a creature tries to break through the wall with a single attack, the DC for the Strength check is 15 + caster level. Even when the ice has been broken through, a sheet of frigid air remains. Any creature stepping through it (including the one who broke through the wall) takes 1d6 points of cold damage +1 point per caster level (no save). Hemisphere The Wall takes the form of a hemisphere whose maximum radius is 3' + 1' per caster level. The hemisphere is as hard to break through as the Ice Plane form, but it does not deal damage to those who go through a breach.
+Water Breathing
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:Living creatures touched
+	DURATION:2 hours per level; see text
+	SAVEINFO:Will negates (harmless)
+	DESC:The transmuted creatures can breathe water freely. Divide the duration evenly among all the creatures you touch. The spell does not make creatures unable to breathe air.
+Water Walk
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One touched creature/level
+	DURATION:10 minutes per level (D)
+	SAVEINFO:Will negates (harmless)
+	DESC:The transmuted creatures can tread on any liquid as if it were firm ground. Mud, oil, snow, quicksand, running water, ice, and even lava can be traversed easily, since the subjects' feet hover an inch or two above the surface. (Creatures crossing molten lava still take damage from the heat because they are near it.) The subjects can walk, run, charge, or otherwise move across the surface as if it were normal ground. If the spell is cast underwater (or while the subjects are partially or wholly submerged in whatever liquid they are in), the subjects are borne toward the surface at 60' per round until they can stand on it.
+Web
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Medium (100')
+	TARGETAREA:20' radius circle
+	DURATION:10 minutes per level (D)
+	SAVEINFO:Reflex negates; see text
+	DESC:Web creates a many-layered mass of strong, sticky strands. These strands trap those caught in them. The strands are similar to spider webs but far larger and tougher. These masses must be anchored to two or more solid and diametrically-opposed points or else the web collapses upon itself and disappears. Creatures caught within a Web become Entangled among the gluey fibers. Attacking a creature in a Web won't cause you to become Entangled. Anyone in the effect's area when the spell is cast must make a Reflex save. If this save succeeds, the creature is Entangled, but not prevented from moving, though moving is more difficult than normal for being Entangled (see below). If the save fails, the creature is Entangled and can't move from its space, but can break loose by spending 1 round and making a DC 20 Strength check or a DC 25 Escape Artist check. Once loose (either by making the initial Reflex save or a later Strength check or Escape Artist check), a creature remains Entangled, but may move through the web very slowly. Each round devoted to moving allows the creature to make a new Strength check or Escape Artist check. The creature moves 5' for each full 5 points by which the check result exceeds 10. If you have at least 5' of Web between you and an opponent, it provides cover. If you have at least 20' of Web between you, it provides total cover. The strands of a Web spell are flammable. A magic flaming sword can slash them away as easily as a hand brushes away cobwebs. Any fire can set the webs alight and burn away 5' square in 1 round. All creatures within flaming webs take 2d4 points of fire damage from the flames.
+Whispering Wind
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:1 mile per level
+	TARGETAREA:Chosen location
+	DURATION:No more than 1 hour per level or until discharged (destination is reached)
+	SAVEINFO:None
+	DESC:You send a message or sound on the wind to a designated spot. The Whispering Wind travels to a specific location within range that is familiar to you, provided that it can find a way to the location. A Whispering Wind is as gentle and unnoticed as a zephyr until it reaches the location. It then delivers its whisper-quiet message or other sound. Note that the message is delivered regardless of whether anyone is present to hear it. The Wind then dissipates. You can prepare the spell to bear a message of no more than twenty-five words, cause the spell to deliver other sounds for 1 round, or merely have the Whispering Wind seem to be a faint stirring of the air. You can likewise cause the Whispering Wind to move as slowly as one mile per hour or as quickly as one mile per ten minutes. When the spell reaches its objective, it swirls and remains in place until the message is delivered.
+Wind Wall
+	CLASSES:Mana=5	FACT:MANA|5
+	CASTTIME:1 standard action
+	RANGE:Medium (100') + 10' per level
+	TARGETAREA:Chosen location
+	DURATION:1 round per level
+	SAVEINFO:None; see text
+	DESC:An invisible vertical curtain of wind appears. It is 2' thick and of considerable strength. It is a roaring blast sufficient to blow away any bird smaller than an eagle, or tear papers and similar materials from unsuspecting hands. (A Reflex save allows a creature to maintain its grasp on an object.) Tiny and Small flying creatures cannot pass through the barrier. Loose materials and cloth garments fly upward when caught in a Wind Wall. Arrows and bolts are deflected upward and miss, while any other normal ranged weapon passing through the Wall has a 30%% miss chance. (A giant-thrown boulder, a siege engine projectile, and other massive ranged weapons are not affected.) Gases, most gaseous breath weapons, and creatures in gaseous form cannot pass through the Wall (although it is no barrier to incorporeal creatures). While the Wall must be vertical, you can shape it in any continuous path along the ground that you like. It is possible to create cylindrical or square Wind Walls to enclose specific points.
+Wood Shape
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One touched piece of wood no larger than 10' cubed + 1' cube per level
+	DURATION:Instantaneous
+	SAVEINFO:Will negates (object)
+	DESC:Wood Shape enables you to form one existing piece of wood into any shape that suits your purpose. While it is possible to make crude coffers, doors, and so forth, fine detail isn't possible. There is a 30%% chance that any shape that includes moving parts simply doesn't work.
+Xavian's Warding Armor
+	NAMEISPI:YES
+	CLASSES:Mana=1	FACT:MANA|1
+	CASTTIME:1 standard action
+	RANGE:Touch
+	TARGETAREA:One creature touched
+	DURATION:Instant
+	SAVEINFO:Will negates
+	DESC:An invisible but tangible field of force surrounds the subject of a Xavian's Warding Armor spell, providing a +4 armor bonus to AC. Unlike mundane armor, Xavian's Warding Armor entails no armor check penalty, arcane spell failure chance, or speed reduction. Since it is made of force, incorporeal creatures can't bypass it the way they do normal armor.
+Zone of Truth
+	CLASSES:Mana=3	FACT:MANA|3
+	CASTTIME:1 standard action
+	RANGE:Close (30')
+	TARGETAREA:20' radius
+	DURATION:1 minute per level
+	SAVEINFO:Will negates
+	DESC:Creatures within the emanation area (or those who enter it) can't speak any deliberate or intentional lies. Each potentially affected creature is allowed a save to avoid the effects when the spell is cast or when the creature first enters the emanation area. Affected creatures are aware of this enchantment. Therefore, they may avoid answering questions to which they would normally respond with a lie, or they may be evasive as long as they remain within the boundaries of the Zone of Truth. Creatures who leave the area are free to speak as they choose.

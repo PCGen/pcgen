@@ -68,7 +68,7 @@ public class CSkillTokenTest extends AbstractListTokenTestCase<Domain, Skill>
 
 	static CDOMPrimaryToken<Domain> token = new CskillToken();
 	static CDOMTokenLoader<Domain> loader =
-			new CDOMTokenLoader<Domain>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<Domain> getLoader()

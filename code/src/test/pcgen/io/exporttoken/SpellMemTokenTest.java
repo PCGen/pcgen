@@ -1,5 +1,4 @@
 /*
- * SpellMemTokenTest.java
  * Copyright 2005 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Oct 8, 2005
- *
- * $Id$
- *
  */
 package pcgen.io.exporttoken;
 
@@ -46,12 +40,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * Verify the correct functioning of the SPELLMEM token.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class SpellMemTokenTest extends AbstractCharacterTestCase
@@ -107,7 +95,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(testSpell, "CLASSES", "KEY_TEST_ARCANE=1");
 		context.unconditionallyProcess(testSpell, "DOMAINS", "Fire=0");
 		context.unconditionallyProcess(testSpell, "CLASSES", "KEY_TEST_DIVINE=1");
-		Globals.addToSpellMap(testSpell.getKeyName(), testSpell);
 
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");

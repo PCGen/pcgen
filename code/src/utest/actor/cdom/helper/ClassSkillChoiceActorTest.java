@@ -17,24 +17,17 @@
  */
 package actor.cdom.helper;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.cdom.helper.ClassSkillChoiceActor;
 import pcgen.core.Skill;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class ClassSkillChoiceActorTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Skill>
 {
 
-	static ClassSkillChoiceActor pca = new ClassSkillChoiceActor(null, null);
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final Persistent<Skill> pca = new ClassSkillChoiceActor(null, null);
 
 	@Override
 	public Persistent<Skill> getActor()

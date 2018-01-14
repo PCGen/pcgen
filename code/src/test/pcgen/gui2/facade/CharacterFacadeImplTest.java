@@ -1,5 +1,4 @@
 /*
- * CharacterFacadeImplTest.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 13/04/2013 5:48:18 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -36,11 +31,7 @@ import pcgen.core.character.EquipSet;
  * CharacterFacadeImpl.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class CharacterFacadeImplTest extends AbstractCharacterTestCase
@@ -66,9 +57,10 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 			EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	@Before
 	public void setUp() throws Exception
 	{

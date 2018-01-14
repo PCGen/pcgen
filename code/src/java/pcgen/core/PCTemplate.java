@@ -1,5 +1,4 @@
 /*
- * PCTemplate.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core;
 
@@ -40,18 +32,12 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.TemplateFacade;
 import pcgen.util.enumeration.View;
 
-/**
- * <code>PCTemplate</code>.
- * 
- * @author Mark Hulsman <hulsmanm@purdue.edu>
- * @version $Revision$
- */
 public final class PCTemplate extends PObject implements TemplateFacade, ChooseDriver
 {
 	/**
 	 * Get the total adjustment to Challenge rating of a character at a given
 	 * level (Class and Hit Dice). This will include the absolute adjustment
-	 * made with CR:, LEVEL:<num>:CR and HD:<num>:CR tags
+	 * made with {@literal CR:, LEVEL:<num>:CR and HD:<num>:CR tags}
 	 * 
 	 * @param level
 	 *            The level to calculate the adjustment for
@@ -91,7 +77,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	public List<PCTemplate> getConditionalTemplates(int totalLevels,
 			int totalHitDice)
 	{
-		List<PCTemplate> returnList = new ArrayList<PCTemplate>();
+		List<PCTemplate> returnList = new ArrayList<>();
 
 		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
@@ -126,7 +112,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	@Override
 	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
 	{
-		List<BonusObj> list = new ArrayList<BonusObj>(super.getRawBonusList(pc));
+		List<BonusObj> list = new ArrayList<>(super.getRawBonusList(pc));
 		/*
 		 * TODO Does this require a test of getTotalLevels() totalHitDice() on
 		 * the PC?

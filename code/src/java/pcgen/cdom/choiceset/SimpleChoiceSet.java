@@ -15,10 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on October 29, 2006.
  * 
- * Current Ver: $Revision: 1111 $ Last Editor: $Author: boomer70 $ Last Edited:
- * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.choiceset;
 
@@ -156,7 +153,6 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	public SimpleChoiceSet(Collection<? extends T> col,
 			Comparator<? super T> comp, String sep)
 	{
-		super();
 		if (col == null)
 		{
 			throw new IllegalArgumentException(
@@ -167,7 +163,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new LinkedHashSet<T>(col);
+		set = new LinkedHashSet<>(col);
 		if (set.size() != col.size())
 		{
 			throw new IllegalArgumentException(
@@ -193,7 +189,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 		Set<T> sortingSet;
 		try
 		{
-			sortingSet = new TreeSet<T>(comparator);
+			sortingSet = new TreeSet<>(comparator);
 			sortingSet.addAll(set);
 		}
 		catch (ClassCastException cce)
@@ -236,7 +232,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		return new HashSet<T>(set);
+		return new HashSet<>(set);
 	}
 
 	/**

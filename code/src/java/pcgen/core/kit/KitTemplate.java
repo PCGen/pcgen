@@ -1,5 +1,4 @@
 /*
- * KitTemplate.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on October 15, 2005, 10:00 PM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -40,8 +35,8 @@ import pcgen.util.chooser.ChooserFactory;
  */
 public class KitTemplate extends BaseKit
 {
-	private HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
-			new HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>>();
+	private final HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
+            new HashMapToList<>();
 
 	/**
 	 * Actually applies the templates to this PC.
@@ -87,7 +82,7 @@ public class KitTemplate extends BaseKit
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
 				buildSelectedTemplateMap(aPC, false);
 
-		if (selectedMap.size() > 0)
+		if (!selectedMap.isEmpty())
 		{
 			return true;
 		}
@@ -111,14 +106,14 @@ public class KitTemplate extends BaseKit
 				"pcgen.util.chooser.RandomChooser"); //$NON-NLS-1$
 		}
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
-			new HashMapToList<PCTemplate, PCTemplate>();
+                new HashMapToList<>();
 
 		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
 		{
 			PCTemplate templateToAdd = ref.get();
 			List<CDOMSingleRef<PCTemplate>> subList =
 					templateList.getListFor(ref);
-			List<PCTemplate> subAdded = new ArrayList<PCTemplate>();
+			List<PCTemplate> subAdded = new ArrayList<>();
 			if (subList != null)
 			{
 				for (CDOMSingleRef<PCTemplate> subRef : subList)

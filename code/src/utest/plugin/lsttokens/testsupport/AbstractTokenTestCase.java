@@ -58,7 +58,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	public static void classSetUp() throws URISyntaxException
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
 				"file:/Test%20Case"));
@@ -127,11 +127,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
@@ -241,7 +237,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
-	public boolean parse(String str) throws PersistenceLayerException
+	public boolean parse(String str)
 	{
 		ParseResult pr;
 		try
@@ -271,7 +267,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		return pr.passed();
 	}
 
-	public boolean parseSecondary(String str) throws PersistenceLayerException
+	public boolean parseSecondary(String str)
 	{
 		ParseResult pr = getToken()
 				.parseToken(secondaryContext, secondaryProf, str);
@@ -323,7 +319,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 
 	protected abstract ConsolidationRule getConsolidationRule();
 
-	protected void expectSingle(String[] unparsed, String expected)
+	protected static void expectSingle(String[] unparsed, String expected)
 	{
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);

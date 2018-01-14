@@ -33,7 +33,7 @@ public class VisibleIntegrationTest extends
 {
 
 	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

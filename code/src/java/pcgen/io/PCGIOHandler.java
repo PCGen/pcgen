@@ -1,5 +1,4 @@
 /*
- * PCGIOHandler.java
  * Copyright 2002 (C) Thomas Behr <ravenlock@gmx.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 11, 2002, 8:30 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -43,9 +38,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
@@ -66,22 +58,24 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.Nullable;
+
 /**
- * <code>PCGIOHandler</code><br>
+ * {@code PCGIOHandler}<br>
  * Reading and Writing PlayerCharacters in PCGen's own format (PCG).
  *
- * @author Thomas Behr 11-03-02
- * @version $Revision$
  */
 public final class PCGIOHandler extends IOHandler
 {
 
-	private final List<String> errors = new ArrayList<String>();
-	private final List<String> warnings = new ArrayList<String>();
+	private final List<String> errors = new ArrayList<>();
+	private final List<String> warnings = new ArrayList<>();
 
 	/**
 	 * Selector
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 18-03-02
 	 *
 	 * @return a list of error messages
@@ -93,14 +87,14 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Convenience Method
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 18-03-02
 	 *
 	 * @return a list of messages
 	 */
 	public List<String> getMessages()
 	{
-		final List<String> messages = new ArrayList<String>();
+		final List<String> messages = new ArrayList<>();
 
 		messages.addAll(errors);
 		messages.addAll(warnings);
@@ -110,7 +104,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Selector
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 15-03-02
 	 *
 	 * @return a list of warning messages
@@ -139,7 +133,7 @@ public final class PCGIOHandler extends IOHandler
 			aPost = aChoice.substring(iOffs + 1);
 		}
 
-		final List<String> saNames = new ArrayList<String>();
+		final List<String> saNames = new ArrayList<>();
 		final StringTokenizer aTok = new StringTokenizer(aString, ",");
 
 		while (aTok.hasMoreTokens())
@@ -201,7 +195,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Reads the contents of the given PlayerCharacter from a stream
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 11-03-02
 	 *
 	 * @param pcToBeRead the PlayerCharacter to store the read data
@@ -279,7 +273,7 @@ public final class PCGIOHandler extends IOHandler
 	 */
 	private List<String> readPcgLines(InputStream in)
 	{
-		final List<String> lines = new ArrayList<String>();
+		final List<String> lines = new ArrayList<>();
 
 		// try reading in all the lines in the .pcg file
 		BufferedReader br = null;
@@ -319,7 +313,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Writes the contents of the given PlayerCharacter to a stream
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 11-03-02
 	 * 
 	 * @deprecated The write to a file method should be used in preference as it has safe backup handling.
@@ -327,7 +321,8 @@ public final class PCGIOHandler extends IOHandler
 	 * @param pcToBeWritten the PlayerCharacter to write
 	 * @param out           the stream to be written to
 	 */
-    @Override
+    @Deprecated
+	@Override
 	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, OutputStream out)
 	{
 		final String pcgString;
@@ -437,8 +432,6 @@ public final class PCGIOHandler extends IOHandler
 		// pre-calculate all the bonuses
 		currentPC.calcActiveBonuses();
 
-		int iSides;
-		int iRoll;
 		final int oldHp = currentPC.hitPoints();
 
 		// Recalc the feat pool if required
@@ -481,15 +474,15 @@ public final class PCGIOHandler extends IOHandler
 					//TODO i-1 is strange see CODE-1925
 					PCClassLevel pcl = currentPC.getActiveClassLevel(pcClass, i - 1);
 					Integer hp = currentPC.getHP(pcl);
-					iRoll = hp == null ? 0 : hp;
-					iSides =
-							baseSides
+					int iRoll = hp == null ? 0 : hp;
+					int iSides = baseSides
 							+ (int) pcClass.getBonusTo("HD", "MAX", i,
-													   currentPC);
+							currentPC
+					);
 
 					if (iRoll > iSides)
 					{
-						currentPC.setHP(pcl, Integer.valueOf(iSides));
+						currentPC.setHP(pcl, iSides);
 						fixMade = true;
 					}
 				}
@@ -539,10 +532,10 @@ public final class PCGIOHandler extends IOHandler
 	private void resolveDuplicateEquipmentSets(PlayerCharacter currentPC)
 	{
 		boolean anyMoved = false;
-		List<EquipSet> equipSetList =
+		Iterable<EquipSet> equipSetList =
 				new ArrayList<>(currentPC.getDisplay().getEquipSet());
 		Map<String, EquipSet> idMap = new HashMap<>();
-		for (EquipSet es : equipSetList)
+		for (final EquipSet es : equipSetList)
 		{
 			String idPath = es.getIdPath();
 			if (idMap.containsKey(idPath))
@@ -600,7 +593,7 @@ public final class PCGIOHandler extends IOHandler
 	 * Pick one of two equipment sets sharing a path to be moved to a new path. 
 	 * Only non containers will be moved to avoid issues with contents.   
 	 * @param equipSet1 The first equipment set at a path.
-	 * @param equipSet1 The second equipment set at a path.
+	 * @param equipSet2 The second equipment set at a path.
 	 * @return The equipment set that should be move,d or null if none are safe.
 	 */
 	private EquipSet chooseItemToBeMoved(EquipSet equipSet1, EquipSet equipSet2)
@@ -646,8 +639,8 @@ public final class PCGIOHandler extends IOHandler
 		String charFiles = lines.get(1);
 		String[] files = charFiles.split(",");
 
-		List<File> fileList = new ArrayList<File>();
-		for (String fileName : files)
+		List<File> fileList = new ArrayList<>();
+		for (final String fileName : files)
 		{
 			// try to find it in the party's directory
 			File characterFile = new File(partyFile.getParent(), fileName);
@@ -673,7 +666,7 @@ public final class PCGIOHandler extends IOHandler
 		return fileList;
 	}
 
-	public void write(File partyFile, List<File> characterFiles)
+	public static void write(File partyFile, List<File> characterFiles)
 	{
 		String versionLine = "VERSION:" + PCGenPropBundle.getVersionNumber();
 		String[] files = new String[characterFiles.size()];
@@ -732,6 +725,7 @@ public final class PCGIOHandler extends IOHandler
 		return null;
 	}
 
+	@Nullable
 	private SourceSelectionFacade internalReadSources(InputStream in)
 	{
 		// Read lines from file

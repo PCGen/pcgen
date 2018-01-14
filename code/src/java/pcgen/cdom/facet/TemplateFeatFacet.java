@@ -34,7 +34,6 @@ import pcgen.core.PlayerCharacter;
  * TemplateFeatFacet is a Facet that tracks the selections from the FEAT tokens
  * on Templates that have been added to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class TemplateFeatFacet extends
 		AbstractSourcedListFacet<CharID, CNAbilitySelection> implements

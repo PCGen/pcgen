@@ -1,5 +1,4 @@
 /*
- * DamageReductionTest.java
  *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
@@ -16,29 +15,25 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision: $
- *
- * Last Editor: $Author: $
- *
- * Last Edited: $Date:  $
- *
  */
 package pcgen.cdom.content;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.FormulaFactory;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  * This class tests the handling of DRs in PCGen
  */
 @SuppressWarnings("nls")
-public class DamageReductionTest extends TestCase
+public class DamageReductionTest
 {
 
 	/**
 	 * Test the basic DR Handling
 	 */
+	@Test
 	public void testBasicDRHandling()
 	{
 		DamageReduction dr1 = new DamageReduction(FormulaFactory
@@ -48,7 +43,7 @@ public class DamageReductionTest extends TestCase
 		assertFalse(dr1.equals(dr2));
 
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(5), "Magic");
-		assertTrue(dr1.equals(dr2));
+		assertEquals(dr1, dr2);
 
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(10), "magic");
 		assertFalse(dr1.equals(dr2));
@@ -57,11 +52,11 @@ public class DamageReductionTest extends TestCase
 				"magic and good");
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(10),
 				"good and magic");
-		assertTrue(dr1.equals(dr2));
+		assertEquals(dr1, dr2);
 
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(10),
 				"Good and magic");
-		assertTrue(dr1.equals(dr2));
+		assertEquals(dr1, dr2);
 
 		/*
 		 * TODO DR can be fooled

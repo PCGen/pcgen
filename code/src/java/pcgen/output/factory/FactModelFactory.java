@@ -45,9 +45,6 @@ public class FactModelFactory implements ModelFactory
 		facet = ffacet;
 	}
 
-	/**
-	 * @see pcgen.output.base.ModelFactory#generate(pcgen.cdom.enumeration.CharID)
-	 */
 	@Override
 	public FactFacetModel generate(CharID id)
 	{

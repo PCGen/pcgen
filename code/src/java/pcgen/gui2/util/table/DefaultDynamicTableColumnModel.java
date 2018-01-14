@@ -1,5 +1,4 @@
 /*
- * DefaultDynamicTableColumnModel.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 25, 2008, 2:01:31 PM
  */
 package pcgen.gui2.util.table;
 
@@ -31,19 +29,18 @@ import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
  */
 public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
         implements DynamicTableColumnModel
 {
 
-    private final List<TableColumn> availableColumns = new ArrayList<TableColumn>(5);
+    private final List<TableColumn> availableColumns = new ArrayList<>(5);
     private final List<TableColumn> safeColumns = Collections.unmodifiableList(availableColumns);
     private int offset;
 
     /**
-     * This constructs an empty table model with an intial offset of <code>offset</code>.
-     * When adding columns to the model, the first <code>offset<code> number of colums added will
+     * This constructs an empty table model with an intial offset of {@code offset}.
+     * When adding columns to the model, the first {@code offset} number of colums added will
      * be made always visible.
      * @param offset this is the number of always visible columns when this model is populated.
      */
@@ -103,7 +100,7 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
      * is lazily created using the parameters passed into
      * the fire method.
      * @param  e  the event received
-     * @see EventListenerList
+     * @see javax.swing.event.EventListenerList
      */
     protected void fireAvailableColumnAdded(TableColumnModelEvent e)
     {
@@ -129,7 +126,7 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
      * is lazily created using the parameters passed into
      * the fire method.
      * @param  e  the event received
-     * @see EventListenerList
+     * @see javax.swing.event.EventListenerList
      */
     protected void fireAvailableColumnRemoved(TableColumnModelEvent e)
     {

@@ -1,5 +1,4 @@
 /*
- * Globals.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core;
 
@@ -37,17 +29,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.TreeMap;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 
 import javax.swing.JFrame;
 
-import org.apache.commons.lang.SystemUtils;
-
-import pcgen.base.util.RandomUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -58,9 +46,8 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
-import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.ChooserFacade;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
@@ -77,44 +64,28 @@ import pcgen.util.enumeration.VisionType;
 /**
  * This is like the top level model container. However,
  * it is build from static methods rather than instantiated.
- *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @author boomer70 <boomer70@yahoo.com>
- * @version $Revision$
  */
 public final class Globals
 {
 	/** These are changed during normal operation */
-	private static List<PlayerCharacter>            pcList      = new ArrayList<PlayerCharacter>();
+	private static final List<PlayerCharacter> pcList = new ArrayList<>();
 	/** Race, a s_EMPTYRACE */
-	public static  Race            s_EMPTYRACE;
-
-	/** These are system constants */
-	public static final String javaVersion      = System.getProperty("java.version"); //$NON-NLS-1$
-	/** Java Version Major */
-	public static final int    javaVersionMajor =
-		Integer.valueOf(javaVersion.substring(0,
-				javaVersion.indexOf('.'))).intValue();
-	/** Java Version Minor */
-	public static final int    javaVersionMinor =
-		Integer.valueOf(javaVersion.substring(javaVersion.indexOf('.') + 1,
-				javaVersion.lastIndexOf('.'))).intValue();
+	public static Race s_EMPTYRACE;
 
 	/** NOTE: The defaultPath is duplicated in LstSystemLoader. */
-	private static final String defaultPcgPath = Globals.getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
+	private static final String defaultPcgPath = getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
 	
-	private static final List<String> custColumnWidth = new ArrayList<String>();
+	private static final List<String> custColumnWidth = new ArrayList<>();
 	private static SourceFormat sourceDisplay = SourceFormat.LONG;
 	private static int        selectedPaper   = -1;
 
 	/** we need maps for efficient lookups */
-	private static Map<URI, Campaign>    campaignMap     = new HashMap<URI, Campaign>();
-	private static Map<String, Campaign> campaignNameMap = new HashMap<String, Campaign>();
-	private static Map<String, Spell>    spellMap        = new TreeMap<String, Spell>(String.CASE_INSENSITIVE_ORDER);
-	private static Map<String, String>   eqSlotMap       = new HashMap<String, String>();
+	private static final Map<URI, Campaign>    campaignMap     = new HashMap<>();
+	private static final Map<String, Campaign> campaignNameMap = new HashMap<>();
+	private static final Map<String, String>   eqSlotMap       = new HashMap<>();
 
 	/** We use lists for efficient iteration */
-	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
+	private static final List<Campaign> campaignList          = new ArrayList<>(85);
 
 	// end of filter creation sets
 	private static JFrame rootFrame;
@@ -123,87 +94,45 @@ public final class Globals
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
 
-	/** whether or not we are running on a Mac */
-	public static final boolean isMacPlatform = SystemUtils.IS_OS_MAC;
 	/** default location for options.ini on a Mac */
-	public static final String defaultMacOptionsPath = System.getProperty("user.home") + "/Library/Preferences/pcgen";
+	static final String defaultMacOptionsPath = System.getProperty("user.home") + "/Library/Preferences/pcgen";
 
-	private static final Comparator<CDOMObject> pObjectComp = new Comparator<CDOMObject>()
-		{
-        @Override
-			public int compare(final CDOMObject o1, final CDOMObject o2)
-			{
-				return o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
-			}
-		};
+	private static final Comparator<CDOMObject> pObjectComp = (o1, o2) -> o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
 
-	public static final Comparator<CDOMObject> pObjectNameComp = new Comparator<CDOMObject>()
+	public static final Comparator<CDOMObject> pObjectNameComp = (o1, o2) ->
+	{
+		final Collator collator = Collator.getInstance();
+
+		// Check sort keys first
+		String key1 = o1.get(StringKey.SORT_KEY);
+		if (key1 == null)
 		{
-        @Override
-			public int compare(final CDOMObject o1, final CDOMObject o2)
-			{
-				final Collator collator = Collator.getInstance();
-				
-				// Check sort keys first
-				String key1 = o1.get(StringKey.SORT_KEY);
-				if (key1 == null)
-				{
-					key1 = o1.getDisplayName();
-				}
-				String key2 = o2.get(StringKey.SORT_KEY);
-				if (key2 == null)
-				{
-					key2 = o2.getDisplayName();
-				}
-				if (!key1.equals(key2))
-				{
-					return collator.compare(key1, key2);
-				}
-				if (!o1.getDisplayName().equals(o2.getDisplayName()))
-				{
-					return collator.compare(o1.getDisplayName(), o2.getDisplayName());
-				}
-				// Fall back to keyname if the displayname is the same
-				return collator.compare(o1.getKeyName(), o2.getKeyName());
-			}
-		};
+			key1 = o1.getDisplayName();
+		}
+		String key2 = o2.get(StringKey.SORT_KEY);
+		if (key2 == null)
+		{
+			key2 = o2.getDisplayName();
+		}
+		if (!key1.equals(key2))
+		{
+			return collator.compare(key1, key2);
+		}
+		if (!o1.getDisplayName().equals(o2.getDisplayName()))
+		{
+			return collator.compare(o1.getDisplayName(), o2.getDisplayName());
+		}
+		// Fall back to keyname if the displayname is the same
+		return collator.compare(o1.getKeyName(), o2.getKeyName());
+	};
 
 	// Optimizations used by any code needing empty arrays.  All empty arrays
 	// of the same type are idempotent.
 	/** EMPTY_STRING_ARRAY*/
 	public static final String[] EMPTY_STRING_ARRAY = new String[0];
 
-	/**
-	 * Get a list of the allowed game modes
-	 * @return list of the allowed game modes
-	 */
-	public static List<String> getAllowedGameModes()
+	private Globals()
 	{
-		if (SettingsHandler.getGame() != null)
-		{
-			return SettingsHandler.getGame().getAllowedModes();
-		}
-
-		return new ArrayList<String>();
-	}
-
-	/**
-	 * Get the Bio Set
-	 * @return the Bio Set
-	 */
-	public static BioSet getBioSet()
-	{
-		return SettingsHandler.getGame().getBioSet();
-	}
-
-	/**
-	 * Get the campaign by file name
-	 * @param aName
-	 * @return Campaign
-	 */
-	public static Campaign getCampaignByURI(final URI aName)
-	{
-		return getCampaignByURI(aName, true);
 	}
 
 	/**
@@ -245,7 +174,7 @@ public final class Globals
 	public static Campaign getCampaignKeyed(final String aKey)
 	{
 		
-		Campaign campaign = getCampaignKeyedSilently(aKey);
+		final Campaign campaign = getCampaignKeyedSilently(aKey);
 		if (campaign == null)
 		{
 			Logging.errorPrint("Could not find campaign: " + aKey);
@@ -261,7 +190,7 @@ public final class Globals
 	 */
 	public static Campaign getCampaignKeyedSilently(final String aKey)
 	{
-		for ( Campaign campaign : getCampaignList() )
+		for ( final Campaign campaign : campaignList)
 		{
 			if (campaign.getKeyName().equalsIgnoreCase(aKey))
 			{
@@ -281,21 +210,21 @@ public final class Globals
 	 */
 	public static <T extends CDOMObject> List<T> getPObjectsOfType(final Collection<T> aPObjectList, final String aType)
 	{
-		final ArrayList<T> ret = new ArrayList<T>(aPObjectList.size());
+		final ArrayList<T> ret = new ArrayList<>(aPObjectList.size());
 
-		List<String> typeList = new ArrayList<String>();
-		StringTokenizer tok = new StringTokenizer(aType, ".");
+		final List<String> typeList = new ArrayList<>();
+		final StringTokenizer tok = new StringTokenizer(aType, ".");
 		while (tok.hasMoreTokens())
 		{
 			typeList.add(tok.nextToken());
 		}
 
-		for (T anObject : aPObjectList)
+		for (final T anObject : aPObjectList)
 		{
 			boolean match = false;
-			for (String type : typeList)
+			for (final String type : typeList)
 			{
-				final boolean sense = !(type.charAt(0) == '!');
+				final boolean sense = (type.charAt(0) != '!');
 				if (anObject.isType(type) == sense)
 				{
 					match = true;
@@ -315,76 +244,6 @@ public final class Globals
 		return ret;
 	}
 
-	/**
-	 * @param fromTab
-	 * @param col
-	 * @param value
-	 */
-	public static void setCustColumnWidth(final String fromTab, final int col, final int value)
-	{
-		boolean found = false;
-		final String cName = fromTab.concat(Integer.toString(col));
-		final String addMe = cName.concat(Constants.PIPE).concat(Integer.toString(value));
-
-		if (getCustColumnWidth().isEmpty())
-		{
-			getCustColumnWidth().add(addMe);
-		}
-
-		final int loopMax = getCustColumnWidth().size();
-
-		for (int i = 0; i < loopMax; ++i)
-		{
-			final String colWidth = getCustColumnWidth().get(i);
-			if (colWidth == null || colWidth.length() == 0)
-			{
-				continue;
-			}
-			final StringTokenizer tTok = new StringTokenizer(colWidth, Constants.PIPE, false);
-			final String tabName = tTok.nextToken();
-
-			if (cName.equals(tabName))
-			{
-				getCustColumnWidth().set(i, addMe);
-				found = true;
-			}
-		}
-
-		if (!found)
-		{
-			getCustColumnWidth().add(addMe);
-		}
-	}
-
-	/**
-	 * Get custom column width
-	 * @param fromTab
-	 * @param col
-	 * @return custom column width
-	 */
-	public static int getCustColumnWidth(final String fromTab, final int col)
-	{
-		int colSize = 0;
-		final String cName = fromTab.concat(Integer.toString(col));
-
-		final int loopMax = getCustColumnWidth().size();
-
-		for (int i = 0; i < loopMax; ++i)
-		{
-			final StringTokenizer tTok = new StringTokenizer(getCustColumnWidth().get(i), Constants.PIPE, false);
-			if (tTok.hasMoreTokens())
-			{
-				final String tabName = tTok.nextToken();
-
-				if (tabName.equals(cName))
-				{
-					colSize = Integer.parseInt(tTok.nextToken());
-				}
-			}
-		}
-
-		return colSize;
-	}
 	// END Game Modes Section.
 
 	/**
@@ -400,7 +259,7 @@ public final class Globals
 	 * Get the default path
 	 * @return default path
 	 */
-	public static String getUserFilesPath()
+	private static String getUserFilesPath()
 	{
 		return expandRelativePath(System.getProperty("user.home") + File.separator + ".pcgen");
 	}
@@ -428,7 +287,7 @@ public final class Globals
 	 */
 	public static EquipSlot getEquipSlotByName(final String aName)
 	{
-		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
+		for (final EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
 		{
 			if (es.getSlotName().equals(aName))
 			{
@@ -440,22 +299,13 @@ public final class Globals
 	}
 
 	/**
-	 * Get equipment slot map
-	 * @return equipment slot map
-	 */
-	private static Map<String, String> getEquipSlotMap()
-	{
-		return eqSlotMap;
-	}
-
-	/**
 	 * Set equipment slot type count
 	 * @param aString
 	 * @param aNum
 	 */
 	public static void setEquipSlotTypeCount(final String aString, final String aNum)
 	{
-		getEquipSlotMap().put(aString, aNum);
+		eqSlotMap.put(aString, aNum);
 	}
 
 	/**
@@ -467,7 +317,7 @@ public final class Globals
 	 */
 	public static int getEquipSlotTypeCount(final String aType)
 	{
-		final String aNum = getEquipSlotMap().get(aType);
+		final String aNum = eqSlotMap.get(aType);
 
 		if (aNum != null)
 		{
@@ -500,17 +350,7 @@ public final class Globals
 	 */
 	public static boolean getGameModeHasPointPool()
 	{
-		return getGameModePointPoolName().length() != 0;
-	}
-
-	/**
-	 * Get game mode spell range formula
-	 * @param aRange
-	 * @return game mode spell range formula
-	 */
-	public static String getGameModeSpellRangeFormula(final String aRange)
-	{
-		return SettingsHandler.getGame().getSpellRangeFormula(aRange);
+		return !getGameModePointPoolName().isEmpty();
 	}
 
 	/**
@@ -533,7 +373,7 @@ public final class Globals
 			return SettingsHandler.getGame().getDeityList();
 		}
 
-		return new ArrayList<String>();
+		return new ArrayList<>();
 	}
 
 	/**
@@ -543,22 +383,13 @@ public final class Globals
 	 */
 	public static boolean isInGameMode(final String gameMode)
 	{
-		if ((gameMode.length() == 0)
+		if ((gameMode.isEmpty())
 			|| ((SettingsHandler.getGame() != null) && gameMode.equalsIgnoreCase(SettingsHandler.getGame().getName())))
 		{
 			return true;
 		}
 
 		return false;
-	}
-
-	/**
-	 * Set PC List
-	 * @param argPcList
-	 */
-	public static void setPCList(final List<PlayerCharacter> argPcList)
-	{
-		pcList = argPcList;
 	}
 
 	/**
@@ -587,7 +418,7 @@ public final class Globals
 	 */
 	public static String getPaperInfo(final int infoType)
 	{
-		return getPaperInfo(getSelectedPaper(), infoType);
+		return getPaperInfo(selectedPaper, infoType);
 	}
 
 	/**
@@ -616,7 +447,7 @@ public final class Globals
 	 * The root frame is the container in which all
 	 * other panels, frame etc are placed.
 	 *
-	 * @param frame the <code>PCGen_Frame1</code> which is to be root
+	 * @param frame the {@code PCGen_Frame1} which is to be root
 	 */
 	public static void setRootFrame(final JFrame frame)
 	{
@@ -626,7 +457,7 @@ public final class Globals
 	/**
 	 * Returns the current root frame.
 	 *
-	 * @return the <code>rootFrame</code> property
+	 * @return the {@code rootFrame} property
 	 */
 	public static JFrame getRootFrame()
 	{
@@ -670,48 +501,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get spell by key
-	 * @param aKey
-	 * @return Spell
-	 */
-	public static Spell getSpellKeyed(final String aKey)
-	{
-		return getSpellMap().get(aKey);
-	}
-
-	/**
-	 * Get spell map
-	 * @return spell map
-	 */
-	public static Map<String, Spell> getSpellMap()
-	{
-		return Collections.unmodifiableMap(spellMap);
-	}
-
-	/**
-	 * Add spell to the spell map.
-	 * 
-	 * @param key The key the object is associated with.
-	 * @param anObject The object to be added to the map.
-	 */
-	public static void addToSpellMap(final String key, final Spell spell)
-	{
-		spellMap.put(key, spell);
-	}
-
-	/**
-	 * Remove the item with the listed key from the global spell map.
-	 * 
-	 * @param key The key of the item to be removed.
-	 * @return Previous value associated with specified key, or null 
-	 * if there was no mapping for key.
-	 */
-	public static Object removeFromSpellMap(final String key)
-	{
-		return spellMap.remove(key);
-	}
-
-	/**
 	 * Sets whether to use the GUI or not
 	 * @param aBool
 	 */
@@ -724,9 +513,9 @@ public final class Globals
 	 * TRUE if using UI
 	 * @return TRUE if using UI
 	 */
-	public static boolean getUseGUI()
+	static boolean getUseGUI()
 	{
-		return isUseGUI();
+		return useGUI;
 	}
 
 	/**
@@ -740,7 +529,7 @@ public final class Globals
 	{
 		campaignMap.put(campaign.getSourceURI(), campaign);
 		campaignList.add(campaign);
-		Campaign oldCampaign = campaignNameMap.put(campaign.getName(), campaign);
+		final Campaign oldCampaign = campaignNameMap.put(campaign.getName(), campaign);
 		if (oldCampaign != null)
 		{
 			if (oldCampaign.getSourceURI().toString()
@@ -770,13 +559,12 @@ public final class Globals
 	 * @param finalSize
 	 * @return adjusted damage
 	 */
-	public static String adjustDamage(final String aDamage, int baseSize, final int finalSize)
+	public static String adjustDamage(final String aDamage, final int baseSize, final int finalSize)
 	{
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+		final AbstractReferenceContext ref = getContext().getReferenceContext();
 		BaseDice bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class,
 				aDamage);
 		int multiplier = 0;
-		List<RollInfo> steps = null;
 		if (bd == null)
 		{
 			//Need to test for higher dice
@@ -800,6 +588,7 @@ public final class Globals
 		}
 		else
 		{
+			List<RollInfo> steps = null;
 			if (baseSize < finalSize)
 			{
 				steps = bd.getUpSteps();
@@ -813,9 +602,9 @@ public final class Globals
 				// Not a warning?
 				return aDamage;
 			}
-			int difference = Math.abs(baseSize - finalSize);
+			final int difference = Math.abs(baseSize - finalSize);
 
-			int index;
+			final int index;
 			if (steps.size() > difference)
 			{
 				index = difference - 1;
@@ -839,35 +628,20 @@ public final class Globals
 	/**
 	 * Return true if resizing the equipment will have any "noticable" effect
 	 * checks for cost modification, armor bonus, weight, capacity
-	 * @param aPC
-	 *
 	 * @param aEq
 	 * @param typeList
 	 * @return TRUE or FALSE
 	 */
-	public static boolean canResizeHaveEffect(final PlayerCharacter aPC, final Equipment aEq, List<String> typeList)
+	public static boolean canResizeHaveEffect(final Equipment aEq, List<String> typeList)
 	{
 		// cycle through typeList and see if it matches one in the BONUS:ITEMCOST|TYPE=etc on sizeadjustment
 		if (typeList == null)
 		{
 			typeList = aEq.typeList();
 		}
-		List<String> upperTypeList = new ArrayList<String>(typeList.size());
-		for (String type : typeList)
-		{
-			upperTypeList.add(type.toUpperCase());
-		}
 
-		List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList();
-		for (String rType : resizeTypeList)
-		{
-			if (upperTypeList.contains(rType.toUpperCase()))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		final List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList().stream().map(String::toUpperCase).collect(Collectors.toList());
+		return typeList.stream().map(String::toUpperCase).anyMatch(resizeTypeList::contains);
 	}
 
 	/**
@@ -877,7 +651,7 @@ public final class Globals
 	 */
 	public static boolean checkRule(final String aKey)
 	{
-		RuleCheck rule = SettingsHandler.getGame().getModeContext().getReferenceContext()
+		final RuleCheck rule = SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);
 		if (rule == null)
 		{
@@ -913,25 +687,25 @@ public final class Globals
 	public static boolean displayListsHappy()
 	{
 		// NOTE: If you add something here be sure to update the log output below
-		boolean listsHappy = checkListsHappy();
+		final boolean listsHappy = checkListsHappy();
 
-		Level logLevel = listsHappy ? Logging.DEBUG : Logging.WARNING;
+		final Level logLevel = listsHappy ? Logging.DEBUG : Logging.WARNING;
 		if (Logging.isLoggable(logLevel))
 		{
 			Logging.log(logLevel, "Number of objects loaded. The following should "
 				+ "all be greater than 0:");
-			Logging.log(logLevel, "Races=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).size());
+			Logging.log(logLevel, "Races=" + getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).size());
 			Logging.log(logLevel, "Classes=" + getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).size());
-			Logging.log(logLevel, "Skills=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).size());
+			Logging.log(logLevel, "Skills=" + getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).size());
 			Logging.log(logLevel, "Feats="
-					+ Globals.getContext().getReferenceContext().getManufacturer(Ability.class,
+					+ getContext().getReferenceContext().getManufacturer(Ability.class,
 					AbilityCategory.FEAT).getConstructedObjectCount());
-			Logging.log(logLevel, "Equipment=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).size());
-			Logging.log(logLevel, "ArmorProfs=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(ArmorProf.class).size());
-			Logging.log(logLevel, "ShieldProfs=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(ShieldProf.class).size());
-			Logging.log(logLevel, "WeaponProfs=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).size());
-			Logging.log(logLevel, "Kits=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Kit.class).size());
-			Logging.log(logLevel, "Templates=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCTemplate.class).size());
+			Logging.log(logLevel, "Equipment=" + getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).size());
+			Logging.log(logLevel, "ArmorProfs=" + getContext().getReferenceContext().getConstructedCDOMObjects(ArmorProf.class).size());
+			Logging.log(logLevel, "ShieldProfs=" + getContext().getReferenceContext().getConstructedCDOMObjects(ShieldProf.class).size());
+			Logging.log(logLevel, "WeaponProfs=" + getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).size());
+			Logging.log(logLevel, "Kits=" + getContext().getReferenceContext().getConstructedCDOMObjects(Kit.class).size());
+			Logging.log(logLevel, "Templates=" + getContext().getReferenceContext().getConstructedCDOMObjects(PCTemplate.class).size());
 		}
 		return listsHappy;
 	}
@@ -940,16 +714,16 @@ public final class Globals
 	 * Check if enough data has been loaded to support character creation.
 	 * @return true or false
 	 */
-	public static boolean checkListsHappy()
+	private static boolean checkListsHappy()
 	{
 		// NOTE: If you add something here be sure to update the log output in displayListsHappy above
-		boolean listsHappy = !((Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).size() == 0)
-				|| (getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).size() == 0)
-//				|| (Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
-//				|| (Globals.getContext().ref.getManufacturer(
+		final boolean listsHappy = !((getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).isEmpty())
+				|| (getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).isEmpty())
+//				|| (getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
+//				|| (getContext().ref.getManufacturer(
 //						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
-				|| (Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).size() == 0)
-				|| (Globals.getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).size() == 0));
+				|| (getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).isEmpty())
+				|| (getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).isEmpty()));
 		return listsHappy;
 	}
 
@@ -987,7 +761,6 @@ public final class Globals
 		//////////////////////////////////////
 
 		// Clear Maps (not strictly necessary, but done for consistency)
-		spellMap = new TreeMap<String, Spell>(String.CASE_INSENSITIVE_ORDER);
 		VisionType.clearConstants();
 
 		// Perform other special cleanup
@@ -1005,7 +778,7 @@ public final class Globals
 	 */
 	public static void executePostExportCommandStandard(final String fileName)
 	{
-		String postExportCommand = SettingsHandler.getPostExportCommandStandard();
+		final String postExportCommand = SettingsHandler.getPostExportCommandStandard();
 		executePostExportCommand(fileName, postExportCommand);
 	}
 
@@ -1015,7 +788,7 @@ public final class Globals
 	 */
 	public static void executePostExportCommandPDF(final String fileName)
 	{
-		String postExportCommand = SettingsHandler.getPostExportCommandPDF();
+		final String postExportCommand = SettingsHandler.getPostExportCommandPDF();
 		executePostExportCommand(fileName, postExportCommand);
 	}
 
@@ -1024,22 +797,22 @@ public final class Globals
 	 * @param fileName
 	 * @param postExportCommand
 	 */
-	private static void executePostExportCommand(final String fileName, String postExportCommand)
+	private static void executePostExportCommand(final String fileName, final String postExportCommand)
 	{
-		ArrayList<String> aList = new ArrayList<String>();
-		StringTokenizer aTok = new StringTokenizer(postExportCommand, " ");
+		final List<String> aList = new ArrayList<>();
+		final StringTokenizer aTok = new StringTokenizer(postExportCommand, " ");
 		while (aTok.hasMoreTokens())
 		{
 			aList.add(aTok.nextToken());
 		}
-		String[] cmdArray = new String[aList.size()];
+		final String[] cmdArray = new String[aList.size()];
 		for (int idx = 0; idx < aList.size(); idx++)
 		{
 			final String s = aList.get(idx);
-			if (s.indexOf("%") > -1)
+			if (s.contains("%"))
 			{
-				final String beforeString = s.substring(0, s.indexOf("%"));
-				final String afterString = s.substring(s.indexOf("%") + 1);
+				final String beforeString = s.substring(0, s.indexOf('%'));
+				final String afterString = s.substring(s.indexOf('%') + 1);
 				cmdArray[idx] = beforeString + fileName + afterString;
 			}
 			else
@@ -1054,110 +827,11 @@ public final class Globals
 			{
 				Runtime.getRuntime().exec(cmdArray);
 			}
-			catch (IOException ex)
+			catch (final IOException ex)
 			{
 				Logging.errorPrint("Could not execute " + postExportCommand + " after exporting " + fileName, ex);
 			}
 		}
-	}
-
-	/**
-	 * Roll the hitpoints for a single level.
-	 *
-	 * @param min the minimum number on the die
-	 * @param max the maximum number on the die
-	 * @param name the PC's name (used for a message to the user)
-	 * @param level the level the hit points are being rolled for (used for a message to the user)
-	 * @param totalLevel the level the hitpoints are being rolled for (used in maths)
-	 * @return the hitpoints for the given level.
-	 */
-	public static int rollHP(
-		final int min,
-		final int max,
-		final String name,
-		final int level,
-		final int totalLevel)
-	{
-		int roll;
-
-		switch (SettingsHandler.getHPRollMethod())
-		{
-			case Constants.HP_USER_ROLLED:
-				roll = -1;
-
-				break;
-
-			case Constants.HP_AVERAGE:
-
-				roll = max - min;
-
-				// (n+1)/2
-				// average roll on a die with an  odd # of sides works out exactly
-				// average roll on a die with an even # of sides will have an extra 0.5
-
-				if (((totalLevel & 0x01) == 0) && ((roll & 0x01) != 0))
-				{
-					++roll;
-				}
-
-				roll = min + (roll / 2);
-
-				break;
-
-			case Constants.HP_AUTO_MAX:
-				roll = max;
-
-				break;
-
-			case Constants.HP_PERCENTAGE:
-				roll = min - 1 + (int) ((SettingsHandler.getHPPercent() * (max - min + 1)) / 100.0);
-
-				break;
-
-			case Constants.HP_AVERAGE_ROUNDED_UP:
-				roll = (int)Math.ceil((min + max)/2.0);
-
-				break;
-
-			case Constants.HP_STANDARD:default:
-				roll = Math.abs(RandomUtil.getRandomInt(max - min + 1)) + min;
-
-				break;
-		}
-
-//		if (SettingsHandler.getShowHPDialogAtLevelUp())
-//		{
-//			final Object[] rollChoices = new Object[max - min + 2];
-//			rollChoices[0] = Constants.NONESELECTED;
-//
-//			for (int i = min; i <= max; ++i)
-//			{
-//				rollChoices[i - min + 1] = i;
-//			}
-//
-//			while (min <= max)
-//			{
-//				//TODO: This must be refactored away. Core shouldn't know about gui.
-//				final InputInterface ii = InputFactory.getInputInstance();
-//				final Object selectedValue = ii.showInputDialog(Globals.getRootFrame(),
-//					"Randomly generate a number between " + min + " and " + max
-//						+ "." + Constants.LINE_SEPARATOR
-//						+ "Select it from the box below.",
-//					SettingsHandler.getGame().getHPText() + " for "
-//						+ CoreUtility.ordinal(level) + " level of " + name,
-//					MessageType.INFORMATION,
-//					rollChoices, roll);
-//
-//				if ((selectedValue != null) && (selectedValue instanceof Integer))
-//				{
-//					roll = (Integer) selectedValue;
-//
-//					break;
-//				}
-//			}
-//		}
-
-		return roll;
 	}
 
 	/**
@@ -1175,7 +849,7 @@ public final class Globals
 
 			if (pi.getName().equals(paperName))
 			{
-				setSelectedPaper(i);
+				selectedPaper = i;
 				PCGenSettings.getInstance().setProperty(PCGenSettings.PAPERSIZE,
 					paperName);
 
@@ -1183,7 +857,7 @@ public final class Globals
 			}
 		}
 
-		setSelectedPaper(-1);
+		selectedPaper = -1;
 
 		return false;
 	}
@@ -1198,7 +872,7 @@ public final class Globals
 			// Already initialized
 			return;
 		}
-		String papersize = PCGenSettings.getInstance().initProperty(PCGenSettings.PAPERSIZE,
+		final String papersize = PCGenSettings.getInstance().initProperty(PCGenSettings.PAPERSIZE,
 			"A4");
 		selectPaper(papersize);
 	}
@@ -1214,11 +888,11 @@ public final class Globals
 	{
 		final boolean nonPObjectInList;
 
-		if (availableList.size() > 0)
+		if (!availableList.isEmpty())
 		{
 			nonPObjectInList = ! (availableList.get(0) instanceof CDOMObject);
 		}
-		else if (selectedList.size() > 0)
+		else if (!selectedList.isEmpty())
 		{
 			nonPObjectInList = ! (selectedList.get(0) instanceof CDOMObject);
 		}
@@ -1231,15 +905,15 @@ public final class Globals
 		{
 			Collections.sort(availableList);
 			// NOCHOICE feats add nulls to the selectedList
-			if ( selectedList.size() > 0 && selectedList.get(0) != null )
+			if ((!selectedList.isEmpty()) && (selectedList.get(0) != null))
 			{
 				Collections.sort(selectedList);
 			}
 		}
 		else
 		{
-			Globals.sortPObjectListByName(availableList);
-			Globals.sortPObjectListByName(selectedList);
+			sortPObjectListByName(availableList);
+			sortPObjectListByName(selectedList);
 		}
 	}
 
@@ -1248,9 +922,9 @@ public final class Globals
 	 * @param aList
 	 * @return Sorted list of Pcgen Objects
 	 */
-	public static List<? extends CDOMObject> sortPObjectList(final List<? extends CDOMObject> aList)
+	static List<? extends CDOMObject> sortPObjectList(final List<? extends CDOMObject> aList)
 	{
-		Collections.sort(aList, pObjectComp);
+		aList.sort(pObjectComp);
 
 		return aList;
 	}
@@ -1264,15 +938,15 @@ public final class Globals
 	 */
 	public static <T extends CDOMObject> List<T> sortPObjectListByName(final List<T> aList)
 	{
-		Collections.sort(aList, pObjectNameComp);
+		aList.sort(pObjectNameComp);
 
 		return aList;
 	}
 	
 	static String getBonusFeatString() 
 	{
-		List<String> bonusFeatLevels = SettingsHandler.getGame().getBonusFeatLevels();
-		if (bonusFeatLevels == null || bonusFeatLevels.isEmpty())
+		final List<String> bonusFeatLevels = SettingsHandler.getGame().getBonusFeatLevels();
+		if ((bonusFeatLevels == null) || bonusFeatLevels.isEmpty())
 		{
 			// Default to no bonus feats.
 			return "9999|0";
@@ -1284,7 +958,7 @@ public final class Globals
 	{
 		int num = 0;
 
-		for (String s : SettingsHandler.getGame().getBonusStatLevels())
+		for (final String s : SettingsHandler.getGame().getBonusStatLevels())
 		{
 			num = bonusParsing(s, level, num, aPC);
 		}
@@ -1302,8 +976,8 @@ public final class Globals
 	 * @return a choice
 	 */
 	public static <T> List<T> getChoiceFromList(final String title,
-		final List<T> choiceList, final List<T> selectedList, final int pool,
-		PlayerCharacter pc)
+	                                            final List<T> choiceList, final List<T> selectedList, final int pool,
+	                                            final PlayerCharacter pc)
 	{
 		return getChoiceFromList(title, choiceList, selectedList, pool, false, false, pc);
 	}
@@ -1320,23 +994,23 @@ public final class Globals
 	 * @return The list of choices made by the user.
 	 */
 	public static <T> List<T> getChoiceFromList(final String title,
-		final List<T> choiceList, final List<T> selectedList, final int pool,
-		final boolean forceChoice, final boolean preferRadioSelection, PlayerCharacter pc)
+	                                            final List<T> choiceList, final List<T> selectedList, final int pool,
+	                                            final boolean forceChoice, final boolean preferRadioSelection, final PlayerCharacter pc)
 	{
-		List<T> startingSelectedList = new ArrayList<T>();
+		List<T> startingSelectedList = new ArrayList<>();
 		if (selectedList != null)
 		{
 			startingSelectedList = selectedList;
 		}
 
-		CDOMChooserFacadeImpl<T> chooserFacade =
-				new CDOMChooserFacadeImpl<T>(title,
-						choiceList,
-						startingSelectedList, pool);
+		final CDOMChooserFacadeImpl<T> chooserFacade =
+                new CDOMChooserFacadeImpl<>(title,
+                        choiceList,
+                        startingSelectedList, pool);
 		chooserFacade.setAllowsDups(false);
 		chooserFacade.setRequireCompleteSelection(forceChoice);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(pc));
-		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+		chooserFacade.setDefaultView(ChooserFacade.ChooserTreeViewType.NAME);
 		chooserFacade.setPreferRadioSelection(preferRadioSelection);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		
@@ -1362,10 +1036,9 @@ public final class Globals
 	 */
 	static String getFilepathsPath()
 	{
-		String aPath;
 
 		// first see if it was specified on the command line
-		aPath = System.getProperty("pcgen.filepaths"); //$NON-NLS-1$
+		String aPath = System.getProperty("pcgen.filepaths"); //$NON-NLS-1$
 
 		if (aPath == null)
 		{
@@ -1399,10 +1072,9 @@ public final class Globals
 	 */
 	static String getFilterPath()
 	{
-		String aPath;
 
 		// first see if it was specified on the command line
-		aPath = System.getProperty("pcgen.filter");
+		String aPath = System.getProperty("pcgen.filter");
 
 		if (aPath == null)
 		{
@@ -1436,10 +1108,9 @@ public final class Globals
 	 */
 	static String getOptionsPath()
 	{
-		String aPath;
 
 		// first see if it was specified on the command line
-		aPath = System.getProperty("pcgen.options");
+		String aPath = System.getProperty("pcgen.options");
 
 		if (aPath == null)
 		{
@@ -1484,21 +1155,21 @@ public final class Globals
 	 * @param newSize
 	 * @return String
 	 */
-	public static String adjustDamage(String aDamage, SizeAdjustment baseSize, SizeAdjustment newSize)
+	public static String adjustDamage(final String aDamage, final SizeAdjustment baseSize, final SizeAdjustment newSize)
 	{
-		if (aDamage.length() == 0)
+		if (aDamage.isEmpty())
 		{
 			return aDamage;
 		}
-		int baseIndex = baseSize.get(IntegerKey.SIZEORDER);
-		int newIndex =  newSize.get(IntegerKey.SIZEORDER);
+		final int baseIndex = baseSize.get(IntegerKey.SIZEORDER);
+		final int newIndex =  newSize.get(IntegerKey.SIZEORDER);
 		return adjustDamage(aDamage, baseIndex, newIndex);
 	}
 
 	public static double calcEncumberedMove(final Load load,
 			final double unencumberedMove)
 	{
-		double encumberedMove;
+		final double encumberedMove;
 
 		switch (load)
 		{
@@ -1545,8 +1216,8 @@ public final class Globals
 
 	static void initCustColumnWidth(final List<String> l)
 	{
-		getCustColumnWidth().clear();
-		getCustColumnWidth().addAll(l);
+		custColumnWidth.clear();
+		custColumnWidth.addAll(l);
 	}
 
 	/**
@@ -1582,16 +1253,6 @@ public final class Globals
 			// use the specified directory
 			return fType + File.separator + aString;
 		}
-	}
-
-	private static void setSelectedPaper(final int argSelectedPaper)
-	{
-		Globals.selectedPaper = argSelectedPaper;
-	}
-
-	private static boolean isUseGUI()
-	{
-		return useGUI;
 	}
 
 	private static int bonusParsing(final String l, final int level, int num, final PlayerCharacter aPC)
@@ -1643,7 +1304,7 @@ public final class Globals
 		return SettingsHandler.getGame().getContext();
 	}
 
-	private static LoadContext globalContext = new RuntimeLoadContext(
+	private static final LoadContext globalContext = new RuntimeLoadContext(
 			new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
 
 	public static LoadContext getGlobalContext()
@@ -1651,11 +1312,4 @@ public final class Globals
 		return globalContext;
 	}
 
-	/**
-	 * @return The class instance controlling the association lists for the current game mode.
-	 */
-	public static MasterListInterface getMasterLists()
-	{
-		return SettingsHandler.getGame().getMasterLists();
-	}
 }

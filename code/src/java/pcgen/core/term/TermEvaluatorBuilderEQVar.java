@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EvaluatorFactoryEQVar.java
  * Copyright 2008 Andrew Wilson
  * <nuance@users.sourceforge.net>.
  *
@@ -18,16 +17,12 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03 Oct 2008
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  */
 
 package pcgen.core.term;
 
 /**
- * <code>EvaluatorFactoryEQVar</code> 
+ * {@code EvaluatorFactoryEQVar}
  *
  * This individual enumerations in this class are each responsible for making
  * and returning an object that implements the TermEvaluator interface.  Each
@@ -36,7 +31,7 @@ package pcgen.core.term;
  * have an array of string keys that enumerate every string that the regular
  * expression can match (this is not as bad as it sounds since each can only
  * match at most eight strings).  The array of string is used to populate a
- * Map<String, Enum>
+ * {@code Map<String, Enum>}
  */
 
 public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
@@ -285,9 +280,9 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		}
 	};
 
-	private String   termConstructorPattern;
-	private String[] termConstructorKeys;
-	private boolean  patternMatchesEntireTerm;
+	private final String   termConstructorPattern;
+	private final String[] termConstructorKeys;
+	private final boolean  patternMatchesEntireTerm;
 
 	TermEvaluatorBuilderEQVar(
 			String pattern,

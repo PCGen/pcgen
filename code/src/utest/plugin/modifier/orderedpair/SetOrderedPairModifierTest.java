@@ -17,22 +17,24 @@
  */
 package plugin.modifier.orderedpair;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
-import pcgen.base.calculation.Modifier;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.math.OrderedPair;
+import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import pcgen.rules.persistence.token.ModifierFactory;
 
-public class SetOrderedPairModifierTest extends TestCase
+import org.junit.Test;
+import plugin.modifier.testsupport.EvalManagerUtilities;
+import static org.junit.Assert.*;
+
+public class SetOrderedPairModifierTest
 {
 
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
-	FormatManager<OrderedPair> opManager = new OrderedPairManager();
+	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Test
 	public void testInvalidConstruction()
@@ -40,30 +42,25 @@ public class SetOrderedPairModifierTest extends TestCase
 		try
 		{
 			SetModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, null, null, null);
+			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep!
-		}
-		catch (NullPointerException e)
-		{
-			//Yep! okay too!
 		}
 	}
 
 	@Test
 	public void testGetModifier()
 	{
-		SetModifierFactory factory = new SetModifierFactory();
+		ModifierFactory<OrderedPair> factory = new SetModifierFactory();
 		Modifier<OrderedPair> modifier =
-				factory.getModifier(5, "3,2", null, varScope, opManager);
-		assertEquals(0, modifier.getInherentPriority());
-		assertEquals(5, modifier.getUserPriority());
-		assertEquals(OrderedPair.class, modifier.getVariableFormat());
+				factory.getModifier(5, "3,2", new ManagerFactory(){}, null, varScope, opManager);
+		assertEquals(5L <<32, modifier.getPriority());
+		assertSame(OrderedPair.class, modifier.getVariableFormat());
 		assertEquals(new OrderedPair(3, 2),
-			modifier.process(new OrderedPair(5, 6), null, null));
+			modifier.process(EvalManagerUtilities.getInputEM(new OrderedPair(5, 6))));
 	}
 
 }

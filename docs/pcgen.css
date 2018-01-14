@@ -3,7 +3,7 @@ body {
 	font-size: 10pt;
 }
 code {
-	font-family: "Courier New", Courier, mono;
+	font-family: "Courier New", Courier, mono, sans-serif;
 	font-size: 10pt;
 }
 dd	{
@@ -31,10 +31,6 @@ p {
 	font-size: 10pt;
 	text-align: justify;
 }
-p18 {
-	font-size: 18pt;
-	text-align: justify;
-}
 table {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -43,7 +39,7 @@ table {
 	padding: 10px;
 }
 td {
-	cell-spacing: 5px;
+	border-spacing: 5px;
 	padding: 1px 10px;
 }
 a img {
@@ -151,7 +147,7 @@ a img {
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 50px;
-	font-family: "Courier New", Courier, mono;
+	font-family: "Courier New", Courier, mono, sans-serif;
 	font-size: 10pt;
 }
 .tagexampdesc {
@@ -178,7 +174,7 @@ a img {
 .lstupnew {
 	color: #FF0000;
 	font-weight: bold;
-	margin-bottom: -10px
+	margin-bottom: -10px;
 }
 .lststatus {
 	color: #000000;
@@ -268,31 +264,31 @@ a img {
 	font-size: 6pt;
 }
 .cb9 {
-	blackground-color: #000000;
+	background-color: #000000;
 	color: #ffffff;
 	text-align: center;
 }
 .cw8 {
 	font-size: 8pt;
-	blackground-color: #ffffff;
+	background-color: #ffffff;
 	color: #000000;
 	text-align: center;
 }
 .cb8 {
 	font-size: 8pt;
-	blackground-color: #000000;
+	background-color: #000000;
 	color: #ffffff;
 	text-align: center;
 }
 .cw6 {
 	font-size: 6pt;
-	blackground-color: #ffffff;
+	background-color: #ffffff;
 	color: #000000;
 	text-align: center;
 }
 .cb6 {
 	font-size: 6pt;
-	blackground-color: #000000;
+	background-color: #000000;
 	color: #ffffff;
 	text-align: center;
 }

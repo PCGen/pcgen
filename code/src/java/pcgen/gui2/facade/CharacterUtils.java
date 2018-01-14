@@ -1,5 +1,4 @@
 /*
- * CharacterUtils.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 
 package pcgen.gui2.facade;
@@ -55,7 +53,7 @@ public class CharacterUtils
 			boolean hasClothes = false;
 			SizeAdjustment pcSizeAdj = aPC.getDisplay().getSizeAdjustment();
 
-			if (clothes.size() != 0)
+			if (!clothes.isEmpty())
 			{
 				for (Equipment eq : clothes)
 				{
@@ -88,12 +86,12 @@ public class CharacterUtils
 								"Clothing.Resizable", "Magic.Custom.Auto_Gen");
 				}
 
-				List<Equipment> selectedClothes = new ArrayList<Equipment>();
+				List<Equipment> selectedClothes = new ArrayList<>();
 				selectedClothes = Globals.getChoiceFromList(
 					LanguageBundle.getString("in_sumSelectAFreeSetOfClothing"), //$NON-NLS-1$ 
 					clothes, selectedClothes, 1, aPC);
 
-				if (selectedClothes.size() != 0)
+				if (!selectedClothes.isEmpty())
 				{
 					Equipment eq = selectedClothes.get(0);
 

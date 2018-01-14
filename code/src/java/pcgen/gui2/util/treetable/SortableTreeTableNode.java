@@ -1,5 +1,4 @@
 /*
- * SortableTreeTableNode.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 21, 2008, 1:32:11 AM
  */
 package pcgen.gui2.util.treetable;
 
@@ -25,7 +23,6 @@ import pcgen.gui2.util.table.Row;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
  */
 public interface SortableTreeTableNode extends TreeTableNode
 {

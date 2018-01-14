@@ -43,7 +43,7 @@ BIO
 			<favoredweapon>Crossbow (Light)</favoredweapon>
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
-			<source>Paizo Inc. - Advanced Player's Guide, p.91</source>
+			<source>Paizo Inc. - Advanced Player&#39;s Guide, p.91</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -1033,6 +1033,116 @@ BIO
 		<weapon>
 			<common>
 				<name>
+					<short>Holy Water (Flask)</short>
+					<long>Holy Water (Flask)</long>
+				</name>
+				<category>Non-Standard-Ranged</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+7/+2</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+7/+2</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Equipped</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties>thown splash weapon see p.202</special_properties>
+				<template></template>
+				<type></type>
+				<weight>1</weight>
+				<sequence>3</sequence>
+			</common>
+			<ranges>
+				<range>
+					<distance>10 ft.</distance>
+					<to_hit>+7/+2</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>20 ft.</distance>
+					<to_hit>+5/+0</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>30 ft.</distance>
+					<to_hit>+3/-2</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>40 ft.</distance>
+					<to_hit>+1/-4</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>50 ft.</distance>
+					<to_hit>-1/-6</to_hit>
+					<damage>1d6</damage>
+				</range>
+			</ranges>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
+					<short>Oil (1 Pint Flask)</short>
+					<long>Oil (1 Pint Flask)</long>
+				</name>
+				<category>Non-Standard-Ranged</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+7/+2</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+7/+2</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Equipped</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+				<template></template>
+				<type>F</type>
+				<weight>1</weight>
+				<sequence>4</sequence>
+			</common>
+			<ranges>
+				<range>
+					<distance>10 ft.</distance>
+					<to_hit>+7/+2</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>20 ft.</distance>
+					<to_hit>+5/+0</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>30 ft.</distance>
+					<to_hit>+3/-2</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>40 ft.</distance>
+					<to_hit>+1/-4</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>50 ft.</distance>
+					<to_hit>-1/-6</to_hit>
+					<damage>1d6</damage>
+				</range>
+			</ranges>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
 					<short>Dagger</short>
 					<long>Dagger</long>
 				</name>
@@ -1055,7 +1165,7 @@ BIO
 				<template></template>
 				<type>PS</type>
 				<weight>0</weight>
-				<sequence>3</sequence>
+				<sequence>5</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1142,7 +1252,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>2</weight>
-				<sequence>5</sequence>
+				<sequence>7</sequence>
 			</common>
 			<ranges>
 				<range>
@@ -1197,7 +1307,7 @@ BIO
 				<template></template>
 				<type>S</type>
 				<weight>4</weight>
-				<sequence>6</sequence>
+				<sequence>8</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1257,7 +1367,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>0</weight>
-				<sequence>7</sequence>
+				<sequence>9</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1344,7 +1454,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>0</weight>
-				<sequence>9</sequence>
+				<sequence>11</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1732,8 +1842,8 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
-			<type>GOODS.FLASK.CONSUMABLE</type>
+			<special_properties>thown splash weapon see p.202</special_properties>
+			<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1810,8 +1920,8 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
-			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+			<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2444,8 +2554,8 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties></special_properties>
-				<type>GOODS.FLASK.CONSUMABLE</type>
+				<special_properties>thown splash weapon see p.202</special_properties>
+				<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2507,8 +2617,8 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties></special_properties>
-				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+				<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -3280,6 +3390,28 @@ BIO
 		</ability_object>
 		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
+			<name>Age</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Age ~ Adult</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Armor Prof ~ Heavy</name>
 			<description></description>
 			<type>ARMORPROFHEAVY</type>
@@ -3360,6 +3492,17 @@ BIO
 			<name>Equipment ~ Heavy Armor Grants Gauntlet</name>
 			<description></description>
 			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Human ~ Default</name>
+			<description></description>
+			<type>HUMANSUBRACE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

@@ -1,5 +1,4 @@
 /*
- * DIWarningDialog.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 26/01/2009 10:56:36 PM
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -42,23 +37,19 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>DIWarningDialog</code> is responsible for 
+ * The Class {@code DIWarningDialog} is responsible for
  * displaying warnings for the data installer. The list of 
  * files will be displayed in a scrollable area.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class DIWarningDialog extends JDialog implements
 	ActionListener
 {
 	
-	private String fileText;
-	private String introText;
+	private final String fileText;
+	private final String introText;
 	
 	/** The result selected by the user. */
 	private int result = JOptionPane.CANCEL_OPTION;
@@ -82,7 +73,7 @@ public class DIWarningDialog extends JDialog implements
 		this.introText = introText;
 		
 		initComponents();
-		Utility.setDialogRelativeLocation(parent, this);
+		Utility.setComponentRelativeLocation(parent, this);
 	}
 	
 	/**
@@ -167,7 +158,7 @@ public class DIWarningDialog extends JDialog implements
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
     @Override

@@ -1,5 +1,4 @@
 /*
- * CharacterFacade.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 12, 2008, 8:27:12 PM
  */
 package pcgen.facade.core;
 
@@ -52,14 +50,13 @@ import pcgen.io.ExportHandler;
  * can pick up on. To operate like this, all values returned
  * from this class, with a couple of exceptions, are models that can
  * be listenered to. Two of the most commonly used models are
- * the <code>ReferenceFacade</code> and the <code>ListFacade</code>
- * <br>
+ * the {@code ReferenceFacade} and the <code>ListFacade</code>
+ *
  * Note: This facade returns references to items of interest.
  * These allow not only the values to be retrieved but also
  * interested parties to register as listeners for changes to the valiues.
- * @see pcgen.core.facade.util.ListFacade
+ * @see pcgen.facade.util.ListFacade
  * @see ReferenceFacade
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public interface CharacterFacade extends CompanionFacade
 {
@@ -82,7 +79,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param stat The stat to retrieve the base for
 	 * @return A reference to the base score for the stat
 	 */
-	public ReferenceFacade<Integer> getScoreBaseRef(StatFacade stat);
+	public ReferenceFacade<Number> getScoreBaseRef(StatFacade stat);
 
 	/**
 	 * @param stat The stat to retrieve the mod total for
@@ -512,7 +509,7 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * Set the character's display filter for skills
 	 * *
-	 * @param previewSheet The skill filter to be set
+	 * @param filter The skill filter to be set
 	 */
 	public void setSkillFilter(SkillFilter filter);
 

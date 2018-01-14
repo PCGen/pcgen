@@ -1,5 +1,4 @@
 /*
- * MultiTagBonusObj.java
  * Copyright 2003 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Mar 29, 2003, 00:00
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core.bonus;
 
@@ -30,10 +22,7 @@ import pcgen.rules.context.LoadContext;
 
 
 /**
- * <code>MultiTagBonusObj</code>
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
- * @author  Jonas Karlsson <jujutsunerd@sf.net>
+ * {@code MultiTagBonusObj}
  */
 public abstract class MultiTagBonusObj extends BonusObj
 {
@@ -45,7 +34,7 @@ public abstract class MultiTagBonusObj extends BonusObj
 		{
 			if (getBonusTag(i).equals(token))
 			{
-				addBonusInfo(Integer.valueOf(i));
+				addBonusInfo(i);
 
 				return true;
 			}

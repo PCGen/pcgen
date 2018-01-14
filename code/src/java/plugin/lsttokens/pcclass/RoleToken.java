@@ -78,7 +78,6 @@ public class RoleToken extends AbstractNonEmptyToken<PCClass> implements
 	 * Unparse the ROLE token
 	 * 
 	 * @param context
-	 * @param race
 	 * @return String array representing the ROLE token
 	 */
 	@Override

@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.spell;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
@@ -30,7 +28,7 @@ public class CompsTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static CompsToken token = new CompsToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -78,12 +76,6 @@ public class CompsTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 	public boolean isClearLegal()
 	{
 		return true;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

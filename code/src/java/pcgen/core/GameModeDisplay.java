@@ -1,5 +1,4 @@
 /*
- * GameMode.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,25 +14,14 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 22, 2002, 4:30 PM
- *
- * Current Ver: $Revision: 17100 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-09-01 03:33:25 +0200 (Sa, 01 Sep 2012) $
- *
  */
 package pcgen.core;
 
-import pcgen.core.GameMode;
 import pcgen.facade.core.GameModeDisplayFacade;
 
 
 /**
  * Handles game modes.
- *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 17100 $
  */
 public final class GameModeDisplay implements Comparable<Object>, GameModeDisplayFacade
 {
@@ -42,7 +30,7 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 	/**
 	 * Creates a new instance of GameModeMenuEntry.
 	 *
-	 * @param modeName the mode name
+	 * @param mode the mode name
 	 */
 	public GameModeDisplay(final GameMode mode)
 	{

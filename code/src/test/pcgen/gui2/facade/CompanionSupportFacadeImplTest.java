@@ -1,5 +1,4 @@
 /*
- * CompanionSupportFacadeImplTest.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,14 +14,8 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/04/2012 8:30:30 AM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
-
-import java.io.File;
 
 import org.junit.Test;
 
@@ -51,11 +44,7 @@ import pcgen.util.TestHelper;
  * The Class <code></code> ...
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 {
@@ -67,9 +56,6 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	private CompanionList companionList;
 	private TodoManager todoManager;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -77,13 +63,13 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		
 		uiDelegate = new MockUIDelegate();
 		todoManager = new TodoManager();
-		ListFacade<CampaignFacade> campaigns = new DefaultListFacade<CampaignFacade>();
+		ListFacade<CampaignFacade> campaigns = new DefaultListFacade<>();
 		dataSetFacade = new DataSet(Globals.getContext(), SettingsHandler.getGame(), campaigns );
 		masterRace = TestHelper.makeRace("Wood Elf");
 		companionRace = TestHelper.makeRace("Weasel");
 
-		CDOMReference<Race> race  = new  CDOMDirectSingleRef<Race>(companionRace);
-		CDOMSingleRef<CompanionList> ref  = new  CDOMSimpleSingleRef<CompanionList>(CompanionList.class, companionList.getKeyName());
+		CDOMReference<Race> race  = new CDOMDirectSingleRef<>(companionRace);
+		CDOMSingleRef<CompanionList> ref  = new CDOMSimpleSingleRef<>(CompanionList.class, companionList.getKeyName());
 		FollowerOption option = new FollowerOption(race, ref);
 		masterRace.addToListFor(ListKey.COMPANIONLIST, option);
 	}
@@ -100,8 +86,8 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		master.setName("Master1");
 		CompanionSupportFacadeImpl masterCsfi =
 				new CompanionSupportFacadeImpl(master, todoManager,
-					new DefaultReferenceFacade<String>(),
-					new DefaultReferenceFacade<File>(),
+						new DefaultReferenceFacade<>(),
+						new DefaultReferenceFacade<>(),
 					new CharacterFacadeImpl(master, uiDelegate, dataSetFacade));
 		
 		PlayerCharacter companion = new PlayerCharacter();
@@ -122,9 +108,6 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Companion's master", master.getName(), companion.getDisplay().getMaster().getName());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{

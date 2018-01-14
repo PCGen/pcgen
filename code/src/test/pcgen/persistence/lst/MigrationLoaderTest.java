@@ -1,5 +1,4 @@
 /*
- * MigrationLoaderTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,24 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 01/06/2013
- *
- * $Id$
  */
 package pcgen.persistence.lst;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
 import java.net.URI;
 import java.util.List;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
@@ -40,12 +26,17 @@ import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 import pcgen.util.TestHelper;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 /**
  * MigrationLoaderTest checks the function of the MigrationLoader class.
- * 
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class MigrationLoaderTest
 {
@@ -53,7 +44,7 @@ public class MigrationLoaderTest
 	URI sourceURI;
 	
 	@Before
-	public void setup() throws Exception
+	public void setUp() throws Exception
 	{
 		sourceURI = new URI("http://www.pcgen.org");
 		TestHelper.loadPlugins();

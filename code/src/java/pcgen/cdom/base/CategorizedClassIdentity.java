@@ -57,10 +57,10 @@ public class CategorizedClassIdentity<T extends Categorized<T>> implements
 		return underlyingClass;
 	}
 
-	public static <T extends Categorized<T>> ClassIdentity<T> getInstance(
+	public static <T extends Categorized<T>> ClassIdentity<T> getIdentity(
 		Class<T> cl, Category<T> cat)
 	{
-		return new CategorizedClassIdentity<T>(cl, cat);
+		return new CategorizedClassIdentity<>(cl, cat);
 	}
 
 	public Category<T> getCategory()

@@ -15,7 +15,6 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  * 
- * Created on Apr 24, 2006
  */
 package pcgen.util.enumeration;
 
@@ -36,22 +35,21 @@ public abstract class AbstractConstant implements Serializable
 	private void writeObject(ObjectOutputStream out) throws IOException
 	{
 		Field[] f = getClass().getDeclaredFields();
-		for (int i = 0; i < f.length; i++)
+		for (final Field aF : f)
 		{
 			try
 			{
-				int mod = f[i].getModifiers();
+				int mod = aF.getModifiers();
 				if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod))
+						&& Modifier.isPublic(mod))
 				{
 					//Use == to get exact object match (do not use .equals())
-					if (this == f[i].get(null))
+					if (this == aF.get(null))
 					{
-						out.writeObject(f[i].getName());
+						out.writeObject(aF.getName());
 					}
 				}
-			}
-			catch (IllegalAccessException e)
+			} catch (IllegalAccessException e)
 			{
 				throw new IOException(e.getLocalizedMessage());
 			}
@@ -70,23 +68,13 @@ public abstract class AbstractConstant implements Serializable
 		}
 	}
 
-	public Object readResolve() throws ObjectStreamException
+	protected Object readResolve() throws ObjectStreamException
 	{
 		try
 		{
 			return getClass().getField(_fieldName).get(null);
 		}
-		catch (SecurityException e)
-		{
-			throw new InvalidObjectException("Failed to resolve object: "
-				+ e.getLocalizedMessage());
-		}
-		catch (NoSuchFieldException e)
-		{
-			throw new InvalidObjectException("Failed to resolve object: "
-				+ e.getLocalizedMessage());
-		}
-		catch (IllegalAccessException e)
+		catch (SecurityException | NoSuchFieldException | IllegalAccessException e)
 		{
 			throw new InvalidObjectException("Failed to resolve object: "
 				+ e.getLocalizedMessage());

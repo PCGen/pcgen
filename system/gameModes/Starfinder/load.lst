@@ -1,0 +1,54 @@
+# SIZEMULT:F|0.125
+# SIZEMULT:D|0.25
+# SIZEMULT:T|0.5
+# SIZEMULT:S|0.75
+# SIZEMULT:L|2
+# SIZEMULT:H|4
+# SIZEMULT:G|8
+# SIZEMULT:C|16
+LOAD:0|0
+LOAD:1|1
+LOAD:2|2
+LOAD:3|3
+LOAD:4|4
+LOAD:5|5
+LOAD:6|6
+LOAD:7|7
+LOAD:8|8
+LOAD:9|9
+LOAD:10|10
+LOAD:11|11
+LOAD:12|12
+LOAD:13|13
+LOAD:14|14
+LOAD:15|15
+LOAD:16|16
+LOAD:17|17
+LOAD:18|18
+LOAD:19|19
+LOAD:20|20
+LOAD:21|21
+LOAD:22|22
+LOAD:23|23
+LOAD:24|24
+LOAD:25|25
+LOAD:26|26
+LOAD:27|27
+LOAD:28|28
+LOAD:29|29
+LOADMULT:1
+# 
+ENCUMBRANCE:Unencumbered|1/2||0
+ENCUMBRANCE:Encumbered|1||0
+ENCUMBRANCE:Overburdened|1.1||0
+
+# these values are hardcode Tom - get error message when removed from the system
+# 15:27:30.478 SEVERE Thread-12 EncumbranceToken:144 Warning: load.lst for game mode Starfinder does not contain load category definitions for 'Light', 'Medium' and 'Heavy'. Please refer to the documentation for the Load List file. See: null
+
+ENCUMBRANCE:Light|1/2||0
+ENCUMBRANCE:Medium|100||0
+ENCUMBRANCE:Heavy|100||0
+
+ENCUMBRANCE:OverHead|1||
+ENCUMBRANCE:OffGround|2||
+ENCUMBRANCE:PushDrag|5||

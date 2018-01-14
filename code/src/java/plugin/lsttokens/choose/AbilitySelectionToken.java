@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/06/2013
- *
- * $Id$
  */
 package plugin.lsttokens.choose;
 
@@ -50,8 +46,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * New chooser plugin, handles ability selection.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
@@ -94,7 +88,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 				{
 					title = title.substring(1, title.length() - 1);
 				}
-				if (title == null || title.length() == 0)
+				if ((title == null) || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + Constants.COLON
 						+ getTokenName() + " had TITLE= but no title: " + value, context);

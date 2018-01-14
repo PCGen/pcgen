@@ -17,10 +17,7 @@
  */
 package plugin.lsttokens.choose;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
+import org.jetbrains.annotations.NotNull;
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseDriver;
@@ -40,6 +37,10 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * New chooser plugin, handles no Choice.
  */
@@ -49,7 +50,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 {
 
 	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
-		.getInstance(String.class);
+		.getIdentity(String.class);
 
 	@Override
 	public String getTokenName()
@@ -222,14 +223,14 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends String> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends String> collection)
 	{
 		StringBuilder sb = new StringBuilder(5);
-		int count = (collection == null) ? 0 : collection.size();
+		int count = collection.size();
 		if (count > 1)
 		{
 			sb.append(count);
-			sb.append("x");
+			sb.append('x');
 		}
 		return sb;
 	}
@@ -242,7 +243,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		{
 			Logging
 				.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName(), obj.getSourceURI());
+					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(), obj.getSourceURI());
 			return false;
 		}
 		return true;

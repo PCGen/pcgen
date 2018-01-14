@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12/01/2008
- *
- * $Id$
  */
 package plugin.lsttokens.equipmentmodifier.choose;
 
@@ -32,14 +28,10 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>EqBuilderEqTypeToken</code> parses the EQ Builder specific choose
+ * {@code EqBuilderEqTypeToken} parses the EQ Builder specific choose
  * string to allow the selection of equipent types.
  *
- * Last Editor: $Author$ Last Edited: $Date: 2008-05-06 22:19:45 -0400
  * (Tue, 06 May 2008) $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class EqBuilderEqTypeToken implements
 		CDOMSecondaryToken<EquipmentModifier>
@@ -91,7 +83,7 @@ public class EqBuilderEqTypeToken implements
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value, context);
 		}
-		if (value.indexOf("||") != -1)
+		if (value.contains("||"))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value, context);
@@ -146,7 +138,7 @@ public class EqBuilderEqTypeToken implements
 		}
 		else
 		{
-			if (chooseString.indexOf(getTokenName() + '|') == -1)
+			if (!chooseString.contains(getTokenName() + '|'))
 			{
 				return null;
 			}

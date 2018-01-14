@@ -32,7 +32,7 @@ public class LangbonusIntegrationTest extends
 {
 
 	static LangbonusToken token = new LangbonusToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

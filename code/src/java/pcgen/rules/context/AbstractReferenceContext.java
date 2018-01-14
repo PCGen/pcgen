@@ -30,9 +30,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pcgen.base.format.dice.DiceFormat;
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
+import pcgen.base.util.Indirect;
+import pcgen.base.util.ObjectDatabase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.CategorizedClassIdentity;
@@ -45,6 +49,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.format.table.ColumnFormatFactory;
+import pcgen.cdom.format.table.TableFormatFactory;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -60,8 +66,9 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 
-public abstract class AbstractReferenceContext
+public abstract class AbstractReferenceContext implements ObjectDatabase
 {
 
 	@SuppressWarnings("rawtypes")
@@ -72,16 +79,24 @@ public abstract class AbstractReferenceContext
 	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
 	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap =
-			new DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>>();
+            new DoubleKeyMap<>();
 
-	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
+	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<>();
 
 	private URI sourceURI;
 	
 	private URI extractURI;
 	
-	private final FormatManagerLibrary fmtLibrary = new FormatManagerLibrary();
-	
+	private final SimpleFormatManagerLibrary fmtLibrary = new SimpleFormatManagerLibrary();
+
+	public AbstractReferenceContext()
+	{
+		FormatUtilities.loadDefaultFormats(fmtLibrary);
+		fmtLibrary.addFormatManager(new DiceFormat());
+		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(this));
+		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(this));
+	}
+
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl);
 	
@@ -93,12 +108,7 @@ public abstract class AbstractReferenceContext
 	protected final <T extends Loadable> ReferenceManufacturer<T> getNewReferenceManufacturer(
 		Class<T> cl)
 	{
-		ReferenceManufacturer<T> mfg = constructReferenceManufacturer(cl);
-		if (mfg.getIdentifierType() != null)
-		{
-			fmtLibrary.addFormatManager(mfg);
-		}
-		return mfg;
+		return constructReferenceManufacturer(cl);
 	}
 
 	protected abstract <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
@@ -152,7 +162,7 @@ public abstract class AbstractReferenceContext
 		if (CATEGORIZED_CLASS.isAssignableFrom(c))
 		{
 			Class cl = c;
-			obj = (T) getManufacturer(cl, (Category) null).constructObject(val);
+			obj = (T) getManufacturer(cl, null).constructObject(val);
 		}
 		else
 		{
@@ -200,8 +210,20 @@ public abstract class AbstractReferenceContext
 		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
 	}
 
-	public <T extends Loadable> T silentlyGetConstructedCDOMObject(
-			Class<T> c, String val)
+	@Override
+	public <T extends Loadable> T get(Class<T> c, String val)
+	{
+		return silentlyGetConstructedCDOMObject(c, val);
+	}
+
+	@Override
+	public <T extends Loadable> Indirect<T> getIndirect(Class<T> c, String val)
+	{
+		return getCDOMReference(c, val);
+	}
+
+	public <T extends Loadable> T silentlyGetConstructedCDOMObject(Class<T> c,
+		String val)
 	{
 		return getManufacturer(c).getActiveObject(val);
 	}
@@ -275,7 +297,7 @@ public abstract class AbstractReferenceContext
 		}
 		else
 		{
-			if (hasManufacturer((Class<T>) obj.getClass()))
+			if (hasManufacturer(obj.getClass()))
 			{
 				return getManufacturer((Class<T>) obj.getClass()).forgetObject(
 						obj);
@@ -304,7 +326,7 @@ public abstract class AbstractReferenceContext
 
 	public Set<Object> getAllConstructedObjects()
 	{
-		Set<Object> set = new HashSet<Object>();
+		Set<Object> set = new HashSet<>();
 		for (ReferenceManufacturer<?> ref : getAllManufacturers())
 		{
 			set.addAll(ref.getAllObjects());
@@ -410,7 +432,7 @@ public abstract class AbstractReferenceContext
 		CDOMSingleRef<T> ref = (CDOMSingleRef<T>) directRefCache.get(obj);
 		if (ref == null)
 		{
-			ref = new CDOMDirectSingleRef<T>(obj);
+			ref = new CDOMDirectSingleRef<>(obj);
 		}
 		return ref;
 	}
@@ -487,7 +509,7 @@ public abstract class AbstractReferenceContext
 		{
 			//Do categorized.
 			Category category = ((CategorizedClassIdentity) identity).getCategory();
-			return getManufacturer(cl, category);
+			return (ReferenceManufacturer<T>) getManufacturer(cl, category);
 		}
 		else
 		{
@@ -503,7 +525,7 @@ public abstract class AbstractReferenceContext
 		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
 		{
 			returnList = generateList(cl, new IntegerKeyComparator(key));
-			sortedMap.put(cl, key, new WeakReference<List<?>>(returnList));
+			sortedMap.put(cl, key, new WeakReference<>(returnList));
 		}
 		return Collections.unmodifiableList(returnList);
 	}
@@ -517,7 +539,7 @@ public abstract class AbstractReferenceContext
 		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
 		{
 			returnList = generateList(cl, comp);
-			sortedMap.put(cl, comp, new WeakReference<List<?>>(returnList));
+			sortedMap.put(cl, comp, new WeakReference<>(returnList));
 		}
 		return Collections.unmodifiableList(returnList);
 	}
@@ -525,7 +547,7 @@ public abstract class AbstractReferenceContext
 	private <T extends CDOMObject> List<T> generateList(Class<T> cl,
 		Comparator<? super T> comp)
 	{
-		Set<T> tm = new TreeSet<T>(comp);
+		Set<T> tm = new TreeSet<>(comp);
 		tm.addAll(getConstructedCDOMObjects(cl));
 		return new ArrayList<>(tm);
 	}
@@ -545,6 +567,28 @@ public abstract class AbstractReferenceContext
 
 	public FormatManager<?> getFormatManager(String clName)
 	{
+		if ((!fmtLibrary.hasFormatManager(clName))
+			&& (StringPClassUtil.getClassForBasic(clName) != null))
+		{
+			importCDOMToFormat(clName);
+		}
 		return fmtLibrary.getFormatManager(clName);
+	}
+
+	private void importCDOMToFormat(String name)
+	{
+		Class<? extends Loadable> cl = StringPClassUtil.getClassForBasic(name);
+		if (cl == null)
+		{
+			throw new IllegalArgumentException(
+				"Invalid Data Definition Location (no class): " + name);
+		}
+		ReferenceManufacturer<? extends Loadable> mgr = getManufacturer(cl);
+		if (!name.equalsIgnoreCase(mgr.getIdentifierType()))
+		{
+			throw new IllegalArgumentException("Invalid Data: " + name
+				+ " did not return a matching manufacturer: " + mgr.getIdentifierType());
+		}
+		fmtLibrary.addFormatManager(mgr);
 	}
 }

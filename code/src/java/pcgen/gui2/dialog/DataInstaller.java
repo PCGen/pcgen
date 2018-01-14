@@ -1,5 +1,4 @@
 /*
- * DataInstaller.java
  * Copyright 2007 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 22/12/2007
- *
- * $Id$
  */
 
 package pcgen.gui2.dialog;
@@ -56,7 +51,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import pcgen.cdom.enumeration.Destination;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -80,11 +75,7 @@ import pcgen.util.Logging;
  * {@code DataInstaller} is responsible for managing the installation of
  * a data set including the selection of the set and the install options.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class DataInstaller extends JFrame
 {
@@ -92,36 +83,6 @@ public class DataInstaller extends JFrame
 	/** Version for serialisation */
 	private static final long serialVersionUID = -7429544164441235718L;
 
-	/**
-	 * Filter class to only display potential zip format data sets.
-	 */
-	private final class DataPackFilter extends FileFilter
-	{
-		/* (non-Javadoc)
-		 * @see javax.swing.filechooser.FileFilter#accept(java.io.File)
-		 */
-        @Override
-		public boolean accept(File f)
-		{
-			if (f.isDirectory())
-			{
-				return true;
-			}
-			final String nameLc = f.getName().toLowerCase();
-			return nameLc.endsWith(".zip") || nameLc.endsWith(".pcz");
-
-		}
-
-		/* (non-Javadoc)
-		 * @see javax.swing.filechooser.FileFilter#getDescription()
-		 */
-        @Override
-		public String getDescription()
-		{
-			return "Data Sets (*.pcz,*.zip)";
-		}
-	}
-	
 	/**
 	 * The listener for receiving and processing action events from installer 
 	 * buttons. 
@@ -227,7 +188,7 @@ public class DataInstaller extends JFrame
 			return createFiles(dataSet, destDir, files);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
         @Override
@@ -250,7 +211,7 @@ public class DataInstaller extends JFrame
 						new JFileChooser(currFolder);
 				chooser.setDialogTitle(LanguageBundle
 					.getString("in_diChooserTitle")); //$NON-NLS-1$
-				chooser.setFileFilter(new DataPackFilter());
+				chooser.setFileFilter(new FileNameExtensionFilter("Data Sets (*.pcz,*.zip)", "zip", "pcz"));
 				int result = chooser.showOpenDialog(DataInstaller.this);
 				if (result != JFileChooser.APPROVE_OPTION)
 				{
@@ -442,7 +403,7 @@ public class DataInstaller extends JFrame
 	private JButton closeButton;
 	
 	/** The listener. */
-	private ActionListener listener = new InstallerButtonListener();
+	private final ActionListener listener = new InstallerButtonListener();
 	
 	/** The campaign. */
 	private InstallableCampaign campaign;
@@ -455,7 +416,6 @@ public class DataInstaller extends JFrame
 
 	/**
 	 * Instantiates a new data installer.
-	 *
 	 */
 	public DataInstaller()
 	{
@@ -463,7 +423,7 @@ public class DataInstaller extends JFrame
 		initComponents();
 
 		setIconImage(Icons.PCGenApp.getImageIcon().getImage());
-		Utility.centerFrame(this, false);
+		Utility.centerComponent(this, false);
 	}
 
 	/**

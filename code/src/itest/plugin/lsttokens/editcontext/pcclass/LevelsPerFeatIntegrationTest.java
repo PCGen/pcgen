@@ -32,7 +32,7 @@ public class LevelsPerFeatIntegrationTest extends
 {
 
 	static LevelsperfeatToken token = new LevelsperfeatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

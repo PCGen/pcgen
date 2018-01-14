@@ -34,7 +34,7 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 
 	private static LocalToken token = new LocalToken();
 	private static CDOMTokenLoader<DatasetVariable> loader =
-			new CDOMTokenLoader<DatasetVariable>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMPrimaryToken<DatasetVariable> getToken()

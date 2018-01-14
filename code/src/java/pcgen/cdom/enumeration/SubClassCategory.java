@@ -28,7 +28,6 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.core.SubClass;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant.
  */
@@ -50,7 +49,7 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private SubClassCategory(String name)
 	{
@@ -86,7 +85,7 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 			/*
 			 * TODO FIXME Should .,| or other stuff be banned here? (probably)
 			 */
-			if (name.length() == 0)
+			if (name.isEmpty())
 			{
 				throw new IllegalArgumentException(
 						"Type Name cannot be zero length");
@@ -101,7 +100,7 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<SubClassCategory>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

@@ -17,23 +17,16 @@
  */
 package selectionactor.auto;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.ShieldProf;
+
 import plugin.lsttokens.auto.ShieldProfToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class ShieldProfTokenTest extends AbstractSelectionActorTest<ShieldProf>
 {
 
-	static ShieldProfToken cra = new ShieldProfToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final ChooseSelectionActor cra = new ShieldProfToken();
 
 	@Override
 	public ChooseSelectionActor<ShieldProf> getActor()

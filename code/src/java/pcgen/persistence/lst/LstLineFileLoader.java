@@ -1,5 +1,4 @@
 /*
- * LstLineFileLoader.java
  * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 17, 2003, 12:00 PM
  *
- * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -43,11 +38,7 @@ import pcgen.rules.context.LoadContext;
  * to directly create characters.
  *
  * <p>
- * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  *
- * @author sage_sam
  */
 public abstract class LstLineFileLoader extends Observable
 {
@@ -102,7 +93,7 @@ public abstract class LstLineFileLoader extends Observable
 			String line = fileLines.nextToken().trim();
 
 			// check for comments and blank lines
-			if ((line.length() == 0)
+			if ((line.isEmpty())
 				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
@@ -134,7 +125,7 @@ public abstract class LstLineFileLoader extends Observable
 	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		// Track which sources have been loaded already
-		Set<CampaignSourceEntry> loadedFiles = new HashSet<CampaignSourceEntry>();
+		Set<CampaignSourceEntry> loadedFiles = new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry cse : fileList)

@@ -118,7 +118,7 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 		sb.append('|');
 		Collection<String> valueSet = sp.getValueList();
 		sb.append(StringUtil
-				.join(new TreeSet<String>(valueSet), Constants.PIPE));
+				.join(new TreeSet<>(valueSet), Constants.PIPE));
 		return new String[] { sb.toString() };
 	}
 

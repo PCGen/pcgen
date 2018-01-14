@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountContainersTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 15:40:16
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -47,7 +41,7 @@ public class PCCountContainersTermEvaluator
 	{
 		final int merge = Constants.MERGE_ALL;
 
-		final Collection<Equipment> aList = new ArrayList<Equipment>();
+		final Collection<Equipment> aList = new ArrayList<>();
 		final List<Equipment> eList = pc.getEquipmentListInOutputOrder(merge);
 
 		for ( Equipment eq : eList )

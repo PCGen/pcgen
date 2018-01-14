@@ -32,6 +32,9 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * DeityToken is a Primitive that includes the Domains granted by the PC's Deity.
+ */
 public class DeityToken implements PrimitiveToken<Domain>
 {
 
@@ -83,7 +86,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Domain, R> c)
 	{
-		HashSet<R> returnSet = new HashSet<R>();
+		HashSet<R> returnSet = new HashSet<>();
 		Deity deity = pc.getDisplay().getDeity();
 		if (deity == null)
 		{

@@ -17,7 +17,9 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.base.util.RandomUtil;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Processor;
 import pcgen.cdom.enumeration.CharID;
@@ -30,7 +32,6 @@ import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -41,7 +42,6 @@ import pcgen.core.SettingsHandler;
  * Specifically this Facet stores the number of hit points granted to a Player
  * Character for each PCClassLevel possessed by the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HitPointFacet extends
 		AbstractAssociationFacet<CharID, PCClassLevel, Integer> implements
@@ -60,6 +60,101 @@ public class HitPointFacet extends
 	private LevelFacet levelFacet;
 
 	private BonusCheckingFacet bonusCheckingFacet;
+
+	/**
+	 * Roll the hitpoints for a single level.
+	 *
+	 * @param min the minimum number on the die
+	 * @param max the maximum number on the die
+	 * @param totalLevel the level the hitpoints are being rolled for (used in maths)
+	 * @return the hitpoints for the given level.
+	 */
+	private static int rollHP(
+			final int min,
+			final int max,
+			final int totalLevel)
+	{
+		int roll;
+
+		switch (SettingsHandler.getHPRollMethod())
+		{
+			case Constants.HP_USER_ROLLED:
+				roll = -1;
+
+				break;
+
+			case Constants.HP_AVERAGE:
+
+				roll = max - min;
+
+				// (n+1)/2
+				// average roll on a die with an  odd # of sides works out exactly
+				// average roll on a die with an even # of sides will have an extra 0.5
+
+				if (((totalLevel & 0x01) == 0) && ((roll & 0x01) != 0))
+				{
+					++roll;
+				}
+
+				roll = min + (roll / 2);
+
+				break;
+
+			case Constants.HP_AUTO_MAX:
+				roll = max;
+
+				break;
+
+			case Constants.HP_PERCENTAGE:
+				roll = (min - 1) + (int) ((SettingsHandler.getHPPercent() * ((max - min) + 1)) / 100.0);
+
+				break;
+
+			case Constants.HP_AVERAGE_ROUNDED_UP:
+				roll = (int) Math.ceil((min + max) / 2.0);
+
+				break;
+
+			case Constants.HP_STANDARD:default:
+				roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
+
+				break;
+		}
+
+//		if (SettingsHandler.getShowHPDialogAtLevelUp())
+//		{
+//			final Object[] rollChoices = new Object[max - min + 2];
+//			rollChoices[0] = Constants.NONESELECTED;
+//
+//			for (int i = min; i <= max; ++i)
+//			{
+//				rollChoices[i - min + 1] = i;
+//			}
+//
+//			while (min <= max)
+//			{
+//				//TODO: This must be refactored away. Core shouldn't know about gui.
+//				final InputInterface ii = InputFactory.getInputInstance();
+//				final Object selectedValue = ii.showInputDialog(Globals.getRootFrame(),
+//					"Randomly generate a number between " + min + " and " + max
+//						+ "." + Constants.LINE_SEPARATOR
+//						+ "Select it from the box below.",
+//					SettingsHandler.getGame().getHPText() + " for "
+//						+ CoreUtility.ordinal(level) + " level of " + name,
+//					MessageType.INFORMATION,
+//					rollChoices, roll);
+//
+//				if ((selectedValue != null) && (selectedValue instanceof Integer))
+//				{
+//					roll = (Integer) selectedValue;
+//
+//					break;
+//				}
+//			}
+//		}
+
+		return roll;
+	}
 
 	/**
 	 * Watches for new PCClassLevel objects to be granted to the Player
@@ -219,7 +314,7 @@ public class HitPointFacet extends
 						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MAX;CLASS."
 							+ pcc.getKeyName());
 
-			if (SettingsHandler.getGame().getHPFormula().length() == 0)
+			if (SettingsHandler.getGame().getHPFormula().isEmpty())
 			{
 				if (first
 					&& level == 1
@@ -235,8 +330,8 @@ public class HitPointFacet extends
 					if (!pc.isImporting())
 					{
 						roll =
-								Globals.rollHP(min, max, pcc.getDisplayName(),
-									level, levelFacet.getTotalLevels(id));
+								rollHP(min, max,
+										levelFacet.getTotalLevels(id));
 					}
 				}
 			}
@@ -244,7 +339,7 @@ public class HitPointFacet extends
 			roll += ((int) bonusCheckingFacet.getBonus(id, "HP", "CURRENTMAXPERLEVEL"));
 		}
 		PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, level - 1);
-		set(id, classLevel, Integer.valueOf(roll));
+		set(id, classLevel, roll);
 	}
 
 	public void setClassFacet(ClassFacet classFacet)

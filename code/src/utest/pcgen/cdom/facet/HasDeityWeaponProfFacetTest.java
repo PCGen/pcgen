@@ -35,13 +35,13 @@ public class HasDeityWeaponProfFacetTest extends
 	@Override
 	protected QualifiedObject<Boolean> getObject()
 	{
-		return new QualifiedObject<Boolean>(Boolean.TRUE);
+		return new QualifiedObject<>(Boolean.TRUE);
 	}
 
 	@Override
 	protected QualifiedObject<Boolean> getAltObject()
 	{
-		return new QualifiedObject<Boolean>(Boolean.FALSE);
+		return new QualifiedObject<>(Boolean.FALSE);
 	}
 
 }

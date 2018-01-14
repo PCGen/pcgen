@@ -1,5 +1,4 @@
 /*
- * LevelAbility.java
  * Copyright 2006 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -46,12 +45,15 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.util.TestHelper;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for Level Ability Class Skills
@@ -61,13 +63,12 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 {
 
 	PCClass pcClass;
-	Race emptyRace = new Race();
 	boolean firstTime = true;
 
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
-	@Override
+	@Before
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -96,6 +97,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	 * @see pcgen.AbstractCharacterTestCase#tearDown()
 	 */
 	@Override
+	@After
 	protected void tearDown() throws Exception
 	{
 		pcClass = null;
@@ -105,6 +107,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
+	@Test
 	public void testBasicChoicesList()
 	{
 		PCClass po = new PCClass();
@@ -120,7 +123,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(pc, ""));
 		
-		ArrayList<String> choiceStrings = new ArrayList<String>();
+		List<String> choiceStrings = new ArrayList<>();
 		for (Object o : choiceSet)
 		{
 			choiceStrings.add(o.toString());
@@ -133,6 +136,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
+	@Test
 	public void testGetChoicesListWithParens()
 	{
 		PCClass po = new PCClass();
@@ -148,7 +152,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 		
-		ArrayList<String> choiceStrings = new ArrayList<String>();
+		List<String> choiceStrings = new ArrayList<>();
 		for (Object o : choiceSet)
 		{
 			choiceStrings.add(o.toString());
@@ -161,6 +165,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
+	@Test
 	public void testGetChoicesListWithClassSkill()
 	{
 		CampaignSourceEntry source;
@@ -201,7 +206,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		TransitionChoice<?> choice = choiceList.get(0);
 		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
 		assertEquals(3, choiceSet.size());
-		Set<Object> limitedSet = new HashSet<Object>();
+		Set<Object> limitedSet = new HashSet<>();
 		ClassSkillChoiceActor csca = new ClassSkillChoiceActor(po, 0);
 		for (Object sc : choiceSet)
 		{
@@ -213,7 +218,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertEquals(2, limitedSet.size());
 		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 		
-		ArrayList<String> choiceStrings = new ArrayList<String>();
+		List<String> choiceStrings = new ArrayList<>();
 		for (Object o : limitedSet)
 		{
 			choiceStrings.add(o.toString());
@@ -222,8 +227,8 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
 	}
 
-	private PCClass parsePCClassText(String classPCCText,
-			CampaignSourceEntry source) throws PersistenceLayerException
+	private static PCClass parsePCClassText(String classPCCText,
+											CampaignSourceEntry source) throws PersistenceLayerException
 		{
 			PCClassLoader pcClassLoader = new PCClassLoader();
 			PCClass reconstClass = null;
@@ -231,7 +236,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 			while (tok.hasMoreTokens())
 			{
 				String line = tok.nextToken();
-				if (line.trim().length() > 0)
+				if (!line.trim().isEmpty())
 				{
 					System.out.println("Processing line:'" + line + "'.");
 					reconstClass =

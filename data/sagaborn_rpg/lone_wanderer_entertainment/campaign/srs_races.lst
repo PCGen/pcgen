@@ -1,0 +1,27 @@
+
+Human			BONUS:VAR|Pool_Ability_Point|1	MOVE:Walk,0		BONUS:VAR|RaceBaseSpeed_Walk|30	TYPE:PC	LANGBONUS:TYPE=Spoken	AUTO:LANG|Common
+Dwarf			BONUS:STAT|CON|2		BONUS:STAT|CHA|-1	BONUS:VAR|LowlightVisionRange|60		MOVE:Walk,0		BONUS:VAR|RaceBaseSpeed_Walk|30	TYPE:PC	LANGBONUS:TYPE=Spoken	AUTO:LANG|Common
+Half-Dwarf		BONUS:STAT|CON|1	MOVE:Walk,0		BONUS:VAR|RaceBaseSpeed_Walk|30	BONUS:VAR|LowlightVisionRange|30	TYPE:PC	LANGBONUS:TYPE=Spoken	AUTO:LANG|Common
+Elf			BONUS:STAT|DEX|1	BONUS:VAR|LowlightVisionRange|60	MOVE:Walk,0		BONUS:VAR|RaceBaseSpeed_Walk|30	ABILITY:Special Ability|AUTOMATIC|Cannot use iron|steel causes discomfort	TYPE:PC	LANGBONUS:TYPE=Spoken	AUTO:LANG|Common
+Elfling		BONUS:STAT|CHA|2	BONUS:STAT|WIS|-1	MOVE:Walk,0		BONUS:VAR|RaceBaseSpeed_Walk|20	BONUS:VAR|LowlightVisionRange|60	ABILITY:Special Ability|AUTOMATIC|iron causes discomfort|fearless (immune to fear effects)		TYPE:PC	LANGBONUS:TYPE=Spoken	AUTO:LANG|Common
+Feral Elfling	BONUS:STAT|CHA|-1	BONUS:STAT|DEX|2	MOVE:Walk,0		BONUS:VAR|RaceBaseSpeed_Walk|20	BONUS:VAR|LowlightVisionRange|60	ABILITY:Special Ability|AUTOMATIC|Cannot use iron	TYPE:PC	LANGBONUS:TYPE=Spoken	AUTO:LANG|Common
+Faun			MOVE:Walk,0		BONUS:VAR|RaceBaseSpeed_Walk|30	BONUS:STAT|DEX|1	BONUS:STAT|CHA|1	BONUS:STAT|WIS|-1	TYPE:PC	LANGBONUS:TYPE=Spoken	AUTO:LANG|Common
+
+# Base
+Animal Companion	ABILITY:Internal|AUTOMATIC|Race Traits ~ Animal Companion	SORTKEY:z_companion	MOVE:Walk,0	MONSTERCLASS:Animal Companion:2
+Animal Companion.FORGET
+
+Animal Companion.COPY=Animal Companion ~ Wolf
+Animal Companion.COPY=Animal Companion ~ Eagle
+
+
+
+
+Animal Companion ~ Wolf.MOD	OUTPUTNAME:Wolf	LEGS:4	MOVE:Walk,40
+Animal Companion ~ Eagle.MOD	OUTPUTNAME:Eagle	LEGS:2	MOVE:Walk,10,Fly,60
+
+Animal Companion ~ Test		MOVE:Walk,0	RACESUBTYPE:Animal Companion
+
+Animal Companion ~ Test 2		MOVE:Walk,0	TEMPLATE:Race Subtype ~ Animal Companion
+Animal Companion ~ Test 3		MOVE:Walk,0	ABILITY:Internal|AUTOMATIC|Assign RaceSubtype ~ Animal Companion
+

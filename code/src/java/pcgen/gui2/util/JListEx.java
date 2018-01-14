@@ -1,5 +1,4 @@
 /*
- * JListEx.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 09/02/2012 7:06:02 PM
  *
- * $Id$
  */
 package pcgen.gui2.util;
 
@@ -31,14 +28,9 @@ import java.awt.event.MouseEvent;
 import javax.swing.JList;
 
 /**
- * The Class <code>JListEx</code> extends JList to provide double click events.
+ * The Class {@code JListEx} extends JList to provide double click events.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class JListEx extends JList

@@ -1,5 +1,4 @@
 /*
- * AbilityTreeViews.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 9, 2011, 6:12:39 PM
  */
 package pcgen.gui2.tabs.ability;
 
@@ -24,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
@@ -34,16 +32,13 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class AbilityTreeViews
 {
 
 	public static List<TreeView<AbilityFacade>> createTreeViewList(CharacterFacade character)
 	{
-		List<TreeView<AbilityFacade>> list = new ArrayList<TreeView<AbilityFacade>>();
+		List<TreeView<AbilityFacade>> list = new ArrayList<>();
 		list.add(new NameTreeView());
 		list.add(new TypeTreeView());
 		list.add(new PreReqTreeView(character.getDataSet()));
@@ -63,7 +58,7 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			return Collections.singletonList(new TreeViewPath<AbilityFacade>(pobj));
+			return Collections.singletonList(new TreeViewPath<>(pobj));
 		}
 
 	}
@@ -80,17 +75,17 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			List<TreeViewPath<AbilityFacade>> list = new ArrayList<TreeViewPath<AbilityFacade>>();
+			List<TreeViewPath<AbilityFacade>> list = new ArrayList<>();
 			List<String> types = pobj.getTypes();
 			if (types.isEmpty())
 			{
-				list.add((new TreeViewPath<AbilityFacade>(pobj)));
+				list.add((new TreeViewPath<>(pobj)));
 			}
 			else
 			{
 				for (String type : types)
 				{
-					list.add(new TreeViewPath<AbilityFacade>(pobj, type));
+					list.add(new TreeViewPath<>(pobj, type));
 				}
 			}
 			return list;
@@ -110,8 +105,8 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			return Collections.singletonList(new TreeViewPath<AbilityFacade>(
-				pobj, pobj.getSourceForNodeDisplay()));
+			return Collections.singletonList(new TreeViewPath<>(
+                    pobj, pobj.getSourceForNodeDisplay()));
 		}
 
 	}
@@ -119,7 +114,7 @@ public class AbilityTreeViews
 	private static class PreReqTreeView implements TreeView<AbilityFacade>
 	{
 
-		private DataSetFacade dataset;
+		private final DataSetFacade dataset;
 
 		public PreReqTreeView(DataSetFacade dataset)
 		{
@@ -135,15 +130,15 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			List<List<AbilityFacade>> abilityPaths = new ArrayList<List<AbilityFacade>>();
+			List<List<AbilityFacade>> abilityPaths = new ArrayList<>();
 			addPaths(abilityPaths, dataset.getPrereqAbilities(pobj),
-					 new ArrayList<AbilityFacade>());
+                    new ArrayList<>());
 			if (abilityPaths.isEmpty())
 			{
-				return Collections.singletonList(new TreeViewPath<AbilityFacade>(pobj));
+				return Collections.singletonList(new TreeViewPath<>(pobj));
 			}
 
-			List<TreeViewPath<AbilityFacade>> paths = new ArrayList<TreeViewPath<AbilityFacade>>();
+			List<TreeViewPath<AbilityFacade>> paths = new ArrayList<>();
 			for (List<AbilityFacade> path : abilityPaths)
 			{
 				Collections.reverse(path);

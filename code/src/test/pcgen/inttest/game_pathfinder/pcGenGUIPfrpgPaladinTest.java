@@ -1,5 +1,4 @@
 /*
- * pcGenGUIPfrpgPaladinTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 07/06/2013
- *
- * $Id$
  */
 package pcgen.inttest.game_pathfinder;
 
@@ -30,16 +25,12 @@ import pcgen.inttest.PcgenFtlTestCase;
  * Tests loading and exporting a pathfinder paladin.
  * See the PCG file for details
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class pcGenGUIPfrpgPaladinTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIPfrpgPaladinTest()
 	{
 		super("pf_paladin");

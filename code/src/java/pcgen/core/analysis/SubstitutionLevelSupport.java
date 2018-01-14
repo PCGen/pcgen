@@ -1,5 +1,4 @@
 /*
- * SubstitutionLevelSupport.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.analysis;
 
@@ -34,12 +32,16 @@ import pcgen.persistence.lst.SourceEntry;
 import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.util.Logging;
 
-public class SubstitutionLevelSupport
+public final class SubstitutionLevelSupport
 {
 
+	private SubstitutionLevelSupport()
+	{
+	}
+
 	private static boolean levelArrayQualifies(int level,
-			final PlayerCharacter pc, final String aLine,
-			final SourceEntry tempSource, CDOMObject source)
+	                                           final PlayerCharacter pc, final String aLine,
+	                                           final SourceEntry tempSource, CDOMObject source)
 	{
 		final PCClassLoader classLoader = new PCClassLoader(); 
 		PCClass dummyClass = new PCClass();   
@@ -68,12 +70,12 @@ public class SubstitutionLevelSupport
 			return;
 		}
 	
-		List<DeferredLine> newLevels = new ArrayList<DeferredLine>();
+		List<DeferredLine> newLevels = new ArrayList<>();
 		for (DeferredLine line : levelArray)
 		{
 			String aLine = line.lstLine;
 			final int modLevel = Integer.parseInt(aLine.substring(0, aLine
-					.indexOf("\t")));
+					.indexOf('\t')));
 	
 			if (aLevel == modLevel)
 			{
@@ -104,7 +106,7 @@ public class SubstitutionLevelSupport
 		{
 			String aLine = line.lstLine;
 			final int modLevel = Integer.parseInt(aLine.substring(0, aLine
-					.indexOf("\t")));
+					.indexOf('\t')));
 	
 			if (level == modLevel)
 			{

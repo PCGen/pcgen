@@ -29,6 +29,7 @@ import pcgen.cdom.facet.analysis.ResultFacet;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
+import pcgen.util.Logging;
 
 /**
  * A InfoModel is a TemplateHashModel that wraps the Info data in a CDOMObject
@@ -78,21 +79,31 @@ public class InfoModel implements TemplateHashModel
 	{
 		CaseInsensitiveString cis = new CaseInsensitiveString(key);
 		MessageFormat info = cdo.get(MapKey.INFO, cis);
-		if (info == null)
-		{
-			throw new TemplateModelException(
-				"CDOMObject did not have INFO of type " + key);
-		}
+
 		StringBuffer sb = new StringBuffer(100);
-		info.format(getVars(cis), sb, null);
+		if (info != null)
+		{
+			info.format(getVars(cis), sb, null);
+		}
+		else
+		{
+			//TODO: This should actually throw an error but we can't for
+			//now due to it breaking too many thing...
+			//So we are just logging it for now.
+			//--Connor Petty
+			Logging.errorPrint("CDOMObject [" + cdo.getDisplayName()
+				+ "] does not have INFO of type " + key);
+//			throw new TemplateModelException(
+//				"CDOMObject did not have INFO of type " + key);
+		}
 		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id,
-			sb.toString());
+				sb.toString());
 	}
 
 	private Object[] getVars(CaseInsensitiveString cis)
 	{
 		String[] vars = cdo.get(MapKey.INFOVARS, cis);
-		int varCount = vars.length;
+		int varCount = vars != null ? vars.length : 0;
 		Object[] replacedvars = new Object[varCount];
 		if (varCount == 0)
 		{

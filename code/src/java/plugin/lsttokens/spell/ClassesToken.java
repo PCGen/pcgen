@@ -107,7 +107,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 			classKey = value.substring(0, openBracketLoc);
 			String prereqString = value.substring(openBracketLoc + 1, value
 					.length() - 1);
-			if (prereqString.length() == 0)
+			if (prereqString.isEmpty())
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " cannot have empty prerequisite : " + value, context);
@@ -216,7 +216,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 						edge.addPrerequisite(prereq);
 					}
 					context.getObjectContext().addToList(
-						spell, ListKey.SPELL_CLASSLEVEL, token + " " + level);
+						spell, ListKey.SPELL_CLASSLEVEL, token + ' ' + level);
 				}
 			}
 		}
@@ -232,8 +232,8 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>> dkmtl =
-				new DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>>();
-		List<String> list = new ArrayList<String>();
+				new DoubleKeyMapToList<>();
+		List<String> list = new ArrayList<>();
 		Changes<CDOMReference<ClassSpellList>> masterChanges = context.getListContext()
 				.getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);
 		if (masterChanges.includesGlobalClear())
@@ -264,7 +264,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 						{
 							List<Prerequisite> prereqs = assoc
 									.getPrerequisiteList();
-							if (prereqs != null && prereqs.size() != 0)
+							if (prereqs != null && !prereqs.isEmpty())
 							{
 								context.addWriteMessage("Incoming Remove "
 										+ "Edge to " + spell.getKeyName()
@@ -308,7 +308,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 						List<Prerequisite> prereqs = assoc
 								.getPrerequisiteList();
 						Prerequisite prereq;
-						if (prereqs == null || prereqs.size() == 0)
+						if (prereqs == null || prereqs.isEmpty())
 						{
 							prereq = null;
 						}
@@ -359,9 +359,9 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 			}
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		SortedSet<CDOMReference<ClassSpellList>> set = new TreeSet<CDOMReference<ClassSpellList>>(
+		SortedSet<CDOMReference<ClassSpellList>> set = new TreeSet<>(
 				ReferenceUtilities.REFERENCE_SORTER);
-		SortedSet<Integer> levelSet = new TreeSet<Integer>();
+		SortedSet<Integer> levelSet = new TreeSet<>();
 		for (Prerequisite prereq : dkmtl.getKeySet())
 		{
 			StringBuilder sb = new StringBuilder();

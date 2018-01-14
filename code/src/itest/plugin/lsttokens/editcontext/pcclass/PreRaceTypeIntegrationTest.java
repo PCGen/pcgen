@@ -29,7 +29,7 @@ public class PreRaceTypeIntegrationTest extends
 {
 
 	static PreracetypeToken token = new PreracetypeToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

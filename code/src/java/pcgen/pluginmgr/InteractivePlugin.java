@@ -1,5 +1,4 @@
 /*
- * InteractivePlugin.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,25 +15,18 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 15/02/2014 2:45:53 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr;
 
 import java.io.File;
 
 /**
- * <code>InteractivePlugin</code> defines the interface that must be provided by 
+ * {@code InteractivePlugin} defines the interface that must be provided by
  * any user interactive plugin to PCGen. These plugins are most often defined by 
  * the GMGen module, thus allowing it to be extended.   
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public interface InteractivePlugin extends PCGenMessageHandler
 {

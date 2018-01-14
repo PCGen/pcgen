@@ -26,8 +26,6 @@ import pcgen.base.formula.base.VarScoped;
  * identifying the class of object it contains and whether it contains a given
  * object
  * 
- * @param <T>
- *            The class of object contained by this ObjectGrouping
  */
 public interface ObjectGrouping
 {

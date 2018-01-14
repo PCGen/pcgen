@@ -1,5 +1,4 @@
 /*
- * Follower.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,14 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * Created on July 10, 2002, 11:26 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core.character;
 
@@ -32,14 +23,11 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.core.Race;
 
 /**
- * <code>Follower.java</code>
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision$
+ * {@code Follower.java}
  **/
 public final class Follower implements Comparable<Object>, Cloneable
 {
 	/*
-	 *
 	 * the Structure of each Follower is as follows:
 	 *
 	 * FOLLOWER:name:type:race:HD:/path/to/some.pcg
@@ -49,7 +37,6 @@ public final class Follower implements Comparable<Object>, Cloneable
 	 * String race = race of follower
 	 * int HD = Number of "used" HD
 	 * String fileName = path and file name
-	 *
 	 */
 	private String fileName = Constants.EMPTY_STRING;
 	private String name = Constants.EMPTY_STRING;

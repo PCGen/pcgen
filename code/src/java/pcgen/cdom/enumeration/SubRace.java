@@ -24,7 +24,6 @@ import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to hold SubRaces in a
  * type-safe fashion, so that they can be quickly compared and use less memory
@@ -51,7 +50,7 @@ public final class SubRace implements TypeSafeConstant
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private SubRace(String name)
 	{
@@ -112,7 +111,7 @@ public final class SubRace implements TypeSafeConstant
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<SubRace>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

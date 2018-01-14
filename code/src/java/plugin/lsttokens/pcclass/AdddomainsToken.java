@@ -74,7 +74,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 		}
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		String first = pipeTok.nextToken();
-		List<AssociatedPrereqObject> apoList = new ArrayList<AssociatedPrereqObject>();
+		List<AssociatedPrereqObject> apoList = new ArrayList<>();
 		StringTokenizer tok = new StringTokenizer(first, Constants.DOT);
 		while (tok.hasMoreTokens())
 		{
@@ -104,7 +104,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 				domainKey = tokString.substring(0, openBracketLoc);
 				String prereqString = tokString.substring(openBracketLoc + 1,
 						tokString.length() - 1);
-				if (prereqString.length() == 0)
+				if (prereqString.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " cannot have empty prerequisite : " + value, context);
@@ -195,15 +195,15 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 			return null;
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		Set<String> set = new TreeSet<String>();
-		Set<String> noPrereqSet = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
+		Set<String> noPrereqSet = new TreeSet<>();
 		for (CDOMReference<Domain> domain : mtl.getKeySet())
 		{
 			for (AssociatedPrereqObject assoc : mtl.getListFor(domain))
 			{
 				StringBuilder sb = new StringBuilder(domain.getLSTformat(false));
 				List<Prerequisite> prereqs = assoc.getPrerequisiteList();
-				if (prereqs == null || prereqs.size() == 0)
+				if (prereqs == null || prereqs.isEmpty())
 				{
 					noPrereqSet.add(sb.toString());
 					continue;

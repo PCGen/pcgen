@@ -30,7 +30,7 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 {
 
 	static OptionToken token = new OptionToken();
-	static CDOMSubLineLoader<BaseKit> loader = new CDOMSubLineLoader<BaseKit>(
+	static CDOMSubLineLoader<BaseKit> loader = new CDOMSubLineLoader<>(
 			"SKILL", BaseKit.class);
 
 	@Override
@@ -99,7 +99,7 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}

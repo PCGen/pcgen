@@ -1,5 +1,4 @@
 /*
- * VersionAwareToken.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 01/06/2013
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -27,8 +24,6 @@ import pcgen.util.Logging;
 /**
  * VersionAwareToken is a token class that needs to verify a version.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public abstract class VersionAwareToken
 {
@@ -49,7 +44,7 @@ public abstract class VersionAwareToken
 		{
 			Logging
 				.log(Logging.LST_ERROR, "Invalid version in " + getTokenName()
-					+ ":" + version + " must have 3 number parts e.g. "
+					+ ':' + version + " must have 3 number parts e.g. "
 					+ getTokenName() + ":6.0.2");
 			return false;
 		}
@@ -69,7 +64,7 @@ public abstract class VersionAwareToken
 				else
 				{
 					Logging.log(Logging.LST_ERROR, "Invalid version in "
-						+ getTokenName() + ":" + version
+						+ getTokenName() + ':' + version
 						+ " must have 3 number parts e.g. " + getTokenName()
 						+ ":6.0.2");
 					return false;

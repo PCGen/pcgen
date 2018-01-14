@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 23/11/2006
- *
- * $Id$
  */
 
 package plugin.jepcommands;
@@ -34,12 +30,9 @@ import pcgen.util.Logging;
 
 
 /**
- * <code>CountDistinctCommand</code> deals with the count() JEP command. The first parameter will
+ * {@code CountDistinctCommand} deals with the count() JEP command. The first parameter will
  * be the type of object being counted and further parameters will specify the criteria.
- * <p/> 
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * <p> 
  */
 public class CountDistinctCommand extends AbstractCountCommand
 {
@@ -64,8 +57,8 @@ public class CountDistinctCommand extends AbstractCountCommand
 	}
 
 	/**
-	 * Runs count on the inStack. The parameter is popped off the <code>inStack</code>,
-	 * and the variable's value is pushed back to the top of <code>inStack</code>.
+	 * Runs count on the inStack. The parameter is popped off the {@code inStack},
+	 * and the variable's value is pushed back to the top of {@code inStack}.
 	 *
 	 * @param inStack The jep stack that the count command will process
 	 *
@@ -100,7 +93,7 @@ public class CountDistinctCommand extends AbstractCountCommand
 			if (toCount instanceof String)
 			{
 				JepCountType countEnum =
-						JepCountType.valueOf((String) toCount + "DISTINCT");
+						JepCountType.valueOf(toCount + "DISTINCT");
 				if (countEnum == null)
 				{
 					// Fall back to count

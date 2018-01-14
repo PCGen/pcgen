@@ -58,7 +58,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		}
 		catch (NumberFormatException nfe)
 		{
-			return "'" + num + "' in " + tpe.getKey()
+			return '\'' + num + "' in " + tpe.getKey()
 					+ " is not a valid integer";
 		}
 
@@ -86,7 +86,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 			int withEquals = 0;
 			boolean withoutEquals = false;
 			boolean lastWithEquals = false;
-			List<String> list = new ArrayList<String>();
+			List<String> list = new ArrayList<>();
 			for (String tok : strings)
 			{
 				int equalLoc = tok.indexOf('=');
@@ -109,7 +109,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 				int eqLoc = last.indexOf('=');
 				String equal = last.substring(eqLoc + 1);
 				tpe.append(getPrefix(tpe, num));
-				tpe.append(StringUtil.join(list, "=" + equal + ","));
+				tpe.append(StringUtil.join(list, '=' + equal + ','));
 			}
 			else if (withEquals > 0 && withoutEquals)
 			{
@@ -152,8 +152,8 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 						lastValue = Integer.decode(tok.substring(equalLoc + 1));
 					}
 				}
-				List<String> descr = new ArrayList<String>();
-				List<String> choice = new ArrayList<String>();
+				List<String> descr = new ArrayList<>();
+				List<String> choice = new ArrayList<>();
 				processChoices(tpe, num, descr, choice, onebase.toString(),
 						SET_ANY);
 				processChoices(tpe, num, descr, choice, rightbase.toString(),
@@ -184,7 +184,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 				{
 					String decision = tpe.getDecider().getConversionDecision(
 							"Resolve ambiguity for " + getProcessedToken()
-									+ ":" + formula, descr, choice, 0);
+									+ ':' + formula, descr, choice, 0);
 					tpe.append(decision);
 				}
 			}
@@ -239,11 +239,11 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		}
 		else
 		{
-			List<String> descr = new ArrayList<String>();
+			List<String> descr = new ArrayList<>();
 			descr.add(oneChoice + " ... " + SET_ZERO_ONE);
 			descr.add(zeroChoice + " ... " + SET_ZERO_ANY);
 			String decision = tpe.getDecider().getConversionDecision(
-					"Resolve ambiguity for " + getProcessedToken() + ":" + formula,
+					"Resolve ambiguity for " + getProcessedToken() + ':' + formula,
 					descr, choice, 0);
 			tpe.append(decision);
 		}
@@ -255,9 +255,8 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		StringBuilder one = getPrefix(tpe, num);
 		StringBuilder any = getPrefix(tpe, num);
 		boolean needComma = false;
-		for (int i = 0; i < base.length; i++)
+		for (String tok : base)
 		{
-			String tok = base[i];
 			// need to check zero...
 
 			int equalLoc = tok.indexOf('=');
@@ -285,7 +284,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		}
 		String oneResult = one.toString();
 		String anyResult = any.toString();
-		List<String> choice = new ArrayList<String>();
+		List<String> choice = new ArrayList<>();
 		choice.add(oneResult);
 		choice.add(anyResult);
 		return choice;

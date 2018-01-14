@@ -1,6 +1,4 @@
 /*
- * NewPurchaseMethodDialog.java
- *
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on August 20, 2002, 1:57 PM
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -30,15 +24,10 @@ import pcgen.gui2.tools.Utility;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-/**
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
- */
+
 class NewPurchaseMethodDialog extends JDialog
 {
 	static final long serialVersionUID = -5321303573914291162L;
@@ -61,7 +50,7 @@ class NewPurchaseMethodDialog extends JDialog
 	{
 		super(parent, modal);
 		initComponents();
-		Utility.setDialogRelativeLocation(parent, this);
+		Utility.setComponentRelativeLocation(parent, this);
 	}
 
 	/** Creates new form JDialog
@@ -72,7 +61,7 @@ class NewPurchaseMethodDialog extends JDialog
 	{
 		super(parent, modal);
 		initComponents();
-		Utility.setDialogRelativeLocation(parent, this);
+		Utility.setComponentRelativeLocation(parent, this);
 	}
 
 	public String getEnteredName()
@@ -191,26 +180,12 @@ class NewPurchaseMethodDialog extends JDialog
 		cancelButton.setMnemonic('C');
 		cancelButton.setText("Cancel");
 		buttonPanel.add(cancelButton);
-		cancelButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					cancelButtonActionPerformed();
-				}
-			});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 
 		okButton.setMnemonic('O');
 		okButton.setText("OK");
 		buttonPanel.add(okButton);
-		okButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					okButtonActionPerformed();
-				}
-			});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -225,7 +200,7 @@ class NewPurchaseMethodDialog extends JDialog
 
 	private void okButtonActionPerformed()
 	{
-		if (getEnteredName().length() == 0)
+		if (getEnteredName().isEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
 				"Please enter a name for this method.",

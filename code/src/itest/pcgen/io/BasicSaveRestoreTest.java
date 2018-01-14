@@ -123,8 +123,8 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	public void testCharacterType()
 	{
 		GameMode mode = SettingsHandler.getGame();
-		mode.setCharacterTypeList(Arrays.asList(new String[]{"Default",
-			"MyType"}));
+		mode.setCharacterTypeList(Arrays.asList("Default",
+				"MyType"));
 		finishLoad();
 		pc.setCharacterType("MyType");
 		runRoundRobin(null);

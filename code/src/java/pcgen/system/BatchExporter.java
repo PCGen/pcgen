@@ -1,5 +1,4 @@
 /*
- * BatchExporter.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 20/01/2012 9:33:45 AM
  *
- * $Id$
  */
 package pcgen.system;
 
@@ -28,16 +25,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.output.TeeOutputStream;
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
@@ -56,8 +47,13 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.output.TeeOutputStream;
+import org.apache.commons.lang3.StringUtils;
+
 /**
- * The Class <code>BatchExporter</code> manages character sheet output to a 
+ * The Class {@code BatchExporter} manages character sheet output to a
  * file. It is capable of outputting either a single character or a party 
  * to an output file based on a suitable export template.
  * <p>
@@ -67,12 +63,7 @@ import pcgen.util.fop.FopTask;
  * one of the export methods called. When used as a library the static methods
  * should be used and supplied with preloaded characters.  
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class BatchExporter
 {
@@ -88,7 +79,7 @@ public class BatchExporter
 	 * @param exportTemplateFilename The path to the export template.
 	 * @param uiDelegate The object through which to report any issues to the user.
 	 */
-	public BatchExporter(String exportTemplateFilename, UIDelegate uiDelegate)
+	BatchExporter(String exportTemplateFilename, UIDelegate uiDelegate)
 	{
 		this.exportTemplateFilename = exportTemplateFilename;
 		this.uiDelegate = uiDelegate;
@@ -109,7 +100,7 @@ public class BatchExporter
 	 * @param outputFile The path to the output file to be created. May be null.
 	 * @return true if the export was successful, false if it failed in some way.
 	 */
-	public boolean exportCharacter(String characterFilename, String outputFile)
+	boolean exportCharacter(String characterFilename, String outputFile)
 	{
 		File file = new File(characterFilename);
 		if (!PCGFile.isPCGenCharacterFile(file))
@@ -170,7 +161,7 @@ public class BatchExporter
 	 * @param outputFile The path to the output file to be created. May be null.
 	 * @return true if the export was successful, false if it failed in some way.
 	 */
-	public boolean exportParty(String partyFilename, String outputFile)
+	boolean exportParty(String partyFilename, String outputFile)
 	{
 		File file = new File(partyFilename);
 		if (!PCGFile.isPCGenPartyFile(file))
@@ -234,7 +225,7 @@ public class BatchExporter
 		boolean useTempFile = PCGenSettings.OPTIONS_CONTEXT.initBoolean(
 						PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false);
 		String outFileName = FilenameUtils.removeExtension(outFile.getAbsolutePath());
-		File tempFile = isTransformTemplate ? new File(outFileName + ".xml") : new File(outFileName + ".fo");
+		File tempFile = new File(outFileName + (isTransformTemplate ? ".xml" : ".fo"));
 		try (BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
 				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
 				OutputStream exportOutput = useTempFile
@@ -264,12 +255,12 @@ public class BatchExporter
 				return false;
 			}
 		}
-		catch (IOException e)
+		catch (final IOException e)
 		{
 			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e); //$NON-NLS-1$
 			return false;
 		}
-		catch (ExportException e)
+		catch (final ExportException e)
 		{
 			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e); //$NON-NLS-1$
 			return false;
@@ -297,19 +288,19 @@ public class BatchExporter
 			character.setDefaultOutputSheet(false, templateFile);
 			return true;
 		}
-		catch (UnsupportedEncodingException e)
+		catch (final UnsupportedEncodingException e)
 		{
 			Logging.errorPrint(
 					"Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
 		}
-		catch (IOException e)
+		catch (final IOException e)
 		{
 			Logging.errorPrint(
 					"Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
 		}
-		catch (ExportException e)
+		catch (final ExportException e)
 		{
 			// Error will already be reported to the log
 			return false;
@@ -317,7 +308,7 @@ public class BatchExporter
 	}
 
 	/**
-	 * Get a temporary file name for outputting a character using a particular 
+	 * Get a temporary file name for outputting a character using a particular
 	 * output template.
 	 * @param templateFile The output template that will be used.
 	 * @return The temporary file, or null if it could not be created.
@@ -332,10 +323,10 @@ public class BatchExporter
 		{
 			// create a temporary file to view the character output
 			return
-					File.createTempFile(Constants.TEMPORARY_FILE_NAME, "."+extension,
+					File.createTempFile(Constants.TEMPORARY_FILE_NAME, '.' +extension,
 						SettingsHandler.getTempPath());
 		}
-		catch (IOException ioe)
+		catch (final IOException ioe)
 		{
 			ShowMessageDelegate.showMessageDialog(
 				"Could not create temporary preview file.", "PCGen",
@@ -343,9 +334,9 @@ public class BatchExporter
 			Logging.errorPrint("Could not create temporary preview file.", ioe);
 			return null;
 		}
-		
+
 	}
-	
+
 	/**
 	 * Write a PDF party sheet for the characters in the party to the output 
 	 * file. The party sheet will be built according to the template file. If  
@@ -367,7 +358,7 @@ public class BatchExporter
 		boolean useTempFile = PCGenSettings.OPTIONS_CONTEXT.initBoolean(
 						PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false);
 		String outFileName = FilenameUtils.removeExtension(outFile.getAbsolutePath());
-		File tempFile = isTransformTemplate ? new File(outFileName + ".xml") : new File(outFileName + ".fo");
+		File tempFile = new File(outFileName + (isTransformTemplate ? ".xml" : ".fo"));
 		try (BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
 				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
 				OutputStream exportOutput = useTempFile
@@ -392,12 +383,12 @@ public class BatchExporter
 			}
 			task.run();
 		}
-		catch (IOException e)
+		catch (final IOException e)
 		{
 			Logging.errorPrint("BatchExporter.exportPartyToPDF failed", e);
 			return false;
 		}
-		catch (ExportException e)
+		catch (final ExportException e)
 		{
 			Logging.errorPrint("BatchExporter.exportPartyToPDF failed", e);
 			return false;
@@ -424,13 +415,13 @@ public class BatchExporter
 			party.export(new ExportHandler(templateFile), bw);
 			return true;
 		}
-		catch (UnsupportedEncodingException e)
+		catch (final UnsupportedEncodingException e)
 		{
 			Logging.errorPrint(
 				"Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
 		}
-		catch (IOException e)
+		catch (final IOException e)
 		{
 			Logging.errorPrint(
 				"Unable to create output file " + outFile.getAbsolutePath(), e);
@@ -447,12 +438,12 @@ public class BatchExporter
 	 * @throws IOException
 	 * @throws ExportException
 	 */
-	public static void exportParty(PartyFacade party, OutputStream outputStream)
+	private static void exportParty(PartyFacade party, OutputStream outputStream)
 			throws IOException, ExportException
 	{
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
 		{
-			for (CharacterFacade character : party)
+			for (final CharacterFacade character : party)
 			{
 				File templateFile = getXMLTemplate(character);
 				character.export(new ExportHandler(templateFile), bw);
@@ -470,12 +461,12 @@ public class BatchExporter
 	 * @throws IOException
 	 * @throws ExportException
 	 */
-	public static void exportParty(PartyFacade party, File templateFile, OutputStream outputStream)
+	private static void exportParty(PartyFacade party, File templateFile, OutputStream outputStream)
 			throws IOException, ExportException
 	{
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
 		{
-			for (CharacterFacade character : party)
+			for (final CharacterFacade character : party)
 			{
 				character.export(new ExportHandler(templateFile), bw);
 			}
@@ -485,7 +476,7 @@ public class BatchExporter
 	/**
 	 * Remove any temporary xml files produced while outputting characters. 
 	 */
-	public static void removeTemporaryFiles()
+	static void removeTemporaryFiles()
 	{
 		final boolean cleanUp =
 				UIPropertyContext.getInstance().initBoolean(
@@ -498,26 +489,22 @@ public class BatchExporter
 
 		final String aDirectory =
 				SettingsHandler.getTempPath() + File.separator;
-		new File(aDirectory).list(new FilenameFilter()
+		new File(aDirectory).list((aFile, aString) ->
 		{
-            @Override
-			public boolean accept(File aFile, String aString)
+			try
 			{
-				try
+				if (aString.startsWith(Constants.TEMPORARY_FILE_NAME))
 				{
-					if (aString.startsWith(Constants.TEMPORARY_FILE_NAME))
-					{
-						final File tf = new File(aFile, aString);
-						tf.delete();
-					}
+					final File tf = new File(aFile, aString);
+					tf.delete();
 				}
-				catch (Exception e)
-				{
-					Logging.errorPrint("removeTemporaryFiles", e);
-				}
-
-				return false;
 			}
+			catch (final Exception e)
+			{
+				Logging.errorPrint("removeTemporaryFiles", e);
+			}
+
+			return false;
 		});
 	}
 
@@ -550,8 +537,8 @@ public class BatchExporter
 	 * @throws IOException
 	 * @throws ExportException
 	 */
-	public static void exportCharacter(CharacterFacade character, File templateFile,
-			OutputStream outputStream) throws IOException, ExportException
+	private static void exportCharacter(CharacterFacade character, File templateFile,
+	                                    OutputStream outputStream) throws IOException, ExportException
 	{
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
 		{
@@ -559,7 +546,7 @@ public class BatchExporter
 		}
 	}
 
-	public static File getXMLTemplate(CharacterFacade character)
+	private static File getXMLTemplate(CharacterFacade character)
 	{
 		File template = FileUtils.getFile(ConfigurationSettings.getSystemsDir(),
 						"gameModes",
@@ -589,7 +576,7 @@ public class BatchExporter
 				ExportUtilities.getOutputExtension(exportTemplateFilename,
 					isPdf);
 		String outputName =
-				charname.substring(0, charname.lastIndexOf('.')) + "."
+				charname.substring(0, charname.lastIndexOf('.')) + '.'
 					+ extension;
 		return new File(charFile.getParent(), outputName).getAbsolutePath();
 	}

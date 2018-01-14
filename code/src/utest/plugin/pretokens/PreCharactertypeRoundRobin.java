@@ -17,27 +17,13 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreCharactertypeParser;
 import plugin.pretokens.writer.PreCharactertypeWriter;
 
 public class PreCharactertypeRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreCharactertypeRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCharactertypeRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

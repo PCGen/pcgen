@@ -1,5 +1,4 @@
 /*
- * PreCampaignParser.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12/07/2008 12:03:09
- *
- * $Id: $
  */
 package plugin.pretokens.parser;
 
@@ -29,7 +24,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre CAMPAIGN tokens.
- *
  */
 public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface
@@ -86,7 +80,7 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 	 *
 	 * @param prereq The prereq to be negated.
 	 */
-	private void negateCampaignChoice(Prerequisite prereq)
+	private static void negateCampaignChoice(Prerequisite prereq)
 	{
 		int modified = 0;
 		for (Prerequisite p : prereq.getPrerequisites())
@@ -116,15 +110,12 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				oper = "(" + oper + ")+" + Integer.toString(modified);
+				oper = '(' + oper + ")+" + Integer.toString(modified);
 			}
 			prereq.setOperand(oper);
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected boolean allowsNegate()
 	{

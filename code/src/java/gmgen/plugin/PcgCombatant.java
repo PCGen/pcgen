@@ -16,25 +16,22 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  PcgCombatant.java
  *
- *  Created on January 16, 2002, 12:27 PM
  */
 package gmgen.plugin;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import org.apache.commons.lang.StringUtils;
-import org.jdom.Element;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Domain;
@@ -58,17 +55,17 @@ import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
+import org.apache.commons.lang3.StringUtils;
+import org.jdom2.Element;
+
 /**
- *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
  */
 public class PcgCombatant extends Combatant
 {
 	protected PlayerCharacter pc;
 	private CharacterDisplay display;
 	protected PcRenderer renderer;
-	protected float crAdj = 0;
+	private float crAdj = 0;
 	private final PCGenMessageHandler messageHandler;
 
 	/**
@@ -231,7 +228,7 @@ public class PcgCombatant extends Combatant
 	 */
 	public void setPlayer(String player)
 	{
-		pc.setPlayersName(player);
+		pc.setPCAttribute(PCAttribute.PLAYERSNAME, player);
 	}
 
 	/**
@@ -253,23 +250,23 @@ public class PcgCombatant extends Combatant
 		Element hp = new Element("HitPoints");
 		Element pcg = new Element("PCG");
 
-		pcg.setAttribute("file", pc.getFileName() + "");
+		pcg.setAttribute("file", pc.getFileName());
 		retElement.addContent(pcg);
 
-		initiative.setAttribute("bonus", init.getModifier() + "");
+		initiative.setAttribute("bonus", String.valueOf(init.getModifier()));
 
 		if (init.getCurrentInitiative() > 0)
 		{
 			initiative
-				.setAttribute("current", init.getCurrentInitiative() + "");
+				.setAttribute("current", String.valueOf(init.getCurrentInitiative()));
 		}
 
 		retElement.addContent(initiative);
 
-		hp.setAttribute("current", hitPoints.getCurrent() + "");
-		hp.setAttribute("subdual", hitPoints.getSubdual() + "");
-		hp.setAttribute("max", hitPoints.getMax() + "");
-		hp.setAttribute("state", hitPoints.getState() + "");
+		hp.setAttribute("current", String.valueOf(hitPoints.getCurrent()));
+		hp.setAttribute("subdual", String.valueOf(hitPoints.getSubdual()));
+		hp.setAttribute("max", String.valueOf(hitPoints.getMax()));
+		hp.setAttribute("state", String.valueOf(hitPoints.getState()));
 		retElement.addContent(hp);
 
 		retElement.setAttribute("name", getName());
@@ -316,61 +313,66 @@ public class PcgCombatant extends Combatant
 		String strData = String.valueOf(data);
 
 		//Determine which row was edited
-		if (columnName.equals("Name"))
+		switch (columnName)
 		{
-			// Character's Name
-			setName(strData);
-		}
-		else if (columnName.equals("Player"))
-		{
-			// Player's Name
-			setPlayer(strData);
-		}
-		else if (columnName.equals("Status"))
-		{
-			// XML Combatant's Status
-			setStatus(State.getStateLocalised(strData));
-		}
-		else if (columnName.equals("+"))
-		{
-			// Initative bonus
-			Integer intData = Integer.valueOf(strData);
-			init.setBonus(intData.intValue());
-		}
-		else if (columnName.equals("Init"))
-		{
-			// Initative
-			Integer intData = Integer.valueOf(strData);
-			init.setCurrentInitiative(intData.intValue());
-		}
-		else if (columnName.equals("#"))
-		{
-			// Number (for tokens)
-			Integer intData = Integer.valueOf(strData);
-			setNumber(intData.intValue());
-		}
-		else if (columnName.equals("HP"))
-		{
-			// Current Hit Points
-			Integer intData = Integer.valueOf(strData);
-			hitPoints.setCurrent(intData.intValue());
-		}
-		else if (columnName.equals("HP Max"))
-		{
-			// Maximum Hit Points
-			Integer intData = Integer.valueOf(strData);
-			hitPoints.setMax(intData.intValue());
-		}
-		else if (columnName.equals("Dur"))
-		{
-			// Duration
-			Integer intData = Integer.valueOf(strData);
-			setDuration(intData.intValue());
-		}
-		else if (columnName.equals("Type"))
-		{
-			// Type
-			setCombatantType(strData);
+			case "Name":
+				// Character's Name
+				setName(strData);
+				break;
+			case "Player":
+				// Player's Name
+				setPlayer(strData);
+				break;
+			case "Status":
+				// XML Combatant's Status
+				setStatus(State.getStateLocalised(strData));
+				break;
+			case "+":
+			{
+				// Initative bonus
+				Integer intData = Integer.valueOf(strData);
+				init.setBonus(intData.intValue());
+				break;
+			}
+			case "Init":
+			{
+				// Initative
+				Integer intData = Integer.valueOf(strData);
+				init.setCurrentInitiative(intData.intValue());
+				break;
+			}
+			case "#":
+			{
+				// Number (for tokens)
+				Integer intData = Integer.valueOf(strData);
+				setNumber(intData.intValue());
+				break;
+			}
+			case "HP":
+			{
+				// Current Hit Points
+				Integer intData = Integer.valueOf(strData);
+				hitPoints.setCurrent(intData.intValue());
+				break;
+			}
+			case "HP Max":
+			{
+				// Maximum Hit Points
+				Integer intData = Integer.valueOf(strData);
+				hitPoints.setMax(intData.intValue());
+				break;
+			}
+			case "Dur":
+			{
+				// Duration
+				Integer intData = Integer.valueOf(strData);
+				setDuration(intData.intValue());
+				break;
+			}
+			case "Type":
+				// Type
+				setCombatantType(strData);
+				break;
 		}
 	}
 
@@ -398,7 +400,7 @@ public class PcgCombatant extends Combatant
 		 * <p>
 		 * This sets the text of the JTextPane for the specified PC. It uses an
 		 * output sheet template, specified by the templateName option; it uses
-		 * <code>pcgen.io.ExportHandler</code> to transform the template file
+		 * {@code pcgen.io.ExportHandler} to transform the template file
 		 * into an StringWriter, and then sets the text of the text pane as html.
 		 * This allows us easy access to changing the content or format of the stat
 		 * block, and also allows us to easily use a different output format if
@@ -532,13 +534,13 @@ public class PcgCombatant extends Combatant
 			{
 				Equipment eq = weaponList.get(i);
 				statBuf.append("<a href=" + '"' + "attack:");
-				statBuf.append(pcOut.getWeaponName(eq)); //|WEAPON.%weap.NAME|
+				statBuf.append(PlayerCharacterOutput.getWeaponName(eq)); //|WEAPON.%weap.NAME|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponToHit(i)); //|WEAPON.%weap.TOTALHIT|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponRange(eq)); //|WEAPON.%weap.RANGE|
 				statBuf.append("\\");
-				statBuf.append(pcOut.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
+				statBuf.append(PlayerCharacterOutput.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponDamage(i)); //|WEAPON.%weap.DAMAGE|
 				statBuf.append("\\");
@@ -546,20 +548,20 @@ public class PcgCombatant extends Combatant
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponCritMult(i)); //|WEAPON.%weap.MULT|
 				statBuf.append("\\");
-				statBuf.append(pcOut.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
+				statBuf.append(PlayerCharacterOutput.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
 				statBuf.append("\\");
-				statBuf.append(pcOut.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
+				statBuf.append(PlayerCharacterOutput.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponSpecialProperties(eq)); //|WEAPON.%weap.SPROP|
 				statBuf.append('"' + " class=" + '"' + "dialog" + '"' + "> ");
 
-				statBuf.append(pcOut.getWeaponName(eq)); //|WEAPON.%weap.NAME|
+				statBuf.append(PlayerCharacterOutput.getWeaponName(eq)); //|WEAPON.%weap.NAME|
 				statBuf.append(" ");
 				statBuf.append(pcOut.getWeaponToHit(i)); //|WEAPON.%weap.TOTALHIT|
 				statBuf.append(" ");
 				statBuf.append(pcOut.getWeaponRange(eq)); //|WEAPON.%weap.RANGE|
 				statBuf.append("/");
-				statBuf.append(pcOut.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
+				statBuf.append(PlayerCharacterOutput.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
 				statBuf.append(" (");
 				statBuf.append(pcOut.getWeaponDamage(i)); //|WEAPON.%weap.DAMAGE|
 				statBuf.append(" ");
@@ -567,9 +569,9 @@ public class PcgCombatant extends Combatant
 				statBuf.append("/x");
 				statBuf.append(pcOut.getWeaponCritMult(i)); //|WEAPON.%weap.MULT|
 				statBuf.append(" ");
-				statBuf.append(pcOut.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
+				statBuf.append(PlayerCharacterOutput.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
 				statBuf.append(" ");
-				statBuf.append(pcOut.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
+				statBuf.append(PlayerCharacterOutput.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
 				statBuf.append(" ");
 				statBuf.append(pcOut.getWeaponSpecialProperties(eq)); //|WEAPON.%weap.SPROP|
 				statBuf.append(") </a> or ");
@@ -688,7 +690,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(" ");
 
 			statBuf.append("<font class='type'>AL:</font> ");
-			statBuf.append(pcOut.getAlignmentShort()); //|ALIGNMENT.SHORT|
+			statBuf.append(pcOut.getAlignment()); //|ALIGNMENT.SHORT|
 			statBuf.append("; ");
 
 			statBuf
@@ -787,7 +789,7 @@ public class PcgCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected String getStatBlockLineSkills()
+		String getStatBlockLineSkills()
 		{
 			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
@@ -810,14 +812,11 @@ public class PcgCombatant extends Combatant
 
 				firstLine = false;
 
-				int modSkill;
-
 				CDOMSingleRef<PCStat> keyStat = skill.get(ObjectKey.KEY_STAT);
 				if (keyStat != null)
 				{
-					modSkill =
-							SkillModifier.modifier(skill, pc).intValue()
-								- pc.getStatModFor(keyStat.get());
+					int modSkill = SkillModifier.modifier(skill, pc).intValue()
+							- pc.getStatModFor(keyStat.get());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 
@@ -871,7 +870,7 @@ public class PcgCombatant extends Combatant
 
 					firstLine = false;
 
-					statBuf.append(pcOut.getDomainName(dom)); //|DOMAIN|
+					statBuf.append(PlayerCharacterOutput.getDomainName(dom)); //|DOMAIN|
 					statBuf.append(" (");
 					statBuf.append(DescriptionFormatting.piWrapDesc(dom, pc.getDescription(dom), true)); //|DOMAIN.POWER|
 					statBuf.append(")");
@@ -1029,10 +1028,10 @@ public class PcgCombatant extends Combatant
 				 <!-- End Prepared Spells -->
 			 */
 			ArrayList<PObject> classList =
-					new ArrayList<PObject>(display.getClassSet());
+                    new ArrayList<>(display.getClassSet());
 			classList.add(display.getRace());
 
-			Set<String> bookList = new HashSet<String>(pc.getDisplay().getSpellBookNames());
+			Set<String> bookList = new HashSet<>(pc.getDisplay().getSpellBookNames());
 			bookList.add(Globals.getDefaultSpellBook());
 			for (String book : bookList)
 			{
@@ -1042,11 +1041,10 @@ public class PcgCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, ArrayList<PObject> classList, String spellBookName)
+		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, Collection<PObject> classList, String spellBookName)
 		{
-			Set<PObject> classes = new HashSet<PObject>();
-			classes.addAll(classList);
-			
+			Set<PObject> classes = new HashSet<>(classList);
+
 			for ( PObject pObj : classes )
 			{
 				if (pObj != null)
@@ -1062,7 +1060,7 @@ public class PcgCombatant extends Combatant
 					{
 						List<CharacterSpell> spellList = aPC.getCharacterSpells(pObj, null, spellBookName, level);
 
-						if (spellList.size() >= 1)
+						if (!spellList.isEmpty())
 						{
 							spellBuff.append("<font class='type'>Level " + level + ":</font> ");
 
@@ -1110,7 +1108,7 @@ public class PcgCombatant extends Combatant
 			}
 		}
 
-		protected String getStatBlockTitle()
+		String getStatBlockTitle()
 		{
 			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
@@ -1125,8 +1123,8 @@ public class PcgCombatant extends Combatant
 
 			String region = pcOut.getRegion(); //|REGION|.|%|
 
-			if (!"".equals(region) && (region != null)
-				&& !"None".equals(region))
+			if ((region != null) && !region.isEmpty()
+					&& !"None".equals(region))
 			{
 				statBuf.append(" From " + region + " ");
 			}

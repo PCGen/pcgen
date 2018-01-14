@@ -17,9 +17,6 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreArmorTypeParser;
 import plugin.pretokens.writer.PreArmorTypeWriter;
@@ -27,18 +24,7 @@ import plugin.pretokens.writer.PreArmorTypeWriter;
 public class PreArmorTypeRoundRobin extends AbstractBasicRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreArmorTypeRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreArmorTypeRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

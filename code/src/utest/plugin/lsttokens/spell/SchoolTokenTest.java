@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.spell;
 
-import org.junit.Test;
-
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
@@ -32,7 +30,7 @@ public class SchoolTokenTest extends
 
 	static SchoolToken token = new SchoolToken();
 	static CDOMTokenLoader<Spell> loader =
-			new CDOMTokenLoader<Spell>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -56,12 +54,6 @@ public class SchoolTokenTest extends
 	public char getJoinCharacter()
 	{
 		return '|';
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

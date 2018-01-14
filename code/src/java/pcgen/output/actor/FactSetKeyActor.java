@@ -68,7 +68,7 @@ public class FactSetKeyActor<T> implements OutputActor<CDOMObject>
 	public TemplateModel process(CharID id, CDOMObject d)
 		throws TemplateModelException
 	{
-		Collection<T> c = new ArrayList<T>();
+		Collection<T> c = new ArrayList<>();
 		for (Indirect<T> indirect : d.getSafeSetFor(fsk))
 		{
 			c.add(indirect.get());

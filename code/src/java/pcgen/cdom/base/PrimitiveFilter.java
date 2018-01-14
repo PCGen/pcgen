@@ -19,6 +19,7 @@ package pcgen.cdom.base;
 
 import pcgen.core.PlayerCharacter;
 
+@FunctionalInterface
 public interface PrimitiveFilter<T>
 {
 	public boolean allow(PlayerCharacter pc, T obj);

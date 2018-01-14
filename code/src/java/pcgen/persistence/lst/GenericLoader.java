@@ -28,11 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 
-/**
- * 
- * @author David Rice <david-pcgen@jcuz.com>
- * @version $Revision: 6504 $
- */
+
 public class GenericLoader<T extends CDOMObject> extends
 		LstObjectFileLoader<T>
 {
@@ -87,11 +83,7 @@ public class GenericLoader<T extends CDOMObject> extends
 				po = baseClass.newInstance();
 				newConstructionActions(context, po);
 			}
-			catch (InstantiationException e)
-			{
-				throw new UnreachableError(e);
-			}
-			catch (IllegalAccessException e)
+			catch (InstantiationException | IllegalAccessException e)
 			{
 				throw new UnreachableError(e);
 			}

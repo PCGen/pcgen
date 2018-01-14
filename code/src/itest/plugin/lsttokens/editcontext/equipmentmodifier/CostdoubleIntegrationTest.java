@@ -33,7 +33,7 @@ public class CostdoubleIntegrationTest extends
 {
 
 	static CostdoubleToken token = new CostdoubleToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

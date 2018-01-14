@@ -5,7 +5,7 @@ SOURCELONG:Shattered Star, Part 1 - Shards of Sin	SOURCESHORT:AP61	SOURCEWEB:htt
 
 ####Block: Melee Weapons
 # Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Size		Source Page		Special Property
-Injection Spear	PROFICIENCY:WEAPON|Injection Spear	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Piercing.Spear	COST:60	WT:8		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:STEEL.WOOD	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.148	SPROP:Can be used to inject target with liquid on a hit; hods up to 5 doses
+Injection Spear	PROFICIENCY:WEAPON|Injection Spear	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Piercing.Spear	COST:60	WT:8		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Steel.Material ~ Wood	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.148	SPROP:Can be used to inject target with liquid on a hit; hods up to 5 doses
 
 ###Block: Tools
 # Equipment Name		Type			Cost		Weight	Source Page

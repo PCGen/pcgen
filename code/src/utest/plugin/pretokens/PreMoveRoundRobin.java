@@ -17,9 +17,6 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreMoveParser;
 import plugin.pretokens.writer.PreMoveWriter;
@@ -27,18 +24,7 @@ import plugin.pretokens.writer.PreMoveWriter;
 public class PreMoveRoundRobin extends AbstractRankedRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreMoveRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreMoveRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

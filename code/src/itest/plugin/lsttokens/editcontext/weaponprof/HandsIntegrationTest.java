@@ -33,7 +33,7 @@ public class HandsIntegrationTest extends
 {
 
 	static HandsToken token = new HandsToken();
-	static CDOMTokenLoader<WeaponProf> loader = new CDOMTokenLoader<WeaponProf>();
+	static CDOMTokenLoader<WeaponProf> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<WeaponProf> getCDOMClass()

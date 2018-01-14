@@ -1,0 +1,51 @@
+# $Revision$ $Author$
+CAMPAIGN:Pathfinder Society Primer (PFS)
+KEY:PFS ~ Pathfinder Society Primer
+#GAMEMODE:Pathfinder
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Pathfinder Society Primer
+SOURCESHORT:PFSP
+SOURCEWEB:http://paizo.com/products/btpy8yw6
+SOURCEDATE:2013-07
+ISOGL:YES
+
+#COVER:pathfinder_society_primer.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8yw6|Buy this publication from Paizo Publishing!
+DESC:From a witch's black cat to a ranger's mighty wolf companion or a cavalier's noble steed, animals have always had a place in fantasy adventuring--but why should only a few classes have all the fun? With the proper training, animals can be invaluable allies for adventurers of all stripes. Whether you're a scholarly spellcaster looking for a familiar to deliver spells or help turn the pages of your spellbook, or a brawler ready to lead your armored animal into the thick of battle, this book is a treasure trove of rules and advice aimed at helping you and your animal friends get the most out of your fantastic adventures.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Kobold Quarterly Issue 14 © 2010, Open Design LLC, www.koboldquarterly.com.
+COPYRIGHT:Pathfinder Player Companion: Pathfinder Society Primer © 2013, Paizo Inc.; Authors: John Compton and Mark Moreland.
+
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Pathfinder Society Primer" Copyright 2013, PCGen Data Team (including, but not limited to Vincent Lhote)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Pathfinder Society Primer
+# Everything in this book is legal for play with the following note.
+# Equipment: Only normal ioun stones have resonance—cracked and flawed ioun stones never do.
+
+# Data files
+
+#
+# End
+#

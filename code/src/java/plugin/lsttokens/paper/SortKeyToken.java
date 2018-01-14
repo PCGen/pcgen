@@ -80,7 +80,7 @@ public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 	{
 		boolean returnValue = true;
 		Map<String, PaperInfo> keys =
-				new TreeMap<String, PaperInfo>(String.CASE_INSENSITIVE_ORDER);
+				new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 		for (PaperInfo pi : c)
 		{
 			String keyName = pi.getKeyName();
@@ -98,7 +98,7 @@ public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 				returnValue = false;
 			}
 		}
-		List<PaperInfo> coll = new ArrayList<PaperInfo>(keys.values());
+		List<PaperInfo> coll = new ArrayList<>(keys.values());
 		List<PaperInfo> sorted =
 				context.getReferenceContext().getOrderSortedCDOMObjects(
 					PaperInfo.class);

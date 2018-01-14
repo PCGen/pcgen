@@ -23,6 +23,7 @@ import java.util.EventListener;
  * An UnconstructedListener is an object designed to receive UnconstructedEvent
  * objects when Unconstructed objects are found during data load.
  */
+@FunctionalInterface
 public interface UnconstructedListener extends EventListener
 {
 	/**

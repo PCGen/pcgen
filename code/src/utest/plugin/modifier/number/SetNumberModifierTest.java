@@ -17,19 +17,25 @@
  */
 package plugin.modifier.number;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.format.NumberManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.IndividualSetup;
+import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
+import plugin.modifier.testsupport.EvalManagerUtilities;
 
-public class SetNumberModifierTest extends TestCase
+public class SetNumberModifierTest
 {
 
 	private LegalScope varScope = new SimpleLegalScope(null, "Global");
@@ -41,16 +47,12 @@ public class SetNumberModifierTest extends TestCase
 		try
 		{
 			SetModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, null, null, null);
+			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep!
-		}
-		catch (NullPointerException e)
-		{
-			//Yep! okay too!
 		}
 	}
 
@@ -58,140 +60,140 @@ public class SetNumberModifierTest extends TestCase
 	public void testProcessNegative1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(-3), modifier.process(-2, -3));
+		assertEquals(-3, modifier.process(-2, -3));
 	}
 
 	@Test
 	public void testProcessNegative2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(-2), modifier.process(-4, -2));
+		assertEquals(-2, modifier.process(-4, -2));
 	}
 
 	@Test
 	public void testProcessPositive1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(3), modifier.process(2, 3));
+		assertEquals(3, modifier.process(2, 3));
 	}
 
 	@Test
 	public void testProcessPositive2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(3), modifier.process(4, 3));
+		assertEquals(3, modifier.process(4, 3));
 	}
 
 	@Test
 	public void testProcessZero1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(3), modifier.process(0, 3));
+		assertEquals(3, modifier.process(0, 3));
 	}
 
 	@Test
 	public void testProcessZero2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(4, 0));
+		assertEquals(0, modifier.process(4, 0));
 	}
 
 	@Test
 	public void testProcessZero3()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(-3), modifier.process(0, -3));
+		assertEquals(-3, modifier.process(0, -3));
 	}
 
 	@Test
 	public void testProcessZero4()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(-4,0));
+		assertEquals(0, modifier.process(-4,0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(-7), modifier.process(5,-7));
+		assertEquals(-7, modifier.process(5,-7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Integer.valueOf(3), modifier.process(-4,3));
+		assertEquals(3, modifier.process(-4,3));
 	}
 
 	@Test
 	public void testProcessDoubleNegative1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(-3.4), modifier.process(-2.3, -3.4));
+		assertEquals(-3.4, modifier.process(-2.3, -3.4));
 	}
 
 	@Test
 	public void testProcessDoubleNegative2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(-2.4), modifier.process(-4.3, -2.4));
+		assertEquals(-2.4, modifier.process(-4.3, -2.4));
 	}
 
 	@Test
 	public void testProcessDoublePositive1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(3.5), modifier.process(2.6, 3.5));
+		assertEquals(3.5, modifier.process(2.6, 3.5));
 	}
 
 	@Test
 	public void testProcessDoublePositive2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(3.1), modifier.process(4.4, 3.1));
+		assertEquals(3.1, modifier.process(4.4, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(3.1), modifier.process(0.0, 3.1));
+		assertEquals(3.1, modifier.process(0.0, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(0.0), modifier.process(4.2, 0.0));
+		assertEquals(0.0, modifier.process(4.2, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleZero3()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(-3.4), modifier.process(0.0, -3.4));
+		assertEquals(-3.4, modifier.process(0.0, -3.4));
 	}
 
 	@Test
 	public void testProcessDoubleZero4()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(0.0), modifier.process(-4.3,0.0));
+		assertEquals(0.0, modifier.process(-4.3,0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(-7.2), modifier.process(5.3,-7.2));
+		assertEquals(-7.2, modifier.process(5.3,-7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(Double.valueOf(3.1), modifier.process(-4.2,3.1));
+		assertEquals(3.1, modifier.process(-4.2,3.1));
 	}
 
 	@Test
@@ -199,11 +201,10 @@ public class SetNumberModifierTest extends TestCase
 	{
 		SetModifierFactory factory = new SetModifierFactory();
 		Modifier<Number> modifier =
-				factory.getModifier(35, "6.5", null, varScope, numManager);
-		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
-		assertEquals(35, modifier.getUserPriority());
-		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(6.5, modifier.process(4.3, null, null));
+				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
+		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());
+		assertSame(Number.class, modifier.getVariableFormat());
+		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
 
 	@Test
@@ -212,13 +213,14 @@ public class SetNumberModifierTest extends TestCase
 		SplitFormulaSetup setup = new SplitFormulaSetup();
 		setup.loadBuiltIns();
 		setup.getLegalScopeLibrary().registerScope(varScope);
-		IndividualSetup iSetup = new IndividualSetup(setup, "Global");
+		IndividualSetup iSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
 		SetModifierFactory factory = new SetModifierFactory();
 		Modifier<Number> modifier =
-				factory.getModifier(35, "6+5", iSetup.getFormulaManager(), varScope, numManager);
-		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
-		assertEquals(35, modifier.getUserPriority());
-		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(11, modifier.process(4.3, iSetup.getScopeInfo(), null));
+				factory.getModifier(35, "6+5", new ManagerFactory(){}, iSetup.getFormulaManager(), varScope, numManager);
+		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());
+		assertSame(Number.class, modifier.getVariableFormat());
+		EvaluationManager evalManager = EvalManagerUtilities.getInputEM(4.3);
+		assertEquals(11, modifier.process(
+			evalManager.getWith(EvaluationManager.FMANAGER, iSetup.getFormulaManager())));
 	}
 }

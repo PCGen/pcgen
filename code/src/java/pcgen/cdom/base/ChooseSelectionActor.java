@@ -23,7 +23,7 @@ import pcgen.persistence.PersistenceLayerException;
 /**
  * A ChooseSelectionActor is an object that can apply and remove choices (based
  * on the CHOOSE token) to a PlayerCharacter. This is an object that will act
- * after a selection has been made by a user through through the chooser system.
+ * after a selection has been made by a user through the chooser system.
  * 
  * @param <T> The Type of object chosen with this ChooseSelectionActor
  */

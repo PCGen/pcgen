@@ -1,5 +1,4 @@
 /*
- * MessageHandlerManagerTest.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -15,30 +14,19 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 01/03/2014 10:09:59 pm
- *
- * $Id$
  */
 package pcgen.pluginmgr;
+
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
-
 /**
- * The Class <code>MessageHandlerManagerTest</code> checks that MessageHandlerManager is
+ * The Class {@code MessageHandlerManagerTest} checks that MessageHandlerManager is
  * working correctly.
- *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class MessageHandlerManagerTest
@@ -177,7 +165,7 @@ public class MessageHandlerManagerTest
 	}
 
 	/**
-	 * The Class <code>MessageRecorder</code> is a message handler that
+	 * The Class {@code MessageRecorder} is a message handler that
 	 * simply tracks the messages is receives, allowing testing of message distribution.
 	 */
 	private static class MessageRecorder implements PCGenMessageHandler
@@ -188,9 +176,6 @@ public class MessageHandlerManagerTest
 		int lastMessageOrder = 0;
 		PCGenMessage lastMsg = null;
 		
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{
@@ -202,14 +187,11 @@ public class MessageHandlerManagerTest
 	}
 	
 	/**
-	 * The Class <code>MessageConsumer</code> will consume any message it receives.
+	 * The Class {@code MessageConsumer} will consume any message it receives.
 	 */
 	private static class MessageConsumer extends MessageRecorder
 	{
 		
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{

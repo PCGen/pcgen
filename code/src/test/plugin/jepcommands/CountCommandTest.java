@@ -1,5 +1,4 @@
 /*
- * CountCommandTest.java
  * Copyright 2007 (C) andrew wilson <nuance@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Oct 20, 2007
- *
- * $Id$
- *
  */
 package plugin.jepcommands;
 
@@ -37,12 +31,6 @@ import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>CountCommandTest</code> tests the functioning of the jep count plugin
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class CountCommandTest extends AbstractCharacterTestCase
 {
@@ -458,16 +446,12 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
 		AbilityCategory category = gCat;
-		finalize(ab, "munch", character, category);
+		finalizeTest(ab, "munch", character, category);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
 
-		finalize(ab, "devour", character, category);
-		character.setDirty(true);
-		
-		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
-
-		finalize(ab, "nibble", character, category);
+		finalizeTest(ab, "devour", character, category);
+		finalizeTest(ab, "nibble", character, category);
 		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 

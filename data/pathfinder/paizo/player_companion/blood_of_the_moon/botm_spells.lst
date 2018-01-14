@@ -6,10 +6,6 @@ Share Skin															TYPE:Divine			CLASSES:Druid,Witch=6					SCHOOL:Necroman
 Share Skin, Great									KEY:Share Skin (Greater)	TYPE:Divine			CLASSES:Witch=8						SCHOOL:Necromancy				COMPS:V, S				RANGE:Touch	TARGETAREA:One creature touched	DURATION:(CASTERLEVEL) minutes or until you return to your body.								SOURCEPAGE:p.11	DESC:You can possess an creature's body in a manner that functions like magic jar, except as noted here. Your body vanishes while the effect lasts and you don't require a receptacle.
 
 
-Speak with Animals.COPY=Speak with Animals (pigs and boars only)
-Speak with Animals.COPY=Speak with Animals (rodents only)
-Charm Animal.COPY=Charm Animal (aquatic animals only)
-
-Speak with Animals (pigs and boars only).MOD													CLASSES:.CLEARALL
-Speak with Animals (rodents only).MOD														CLASSES:.CLEARALL
-Charm Animal (aquatic animals only).MOD														CLASSES:.CLEARALL
+Speak with Animals.COPY=Speak with Animals (pigs and boars only)	CLASSES:.CLEARALL
+Speak with Animals.COPY=Speak with Animals (rodents only)	CLASSES:.CLEARALL
+Charm Animal.COPY=Charm Animal (aquatic animals only)	CLASSES:.CLEARALL

@@ -70,7 +70,7 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 		// CONSIDER need to deal with removed...
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<String>();
+		Set<String> bonusSet = new TreeSet<>();
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))

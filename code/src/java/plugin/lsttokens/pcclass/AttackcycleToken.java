@@ -65,7 +65,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 
 		while (aTok.hasMoreTokens())
 		{
-			AttackType at = AttackType.getInstance(aTok.nextToken());
+			AttackType at = AttackType.getAttackInstance(aTok.nextToken());
 			if (AttackType.GRAPPLE.equals(at))
 			{
 				return new ParseResult.Fail("Error: Cannot Set Attack Cycle "
@@ -117,7 +117,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		Integer grappleValue = null;
 		Integer meleeValue = null;
 		Map<AttackType, Integer> added = changes.getAdded();

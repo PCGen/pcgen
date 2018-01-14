@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EvaluatorFactoryPCVar.java
  * Copyright 2008 Andrew Wilson
  * <nuance@users.sourceforge.net>.
  *
@@ -18,10 +17,6 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03 August 2008
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  */
 
 package pcgen.core.term;
@@ -35,7 +30,7 @@ import pcgen.util.Logging;
 import pcgen.util.TermUtilities;
 
 /**
- * <code>EvaluatorFactoryPCVar</code> 
+ * {@code EvaluatorFactoryPCVar}
  *
  * This individual enumerations in this class are each responsible for making
  * and returning an object that implements the TermEvaluator interface.
@@ -44,7 +39,7 @@ import pcgen.util.TermUtilities;
  * have an array of string keys that enumerate every string that the regular
  * expression can match (this is not as bad as it sounds since each can only
  * match at most eight strings).  The array of string is used to populate a
- * Map<String, Enum>
+ * {@code Map<String, Enum>}
  */
 
 public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
@@ -1086,7 +1081,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			String classString;
 
-			if (2 == expressionString.length())
+			if (expressionString.length() == 2)
 			{
 				if (!src.startsWith("CLASS:")) {
 					StringBuilder sB = new StringBuilder();
@@ -1136,7 +1131,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 						"MERGELOC".equals(fullTypes[0])  ? Constants.MERGE_LOCATION :
 						Constants.MERGE_ALL;
 
-			int first = (Constants.MERGE_ALL == merge) ? 0 : 1;
+			int first = (merge == Constants.MERGE_ALL) ? 0 : 1;
 
 			String[] types;
 			if (fullTypes.length > first) {
@@ -1189,7 +1184,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 						"MERGELOC".equals(fullTypes[0])  ? Constants.MERGE_LOCATION :
 						Constants.MERGE_ALL;
 
-			int first = (Constants.MERGE_ALL == merge) ? 0 : 1;
+			int first = (merge == Constants.MERGE_ALL) ? 0 : 1;
 
 			String[] types;
 			if (fullTypes.length > first) {
@@ -1867,14 +1862,14 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 	
 	};
 
-	static String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
-	static Pattern subtokenPat = Pattern.compile(subtokenString);
+	static final String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
+	static final Pattern subtokenPat = Pattern.compile(subtokenString);
 
-	static Pattern numPat = Pattern.compile("\\d+");
+	static final Pattern numPat = Pattern.compile("\\d+");
 
-	private String   termConstructorPattern;
-	private String[] termConstructorKeys;
-	private boolean  patternMatchesEntireTerm;
+	private final String   termConstructorPattern;
+	private final String[] termConstructorKeys;
+	private final boolean  patternMatchesEntireTerm;
 
 	TermEvaluatorBuilderPCVar(
 			String pattern,

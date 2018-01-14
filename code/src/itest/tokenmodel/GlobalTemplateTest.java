@@ -17,8 +17,6 @@
  */
 package tokenmodel;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
@@ -33,6 +31,8 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.TemplateLst;
 import plugin.lsttokens.choose.TemplateToken;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 
 public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>

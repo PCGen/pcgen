@@ -51,7 +51,7 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 
 	private static int wrapIndex = Integer.MIN_VALUE;
 
-	private static final Integer ONE = Integer.valueOf(1);
+	private static final Integer ONE = 1;
 
 	private final CDOMToken<PCClass> wrappedToken;
 

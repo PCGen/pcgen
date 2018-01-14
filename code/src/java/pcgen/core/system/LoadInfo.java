@@ -1,5 +1,4 @@
 /*
- * LoadInfo.java
  * Copyright (c) Thomas Parker, 2010.
  * Copyright 2002 (C) James Dempsey
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on August 16, 2002, 10:00 PM AEST (+10:00)
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core.system;
 
@@ -39,28 +31,26 @@ import pcgen.core.SizeAdjustment;
 import pcgen.util.Logging;
 
 /**
- * <code>LoadInfo</code> describes the data associated with a loads and
+ * {@code LoadInfo} describes the data associated with a loads and
  * encumbrance
  * 
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision$
  */
 public class LoadInfo implements Loadable
 {
 	private URI sourceURI;
 	private String loadInfoName;
 
-	private Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<CDOMSingleRef<SizeAdjustment>, BigDecimal>();
-	private Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<SizeAdjustment, BigDecimal>();
+	private final Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<>();
+	private final Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<>();
 
-	private SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<Integer, BigDecimal>();
+	private final SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<>();
 	private int minStrenghScoreWithLoad = 0;
 	private int maxStrengthScoreWithLoad = 0;
 
 	private BigDecimal loadScoreMultiplier = BigDecimal.ZERO;
 	private int loadMultStep = 10;
 
-	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<String, LoadInfo.LoadMapEntry>();
+	private final Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<>();
 	private String modifyFormula;
 
     @Override
@@ -272,9 +262,9 @@ public class LoadInfo implements Loadable
 
 	private static class LoadMapEntry
 	{
-		private Float multiplier;
-		private String moveFormula;
-		private Integer checkPenalty;
+		private final Float multiplier;
+		private final String moveFormula;
+		private final Integer checkPenalty;
 
 		/**
 		 * Constructor

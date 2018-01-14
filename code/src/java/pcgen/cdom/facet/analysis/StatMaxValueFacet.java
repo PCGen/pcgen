@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -38,12 +37,7 @@ import pcgen.core.PCStat;
  * StatMaxValueFacet  is a Facet that tracks the Stats that have had a maximum 
  * value set on a Player Character.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock> implements
 		DataFacetChangeListener<CharID, CDOMObject>
@@ -121,19 +115,19 @@ public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock
 		Map<StatLock, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<StatLock, Set<Object>>> it = componentMap
-					.entrySet().iterator(); it.hasNext();)
+			for (Entry<StatLock, Set<Object>> me : componentMap
+					.entrySet())
 			{
-				Entry<StatLock, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				StatLock lock = me.getKey();
-				if (lock.getLockedStat().equals(stat))
+				if (lock.getLockedStat()
+						.equals(stat))
 				{
 					for (Object source : set)
 					{
 						String sourceString =
 								(source instanceof CDOMObject) ? ((CDOMObject) source)
-									.getQualifiedKey() : "";
+										.getQualifiedKey() : "";
 						Number val = formulaResolvingFacet.resolve(id, lock
 								.getLockValue(), sourceString);
 						if (val.doubleValue() < max.doubleValue())

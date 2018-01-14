@@ -1,5 +1,4 @@
 /*
- * PreferencesDialog.java
  *
  * Copyright 2001 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on July 8th, 2002.
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.gui2.dialog;
 
@@ -52,7 +44,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTree;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.TreeSelectionEvent;
@@ -89,18 +80,15 @@ import pcgen.system.PCGenSettings;
 
 /**
  *  PCGen preferences dialog
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public final class PreferencesDialog extends AbstractPreferencesDialog
 {
 	private static final long serialVersionUID = 5042379023317257550L;
 
 	// Resource strings
-	private static String in_appearance =
+	private static final String in_appearance =
 			LanguageBundle.getString("in_Prefs_appearance"); //$NON-NLS-1$
-	private static String in_character =
+	private static final String in_character =
 			LanguageBundle.getString("in_Prefs_character"); //$NON-NLS-1$
 	public static final String LB_PREFS_PLUGINS_RUN = "in_Prefs_pluginsRun"; //$NON-NLS-1$
 	public static final String LB_PREFS_PLUGIN_PCGEN_WIN = "in_Prefs_pluginPcgenWin"; //$NON-NLS-1$
@@ -153,7 +141,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsTree.setSelectionRow(1);
 
 		pack();
-		Utility.setDialogRelativeLocation(getParent(), this);
+		Utility.setComponentRelativeLocation(getParent(), this);
 	}
 
 	public static void show(JFrame frame)
@@ -219,7 +207,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	}
 
-	private JPanel buildEmptyPanel(String title, String messageText)
+	private static JPanel buildEmptyPanel(String title, String messageText)
 	{
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
@@ -255,7 +243,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		DefaultMutableTreeNode appearanceNode;
 		DefaultMutableTreeNode gameModeNode;
 
-		panelList = new ArrayList<PCGenPrefsPanel>(15);
+		panelList = new ArrayList<>(15);
 		
 		// Build the settings panel
 		settingsPanel = new JPanel();
@@ -331,24 +319,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsModel = new DefaultTreeModel(rootNode);
 		settingsTree = new JTree(settingsModel);
 
-		/*
-		 * <!--
-		 *    bug:     TreeView not displaying correctly with Kunststoff LaF
-		 *    fix:     need to set a (wide enough) border
-		 *    author:     Thomas Behr
-		 *    date:     02/10/02
-		 * -->
-		 */
-		if (UIManager.getLookAndFeel().getName()
-			.equals("Kunststoff"))
-		{
-			settingsTree
-				.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
-		}
-		else
-		{
-			settingsTree.setBorder(BorderFactory.createEmptyBorder(0, 3, 0, 0));
-		}
+		settingsTree.setBorder(BorderFactory.createEmptyBorder(0, 3, 0, 0));
 
 		settingsTree.setRootVisible(false);
 		settingsTree.setShowsRootHandles(true);
@@ -447,13 +418,10 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	}
 }
 
-/**
- *
- * @author  soulcatcher
- */
+
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {
-	private final HashMap<String, PluginRef> pluginMap = new HashMap<String, PluginRef>();
+	private final HashMap<String, PluginRef> pluginMap = new HashMap<>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;
@@ -523,9 +491,9 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 
 	private static class PluginRef extends JPanel 
 	{
-		private String pluginName;
-		private String pluginTitle;
-		private String defaultSystem;
+		private final String pluginName;
+		private final String pluginTitle;
+		private final String defaultSystem;
 		private JCheckBox checkBox;
 		private JRadioButton pcgenButton;
 		private JRadioButton gmgenButton;

@@ -17,7 +17,6 @@ public class GlobalsTest extends PCGenTestCase
 	 */
 	public GlobalsTest()
 	{
-		super();
 	}
 
 	/**
@@ -33,7 +32,7 @@ public class GlobalsTest extends PCGenTestCase
 	}
 
 	/**
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	protected void setUp() throws Exception

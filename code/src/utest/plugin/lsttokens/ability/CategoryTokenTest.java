@@ -34,7 +34,7 @@ public class CategoryTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {
 
 	static CategoryToken token = new CategoryToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

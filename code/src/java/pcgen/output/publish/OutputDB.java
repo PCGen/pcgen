@@ -49,20 +49,20 @@ public final class OutputDB
 	 * The Map of string names to output models (that are dynamic based on a PC)
 	 */
 	private static DoubleKeyMap<Object, Object, ModelFactory> outModels =
-			new DoubleKeyMap<Object, Object, ModelFactory>(
-				CaseInsensitiveMap.class, CaseInsensitiveMap.class);
+            new DoubleKeyMap<>(
+                    CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	/**
 	 * The map of string names to models for global items (not PC dependent)
 	 */
 	private static Map<Object, TemplateModel> globalModels =
-			new CaseInsensitiveMap<TemplateModel>();
+            new CaseInsensitiveMap<>();
 
 	/**
 	 * The Map of string names to output models for the Game Mode
 	 */
 	private static Map<Object, ModeModelFactory> modeModels =
-			new CaseInsensitiveMap<ModeModelFactory>();
+            new CaseInsensitiveMap<>();
 
 	/**
 	 * Registers a new ModelFactory to be used in output
@@ -142,7 +142,7 @@ public final class OutputDB
 	 */
 	public static Map<String, Object> buildDataModel(CharID id)
 	{
-		Map<String, Object> input = new HashMap<String, Object>();
+		Map<String, Object> input = new HashMap<>();
 		for (Object k1 : outModels.getKeySet())
 		{
 			for (Object k2 : outModels.getSecondaryKeySet(k1))
@@ -171,7 +171,7 @@ public final class OutputDB
 	{
 		if (!input.containsKey(k1String))
 		{
-			input.put(k1String, new HashMap<Object, Object>());
+			input.put(k1String, new HashMap<>());
 		}
 	}
 
@@ -182,7 +182,7 @@ public final class OutputDB
 	 */
 	public static Map<String, Object> buildModeDataModel(GameMode mode)
 	{
-		Map<String, Object> input = new HashMap<String, Object>();
+		Map<String, Object> input = new HashMap<>();
 		for (Object key : modeModels.keySet())
 		{
 			ModeModelFactory modelFactory = modeModels.get(key);
@@ -287,7 +287,7 @@ public final class OutputDB
 	public static Map<Object, TemplateModel> getGlobal()
 	{
 		CaseInsensitiveMap<TemplateModel> map =
-				new CaseInsensitiveMap<TemplateModel>();
+                new CaseInsensitiveMap<>();
 		map.putAll(globalModels);
 		return map;
 	}
@@ -303,7 +303,7 @@ public final class OutputDB
 	public static void registerBooleanPreference(String pref,
 		boolean defaultValue)
 	{
-		if ((pref == null) || (pref.length() == 0))
+		if ((pref == null) || (pref.isEmpty()))
 		{
 			throw new IllegalArgumentException(
 				"Preference Name may not be null or empty: " + pref);

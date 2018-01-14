@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  OpposedSkillAvailableModel.java
- *
- *  Created on May 4, 2004, 2:56:35 PM
  */
 
 package plugin.initiative;
@@ -34,20 +32,15 @@ import java.util.TreeMap;
 
 /**
  * <p>
- * Essentialy sets up a list of <code>PcgCombatant</code> items.
+ * Essentialy sets up a list of {@code PcgCombatant} items.
  * </p>
  *
  * <p>
- * Current Ver: $Revision$
  * </p>
  * <p>
- * Last Editor: $Author$
  * </p>
  * <p>
- * Last Edited: $Date$
  * </p>
- *
- * @author LodgeR
  */
 public class OpposedSkillBasicModel extends AbstractTableModel
 {

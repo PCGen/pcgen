@@ -1,5 +1,4 @@
 /*
- * PreText.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.test;
 
@@ -44,7 +36,6 @@ import pcgen.util.Logging;
 
 /**
  * Prerequisite tester, tests for the presence of a type.
- *
  */
 public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
@@ -60,7 +51,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		return "TYPE"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
 	@Override
@@ -97,7 +88,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		return runningTotal;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -113,7 +104,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		
 		final String requiredType = prereq.getKey();
 		
-		Logging.errorPrint("  PRETYPE value was: " + requiredType + "\n");
+		Logging.errorPrint("  PRETYPE value was: " + requiredType + '\n');
 		
 		final int numRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
@@ -130,7 +121,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override
@@ -152,7 +143,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 	@Deprecated
 	private static List<String> getTypes(CharacterDisplay display)
 	{
-		final List<String> list = new ArrayList<String>();
+		final List<String> list = new ArrayList<>();
 	
 		Race race = display.getRace();
 		if (race != null)

@@ -125,20 +125,20 @@ public class CompanionList extends CDOMListObject<Race> implements
 	@Override
 	public CDOMSingleRef<CompanionMod> getReference(String key)
 	{
-		return new CDOMCategorizedSingleRef<CompanionMod>(CompanionMod.class,
-			this, key);
+		return new CDOMCategorizedSingleRef<>(CompanionMod.class,
+                this, key);
 	}
 
 	@Override
 	public CDOMGroupRef<CompanionMod> getTypeReference(String... types)
 	{
-		return new CDOMTypeRef<CompanionMod>(CompanionMod.class, types);
+		return new CDOMTypeRef<>(CompanionMod.class, types);
 	}
 
 	@Override
 	public CDOMGroupRef<CompanionMod> getAllReference()
 	{
-		return new CDOMAllRef<CompanionMod>(CompanionMod.class);
+		return new CDOMAllRef<>(CompanionMod.class);
 	}
 
 	@Override

@@ -27,8 +27,12 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 
-public class EqModAttachment
+public final class EqModAttachment
 {
+
+	private EqModAttachment()
+	{
+	}
 
 	public static void finishEquipment(Equipment eq)
 	{
@@ -69,7 +73,7 @@ public class EqModAttachment
 				{
 					// only make a copy if we need to
 					// add qualifiers to modifier
-					if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
+					if (!eqMod.getSafe(StringKey.CHOICE_STRING).isEmpty())
 					{
 						eqMod = eqMod.clone();
 					}
@@ -82,7 +86,7 @@ public class EqModAttachment
 				}
 	
 				// Add the associated choices
-				if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
+				if (!eqMod.getSafe(StringKey.CHOICE_STRING).isEmpty())
 				{
 					List<String> choices = modRef.getChoices();
 					for (String x : choices)

@@ -85,7 +85,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 			int withEquals = 0;
 			boolean withoutEquals = false;
 			boolean lastWithEquals = false;
-			List<String> list = new ArrayList<String>();
+			List<String> list = new ArrayList<>();
 			for (String tok : strings)
 			{
 				int equalLoc = tok.indexOf('=');
@@ -163,7 +163,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 						lastValue = Integer.decode(tok.substring(equalLoc + 1));
 					}
 				}
-				List<String> descr = new ArrayList<String>();
+				List<String> descr = new ArrayList<>();
 				String oneResult = one.toString();
 				String rightResult = right.toString();
 				String leftResult = left.toString();
@@ -177,7 +177,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 					descr.add(oneResult + " ... " + SET_ONE);
 					descr.add(rightResult + " ... " + FLOW_RIGHT);
 					descr.add(leftResult + " ... " + FLOW_LEFT);
-					List<String> choice = new ArrayList<String>();
+					List<String> choice = new ArrayList<>();
 					choice.add(oneResult);
 					choice.add(rightResult);
 					choice.add(leftResult);

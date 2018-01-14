@@ -1,5 +1,4 @@
 /*
- * SpellsKnownTab.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 19, 2011, 5:26:29 PM
  */
 package pcgen.gui2.tabs.spells;
 
@@ -60,10 +58,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 @SuppressWarnings("serial")
 public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTab
 {
@@ -87,7 +82,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	public SpellsKnownTab()
 	{
 		super("SpellsKnown");
-		this.availableTable = new FilteredTreeViewTable<CharacterFacade, SuperNode>();
+		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new JTreeViewTable<SuperNode>(){
 			
 			@Override
@@ -101,7 +96,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
-		this.qFilterButton = new FilterButton<CharacterFacade, SuperNode>("SpellsKnownQualified");
+		this.qFilterButton = new FilterButton<>("SpellsKnownQualified");
 		this.autoKnownBox = new JCheckBox();
 		this.slotsBox = new JCheckBox();
 		this.spellSheetField = new JTextField();
@@ -124,7 +119,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		});
 		selectedTable.getRowSorter().toggleSortOrder(0);
-		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<CharacterFacade, SuperNode>();
+		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);

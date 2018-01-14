@@ -1,5 +1,4 @@
 /**
- * TodoFacade.java
  * Copyright 2010 James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,25 +14,16 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14/06/2010 5:12:24 PM
- *
- * $Id: TodoFacade.java 12156 2010-06-14 10:03:19Z jdempsey $
  */
 package pcgen.facade.core;
 
 import pcgen.util.enumeration.Tab;
 
 /**
- * The interface <code>TodoFacade</code> defines what methods must be provided 
+ * The interface {@code TodoFacade} defines what methods must be provided
  * to support a Todo entry for a character. 
  *
- * <br/>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2010-06-14 03:03:19 -0700 (Mon, 14 Jun 2010) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 12156 $
  */
 public interface TodoFacade extends Comparable<TodoFacade>
 {

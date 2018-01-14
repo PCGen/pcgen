@@ -32,7 +32,7 @@ public class ItemCreateIntegrationTest extends
 {
 
 	static ItemcreateToken token = new ItemcreateToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

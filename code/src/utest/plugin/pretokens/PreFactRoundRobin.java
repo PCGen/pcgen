@@ -1,5 +1,4 @@
 /*
- * PreFactRoundRobin.java
  * Copyright James Dempsey, 2015
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27 Aug 2015 9:11:34 am
  */
 package plugin.pretokens;
 
@@ -31,10 +28,9 @@ import plugin.pretokens.parser.PreFactParser;
 import plugin.pretokens.writer.PreFactWriter;
 
 /**
- * The Class <code>PreFactRoundRobin</code> tests the parsing and unparsing of 
+ * The Class {@code PreFactRoundRobin} tests the parsing and unparsing of
  * PREFACTs. 
 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreFactRoundRobin extends AbstractPreRoundRobin
 {

@@ -1,5 +1,4 @@
 /*
- * GMGenMessageHandler.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 21/07/2012 3:25:32 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -46,15 +41,10 @@ import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage
 import pcgen.system.CharacterManager;
 
 /**
- * The Class <code>GMGenMessageHandler</code> processes any requests 
+ * The Class {@code GMGenMessageHandler} processes any requests
  * to the main PCGen program from the GMGen bus.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class GMGenMessageHandler implements PCGenMessageHandler
 {
@@ -73,9 +63,6 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	}
 	
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void handleMessage(PCGenMessage message)
 	{

@@ -4,12 +4,7 @@
  * deployed with the site.
  *
  * Usage: gradle deployAutobuild
- *
- * Author: James Dempsey
  */
-
-import org.apache.tools.ant.filters.ReplaceTokens
-
 ext {
     if (System.env.BUILD_NUMBER) {
         destAutobuildDir = '/home/pcgen1/public_html/autobuilds/'
@@ -35,10 +30,17 @@ task copySite(type: Copy) {
     outputs.upToDateWhen { false }
     from "${projectDir}/code/gradle/site"
     into "${destAutobuildDir}"
-    expand(copyright: '2014', version: version, timestamp: buildTimestamp)
+    expand(copyright: '2017', version: version, timestamp: buildTimestamp,
+        simpleVersion: version.replaceAll('-SNAPSHOT', '').replaceAll(/\./, ''))
+}
+
+task copyInstaller(type: Copy) {
+    // Ensure this always runs - we don't want an outdated installer
+    outputs.upToDateWhen { false }
+    from "${projectDir}/build/release/"
+    into "${destAutobuildDir}/downloads/"
 }
 
 task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', \
-'createExe']) {
+'copyInstaller']) {
 }
-deployAutobuild.mustRunAfter createExe

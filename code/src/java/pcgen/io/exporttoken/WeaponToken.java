@@ -1,5 +1,4 @@
 /*
- * WeaponToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -332,11 +327,11 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("ATTACKS"))
 		{
-			return getAttacksToken(pc, eq) + "";
+			return String.valueOf(getAttacksToken(pc, eq));
 		}
 		else if (token.equals("AMMUNITIONCOUNT"))
 		{
-			return getAmmunitionCountToken(pc, eq) + "";
+			return String.valueOf(getAmmunitionCountToken(pc, eq));
 		}
 		else if (token.equals("AMMUNITION"))
 		{
@@ -344,7 +339,7 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("CONTENTSCOUNT"))
 		{
-			return getContentsCountToken(eq) + "";
+			return String.valueOf(getContentsCountToken(eq));
 		}
 		else if (token.equals("CONTENTS"))
 		{
@@ -352,7 +347,7 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("NUMATTACKS"))
 		{
-			return getNumAttacksToken(pc, eq) + "";
+			return String.valueOf(getNumAttacksToken(pc, eq));
 		}
 		else if (token.equals("HEFT"))
 		{
@@ -515,7 +510,7 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("REACH"))
 		{
-			return getReachToken(pc, eq) + "";
+			return getReachToken(pc, eq);
 		}
 		else if (token.equals("REACHUNIT"))
 		{
@@ -565,7 +560,7 @@ public class WeaponToken extends Token
 					}
 					return "";
 				}
-				Set<String> qualities = new TreeSet<String>();
+				Set<String> qualities = new TreeSet<>();
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
 					qualities.add(new StringBuilder().append(me.getKey())
@@ -581,7 +576,7 @@ public class WeaponToken extends Token
 			int charges = eq.getRemainingCharges();
 			if (charges >= 0)
 			{
-				retString = charges + "";
+				retString = String.valueOf(charges);
 			}
 			return retString;
 
@@ -614,7 +609,7 @@ public class WeaponToken extends Token
 		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped() && star)
 		{
-			sb.append("*");
+			sb.append('*');
 		}
 		sb.append(OutputNameFormatting.parseOutputName(eq, pc));
 		sb.append(eq.getAppliedName());
@@ -633,7 +628,7 @@ public class WeaponToken extends Token
 		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped())
 		{
-			sb.append("*");
+			sb.append('*');
 		}
 		sb.append(OutputNameFormatting.parseOutputName(eq, pc));
 		sb.append(eq.getAppliedName());
@@ -651,7 +646,7 @@ public class WeaponToken extends Token
 		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped())
 		{
-			sb.append("*");
+			sb.append('*');
 		}
 		sb.append(eq.longName());
 		sb.append(eq.getAppliedName());
@@ -828,7 +823,7 @@ public class WeaponToken extends Token
 
 		if (isDouble && (altCrit > 0))
 		{
-			sb.append("/").append(altCrit + mult);
+			sb.append('/').append(altCrit + mult);
 		}
 		return sb.toString();
 	}
@@ -847,7 +842,7 @@ public class WeaponToken extends Token
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(critMult1);
-		sb.append("/");
+		sb.append('/');
 		sb.append(critMult2);
 		return sb.toString();
 	}
@@ -935,7 +930,7 @@ public class WeaponToken extends Token
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(weaponCategories(eq));
-		sb.append("-");
+		sb.append('-');
 
 		if (eq.isNatural())
 		{
@@ -946,7 +941,7 @@ public class WeaponToken extends Token
 		// and set non standard to false
 		if (appendSeperator(eq))
 		{
-			sb.append(",");
+			sb.append(',');
 		}
 
 		// Check if Both or Melee or Ranged
@@ -1352,7 +1347,7 @@ public class WeaponToken extends Token
 		int eqDbl = dbl + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEDOUBLE", true);
 		int critrange = eq.getRawCritRange(true) * (eqDbl + 1);
 		critrange = 21 - (critrange + iAdd + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEADD", true));
-		sb.append(critrange + "");
+		sb.append(String.valueOf(critrange));
 		if (critrange < 20)
 		{
 			sb.append("-20");
@@ -2236,7 +2231,7 @@ public class WeaponToken extends Token
 
 		for (int i = extra_attacks; i > 0; i--)
 		{
-			newAttack.append(attack).append("/");
+			newAttack.append(attack).append('/');
 		}
 
 		boolean progress = eq.getSafe(ObjectKey.ATTACKS_PROGRESS);
@@ -2365,7 +2360,7 @@ public class WeaponToken extends Token
 			}
 		}
 
-		totalAttack.append(primaryAttack.toString());
+		totalAttack.append(primaryAttack);
 
 		if (secondaryAttack.length() != 0
 			&& (hitMode == HITMODE_TOTALHIT || hitMode == HITMODE_TWOHIT))
@@ -2562,7 +2557,7 @@ public class WeaponToken extends Token
 		}
 		else
 		{
-			sb.append("0");
+			sb.append('0');
 		}
 
 		// Handle Double weapons
@@ -2584,7 +2579,7 @@ public class WeaponToken extends Token
 			 * the secondary head
 			 */
 			eqbonus = eq.getBonusToDamage(pc, false);
-			if (eq.getAltDamage(pc).length() > 0)
+			if (!eq.getAltDamage(pc).isEmpty())
 			{
 				totalBonus = 0;
 				damString = eq.getAltDamage(pc);
@@ -2625,7 +2620,7 @@ public class WeaponToken extends Token
 
 			totalBonus += bonus + weaponProfBonus + eqbonus;
 
-			sb.append("/");
+			sb.append('/');
 			if (!"0d0".equalsIgnoreCase(damString))
 			{
 				if (bonusOnly)
@@ -2639,7 +2634,7 @@ public class WeaponToken extends Token
 			}
 			else
 			{
-				sb.append("0");
+				sb.append('0');
 			}
 		}
 		return sb.toString();
@@ -2946,7 +2941,7 @@ public class WeaponToken extends Token
 					default:
 						Logging
 							.errorPrint("In getWeaponProfTypeBonuses there is an unhandled case in a switch (the value is "
-								+ index + ".");
+								+ index + '.');
 						break;
 				}
 			}
@@ -3007,7 +3002,7 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the ranged attack string for this <code>pc</code>
+	 * Get the ranged attack string for this {@code pc}
 	 *
 	 * @param pc The character that this ranged attack string is for
 	 * @return   The ranged attack string affected only by BAB
@@ -3018,9 +3013,9 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the ranged attack string for this <code>pc</code>.  Use
-	 * <code>bonus</code> to affect the size of attacks e.g.  +9/+4 with
-	 * bonus 2 becomes +11/+6.  Use <code>BABbonus</code> to affect the
+	 * Get the ranged attack string for this {@code pc}.  Use
+	 * {@code bonus} to affect the size of attacks e.g.  +9/+4 with
+	 * bonus 2 becomes +11/+6.  Use {@code BABbonus} to affect the
 	 * size and number of attacks e.g.  +9/+4 with BABBonus 2 becomes
 	 * +11/+6/+1.
 	 *
@@ -3039,7 +3034,7 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the melee attack string for this <code>pc</code>
+	 * Get the melee attack string for this {@code pc}
 	 *
 	 * @param pc The character that this melee attack string is for
 	 * @return   The melee attack string affected only by BAB
@@ -3050,9 +3045,9 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the melee attack string for this <code>pc</code>.  Use
-	 * <code>bonus</code> to affect the size of attacks e.g.  +9/+4 with
-	 * bonus 2 becomes +11/+6.  Use <code>BABbonus</code> to affect the
+	 * Get the melee attack string for this {@code pc}.  Use
+	 * {@code bonus} to affect the size of attacks e.g.  +9/+4 with
+	 * bonus 2 becomes +11/+6.  Use {@code BABbonus} to affect the
 	 * size and number of attacks e.g.  +9/+4 with BABBonus 2 becomes
 	 * +11/+6/+1.
 	 *
@@ -3071,7 +3066,7 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the unarmed attack string for this <code>pc</code>
+	 * Get the unarmed attack string for this {@code pc}
 	 *
 	 * @param pc The character that this unarmed attack string is for
 	 * @return   The unarmed attack string affected only by BAB
@@ -3082,9 +3077,9 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the unarmed attack string for this <code>pc</code>.  Use
-	 * <code>bonus</code> to affect the size of attacks e.g.  +9/+4 with
-	 * bonus 2 becomes +11/+6.  Use <code>BABbonus</code> to affect the
+	 * Get the unarmed attack string for this {@code pc}.  Use
+	 * {@code bonus} to affect the size of attacks e.g.  +9/+4 with
+	 * bonus 2 becomes +11/+6.  Use {@code BABbonus} to affect the
 	 * size and number of attacks e.g.  +9/+4 with BABBonus 2 becomes
 	 * +11/+6/+1.
 	 *
@@ -3110,12 +3105,8 @@ public class WeaponToken extends Token
 	 */
 	private static boolean appendSeperator(Equipment eq)
 	{
-		if (eq.isType("Natural")
-			&& (eq.isType("Both") || eq.isType("Melee") || eq.isType("Ranged")))
-		{
-			return true;
-		}
-		return false;
+		return eq.isType("Natural")
+				&& (eq.isType("Both") || eq.isType("Melee") || eq.isType("Ranged"));
 	}
 
 	/**
@@ -3125,12 +3116,9 @@ public class WeaponToken extends Token
 	 */
 	private static boolean isNonStandard(Equipment eq)
 	{
-		if (eq.isType("Natural") || eq.isType("Both") || eq.isType("Melee")
-			|| eq.isType("Ranged"))
-		{
-			return false;
-		}
-		return true;
+		return !(
+				eq.isType("Natural") || eq.isType("Both") || eq.isType("Melee")
+						|| eq.isType("Ranged"));
 	}
 
 
@@ -3143,7 +3131,7 @@ public class WeaponToken extends Token
 	 */
 	public static List<String> getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
 	{
-		final List<String> aList = new ArrayList<String>();
+		final List<String> aList = new ArrayList<>();
 		final int baseRange = EqToken.getRange(aPC, eq).intValue();
 		int aRange = baseRange;
 		int maxIncrements = 0;
@@ -3189,7 +3177,7 @@ public class WeaponToken extends Token
 		{
 			if (needSlash)
 			{
-				sb.append("/");
+				sb.append('/');
 			}
 			sb.append(getCritRangeHead(pc, head, critRangeVar));
 			needSlash = true;

@@ -1,5 +1,4 @@
 /*
- * PrerequisiteSpellSchoolWriter.java
  *
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  *
@@ -16,15 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.writer;
 
@@ -78,12 +68,12 @@ public class PreSpellSchoolWriter extends AbstractPrerequisiteWriter implements
 
 		try
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+			if (prereq.getOperator() == PrerequisiteOperator.LT)
 			{
 				writer.write('!');
 			}
 
-			writer.write("PRE" + kindHandled().toUpperCase() + ":"
+			writer.write("PRE" + kindHandled().toUpperCase() + ':'
 					+ (prereq.isOverrideQualify() ? "Q:" : "") + "1,");
 			writer.write(prereq.getKey());
 			writer.write('=');
@@ -105,14 +95,14 @@ public class PreSpellSchoolWriter extends AbstractPrerequisiteWriter implements
 		{
 			return false;
 		}
-		if (!po.equals(prereq.getOperator()))
+		if (po != prereq.getOperator())
 		{
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+		writer.write("PRE" + kindHandled().toUpperCase() + ':'
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
-		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
+		writer.write(po == PrerequisiteOperator.GTEQ ? prereq.getOperand()
 				: "1");
 		for (Prerequisite p : prereq.getPrerequisites())
 		{

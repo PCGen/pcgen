@@ -29,10 +29,10 @@ import java.util.TreeMap;
 import java.util.Vector;
 import java.util.logging.Level;
 
-import org.jdom.DocType;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
 
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -46,7 +46,6 @@ import plugin.overland.util.Localized;
 /**
  * Builds a Travel Method instance from an XML document.
  * 
- * @author Vincent Lhote
  */
 public class TravelMethodFactory
 {
@@ -80,10 +79,10 @@ public class TravelMethodFactory
 
 	// ### Factory methods ###
 
-	public static final Vector<TravelMethod> load(File datadir)
+	public static Vector<TravelMethod> load(File datadir)
 	{
 		//Create a new list for the travel methods
-		Vector<TravelMethod> tms = new Vector<TravelMethod>();
+		Vector<TravelMethod> tms = new Vector<>();
 
 		File path = new File(datadir, DIR_TRAVELMETHODS);
 
@@ -92,11 +91,11 @@ public class TravelMethodFactory
 			File[] dataFiles = path.listFiles(new XMLFilter());
 			SAXBuilder builder = new SAXBuilder();
 
-			for (int i = 0; i < dataFiles.length; i++)
+			for (File dataFile : dataFiles)
 			{
 				try
 				{
-					Document methodSet = builder.build(dataFiles[i]);
+					Document methodSet = builder.build(dataFile);
 					DocType dt = methodSet.getDocType();
 
 					if (dt.getElementName().equals(XML_ELEMENT_TRAVEL))
@@ -135,12 +134,12 @@ public class TravelMethodFactory
 
 		name = new Localized(travel);
 
-		multByRoadByTerrains = new HashMap<String, Map<String, Combo>>();
-		terrains2 = new HashMap<String, List<Localized>>();
-		terrainsById2 = new HashMap<String, Map<Localized, String>>();
-		routes2 = new HashMap<String, List<Localized>>();
-		routesById2 = new HashMap<String, Map<Localized, String>>();
-		methods = new ArrayList<Method>();
+		multByRoadByTerrains = new HashMap<>();
+		terrains2 = new HashMap<>();
+		terrainsById2 = new HashMap<>();
+		routes2 = new HashMap<>();
+		routesById2 = new HashMap<>();
+		methods = new ArrayList<>();
 
 		for (Object methodObj : travel.getChildren())
 		{
@@ -148,13 +147,13 @@ public class TravelMethodFactory
 			if (child.getName().equals(XML_ELEMENT_WAY))
 			{
 				String wayId = child.getAttributeValue(XML_ATTRIBUTE_ID);
-				List<Localized> terrains = new ArrayList<Localized>();
+				List<Localized> terrains = new ArrayList<>();
 				terrains2.put(wayId, terrains);
-				List<Localized> routes = new ArrayList<Localized>();
+				List<Localized> routes = new ArrayList<>();
 				routes2.put(wayId, routes);
-				Map<Localized, String> terrainsById = new HashMap<Localized, String>();
+				Map<Localized, String> terrainsById = new HashMap<>();
 				terrainsById2.put(wayId, terrainsById);
-				Map<Localized, String> routesById = new HashMap<Localized, String>();
+				Map<Localized, String> routesById = new HashMap<>();
 				routesById2.put(wayId, routesById);
 
 				for (Object o : child.getChildren())
@@ -170,7 +169,7 @@ public class TravelMethodFactory
 							terrainsById.put(terrain, id);
 							if (!multByRoadByTerrains.containsKey(id))
 							{
-								multByRoadByTerrains.put(id, new TreeMap<String, Combo>());
+								multByRoadByTerrains.put(id, new TreeMap<>());
 							}
 						}
 						else if (grandchild.getName().equals(XML_ELEMENT_ROUTE))
@@ -190,7 +189,7 @@ public class TravelMethodFactory
 									Number addKmh = parseNumber(nf, grandgrandchild, XML_ATTRIBUTE_ADDKMH, 0);
 									if (!multByRoadByTerrains.containsKey(idTerrain))
 									{
-										multByRoadByTerrains.put(idTerrain, new TreeMap<String, Combo>());
+										multByRoadByTerrains.put(idTerrain, new TreeMap<>());
 									}
 									multByRoadByTerrains.get(idTerrain).put(id, new Combo(mult, addMph, addKmh));
 								}
@@ -260,6 +259,7 @@ public class TravelMethodFactory
 		Number n = def;
 		String attributeValue = e.getAttributeValue(string);
 		if (attributeValue != null)
+		{
 			try
 			{
 				n = nf.parse(attributeValue);
@@ -269,6 +269,7 @@ public class TravelMethodFactory
 				// TODO Auto-generated catch block
 				exception.printStackTrace();
 			}
+		}
 		return n;
 	}
 

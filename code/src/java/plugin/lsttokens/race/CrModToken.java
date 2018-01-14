@@ -62,13 +62,13 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 					+ "format is: ClassTypes|CRMod was: " + value, context);
 		}
 		String keys = value.substring(0, pipeLoc);
-		if (keys.length() == 0)
+		if (keys.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty class type, "
 					+ "format is: ClassTypes|CRMod was: " + value, context);
 		}
 		String val = value.substring(pipeLoc + 1);
-		if (val.length() == 0)
+		if (val.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty CR mod, "
 					+ "format is: ClassTypes|CRMod was: " + value, context);
@@ -78,7 +78,7 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 			StringTokenizer aTok = new StringTokenizer(keys, Constants.DOT, false);
 			while (aTok.hasMoreTokens())
 			{
-				context.getObjectContext().put(race, MapKey.CRMOD, aTok.nextToken(), new Integer(val));
+				context.getObjectContext().put(race, MapKey.CRMOD, aTok.nextToken(), Integer.valueOf(val));
 			}
 		}
 		catch (NumberFormatException e)
@@ -106,7 +106,7 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		Map<String, Integer> added = changes.getAdded();
 		for (Map.Entry<String, Integer> me : added.entrySet())
 		{

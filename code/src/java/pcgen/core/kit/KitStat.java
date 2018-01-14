@@ -1,5 +1,4 @@
 /*
- * KitStat.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 20, 2005, 1040h
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -41,18 +36,16 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
  * KitStat
- *
- * @author boomer70
  */
 public class KitStat extends BaseKit
 {
-	private Map<CDOMSingleRef<PCStat>, Formula> statMap =
-			new HashMap<CDOMSingleRef<PCStat>, Formula>();
+	private final Map<CDOMSingleRef<PCStat>, Formula> statMap =
+            new HashMap<>();
 
 	@Override
 	public String toString()
 	{
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
 		{
 			set.add(me.getKey().getLSTformat(false) + '='+ me.getValue());
@@ -101,7 +94,7 @@ public class KitStat extends BaseKit
 	{
 		final Collection<PCClass> classes = aPC.getClassSet();
 		aPC.calcActiveBonuses();
-		if (classes != null && classes.size() != 0)
+		if (classes != null && !classes.isEmpty())
 		{
 			for (PCClass pcClass : classes)
 			{

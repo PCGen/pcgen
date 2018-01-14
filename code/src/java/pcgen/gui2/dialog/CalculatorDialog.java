@@ -1,5 +1,4 @@
 /*
- * CalculatorDialog.java
  * Copyright 2011 Stefan Radermacher <zaister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 8, 2012, 5:03:35 PM
  */
 package pcgen.gui2.dialog;
 
@@ -28,8 +26,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 import pcgen.core.VariableProcessor;
 import pcgen.facade.core.CharacterFacade;
@@ -41,7 +41,6 @@ import pcgen.system.LanguageBundle;
  * A dialog to allow character variables and expressions to be evaluated 
  * interactively by the user.
  * 
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
  */
 public class CalculatorDialog extends JDialog
 {
@@ -69,7 +68,9 @@ public class CalculatorDialog extends JDialog
 		contentPane.setLayout(new BorderLayout());
 		outputText.setEditable(false);
 		contentPane.add(formulaPanel, BorderLayout.NORTH);
-		contentPane.add(outputText, BorderLayout.CENTER);
+	 
+	    JScrollPane js = new JScrollPane( outputText, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED ) ;
+	    contentPane.add(js, BorderLayout.CENTER);
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 
@@ -77,8 +78,8 @@ public class CalculatorDialog extends JDialog
 	{
 		private final JButton calcButton;
 		private final JButton clearButton;
-		private JTextField formulaText;
-		private JTextArea outputText;
+		private final JTextField formulaText;
+		private final JTextArea outputText;
 		
 		public ButtonPanel(JTextField formulaText, JTextArea outputText)
 		{

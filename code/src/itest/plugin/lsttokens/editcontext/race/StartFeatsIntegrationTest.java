@@ -29,7 +29,7 @@ public class StartFeatsIntegrationTest extends
 {
 
 	static StartfeatsToken token = new StartfeatsToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

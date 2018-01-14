@@ -17,16 +17,6 @@
  */
 package plugin.dicebag;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.io.SimpleFileFilter;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.FileMenuNewMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.net.URL;
@@ -38,7 +28,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
-import javax.swing.filechooser.FileFilter;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
@@ -49,17 +38,24 @@ import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
 import plugin.dicebag.gui.DiceBagPluginController;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuNewMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
+
 /**
- * @author RossLodge
  *
  * <p>
  * The base plugin class for the DiceBag plugin. This class handles mediation
- * between the GUI components of in <code>dicebag.gui</code> and the plugin
+ * between the GUI components of in {@code dicebag.gui} and the plugin
  * framework. This class should <b>not </b> pass framework events directly on to
- * the <code>dicebag.gui</code> classes, nor should those classes call the
+ * the {@code dicebag.gui} classes, nor should those classes call the
  * framework directly.
  * </p>
- *
  */
 public class DiceBagPlugin implements InteractivePlugin
 {
@@ -83,9 +79,6 @@ public class DiceBagPlugin implements InteractivePlugin
 	/** Key of dice bag tab. */
 	private static final String IN_NAME = "in_plugin_dicebag_name"; //$NON-NLS-1$
 
-	/** Version number. (NOTE: does this mean anything?) */
-	private String version = "00.00.00.01"; //$NON-NLS-1$
-
 	private PCGenMessageHandler messageHandler;
 
 	/**
@@ -96,23 +89,6 @@ public class DiceBagPlugin implements InteractivePlugin
 	public DiceBagPlugin()
 	{
 		// Do Nothing
-	}
-
-	public FileFilter[] getFileTypes()
-	{
-		FileFilter[] ff = {getFileType()};
-
-		return ff;
-	}
-
-	/**
-	 * Get File type
-	 * @return FileFilter
-	 */
-	public FileFilter getFileType()
-	{
-		String[] fileExt = new String[]{"dbg"}; //$NON-NLS-1$
-		return new SimpleFileFilter(fileExt, LanguageBundle.getString("in_plugin_dicebag_filter")); //$NON-NLS-1$
 	}
 
 	/**
@@ -129,10 +105,7 @@ public class DiceBagPlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -141,13 +114,13 @@ public class DiceBagPlugin implements InteractivePlugin
     @Override
 	public int getPriority()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 20);
+		return SettingsHandler.getGMGenOption(DiceBagPlugin.LOG_NAME + ".LoadOrder", 20);
 	}
 
     @Override
 	public String getPluginName()
 	{
-		return NAME;
+		return DiceBagPlugin.NAME;
 	}
 
 	/**
@@ -162,22 +135,22 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * <li>LoadMessage</li>
 	 * </ul>
 	 * <p>
-	 * Delegates all these messages to <code>theController</code>.
+	 * Delegates all these messages to {@code theController}.
 	 * </p>
 	 * @param message
 	 *
-	 * @see gmgen.pluginmgr.InteractivePlugin#handleMessage
+	 * @see pcgen.pluginmgr.PCGenMessageHandler#handleMessage
 	 */
     @Override
 	public void handleMessage(PCGenMessage message)
 	{
 		if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
-			handleStateChangedMessage((FocusOrStateChangeOccurredMessage) message);
+			handleStateChangedMessage();
 		}
 		else if (message instanceof GMGenBeingClosedMessage)
 		{
-			handleWindowClosedMessage((GMGenBeingClosedMessage) message);
+			handleWindowClosedMessage();
 		}
 		else if (message instanceof FileMenuOpenMessage)
 		{
@@ -217,12 +190,12 @@ public class DiceBagPlugin implements InteractivePlugin
 	/**
 	 * <p>
 	 * Delegates this message to the controller by calling the controller's
-	 * <code>fileOpen()</code> method. We veto the message so it is not passed
+	 * {@code fileOpen()} method. We veto the message so it is not passed
 	 * on to other plugins.
 	 * </p>
 	 *
 	 * @param message
-	 *          <code>FileOpenMessage</code>
+	 *          {@code FileOpenMessage}
 	 */
 	private void handleFileOpenMessage(FileMenuOpenMessage message)
 	{
@@ -275,11 +248,8 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * Handles a state changed message. Basically enables or disables applicable
 	 * menu items, refreshes data.
 	 * </p>
-	 *
-	 * @param message
-	 *          The message
 	 */
-	private void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
+	private void handleStateChangedMessage()
 	{
 		if (GMGenSystemView.getTabPane() != null)
 		{
@@ -299,12 +269,10 @@ public class DiceBagPlugin implements InteractivePlugin
 
 	/**
 	 * <p>
-	 * Calls the <code>windowClosed()</code> method of the controller.
+	 * Calls the {@code windowClosed()} method of the controller.
 	 * </p>
-	 *
-	 * @param message
 	 */
-	private void handleWindowClosedMessage(GMGenBeingClosedMessage message)
+	private void handleWindowClosedMessage()
 	{
 		theController.windowClosed();
 	}
@@ -318,8 +286,8 @@ public class DiceBagPlugin implements InteractivePlugin
 		JTabbedPane tp =
 				Utility.getTabbedPaneFor(theController
 					.getComponent());
-		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
-			&& tp.getSelectedComponent().equals(theController.getComponent());
+		return (tp != null) && JOptionPane.getFrameForComponent(tp).isFocused()
+				&& tp.getSelectedComponent().equals(theController.getComponent());
 	}
 
 	/**
@@ -330,7 +298,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	private void initMenus()
 	{
 		notesToolsItem =
-				makeMenuItem(getLocalizedName(), DICEBAG_TOOLS_COMMAND, null,
+				makeMenuItem(getLocalizedName(), DiceBagPlugin.DICEBAG_TOOLS_COMMAND, null,
 					LanguageBundle.getString("in_plugin_dicebag_desc"), //$NON-NLS-1$
 					LanguageBundle.getMnemonic("in_mn_plugin_dicebag_name")); //$NON-NLS-1$
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
@@ -338,7 +306,7 @@ public class DiceBagPlugin implements InteractivePlugin
 
 	private String getLocalizedName()
 	{
-		return LanguageBundle.getString(IN_NAME);
+		return LanguageBundle.getString(DiceBagPlugin.IN_NAME);
 	}
 
 	/**
@@ -363,16 +331,15 @@ public class DiceBagPlugin implements InteractivePlugin
 	private JMenuItem makeMenuItem(String text, String key, String iconPath,
 		String desc, Integer mnemonic)
 	{
-		JMenuItem menuItem;
 
-		Action action;
 		URL imageURL = null;
 
-		if ((iconPath != null) && (iconPath.length() > 0))
+		if ((iconPath != null) && (!iconPath.isEmpty()))
 		{
 			imageURL = getClass().getResource(iconPath);
 		}
 
+		Action action;
 		if (imageURL != null)
 		{
 			action = new ActionDelegate(text, new ImageIcon(imageURL));
@@ -386,33 +353,22 @@ public class DiceBagPlugin implements InteractivePlugin
 		action.putValue(Action.MNEMONIC_KEY, mnemonic);
 		action.putValue(Action.ACTION_COMMAND_KEY, key);
 
-		menuItem = new JMenuItem(action);
-
-		return menuItem;
+		return new JMenuItem(action);
 	}
 
 	/**
-	 * @author Ross Lodge
 	 *
 	 * <p>
 	 * Action class to handle all menu item actions.
 	 * </p>
 	 */
-	private class ActionDelegate extends AbstractAction
+	private final class ActionDelegate extends AbstractAction
 	{
-
-		/**
-		 * @see javax.swing.AbstractAction#AbstractAction()
-		 */
-		public ActionDelegate()
-		{
-			super();
-		}
 
 		/**
 		 * @see javax.swing.AbstractAction#AbstractAction(String)
 		 */
-		public ActionDelegate(String name)
+		private ActionDelegate(String name)
 		{
 			super(name);
 		}
@@ -420,7 +376,7 @@ public class DiceBagPlugin implements InteractivePlugin
 		/**
 		 * @see javax.swing.AbstractAction#AbstractAction(String, Icon)
 		 */
-		public ActionDelegate(String name, Icon icon)
+		private ActionDelegate(String name, Icon icon)
 		{
 			super(name, icon);
 		}
@@ -435,7 +391,7 @@ public class DiceBagPlugin implements InteractivePlugin
 		{
 			String command = e.getActionCommand();
 
-			if (DICEBAG_TOOLS_COMMAND.equals(command))
+			if (DiceBagPlugin.DICEBAG_TOOLS_COMMAND.equals(command))
 			{
 				toolMenuItem(e);
 			}
@@ -447,10 +403,9 @@ public class DiceBagPlugin implements InteractivePlugin
 	 *
 	 *@return    The data directory name
 	 */
+	@Override
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
-		return dataDir;
+		return new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
 	}
 }

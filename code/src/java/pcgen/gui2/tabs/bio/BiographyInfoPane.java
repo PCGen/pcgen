@@ -1,5 +1,4 @@
 /*
- * BiographyInfoPane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 26, 2011, 7:55:47 PM
  */
 package pcgen.gui2.tabs.bio;
 
@@ -51,7 +49,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
@@ -73,16 +71,11 @@ import pcgen.gui2.util.ScrollablePanel;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>BiographyInfoPane</code> is a panel within the Description 
+ * The Class {@code BiographyInfoPane} is a panel within the Description
  * tab. It contains biography and physical description fields which may be 
  * updated by the user.
  *
- * <br/>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2011-12-29 10:08:51 +1100 (Thu, 29 Dec 2011) $
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision: 15691 $
  */
 @SuppressWarnings("serial")
 public class BiographyInfoPane extends JPanel implements CharacterInfoTab
@@ -193,10 +186,10 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 
 		private final ListFacade<BiographyField> customFields;
-		private List<BioItem> bioItems = new ArrayList<BioItem>();
-		private Map<BiographyField, BioItem> customFieldMap =
-				new EnumMap<BiographyField, BiographyInfoPane.BioItem>(
-					BiographyField.class);
+		private final List<BioItem> bioItems = new ArrayList<>();
+		private final Map<BiographyField, BioItem> customFieldMap =
+                new EnumMap<>(
+                        BiographyField.class);
 		private final CharacterFacade character;
 		private BiographyInfoPane detailsPane;
 
@@ -269,9 +262,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			customFields.removeListListener(this);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementAdded(ListEvent<BiographyField> e)
 		{
@@ -285,9 +275,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsScroll.repaint();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementRemoved(ListEvent<BiographyField> e)
 		{
@@ -298,9 +285,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<BiographyField> e)
 		{
@@ -310,9 +294,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementModified(ListEvent<BiographyField> e)
 		{
@@ -363,7 +344,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class GenderItem extends BioItem
 	{
 
-		private CharacterComboBoxModel<GenderFacade> genderModel;
+		private final CharacterComboBoxModel<GenderFacade> genderModel;
 
 		public GenderItem(final CharacterFacade character)
 		{
@@ -395,7 +376,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class HandedItem extends BioItem
 	{
 
-		private CharacterComboBoxModel<HandedFacade> handsModel;
+		private final CharacterComboBoxModel<HandedFacade> handsModel;
 
 		public HandedItem(final CharacterFacade character)
 		{
@@ -637,7 +618,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	}
 
 	/**
-	 * The Class <code>BiographyFieldBioItem</code> manages a row displaying a 
+	 * The Class {@code BiographyFieldBioItem} manages a row displaying a
 	 * textual biography item and allowing it to be edited and suppressed 
 	 * from output.
 	 */
@@ -722,11 +703,11 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			switch (numComponents)
 			{
 				case 3:
-					gbc.weightx = .3333;
+					gbc.weightx = 0.3333;
 					break;
 
 				case 2:
-					gbc.weightx = .5;
+					gbc.weightx = 0.5;
 					break;
 
 				default:
@@ -871,9 +852,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void itemStateChanged(ItemEvent e)
 		{
@@ -885,7 +863,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 
 	/**
-	 * The Class <code>AddAction</code> acts on a user pressing the Add Custom 
+	 * The Class {@code AddAction} acts on a user pressing the Add Custom
 	 * Details button.
 	 */
 	private class AddCustomAction extends AbstractAction
@@ -904,7 +882,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			// Build list of choices
 			List<BiographyField> availFields =
-					new ArrayList<BiographyField>(Arrays.asList(BiographyField.values()));
+                    new ArrayList<>(Arrays.asList(BiographyField.values()));
 			availFields.removeAll(defaultBioFieds);
 			for (BiographyField field : character.getDescriptionFacade()
 				.getCustomBiographyFields())

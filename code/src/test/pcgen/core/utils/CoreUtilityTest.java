@@ -1,5 +1,4 @@
 /*
- * CoreUtilityTest.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,17 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * @author Pat Ludwig <havoc@boldo.com>
- * Created on May 20th, 2002
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.utils;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.base.lang.StringUtil;
 import pcgen.system.PCGenPropBundle;
 
@@ -37,12 +29,10 @@ import java.util.List;
  *
  * Tests the CoreUtility class.
  *
- * @author Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision$
  * @see pcgen.core.utils.CoreUtility
  */
 @SuppressWarnings("nls")
-public class CoreUtilityTest extends PCGenTestCase
+public class CoreUtilityTest extends TestCase
 {
 	/**
 	 * Constructs a new <code>CoreUtilityTest</code>.
@@ -81,8 +71,8 @@ public class CoreUtilityTest extends PCGenTestCase
 
 	public void testCompareVersions()
 	{
-		int[] firstVer = new int[]{5, 13, 6};
-		int[] secondVer = new int[]{5, 13, 6};
+		int[] firstVer = {5, 13, 6};
+		int[] secondVer = {5, 13, 6};
 		
 		assertEquals("Check for equal values", 0, CoreUtility.compareVersions(firstVer, secondVer));
 		secondVer[2] = 4;
@@ -182,7 +172,7 @@ public class CoreUtilityTest extends PCGenTestCase
 	
 	private List<String> constructList()
 	{
-		final List<String> list = new ArrayList<String>();
+		final List<String> list = new ArrayList<>();
 		list.add("one");
 		list.add("two");
 		list.add("three");

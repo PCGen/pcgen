@@ -1,5 +1,4 @@
 /*
- * StatToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 3, 2006
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit;
@@ -45,7 +38,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * This class handles the STAT tag for Kits.<br>
  * The tag format is:<br>
- * <code>STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18</code>
+ * {@code STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18}
  */
 public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 		CDOMPrimaryToken<KitStat>, DeferredToken<Kit>
@@ -94,7 +87,7 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 						+ value, context);
 			}
 			String statName = token.substring(0, equalLoc);
-			if (statName.length() == 0)
+			if (statName.isEmpty())
 			{
 				return new ParseResult.Fail("Illegal " + getTokenName()
 					+ " had no stat, is not Stat=X format: "
@@ -104,7 +97,7 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 					context.getReferenceContext().getCDOMReference(
 						PCStat.class, statName);
 			String formula = token.substring(equalLoc + 1);
-			if (formula.length() == 0)
+			if (formula.isEmpty())
 			{
 				return new ParseResult.Fail("Unable to find STAT value: " + value, context);
 			}

@@ -35,7 +35,6 @@ import java.util.Observer;
  *
  * <p>The view class for the DiceBag plugin.  Should manage and initialize
  * all GUI components.  Should delegate all user actions to the controller class.</p>
- * @author Ross M. Lodge
  */
 public class DiceBagPluginView implements Observer
 {
@@ -93,7 +92,7 @@ public class DiceBagPluginView implements Observer
 
 				if (!bag.isChanged() && !bag.isBagEmpty())
 				{
-					files.append(bag.getFilePath() + "|");
+					files.append(bag.getFilePath() + '|');
 				}
 			}
 		}
@@ -118,7 +117,7 @@ public class DiceBagPluginView implements Observer
 	}
 
 	/**
-	 * <p>Handles closing events -- calls the model <code>closeDiceBag()</code>
+	 * <p>Handles closing events -- calls the model {@code closeDiceBag()}
 	 * code.</p>
 	 *
 	 * @param e The event that fired this handler.
@@ -153,7 +152,7 @@ public class DiceBagPluginView implements Observer
 					WindowConstants.DO_NOTHING_ON_CLOSE);
 			}
 			else if ((answer == JOptionPane.NO_OPTION)
-				&& (answer == JOptionPane.YES_OPTION))
+				|| (answer == JOptionPane.YES_OPTION))
 			{
 				e.getInternalFrame().setDefaultCloseOperation(
 					WindowConstants.HIDE_ON_CLOSE);
@@ -161,7 +160,7 @@ public class DiceBagPluginView implements Observer
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 *
 	 * Forwards update messages on to the appropriate handlers.
@@ -224,15 +223,15 @@ public class DiceBagPluginView implements Observer
 	}
 
 	/**
-	 * <p>Displays an option dialog with the specified <code>option</code>
+	 * <p>Displays an option dialog with the specified {@code option}
 	 * value and either saves the dice bag or not based on the response.
 	 * If the cancel option is chosen or the user aborts the save dialog,
-	 * <code>JOptionPane.CANCEL_OPTION</code> is returned instead
+	 * {@code JOptionPane.CANCEL_OPTION} is returned instead
 	 * of yes or no.  If the bag has not been changed since creation or
-	 * loading, <code>JOptionPane.NO_OPTION</code> is returned.</p>
+	 * loading, {@code JOptionPane.NO_OPTION} is returned.</p>
 	 *
 	 * @param bag The bag that needs saving.
-	 * @param option One of the JOptionPane constants (like <code>YES_NO_OPTION</code>
+	 * @param option One of the JOptionPane constants (like {@code YES_NO_OPTION}
 	 * for display in the option pane.
 	 * @return The selection option
 	 */
@@ -245,12 +244,12 @@ public class DiceBagPluginView implements Observer
 			returnValue =
 					JOptionPane.showConfirmDialog(getMainComponent(),
 						"Do you want to save your changes to dicebag "
-							+ bag.getName() + "?", "Save?", option);
+							+ bag.getName() + '?', "Save?", option);
 
 			if (returnValue == JOptionPane.YES_OPTION)
 			{
 				if ((bag.getFilePath() != null)
-					&& (bag.getFilePath().length() > 0))
+					&& (!bag.getFilePath().isEmpty()))
 				{
 					m_model.saveDiceBag(bag);
 				}
@@ -354,12 +353,10 @@ public class DiceBagPluginView implements Observer
 
 	/**
 	 * <p>Listener for events on the internal frame children of this view.</p>
-	 *
-	 * @author Ross M. Lodge
 	 */
 	private class ChildListener extends InternalFrameAdapter
 	{
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.event.InternalFrameListener#internalFrameActivated(javax.swing.event.InternalFrameEvent)
 		 */
         @Override
@@ -368,7 +365,7 @@ public class DiceBagPluginView implements Observer
 			DiceBagPluginView.this.internalFrameActivated(e);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.event.InternalFrameListener#internalFrameClosed(javax.swing.event.InternalFrameEvent)
 		 */
         @Override
@@ -377,7 +374,7 @@ public class DiceBagPluginView implements Observer
 			DiceBagPluginView.this.internalFrameClosed(e);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.event.InternalFrameListener#internalFrameClosing(javax.swing.event.InternalFrameEvent)
 		 */
         @Override

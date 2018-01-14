@@ -36,7 +36,7 @@ public class IsDefaultSizeIntegrationTest extends
 
 	static IsdefaultsizeToken token = new IsdefaultsizeToken();
 	static CDOMTokenLoader<SizeAdjustment> loader =
-			new CDOMTokenLoader<SizeAdjustment>();
+            new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

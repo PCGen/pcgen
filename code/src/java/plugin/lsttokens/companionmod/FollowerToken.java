@@ -115,7 +115,7 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		{
 			return null;
 		}
-		SortedSet<String> set = new TreeSet<String>();
+		SortedSet<String> set = new TreeSet<>();
 		Map<CDOMSingleRef<? extends PCClass>, Integer> map = changes.getAdded();
 		for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : map
 			.entrySet())

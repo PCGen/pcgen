@@ -30,7 +30,7 @@ public class TemplateTokenTest extends AbstractKitTokenTestCase<KitTemplate>
 {
 
 	static TemplateToken token = new TemplateToken();
-	static CDOMSubLineLoader<KitTemplate> loader = new CDOMSubLineLoader<KitTemplate>(
+	static CDOMSubLineLoader<KitTemplate> loader = new CDOMSubLineLoader<>(
 			"PCTemplateS", KitTemplate.class);
 
 	@Override

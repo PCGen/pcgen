@@ -1,5 +1,4 @@
 /*
- * PCTemplateTest.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jan 3, 2007
- *
- * $Id: PCTemplateTest.java 1855 2007-01-02 06:42:02Z jdempsey $
- *
  */
 package pcgen.core;
 
@@ -33,7 +27,6 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -49,17 +42,11 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
- *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 public class PCTemplateTest extends AbstractCharacterTestCase
 {
 	private PCClass testClass;
-	private GenericLoader<PCTemplate> loader = new GenericLoader<PCTemplate>(PCTemplate.class);
+	private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
 	
 	/**
 	 * Constructs a new <code>PCTemplateTest</code>.

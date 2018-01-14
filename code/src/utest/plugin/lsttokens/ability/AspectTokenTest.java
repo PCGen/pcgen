@@ -1,5 +1,4 @@
 /*
- * AspectTokenTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/08/2008 18:42:10
- *
- * $Id: $
  */
 package plugin.lsttokens.ability;
 
@@ -33,14 +28,10 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 /**
- * The Class <code>AspectTokenTest</code> is responsible for verifying that
+ * The Class {@code AspectTokenTest} is responsible for verifying that
  * the Ability AspectToken is working properly 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {
@@ -49,7 +40,7 @@ public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	static AspectToken token = new AspectToken();
 	
 	/** The token loader. */
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

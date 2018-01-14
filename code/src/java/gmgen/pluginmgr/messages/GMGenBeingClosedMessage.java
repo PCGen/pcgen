@@ -1,5 +1,4 @@
 /*
- * GMGenBeingClosedMessage.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -15,25 +14,14 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18/02/2014 10:13:22 pm
- *
- * $Id$
  */
 package gmgen.pluginmgr.messages;
 
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>GMGenBeingClosedMessage</code> encapsulates an advisory that
+ * The Class {@code GMGenBeingClosedMessage} encapsulates an advisory that
  * GMGen is being shut down.
- *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class GMGenBeingClosedMessage extends PCGenMessage

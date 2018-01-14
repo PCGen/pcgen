@@ -1,5 +1,4 @@
 /*
- * GenderGeneratorOption.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.core.npcgen;
 
@@ -28,8 +23,6 @@ import pcgen.cdom.enumeration.Gender;
 /**
  * This class represents a particular gender generator option.
  * 
- * @author boomer70 <boomer70@yahoo.com>
- * @since 5.11.1
  */
 public class GenderGeneratorOption extends GeneratorOption
 {
@@ -43,7 +36,7 @@ public class GenderGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedCollection<Gender>();
+			theChoices = new WeightedCollection<>();
 		}
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$

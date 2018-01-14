@@ -64,14 +64,6 @@ public class FactSetKeyMapToList
 	private final HashMapToList map = new HashMapToList();
 
 	/**
-	 * Creates a new (empty) FactSetKeyMapToList
-	 */
-	public FactSetKeyMapToList()
-	{
-		// Do Nothing
-	}
-
-	/**
 	 * Adds all of the Lists in the given FactSetKeyMapToList to this
 	 * FactSetKeyMapToList. The resulting lists are independent (protecting the
 	 * internal structure of FactSetKeyMapToList), however, since

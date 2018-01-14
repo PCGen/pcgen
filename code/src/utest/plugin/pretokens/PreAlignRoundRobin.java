@@ -17,28 +17,14 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
-import pcgen.testsupport.TestSupport;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAlignParser;
 import plugin.pretokens.writer.PreAlignWriter;
+import util.Alignment;
 
 public class PreAlignRoundRobin extends AbstractAlignRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreAlignRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAlignRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception
@@ -46,7 +32,7 @@ public class PreAlignRoundRobin extends AbstractAlignRoundRobin
 		super.setUp();
 		TokenRegistration.register(new PreAlignParser());
 		TokenRegistration.register(new PreAlignWriter());
-		TestSupport.createAllAlignments();
+		Alignment.createAllAlignments();
 	}
 
 	public void testDeity()

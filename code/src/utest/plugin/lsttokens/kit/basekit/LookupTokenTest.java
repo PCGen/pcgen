@@ -30,7 +30,7 @@ public class LookupTokenTest extends AbstractKitTokenTestCase<BaseKit>
 {
 
 	static OptionToken token = new OptionToken();
-	static CDOMSubLineLoader<BaseKit> loader = new CDOMSubLineLoader<BaseKit>(
+	static CDOMSubLineLoader<BaseKit> loader = new CDOMSubLineLoader<>(
 			"SKILL", BaseKit.class);
 
 	@Override

@@ -17,24 +17,18 @@
  */
 package plugin.initiative.gui;
 
-import plugin.initiative.DiceRollModel;
-
+import java.awt.Component;
+import java.awt.HeadlessException;
+import java.text.DecimalFormat;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.text.NumberFormatter;
-import java.awt.Component;
-import java.awt.HeadlessException;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.text.DecimalFormat;
+import plugin.initiative.DiceRollModel;
 
 /**
  * <p>
  * A generic check dialog; handles an expression with a DC
  * </p>
- *
- * @author Ross M. Lodge
- *
  */
 public class CheckDialog extends DiceRollDialog
 {
@@ -53,7 +47,7 @@ public class CheckDialog extends DiceRollDialog
 	 *            A DiceRollModel
 	 * @throws HeadlessException
 	 */
-	public CheckDialog(DiceRollModel model) throws HeadlessException
+	CheckDialog(DiceRollModel model)
 	{
 		super(model);
 	}
@@ -62,17 +56,15 @@ public class CheckDialog extends DiceRollDialog
 	 * <p>
 	 * Initializes the DC value
 	 * </p>
-	 *
-	 * @param labelText
 	 */
-	protected void initDC(String labelText)
+	private void initDC()
 	{
 		NumberFormatter formatter =
 				new NumberFormatter(new DecimalFormat("##"));
 		formatter.setValueClass(Integer.class);
 		m_dc = new JFormattedTextField(formatter);
 		m_dc.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
-		m_dc.setValue(Integer.valueOf(m_defaultDC));
+		m_dc.setValue(m_defaultDC);
 		JLabel label = new JLabel("DC:");
 		label.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		addComponent(m_dc, label);
@@ -91,7 +83,7 @@ public class CheckDialog extends DiceRollDialog
 		 */
 
 		//Set basic properties
-		initDC("DC:");
+		initDC();
 		super.initComponents();
 	}
 
@@ -105,7 +97,7 @@ public class CheckDialog extends DiceRollDialog
 	{
 		m_result.setText("<html><body><b>"
 			+ result
-			+ ((result >= ((Integer) m_dc.getValue()).intValue()) ? " (passed)"
+			+ ((result >= (Integer) m_dc.getValue()) ? " (passed)"
 				: "") + "</b></body></html>");
 	}
 
@@ -118,15 +110,11 @@ public class CheckDialog extends DiceRollDialog
 	protected void initListeners()
 	{
 		super.initListeners();
-		m_dc.addPropertyChangeListener(new PropertyChangeListener()
+		m_dc.addPropertyChangeListener(evt ->
 		{
-            @Override
-			public void propertyChange(PropertyChangeEvent evt)
+			if ("value".equals(evt.getPropertyName()))
 			{
-				if ("value".equals(evt.getPropertyName()))
-				{
-					m_defaultDC = ((Integer) m_dc.getValue()).intValue();
-				}
+				m_defaultDC = (Integer) m_dc.getValue();
 			}
 		});
 	}

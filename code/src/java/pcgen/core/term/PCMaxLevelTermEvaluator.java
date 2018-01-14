@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCMaxLevelTermEvaluator.java
  * Copyright (c) 2010 Thomas Parker <thpr@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 
 package pcgen.core.term;
@@ -37,7 +35,7 @@ public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		if (classKey.length() == 0)
+		if (classKey.isEmpty())
 		{
 			return 0.0f;
 		}
@@ -51,7 +49,7 @@ public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 				pc.getSpellSupport(aClass).getMaxSpellLevelForClassLevel(
 					pc.getDisplay().getLevel(aClass));
 
-		return Integer.valueOf(level).floatValue();
+		return (float) level;
 	}
 
 	@Override

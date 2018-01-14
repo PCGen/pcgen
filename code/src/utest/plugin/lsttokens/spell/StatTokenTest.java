@@ -39,7 +39,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 {
 
 	static StatToken token = new StatToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 	private PCStat ps;
 
 	@Override
@@ -152,7 +152,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
+	private static ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
 	{
 		return ObjectKey.SPELL_STAT;
 	}

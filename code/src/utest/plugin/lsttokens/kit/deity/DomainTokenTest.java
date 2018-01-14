@@ -30,7 +30,7 @@ public class DomainTokenTest extends AbstractKitTokenTestCase<KitDeity>
 {
 
 	static DomainToken token = new DomainToken();
-	static CDOMSubLineLoader<KitDeity> loader = new CDOMSubLineLoader<KitDeity>(
+	static CDOMSubLineLoader<KitDeity> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitDeity.class);
 
 	@Override
@@ -82,7 +82,7 @@ public class DomainTokenTest extends AbstractKitTokenTestCase<KitDeity>
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}

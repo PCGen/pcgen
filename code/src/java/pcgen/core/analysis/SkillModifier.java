@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on June 9, 2008
  */
 package pcgen.core.analysis;
 
@@ -36,12 +34,16 @@ import pcgen.core.Skill;
 public final class SkillModifier
 {
 
+	private SkillModifier()
+	{
+	}
+
 	public static Integer modifier(Skill sk, PlayerCharacter aPC)
 	{
 		int bonus = 0;
 		if (aPC == null)
 		{
-			return Integer.valueOf(0);
+			return 0;
 		}
 
 		String keyName = sk.getKeyName();
@@ -101,7 +103,7 @@ public final class SkillModifier
 		bonus += aCheckBonus;
 
 		String aString = SettingsHandler.getGame().getRankModFormula();
-		if (aString.length() != 0)
+		if (!aString.isEmpty())
 		{
 			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());
 			bonus += aPC.getVariableValue(aString, "").intValue();
@@ -124,7 +126,7 @@ public final class SkillModifier
 			int statMod = 0;
 			if (Globals.getGameModeHasPointPool())
 			{
-				ArrayList<Type> typeList = new ArrayList<Type>();
+				ArrayList<Type> typeList = new ArrayList<>();
 				SkillInfoUtilities.getKeyStatList(pc, sk, typeList);
 				for (int i = 0; i < typeList.size(); ++i)
 				{

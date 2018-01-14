@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Dirty Tactics Toolbox	SOURCESHORT:DTT		SOURCEWEB:http://paizo.com/products/btpy9g23?Pathfinder-Player-Companion-Dirty-Tactics-Toolbox	SOURCEDATE:2015-09
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 03 May 2016
+
+
+Poison		KEY:Giant Wasp ~ Poison		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|0	DESC:Sting - injury; save Fort DC %1; frequency 1/round for 6 rounds; effect sickened for 1 round; cure 1 save.|PoisonSaveDC				ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.118
+Familiar (Wasp (Giant))		CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|FamiliarGrantedBonus_4|TYPE=Familiar
+
+# Calistrian Wasp
+Poison							KEY:Calistrian Wasp ~ Poison								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DESC:Sting--injury; save Fort DC %1; frequency 1/round for 6 rounds; effect 1d2 Dex; cure 1 save.|PoisonSaveDC				ABILITY:Ability Focus|AUTOMATIC|Poison																BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)			BONUS:VAR|PoisonSaveDC|2|TYPE=Racial								SOURCEPAGE:p.78		ASPECT:Ability Benefit|(DC %1)|PoisonSaveDC
+Change Shape						KEY:Calistrian Wasp ~ Change Shape							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:A Calistrian wasp has the ability to assume the appearance of a Boar, Giant Spider, Rat, or Raven, but retains most of its own physical qualities. A Calistrian wasp cannot change shape to a form more than one size category smaller or larger than its original form. This ability functions as a polymorph spell, but it does not adjust its ability scores (although it gains any other abilities of the creature it mimics).				DESCISPI:Yes			SOURCEPAGE:p.78		ASPECT:Ability Benefit|(Boar, Giant Spider, Rat, or Raven, Beast Shape I)
+

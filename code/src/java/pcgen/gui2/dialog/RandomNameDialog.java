@@ -1,5 +1,4 @@
 /*
- * RandomNameDialog.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 20/06/2010 12:10:46 PM
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -34,7 +29,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;
@@ -42,20 +37,15 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>RandomNameDialog</code> is a dialog in which the user can 
+ * The Class {@code RandomNameDialog} is a dialog in which the user can
  * generate a random name for their character.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class RandomNameDialog extends JDialog
 {
-	private NameGenPanel nameGenPanel;
+	private final NameGenPanel nameGenPanel;
 	private boolean cancelled;
 
 	/**
@@ -73,7 +63,7 @@ public class RandomNameDialog extends JDialog
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		if (frame != null)
 		{
-			Utility.setDialogRelativeLocation(frame, this);
+			Utility.setComponentRelativeLocation(frame, this);
 		}
 		cancelled = false;
 		

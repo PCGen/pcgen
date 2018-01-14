@@ -1,5 +1,4 @@
 /*
- *  GMGen - A role playing utility
  *  Copyright (C) 2003 Devon D Jones
  *
  *  This library is free software; you can redistribute it and/or
@@ -22,12 +21,10 @@ import java.io.File;
 
 /**
  * This is the interface for the classes that will be exporting or saving to a
- * file.<br>
- * Created on March 3, 2003
- * @author Expires 2003
- * @version 2.10
+ * file.
  */
-public abstract interface ExportHandler
+@FunctionalInterface
+public interface ExportHandler
 {
 	/**
 	 * This method will be overridden in the using classes to save

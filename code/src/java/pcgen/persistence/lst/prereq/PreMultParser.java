@@ -1,6 +1,4 @@
 /*
- * PreMultParser.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,30 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package pcgen.persistence.lst.prereq;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * @author wardc
- *
- */
 public class PreMultParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
 {
@@ -59,7 +44,7 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		prereq.setKind(null);
 		prereq.setCharacterRequired(false);
 
-		int commaIndex = formula.indexOf(",");
+		int commaIndex = formula.indexOf(',');
 
 		if (commaIndex > 0)
 		{
@@ -83,15 +68,15 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		return prereq;
 	}
 
-	protected List<String> splitOnTopLevelToken(String input,
-		char startDelimiter, char endDelimiter) throws PersistenceLayerException
+	protected static List<String> splitOnTopLevelToken(String input,
+	                                                   char startDelimiter, char endDelimiter) throws PersistenceLayerException
 	{
 		int nesting = 0;
 		int startIndex = 0;
 		int currIndex = 0;
 		boolean expectComma = false;
 		boolean expectStart = true;
-		List<String> subList = new ArrayList<String>();
+		List<String> subList = new ArrayList<>();
 
 		for (currIndex = 0; currIndex < input.length(); currIndex++)
 		{

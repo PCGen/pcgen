@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 03/11/2013
- *
- * $Id$
  */
 package plugin.exporttokens;
 
@@ -26,7 +22,7 @@ import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.core.ChronicleEntry;
 import pcgen.core.PlayerCharacter;
@@ -50,8 +46,6 @@ import pcgen.util.Logging;
  * CAMPAIGNHISTORY.v.x.TEXT
  * </pre>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CampaignHistoryToken extends Token
 {
@@ -60,18 +54,12 @@ public class CampaignHistoryToken extends Token
 
 	private static enum Visibility {ALL, HIDDEN, VISIBLE};
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)

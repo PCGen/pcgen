@@ -18,7 +18,6 @@
 package pcgen.base.formula;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * A SubtractingFormula represents a 'deferred calculation' of sorts, designed
  * to be stored and capable of subtracting a predetermined value from a given
@@ -73,7 +72,7 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 			throw new IllegalArgumentException(
 					"SubtractingFormula only has one back-reference");
 		}
-		return Integer.valueOf(numbers[0].intValue() - sub);
+		return numbers[0].intValue() - sub;
 	}
 
 	/**

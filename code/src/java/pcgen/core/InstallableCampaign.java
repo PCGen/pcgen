@@ -1,5 +1,4 @@
 /*
- * InstallableCampaign.java
  * Copyright 2007 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,23 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/12/2007
- *
- * $Id$
  */
 
 package pcgen.core;
 
 /**
- * <code>InstallableCampaign</code> is a campaign (or data set) that can be
+ * {@code InstallableCampaign} is a campaign (or data set) that can be
  * installed into the PCGen instance.
- * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-12-23 17:08:08 -0500
- * (Tue, 23 Dec 2008) $
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class InstallableCampaign extends Campaign
 {

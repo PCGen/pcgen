@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCClassCasterLevelTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 04-Aug-2008 02:27:58
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -50,7 +44,7 @@ public class PCCasterLevelClassTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

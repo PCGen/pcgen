@@ -19,40 +19,32 @@ package actor.choose;
 
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.Test;
-
+import pcgen.cdom.base.CategorizedChooser;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.choose.AbilityToken;
+import static org.junit.Assert.*;
 
 /**
- * The Class <code>AbilityTokenTest</code> verifies the AbilityToken
+ * The Class {@code AbilityTokenTest} verifies the AbilityToken
  * class is working correctly.
- *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
-public class AbilityTokenTest extends TestCase
+public class AbilityTokenTest
 {
-	/** */
+
 	private static final AbilityCategory CATEGORY = AbilityCategory.FEAT;
-	private static final AbilityToken pca = new AbilityToken();
+	private static final CategorizedChooser<Ability> pca = new AbilityToken();
 	private static final String ITEM_NAME = "ItemName";
 
 	private LoadContext context;
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

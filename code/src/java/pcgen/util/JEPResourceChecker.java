@@ -1,5 +1,4 @@
 /*
- * JEPResourceChecker.java
  * Copyright 2003 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,17 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 30, 2003, 10:34 AM
  *
- * @(#) $Id$
  */
 package pcgen.util;
 
 /**
- * <code>JEPResourceChecker</code>
+ * {@code JEPResourceChecker}
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
  */
 public final class JEPResourceChecker
 {
@@ -40,6 +35,10 @@ public final class JEPResourceChecker
 		//optimize StringBuilder initial size (0 should be right length. Hopefully we don't get an error. :)
 		resourceBuffer = new StringBuilder(0);
 		checkResource();
+	}
+
+	private JEPResourceChecker()
+	{
 	}
 
 	/**

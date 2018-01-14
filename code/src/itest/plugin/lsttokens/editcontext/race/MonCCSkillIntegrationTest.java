@@ -32,7 +32,7 @@ public class MonCCSkillIntegrationTest extends
 {
 
 	static MonccskillToken token = new MonccskillToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

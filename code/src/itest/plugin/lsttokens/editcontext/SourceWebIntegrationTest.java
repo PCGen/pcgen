@@ -30,7 +30,7 @@ public class SourceWebIntegrationTest extends
 {
 
 	static SourcewebLst token = new SourcewebLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

@@ -19,7 +19,6 @@ package plugin.lsttokens.auto;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -53,12 +52,6 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 		return true;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected ChooseSelectionActor<Language> getActor()
 	{
@@ -69,13 +62,13 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	protected void loadAllReference()
 	{
 		CDOMGroupRef<Language> ref = primaryContext.getReferenceContext().getCDOMAllReference(Language.class);
-		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
+		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<>(ref));
 	}
 
 	@Override
 	protected void loadProf(CDOMSingleRef<Language> ref)
 	{
-		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
+		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<>(ref));
 	}
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
@@ -98,7 +91,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	protected void loadTypeProf(String... types)
 	{
 		CDOMGroupRef<Language> ref = primaryContext.getReferenceContext().getCDOMTypeReference(Language.class, types);
-		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
+		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<>(ref));
 	}
 
 	@Override
@@ -114,14 +107,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule() {
-
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "LANG|TestWP1|TestWP2|TestWP1|TestWP2|TestWP3" };
-			}
-		};
+		return strings -> new String[] { "LANG|TestWP1|TestWP2|TestWP1|TestWP2|TestWP3" };
 	}
 	
 	/**

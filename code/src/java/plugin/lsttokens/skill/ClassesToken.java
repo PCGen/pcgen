@@ -61,7 +61,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		boolean added = false;
 
-		List<CDOMReference<ClassSkillList>> allow = new ArrayList<CDOMReference<ClassSkillList>>();
+		List<CDOMReference<ClassSkillList>> allow = new ArrayList<>();
 		while (pipeTok.hasMoreTokens())
 		{
 			String className = pipeTok.nextToken();
@@ -88,9 +88,9 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 		if (pipeTok.hasMoreTokens())
 		{
 			// allow is not used (empty or an error)
-			FilteredReference<ClassSkillList> filtered = new FilteredReference<ClassSkillList>(
+			FilteredReference<ClassSkillList> filtered = new FilteredReference<>(
 					SKILLLIST_CLASS, context.getReferenceContext()
-							.getCDOMAllReference(SKILLLIST_CLASS));
+					.getCDOMAllReference(SKILLLIST_CLASS));
 			while (pipeTok.hasMoreTokens())
 			{
 				String className = pipeTok.nextToken();

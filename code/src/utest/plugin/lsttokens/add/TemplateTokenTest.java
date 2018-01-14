@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -51,12 +49,6 @@ public class TemplateTokenTest extends AbstractAddTokenTestCase<PCTemplate>
 	public boolean isTypeLegal()
 	{
 		return false;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

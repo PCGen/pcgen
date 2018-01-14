@@ -1,5 +1,4 @@
 /*
- * SkillTokenTest.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 7, 2004
- *
- * $Id$
- *
  */
 package pcgen.io;
 
@@ -63,12 +57,6 @@ import pcgen.util.TestHelper;
 /**
  * <code>SkillTokenTest</code> contains tests to verify that the
  * SKILL token and its subtokens are working correctly.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 @SuppressWarnings("nls")
@@ -441,7 +429,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 					+ "	<name>\\\\%.NAME\\\\</name>\n"
 					+ "	<skills>\\\\%.FOR.0,COUNT[SKILLS],1,\\SKILL.%\\: \\SKILL.%.TOTAL.SIGN\\, ,; ,1\\\\</skills>\n"
 					+ ",<combatant>,</combatant>,1|\n" + "   </combatants>";
-		List<PlayerCharacter> pcs = new ArrayList<PlayerCharacter>();
+		List<PlayerCharacter> pcs = new ArrayList<>();
 		pcs.add(getCharacter());
 		String result = evaluatePartyToken(outputToken, pcs).trim();
 		assertEquals(

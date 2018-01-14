@@ -1,5 +1,4 @@
 /*
- * SkillPointTableModel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 6, 2010, 1:30:26 PM
  */
 package pcgen.gui2.tabs.skill;
 
@@ -48,7 +46,6 @@ import pcgen.gui2.util.table.TableCellUtilities;
  * A model to back the table of character levels and the skill points 
  * associated with them.
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class SkillPointTableModel extends AbstractTableModel
 		implements ListListener<CharacterLevelFacade>, ClassListener, SkillPointListener
@@ -194,7 +191,7 @@ public class SkillPointTableModel extends AbstractTableModel
 	}
 
 	/**
-	 * The Class <code>BoldNumberRenderer</code> displays a right aligned
+	 * The Class {@code BoldNumberRenderer} displays a right aligned
 	 * read-only column containing a bolded number.
 	 */
 	private static class BoldNumberRenderer extends DefaultTableCellRenderer
@@ -205,10 +202,10 @@ public class SkillPointTableModel extends AbstractTableModel
 		 */
 		public BoldNumberRenderer()
 		{
-			setHorizontalAlignment(CENTER);
+			setHorizontalAlignment(SwingConstants.CENTER);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
 		@Override

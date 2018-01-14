@@ -17,30 +17,23 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  XMLCombatant.java
- *
- *  Created on January 24, 2002, 11:15 AM
  */
 package plugin.initiative;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.util.Logging;
 
 import gmgen.plugin.Combatant;
 import gmgen.plugin.State;
 import gmgen.plugin.SystemAttribute;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
+import org.apache.commons.lang3.math.Fraction;
+import org.jdom2.Element;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import org.apache.commons.lang.math.Fraction;
-import org.jdom.Element;
-
-import pcgen.util.Logging;
-
-/**
- *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
- */
 public class XMLCombatant extends Combatant
 {
 	/** Challenge rating of the combatant */
@@ -49,7 +42,7 @@ public class XMLCombatant extends Combatant
 	protected int xp;
 
 	/** The JDOM element from which the combatant was derived. */
-	private Element combatant;
+	private final Element combatant;
 
 	/**
 	 *  Creates new XMLCombatant from a JDOM Element.
@@ -735,7 +728,7 @@ public class XMLCombatant extends Combatant
 
 			statBuf.append("<font class='type'>hp</font> ");
 			statBuf.append(hitPoints.getCurrent());
-			statBuf.append("/");
+			statBuf.append('/');
 			statBuf.append(hitPoints.getMax());
 
 			statBuf.append("<br>");
@@ -786,7 +779,7 @@ public class XMLCombatant extends Combatant
 
 			statBuf.append("<br>");
 
-			List<SystemAttribute> statList = new ArrayList<SystemAttribute>();
+			List<SystemAttribute> statList = new ArrayList<>();
 			statList.add(new SystemAttribute("Str", getAttribute("Strength")));
 			statList.add(new SystemAttribute("Con",
 				getAttribute("Constitution")));

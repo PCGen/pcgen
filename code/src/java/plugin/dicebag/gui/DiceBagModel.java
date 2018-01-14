@@ -17,33 +17,33 @@
  */
 package plugin.dicebag.gui;
 
-import gmgen.GMGenSystem;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
-import org.jdom.output.XMLOutputter;
-import pcgen.util.Logging;
-
-import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
-import org.jdom.output.Format;
+
+import javax.swing.JOptionPane;
+
 import pcgen.core.RollingMethods;
+import pcgen.util.Logging;
+
+import gmgen.GMGenSystem;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 /**
  * <p>The base data class of the DiceBag plugin.  This class maintains a single "Dice Bag," which
  * consists of an ordered list of dice expressions.</p>
- *
- * @author Ross Lodge
  */
-public class DiceBagModel extends Observable
+class DiceBagModel extends Observable
 {
 	/** List of dice strings. */
-	private List<String> m_dice = new ArrayList<String>();
+	private List<String> m_dice = new ArrayList<>();
 
 	/** File path of the last file this bag was saved to, or loaded from. */
 	private String m_filePath;
@@ -57,18 +57,8 @@ public class DiceBagModel extends Observable
 	/**
 	 * <p>Default constructor.</p>
 	 */
-	public DiceBagModel()
+	DiceBagModel()
 	{
-	}
-
-	/**
-	 * <p>Constructs a dicebag with the requested name.</p>
-	 * @param name Name for new dicebag.
-	 */
-	public DiceBagModel(String name)
-	{
-		this();
-		m_name = name;
 	}
 
 	/**
@@ -77,7 +67,7 @@ public class DiceBagModel extends Observable
 	 *
 	 * @param file File to load the dicebag data from.
 	 */
-	public DiceBagModel(File file)
+	DiceBagModel(File file)
 	{
 		this();
 		loadFromFile(file);
@@ -88,7 +78,7 @@ public class DiceBagModel extends Observable
 	 *
 	 * @return true/false
 	 */
-	public boolean isBagEmpty()
+	boolean isBagEmpty()
 	{
 		return m_dice.isEmpty();
 	}
@@ -111,7 +101,7 @@ public class DiceBagModel extends Observable
 	 * @param element Expression to set
 	 * @return the expression replaced
 	 */
-	public String setDie(int index, String element)
+	String setDie(int index, String element)
 	{
 		m_changed = true;
 
@@ -134,7 +124,7 @@ public class DiceBagModel extends Observable
 	 *
 	 * @return File path loaded/last saved to.
 	 */
-	public String getFilePath()
+	String getFilePath()
 	{
 		return m_filePath;
 	}
@@ -178,7 +168,7 @@ public class DiceBagModel extends Observable
 	 * @param o Dice expression
 	 * @return success/failure of operation.
 	 */
-	public boolean addDie(String o)
+	boolean addDie(String o)
 	{
 		m_changed = true;
 
@@ -195,11 +185,11 @@ public class DiceBagModel extends Observable
 	}
 
 	/**
-	 * <p>Gets the count of dice in teh bag.</p>
+	 * <p>Gets the count of dice in the bag.</p>
 	 *
 	 * @return Count of dice in bag.
 	 */
-	public int diceCount()
+	int diceCount()
 	{
 		return m_dice.size();
 	}
@@ -210,7 +200,7 @@ public class DiceBagModel extends Observable
 	 * @param index index to remove die at
 	 * @return The die removed.
 	 */
-	public String removeDie(int index)
+	String removeDie(int index)
 	{
 		m_changed = true;
 
@@ -223,7 +213,7 @@ public class DiceBagModel extends Observable
 	 * @param index Die to roll
 	 * @return The double value of the expression
 	 */
-	public double rollDie(int index)
+	double rollDie(int index)
 	{
 		double returnValue = 0;
 
@@ -242,19 +232,18 @@ public class DiceBagModel extends Observable
 	 * @param expression Die expression to parse
 	 * @return The double value of the expression.
 	 */
-	public double rollDie(String expression)
+	static double rollDie(String expression)
 	{
-		double returnValue = RollingMethods.roll(expression);
-		return returnValue;
+		return RollingMethods.roll(expression);
 	}
 
 	/**
 	 * <p>Saves the dicebag to the specified file as a UTF-8 xml file, with the format
-	 * specified above in <code>loadFromFile()</code></p>
+	 * specified above in {@code loadFromFile()}</p>
 	 *
 	 * @param file File to save to.
 	 */
-	public void saveToFile(File file)
+	void saveToFile(File file)
 	{
 		try
 		{

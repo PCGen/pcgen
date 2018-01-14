@@ -1,5 +1,4 @@
 /*
- * VisionTokenTest.java
  * Copyright 2009 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 8 March, 2009
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -44,12 +38,6 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * <code>VisionTokenTest</code> tests the function of the VISION token.  
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class VisionTokenTest extends AbstractCharacterTestCase
 {
@@ -75,7 +63,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		
-		final GenericLoader<PCTemplate> loader = new GenericLoader<PCTemplate>(PCTemplate.class);
+		final GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
 		final LoadContext context = Globals.getContext();
 		CampaignSourceEntry source;
 		try

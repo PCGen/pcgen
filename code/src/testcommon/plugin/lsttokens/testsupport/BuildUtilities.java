@@ -20,9 +20,13 @@ import pcgen.core.PCStat;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
 
-public class BuildUtilities
+public final class BuildUtilities
 {
 	private static final StringManager STR_MGR = new StringManager();
+
+	private BuildUtilities()
+	{
+	}
 
 	public static PCAlignment createAlignment(final String longName,
 		final String shortName)
@@ -61,7 +65,7 @@ public class BuildUtilities
 	public static void setFact(CDOMObject cdo, String factname, String value)
 	{
 		FactKey<String> fk = FactKey.getConstant(factname, STR_MGR);
-		cdo.put(fk, new BasicIndirect<String>(STR_MGR, value));
+		cdo.put(fk, new BasicIndirect<>(STR_MGR, value));
 	}
 	
 	/**

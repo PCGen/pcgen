@@ -33,7 +33,7 @@ public class MultIntegrationTest extends
 {
 
 	static MultToken token = new MultToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

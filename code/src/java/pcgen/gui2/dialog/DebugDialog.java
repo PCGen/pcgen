@@ -1,5 +1,4 @@
 /*
- * DebugDialog.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 14, 2011, 3:45:35 PM
  */
 package pcgen.gui2.dialog;
 
@@ -59,14 +57,11 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LoggingRecorder;
 import pcgen.util.Logging;
 
-/**
- * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class DebugDialog extends JDialog
 {
 
-	private static MemoryMXBean memoryBean = ManagementFactory
+	private static final MemoryMXBean memoryBean = ManagementFactory
 		.getMemoryMXBean();
 	private final LogPanel logPanel;
 	private final MemoryPanel memoryPanel;
@@ -257,8 +252,8 @@ public class DebugDialog extends JDialog
 
 		private String getCurrentIndexedLine(int index)
 		{
-			int startIndex = logText.getText().lastIndexOf("\n", index) + 1;
-			int endIndex = logText.getText().indexOf("\n", index);
+			int startIndex = logText.getText().lastIndexOf('\n', index) + 1;
+			int endIndex = logText.getText().indexOf('\n', index);
 			String line = "";
 			if (startIndex >= 0 && endIndex >= startIndex)
 			{
@@ -415,7 +410,7 @@ public class DebugDialog extends JDialog
 	private static class MemoryTableModel extends AbstractTableModel
 	{
 
-		private static long megaByte = 1024 * 1024;
+		private static final long megaByte = 1024 * 1024;
 
 		@Override
 		public int getRowCount()

@@ -1,5 +1,4 @@
 /*
- * BenefitFormatting.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core;
 
@@ -29,9 +27,13 @@ import pcgen.util.Logging;
 public class BenefitFormatting
 {
 
+	private BenefitFormatting()
+	{
+	}
+
 	public static String getBenefits(PlayerCharacter aPC, List<? extends Object> objList)
 	{
-		if (objList.size() == 0)
+		if (objList.isEmpty())
 		{
 			return "";
 		}
@@ -62,7 +64,7 @@ public class BenefitFormatting
 		for ( final Description desc : theBenefits )
 		{
 			final String str = desc.getDescription(aPC, objList);
-			if ( str.length() > 0 )
+			if (!str.isEmpty())
 			{
 				if ( needSpace )
 				{

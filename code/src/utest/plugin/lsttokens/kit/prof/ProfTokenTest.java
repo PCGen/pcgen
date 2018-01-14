@@ -30,7 +30,7 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 {
 
 	static ProfToken token = new ProfToken();
-	static CDOMSubLineLoader<KitProf> loader = new CDOMSubLineLoader<KitProf>(
+	static CDOMSubLineLoader<KitProf> loader = new CDOMSubLineLoader<>(
 			"PROF", KitProf.class);
 
 	@Override
@@ -51,7 +51,7 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 		return token;
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}

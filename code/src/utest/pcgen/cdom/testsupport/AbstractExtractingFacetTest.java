@@ -37,8 +37,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -60,8 +60,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -83,8 +83,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -95,8 +95,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		assertEventCount(1, 0);
 		// Add same, still only once in set (and only one event)
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -112,8 +112,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -125,8 +125,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		// Add same, still only once in set (and only one event)
 		Object source2 = new Object();
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source2,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source2,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -142,8 +142,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -154,8 +154,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		assertEquals(tgt1, setofone.iterator().next());
 		assertEventCount(1, 0);
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, getContainingObject(1), source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, getContainingObject(1), source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(2, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -173,15 +173,15 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source1 = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		T tgt1 = getTargetObject(0);
 		assertFalse(getFacet().contains(id, tgt1));
 		getListener().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, tgt1));
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		assertFalse(getFacet().contains(id, tgt1));
 	}
@@ -193,8 +193,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		S t1 = getContainingObject(0);
 		S t2 = getContainingObject(1);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -204,8 +204,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		assertEquals(tgt1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t2, source1,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t2, source1,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		// No change (wrong source)
 		assertEquals(1, getFacet().getCount(id));
@@ -222,8 +222,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source1 = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -234,8 +234,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		assertEventCount(1, 0);
 		// Remove
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
@@ -250,8 +250,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source1 = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -262,8 +262,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		assertEventCount(1, 0);
 		// Useless Remove
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, getContainingObject(1),
-					source1, DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, getContainingObject(1),
+                        source1, DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -279,8 +279,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source1 = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -291,8 +291,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		assertEventCount(1, 0);
 		// Add same, still only once in set (but twice on that source)
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
@@ -302,8 +302,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		assertEventCount(1, 0);
 		// Only one Remove required to clear (source Set not source List)
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		testTypeUnsetZeroCount();
 		testTypeUnsetEmpty();
@@ -311,8 +311,8 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		assertEventCount(1, 1);
 		// Second remove useless
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		testTypeUnsetZeroCount();
 		testTypeUnsetEmpty();
@@ -326,17 +326,17 @@ public abstract class AbstractExtractingFacetTest<S, T> extends
 		Object source1 = new Object();
 		S t1 = getContainingObject(0);
 		DataFacetChangeEvent<CharID, S> dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		S t2 = getContainingObject(1);
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t2, source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t2, source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		dfce =
-				new DataFacetChangeEvent<CharID, S>(id, t1, source1,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t1, source1,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));

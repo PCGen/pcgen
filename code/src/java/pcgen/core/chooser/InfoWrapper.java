@@ -1,5 +1,4 @@
 /*
- * InfoWrapper.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 26/08/2013
- *
- * $Id$
  */
 package pcgen.core.chooser;
 
@@ -36,10 +31,6 @@ import pcgen.util.SortKeyAware;
 /**
  * InfoWrapper is a general purpose container for data in choosers. It wraps 
  * data of any type in an InfoFacade compliant wrapper. 
- * 
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class InfoWrapper implements InfoFacade, SortKeyAware
 {
@@ -54,45 +45,30 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
 		return String.valueOf(obj);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSource()
 	{
 		return "";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSourceForNodeDisplay()
 	{
 		return "";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getKeyName()
 	{
 		return obj.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isNamePI()
 	{
@@ -107,9 +83,6 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 		return obj;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getType()
 	{
@@ -121,15 +94,12 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 		return "";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSortKey()
 	{
 		if (obj instanceof Number)
 		{
-			return SORTABLE_NUMBER_FORMAT.format(100000d + ((Number) obj)
+			return SORTABLE_NUMBER_FORMAT.format(100000.0d + ((Number) obj)
 				.doubleValue());
 		}
 		return toString();

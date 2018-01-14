@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.race;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.Race;
@@ -31,7 +29,7 @@ public class RaceSubtypeTokenTest extends AbstractTypeSafeListTestCase<Race, Rac
 {
 
 	static RacesubtypeToken token = new RacesubtypeToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -67,12 +65,6 @@ public class RaceSubtypeTokenTest extends AbstractTypeSafeListTestCase<Race, Rac
 	public ListKey<RaceSubType> getListKey()
 	{
 		return ListKey.RACESUBTYPE;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

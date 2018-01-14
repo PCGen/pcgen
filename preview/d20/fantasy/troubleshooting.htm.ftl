@@ -476,6 +476,32 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability")') != 0)>
+<b>Special Abilities (Everything)</b>
+</#if>
+<blockquote>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITYALL.Internal.ALL.${ability}.KEY')}</b> ${pcstring('ABILITYALL.Special Ability.ALL.${ability}.ASSOCIATED')}</b> [<i>${pcstring('ABILITYALL.Special Ability.ALL.${ability}.SOURCE')}</i>]<br>
+</@loop>
+</blockquote>
+
+
+
+
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal")') != 0)>
+<b>Internal Abilities (Everything)</b>
+</#if>
+<blockquote>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Internal")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITYALL.Internal.ALL.${ability}.KEY')}</b> ${pcstring('ABILITYALL.Internal.ALL.${ability}.ASSOCIATED')}</b> [<i>${pcstring('ABILITYALL.Internal.ALL.${ability}.SOURCE')}</i>]<br>
+</@loop>
+</blockquote>
+
+
+
+
+
+
 <!-- START Template Table -->
 <#if (pcvar("COUNT[TEMPLATES]") > 0) >
    <table width="100%" cellspacing="0" cellpadding="3" summary="Template Table">

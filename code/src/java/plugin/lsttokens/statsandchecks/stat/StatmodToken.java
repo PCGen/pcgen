@@ -40,7 +40,7 @@ public class StatmodToken implements CDOMPrimaryToken<PCStat>
 	@Override
 	public ParseResult parseToken(LoadContext context, PCStat stat, String value)
 	{
-		if (value == null || value.length() == 0)
+		if (value == null || value.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
 		}

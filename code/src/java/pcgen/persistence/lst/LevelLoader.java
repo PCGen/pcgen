@@ -1,5 +1,4 @@
 /*
- * LevelLoader.java
  * Copyright 2002 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on August 16, 2002, 10:00 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -36,11 +31,9 @@ import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
 /**
- * <code>LevelLoader</code> loads up the level system file
+ * {@code LevelLoader} loads up the level system file
  * by processing each line passed to it.
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  **/
 public final class LevelLoader
 {
@@ -70,9 +63,9 @@ public final class LevelLoader
 		if (inputLine.startsWith("XPTABLE:"))
 		{
 			String value = inputLine.substring(8);
-			if (value.indexOf("\t") >= 0)
+			if (value.indexOf('\t') >= 0)
 			{
-				value = value.substring(0, value.indexOf("\t"));
+				value = value.substring(0, value.indexOf('\t'));
 			}
 			value = value.trim();
 			if (value.equals(""))

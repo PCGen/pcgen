@@ -1,5 +1,4 @@
 /*
- * AbstractStringToken.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -25,7 +24,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 
 /**
- * Parses a token of the form: <Token Name>:<string>
+ * Parses a token of the form: {@literal <Token Name>:<string>}
  * 
  * @param <T>
  *            The type of object on which this AbstractStringToken can be used

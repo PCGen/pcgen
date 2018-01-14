@@ -1,5 +1,4 @@
 /*
- * PropertyContext.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 4, 2009, 8:21:08 PM
  */
 package pcgen.system;
 
@@ -25,9 +23,10 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
 import java.util.Properties;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.math.NumberUtils;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 /**
  * This class acts similarly to the Properties class but behaves defferntly
@@ -39,7 +38,6 @@ import org.apache.commons.lang.math.NumberUtils;
  * that share its ancestors are visible but only that child's namespace is editable.
  * It is considered bad practice to look at the other siblings properties from within
  * a child.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class PropertyContext implements PropertyChangeListener
 {
@@ -59,14 +57,7 @@ public class PropertyContext implements PropertyChangeListener
 		this.name = name;
 		this.support = new PropertyChangeSupport(this);
 		this.parent = parent;
-		if (parent == null)
-		{
-			this.properties = new Properties();
-		}
-		else
-		{
-			this.properties = parent.properties;
-		}
+		this.properties = (parent == null) ? new Properties() : parent.properties;
 	}
 
 	/**
@@ -106,19 +97,9 @@ public class PropertyContext implements PropertyChangeListener
 		support.addPropertyChangeListener(property, listener);
 	}
 
-	public void removePropertyChangeListener(PropertyChangeListener listener)
-	{
-		support.removePropertyChangeListener(listener);
-	}
-
-	public void removePropertyChangeListener(String property, PropertyChangeListener listener)
-	{
-		support.removePropertyChangeListener(property, listener);
-	}
-
 	/**
 	 * Searches for the property with the specified key in this property context.
-	 * The method returns <code>null</code> if the property is not found.
+	 * The method returns {@code null} if the property is not found.
 	 *
 	 * @param   key the property key.
 	 * @return  the value in this property context with the specified key value.
@@ -127,15 +108,15 @@ public class PropertyContext implements PropertyChangeListener
 	{
 		if (parent != null)
 		{
-			return parent.getProperty(name + "." + key);
+			return parent.getProperty(name + '.' + key);
 		}
 		return properties.getProperty(key);
 	}
 
 	/**
-	 * Functions similarly to <code>getProperty(key, defaultValue)</code> but
+	 * Functions similarly to {@code getProperty(key, defaultValue)} but
 	 * with the difference that if a property with the specified key does
-	 * not exists, then the property will be set to the <code>defaultValue</code>
+	 * not exists, then the property will be set to the {@code defaultValue}
 	 * argument and subsequently returned.
 	 * @param   key the property key
 	 * @param   defaultValue a default value
@@ -164,7 +145,7 @@ public class PropertyContext implements PropertyChangeListener
 	{
 		if (parent != null)
 		{
-			return parent.getProperty(name + "." + key, defaultValue);
+			return parent.getProperty(name + '.' + key, defaultValue);
 		}
 		return properties.getProperty(key, defaultValue);
 	}
@@ -178,7 +159,7 @@ public class PropertyContext implements PropertyChangeListener
 		Object oldValue;
 		if (parent != null)
 		{
-			oldValue = parent.setProperty(name + "." + key, value);
+			oldValue = parent.setProperty(name + '.' + key, value);
 		}
 		else
 		{
@@ -188,12 +169,12 @@ public class PropertyContext implements PropertyChangeListener
 		return oldValue;
 	}
 
-	public Object removeProperty(String key)
+	Object removeProperty(String key)
 	{
 		Object oldValue;
 		if (parent != null)
 		{
-			oldValue = parent.removeProperty(name + "." + key);
+			oldValue = parent.removeProperty(name + '.' + key);
 		}
 		else
 		{
@@ -203,7 +184,7 @@ public class PropertyContext implements PropertyChangeListener
 		return oldValue;
 	}
 
-	public String[] getStringArray(String key)
+	String[] getStringArray(String key)
 	{
 		String prop = getProperty(key);
 		if (prop == null)
@@ -213,7 +194,7 @@ public class PropertyContext implements PropertyChangeListener
 		return StringUtils.split(prop, ';');
 	}
 
-	public String[] getStringArray(String key, String[] defaultValue)
+	String[] getStringArray(String key, String[] defaultValue)
 	{
 		String prop = getProperty(key);
 		if (prop == null)
@@ -230,25 +211,20 @@ public class PropertyContext implements PropertyChangeListener
 	 * @param key
 	 * @param value
 	 */
-	public void setStringArray(String key, String[] value)
+	private void setStringArray(String key, String[] value)
 	{
 		setProperty(key, StringUtils.join(value, ';'));
 	}
 
 	/**
 	 * Note: this is mearly shorthand for: <br>
-	 * <code>setStringArray(key, value.toArray(ArrayUtils.EMPTY_STRING_ARRAY))</code>
+	 * {@code setStringArray(key, value.toArray(ArrayUtils.EMPTY_STRING_ARRAY))}
 	 * @param key the property key
 	 * @param value a list of strings
 	 */
-	public void setStringArray(String key, List<String> value)
+	void setStringArray(String key, List<String> value)
 	{
 		setStringArray(key, value.toArray(ArrayUtils.EMPTY_STRING_ARRAY));
-	}
-
-	public String[] initStringArray(String key, String[] defaultValue)
-	{
-		return StringUtils.split(initProperty(key, StringUtils.join(defaultValue, ';')), ';');
 	}
 
 	public int getInt(String key)

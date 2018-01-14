@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jul 16, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -54,14 +49,8 @@ import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 
 /**
- * <code>SpellMemToken</code> displays information about the spells
+ * {@code SpellMemToken} displays information about the spells
  * in the character spellbooks..
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 // SPELLMEM.x.x.x.x.LABEL classNum.bookNum.level.spellnumber
@@ -147,7 +136,7 @@ public class SpellMemToken extends Token
 				{
 					// List of all the character's spells (including SLAs)
 					final List<CharacterSpell> charSpellList =
-							new ArrayList<CharacterSpell>();
+							new ArrayList<>();
 
 					// For each class
 					for (PCClass pcClass : aPC.getDisplay().getClassSet())
@@ -363,13 +352,13 @@ public class SpellMemToken extends Token
 						{
 							String aTemp = aSpell.getListAsString(ListKey.SPELL_SCHOOL);
 
-							if ((aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).length() > 0)
+							if ((!aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).isEmpty())
 								&& (!"NONE".equalsIgnoreCase(aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).trim())))
 							{
 								aTemp += (" (" + aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL) + ')');
 							}
 
-							if (aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR).length() > 0)
+							if (!aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR).isEmpty())
 							{
 								aTemp += (" [" + aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR) + ']');
 							}
@@ -384,11 +373,11 @@ public class SpellMemToken extends Token
 						{
 							if ("No".equals(aSpell.getListAsString(ListKey.SPELL_RESISTANCE)))
 							{
-								retValue.append("N");
+								retValue.append('N');
 							}
 							else
 							{
-								retValue.append("Y");
+								retValue.append('Y');
 							}
 						}
 						else if ("CLASS".equals(aLabel))
@@ -424,7 +413,7 @@ public class SpellMemToken extends Token
 										aSpell.getKeyName(), aPC
 											.getDescription(aSpell), aPC);
 
-							if (altLabel.length() > 0)
+							if (!altLabel.isEmpty())
 							{
 								retValue.append(sString.replaceAll("\r?\n", altLabel));
 							}
@@ -486,7 +475,7 @@ public class SpellMemToken extends Token
 			aBuf.append((an == null) ? "" : an);
 			if (i < featList.size())
 			{
-				aBuf.append(" ");
+				aBuf.append(' ');
 			}
 		}
 		
@@ -553,7 +542,7 @@ public class SpellMemToken extends Token
 	{
 		final HashMapToList<CDOMList<Spell>, Integer> tempHash = aPC.getSpellLevelInfo(aSpell);
 		StringBuilder tempSource = new StringBuilder();
-		final Set<String> levelSet = new TreeSet<String>();
+		final Set<String> levelSet = new TreeSet<>();
 
 		for (CDOMList<Spell> spellList : tempHash.getKeySet())
 		{
@@ -607,7 +596,7 @@ public class SpellMemToken extends Token
 
 			String aDescription = sAlt;
 			final String aSearch =
-					sType.toUpperCase() + ":" + sKey + Constants.LINE_SEPARATOR;
+					sType.toUpperCase() + ':' + sKey + Constants.LINE_SEPARATOR;
 			final int pos = aPC.getDescriptionLst().indexOf(aSearch);
 
 			if (pos >= 0)

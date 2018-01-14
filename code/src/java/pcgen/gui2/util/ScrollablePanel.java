@@ -1,5 +1,4 @@
 /*
- * ScrollablePanel.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -19,8 +18,6 @@
  */
 
 /*
- * Created on Sep 27, 2004
- *
  * TODO To change the template for this generated file go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
@@ -32,15 +29,10 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 
 /**
- * The Class <code>ScrollablePanel</code> provides a panel which can be 
+ * The Class {@code ScrollablePanel} provides a panel which can be
  * dynamically built up and displayed in a JScrollPane.  
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author Devon Jones
- * @version $Revision$
  */
 public class ScrollablePanel extends JPanel implements Scrollable
 {
@@ -106,9 +98,6 @@ public class ScrollablePanel extends JPanel implements Scrollable
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Dimension getPreferredSize()
 	{

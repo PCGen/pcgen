@@ -1,5 +1,4 @@
 /*
- * SpellsPreparedTab.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 1, 2011, 10:09:27 PM
  */
 package pcgen.gui2.tabs.spells;
 
@@ -36,7 +34,7 @@ import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.tree.TreePath;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ClassFacade;
@@ -62,10 +60,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 @SuppressWarnings("serial")
 public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInfoTab
 {
@@ -88,7 +83,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	public SpellsPreparedTab()
 	{
 		super("SpellsPrepared");
-		this.availableTable = new FilteredTreeViewTable<CharacterFacade, SuperNode>();
+		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new JTreeViewTable<SuperNode>(){
 			
 			@Override
@@ -103,7 +98,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		this.addMMSpellButton = new JButton();
 		this.addSpellButton = new JButton();
 		this.removeSpellButton = new JButton();
-		this.qFilterButton = new FilterButton<CharacterFacade, SuperNode>("SpellPreparedQualified");
+		this.qFilterButton = new FilterButton<>("SpellPreparedQualified");
 		this.addSpellListButton = new JButton();
 		this.removeSpellListButton = new JButton();
 		this.slotsBox = new JCheckBox();
@@ -127,7 +122,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		});
 		selectedTable.getRowSorter().toggleSortOrder(0);
-		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<CharacterFacade, SuperNode>();
+		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);
@@ -215,9 +210,9 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		models.get(ClassInfoHandler.class).install();
 		models.get(AddSpellAction.class).install();
 		models.get(RemoveSpellAction.class).install();
-		addMMSpellButton.setAction((AddMMSpellAction) models.get(AddMMSpellAction.class));
-		addSpellListButton.setAction((AddSpellListAction) models.get(AddSpellListAction.class));
-		removeSpellListButton.setAction((RemoveSpellListAction) models.get(RemoveSpellListAction.class));
+		addMMSpellButton.setAction(models.get(AddMMSpellAction.class));
+		addSpellListButton.setAction(models.get(AddSpellListAction.class));
+		removeSpellListButton.setAction(models.get(RemoveSpellListAction.class));
 		models.get(UseHigherSlotsAction.class).install();
 	}
 

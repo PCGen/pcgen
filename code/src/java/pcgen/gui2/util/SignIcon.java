@@ -1,5 +1,4 @@
 /*
- * SignIcon.java
  * Copyright 2010 (C) Connor
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 26, 2010, 5:54:11 PM
  */
 package pcgen.gui2.util;
 
@@ -27,7 +25,6 @@ import javax.swing.Icon;
 
 /**
  *
- * @author Connor
  */
 public class SignIcon implements Icon
 {

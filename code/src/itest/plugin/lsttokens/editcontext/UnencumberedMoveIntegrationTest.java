@@ -33,7 +33,7 @@ public class UnencumberedMoveIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static UnencumberedmoveLst token = new UnencumberedmoveLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

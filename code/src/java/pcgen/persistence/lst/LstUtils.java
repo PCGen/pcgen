@@ -1,5 +1,4 @@
 /*
- * LstUtils.java
  * Copyright 2003 (C) PCGen team
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -42,6 +38,10 @@ public class LstUtils
 	public static final String PIPE = "|"; //$NON-NLS-1$
 	/** Constant representing the comma "," character */
 	public static final String COMMA = ","; //$NON-NLS-1$
+
+	private LstUtils()
+	{
+	}
 
 	/**
 	 * Checks a LST token to see if it's deprecated

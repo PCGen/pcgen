@@ -1,5 +1,4 @@
 /*
- * EqTypeToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -64,14 +59,14 @@ public class EqTypeToken extends EqToken
 		//Merge
 		String token = aTok.nextToken();
 		int merge = Constants.MERGE_ALL;
-		if (token.indexOf("MERGE") >= 0)
+		if (token.contains("MERGE"))
 		{
 			merge = returnMergeType(token);
 			token = aTok.nextToken();
 		}
 
 		//Get List
-		List<Equipment> eqList = new ArrayList<Equipment>();
+		List<Equipment> eqList = new ArrayList<>();
 		if ("Container".equals(token))
 		{
 			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))

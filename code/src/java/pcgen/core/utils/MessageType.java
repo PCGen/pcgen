@@ -1,6 +1,4 @@
 /*
- * MessageType.java
- *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -16,22 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12-Jan-2004
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package pcgen.core.utils;
 
 /**
  * Types of messages
  */
-public class MessageType {
+public final class MessageType {
 
 	/** Singleton instance of Information message */
 	public static final MessageType INFORMATION = new MessageType("Information"); //$NON-NLS-1$
@@ -58,12 +47,12 @@ public class MessageType {
 
     // Prevent subclasses from overriding Object.equals
     @Override
-	public final boolean equals(final Object that) {
+	public boolean equals(final Object that) {
         return super.equals(that);
     }
 
     @Override
-	public final int hashCode() {
+	public int hashCode() {
         return super.hashCode();
     }
 

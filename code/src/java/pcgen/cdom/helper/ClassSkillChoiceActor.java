@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.helper;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PersistentChoiceActor;

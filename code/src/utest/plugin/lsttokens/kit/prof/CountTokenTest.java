@@ -29,7 +29,7 @@ public class CountTokenTest extends AbstractKitTokenTestCase<KitProf>
 {
 
 	static CountToken token = new CountToken();
-	static CDOMSubLineLoader<KitProf> loader = new CDOMSubLineLoader<KitProf>(
+	static CDOMSubLineLoader<KitProf> loader = new CDOMSubLineLoader<>(
 			"PROF", KitProf.class);
 
 	@Override

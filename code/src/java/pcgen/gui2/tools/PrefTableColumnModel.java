@@ -1,5 +1,4 @@
 /*
- * PrefTableColumnModel.java
  * Copyright 2013 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 9, 2013, 11:24:18 AM
  */
 package pcgen.gui2.tools;
 
@@ -30,7 +28,6 @@ import pcgen.system.PropertyContext;
  * This is a type of DynamicTableColumnModel which links each of the added columns
  * to a PropertyContext to allow for a persistence of column properties across
  * program executions.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class PrefTableColumnModel extends DefaultDynamicTableColumnModel
 {
@@ -47,7 +44,7 @@ public class PrefTableColumnModel extends DefaultDynamicTableColumnModel
 		colVisibleCtx = viewPrefsContext.createChildContext("visible"); //$NON-NLS-1$
 	}
 
-	private String normalisePrefsKey(String origKey)
+	private static String normalisePrefsKey(String origKey)
 	{
 		return origKey.replaceAll("[^\\w\\.]", "_"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
@@ -55,10 +52,10 @@ public class PrefTableColumnModel extends DefaultDynamicTableColumnModel
 	/**
 	 * Adds a new column to this column model along with the default state of the column
 	 * when no preferences are found for it. These preferences are stored using each column's identifier
-	 * <code>TableColumn.getIdentifier</code> as the preference key that column. If no identifier is set
+	 * {@code TableColumn.getIdentifier} as the preference key that column. If no identifier is set
 	 * the columns header value is used instead.
 	 * <br> Note: For the case of always visible columns, i.e. the first 
-	 * <code>offset</code> number of columns added to the model, the default visibility parameter does nothing.
+	 * {@code offset} number of columns added to the model, the default visibility parameter does nothing.
 	 * @param column the column to add
 	 * @param defaultVisibility the visibility of this column in the absence of an existing preference
 	 * @param defaultWidth the width of the column in the absence of an existing preference

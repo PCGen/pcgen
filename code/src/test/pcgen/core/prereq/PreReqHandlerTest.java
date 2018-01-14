@@ -1,6 +1,4 @@
 /*
- * PreReqHandlerTest.java
- *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,15 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14-Jan-2004
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package pcgen.core.prereq;
 
@@ -32,20 +21,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
-/**
- * @author wardc
- */
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
+
+
 @SuppressWarnings("nls")
-public class PreReqHandlerTest extends PCGenTestCase
+public class PreReqHandlerTest extends TestCase
 {
 
 	/**
@@ -68,11 +56,12 @@ public class PreReqHandlerTest extends PCGenTestCase
 	/**
 	 * Sets up the test case by loading the system plugins.
 	 * 
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	public void setUp() throws Exception
 	{
+		super.setUp();
 		TestHelper.loadPlugins();
 	}
 
@@ -83,7 +72,7 @@ public class PreReqHandlerTest extends PCGenTestCase
 	public void testToHtml() throws Exception
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		final List<Prerequisite> list = new ArrayList<Prerequisite>();
+		final List<Prerequisite> list = new ArrayList<>();
 		list.add(factory.parse("PRESKILL:1,Spellcraft=15"));
 		list.add(factory.parse("PRESPELLTYPE:1,Arcane=8"));
 		list.add(factory.parse("PREFEAT:2,TYPE=Metamagic"));

@@ -29,7 +29,7 @@ public class NameTokenTest extends AbstractKitTokenTestCase<KitBio>
 {
 
 	static NameToken token = new NameToken();
-	static CDOMSubLineLoader<KitBio> loader = new CDOMSubLineLoader<KitBio>(
+	static CDOMSubLineLoader<KitBio> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitBio.class);
 
 	@Override

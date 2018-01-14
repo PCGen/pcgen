@@ -47,7 +47,7 @@ public class CollectionToAbilitySelection implements
 	
 	private final CDOMSingleRef<AbilityCategory> category;
 
-	private static Stack<Ability> infiniteLoopDetectionStack = new Stack<Ability>();
+	private static Stack<Ability> infiniteLoopDetectionStack = new Stack<>();
 
 	public CollectionToAbilitySelection(CDOMSingleRef<AbilityCategory> cat, PrimitiveCollection<Ability> coll)
 	{
@@ -88,7 +88,7 @@ public class CollectionToAbilitySelection implements
 	{
 		Collection<? extends AbilityWithChoice> aColl =
 				collection.getCollection(pc, new ExpandingConverter(pc));
-		Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
+		Set<AbilitySelection> returnSet = new HashSet<>();
 		for (AbilityWithChoice a : aColl)
 		{
 			processAbility(pc, returnSet, a);
@@ -102,7 +102,7 @@ public class CollectionToAbilitySelection implements
 		Ability a = awc.getAbility();
 		if (infiniteLoopDetectionStack.contains(a))
 		{
-			Stack<Ability> current = new Stack<Ability>();
+			Stack<Ability> current = new Stack<>();
 			current.addAll(infiniteLoopDetectionStack);
 			Logging.errorPrint("Error: Circular Expansion Found: "
 				+ reportCircularExpansion(current));
@@ -141,7 +141,7 @@ public class CollectionToAbilitySelection implements
 				isPattern = true;
 				nameRoot = subName.substring(0, percIdx);
 			}
-			else if (subName.length() != 0)
+			else if (!subName.isEmpty())
 			{
 				nameRoot = subName;
 			}
@@ -152,7 +152,7 @@ public class CollectionToAbilitySelection implements
 
 		// Remove any that don't match
 
-		if (nameRoot != null && nameRoot.length() != 0)
+		if (nameRoot != null && !nameRoot.isEmpty())
 		{
 			for (int n = availableList.size() - 1; n >= 0; --n)
 			{
@@ -180,7 +180,7 @@ public class CollectionToAbilitySelection implements
 		}
 
 		List<AbilitySelection> returnList =
-				new ArrayList<AbilitySelection>(availableList.size());
+                new ArrayList<>(availableList.size());
 		for (String s : availableList)
 		{
 			returnList.add(new AbilitySelection(ability, s));
@@ -191,7 +191,7 @@ public class CollectionToAbilitySelection implements
 	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
 		ChooseInformation<T> chooseInfo)
 	{
-		final List<String> availableList = new ArrayList<String>();
+		final List<String> availableList = new ArrayList<>();
 		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
 		// chooseInfo may have sent us back weaponprofs, abilities or
 		// strings, so we have to do a conversion here
@@ -270,7 +270,7 @@ public class CollectionToAbilitySelection implements
 		@Override
 		public Collection<AbilityWithChoice> convert(ObjectContainer<Ability> ref)
 		{
-			Set<AbilityWithChoice> returnSet = new HashSet<AbilityWithChoice>();
+			Set<AbilityWithChoice> returnSet = new HashSet<>();
 			for (Ability a : ref.getContainedObjects())
 			{
 				processAbility(ref, returnSet, a);
@@ -293,7 +293,7 @@ public class CollectionToAbilitySelection implements
 		public Collection<AbilityWithChoice> convert(
 			ObjectContainer<Ability> ref, PrimitiveFilter<Ability> lim)
 		{
-			Set<AbilityWithChoice> returnSet = new HashSet<AbilityWithChoice>();
+			Set<AbilityWithChoice> returnSet = new HashSet<>();
 			for (Ability a : ref.getContainedObjects())
 			{
 				if (lim.allow(character, a))

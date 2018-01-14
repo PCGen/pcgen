@@ -1,5 +1,4 @@
 /*
- * SkillInfoTab.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 10, 2008, 8:03:21 PM
  */
 package pcgen.gui2.tabs;
 
@@ -86,8 +84,6 @@ import pcgen.util.enumeration.Tab;
 
 /**
  * This component allows the user to manage a character's skills.
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
 public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
@@ -105,11 +101,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	public SkillInfoTab()
 	{
 		super("Skill");
-		this.skillTable = new FilteredTreeViewTable<CharacterFacade, SkillFacade>();
+		this.skillTable = new FilteredTreeViewTable<>();
 		this.skillpointTable = new JTable();
 		this.infoPane = new InfoPane();
-		this.cFilterButton = new FilterButton<CharacterFacade, SkillFacade>("SkillQualified");
-		this.trainedFilterButton = new FilterButton<CharacterFacade, SkillFacade>("SkillTrained");
+		this.cFilterButton = new FilterButton<>("SkillQualified");
+		this.trainedFilterButton = new FilterButton<>("SkillTrained");
 		this.tabTitle = new TabTitle(Tab.SKILLS);
 		this.htmlPane = new JEditorPane();
 		this.skillFilterBox = new JComboBox();
@@ -119,7 +115,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private void initComponents()
 	{
 		setOrientation(VERTICAL_SPLIT);
-		setResizeWeight(.70);
+		setResizeWeight(0.70);
 
 		JSpinner spinner = new JSpinner();
 		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.#")); //$NON-NLS-1$
@@ -129,7 +125,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		skillTable.setDefaultRenderer(String.class,
 				new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setRowHeight(26);
-		FilterBar<CharacterFacade, SkillFacade> filterBar = new FilterBar<CharacterFacade, SkillFacade>();
+		FilterBar<CharacterFacade, SkillFacade> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		cFilterButton.setText(LanguageBundle.getString("in_classString")); //$NON-NLS-1$
@@ -238,9 +234,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{
@@ -394,9 +387,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			updateSelectedIndex(false);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
@@ -611,7 +601,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			SkillCost cost = levels.getSkillCost(targetLevel, skill);
 			if (value < 0)
 			{
-				value = Float.valueOf(0);
+				value = 0.0f;
 			}
 			float max =
 					levels.getMaxRanks(targetLevel, cost,
@@ -664,7 +654,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				return null;
 			}
-			return value + 1f / cost.getCost();
+			return value + 1.0f / cost.getCost();
 		}
 
 		@Override
@@ -677,7 +667,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			CharacterLevelsFacade levels = character.getCharacterLevelsFacade();
 			SkillCost cost = levels.getSkillCost(level, skill);
-			return value - 1f / cost.getCost();
+			return value - 1.0f / cost.getCost();
 		}
 
 	}
@@ -685,7 +675,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class InfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String text;
 
 		public InfoHandler(CharacterFacade character)
@@ -729,9 +719,9 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class SkillFilterHandler extends ListDataAdapter
 	{
 
-		private CharacterFacade character;
-		private SkillSheetHandler skillSheetHandler;
-		private ComboBoxModel model;
+		private final CharacterFacade character;
+		private final SkillSheetHandler skillSheetHandler;
+		private final ComboBoxModel model;
 
 		public SkillFilterHandler(CharacterFacade character, SkillSheetHandler skillSheetHandler)
 		{

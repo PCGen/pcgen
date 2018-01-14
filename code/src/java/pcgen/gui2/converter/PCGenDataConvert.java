@@ -28,10 +28,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.inst.ObjectCache;
 import pcgen.gui2.converter.panel.CampaignPanel;
 import pcgen.gui2.converter.panel.ConvertSubPanel;
 import pcgen.gui2.converter.panel.GameModePanel;
@@ -57,22 +55,16 @@ public final class PCGenDataConvert extends JFrame
 
 	private static PropertyContextFactory configFactory;
 
-	public void addNamedPanel(String name, JPanel panel)
-	{
-		contentPanel.add(panel, name);
-	}
-
 	private PCGenDataConvert()
 	{
 		super("PCGenDataConvert");
 	}
 
-	public static PCGenDataConvert getConverter(CDOMObject pc)
-			throws InterruptedException
+	private static PCGenDataConvert getConverter()
 	{
 		PCGenDataConvert frame = new PCGenDataConvert();
 		frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		List<ConvertSubPanel> panels = new ArrayList<ConvertSubPanel>();
+		List<ConvertSubPanel> panels = new ArrayList<>();
 		GameModeFileLoader gameModeFileLoader = new GameModeFileLoader();
 		CampaignFileLoader campaignFileLoader = new CampaignFileLoader();
 		panels.add(new StartupPanel(gameModeFileLoader, campaignFileLoader));
@@ -99,17 +91,17 @@ public final class PCGenDataConvert extends JFrame
 
 		frame.getContentPane().add(installPanel);
 		frame.pack();
-		Utility.centerFrame(frame, false);
+		Utility.centerComponent(frame, false);
 		return frame;
 	}
 
-	public static void main(String[] args) throws InterruptedException
+	public static void main(String[] args)
 	{
 		Logging.log(Level.INFO, "Starting PCGen Data Converter v" + PCGenPropBundle.getVersionNumber()); //$NON-NLS-1$
 		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
 		Main.loadProperties(true);
-		getConverter(new ObjectCache()).setVisible(true);
+		getConverter().setVisible(true);
 	}
 	
 	static void savePrefs()

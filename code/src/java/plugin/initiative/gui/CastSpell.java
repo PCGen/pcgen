@@ -17,8 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  CastSpell.java
- *
- *  Created on January 16, 2002, 3:08 PM
  */
 package plugin.initiative.gui;
 
@@ -40,8 +38,6 @@ import plugin.initiative.SpellModel;
  * Dialog which casts a spell, creating a durationed event in the
  * initiative tracker.
  * </p>
- * @author     devon
- * @since    April 7, 2003
  */
 @SuppressWarnings("serial")
 public class CastSpell extends StartEvent
@@ -100,12 +96,12 @@ public class CastSpell extends StartEvent
 
 		descText.setBackground(getContentPane().getBackground());
 		text.append("<html><body><font size='-2'>");
-		text.append("<b>Duration: </b>" + model.getDuration() + " ");
-		text.append("<b>Range: </b>" + model.getRange() + " ");
-		text.append("<b>Save: </b>" + model.getSaveInfo() + " ");
-		text.append("<b>Cast: </b>" + model.getCastingTime() + " ");
-		text.append("<b>Target/Area: </b>" + model.getTarget() + " ");
-		text.append("<b>Desc: </b>" + model.getDesc() + " ");
+		text.append("<b>Duration: </b>" + model.getDuration() + ' ');
+		text.append("<b>Range: </b>" + model.getRange() + ' ');
+		text.append("<b>Save: </b>" + model.getSaveInfo() + ' ');
+		text.append("<b>Cast: </b>" + model.getCastingTime() + ' ');
+		text.append("<b>Target/Area: </b>" + model.getTarget() + ' ');
+		text.append("<b>Desc: </b>" + model.getDesc() + ' ');
 		text.append("</font></body></html>");
 		descText.setText(text.toString());
 		descPanel
@@ -144,7 +140,6 @@ public class CastSpell extends StartEvent
 	/**
 	 *
 	 * <p>Initializes the components.</p>
-	 *
 	 */
     @Override
 	protected void initComponents()

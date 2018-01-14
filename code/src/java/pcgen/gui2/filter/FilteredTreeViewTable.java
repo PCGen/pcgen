@@ -1,5 +1,4 @@
 /*
- * FilteredTreeViewTable.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 15, 2010, 7:42:03 PM
  */
 package pcgen.gui2.filter;
 
@@ -33,10 +31,7 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements FilterHandler
 {
 
@@ -53,7 +48,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		@Override
 		public List<TreeViewPath<Object>> getPaths(Object pobj)
 		{
-			return Collections.singletonList(new TreeViewPath<Object>(pobj));
+			return Collections.singletonList(new TreeViewPath<>(pobj));
 		}
 
 	};
@@ -119,7 +114,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 	public void setTreeViewModel(TreeViewModel<E> viewModel)
 	{
 		FilteredTreeViewModel oldModel = filteredModel;
-		filteredModel = new FilteredTreeViewModel<C, E>();
+		filteredModel = new FilteredTreeViewModel<>();
 		filteredModel.setBaseModel(viewModel);
 		if (filter != null)
 		{

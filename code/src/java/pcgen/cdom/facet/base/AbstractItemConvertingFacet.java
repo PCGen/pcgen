@@ -22,10 +22,9 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
@@ -54,7 +53,6 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * null is a valid source.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractItemConvertingFacet<S, D> extends
 		AbstractDataFacet<CharID, D>
@@ -264,7 +262,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	public boolean isEmpty(CharID id)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
-		return componentMap == null || componentMap.isEmpty();
+		return (componentMap == null) || componentMap.isEmpty();
 	}
 
 	/**
@@ -286,7 +284,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	public boolean contains(CharID id, S obj)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
-		return componentMap != null && componentMap.containsKey(obj);
+		return (componentMap != null) && componentMap.containsKey(obj);
 	}
 
 	/**
@@ -389,7 +387,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 */
 	protected Map<S, Target> getComponentMap()
 	{
-		return new IdentityHashMap<S, Target>();
+		return new IdentityHashMap<>();
 	}
 
 	/**
@@ -538,10 +536,8 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		Map<S, Target> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<S, Target>> it = componentMap.entrySet()
-					.iterator(); it.hasNext();)
+			for (Entry<S, Target> me : componentMap.entrySet())
 			{
-				Entry<S, Target> me = it.next();
 				Target target = me.getValue();
 				if (target != null)
 				{
@@ -560,7 +556,6 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 * converted object as well as the list of sources for the given destination
 	 * object.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	private class Target
 	{
@@ -568,7 +563,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		 * The set of objects from which the converted object has been received
 		 */
 		public Set<Object> set =
-				new WrappedMapSet<Object>(IdentityHashMap.class);
+                Collections.newSetFromMap(new IdentityHashMap<>());
 
 		/**
 		 * The converted ("destination") object
@@ -611,7 +606,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 
 	public Collection<S> getSourceObjects(CharID id)
 	{
-		Set<S> set = new WrappedMapSet<S>(IdentityHashMap.class);
+		Set<S> set = Collections.newSetFromMap(new IdentityHashMap<>());
 		Map<S, Target> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
@@ -629,7 +624,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	public Collection<Object> getSourcesFor(CharID id, S obj)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
-		Set<Object> set = new WrappedMapSet<Object>(IdentityHashMap.class);
+		Set<Object> set = Collections.newSetFromMap(new IdentityHashMap<>());
 		if (componentMap == null)
 		{
 			return set;

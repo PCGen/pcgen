@@ -9,8 +9,7 @@ Ray							TYPE:Unarmed.Melee
 #Ranged
 # Weapon Name					Type
 Harpers Ferry Pistol				TYPE:PersonalFirearm
-U.S. Percussion Navy Pistol			TYPE:PersonalFirearm
-U.S. Percussion Navy Pistol (Rifled)	TYPE:PersonalFirearm
+US Percussion Navy Pistol			TYPE:PersonalFirearm
 Allen and Thurber Pepperbox			TYPE:PersonalFirearm
 Pocket Deringer					TYPE:PersonalFirearm
 

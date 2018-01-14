@@ -17,14 +17,15 @@
  */
 package pcgen.output.model;
 
-import pcgen.base.util.Reference;
+import java.util.function.Supplier;
+
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 
 /**
  * A StringModel wraps a String object into a TemplateScalarModel
  */
-public class StringModel implements TemplateScalarModel, Reference<String>
+public class StringModel implements TemplateScalarModel, Supplier<String>
 {
 	/**
 	 * The underlying String object

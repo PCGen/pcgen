@@ -34,7 +34,7 @@ public class AddLevelIntegrationTest extends
 {
 
 	static AddLevelToken token = new AddLevelToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

@@ -1,0 +1,57 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Primer	SOURCESHORT:PFSP	SOURCEWEB:http://paizo.com/products/btpy8yw6?Pathfinder-Player-Companion-Pathfinder-Society-Primer	SOURCEDATE:2013-07
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 26 May 2016
+
+# ==============================
+# New Kits
+# ==============================
+
+STARTPACK:Infiltration Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:140
+GEAR:Caltrops			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Chalk (1 Piece)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Wrist Sheath			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Ear Trumpet			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Fake Footprint Shoes	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Skeleton Key			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Wrist Sheath			QTY:1		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Infiltration Kit (Small)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:140
+GEAR:Caltrops			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Chalk (1 Piece)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Wrist Sheath			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Ear Trumpet			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Fake Footprint Shoes	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Skeleton Key			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Wrist Sheath			QTY:1		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Pathfinder's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:12
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Mug or Tankard (Clay)	QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Dagger				QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Fishhook			QTY:2		SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Sewing Needle		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Signal Whistle		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:String (50 ft.)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Whetstone			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Pathfinder's Kit (Small)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:12
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Mug or Tankard (Clay)	QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Dagger				QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Fishhook			QTY:2		SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Sewing Needle		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Signal Whistle		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:String (50 ft.)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Whetstone			QTY:1		SIZE:PC	LOCATION:Backpack
+

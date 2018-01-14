@@ -1,5 +1,4 @@
 /*
- * EquipSlotLoader.java
  * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
@@ -17,11 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 24, 2003, 10:29 AM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -32,10 +27,7 @@ import pcgen.core.system.LoadInfo;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
-/**
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision$
- **/
+
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {
 

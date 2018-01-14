@@ -37,6 +37,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 		implements DataFacetChangeListener<CharID, PCTemplate>,
 		SetFacet<CharID, PCTemplate>
 {
+
 	/**
 	 * Adds the active PCTemplate to this facet.
 	 * 
@@ -86,7 +87,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 	@Override
 	protected Map<PCTemplate, Set<Object>> getComponentMap()
 	{
-		return new LinkedHashMap<PCTemplate, Set<Object>>();
+		return new LinkedHashMap<>();
 	}
 
 	public void init()

@@ -188,7 +188,7 @@ public class ChangeArmorType implements Processor<String>
 	 */
 	public List<String> applyProcessor(Collection<String> armorTypes)
 	{
-		List<String> returnList = new ArrayList<String>();
+		List<String> returnList = new ArrayList<>();
 		for (String type : armorTypes)
 		{
 			String mod = applyProcessor(type, null);

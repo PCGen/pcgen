@@ -29,7 +29,7 @@ public class SpellfailureTokenTest extends AbstractIntegerTokenTestCase<Equipmen
 {
 
 	static SpellfailureToken token = new SpellfailureToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

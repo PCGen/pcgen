@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.helper;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -73,11 +74,11 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	public AbstractProfProvider(List<CDOMReference<T>> profs,
 			List<CDOMReference<Equipment>> equipTypes)
 	{
-		direct = new TreeSet<CDOMReference<T>>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		direct = new TreeSet<>(
+                ReferenceUtilities.REFERENCE_SORTER);
 		direct.addAll(profs);
-		byEquipType = new TreeSet<CDOMReference<Equipment>>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		byEquipType = new TreeSet<>(
+                ReferenceUtilities.REFERENCE_SORTER);
 		byEquipType.addAll(equipTypes);
 	}
 
@@ -131,17 +132,15 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	 *         given Equipment TYPE.
 	 */
 	@Override
+	@SuppressWarnings("PMD.AvoidBranchingStatementAsLastInLoop")
 	public boolean providesEquipmentType(String typeString)
 	{
-		if (typeString == null || typeString.length() == 0)
+		if (typeString == null || typeString.isEmpty())
 		{
 			return false;
 		}
-		Set<String> types = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
-		for (String s : typeString.split("\\."))
-		{
-			types.add(s);
-		}
+		Set<String> types = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+		Collections.addAll(types, typeString.split("\\."));
 		REF: for (CDOMReference<Equipment> ref : byEquipType)
 		{
 			StringTokenizer tok = new StringTokenizer(ref.getLSTformat(false)

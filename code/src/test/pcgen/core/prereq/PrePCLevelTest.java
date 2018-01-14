@@ -1,6 +1,4 @@
 /*
- * PrePCLevelTest.java
- *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -14,8 +12,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
@@ -39,12 +35,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>PREPCLEVELTest</code> tests that the PREPCLEVEL tag is
  * working correctly.
- *
- * Last Editor: $Author: $
- * Last Edited: $Date: 2007-11-21 09:50:01 -0500 (Wed, 21 Nov 2007) $
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision: 4557 $
  */
 public class PrePCLevelTest extends AbstractCharacterTestCase
 {

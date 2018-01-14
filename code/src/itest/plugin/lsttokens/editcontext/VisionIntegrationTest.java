@@ -34,7 +34,7 @@ public class VisionIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static VisionLst token = new VisionLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

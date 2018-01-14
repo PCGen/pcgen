@@ -1,5 +1,4 @@
 /*
- * EquipmentSetFacade.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 18, 2008, 2:00:52 PM
  */
 package pcgen.facade.core;
 
@@ -28,18 +26,13 @@ import java.util.EventObject;
 import pcgen.facade.util.ListFacade;
 
 /**
- * <code>EquipmentSetFacade</code>defines the interface layer between the UI 
+ * {@code EquipmentSetFacade}defines the interface layer between the UI
  * and the pcgen core for managing how equipment is worn or placed (t.e. 
  * equipped). There can be multiple instance of this facade per character,
  * each representing a configuration of equipped gear (e.g. dungeon, boat, 
  * camp).
  *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *  
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision: $
  */
 public interface EquipmentSetFacade
 {
@@ -141,7 +134,7 @@ public interface EquipmentSetFacade
 	public static class EquipmentTreeEvent extends EventObject
 	{
 
-		private EquipNode node;
+		private final EquipNode node;
 
 		public EquipmentTreeEvent(Object source, EquipNode node)
 		{

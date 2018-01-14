@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 5, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -31,15 +26,9 @@ import pcgen.io.exporttoken.SkillToken;
 import pcgen.util.Logging;
 
 /**
- * <code>SkillLevelToken</code>  outputs the number of skills
+ * {@code SkillLevelToken}  outputs the number of skills
  * the character obtained at the specified level. The format 
  * for this tag is SKILLLEVEL.x.TOTAL 
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 // SKILLLEVEL

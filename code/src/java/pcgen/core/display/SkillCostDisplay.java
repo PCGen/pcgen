@@ -1,6 +1,5 @@
 /*
  * Copyright 2012-14 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -39,8 +38,11 @@ import pcgen.core.bonus.BonusPair;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 
-public class SkillCostDisplay
+public final class SkillCostDisplay
 {
+	private SkillCostDisplay()
+	{
+	}
 
 	/**
 	 * Builds up a string describing what makes up the misc modifier for a skill
@@ -58,7 +60,7 @@ public class SkillCostDisplay
 			boolean shortForm)
 	{
 		double bonusObjTotal = 0.0;
-		List<String> explanation = new ArrayList<String>();
+		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
 		String bonusKey = ("SKILL." + keyName).toUpperCase();
 		for (BonusObj bonus : aPC.getActiveBonusList())
@@ -178,7 +180,7 @@ public class SkillCostDisplay
 		SkillCostDisplay.appendBonusDesc(bonusDetails, aCheckMod, "ARMOR");
 	
 		String aString = SettingsHandler.getGame().getRankModFormula();
-		if (aString.length() != 0)
+		if (!aString.isEmpty())
 		{
 			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());
 			bonus = aPC.getVariableValue(aString, "").intValue();
@@ -203,7 +205,7 @@ public class SkillCostDisplay
 	public static String getSituationModifierExplanation(Skill sk,
 		String situation, PlayerCharacter aPC, boolean shortForm)
 	{
-		List<String> explanation = new ArrayList<String>();
+		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
 		String bonusKey = ("SITUATION." + keyName + "=" + situation).toUpperCase();
 		for (BonusObj bonus : aPC.getActiveBonusList())
@@ -297,7 +299,7 @@ public class SkillCostDisplay
 			needComma = true;
 		}
 		double bonus = SkillRankControl.getSkillRankBonusTo(pc, sk);
-		if (bonus != 0d)
+		if (bonus != 0.0d)
 		{
 			if (sb.length() > 0)
 			{

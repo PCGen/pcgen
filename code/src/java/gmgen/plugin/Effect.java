@@ -15,10 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Spell.java
- *
- *  Created on January 16, 2002, 12:27 PM
  */
 package gmgen.plugin;
 
@@ -26,28 +22,20 @@ import java.util.List;
 import java.util.Vector;
 
 /**
- *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
  */
 public class Effect extends Event
 {
-	/**  Description of the Field */
-	public SystemInitiative anInit;
-	protected String aStatus = "";
 
 	/**
 	 *  Creates new Spell
 	 * @param player
-	 * @param effect
 	 * @param description
 	 * @param duration
 	 * @param alert
 	 */
-	public Effect(String player, String effect, String description, int duration, boolean alert)
+	public Effect(String player, String description, int duration, boolean alert)
 	{
 		super("", player, description, duration, 0, alert);
-		this.aStatus = effect;
 	}
 
     @Override
@@ -66,49 +54,34 @@ public class Effect extends Event
     @Override
 	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<Object> rowVector = new Vector<Object>();
+		Vector<Object> rowVector = new Vector<>();
 
-		for ( String columnName : columnOrder )
+		for ( final String columnName : columnOrder )
 		{
-			if (columnName.equals("Name"))
-			{ // Event's name
-				rowVector.add("");
-			}
-			else if (columnName.equals("Player"))
-			{ // Player's Name who cast the spell
-				rowVector.add("Owner: " + getPlayer());
-			}
-			else if (columnName.equals("Status"))
-			{ // Event's Status
-				rowVector.add(getStatus());
-			}
-			else if (columnName.equals("+"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("Init"))
-			{ // Event's Initiative
-				rowVector.add("");
-			}
-			else if (columnName.equals("Dur"))
-			{ // Event's Duration
-				rowVector.add("" + getDuration());
-			}
-			else if (columnName.equals("#"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("HP"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("HP Max"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("Type"))
-			{ //PC, Enemy, Ally, -
-				rowVector.add("");
+			switch (columnName)
+			{
+				case "Name":  // Event's name
+					rowVector.add("");
+					break;
+				case "Player":  // Player's Name who cast the spell
+					rowVector.add("Owner: " + getPlayer());
+					break;
+				case "Status":  // Event's Status
+					rowVector.add(getStatus());
+					break;
+				case "Init":  // Event's Initiative
+					rowVector.add("");
+					break;
+				case "Dur":  // Event's Duration
+					rowVector.add(String.valueOf(getDuration()));
+					break;
+				case "+":  // Ignored
+				case "#":  // Ignored
+				case "HP":  // Ignored
+				case "HP Max":  // Ignored
+				case "Type":  //PC, Enemy, Ally, -
+					rowVector.add("");
+					break;
 			}
 		}
 
@@ -128,23 +101,22 @@ public class Effect extends Event
 		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
-		if (columnName.equals("Name"))
-		{ // Spell's Name
-			setName(strData);
-		}
-		else if (columnName.equals("Player"))
-		{ // Name of the player who cast the spell
-			setPlayer(strData);
-		}
-		else if (columnName.equals("Status"))
-		{ // SPell's status
-			setStatus(State.getState(strData));
-		}
-		else if (columnName.equals("Dur"))
-		{ // Spell's duration
+		switch (columnName)
+		{
+			case "Name":  // Spell's Name
+				setName(strData);
+				break;
+			case "Player":  // Name of the player who cast the spell
+				setPlayer(strData);
+				break;
+			case "Status":  // SPell's status
+				setStatus(State.getState(strData));
+				break;
+			case "Dur":  // Spell's duration
 
-			Integer intData = Integer.valueOf(strData);
-			setDuration(intData.intValue());
+				Integer intData = Integer.valueOf(strData);
+				setDuration(intData);
+				break;
 		}
 	}
 }

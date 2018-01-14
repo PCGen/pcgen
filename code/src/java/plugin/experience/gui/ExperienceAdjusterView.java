@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.experience.gui;
 
@@ -43,12 +41,9 @@ import plugin.experience.ExperienceAdjusterModel;
 
 /**
  * The View for the Experience Adjuster.  This view is independant and will be
- * created by the <code>ExperienceAdjusterController</code>.  The view is
- * implemented as a <code>JPanel</code> so it can be added to the
- * <code>JTabbedPane</code> of the <code>GMGenSystemView</code>.<br>
- * Created on February 19, 2003<br>
- * Updated on March 6, 2003
- * @version 2.10
+ * created by the {@code ExperienceAdjusterController}.  The view is
+ * implemented as a {@code JPanel} so it can be added to the
+ * {@code JTabbedPane} of the <code>GMGenSystemView</code>.<br>
  */
 // TODO use multi column list rather than a single line
 public class ExperienceAdjusterView extends javax.swing.JPanel
@@ -109,8 +104,8 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 	private ExperienceAdjusterModel model;
 
 	/**
-	 * Creates an instance of <code>ExperienceAdjusterView</code>
-	 * <code>ExperienceAdjusterController</code>.
+	 * Creates an instance of {@code ExperienceAdjusterView}
+	 * {@code ExperienceAdjusterController}.
 	 */
 	public ExperienceAdjusterView(ExperienceAdjusterModel model)
 	{
@@ -129,7 +124,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Add Experience to Selected Character</b> button.
-	 * @return the <code>addExperienceToCharButton</code>.
+	 * @return the {@code addExperienceToCharButton}.
 	 */
 	public JButton getAddExperienceToCharButton()
 	{
@@ -138,7 +133,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Add Experience to Selected Party</b> button.
-	 * @return the <code>addExperienceToPartyButton</code>.
+	 * @return the {@code addExperienceToPartyButton}.
 	 */
 	public JButton getAddExperienceToPartyButton()
 	{
@@ -147,7 +142,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Adjust CR</b> button.
-	 * @return the <code>adjustCRButton</code>.
+	 * @return the {@code adjustCRButton}.
 	 */
 	public JButton getAdjustCRButton()
 	{
@@ -156,7 +151,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the list of characters from the GUI.
-	 * @return the <code>characterList</code>.
+	 * @return the {@code characterList}.
 	 */
 	public JList getCharacterList()
 	{
@@ -183,7 +178,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the field for experience to add.
-	 * @return the <code>experienceToAdd<code> field.
+	 * @return the {@code experienceToAdd} field.
 	 */
 	public JTextField getExperienceField()
 	{
@@ -258,7 +253,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the experience to add that the user has input.
-	 * @return the experience to add as an <code>int</code>.
+	 * @return the experience to add as an {@code int}.
 	 */
 	public int getExperienceToAdd()
 	{
@@ -414,10 +409,10 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 				if (CoreUtility.doublesEqual(realValue, 0.5)) {
 					getExperienceMultNameLabel().setText(
 							LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
-				} else if (realValue <= .7) {
+				} else if (realValue <= 0.7) {
 					getExperienceMultNameLabel().setText(
 							LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
-				} else if ((realValue > .7) && (realValue < 1.5)) {
+				} else if ((realValue > 0.7) && (realValue < 1.5)) {
 					getExperienceMultNameLabel().setText(
 							LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
 				} else if (realValue >= 1.5) {
@@ -445,7 +440,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(addExperienceToPartyButton, gridBagConstraints);
 
-		experienceMultLabel.setText(LanguageBundle.getPrettyMultiplier(1d));
+		experienceMultLabel.setText(LanguageBundle.getPrettyMultiplier(1.0d));
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;

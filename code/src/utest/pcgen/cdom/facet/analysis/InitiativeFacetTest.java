@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
-import pcgen.cdom.facet.analysis.InitiativeFacet;
 
 public class InitiativeFacetTest extends TestCase
 {
@@ -55,7 +54,7 @@ public class InitiativeFacetTest extends TestCase
 		altid = CharID.getID(cid);
 		facet = getMockFacet();
 		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
-		bonusInfo = new HashMap<CharID, Double>();
+		bonusInfo = new HashMap<>();
 	}
 
 	@Test

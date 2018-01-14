@@ -1,5 +1,4 @@
 /*
- * HtmlInfoBuilder.java
  * Copyright 2007 (C) Koen Van Daele
  *
  * This library is free software; you can redistribute it and/or
@@ -16,23 +15,17 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 4-feb-07
  *
- * $Id: HtmlInfoBuilder.java 14600 2011-02-24 23:41:00Z jdempsey $
  */
 package pcgen.gui2.util;
 
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>HtmlInfoBuilder</code> is a helper class for the various
+ * {@code HtmlInfoBuilder} is a helper class for the various
  * setInfoLabelText methods in the gui tabs.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2011-02-24 15:41:00 -0800 (Thu, 24 Feb 2011) $
  *
- * @author Koen Van Daele <vandaelek@users.sourceforge.net>
- * @version $Revision: 14600 $
  */
 public class HtmlInfoBuilder 
 {
@@ -159,7 +152,7 @@ public class HtmlInfoBuilder
 	
 	/**
 	 * Used for internationalisation. Looks up the property through the 
-	 * <code>ProperyFactory</code> and uses that as the key.
+	 * {@code ProperyFactory} and uses that as the key.
 	 * @param propertyKey The name of a property in the LanguageProperties file.
 	 * @param value The value that belongs to the key.
 	 * @return HtmlInfoBuilder
@@ -171,7 +164,7 @@ public class HtmlInfoBuilder
 	
 	/**
 	 * Used for internationalisation. Looks up the property through the 
-	 * <code>ProperyFactory</code> and uses that as the key.
+	 * {@code ProperyFactory} and uses that as the key.
 	 * @param propertyKey The name of a property in the LanguageProperties file.
 	 * @param value The values that should be added as parameters to the property.
 	 * @return HtmlInfoBuilder
@@ -192,7 +185,7 @@ public class HtmlInfoBuilder
 		buffer.append("<img src=\"").append(iconPath).append("\" >&nbsp;");
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

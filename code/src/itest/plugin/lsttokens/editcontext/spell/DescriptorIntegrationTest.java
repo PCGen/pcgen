@@ -29,7 +29,7 @@ public class DescriptorIntegrationTest extends
 {
 
 	static DescriptorToken token = new DescriptorToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

@@ -11,9 +11,9 @@ PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Pl
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
-SOURCELONG:People of the North
+SOURCELONG:Pathfinder Player Companion: People of the North
 SOURCESHORT:POTN
-SOURCEWEB:http://paizo.com/products/btpy8v35?Pathfinder-Player-Companion-People-of-the-North
+SOURCEWEB:http://paizo.com/products/btpy8v35
 SOURCEDATE:2013-01
 ISOGL:YES
 
@@ -22,7 +22,7 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy8v35|Buy this publication from Paizo Publishing!
-DESC:Far beyond the reach of the soft southlander lords lie the frozen forests and icy tundra of the Inner Sea region’s northernmost nations. Here dragon-headed longships ply the arctic seas, nomadic tribes hunt and ride mighty mammoths, and the descendents of the Witch Queen Baba Yaga rule a nation where spring has been forgotten. Whether they’re hardened natives or arctic adventurers, everyone in the northern lands walks a fine line between finding wealth and glory and filling a shallow grave in the bloody snow.
+DESC:Far beyond the reach of the soft southlander lords lie the frozen forests and icy tundra of the Inner Sea region's northernmost nations. Here dragon-headed longships ply the arctic seas, nomadic tribes hunt and ride mighty mammoths, and the descendents of the Witch Queen Baba Yaga rule a nation where spring has been forgotten. Whether they're hardened natives or arctic adventurers, everyone in the northern lands walks a fine line between finding wealth and glory and filling a shallow grave in the bloody snow.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
@@ -45,4 +45,6 @@ TEMPLATE:potn_templates.lst
 
 LANGUAGE:@/pathfinder/paizo/player_companion/dragon_empires_primer/dep_languages.lst|!PRECAMPAIGN:1,INCLUDES=Dragon Empires Primer
 LANGUAGE:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_languages.lst|!PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+SPELL:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_spells.lst|(INCLUDE:Frost Fall)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_equipmods.lst|(INCLUDE:Material ~ Bronze)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 

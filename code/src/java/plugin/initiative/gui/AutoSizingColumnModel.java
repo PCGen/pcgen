@@ -25,7 +25,6 @@ import javax.swing.table.TableColumn;
 import java.util.Enumeration;
 
 /**
- * @author LodgeR
  * <p>GradesViewColumnModel</p>
  * <p>edit method description . . .</p>
  */
@@ -109,7 +108,7 @@ public class AutoSizingColumnModel extends DefaultTableColumnModel
 		return returnValue;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see javax.swing.table.TableColumnModel#addColumn(javax.swing.table.TableColumn)
 	 */
     @Override

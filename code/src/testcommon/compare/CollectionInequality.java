@@ -18,7 +18,6 @@ package compare;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import pcgen.base.test.InequalityTester;
 
@@ -36,8 +35,8 @@ public class CollectionInequality implements InequalityTest<Collection<?>>
 		{
 			return null;
 		}
-		List<Object> l1 = new ArrayList<Object>(s1);
-		List<Object> l2 = new ArrayList<Object>(s2);
+		Collection<Object> l1 = new ArrayList<>(s1);
+		Collection<Object> l2 = new ArrayList<>(s2);
 		l1.removeAll(l2);
 		if (l1.isEmpty())
 		{

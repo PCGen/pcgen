@@ -49,7 +49,7 @@ public class TypeToken implements PrimitiveToken<WeaponProf>
 		Converter<WeaponProf, R> c)
 	{
 		List<WeaponProf> profs = pc.getWeaponProfsInTarget(typeRef);
-		List<R> returnList = new ArrayList<R>(profs.size() + 10);
+		List<R> returnList = new ArrayList<>(profs.size() + 10);
 		for (WeaponProf wp : profs)
 		{
 			returnList.addAll(c.convert(CDOMDirectSingleRef.getRef(wp)));

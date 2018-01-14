@@ -29,7 +29,7 @@ public class AgeTokenTest extends AbstractKitTokenTestCase<KitBio>
 {
 
 	static AgeToken token = new AgeToken();
-	static CDOMSubLineLoader<KitBio> loader = new CDOMSubLineLoader<KitBio>(
+	static CDOMSubLineLoader<KitBio> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitBio.class);
 
 	@Override

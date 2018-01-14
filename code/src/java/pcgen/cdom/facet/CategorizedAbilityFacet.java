@@ -22,10 +22,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
@@ -37,7 +36,6 @@ import pcgen.core.Ability;
  * A CategorizedAbilityFacet is a DataFacet that contains information about
  * Ability objects that are contained in a PlayerCharacter
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 {
@@ -225,14 +223,14 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		if (catMap == null)
 		{
 			isNew = true;
-			catMap = new HashMap<Category<Ability>, Map<Nature, Set<Ability>>>();
+			catMap = new HashMap<>();
 			setCache(id, catMap);
 		}
 		Map<Nature, Set<Ability>> natureMap = catMap.get(cat);
 		if (natureMap == null)
 		{
 			isNew = true;
-			natureMap = new HashMap<Nature, Set<Ability>>();
+			natureMap = new HashMap<>();
 			catMap.put(cat, natureMap);
 		}
 		Set<Ability> abilitySet = natureMap.get(nat);
@@ -240,7 +238,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		{
 			isNew = true;
 			// abilitySet = new HashSet<Ability>();
-			abilitySet = new WrappedMapSet<Ability>(IdentityHashMap.class);
+			abilitySet = Collections.newSetFromMap(new IdentityHashMap<>());
 			natureMap.put(nat, abilitySet);
 		}
 		return isNew;

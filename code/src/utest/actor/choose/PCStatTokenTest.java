@@ -17,8 +17,6 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.PCStat;
 import plugin.lsttokens.choose.PCStatToken;
@@ -29,12 +27,6 @@ public class PCStatTokenTest extends
 {
 
 	static PCStatToken pca = new PCStatToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<PCStat> getActor()

@@ -1,5 +1,4 @@
 /*
- * PlayerCharacterWasLoadedMessage.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/02/2014 10:24:53 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr.messages;
 
@@ -26,15 +23,10 @@ import pcgen.core.PlayerCharacter;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>PlayerCharacterWasLoadedMessage</code> encapsulates a
+ * The Class {@code PlayerCharacterWasLoadedMessage} encapsulates a
  * message that a character was opened in PCGen. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class PlayerCharacterWasLoadedMessage extends PCGenMessage

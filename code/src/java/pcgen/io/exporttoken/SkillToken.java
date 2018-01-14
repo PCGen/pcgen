@@ -1,5 +1,4 @@
 /*
- * SkillToken.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Aug 5, 2004
  *
- * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -28,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -49,18 +46,14 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>SkillToken</code> is the base class for the SKILL
+ * {@code SkillToken} is the base class for the SKILL
  * family of tokens. It also handles the processing of the SKILL
  * token itself, which outputs select information about a
  * choosen skill. The format for this tag is SKILL.id.property
  * where id cna be either an index or a skill name and the
  * property is optional. eg SKILL.2.RANK or SKILL.BALANCE
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class SkillToken extends Token
 {
@@ -132,7 +125,7 @@ public class SkillToken extends Token
 		try
 		{
 			final int i = Integer.parseInt(details.getSkillId());
-			final List<Skill> pcSkills = new ArrayList<Skill>(getSkillList(pc));
+			final List<Skill> pcSkills = new ArrayList<>(getSkillList(pc));
 
 			SkillFilter filter = details.getSkillFilter();
 			if (filter == null || filter == SkillFilter.Selected)
@@ -200,7 +193,7 @@ public class SkillToken extends Token
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 
 		SkillFilter filter = null;
-		List<String> properties = new ArrayList<String>();
+		List<String> properties = new ArrayList<>();
 
 		// Split out the parts of the source
 		String skillId = "";
@@ -379,12 +372,12 @@ public class SkillToken extends Token
 						retValue.append(SettingsHandler.getGame()
 							.getSkillRankDisplayText(
 								SkillRankControl.getTotalRank(pc, aSkill).intValue()
-									+ SkillModifier.modifier(aSkill, pc).intValue()));
+									+ SkillModifier.modifier(aSkill, pc)));
 					}
 					else
 					{
 						retValue.append(Integer.toString(SkillRankControl.getTotalRank(pc, aSkill).intValue()
-							+ SkillModifier.modifier(aSkill, pc).intValue()));
+							+ SkillModifier.modifier(aSkill, pc)));
 					}
 					break;
 
@@ -397,12 +390,12 @@ public class SkillToken extends Token
 					}
 					else
 					{
-						retValue.append(SkillRankControl.getTotalRank(pc, aSkill).toString());
+						retValue.append(SkillRankControl.getTotalRank(pc, aSkill));
 					}
 					break;
 
 				case SKILL_MOD:
-					retValue.append(SkillModifier.modifier(aSkill, pc).toString());
+					retValue.append(SkillModifier.modifier(aSkill, pc));
 					break;
 
 				case SKILL_ABILITY:
@@ -415,7 +408,6 @@ public class SkillToken extends Token
 
 				case SKILL_MISC:
 					retValue.append(Integer.toString(SkillModifier.modifier(aSkill, pc)
-						.intValue()
 						- SkillModifier.getStatMod(aSkill, pc)));
 					break;
 
@@ -446,18 +438,18 @@ public class SkillToken extends Token
 						else
 						{
 							SkillCost newCost = pc.getSkillCostForClass(aSkill, pcc);
-							if (SkillCost.CLASS.equals(newCost)
-								|| SkillCost.EXCLUSIVE.equals(cost))
+							if (SkillCost.CLASS == newCost
+								|| SkillCost.EXCLUSIVE == cost)
 							{
 								cost = newCost;
 							}
 						}
-						if (SkillCost.CLASS.equals(cost))
+						if (SkillCost.CLASS == cost)
 						{
 							break;
 						}
 					}
-					retValue.append(cost.toString());
+					retValue.append(cost);
 					break;
 
 				case SKILL_EXCLUSIVE_TOTAL:
@@ -465,13 +457,14 @@ public class SkillToken extends Token
 						.append(Integer
 							.toString(((aSkill.getSafe(ObjectKey.EXCLUSIVE) || !aSkill.getSafe(ObjectKey.USE_UNTRAINED)) && (SkillRankControl.getTotalRank(pc, aSkill)
 								.intValue() == 0)) ? 0
-								: (SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc).intValue())));
+								: (SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier
+									.modifier(aSkill, pc))));
 					break;
 
 				case SKILL_TRAINED_TOTAL:
 					retValue.append(Integer
-						.toString((!aSkill.getSafe(ObjectKey.USE_UNTRAINED) && (SkillRankControl.getTotalRank(pc, aSkill).intValue() == 0)) ? 0 : (SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc)
-							.intValue())));
+						.toString((!aSkill.getSafe(ObjectKey.USE_UNTRAINED) && (SkillRankControl.getTotalRank(pc, aSkill).intValue() == 0)) ? 0 : (SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier
+								.modifier(aSkill, pc))));
 					break;
 
 				case SKILL_EXPLANATION:
@@ -493,7 +486,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_CLASSES:
-					List<String> classes = new ArrayList<String>();
+					List<String> classes = new ArrayList<>();
 					for (PCClass aClass : pc.getClassList())
 					{
 						if (pc.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS)
@@ -592,19 +585,18 @@ public class SkillToken extends Token
 
 	// ================== Inner class =======================
 	/**
-	 * <code>SkillDetails</code> holds the parsed details of a skill
+	 * {@code SkillDetails} holds the parsed details of a skill
 	 * token. Note that apart from updating the properties array contents,
 	 * instances of this class are immutable.
-	 *
 	 */
-	public final static class SkillDetails
+	public static final class SkillDetails
 	{
 		/** The id of the skill - normally an index or a skill name. */
-		final protected String skillId;
+		private final String skillId;
 		/** The list of properties for the token. */
-		final protected List<String> properties;
+		private final List<String> properties;
 		/** The skilll list filter */
-		final protected SkillFilter filter;
+		private final SkillFilter filter;
 
 		/**
 		 * Constructor for skill details. Creates an immutable instance

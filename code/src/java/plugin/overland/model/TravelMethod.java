@@ -21,9 +21,6 @@ import javax.swing.ComboBoxModel;
 
 /**
  * Stores travel methods and provides model for use in a GUI.
- *
- * @author Vincent Lhote
- *
  */
 public interface TravelMethod
 {

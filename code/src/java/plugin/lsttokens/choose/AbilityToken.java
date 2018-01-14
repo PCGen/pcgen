@@ -90,7 +90,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 					title = title.substring(1, title.length() - 1);
 				}
 				activeValue = value.substring(0, pipeLoc);
-				if (title == null || title.length() == 0)
+				if ((title == null) || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + Constants.COLON
 						+ getTokenName() + " had TITLE= but no title: " + value, context);
@@ -119,10 +119,10 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 			return cpr;
 		}
 		PrimitiveChoiceSet<Ability> pcs =
-				new CollectionToChoiceSet<Ability>(coll);
+				new CollectionToChoiceSet<>(coll);
 		CategorizedChooseInformation<Ability> tc =
-				new CategorizedChooseInformation<Ability>(getTokenName(),
-					acRef, pcs, Ability.class);
+				new CategorizedChooseInformation<>(getTokenName(),
+						acRef, pcs, Ability.class);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -311,9 +311,6 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return choice.getKeyName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Ability decodeChoice(LoadContext context, String encoded,
 		Category<?> category)

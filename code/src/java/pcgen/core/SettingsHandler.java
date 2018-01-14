@@ -1,5 +1,4 @@
 /*
- * SettingsHandler.java
  * Copyright 2001 (C) Jonas Karlsson
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on July 10, 2002, 2:15 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core;
 
@@ -29,6 +21,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Point;
+import java.awt.SystemColor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -43,7 +36,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
+
 import javax.swing.SwingConstants;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -56,16 +51,15 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
+import org.apache.commons.lang3.SystemUtils;
+
 /**
- * This class contains all settings-related code moved from Globals.java
  *
  * Should be cleaned up more.
  * 
  * <b>NB: This class is being gradually replaced with use of 
  * {@link pcgen.system.PropertyContext} and its children.</b>   
  *
- * @author jujutsunerd
- * @version $Revision$
  **/
 public final class SettingsHandler
 {
@@ -85,7 +79,7 @@ public final class SettingsHandler
 	private static boolean spellMarketPriceAdjusted = false;
 
 	// Map of RuleCheck keys and their settings
-	private static Map<String, String> ruleCheckMap = new HashMap<String, String>();
+	private static Map<String, String> ruleCheckMap = new HashMap<>();
 
 	/** That browserPath is set to null is intentional. */
 	private static String browserPath = null; //Intentional null
@@ -198,6 +192,10 @@ public final class SettingsHandler
 	private static boolean isGMGen = false;
 	private static boolean showSingleBoxPerBundle = false;
 
+	private SettingsHandler()
+	{
+	}
+
 
 	public static String getSelectedGenerators(String string)
 	{
@@ -287,7 +285,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the path to the backup directory for character files.
 	 *
-	 * @param  path  the <code>File</code> representing the path
+	 * @param  path  the {@code File} representing the path
 	 */
 	public static void setBackupPcgPath(final File path)
 	{
@@ -297,7 +295,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the path to the backup directory for character files.
 	 *
-	 * @return    the <code>backupPcgPath</code> property
+	 * @return    the {@code backupPcgPath} property
 	 */
 	public static File getBackupPcgPath()
 	{
@@ -307,7 +305,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the external browser path to use.
 	 *
-	 * @param  path  the <code>String</code> representing the path
+	 * @param  path  the {@code String} representing the path
 	 **/
 	public static void setBrowserPath(final String path)
 	{
@@ -317,7 +315,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the external browser path to use.
 	 *
-	 * @return    the <code>browserPath</code> property
+	 * @return    the {@code browserPath} property
 	 */
 	public static String getBrowserPath()
 	{
@@ -337,7 +335,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the flag to determine whether PCGen should backup pcg files before saving
 	 *
-	 * @param  argCreatePcgBackup  the <code>flag</code>
+	 * @param  argCreatePcgBackup  the {@code flag}
 	 */
 	public static void setCreatePcgBackup(final boolean argCreatePcgBackup)
 	{
@@ -347,7 +345,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the flag to determine whether PCGen should backup pcg files before saving
 	 *
-	 * @return    the <code>createPcgBackup</code> property
+	 * @return    the {@code createPcgBackup} property
 	 */
 	public static boolean getCreatePcgBackup()
 	{
@@ -417,7 +415,7 @@ public final class SettingsHandler
 	public static String getFilePaths()
 	{
 		String def_type = "user";
-		if (Globals.isMacPlatform)
+		if (SystemUtils.IS_OS_MAC)
 		{
 			def_type = "mac_user";
 		}
@@ -445,15 +443,15 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Puts all properties into the <code>Properties</code> object,
-	 * (<code>options</code>). This is called by
-	 * <code>writeOptionsProperties</code>, which then saves the
-	 * <code>options</code> into a file.
+	 * Puts all properties into the {@code Properties} object,
+	 * ({@code options}). This is called by
+	 * {@code writeOptionsProperties}, which then saves the
+	 * {@code options} into a file.
 	 * <p>
 	 * I am guessing that named object properties are faster to access
-	 * than using the <code>getProperty</code> method, and that this is
-	 * why settings are stored as static properties of <code>Global</code>,
-	 * but converted into a <code>Properties</code> object for
+	 * than using the {@code getProperty} method, and that this is
+	 * why settings are stored as static properties of {@code Global},
+	 * but converted into a {@code Properties} object for
 	 * storage and retrieval.
 	 * @param optionName
 	 * @param optionValue
@@ -479,19 +477,19 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Set most of this objects static properties from the loaded <code>options</code>.
+	 * Set most of this objects static properties from the loaded {@code options}.
 	 * Called by readOptionsProperties. Most of the static properties are
 	 * set as a side effect, with the main screen size being returned.
 	 * <p>
 	 * I am guessing that named object properties are faster to access
-	 * than using the <code>getProperty</code> method, and that this is
-	 * why settings are stored as static properties of <code>Global</code>,
-	 * but converted into a <code>Properties</code> object for
+	 * than using the {@code getProperty} method, and that this is
+	 * why settings are stored as static properties of {@code Global},
+	 * but converted into a {@code Properties} object for
 	 * storage and retrieval.
 	 * @param optionName
 	 * @param defaultValue
 	 *
-	 * @return the default <code>Dimension</code> to set the screen size to
+	 * @return the default {@code Dimension} to set the screen size to
 	 */
 	public static boolean getGMGenOption(final String optionName, final boolean defaultValue)
 	{
@@ -861,9 +859,9 @@ public final class SettingsHandler
 		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
 		{
 			final int width = Integer.parseInt(dw.toString().substring(0,
-						Math.min(dw.toString().length(), dw.toString().lastIndexOf(".")))); //$NON-NLS-1$
+						Math.min(dw.toString().length(), dw.toString().lastIndexOf('.')))); //$NON-NLS-1$
 			final int height = Integer.parseInt(dh.toString().substring(0,
-						Math.min(dh.toString().length(), dh.toString().lastIndexOf(".")))); //$NON-NLS-1$
+						Math.min(dh.toString().length(), dh.toString().lastIndexOf('.')))); //$NON-NLS-1$
 			d = new Dimension(width, height);
 		}
 
@@ -965,7 +963,7 @@ public final class SettingsHandler
 		setPostExportCommandStandard(getPCGenOption("postExportCommandStandard", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPostExportCommandPDF(getPCGenOption("postExportCommandPDF", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPrereqFailColor(getPCGenOption("prereqFailColor", Color.red.getRGB())); //$NON-NLS-1$
-		setPrereqQualifyColor(getPCGenOption("prereqQualifyColor", Color.black.getRGB())); //$NON-NLS-1$
+		setPrereqQualifyColor(getPCGenOption("prereqQualifyColor", SystemColor.text.getRGB())); //$NON-NLS-1$
 		setPreviewTabShown(getPCGenOption("previewTabShown", true)); //$NON-NLS-1$
 		setROG(getPCGenOption("isROG", false)); //$NON-NLS-1$
 		setSaveCustomInLst(getPCGenOption("saveCustomInLst", false)); //$NON-NLS-1$
@@ -1022,7 +1020,7 @@ public final class SettingsHandler
 				CoreUtility.split(getOptions().getProperty(
 					"pcgen.files.chosenCampaignSourcefiles." + gameMode.getName(), //$NON-NLS-1$
 					""), ',');
-		List<URI> uriList = new ArrayList<URI>(uriStringList.size());
+		List<URI> uriList = new ArrayList<>(uriStringList.size());
 		for (String str : uriStringList)
 		{
 			try {
@@ -1294,6 +1292,7 @@ public final class SettingsHandler
 	 * @deprecated Use ConfigurationSettings.getPccFilesDir() instead.
 	 * @return pcc files location
 	 */
+	@Deprecated
 	public static File getPccFilesLocation()
 	{
 		return pccFilesLocation;
@@ -1302,7 +1301,7 @@ public final class SettingsHandler
 	/**
 	 * Ensures that the path specified exists.
 	 *
-	 * @param  path  the <code>File</code> representing the path
+	 * @param  path  the {@code File} representing the path
 	 */
 	public static void ensurePathExists(final File path)
 	{
@@ -1315,7 +1314,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the path that was last used in a character or output file chooser.
 	 *
-	 * @param  path  the <code>File</code> representing the path
+	 * @param  path  the {@code File} representing the path
 	 */
 	public static void setLastUsedPcgPath(final File path)
 	{
@@ -1347,6 +1346,7 @@ public final class SettingsHandler
 	 * @deprecated 
 	 * @return the sponsor directory
 	 */
+	@Deprecated
 	public static File getPcgenSponsorDir()
 	{
 		return pcgenSponsorDir;
@@ -1365,7 +1365,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the path to the portrait files.
 	 *
-	 * @param  path  the <code>File</code> representing the path
+	 * @param  path  the {@code File} representing the path
 	 */
 	public static void setPortraitsPath(final File path)
 	{
@@ -1376,6 +1376,7 @@ public final class SettingsHandler
 	 * @deprecated Use PCGenSettings.getPortraitsDir()
 	 * @return the portraits directory
 	 */
+	@Deprecated
 	public static File getPortraitsPath()
 	{
 		return portraitsPath;
@@ -1541,14 +1542,14 @@ public final class SettingsHandler
 	/**
 	 * Returns the current HTML output sheet for a single character.
 	 *
-	 * @return    the <code>selectedCharacterHTMLOutputSheet</code> property
+	 * @return    the {@code selectedCharacterHTMLOutputSheet} property
 	 * @param aPC
 	 **/
 	public static String getSelectedCharacterHTMLOutputSheet(final PlayerCharacter aPC)
 	{
 		if (getSaveOutputSheetWithPC() && (aPC != null))
 		{
-			if (aPC.getSelectedCharacterHTMLOutputSheet().length() > 0)
+			if (!aPC.getSelectedCharacterHTMLOutputSheet().isEmpty())
 			{
 				return aPC.getSelectedCharacterHTMLOutputSheet();
 			}
@@ -1576,14 +1577,14 @@ public final class SettingsHandler
 	/**
 	 * Returns the current PDF output sheet for a single character.
 	 *
-	 * @return    the <code>selectedCharacterPDFOutputSheet</code> property
+	 * @return    the {@code selectedCharacterPDFOutputSheet} property
 	 * @param aPC
 	 */
 	public static String getSelectedCharacterPDFOutputSheet(final PlayerCharacter aPC)
 	{
 		if (getSaveOutputSheetWithPC() && (aPC != null))
 		{
-			if (aPC.getSelectedCharacterPDFOutputSheet().length() > 0)
+			if (!aPC.getSelectedCharacterPDFOutputSheet().isEmpty())
 			{
 				return aPC.getSelectedCharacterPDFOutputSheet();
 			}
@@ -1605,7 +1606,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current EquipSet template.
 	 *
-	 * @return    the <code>selectedEqSetTemplate</code> property
+	 * @return    the {@code selectedEqSetTemplate} property
 	 **/
 	public static String getSelectedEqSetTemplate()
 	{
@@ -1614,9 +1615,9 @@ public final class SettingsHandler
 
 	public static String getSelectedEqSetTemplateName()
 	{
-		if (selectedEqSetTemplate.length() > 0)
+		if (!selectedEqSetTemplate.isEmpty())
 		{
-			final int i = selectedEqSetTemplate.lastIndexOf("\\"); //$NON-NLS-1$
+			final int i = selectedEqSetTemplate.lastIndexOf('\\'); //$NON-NLS-1$
 
 			return selectedEqSetTemplate.substring(i + 1);
 		}
@@ -1637,7 +1638,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current party HTML template.
 	 *
-	 * @return    the <code>selectedPartyHTMLOutputSheet</code> property
+	 * @return    the {@code selectedPartyHTMLOutputSheet} property
 	 **/
 	public static String getSelectedPartyHTMLOutputSheet()
 	{
@@ -1657,7 +1658,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current party PDF template.
 	 *
-	 * @return    the <code>selectedPartyPDFOutputSheet</code> property
+	 * @return    the {@code selectedPartyPDFOutputSheet} property
 	 **/
 	public static String getSelectedPartyPDFOutputSheet()
 	{
@@ -1677,7 +1678,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current spell output sheet
 	 *
-	 * @return    the <code>selectedSpellSheet</code> property
+	 * @return    the {@code selectedSpellSheet} property
 	 **/
 	public static String getSelectedSpellSheet()
 	{
@@ -1686,9 +1687,9 @@ public final class SettingsHandler
 
 	public static String getSelectedSpellSheetName()
 	{
-		if (selectedSpellSheet.length() > 0)
+		if (!selectedSpellSheet.isEmpty())
 		{
-			final int i = selectedSpellSheet.lastIndexOf("\\"); //$NON-NLS-1$
+			final int i = selectedSpellSheet.lastIndexOf('\\'); //$NON-NLS-1$
 
 			return selectedSpellSheet.substring(i + 1);
 		}
@@ -1698,9 +1699,8 @@ public final class SettingsHandler
 
 	/**
 	 * Sets whether the feats dialog should be shown at level up.
-	 * NOTE: This function has been disabled as it interferes with class builds. 
-	 * See bug #1502512 at 
-	 * https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719
+	 * NOTE: This function has been disabled as it interferes with class builds.
+	 * @see <a href="https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719">#1502512</a>
 	 *  
 	 * @param argShowFeatDialogAtLevelUp Should the feats dialog be shown at level up?
 	 */
@@ -1805,7 +1805,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the path to the temporary output location (for previews).
 	 *
-	 * @return    the <code>tempPath</code> property
+	 * @return    the {@code tempPath} property
 	 */
 	public static File getTempPath()
 	{
@@ -2265,15 +2265,15 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Puts all properties into the <code>Properties</code> object,
-	 * (<code>options</code>). This is called by
-	 * <code>writeOptionsProperties</code>, which then saves the
-	 * <code>options</code> into a file.
+	 * Puts all properties into the {@code Properties} object,
+	 * ({@code options}). This is called by
+	 * {@code writeOptionsProperties}, which then saves the
+	 * {@code options} into a file.
 	 * <p>
 	 * I am guessing that named object properties are faster to access
-	 * than using the <code>getProperty</code> method, and that this is
-	 * why settings are stored as static properties of <code>Global</code>,
-	 * but converted into a <code>Properties</code> object for
+	 * than using the {@code getProperty} method, and that this is
+	 * why settings are stored as static properties of {@code Global},
+	 * but converted into a {@code Properties} object for
 	 * storage and retrieval.
 	 * @param optionName
 	 * @param optionValue
@@ -2289,19 +2289,19 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Set most of this objects static properties from the loaded <code>options</code>.
+	 * Set most of this objects static properties from the loaded {@code options}.
 	 * Called by readOptionsProperties. Most of the static properties are
 	 * set as a side effect, with the main screen size being returned.
 	 * <p>
 	 * I am guessing that named object properties are faster to access
-	 * than using the <code>getProperty</code> method, and that this is
-	 * why settings are stored as static properties of <code>Global</code>,
-	 * but converted into a <code>Properties</code> object for
+	 * than using the {@code getProperty} method, and that this is
+	 * why settings are stored as static properties of {@code Global},
+	 * but converted into a {@code Properties} object for
 	 * storage and retrieval.
 	 * @param optionName
 	 * @param defaultValue
 	 *
-	 * @return the default <code>Dimension</code> to set the screen size to
+	 * @return the default {@code Dimension} to set the screen size to
 	 */
 	public static boolean getPCGenOption(final String optionName, final boolean defaultValue)
 	{
@@ -2337,7 +2337,7 @@ public final class SettingsHandler
 			final String aKey = i.next();
 			final String aVal = ruleCheckMap.get(aKey);
 
-			if (value.length() == 0)
+			if (value.isEmpty())
 			{
 				value = aKey + "|" + aVal; //$NON-NLS-1$
 			}
@@ -2478,7 +2478,7 @@ public final class SettingsHandler
 			if ((fType == null) || (fType.length() < 1))
 			{
 				// make sure we have a default
-				if (Globals.isMacPlatform)
+				if (SystemUtils.IS_OS_MAC)
 				{
 					fType = "mac_user"; //$NON-NLS-1$
 				}
@@ -2633,7 +2633,7 @@ public final class SettingsHandler
 
 	/**
 	 * <p>Returns the window state.  This corresponds to the values returned/accepted
-	 * by <code>Frame.getExtendedState</code> and <code>Frame.setExtendedState</code>.</p>
+	 * by {@code Frame.getExtendedState} and <code>Frame.setExtendedState</code>.</p>
 	 *
 	 * @return Returns the windowState.
 	 */
@@ -2643,8 +2643,8 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Sets the window state.  This corresponds to the values returned/accepted
-	 * by <code>Frame.getExtendedState</code> and <code>Frame.setExtendedState</code>.</p>
+	 * <p>Sets the window state.  This corresponds to the values returned/accepted
+	 * by {@code Frame.getExtendedState} and <code>Frame.setExtendedState</code>.</p>
 	 *
 	 * @param argWindowState The argWindowState to set.
 	 */
@@ -2654,7 +2654,7 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Shows the program memory use in the status bar if <code>true</code>.
+	 * Shows the program memory use in the status bar if {@code true}.
 	 *
 	 * @return show memory setting for the status bar
 	 */
@@ -2664,7 +2664,7 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Shows character portrait preview in the file chooser if <code>true</code>.
+	 * Shows character portrait preview in the file chooser if {@code true}.
 	 *
 	 * @return show portrait preview
 	 */
@@ -2676,7 +2676,7 @@ public final class SettingsHandler
 	/**
 	 * Toggles displaying the character portrait preview in the file chooser
 	 *
-	 * @param showImagePreview <code>true</code> to show portrait preview
+	 * @param showImagePreview {@code true} to show portrait preview
 	 */
 	public static void setShowImagePreview(final boolean showImagePreview)
 	{

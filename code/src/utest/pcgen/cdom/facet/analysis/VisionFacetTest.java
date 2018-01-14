@@ -21,7 +21,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -52,14 +51,14 @@ public class VisionFacetTest extends
 				FormulaFactory.getFormulaFor(30));
 		Vision vision2 = new Vision(VisionType.getVisionType("Darkvision"),
 				FormulaFactory.getFormulaFor(20));
-		CDOMDirectSingleRef<Vision> ref1 = new CDOMDirectSingleRef<Vision>(vision1);
+		CDOMDirectSingleRef<Vision> ref1 = new CDOMDirectSingleRef<>(vision1);
 		SimpleAssociatedObject apo1 = new SimpleAssociatedObject();
 		cdo1.putToList(Vision.VISIONLIST, ref1, apo1);
-		CDOMDirectSingleRef<Vision> ref2 = new CDOMDirectSingleRef<Vision>(vision2);
+		CDOMDirectSingleRef<Vision> ref2 = new CDOMDirectSingleRef<>(vision2);
 		SimpleAssociatedObject apo2 = new SimpleAssociatedObject();
 		cdo2.putToList(Vision.VISIONLIST, ref2, apo2);
-		QualifiedObject<Vision> st1 = new QualifiedObject<Vision>(vision1);
-		QualifiedObject<Vision> st2 = new QualifiedObject<Vision>(vision2);
+		QualifiedObject<Vision> st1 = new QualifiedObject<>(vision1);
+		QualifiedObject<Vision> st2 = new QualifiedObject<>(vision2);
 		source = new CDOMObject[]{cdo1, cdo2};
 		target = new QualifiedObject[]{st1, st2};
 	}
@@ -75,8 +74,8 @@ public class VisionFacetTest extends
 	@Override
 	protected QualifiedObject<Vision> getObject()
 	{
-		return new QualifiedObject<Vision>(new Vision(VisionType
-			.getVisionType("Normal" + n++), FormulaFactory.getFormulaFor(30)));
+		return new QualifiedObject<>(new Vision(VisionType
+                .getVisionType("Normal" + n++), FormulaFactory.getFormulaFor(30)));
 	}
 
 	@Override

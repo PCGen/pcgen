@@ -104,17 +104,18 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return "ABILITY=" + category.getLSTformat() + "["
-			+ ref.getLSTformat(useAny) + "]";
+		return "ABILITY=" + category.getLSTformat() + '['
+			+ ref.getLSTformat(useAny) + ']';
 	}
 
 	private <R> List<R> getList(PlayerCharacter pc, Ability a)
 	{
 		// workaround for cloning issue
-		List<R> availableList = new ArrayList<R>();
+		List<R> availableList = new ArrayList<>();
 		List<CNAbility> theFeats = pc.getMatchingCNAbilities(a);
 		for (CNAbility ability : theFeats)
 		{
+			@SuppressWarnings("unchecked")
 			List<? extends R> list =
 					(List<? extends R>) pc.getDetailedAssociations(ability);
 			if (list != null)
@@ -154,7 +155,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 	@Override
 	public int hashCode()
 	{
-		return ref == null ? -57 : ref.hashCode();
+		return (ref == null) ? -57 : ref.hashCode();
 	}
 
 	@Override
@@ -169,7 +170,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 		{
 			return Collections.emptySet();
 		}
-		return new HashSet<R>(currentItems);
+		return new HashSet<>(currentItems);
 	}
 
 }

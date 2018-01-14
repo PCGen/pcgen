@@ -34,7 +34,6 @@ import pcgen.core.bonus.BonusUtilities;
  * StatBonusFacet is a Facet that calculates the bonus provided by PCStat objects on
  * a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StatBonusFacet
 {
@@ -61,7 +60,7 @@ public class StatBonusFacet
 	public Map<BonusObj, PCStat> getBonusListOfType(CharID id,
 			final String aType, final String aName)
 	{
-		final Map<BonusObj, PCStat> aList = new IdentityHashMap<BonusObj, PCStat>();
+		final Map<BonusObj, PCStat> aList = new IdentityHashMap<>();
 
 		for (PCStat stat : statFacet.getSet(id))
 		{

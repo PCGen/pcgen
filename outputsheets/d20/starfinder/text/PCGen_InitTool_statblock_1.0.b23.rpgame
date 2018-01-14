@@ -1,0 +1,170 @@
+<game-settings>
+  <game-name>PCGen stat block</game-name>
+  <init-die-roll>1d20</init-die-roll>
+  <init-tie-resolver>D&amp;D Resolution</init-tie-resolver>
+  <combatant-lookup-file/>
+  <custom-property-names>
+    <property name="raceClass" display="Race/Class"/>
+    <property name="fullType" display="Align/Type"/>
+    <property name="senses"/>
+    <property name="languages"/>
+    <property name="fullArmorClass" display="Armor Class"/>
+    <property name="hitDice"/>
+    <property name="currentHitPoints"/>
+    <property name="fullSaves" display="Saving Throws"/>
+    <property name="speed"/>
+    <property name="attack" display="Attacks"/>
+    <property name="faceReach" display="Face"/>
+    <property name="baseAttackGrapple" display="Base Atk"/>
+    <property name="specialAttacks"/>
+    <property name="fullAbilities" display="Abilities"/>
+    <property name="specialQualities"/>
+    <property name="feats"/>
+    <property name="skills"/>
+    <property name="challengeRating" display="CR"/>
+    <property name="possessions"/>
+  </custom-property-names>
+  <phase-dispatcher>Dispatch Manually</phase-dispatcher>
+  <phases-enabled>false</phases-enabled>
+  <phase-sort-property-name></phase-sort-property-name>
+  <phase-type>
+    <name>PhaseType</name>
+    <foreground>#000000</foreground>
+    <background>#ddddff</background>
+    <font>SansSerif-bold-11</font>
+    <alignment>ACTIVE</alignment>
+    <autoSkip>true</autoSkip>
+    <hidden>false</hidden>
+  </phase-type>
+  <phase-names/>
+  <combatant-types>
+    <combatant-type>
+      <alignment reference="../../../phase-type/alignment"/>
+      <auto-skip>false</auto-skip>
+      <background>#ffcccc</background>
+      <font>Tahoma-plain-11</font>
+      <foreground>#000000</foreground>
+      <hidden>false</hidden>
+      <icon/>
+      <name>Enemy</name>
+      <player-type>false</player-type>
+      <index-card-view/>
+    </combatant-type>
+    <combatant-type>
+      <alignment reference="../../../phase-type/alignment"/>
+      <auto-skip>false</auto-skip>
+      <background>#ffcccc</background>
+      <font>SansSerif-plain-11</font>
+      <foreground>#000000</foreground>
+      <hidden>false</hidden>
+      <icon/>
+      <name>NPC</name>
+      <player-type>false</player-type>
+      <index-card-view/>
+    </combatant-type>
+    <combatant-type>
+      <alignment reference="../../../phase-type/alignment"/>
+      <auto-skip>false</auto-skip>
+      <background>#ffcccc</background>
+      <font>SansSerif-plain-11</font>
+      <foreground>#000000</foreground>
+      <hidden>false</hidden>
+      <icon/>
+      <name>Monster</name>
+      <player-type>false</player-type>
+      <index-card-view/>
+    </combatant-type>
+    <combatant-type>
+      <alignment reference="../../../phase-type/alignment"/>
+      <auto-skip>false</auto-skip>
+      <background>#ccffcc</background>
+      <font>Tahoma-plain-11</font>
+      <foreground reference="../../combatant-type/foreground"/>
+      <hidden>false</hidden>
+      <icon/>
+      <name>Ally</name>
+      <player-type>false</player-type>
+      <index-card-view/>
+    </combatant-type>
+    <combatant-type>
+      <alignment reference="../../../phase-type/alignment"/>
+      <auto-skip>false</auto-skip>
+      <background>#ccffcc</background>
+      <font>SansSerif-bold-11</font>
+      <foreground reference="../../combatant-type[2]/foreground"/>
+      <hidden>false</hidden>
+      <icon/>
+      <name>PC</name>
+      <player-type>true</player-type>
+      <index-card-view/>
+    </combatant-type>
+  </combatant-types>
+  <timer-types>
+    <timer-type>
+      <alignment>TIMER</alignment>
+      <auto-skip>false</auto-skip>
+      <background>#f5f5f5</background>
+      <font>SansSerif-italic-11</font>
+      <foreground reference="../../../combatant-types/combatant-type[2]/foreground"/>
+      <hidden>true</hidden>
+      <icon type="CLASSPATH">reminderTimer.png</icon>
+      <name>Reminder</name>
+      <expired-icon type="CLASSPATH">alarmIndicator.png</expired-icon>
+      <index-card-view/>
+    </timer-type>
+    <timer-type>
+      <alignment reference="../../timer-type/alignment"/>
+      <auto-skip>true</auto-skip>
+      <background>#f5f5f5</background>
+      <font>SansSerif-italic-11</font>
+      <foreground reference="../../../combatant-types/combatant-type[2]/foreground"/>
+      <hidden>false</hidden>
+      <icon type="CLASSPATH">spellTimer.png</icon>
+      <name>Spell</name>
+      <expired-icon reference="../../timer-type/expired-icon"/>
+      <index-card-view/>
+    </timer-type>
+  </timer-types>
+  <wait-states>
+    <wait-state>
+      <alignment>WAIT</alignment>
+      <auto-skip>false</auto-skip>
+      <background/>
+      <font/>
+      <foreground/>
+      <hidden>false</hidden>
+      <icon type="CLASSPATH">delayWaitState.png</icon>
+      <name>Delay</name>
+    </wait-state>
+    <wait-state>
+      <alignment reference="../../wait-state/alignment"/>
+      <auto-skip>false</auto-skip>
+      <background/>
+      <font/>
+      <foreground/>
+      <hidden>false</hidden>
+      <icon type="CLASSPATH">disabledWaitState.png</icon>
+      <name>Disabled</name>
+    </wait-state>
+    <wait-state>
+      <alignment reference="../../wait-state/alignment"/>
+      <auto-skip>true</auto-skip>
+      <background>#666666</background>
+      <font/>
+      <foreground>#ffffff</foreground>
+      <hidden>false</hidden>
+      <icon type="CLASSPATH">cross.png</icon>
+      <name>Dead</name>
+    </wait-state>
+    <wait-state>
+      <alignment reference="../../wait-state/alignment"/>
+      <auto-skip>false</auto-skip>
+      <background/>
+      <font/>
+      <foreground/>
+      <hidden>false</hidden>
+      <icon type="CLASSPATH">readyWaitState.png</icon>
+      <name>Ready</name>
+    </wait-state>
+  </wait-states>
+</game-settings>

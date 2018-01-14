@@ -15,10 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * VariableHashMap.java
- *
- * Created on November 1, 2002, 1:15 PM
  */
 package pcgen.core.doomsdaybook;
 
@@ -28,26 +24,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <code>VariableHashMap</code> is a collection of variables (key/value 
+ * {@code VariableHashMap} is a collection of variables (key/value
  * pairs) and DataElements optimised for quick lookup and updating. Note
  * there are three structures here, the principle map of variables, a
  * secondary map of DataElement objects and a list of Operation objects.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author devon
- * @version $Revision$
  */
 public class VariableHashMap extends HashMap<String, String>
 {
-	private List<Operation> initialize = new ArrayList<Operation>();
-	private Map<String, DataElement> dataElements;
+	private final List<Operation> initialize = new ArrayList<>();
+	private final Map<String, DataElement> dataElements;
 
 	/** Creates a new instance of VariableHashMap */
 	public VariableHashMap()
 	{
-		this.dataElements = new HashMap<String, DataElement>();
+		this.dataElements = new HashMap<>();
 	}
 
 	/**
@@ -325,7 +315,7 @@ public class VariableHashMap extends HashMap<String, String>
 
 		if (val.matches("\\$\\{.*?\\}.*"))
 		{
-			String var = val.substring(val.indexOf("${") + 2, val.indexOf("}"));
+			String var = val.substring(val.indexOf("${") + 2, val.indexOf('}'));
 			String value = get(var);
 
 			if (value == null)

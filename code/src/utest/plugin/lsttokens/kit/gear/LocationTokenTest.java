@@ -29,7 +29,7 @@ public class LocationTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static LocationToken token = new LocationToken();
-	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
+	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitGear.class);
 
 	@Override

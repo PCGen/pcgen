@@ -45,10 +45,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
-/**
- * @author djones4
- * 
- */
+
 public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {
@@ -114,7 +111,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		if (key.startsWith("NUMCHOICES="))
 		{
 			String maxCount = key.substring(11);
-			if (maxCount == null || maxCount.length() == 0)
+			if (maxCount == null || maxCount.isEmpty())
 			{
 				return new ParseResult.Fail(
 					"NUMCHOICES in CHOOSE must be a formula: " + value, context);
@@ -197,7 +194,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			Logging.errorPrint("New style CHOOSE "
 				+ "and old style CHOOSE both found on "
-				+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
+				+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 			return false;
 		}
 		if (newChoose != null)
@@ -213,7 +210,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 					{
 						Logging.errorPrint("CHOOSE of type "
 							+ chooseClass.getName() + " on "
-							+ obj.getClass().getSimpleName() + " "
+							+ obj.getClass().getSimpleName() + ' '
 							+ obj.getKeyName() + " had an actor from token "
 							+ csa.getSource() + " that was expecting a "
 							+ csa.getChoiceClass().getSimpleName());

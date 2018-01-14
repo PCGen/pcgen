@@ -29,7 +29,7 @@ public class QtyTokenTest extends AbstractKitTokenTestCase<KitFunds>
 {
 
 	static QtyToken token = new QtyToken();
-	static CDOMSubLineLoader<KitFunds> loader = new CDOMSubLineLoader<KitFunds>(
+	static CDOMSubLineLoader<KitFunds> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitFunds.class);
 
 	@Override

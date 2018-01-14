@@ -95,7 +95,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 				domainKey = tokString.substring(0, openBracketLoc);
 				String prereqString = tokString.substring(openBracketLoc + 1,
 						tokString.length() - 1);
-				if (prereqString.length() == 0)
+				if (prereqString.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " cannot have empty prerequisite : " + value, context);
@@ -141,7 +141,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 			return null;
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> domain : mtl.getKeySet())
 		{
 			for (AssociatedPrereqObject assoc : mtl.getListFor(domain))
@@ -149,7 +149,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 				StringBuilder sb = new StringBuilder(domain.getLSTformat(false));
 				List<Prerequisite> prereqs = assoc.getPrerequisiteList();
 				Prerequisite prereq;
-				if (prereqs == null || prereqs.size() == 0)
+				if (prereqs == null || prereqs.isEmpty())
 				{
 					prereq = null;
 				}

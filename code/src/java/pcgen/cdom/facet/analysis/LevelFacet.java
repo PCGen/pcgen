@@ -40,7 +40,6 @@ import pcgen.core.Race;
  * includes the ability to distinguish what is a Monster Level, PC level, NPC
  * level, etc.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LevelFacet extends AbstractStorageFacet<CharID> implements
 		ClassLevelChangeListener
@@ -199,7 +198,6 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements
 	/**
 	 * Data structure for caching level information about a Player Character
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	private static class LevelCacheInfo
 	{
@@ -235,11 +233,11 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements
 		{
 			if (lce.getPCClass().isMonster())
 			{
-				lci.monsterLevels = lci.monsterLevels + levelChange;
+				lci.monsterLevels += levelChange;
 			}
 			else
 			{
-				lci.nonMonsterLevels = lci.nonMonsterLevels + levelChange;
+				lci.nonMonsterLevels += levelChange;
 			}
 			support.fireLevelChangeEvent(id);
 		}
@@ -290,8 +288,8 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements
 	 * Interface for a LevelChangeListener that wants to receive
 	 * LevelChangeEvents from LevelFacet.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
+	@FunctionalInterface
 	public static interface LevelChangeListener extends EventListener
 	{
 		public void levelChanged(LevelChangeEvent lce);

@@ -1,5 +1,4 @@
 /**
- * pcgen.util.TermUtilities.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 13 August 2008
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.util;
@@ -35,6 +29,10 @@ public class TermUtilities {
 	public static final Pattern dPat = Pattern.compile(dString);
 	public static final String sString = "(?:EQUIPPED|NOTEQUIPPED)";
 	public static final Pattern sPat = Pattern.compile(sString);
+
+	private TermUtilities()
+	{
+	}
 
 	public static void checkEqTypeTypesArray(
 			String originalText,
@@ -121,7 +119,7 @@ public class TermUtilities {
 			String src,
 			int fixed) throws TermEvaulatorException
 	{
-		int expEnd = expressionString.lastIndexOf("]");
+		int expEnd = expressionString.lastIndexOf(']');
 
 		if (expEnd != expressionString.length() - 1)
 		{

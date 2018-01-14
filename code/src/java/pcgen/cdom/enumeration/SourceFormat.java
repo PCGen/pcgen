@@ -193,8 +193,6 @@ public enum SourceFormat
 	/**
 	 * Returns a formatted string representation for this source based on the
 	 * <tt>SourceFormat</tt> passed in.
-
-	 * @see pcgen.core.SourceEntry.SourceFormat
 	 *
 	 * @param cdo
 	 * @param format The format to display the source in
@@ -233,7 +231,7 @@ public enum SourceFormat
 			source = Constants.EMPTY_STRING;
 		}
 
-		if (publisher != null && publisher.trim().length() > 0)
+		if (publisher != null && !publisher.trim().isEmpty())
 		{
 			ret.append(publisher);
 			ret.append(" - "); //$NON-NLS-1$

@@ -1,5 +1,4 @@
 /*
- * RaceMigration.java
  * Copyright 2014 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/01/2014
  *
- * $Id$
  */
 package pcgen.io.migration;
 
@@ -34,12 +31,16 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * used to allow clean loading of older characters which were saved with race 
  * keys that have now been changed in the data.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
-public class RaceMigration
+public final class RaceMigration
 {
-	private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<int[], List<MigrationRule>>();
+	private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<>();
+
+
+
+	private RaceMigration()
+	{
+	}
 
 	/**
 	 * Find the new race key to replace the provided one.
@@ -48,16 +49,14 @@ public class RaceMigration
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 * @return The new race key, or the passed in one if it has not changed.
 	 */
-	public static String getNewRaceKey(String raceKey, int pcgVer[], String gameModeName)
+	public static String getNewRaceKey(String raceKey, int[] pcgVer, String gameModeName)
 	{
-		List<MigrationRule> raceChangeList = raceChangesForVer.get(pcgVer);
-		if (raceChangeList == null)
-		{
-			raceChangeList =
-					MigrationUtils.getChangeList(pcgVer, gameModeName,
-						ObjectType.RACE);
-			raceChangesForVer.put(pcgVer, raceChangeList);
-		}
+		List<MigrationRule> raceChangeList = raceChangesForVer.computeIfAbsent(
+				pcgVer,
+				v -> MigrationUtils.getChangeList(v, gameModeName,
+						ObjectType.RACE
+				)
+		);
 
 		for (MigrationRule rule : raceChangeList)
 		{

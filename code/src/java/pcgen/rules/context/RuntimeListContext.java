@@ -1,5 +1,4 @@
 /*
- * RuntimeListContext.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -20,12 +19,12 @@
 
 package pcgen.rules.context;
 
-public class RuntimeListContext extends AbstractListContext
+class RuntimeListContext extends AbstractListContext
 {
 
 	private final ListCommitStrategy commit;
 
-	public RuntimeListContext(ListCommitStrategy commitStrategy)
+	protected RuntimeListContext(ListCommitStrategy commitStrategy)
 	{
 		if (commitStrategy == null)
 		{

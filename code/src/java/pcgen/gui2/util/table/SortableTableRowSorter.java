@@ -1,5 +1,4 @@
 /*
- * SortableTableRowSorter.java
  * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 17, 2016, 1:10:22 PM
  */
 package pcgen.gui2.util.table;
 
@@ -31,7 +29,6 @@ import pcgen.util.Comparators;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 {
@@ -71,8 +68,6 @@ public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 	 * @param column index of the column to make the primary sorted column,
 	 * in terms of the underlying model
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
-	 * @see #setSortable(int,boolean)
-	 * @see #setMaxSortKeys(int)
 	 */
 	@Override
 	public void toggleSortOrder(int column)
@@ -154,7 +149,7 @@ public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 			comparators[i] = Comparators.getComparatorFor(m.getColumnClass(i));
 		}
 		int keyCount = sortKeys.size();
-		RowSorter.SortKey[] keys = sortKeys.<RowSorter.SortKey>toArray(new RowSorter.SortKey[keyCount]);
+		RowSorter.SortKey[] keys = sortKeys.toArray(new RowSorter.SortKey[keyCount]);
 
 		m.sortModel(new RowComparator(keys, comparators));
 	}

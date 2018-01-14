@@ -1,5 +1,4 @@
 /*
- * AbstractListMenu.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 18, 2008, 1:56:12 PM
  */
 package pcgen.gui2.util;
 
@@ -34,10 +32,7 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public abstract class AbstractListMenu<E> extends JMenu implements ListListener<E>
 {
 
@@ -83,7 +78,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 	public Point getToolTipLocation(MouseEvent event)
 	{
 		Dimension size = getSize();
-		double oneRowUpHeight = size.getHeight() *-1 - 5;
+		double oneRowUpHeight = (size.getHeight() * -1) - 5;
 		return new Point((int) size.getWidth(), (int) oneRowUpHeight);
 	}
 

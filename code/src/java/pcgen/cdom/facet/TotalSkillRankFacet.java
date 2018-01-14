@@ -34,13 +34,12 @@ import pcgen.core.Skill;
  * TotalSkillRankFacet stores the total skill rank for Skills (includes user
  * taken ranks and BONUS:SKILLRANK)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		SkillRankChangeListener,
 		pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeListener
 {
-	private static final Double DOUBLE_ZERO = Double.valueOf(0.0d);
+	private static final Double DOUBLE_ZERO = 0.0d;
 
 	private SkillRankFacet skillRankFacet;
 
@@ -187,7 +186,6 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 * structure for adding and removing listeners to a class that can provide
 	 * updates for changes to Association Bonus values on a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	public static class AssociationChangeSupport
 	{
@@ -198,8 +196,8 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 			source = src;
 		}
 
-		private List<AssociationChangeListener> listeners =
-				new ArrayList<AssociationChangeListener>();
+		private final List<AssociationChangeListener> listeners =
+                new ArrayList<>();
 
 		/**
 		 * Adds a new AssociationChangeListener to receive
@@ -237,7 +235,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 
 		public synchronized AssociationChangeListener[] getAssociationChangeListeners()
 		{
-			return (listeners.toArray(new AssociationChangeListener[0]));
+			return (listeners.toArray(new AssociationChangeListener[listeners.size()]));
 		}
 
 		/**
@@ -313,7 +311,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		Map<Skill, Double> map = getInfo(id);
 		if (map == null)
 		{
-			map = new IdentityHashMap<Skill, Double>();
+			map = new IdentityHashMap<>();
 			setCache(id, map);
 		}
 		return map;

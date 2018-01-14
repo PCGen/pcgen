@@ -23,12 +23,12 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 
-public class EditorReferenceContext extends RuntimeReferenceContext
+class EditorReferenceContext extends RuntimeReferenceContext
 {
 
-	private final HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<CDOMObject, CDOMObject>();
-	private final HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<CDOMObject, CDOMObject>();
-	private final HashMapToList<URI, Loadable> forgetMap = new HashMapToList<URI, Loadable>();
+	private final HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<>();
+	private final HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<>();
+	private final HashMapToList<URI, Loadable> forgetMap = new HashMapToList<>();
 
 	@Override
 	<T extends CDOMObject> T performCopy(T object, String copyName)

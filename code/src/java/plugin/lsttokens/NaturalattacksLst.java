@@ -58,10 +58,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
-/**
- * @author djones4
- *
- */
+
 public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {
@@ -84,7 +81,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	/**
-	 * NATURAL WEAPONS CODE <p/>first natural weapon is primary, the rest are
+	 * NATURAL WEAPONS CODE <p>first natural weapon is primary, the rest are
 	 * secondary; NATURALATTACKS:primary weapon name,weapon type,num
 	 * attacks,damage|secondary1 weapon name,weapon type,num
 	 * attacks,damage|secondary2 format is exactly as it would be in an
@@ -222,13 +219,13 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 
 		String numAttacks = commaTok.nextToken();
-		boolean attacksFixed = numAttacks.length() > 0
+		boolean attacksFixed = !numAttacks.isEmpty()
 				&& numAttacks.charAt(0) == '*';
 		if (attacksFixed)
 		{
 			numAttacks = numAttacks.substring(1);
 		}
-		anEquip.put(ObjectKey.ATTACKS_PROGRESS, Boolean.valueOf(!attacksFixed));
+		anEquip.put(ObjectKey.ATTACKS_PROGRESS, !attacksFixed);
 		try
 		{
 			int bonusAttacks = Integer.parseInt(numAttacks) - 1;
@@ -247,7 +244,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		catch (NumberFormatException exc)
 		{
 			Logging.errorPrint("Non-numeric value for number of attacks in "
-					+ getTokenName() + ": '" + numAttacks + "'");
+					+ getTokenName() + ": '" + numAttacks + '\'');
 			return null;
 		}
 
@@ -268,13 +265,13 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				try
 				{
-					handsrequired = Integer.valueOf(Integer
-							.parseInt(hString));
+					handsrequired = Integer
+							.parseInt(hString);
 				}
 				catch (NumberFormatException exc)
 				{
 					Logging.errorPrint("Non-numeric value for hands required: '"
-							+ hString + "'");
+							+ hString + '\'');
 					return null;
 				}
 			}
@@ -298,11 +295,11 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		if (!ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
 		{
-			equipHead.put(IntegerKey.CRIT_RANGE, Integer.valueOf(1));
+			equipHead.put(IntegerKey.CRIT_RANGE, 1);
 		}
 		if (!ControlUtilities.hasControlToken(context, CControl.CRITMULT))
 		{
-			equipHead.put(IntegerKey.CRIT_MULT, Integer.valueOf(2));
+			equipHead.put(IntegerKey.CRIT_MULT, 2);
 		}
 
 		return anEquip;
@@ -359,7 +356,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			List<BonusObj> bonuses = eq.getListFor(ListKey.BONUS);
 			if (bonuses == null || bonuses.isEmpty())
 			{
-				sb.append("1");
+				sb.append('1');
 			}
 			else
 			{
@@ -450,7 +447,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			else
 			{
 				Logging.errorPrint("SIZE in " + obj.getClass().getSimpleName()
-						+ " " + obj.getKeyName() + " must not be a variable "
+						+ ' ' + obj.getKeyName() + " must not be a variable "
 						+ "if it contains a NATURALATTACKS token");
 			}
 		}
@@ -465,7 +462,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	 */
 	private Integer getRequiredSize(CDOMObject obj)
 	{
-		Set<Prerequisite> sizePrereqs = new HashSet<Prerequisite>();
+		Set<Prerequisite> sizePrereqs = new HashSet<>();
 		for (Prerequisite prereq : obj.getPrerequisiteList())
 		{
 			sizePrereqs.addAll(PrerequisiteUtilities.getPreReqsOfKind(prereq, "SIZE"));

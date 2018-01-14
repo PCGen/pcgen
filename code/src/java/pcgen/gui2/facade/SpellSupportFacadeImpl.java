@@ -1,5 +1,4 @@
 /**
- * SpellSupportFacadeImpl.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 15/10/2011 4:20:41 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -37,7 +32,7 @@ import java.util.TreeSet;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
@@ -99,38 +94,33 @@ import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 
 /**
- * The Class <code>SpellSupportFacadeImpl</code> marshals the spell data for a 
+ * The Class {@code SpellSupportFacadeImpl} marshals the spell data for a
  * character for display in the user interface. It also responds to any actions 
  * by the UI layer on the character's spells.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>
 {
 	private final PlayerCharacter pc;
 	private final CharacterDisplay charDisplay;
-	private UIDelegate delegate;
+	private final UIDelegate delegate;
 
-	private DefaultListFacade<SpellNode> availableSpellNodes;
-	private DefaultListFacade<SpellNode> allKnownSpellNodes;
-	private DefaultListFacade<SpellNode> knownSpellNodes;
-	private DefaultListFacade<SpellNode> preparedSpellNodes;
-	private DefaultListFacade<SpellNode> bookSpellNodes;
-	private List<SpellNode> preparedSpellLists;
-	private List<SpellNode> spellBooks;
-	private Map<String, RootNodeImpl> rootNodeMap;
+	private final DefaultListFacade<SpellNode> availableSpellNodes;
+	private final DefaultListFacade<SpellNode> allKnownSpellNodes;
+	private final DefaultListFacade<SpellNode> knownSpellNodes;
+	private final DefaultListFacade<SpellNode> preparedSpellNodes;
+	private final DefaultListFacade<SpellNode> bookSpellNodes;
+	private final List<SpellNode> preparedSpellLists;
+	private final List<SpellNode> spellBooks;
+	private final Map<String, RootNodeImpl> rootNodeMap;
 	private final DataSetFacade dataSet;
 	
-	private DefaultListFacade<String> spellBookNames;
-	private DefaultReferenceFacade<String> defaultSpellBook;
-	private TodoManager todoManager;
-	private CharacterFacadeImpl pcFacade;
+	private final DefaultListFacade<String> spellBookNames;
+	private final DefaultReferenceFacade<String> defaultSpellBook;
+	private final TodoManager todoManager;
+	private final CharacterFacadeImpl pcFacade;
 	private final InfoFactory infoFactory;
 	
 
@@ -155,25 +145,25 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		this.dataSet = dataSet;
 		this.todoManager = todoManager;
 		this.pcFacade = pcFacade;
-		rootNodeMap = new HashMap<String, RootNodeImpl>();
+		rootNodeMap = new HashMap<>();
 		
-		spellBookNames = new DefaultListFacade<String>();
-		defaultSpellBook = new DefaultReferenceFacade<String>(charDisplay.getSpellBookNameToAutoAddKnown());
+		spellBookNames = new DefaultListFacade<>();
+		defaultSpellBook = new DefaultReferenceFacade<>(charDisplay.getSpellBookNameToAutoAddKnown());
 		
-		availableSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
+		availableSpellNodes = new DefaultListFacade<>();
 		buildAvailableNodes();
-		allKnownSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
-		knownSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
-		preparedSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
-		bookSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
-		preparedSpellLists = new ArrayList<SpellSupportFacade.SpellNode>();
-		spellBooks = new ArrayList<SpellSupportFacade.SpellNode>();
+		allKnownSpellNodes = new DefaultListFacade<>();
+		knownSpellNodes = new DefaultListFacade<>();
+		preparedSpellNodes = new DefaultListFacade<>();
+		bookSpellNodes = new DefaultListFacade<>();
+		preparedSpellLists = new ArrayList<>();
+		spellBooks = new ArrayList<>();
 		buildKnownPreparedNodes();
 		
 		updateSpellsTodo();
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#getAvailableSpellNodes()
 	 */
 	@Override
@@ -182,7 +172,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return availableSpellNodes;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#getAllKnownSpellNodes()
 	 */
 	@Override
@@ -191,7 +181,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return allKnownSpellNodes;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#getKnownSpellNodes()
 	 */
 	@Override
@@ -200,7 +190,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return knownSpellNodes;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#getPreparedSpellNodes()
 	 */
 	@Override
@@ -209,7 +199,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return preparedSpellNodes;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#getBookSpellNodes()
 	 */
 	@Override
@@ -218,14 +208,14 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return bookSpellNodes;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#addKnownSpell(pcgen.core.facade.SpellSupportFacade.SpellNode)
 	 */
 	@Override
 	public void addKnownSpell(SpellNode spell)
 	{
 		SpellNode node =
-				addSpellToCharacter(spell, Globals.getDefaultSpellBook(), new ArrayList<Ability>());
+				addSpellToCharacter(spell, Globals.getDefaultSpellBook(), new ArrayList<>());
 		if (node != null)
 		{
 			allKnownSpellNodes.addElement(node);
@@ -240,7 +230,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		pcFacade.refreshAvailableTempBonuses();
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#removeKnownSpell(pcgen.core.facade.SpellSupportFacade.SpellNode)
 	 */
 	@Override
@@ -256,13 +246,13 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		pcFacade.refreshAvailableTempBonuses();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#addPreparedSpell(pcgen.core.facade.SpellSupportFacade.SpellNode, java.lang.String)
 	 */
 	@Override
 	public void addPreparedSpell(SpellNode spell, String spellList, boolean useMetamagic)
 	{
-		List<Ability> metamagicFeats = new ArrayList<Ability>();
+		List<Ability> metamagicFeats = new ArrayList<>();
 		if (useMetamagic)
 		{
 			metamagicFeats = queryUserForMetamagic(spell);
@@ -357,14 +347,11 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			label = LanguageBundle.getString("InfoSpells.add.with.metamagic");
 		}
 		
-		final ArrayList<Ability> selectedList = new ArrayList<Ability>();
+		final ArrayList<Ability> selectedList = new ArrayList<>();
 		GeneralChooserFacadeBase chooserFacade =
 				new GeneralChooserFacadeBase(label, availableList,
-					new ArrayList<InfoFacade>(), 99, infoFactory)
+                        new ArrayList<>(), 99, infoFactory)
 		{
-			/**
-			 * {@inheritDoc}
-			 */
 			@Override
 			public void commit()
 			{
@@ -387,7 +374,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	private List<InfoFacade> buildAvailableMetamagicFeatList(SpellNode spellNode)
 	{
-		List<Ability> characterMetaMagicFeats = new ArrayList<Ability>();
+		List<Ability> characterMetaMagicFeats = new ArrayList<>();
 		List<CNAbility> feats = pc.getCNAbilities(AbilityCategory.FEAT);
 
 		for (CNAbility cna : feats)
@@ -405,12 +392,12 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			return Collections.emptyList();
 		}
-		List<InfoFacade> availableList = new ArrayList<InfoFacade>();
+		List<InfoFacade> availableList = new ArrayList<>();
 		availableList.addAll(characterMetaMagicFeats);
 		return availableList;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#removePreparedSpell(pcgen.core.facade.SpellSupportFacade.SpellNode, java.lang.String)
 	 */
 	@Override
@@ -463,7 +450,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#addSpellList(java.lang.String)
 	 */
 	@Override
@@ -500,14 +487,14 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			JOptionPane.showMessageDialog(null, LanguageBundle
 				.getFormattedString(
-					"InfoPreparedSpells.add.list.fail", new Object[]{spellList}), //$NON-NLS-1$
+					"InfoPreparedSpells.add.list.fail", spellList), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
 			return;
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#removeSpellList(java.lang.String)
 	 */
 	@Override
@@ -550,7 +537,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#addToSpellBook(pcgen.core.facade.SpellSupportFacade.SpellNode, java.lang.String)
 	 */
 	@Override
@@ -562,7 +549,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			bookName = bookName.substring(0, bookName.lastIndexOf(" ["));
 		}
 		SpellNode node =
-			addSpellToCharacter(spell, bookName, new ArrayList<Ability>());
+			addSpellToCharacter(spell, bookName, new ArrayList<>());
 		if (node != null)
 		{
 			if (bookSpellNodes.containsElement(node))
@@ -590,7 +577,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#removeFromSpellBook(pcgen.core.facade.SpellSupportFacade.SpellNode, java.lang.String)
 	 */
 	@Override
@@ -651,7 +638,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		updateSpellsTodo();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellSupportFacade#getClassInfo(pcgen.core.facade.ClassFacade)
 	 */
 	@Override
@@ -697,7 +684,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 			for (int i = 0; i <= highestSpellLevel; ++i)
 			{
-				final int a = spellSupport.getKnownForLevel(i, "null", pc);
+				final int a = spellSupport.getKnownForLevel(i, pc);
 				final int bonus = spellSupport.getSpecialtyKnownForLevel(i, pc);
 
 				b.append("<td><font size=-1><center>"); //$NON-NLS-1$
@@ -750,7 +737,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			b.appendI18nElement("InfoSpells.school", schoolInfo.toString()); //$NON-NLS-1$ 
 		}
 
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (SpellProhibitor sp : aClass
 			.getSafeListFor(ListKey.PROHIBITED_SPELLS))
 		{
@@ -775,7 +762,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		String bString = SourceFormat.getFormattedString(aClass,
 		Globals.getSourceDisplay(), true);
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_source", bString); //$NON-NLS-1$ 
@@ -784,8 +771,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return b.toString();
 	}
 
-	private static final String getNumCast(PCClass aClass, int level,
-		PlayerCharacter pc)
+	private static String getNumCast(PCClass aClass, int level,
+	                                 PlayerCharacter pc)
 	{
 		String sbook = Globals.getDefaultSpellBook();
 		final String cast =
@@ -860,7 +847,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		DefaultListFacade<SpellNode> spellNodeList, PCClass pcClass)
 	{
 		DoubleKeyMapToList<SpellFacade, String, SpellNode> spellMap =
-				new DoubleKeyMapToList<SpellFacade, String, SpellSupportFacade.SpellNode>();
+                new DoubleKeyMapToList<>();
 
 		for (SpellNode spellNode : spellNodeList)
 		{
@@ -890,7 +877,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		// Scan character classes for spell classes
 		List<PCClass> classList = getCharactersSpellcastingClasses();
-		List<PObject> pobjList = new ArrayList<PObject>(classList);
+		List<PObject> pobjList = new ArrayList<>(classList);
 		
 		// Include spells from race etc
 		pobjList.add(charDisplay.getRace());
@@ -927,7 +914,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	private void buildKnownPreparedSpellsForCDOMObject(CDOMObject pObject)
 	{
 		Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pObject);
-		List<CharacterSpell> cSpells = new ArrayList<CharacterSpell>(sp);
+		List<CharacterSpell> cSpells = new ArrayList<>(sp);
 
 		// Add in the spells granted by objects
 		pc.addBonusKnownSpellsToList(pObject, cSpells);
@@ -1086,7 +1073,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				pc.delSpell(spellInfo, (PCClass) spell.getSpellcastingClass(),
 					bookName);
 
-		if (errorMsg.length() > 0)
+		if (!errorMsg.isEmpty())
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, errorMsg);
 			ShowMessageDelegate.showMessageDialog(errorMsg,
@@ -1099,7 +1086,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	
 	private List<PCClass> getCharactersSpellcastingClasses()
 	{
-		List<PCClass> castingClasses = new ArrayList<PCClass>();
+		List<PCClass> castingClasses = new ArrayList<>();
 		Collection<PCClass> classes = charDisplay.getClassSet();
 		for (PCClass pcClass : classes)
 		{
@@ -1117,54 +1104,36 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return castingClasses;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isAutoSpells()
 	{
 		return pc.getAutoSpells();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setAutoSpells(boolean autoSpells)
 	{
 		pc.setAutoSpells(autoSpells);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isUseHigherKnownSlots()
 	{
 		return pc.getUseHigherKnownSlots();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setUseHigherPreppedSlots(boolean useHigher)
 	{
 		pc.setUseHigherPreppedSlots(useHigher);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isUseHigherPreppedSlots()
 	{
 		return pc.getUseHigherPreppedSlots();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setUseHigherKnownSlots(boolean useHigher)
 	{
@@ -1206,27 +1175,18 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		defaultSpellBook.set(bookName);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementAdded(ListEvent<EquipmentFacade> e)
 	{
 		updateSpellBooks((Equipment) e.getElement());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementRemoved(ListEvent<EquipmentFacade> e)
 	{
 		updateSpellBooks((Equipment) e.getElement());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementsChanged(ListEvent<EquipmentFacade> e)
 	{
@@ -1239,9 +1199,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		updateSpellBooks((Equipment) e.getElement());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void quantityChanged(EquipmentListEvent e)
 	{
@@ -1333,9 +1290,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void previewSpells()
 	{
@@ -1379,9 +1333,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		SettingsHandler.setPrintSpellsWithPC(aBool);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void exportSpells()
 	{
@@ -1477,7 +1428,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * display and process a spell. It covers spells that are available, known, 
 	 * memorised etc.
 	 * 
-	 * @author James Dempsey <jdempsey@users.sourceforge.net>
 	 */
 	public class SpellNodeImpl implements SpellNode
 	{
@@ -1515,7 +1465,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			this(spell, (ClassFacade) null, level, rootNode);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.SpellSupportFacade.SpellNode#getSpellcastingClass()
 		 */
 		@Override
@@ -1524,7 +1474,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			return cls;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.SpellSupportFacade.SpellNode#getSpellLevel()
 		 */
 		@Override
@@ -1533,7 +1483,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			return level;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.SpellSupportFacade.SpellNode#getSpell()
 		 */
 		@Override
@@ -1542,7 +1492,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			return spell;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.SpellSupportFacade.SpellNode#getRootNode()
 		 */
 		@Override
@@ -1551,18 +1501,12 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			return rootNode;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getCount()
 		{
 			return count;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void addCount(int num)
 		{
@@ -1592,7 +1536,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			return LanguageBundle.getFormattedString("in_spellEmptyNode", countStr); //$NON-NLS-1$
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.lang.Object#hashCode()
 		 */
 		@Override
@@ -1610,7 +1554,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			return result;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
 		@Override
@@ -1692,7 +1636,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * display an empty spell list. It is only used to ensure the spell list name 
 	 * is displayed.
 	 * 
-	 * @author James Dempsey <jdempsey@users.sourceforge.net>
 	 */
 	public class DummySpellNodeImpl implements SpellNode
 	{
@@ -1707,54 +1650,36 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			this.rootNode = rootNode;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public ClassFacade getSpellcastingClass()
 		{
 			return null;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSpellLevel()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public SpellFacade getSpell()
 		{
 			return null;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public RootNode getRootNode()
 		{
 			return rootNode;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getCount()
 		{
 			return 1;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void addCount(int num)
 		{

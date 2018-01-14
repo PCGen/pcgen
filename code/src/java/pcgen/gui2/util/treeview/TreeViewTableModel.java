@@ -1,5 +1,4 @@
 /*
- * TreeTableViewModel.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 11, 2008, 9:04:19 PM
  */
 package pcgen.gui2.util.treeview;
 
@@ -44,10 +42,7 @@ import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty <mistercpp2000@gmail.com>
- */
+
 public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		implements SortableTreeTableModel
 {
@@ -225,7 +220,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		if (view != null)
 		{
 			this.selectedView = view;
-			Vector<TreeViewPath<? super E>> paths = new Vector<TreeViewPath<? super E>>();
+			Vector<TreeViewPath<? super E>> paths = new Vector<>();
 			for (E element : dataElements)
 			{
 				for (TreeViewPath<? super E> path : view.getPaths(element))
@@ -435,7 +430,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 			else
 			{
-				Vector<TreeViewPath<? super E>> vector = new Vector<TreeViewPath<? super E>>();
+				Vector<TreeViewPath<? super E>> vector = new Vector<>();
 				vector.add(path);
 				newchild = new TreeViewNode(level + 1, levelObject, vector);
 			}
@@ -500,7 +495,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 			if (children != null)
 			{
-				Collections.sort(children, comparator);
+				children.sort(comparator);
 				for (Object obj : children)
 				{
 					TreeViewNode child = (TreeViewNode) obj;

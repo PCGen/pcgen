@@ -6,7 +6,7 @@ import pcgen.util.PCGenCommand;
 import java.util.Stack;
 
 /**
- * Deal with min JEP command eg. min(12.6, 20) --> 12.6
+ * Deal with min JEP command eg. {@literal min(12.6, 20) --> 12.6 }
  */
 public class MinCommand extends PCGenCommand
 {

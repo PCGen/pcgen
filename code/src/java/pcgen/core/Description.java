@@ -1,5 +1,4 @@
 /*
- * AbilityInfoPanel.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,14 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -43,19 +39,15 @@ import pcgen.util.Logging;
  * 
  * <p>Variable substitution is performed by replacing a placeholder indicated
  * by %# with the #th variable in the variable list.  For example, the string
- * <br /><code>&quot;This is %1 variable %3 %2&quot;</code>
- * <br />would be replaced with the string &quot;This is a variable substitution
+ * <br>{@code "This is %1 variable %3 %2"}
+ * <br>would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.
- * 
- * @author boomer70 <boomer70@yahoo.com>
- * 
- * @since 5.11.1
  */
 public class Description extends ConcretePrereqObject
 {
-	private List<String> theComponents = new ArrayList<String>();
-	private List<String> theVariables = null;
+	private Collection<String> theComponents = new ArrayList<>();
+	private List<String> theVariables;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
 	private static final String VAR_CHOICE = "%CHOICE"; //$NON-NLS-1$
@@ -76,7 +68,7 @@ public class Description extends ConcretePrereqObject
 		while ( (percentInd = aString.indexOf('%', currentInd)) != -1 )
 		{
 			final String preText = aString.substring(currentInd, percentInd);
-			if ( preText.length() > 0 )
+			if (!preText.isEmpty())
 			{
 				theComponents.add(preText);
 			}
@@ -160,7 +152,7 @@ public class Description extends ConcretePrereqObject
 	{
 		if ( theVariables == null )
 		{
-			theVariables = new ArrayList<String>();
+			theVariables = new ArrayList<>();
 		}
 		theVariables.add( aVariable );
 	}
@@ -175,7 +167,7 @@ public class Description extends ConcretePrereqObject
 	 */
 	public String getDescription( final PlayerCharacter aPC, List<? extends Object> objList )
 	{
-		if (objList.size() == 0)
+		if (objList.isEmpty())
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -225,7 +217,7 @@ public class Description extends ConcretePrereqObject
 							if (aPC.hasAssociations(object))
 							{
 								//TODO This is ill defined
-								buf.append(aPC.getAssociationList(object).get(0));
+								buf.append(aPC.getAssociationExportList(object).get(0));
 							}
 						}
 						else
@@ -242,7 +234,7 @@ public class Description extends ConcretePrereqObject
 					}
 					else if ( var.equals(VAR_LIST) )
 					{
-						List<String> assocList = new ArrayList<String>();
+						List<String> assocList = new ArrayList<>();
 						for (Object obj : objList)
 						{
 							if (obj instanceof ChooseDriver)
@@ -250,7 +242,7 @@ public class Description extends ConcretePrereqObject
 								ChooseDriver object = (ChooseDriver) obj;
 								if (aPC.hasAssociations(object))
 								{
-									assocList.addAll(aPC.getAssociationList(object));
+									assocList.addAll(aPC.getAssociationExportList(object));
 								}
 							}
 							else
@@ -338,7 +330,6 @@ public class Description extends ConcretePrereqObject
 	 * 
 	 * @return A String in LST file format for this description.
 	 * 
-	 * @see pcgen.cdom.base.PrereqObject#getPCCText()
 	 */
 	public String getPCCText()
 	{

@@ -16,8 +16,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  AddDefeatedCombatant.java
- *
- *  Created on January 4, 2002, 2:10 PM
  */
 package plugin.experience.gui;
 
@@ -37,10 +35,7 @@ import plugin.experience.ExperienceAdjusterModel;
 import plugin.experience.ExperienceAdjusterPlugin;
 import plugin.experience.ExperienceListItem;
 
-/**
- *@author     devon
- *@since    April 7, 2003
- */
+
 public class AddDefeatedCombatant extends AbstractDialog
 {
 	// End of variables declaration//GEN-END:variables
@@ -200,14 +195,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 
 		// TODO tCR should be internationalized
 		tCR.setText("1.0");
-		tCR.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				tCRActionPerformed(evt);
-			}
-		});
+		tCR.addActionListener(this::tCRActionPerformed);
 
 		tCR.addFocusListener(new java.awt.event.FocusAdapter()
 		{

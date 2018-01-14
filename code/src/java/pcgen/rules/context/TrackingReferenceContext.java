@@ -40,9 +40,9 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		UnconstructedListener
 {
 
-	private final DoubleKeyMapToList<CDOMReference<?>, URI, String> track = new DoubleKeyMapToList<CDOMReference<?>, URI, String>(WeakHashMap.class, HashMap.class);
+	private final DoubleKeyMapToList<CDOMReference<?>, URI, String> track = new DoubleKeyMapToList<>(WeakHashMap.class, HashMap.class);
 
-	private final Set<ReferenceManufacturer<?>> listening = new HashSet<ReferenceManufacturer<?>>();
+	private final Set<ReferenceManufacturer<?>> listening = new HashSet<>();
 
 	@Override
 	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
@@ -58,7 +58,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			mfg.addUnconstructedListener(this);
 			listening.add(mfg);
 		}
-		return new TrackingManufacturer<T>(this, mfg);
+		return new TrackingManufacturer<>(this, mfg);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			mfg.addUnconstructedListener(this);
 			listening.add(mfg);
 		}
-		return new TrackingManufacturer<T>(this, mfg);
+		return new TrackingManufacturer<>(this, mfg);
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			mfg.addUnconstructedListener(this);
 			listening.add(mfg);
 		}
-		return new TrackingManufacturer<T>(this, mfg);
+		return new TrackingManufacturer<>(this, mfg);
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		for (URI uri : uris)
 		{
 			List<String> tokens = track.getListFor(ref, uri);
-			Set<String> tokenNames = new TreeSet<String>();
+			Set<String> tokenNames = new TreeSet<>();
 			for (String tok : tokens)
 			{
 				if (tok != null)
@@ -137,7 +137,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		return source;
 	}
 
-	<T> void trackReference(CDOMReference<T> ref)
+	protected <T> void trackReference(CDOMReference<T> ref)
 	{
 		String src = getSource();
 		if (src == null)

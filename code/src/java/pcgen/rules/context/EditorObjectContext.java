@@ -19,7 +19,7 @@ package pcgen.rules.context;
 
 import pcgen.cdom.base.CDOMObject;
 
-public class EditorObjectContext extends AbstractObjectContext
+class EditorObjectContext extends AbstractObjectContext
 {
 	private final TrackingObjectCommitStrategy commit = new TrackingObjectCommitStrategy();
 

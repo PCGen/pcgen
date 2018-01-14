@@ -74,6 +74,14 @@ Unarmed Valiant				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNo
 Equipment ~ Deliquescent Gloves	CATEGORY:Internal							ASPECT:CombatBonus|Melee attacks deal 1d6 points of acid damage
 Equipment ~ Perform Bonus		CATEGORY:Internal							ASPECT:SkillBonus|+2 circumstance to Perform Checks.
 
+
+Equipment ~ Blood Reservoir of Physical Prowess (STR)	CATEGORY:Internal	TEMPBONUS:ANYPC|STAT|STR|%CHOICE*2	TEMPVALUE:MIN=1|MAX=4|TITLE=Choose Charges to use
+Equipment ~ Blood Reservoir of Physical Prowess (DEX)	CATEGORY:Internal	TEMPBONUS:ANYPC|STAT|DEX|%CHOICE*2	TEMPVALUE:MIN=1|MAX=4|TITLE=Choose Charges to use
+Equipment ~ Blood Reservoir of Physical Prowess (CON)	CATEGORY:Internal	TEMPBONUS:ANYPC|STAT|CON|%CHOICE*2	TEMPVALUE:MIN=1|MAX=4|TITLE=Choose Charges to use
+
+
+
+
 #
 # EOF
 #

@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.exporttokens;
 
@@ -136,7 +129,9 @@ public class NoteToken extends Token
 			{
 				String internal = beforeValue + afterValue;
 				if ("".equals(internal))
+				{
 					internal = "$1";
+				}
 				sb.append(beforeValue);
 				sb.append(ni.getValue().replaceAll("(\n)", internal));
 				sb.append(afterValue);
@@ -148,7 +143,7 @@ public class NoteToken extends Token
 
 	public static List<NoteItem> getNoteList(PlayerCharacter pc, String name)
 	{
-		List<NoteItem> noteList = new ArrayList<NoteItem>();
+		List<NoteItem> noteList = new ArrayList<>();
 		List<NoteItem> resultList;
 
 		buildSubTree(noteList, pc.getDisplay().getNotesList(), -1);
@@ -159,7 +154,7 @@ public class NoteToken extends Token
 		}
 		else
 		{
-			resultList = new ArrayList<NoteItem>();
+			resultList = new ArrayList<>();
 			try
 			{
 				int i = Integer.parseInt(name);
@@ -171,7 +166,7 @@ public class NoteToken extends Token
 			}
 			catch (NumberFormatException e)
 			{
-				resultList = new ArrayList<NoteItem>(noteList);
+				resultList = new ArrayList<>(noteList);
 
 				for (int i = resultList.size() - 1; i >= 0; --i)
 				{
@@ -190,7 +185,7 @@ public class NoteToken extends Token
 	/**
 	 * Populate the target list with the children of the specified node.
 	 * This will recursively build up a list of the nodes in the base
-	 * list in breadth-first order. <br />
+	 * list in breadth-first order. <br>
 	 * The initial call should have a parentNode of -1. This will add all
 	 * children of the hard-coded base nodes.
 	 *

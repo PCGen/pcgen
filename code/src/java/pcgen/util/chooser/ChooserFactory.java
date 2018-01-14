@@ -1,5 +1,4 @@
 /*
- * Chooser.java
  * Copyright 2002 (C) Jonas Karlsson
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.util.chooser;
 
@@ -27,14 +25,11 @@ import pcgen.facade.core.UIDelegate;
  * This factory class returns a Chooser of the appropriate type. This is intended
  * to reduce the core/gui interdependence. Much more work is needed on this...
  * Currently only a SwingChooser has been implemented.
- *
- * @author    Jonas Karlsson
- * @version $Revision$
  */
 public final class ChooserFactory
 {
 	private static UIDelegate delegate;
-	private final static Stack<String> interfaceClassNameStack = new Stack<String>();
+	private final static Stack<String> interfaceClassNameStack = new Stack<>();
 
 	/**
 	 * Deliberately private so it can't be instantiated.
@@ -65,15 +60,7 @@ public final class ChooserFactory
 			ChoiceHandler ci = (ChoiceHandler) c.newInstance();
 			return ci;
 		}
-		catch (ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (ClassNotFoundException | IllegalAccessException | InstantiationException e)
 		{
 			e.printStackTrace();
 		}

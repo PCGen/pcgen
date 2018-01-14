@@ -1,5 +1,4 @@
 /*
- * QualifiedObject.java
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,8 +15,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Version: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * Copyright 2006 Aaron Divinsky <boomer70@yahoo.com>
  */
@@ -33,8 +30,7 @@ import pcgen.core.prereq.Prerequisite;
 /**
  * This class stores an association between an object and a set of prereqs.
  * Refactored from ChoiceInfo originally written by
- * Andrew Wilson <nuance@sourceforge.net>
- * @author Aaron Divinsky <boomer70@yahoo.com>
+ * Andrew Wilson &lt;nuance@sourceforge.net&gt;
  * @param <T> 
  */
 public class QualifiedObject<T> extends ConcretePrereqObject implements QualifyingObject

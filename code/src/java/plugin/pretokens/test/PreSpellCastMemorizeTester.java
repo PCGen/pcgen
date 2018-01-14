@@ -1,6 +1,4 @@
 /*
- * Created on 21-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
@@ -16,7 +14,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author Valued Customer
  *
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
@@ -35,7 +32,7 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 		return "spellcast.memorize"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -60,7 +57,7 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override

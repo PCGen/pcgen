@@ -1,5 +1,4 @@
 /*
- * CoreViewNode.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 13/01/2013 12:05:46 PM
- *
- * $Id$
  */
 package pcgen.cdom.meta;
 
@@ -28,23 +23,13 @@ import java.util.List;
 import pcgen.facade.core.CoreViewNodeFacade;
 
 /**
- * The Class <code>CoreViewNodeBase</code> is a base for defining nodes
+ * The Class {@code CoreViewNodeBase} is a base for defining nodes
  * represents an object stored in a facet.
- *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public abstract class CoreViewNodeBase implements CoreViewNodeFacade
 {
-	private List<CoreViewNodeFacade> grantedByList = new ArrayList<CoreViewNodeFacade>();
+	private List<CoreViewNodeFacade> grantedByList = new ArrayList<>();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<CoreViewNodeFacade> getGrantedByNodes()
 	{

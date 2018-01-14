@@ -83,7 +83,7 @@ public class MasterbonusraceToken extends
 		{
 			return null;
 		}
-		SortedSet<String> set = new TreeSet<String>();
+		SortedSet<String> set = new TreeSet<>();
 		Collection<CDOMSingleRef<Race>> added = changes.getAdded();
 
 		for (CDOMSingleRef<Race> ref : added)

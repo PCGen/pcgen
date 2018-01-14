@@ -24,7 +24,7 @@ import pcgen.cdom.reference.ManufacturableFactory;
  * an object. A Category serves as a Category for a particular type of
  * CategorizedCDOMObject.
  * 
- * @see pcgen.cdom.base.CategorizedCDOMObject
+ * @see pcgen.cdom.base.Categorized
  * 
  * @param <T>
  *            The Class of object being identified by this Category
@@ -42,21 +42,4 @@ public interface Category<T extends Categorized<T>> extends Loadable,
 	 */
 	Category<T> getParentCategory();
 
-	/**
-	 * Returns the key name of the Category.
-	 * 
-	 * @return The key name of the Category.
-	 * 
-	 */
-	@Override
-	String getKeyName();
-
-	/**
-	 * Returns the display name of the Category.
-	 * 
-	 * @return The display name of the Category.
-	 * 
-	 */
-	@Override
-	String getDisplayName();
 }

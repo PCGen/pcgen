@@ -195,11 +195,10 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		 */
 
 		PCTemplate consolidator = new PCTemplate();
-		consolidator.put(IntegerKey.CONSECUTIVE, Integer.valueOf(consecutive));
-		consolidator.put(IntegerKey.MAX_LEVEL, Integer.valueOf(maxLevel));
-		consolidator.put(IntegerKey.LEVEL_INCREMENT, Integer
-				.valueOf(lvlIncrement));
-		consolidator.put(IntegerKey.START_LEVEL, Integer.valueOf(iLevel));
+		consolidator.put(IntegerKey.CONSECUTIVE, consecutive);
+		consolidator.put(IntegerKey.MAX_LEVEL, maxLevel);
+		consolidator.put(IntegerKey.LEVEL_INCREMENT, lvlIncrement);
+		consolidator.put(IntegerKey.START_LEVEL, iLevel);
 		context.getObjectContext().addToList(template,
 				ListKey.REPEATLEVEL_TEMPLATES, consolidator);
 		context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(consolidator);
@@ -251,7 +250,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			return null;
 		}
-		Set<String> list = new TreeSet<String>();
+		Set<String> list = new TreeSet<>();
 		for (PCTemplate agg : added)
 		{
 			StringBuilder sb = new StringBuilder();

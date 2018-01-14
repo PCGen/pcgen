@@ -1,5 +1,4 @@
 /**
- * CompareEqualBoolean.java
  * Copyright 2005 (c) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package pcgen.util.testchecker;
@@ -44,7 +39,7 @@ public class CompareEqualBoolean extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj.equals(Boolean.valueOf(this.bool));
+		return obj.equals(this.bool);
 	}
 
     @Override

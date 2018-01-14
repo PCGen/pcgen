@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -22,7 +21,7 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.PersistentTransitionChoice;
@@ -43,8 +42,12 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
-public class SkillRankControl
+public final class SkillRankControl
 {
+
+	private SkillRankControl()
+	{
+	}
 
 	/**
 	 * Returns the total ranks of a skill rank + bonus ranks (racial, class, etc
@@ -103,7 +106,7 @@ public class SkillRankControl
 			aPC.removeSkillRankValue(sk, aClass);
 			String aResp = modRanks(-rank, aClass, false, aPC, sk);
 
-			if (aResp.length() != 0)
+			if (!aResp.isEmpty())
 			{
 				// error or debug? XXX
 				Logging.debugPrint(aResp);
@@ -332,7 +335,7 @@ public class SkillRankControl
 	 * <li>or taking them off the remainder for the highest class level.</li>
 	 * </ol>
 	 * 
-	 * @param playerCharacter The character being updated.
+	 * @param pc The character being updated.
 	 * @param classBeingLevelledDown The class we are removing a level of.
 	 * @param currentLevel The character;s level before the removal.
 	 * @param pointsToRemove The number of points that need to be refunded.

@@ -36,7 +36,7 @@ public class CompanionListIntegrationTest extends
 
 	static CompanionListLst token = new CompanionListLst();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+            new CDOMTokenLoader<>();
 
 	@Override
 	public String getPrefix()

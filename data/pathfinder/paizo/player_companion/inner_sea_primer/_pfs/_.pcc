@@ -8,13 +8,15 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Inner Sea Primer
+SOURCELONG:Pathfinder Player Companion: Inner Sea Primer
 SOURCESHORT:ISP
-SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih
+SOURCEWEB:http://paizo.com/products/btpy8hih
 SOURCEDATE:2010-11
 ISOGL:YES
 
@@ -22,7 +24,7 @@ ISOGL:YES
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy8hih|Buy this publication from Paizo Publishing!
 DESC:The Inner Sea is the heart of the Player Companion. From devil-worshiping Cheliax to cosmopolitan Absalom, the savage and frozen Lands of the Linnorm Kings to the steaming jungles of the Mwangi Expanse, there's a place for any character or adventure your imagination can come up with. Yet while a Game Master or player might know all the secrets of the setting, courtesy of the Player Companion World Guide: The Inner Sea, what does a character know about his or her world? With the Inner Sea Primer, Game Masters can quickly and easily introduce their players to the Player Companion, and experienced players can customize their characters with new, setting-specific tricks and traits.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

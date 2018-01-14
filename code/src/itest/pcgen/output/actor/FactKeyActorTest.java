@@ -59,7 +59,7 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 		df.set(id, d);
 		NumberManager mgr = new NumberManager();
 		FactKey<Number> fk = FactKey.getConstant("cost", mgr);
-		d.put(fk, new BasicIndirect<Number>(mgr, expectedResult));
+		d.put(fk, new BasicIndirect<>(mgr, expectedResult));
 		FactKeyActor<?> ika = new FactKeyActor<>(fk);
 		CDOMWrapperInfoFacet wiFacet =
 				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);

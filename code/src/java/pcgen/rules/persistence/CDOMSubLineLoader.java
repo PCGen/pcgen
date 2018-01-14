@@ -100,11 +100,7 @@ public class CDOMSubLineLoader<T extends Loadable>
 		{
 			return targetClass.newInstance();
 		}
-		catch (InstantiationException e)
-		{
-			Logging.errorPrint("Exception in Instantiation: ", e);
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			Logging.errorPrint("Exception in Instantiation: ", e);
 		}

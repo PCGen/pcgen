@@ -1,5 +1,4 @@
 /*
- * PCGenTask.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,22 +15,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 8, 2010, 1:00:40 PM
  */
 package pcgen.system;
 
 import java.util.logging.LogRecord;
+
 import javax.swing.event.EventListenerList;
+
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public abstract class PCGenTask
 {
 
-	private EventListenerList listenerList = new EventListenerList();
+	private final EventListenerList listenerList = new EventListenerList();
 	private int progress = 0;
 	private int maximum = 0;
 	private String message;
@@ -118,7 +115,7 @@ public abstract class PCGenTask
 		}
 	}
 
-	protected void sendErrorMessage(Exception e)
+	protected void sendErrorMessage(Throwable e)
 	{
 		LogRecord record = new LogRecord(Logging.ERROR, e.getMessage());
 		record.setThrown(e);
@@ -128,11 +125,6 @@ public abstract class PCGenTask
 	protected void sendErrorMessage(LogRecord record)
 	{
 		fireErrorOccurredEvent(record);
-	}
-
-	protected void sendErrorMessage(String message)
-	{
-		fireErrorOccurredEvent(new LogRecord(Logging.ERROR, message));
 	}
 
 	protected void fireErrorOccurredEvent(LogRecord message)

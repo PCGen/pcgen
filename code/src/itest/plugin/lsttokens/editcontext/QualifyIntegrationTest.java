@@ -35,7 +35,7 @@ public class QualifyIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static QualifyToken token = new QualifyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

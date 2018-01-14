@@ -97,7 +97,7 @@ FOLLOWER:TransferredCustomizationPoints=33	TYPE:Astral Warrior	BONUS:VAR|Customi
 
 ###Block:Psicrystal
 # Class of the Master		Type			Spell Res.	Ability																									Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Move		Combat bonus					Stat bonus		Modify VAR
-FOLLOWER:PsiCrystalLVL=1	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Psicrystal ~ Self Propulsion|Psicrystal ~ Share Powers|Psicrystal ~ Sighted|Psicrystal ~ Telepathic Link	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES			BONUS:COMBAT|AC|0|TYPE=NaturalArmor.STACK
+FOLLOWER:PsiCrystalLVL=1	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Skills|Improved Evasion|Psicrystal ~ Self Propulsion|Psicrystal ~ Share Powers|Psicrystal ~ Sighted|Psicrystal ~ Telepathic Link	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES			BONUS:COMBAT|AC|0|TYPE=NaturalArmor.STACK
 FOLLOWER:PsiCrystalLVL=3	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Deliver Touch Powers																																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
 FOLLOWER:PsiCrystalLVL=5	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Telepathic Speech																																			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
 FOLLOWER:PsiCrystalLVL=7	TYPE:Psicrystal																																																BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1

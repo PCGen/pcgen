@@ -1,5 +1,4 @@
 /*
- * PCGenMenuBar.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 16, 2008, 3:19:16 PM
  */
 package pcgen.gui2;
 
@@ -33,14 +31,14 @@ import javax.swing.JMenuItem;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentSetFacade;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.TempBonusFacade;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.SortedListFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.util.AbstractListMenu;
 import pcgen.gui2.util.AbstractRadioListMenu;
@@ -54,7 +52,6 @@ import pcgen.util.Logging;
 
 /**
  * The menu bar that is displayed in PCGen's main window.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionListener
 {
@@ -278,7 +275,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			ReferenceFacade<SourceSelectionFacade> ref = frame.getCurrentSourceSelectionRef();
 			setSelectedItem(ref.get());
 			ListFacade<SourceSelectionFacade> sources = FacadeFactory.getDisplayedSourceSelections();
-			setListModel(new SortedListFacade<SourceSelectionFacade>(Comparators.toStringIgnoreCaseCollator(), sources));
+			setListModel(new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(), sources));
 			ref.addReferenceListener(this);
 		}
 		
@@ -353,7 +350,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	}
 	
 	/**
-	 * The Class <code>LoggingLevelMenu</code> provides a menu to control the 
+	 * The Class {@code LoggingLevelMenu} provides a menu to control the
 	 * level of logging output.
 	 */
 	private class LoggingLevelMenu extends AbstractRadioListMenu<LoggingLevelWrapper>
@@ -361,7 +358,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		public LoggingLevelMenu()
 		{
 			super(actionMap.get(PCGenActionMap.LOGGING_LEVEL_COMMAND));
-			DefaultListFacade<LoggingLevelWrapper> levels = new DefaultListFacade<LoggingLevelWrapper>();
+			DefaultListFacade<LoggingLevelWrapper> levels = new DefaultListFacade<>();
 			Level currentLvl = Logging.getCurrentLoggingLevel();
 			LoggingLevelWrapper current = null;
 			for (Level level : Logging.getLoggingLevels())
@@ -391,7 +388,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	}
 	
 	/**
-	 * The Class <code>LoggingLevelWrapper</code> provides a display wrapper 
+	 * The Class {@code LoggingLevelWrapper} provides a display wrapper
 	 * around a Level. 
 	 */
 	private static class LoggingLevelWrapper
@@ -403,9 +400,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			this.level = level;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{

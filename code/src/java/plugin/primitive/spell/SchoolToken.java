@@ -31,6 +31,9 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * SchoolToken is a Primitive that represents the Schools that are on a Spell.
+ */
 public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
@@ -65,7 +68,7 @@ public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + school.getLSTformat(false);
+		return getTokenName() + '=' + school.getLSTformat(false);
 	}
 
 	@Override

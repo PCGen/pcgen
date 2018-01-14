@@ -14,36 +14,31 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.encounter;
 
-import gmgen.io.ReadXML;
-import gmgen.io.VectorTable;
-import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
-
-import javax.swing.DefaultComboBoxModel;
 import java.io.File;
 import java.util.NoSuchElementException;
 import java.util.Vector;
 
-/**
- * @author Jerril
- *
- */
-public class EnvironmentModel extends DefaultComboBoxModel
+import javax.swing.DefaultComboBoxModel;
+
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import gmgen.io.ReadXML;
+import gmgen.io.VectorTable;
+
+public class EnvironmentModel extends DefaultComboBoxModel<Object>
 {
-	private String dir;
+	private final String dir;
 
 	/**
 	 * Constructor
 	 * @param parentDir
 	 */
-	public EnvironmentModel(String parentDir)
+	EnvironmentModel(String parentDir)
 	{
-		super();
 		dir = parentDir;
 	}
 
@@ -71,11 +66,11 @@ public class EnvironmentModel extends DefaultComboBoxModel
 
 		this.addElement(LanguageBundle.getString("in_plugin_encounter_generic")); //$NON-NLS-1$
 
-		for (int x = 1; x < table.sizeY(); x++)
+		for (int x = 1; x < table.size(); x++)
 		{
 			try
 			{
-				this.addElement(((Vector) table.elementAt(x)).firstElement());
+				this.addElement(((Vector) table.get(x)).firstElement());
 			}
 			catch (NoSuchElementException e)
 			{

@@ -77,7 +77,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
-		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
+		List<CDOMReference<Ability>> refs = new ArrayList<>();
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
@@ -94,9 +94,9 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 			refs.add(ref);
 		}
 
-		ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<Ability>(refs);
+		ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<>(refs);
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
-		ChoiceSet<CNAbility> cs = new ChoiceSet<CNAbility>(getTokenName(), gfd);
+		ChoiceSet<CNAbility> cs = new ChoiceSet<>(getTokenName(), gfd);
 		
 		TabInfo ti = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				TabInfo.class, Tab.ABILITIES.toString());
@@ -106,7 +106,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 			singularName = singularName.substring(0, singularName.length() - 1);
 		}
 		cs.setTitle("Select a " + singularName + " to modify");
-		TransitionChoice<CNAbility> tc = new ConcreteTransitionChoice<CNAbility>(cs,
+		TransitionChoice<CNAbility> tc = new ConcreteTransitionChoice<>(cs,
 				FormulaFactory.ONE);
 		tc.setRequired(false);
 		context.getObjectContext().put(ability, ObjectKey.MODIFY_CHOICE, tc);
@@ -145,17 +145,17 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 	private <T> void processApplication(PlayerCharacter pc, CNAbility choice,
 		ChooseInformation<T> chooseInfo)
 	{
-		List<T> available = new ArrayList<T>(chooseInfo.getSet(pc));
+		List<T> available = new ArrayList<>(chooseInfo.getSet(pc));
 		List<? extends T> selected =
 				chooseInfo.getChoiceActor().getCurrentlySelected(choice, pc);
 
 		final int currentSelections = selected.size();
-		final List<T> origSelections = new ArrayList<T>(selected);
+		final List<T> origSelections = new ArrayList<>(selected);
 
 		//
 		// If nothing to choose, or nothing selected, then leave
 		//
-		if ((available.size() == 0) || (currentSelections == 0))
+		if (available.isEmpty() || (currentSelections == 0))
 		{
 			return;
 		}
@@ -163,8 +163,8 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		Globals.sortChooserLists(available, selected);
 
 		CDOMChooserFacadeImpl<T> chooserFacade =
-				new CDOMChooserFacadeImpl<T>(
-						"Modify selections for " + choice, available, 
+				new CDOMChooserFacadeImpl<>(
+						"Modify selections for " + choice, available,
 						selected, 0);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
@@ -176,9 +176,9 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 			return;
 		}
 
-		List<T> add = new ArrayList<T>(chooserFacade.getFinalSelected());
+		List<T> add = new ArrayList<>(chooserFacade.getFinalSelected());
 		add.removeAll(origSelections);
-		List<T> remove = new ArrayList<T>(origSelections);
+		List<T> remove = new ArrayList<>(origSelections);
 		remove.removeAll(chooserFacade.getFinalSelected());
 
 		for (T selection : remove)

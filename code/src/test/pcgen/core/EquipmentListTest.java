@@ -1,5 +1,4 @@
 /*
- * EquipmentListTest.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 24-Mar-2006
- *
- * $Id: $
- *
  */
 package pcgen.core;
 
@@ -27,7 +21,7 @@ import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -35,15 +29,9 @@ import pcgen.util.TestHelper;
 
 /**
  * <code>EquipmentListTest</code> checks the functionality of the EquipmentList class.
- *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 @SuppressWarnings("nls")
-public class EquipmentListTest extends PCGenTestCase
+public class EquipmentListTest extends TestCase
 {
 
 	private Equipment eq = null;
@@ -82,7 +70,7 @@ public class EquipmentListTest extends PCGenTestCase
 	}
 
 	/**
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	public void setUp() throws Exception

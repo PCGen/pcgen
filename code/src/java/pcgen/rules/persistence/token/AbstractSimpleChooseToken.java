@@ -81,9 +81,9 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 					title = title.substring(1, title.length() - 1);
 				}
 				activeValue = value.substring(0, pipeLoc);
-				if (title == null || title.length() == 0)
+				if (title == null || title.isEmpty())
 				{
-					return new ParseResult.Fail(getParentToken() + ":"
+					return new ParseResult.Fail(getParentToken() + ':'
 						+ getTokenName() + " had TITLE= but no title: " + value, context);
 				}
 			}
@@ -107,7 +107,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 				return ParseResult.INTERNAL_ERROR;
 			}
 			Set<PrimitiveCollection<T>> set =
-					new HashSet<PrimitiveCollection<T>>();
+                    new HashSet<>();
 			StringTokenizer st = new StringTokenizer(activeValue, "|");
 			while (st.hasMoreTokens())
 			{
@@ -131,7 +131,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 			{
 				return new ParseResult.Fail("No items in set.", context);
 			}
-			prim = new CompoundOrPrimitive<T>(set);
+			prim = new CompoundOrPrimitive<>(set);
 		}
 
 		if (!prim.getGroupingState().isValid())
@@ -142,8 +142,8 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 			cpr.addErrorMessage("  Check that ALL is not combined with another item");
 			return cpr;
 		}
-		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<T>(prim);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
+		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(prim);
+		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -185,7 +185,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		if (!tc.getGroupingState().isValid())
 		{
 			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + ":" + getTokenName());
+				+ " was used in: " + getParentToken() + ':' + getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();

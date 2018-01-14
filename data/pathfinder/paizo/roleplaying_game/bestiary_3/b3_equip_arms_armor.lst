@@ -5,9 +5,9 @@ SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8od
 
 ###BLOCK: Melee
 # Equipment Name	Output Name			Required Weapon Proficiency		Type																Cost		Weight	Required Race				Crit Mult	Crit Range	Damage	Modifier						Wield Category	Reach		Size		Source Page
-Dagger (Chain)	OUTPUTNAME:Chain Dagger	PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Melee.Light.Finesseable.Ranged.Simple.Standard.Piercing.Slashing.Dagger.BladeLight	COST:2	WT:1		PRERACE:1,Daemon (Crucidaemon)	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:REACH.STEEL					WIELD:Light				SIZE:M	SOURCEPAGE:p.62
-Binding Contract					PROFICIENCY:WEAPON|Binding Contract	TYPE:Weapon.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail					COST:0	WT:2		PRERACE:1,Devil (Contract)		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:DISARM.TRIP					WIELD:OneHanded	REACH:15	SIZE:M	SOURCEPAGE:p.76
-Shears						PROFICIENCY:WEAPON|Scimitar		TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.BladeHeavy					COST:0	WT:4		PRERACE:1,Norn				CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:KEEN.MITHRAL_ITEM.PLUS5M.SPEED	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.201
+Dagger (Chain)	OUTPUTNAME:Chain Dagger	PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Melee.Light.Finesseable.Ranged.Simple.Standard.Piercing.Slashing.Dagger.BladeLight	COST:2	WT:1		PRERACE:1,Daemon (Crucidaemon)	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Quality ~ Reach.Material ~ Steel					WIELD:Light				SIZE:M	SOURCEPAGE:p.62
+Binding Contract					PROFICIENCY:WEAPON|Binding Contract	TYPE:Weapon.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail					COST:0	WT:2		PRERACE:1,Devil (Contract)		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Quality ~ Disarm.Special Quality ~ Trip					WIELD:OneHanded	REACH:15	SIZE:M	SOURCEPAGE:p.76
+Shears						PROFICIENCY:WEAPON|Scimitar		TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.BladeHeavy					COST:0	WT:4		PRERACE:1,Norn				CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:Special Ability ~ Keen ~ Weapon.Material ~ Mithril ~ Weapon / Item.Special Ability ~ +5 ~ Weapon.Special Ability ~ Speed ~ Weapon	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.201
 
 ###BLOCK: Ranged
 # Equipment Name	Unique Key						Required Weapon Proficiency	Type												Cost		Required Race			Crit Mult	Damage	Range

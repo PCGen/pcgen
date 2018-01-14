@@ -6,7 +6,6 @@
   xmlns="dummy"
   trim="false">
 
-; Current Ver: $Revision$
 ; Last Editor: $Author$
 ; Last Edited: $Date$
 ;
@@ -96,8 +95,7 @@
 ;			CharacterSheet.jar, the Export*.jar, GameMode*.jar and Lst*.jar
 ; 12.	in the pdf directory, create a lib and an outputsheets directories
 ; 13.	in the lib directory move the following file from the b lib directory;
-;			fop.jar, fop.license.txt, jdom.jar, jdom.license.txt, xml-apis.jar,
-;			xml-apis.readme.txt
+;			fop.jar, fop.license.txt, jdom.jar, jdom.license.txt
 ; 14.	in the outputsheets directory, move all the \pdf\ folder from outputsheets in the b dir
 ; 15.	in the skin directory, create a lib directory
 ; 16.	from the b lib directory move everything except the following files;

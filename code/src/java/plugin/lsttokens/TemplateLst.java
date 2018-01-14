@@ -42,10 +42,7 @@ import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
+
 public class TemplateLst extends AbstractToken implements
 		CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
 {
@@ -97,8 +94,8 @@ public class TemplateLst extends AbstractToken implements
 
 		StringTokenizer tok = new StringTokenizer(remaining, Constants.PIPE);
 
-		List<CDOMReference<PCTemplate>> list = new ArrayList<CDOMReference<PCTemplate>>();
-		List<CDOMReference<PCTemplate>> removelist = new ArrayList<CDOMReference<PCTemplate>>();
+		List<CDOMReference<PCTemplate>> list = new ArrayList<>();
+		List<CDOMReference<PCTemplate>> removelist = new ArrayList<>();
 		while (tok.hasMoreTokens())
 		{
 			String templKey = tok.nextToken();
@@ -129,7 +126,7 @@ public class TemplateLst extends AbstractToken implements
 
 		if (consolidate)
 		{
-			CDOMCompoundOrReference<PCTemplate> ref = new CDOMCompoundOrReference<PCTemplate>(
+			CDOMCompoundOrReference<PCTemplate> ref = new CDOMCompoundOrReference<>(
 					PCTEMPLATE_CLASS, Constants.LST_CHOOSE_COLON);
 			for (CDOMReference<PCTemplate> r : list)
 			{
@@ -166,7 +163,7 @@ public class TemplateLst extends AbstractToken implements
 				.getObjectContext().getListChanges(cdo,
 						ListKey.NEW_CHOOSE_ACTOR);
 
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 
 		Collection<CDOMReference<PCTemplate>> added = changes.getAdded();
 		if (added != null && !added.isEmpty())

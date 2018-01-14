@@ -1,7 +1,6 @@
 /*
  * SpellSupportForPCClass
  * Copyright 2009 (c) Tom Parker <thpr@users.sourceforge.net>
- * derived from PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -155,8 +154,7 @@ public class SpellSupportForPCClass
 		
 	}
 	
-	public int getKnownForLevel(int spellLevel, String bookName,
-			PlayerCharacter aPC)
+	public int getKnownForLevel(int spellLevel, PlayerCharacter aPC)
 	{
 		int total = 0;
 		int stat = 0;
@@ -408,7 +406,7 @@ public class SpellSupportForPCClass
 		//
 		if (castForLevelMap == null)
 		{
-			castForLevelMap = new HashMap<Integer, Integer>(100);
+			castForLevelMap = new HashMap<>(100);
 		}
 		for (int i = 0; i < 100; i++)
 		{
@@ -567,7 +565,7 @@ public class SpellSupportForPCClass
 			{
 				Collection<CharacterSpell> aList = aPC.getCharacterSpells(
 						source, ix);
-				Collection<Spell> bList = new ArrayList<Spell>();
+				Collection<Spell> bList = new ArrayList<>();
 
 				if (!aList.isEmpty())
 				{
@@ -610,7 +608,7 @@ public class SpellSupportForPCClass
 							PCClass target = source;
 							String subClassKey = aPC.getSubClassName(source);
 							if (subClassKey != null
-									&& (subClassKey.length() > 0)
+									&& (!subClassKey.isEmpty())
 									&& !subClassKey.equals(Constants.NONE))
 							{
 								target = source.getSubClassKeyed(subClassKey);
@@ -694,7 +692,7 @@ public class SpellSupportForPCClass
 			{
 				PCClass target = source;
 				String subClassKey = aPC.getSubClassName(source);
-				if (subClassKey != null && (subClassKey.length() > 0)
+				if (subClassKey != null && (!subClassKey.isEmpty())
 						&& !subClassKey.equals(Constants.NONE))
 				{
 					target = source.getSubClassKeyed(subClassKey);
@@ -738,11 +736,6 @@ public class SpellSupportForPCClass
 		}
 
 		return false;
-	}
-
-	public int getKnownForLevel(final int spellLevel, final PlayerCharacter aPC)
-	{
-		return getKnownForLevel(spellLevel, "null", aPC);
 	}
 
 }

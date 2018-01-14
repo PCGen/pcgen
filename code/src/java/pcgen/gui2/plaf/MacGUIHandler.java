@@ -1,7 +1,4 @@
 /*
- * MacGUI.java
- * Copyright 2006 (C) Tod Milam <twmilam@yahoo.com>
- *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -15,25 +12,25 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on January 18, 2006
  */
 package pcgen.gui2.plaf;
 
-import com.apple.eawt.*;
 import pcgen.gui2.PCGenUIManager;
 
-/**
- * <code>MacGUI</code> initializes Mac-specific GUI elements.
- *
- * @author Tod Milam <twmilam@yahoo.com>
- * @version $Revision: 1828 $
- */
-public class MacGUIHandler extends ApplicationAdapter
-{
+import com.apple.eawt.AboutHandler;
+import com.apple.eawt.AppEvent;
+import com.apple.eawt.Application;
+import com.apple.eawt.PreferencesHandler;
+import com.apple.eawt.QuitHandler;
+import com.apple.eawt.QuitResponse;
 
-	private static MacGUIHandler myObj = null;
-	private static com.apple.eawt.Application theApp = null;
+/**
+ * {@code MacGUI} initializes Mac-specific GUI elements.
+ */
+public final class MacGUIHandler
+{
+	private static MacGUIHandler theAdapter;
+	private static Application theApp;
 
 	private MacGUIHandler()
 	{
@@ -45,47 +42,47 @@ public class MacGUIHandler extends ApplicationAdapter
 	 */
 	public static void initialize()
 	{
-		if (myObj != null)
+		if (theAdapter != null)
 		{
 			// we have already initialized.
 			return;
 		}
 
 		// set up the Application menu
-		myObj = new MacGUIHandler();
-		theApp = new com.apple.eawt.Application();
-		theApp.addApplicationListener(myObj);
-		theApp.setEnabledPreferencesMenu(true);
-	}  // end static initialize method
+		theAdapter = new MacGUIHandler();
+		theApp = Application.getApplication();
+		theApp.setAboutHandler(new OSXAboutHandler());
+		theApp.setPreferencesHandler(new OSXPreferencesHandler());
+		theApp.setQuitHandler(new OSXQuitHandler());
+	}
 
-	/**
-	 * Called when user select "About" from the application menu.
-	 */
-	@Override
-	public void handleAbout(ApplicationEvent ae)
-	{
-		PCGenUIManager.displayAboutDialog();
-		ae.setHandled(true);
-	}  // end handleAbout
 
-	/**
-	 * Called when user select "Preferences" from the application menu.
-	 */
-	@Override
-	public void handlePreferences(ApplicationEvent ae)
+	private static class OSXAboutHandler implements AboutHandler
 	{
-		PCGenUIManager.displayPreferencesDialog();
-		ae.setHandled(true);
-	}  // end handlePreferences
+		@Override
+		public void handleAbout(final AppEvent.AboutEvent aboutEvent)
+		{
+			PCGenUIManager.displayAboutDialog();
+		}
+	}
 
-	/**
-	 * Called when user select "Quit" from the application menu.
-	 */
-	@Override
-	public void handleQuit(ApplicationEvent ae)
+	private static class OSXPreferencesHandler implements PreferencesHandler
 	{
-		ae.setHandled(false);
-		PCGenUIManager.closePCGen();
-	}  // end handleQuit
-}  // end class MacGUI
+		@Override
+		public void handlePreferences(final AppEvent.PreferencesEvent preferencesEvent)
+		{
+			PCGenUIManager.displayPreferencesDialog();
+		}
+	}
+
+	private static class OSXQuitHandler implements QuitHandler
+	{
+		@Override
+		public void handleQuitRequestWith(final AppEvent.QuitEvent quitEvent, final QuitResponse quitResponse)
+		{
+			PCGenUIManager.closePCGen();
+		}
+	}
+
+}
 

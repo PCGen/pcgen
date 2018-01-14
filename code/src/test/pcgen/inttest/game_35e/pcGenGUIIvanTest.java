@@ -1,6 +1,4 @@
-/*
- * pcGenGUIIvanTest.java
- */
+
 package pcgen.inttest.game_35e;
 
 import pcgen.inttest.PcgenFtlTestCase;
@@ -15,9 +13,7 @@ import junit.framework.TestSuite;
 public class pcGenGUIIvanTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIIvanTest()
 	{
 		super("35e_ivan");

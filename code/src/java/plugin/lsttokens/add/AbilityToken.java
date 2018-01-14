@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 20, 2007
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.lsttokens.add;
 
@@ -63,31 +56,27 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>AbilityToken</code> parses ADD:ABILITY entries.
+ * {@code AbilityToken} parses ADD:ABILITY entries.
  *
  * <p>
- * <b>Tag Name</b>: <code>ADD:ABILITY</code>|w|x|y|z,z<br />
+ * <b>Tag Name</b>: {@code ADD:ABILITY}|w|x|y|z,z<br>
  * <b>Variables Used (w)</b>: Count (Optional Number, Variable or Formula -
- * Number of choices granted).<br />
+ * Number of choices granted).<br>
  * <b>Variables Used (x)</b>: Ability Category (The Ability Category this
- * ability will be added to).<br />
+ * ability will be added to).<br>
  * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability:
- * <tt>NORMAL</tt> or <tt>VIRTUAL</tt>)<br />
+ * <tt>NORMAL</tt> or <tt>VIRTUAL</tt>)<br>
  * <b>Variables Used (z)</b>: Ability Key or TYPE(The Ability to add. Can have
- * choices specified in &quot;()&quot;)<br />
- * <p />
- * <b>What it does:</b><br/>
+ * choices specified in &quot;()&quot;)<br>
+ * <p>
+ * <b>What it does:</b><br>
  * <ul>
  * <li>Adds an Ability to a character, providing choices if these are required.</li>
  * <li>The Ability is added to the Ability Category specified.</li>
  * <li>Choices can be specified by including them in parenthesis after the
  * ability key name (whitespace is ignored).</li>
- *
- * Last Editor: $Author$ Last Edited: $Date: 2007-05-20 19:00:17 -0400
+ * </ul>
  * (Sun, 20 May 2007) $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Rev$
  */
 public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CNAbilitySelection>
@@ -150,7 +139,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				return new ParseResult.Fail("Count in " + getTokenName()
 						+ " was not valid: " + count.toString(), context);
 			}
-			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
+			if (count.isStatic() && (count.resolveStatic().doubleValue() <= 0))
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
 						+ " must be > 0", context);
@@ -198,7 +187,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return pr;
 		}
 
-		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
+		List<CDOMReference<Ability>> refs = new ArrayList<>();
 		ParsingSeparator tok = new ParsingSeparator(third, ',');
 		tok.addGroupingPair('[', ']');
 		tok.addGroupingPair('(', ')');
@@ -298,8 +287,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		title.append(" Choice");
 		cs.setTitle(title.toString());
 		PersistentTransitionChoice<CNAbilitySelection> tc =
-				new ConcretePersistentTransitionChoice<CNAbilitySelection>(
-					cs, count);
+				new ConcretePersistentTransitionChoice<>(
+						cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.allowStack(allowStack);
 		if (dupChoices != 0)
@@ -317,12 +306,12 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				.getObjectContext().getListChanges(obj, ListKey.ADD);
 		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
 				.getAdded();
-		if (addedItems == null || addedItems.isEmpty())
+		if ((addedItems == null) || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
 			return null;
 		}
-		List<String> addStrings = new ArrayList<String>();
+		List<String> addStrings = new ArrayList<>();
 		for (TransitionChoice<?> container : addedItems)
 		{
 			SelectableSet<?> cs = container.getChoices();
@@ -337,7 +326,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 							+ " Count");
 					return null;
 				}
-				if (f.isStatic() && f.resolveStatic().doubleValue() <= 0)
+				if (f.isStatic() && (f.resolveStatic().doubleValue() <= 0))
 				{
 					context.addWriteMessage("Count in " + getFullName()
 							+ " must be > 0");

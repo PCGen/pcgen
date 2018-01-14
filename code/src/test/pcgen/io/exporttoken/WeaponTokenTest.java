@@ -1,5 +1,4 @@
 /*
- * WeaponTokenTest.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Dec 11, 2004
- *
- * $Id$
- *
  */
 package pcgen.io.exporttoken;
 
@@ -68,12 +62,6 @@ import pcgen.util.TestHelper;
 /**
  * <code>WeaponTokenTest</code> contains tests to verify that the
  * WEAPON token is working correctly.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class WeaponTokenTest extends AbstractCharacterTestCase
@@ -218,7 +206,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword = new Equipment();
 		bastardSword.setName("Sword, Bastard");
 		bastardSword.put(StringKey.KEY_NAME, "BASTARD_SWORD");
-		bastardSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
+		bastardSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<>(wp));
 		TestHelper.addType(bastardSword, "Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
 		bastardSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -238,7 +226,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.setName("Longsword (Large)");
 		largeSword.put(StringKey.KEY_NAME, "KEY_LONGSWORD_LARGE");
 		largeSword.put(StringKey.OUTPUT_NAME, "Longsword (Large)");
-		largeSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
+		largeSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<>(wp));
 		TestHelper.addType(largeSword, "Weapon.Melee.Martial.Standard.Slashing.Sword");
 		largeSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -252,7 +240,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.setName("Longsword (Fine)");
 		fineSword.put(StringKey.KEY_NAME, "KEY_LONGSWORD_FINE");
 		fineSword.put(StringKey.OUTPUT_NAME, "Longsword (Fine)");
-		fineSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
+		fineSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<>(wp));
 		TestHelper.addType(fineSword, "Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
 		fineSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -272,7 +260,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.setName("Longspear");
 		longSpear.put(StringKey.KEY_NAME, "KEY_LONGSPEAR");
 		longSpear.put(StringKey.OUTPUT_NAME, "Longspear");
-		longSpear.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(spearwp));
+		longSpear.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<>(spearwp));
 		TestHelper.addType(longSpear, "Weapon.Melee.Martial.Standard.Piercing.Spear");
 		longSpear.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -314,14 +302,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		}
 		bite.put(IntegerKey.SLOTS, 0);
 		bite.setQty(Float.valueOf(1));
-		bite.setNumberCarried(Float.valueOf(1));
+		bite.setNumberCarried(1.0f);
 		bite.put(ObjectKey.ATTACKS_PROGRESS, false);
 		bite.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		bite.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
-		bite.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
+		bite.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<>(wp));
 
 		longbow = new Equipment();
 		longbow.setName("Longbow");
@@ -331,7 +319,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longbow.addToListFor(ListKey.CAPACITY,
 			new Capacity("Arrow", BigDecimal.ONE));
 		longbow.setQty(Float.valueOf(1));
-		longbow.setNumberCarried(Float.valueOf(1));
+		longbow.setNumberCarried(1.0f);
 		
 		arrow = new Equipment();
 		arrow.setName("Arrow");

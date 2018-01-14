@@ -69,7 +69,7 @@ public class CSkillTokenTest extends
 
 	static CDOMPrimaryToken<PCClassLevel> token = new CskillToken();
 	static CDOMTokenLoader<PCClassLevel> loader =
-			new CDOMTokenLoader<PCClassLevel>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCClassLevel> getLoader()

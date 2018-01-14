@@ -134,14 +134,15 @@
 										</xsl:call-template>
 									</fo:block>
 								</xsl:if>	-->
-								<xsl:if test="contains(type, 'AMMUNITION') and quantity &gt; 1">
+								<!-- Replaced quantity with checkbox, though quatity will net same result with > 0 -->
+								<xsl:if test="contains(type, 'AMMUNITION') and checkbox > 0">
 									<fo:block font-size="7pt" font-family="ZapfDingbats">
 										<xsl:call-template name="for.loop">
 											<xsl:with-param name="count" select="checkbox"/>
 										</xsl:call-template>
 									</fo:block>
 								</xsl:if>
-								<xsl:if test="contains(type, 'CONSUMABLE') and quantity &gt; 1">
+								<xsl:if test="contains(type, 'CONSUMABLE') and checkbox > 0">
 									<fo:block font-size="7pt" font-family="ZapfDingbats">
 										<xsl:call-template name="for.loop">
 											<xsl:with-param name="count" select="checkbox"/>

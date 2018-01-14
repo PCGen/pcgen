@@ -1,5 +1,4 @@
 /*
- * PCGenTaskExecutor.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,26 +15,23 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 10, 2010, 5:21:21 PM
  */
 package pcgen.system;
 
 import java.util.LinkedList;
-import org.apache.commons.lang.math.Fraction;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
-public class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
+import org.apache.commons.lang3.math.Fraction;
+
+
+class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 {
 
-	private LinkedList<PCGenTask> tasks = new LinkedList<PCGenTask>();
+	private LinkedList<PCGenTask> tasks = new LinkedList<>();
 	private PCGenTask currentTask = null;
 	private Fraction progressMultiplier = null;
 	private Fraction baseProgress = Fraction.ZERO;
 
-	public void addPCGenTask(PCGenTask task)
+	void addPCGenTask(PCGenTask task)
 	{
 		tasks.add(task);
 	}

@@ -1,5 +1,4 @@
 /*
- * DefaultListFacade.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 3:51:05 PM
  */
 package pcgen.facade.util;
 
@@ -26,23 +24,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class DefaultListFacade<E> extends AbstractListFacade<E>
 {
 
-	private ArrayList<E> elementList;
+	private final ArrayList<E> elementList;
 
 	public DefaultListFacade()
 	{
-		elementList = new ArrayList<E>();
+		elementList = new ArrayList<>();
 	}
 
 	public DefaultListFacade(Collection<? extends E> elements)
 	{
-		elementList = new ArrayList<E>(elements);
+		elementList = new ArrayList<>(elements);
 	}
 
 	@Override
@@ -51,7 +46,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		return new Iterator<E>()
 		{
 
-			private ListIterator<E> iterator = elementList.listIterator();
+			private final ListIterator<E> iterator = elementList.listIterator();
 			private int index;
 
             @Override
@@ -256,12 +251,9 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	 */
 	public List<E> getContents()
 	{
-		return new ArrayList<E>(elementList);
+		return new ArrayList<>(elementList);
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

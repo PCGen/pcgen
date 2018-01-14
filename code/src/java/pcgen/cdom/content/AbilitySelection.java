@@ -1,5 +1,4 @@
 /*
- * AbilitySelection.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.cdom.content;
 
@@ -59,7 +57,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	public static AbilitySelection getAbilitySelectionFromPersistentFormat(
 		LoadContext context, String persistentFormat)
 	{
-		if (persistentFormat.indexOf(Constants.PIPE) < 0)
+		if (!persistentFormat.contains(Constants.PIPE))
 		{
 			return decodeFeatSelectionChoice(context, persistentFormat);
 		}
@@ -138,7 +136,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 
 		if (ability == null)
 		{
-			List<String> choices = new ArrayList<String>();
+			List<String> choices = new ArrayList<>();
 			String baseKey =
 					AbilityUtilities.getUndecoratedName(persistentFormat,
 						choices);
@@ -217,7 +215,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		StringBuilder sb = new StringBuilder(50);
 		sb.append(getAbilityKey());
 		String selection = getSelection();
-		if ((selection != null) && (selection.length() > 0))
+		if ((selection != null) && (!selection.isEmpty()))
 		{
 			sb.append(" (");
 			sb.append(selection);

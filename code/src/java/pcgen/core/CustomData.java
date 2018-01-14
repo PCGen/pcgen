@@ -1,5 +1,4 @@
 /*
- * CustomData.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,12 +15,8 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 23, 2002, 12:53 AM
  *
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -47,10 +42,8 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- * <code>CustomData</code>
+ * {@code CustomData}
  *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
  */
 public final class CustomData
 {
@@ -341,12 +334,12 @@ public final class CustomData
 			bw.write("#");
 			bw.newLine();
 
-			if (pbStatCosts.size() > 0)
+			if (!pbStatCosts.isEmpty())
 			{
 				for ( Integer statValue : pbStatCosts.keySet() )
 				{
 					final PointBuyCost pbc = pbStatCosts.get(statValue);
-					bw.write("STAT:" + statValue.toString() + "\t\tCOST:" + Integer.toString(pbc.getBuyCost()));
+					bw.write("STAT:" + statValue + "\t\tCOST:" + Integer.toString(pbc.getBuyCost()));
 					final int iCount = pbc.getPrerequisiteCount();
 					if (iCount != 0)
 					{
@@ -511,7 +504,7 @@ public final class CustomData
 					}
 
 					final String key = race.getKeyName();
-					bw.write(Globals.getBioSet().getRacePCCText(region, key));
+					bw.write(SettingsHandler.getGame().getBioSet().getRacePCCText(region, key));
 					bw.newLine();
 				}
 			}
@@ -655,7 +648,7 @@ public final class CustomData
 	{
 		for ( Campaign c : Globals.getCampaignList() )
 		{
-			if (c.getSafe(StringKey.DESTINATION).length() > 0)
+			if (!c.getSafe(StringKey.DESTINATION).isEmpty())
 			{
 				CampaignOutput.output(Globals.getContext(), c);
 			}
@@ -675,7 +668,8 @@ public final class CustomData
 		{
 			writeCustomHeader(bw);
 
-			for(Spell spell : Globals.getSpellMap().values())
+			for(Spell spell : Globals.getContext().getReferenceContext()
+					.getConstructedCDOMObjects(Spell.class))
 			{
 				if (spell.isType(Constants.TYPE_CUSTOM))
 				{

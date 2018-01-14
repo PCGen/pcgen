@@ -180,7 +180,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		Changes<SpecialAbility> changes = context.getObjectContext()
 				.getListChanges(obj, ListKey.SAB);
 		Collection<SpecialAbility> added = changes.getAdded();
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (changes.includesGlobalClear())
 		{
 			list.add(Constants.LST_DOT_CLEAR);

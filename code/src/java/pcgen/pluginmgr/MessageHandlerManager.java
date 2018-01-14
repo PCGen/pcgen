@@ -1,5 +1,4 @@
 /*
- * MessageHandlerManager.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/02/2014 9:19:23 am
  *
- * $Id$
  */
 package pcgen.pluginmgr;
 
@@ -28,15 +25,10 @@ import pcgen.pluginmgr.messages.ComponentAddedMessage;
 import pcgen.pluginmgr.messages.ComponentRemovedMessage;
 
 /**
- * The Class <code>MessageHandlerManager</code> records the list of message handlers
+ * The Class {@code MessageHandlerManager} records the list of message handlers
  * and ensures that they get advised of any messages in order. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class MessageHandlerManager
@@ -76,7 +68,7 @@ public class MessageHandlerManager
 	/* ------------------------------------------------------------- */
 	
 	/**
-	 * The Class <code>PCGenMessagePostbox</code> distributes PCGenMessages
+	 * The Class {@code PCGenMessagePostbox} distributes PCGenMessages
 	 * to all handlers registered in the parent ChainOfResponsibility. The handlers 
 	 * are advised in order (with the source of the message advised last) however 
 	 * messages may be consumed in which case no further handlers are advised of 
@@ -85,9 +77,6 @@ public class MessageHandlerManager
 	private final class PCGenMessagePostbox implements PCGenMessageHandler
 	{
 
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{

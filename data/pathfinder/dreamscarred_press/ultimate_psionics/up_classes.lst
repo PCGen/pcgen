@@ -626,7 +626,7 @@ CLASS:Gifted Blade Marksman Power List	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEV
 CLASS:Wizard.MOD
 SUBCLASS:Psychic Mage	SPELLLIST:2|Psion|Wizard
 #	CHOICE:SCHOOL|Psychic Mage
-SUBCLASSLEVEL:1	BONUS:VAR|PsychicMageLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Psychic Mage|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	BONUS:VAR|PsychicMageLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Psychic Mage|PREVAREQ:Wizard_CF_ArcaneSchool,0
 
 
 ### --- Prestige classes (begin) --- ###
@@ -737,7 +737,7 @@ CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Psionic
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus																	Save bonus																																				Modify VAR
 CLASS:Dark Tempest	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.355	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name		Required Ability									Multiple Requirements													Required Skill				Req. Spell Type
-CLASS:Dark Tempest	PREABILITY:1,CATEGORY=Special Ability,Soulknife ~ Form Mind Blade	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Mind Blade Knight],[PREVARGTEQ:MindBladeEnhancement,2]	PRESKILL:1,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=1
+CLASS:Dark Tempest	PREABILITY:1,CATEGORY=Special Ability,Soulknife ~ Form Mind Blade	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Mind Blade Knight],[PREVARGTEQ:MndBladeEnhancement,2]	PRESKILL:1,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dark Tempest	STARTSKILLPTS:2	CSKILL:Acrobatics|Autohypnosis|Bluff|Intimidate|Perception|Perform (Dance)|Sense Motive
 ###Block: Dark Tempest class definitions

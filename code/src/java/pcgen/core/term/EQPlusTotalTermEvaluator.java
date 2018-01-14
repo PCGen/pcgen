@@ -1,5 +1,4 @@
 /*
- * EQPlusTermEvaluator.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 07/01/2009 9:26:13 PM
- *
- * $Id: $
  */
 package pcgen.core.term;
 
@@ -26,14 +21,10 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>EQPlusTotalTermEvaluator</code> is responsible for producing 
+ * The Class {@code EQPlusTotalTermEvaluator} is responsible for producing
  * the value of the PLUS token for use in equipment and eqmod cost formulas. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -57,7 +48,7 @@ public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements Ter
 			boolean primary,
 			PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	/* (non-Javadoc)

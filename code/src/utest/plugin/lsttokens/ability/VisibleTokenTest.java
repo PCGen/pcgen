@@ -34,7 +34,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Ability>
 
 	static VisibleToken token = new VisibleToken();
 
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -57,7 +57,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	@Test
 	public void testInvalidOutput()
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(ObjectKey.VISIBILITY, Visibility.QUALIFY);
 		assertNull(token.unparse(primaryContext, primaryProf));
 		assertFalse(primaryContext.getWriteMessageCount() == 0);

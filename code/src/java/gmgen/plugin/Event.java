@@ -16,23 +16,19 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  Spell.java
  *
- *  Created on January 16, 2002, 12:27 PM
  */
 package gmgen.plugin;
-
-import org.jdom.Element;
-import pcgen.util.Logging;
 
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Vector;
 
+import pcgen.util.Logging;
+
+import org.jdom2.Element;
+
 /**
- *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
  */
 public class Event implements InitHolder
 {
@@ -225,49 +221,42 @@ public class Event implements InitHolder
     @Override
 	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<Object> rowVector = new Vector<Object>();
+		Vector<Object> rowVector = new Vector<>();
 
 		for ( String columnName : columnOrder )
 		{
-			if (columnName.equals("Name"))
-			{ // Event's name
-				rowVector.add(getName());
-			}
-			else if (columnName.equals("Player"))
-			{ // Player's Name who cast the spell
-				rowVector.add("Owner: " + getPlayer());
-			}
-			else if (columnName.equals("Status"))
-			{ // Event's Status
-				rowVector.add(getStatus());
-			}
-			else if (columnName.equals("+"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("Init"))
-			{ // Event's Initiative
-				rowVector.add("" + init.getCurrentInitiative());
-			}
-			else if (columnName.equals("Dur"))
-			{ // Event's Duration
-				rowVector.add("" + getDuration());
-			}
-			else if (columnName.equals("#"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("HP"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("HP Max"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("Type"))
-			{ //PC, Enemy, Ally, -
-				rowVector.add("-");
+			switch (columnName)
+			{
+				case "Name":  // Event's name
+					rowVector.add(getName());
+					break;
+				case "Player":  // Player's Name who cast the spell
+					rowVector.add("Owner: " + getPlayer());
+					break;
+				case "Status":  // Event's Status
+					rowVector.add(getStatus());
+					break;
+				case "+":  // Ignored
+					rowVector.add("");
+					break;
+				case "Init":  // Event's Initiative
+					rowVector.add(String.valueOf(init.getCurrentInitiative()));
+					break;
+				case "Dur":  // Event's Duration
+					rowVector.add(String.valueOf(getDuration()));
+					break;
+				case "#":  // Ignored
+					rowVector.add("");
+					break;
+				case "HP":  // Ignored
+					rowVector.add("");
+					break;
+				case "HP Max":  // Ignored
+					rowVector.add("");
+					break;
+				case "Type":  //PC, Enemy, Ally, -
+					rowVector.add("-");
+					break;
 			}
 		}
 
@@ -280,9 +269,9 @@ public class Event implements InitHolder
 		Element retElement = new Element("Event");
 		Element initiative = new Element("Initiative");
 
-		initiative.setAttribute("initiative", init.getCurrentInitiative() + "");
-		initiative.setAttribute("duration", getDuration() + "");
-		initiative.setAttribute("alert", isAlert() + "");
+		initiative.setAttribute("initiative", String.valueOf(init.getCurrentInitiative()));
+		initiative.setAttribute("duration", String.valueOf(getDuration()));
+		initiative.setAttribute("alert", String.valueOf(isAlert()));
 		retElement.addContent(initiative);
 
 		retElement.setAttribute("name", getName());
@@ -340,29 +329,31 @@ public class Event implements InitHolder
 		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
-		if (columnName.equals("Name"))
-		{ // Spell's Name
-			setName(strData);
-		}
-		else if (columnName.equals("Player"))
-		{ // Name of the player who cast the spell
-			setPlayer(strData);
-		}
-		else if (columnName.equals("Status"))
-		{ // SPell's status
-			setStatus(State.getStateLocalised(strData));
-		}
-		else if (columnName.equals("Init"))
-		{ // Spell's Initiative
+		switch (columnName)
+		{
+			case "Name":  // Spell's Name
+				setName(strData);
+				break;
+			case "Player":  // Name of the player who cast the spell
+				setPlayer(strData);
+				break;
+			case "Status":  // SPell's status
+				setStatus(State.getStateLocalised(strData));
+				break;
+			case "Init":
+			{ // Spell's Initiative
 
-			Integer intData = Integer.valueOf(strData);
-			init.setCurrentInitiative(intData.intValue());
-		}
-		else if (columnName.equals("Dur"))
-		{ // Spell's duration
+				Integer intData = Integer.valueOf(strData);
+				init.setCurrentInitiative(intData.intValue());
+				break;
+			}
+			case "Dur":
+			{ // Spell's duration
 
-			Integer intData = Integer.valueOf(strData);
-			setDuration(intData.intValue());
+				Integer intData = Integer.valueOf(strData);
+				setDuration(intData.intValue());
+				break;
+			}
 		}
 	}
 
@@ -383,7 +374,7 @@ public class Event implements InitHolder
 	 * @param init
 	 * @param alert
 	 */
-	protected final void setValues(String name, String player, State status, String effect, int duration, int init,
+	final void setValues(String name, String player, State status, String effect, int duration, int init,
 		boolean alert)
 	{
 		this.name = name;

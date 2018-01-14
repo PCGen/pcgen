@@ -27,10 +27,9 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
 /**
- * ClassLevelChangeFacet is a Facet that that tracks the changes to PCClassLevel
+ * ClassLevelChangeFacet is a Facet that tracks the changes to PCClassLevel
  * objects that have been granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ClassLevelChangeFacet implements ClassLevelChangeListener
 {

@@ -36,8 +36,6 @@ import pcgen.util.Logging;
  * suitable for a particular file type. e.g. Converting special characters 
  * into safe XML equivalents for outputting to xml files.
  *    
- * @author apsen
- * @version $Revision: $
  */
 public class PatternFilter implements OutputFilter
 {
@@ -54,7 +52,6 @@ public class PatternFilter implements OutputFilter
 	 */
 	public PatternFilter(String templateFileName) throws IOException
 	{
-		super();
 
 		int idx = templateFileName.lastIndexOf('.');
 		if (idx < 0)
@@ -90,71 +87,70 @@ public class PatternFilter implements OutputFilter
 						new FileInputStream(filterFile), "UTF-8"));
 
 				outputFilterName = filterName;
-				match = new ArrayList<String>();
-				replace = new ArrayList<String>();
+				match = new ArrayList<>();
+				replace = new ArrayList<>();
 
-				for (;;)
-				{
-					final String aLine = br.readLine();
+			while (true)
+			{
+				final String aLine = br.readLine();
 //					Logging.debugPrint("Line read:" + aLine);
 
-					if (aLine == null)
-					{
-						break;
-					}
+				if (aLine == null)
+				{
+					break;
+				}
 
-					String aLineWOComment;
-					if (aLine.length() == 0 || aLine.charAt(0) == '#') {
-                                        continue;
-                                    }
-					else if (0 < aLine.indexOf("\t#")) {
-                                        aLineWOComment =
-                                                        aLine.substring(0, aLine.indexOf("\t#"));
-                                    }
-					else {
-                                        aLineWOComment = aLine;
-                                    }
+				String aLineWOComment;
+				if (aLine.isEmpty() || aLine.charAt(0) == '#')
+				{
+					continue;
+				}
+				else if (aLine.indexOf("\t#") > 0)
+				{
+					aLineWOComment =
+							aLine.substring(0, aLine.indexOf("\t#"));
+				}
+				else
+				{
+					aLineWOComment = aLine;
+				}
 
 //					Logging.debugPrint("Stripped line:" + aLineWOComment);
-					final List<String> filterEntry =
-							CoreUtility.split(aLineWOComment, '\t');
+				final List<String> filterEntry =
+						CoreUtility.split(aLineWOComment, '\t');
 
-					try
+				try
+				{
+					if (filterEntry.size() == 2)
 					{
-						if (filterEntry.size() == 2)
-						{
-							match.add(filterEntry.get(0));
+						match.add(filterEntry.get(0));
 
 //							Logging.debugPrint("Match: [" + filterEntry.get(0)
 //								+ "] and replace with [" + filterEntry.get(1)
 //								+ "]");
-							replace.add(filterEntry.get(1).replaceAll("\\\\n",
-								"\n").replaceAll("\\\\t", "\t"));
-						}
-						else if (filterEntry.size() == 1)
-						{
-							match.add(filterEntry.get(0));
-							replace.add("");
-//							Logging.debugPrint("Match: [" + filterEntry.get(0)
-//								+ "] and replace with []");
-						}
-						else
-						{
-							Logging
-								.errorPrint("Incorrect line format in PatternFilter: Line ignored");
-						}
+						replace.add(filterEntry.get(1).replaceAll(
+								"\\\\n",
+								"\n"
+						).replaceAll("\\\\t", "\t"));
 					}
-					catch (NullPointerException e)
+					else if (filterEntry.size() == 1)
 					{
-						Logging.errorPrint(
-							"Exception in setCurrentOutputFilter", e);
+						match.add(filterEntry.get(0));
+						replace.add("");
+//						Logging.debugPrint("Match: [" + filterEntry.get(0)
+//							+ "] and replace with []");
 					}
-					catch (NumberFormatException e)
+					else
 					{
-						Logging.errorPrint(
-							"Exception in setCurrentOutputFilter", e);
+						Logging.errorPrint("Incorrect line format in PatternFilter: Line "
+							+ "ignored");
 					}
 				}
+				catch (NullPointerException | NumberFormatException e)
+				{
+					Logging.errorPrint("Exception in setCurrentOutputFilter", e);
+				}
+			}
 
 				br.close();
 		}

@@ -15,10 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on October 29, 2006.
  * 
- * Current Ver: $Revision: 1111 $ Last Editor: $Author: boomer70 $ Last Edited:
- * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.choiceset;
 
@@ -75,7 +72,6 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public ReferenceChoiceSet(Collection<? extends CDOMReference<T>> col)
 	{
-		super();
 		if (col == null)
 		{
 			throw new IllegalArgumentException(
@@ -86,7 +82,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		refCollection = new WeightedCollection<CDOMReference<T>>(col);
+		refCollection = new WeightedCollection<>(col);
 	}
 
 	/**
@@ -102,8 +98,8 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<CDOMReference<?>>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<>(
+                ReferenceUtilities.REFERENCE_SORTER);
 		sortedSet.addAll(refCollection);
 		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
 				useAny);
@@ -151,7 +147,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		Set<T> returnSet = new HashSet<T>();
+		Set<T> returnSet = new HashSet<>();
 		for (CDOMReference<T> ref : refCollection)
 		{
 			returnSet.addAll(ref.getContainedObjects());

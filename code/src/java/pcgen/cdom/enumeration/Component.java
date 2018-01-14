@@ -35,8 +35,8 @@ public enum Component
 	/** Anything other than the standard components */
 	OTHER("See text", "Spell.Components.SeeText"); //$NON-NLS-1$ //$NON-NLS-2$
 	
-	private String theKey;
-	private String theName;
+	private final String theKey;
+	private final String theName;
 	
 	Component(final String aKey, final String aName)
 	{

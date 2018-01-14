@@ -1,5 +1,4 @@
 /*
- * CampaignFileLoader.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 15, 2010, 4:00:56 PM
  */
 package pcgen.persistence;
 
@@ -25,9 +23,6 @@ import java.io.FilenameFilter;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
-
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
@@ -38,45 +33,17 @@ import pcgen.system.PCGenSettings;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+import org.apache.commons.lang3.StringUtils;
+
+
 public class CampaignFileLoader extends PCGenTask
 {
 	private File alternateSourceFolder = null;
 
     /**
-     * A {@link java.io.FilenameFilter FilenameFilter} that returns true if a given
-     * file path ends with .pcc or is a directory.
-     */
-	private final FilenameFilter pccFileFilter = new FilenameFilter()
-	{
-
-        @Override
-		public boolean accept(File parentDir, String fileName)
-		{
-			/*
-			 * This is a specific "hack" in order to speed loading when
-			 * in a development (Subversion-based) environment - Tom
-			 * Parker 1/17/07
-			 */
-			if (".svn".equals(fileName))
-			{
-				return false;
-			}
-			if (StringUtils.endsWithIgnoreCase(fileName, ".pcc"))
-			{
-				return true;
-			}
-			return new File(parentDir, fileName).isDirectory();
-		}
-
-	};
-    /**
      * A list of URIs for PCC files to load. Populated by {@link #findPCCFiles(java.io.File) findPCCFiles}.
      */
-	private LinkedList<URI> campaignFiles = new LinkedList<URI>();
+	private final LinkedList<URI> campaignFiles = new LinkedList<>();
 
 	@Override
 	public String getMessage()
@@ -108,20 +75,23 @@ public class CampaignFileLoader extends PCGenTask
 		}
 		setMaximum(campaignFiles.size());
 		loadCampaigns();
-		initCampaigns();
+		CampaignFileLoader.initCampaigns();
 	}
 
     /**
      * Recursively looks inside a given directory for PCC files and adds them to the {@link #campaignFiles campaignFiles} list.
      * @param aDirectory The directory to search.
      */
-	private void findPCCFiles(File aDirectory)
+	private void findPCCFiles(final File aDirectory)
 	{
+		final FilenameFilter pccFileFilter = (parentDir, fileName) ->
+				StringUtils.endsWithIgnoreCase(fileName, ".pcc") || new File(parentDir, fileName).isDirectory();
+
 		if (!aDirectory.exists() || !aDirectory.isDirectory())
 		{
 			return;
 		}
-		for (File file : aDirectory.listFiles(pccFileFilter))
+		for (final File file : aDirectory.listFiles(pccFileFilter))
 		{
 			if (file.isDirectory())
 			{
@@ -168,32 +138,24 @@ public class CampaignFileLoader extends PCGenTask
      * Goes through the campaigns in {@link #campaignFiles campaignFiles} and loads
      * data associated with dependent campaigns.
      */
-	private void initCampaigns()
+	private static void initCampaigns()
 	{
 		// This may modify the globals list; need a local copy so
 		// the iteration doesn't fail.
-		List<Campaign> initialCampaigns =
-				new ArrayList<Campaign>(Globals.getCampaignList());
+		Iterable<Campaign> initialCampaigns =
+				new ArrayList<>(Globals.getCampaignList());
 
         CampaignLoader campaignLoader = new CampaignLoader();
-		for (Campaign c : initialCampaigns)
+		for (final Campaign c : initialCampaigns)
 		{
 			campaignLoader.initRecursivePccFiles(c);
 		}
 	}
 
 	/**
-	 * @return the alternateSourceFolder
-	 */
-	public File getAlternateSourceFolder()
-	{
-		return alternateSourceFolder;
-	}
-
-	/**
 	 * @param alternateSourceFolder the alternateSourceFolder to set
 	 */
-	public void setAlternateSourceFolder(File alternateSourceFolder)
+	public void setAlternateSourceFolder(final File alternateSourceFolder)
 	{
 		this.alternateSourceFolder = alternateSourceFolder;
 	}

@@ -39,7 +39,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * defined
  * 
  * @param <T>
- *            The type of of object upon which the FactSetParser can be used
+ *            The type of object upon which the FactSetParser can be used
  * @param <F>
  *            The format of the data stored in the FactSet
  */
@@ -132,7 +132,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 		Changes<Indirect<F>> changes =
 				context.getObjectContext().getSetChanges(obj, fk);
 		Collection<Indirect<F>> removedItems = changes.getRemoved();
-		List<String> results = new ArrayList<String>(2);
+		List<String> results = new ArrayList<>(2);
 		if (changes.includesGlobalClear())
 		{
 			results.add(Constants.LST_DOT_CLEAR_ALL);
@@ -144,7 +144,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 			return null;
 		}
 		Collection<Indirect<F>> added = changes.getAdded();
-		if (added != null && added.size() > 0)
+		if (added != null && !added.isEmpty())
 		{
 			StringBuilder sb = new StringBuilder();
 			boolean needsPipe = false;

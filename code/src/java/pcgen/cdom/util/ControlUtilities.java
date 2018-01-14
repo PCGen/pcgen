@@ -21,8 +21,13 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.rules.context.LoadContext;
 
-public class ControlUtilities
+public final class ControlUtilities
 {
+
+	private ControlUtilities()
+	{
+		//Do not instantiate Utility class
+	}
 
 	public static String getControlToken(LoadContext context, String command)
 	{

@@ -33,7 +33,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 {
 
 	static AbilityToken token = new AbilityToken();
-	static CDOMSubLineLoader<KitAbilities> loader = new CDOMSubLineLoader<KitAbilities>(
+	static CDOMSubLineLoader<KitAbilities> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitAbilities.class);
 
 	@Override
@@ -109,7 +109,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 		assertFalse(parse("CATEGORY=FEAT|TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}

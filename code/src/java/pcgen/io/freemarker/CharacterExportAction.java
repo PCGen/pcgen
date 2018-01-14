@@ -1,5 +1,4 @@
 /*
- * CharacterExportAction.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 21/12/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 
@@ -35,10 +32,8 @@ import pcgen.util.Logging;
  * handle export tokens to produce a result.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
-public abstract class CharacterExportAction
+public interface CharacterExportAction
 {
 
 	/**
@@ -48,7 +43,7 @@ public abstract class CharacterExportAction
 	 * @param modelEh The ExportHandler managing the output.
 	 * @return The value fot he export token for the character.
 	 */
-	public String getExportVariable(String exportToken, PlayerCharacter pc, ExportHandler modelEh)
+	default String getExportVariable(String exportToken, PlayerCharacter pc, ExportHandler modelEh)
 	{
 		final StringWriter sWriter = new StringWriter();
 		final BufferedWriter aWriter = new BufferedWriter(sWriter);

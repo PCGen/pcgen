@@ -1,5 +1,4 @@
 /*
- * VAbilityTokenTest.java
  * Copyright 2013 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 26/12/2013 09:04:19
- *
- * $Id$
  */
 package plugin.exporttokens;
 
@@ -54,12 +49,6 @@ import pcgen.util.enumeration.Visibility;
 /**
  * <code>VAbilityTokenTest</code> tests the functioning of the VABILITY 
  * token processing code. 
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class VAbilityTokenTest extends AbstractCharacterTestCase
 {
@@ -88,13 +77,13 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
-		List<Aspect> colourList = new ArrayList<Aspect>();
+		List<Aspect> colourList = new ArrayList<>();
 		colourList.add(new Aspect("Colour", "Green"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Colour"), colourList);
-		List<Aspect> sizeList = new ArrayList<Aspect>();
+		List<Aspect> sizeList = new ArrayList<>();
 		sizeList.add(new Aspect("Size", "L"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Size"), sizeList);
-		List<Aspect> shapeList = new ArrayList<Aspect>();
+		List<Aspect> shapeList = new ArrayList<>();
 		Aspect cube = new Aspect("Shape", "Cube");
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("ALIGN");
@@ -104,10 +93,10 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 		shapeList.add(cube);
 		shapeList.add(new Aspect("Shape", "Icosahedron"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Shape"), shapeList);
-		List<Aspect> sidesList = new ArrayList<Aspect>();
+		List<Aspect> sidesList = new ArrayList<>();
 		sidesList.add(new Aspect("Sides", "20"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Sides"), sidesList);
-		List<Aspect> ageList = new ArrayList<Aspect>();
+		List<Aspect> ageList = new ArrayList<>();
 		ageList.add(new Aspect("Age In Years", "2000"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), ageList);
 		CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, ab1);

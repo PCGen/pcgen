@@ -1,5 +1,4 @@
 /*
- * IOConstants.java
  * Copyright 2002 (C) Thomas Behr <ravenlock@gmx.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,15 +15,12 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 19, 2002, 5:15 PM
  */
 package pcgen.io;
 
 /**
- * <code>IOConstants</code>
+ * {@code IOConstants}
  *
- * @author   Thomas Behr
- * @version  $Revision$
  */
 @SuppressWarnings("nls")
 interface IOConstants
@@ -263,7 +259,7 @@ interface IOConstants
 	String TAG_HAIRSTYLE = "HAIRSTYLE";
 	/** HANDED */
 	String TAG_HANDED = "HANDED";
-	/** HEIGHT - Used by PCGVer2Creator & Parser */
+	/** HEIGHT - Used by PCGVer2Creator &amp; Parser */
 	String TAG_HEIGHT = "HEIGHT";
 	/** HITDICE */
 	String TAG_HITDICE = "HITDICE";

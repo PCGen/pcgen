@@ -1,5 +1,4 @@
 /*
- * KitSelectionDialog.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 01/03/2012 8:01:51 AM
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -40,24 +35,19 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>KitSelectionDialog</code> provides a pop-up dialog that allows 
+ * The Class {@code KitSelectionDialog} provides a pop-up dialog that allows
  * the user to add kits to a character. Kits are prepared groups of equipment and 
  * other rules items.  
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class KitSelectionDialog extends JDialog
 		implements ActionListener
 {
-	private KitPanel kitPanel;
-	private JPanel buttonPanel;
-	private JButton closeButton;
+	private final KitPanel kitPanel;
+	private final JPanel buttonPanel;
+	private final JButton closeButton;
 
 	/**
 	 * Create a new instance of KitSelectionDialog
@@ -75,7 +65,7 @@ public class KitSelectionDialog extends JDialog
 		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
-		Utility.resizeDialogToScreen(this);
+		Utility.resizeComponentToScreen(this);
 	}
 
 	private void initComponents()
@@ -97,10 +87,7 @@ public class KitSelectionDialog extends JDialog
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		//must be the ok command

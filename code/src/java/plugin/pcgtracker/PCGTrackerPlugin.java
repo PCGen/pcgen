@@ -14,15 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.pcgtracker;
 
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -31,15 +28,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.gui.ImagePreview;
-import gmgen.io.SimpleFileFilter;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -56,16 +47,20 @@ import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.gui.ImagePreview;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import plugin.pcgtracker.gui.PCGTrackerView;
 
 /**
- * The <code>ExperienceAdjusterController</code> handles the functionality of
- * the Adjusting of experience.  This class is called by the <code>GMGenSystem
- * </code> and will have it's own model and view.<br>
- * Created on February 26, 2003<br>
- * Updated on February 26, 2003
- * @author  Expires 2003
- * @version 2.10
+ * The {@code ExperienceAdjusterController} handles the functionality of
+ * the Adjusting of experience.  This class is called by the {@code GMGenSystem}
+ * and will have it's own model and view.
  */
 public class PCGTrackerPlugin implements InteractivePlugin,
 		java.awt.event.ActionListener
@@ -88,21 +83,10 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	/** Key of plugin tab. */
 	private static final String IN_NAME = "in_plugin_pcgtracker_name"; //$NON-NLS-1$
 
-	/** The version number of the plugin. */
-	private static final String version = "01.00.99.01.00"; //$NON-NLS-1$
-
 	private PCGenMessageHandler messageHandler;
 
 	/**
-	 * Creates a new instance of PCGTrackerPlugin
-	 */
-	public PCGTrackerPlugin()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
 	public void start(PCGenMessageHandler mh)
@@ -115,10 +99,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		initMenus();
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -196,7 +177,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		 * methods have side effects (that is good), but that means this method
 		 * does nothing. - thpr 10/26/06
 		 */
-		if (model.size() > 0)
+		if (!model.isEmpty())
 		{
 			GMGenSystemView.getTabPane().setSelectedComponent(theView);
 		}
@@ -278,8 +259,10 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
 
-		String[] pcgs = new String[]{FILENAME_PCG, FILENAME_PCP};
-		SimpleFileFilter ff = new SimpleFileFilter(pcgs, LanguageBundle.getString("in_pcgen_file")); //$NON-NLS-1$
+		String[] pcgs = {FILENAME_PCG, FILENAME_PCP};
+		FileFilter ff = new FileNameExtensionFilter(LanguageBundle.getString("in_pcgen_file"),
+
+                pcgs); //$NON-NLS-1$
 		chooser.addChoosableFileFilter(ff);
 		chooser.setFileFilter(ff);
 		chooser.setMultiSelectionEnabled(true);
@@ -311,7 +294,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	/**
 	 * Registers all the listeners for any actions.
 	 */
-	public void initListeners()
+	private void initListeners()
 	{
 		theView.getRemoveButton().addActionListener(this);
 		theView.getSaveButton().addActionListener(this);
@@ -319,7 +302,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		theView.getLoadButton().addActionListener(this);
 	}
 
-	public void removeSelected()
+	private void removeSelected()
 	{
 		for (Object obj : theView.getLoadedList().getSelectedValuesList())
 		{
@@ -331,15 +314,15 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 	/**
 	 * Checks whether a character can be saved, and if so, calls
-	 * it's <code>save</code> method.
+	 * it's {@code save} method.
 	 *
 	 * @param aPC The PlayerCharacter to save
-	 * @param saveas boolean if <code>true</code>, ask for file name
+	 * @param saveas boolean if {@code true}, ask for file name
 	 *
-	 * @return <code>true</code> if saved; <code>false</code> if save as cancelled
+	 * @return {@code true} if saved; {@code false} if save as cancelled
 	 */
 	// TODO use pcgen save methods rather than implementing it again
-	public boolean savePC(PlayerCharacter aPC, boolean saveas)
+	private boolean savePC(PlayerCharacter aPC, boolean saveas)
 	{
 		boolean newPC = false;
 		File prevFile;
@@ -363,12 +346,13 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		{
 			JFileChooser fc =
 					ImagePreview.decorateWithImagePreview(new JFileChooser());
-			String[] pcgs = new String[]{FILENAME_PCG};
-			SimpleFileFilter ff = new SimpleFileFilter(pcgs, LanguageBundle.getString("in_pcgen_file_char")); //$NON-NLS-1$
+			String[] pcgs = {FILENAME_PCG};
+			FileFilter ff = new FileNameExtensionFilter(LanguageBundle.getString("in_pcgen_file_char"),
+                    pcgs); //$NON-NLS-1$
 			fc.setFileFilter(ff);
 			fc.setSelectedFile(prevFile);
 
-			FilenameChangeListener listener =
+			PropertyChangeListener listener =
 					new FilenameChangeListener(aPCFileName, fc);
 
 			fc.addPropertyChangeListener(listener);
@@ -446,7 +430,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		return true;
 	}
 
-	public void toolMenuItem(ActionEvent evt)
+	private static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -463,14 +447,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	{
 		charToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_pcgtracker_name")); //$NON-NLS-1$
 		charToolsItem.setText(LanguageBundle.getString("in_plugin_pcgtracker_name")); //$NON-NLS-1$
-		charToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		charToolsItem.addActionListener(PCGTrackerPlugin::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, charToolsItem));
 	}
 
@@ -479,7 +456,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * changed".  Ensures that the filename doesn't get changed
 	 * when a directory is selected.
 	 *
-	 * @author Dmitry Jemerov <yole@spb.cityline.ru>
+	 * @author Dmitry Jemerov &lt;yole@spb.cityline.ru&gt;
 	 */
 	static final class FilenameChangeListener implements PropertyChangeListener
 	{
@@ -531,9 +508,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 */
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
-		return dataDir;
+		return new File(SettingsHandler.getGmgenPluginDir(), NAME);
 	}
 
 }

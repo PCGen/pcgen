@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -32,8 +31,12 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
-public class PCClassKeyChange
+public final class PCClassKeyChange
 {
+	private PCClassKeyChange()
+	{
+	}
+
 	public static void changeReferences(String oldClass, PCClass pcc)
 	{
 		String newClass = pcc.getKeyName();

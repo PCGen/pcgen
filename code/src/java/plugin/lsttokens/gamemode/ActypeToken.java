@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 2, 2002, 8:18 AM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.lsttokens.gamemode;
 
@@ -41,9 +34,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
 /**
- * <code>ActypeToken</code>
+ * {@code ActypeToken}
  * 
- * @author Greg Bingleman <byngl@hotmail.com>
  */
 public class ActypeToken implements GameModeLstToken
 {
@@ -105,7 +97,7 @@ public class ActypeToken implements GameModeLstToken
 	private Collection<ACControl> parseACControl(String str)
 	{
 		StringTokenizer st = new StringTokenizer(str, Constants.PIPE);
-		List<ACControl> acTypes = new ArrayList<ACControl>();
+		List<ACControl> acTypes = new ArrayList<>();
 		String token;
 		while (true)
 		{

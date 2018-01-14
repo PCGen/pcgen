@@ -1,5 +1,4 @@
 /*
- * AbilitySelectionTokenTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,19 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/06/2013
- *
- * $Id$
  */
 package actor.choose;
 
 import java.net.URISyntaxException;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -38,24 +28,25 @@ import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.choose.AbilitySelectionToken;
 import plugin.lsttokens.choose.StringToken;
+import static org.junit.Assert.*;
 
 /**
  * Unit test of the class AbilitySelectionToken.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
-public class AbilitySelectionTokenTest extends TestCase
+public class AbilitySelectionTokenTest
 {
 
-	static AbilitySelectionToken pca = new AbilitySelectionToken();
+	static final AbilitySelectionToken pca = new AbilitySelectionToken();
 
 	protected LoadContext context;
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

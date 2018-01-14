@@ -36,10 +36,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- * 
- */
+
 public class CcskillToken extends AbstractTokenWithSeparator<PCClass> implements
 		CDOMPrimaryToken<PCClass>
 {
@@ -148,7 +145,7 @@ public class CcskillToken extends AbstractTokenWithSeparator<PCClass> implements
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<Skill>(Skill.class, context.getReferenceContext()
+			return new PatternMatchingReference<>(Skill.class, context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else
@@ -163,7 +160,7 @@ public class CcskillToken extends AbstractTokenWithSeparator<PCClass> implements
 	{
 		Changes<CDOMReference<Skill>> changes = context.getObjectContext()
 				.getListChanges(obj, ListKey.LOCALCCSKILL);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{

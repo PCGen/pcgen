@@ -1,5 +1,4 @@
 /*
- * EquipmentModifier.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 19, 2001, 4:28 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core;
 
@@ -30,6 +22,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -41,20 +34,17 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.EquipModFacade;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.EquipModFacade;
 import pcgen.util.Delta;
 
 /**
  * Definition and games rules for an equipment modifier.
- *
- * @author   Greg Bingleman <byngl@hotmail.com>
- * @version  $Revision$
  */
-public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade
+public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade, Cloneable
 {
 	private static final String PERCENT_CHOICE_PATTERN = Pattern
 								.quote(Constants.LST_PERCENT_CHOICE);
@@ -73,7 +63,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 */
 	public List<BonusObj> getActiveBonuses(final Equipment caller, final PlayerCharacter aPC)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final List<BonusObj> aList = new ArrayList<>();
 
 		for (BonusObj bonus : getBonusList(caller))
 		{
@@ -108,7 +98,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * turn.  If it finds that one of the bonuses contains %CHOICE, it replaces
 	 * it with a one new bonus object for every entry in "associated".
 	 *
-	 * @param as a PObject that has the associated bonuses
+	 * @param e a PObject that has the associated bonuses
 	 *
 	 * @return  a complete list of bonus objects with %CHOICE expanded to
 	 *          include one entry for each associated choice.
@@ -122,7 +112,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	private List<BonusObj> getBonusList(List<BonusObj> bonusList,
 		List<String> associations)
 	{
-		ArrayList<BonusObj> myBonusList = new ArrayList<BonusObj>(bonusList);
+		ArrayList<BonusObj> myBonusList = new ArrayList<>(bonusList);
 		for (int i = myBonusList.size() - 1; i > -1; i--)
 		{
 			final BonusObj aBonus  = myBonusList.get(i);
@@ -196,7 +186,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 */
 	public List<String> getSpecialProperties(final Equipment caller, final PlayerCharacter pc)
 	{
-		final List<String> retList = new ArrayList<String>();
+		final List<String> retList = new ArrayList<>();
 		for (SpecialProperty sp : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 		{
 			String propName = sp.getParsedText(pc, caller, this);
@@ -309,13 +299,29 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getKeyName().compareTo(o.toString());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
 		return StringUtil.join(trueTypeList, ".");
+	}
+
+	@Override
+	public String getLocalScopeName()
+	{
+		return "EQUIPMENT.PART";
+	}
+
+	private VarScoped variableParent;
+
+	public void setVariableParent(VarScoped vs)
+	{
+		variableParent = vs;
+	}
+
+	@Override
+	public VarScoped getVariableParent()
+	{
+		return variableParent;
 	}
 }

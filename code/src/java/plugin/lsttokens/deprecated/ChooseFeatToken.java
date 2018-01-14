@@ -82,7 +82,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 					title = title.substring(1, title.length() - 1);
 				}
 				activeValue = value.substring(0, pipeLoc);
-				if (title == null || title.length() == 0)
+				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + Constants.COLON
 						+ getTokenName() + " had TITLE= but no title: " + value, context);
@@ -109,10 +109,10 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		PrimitiveChoiceSet<Ability> pcs = new CollectionToChoiceSet<Ability>(coll);
+		PrimitiveChoiceSet<Ability> pcs = new CollectionToChoiceSet<>(coll);
 		//Tricky for compatibility...
 		CategorizedChooseInformation<Ability> tc =
-				new CategorizedChooseInformation<Ability>("ABILITY",
+				new CategorizedChooseInformation<>("ABILITY",
 						CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), pcs, Ability.class);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);

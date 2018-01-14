@@ -1,5 +1,4 @@
 /*
- * UIDelegate.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 25, 2010, 3:10:39 PM
  */
 package pcgen.facade.core;
 
@@ -25,7 +23,6 @@ import pcgen.system.PropertyContext;
 /**
  * This class acts as delegate for UI functions that may
  * be called within the facade layer.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public interface UIDelegate
 {
@@ -55,14 +52,6 @@ public interface UIDelegate
 	 * @return true if user clicked Yes, false otherwise
 	 */
 	boolean showWarningConfirm(String title, String message);
-
-	/**
-	 * Displays an ok/cancel dialog
-	 * @param title the title for the dialog box
-	 * @param message the message to display
-	 * @return true if user clicked Ok, false otherwise
-	 */
-	boolean showWarningPrompt(String title, String message);
 
 	/**
 	 * Displays an ok dialog with a message and warning icon.

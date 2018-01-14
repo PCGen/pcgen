@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifier>
 {
 	static NameoptToken token = new NameoptToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -169,7 +169,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<EqModNameOpt> getObjectKey()
+	private static ObjectKey<EqModNameOpt> getObjectKey()
 	{
 		return ObjectKey.NAME_OPT;
 	}

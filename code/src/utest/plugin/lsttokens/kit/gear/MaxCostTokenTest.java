@@ -29,7 +29,7 @@ public class MaxCostTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static MaxCostToken token = new MaxCostToken();
-	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
+	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitGear.class);
 
 	@Override

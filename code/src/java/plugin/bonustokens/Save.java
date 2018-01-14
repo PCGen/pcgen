@@ -1,5 +1,4 @@
 /*
- * Save.java derived from Checks.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,33 +14,31 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision: 23293 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2014-02-17 21:34:26 -0500 (Mon, 17 Feb 2014) $
- *
  */
 package plugin.bonustokens;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.PCCheck;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
-/**
- * <code>SAVE</code>.  Derived from CHECKS
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
- */
 public final class Save extends BonusObj
 {
 	@Override
 	protected boolean parseToken(LoadContext context, final String argToken)
 	{
+		if (ControlUtilities.hasControlToken(context, CControl.TOTALSAVE))
+		{
+			Logging.errorPrint(
+				"BONUS:SAVE is disabled when TOTALSAVE code control is used: " + argToken,
+				context);
+			return false;
+		}
 		boolean isBase = false;
 		final String token;
 

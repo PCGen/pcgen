@@ -1,5 +1,4 @@
 /*
- * MapChanges.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 19/09/2008 08:49:44
  *
- * $Id: $
  */
 package pcgen.rules.context;
 
@@ -26,16 +23,12 @@ import java.util.Map;
 
 
 /**
- * The Class <code>MapChanges</code> is responsible for tracking changes to 
+ * The Class {@code MapChanges} is responsible for tracking changes to
  * a map so that the changes can be committed or rolled back at a later 
  * stage. Items can be added to the map, removed from the map or the map 
  * can be cleared.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class MapChanges<K, V>
 {

@@ -30,6 +30,9 @@ import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * RaceSubTypeToken is a Primitive that filters based on the RaceSubType of a Race.
+ */
 public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<Race>
 {
 
@@ -65,7 +68,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<R
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + racetype.toString();
+		return getTokenName() + '=' + racetype.toString();
 	}
 
 	@Override

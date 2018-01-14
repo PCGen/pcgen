@@ -1,5 +1,4 @@
 /*
- * UIPropertyContext.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 1, 2010, 4:26:54 PM
  */
 package pcgen.gui2;
 
@@ -30,22 +28,20 @@ import pcgen.system.PropertyContext;
 /**
  * This is a property context which holds UI related user preferences such as
  * screen position and colors.
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public final class UIPropertyContext extends PropertyContext
 {
 
-	public static final String CUSTOM_ITEM_COLOR = "customItemColor";
-	public static final String NOT_QUALIFIED_COLOR = "notQualifiedColor";
-	public static final String AUTOMATIC_COLOR = "automaticColor";
-	public static final String VIRTUAL_COLOR = "virtualColor";
-	public static final String QUALIFIED_COLOR = "qualifiedColor";
-	public static final String SOURCE_STATUS_RELEASE_COLOR = "sourceStatusReleaseColor";
-	public static final String SOURCE_STATUS_ALPHA_COLOR = "sourceStatusAlphaColor";
-	public static final String SOURCE_STATUS_BETA_COLOR = "sourceStatusBetaColor";
-	public static final String SOURCE_STATUS_TEST_COLOR = "sourceStatusTestColor";
+	private static final String CUSTOM_ITEM_COLOR = "customItemColor";
+	private static final String NOT_QUALIFIED_COLOR = "notQualifiedColor";
+	private static final String AUTOMATIC_COLOR = "automaticColor";
+	private static final String VIRTUAL_COLOR = "virtualColor";
+	private static final String QUALIFIED_COLOR = "qualifiedColor";
+	private static final String SOURCE_STATUS_RELEASE_COLOR = "sourceStatusReleaseColor";
+	private static final String SOURCE_STATUS_ALPHA_COLOR = "sourceStatusAlphaColor";
+	private static final String SOURCE_STATUS_BETA_COLOR = "sourceStatusBetaColor";
+	private static final String SOURCE_STATUS_TEST_COLOR = "sourceStatusTestColor";
 	public static final String ALWAYS_OPEN_EXPORT_FILE = "alwaysOpenExportFile";
 	public static final String DEFAULT_OS_TYPE = "defaultOSType";
 	public static final String DEFAULT_PDF_OUTPUT_SHEET = "defaultPdfOutputSheet";
@@ -58,7 +54,7 @@ public final class UIPropertyContext extends PropertyContext
 	/** Settings key for basic/advanced sources. */
 	public static final String SOURCE_USE_BASIC_KEY = "SourceSelectionDialog.useBasic"; //$NON-NLS-1$
 	/** What should the chooser do with a single choice? */
-	public static final String SINGLE_CHOICE_ACTION = "singleChoiceAction"; //$NON-NLS-1$
+	private static final String SINGLE_CHOICE_ACTION = "singleChoiceAction"; //$NON-NLS-1$
 	
 
 	/**
@@ -237,13 +233,12 @@ public final class UIPropertyContext extends PropertyContext
 	 * This allows for character specific properties such that the key created with this method
 	 * can be used as the key for any of the other PropertyContext methods.
 	 * The following is a typical example of its usage:
-	 * <br>
-	 * <samp>
+	 * <code>
 	 * String charKey = UIPropertyContext.createCharacterPropertyKey(aCharacter, "allowNegativeMoney");<br>
 	 * if(charKey != null){<br>
 	 * boolean bool = UIPropertyContext.getInstance().getBoolean(charKey);<br>
 	 * }<br>
-	 * </samp>
+	 * </code>
 	 * @param character a CharacterFacade
 	 * @param key a String property key
 	 * @return the character property key or null if it could not be created
@@ -253,14 +248,14 @@ public final class UIPropertyContext extends PropertyContext
 		return createFilePropertyKey(character.getFileRef().get(), key);
 	}
 
-	public static String createFilePropertyKey(File file, String key)
+	static String createFilePropertyKey(File file, String key)
 	{
 		if (file == null)
 		{
 			return null;
 		}
 		String path = file.getAbsolutePath();
-		return path + "." + key;
+		return path + '.' + key;
 	}
 
 }

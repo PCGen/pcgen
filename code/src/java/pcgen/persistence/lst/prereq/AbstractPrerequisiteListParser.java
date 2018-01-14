@@ -1,5 +1,4 @@
 /*
- * PreReqListParser.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,11 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 28, 2003
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst.prereq;
@@ -30,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -152,12 +147,12 @@ public abstract class AbstractPrerequisiteListParser
 		{
 			throw new PersistenceLayerException(parseResult.toString());
 		}
-		if (!allowsNegate() && (formula.indexOf("[") >= 0 || formula.indexOf("]") >= 0))
+		if (!allowsNegate() && (formula.indexOf('[') >= 0 || formula.indexOf(']') >= 0))
 		{
 			throw new PersistenceLayerException("Prerequisite " + kind
 				+ " can not contain []: " + formula);
 		}
-		if (formula.indexOf("|") >= 0)
+		if (formula.indexOf('|') >= 0)
 		{
 			throw new PersistenceLayerException("Prerequisite " + kind
 				+ " can not contain |: " + formula);
@@ -193,7 +188,7 @@ public abstract class AbstractPrerequisiteListParser
 
 		// Token now contains all of the possible matches,
 		// min contains the target number (if there is one)
-		// number contains the number of 'tokens' that be be at least 'min'
+		// number contains the number of 'tokens' that be at least 'min'
 		if (elementsLength > 2)
 		{
 			// we have more than one option, so use a group
@@ -228,7 +223,7 @@ public abstract class AbstractPrerequisiteListParser
 						String requirementKey = getRequirementKey(tokens);
 						subreq.setKey(requirementKey);
 						// now back fill all of the previous prereqs with this minimum
-						for (Prerequisite p : new ArrayList<Prerequisite>(prereq.getPrerequisites()))
+						for (Prerequisite p : new ArrayList<>(prereq.getPrerequisites()))
 						{
 							if (p.getOperand().equals("-99"))
 							{
@@ -394,7 +389,6 @@ public abstract class AbstractPrerequisiteListParser
 						}
 						subreq.setKey(elements[i]);
 					}
-					break;
 				}
 			}
 			else

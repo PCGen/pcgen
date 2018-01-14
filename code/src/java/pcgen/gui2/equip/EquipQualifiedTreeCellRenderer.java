@@ -1,5 +1,4 @@
 /*
- * EquipQualifiedTreeCellRenderer.java
  * Copyright James Dempsey, 2013
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 25, 2011
  */
 package pcgen.gui2.equip;
 
@@ -38,14 +36,12 @@ import pcgen.system.LanguageBundle;
  * EquipQualifiedTreeCellRenderer renders an equipment modifier in a table 
  * cell using color to show if the modifier can be used.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class EquipQualifiedTreeCellRenderer extends TreeColumnCellRenderer
 {
 
-	private CharacterFacade character;
-	private EquipmentFacade equip;
+	private final CharacterFacade character;
+	private final EquipmentFacade equip;
 
 	/**
 	 * Create a new instance of QualifiedTreeCellRenderer

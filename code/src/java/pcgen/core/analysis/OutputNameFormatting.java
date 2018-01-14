@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -28,8 +27,12 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
-public class OutputNameFormatting
+public final class OutputNameFormatting
 {
+
+	private OutputNameFormatting()
+	{
+	}
 
 	public static String parseOutputName(CDOMObject po, PlayerCharacter aPC)
 	{
@@ -55,8 +58,8 @@ public class OutputNameFormatting
 	
 		final String preVarStr = varTokenizer.nextToken();
 	
-		final ArrayList<Float> varArray = new ArrayList<Float>();
-		final ArrayList<String> tokenList = new ArrayList<String>();
+		final ArrayList<Float> varArray = new ArrayList<>();
+		final ArrayList<String> tokenList = new ArrayList<>();
 	
 		while (varTokenizer.hasMoreElements())
 		{
@@ -86,7 +89,7 @@ public class OutputNameFormatting
 			}
 			else
 			{
-				result.append(val.toString());
+				result.append(val);
 			}
 	
 			lastIndex = subIndex + 1;
@@ -145,7 +148,7 @@ public class OutputNameFormatting
 	private static String getPreFormatedOutputName(String displayName)
 	{
 		//if there are no () to pull from, just return the name
-		if ((displayName.indexOf('(') < 0) || (displayName.indexOf(')') < 0))
+		if (!displayName.contains("(") || !displayName.contains(")"))
 		{
 			return displayName;
 		}
@@ -173,7 +176,7 @@ public class OutputNameFormatting
 	 * Get the output name of the item
 	 * @return the output name of the item
 	 */
-	public static final String getOutputName(CDOMObject po)
+	public static String getOutputName(CDOMObject po)
 	{
 		String outputName = po.get(StringKey.OUTPUT_NAME);
 		String displayName = po.getDisplayName();
@@ -182,11 +185,12 @@ public class OutputNameFormatting
 		{
 			return displayName;
 		}
-		else if (outputName.equalsIgnoreCase("[BASE]") && displayName.indexOf('(') != -1)
+		else if (outputName.equalsIgnoreCase("[BASE]") && (
+				displayName.contains("(")))
 		{
 			outputName = displayName.substring(0, displayName.indexOf('(')).trim();
 		}
-		if (outputName.indexOf("[NAME]") >= 0)
+		if (outputName.contains("[NAME]"))
 		{
 			outputName = outputName.replaceAll("\\[NAME\\]",
 					getPreFormatedOutputName(displayName));

@@ -1,5 +1,4 @@
 /*
- * IOHandler.java
  * Copyright 2002 (C) Thomas Behr <ravenlock@gmx.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 11, 2002, 8:30 PM
  */
 package pcgen.io;
 
@@ -35,13 +33,11 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- * <code>IOHandler</code><br>
+ * {@code IOHandler}<br>
  * Abstract IO handler class<br>
  * An IO handler is responsible for reading and/or writing 
  * PlayerCharacters in a specific format from/to a stream
  *
- * @author Thomas Behr 11-03-02
- * @version $Revision$
  */
 public abstract class IOHandler
 {
@@ -129,57 +125,17 @@ public abstract class IOHandler
 
 	/**
 	 * Writes the contents of the PlayerCharacter to a file.
-	 *
-	 * <br>author: Thomas Behr 11-03-02
-	 *
 	 * @param aPC        the PlayerCharacter to write
 	 * @param filename   the name of the output file
-	 * @throws IOException
-	 * @throws NullPointerException
 	 */
 	public final void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, String filename)
-		throws IOException, NullPointerException
+		throws IOException
 	{
-		OutputStream out = null;
-		
-
-		try
+		try (OutputStream out = new FileOutputStream(filename))
 		{
 			File outFile = new File(filename);
 			createBackupForFile(outFile);
-
-			out = new FileOutputStream(filename);
 			write(aPC, mode, campaigns, out);
-		}
-		catch (IOException ex)
-		{
-			Logging
-				.errorPrint("Exception in IOHandler::write when writing", ex);
-			throw ex;
-		}
-		finally
-		{
-			if (out != null)
-			{
-				try
-				{
-					out.flush();
-					out.close();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Exception in IOHandler::write", e);
-					throw e;
-				}
-				catch (NullPointerException e)
-				{
-					Logging
-						.errorPrint(
-							"Could not create FileOutputStream in IOHandler::write",
-							e);
-					throw e;
-				}
-			}
 		}
 	}
 
@@ -191,7 +147,6 @@ public abstract class IOHandler
 	 */
 	public void createBackupForFile(File outFile)
 	{
-		final String BAK_PREFIX = ".bak"; //$NON-NLS-1$
 		// Make a backup of the old file, if it exists and isn't empty
 		if (PCGenSettings.getCreatePcgBackup() && outFile.exists()
 			&& outFile.length() > 0)
@@ -202,6 +157,7 @@ public abstract class IOHandler
 			{
 				backupPcgPath = outFile.getParent();
 			}
+			final String BAK_PREFIX = ".bak"; //$NON-NLS-1$
 			File bakFile = new File(backupPcgPath, file + BAK_PREFIX);
 
 			if (bakFile.exists() && outFile.exists() && outFile.length() > 0)

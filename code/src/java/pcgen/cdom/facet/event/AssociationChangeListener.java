@@ -23,8 +23,8 @@ package pcgen.cdom.facet.event;
  * AssociationChangeFacet when a Association Bonus value has changed for a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
+@FunctionalInterface
 public interface AssociationChangeListener
 {
 

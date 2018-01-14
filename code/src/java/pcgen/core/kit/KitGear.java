@@ -1,5 +1,4 @@
 /*
- * KitGear.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 23, 2002, 8:58 PM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -47,10 +42,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.character.EquipSet;
 
 /**
- * <code>KitGear</code>.
- *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
+ * {@code KitGear}.
  */
 public final class KitGear extends BaseKit
 {
@@ -64,16 +56,16 @@ public final class KitGear extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient Formula actingQuantity;
-	private transient Integer actingCost;
-	private transient List<EqModRef> actingMods;
-	private transient String actingLocation;
-	private transient SizeAdjustment actingSize;
+	private Formula actingQuantity;
+	private Integer actingCost;
+	private List<EqModRef> actingMods;
+	private String actingLocation;
+	private SizeAdjustment actingSize;
 
-	private transient Equipment theEquipment = null;
-	private transient int theQty = 0;
-	private transient String theLocation = "";
-	private transient BigDecimal theCost = BigDecimal.ZERO;
+	private Equipment theEquipment = null;
+	private int theQty = 0;
+	private String theLocation = "";
+	private BigDecimal theCost = BigDecimal.ZERO;
 
 	/**
 	 * Set the location of the gear
@@ -180,7 +172,7 @@ public final class KitGear extends BaseKit
 	{
 		actingQuantity = quantity;
 		actingCost = maxCost;
-		actingMods = mods == null ? null : new ArrayList<EqModRef>(mods);
+		actingMods = mods == null ? null : new ArrayList<>(mods);
 		actingLocation = theLocationStr;
 		if (size != null)
 		{
@@ -204,7 +196,7 @@ public final class KitGear extends BaseKit
 		}
 
 		List<Equipment> eqList =
-				new ArrayList<Equipment>(equip.getContainedObjects());
+                new ArrayList<>(equip.getContainedObjects());
 		if (actingCost != null)
 		{
 			final BigDecimal bdMaxCost =
@@ -223,7 +215,7 @@ public final class KitGear extends BaseKit
 		}
 		else
 		{
-			List<Equipment> selected = new ArrayList<Equipment>(1);
+			List<Equipment> selected = new ArrayList<>(1);
 			selected = Globals.getChoiceFromList("Choose equipment", eqList, selected, 1, aPC);
 			if (selected.size() == 1)
 			{
@@ -250,7 +242,7 @@ public final class KitGear extends BaseKit
 				|| (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
 			{
 				tryResize =
-						Globals.canResizeHaveEffect(aPC, theEquipment, null);
+						Globals.canResizeHaveEffect(theEquipment, null);
 			}
 		}
 		else
@@ -258,7 +250,7 @@ public final class KitGear extends BaseKit
 			if (sizeToPC != null && sizeToPC)
 			{
 				tryResize =
-						Globals.canResizeHaveEffect(aPC, theEquipment, null);
+						Globals.canResizeHaveEffect(theEquipment, null);
 			}
 			else
 			{
@@ -532,7 +524,7 @@ public final class KitGear extends BaseKit
 	{
 		if (lookupList == null)
 		{
-			lookupList = new LinkedList<NamedFormula>();
+			lookupList = new LinkedList<>();
 		}
 		lookupList.add(new NamedFormula(tableEntry, f));
 	}
@@ -546,7 +538,7 @@ public final class KitGear extends BaseKit
 	{
 		if (mods == null)
 		{
-			mods = new LinkedList<EqModRef>();
+			mods = new LinkedList<>();
 		}
 		mods.add(modRef);
 	}

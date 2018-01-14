@@ -1,5 +1,4 @@
 /*
- * GeneralChooserFacadeBase.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/01/2012 9:23:01 AM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -37,16 +32,11 @@ import pcgen.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>GeneraChooserFacadeBase</code> is a base from which a 
+ * The Class {@code GeneraChooserFacadeBase} is a base from which a
  * ChooserFacade may be simply implemented. The implementing class need only call 
  * the constructor and implement the commit to process the selections.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public abstract class GeneralChooserFacadeBase implements ChooserFacade
@@ -58,9 +48,9 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	private final List<InfoFacade> origSelected;
 	private final int maxNewSelections;
 	
-	private DefaultListFacade<InfoFacade> availableList;
-	private DefaultListFacade<InfoFacade> selectedList;
-	private DefaultReferenceFacade<Integer> numSelectionsRemain;
+	private final DefaultListFacade<InfoFacade> availableList;
+	private final DefaultListFacade<InfoFacade> selectedList;
+	private final DefaultReferenceFacade<Integer> numSelectionsRemain;
 
 	private final String availableTableTypeNameTitle;
 	private final String selectedTableTitle;
@@ -137,33 +127,24 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		this.infoFactory = infoFactory;
 				
 		// Build working content
-		availableList = new DefaultListFacade<InfoFacade>(origAvailable);
-		selectedList = new DefaultListFacade<InfoFacade>(origSelected);
-		numSelectionsRemain = new DefaultReferenceFacade<Integer>(maxNewSelections);
+		availableList = new DefaultListFacade<>(origAvailable);
+		selectedList = new DefaultListFacade<>(origSelected);
+		numSelectionsRemain = new DefaultReferenceFacade<>(maxNewSelections);
 		
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final ListFacade<InfoFacade> getAvailableList()
 	{
 		return availableList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final ListFacade<InfoFacade> getSelectedList()
 	{
 		return selectedList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final void addSelected(InfoFacade item)
 	{
@@ -176,9 +157,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()-1);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final void removeSelected(InfoFacade item)
 	{
@@ -187,24 +165,15 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()+1);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<Integer> getRemainingSelections()
 	{
 		return numSelectionsRemain;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public abstract void commit();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final void rollback()
 	{
@@ -213,9 +182,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		numSelectionsRemain.set(maxNewSelections);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final String getName()
 	{
@@ -228,9 +194,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		return availableTableTypeNameTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getAvailableTableTitle()
 	{
@@ -261,13 +224,10 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		return selectionCountName;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getBranchNames(InfoFacade item)
 	{
-		List<String> branches = new ArrayList<String>();
+		List<String> branches = new ArrayList<>();
 		
 		if (item instanceof PObject)
 		{
@@ -280,9 +240,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		return branches;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ChooserTreeViewType getDefaultView()
 	{
@@ -306,9 +263,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		this.requireCompleteSelection = requireCompleteSelection;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isRequireCompleteSelection()
 	{
@@ -330,18 +284,12 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		this.preferRadioSelection = preferRadioSelection;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isInfoAvailable()
 	{
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public InfoFactory getInfoFactory()
 	{

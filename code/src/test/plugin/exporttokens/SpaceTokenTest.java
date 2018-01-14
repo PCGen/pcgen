@@ -1,5 +1,4 @@
 /*
- * SpaceTokenTest.java
  * Copyright 2008 (C) PCGen
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Dec 01, 2008
- *
- * $Id$
  */
 package plugin.exporttokens;
 
@@ -30,12 +25,6 @@ import plugin.exporttokens.deprecated.SpaceToken;
 
 /**
  * <code>SpaceTokenTest</code> - Unit test for the SPACE output token
- *
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2008-11-25 02:54:29 +0000 (Tue, 25 Nov 2008) $
- *
- * @author Martijn Verburg <karianna@users.sourceforge.net>
- * @version $Revision: 8488 $
  */
 public class SpaceTokenTest extends AbstractCharacterTestCase
 {

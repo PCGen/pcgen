@@ -39,7 +39,7 @@ public class ArmorProfIntegrationTest extends
 
 	static ArmorProfToken ft = new ArmorProfToken();
 	static AutoLst token = new AutoLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

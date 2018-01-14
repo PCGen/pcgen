@@ -1,5 +1,4 @@
 /*
- * PreRuleTest.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on February 6, 2007
- *
- * Current Ver: $Revision: 1777 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
- *
  */
 package pcgen.core.prereq;
 
@@ -38,9 +30,6 @@ import plugin.pretokens.parser.PreRuleParser;
 /**
  * <code>PreRuleTest</code> checks the function of the rule 
  * prereq tester.
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase
@@ -54,8 +43,8 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		TestRunner.run(PreRuleTest.class);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.PCGenTestCase#setUp()
+	/**
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	protected void setUp() throws Exception
@@ -69,7 +58,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		gameMode.getModeContext().getReferenceContext().importObject(preRule);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@Override

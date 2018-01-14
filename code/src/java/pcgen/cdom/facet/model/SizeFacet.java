@@ -47,7 +47,6 @@ import pcgen.output.publish.OutputDB;
 /**
  * SizeFacet tracks the SizeAdjustment for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> implements
 		DataFacetChangeListener<CharID, CDOMObject>, LevelChangeListener,
@@ -161,7 +160,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 			iSize += sizesToAdvance(id, race);
 
 			//
-			// Must still be be a valid size
+			// Must still be a valid size
 			//
 			int maxIndex = Globals.getContext().getReferenceContext()
 					.getConstructedObjectCount(SIZEADJUSTMENT_CLASS) - 1;
@@ -297,9 +296,9 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	 */
 	private static class SizeFacetInfo
 	{
-		public int sizeInt;
-		public int racialSizeInt;
-		public SizeAdjustment sizeAdj;
+		private int sizeInt;
+		private int racialSizeInt;
+		private SizeAdjustment sizeAdj;
 		
 		@Override
 		public int hashCode()

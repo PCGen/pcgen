@@ -33,7 +33,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static AcheckToken token = new AcheckToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()
@@ -161,7 +161,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<SkillArmorCheck> getObjectKey()
+	private static ObjectKey<SkillArmorCheck> getObjectKey()
 	{
 		return ObjectKey.ARMOR_CHECK;
 	}

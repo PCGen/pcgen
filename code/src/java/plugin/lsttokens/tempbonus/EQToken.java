@@ -82,7 +82,7 @@ public class EQToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			// Zero indicates no Token (and no global clear, so nothing to do)
 			return null;
 		}
-		Set<String> bonusSet = new TreeSet<String>();
+		Set<String> bonusSet = new TreeSet<>();
 		for (EquipBonus eb : added)
 		{
 			String bonusText = eb.bonus.getLSTformat();

@@ -1,5 +1,4 @@
 /*
- * PreAbilityParserTest.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on January 23, 2006
- *
- * Current Ver: $Revision: 1777 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
- *
  */
 package pcgen.persistence.lst.prereq;
 
@@ -41,12 +33,6 @@ import plugin.pretokens.parser.PreAbilityParser;
 /**
  * <code>PreAbilityParserTest</code> tests the function of the 
  * PREABILITY parser.
- *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1777 $
  */
 @SuppressWarnings("nls")
 public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
@@ -64,7 +50,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		assertEquals("Category specified for single key",
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 		prereq = parser.parse("ability", "2,CATEGORY=Mutation,Foo,Bar", false, false);
 		assertEquals("Category specified for multiple keys",
@@ -72,13 +58,13 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Foo\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
 				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Bar\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 		prereq = parser.parse("ability", "1,CATEGORY.ANY,Sneak Attack", false, false);
 		assertEquals("Category of ANY specified for single key",
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 			+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-			+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 		prereq = parser.parse("ability", "1,CATEGORY.ANY,Foo,Bar", false, false);
 		assertEquals("Category specified for multiple key",
@@ -87,7 +73,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 			+ "</prereq>\n" 
 			+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Bar\" operator=\"GTEQ\" operand=\"1\" >\n"
 			+ "</prereq>\n" 
-			+ "</prereq>\n" + "", prereq.toString());
+			+ "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -101,7 +87,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		Prerequisite prereq = parser.parse("ability", "1,Sneak Attack", false, false);
 		assertEquals("Category not specified for single key",
 			"<prereq kind=\"ability\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -132,7 +118,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		Prerequisite prereq = parser.parse("ability", "1,CATEGORY.Mutation", false, false);
 		assertEquals("Category specified for no key",
 				"<prereq kind=\"ability\" category=\"Mutation\" key=\"ANY\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n", prereq.toString());
 	}
 	
 	/**

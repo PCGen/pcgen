@@ -1,5 +1,4 @@
 /*
- * ExperiencePanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 20/07/2008 14:21:40
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -41,39 +36,35 @@ import pcgen.gui2.util.WholeNumberField;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>HitPointsPanel</code> is responsible for 
+ * The Class {@code HitPointsPanel} is responsible for
  * displaying hit points related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class HitPointsPanel extends PCGenPrefsPanel
 {
-	private static String in_hp = LanguageBundle.getString("in_Prefs_hp");
+	private static final String in_hp = LanguageBundle.getString("in_Prefs_hp");
 
-	private JCheckBox maxHpAtFirstLevel = new JCheckBox();
-	private JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
+	private final JCheckBox maxHpAtFirstLevel = new JCheckBox();
+	private final JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
 
 	// "HP Roll Methods"
-	private JRadioButton hpAutomax =
+	private final JRadioButton hpAutomax =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAutoMax"));
-	private JRadioButton hpAverage =
+	private final JRadioButton hpAverage =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverage"));
-	private JRadioButton hpPercentage =
+	private final JRadioButton hpPercentage =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpPercentage"));
-	private JRadioButton hpStandard =
+	private final JRadioButton hpStandard =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpStandard"));
-	private JRadioButton hpUserRolled =
+	private final JRadioButton hpUserRolled =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpUserRolled"));
-	private JRadioButton hpAverageRoundedUp =
+	private final JRadioButton hpAverageRoundedUp =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverageRoundedUp"));
 
-	private WholeNumberField hpPct = new WholeNumberField(0, 6);
+	private final WholeNumberField hpPct = new WholeNumberField(0, 6);
 	
 	/**
 	 * Instantiates a new hit points panel.
@@ -161,7 +152,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -170,7 +161,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		return in_hp;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -206,7 +197,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		SettingsHandler.setHPMaxAtFirstClassLevel(maxHpAtFirstClassLevel.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jul 15, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -37,16 +32,10 @@ import pcgen.io.exporttoken.SpellListToken;
 import pcgen.util.Delta;
 
 /**
- * <code>SpellListClassToken</code> outputs either the name of the
+ * {@code SpellListClassToken} outputs either the name of the
  * spellcaster classname, or the effective casting level, including
  * bonus levels from other classes. The level is output if the token
  * ends in .LEVEL
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class SpellListClassToken extends SpellListToken

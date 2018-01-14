@@ -1,5 +1,4 @@
 /*
- * MonsterPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 20/07/2008 13:23:43
- *
- * $Id: $
  */
 package pcgen.gui2.prefs;
 
@@ -37,23 +32,19 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>MonsterPanel</code> is responsible for 
+ * The Class {@code MonsterPanel} is responsible for
  * displaying monster related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public class MonsterPanel extends PCGenPrefsPanel
 {
-	private static String in_monsters =
+	private static final String in_monsters =
 		LanguageBundle.getString("in_Prefs_monsters");
 //	private JCheckBox hideMonsterClasses = new JCheckBox();
-	private JCheckBox ignoreMonsterHDCap = new JCheckBox();
+	private final JCheckBox ignoreMonsterHDCap = new JCheckBox();
 
 	/**
 	 * Instantiates a new monster panel.
@@ -108,7 +99,7 @@ public class MonsterPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -117,7 +108,7 @@ public class MonsterPanel extends PCGenPrefsPanel
 		return in_monsters;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -127,7 +118,7 @@ public class MonsterPanel extends PCGenPrefsPanel
 		SettingsHandler.setIgnoreMonsterHDCap(ignoreMonsterHDCap.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

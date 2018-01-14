@@ -1,5 +1,4 @@
 /*
- * PCClassLoader.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 22, 2002, 10:29 PM
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -40,11 +37,7 @@ import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- *
- * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision$
- */
+
 public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 {
 	/**
@@ -67,7 +60,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 			if (lstLine.startsWith("SUBCLASS:"))
 			{
-				int tabLoc = lstLine.indexOf("\t");
+				int tabLoc = lstLine.indexOf('\t');
 				if (tabLoc == -1)
 				{
 					Logging.errorPrint("Expected SUBCLASS to have "
@@ -113,7 +106,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 			if (lstLine.startsWith("SUBSTITUTIONCLASS:"))
 			{
-				int tabLoc = lstLine.indexOf("\t");
+				int tabLoc = lstLine.indexOf('\t');
 				String name;
 				String restOfLine;
 				if (tabLoc > 0)

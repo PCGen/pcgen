@@ -1,5 +1,4 @@
 /*
- * KitAlignment.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on October 15, 2005, 10:00 PM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -41,7 +36,7 @@ public class KitAlignment extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient PCAlignment align = null;
+	private PCAlignment align = null;
 
 	/**
 	 * Actually applies the alignment to this PC.
@@ -71,14 +66,14 @@ public class KitAlignment extends BaseKit
 		}
 		else
 		{
-			List<PCAlignment> available = new ArrayList<PCAlignment>(alignments.size());
+			List<PCAlignment> available = new ArrayList<>(alignments.size());
 			for (CDOMSingleRef<PCAlignment> ref : alignments)
 			{
 				available.add(ref.get());
 			}
 			while (true)
 			{
-				List<PCAlignment> sel = new ArrayList<PCAlignment>(1);
+				List<PCAlignment> sel = new ArrayList<>(1);
 				sel = Globals.getChoiceFromList("Choose alignment", available, sel,
 					1, aPC);
 				if (sel.size() == 1)
@@ -135,7 +130,7 @@ public class KitAlignment extends BaseKit
 	{
 		if (alignments == null)
 		{
-			alignments = new ArrayList<CDOMSingleRef<PCAlignment>>();
+			alignments = new ArrayList<>();
 		}
 		alignments.add(ref);
 	}

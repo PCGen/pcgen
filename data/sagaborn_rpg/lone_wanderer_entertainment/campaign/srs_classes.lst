@@ -1,0 +1,254 @@
+
+# Warrior Classes
+CLASS:Fighter	DESC:The world is filled with those who choose to face problems with a sharp edge. The fighter is the guardian of the group, and the one who cuts a path through the enemy.
+CLASS:Fighter	MAXLEVEL:8	PREPCLEVEL:MAX=8
+CLASS:Fighter	HD:10	TYPE:Base.PC
+CLASS:Fighter	FACT:Abb|Ftr	FACT:ClassType|Warrior
+CLASS:Fighter	DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|CL
+CLASS:Fighter	SOURCEPAGE:p.
+CLASS:Fighter	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Fighter	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Fighter	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Fighter	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Fighter	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Fighter	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Fighter	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Fighter	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Fighter	STARTSKILLPTS:1	CSKILL:TYPE=Class
+###Block: Vars
+1	BONUS:VAR|Pool_Talent|1
+2	BONUS:VAR|Pool_Talent|1
+4	BONUS:VAR|Pool_Talent|1
+6	BONUS:VAR|Pool_Talent|1
+8	BONUS:VAR|Pool_Talent|1
+###Block: AC
+5	BONUS:COMBAT|AC|1
+###Block: HP
+2	BONUS:HP|CURRENTMAX|2
+7	BONUS:HP|CURRENTMAX|5
+###Block: Vars
+8	BONUS:VAR|Pool_Ability_Point|1
+
+
+CLASS:Barbarian	DESC:Some barbarians find the term insulting and dismissive of their rich culture. Others embrace it. The barbarian is guided by intense emotions, and often does not think about who, or what, is getting in the way.
+CLASS:Barbarian	MAXLEVEL:8	PREPCLEVEL:MAX=8
+CLASS:Barbarian	HD:12	TYPE:Base.PC
+CLASS:Barbarian	FACT:Abb|Brb	FACT:ClassType|Warrior
+CLASS:Barbarian	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|CL
+CLASS:Barbarian	SOURCEPAGE:p.
+CLASS:Barbarian	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Barbarian	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Barbarian	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Barbarian	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Barbarian	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Barbarian	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Barbarian	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Barbarian	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Barbarian	STARTSKILLPTS:1	CSKILL:TYPE=Class
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction
+8	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Focused Rage
+###Block: Vars
+2	BONUS:HP|CURRENTMAX|2
+
+CLASS:Archeon	DESC:Archeons are the watchers of the mages. Some are witch hunters, while others serve as their bodyguards. An example of an archeon could be a knight of the church, who has a will and power to root out evil magic and spellcasters.
+CLASS:Archeon	MAXLEVEL:8	PREPCLEVEL:MAX=8
+CLASS:Archeon	HD:10	TYPE:Base.PC
+CLASS:Archeon	FACT:Abb|Arc	FACT:ClassType|Warrior
+CLASS:Archeon	DEFINE:ArcheonLVL|0	BONUS:VAR|ArcheonLVL|CL
+CLASS:Archeon	SOURCEPAGE:p.
+CLASS:Archeon	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Archeon	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Archeon	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Archeon	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Archeon	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Archeon	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Archeon	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Archeon	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Archeon	STARTSKILLPTS:1	CSKILL:TYPE=Class
+1	ABILITY:Archeon Class Feature|AUTOMATIC|Archeon ~ Magic Sense|Archeon ~ Magebane
+5	ABILITY:Archeon Class Feature|AUTOMATIC|Archeon ~ Spell Shield
+7	ABILITY:Archeon Class Feature|AUTOMATIC|Archeon ~ Disruption
+8	ABILITY:Archeon Class Feature|AUTOMATIC|Archeon ~ Antimagic Shield
+###Block: Vars
+2	BONUS:HP|CURRENTMAX|2
+
+# Mage Classes
+CLASS:Wylder	DESC:Self-taught and undisciplined, the wylders are the wild mages of Atheles.
+CLASS:Wylder	MAXLEVEL:8	PREPCLEVEL:MAX=8
+CLASS:Wylder	HD:8	TYPE:Base.PC
+CLASS:Wylder	FACT:Abb|Wyl	FACT:ClassType|Mage
+CLASS:Wylder	DEFINE:WylderLVL|0	BONUS:VAR|WylderLVL|CL	BONUS:VAR|CasterLVL|WylderLVL
+CLASS:Wylder	SOURCEPAGE:p.
+CLASS:Wylder	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Wylder	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Wylder	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Wylder	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Wylder	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Wylder	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Wylder	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Wylder	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Wylder	STARTSKILLPTS:1	CSKILL:TYPE=Class
+CLASS:Wylder	FACT:SpellType|Arcane
+CLASS:Wylder	SPELLSTAT:INT	MEMORIZE:NO	SPELLLIST:1|Mana
+CLASS:Wylder	BONUS:CASTERLEVEL|Wylder|Caster_Level_Wylder	DEFINE:Caster_Level_Wylder|0	BONUS:VAR|Caster_Level_Wylder|WylderLVL	BONUS:VAR|CasterLevelBL_Wylder|charbonusto("PCLEVEL","Wylder")
+CLASS:Wylder	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Wylder|TYPE=Base
+1	ABILITY:Wylder Class Feature|AUTOMATIC|Wylder
+1	ABILITY:Wylder Class Feature|AUTOMATIC|Wylder ~ Spell Memory|Wylder ~ Spell Sight|Wylder ~ Wild Magic
+3	ABILITY:Wylder Class Feature|AUTOMATIC|Wylder ~ Chaos Wave
+6	ABILITY:Wylder Class Feature|AUTOMATIC|Wylder ~ Discordian Shield
+8	ABILITY:Wylder Class Feature|AUTOMATIC|Wylder ~ Focused Wild Magic
+###Block: Vars
+3	BONUS:VAR|Pool_Talent|1
+5	BONUS:VAR|Pool_Talent|1
+###Block:
+1:REPEATLEVEL:1	CAST:1,1,0,1,0,1,0,1
+###Block:
+1	KNOWN:0,0,0,0,0,0,0,6
+2	KNOWN:0,0,0,0,0,0,0,7
+3	KNOWN:0,0,0,0,0,0,0,8
+4	KNOWN:0,0,0,0,0,0,0,9
+5	KNOWN:0,0,0,0,0,0,0,12
+6	KNOWN:0,0,0,0,0,0,0,14
+7	KNOWN:0,0,0,0,0,0,0,17
+8	KNOWN:0,0,0,0,0,0,0,19
+
+
+CLASS:Luminar	DESC:Formally trained spellcasters are called luminar. They must be trained by one of the magical institutions in Atheles, which include the Wizard Tower, the Druid Council, and many of the established churches. Though their base stats may be shared, their spell choices and Talents should reflect their path of learning.
+CLASS:Luminar	MAXLEVEL:8	PREPCLEVEL:MAX=8
+CLASS:Luminar	HD:6	TYPE:Base.PC
+CLASS:Luminar	FACT:Abb|Lum	FACT:ClassType|Mage
+CLASS:Luminar	DEFINE:LuminarLVL|0	BONUS:VAR|LuminarLVL|classlevel()	
+CLASS:Luminar	SOURCEPAGE:p.
+CLASS:Luminar	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Luminar	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Luminar	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Luminar	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Luminar	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Luminar	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Luminar	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Luminar	STARTSKILLPTS:1	CSKILL:TYPE=Class
+CLASS:Luminar	FACT:SpellType|Arcane
+CLASS:Luminar	SPELLSTAT:INT	MEMORIZE:YES	SPELLLIST:1|Mana
+CLASS:Luminar	BONUS:CASTERLEVEL|Luminar|CL
+1	ABILITY:Luminar Class Feature|AUTOMATIC|Luminar
+1	ABILITY:Luminar Class Feature|AUTOMATIC|Luminar ~ Energy Burst|Luminar ~ Spell Book|Luminar ~ Spell Sight
+4	ABILITY:Luminar Class Feature|AUTOMATIC|Luminar ~ Energy Blast
+6	ABILITY:Luminar Class Feature|AUTOMATIC|Luminar ~ Energy Wall
+8	ABILITY:Luminar Class Feature|AUTOMATIC|Luminar ~ Call of the Elements
+###Block: Vars
+3	BONUS:VAR|Pool_Talent|1
+6	BONUS:VAR|Pool_Talent|1
+###Block:
+1:REPEATLEVEL:1	CAST:1,1,0,1,0,1,0,1
+
+
+CLASS:Bard	DESC:For some individuals with the talent, music and song become powerful and innately magical. These spellsingers can affect minds, summon "spirits," and in special places, even pierce the veil between Atheles and the Navirim. Their songs can put both the performer and an audience into a magical state of mind. Spellsinging bards do not have to carry around spellbooks or memorize spells like luminar mages do. In Atheles, it is said that the world was sung into existence. Music is creation, and creation is music. A bard just taps into this process of creation on a smaller scale. Spellsinging bards are particularly potent at hypnotic sorts of magic - the sorts of things that work on the perceptions of others. Skilled bards spend a lifetime studying the audience and intuitively learning the various psychologies of people. Most spellsingers begin as minstrels, finding it easiest to tap into their magic while playing an instrument and singing, but as their power grows, some have been known to cast magic over a crowd with just a story, a whistled tune, a dance, or even by performing a role. It is said that in times of old, with much experience and as their art became second nature, some great bards could even put themselves into a magical, creative, state of mind without actually performing out loud.
+CLASS:Bard	MAXLEVEL:8	PREPCLEVEL:MAX=8
+CLASS:Bard	HD:8	TYPE:Base.PC
+CLASS:Bard	FACT:Abb|Brd	FACT:ClassType|Mage
+CLASS:Bard	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	BONUS:VAR|CasterLVL|BardLVL
+CLASS:Bard	SOURCEPAGE:p.
+CLASS:Bard	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Bard	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Bard	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Bard	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Bard	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Bard	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Bard	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Bard	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Bard	STARTSKILLPTS:1	CSKILL:TYPE=Class
+CLASS:Bard	FACT:SpellType|Arcane
+CLASS:Bard	SPELLSTAT:INT	MEMORIZE:NO	SPELLLIST:1|Mana
+CLASS:Bard	BONUS:CASTERLEVEL|Bard|BardLVL
+CLASS:Bard	BONUS:VAR|Caster_Level_Highest__Arcane|BardLVL|TYPE=Base
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|Bard ~ Perform Talent|Bard ~ Bardic Music
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Spell Sight
+3	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Soothing Song
+6	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Suggestion
+8	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Hymn of Horror|Bard ~ Inspire Greatness
+###Block:
+1:REPEATLEVEL:1	CAST:1,1,0,1,0,1,0,1
+###Block:
+1	KNOWN:0,0,0,0,0,0,0,4
+2	KNOWN:0,0,0,0,0,0,0,6
+3	KNOWN:0,0,0,0,0,0,0,8
+4	KNOWN:0,0,0,0,0,0,0,10
+5	KNOWN:0,0,0,0,0,0,0,12
+6	KNOWN:0,0,0,0,0,0,0,13
+7	KNOWN:0,0,0,0,0,0,0,16
+8	KNOWN:0,0,0,0,0,0,0,17
+
+
+# Scout Classes
+CLASS:Ranger	DESC:A ranger may be a scout for a city guard, keeping the outer lands protected for his people. Or a ranger could be a loner who finds peace in the seclusion of the rugged, wild lands. No matter their story, a ranger has certain skills that benefit one who spends much of their time in the wilderness.
+CLASS:Ranger	MAXLEVEL:8	PREPCLEVEL:MAX=8
+CLASS:Ranger	HD:8	TYPE:Base.PC
+CLASS:Ranger	FACT:Abb|Rgr	FACT:ClassType|Scout
+CLASS:Ranger	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL
+CLASS:Ranger	SOURCEPAGE:p.
+CLASS:Ranger	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Ranger	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Ranger	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Ranger	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Ranger	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Ranger	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Ranger	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Ranger	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Ranger	STARTSKILLPTS:1	CSKILL:TYPE=Class
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|Ranger ~ Track
+3	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Terrain
+4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hunter's Bond
+6	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Crippling Strike
+7	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride|Ranger ~ Stag's Reflexes
+8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker
+###Block: Vars
+2	BONUS:VAR|Pool_Talent|1
+4	BONUS:VAR|Pool_Ability_Point|1
+8	BONUS:VAR|Pool_Ability_Point|1
+
+
+CLASS:Rogue		DESC:The rogue has mastered the art of using wit and agility to overcome adversity and to get what is wanted. A rogue can be the thief sneaking past guards to steal a bag of gold or a small-statured person who has learned clever ways to come out on top in a fight. They will use whatever tools are at their disposal, often in clever and novel ways.
+CLASS:Rogue	MAXLEVEL:8	PREPCLEVEL:MAX=8
+CLASS:Rogue	HD:6	TYPE:Base.PC
+CLASS:Rogue	FACT:Abb|Rog	FACT:ClassType|Scout
+CLASS:Rogue	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL
+CLASS:Rogue	SOURCEPAGE:p.
+CLASS:Rogue	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Rogue	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Rogue	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Rogue	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Rogue	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Rogue	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Rogue	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Rogue	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Rogue	STARTSKILLPTS:1	CSKILL:TYPE=Class
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack|Rogue ~ Trapfinder
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion
+4	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Incredible Dodge
+6	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Advanced Thieving
+8	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Improved Incredible Dodge|Rogue ~ Immobilize Enemy
+###Block: Vars
+3	BONUS:VAR|Pool_Talent|2
+8	BONUS:VAR|Pool_Ability_Point|1
+
+
+CLASS:Mana	VISIBLE:NO
+
+
+CLASS:Animal Companion	MAXLEVEL:8	PREPCLEVEL:MAX=6	VISIBLE:NO
+CLASS:Animal Companion	HD:8	TYPE:Monster
+CLASS:Animal Companion	FACT:Abb|Ani	FACT:ClassType|Companion
+CLASS:Animal Companion	DEFINE:CompanionLVL|0	BONUS:VAR|CompanionLVL|CL
+CLASS:Animal Companion	SOURCEPAGE:p.
+CLASS:Animal Companion	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Animal Companion	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Animal Companion	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Animal Companion	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Animal Companion	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Animal Companion	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Animal Companion	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Animal Companion	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Animal Companion	STARTSKILLPTS:1	CSKILL:TYPE=Class

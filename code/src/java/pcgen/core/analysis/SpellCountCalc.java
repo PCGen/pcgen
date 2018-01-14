@@ -1,7 +1,5 @@
 /*
- * SpellCountCalc
  * Copyright 2009 (c) Tom Parker <thpr@users.sourceforge.net>
- * derived from PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -28,54 +26,47 @@ import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SpellProhibitor;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 
-public class SpellCountCalc
+public final class SpellCountCalc
 {
 
-	public static int memorizedSpellForLevelBook(PlayerCharacter pc, PCClass cl, int aLevel,
-			String bookName)
+	private SpellCountCalc()
 	{
-		int m = 0;
+	}
+
+	public static int memorizedSpellForLevelBook(PlayerCharacter pc, PCClass cl, int aLevel,
+	                                             String bookName)
+	{
 		final List<CharacterSpell> aList =
 				pc.getCharacterSpells(cl, null, bookName, aLevel);
-	
+
 		if (aList.isEmpty())
 		{
-			return m;
+			return 0;
 		}
-	
-		for (CharacterSpell cs : aList)
-		{
-			m += cs.getSpellInfoFor(bookName, aLevel).getTimes();
-		}
-	
-		return m;
+
+		return aList.stream()
+		         .mapToInt(cs -> cs.getSpellInfoFor(bookName, aLevel).getTimes())
+		         .sum();
 	}
 
 	public static int memorizedSpecialtiesForLevelBook(int aLevel, String bookName,
 			PlayerCharacter pc, PCClass cl)
 	{
-		int m = 0;
 		final List<CharacterSpell> aList =
 				pc.getCharacterSpells(cl, null, bookName, aLevel);
-	
+
 		if (aList.isEmpty())
 		{
-			return m;
+			return 0;
 		}
-	
-		for (CharacterSpell cs : aList)
-		{
-			if (cs.isSpecialtySpell(pc))
-			{
-				m += cs.getSpellInfoFor(bookName, aLevel).getTimes();
-			}
-		}
-	
-		return m;
+
+		return aList.stream()
+		         .filter(cs -> cs.isSpecialtySpell(pc))
+		         .mapToInt(cs -> cs.getSpellInfoFor(bookName, aLevel).getTimes())
+		         .sum();
 	}
 
 	public static boolean isSpecialtySpell(PlayerCharacter pc, PCClass cl, Spell aSpell)
@@ -102,16 +93,10 @@ public class SpellCountCalc
 		{
 			return true;
 		}
-	
-		for (SpellProhibitor prohibit : aPC.getProhibitedSchools(cl))
-		{
-			if (prohibit.isProhibited(aSpell, aPC, cl))
-			{
-				return true;
-			}
-		}
-	
-		return false;
+
+		return aPC.getProhibitedSchools(cl)
+		          .stream()
+		          .anyMatch(prohibit -> prohibit.isProhibited(aSpell, aPC, cl));
 	}
 
 }

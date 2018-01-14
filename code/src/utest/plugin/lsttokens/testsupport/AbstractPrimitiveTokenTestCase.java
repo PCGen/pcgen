@@ -33,7 +33,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 		extends AbstractCDOMTokenTestCase<T>
 {
 
-	private static QualifierToken<CDOMObject> qual = new QualifiedToken<CDOMObject>();
+	private static QualifierToken<CDOMObject> qual = new QualifiedToken<>();
 
 	public abstract CDOMSecondaryToken<?> getSubToken();
 
@@ -45,7 +45,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	{
 		prim = primitive;
 		target = tgt;
-		good = target == null ? prim : prim + "=" + target;
+		good = (target == null) ? prim : (prim + "=" + target);
 	}
 
 	public String getSubTokenName()

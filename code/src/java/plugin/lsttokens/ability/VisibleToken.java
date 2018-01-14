@@ -26,14 +26,11 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>VisibleToken</code> handles the processing of the VISIBLE tag in the
+ * {@code VisibleToken} handles the processing of the VISIBLE tag in the
  * definition of an Ability.
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2007-02-10 11:55:15 -0500
  * (Sat, 10 Feb 2007) $
  * 
- * @author Devon Jones
- * @version $Revision$
  */
 public class VisibleToken extends AbstractNonEmptyToken<Ability> implements
 		CDOMPrimaryToken<Ability>

@@ -1,5 +1,4 @@
 /*
- * CompanionMod.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,12 +17,7 @@
  *
  *************************************************************************
  *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @Created on July 10th, 2002, 3:55 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  *************************************************************************/
 package pcgen.core.character;
@@ -42,10 +36,7 @@ import pcgen.core.PObject;
 import pcgen.core.Race;
 
 /**
- * <code>CompanionMod</code>.
- *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision$
+ * {@code CompanionMod}.
  */
 public final class CompanionMod extends PObject implements
 		Categorized<CompanionMod>

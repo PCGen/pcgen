@@ -30,7 +30,7 @@ public class SourcePageIntegrationTest extends
 {
 
 	static SourcepageLst token = new SourcepageLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

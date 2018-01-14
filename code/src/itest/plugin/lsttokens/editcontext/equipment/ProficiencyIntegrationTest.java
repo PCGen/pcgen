@@ -35,7 +35,7 @@ public class ProficiencyIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>
 {
 	static ProficiencyToken token = new ProficiencyToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

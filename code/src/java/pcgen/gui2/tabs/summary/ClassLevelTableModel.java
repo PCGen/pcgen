@@ -1,5 +1,4 @@
 /*
- * ClassLevelTableModel.java
  * Copyright 2010 (C) Connor Petty <cpmeister@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on May 11, 2010, 2:01:06 PM
  */
 package pcgen.gui2.tabs.summary;
 
@@ -76,7 +74,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 		super();
 		this.character = character;
 		this.levels = character.getCharacterLevelsFacade();
-		this.finalLevelMap = new HashMap<String, Integer>();
+		this.finalLevelMap = new HashMap<>();
 		resetLevelMap();
 		levels.addListListener(this);
 		levels.addClassListener(this);
@@ -181,7 +179,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 				String classKey = c.getKeyName();
 				if (finalLevelMap.get(classKey) == rowIndex)
 				{
-					return c.toString() + " (" + character.getClassLevel(c) + ")";
+					return c + " (" + character.getClassLevel(c) + ")";
 				}
 				return c.toString();
 			default:

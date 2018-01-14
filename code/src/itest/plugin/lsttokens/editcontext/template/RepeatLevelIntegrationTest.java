@@ -45,7 +45,7 @@ public class RepeatLevelIntegrationTest extends
 
 	static RepeatlevelToken token = new RepeatlevelToken();
 	static CDOMTokenLoader<PCTemplate> loader =
-			new CDOMTokenLoader<PCTemplate>();
+            new CDOMTokenLoader<>();
 
 	private static boolean classSetUpFired = false;
 

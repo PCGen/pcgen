@@ -57,7 +57,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	static AddLst token = new AddLst();
 	static AbilityToken subtoken = new AbilityToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -827,7 +827,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	private List<CDOMReference<Ability>> createSingle(String name)
 	{
-		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
+		List<CDOMReference<Ability>> refs = new ArrayList<>();
 		Ability obj = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				name);
 		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
@@ -835,7 +835,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		refs.add(ar);
 		if (name.indexOf('(') != -1)
 		{
-			List<String> choices = new ArrayList<String>();
+			List<String> choices = new ArrayList<>();
 			AbilityUtilities.getUndecoratedName(name, choices);
 			assertEquals(1, choices.size());
 			ar.setChoice(choices.get(0));
@@ -846,7 +846,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	@Test
 	public void testUnparseType() throws PersistenceLayerException
 	{
-		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
+		List<CDOMReference<Ability>> refs = new ArrayList<>();
 		CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Ability.class, AbilityCategory.FEAT, "Foo", "Bar");
 		refs.add(ref);
@@ -865,7 +865,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		AbilityChoiceSet cs = new AbilityChoiceSet(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<CNAbilitySelection> tc = new ConcretePersistentTransitionChoice<CNAbilitySelection>(
+		PersistentTransitionChoice<CNAbilitySelection> tc = new ConcretePersistentTransitionChoice<>(
 				cs, count);
 		tc.allowStack(false);
 		// if (dupChoices != 0)
@@ -929,7 +929,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		if (isAllLegal())
 		{
-			List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
+			List<CDOMReference<Ability>> refs = new ArrayList<>();
 			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext().getCDOMAllReference(
 					Ability.class, AbilityCategory.FEAT);
 			refs.add(ref);
@@ -944,7 +944,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		if (isAllLegal())
 		{
-			List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
+			List<CDOMReference<Ability>> refs = new ArrayList<>();
 			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
 					.getCDOMTypeReference(Ability.class, AbilityCategory.FEAT,
 							"Foo", "Bar");
@@ -967,7 +967,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		AbilityChoiceSet cs = new AbilityChoiceSet(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<CNAbilitySelection> tc = new ConcretePersistentTransitionChoice<CNAbilitySelection>(
+		PersistentTransitionChoice<CNAbilitySelection> tc = new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.getFormulaFor(3));
 		tc.allowStack(true);
 		tc.setStackLimit(2);

@@ -89,7 +89,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 			formatManager =
 					context.getReferenceContext().getFormatManager(format);
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " does not support format " + format + ", found in " + value
@@ -140,6 +140,11 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 			return null;
 		}
 		String varName = dv.getKeyName();
+		if (!DatasetVariable.isLegalName(varName))
+		{
+			//internal variable
+			return null;
+		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(scope);
 		sb.append(Constants.PIPE);

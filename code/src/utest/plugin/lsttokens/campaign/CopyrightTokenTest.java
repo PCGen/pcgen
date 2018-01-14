@@ -34,7 +34,7 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static CopyrightToken token = new CopyrightToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -57,12 +57,6 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	public ListKey<?> getListKey()
 	{
 		return ListKey.SECTION_15;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Test

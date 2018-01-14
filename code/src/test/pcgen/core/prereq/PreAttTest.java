@@ -1,6 +1,4 @@
 /*
- * PreAttTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
@@ -39,12 +35,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>PreAttTest</code> tests that the PREATT tag is
  * working correctly.
- *
- * Last Editor: $Author: $
- * Last Edited: $Date$
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreAttTest extends AbstractCharacterTestCase
 {

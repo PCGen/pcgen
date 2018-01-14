@@ -1,5 +1,4 @@
 /*
- * SourcesPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,18 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/11/2008 11:00:00
- *
- * $Id: $
  */
 package pcgen.gui2.prefs;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
@@ -48,35 +41,31 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>SourcesPanel</code> is responsible for 
+ * The Class {@code SourcesPanel} is responsible for
  * displaying source related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public class SourcesPanel extends PCGenPrefsPanel
 {
-	private static String in_sources =
+	private static final String in_sources =
 		LanguageBundle.getString("in_Prefs_sources"); //$NON-NLS-1$
 	
-	private JCheckBox campLoad = new JCheckBox();
-	private JCheckBox charCampLoad = new JCheckBox();
-	private JCheckBox allowOptsInSource = new JCheckBox();
-	private JCheckBox saveCustom = new JCheckBox();
-	private JCheckBox showOGL = new JCheckBox();
-	private JCheckBox showMature = new JCheckBox();
-	private JCheckBox showSponsors = new JCheckBox();
+	private final JCheckBox campLoad = new JCheckBox();
+	private final JCheckBox charCampLoad = new JCheckBox();
+	private final JCheckBox allowOptsInSource = new JCheckBox();
+	private final JCheckBox saveCustom = new JCheckBox();
+	private final JCheckBox showOGL = new JCheckBox();
+	private final JCheckBox showMature = new JCheckBox();
+	private final JCheckBox showSponsors = new JCheckBox();
 	private JComboBoxEx sourceOptions = new JComboBoxEx();
-	private JCheckBox loadURL = new JCheckBox();
-	private JCheckBox allowOverride = new JCheckBox();
-	private JCheckBox skipSourceSelect = new JCheckBox();
-	private JCheckBox useAdvancedSourceSelect = new JCheckBox();
-	private JCheckBox allowMultiLineObjectsSelect = new JCheckBox();
+	private final JCheckBox loadURL = new JCheckBox();
+	private final JCheckBox allowOverride = new JCheckBox();
+	private final JCheckBox skipSourceSelect = new JCheckBox();
+	private final JCheckBox useAdvancedSourceSelect = new JCheckBox();
+	private final JCheckBox allowMultiLineObjectsSelect = new JCheckBox();
 
 	/**
 	 * Instantiates a new monster panel.
@@ -148,19 +137,14 @@ public class SourcesPanel extends PCGenPrefsPanel
 		loadURL.setText(LanguageBundle.getString("in_Prefs_loadURLs")); //$NON-NLS-1$
 		gridbag.setConstraints(loadURL, c);
 		this.add(loadURL);
-		loadURL.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				if (((JCheckBox) evt.getSource()).isSelected())
-				{
-					ShowMessageDelegate.showMessageDialog(LanguageBundle
-						.getString("in_Prefs_urlBlocked"), Constants.APPLICATION_NAME, //$NON-NLS-1$
-						MessageType.WARNING);
-				}
-			}
-		});
+		loadURL.addActionListener(evt -> {
+            if (((JCheckBox) evt.getSource()).isSelected())
+            {
+                ShowMessageDelegate.showMessageDialog(LanguageBundle
+                    .getString("in_Prefs_urlBlocked"), Constants.APPLICATION_NAME, //$NON-NLS-1$
+                    MessageType.WARNING);
+            }
+        });
 
 		Utility.buildConstraints(c, 0, 10, GridBagConstraints.REMAINDER, 1, 0, 0);
 		allowOverride.setText(LanguageBundle.getString("in_Prefs_allowOverride")); //$NON-NLS-1$
@@ -189,7 +173,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -198,7 +182,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		return in_sources;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -266,7 +250,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

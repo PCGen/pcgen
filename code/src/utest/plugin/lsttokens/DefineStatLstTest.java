@@ -36,7 +36,7 @@ public class DefineStatLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static DefineStatLst token = new DefineStatLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

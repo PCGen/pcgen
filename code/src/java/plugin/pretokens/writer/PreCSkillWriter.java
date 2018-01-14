@@ -1,5 +1,4 @@
 /*
- * PrerequisiteCSkillWriter.java
  *
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -17,14 +16,8 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 27, 2005, 10:21 AM
  *
  * @ author	Greg Bingleman <byngl@hotmail.com>
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.writer;
 
@@ -41,7 +34,7 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -50,7 +43,7 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 		return "cskill";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -60,7 +53,7 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 			PrerequisiteOperator.LT};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
@@ -70,7 +63,7 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 		checkValidOperator(prereq, operatorsHandled());
 		try
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+			if (prereq.getOperator() == PrerequisiteOperator.LT)
 			{
 				writer.write('!');
 			}
@@ -101,14 +94,14 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 		{
 			return false;
 		}
-		if (!po.equals(prereq.getOperator()))
+		if (po != prereq.getOperator())
 		{
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+		writer.write("PRE" + kindHandled().toUpperCase() + ':'
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
-		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
+		writer.write(po == PrerequisiteOperator.GTEQ ? prereq.getOperand()
 				: "1");
 		for (Prerequisite p : prereq.getPrerequisites())
 		{

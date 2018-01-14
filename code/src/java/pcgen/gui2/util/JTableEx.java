@@ -1,5 +1,4 @@
 /*
- * JTableEx.java
  * Copyright 2001 (C) Jonas Karlsson <jujutsunerd@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on June 27, 2001, 20:36 PM
  */
 package pcgen.gui2.util;
 
@@ -41,10 +39,8 @@ import pcgen.gui2.util.table.SortableTableRowSorter;
 import pcgen.gui2.util.table.TableCellUtilities;
 
 /**
- *  <code>JTableEx</code> extends JTable to provide auto-tooltips.
+ *  {@code JTableEx} extends JTable to provide auto-tooltips.
  *
- * @author     Jonas Karlsson <jujutsunerd@users.sourceforge.net>
- * @version    $Revision: 1817 $
  */
 public class JTableEx extends JTable
 {

@@ -17,9 +17,6 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSkillParser;
 import plugin.pretokens.writer.PreSkillMultWriter;
@@ -27,18 +24,7 @@ import plugin.pretokens.writer.PreSkillMultWriter;
 public class PreSkillMultRoundRobin extends AbstractRankedRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSkillMultRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSkillMultRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

@@ -38,7 +38,7 @@ public class KnownspellsTokenTest extends
 {
 
 	static KnownspellsToken token = new KnownspellsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

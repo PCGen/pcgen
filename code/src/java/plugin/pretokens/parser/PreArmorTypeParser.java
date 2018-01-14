@@ -1,5 +1,4 @@
 /*
- * PreArmourTypeParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,26 +16,18 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 17-Dec-2003
  *
- * Current Ver: $Revision$
  * 
- * Last Editor: $Author$
  * 
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.parser;
 
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre armour tokens.
- *
  */
 public class PreArmorTypeParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

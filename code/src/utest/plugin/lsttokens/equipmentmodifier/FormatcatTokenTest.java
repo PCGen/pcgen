@@ -34,7 +34,7 @@ public class FormatcatTokenTest extends
 {
 
 	static FormatcatToken token = new FormatcatToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -143,7 +143,7 @@ public class FormatcatTokenTest extends
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<EqModFormatCat> getObjectKey()
+	private static ObjectKey<EqModFormatCat> getObjectKey()
 	{
 		return ObjectKey.FORMAT;
 	}

@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package pcgen.core.doomsdaybook;
 
@@ -23,13 +21,10 @@ import pcgen.util.Logging;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author  devon
- */
+
 public class Rule extends ArrayList<String> implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<DataValue>();
+	ArrayList<DataValue> retList = new ArrayList<>();
 	String id;
 	String title;
 	VariableHashMap allVars;

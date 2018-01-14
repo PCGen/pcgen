@@ -1,5 +1,4 @@
 /*
- * PreDeityParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,15 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.parser;
 
@@ -34,15 +24,9 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * <code>PreDeityParser</code> parses PREDEITY prerequisites. It handles both 
+ * {@code PreDeityParser} parses PREDEITY prerequisites. It handles both
  * new (PREDEITY:1,Odin) and old (PREDEITY:Odin) format syntax along with the
  * hasdeity syntax (PREDEITY:Y or PREDEITY:No). 
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PreDeityParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface
@@ -88,7 +72,7 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 	 *   
 	 * @param prereq The prereq to be scanned.
 	 */
-	private void replaceHasDeityPrereqs(Prerequisite prereq)
+	private static void replaceHasDeityPrereqs(Prerequisite prereq)
 	{
 		String key = prereq.getKey();
 		if ("deity".equalsIgnoreCase(prereq.getKind()) && key != null)

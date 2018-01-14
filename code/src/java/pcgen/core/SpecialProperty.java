@@ -1,5 +1,4 @@
 /*
- * SpecialProperty.java
  * Copyright 2004 (C) Devon Jones
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  */
 package pcgen.core;
 
@@ -29,10 +27,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
 /**
- * <code>SpecialProperty</code>.
+ * {@code SpecialProperty}.
  *
- * @author Devon Jones
- * @version $Revision$
  */
 public final class SpecialProperty extends TextProperty
 {

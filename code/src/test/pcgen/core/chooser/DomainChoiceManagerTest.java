@@ -1,5 +1,4 @@
 /*
- * DomainChoiceManagerTest.java
  * Copyright 2005 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,12 +15,10 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Oct 7, 2005
  *
  * $Author: nuance $
  * $Date: 2006-03-26 08:00:03 +0100 (Sun, 26 Mar 2006) $
  * $Revision: 471 $
- *
  */
 package pcgen.core.chooser;
 
@@ -42,19 +39,10 @@ import pcgen.rules.context.LoadContext;
  * {@code DomainChoiceManagerTest} test that the DomainChoiceManager class is
  * functioning correctly.
  * 
- * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
 public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Constructs a new {@code DomainChoiceManagerTest}.
-	 */
-	public DomainChoiceManagerTest()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * Test the constructor
@@ -80,8 +68,8 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 				pObj, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		List<Domain> aList = new ArrayList<Domain>();
-		List<Domain> sList = new ArrayList<Domain>();
+		List<Domain> aList = new ArrayList<>();
+		List<Domain> sList = new ArrayList<>();
 		choiceManager.getChoices(aPC, aList, sList);
 		assertEquals(5, aList.size());
 		assertTrue(aList.contains(foo));

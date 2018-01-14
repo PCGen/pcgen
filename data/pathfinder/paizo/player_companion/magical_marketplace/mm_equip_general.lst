@@ -22,7 +22,7 @@ Floating Sail (10x15 ft)				TYPE:Magic.Wondrous									COST:5000	WT:20		SOURCEP
 Floating Sail (15x30 ft)				TYPE:Magic.Wondrous									COST:15000	WT:25		SOURCEPAGE:p.9
 Floating Sail (15x40 ft)				TYPE:Magic.Wondrous									COST:20000	WT:40		SOURCEPAGE:p.9
 Floating Sail (20x50 ft)				TYPE:Magic.Wondrous									COST:32000	WT:50		SOURCEPAGE:p.9
-Healer's Burning Glass					TYPE:Magic.Wondrous									COST:324000	WT:.5		SOURCEPAGE:p.11
+Healer's Burning Glass					TYPE:Magic.Wondrous									COST:32400	WT:.5		SOURCEPAGE:p.11
 Hollis's Lucky Rock		NAMEISPI:YES	TYPE:Magic.Wondrous.Intelligent							COST:35000			SOURCEPAGE:p.17	SPROP:Luckstone, neutral good, INT 10, WIS 16, CHA 14, EGO 10, Senses 120 ft, Language speech (common, halfling), good hope 1/day, +2 saves vs. emotion and fear effects
 Homunculus Clay						TYPE:Magic.Wondrous									COST:4100	WT:1		SOURCEPAGE:p.21
 Hypnotic Tattoo						TYPE:Magic.Wondrous									COST:900			SOURCEPAGE:p.5

@@ -19,8 +19,6 @@ package plugin.lsttokens;
 
 import java.util.TreeSet;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.base.formula.Formula;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
@@ -36,21 +34,18 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
- * The Class <code>DefineStatLst</code> parses the DEFINESTAT tag. Valid sub tags are:
- * </p>
+ * The Class {@code DefineStatLst} parses the DEFINESTAT tag. Valid sub tags are:
+ * <p>
  * DEFINESTAT:LOCK|stat|value <br>
  * DEFINESTAT:UNLOCK|stat <br>
  * DEFINESTAT:NONSTAT|stat <br>
  * DEFINESTAT:STAT|stat <br>
  * DEFINESTAT:MINVALUE|stat|value
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 {
@@ -184,7 +179,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			obj, ListKey.STAT_MINVALUE);
 		Changes<StatLock> maxValueChanges = context.getObjectContext().getListChanges(
 			obj, ListKey.STAT_MAXVALUE);
-		TreeSet<String> set = new TreeSet<String>();
+		TreeSet<String> set = new TreeSet<>();
 		if (lockChanges != null && !lockChanges.isEmpty())
 		{
 			if (lockChanges.includesGlobalClear())

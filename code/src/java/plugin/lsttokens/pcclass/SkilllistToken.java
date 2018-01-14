@@ -78,7 +78,7 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 					+ " must have a | separating "
 					+ "count from the list of possible values: " + value, context);
 		}
-		List<CDOMReference<ClassSkillList>> refs = new ArrayList<CDOMReference<ClassSkillList>>();
+		List<CDOMReference<ClassSkillList>> refs = new ArrayList<>();
 
 		while (tok.hasMoreTokens())
 		{
@@ -95,7 +95,7 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 			refs.add(ref);
 		}
 
-		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<ClassSkillList>(
+		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<>(
 				refs);
 		if (!rcs.getGroupingState().isValid())
 		{
@@ -103,10 +103,10 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 					+ getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
 		}
-		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(
+		ChoiceSet<ClassSkillList> cs = new ChoiceSet<>(
 				getTokenName(), rcs);
 		cs.setTitle("Select class whose class-skills this class will inherit");
-		TransitionChoice<ClassSkillList> tc = new ConcreteTransitionChoice<ClassSkillList>(
+		TransitionChoice<ClassSkillList> tc = new ConcreteTransitionChoice<>(
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SKILLLIST_CHOICE, tc);
 		tc.setRequired(false);

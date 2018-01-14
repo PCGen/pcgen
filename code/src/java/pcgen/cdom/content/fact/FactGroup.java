@@ -64,7 +64,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	 * semantically can't change. There is also the assumption that the global
 	 * list of objects cannot change.
 	 */
-	private transient List<T> cache;
+	private List<T> cache;
 
 	/**
 	 * Constructs a new FactGroup from the given context, FactInfo and value.
@@ -104,7 +104,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	{
 		if (cache == null)
 		{
-			List<T> setupCache = new ArrayList<T>();
+			List<T> setupCache = new ArrayList<>();
 			for (T obj : allObjects.getContainedObjects())
 			{
 				if (contains(obj))

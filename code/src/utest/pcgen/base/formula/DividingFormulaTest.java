@@ -17,11 +17,13 @@
  */
 package pcgen.base.formula;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-public class DividingFormulaTest extends TestCase
+public class DividingFormulaTest
 {
 
+	@Test
 	public void testToString()
 	{
 		assertEquals("/1", new DividingFormula(1).toString());
@@ -29,21 +31,23 @@ public class DividingFormulaTest extends TestCase
 		assertEquals("/-3", new DividingFormula(-3).toString());
 	}
 	
+	@Test
 	public void testIdentity()
 	{
 		DividingFormula f = new DividingFormula(1);
-		assertEquals(2, f.resolve(Integer.valueOf(2)).intValue());
-		assertEquals(2, f.resolve(Double.valueOf(2.5)).intValue());
+		assertEquals(2, f.resolve(2).intValue());
+		assertEquals(2, f.resolve(2.5).intValue());
 		testBrokenCalls(f);
 	}
 
+	@Test
 	public void testEquality()
 	{
 		DividingFormula f1 = new DividingFormula(1);
 		DividingFormula f2 = new DividingFormula(1);
 		DividingFormula f3 = new DividingFormula(2);
 		DividingFormula f4 = new DividingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
 		assertFalse(f1.equals(null));
@@ -53,16 +57,18 @@ public class DividingFormulaTest extends TestCase
 		assertFalse(f1.equals(f4));
 	}
 
+	@Test
 	public void testPositive()
 	{
 		DividingFormula f = new DividingFormula(3);
-		assertEquals(1, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(2, f.resolve(Integer.valueOf(6)).intValue());
-		assertEquals(2, f.resolve(Integer.valueOf(7)).intValue());
-		assertEquals(2, f.resolve(Double.valueOf(6.5)).intValue());
+		assertEquals(1, f.resolve(5).intValue());
+		assertEquals(2, f.resolve(6).intValue());
+		assertEquals(2, f.resolve(7).intValue());
+		assertEquals(2, f.resolve(6.5).intValue());
 		testBrokenCalls(f);
 	}
 
+	@Test
 	public void testZero()
 	{
 		try
@@ -76,11 +82,12 @@ public class DividingFormulaTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testNegative()
 	{
 		DividingFormula f = new DividingFormula(-2);
-		assertEquals(-2, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(3, f.resolve(Double.valueOf(-6.7)).intValue());
+		assertEquals(-2, f.resolve(5).intValue());
+		assertEquals(3, f.resolve(-6.7).intValue());
 		testBrokenCalls(f);
 	}
 
@@ -97,7 +104,7 @@ public class DividingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{});
+			f.resolve();
 			fail("empty array should be illegal");
 		}
 		catch (IllegalArgumentException e)
@@ -106,7 +113,7 @@ public class DividingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{Integer.valueOf(4), Double.valueOf(2.5)});
+			f.resolve(4, 2.5);
 			fail("two arguments in array should be illegal");
 		}
 		catch (IllegalArgumentException e)
@@ -115,7 +122,7 @@ public class DividingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(Integer.valueOf(4), Double.valueOf(2.5));
+			f.resolve(4, 2.5);
 			fail("two arguments should be illegal");
 		}
 		catch (IllegalArgumentException e)

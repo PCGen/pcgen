@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on January 28, 2003, 11:18 PM
- *
- * @(#) $Id$
  */
 package pcgen.util;
 
@@ -26,22 +22,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import pcgen.core.PlayerCharacter;
+import pcgen.core.VariableProcessor;
+import pcgen.persistence.lst.LstUtils;
+import pcgen.system.PluginLoader;
+
 import org.nfunk.jep.ASTFunNode;
 import org.nfunk.jep.JEP;
 import org.nfunk.jep.Node;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommand;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.VariableProcessor;
-import pcgen.persistence.lst.LstUtils;
-import pcgen.system.PluginLoader;
-
 /**
- * <code>PJEP</code>
+ * {@code PJEP}
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
  *
  * Provides a common interface setup for Singular Systems' Java Mathematical Expression Parser.
  *
@@ -50,15 +44,14 @@ import pcgen.system.PluginLoader;
  *
  * Provides the following variables:
  *   FALSE, TRUE
- *
  */
 public final class PJEP extends JEP
 {
 	private Object parent;
 	private String variableSource;
 	private static List<Class<PCGenCommand>> commandList =
-			new ArrayList<Class<PCGenCommand>>();
-	private List<PCGenCommand> localCommandList = new ArrayList<PCGenCommand>();
+            new ArrayList<>();
+	private List<PCGenCommand> localCommandList = new ArrayList<>();
 
 	public static void addCommand(Class<PCGenCommand> clazz)
 	{
@@ -99,11 +92,7 @@ public final class PJEP extends JEP
 				addFunction(com.getFunctionName().toLowerCase(), com);
 				addFunction(com.getFunctionName().toUpperCase(), com);
 			}
-			catch (InstantiationException e)
-			{
-				e.printStackTrace();
-			}
-			catch (IllegalAccessException e)
+			catch (InstantiationException | IllegalAccessException e)
 			{
 				e.printStackTrace();
 			}
@@ -197,8 +186,8 @@ public final class PJEP extends JEP
 
 		/**
 		 * Runs classlevel on the inStack. The parameter is popped
-		 * off the <code>inStack</code>, and the variable's value is
-		 * pushed back to the top of <code>inStack</code>.
+		 * off the {@code inStack}, and the variable's value is
+		 * pushed back to the top of {@code inStack}.
 		 * 
 		 * @param inStack The stack to process
 		 * 
@@ -301,7 +290,7 @@ public final class PJEP extends JEP
 	 * @return Returns the variableSource.
 	 */
 	@Deprecated
-	protected String getVariableSource()
+	private String getVariableSource()
 	{
 		return variableSource;
 	}

@@ -15,19 +15,17 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  SystemAttribute.java
  */
 package gmgen.plugin;
 
 public class SystemAttribute
 {
-	private String description;
-	private String name;
+	private final String description;
+	private final String name;
 	private SystemDie die;
 	private int value;
 
-	public SystemAttribute(String name, int value, String description, SystemDie die)
+	private SystemAttribute(String name, int value, String description, SystemDie die)
 	{
 		this.name = name;
 		this.value = value;
@@ -35,19 +33,9 @@ public class SystemAttribute
 		this.die = die;
 	}
 
-	public SystemAttribute(String name, int value, SystemDie die)
-	{
-		this(name, value, "", die);
-	}
-
-	public SystemAttribute(String name, int value, String description)
-	{
-		this(name, value, description, new SystemDie());
-	}
-
 	public SystemAttribute(String name, int value)
 	{
-		this(name, value, "", new SystemDie());
+		this(name, value, "", new SystemDie(0));
 	}
 
 	public String getDescription()
@@ -70,7 +58,7 @@ public class SystemAttribute
 		return name;
 	}
 
-	public void setValue(int value)
+	public void setValue(final int value)
 	{
 		this.value = value;
 	}
@@ -85,18 +73,9 @@ public class SystemAttribute
 		return check(0);
 	}
 
-	public int check(int mod)
+	public int check(final int mod)
 	{
 		return die.roll() + this.getModifier() + mod;
 	}
 
-	public boolean difficultyCheck(int difficulty)
-	{
-		return difficultyCheck(difficulty, 0);
-	}
-
-	public boolean difficultyCheck(int difficulty, int mod)
-	{
-		return check(mod) >= difficulty;
-	}
 }

@@ -1,5 +1,4 @@
 /*
- * EquipSlot.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,14 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * Created on February 24th, 2002, 11:26 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package pcgen.core.character;
 
@@ -55,7 +46,7 @@ public final class EquipSlot implements Cloneable
 	 *
 	 **/
 	private String slotName = "";
-	private Set<String> containEqList = new HashSet<String>();
+	private Set<String> containEqList = new HashSet<>();
 	private String slotNumType = "";
 	private int containNum = 1;
 
@@ -78,7 +69,7 @@ public final class EquipSlot implements Cloneable
 			Logging.errorPrint("Clone is not supported!", e);
 			return null;
 		}
-		newSlot.containEqList = new HashSet<String>(containEqList);
+		newSlot.containEqList = new HashSet<>(containEqList);
 		
 		return newSlot;
 	}

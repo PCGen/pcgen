@@ -1,5 +1,4 @@
 /*
- * ParameterTree.java
  * Copyright 2007 (C) Andrew Wilson <nuance@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,18 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 10 March 2007
- *
- * $Id$
- *
  */
 package pcgen.util;
 
-import org.nfunk.jep.ParseException;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.nfunk.jep.ParseException;
 
 public class ParameterTree
 {
@@ -42,16 +36,20 @@ public class ParameterTree
     private static String leftPatString  = "\\(";
     private static String rightPatString = "\\)";
 
-    static String patString = "(" + leftPatString + "|" + rightPatString+ "|" + orPatString + "|" + andPatString + ")";
+    static String patString =
+		    '(' + leftPatString + '|' + rightPatString+ '|' + orPatString + '|'
+		    + andPatString + ')';
 		
 	static Pattern pat = Pattern.compile(patString);
 
     // the grouping pattern & matcher
-    private static final String  parenString  = "(" + leftPatString + "|" + rightPatString + ")";
+    private static final String  parenString  =
+		    '(' + leftPatString + '|' + rightPatString + ')';
     private static final Pattern parenPattern = Pattern.compile(parenString);
 
     // the opertor pattern & matcher
-    private static final String  operatorString  = "(" + orPatString + "|" + andPatString + ")";
+    private static final String  operatorString  =
+		    '(' + orPatString + '|' + andPatString + ')';
     private static final Pattern operatorPattern = Pattern.compile(operatorString);
 
 
@@ -103,7 +101,7 @@ public class ParameterTree
             final String pre = source.substring(0, pM.start());
             final int    end = getIndexOfClosingParen(source, pM.start());
 
-            if (0 == pre.length()) {
+            if (pre.isEmpty()) {
 
                 final String inside = source.substring(pM.end(), end - 1);
                 t = makeTree(inside, false);
@@ -294,9 +292,9 @@ public class ParameterTree
 	public String toString() {
         final StringBuilder sb = new StringBuilder(200);
 
-        sb.append("[");
+        sb.append('[');
         sb.append(contents);
-        sb.append(" ");
+        sb.append(' ');
 
         if (left != null) {
             sb.append(left.toString());
@@ -306,7 +304,7 @@ public class ParameterTree
             sb.append(right.toString());
         }
 
-        sb.append("]");
+        sb.append(']');
 
         return sb.toString();
     }

@@ -23,8 +23,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -40,6 +38,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
@@ -109,7 +109,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	{
 		Changes<CDOMReference<Dynamic>> changes =
 				context.getObjectContext().getListChanges(obj, ListKey.GRANTED);
-		HashMapToList<String, String> map = new HashMapToList<String, String>();
+		HashMapToList<String, String> map = new HashMapToList<>();
 		Collection<CDOMReference<Dynamic>> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
@@ -125,7 +125,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (String scope : map.getKeySet())
 		{
 			List<String> scopeList = map.getListFor(scope);

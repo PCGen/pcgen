@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.pcgtracker.gui;
 
@@ -25,10 +23,7 @@ import javax.swing.JList;
 
 import pcgen.system.LanguageBundle;
 
-/**
- *
- * @author  Soulcatcher
- */
+
 // TODO Add some gap to buttons. Use icons on buttons?
 public class PCGTrackerView extends javax.swing.JPanel
 {
@@ -50,7 +45,7 @@ public class PCGTrackerView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Load</b> button.
-	 * @return the <code>addExperienceToCharButton</code>.
+	 * @return the {@code addExperienceToCharButton}.
 	 */
 	public JButton getLoadButton()
 	{
@@ -64,7 +59,7 @@ public class PCGTrackerView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Remove</b> button.
-	 * @return the <code>addExperienceToCharButton</code>.
+	 * @return the {@code addExperienceToCharButton}.
 	 */
 	public JButton getRemoveButton()
 	{
@@ -73,7 +68,7 @@ public class PCGTrackerView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Save As</b> button.
-	 * @return the <code>addExperienceToCharButton</code>.
+	 * @return the {@code addExperienceToCharButton}.
 	 */
 	public JButton getSaveAsButton()
 	{
@@ -82,7 +77,7 @@ public class PCGTrackerView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Save</b> button.
-	 * @return the <code>addExperienceToCharButton</code>.
+	 * @return the {@code addExperienceToCharButton}.
 	 */
 	public JButton getSaveButton()
 	{

@@ -74,8 +74,8 @@ public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 	 * storing the information
 	 */
 	private static final DoubleKeyMap<PCGenIdentifier, Class<?>, Object> CACHE =
-			new DoubleKeyMap<PCGenIdentifier, Class<?>, Object>(
-				WeakHashMap.class, HashMap.class);
+            new DoubleKeyMap<>(
+                    WeakHashMap.class, HashMap.class);
 
 	/*
 	 * Note: the use of CACHE.getReadOnlyMapFor(K1) in peekAtCache makes calling
@@ -186,9 +186,9 @@ public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 		Set<Class<?>> set2 = CACHE.getSecondaryKeySet(id2);
 		if (!set1.equals(set2))
 		{
-			List<Class<?>> l1 = new ArrayList<Class<?>>(set1);
+			List<Class<?>> l1 = new ArrayList<>(set1);
 			l1.removeAll(set2);
-			List<Class<?>> l2 = new ArrayList<Class<?>>(set2);
+			List<Class<?>> l2 = new ArrayList<>(set2);
 			l2.removeAll(set1);
 			Logging.errorPrint("Inequal: " + l1 + " " + l2);
 			return false;

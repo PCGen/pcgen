@@ -36,7 +36,6 @@ import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class SchoolsTokenTest extends AbstractChooseTokenTestCase
@@ -47,7 +46,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	static plugin.primitive.pobject.AbilityToken<?> abprim =
 			new plugin.primitive.pobject.AbilityToken();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -75,22 +74,10 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 		return token;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected String getAlternateLegalValue()
 	{
 		return "SCHOOLS|ALL";
-	}
-
-	@Override
-	protected ConsolidationRule getConsolidationRule()
-	{
-		return ConsolidationRule.OVERWRITE;
 	}
 
 	@Override

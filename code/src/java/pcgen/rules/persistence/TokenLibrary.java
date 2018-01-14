@@ -60,18 +60,18 @@ public final class TokenLibrary implements PluginLoader
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
 	private static final TreeMapToList<Integer, PostDeferredToken<? extends Loadable>> POST_DEFERRED_TOKENS =
-			new TreeMapToList<Integer, PostDeferredToken<? extends Loadable>>();
+            new TreeMapToList<>();
 	private static final TreeMapToList<Integer, PostValidationToken<? extends Loadable>> POST_VALIDATION_TOKENS =
-			new TreeMapToList<Integer, PostValidationToken<? extends Loadable>>();
+            new TreeMapToList<>();
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken<?>>> QUALIFIER_MAP =
-			new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken<?>>>();
+            new DoubleKeyMap<>();
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends PrimitiveToken<?>>> PRIMITIVE_MAP =
-			new DoubleKeyMap<Class<?>, String, Class<? extends PrimitiveToken<?>>>();
+            new DoubleKeyMap<>();
 	private static final DoubleKeyMap<Class<?>, String, ModifierFactory<?>> modifierMap =
-			new DoubleKeyMap<Class<?>, String, ModifierFactory<?>>();
-	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<TokenFamily>();
+            new DoubleKeyMap<>();
+	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<>();
 	private static final CaseInsensitiveMap<Class<? extends BonusObj>> BONUS_TAG_MAP =
-			new CaseInsensitiveMap<Class<? extends BonusObj>>();
+            new CaseInsensitiveMap<>();
 
 	private static TokenLibrary instance = null;
 
@@ -102,7 +102,7 @@ public final class TokenLibrary implements PluginLoader
 	public static <T> PrimitiveToken<T> getPrimitive(Class<T> cl, String tokKey)
 	{
 		Iterator<PrimitiveToken<T>> it =
-				new PrimitiveTokenIterator<T, PrimitiveToken<T>>(cl, tokKey);
+                new PrimitiveTokenIterator<>(cl, tokKey);
 		if (it.hasNext())
 		{
 			return it.next();
@@ -113,7 +113,7 @@ public final class TokenLibrary implements PluginLoader
 	public static Collection<PostDeferredToken<? extends Loadable>> getPostDeferredTokens()
 	{
 		List<PostDeferredToken<? extends Loadable>> list =
-				new ArrayList<PostDeferredToken<? extends Loadable>>();
+                new ArrayList<>();
 		for (Integer key : POST_DEFERRED_TOKENS.getKeySet())
 		{
 			list.addAll(POST_DEFERRED_TOKENS.getListFor(key));
@@ -139,7 +139,7 @@ public final class TokenLibrary implements PluginLoader
 	public static <T> ModifierFactory<T> getModifier(Class<T> cl, String tokKey)
 	{
 		for (Iterator<ModifierFactory<T>> it =
-				new ModifierIterator<T, ModifierFactory<T>>(cl, tokKey); it.hasNext();)
+             new ModifierIterator<>(cl, tokKey); it.hasNext();)
 		{
 			return it.next();
 		}
@@ -149,7 +149,7 @@ public final class TokenLibrary implements PluginLoader
 	public static Collection<PostValidationToken<? extends Loadable>> getPostValidationTokens()
 	{
 		List<PostValidationToken<? extends Loadable>> list =
-				new ArrayList<PostValidationToken<? extends Loadable>>();
+                new ArrayList<>();
 		for (Integer key : POST_VALIDATION_TOKENS.getKeySet())
 		{
 			list.addAll(POST_VALIDATION_TOKENS.getListFor(key));
@@ -207,8 +207,8 @@ public final class TokenLibrary implements PluginLoader
 			{
 				Logging.errorPrint("Duplicate " + tok.getTokenClass().getSimpleName()
 					+ " Compatibility Token found for token " + tok.getTokenName()
-					+ " at compatibility level " + tok.compatibilityLevel() + "."
-					+ tok.compatibilitySubLevel() + "." + tok.compatibilityPriority());
+					+ " at compatibility level " + tok.compatibilityLevel() + '.'
+					+ tok.compatibilitySubLevel() + '.' + tok.compatibilityPriority());
 			}
 			TOKEN_FAMILIES.add(fam);
 			if (fam.compareTo(TokenFamily.REV514) <= 0 && PCCLASS_CLASS.equals(tok.getTokenClass()))
@@ -256,7 +256,7 @@ public final class TokenLibrary implements PluginLoader
 			{
 				Logging.errorPrint("Duplicate "
 					+ tok.getTokenClass().getSimpleName()
-					+ " Token found for token " + tok.getParentToken() + ":"
+					+ " Token found for token " + tok.getParentToken() + ':'
 					+ tok.getTokenName() + ". Classes were "
 					+ existingToken.getClass().getName() + " and "
 					+ newToken.getClass().getName());
@@ -282,7 +282,7 @@ public final class TokenLibrary implements PluginLoader
 				if (family.putSubToken(pos) != null)
 				{
 					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName()
-						+ " Token found for token " + pos.getParentToken() + ":"
+						+ " Token found for token " + pos.getParentToken() + ':'
 						+ pos.getTokenName());
 				}
 				family.putSubToken(pos);
@@ -296,7 +296,7 @@ public final class TokenLibrary implements PluginLoader
 				if (family.putSubToken(neg) != null)
 				{
 					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName()
-						+ " Token found for token " + neg.getParentToken() + ":"
+						+ " Token found for token " + neg.getParentToken() + ':'
 						+ neg.getTokenName());
 				}
 			}

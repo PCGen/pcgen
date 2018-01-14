@@ -25,5 +25,5 @@ public enum KitApply
 	 * to be applied again.  INSTANT means it is not saved with the character
 	 * and can be applied as many times as desirable.
 	 */
-	PERMANENT, INSTANT;
+	PERMANENT, INSTANT
 }

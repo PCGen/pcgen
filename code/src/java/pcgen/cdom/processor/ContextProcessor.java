@@ -99,9 +99,16 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 	@Override
 	public T applyProcessor(T obj, Object context)
 	{
-		return (context instanceof PrereqObject && contextItems
-				.contains((R) context)) ? processor.applyProcessor(obj, context)
-				: obj;
+		@SuppressWarnings("unchecked")
+		boolean contained = context instanceof PrereqObject && contextItems.contains((R) context);
+		if (contained)
+		{
+			return processor.applyProcessor(obj, context);
+		}
+		else
+		{
+			return obj;
+		}
 	}
 
 	/**

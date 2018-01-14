@@ -17,10 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Refactored out of PObject July 22, 2005
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.bonus;
 
@@ -30,7 +26,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
  *
  * This is a utility class related to BonusObj objects.
  */
@@ -51,7 +46,7 @@ public final class BonusUtilities
 	 */
 	public static List<BonusObj> getBonusFromList(final Collection<BonusObj> bonusList, final String aType, final String aName)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final List<BonusObj> aList = new ArrayList<>();
 
 		if (bonusList != null)
 		{
@@ -94,7 +89,7 @@ public final class BonusUtilities
 	 */
 	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final String type)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>(bonusList.size());
+		final List<BonusObj> aList = new ArrayList<>(bonusList.size());
 
 		// Analysis reveals that bonusList is never null
 		for ( BonusObj bonus : bonusList )

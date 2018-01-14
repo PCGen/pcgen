@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.List;
 import java.util.Set;
 
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.RemoteModifier;
@@ -39,9 +40,11 @@ import pcgen.core.Equipment;
  * CDOMObjects added to/removed from the Player Character.
  */
 public class RemoteModifierFacet extends
-		AbstractAssociationFacet<CharID, RemoteModifier<?>, Object> implements
+		AbstractAssociationFacet<CharID, RemoteModifier<?>, VarScoped> implements
 		DataFacetChangeListener<CharID, VarScoped>
 {
+
+	private ScopeFacet scopeFacet;
 
 	private VarScopedFacet varScopedFacet;
 
@@ -58,14 +61,15 @@ public class RemoteModifierFacet extends
 		 */
 		for (RemoteModifier<?> rm : getSet(id))
 		{
-			Object src = get(id, rm);
-			processAdd(id, rm, vs, src);
+			VarScoped src = get(id, rm);
+			ScopeInstance inst = scopeFacet.get(id, src);
+			processAdd(id, rm, vs, inst);
 			if (vs instanceof Equipment)
 			{
 				Equipment e = (Equipment) vs;
 				for (EquipmentHead head : e.getEquipmentHeads())
 				{
-					processAdd(id, rm, head, src);
+					processAdd(id, rm, head, inst);
 				}
 			}
 		}
@@ -74,6 +78,7 @@ public class RemoteModifierFacet extends
 		 */
 		if (vs instanceof CDOMObject)
 		{
+			ScopeInstance inst = scopeFacet.get(id, vs);
 			List<RemoteModifier<?>> list =
 					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
 			if (list != null)
@@ -85,13 +90,13 @@ public class RemoteModifierFacet extends
 					//Apply to existing as necessary
 					for (VarScoped obj : targets)
 					{
-						processAdd(id, rm, obj, vs);
+						processAdd(id, rm, obj, inst);
 						if (obj instanceof Equipment)
 						{
 							Equipment e = (Equipment) obj;
 							for (EquipmentHead head : e.getEquipmentHeads())
 							{
-								processAdd(id, rm, head, vs);
+								processAdd(id, rm, head, inst);
 							}
 						}
 					}
@@ -101,7 +106,7 @@ public class RemoteModifierFacet extends
 	}
 
 	private <MT> void processAdd(CharID id, RemoteModifier<MT> rm,
-		VarScoped vs, Object src)
+		VarScoped vs, ScopeInstance src)
 	{
 		if (rm.getGrouping().contains(vs))
 		{
@@ -121,14 +126,15 @@ public class RemoteModifierFacet extends
 		 */
 		for (RemoteModifier<?> rm : getSet(id))
 		{
-			Object src = get(id, rm);
-			processRemove(id, rm, vs, src);
+			VarScoped src = get(id, rm);
+			ScopeInstance inst = scopeFacet.get(id, src);
+			processRemove(id, rm, vs, inst);
 			if (vs instanceof Equipment)
 			{
 				Equipment e = (Equipment) vs;
 				for (EquipmentHead head : e.getEquipmentHeads())
 				{
-					processRemove(id, rm, head, src);
+					processRemove(id, rm, head, inst);
 				}
 			}
 		}
@@ -137,6 +143,7 @@ public class RemoteModifierFacet extends
 		 */
 		if (vs instanceof CDOMObject)
 		{
+			ScopeInstance inst = scopeFacet.get(id, vs);
 			List<RemoteModifier<?>> list =
 					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
 			if (list != null)
@@ -148,13 +155,13 @@ public class RemoteModifierFacet extends
 					//RemoveFrom existing as necessary
 					for (VarScoped obj : targets)
 					{
-						processRemove(id, rm, obj, vs);
+						processRemove(id, rm, obj, inst);
 						if (obj instanceof Equipment)
 						{
 							Equipment e = (Equipment) obj;
 							for (EquipmentHead head : e.getEquipmentHeads())
 							{
-								processRemove(id, rm, head, vs);
+								processRemove(id, rm, head, inst);
 							}
 						}
 					}
@@ -164,13 +171,18 @@ public class RemoteModifierFacet extends
 	}
 
 	private <MT> void processRemove(CharID id, RemoteModifier<MT> rm,
-		VarScoped vs, Object src)
+		VarScoped vs, ScopeInstance src)
 	{
 		if (rm.getGrouping().contains(vs))
 		{
 			VarModifier<MT> vm = rm.getVarModifier();
 			solverManagerFacet.removeModifier(id, vm, vs, src);
 		}
+	}
+
+	public void setScopeFacet(ScopeFacet scopeFacet)
+	{
+		this.scopeFacet = scopeFacet;
 	}
 
 	public void setVarScopedFacet(VarScopedFacet varScopedFacet)

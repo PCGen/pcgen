@@ -40,10 +40,7 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-/**
- * @author djones4
- *
- */
+
 public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>,
 		DeferredToken<CDOMObject>
 {
@@ -136,7 +133,7 @@ public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObjec
 		{
 			return null;
 		}
-		List<String> returnList = new ArrayList<String>(2);
+		List<String> returnList = new ArrayList<>(2);
 		if (changes.includesGlobalClear())
 		{
 			returnList.add(Constants.LST_DOT_CLEAR);

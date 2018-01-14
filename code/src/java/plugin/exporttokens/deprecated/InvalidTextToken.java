@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision: 18611 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-12-11 00:27:59 +0100 (Di, 11 Dez 2012) $
- *
  */
 package plugin.exporttokens.deprecated;
 
@@ -51,19 +44,16 @@ public class InvalidTextToken extends AbstractExportToken
 		ExportHandler eh)
 	{
 		String sourceText = tokenSource.substring(12);
-		
-		if (sourceText.equals("TOHIT"))
+
+		switch (sourceText)
 		{
-			return SettingsHandler.getInvalidToHitText(); 
-		}
-		else if (sourceText.equals("DAMAGE"))
-		{
-			return SettingsHandler.getInvalidDmgText();
-		}
-		else
-		{
-			Logging.errorPrint("Invalid INVALIDTEXT token:" + tokenSource);
-			return "";
+			case "TOHIT":
+				return SettingsHandler.getInvalidToHitText();
+			case "DAMAGE":
+				return SettingsHandler.getInvalidDmgText();
+			default:
+				Logging.errorPrint("Invalid INVALIDTEXT token:" + tokenSource);
+				return "";
 		}
 	}
 }

@@ -43,7 +43,7 @@ public class LastGroupSeparator
 		root = new StringBuilder(sbLength);
 		StringBuilder temp = new StringBuilder(sbLength);
 		boolean isValid = false;
-		Stack<String> expected = new Stack<String>();
+		Stack<String> expected = new Stack<>();
 		while (base.hasMoreTokens())
 		{
 			String working = base.nextToken();
@@ -73,13 +73,13 @@ public class LastGroupSeparator
 				{
 					throw new GroupingMismatchException(startingString
 							+ " did not have an open parenthesis "
-							+ "before close: " + temp.toString());
+							+ "before close: " + temp);
 				}
 				else if (!")".equals(expected.pop()))
 				{
 					throw new GroupingMismatchException(startingString
 							+ " did not have matching parenthesis "
-							+ "inside of brackets: " + temp.toString());
+							+ "inside of brackets: " + temp);
 				}
 				else if (!expected.isEmpty())
 				{

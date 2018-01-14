@@ -42,8 +42,6 @@ import plugin.pretokens.writer.PreRaceWriter;
  * Test class for TotalCostToken. Check ths parsing of the TOTALCOST token. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 {
@@ -65,7 +63,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	static TotalCostToken token = new TotalCostToken();
-	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<Kit>();
+	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Kit> getCDOMClass()
@@ -165,7 +163,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	@Override
 	protected String[] setAndUnparse(Formula val)
 	{
-		primaryProf.put(ObjectKey.KIT_TOTAL_COST, new QualifiedObject<Formula>(val));
+		primaryProf.put(ObjectKey.KIT_TOTAL_COST, new QualifiedObject<>(val));
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 

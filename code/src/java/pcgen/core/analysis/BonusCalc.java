@@ -1,5 +1,4 @@
 /*
- * BonusCalc.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.analysis;
 
@@ -34,8 +32,12 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.util.Logging;
 
-public class BonusCalc
+public final class BonusCalc
 {
+
+	private BonusCalc()
+	{
+	}
 
 	/**
 	 * Gets the bonuses to a given stat.
@@ -58,7 +60,7 @@ public class BonusCalc
 		final Collection<BonusObj> aBonusList,
 		final PlayerCharacter aPC)
 	{
-		if ((aBonusList == null) || (aBonusList.size() == 0))
+		if ((aBonusList == null) || (aBonusList.isEmpty()))
 		{
 			return 0;
 		}
@@ -162,7 +164,6 @@ public class BonusCalc
 	 * @param po
 	 * @param aType
 	 * @param aName
-	 * @param obj
 	 * @param aPC
 	 * @return the bonus
 	 */
@@ -230,16 +231,16 @@ public class BonusCalc
 	
 		if (!aList.equals("LIST")
 			&& !aList.equals("ALL")
-			&& (aList.toUpperCase().indexOf(aName.toUpperCase()) < 0))
+			&& (!aList.toUpperCase().contains(aName.toUpperCase())))
 		{
 			return 0;
 		}
 	
 		if (aList.equals("ALL")
-			&& ((aName.indexOf("STAT=") >= 0)
-				|| (aName.indexOf("TYPE=") >= 0)
-				|| (aName.indexOf("LIST") >= 0)
-				|| (aName.indexOf("VAR") >= 0)))
+			&& ((aName.contains("STAT="))
+				|| (aName.contains("TYPE="))
+				|| (aName.contains("LIST"))
+				|| (aName.contains("VAR"))))
 		{
 			return 0;
 		}

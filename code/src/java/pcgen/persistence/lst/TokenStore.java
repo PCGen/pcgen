@@ -1,5 +1,4 @@
 /*
- * TokenStore.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -31,7 +30,7 @@ import pcgen.util.Logging;
 /**
  * A Store of LST tokens, has a map and list representation
  */
-public class TokenStore implements PluginLoader
+public final class TokenStore implements PluginLoader
 {
 	private static TokenStore inst;
 	private HashMap<Class<? extends LstToken>, Map<String, LstToken>> tokenTypeMap;
@@ -40,8 +39,8 @@ public class TokenStore implements PluginLoader
 	private TokenStore()
 	{
 		tokenTypeMap =
-				new HashMap<Class<? extends LstToken>, Map<String, LstToken>>();
-		tokenTypeList = new ArrayList<Class<? extends LstToken>>();
+                new HashMap<>();
+		tokenTypeList = new ArrayList<>();
 		populateTokenTypeList();
 	}
 
@@ -132,7 +131,7 @@ public class TokenStore implements PluginLoader
 		Map<String, LstToken> tokenMap = tokenTypeMap.get(tokInterface);
 		if (tokenMap == null)
 		{
-			tokenMap = new HashMap<String, LstToken>();
+			tokenMap = new HashMap<>();
 			tokenTypeMap.put(tokInterface, tokenMap);
 		}
 		return tokenMap;

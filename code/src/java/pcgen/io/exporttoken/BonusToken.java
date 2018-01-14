@@ -1,5 +1,4 @@
 /*
- * BonusToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -154,7 +149,7 @@ public class BonusToken extends Token
 
 			signIt = 1;
 
-			if ((bucket.length() > 0) && (bucket.charAt(0) == '!'))
+			if ((!bucket.isEmpty()) && (bucket.charAt(0) == '!'))
 			{
 				signIt = -1;
 				bucket = bucket.substring(1);

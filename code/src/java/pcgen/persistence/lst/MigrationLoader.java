@@ -1,5 +1,4 @@
 /*
- * MigrationLoader.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.equipforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on October 13, 2003, 11:50 AM
  */
 
 package pcgen.persistence.lst;
@@ -25,7 +23,7 @@ import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.SystemCollections;
@@ -41,15 +39,13 @@ import pcgen.util.Logging;
  * MigrationLoader is a LstFileLoader that processes the migration.lst file
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class MigrationLoader extends LstLineFileLoader
 {
 	private String invalidKeyPattern = ".*[,|\\||\\\\|:|;|%|\\*|=|\\[|\\]].*";
 	private String invalidSourceKeyPattern = ".*[\\||\\\\|;|%|\\*|=|\\[|\\]].*";
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(pcgen.rules.context.LoadContext, java.lang.String, java.net.URI)
 	 */
 	@Override

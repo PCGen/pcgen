@@ -1,5 +1,4 @@
 /*
- * EquipmentSelection.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 17, 2011, 8:25:16 PM
  */
 package pcgen.gui2.tabs.equip;
 
@@ -27,10 +25,7 @@ import java.io.IOException;
 
 import pcgen.facade.core.EquipmentFacade;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class EquipmentSelection implements Transferable
 {
 

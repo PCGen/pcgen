@@ -1,5 +1,4 @@
 /*
- * PlayerCharacterSpellTest.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 26/01/2012 11:09:46 AM
- *
- * $Id$
  */
 package pcgen.core;
 
@@ -45,11 +40,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * code in PlayerCharacter and associated objects.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
@@ -87,7 +78,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		context.getReferenceContext().importObject(divineClass);
 		
 		final String domainLine = "Sun	SPELLLEVEL:DOMAIN|Sun=1|KEY_domainSpell";
-		GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
+		GenericLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
 		domainLoader.parseLine(context, null, domainLine, source);
 		sunDomain = context.getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, "Sun");
 

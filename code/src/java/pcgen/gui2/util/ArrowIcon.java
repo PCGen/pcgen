@@ -1,5 +1,4 @@
 /*
- * ArrowIcon.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 2, 2011, 6:45:07 PM
  */
 package pcgen.gui2.util;
 
@@ -32,9 +30,8 @@ import javax.swing.UIManager;
  * javax.swing.plaf.basic.BasicArrowButton. As such this icon draws the arrow
  * that you find on arrow buttons.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class ArrowIcon implements Icon, SwingConstants
+public class ArrowIcon implements Icon
 {
 
 	private Color shadow;
@@ -63,7 +60,7 @@ public class ArrowIcon implements Icon, SwingConstants
 	@Override
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
-		boolean enabled = (c != null) ? c.isEnabled() : true;
+		boolean enabled = (c == null) || c.isEnabled();
 		paintTriangle(g, x, y, size, direction, enabled);
 	}
 
@@ -114,7 +111,7 @@ public class ArrowIcon implements Icon, SwingConstants
 
 		switch (triangleDir)
 		{
-			case NORTH:
+			case SwingConstants.NORTH:
 				for (i = 0; i < triangleSize; i++)
 				{
 					g.drawLine(mid - i, i, mid + i, i);
@@ -125,7 +122,7 @@ public class ArrowIcon implements Icon, SwingConstants
 					g.drawLine(mid - i + 2, i, mid + i, i);
 				}
 				break;
-			case SOUTH:
+			case SwingConstants.SOUTH:
 				if (!isEnabled)
 				{
 					g.translate(1, 1);
@@ -146,7 +143,7 @@ public class ArrowIcon implements Icon, SwingConstants
 					j++;
 				}
 				break;
-			case WEST:
+			case SwingConstants.WEST:
 				for (i = 0; i < triangleSize; i++)
 				{
 					g.drawLine(i, mid - i, i, mid + i);
@@ -157,7 +154,7 @@ public class ArrowIcon implements Icon, SwingConstants
 					g.drawLine(i, mid - i + 2, i, mid + i);
 				}
 				break;
-			case EAST:
+			case SwingConstants.EAST:
 				if (!isEnabled)
 				{
 					g.translate(1, 1);

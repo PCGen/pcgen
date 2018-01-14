@@ -1,5 +1,4 @@
 /*
- * CharacterSpell.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.character;
 
@@ -39,14 +32,11 @@ import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.spell.Spell;
 
 /**
- * <code>PCClass</code>.
- *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
+ * {@code PCClass}.
  */
 public final class CharacterSpell implements Comparable<CharacterSpell>
 {
-	private final List<SpellInfo> infoList = new ArrayList<SpellInfo>();
+	private final List<SpellInfo> infoList = new ArrayList<>();
 	private final CDOMObject owner; // PCClass/Race/etc. in whose list this object resides
 	private final Spell spell;
 	private String fixedCasterLevel = null;
@@ -68,7 +58,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param pc The character to query.
 	 * @param bookName name of spellbook/list
 	 * @param level actual level of spell (adjusted by feats)
-	 * @param specialty -1 = inSpecialty insensitive;<br/>0 = inSpecialty==false; and <br/> 1 = inSpecialty==true
+	 * @param specialty -1 = inSpecialty insensitive;<br>0 = inSpecialty==false; and <br> 1 = inSpecialty==true
 	 * @return info index
 	 */
 	public int getInfoIndexFor(PlayerCharacter pc, final String bookName, final int level, final int specialty)

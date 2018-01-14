@@ -1,5 +1,4 @@
 /*
- * AbstractCountCommand.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 11/08/2013
  *
- * $Id$
  */
 package pcgen.util;
 
@@ -33,8 +30,6 @@ import pcgen.core.VariableProcessor;
  * two commands.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public abstract class AbstractCountCommand extends PCGenCommand
 {
@@ -96,13 +91,13 @@ public abstract class AbstractCountCommand extends PCGenCommand
 	 * @return an array of Objects in reverse order, i.e. the last param popped is element
 	 *         0 of the array.
 	 */
-	protected Object[] paramStackToArray(final Stack inStack, final int maxParam)
+	protected static Object[] paramStackToArray(final Stack inStack, final int maxParam)
 	{
 		final Object[] par = new Object[maxParam];
 	
-		if (0 < maxParam)
+		if (maxParam > 0)
 		{
-			for (int i = maxParam - 1; 0 <= i; i--)
+			for (int i = maxParam - 1; i >= 0; i--)
 			{
 				par[i] = inStack.pop();
 			}

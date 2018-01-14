@@ -15,8 +15,7 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Created on January 16, 2002, 12:27 PM
+
  */
 package gmgen.plugin;
 
@@ -28,12 +27,6 @@ import pcgen.util.Logging;
 /**
  * This class is a helper for the Combat Tracker.  This class helps display
  * all the statistics of a character.
- * @author Expires 2003
- * @version $Revision$
- *
- * <p>Current Ver: $Revision$</p>
- * <p>Last Editor: $Author$</p>
- * <p>Last Edited: $Date$</p>
  */
 public class InfoCharacterDetails
 {
@@ -56,7 +49,7 @@ public class InfoCharacterDetails
 	}
 
 	/**
-	 * Sets the default <code>Combatant</code> object used by this class.
+	 * Sets the default {@code Combatant} object used by this class.
 	 * Made it final as it is called from constructor.
 	 * @param cbt
 	 */
@@ -107,23 +100,13 @@ public class InfoCharacterDetails
 	}
 
 	/**
-	 * Calls the <code>setStatText</code> and passes it the pane that is used
+	 * Calls the {@code setStatText} and passes it the pane that is used
 	 * for displaying.
 	 * Made it final as it is called from constructor.
 	 */
-	public final void setStatText()
+	private void setStatText()
 	{
 		new Renderer(getCombatant()).start();
-	}
-
-	/**
-	 * Sets the HTML text used to display calculated stats such as AC, BAB,
-	 * saves, etc.
-	 * @param cbt
-	 */
-	public void setStatText(Combatant cbt)
-	{
-		new Renderer(cbt).start();
 	}
 
 	/**
@@ -131,7 +114,7 @@ public class InfoCharacterDetails
 	 * @param cbt
 	 * @param aPane
 	 */
-	public void setStatText(Combatant cbt, JTextPane aPane)
+	private static void setStatText(Combatant cbt, JTextPane aPane)
 	{
 		aPane.setEditorKit(aPane.getEditorKitForContentType("text/html"));
 		String htmlString = cbt.toHtmlString();
@@ -147,13 +130,13 @@ public class InfoCharacterDetails
 
 	private class Renderer extends Thread
 	{
-		private Combatant combatant;
+		private final Combatant combatant;
 		
 		/**
 		 * Constructor
 		 * @param cbt
 		 */
-		public Renderer(Combatant cbt) {
+		Renderer(Combatant cbt) {
 			this.combatant = cbt;
 		}
 		

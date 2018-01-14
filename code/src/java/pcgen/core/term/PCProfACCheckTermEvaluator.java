@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCProfACCheckTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 23:53:33
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -56,7 +50,7 @@ public class PCProfACCheckTermEvaluator
 		}
 		if ("".equals(eqKey))
 		{
-			return 0f;
+			return 0.0f;
 		}
 		else
 		{
@@ -65,7 +59,7 @@ public class PCProfACCheckTermEvaluator
 
 			if (eq == null || pc.isProficientWith(eq))
 			{
-				return 0f;
+				return 0.0f;
 			}
 			else
 			{

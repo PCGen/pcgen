@@ -44,9 +44,6 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 
 	PreWeaponProfParser preWpnProf = new PreWeaponProfParser();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -105,7 +102,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	{
 		loadAllReference();
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
-				new QualifiedObject<Boolean>(Boolean.TRUE));
+				new QualifiedObject<>(Boolean.TRUE));
 		assertBadUnparse();
 	}
 
@@ -126,7 +123,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	public void testUnparseDeityWeapons() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
-				new QualifiedObject<Boolean>(Boolean.TRUE));
+				new QualifiedObject<>(Boolean.TRUE));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, "WEAPONPROF|DEITYWEAPONS");
 	}
@@ -135,7 +132,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	public void testUnparseDeityWeaponsFalse() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
-				new QualifiedObject<Boolean>(Boolean.FALSE));
+				new QualifiedObject<>(Boolean.FALSE));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertNull(unparsed);
 	}

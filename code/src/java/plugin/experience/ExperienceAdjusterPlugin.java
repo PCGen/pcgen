@@ -14,26 +14,15 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.experience;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.plugin.Combatant;
-import gmgen.plugin.InitHolderList;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
+import java.util.Collection;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -54,30 +43,36 @@ import plugin.experience.gui.AddDefeatedCombatant;
 import plugin.experience.gui.ExperienceAdjusterView;
 import plugin.experience.gui.PreferencesExperiencePanel;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.InitHolderList;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
+
 /**
- * The <code>ExperienceAdjusterController</code> handles the functionality of
- * the Adjusting of experience.  This class is called by the <code>GMGenSystem
- * </code> and will have it's own model and view.<br>
- * Created on February 26, 2003<br>
- * Updated on February 26, 2003
- * @author  Expires 2003
- * @version 2.10
+ * The {@code ExperienceAdjusterController} handles the functionality of
+ * the Adjusting of experience.  This class is called by the {@code GMGenSystem
+ * } and will have it's own model and view.<br>
  */
-public class ExperienceAdjusterPlugin implements InteractivePlugin,
-		ActionListener, ChangeListener, KeyListener /*Observer*/
+public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractivePlugin,
+		ActionListener, ChangeListener /*Observer*/
 {
 	/** Log name */
 	public static final String LOG_NAME = "Experience_Adjuster"; //$NON-NLS-1$
 
 	/** The model that holds all the data for this section. */
-	protected ExperienceAdjusterModel eaModel;
+	private ExperienceAdjusterModel eaModel;
 
 	/** The user interface that this class will be using. */
-	protected ExperienceAdjusterView eaView;
-	protected InitHolderList initList;
+	private ExperienceAdjusterView eaView;
+	private InitHolderList initList;
 
 	/** The plugin menu item in the tools menu. */
-	protected JMenuItem experienceToolsItem = new JMenuItem();
+	private JMenuItem experienceToolsItem = new JMenuItem();
 
 	/** The English name of the plugin. */
 	private static final String NAME = "Experience"; //$NON-NLS-1$
@@ -86,21 +81,10 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	/** Mnemonic in menu for {@link #IN_NAME} */
 	private static final String IN_NAME_MN = "in_mn_plugin_experience_name"; //$NON-NLS-1$
 
-	/** The version number of the plugin. */
-	protected String version = "01.00.99.01.00";
-
 	private PCGenMessageHandler messageHandler;
 
 	/**
-	 * Creates a new instance of ExperienceAdjusterModel
-	 */
-	public ExperienceAdjusterPlugin()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
 	@Override
 	public void start(PCGenMessageHandler mh)
@@ -116,10 +100,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 		initMenus();
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -128,7 +109,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	@Override
 	public int getPriority()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 50);
+		return SettingsHandler.getGMGenOption(ExperienceAdjusterPlugin.LOG_NAME + ".LoadOrder", 50);
 	}
 
 	/**
@@ -147,12 +128,12 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	@Override
 	public String getPluginName()
 	{
-		return NAME;
+		return ExperienceAdjusterPlugin.NAME;
 	}
 	
 	private String getLocalizedName()
 	{
-		return LanguageBundle.getString(IN_NAME);
+		return LanguageBundle.getString(ExperienceAdjusterPlugin.IN_NAME);
 	}
 
 	/**
@@ -201,7 +182,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	 * Adjust the CR
 	 * @param cbt
 	 */
-	public void adjustCR(Combatant cbt)
+	private void adjustCR(Combatant cbt)
 	{
 		String inputValue =
 				JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float
@@ -224,20 +205,20 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	/**
 	 * Handle enemy button 
 	 */
-	public void handleAddEnemyButton()
+	private void handleAddEnemyButton()
 	{
 		AddDefeatedCombatant dialog =
 				new AddDefeatedCombatant(GMGenSystem.inst, true, eaModel);
 		dialog.setVisible(true);
 		handleGroupBox();
 		update();
-		this.eaView.getEnemyList().updateUI();
+		eaView.getEnemyList().updateUI();
 	}
 
 	/**
-	 * Handles the <b>Add Experience to Character</code> button on the GUI.
+	 * Handles the <b>Add Experience to Character</b> button on the GUI.
 	 */
-	public void handleAddExperienceToCharButton()
+	private void handleAddExperienceToCharButton()
 	{
 		if (eaView.getCharacterList().getSelectedIndex() != -1)
 		{
@@ -245,11 +226,11 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 			{
 				Object[] list = eaView.getCharacterList().getSelectedValues();
 
-				for (int i = 0; i < list.length; i++)
+				for (final Object aList : list)
 				{
 					eaModel.addExperienceToCharacter(
-						(ExperienceListItem) list[i], Integer.parseInt(eaView
-							.getExperienceField().getText()));
+							(ExperienceListItem) aList, Integer.parseInt(eaView
+									.getExperienceField().getText()));
 				}
 			}
 			catch (NumberFormatException e)
@@ -265,10 +246,10 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	/**
 	 * Handles the <b>Add Experience to Group</b> button on the GUI.
 	 */
-	public void handleAddExperienceToPartyButton()
+	private void handleAddExperienceToPartyButton()
 	{
 		eaModel.addExperienceToParty();
-		this.eaView.getCharacterList().updateUI();
+		eaView.getCharacterList().updateUI();
 		eaModel.clearEnemies();
 		handleGroupBox();
 	}
@@ -276,15 +257,15 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	/**
 	 * Handle adjust CR button
 	 */
-	public void handleAdjustCRButton()
+	private void handleAdjustCRButton()
 	{
 		if (eaView.getCharacterList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getCharacterList().getSelectedValues();
+			final Collection list = eaView.getCharacterList().getSelectedValuesList();
 
-			for (int i = 0; i < list.length; i++)
+			for (final Object aList : list)
 			{
-				ExperienceListItem item = (ExperienceListItem) list[i];
+				final ExperienceListItem item = (ExperienceListItem) aList;
 				Combatant cbt = item.getCombatant();
 				adjustCR(cbt);
 			}
@@ -292,11 +273,11 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getEnemyList().getSelectedValues();
+			final Collection list = eaView.getEnemyList().getSelectedValuesList();
 
-			for (int i = 0; i < list.length; i++)
+			for (final Object aList : list)
 			{
-				ExperienceListItem item = (ExperienceListItem) list[i];
+				ExperienceListItem item = (ExperienceListItem) aList;
 				Combatant cbt = item.getCombatant();
 				adjustCR(cbt);
 			}
@@ -306,9 +287,9 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	}
 
 	/**
-	 * Handles the <code>Export</code> button or menu option.
+	 * Handles the {@code Export} button or menu option.
 	 */
-	public void handleExportButton()
+	private void handleExportButton()
 	{
 		/*if(c.size() != 0) {
 		 JFileChooser chooser = new JFileChooser();
@@ -327,7 +308,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	/**
 	 * Handles the action performed on the Group Box
 	 */
-	public void handleGroupBox()
+	private void handleGroupBox()
 	{
 		eaModel.updatePartyExperience();
 		eaView.setExperienceFromCombat(eaModel.getPartyExperience());
@@ -336,7 +317,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	/**
 	 * Handle multiplier slider
 	 */
-	public void handleMultiplierSlider()
+	private void handleMultiplierSlider()
 	{
 		// TODO the group box stuff should listen to the slider change directly
 		handleGroupBox();
@@ -345,28 +326,28 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	/**
 	 * Handle remove enemey button
 	 */
-	public void handleRemoveEnemyButton()
+	private void handleRemoveEnemyButton()
 	{
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
 			Object[] list = eaView.getEnemyList().getSelectedValues();
 
-			for (int i = 0; i < list.length; i++)
+			for (final Object aList : list)
 			{
-				eaModel.removeEnemy((ExperienceListItem) list[i]);
+				eaModel.removeEnemy((ExperienceListItem) aList);
 			}
 		}
 
 		handleGroupBox();
 		update();
-		this.eaView.getEnemyList().updateUI();
+		eaView.getEnemyList().updateUI();
 	}
 
 	/**
 	 * Registers all the listeners for any actions.
 	 * Made it final as it is called from constructor.
 	 */
-	public final void initListeners()
+	private final void initListeners()
 	{
 		eaView.getAddExperienceToCharButton().addActionListener(this);
 		eaView.getAddExperienceToPartyButton().addActionListener(this);
@@ -387,7 +368,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 
 	/**
 	 * Sets the instance of the view for this class to use.
-	 * @param eaView the <code>JPanel</code> that this class uses.
+	 * @param eaView the {@code JPanel} that this class uses.
 	 */
 	public void setView(ExperienceAdjusterView eaView)
 	{
@@ -397,40 +378,21 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	/**
 	 * Initialise menus
 	 */
-	public void initMenus()
+	private void initMenus()
 	{
-		experienceToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
+		experienceToolsItem.setMnemonic(LanguageBundle.getMnemonic(ExperienceAdjusterPlugin.IN_NAME_MN));
 		experienceToolsItem.setText(getLocalizedName());
-		experienceToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		experienceToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, experienceToolsItem));
 	}
 
-    @Override
-	public void keyPressed(KeyEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
+	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		this.update();
+		update();
 	}
 
-    @Override
-	public void keyTyped(KeyEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
+	@Override
 	public void stateChanged(ChangeEvent e)
 	{
 		if (e.getSource() == eaView.getExperienceMultSlider())
@@ -443,7 +405,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	 * Tool menu item
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -529,14 +491,9 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 			&& tp.getSelectedComponent().equals(eaView);
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
 	@Override
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
-		return dataDir;
+		return new File(SettingsHandler.getGmgenPluginDir(), ExperienceAdjusterPlugin.NAME);
 	}
 }

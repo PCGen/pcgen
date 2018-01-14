@@ -1,5 +1,4 @@
 /*
- * CountCommandTest.java
  * Copyright 2007 (C) andrew wilson <nuance@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Oct 20, 2007
- *
- * $Id$
- *
  */
 package plugin.jepcommands;
 
@@ -39,12 +33,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 /**
  * <code>CountDistinctCommandTest</code> tests the functioning of the jep 
  * countdistinct plugin
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class CountDistinctCommandTest extends AbstractCharacterTestCase
 {
@@ -469,14 +457,14 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
 		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
-		finalize(ab, "munch", character, gCat);
+		finalizeTest(ab, "munch", character, gCat);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
-		finalize(ab, "devour", character, gCat);
+		finalizeTest(ab, "devour", character, gCat);
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
-		finalize(ab, "nibble", character, gCat);
+		finalizeTest(ab, "nibble", character, gCat);
 		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 

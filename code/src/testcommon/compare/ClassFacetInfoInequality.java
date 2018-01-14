@@ -21,7 +21,7 @@ import java.lang.reflect.Field;
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.facet.model.ClassFacet;
 
-public class ClassFacetInfoInequality implements
+class ClassFacetInfoInequality implements
 		InequalityTest<ClassFacet.ClassInfo>
 {
 
@@ -33,9 +33,9 @@ public class ClassFacetInfoInequality implements
 		{
 			return location + "/Class counts not equal";
 		}
-		Class<ClassFacet.ClassInfo> cl = ClassFacet.ClassInfo.class;
 		try
 		{
+			Class<ClassFacet.ClassInfo> cl = ClassFacet.ClassInfo.class;
 			Field mapField = cl.getDeclaredField("map");
 			mapField.setAccessible(true);
 			Object m1 = mapField.get(t1);

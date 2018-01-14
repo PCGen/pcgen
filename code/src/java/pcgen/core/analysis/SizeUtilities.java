@@ -21,8 +21,12 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.SizeAdjustment;
 
-public class SizeUtilities
+public final class SizeUtilities
 {
+	private SizeUtilities()
+	{
+	}
+
 	/**
 	 * Get the default size adjustment
 	 * @return the default size adjustment

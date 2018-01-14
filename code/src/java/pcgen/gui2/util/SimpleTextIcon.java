@@ -1,5 +1,4 @@
 /*
- * SimpleTextIcon.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 17, 2008, 4:24:42 PM
  */
 package pcgen.gui2.util;
 
@@ -24,6 +22,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.SystemColor;
+
 import javax.swing.Icon;
 
 /**
@@ -32,10 +32,7 @@ import javax.swing.Icon;
  * have special treatment in the swing UI the SimpleTextIcon can be employed for several unique
  * cases. For instance a SimpleTextIcon can be used to display different texts for a button's
  * rollover event.
- * <br>
- * <br>
  * *Note* The SimpleTextIcon does not treat html text specially so it will be displayed verbatim.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class SimpleTextIcon implements Icon
 {
@@ -52,7 +49,7 @@ public class SimpleTextIcon implements Icon
 	 */
 	public SimpleTextIcon(Component c, String text)
 	{
-		this(c, text, Color.BLACK);
+		this(c, text, SystemColor.text);
 	}
 
 	/**

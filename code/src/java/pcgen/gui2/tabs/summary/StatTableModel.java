@@ -1,5 +1,4 @@
 /*
- * StatTableModel.java
  * Copyright 2010 (C) Connor Petty <cpmeister@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on May 11, 2010, 2:01:06 PM
  */
 package pcgen.gui2.tabs.summary;
 
@@ -42,6 +40,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.AbstractTableModel;
@@ -64,9 +63,8 @@ import pcgen.gui2.util.table.TableCellUtilities;
 /**
  * Model used for the Ability/statistics table.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class StatTableModel extends AbstractTableModel implements ReferenceListener<Integer>
+public class StatTableModel extends AbstractTableModel implements ReferenceListener<Number>
 {
 
 	public static final String EDITABLE_COLUMN_ID = "EDITABLE"; //$NON-NLS-1$
@@ -196,7 +194,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	private static class AbilityHeaderCellRenderer implements TableCellRenderer
 	{
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
 		@Override
@@ -204,7 +202,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		{
 			Component comp = table.getTableHeader().getDefaultRenderer().getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			JLabel label = (JLabel) comp;
-			label.setHorizontalAlignment(JLabel.CENTER);
+			label.setHorizontalAlignment(SwingConstants.CENTER);
 			return label;
 		}
 
@@ -223,7 +221,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 10));
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
 		@Override
@@ -245,7 +243,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 
 		public ModRenderer()
 		{
-			setHorizontalAlignment(RIGHT);
+			setHorizontalAlignment(SwingConstants.RIGHT);
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));
 		}
 
@@ -279,7 +277,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	}
 
 	/**
-	 * The Class <code>ValueRenderer</code> displays a right aligned
+	 * The Class {@code ValueRenderer} displays a right aligned
 	 * read-only column containing a string value.
 	 */
 	private static class ValueRenderer extends JLabel implements TableCellRenderer
@@ -290,11 +288,11 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		 */
 		public ValueRenderer()
 		{
-			setHorizontalAlignment(RIGHT);
+			setHorizontalAlignment(SwingConstants.RIGHT);
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
 		@Override
@@ -487,7 +485,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	}
 
 	@Override
-	public void referenceChanged(ReferenceEvent<Integer> e)
+	public void referenceChanged(ReferenceEvent<Number> e)
 	{
 		fireTableDataChanged();
 	}

@@ -42,7 +42,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static ProhibitspellToken token = new ProhibitspellToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();
@@ -336,7 +336,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ListKey<SpellProhibitor> getListKey()
+	private static ListKey<SpellProhibitor> getListKey()
 	{
 		return ListKey.SPELL_PROHIBITOR;
 	}
@@ -365,7 +365,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "DESCRIPTOR.Fire");
 	}
 
-	private SpellProhibitor getConstant(ProhibitedSpellType type, String args)
+	private static SpellProhibitor getConstant(ProhibitedSpellType type, String args)
 	{
 		SpellProhibitor spellProb = new SpellProhibitor();
 		spellProb.setType(type);

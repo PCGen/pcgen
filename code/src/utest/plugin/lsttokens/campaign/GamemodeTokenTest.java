@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -32,7 +30,7 @@ public class GamemodeTokenTest extends AbstractTypeSafeListTestCase<Campaign, St
 {
 
 	static GamemodeToken token = new GamemodeToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -68,12 +66,6 @@ public class GamemodeTokenTest extends AbstractTypeSafeListTestCase<Campaign, St
 	public ListKey<String> getListKey()
 	{
 		return ListKey.GAME_MODE;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
-
 ###Block: Other Gear
 # Equipment Name			Output Name				Type					Cost		Weight	Requires Modification?	Source Page		Special Property
 Plaguebringer's Mask							TYPE:Headgear			COST:2000	WT:2		MODS:NO			SOURCEPAGE:p.18	SPROP:+2 resistance bonus on saving throws against nauseating scents and immunity to one specific disease

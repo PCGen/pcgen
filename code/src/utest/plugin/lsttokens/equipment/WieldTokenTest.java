@@ -38,7 +38,7 @@ import plugin.pretokens.writer.PreVariableWriter;
 public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static WieldToken token = new WieldToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -132,7 +132,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<WieldCategory> getObjectKey()
+	private static ObjectKey<WieldCategory> getObjectKey()
 	{
 		return ObjectKey.WIELD;
 	}

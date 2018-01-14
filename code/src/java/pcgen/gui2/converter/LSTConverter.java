@@ -73,19 +73,19 @@ import pcgen.util.Logging;
 public class LSTConverter extends Observable
 {
 	private final AbilityCategoryLoader catLoader = new AbilityCategoryLoader();
-	private final GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<SizeAdjustment>(SizeAdjustment.class);
-	private final GenericLoader<PCCheck> savesLoader = new GenericLoader<PCCheck>(PCCheck.class);
-	private final GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
-	private final GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
+	private final GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<>(SizeAdjustment.class);
+	private final GenericLoader<PCCheck> savesLoader = new GenericLoader<>(PCCheck.class);
+	private final GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<>(PCAlignment.class);
+	private final GenericLoader<PCStat> statLoader = new GenericLoader<>(PCStat.class);
 	private final CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private final EditorLoadContext context;
-	private List<Loader> loaders;
-	private Set<URI> written = new HashSet<URI>();
+	private final List<Loader> loaders;
+	private final Set<URI> written = new HashSet<>();
 	private final String outDir;
 	private final File rootDir;
-	private final DoubleKeyMapToList<Loader, URI, CDOMObject> injected = new DoubleKeyMapToList<Loader, URI, CDOMObject>();
+	private final DoubleKeyMapToList<Loader, URI, CDOMObject> injected = new DoubleKeyMapToList<>();
 	private final ConversionDecider decider;
-	private Writer changeLogWriter;
+	private final Writer changeLogWriter;
 	
 	public LSTConverter(EditorLoadContext lc, File root, String outputDir,
 			ConversionDecider cd, Writer changeLogWriter) 
@@ -252,17 +252,7 @@ public class LSTConverter extends Observable
 						out.close();
 					}
 				}
-				catch (PersistenceLayerException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				catch (InterruptedException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				catch (IOException e)
+				catch (PersistenceLayerException | IOException | InterruptedException e)
 				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -273,37 +263,37 @@ public class LSTConverter extends Observable
 
 	private List<Loader> setupLoaders(EditorLoadContext context, Writer changeLogWriter)
 	{
-		List<Loader> loaderList = new ArrayList<Loader>();
-		loaderList.add(new BasicLoader<WeaponProf>(context, WeaponProf.class,
-				ListKey.FILE_WEAPON_PROF, changeLogWriter));
-		loaderList.add(new BasicLoader<ArmorProf>(context, ArmorProf.class,
-				ListKey.FILE_ARMOR_PROF, changeLogWriter));
-		loaderList.add(new BasicLoader<ShieldProf>(context, ShieldProf.class,
-				ListKey.FILE_SHIELD_PROF, changeLogWriter));
-		loaderList.add(new BasicLoader<Skill>(context, Skill.class,
-				ListKey.FILE_SKILL, changeLogWriter));
-		loaderList.add(new BasicLoader<Language>(context, Language.class,
-				ListKey.FILE_LANGUAGE, changeLogWriter));
-		loaderList.add(new BasicLoader<Ability>(context, Ability.class,
-				ListKey.FILE_FEAT, changeLogWriter));
+		List<Loader> loaderList = new ArrayList<>();
+		loaderList.add(new BasicLoader<>(context, WeaponProf.class,
+                ListKey.FILE_WEAPON_PROF, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, ArmorProf.class,
+                ListKey.FILE_ARMOR_PROF, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, ShieldProf.class,
+                ListKey.FILE_SHIELD_PROF, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Skill.class,
+                ListKey.FILE_SKILL, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Language.class,
+                ListKey.FILE_LANGUAGE, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Ability.class,
+                ListKey.FILE_FEAT, changeLogWriter));
 		loaderList.add(new AbilityLoader(context, Ability.class,
 				ListKey.FILE_ABILITY, changeLogWriter));
-		loaderList.add(new BasicLoader<Race>(context, Race.class,
-				ListKey.FILE_RACE, changeLogWriter));
-		loaderList.add(new BasicLoader<Domain>(context, Domain.class,
-				ListKey.FILE_DOMAIN, changeLogWriter));
-		loaderList.add(new BasicLoader<Spell>(context, Spell.class,
-				ListKey.FILE_SPELL, changeLogWriter));
-		loaderList.add(new BasicLoader<Deity>(context, Deity.class,
-				ListKey.FILE_DEITY, changeLogWriter));
-		loaderList.add(new BasicLoader<PCTemplate>(context, PCTemplate.class,
-				ListKey.FILE_TEMPLATE, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Race.class,
+                ListKey.FILE_RACE, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Domain.class,
+                ListKey.FILE_DOMAIN, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Spell.class,
+                ListKey.FILE_SPELL, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Deity.class,
+                ListKey.FILE_DEITY, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, PCTemplate.class,
+                ListKey.FILE_TEMPLATE, changeLogWriter));
 		loaderList.add(new EquipmentLoader(context, ListKey.FILE_EQUIP,
 			changeLogWriter));
-		loaderList.add(new BasicLoader<EquipmentModifier>(context,
-				EquipmentModifier.class, ListKey.FILE_EQUIP_MOD, changeLogWriter));
-		loaderList.add(new BasicLoader<CompanionMod>(context, CompanionMod.class,
-				ListKey.FILE_COMPANION_MOD, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context,
+                EquipmentModifier.class, ListKey.FILE_EQUIP_MOD, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, CompanionMod.class,
+                ListKey.FILE_COMPANION_MOD, changeLogWriter));
 		loaderList.add(new ClassLoader(context, changeLogWriter));
 		loaderList.add(new CopyLoader(ListKey.FILE_ABILITY_CATEGORY));
 		loaderList.add(new CopyLoader(ListKey.LICENSE_FILE));
@@ -368,7 +358,7 @@ public class LSTConverter extends Observable
 		for (int line = 0; line < fileLines.length; line++)
 		{
 			String lineString = fileLines[line];
-			if ((lineString.length() == 0)
+			if ((lineString.isEmpty())
 					|| (lineString.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR)
 					|| lineString.startsWith("SOURCE"))
 			{

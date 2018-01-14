@@ -1,5 +1,4 @@
 /*
- * UnitSet.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -17,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 25, 2002, 10:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -31,10 +28,8 @@ import pcgen.cdom.base.Loadable;
 
 
 /**
- * <code>UnitSet</code>.
+ * {@code UnitSet}.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
  */
 public final class UnitSet implements Loadable
 {
@@ -205,7 +200,7 @@ public final class UnitSet implements Loadable
 		}
 		else
 		{
-			return " " + unitString;
+			return ' ' + unitString;
 		}
 	}
 

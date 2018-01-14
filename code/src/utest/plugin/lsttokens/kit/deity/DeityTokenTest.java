@@ -30,7 +30,7 @@ public class DeityTokenTest extends AbstractKitTokenTestCase<KitDeity>
 {
 
 	static DeityToken token = new DeityToken();
-	static CDOMSubLineLoader<KitDeity> loader = new CDOMSubLineLoader<KitDeity>(
+	static CDOMSubLineLoader<KitDeity> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitDeity.class);
 
 	@Override

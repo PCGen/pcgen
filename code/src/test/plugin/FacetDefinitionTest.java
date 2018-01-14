@@ -1,5 +1,4 @@
 /*
- * FacetDefinitionTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Nov 12, 2013
- *
- * $Id$
- *
  */
 package plugin;
 
@@ -42,12 +36,6 @@ import org.junit.Test;
  * 
  * Note: pcgen.cdom.facet.base only contains abstract base classes for facets 
  * so is not itself checked.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class FacetDefinitionTest
 {
@@ -57,14 +45,12 @@ public class FacetDefinitionTest
 	 * Array of exceptions to normal names. Each entry is a pair of
 	 * Java source file name and JAR file name. 
 	 */
-	private final List<String> exceptions = Arrays.asList(new String[] {
-		"AssociationChangeEvent", "AssociationChangeListener", 
-		"DataFacetChangeEvent", "DataFacetChangeListener", 
-		"ScopeFacetChangeEvent", "ScopeFacetChangeListener",
-		"SubScopeFacetChangeEvent", "SubScopeFacetChangeListener",
-		"CategorizedDataFacetChangeEvent", "FacetInitialization", 
-		"FacetLibrary"
-	});
+	private final List<String> exceptions = Arrays.asList("AssociationChangeEvent", "AssociationChangeListener",
+			"DataFacetChangeEvent", "DataFacetChangeListener",
+			"ScopeFacetChangeEvent", "ScopeFacetChangeListener",
+			"SubScopeFacetChangeEvent", "SubScopeFacetChangeListener",
+			"CategorizedDataFacetChangeEvent", "FacetInitialization",
+			"FacetLibrary");
 	
 	/**
 	 * Check for the presence of all 'general' facets in the spring definition.

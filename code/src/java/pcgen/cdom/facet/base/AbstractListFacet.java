@@ -256,7 +256,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableList(new ArrayList<T>(componentSet));
+		return Collections.unmodifiableList(new ArrayList<>(componentSet));
 	}
 
 	/**
@@ -293,7 +293,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	public boolean isEmpty(IDT id)
 	{
 		Collection<T> componentSet = getCachedSet(id);
-		return componentSet == null || componentSet.isEmpty();
+		return (componentSet == null) || componentSet.isEmpty();
 	}
 
 	/**
@@ -318,7 +318,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		 * TODO obj == null? - log an error?
 		 */
 		Collection<T> componentSet = getCachedSet(id);
-		return componentSet != null && componentSet.contains(obj);
+		return (componentSet != null) && componentSet.contains(obj);
 	}
 
 	/**
@@ -387,7 +387,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 */
 	protected Collection<T> getComponentSet()
 	{
-		return new LinkedHashSet<T>();
+		return new LinkedHashSet<>();
 	}
 
 	/**
@@ -446,7 +446,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 * NOTE: Use of this method is HIGHLY DISCOURAGED. Please consider another
 	 * way of achieving the same results as this method. In other words, this
 	 * method was required in order to maintain compatibility with the code in
-	 * PCGen that tends to copy & clone things, but in the future, we are
+	 * PCGen that tends to copy &amp; clone things, but in the future, we are
 	 * attempting to move away from that structure, so use of this method (which
 	 * implies order dependency) is discouraged.
 	 * 
@@ -473,7 +473,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	public boolean replace(IDT id, T old, T replacement)
 	{
 		Collection<T> componentSet = getCachedSet(id);
-		if (componentSet == null || !componentSet.contains(old))
+		if ((componentSet == null) || !componentSet.contains(old))
 		{
 			return false;
 		}
@@ -508,7 +508,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 * NOTE: Use of this method is HIGHLY DISCOURAGED. Please consider another
 	 * way of achieving the same results as this method. In other words, this
 	 * method was required in order to maintain compatibility with the code in
-	 * PCGen that tends to copy & clone things, but in the future, we are
+	 * PCGen that tends to copy &amp; clone things, but in the future, we are
 	 * attempting to move away from that structure, so use of this method (which
 	 * implies order dependency) is discouraged.
 	 * 
@@ -527,7 +527,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	public void addAfter(IDT id, T trigger, T added)
 	{
 		Collection<T> componentSet = getCachedSet(id);
-		if (componentSet != null && componentSet.contains(trigger))
+		if ((componentSet != null) && componentSet.contains(trigger))
 		{
 			Collection<T> replaceSet = getComponentSet();
 			for (T obj : componentSet)

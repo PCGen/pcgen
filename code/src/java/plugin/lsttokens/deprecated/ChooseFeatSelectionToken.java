@@ -84,7 +84,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 				{
 					title = title.substring(1, title.length() - 1);
 				}
-				if (title == null || title.length() == 0)
+				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(
 						getParentToken() + Constants.COLON + getTokenName()
@@ -114,8 +114,8 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 				new CollectionToAbilitySelection(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), prim);
 		//be tricky for compatibility
 		BasicChooseInformation<AbilitySelection> tc =
-				new BasicChooseInformation<AbilitySelection>(
-					"ABILITYSELECTION", pcs);
+				new BasicChooseInformation<>(
+						"ABILITYSELECTION", pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -232,7 +232,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 
 		if (ability == null)
 		{
-			List<String> choices = new ArrayList<String>();
+			List<String> choices = new ArrayList<>();
 			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
 			ability =
 					context.getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -268,7 +268,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		StringBuilder sb = new StringBuilder(50);
 		sb.append(ability.getKeyName());
 		String selection = choice.getSelection();
-		if (selection != null && selection.length() > 0)
+		if (selection != null && !selection.isEmpty())
 		{
 			sb.append(" (");
 			sb.append(selection);

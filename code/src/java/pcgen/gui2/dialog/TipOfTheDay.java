@@ -1,5 +1,4 @@
 /*
- * TipOfTheDay.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 17, 2001, 12:43 PM
- *
- * $Id: TipOfTheDay.java 1256 2006-08-05 14:08:16Z karianna $
  */
 package pcgen.gui2.dialog;
 
@@ -54,16 +49,11 @@ import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JLabelPane;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1256 $
- */
+
 public final class TipOfTheDay extends JDialog implements ActionListener
 {
 
-	static final long serialVersionUID = 6109389084434712217L;
+	private static final long serialVersionUID = 6109389084434712217L;
 	private static final UIPropertyContext propertyContext = UIPropertyContext.createContext("TipOfTheDay");
 	private static final String NEXT = "next";
 	private static final String PREV = "prev";
@@ -89,7 +79,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		tipHandler.loadTips();
 
 		pack();
-		
+
 		Utility.installEscapeCloseOperation(this);
 
 		showNextTip();
@@ -135,15 +125,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		JLabel iconLabel;
 		final Icon icon = Icons.TipOfTheDay24.getImageIcon();
 
-		if (icon != null)
-		{
-			iconLabel = new JLabel(icon);
-		}
-		else
-		{
-			// XXX Should probably do: Logging.errorPrintLocalised("Missing icon");
-			iconLabel = new JLabel("TipOfTheDay24.gif");
-		}
+		iconLabel = icon != null ? new JLabel(icon) : new JLabel("TipOfTheDay24.gif");
 
 		iconLabel.setOpaque(true);
 		panel.add(iconLabel, BorderLayout.WEST);

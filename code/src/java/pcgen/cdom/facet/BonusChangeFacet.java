@@ -29,7 +29,6 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * BonusChangeFacet tracks changes to Bonus values on a PlayerCharacter and
  * allows other classes to listen to changes in Bonuses on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 {
@@ -93,7 +92,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		DoubleKeyMap<String, String, Double> map = getInfo(id);
 		if (map == null)
 		{
-			map = new DoubleKeyMap<String, String, Double>();
+			map = new DoubleKeyMap<>();
 			setCache(id, map);
 		}
 		return map;
@@ -125,8 +124,8 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	 * for it to receive BonusChangeEvents from the BonusChangeFacet when a
 	 * Bonus value has changed for a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
+	@FunctionalInterface
 	public interface BonusChangeListener
 	{
 
@@ -147,7 +146,6 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	 * BonusChangeEvent is an event sent to a BonusChangeListener when a Bonus
 	 * value changes on a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	public static class BonusChangeEvent
 	{
@@ -239,12 +237,11 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	 * for adding and removing listeners to a class that can provide updates for
 	 * changes to Bonus values on a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	public static class BonusChangeSupport
 	{
 		private DoubleKeyMapToList<String, String, BonusChangeListener> listeners =
-				new DoubleKeyMapToList<String, String, BonusChangeListener>();
+                new DoubleKeyMapToList<>();
 
 		/**
 		 * Adds a new BonusChangeListener to receive BonusChangeEventas from the
@@ -310,8 +307,8 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		public synchronized BonusChangeListener[] getBonusChangeListeners(
 				String type, String name)
 		{
-			return (listeners.getListFor(type, name)
-					.toArray(new BonusChangeListener[0]));
+			List<BonusChangeListener> listFor = listeners.getListFor(type, name);
+			return (listFor.toArray(new BonusChangeListener[listFor.size()]));
 		}
 
 		/**

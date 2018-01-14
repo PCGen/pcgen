@@ -28,7 +28,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 
 	private AbstractItemConvertingFacet<S, D> facet;
 	
-	public ConvertingFacetView(AbstractItemConvertingFacet<S, D> facet)
+	ConvertingFacetView(AbstractItemConvertingFacet<S, D> facet)
 	{
 		this.facet = facet;
 	}
@@ -37,7 +37,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	public Collection<? extends Object> getSet(CharID id)
 	{
 		Collection<S> sources = facet.getSourceObjects(id);
-		ArrayList<SourceDest> list = new ArrayList<SourceDest>(sources.size());
+		Collection<SourceDest> list = new ArrayList<>(sources.size());
 		for (S src : sources)
 		{
 			D dest = facet.getResultFor(id, src);
@@ -49,7 +49,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	@Override
 	public Collection<Object> getSources(CharID id, Object obj)
 	{
-		return facet.getSourcesFor(id, ((SourceDest) obj).source);
+		return facet.getSourcesFor(id, ((SourceDest) obj).getSource());
 	}
 
 	@Override
@@ -76,14 +76,23 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 		return "Facet: " + facet.getClass().getSimpleName();
 	}
 	
-	private class SourceDest
+	private final class SourceDest
 	{
-		S source;
-		D destination;
+		private final S source;
+		private final D destination;
 		
-		public SourceDest(S source, D destination)
+		public S getSource()
 		{
-			super();
+			return source;
+		}
+
+		public D getDestination()
+		{
+			return destination;
+		}
+
+		private SourceDest(S source, D destination)
+		{
 			this.source = source;
 			this.destination = destination;
 		}

@@ -1,5 +1,4 @@
 /*
- * DataTest.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 23/05/2013 7:02:42 AM
- *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -35,8 +30,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.LogRecord;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -70,11 +65,7 @@ import pcgen.util.TestHelper;
  * The Class <code>DataLoadTest</code> checks each basic source for errors on load.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @RunWith(Parameterized.class)
 public class DataLoadTest implements PCGenTaskListener
@@ -86,7 +77,7 @@ public class DataLoadTest implements PCGenTaskListener
 	 * These should be activated when the data team is ready. */
 	private static String[] excludedSources = new String[]{};
 	
-	private List<LogRecord> errors = new ArrayList<LogRecord>();
+	private List<LogRecord> errors = new ArrayList<>();
 
 	private SourceSelectionFacade sourceSelection;
 
@@ -117,7 +108,7 @@ public class DataLoadTest implements PCGenTaskListener
 
 		List<SourceSelectionFacade> basicSources = getBasicSources();
 		assertFalse("No sources found", basicSources.isEmpty());
-		List<Object[]> params = new ArrayList<Object[]>();
+		List<Object[]> params = new ArrayList<>();
 		for (SourceSelectionFacade ssf : basicSources)
 		{
 			String testName = ssf.toString().replaceAll("[\\(\\)]", "_");
@@ -149,12 +140,12 @@ public class DataLoadTest implements PCGenTaskListener
 
 		SourceFileLoader loader =
 				new SourceFileLoader(sourceSelection, uiDelegate);
-		errors = new ArrayList<LogRecord>();
+		errors = new ArrayList<>();
 		loader.addPCGenTaskListener(this);
 		loader.execute();
 
-		List<String> errorList = new ArrayList<String>();
-		List<String> warningList = new ArrayList<String>();
+		List<String> errorList = new ArrayList<>();
+		List<String> warningList = new ArrayList<>();
 		for (LogRecord logRecord : errors)
 		{
 			if (logRecord.getLevel().intValue() > Logging.WARNING.intValue())
@@ -202,7 +193,7 @@ public class DataLoadTest implements PCGenTaskListener
 
 	private static List<SourceSelectionFacade> getBasicSources()
 	{
-		List<SourceSelectionFacade> basicSources = new ArrayList<SourceSelectionFacade>();
+		List<SourceSelectionFacade> basicSources = new ArrayList<>();
 		for (Campaign campaign : Globals.getCampaignList())
 		{
 			if (campaign.showInMenu())
@@ -224,7 +215,7 @@ public class DataLoadTest implements PCGenTaskListener
 
 			if (!mode.getDefaultDataSetList().isEmpty())
 			{
-				List<CampaignFacade> qcamps = new ArrayList<CampaignFacade>();
+				List<CampaignFacade> qcamps = new ArrayList<>();
 				List<String> sources = mode.getDefaultDataSetList();
 				for (String string : sources)
 				{

@@ -1,5 +1,4 @@
 /*
- * Hyperactive.java
  * Copyright 2003 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 23, 2003, 10:03 PM
  *
- * $Id: Hyperactive.java 1817 2006-12-27 23:54:53Z jdempsey $
  */
 package pcgen.gui2.tools;
 
@@ -33,8 +30,6 @@ import javax.swing.event.HyperlinkListener;
 /**
  * This makes URLs load in a browser when clicked.
  *
- * @author     Greg Bingleman <byngl@hotmail.com>
- * @version    $Revision: 1817 $
  */
 public final class Hyperactive implements HyperlinkListener
 {

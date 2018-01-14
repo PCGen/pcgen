@@ -1,5 +1,4 @@
 /*
- * ListMatchingReference.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 23/05/2011 7:44:55 PM
  *
- * $Id$
  */
 package pcgen.cdom.reference;
 
@@ -44,12 +41,7 @@ import pcgen.cdom.enumeration.ListKey;
  * @param <V>
  *            The class of object stored by the List Key used by this
  *            ListMatchingReference.
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class ListMatchingReference<T extends CDOMObject, V> extends
 		CDOMReference<T>
@@ -176,7 +168,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	@Override
 	public Collection<T> getContainedObjects()
 	{
-		List<T> list = new ArrayList<T>();
+		List<T> list = new ArrayList<>();
 		for (T obj : all.getContainedObjects())
 		{
 			List<V> actualList = obj.getListFor(key);

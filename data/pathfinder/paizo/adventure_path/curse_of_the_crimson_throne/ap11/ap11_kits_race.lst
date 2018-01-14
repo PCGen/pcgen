@@ -1,6 +1,7 @@
 # CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Curse of the Crimson Throne, Chapter 5 - Skeletons of Scarwall	SOURCESHORT:AP11	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy83yw	SOURCEDATE:2008-08
 
+
 STARTPACK:Chained Spirit Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chained Spirit],[!PRERACE:1,%]	SOURCEPAGE:p.78
 RACE:Chained Spirit	!PRERACE:1,%
 NAME:Chained Spirit
@@ -36,46 +37,3 @@ ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Flyby Attack
 ABILITY:CATEGORY=FEAT|Improved Lightning Reflexes
-
-STARTPACK:Gug Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gug],[!PRERACE:1,%]	SOURCEPAGE:p.82
-RACE:Gug	!PRERACE:1,%
-NAME:Gug
-ALIGN:CE
-STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
-SKILL:Escape Artist			RANK:8
-SKILL:Knowledge (Dungeoneering)	RANK:12
-SKILL:Perception				RANK:15
-SKILL:Stealth				RANK:15
-SKILL:Survival				RANK:10
-ABILITY:CATEGORY=FEAT|Alertness
-ABILITY:CATEGORY=FEAT|Power Attack
-ABILITY:CATEGORY=FEAT|Awesome Blow
-ABILITY:CATEGORY=FEAT|Blind-Fight
-ABILITY:CATEGORY=FEAT|Improved Bull Rush
-ABILITY:CATEGORY=FEAT|Improved Initiative
-ABILITY:CATEGORY=FEAT|Improved Critical (Claws)
-ABILITY:CATEGORY=FEAT|Greater Bull Rush
-
-#MISSING VARIANT GUG SAVANT
-
-STARTPACK:The Prince in Chains Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Prince in Chains],[!PRERACE:1,%]	SOURCEPAGE:p.84
-RACE:The Prince in Chains	!PRERACE:1,%
-NAME:The Prince in Chains
-ALIGN:LE
-STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
-SKILL:Acrobatics			RANK:15
-SKILL:Climb				RANK:9
-SKILL:Escape Artist		RANK:12
-SKILL:Knowledge (Religion)	RANK:15
-SKILL:Knowledge (Planes)	RANK:9
-SKILL:Perception			RANK:15
-SKILL:Stealth			RANK:15
-SKILL:Survival			RANK:15
-ABILITY:CATEGORY=FEAT|Combat Reflexes
-ABILITY:CATEGORY=FEAT|Power Attack
-ABILITY:CATEGORY=FEAT|Improved Overrun
-ABILITY:CATEGORY=FEAT|Improved Sunder
-ABILITY:CATEGORY=FEAT|Run
-ABILITY:CATEGORY=FEAT|Dodge
-ABILITY:CATEGORY=FEAT|Flyby Attack
-ABILITY:CATEGORY=FEAT|Improved Initiative

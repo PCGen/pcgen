@@ -1,5 +1,4 @@
 /*
- * Campaign.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -45,10 +40,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 
 /**
- * <code>Campaign</code> is a source or campaign defined in a *.pcc file.
+ * {@code Campaign} is a source or campaign defined in a *.pcc file.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
  */
 public class Campaign extends PObject implements CampaignFacade, NonInteractive
 {
@@ -67,7 +60,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	{
 		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
-		final List<Campaign> ret = new ArrayList<Campaign>(pccFiles.size());
+		final List<Campaign> ret = new ArrayList<>(pccFiles.size());
 		
 		for ( final CampaignSourceEntry fileName : pccFiles )
 		{
@@ -90,7 +83,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	{
 		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
-		final List<CampaignSourceEntry> ret = new ArrayList<CampaignSourceEntry>();
+		final List<CampaignSourceEntry> ret = new ArrayList<>();
 		
 		for ( final CampaignSourceEntry cse : pccFiles )
 		{
@@ -133,7 +126,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	{
 		if (gameModes == null)
 		{
-			gameModes = new DefaultListFacade<GameModeFacade>();
+			gameModes = new DefaultListFacade<>();
 			List<String> modes = getSafeListFor(ListKey.GAME_MODE);
 			for (String string : modes)
 			{
@@ -173,36 +166,24 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		return get(StringKey.CAMPAIGN_SETTING);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSourceShort()
 	{
 		return get(StringKey.SOURCE_SHORT);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getBookTypeList()
 	{
 		return getSafeListFor(ListKey.BOOK_TYPE);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBookTypes()
 	{
 		return getListAsString(ListKey.BOOK_TYPE);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getStatus()
 	{

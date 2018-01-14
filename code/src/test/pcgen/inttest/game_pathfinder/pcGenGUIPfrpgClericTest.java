@@ -1,5 +1,4 @@
 /*
- * pcGenGUIPfrpgClericTest.java
  */
 package pcgen.inttest.game_pathfinder;
 
@@ -15,9 +14,7 @@ import pcgen.inttest.PcgenFtlTestCase;
 public class pcGenGUIPfrpgClericTest extends PcgenFtlTestCase
 {
 
-	/**
-	 * 
-	 */
+
 	public pcGenGUIPfrpgClericTest()
 	{
 		super("pf_cleric");

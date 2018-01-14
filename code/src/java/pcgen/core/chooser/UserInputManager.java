@@ -1,5 +1,4 @@
 /*
- * UserInputManager.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.chooser;
 
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
@@ -64,9 +62,9 @@ public class UserInputManager extends CDOMChoiceManager<String>
 		}
 		
 		CDOMChooserFacadeImpl<String> chooserFacade =
-				new CDOMChooserFacadeImpl<String>(
-						title, availableList, 
-					selectedList, effectiveChoices);
+                new CDOMChooserFacadeImpl<>(
+                        title, availableList,
+                        selectedList, effectiveChoices);
 		chooserFacade.setAllowsDups(dupsAllowed);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPc));
 		chooserFacade.setUserInput(true);

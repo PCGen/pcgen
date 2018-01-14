@@ -57,7 +57,7 @@ public class BonusToken implements CDOMPrimaryToken<EqSizePenalty>
 	{
 		Collection<BonusObj> added = esp.getBonuses();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<String>();
+		Set<String> bonusSet = new TreeSet<>();
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))

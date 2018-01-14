@@ -47,7 +47,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new AbilityLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -330,7 +330,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	//  
-	private Ability construct(LoadContext context, String name)
+	private static Ability construct(LoadContext context, String name)
 	{
 		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, name);
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
@@ -560,7 +560,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		assertNoSideEffects();
 	}
 
-	private String getJoinCharacter()
+	private static String getJoinCharacter()
 	{
 		return Constants.PIPE;
 	}

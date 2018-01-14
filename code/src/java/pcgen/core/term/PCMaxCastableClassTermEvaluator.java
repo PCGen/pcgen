@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCMaxCastableClassTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 23:14:10
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -39,7 +33,7 @@ public class PCMaxCastableClassTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	private ClassSpellList spellList;
+	private final ClassSpellList spellList;
 
 	public PCMaxCastableClassTermEvaluator(String originalText, String classKey)
 	{
@@ -53,7 +47,7 @@ public class PCMaxCastableClassTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Float max = -1f;
+		Float max = -1.0f;
 		for (PCClass spClass : pc.getDisplay().getClassSet())
 		{
 			List<? extends CDOMList<Spell>> lists = pc.getDisplay().getSpellLists(spClass);
@@ -74,7 +68,7 @@ public class PCMaxCastableClassTermEvaluator
 				{
 					for (int i = 0; i < cutoff; i++)
 					{
-						if (pc.getSpellSupport(spClass).getKnownForLevel(i, "null", pc) != 0)
+						if (pc.getSpellSupport(spClass).getKnownForLevel(i, pc) != 0)
 						{
 							max = Math.max(max, i);
 						}

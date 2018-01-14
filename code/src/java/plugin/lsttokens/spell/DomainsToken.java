@@ -100,7 +100,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 			domainKey = value.substring(0, openBracketLoc);
 			String prereqString = value.substring(openBracketLoc + 1, value
 					.length() - 1);
-			if (prereqString.length() == 0)
+			if (prereqString.isEmpty())
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " cannot have empty prerequisite : " + value, context);
@@ -207,7 +207,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 						edge.addPrerequisite(prereq);
 					}
 					context.getObjectContext().addToList(
-						spell, ListKey.SPELL_DOMAINLEVEL, token + " " + level);
+						spell, ListKey.SPELL_DOMAINLEVEL, token + ' ' + level);
 				}
 			}
 		}
@@ -223,8 +223,8 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<DomainSpellList>> dkmtl =
-				new DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<DomainSpellList>>();
-		List<String> list = new ArrayList<String>();
+				new DoubleKeyMapToList<>();
+		List<String> list = new ArrayList<>();
 		Changes<CDOMReference<DomainSpellList>> masterChanges = context.getListContext()
 				.getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);
 		if (masterChanges.includesGlobalClear())
@@ -255,7 +255,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 						{
 							List<Prerequisite> prereqs = assoc
 									.getPrerequisiteList();
-							if (prereqs != null && prereqs.size() != 0)
+							if (prereqs != null && !prereqs.isEmpty())
 							{
 								context.addWriteMessage("Incoming Remove "
 										+ "Edge to " + spell.getKeyName()
@@ -299,7 +299,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 						List<Prerequisite> prereqs = assoc
 								.getPrerequisiteList();
 						Prerequisite prereq;
-						if (prereqs == null || prereqs.size() == 0)
+						if (prereqs == null || prereqs.isEmpty())
 						{
 							prereq = null;
 						}
@@ -350,9 +350,9 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 			}
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		SortedSet<CDOMReference<DomainSpellList>> set = new TreeSet<CDOMReference<DomainSpellList>>(
+		SortedSet<CDOMReference<DomainSpellList>> set = new TreeSet<>(
 				ReferenceUtilities.REFERENCE_SORTER);
-		SortedSet<Integer> levelSet = new TreeSet<Integer>();
+		SortedSet<Integer> levelSet = new TreeSet<>();
 		for (Prerequisite prereq : dkmtl.getKeySet())
 		{
 			StringBuilder sb = new StringBuilder();

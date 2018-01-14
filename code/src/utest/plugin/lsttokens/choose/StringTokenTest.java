@@ -43,7 +43,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	static ChooseLst token = new ChooseLst();
 	static StringToken subtoken = new StringToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -52,7 +52,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		TokenRegistration.register(subtoken);
 	}
 
-	private String getSubTokenName()
+	private static String getSubTokenName()
 	{
 		return "STRING";
 	}
@@ -73,12 +73,6 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Test
@@ -110,7 +104,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		assertNoSideEffects();
 	}
 
-	protected boolean requiresLiteral()
+	protected static boolean requiresLiteral()
 	{
 		return false;
 	}
@@ -203,7 +197,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<ChooseInformation<?>> getObjectKey()
+	private static ObjectKey<ChooseInformation<?>> getObjectKey()
 	{
 		return ObjectKey.CHOOSE_INFO;
 	}
@@ -225,10 +219,10 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	private void parseForUnparse(String value)
 	{
-		SimpleChoiceSet<String> scs = new SimpleChoiceSet<String>(Arrays
+		SimpleChoiceSet<String> scs = new SimpleChoiceSet<>(Arrays
 				.asList(value.split("\\|")), Constants.PIPE);
 		assertTrue(scs.getGroupingState().isValid());
-		BasicChooseInformation<String> cs = new BasicChooseInformation<String>(getSubTokenName(), scs);
+		BasicChooseInformation<String> cs = new BasicChooseInformation<>(getSubTokenName(), scs);
 		cs.setTitle("Choose an Item");
 		primaryProf.put(ObjectKey.CHOOSE_INFO, cs);
 	}

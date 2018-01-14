@@ -33,7 +33,7 @@ public class ChargesIntegrationTest extends
 {
 
 	static ChargesToken token = new ChargesToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

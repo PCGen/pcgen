@@ -76,7 +76,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		String weaponProfs;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
 		boolean isPre = false;
-		if (value.indexOf("[") == -1)
+		if (value.indexOf('[') == -1)
 		{
 			// Supported version of PRExxx using |.  Needs to be at the front of the
 			// Parsing code because many objects expect the pre to have been determined
@@ -148,7 +148,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				else
 				{
 					ConditionalSelectionActor<WeaponProf> cca =
-							new ConditionalSelectionActor<WeaponProf>(this);
+							new ConditionalSelectionActor<>(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
@@ -158,7 +158,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			{
 				foundOther = true;
 				context.getObjectContext().put(obj, ObjectKey.HAS_DEITY_WEAPONPROF,
-						new QualifiedObject<Boolean>(Boolean.TRUE, prereq));
+						new QualifiedObject<>(Boolean.TRUE, prereq));
 			}
 			else
 			{
@@ -242,7 +242,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		Changes<WeaponProfProvider> changes = context.getObjectContext().getListChanges(obj,

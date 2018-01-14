@@ -35,8 +35,8 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 		extends AbstractIntegrationTestCase<T>
 {
 
-	public final void localClassSetUp() throws URISyntaxException,
-		PersistenceLayerException
+	public final void localClassSetUp() throws
+			PersistenceLayerException
 	{
 		TokenRegistration.register(new PreLevelParser());
 		TokenRegistration.register(new PreClassParser());

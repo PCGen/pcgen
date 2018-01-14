@@ -1,5 +1,4 @@
 /*
- * SourceSelectionDialog.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 15, 2010, 7:15:13 PM
  */
 package pcgen.gui2.sources;
 
@@ -82,10 +80,7 @@ import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class SourceSelectionDialog extends JDialog
 		implements ActionListener, ChangeListener, ListSelectionListener
 {
@@ -99,17 +94,17 @@ public class SourceSelectionDialog extends JDialog
 	private static final String HIDEUNHIDE_COMMAND = "Hide"; //$NON-NLS-1$
 	private static final String INSTALLDATA_COMMAND = "Install"; //$NON-NLS-1$
 	private final PCGenFrame frame;
-	private QuickSourceSelectionPanel basicPanel;
-	private AdvancedSourceSelectionPanel advancedPanel;
-	private JTabbedPane tabs;
-	private JPanel buttonPanel;
-	private JButton loadButton;
-	private JButton cancelButton;
-	private JButton hideunhideButton;
-	private JButton deleteButton;
-	private JButton installDataButton;
-	private JButton saveButton;
-	private JCheckBox alwaysAdvancedCheck;
+	private final QuickSourceSelectionPanel basicPanel;
+	private final AdvancedSourceSelectionPanel advancedPanel;
+	private final JTabbedPane tabs;
+	private final JPanel buttonPanel;
+	private final JButton loadButton;
+	private final JButton cancelButton;
+	private final JButton hideunhideButton;
+	private final JButton deleteButton;
+	private final JButton installDataButton;
+	private final JButton saveButton;
+	private final JCheckBox alwaysAdvancedCheck;
 
 	public SourceSelectionDialog(PCGenFrame frame)
 	{
@@ -275,10 +270,10 @@ public class SourceSelectionDialog extends JDialog
 		{
 			final JList sourcesList = new JList();
 			final JTextField nameField = new JTextField();
-			ListFacade<SourceSelectionFacade> sources = 
-					new SortedListFacade<SourceSelectionFacade>(
-							Comparators.toStringIgnoreCaseCollator(),
-							FacadeFactory.getCustomSourceSelections());
+			ListFacade<SourceSelectionFacade> sources =
+                    new SortedListFacade<>(
+                            Comparators.toStringIgnoreCaseCollator(),
+                            FacadeFactory.getCustomSourceSelections());
 			sourcesList.setModel(new FacadeListModel(sources));
 			sourcesList.addListSelectionListener(new ListSelectionListener()
 			{
@@ -396,9 +391,6 @@ public class SourceSelectionDialog extends JDialog
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setVisible(boolean visible)
 	{
@@ -418,12 +410,12 @@ public class SourceSelectionDialog extends JDialog
 	private static class SourcesTableModel extends FilteredListFacadeTableModel<SourceSelectionFacade>
 	{
 
-		private List<SourceSelectionFacade> displayedSources;
+		private final List<SourceSelectionFacade> displayedSources;
 
 		public SourcesTableModel()
 		{
 			setDelegate(FacadeFactory.getSourceSelections());
-			displayedSources = new ArrayList<SourceSelectionFacade>();
+			displayedSources = new ArrayList<>();
 			displayedSources.addAll(ListFacades.wrap(FacadeFactory.getDisplayedSourceSelections()));
 		}
 
@@ -435,7 +427,8 @@ public class SourceSelectionDialog extends JDialog
 
 		public SourceSelectionFacade[] getDisplayedSources()
 		{
-			return displayedSources.toArray(new SourceSelectionFacade[0]);
+			return displayedSources.toArray(new SourceSelectionFacade[displayedSources
+					.size()]);
 		}
 
 		@Override
@@ -503,9 +496,9 @@ public class SourceSelectionDialog extends JDialog
 	{
 
 		private static final String DEFAULT_SOURCE = "Pathfinder RPG for Players"; //$NON-NLS-1$
-		private JList sourceList;
-		private InfoPane infoPane;
-		private InfoPaneLinkAction linkAction;
+		private final JList sourceList;
+		private final InfoPane infoPane;
+		private final InfoPaneLinkAction linkAction;
 
 		public QuickSourceSelectionPanel()
 		{
@@ -523,10 +516,10 @@ public class SourceSelectionDialog extends JDialog
 			JLabel label = new JLabel(LanguageBundle.getString("in_qsrc_intro"));
 			label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 			add(label, BorderLayout.NORTH);
-			ListFacade<SourceSelectionFacade> sources = 
-					new SortedListFacade<SourceSelectionFacade>(
-							Comparators.toStringIgnoreCaseCollator(),
-							FacadeFactory.getDisplayedSourceSelections());
+			ListFacade<SourceSelectionFacade> sources =
+                    new SortedListFacade<>(
+                            Comparators.toStringIgnoreCaseCollator(),
+                            FacadeFactory.getDisplayedSourceSelections());
 			sourceList.setModel(new FacadeListModel(sources));
 			sourceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			sourceList.setCellRenderer(new SourceListCellRenderer());

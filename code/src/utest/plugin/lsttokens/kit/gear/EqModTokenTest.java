@@ -31,7 +31,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static EqmodToken token = new EqmodToken();
-	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
+	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitGear.class);
 
 	@Override
@@ -52,7 +52,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 		return token;
 	}
 
-	public char getJoinCharacter()
+	public static char getJoinCharacter()
 	{
 		return '.';
 	}
@@ -215,7 +215,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 		}
 	}
 
-	private void construct(LoadContext context, String string)
+	private static void construct(LoadContext context, String string)
 	{
 		context.getReferenceContext().constructCDOMObject(EquipmentModifier.class, string);
 	}

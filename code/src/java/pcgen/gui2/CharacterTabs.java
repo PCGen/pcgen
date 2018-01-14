@@ -1,5 +1,4 @@
 /*
- * CharacterTabs.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 29, 2009, 2:59:53 PM
  */
 package pcgen.gui2;
 
@@ -42,19 +40,19 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.SharedTabPane;
 import pcgen.system.CharacterManager;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This is the tabbed pane for PCGen characters. Unlike normal tabbed panes, the
@@ -65,7 +63,6 @@ import pcgen.system.CharacterManager;
  *
  * @see pcgen.gui2.PCGenFrame
  * @see pcgen.gui2.tabs.InfoTabbedPane
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public final class CharacterTabs extends SharedTabPane
 		implements ChangeListener, ReferenceListener<CharacterFacade>, ListListener<CharacterFacade>
@@ -81,9 +78,9 @@ public final class CharacterTabs extends SharedTabPane
 	public CharacterTabs(PCGenFrame frame)
 	{
 		this.frame = frame;
-		this.characters = new ArrayList<CharacterFacade>();
+		this.characters = new ArrayList<>();
 		this.infoTabbedPane = new InfoTabbedPane();
-		this.listenerMap = new HashMap<CharacterFacade, TabLabel>();
+		this.listenerMap = new HashMap<>();
 		this.popupMenu = new JPopupMenu();
 		initComponents();
 	}
@@ -182,9 +179,9 @@ public final class CharacterTabs extends SharedTabPane
 
 		private JLabel titleLabel;
 		private JButton closeButton;
-		private CharacterFacade character;
-		private ReferenceFacade<String> tabNameRef;
-		private ReferenceFacade<String> nameRef;
+		private final CharacterFacade character;
+		private final ReferenceFacade<String> tabNameRef;
+		private final ReferenceFacade<String> nameRef;
 
 		public TabLabel(CharacterFacade character)
 		{

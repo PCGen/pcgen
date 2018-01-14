@@ -93,7 +93,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Skill> implements
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Unexpected value used in " + getTokenName()
 					+ " in Skill");
-			cpr.addErrorMessage(" " + value + " is not a valid value for "
+			cpr.addErrorMessage(' ' + value + " is not a valid value for "
 					+ getTokenName());
 			cpr.addErrorMessage(" Valid values in Skill are YES, ALWAYS, NO, DISPLAY, GUI, EXPORT, CSHEET");
 			return cpr;

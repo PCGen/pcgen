@@ -93,6 +93,7 @@ import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.analysis.RaceTypeFacet;
 import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
+import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.SubRaceFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
@@ -253,6 +254,7 @@ public class CharacterDisplay
 			.getFacet(PortraitThumbnailRectFacet.class);
 	private PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
 	private SkillFilterFacet skillFilterFacet = FacetLibrary.getFacet(SkillFilterFacet.class);
+	private final ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 
 	public CharacterDisplay(CharID id)
 	{
@@ -388,7 +390,7 @@ public class CharacterDisplay
 	public String getRaceType()
 	{
 		RaceType rt = raceTypeFacet.getRaceType(id);
-		return rt == null ? Constants.NONE : rt.toString();
+		return (rt == null) ? Constants.NONE : rt.toString();
 	}
 
 	public int getTotalLevels()
@@ -399,7 +401,7 @@ public class CharacterDisplay
 	/**
 	 * Get the Spell Resistance granted by the given template to a character at a
 	 * given level (Class and Hit Dice). This will include the absolute
-	 * adjustment made with SR:, LEVEL:<num>:SR and HD:<num>:SR tags
+	 * adjustment made with {@literal SR:, LEVEL:<num>:SR and HD:<num>:SR tags}
 	 * 
 	 * Note: unlike DR and CR, the value returned here includes the PCs own
 	 * Spell Resistance.
@@ -452,8 +454,8 @@ public class CharacterDisplay
 
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			if (lt.get(IntegerKey.HD_MAX) <= hitdice
-				&& lt.get(IntegerKey.HD_MIN) >= hitdice)
+			if ((lt.get(IntegerKey.HD_MAX) <= hitdice)
+					&& (lt.get(IntegerKey.HD_MIN) >= hitdice))
 			{
 				Formula ltReduction = lt.getSafe(ObjectKey.SR).getReduction();
 				int ltSR =
@@ -491,16 +493,13 @@ public class CharacterDisplay
 
 	private List<PCTemplate> getVisibleToTemplateList(View v)
 	{
-		List<PCTemplate> tl = new ArrayList<PCTemplate>();
+		List<PCTemplate> tl = new ArrayList<>();
 
-		TreeSet<PCTemplate> treeSet = new TreeSet<PCTemplate>(CDOMObjectUtilities.CDOM_SORTER);
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-			{
-				treeSet.add(template);
-			}
-		}
+		Collection<PCTemplate> treeSet = new TreeSet<>(CDOMObjectUtilities::compareKeys);
+		templateFacet.getSet(id)
+		             .stream()
+		             .filter(template -> template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
+		             .forEach(treeSet::add);
 		tl.addAll(treeSet);
 		return tl;
 	}
@@ -537,7 +536,7 @@ public class CharacterDisplay
 	 */
 	public List<String> getSpellBookNames()
 	{
-		return new ArrayList<String>(spellBookFacet.getBookNames(id));
+		return new ArrayList<>(spellBookFacet.getBookNames(id));
 	}
 
 	/**
@@ -625,7 +624,7 @@ public class CharacterDisplay
 	@Deprecated
 	public SortedSet<PCClass> getFavoredClasses()
 	{
-		SortedSet<PCClass> favored = new TreeSet<PCClass>(CDOMObjectUtilities.CDOM_SORTER);
+		SortedSet<PCClass> favored = new TreeSet<>(CDOMObjectUtilities::compareKeys);
 		favored.addAll(favClassFacet.getSet(id));
 		return favored;
 	}
@@ -653,7 +652,7 @@ public class CharacterDisplay
 	@Deprecated
 	public Set<Language> getSortedLanguageSet()
 	{
-		return new TreeSet<Language>(languageFacet.getSet(id));
+		return new TreeSet<>(languageFacet.getSet(id));
 	}
 
 	@Deprecated
@@ -669,7 +668,7 @@ public class CharacterDisplay
 
 	public SortedSet<WeaponProf> getSortedWeaponProfs()
 	{
-		return Collections.unmodifiableSortedSet(new TreeSet<WeaponProf>(weaponProfFacet.getSet(id)));
+		return Collections.unmodifiableSortedSet(new TreeSet<>(weaponProfFacet.getSet(id)));
 	}
 
 	public String getSize()
@@ -695,7 +694,7 @@ public class CharacterDisplay
 	public Rectangle getPortraitThumbnailRect()
 	{
 		Rectangle rect = portraitThumbnailRectFacet.get(id);
-		return rect == null ? null : (Rectangle) rect.clone();
+		return (rect == null) ? null : (Rectangle) rect.clone();
 	}
 
 	public String getName()
@@ -746,7 +745,7 @@ public class CharacterDisplay
 
 	public Set<Domain> getSortedDomainSet()
 	{
-		SortedSet<Domain> domains = new TreeSet<Domain>(CDOMObjectUtilities.CDOM_SORTER);
+		SortedSet<Domain> domains = new TreeSet<>(CDOMObjectUtilities::compareKeys);
 		domains.addAll(domainFacet.getSet(id));
 		return domains;
 	}
@@ -755,8 +754,7 @@ public class CharacterDisplay
 	 * Retrieve those skills in the character's skill list that match the
 	 * supplied visibility level.
 	 * 
-	 * @param vis
-	 *            What level of visibility skills are desired.
+	 * @param v What level of visibility skills are desired.
 	 * 
 	 * @return A list of the character's skills matching the visibility
 	 *         criteria.
@@ -764,7 +762,7 @@ public class CharacterDisplay
 	public List<Skill> getPartialSkillList(View v)
 	{
 		// Now select the required set of skills, based on their visibility.
-		ArrayList<Skill> aList = new ArrayList<Skill>();
+		ArrayList<Skill> aList = new ArrayList<>();
 		for (Skill po : skillFacet.getSet(id))
 		{
 			if (po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
@@ -785,6 +783,11 @@ public class CharacterDisplay
 		return alignmentFacet.get(id);
 	}
 
+	public Object getGlobal(String varName)
+	{
+		return resultFacet.getGlobalVariable(id, varName);
+	}
+
 	/**
 	 * Get the class list.
 	 * 
@@ -795,7 +798,7 @@ public class CharacterDisplay
 		/*
 		 * TODO This is a discussion we have to have about where items are sorted
 		 */
-		return new ArrayList<PCClass>(getClassSet());
+		return new ArrayList<>(getClassSet());
 	}
 
 	/**
@@ -1034,7 +1037,7 @@ public class CharacterDisplay
 
 	public Set<Language> getAutoLanguages()
 	{
-		Set<Language> languages = new HashSet<Language>();
+		Set<Language> languages = new HashSet<>();
 		languages.addAll(autoLangGrantedFacet.getSet(id));
 		languages.addAll(autoLangUnconditionalFacet.getSet(id));
 		return languages;
@@ -1390,13 +1393,13 @@ public class CharacterDisplay
 
 		// If you aren't multi-classed, don't display redundant class level
 		// information in addition to the total PC level
-		displayClass = classFacet.getCount(id) > 1 ? getFullDisplayClassName() : getDisplayClassName();
+		displayClass = (classFacet.getCount(id) > 1) ? getFullDisplayClassName() : getDisplayClassName();
 
-		return new StringBuilder(100).append(getName()).append(" the ").append(levels).append(getOrdinal(levels))
-				.append(" level ").append(getDisplayRaceName()).append(' ').append(displayClass).toString();
+		return getName() + " the " + levels + getOrdinal(levels) +
+				" level " + getDisplayRaceName() + ' ' + displayClass;
 	}
 
-	private String getOrdinal(final int cardinal)
+	private static String getOrdinal(final int cardinal)
 	{
 		switch (cardinal)
 		{
@@ -1452,11 +1455,10 @@ public class CharacterDisplay
 
 	public String getFullDisplayClassName(PCClass pcClass)
 	{
-		final StringBuilder buf = new StringBuilder(40);
-	
-		buf.append(getDisplayClassName(pcClass));
-	
-		return buf.append(" ").append(getLevel(pcClass)).toString();
+		String buf = getDisplayClassName(pcClass) +
+				" " + getLevel(pcClass);
+
+		return buf;
 	}
 
 	public String getDisplayClassName(PCClass pcClass)
@@ -1464,7 +1466,7 @@ public class CharacterDisplay
 		if (pcClass != null)
 		{
 			String subClassKey = getSubClassName(pcClass);
-			if (subClassKey != null && (subClassKey.length() > 0)
+			if ((subClassKey != null) && (!subClassKey.isEmpty())
 					&& !subClassKey.equals(Constants.NONE))
 			{
 				SubClass sc = pcClass.getSubClassKeyed(subClassKey);
@@ -1481,7 +1483,6 @@ public class CharacterDisplay
 	/**
 	 * Get the value of the weight token in format WEIGHT.X
 	 * @param type Encumbrance type 
-	 * @param pc The character to retrieve the value for.
 	 * @return The value of the weight token.
 	 */
 	public double getLoadToken(String type)
@@ -1517,7 +1518,7 @@ public class CharacterDisplay
 	/**
 	 * Returns a region (including subregion) string for the character.
 	 * 
-	 * <p/> Build on-the-fly so removing templates won't mess up region
+	 * <p> Build on-the-fly so removing templates won't mess up region
 	 * 
 	 * @return character region
 	 */
@@ -1536,9 +1537,9 @@ public class CharacterDisplay
 		return substitutionClassFacet.get(id, lvl);
 	}
 
-	public Integer getStat(PCStat stat)
+	public int getStat(PCStat stat)
 	{
-		return statValueFacet.get(id, stat);
+		return statValueFacet.get(id, stat).intValue();
 	}
 
 	public boolean containsRacialSubType(RaceSubType st)
@@ -1696,8 +1697,8 @@ public class CharacterDisplay
 	 * 
 	 * @param deity
 	 *            Deity to check for.
-	 * @return <code>true</code> if the character has the Deity,
-	 *         <code>false</code> otherwise.
+	 * @return {@code true} if the character has the Deity,
+	 *         {@code false} otherwise.
 	 */
 	public boolean hasDeity(final Deity deity)
 	{

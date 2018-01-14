@@ -1,5 +1,4 @@
 /*
- * WholeNumberField.java
  * Copyright 2001 (C) Mario Bonassin <zebuleon@peoplepc.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  */
 package pcgen.gui2.util;
 
@@ -33,14 +31,12 @@ import java.text.ParseException;
 import java.util.Locale;
 
 /**
- * <code>WholeNumberField</code> .
+ * {@code WholeNumberField} .
  *
- * @author Mario Bonassin <zebuleon@users.sourceforge.net>
- * @version $Revision: 14600 $
  */
 public final class WholeNumberField extends JTextField implements Serializable
 {
-	private NumberFormat integerFormatter;
+	private final NumberFormat integerFormatter;
 
 	/**
 	 * Constructor
@@ -85,7 +81,7 @@ public final class WholeNumberField extends JTextField implements Serializable
 		try
 		{
 			String text = getText();
-			if (text == null || text.trim().length()==0)
+			if (text == null || text.trim().isEmpty())
 			{
 				text = "0";
 			}

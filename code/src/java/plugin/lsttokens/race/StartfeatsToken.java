@@ -91,7 +91,7 @@ public class StartfeatsToken extends AbstractToken implements
 		// CONSIDER need to deal with removed...
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
-		Collection<String> bonusSet = new WeightedCollection<String>(
+		Collection<String> bonusSet = new WeightedCollection<>(
 				String.CASE_INSENSITIVE_ORDER);
 		for (BonusObj bonus : added)
 		{

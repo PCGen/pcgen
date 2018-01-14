@@ -58,7 +58,6 @@ public class ArmorToken extends Token
 	 * @param pc
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return token
-	 *
 	 */
 	public static String getArmorToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
@@ -175,7 +174,7 @@ public class ArmorToken extends Token
 			}
 			else if (tokens[i].equals("ISTYPE"))
 			{
-				property = tokens[i] + "." + tokens[i + 1];
+				property = tokens[i] + '.' + tokens[i + 1];
 
 				break;
 			}
@@ -184,7 +183,7 @@ public class ArmorToken extends Token
 				property = tokens[i];
 				if (i < (tokens.length - 1))
 				{
-					property += "." + tokens[i + 1];
+					property += '.' + tokens[i + 1];
 				}
 
 				break;
@@ -292,7 +291,7 @@ public class ArmorToken extends Token
 	{
 		// select all pieces of equipment of status==equipped
 		// filter all AC relevant stuff
-		final List<Equipment> aArrayList = new ArrayList<Equipment>();
+		final List<Equipment> aArrayList = new ArrayList<>();
 
 		for (Equipment eq : aPC.getEquipmentListInOutputOrder(merge))
 		{
@@ -418,7 +417,7 @@ public class ArmorToken extends Token
 		String subtype, String property, int equipped, int merge,
 		PlayerCharacter aPC, ExportHandler eh)
 	{
-		final List<Equipment> aArrayList = new ArrayList<Equipment>();
+		final List<Equipment> aArrayList = new ArrayList<>();
 
 		for (Equipment eq : aPC.getEquipmentOfTypeInOutputOrder(type, subtype,
 			equipped, merge))
@@ -452,7 +451,7 @@ public class ArmorToken extends Token
 		{
 			if (eq.isEquipped() && !property.equals("NAMENOSTAR"))
 			{
-				ret.append("*");
+				ret.append('*');
 			}
 
 			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));
@@ -463,7 +462,7 @@ public class ArmorToken extends Token
 			// TODO this appears to be the same as above.  Should be refactored
 			if (eq.isEquipped())
 			{
-				ret.append("*");
+				ret.append('*');
 			}
 
 			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));
@@ -522,7 +521,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("ISTYPE"))
 		{
-			if (eq.isType(property.substring(property.indexOf(".") + 1)))
+			if (eq.isType(property.substring(property.indexOf('.') + 1)))
 			{
 				ret.append("TRUE");
 			}

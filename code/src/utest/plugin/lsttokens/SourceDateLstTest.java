@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 
 	static SourcedateLst token = new SourcedateLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	public ObjectKey<Date> getKey() {
 		return ObjectKey.SOURCE_DATE;
@@ -43,7 +43,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException {
 		assertFalse(parse(""));
-		assertEquals(null, primaryProf.get(getKey()));
+		assertNull(primaryProf.get(getKey()));
 		assertNoSideEffects();
 	}
 

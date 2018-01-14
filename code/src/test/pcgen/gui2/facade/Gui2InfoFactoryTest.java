@@ -1,5 +1,4 @@
 /**
- * Gui2InfoFactoryTest.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 23/09/2012 12:00:00 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -40,11 +35,7 @@ import plugin.lsttokens.choose.StringToken;
  * Gui2InfoFactory class.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 {
@@ -67,12 +58,12 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 		ParseResult pr = st.parseToken(Globals.getContext(), choiceAbility, "SKILL|Perception|Acrobatics");
 		assertTrue(pr.passed());
 		Globals.getContext().commit();
-		finalize(choiceAbility, "Perception", pc,
+		finalizeTest(choiceAbility, "Perception", pc,
 			AbilityCategory.FEAT);
 		assertEquals("Incorrect single choice", "Perception",
 			ca.getChoices(choiceAbility));
 
-		finalize(choiceAbility, "Acrobatics", pc,
+		finalizeTest(choiceAbility, "Acrobatics", pc,
 			AbilityCategory.FEAT);
 		assertEquals("Incorrect multiple choice", "Acrobatics, Perception",
 			ca.getChoices(choiceAbility));
@@ -103,7 +94,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 			infoFactory.getHTMLInfo(tbf));
 	}	
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

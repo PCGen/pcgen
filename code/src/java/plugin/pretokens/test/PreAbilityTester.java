@@ -1,5 +1,4 @@
 /*
- * PreAbilityTester.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on January 23, 2006
- *
- * Current Ver: $Revision: 1777 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
- *
  */
 package plugin.pretokens.test;
 
@@ -36,19 +28,13 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>PreAbilityParser</code> tests whether a character passes ability
+ * {@code PreAbilityParser} tests whether a character passes ability
  * prereqs.
- *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1777 $
  */
 public class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -105,7 +91,7 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 
 		if (aString.startsWith("TYPE=")) //$NON-NLS-1$
 		{
-			if (prereq.getCategoryName().length() > 0)
+			if (!prereq.getCategoryName().isEmpty())
 			{
 				// {0} {1} {2}(s) of type {3}
 				return LanguageBundle.getFormattedString("PreAbility.type.toHtml", //$NON-NLS-1$

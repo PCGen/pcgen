@@ -30,7 +30,7 @@ import pcgen.util.Logging;
 public class ComplexParseResult implements ParseResult
 {
 	private final List<QueuedMessage> queuedMessages =
-			new LinkedList<QueuedMessage>();
+            new LinkedList<>();
 
 	public ComplexParseResult()
 	{

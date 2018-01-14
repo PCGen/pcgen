@@ -45,9 +45,6 @@ public class ItemModelFactory implements ModelFactory
 		facet = ifacet;
 	}
 
-	/**
-	 * @see pcgen.output.base.ModelFactory#generate(pcgen.cdom.enumeration.CharID)
-	 */
 	@Override
 	public ItemFacetModel<?> generate(CharID id)
 	{

@@ -27,7 +27,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.SubScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.SubScopeFacetChangeListener;
@@ -40,7 +39,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
 		if (map == null)
 		{
-			map = new IdentityHashMap<S1, Map<S2, Map<T, Set<Object>>>>();
+			map = new IdentityHashMap<>();
 			setCache(id, map);
 		}
 		return map;
@@ -66,23 +65,15 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 			throw new IllegalArgumentException("Object cannot be null");
 		}
 		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getConstructingInfo(id);
-		Map<S2, Map<T, Set<Object>>> scope1Map = map.get(scope1);
-		if (scope1Map == null)
-		{
-			scope1Map = new IdentityHashMap<S2, Map<T, Set<Object>>>();
-			map.put(scope1, scope1Map);
-		}
-		Map<T, Set<Object>> scope2Map = scope1Map.get(scope2);
-		if (scope2Map == null)
-		{
-			scope2Map = new IdentityHashMap<T, Set<Object>>();
-			scope1Map.put(scope2, scope2Map);
-		}
+		Map<S2, Map<T, Set<Object>>> scope1Map =
+				map.computeIfAbsent(scope1, k -> new IdentityHashMap<>());
+		Map<T, Set<Object>> scope2Map =
+				scope1Map.computeIfAbsent(scope2, k -> new IdentityHashMap<>());
 		Set<Object> sources = scope2Map.get(obj);
 		boolean isNew = (sources == null);
 		if (isNew)
 		{
-			sources = new WrappedMapSet<Object>(IdentityHashMap.class);
+			sources = Collections.newSetFromMap(new IdentityHashMap<>());
 			scope2Map.put(obj, sources);
 		}
 		sources.add(source);
@@ -172,7 +163,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		{
 			return Collections.emptyList();
 		}
-		return new ArrayList<T>(scope2Map.keySet());
+		return new ArrayList<>(scope2Map.keySet());
 	}
 
 	public int getSize(CharID id, S1 scope1, S2 scope2)
@@ -234,7 +225,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		{
 			return Collections.emptyList();
 		}
-		return new ArrayList<S1>(map.keySet());
+		return new ArrayList<>(map.keySet());
 	}
 
 	public Collection<S2> getScopes2(CharID id, S1 scope1)
@@ -249,7 +240,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		{
 			return Collections.emptyList();
 		}
-		return new ArrayList<S2>(submap.keySet());
+		return new ArrayList<>(submap.keySet());
 	}
 
 	public void removeAllFromSource(CharID id, Object source)
@@ -349,7 +340,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 	}
 
 	private final Map<Integer, SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[]> listeners =
-			new TreeMap<Integer, SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[]>();
+            new TreeMap<>();
 
 	/**
 	 * Adds a new ScopeFacetChangeListener to receive TwoScopeFacetChangeEvents
@@ -514,8 +505,8 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 				if (ccEvent == null)
 				{
 					ccEvent =
-							new SubScopeFacetChangeEvent<S1, S2, T>(id, scope1,
-								scope2, node, this, type);
+                            new SubScopeFacetChangeEvent<>(id, scope1,
+                                    scope2, node, this, type);
 				}
 				SubScopeFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())

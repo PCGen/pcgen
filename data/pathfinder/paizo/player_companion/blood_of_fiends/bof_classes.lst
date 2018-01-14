@@ -9,6 +9,10 @@ SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/b
 CLASS:Bard.MOD
 1	TEMPLATE:Masterpiece Activation Tiefling
 
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Tiefling
+
 #
 # End
 #

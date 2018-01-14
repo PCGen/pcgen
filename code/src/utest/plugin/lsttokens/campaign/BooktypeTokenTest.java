@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -32,7 +30,7 @@ public class BooktypeTokenTest extends AbstractTypeSafeListTestCase<Campaign, St
 {
 
 	static BooktypeToken token = new BooktypeToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -68,12 +66,6 @@ public class BooktypeTokenTest extends AbstractTypeSafeListTestCase<Campaign, St
 	public ListKey getListKey()
 	{
 		return ListKey.BOOK_TYPE;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

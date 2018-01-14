@@ -17,23 +17,24 @@
  */
 package plugin.dicebag.gui;
 
-import gmgen.GMGenSystem;
-import gmgen.io.SimpleFileFilter;
-import pcgen.core.SettingsHandler;
-import plugin.dicebag.DiceBagPlugin;
-
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import java.awt.Component;
 import java.io.File;
 import java.util.StringTokenizer;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import pcgen.core.SettingsHandler;
+
+import gmgen.GMGenSystem;
+import plugin.dicebag.DiceBagPlugin;
 
 /**
  * <p>
  * The controler class for DiceBag plugin. Should handle all interface actions.
  * </p>
- *
- * @author Ross M. Lodge
  */
 public class DiceBagPluginController
 {
@@ -76,12 +77,12 @@ public class DiceBagPluginController
 	 *          Bag to save
 	 * @return Returns the file to save to
 	 */
-	public static File chooseSaveFile(DiceBagModel bag)
+	static File chooseSaveFile(DiceBagModel bag)
 	{
 		File returnValue = null;
 		JFileChooser save = new JFileChooser();
-		String[] fileExt = new String[]{"dbg"};
-		SimpleFileFilter ff = new SimpleFileFilter(fileExt, "GMGen Dice Bag");
+		String fileExt = "dbg";
+		FileFilter ff = new FileNameExtensionFilter("GMGen Dice Bag", fileExt);
 		save.addChoosableFileFilter(ff);
 		save.setFileFilter(ff);
 
@@ -107,7 +108,7 @@ public class DiceBagPluginController
 			String dirName = save.getSelectedFile().getParent();
 			String ext = "";
 
-			if (fileName.indexOf(".dbg") < 0)
+			if (!fileName.contains(".dbg"))
 			{
 				ext = ".dbg";
 			}
@@ -133,7 +134,7 @@ public class DiceBagPluginController
 	 * Displays a file-open dialog box and processes the selected values.
 	 * </p>
 	 *
-	 * @return <code>boolean</code> indicating success/failure of operation.
+	 * @return {@code boolean} indicating success/failure of operation.
 	 */
 	public boolean fileOpen()
 	{
@@ -153,8 +154,8 @@ public class DiceBagPluginController
 			}
 		}
 
-		String[] fileExt = new String[]{"dbg"};
-		SimpleFileFilter ff = new SimpleFileFilter(fileExt, "GMGen Dice Bag");
+		String fileExt = "dbg";
+		FileFilter ff = new FileNameExtensionFilter("GMGen Dice Bag", fileExt);
 		open.addChoosableFileFilter(ff);
 		open.setFileFilter(ff);
 
@@ -171,7 +172,7 @@ public class DiceBagPluginController
 	 * Open a file
 	 * @param file
 	 */
-	public void openFile(File file)
+	private void openFile(File file)
 	{
 		SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + ".LastFile",
 			file.getParent());
@@ -181,7 +182,7 @@ public class DiceBagPluginController
 	/**
 	 * <p>
 	 * Saves the currently active bag (if it exists), using
-	 * <code>chooseSaveFile()</code>.
+	 * {@code chooseSaveFile()}.
 	 * </p>
 	 */
 	public void fileSave()

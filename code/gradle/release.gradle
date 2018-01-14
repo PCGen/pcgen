@@ -16,11 +16,8 @@
  * 3. gradle pcgenRelease
  *   a.	Build
  *   b.	Assemble distributables
- *   c.	Tag
- *   d.	Update version - increment version and add snapshot
- *   e.	Commit new version
- *
- * Author: James Dempsey
+ *   c.	Update version - increment version and add snapshot
+ *   d.	Commit new version
  */
 
 apply from: "code/gradle/releaseUtils.groovy"
@@ -40,10 +37,8 @@ ext {
     baseLibs = copySpec {
         from("${buildDir}/libs") {
             exclude 'pcgen-*.jar'
-            exclude 'kunststoff*.jar'
             exclude 'skinlf*.jar'
             exclude 'fop*.jar'
-            exclude 'xerces*.jar'
             exclude 'batik*.jar'
         }
         into ('/libs')
@@ -52,7 +47,6 @@ ext {
     pdfLibs = copySpec {
         from("${buildDir}/libs") {
             include 'fop*.jar'
-            include 'xerces*.jar'
             include 'batik*.jar'
         }
         into ('/plugin/pdf/libs')
@@ -60,7 +54,6 @@ ext {
 
     skinLibs = copySpec {
         from("${buildDir}/libs") {
-            include 'kunststoff*.jar'
             include 'skinlf*.jar'
         }
         into ('/plugin/skin/libs')
@@ -117,12 +110,12 @@ ext {
     }
 }
 
-task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
+task layoutNsisBase(type: Copy, dependsOn: [copyToLibs, cleanCreateExe, createExe]) {
     description="Assemble the required files for all PCGen installations"
-    doFirst {
-        // Release notes are required!
-        assert file(releaseNotes).exists()
-    }
+    //doFirst {
+        // Release notes are required! Causes Autobuild Problem
+        //assert file(releaseNotes).exists()
+    //}
 
     into nsisBaseFolder
     from ("${projectDir}/installers/win-installer/Local") {
@@ -132,15 +125,24 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
         into "/docs/acknowledgments/"
         include "PCGenLicense.txt"
     }
+    from ("${buildDir}/libs") {
+        into "./libs/"
+        exclude "pcgen-${version}.jar"
+        exclude "pcgen-${version}-batch-convert.jar"
+    }
+    from ("${buildDir}/libs") {
+        include "pcgen-${version}.jar"
+        include "pcgen-${version}-batch-convert.jar"
+        rename "(.+)-$version(.+)", '$1$2'
+    }
     from ("${projectDir}") {
-        include '*.jar'
         include 'logging.properties'
         include 'system/**' // Later we want to split out the game modes to optional
         include 'docs/**'
         include 'preview/**'
         include 'characters/*.pcg'
     }
-    from ("${buildDir}/release") {
+    from ("${buildDir}/launch4j") {
         include 'pcgen.exe'
     }
 
@@ -154,16 +156,14 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-    outfile = "../release/pcgen.exe"
-    jreMinVersion = '1.6.0'
     jdkPreference = 'preferJre'
     initialHeapSize = 128
     maxHeapSize = 512
     stayAlive = false
-    bundledJre64Bit = true
     dontWrapJar = true
     bundledJrePath = 'jre'
     jar = "pcgen.jar"
+    jreRuntimeBits = "64/32"
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
     splashTimeout = 60
@@ -172,46 +172,61 @@ launch4j {
     copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
 }
 
-task downloadJRE << {
-    def m = System.properties['java.runtime.version'] =~ /(\d+)\.(\d+)\.(\d+)_(\d+)\-b(\d+)/
-    def major = Integer.parseInt(m[0][1], 10)
-    def minor = Integer.parseInt(m[0][2], 10)
-    def micro = Integer.parseInt(m[0][3], 10)
-    def update = Integer.parseInt(m[0][4], 10)
-    def build = m[0][5]
-    def extension = 'tar.gz'
+task downloadJRE doLast {
+    def major = 1
+    def micro = 8
+    def update = 121
+    def extension = 'zip'
     def jre64Dir = new File("${projectDir}/jre/jre_64")
+    def jre32Dir = new File("${projectDir}/jre/jre_32")
     if(!jre64Dir.exists()){
-        println("Downloading Java ${minor}u${update} JRE missing tar files...")
-        //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
-        def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
-        def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+        //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
+        def filename = "jre-${major}.${micro}.${update}-windows-x64"
+        def jre64URL = "http://maven.nuiton.org/nexus/content/repositories/jvm/com/oracle/jre/${major}.${micro}.${update}/${filename}.zip"
+        println("Downloading JRE ${major}.${micro}.${update} from ${jre64URL}")
         if(!jre64Dir.exists()){
             download {
                 src jre64URL
                 dest new File("${projectDir}/jre/", "jre_64.${extension}")
-                header 'Cookie', oracleCookie
                 overwrite false
             }
         }
         //Now untar them
         fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
             copy {
-                println "Untar $simLib.name"
-                def name = simLib.name - '.tar.gz'
-                from tarTree("${projectDir}/jre/${simLib.name}")
-                into "${projectDir}/jre/$name"
+                println "Unzip $simLib.name"
+                def name = simLib.name - '.$extension'
+                def zipFile = file("${projectDir}/jre/${simLib.name}")
+                def outputDir = "${projectDir}/jre/jre_64/"
+                from zipTree(zipFile)
+                into outputDir
             }
             new File("${projectDir}/jre/${simLib.name}").delete()
         }
-        def jre64 = new File("${projectDir}/jre/jre_64/jre${major}.${minor}.${micro}_${update}")
-        //Removing the folder with specific version so it's easier to handle in NSIS script.
-        if(jre64.exists()){
-            copy {
-                from jre64
-                into "${projectDir}/jre/jre_64"
+    }
+    if(!jre32Dir.exists()){
+        //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
+        def filename = "jre-${major}.${micro}.${update}-windows-i586"
+        def jre32URL = "http://maven.nuiton.org/nexus/content/repositories/jvm/com/oracle/jre/${major}.${micro}.${update}/${filename}.zip"
+        println("Downloading JRE ${major}.${micro}.${update} from ${jre32URL}")
+        if(!jre32Dir.exists()){
+            download {
+                src jre32URL
+                dest new File("${projectDir}/jre/", "jre_32.${extension}")
+                overwrite false
             }
-            jre64.deleteDir()
+        }
+        //Now untar them
+        fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
+            copy {
+                println "Unzip $simLib.name"
+                def name = simLib.name - '.$extension'
+                def zipFile = file("${projectDir}/jre/${simLib.name}")
+                def outputDir = "${projectDir}/jre/jre_32/"
+                from zipTree(zipFile)
+                into outputDir
+            }
+            new File("${projectDir}/jre/${simLib.name}").delete()
         }
     }
 }
@@ -227,22 +242,23 @@ task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
     with optionalData
 }
 
-
+// The perl executable is flagged as an error - not using currently.
 // Generate the publisher/data list for the Windows installer script
-task genDataList << {
-    new ByteArrayOutputStream().withStream { os ->
-        def result = exec {
-            workingDir = "${projectDir}/installers/win-installer"
-            executable = 'perl'
-            args = ['gendatalist.pl']
-            standardOutput = os
-        }
-        println os.toString()
-    }
-}
+// task genDataList doLast {
+//     new ByteArrayOutputStream().withStream { os ->
+//         exec {
+//             workingDir = "${projectDir}/installers/win-installer"
+//             executable = 'perl'
+//             args = ['gendatalist.pl']
+//             standardOutput = os
+//         }
+//         println os.toString()
+//     }
+// }
+
 
 // Create the version specific config files for NSIS
-task genProjectNsis << {
+task genProjectNsis doLast {
     new File("${projectDir}/installers/win-installer/project.nsh").write("""
 ; Projects file generated by release.gradle
 !define PROJECT_BUILD_DIR "${buildDir}"
@@ -264,16 +280,21 @@ task genProjectNsis << {
 ; Constants file generated by release.gradle
 !define SIMPVER "${shortVerNum}"
 !define LONGVER "${plainVerNum}"
-!define OutDir "${buildDir}/release"
-!define SrcDir "${buildDir}/nsis"
+!define OutDir "${buildDir}\\release"
+!define SrcDir "${buildDir}\\nsis"
 """)
 
     mkdir "${buildDir}/release"
 }
 
-// Call NSIS to generate windows installer
-task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
-        genProjectNsis, downloadJRE, createExe])  << {
+// Call NSIS to generate windows installer - Removed "genDataList"
+task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
+        genProjectNsis, downloadJRE, cleanCreateExe, createExe]) doLast {
+    exec {
+	workingDir = "${projectDir}/installers/win-installer"
+	executable =  'perl'
+	args = ['gendatalist.pl']
+    }
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
@@ -282,7 +303,7 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
                 args = ["/V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
             }
         }
-    } else if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('linux')){
+    } else {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
                 workingDir = "${buildDir}/nsis"
@@ -290,8 +311,6 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
                 args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
             }
         }
-    }else{
-        printf "Unhandled OS: " + System.properties['os.name']
     }
 }
 buildNsis.mustRunAfter createExe
@@ -321,7 +340,7 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
 }
 
 // Produce SHA-256 checksums for each release artifact
-task checksum(dependsOn: assembleArtifacts) << {
+task checksum(dependsOn: assembleArtifacts) doLast {
     File checksumsFile = new File("${buildDir}/release/SHA256-digests-${version}.txt")
     checksumsFile.delete()
     file("${buildDir}/release").listFiles().each {File file ->
@@ -331,28 +350,28 @@ task checksum(dependsOn: assembleArtifacts) << {
     }
 }
 
-task prepareRelease (dependsOn: ['clean', 'build', 'genDataList']) {
+
+// genDataList removed as it causes release errors, 'genDataList'
+task prepareRelease (dependsOn: ['clean', 'build']) {
     description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
 }
 
-task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'tagRelease']) {
-    description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, tag the release and then update and commit the version ready for new dev work."
+task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum']) {
+    description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, then update and commit the version ready for new dev work."
+}
+
+task pcgenReleaseOfficial (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'updateVersionRelease']) {
+    description="Release a new offical version of PCGen."
 }
 
 // Update the PCGen version to indicate a release, then commit the new version
-task updateVersionRelease << {
+task updateVersionRelease doLast {
     unSnapshotVersion()
     commitFile(new File("gradle.properties"), "Update version for release ${project.version}")
 }
 
 // Update the PCGen version for development of the next release, then commit the new version
-task updateVersionToNext << {
+task updateVersionToNext doLast {
     updateVersion()
     commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
-}
-
-// Tag the current PCGen trunk
-task tagRelease << {
-    //def tagName = "release-${project.version}"
-    //tagRepository("Trunk/pcgen", tagName, "Tag release ${project.version}")
 }

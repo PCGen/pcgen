@@ -1,5 +1,4 @@
 /*
- * DelegatingDataSet.java
  * Copyright 2014 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 4, 2014, 5:35:52 PM
  */
 package pcgen.gui2.facade;
 
@@ -52,15 +50,13 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 
 /**
- * This class implements a <code>DataSetFacade</code> by delegating to another
+ * This class implements a {@code DataSetFacade} by delegating to another
  * DataSetFacade. This class is the DataSetFacade returned by the
- * <code>CharacterFacadeImpl</code> and is necessary to protect outside event
+ * {@code CharacterFacadeImpl} and is necessary to protect outside event
  * listeners from directly listening to the real DataSetFacade. By adding this
  * delegate layer, upon closing a character, the CFI can sever connections
  * between the DelegatingDataSet and the actual DataSetFacade thus preventing an
  * memory leaks that could occur from an outside event listener.
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class DelegatingDataSet implements DataSetFacade
 {
@@ -88,21 +84,21 @@ public class DelegatingDataSet implements DataSetFacade
 	{
 		this.delegate = delegate;
 		this.abilities = new DelegatingAbilitiesMap(delegate.getAbilities());
-		this.races = new DelegatingListFacade<RaceFacade>(delegate.getRaces());
-		this.classes = new DelegatingListFacade<ClassFacade>(delegate.getClasses());
-		this.deities = new DelegatingListFacade<DeityFacade>(delegate.getDeities());
-		this.skills = new DelegatingListFacade<SkillFacade>(delegate.getSkills());
-		this.templates = new DelegatingListFacade<TemplateFacade>(delegate.getTemplates());
-		this.alignments = new DelegatingListFacade<AlignmentFacade>(delegate.getAlignments());
-		this.kits = new DelegatingListFacade<KitFacade>(delegate.getKits());
-		this.stats = new DelegatingListFacade<StatFacade>(delegate.getStats());
-		this.campaigns = new DelegatingListFacade<CampaignFacade>(delegate.getCampaigns());
-		this.bodyStructures = new DelegatingListFacade<BodyStructureFacade>(delegate.getEquipmentLocations());
-		this.equipment = new DelegatingListFacade<EquipmentFacade>(delegate.getEquipment());
-		this.xpTableNames = new DelegatingListFacade<String>(delegate.getXPTableNames());
-		this.gearBuySellSchemes = new DelegatingListFacade<GearBuySellFacade>(delegate.getGearBuySellSchemes());
-		this.characterTypes = new DelegatingListFacade<String>(delegate.getCharacterTypes());
-		this.sizes = new DelegatingListFacade<SizeAdjustmentFacade>(delegate.getSizes());
+		this.races = new DelegatingListFacade<>(delegate.getRaces());
+		this.classes = new DelegatingListFacade<>(delegate.getClasses());
+		this.deities = new DelegatingListFacade<>(delegate.getDeities());
+		this.skills = new DelegatingListFacade<>(delegate.getSkills());
+		this.templates = new DelegatingListFacade<>(delegate.getTemplates());
+		this.alignments = new DelegatingListFacade<>(delegate.getAlignments());
+		this.kits = new DelegatingListFacade<>(delegate.getKits());
+		this.stats = new DelegatingListFacade<>(delegate.getStats());
+		this.campaigns = new DelegatingListFacade<>(delegate.getCampaigns());
+		this.bodyStructures = new DelegatingListFacade<>(delegate.getEquipmentLocations());
+		this.equipment = new DelegatingListFacade<>(delegate.getEquipment());
+		this.xpTableNames = new DelegatingListFacade<>(delegate.getXPTableNames());
+		this.gearBuySellSchemes = new DelegatingListFacade<>(delegate.getGearBuySellSchemes());
+		this.characterTypes = new DelegatingListFacade<>(delegate.getCharacterTypes());
+		this.sizes = new DelegatingListFacade<>(delegate.getSizes());
 
 	}
 
@@ -143,7 +139,7 @@ public class DelegatingDataSet implements DataSetFacade
 		public DelegatingAbilitiesMap(MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilitiesDelegate)
 		{
 			this.abilitiesDelegate = abilitiesDelegate;
-			this.abilitiesMap = new HashMap<AbilityCategoryFacade, DelegatingListFacade<AbilityFacade>>();
+			this.abilitiesMap = new HashMap<>();
 			populateMap();
 			abilitiesDelegate.addMapListener(this);
 		}
@@ -173,7 +169,7 @@ public class DelegatingDataSet implements DataSetFacade
 		public void keyAdded(MapEvent<AbilityCategoryFacade, ListFacade<AbilityFacade>> e)
 		{
 			AbilityCategoryFacade key = e.getKey();
-			DelegatingListFacade<AbilityFacade> newValue = new DelegatingListFacade<AbilityFacade>(e.getNewValue());
+			DelegatingListFacade<AbilityFacade> newValue = new DelegatingListFacade<>(e.getNewValue());
 			abilitiesMap.put(key, newValue);
 			fireKeyAdded(this, key, newValue);
 		}
@@ -198,7 +194,7 @@ public class DelegatingDataSet implements DataSetFacade
 		{
 			AbilityCategoryFacade key = e.getKey();
 			DelegatingListFacade<AbilityFacade> oldValue = abilitiesMap.get(key);
-			DelegatingListFacade<AbilityFacade> newValue = new DelegatingListFacade<AbilityFacade>(e.getNewValue());
+			DelegatingListFacade<AbilityFacade> newValue = new DelegatingListFacade<>(e.getNewValue());
 			abilitiesMap.put(key, newValue);
 			fireValueChanged(this, key, oldValue, newValue);
 			oldValue.setDelegate(null);
@@ -214,7 +210,7 @@ public class DelegatingDataSet implements DataSetFacade
 		{
 			for (AbilityCategoryFacade key : abilitiesDelegate.getKeys())
 			{
-				DelegatingListFacade<AbilityFacade> value = new DelegatingListFacade<AbilityFacade>(abilitiesDelegate.getValue(key));
+				DelegatingListFacade<AbilityFacade> value = new DelegatingListFacade<>(abilitiesDelegate.getValue(key));
 				abilitiesMap.put(key, value);
 			}
 		}
@@ -222,7 +218,7 @@ public class DelegatingDataSet implements DataSetFacade
 		@Override
 		public void keysChanged(MapEvent<AbilityCategoryFacade, ListFacade<AbilityFacade>> e)
 		{
-			ArrayList<DelegatingListFacade<AbilityFacade>> deadLists = new ArrayList<DelegatingListFacade<AbilityFacade>>(abilitiesMap.values());
+			ArrayList<DelegatingListFacade<AbilityFacade>> deadLists = new ArrayList<>(abilitiesMap.values());
 			abilitiesMap.clear();
 			populateMap();
 			for (DelegatingListFacade<AbilityFacade> delegatingListFacade : deadLists)

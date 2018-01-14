@@ -29,7 +29,7 @@ public class SaveInfoIntegrationTest extends
 {
 
 	static SaveinfoToken token = new SaveinfoToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

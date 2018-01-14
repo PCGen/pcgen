@@ -70,9 +70,6 @@ public class UserFunction extends UserContent
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getLSTformat()
 	{
@@ -89,9 +86,6 @@ public class UserFunction extends UserContent
 		return function;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDisplayName()
 	{

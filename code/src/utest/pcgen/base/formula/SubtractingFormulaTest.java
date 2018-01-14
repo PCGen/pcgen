@@ -17,12 +17,14 @@
  */
 package pcgen.base.formula;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 
-public class SubtractingFormulaTest extends TestCase
+public class SubtractingFormulaTest
 {
 
+	@Test
 	public void testToString()
 	{
 		assertEquals("-1", new SubtractingFormula(1).toString());
@@ -31,22 +33,24 @@ public class SubtractingFormulaTest extends TestCase
 		assertEquals("-0", new SubtractingFormula(0).toString());
 	}
 	
+	@Test
 	public void testIdentity()
 	{
 		SubtractingFormula f = new SubtractingFormula(1);
-		assertEquals(-1, f.resolve(Integer.valueOf(0)).intValue());
-		assertEquals(1, f.resolve(Integer.valueOf(2)).intValue());
-		assertEquals(1, f.resolve(Double.valueOf(2.5)).intValue());
-		testBrokenCalls(f);
+		assertEquals(-1, f.resolve(0).intValue());
+		assertEquals(1, f.resolve(2).intValue());
+		assertEquals(1, f.resolve(2.5).intValue());
+		brokenCalls(f);
 	}
 
+	@Test
 	public void testEquality()
 	{
 		SubtractingFormula f1 = new SubtractingFormula(1);
 		SubtractingFormula f2 = new SubtractingFormula(1);
 		SubtractingFormula f3 = new SubtractingFormula(2);
 		SubtractingFormula f4 = new SubtractingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
 		assertFalse(f1.equals(null));
@@ -56,31 +60,34 @@ public class SubtractingFormulaTest extends TestCase
 		assertFalse(f1.equals(f4));
 	}
 
+	@Test
 	public void testPositive()
 	{
 		SubtractingFormula f = new SubtractingFormula(3);
-		assertEquals(2, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(2, f.resolve(Double.valueOf(5.5)).intValue());
-		testBrokenCalls(f);
+		assertEquals(2, f.resolve(5).intValue());
+		assertEquals(2, f.resolve(5.5).intValue());
+		brokenCalls(f);
 	}
 
+	@Test
 	public void testZero()
 	{
 		SubtractingFormula f = new SubtractingFormula(0);
-		assertEquals(5, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(2, f.resolve(Double.valueOf(2.3)).intValue());
-		testBrokenCalls(f);
+		assertEquals(5, f.resolve(5).intValue());
+		assertEquals(2, f.resolve(2.3).intValue());
+		brokenCalls(f);
 	}
 
+	@Test
 	public void testNegative()
 	{
 		SubtractingFormula f = new SubtractingFormula(-2);
-		assertEquals(7, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(-4, f.resolve(Double.valueOf(-6.7)).intValue());
-		testBrokenCalls(f);
+		assertEquals(7, f.resolve(5).intValue());
+		assertEquals(-4, f.resolve(-6.7).intValue());
+		brokenCalls(f);
 	}
 
-	private void testBrokenCalls(SubtractingFormula f)
+	private static void brokenCalls(SubtractingFormula f)
 	{
 		try
 		{
@@ -93,7 +100,7 @@ public class SubtractingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{});
+			f.resolve();
 			fail("empty array should be illegal");
 		}
 		catch (IllegalArgumentException e)
@@ -102,7 +109,7 @@ public class SubtractingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{Integer.valueOf(4), Double.valueOf(2.5)});
+			f.resolve(4, 2.5);
 			fail("two arguments in array should be illegal");
 		}
 		catch (IllegalArgumentException e)
@@ -111,7 +118,7 @@ public class SubtractingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(Integer.valueOf(4), Double.valueOf(2.5));
+			f.resolve(4, 2.5);
 			fail("two arguments should be illegal");
 		}
 		catch (IllegalArgumentException e)

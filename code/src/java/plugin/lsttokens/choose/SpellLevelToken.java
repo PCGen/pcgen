@@ -103,7 +103,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail("Found no arguments in "
 				+ getFullName() + ": " + value, context);
 		}
-		List<SpellLevelInfo> sliList = new ArrayList<SpellLevelInfo>();
+		List<SpellLevelInfo> sliList = new ArrayList<>();
 		while (sep.hasNext())
 		{
 			String token = sep.next();

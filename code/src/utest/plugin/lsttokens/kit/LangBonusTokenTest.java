@@ -30,7 +30,7 @@ public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 {
 
 	static LangBonusToken token = new LangBonusToken();
-	static CDOMSubLineLoader<KitLangBonus> loader = new CDOMSubLineLoader<KitLangBonus>(
+	static CDOMSubLineLoader<KitLangBonus> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitLangBonus.class);
 
 	@Override
@@ -82,7 +82,7 @@ public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}

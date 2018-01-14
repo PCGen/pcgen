@@ -1,5 +1,4 @@
 /*
- * StatTokenTest.java
  * Copyright 2005 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Apr 9, 2005
- *
- * $Id$
- *
  */
 package pcgen.io.exporttoken;
 
@@ -42,12 +36,6 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * <code>StatTokenTest</code> tests the functioning of the STAT token. 
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class StatTokenTest extends AbstractCharacterTestCase
@@ -59,14 +47,6 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	PCTemplate template2;
 	PCTemplate template3;
 	PCTemplate template4;
-
-	/**
-	 * 
-	 */
-	public StatTokenTest()
-	{
-		super();
-	}
 
 	/**
 	 * @param name

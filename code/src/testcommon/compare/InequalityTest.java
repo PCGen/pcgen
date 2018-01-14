@@ -18,7 +18,8 @@ package compare;
 
 import pcgen.base.test.InequalityTester;
 
-public interface InequalityTest<T>
+@FunctionalInterface
+interface InequalityTest<T>
 {
 	public String testInequality(T t1, T t2, InequalityTester t, String location);
 }

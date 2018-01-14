@@ -21,9 +21,13 @@ import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.util.Logging;
 
-public class AlignmentConverter
+public final class AlignmentConverter
 {
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
+
+	private AlignmentConverter()
+	{
+	}
 
 	public static PCAlignment getPCAlignment(String alignKey)
 	{

@@ -1,5 +1,4 @@
 /*
- * LookAndFeelPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/11/2010 19:50:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -42,8 +37,6 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -52,33 +45,28 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
- * The Class <code>LookAndFeelPanel</code> is responsible for 
+ * The Class {@code LookAndFeelPanel} is responsible for
  * displaying look and feel related preferences and allowing the 
  * preferences to be edited by the user.
- * 
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class LookAndFeelPanel extends PCGenPrefsPanel
 {
-	private static String in_lookAndFeel =
+	private static final String in_lookAndFeel =
 		LanguageBundle.getString("in_Prefs_lookAndFeel");
 
-	private static String in_skinnedLAF =
+	private static final String in_skinnedLAF =
 		LanguageBundle.getString("in_Prefs_skinnedLAF");
-	private static String in_choose = "...";
+	private static final String in_choose = "...";
 
-	private JRadioButton[] laf;
-	private JRadioButton skinnedLookFeel = new JRadioButton();
-	private JButton themepack;
-	private JTextField themepackLabel;
-	private Dialog parent;
-	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
+	private final JRadioButton[] laf;
+	private final JRadioButton skinnedLookFeel = new JRadioButton();
+	private final JButton themepack;
+	private final JTextField themepackLabel;
+	private final PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private String oldLAF;
 	private String oldThemePack;
 	/**
@@ -86,10 +74,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 	 */
 	public LookAndFeelPanel(Dialog parent)
 	{
-		this.parent = parent;
-		
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
+
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
@@ -98,9 +83,9 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
-		gridbag = new GridBagLayout();
+		GridBagLayout gridbag = new GridBagLayout();
 		this.setLayout(gridbag);
-		c = new GridBagConstraints();
+		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
@@ -113,14 +98,8 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		{
 			laf[i] = new JRadioButton(actions[i]);
 
-			if (laf[i].getText().charAt(0) != 'C')
-			{
-				laf[i].setMnemonic(laf[i].getText().charAt(0));
-			}
-			else
-			{
-				laf[i].setMnemonic(laf[i].getText().charAt(1));
-			}
+			int whichChar = (laf[i].getText().charAt(0) == 'C') ? 1 : 0;
+			laf[i].setMnemonic(laf[i].getText().charAt(whichChar));
 
 			Utility.buildConstraints(c, 0, i, 3, 1, 0, 0);
 			gridbag.setConstraints(laf[i], c);
@@ -231,7 +210,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -240,7 +219,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		return in_lookAndFeel;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -256,9 +235,6 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		LookAndFeelManager.setLookAndFeel(oldLAF);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean needsRestart()
 	{
@@ -269,7 +245,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		return needsRestart;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

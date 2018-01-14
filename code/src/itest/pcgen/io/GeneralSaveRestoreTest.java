@@ -34,16 +34,9 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 	public void testTemplateFeat()
 	{
 		//Represents CODE-2547
-		try
-		{
-			TokenRegistration.register(new plugin.lsttokens.deprecated.TemplateFeatToken());
-			TokenRegistration.register(new plugin.lsttokens.ability.StackToken());
-			TokenRegistration.register(new plugin.exporttokens.deprecated.TemplateToken());
-		}
-		catch (PersistenceLayerException e)
-		{
-			fail (e.getMessage());
-		}
+		TokenRegistration.register(new plugin.lsttokens.deprecated.TemplateFeatToken());
+		TokenRegistration.register(new plugin.lsttokens.ability.StackToken());
+		TokenRegistration.register(new plugin.exporttokens.deprecated.TemplateToken());
 		Language lang = context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		Ability a = context.getReferenceContext().constructCDOMObject(Ability.class, "Ab");
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);

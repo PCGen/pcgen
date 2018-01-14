@@ -34,7 +34,7 @@ public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 {
 
 	static AlignToken token = new AlignToken();
-	static CDOMSubLineLoader<KitAlignment> loader = new CDOMSubLineLoader<KitAlignment>(
+	static CDOMSubLineLoader<KitAlignment> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitAlignment.class);
 
 	@Override

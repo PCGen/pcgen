@@ -1,5 +1,4 @@
 /*
- * derived from PreAttack.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision: 18181 $
- * Last Editor: $Author: javydreamercsw $
- * Last Edited: $Date: 2012-11-06 14:50:30 -0500 (Tue, 06 Nov 2012) $
- *
  */
 package plugin.pretokens.test;
 
@@ -37,7 +29,7 @@ import pcgen.system.LanguageBundle;
 public class PreTotalABTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -75,7 +67,7 @@ public class PreTotalABTester extends AbstractPrerequisiteTest implements Prereq
 		return "TOTALAB"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override
@@ -83,7 +75,7 @@ public class PreTotalABTester extends AbstractPrerequisiteTest implements Prereq
 	{
 		return LanguageBundle
 			.getFormattedString(
-				"PreAttack.toHtml", new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand()}); //$NON-NLS-1$ //$NON-NLS-2$
+				"PreAttack.toHtml", prereq.getOperator().toDisplayString(), prereq.getOperand()); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 }

@@ -1,5 +1,4 @@
 /*
- * NewKeyToken.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,16 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 2013-06-01 10:15:00 AM
- *
- * $Id$
  */
 package plugin.lsttokens.gamemode.migrate;
 
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.system.MigrationRule;
@@ -33,23 +28,18 @@ import pcgen.persistence.lst.MigrationLstToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>NewKeyToken</code> parses the NEWKEY token in migration.lst 
+ * The Class {@code NewKeyToken} parses the NEWKEY token in migration.lst
  * game mode files. The NEWKEY token defines the key that should be used instead 
  * of an old key when loading an older character.  
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class NewKeyToken implements MigrationLstToken
 {
 	private Pattern invalidKeyPattern = Pattern.compile(".*[,|\\||\\\\|:|;|\\.|%|\\*|=|\\[|\\]].*");
 	private Pattern invalidSourceKeyPattern = Pattern.compile(".*[\\||\\\\|;|%|\\*|=|\\[|\\]].*");
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
 	@Override

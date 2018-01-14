@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Cities of Golarion	SOURCESHORT:CoG	SOURCEWEB:http://paizo.com/products/btpy8b9l?Pathfinder-Chronicles-Cities-of-Golarion	SOURCEDATE:2009-11
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 29 April 2017
+
+# ==============================
+# New Spell
+# ==============================
+
+Irrisen Mirror Sight		NAMEISPI:YES	CLASSES:Sorcerer,Wizard=3		SCHOOL:Divination			SUBSCHOOL:Scrying			TYPE:Arcane			COMPS:V,S,F		CASTTIME:10 minutes		RANGE:See text	TARGETAREA:Magical sensor		DURATION:(CASTERLEVEL) minutes	SAVEINFO:None			SPELLRES:No		SOURCEPAGE:p.63		DESC:This spell lets you look into a mirror near you and see an image that is reflected in another specific mirror (chosen by you) or an individual reflected in any other mirror. This works like a scrying spell, except you can only view creatures on the same plane as you. Each time you cast the spell, you can choose to see one of three types of reflections in your mirror. Known Mirror: The current reflection in another mirror with which you are familiar. Known Person: The current reflection of a person you know well, assuming that person is near a mirror. Known Place: The current reflection of a place you know well, assuming the location is being reflected in a mirror. You receive only visual information through this ability. You can choose to transmit information both ways so that a person reflected in the remote mirror can view whatever appears in the mirror you are using. This spell works with intentionally fabricated mirrors only; it is not effective with other reflective surfaces, such as still pools or polished metal shields. Effects that block scrying block this spell.

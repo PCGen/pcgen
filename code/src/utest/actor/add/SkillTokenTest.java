@@ -17,24 +17,17 @@
  */
 package actor.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Skill;
-import plugin.lsttokens.add.SkillToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import plugin.lsttokens.add.SkillToken;
 
 public class SkillTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Skill>
 {
 
-	static SkillToken pca = new SkillToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final Persistent<Skill> pca = new SkillToken();
 
 	@Override
 	public Persistent<Skill> getActor()

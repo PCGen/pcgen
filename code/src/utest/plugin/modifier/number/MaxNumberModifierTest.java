@@ -17,178 +17,177 @@
  */
 package plugin.modifier.number;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import pcgen.rules.persistence.token.ModifierFactory;
+
+import junit.framework.TestCase;
+import org.junit.Test;
+import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class MaxNumberModifierTest extends TestCase
 {
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
-	FormatManager<Number> numManager = new NumberManager();
+	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
 	public void testInvalidConstruction()
 	{
 		try
 		{
-			MaxModifierFactory m = new MaxModifierFactory();
-			m.getModifier(100, null, null, null, null);
+			ModifierFactory m = new MaxModifierFactory();
+			m.getModifier(100, null, null, null, null, null);
 			fail("Expected MaxModifier with null compare value to fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep!
-		}
-		catch (NullPointerException e)
-		{
-			//Yep! okay too!
 		}
 	}
 
 	@Test
 	public void testProcessNegative1()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(-2), modifier.process(-2, -3));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(-2, modifier.process(-2, -3));
 	}
 
 	@Test
 	public void testProcessNegative2()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(-2), modifier.process(-4, -2));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(-2, modifier.process(-4, -2));
 	}
 
 	@Test
 	public void testProcessPositive1()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(3), modifier.process(2, 3));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(3, modifier.process(2, 3));
 	}
 
 	@Test
 	public void testProcessPositive2()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(4), modifier.process(4, 3));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(4, modifier.process(4, 3));
 	}
 
 	@Test
 	public void testProcessZero1()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(3), modifier.process(0, 3));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(3, modifier.process(0, 3));
 	}
 
 	@Test
 	public void testProcessZero2()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(4), modifier.process(4, 0));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(4, modifier.process(4, 0));
 	}
 
 	@Test
 	public void testProcessZero3()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(0, -3));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(0, modifier.process(0, -3));
 	}
 
 	@Test
 	public void testProcessZero4()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(-4,0));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(0, modifier.process(-4,0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(5), modifier.process(5,-7));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(5, modifier.process(5,-7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Integer.valueOf(3), modifier.process(-4,3));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(3, modifier.process(-4,3));
 	}
 
 	@Test
 	public void testProcessDoubleNegative1()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(-2.3), modifier.process(-2.3, -3.4));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(-2.3, modifier.process(-2.3, -3.4));
 	}
 
 	@Test
 	public void testProcessDoubleNegative2()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(-2.4), modifier.process(-4.3, -2.4));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(-2.4, modifier.process(-4.3, -2.4));
 	}
 
 	@Test
 	public void testProcessDoublePositive1()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(3.5), modifier.process(2.6, 3.5));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(3.5, modifier.process(2.6, 3.5));
 	}
 
 	@Test
 	public void testProcessDoublePositive2()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(4.4), modifier.process(4.4, 3.1));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(4.4, modifier.process(4.4, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero1()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(3.1), modifier.process(0.0, 3.1));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(3.1, modifier.process(0.0, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero2()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(4.2), modifier.process(4.2, 0.0));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(4.2, modifier.process(4.2, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleZero3()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(0.0), modifier.process(0.0, -3.4));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(0.0, modifier.process(0.0, -3.4));
 	}
 
 	@Test
 	public void testProcessDoubleZero4()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(0), modifier.process(-4.3,0.0));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(0.0d, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(5.3), modifier.process(5.3,-7.2));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(5.3, modifier.process(5.3,-7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
-		MaxModifierFactory modifier = new MaxModifierFactory();
-		assertEquals(Double.valueOf(3.1), modifier.process(-4.2,3.1));
+		BasicCalculation modifier = new MaxModifierFactory();
+		assertEquals(3.1, modifier.process(-4.2,3.1));
 	}
 
 	@Test
@@ -196,12 +195,11 @@ public class MaxNumberModifierTest extends TestCase
 	{
 		MaxModifierFactory factory = new MaxModifierFactory();
 		Modifier<Number> modifier =
-				factory.getModifier(35, "6.5", null, varScope, numManager);
-		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
-		assertEquals(35, modifier.getUserPriority());
-		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(6.5, modifier.process(4.3, null, null));
-		assertEquals(9.3, modifier.process(9.3, null, null));
+				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
+		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
+		assertSame(Number.class, modifier.getVariableFormat());
+		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
+		assertEquals(9.3, modifier.process(EvalManagerUtilities.getInputEM(9.3)));
 	}
 
 }

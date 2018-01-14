@@ -107,7 +107,7 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return pr;
 		}
 
-		List<CDOMReference<PCTemplate>> refs = new ArrayList<CDOMReference<PCTemplate>>();
+		List<CDOMReference<PCTemplate>> refs = new ArrayList<>();
 		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
 		while (tok.hasMoreTokens())
 		{
@@ -115,10 +115,10 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 					.nextToken()));
 		}
 
-		ReferenceChoiceSet<PCTemplate> rcs = new ReferenceChoiceSet<PCTemplate>(
+		ReferenceChoiceSet<PCTemplate> rcs = new ReferenceChoiceSet<>(
 				refs);
-		ChoiceSet<PCTemplate> cs = new ChoiceSet<PCTemplate>("TEMPLATE", rcs);
-		PersistentTransitionChoice<PCTemplate> tc = new ConcretePersistentTransitionChoice<PCTemplate>(
+		ChoiceSet<PCTemplate> cs = new ChoiceSet<>("TEMPLATE", rcs);
+		PersistentTransitionChoice<PCTemplate> tc = new ConcretePersistentTransitionChoice<>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
@@ -137,7 +137,7 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 			// Zero indicates no Token
 			return null;
 		}
-		List<String> addStrings = new ArrayList<String>();
+		List<String> addStrings = new ArrayList<>();
 		for (TransitionChoice<?> container : addedItems)
 		{
 			SelectableSet<?> cs = container.getChoices();

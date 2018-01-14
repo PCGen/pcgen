@@ -1,5 +1,4 @@
 /*
- * AbilityToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 3, 2006
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.basekit;
@@ -97,10 +90,10 @@ public class LookupToken extends AbstractToken implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (NamedFormula nf : lookups)
 		{
-			list.add(nf.getName() + "," + nf.getFormula().toString());
+			list.add(nf.getName() + ',' + nf.getFormula().toString());
 		}
 		return list.toArray(new String[list.size()]);
 	}

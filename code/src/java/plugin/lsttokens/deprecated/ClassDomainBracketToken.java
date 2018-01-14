@@ -100,7 +100,7 @@ public class ClassDomainBracketToken extends AbstractTokenWithSeparator<PCClass>
 				domainKey = tok.substring(0, openBracketLoc);
 				String prereqString = tok.substring(openBracketLoc + 1, tok
 						.length() - 1);
-				if (prereqString.length() == 0)
+				if (prereqString.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " cannot have empty prerequisite : " + value, context);
@@ -115,7 +115,7 @@ public class ClassDomainBracketToken extends AbstractTokenWithSeparator<PCClass>
 			CDOMSingleRef<Domain> domain = context.getReferenceContext().getCDOMReference(
 					DOMAIN_CLASS, domainKey);
 
-			QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<CDOMSingleRef<Domain>>(
+			QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<>(
 					domain);
 			if (prereq != null)
 			{

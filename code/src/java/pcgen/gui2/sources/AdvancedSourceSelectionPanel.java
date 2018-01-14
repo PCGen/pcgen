@@ -1,5 +1,4 @@
 /*
- * AdvancedSourceSelectionPanel.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 21, 2009, 7:15:03 PM
  */
 package pcgen.gui2.sources;
 
@@ -46,7 +44,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.GameModeDisplayFacade;
@@ -81,10 +79,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 class AdvancedSourceSelectionPanel extends JPanel
 		implements ListSelectionListener, ListListener<CampaignFacade>, ActionListener
 {
@@ -96,24 +91,24 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 	private final FilteredTreeViewTable<Object, CampaignFacade> availableTable;
 	private final FilteredTreeViewTable<Object, CampaignFacade> selectedTable;
-	private SourceTreeViewModel availTreeViewModel;
-	private SourceTreeViewModel selTreeViewModel;
-	private InfoPane infoPane;
+	private final SourceTreeViewModel availTreeViewModel;
+	private final SourceTreeViewModel selTreeViewModel;
+	private final InfoPane infoPane;
 	private GameModeFacade gameMode;
-	private JComboBox gameModeList;
-	private InfoPaneLinkAction linkAction;
+	private final JComboBox gameModeList;
+	private final InfoPaneLinkAction linkAction;
 	private final JButton unloadAllButton;
 	private final JButton addButton;
 	private final JButton removeButton;
-	private DefaultListFacade<CampaignFacade> selectedCampaigns;
+	private final DefaultListFacade<CampaignFacade> selectedCampaigns;
 	private final PCGenFrame frame;
 	
 	public AdvancedSourceSelectionPanel(PCGenFrame frame)
 	{
 		this.frame = frame;
-		this.availableTable = new FilteredTreeViewTable<Object, CampaignFacade>();
-		this.selectedTable = new FilteredTreeViewTable<Object, CampaignFacade>();
-		this.selectedCampaigns = new DefaultListFacade<CampaignFacade>();
+		this.availableTable = new FilteredTreeViewTable<>();
+		this.selectedTable = new FilteredTreeViewTable<>();
+		this.selectedCampaigns = new DefaultListFacade<>();
 		this.availTreeViewModel = new SourceTreeViewModel();
 		this.selTreeViewModel = new SourceTreeViewModel(selectedCampaigns);
 		this.gameModeList = new JComboBox();
@@ -136,13 +131,13 @@ class AdvancedSourceSelectionPanel extends JPanel
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(new JLabel(LanguageBundle.getString("in_src_gameLabel")), BorderLayout.WEST); //$NON-NLS-1$
 
-		FacadeComboBoxModel<GameModeDisplayFacade> gameModes = new FacadeComboBoxModel<GameModeDisplayFacade>();
+		FacadeComboBoxModel<GameModeDisplayFacade> gameModes = new FacadeComboBoxModel<>();
 		gameModes.setListFacade(FacadeFactory.getGameModeDisplays());
 		gameModeList.setModel(gameModes);
 		gameModeList.addActionListener(this); 
 		panel.add(gameModeList, BorderLayout.CENTER);
 		
-		FilterBar<Object, CampaignFacade> bar = new FilterBar<Object, CampaignFacade>(false);
+		FilterBar<Object, CampaignFacade> bar = new FilterBar<>(false);
 		bar.add(panel, BorderLayout.WEST);
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		panel = new JPanel(new BorderLayout());
@@ -176,7 +171,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		topPane.setLeftComponent(panel);
 		
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, CampaignFacade> filterBar = new FilterBar<Object, CampaignFacade>();
+		FilterBar<Object, CampaignFacade> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		selectedTable.setDisplayableFilter(filterBar);
 
@@ -300,8 +295,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 				gameModeList.setSelectedItem(gmdf);
 			}
 		}
-		List<CampaignFacade> wrap = new ArrayList<CampaignFacade>(ListFacades.wrap(sources.getCampaigns()));
-		Collections.sort(wrap, Comparators.toStringIgnoreCaseCollator());
+		List<CampaignFacade> wrap = new ArrayList<>(ListFacades.wrap(sources.getCampaigns()));
+		wrap.sort(Comparators.toStringIgnoreCaseCollator());
 		selectedCampaigns.setContents(wrap);
 	}
 	
@@ -358,9 +353,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		selectedTable.refreshModelData();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -368,9 +360,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		setSelectedGameMode((GameModeDisplayFacade) gameModeList.getSelectedItem());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementAdded(ListEvent<CampaignFacade> e)
 	{
@@ -378,9 +367,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		availableTable.updateDisplay();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementRemoved(ListEvent<CampaignFacade> e)
 	{
@@ -388,9 +374,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		availableTable.updateDisplay();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementsChanged(ListEvent<CampaignFacade> e)
 	{
@@ -510,16 +493,16 @@ class AdvancedSourceSelectionPanel extends JPanel
 			implements TreeViewModel<CampaignFacade>, DataView<CampaignFacade>, ListListener<CampaignFacade>
 	{
 		
-		private ListFacade<TreeView<CampaignFacade>> views =
-				new DefaultListFacade<TreeView<CampaignFacade>>(Arrays.asList(SourceTreeView.values()));
-		private DefaultListFacade<CampaignFacade> model;
+		private final ListFacade<TreeView<CampaignFacade>> views =
+                new DefaultListFacade<>(Arrays.asList(SourceTreeView.values()));
+		private final DefaultListFacade<CampaignFacade> model;
 		private ListFacade<CampaignFacade> baseModel = null;
 		private final List<DefaultDataViewColumn> columns;
 		private final boolean isAvailModel;
 		
 		public SourceTreeViewModel()
 		{
-			this.model = new DefaultListFacade<CampaignFacade>();
+			this.model = new DefaultListFacade<>();
 			this.isAvailModel = true;
 			columns =
 					Arrays.asList(new DefaultDataViewColumn("in_src_bookType", String.class, true), 
@@ -628,9 +611,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		{
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -646,7 +626,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		PUBLISHER_NAME("in_src_pubName"), //$NON-NLS-1$
 		PUBLISHER_SETTING_NAME("in_src_pubSetName"), //$NON-NLS-1$
 		PUBLISHER_FORMAT_SETTING_NAME("in_src_pubFmtSetName"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private SourceTreeView(String name)
 		{
@@ -673,31 +653,31 @@ class AdvancedSourceSelectionPanel extends JPanel
 			{
 				case NAME:
 					return Collections
-						.singletonList(new TreeViewPath<CampaignFacade>(pobj));
+						.singletonList(new TreeViewPath<>(pobj));
 				case PUBLISHER_FORMAT_SETTING_NAME:
 					if (format != null && setting != null)
 					{
 						return Collections
 							.singletonList(new TreeViewPath<CampaignFacade>(
-								pobj, publisher, format, setting));
+                                    pobj, publisher, format, setting));
 					}
 					if (format != null)
 					{
 						return Collections
 							.singletonList(new TreeViewPath<CampaignFacade>(
-								pobj, publisher, format));
+                                    pobj, publisher, format));
 					}
 				case PUBLISHER_SETTING_NAME:
 					if (setting != null)
 					{
 						return Collections
 							.singletonList(new TreeViewPath<CampaignFacade>(
-								pobj, publisher, setting));
+                                    pobj, publisher, setting));
 					}
 				case PUBLISHER_NAME:
 					return Collections
-						.singletonList(new TreeViewPath<CampaignFacade>(pobj,
-							publisher));
+						.singletonList(new TreeViewPath<>(pobj,
+                                publisher));
 				default:
 					throw new InternalError();
 			}
@@ -706,7 +686,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	}
 
 	/**
-	 * The Class <code>CampaignRenderer</code> displays the tree cells of the
+	 * The Class {@code CampaignRenderer} displays the tree cells of the
 	 * source table.  
 	 */
 	private class CampaignRenderer extends TreeColumnCellRenderer

@@ -35,7 +35,7 @@ public class AllowBaseClassIntegrationTest extends
 {
 
 	static AllowBaseClassToken token = new AllowBaseClassToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

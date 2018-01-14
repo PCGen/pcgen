@@ -15,25 +15,20 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  InitHolderVector.java
- *
- *  Created on January 16, 2002, 1:08 PM
  */
 package gmgen.plugin;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
 import pcgen.core.SettingsHandler;
 import plugin.initiative.InitiativePlugin;
 
+import gmgen.plugin.dice.Dice;
+import gmgen.plugin.dice.Die;
+
 /**
- * @author devon
- * @since March 20, 2003
- * @version $Revision$
  */
 public class InitHolderList extends ArrayList<InitHolder> {
 
@@ -43,17 +38,9 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 * @return the highest initiative in the list (minimum 20)
 	 */
 	public int getMaxInit() {
-		int maxInit = 20;
-
-		for (InitHolder c : this) {
-			int cInit = c.getInitiative().getCurrentInitiative();
-
-			if (cInit > maxInit) {
-				maxInit = cInit;
-			}
-		}
-
-		return maxInit;
+		return this.stream()
+			.mapToInt(holder -> holder.getInitiative().getCurrentInitiative())
+			.max().orElse(20);
 	}
 
 	/**
@@ -96,11 +83,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 * @return if the string is unique or not
 	 */
 	public boolean isUniqueName(String name) {
-		for (InitHolder c : this) {
-			if (c.getName().equals(name)) { return false; }
-		}
-
-		return true;
+		return this.stream().noneMatch(c -> c.getName().equals(name));
 	}
 
 	/**
@@ -138,7 +121,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 
 	/** Rolls an initiative check for the whole list */
 	public void check() {
-		Dice d20 = new Dice(1, 20);
+		Die d20 = new Dice(1, 20);
 		boolean pcroll = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".rollPCInitiatives", true);
 
 		for (InitHolder c : this) {
@@ -172,19 +155,15 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 * @return if it is active
 	 */
 	public boolean initValid(int init) {
-		for (InitHolder c : this) {
-			if (c.getStatus() != State.Dead) {
-				int cInit = c.getInitiative().getCurrentInitiative();
 
-				if (cInit == init) { return true; }
-			}
-		}
-
-		return false;
+		return this.stream()
+				   .filter(c -> c.getStatus() != State.Dead)
+				   .mapToInt(c -> c.getInitiative().getCurrentInitiative())
+				   .anyMatch(cInit -> cInit == init);
 	}
 
 	/** sorts the list based on initiative */
 	public void sort() {
-		Collections.sort(this, new InitHolderComperator());
+		this.sort(new InitHolderComperator());
 	}
 }

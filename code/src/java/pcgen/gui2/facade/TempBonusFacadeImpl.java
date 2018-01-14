@@ -1,5 +1,4 @@
 /*
- * TempBonusFacadeImpl.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,17 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 08/06/2012 10:34:56 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
 import java.text.Collator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
@@ -47,15 +42,10 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.SortKeyAware;
 
 /**
- * The Class <code>TempBonusFacadeImpl</code> a proxy for a TempBonus used for 
+ * The Class {@code TempBonusFacadeImpl} a proxy for a TempBonus used for
  * displaying the temporary bonus on the UI. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class TempBonusFacadeImpl implements TempBonusFacade,
@@ -102,9 +92,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		active = newActive;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSource()
 	{
@@ -112,9 +99,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 			Globals.getSourceDisplay(), true);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSourceForNodeDisplay()
 	{
@@ -122,27 +106,18 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 			SourceFormat.LONG, false);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getKeyName()
 	{
 		return getOriginObj().getKeyName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isNamePI()
 	{
     	return getOriginObj().getSafe(ObjectKey.NAME_PI);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getOriginType()
 	{
@@ -173,9 +148,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return LanguageBundle.getString("in_itmRemBonButUnkownBonusType"); //$NON-NLS-1$
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isActive()
 	{
@@ -190,9 +162,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return target;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int compareTo(TempBonusFacadeImpl o)
 	{
@@ -217,9 +186,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 			o.getOriginObj().getDisplayName());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
@@ -238,9 +204,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return originObj;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -253,9 +216,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -297,9 +257,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getType()
 	{
@@ -307,9 +264,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return StringUtil.join(types, ".");
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSortKey()
 	{

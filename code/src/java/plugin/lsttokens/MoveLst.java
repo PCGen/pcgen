@@ -33,10 +33,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
+
 public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
@@ -136,7 +133,7 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			// Zero indicates no Token
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (Movement m : added)
 		{
 			if (m.getMoveRatesFlag() == 0)

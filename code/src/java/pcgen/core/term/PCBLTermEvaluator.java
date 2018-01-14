@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCBLTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Aug-2008 23:31:20
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -43,8 +37,8 @@ public class PCBLTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc) {
 
-		if (source.length() == 0) {
-			return 0f;
+		if (source.isEmpty()) {
+			return 0.0f;
 		}
 
 		return (float) pc.getTotalBonusTo("PCLEVEL", source);

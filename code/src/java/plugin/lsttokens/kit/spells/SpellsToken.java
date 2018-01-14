@@ -1,5 +1,4 @@
 /*
- * SpellsToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.spells;
@@ -91,7 +84,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 							+ value, context);
 				}
 				String spellBook = field.substring(10);
-				if (spellBook.length() == 0)
+				if (spellBook.isEmpty())
 				{
 					return new ParseResult.Fail("Cannot set SPELLBOOK "
 							+ "to empty value in SPELLS: " + value, context);
@@ -106,7 +99,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 							+ value, context);
 				}
 				String className = field.substring(6);
-				if (className.length() == 0)
+				if (className.isEmpty())
 				{
 					return new ParseResult.Fail("Cannot set CLASS "
 							+ "to empty value in SPELLS: " + value, context);
@@ -140,7 +133,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 					}
 					field = field.substring(0, equalLoc);
 				}
-				if (field.length() == 0)
+				if (field.isEmpty())
 				{
 					return new ParseResult.Fail("Expected an Spell in SPELLS"
 							+ " but found: " + value, context);
@@ -161,7 +154,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 
 				KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, null);
 
-				ArrayList<CDOMSingleRef<Ability>> featList = new ArrayList<CDOMSingleRef<Ability>>();
+				ArrayList<CDOMSingleRef<Ability>> featList = new ArrayList<>();
 				while (subTok.hasMoreTokens())
 				{
 					String featName = subTok.nextToken();

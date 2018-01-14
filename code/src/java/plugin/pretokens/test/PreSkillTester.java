@@ -1,5 +1,4 @@
 /*
- * PreSkill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,11 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 28, 2003
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */package plugin.pretokens.test;
 
@@ -43,15 +38,12 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
-/**
- * @author wardc
- *
- */
+
 public class PreSkillTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -64,7 +56,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		String requiredSkillKey = prereq.getKey().toUpperCase();
 		if (prereq.getSubKey() != null)
 		{
-			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ')'; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		final boolean isType =
@@ -78,8 +70,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		// Now locate all instances of this skillname and test them
 		final int percentageSignPosition = skillKey.lastIndexOf('%');
 		
-		HashMap<Skill,Set<Skill>> serveAsSkills = new HashMap<Skill, Set<Skill>>();
-		Set<Skill> imitators = new HashSet<Skill>();
+		HashMap<Skill,Set<Skill>> serveAsSkills = new HashMap<>();
+		Set<Skill> imitators = new HashSet<>();
 		this.getImitators(serveAsSkills, imitators, display);
 		
 		int runningTotal = 0;
@@ -222,16 +214,16 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
 		CharacterDisplay display)
 	{
-		Set<Skill> skillSet = new HashSet<Skill>(display.getSkillSet());
+		Set<Skill> skillSet = new HashSet<>(display.getSkillSet());
 		for (Skill aSkill : skillSet)
 		{
-			Set<Skill> servesAs = new HashSet<Skill>();
+			Set<Skill> servesAs = new HashSet<>();
 			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
 			{
 				servesAs.addAll(ref.getContainedObjects());
 			}
 			
-			if(servesAs.size() > 0)
+			if(!servesAs.isEmpty())
 			{
 				imitators.add(aSkill);
 				serveAsSkills.put(aSkill, servesAs);
@@ -249,7 +241,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		return "SKILL"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override
@@ -258,14 +250,14 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		String skillName = prereq.getKey();
 		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
-			skillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$ //$NON-NLS-2$
 
 		}
 
 		final String foo =
 				LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
-					new Object[]{prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), skillName});
+						prereq.getOperator().toDisplayString(),
+						prereq.getOperand(), skillName);
 		return foo;
 	}
 	/**

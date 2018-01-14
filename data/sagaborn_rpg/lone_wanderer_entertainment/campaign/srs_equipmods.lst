@@ -1,0 +1,24 @@
+
+STEEL	KEY:STEEL	TYPE:Weapon.BaseMaterial.Goods.Any
+WOOD	KEY:WOODEN	TYPE:Weapon.BaseMaterial.Any
+IRON	KEY:IRON	TYPE:Weapon.BaseMaterial.Any
+
+
+
+Masterwork		KEY:Masterwork	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon.Ammunition.Armor.Shield.Tools.Amulet.Ring.Staff.Wand
+	COST:0
+	VISIBLE:QUALIFY	ITYPE:Masterwork	
+	PRETYPE:1,Weapon,Ammunition,Armor,Shield,Tools,Amulet,Ring,Staff,Wand	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood		ASSIGNTOALL:YES
+	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement
+	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement
+	BONUS:ITEMCOST|TYPE.WEAPON|300					
+	BONUS:ITEMCOST|TYPE.AMMUNITION|6					
+	BONUS:ITEMCOST|TYPE.ARMOR|150
+	BONUS:ITEMCOST|TYPE.SHIELD|150
+	BONUS:ITEMCOST|TYPE.THIEF|70
+	BONUS:ITEMCOST|TYPE.INSTRUMENT|95
+	BONUS:ITEMCOST|TYPE.Tools|50
+
+Melee Weapon	KEY:Melee Weapon		BONUS:WEAPON|ATTACKS|MeleeWeaponAttacks
+Ranged Weapon	KEY:Ranged Weapon		BONUS:WEAPON|ATTACKS|RangedWeaponAttacks
+Weapon Dexterity	KEY:Weapon Dexterity	BONUS:WEAPON|TOHIT|WeaponDexterityToHit

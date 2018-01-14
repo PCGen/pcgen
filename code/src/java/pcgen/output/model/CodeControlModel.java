@@ -7,11 +7,20 @@ import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
+/**
+ * A CodeControlModel is a TemplateHashModel that wraps a CodeControl setting.
+ */
 public class CodeControlModel implements TemplateHashModel
 {
 
 	private final CodeControl control;
 
+	/**
+	 * Constructs a new CodeControlModel with the given underlying CodeControl.
+	 * 
+	 * @param controller
+	 *            The CodeControl underlying this CodeControlModel
+	 */
 	public CodeControlModel(CodeControl controller)
 	{
 		control = controller;

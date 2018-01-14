@@ -36,10 +36,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
- * MonsterClassFacet is a Facet that tracks the Classes & Levels that a Player
+ * {@code MonsterClassFacet} is a Facet that tracks the {@literal Classes & Levels} that a Player
  * Character was granted through MONSTERCLASS
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
@@ -101,7 +100,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		final List<PCLevelInfo> existingLevelInfo =
-				new ArrayList<PCLevelInfo>(levelInfoFacet.getSet(id));
+                new ArrayList<>(levelInfoFacet.getSet(id));
 		levelInfoFacet.removeAll(id);
 		// Make sure monster classes are added first
 		if (!pc.isImporting())

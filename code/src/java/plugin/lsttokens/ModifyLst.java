@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.text.ParsingSeparator;
@@ -123,9 +123,10 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 		LegalScope scope = scopeInst.getLegalScope();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " found invalid var name: " + varName + " Modified on "
-				+ obj.getClass().getSimpleName() + " " + obj.getKeyName(),
+			return new ParseResult.Fail(
+				getTokenName() + " found invalid var name: " + varName
+					+ "(scope: " + scope.getName() + ") Modified on "
+					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(),
 				context);
 		}
 		FormatManager<?> format =
@@ -140,7 +141,7 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 	{
 		ScopeInstance scopeInst = context.getActiveScope();
 		LegalScope scope = scopeInst.getLegalScope();
-		Modifier<T> modifier;
+		PCGenModifier<T> modifier;
 		try
 		{
 			modifier =
@@ -153,7 +154,7 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 				+ modIdentification + " had value " + modInstructions
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
-		VarModifier<T> vm = new VarModifier<T>(varName, scope, modifier);
+		VarModifier<T> vm = new VarModifier<>(varName, scope, modifier);
 		context.getObjectContext().addToList(obj, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
 	}
@@ -175,14 +176,14 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 			return null;
 		}
 		Collection<VarModifier<?>> added = changes.getAdded();
-		List<String> modifiers = new ArrayList<String>();
-		if (added != null && added.size() > 0)
+		List<String> modifiers = new ArrayList<>();
+		if (added != null && !added.isEmpty())
 		{
 			for (VarModifier<?> vm : added)
 			{
 				String modText = unparseModifier(vm);
 				StringBuilder sb = new StringBuilder();
-				sb.append(vm.varName);
+				sb.append(vm.getVarName());
 				sb.append(Constants.PIPE);
 				sb.append(modText);
 				modifiers.add(sb.toString());
@@ -198,7 +199,7 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 
 	private String unparseModifier(VarModifier<?> vm)
 	{
-		Modifier<?> modifier = vm.modifier;
+		PCGenModifier<?> modifier = vm.getModifier();
 		String type = modifier.getIdentification();
 		int userPriority = modifier.getUserPriority();
 		StringBuilder sb = new StringBuilder();

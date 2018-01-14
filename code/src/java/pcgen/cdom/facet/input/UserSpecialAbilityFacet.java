@@ -36,7 +36,6 @@ import pcgen.core.SpecialAbility;
  * capability in the new UI (and transition any Player Characters that have a
  * user SpecialAbility.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UserSpecialAbilityFacet extends
 		AbstractQualifiedListFacet<SpecialAbility>
@@ -79,7 +78,7 @@ public class UserSpecialAbilityFacet extends
 	 */
 	public List<SpecialAbility> getResolved(CharID id, Object source)
 	{
-		List<SpecialAbility> returnList = new ArrayList<SpecialAbility>();
+		List<SpecialAbility> returnList = new ArrayList<>();
 		SAProcessor proc = new SAProcessor(trackingFacet.getPC(id));
 		for (SpecialAbility sa : getQualifiedSet(id, source))
 		{

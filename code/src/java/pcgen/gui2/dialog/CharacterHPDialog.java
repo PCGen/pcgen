@@ -1,5 +1,4 @@
 /*
- * CharacterHPDialog.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 30, 2010, 10:18:59 PM
  */
 package pcgen.gui2.dialog;
 
@@ -43,7 +41,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-import org.apache.commons.lang.math.NumberUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 import pcgen.core.RollingMethods;
 import pcgen.facade.core.CharacterFacade;
@@ -58,11 +56,8 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.table.IntegerEditor;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
-public class CharacterHPDialog extends JDialog implements ActionListener
+
+public final class CharacterHPDialog extends JDialog implements ActionListener
 {
 
 	private final CharacterFacade character;
@@ -85,7 +80,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 	{
 		Frame frame = JOptionPane.getFrameForComponent(parent);
 		CharacterHPDialog dialog = new CharacterHPDialog(frame, character);
-		Utility.setDialogRelativeLocation(frame, dialog);
+		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
 
@@ -303,7 +298,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 	private class Renderer implements TableCellRenderer
 	{
 
-		private JButton button = new JButton();
+		private final JButton button = new JButton();
 
 		public Renderer()
 		{
@@ -322,7 +317,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
 	{
 
-		private JButton button = new JButton();
+		private final JButton button = new JButton();
 		private int editingRow;
 
 		public Editor()

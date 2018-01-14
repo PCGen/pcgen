@@ -40,9 +40,7 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-/**
- * @author djones4
- */
+
 public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		DeferredToken<CDOMObject>
 {
@@ -109,7 +107,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		// CONSIDER need to deal with removed...
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<String>();
+		Set<String> bonusSet = new TreeSet<>();
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))
@@ -155,7 +153,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 							dummyCtx.setSourceURI(obj.getSourceURI());
 							Logging.errorPrint(
 								"BONUS: " + bonus + " in "
-									+ obj.getClass().getSimpleName() + " "
+									+ obj.getClass().getSimpleName() + ' '
 									+ obj.getKeyName()
 									+ " contained an invalid AbilityCategory "
 									+ o.toString(), dummyCtx);

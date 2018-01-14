@@ -1,5 +1,4 @@
 /*
- * EquipSetLoopDirective.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27/12/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 
@@ -44,8 +41,6 @@ import freemarker.template.TemplateModelException;
  * 
  * <p>Nested content is output once for each loop</p>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class EquipSetLoopDirective implements TemplateDirectiveModel
 {
@@ -57,7 +52,6 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 	 */
 	public EquipSetLoopDirective(PlayerCharacter pc)
 	{
-		super();
 		this.pc = pc;
 	}
 
@@ -72,7 +66,7 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 				"This directive must have content.");
 		}
 		
-		List<EquipSet> eqSetList = new ArrayList<EquipSet>();
+		List<EquipSet> eqSetList = new ArrayList<>();
 		EquipSet currSet = null;
 		String currIdPath = pc.getCalcEquipSetId();
 		for (EquipSet es : pc.getDisplay().getEquipSet())
@@ -90,6 +84,7 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 		for (EquipSet equipSet : eqSetList)
 		{
 			pc.setCalcEquipSetId(equipSet.getIdPath());
+			pc.setCalcEquipmentList(equipSet.getUseTempMods());
 
 			// Executes the nested body (same as <#nested> in FTL). In this
 			// case we don't provide a special writer as the parameter:
@@ -99,6 +94,7 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 		if (currSet != null)
 		{
 			pc.setCalcEquipSetId(currSet.getIdPath());
+			pc.setCalcEquipmentList(currSet.getUseTempMods());
 		}
 	}
 

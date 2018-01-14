@@ -21,7 +21,7 @@ import pcgen.base.lang.NumberUtilities;
 import pcgen.rules.persistence.token.AbstractNumberModifierFactory;
 
 /**
- * An MultiplyModifierFactory is a ModifierFactory<Number> that multiplies a
+ * An MultiplyModifierFactory is a {@code ModifierFactory<Number>} that multiplies a
  * specific value (provided during construction of this MultiplyModifierFactory)
  * with the input when a Modifier produced by this MultiplyModifierFactory is
  * processed.
@@ -34,7 +34,7 @@ public class MultiplyModifierFactory extends
 	 * Identifies that the Modifier objects built by this
 	 * MultiplyModifierFactory act upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getVariableFormat()
+	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
 	 */
 	@Override
 	public Class<Number> getVariableFormat()
@@ -59,7 +59,7 @@ public class MultiplyModifierFactory extends
 	 * Returns the inherent priority of an MultiplyModifier. This is used if two
 	 * Modifiers have the same User Priority. Lower values are processed first.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getInherentPriority()
+	 * @see pcgen.base.calculation.CalculationInfo#getInherentPriority()
 	 */
 	@Override
 	public int getInherentPriority()
@@ -70,7 +70,7 @@ public class MultiplyModifierFactory extends
 	/**
 	 * Returns an Identifier for this type of Modifier
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getIdentification()
+	 * @see pcgen.base.calculation.CalculationInfo#getIdentification()
 	 */
 	@Override
 	public String getIdentification()

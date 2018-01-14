@@ -1,5 +1,4 @@
 /*
- * PJepTest.java
  *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,15 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12-Jul-2004
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package pcgen.util;
 
@@ -36,7 +26,6 @@ import junit.framework.TestSuite;
 import org.nfunk.jep.SymbolTable;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.PCGenTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PlayerCharacter;

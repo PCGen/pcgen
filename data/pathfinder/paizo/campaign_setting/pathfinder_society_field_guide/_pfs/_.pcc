@@ -8,8 +8,8 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-# TODO: should depend on prestige rules in Guide To Pathfinder Society Organized Play or Faction Guide (if they are in it too)
 PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

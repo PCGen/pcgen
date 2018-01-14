@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -34,8 +33,12 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 
-public class SkillInfoUtilities
+public final class SkillInfoUtilities
 {
+
+	private SkillInfoUtilities()
+	{
+	}
 
 	/**
 	 * Get the key attribute's description
@@ -82,7 +85,7 @@ public class SkillInfoUtilities
 	 */
 	public static List<PCStat> getKeyStatList(PlayerCharacter pc, Skill sk, List<Type> typeList)
 	{
-		List<PCStat> aList = new ArrayList<PCStat>();
+		List<PCStat> aList = new ArrayList<>();
 		if (Globals.getGameModeHasPointPool())
 		{
 			for (Type aType : sk.getTrueTypeList(false))
@@ -97,7 +100,7 @@ public class SkillInfoUtilities
 							BonusUtilities.getBonusFromList(stat
 								.getSafeListFor(ListKey.BONUS), "SKILL",
 								"TYPE." + aType);
-					if (bonusList.size() > 0)
+					if (!bonusList.isEmpty())
 					{
 						for (int iCount = bonusList.size() - 1; iCount >= 0; --iCount)
 						{

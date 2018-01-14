@@ -37,7 +37,7 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	static AbbToken token = new AbbToken();
 	static KeyLst keyToken = new KeyLst();
 
-	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<SizeAdjustment>();
+	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -174,7 +174,7 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 
-	private StringKey getStringKey()
+	private static StringKey getStringKey()
 	{
 		return StringKey.ABB_KR;
 	}

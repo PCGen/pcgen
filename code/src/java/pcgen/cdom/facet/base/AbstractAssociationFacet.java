@@ -202,11 +202,11 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 			return Collections.emptySet();
 		}
 		return Collections
-			.unmodifiableSet(new ListSet<S>(componentMap.keySet()));
+			.unmodifiableSet(new ListSet<>(componentMap.keySet()));
 	}
 
 	/**
-	 * Returns the count of items (objects -> association entries) in this
+	 * Returns the count of items {@literal (objects -> association entries)} in this
 	 * AbstractAssociationFacet for the item represented by the given
 	 * PCGenIdentifier
 	 * 
@@ -241,7 +241,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	public boolean isEmpty(IDT id)
 	{
 		Map<S, A> componentMap = getCachedMap(id);
-		return componentMap == null || componentMap.isEmpty();
+		return (componentMap == null) || componentMap.isEmpty();
 	}
 
 	/**
@@ -262,7 +262,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	public boolean contains(IDT id, S obj)
 	{
 		Map<S, A> componentMap = getCachedMap(id);
-		return componentMap != null && componentMap.containsKey(obj);
+		return (componentMap != null) && componentMap.containsKey(obj);
 	}
 
 	/**
@@ -332,7 +332,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 */
 	protected Map<S, A> getComponentMap()
 	{
-		return new IdentityHashMap<S, A>();
+		return new IdentityHashMap<>();
 	}
 
 	/**

@@ -125,7 +125,7 @@ public class MoveToken extends AbstractTokenWithSeparator<Race> implements
 			// Zero indicates no Token
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (Movement m : added)
 		{
 			if (m.getMoveRatesFlag() == 0)

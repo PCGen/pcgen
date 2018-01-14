@@ -1,5 +1,4 @@
-/**
- * IconTokenTest.java
+/*
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14/02/2011 9:06:00 PM
- *
- * $Id$
  */
 package plugin.lsttokens.equipment;
 
@@ -30,19 +25,12 @@ import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 /**
- * The Class <code>IconTokenTest</code> tests the equipment ICON token.
- *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * The Class {@code IconTokenTest} tests the equipment ICON token.
  */
 public class IconTokenTest extends AbstractStringTokenTestCase<Equipment>
 {
 	static IconToken token = new IconToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

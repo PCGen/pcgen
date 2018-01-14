@@ -29,10 +29,7 @@ import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
+
 public class UmultLst extends AbstractIntToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
@@ -82,7 +79,7 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 				IntegerKey.UMULT);
 		boolean b = context.getObjectContext()
 				.wasRemoved(obj, IntegerKey.UMULT);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (b)
 		{
 			list.add(Constants.LST_DOT_CLEAR);

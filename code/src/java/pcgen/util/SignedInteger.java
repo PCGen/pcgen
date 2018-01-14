@@ -1,5 +1,4 @@
 /*
- * SignedInteger.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -16,23 +15,16 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 04/01/2013 11:26:33 AM
  *
- * $Id$
  */
 package pcgen.util;
 
 /**
- * The Class <code>SignedInteger</code> provides a number which always carries a 
+ * The Class {@code SignedInteger} provides a number which always carries a
  * leading sign in its string representation. It is currently used for displaying 
  * numerically sorted lists of modifiers in choosers.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class SignedInteger extends Number implements Comparable<SignedInteger>
 {
@@ -52,45 +44,30 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		this.value = value;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public double doubleValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public float floatValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int intValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public long longValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
@@ -101,9 +78,6 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		return String.valueOf(value);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int compareTo(SignedInteger arg0)
 	{
@@ -118,9 +92,6 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		return -1;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -130,9 +101,6 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

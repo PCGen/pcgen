@@ -1,7 +1,4 @@
-/*
- * Created on Sep 2, 2005
- *
- */
+
 package plugin.lsttokens;
 
 import java.util.ArrayList;
@@ -15,10 +12,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
+
 public class SourcepageLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
@@ -52,7 +46,7 @@ public class SourcepageLst extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean removed =
 				context.getObjectContext().wasRemoved(cdo,
 					StringKey.SOURCE_PAGE);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (removed)
 		{
 			list.add(Constants.LST_DOT_CLEAR);

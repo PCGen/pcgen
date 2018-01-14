@@ -1,5 +1,4 @@
 /*
- * JTreeViewTable.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 13, 2010, 11:53:50 AM
  */
 package pcgen.gui2.util;
 
@@ -63,11 +61,10 @@ import pcgen.util.ListMap;
 
 /**
  * JTreeViewTable is a subclass of JTreeTable that uses a TreeViewModel instead
- * of a a TreeTableModel. The TreeViewModel is a oriented towards displaying
+ * of a TreeTableModel. The TreeViewModel is a oriented towards displaying
  * arbitrary objects as a tree instead of TreeTableNodes. In addition, the
  * TreeViewModel supports multiple viewing methods and column visibility
  * controls.
- * <br>
  * <br>Node: Methods whose usage would endanger the integrity of this class are
  * the following:
  * <br>getModel()
@@ -77,7 +74,6 @@ import pcgen.util.ListMap;
  * <br>setTableHeader(JTableHeader)
  * <br>setAutoCreateColumnsFromModel(boolean);
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
 public class JTreeViewTable<T> extends JTreeTable
@@ -112,7 +108,7 @@ public class JTreeViewTable<T> extends JTreeTable
 
 	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
 	{
-		return new TreeViewTableModel<TM>(dataView);
+		return new TreeViewTableModel<>(dataView);
 	}
 
 	private JCheckBoxMenuItem createMenuItem(TableColumn column)
@@ -177,9 +173,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		return model;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void configureEnclosingScrollPane()
 	{
@@ -205,9 +198,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void unconfigureEnclosingScrollPane()
 	{
@@ -235,7 +225,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	/**
 	 * This returns data that is currently highlighted by the user. This may
 	 * include branch nodes which are of type Object and not the type managed by
-	 * the table model. Hence we cannot use <T> here.
+	 * the table model. Hence we cannot use &lt;T&gt; here.
 	 *
 	 * @return A list of selected leaf and branch rows.
 	 */
@@ -246,7 +236,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		{
 			return Collections.emptyList();
 		}
-		List<Object> data = new ArrayList<Object>(paths.length);
+		List<Object> data = new ArrayList<>(paths.length);
 		for (TreePath path : paths)
 		{
 			DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();

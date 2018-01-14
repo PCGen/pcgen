@@ -1,5 +1,4 @@
 /*
- * PCStringDirective.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 23/10/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 
@@ -31,7 +28,6 @@ import pcgen.io.ExportHandler;
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
-import freemarker.template.TemplateException;
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -39,15 +35,13 @@ import freemarker.template.TemplateModelException;
 /**
  * Implements a custom Freemarker macro to allow exporting of a string value  
  * from the character. It evaluates a PCGen export token for the current character  
- * and returns the value as a string. e.g. <@pcstring tag="PLAYERNAME"/> or 
+ * and returns the value as a string. e.g. {@literal <@pcstring tag="PLAYERNAME"/>} or 
  * ${pcstring('PLAYERNAME')}
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
-public class PCStringDirective extends CharacterExportAction implements
-		TemplateDirectiveModel, TemplateMethodModelEx
+public class PCStringDirective implements
+		TemplateDirectiveModel, TemplateMethodModelEx, CharacterExportAction
 {
 	private PlayerCharacter pc;
 	private ExportHandler eh;
@@ -59,7 +53,6 @@ public class PCStringDirective extends CharacterExportAction implements
 	 */
 	public PCStringDirective(PlayerCharacter pc, ExportHandler eh)
 	{
-		super();
 		this.pc = pc;
 		this.eh = eh;
 	}
@@ -67,7 +60,7 @@ public class PCStringDirective extends CharacterExportAction implements
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void execute(Environment env, Map params, TemplateModel[] loopVars,
-		TemplateDirectiveBody body) throws TemplateException, IOException
+		TemplateDirectiveBody body) throws IOException, TemplateModelException
 	{
 		// Check if no parameters were given:
 		if (params.size() != 1 || params.get("tag") == null)
@@ -98,9 +91,6 @@ public class PCStringDirective extends CharacterExportAction implements
 		env.getOut().append(value);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object exec(List arg0) throws TemplateModelException

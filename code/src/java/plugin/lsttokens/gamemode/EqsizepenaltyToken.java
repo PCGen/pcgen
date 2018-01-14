@@ -25,7 +25,7 @@ public class EqsizepenaltyToken implements GameModeLstToken
 	{
 		try
 		{
-			SimpleLoader<EqSizePenalty> penaltyDiceLoader = new SimpleLoader<EqSizePenalty>(
+			SimpleLoader<EqSizePenalty> penaltyDiceLoader = new SimpleLoader<>(
 					EqSizePenalty.class);
 			penaltyDiceLoader.parseLine(gameMode.getModeContext(), value,
 					source);

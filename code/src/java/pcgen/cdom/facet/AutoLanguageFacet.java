@@ -39,7 +39,6 @@ import pcgen.core.QualifiedObject;
  * AutoLanguageFacet is a Facet that tracks the Languages that have been granted
  * to a Player Character through the AUTO:LANG and LANGAUTO tokens
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoLanguageFacet extends
 		AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Language>>>
@@ -147,7 +146,7 @@ public class AutoLanguageFacet extends
 	 */
 	public List<Language> getAutoLanguage(CharID id)
 	{
-		List<Language> list = new ArrayList<Language>();
+		List<Language> list = new ArrayList<>();
 		for (QualifiedObject<CDOMReference<Language>> qo : getQualifiedSet(id))
 		{
 			Collection<Language> langList =

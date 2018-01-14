@@ -32,6 +32,10 @@ import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * DeityWeaponToken is a Primitive that allows pulling the WeaponProf objects provided by
+ * a Deity.
+ */
 public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 {
 
@@ -88,7 +92,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 		{
 			return Collections.emptySet();
 		}
-		HashSet<R> set = new HashSet<R>();
+		HashSet<R> set = new HashSet<>();
 		List<CDOMReference<WeaponProf>> dwp = deity
 				.getSafeListFor(ListKey.DEITYWEAPON);
 		for (CDOMReference<WeaponProf> ref : dwp)

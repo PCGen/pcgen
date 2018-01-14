@@ -33,7 +33,7 @@ public class AssignToAllIntegrationTest extends
 {
 
 	static AssigntoallToken token = new AssigntoallToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

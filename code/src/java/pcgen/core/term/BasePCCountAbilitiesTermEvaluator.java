@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountFeatsBaseEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 16:08:40
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -61,7 +55,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 			final boolean visible,
 			final boolean hidden)
 	{
-		Float count = 0f;
+		Float count = 0.0f;
 
 		for (CNAbility ability : aList)
 		{
@@ -79,7 +73,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * flag was true).
 	 *
 	 * @param pc the Character with the abilities
-	 * @param ability The feat to be counted.
+	 * @param cna The feat to be counted.
 	 * @param visible Should it be counted if it is visible?
 	 * @param hidden  Should it be counted if it is hidden?
 	 * @param onceOnly Should it be counted as one if was taken multiple times?

@@ -1,0 +1,4 @@
+# Name	SORTKEY	Save bonus
+Fortitude	SORTKEY:1	BONUS:SAVE|Fortitude|CON
+Reflex	SORTKEY:2	BONUS:SAVE|Reflex|DEX
+Will		SORTKEY:3	BONUS:SAVE|Will|WIS

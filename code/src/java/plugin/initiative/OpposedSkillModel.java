@@ -17,8 +17,6 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * OpposedSkillModel.java
- *
- * Created on May 4, 2004, 1:49:47 PM
  */
 
 package plugin.initiative;
@@ -42,23 +40,18 @@ import pcgen.core.RollingMethods;
  * </p>
  *
  * <p>
- * Current Ver: $Revision$
  * </p>
  * <p>
- * Last Editor: $Author$
  * </p>
  * <p>
- * Last Edited: $Date$
  * </p>
- *
- * @author LodgeR
  */
 public class OpposedSkillModel extends OpposedSkillBasicModel
 {
 
 	/**
 	 * <p>
-	 * "Wrapper" class that extends <code>InitWrapper</code> to provide
+	 * "Wrapper" class that extends {@code InitWrapper} to provide
 	 * skill check facilities.
 	 * </p>
 	 */
@@ -107,15 +100,15 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				if (skill != null && pc.getDisplay().hasSkill(skill))
 				{
 					returnValue =
-							Integer.valueOf(SkillModifier.modifier(skill, pc).intValue()
-								+ SkillRankControl.getTotalRank(pc, skill).intValue());
+							SkillModifier.modifier(skill, pc).intValue()
+									+ SkillRankControl.getTotalRank(pc, skill).intValue();
 				}
 				else if (skill != null
 						&& skill.getSafe(ObjectKey.USE_UNTRAINED)
 						&& skill.get(ObjectKey.KEY_STAT) != null)
 				{
-					returnValue = Integer.valueOf(SkillModifier.modifier(skill,
-							pc).intValue());
+					returnValue = SkillModifier.modifier(skill,
+							pc).intValue();
 				}
 			}
 			return returnValue;
@@ -149,7 +142,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				{
 					r += i.intValue();
 				}
-				result = Integer.valueOf(r);
+				result = r;
 			}
 			else
 			{
@@ -216,7 +209,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	public OpposedSkillModel()
 	{
 		super();
-		columns.addColumn("BONUS", Integer.class, Integer.valueOf(0), false,
+		columns.addColumn("BONUS", Integer.class, 0, false,
 			"Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");
@@ -232,7 +225,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	public OpposedSkillModel(List combatantList)
 	{
 		super(combatantList);
-		columns.addColumn("BONUS", Integer.class, Integer.valueOf(0), false,
+		columns.addColumn("BONUS", Integer.class, 0, false,
 			"Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");
@@ -311,7 +304,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		rollAll();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
 	 */
     @Override
@@ -329,7 +322,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see plugin.initiative.OpposedSkillBasicModel#addCombatant(gmgen.plugin.PcgCombatant)
 	 */
     @Override

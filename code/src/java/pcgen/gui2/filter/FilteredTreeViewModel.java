@@ -1,5 +1,4 @@
 /*
- * FilteredTreeViewModel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 14, 2010, 2:06:44 PM
  */
 package pcgen.gui2.filter;
 
@@ -32,15 +30,12 @@ import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class FilteredTreeViewModel<C, E>
 		implements TreeViewModel<E>, ListListener<E>
 {
 
-	private DefaultListFacade<E> data = new DefaultListFacade<E>();
+	private final DefaultListFacade<E> data = new DefaultListFacade<>();
 	private Filter<C, E> filter;
 	private TreeViewModel<E> model;
 	private C context;
@@ -109,7 +104,7 @@ public class FilteredTreeViewModel<C, E>
 	public void refilter()
 	{
 		ListFacade<E> base = model.getDataModel();
-		List<E> list = new ArrayList<E>(base.getSize());
+		List<E> list = new ArrayList<>(base.getSize());
 		for (E element : base)
 		{
 			if (filter == null || filter.accept(context, element))

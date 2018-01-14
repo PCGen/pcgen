@@ -1,5 +1,4 @@
 /*
- * ListMap.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Feb 2, 2008, 7:47:15 PM
  */
 
 package pcgen.util;
@@ -24,10 +21,6 @@ package pcgen.util;
 import java.util.Collection;
 import java.util.List;
 
-/**
- *
- * @author Connor Petty <mistercpp2000@gmail.com>
- */
 public interface ListMap<K, V, C extends List<V>> extends CollectionMap<K, V, C>{
     void add(K key, int index, V value);
     void addAll(K key, int index, Collection<? extends V> values);

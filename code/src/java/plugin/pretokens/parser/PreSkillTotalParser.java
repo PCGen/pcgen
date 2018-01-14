@@ -1,6 +1,4 @@
 /*
- * PreSkillTotalParser.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,15 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- * Last Editor: $Author$
- *
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.parser;
 
@@ -35,7 +24,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre skill total tokens.
- *
  */
 public class PreSkillTotalParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
@@ -75,10 +63,10 @@ public class PreSkillTotalParser extends AbstractPrerequisiteParser implements
 		int total = 0;
 
 		String[] tokens = formula.split(",");
-		for (int i = 0; i < tokens.length; i++)
+		for (String token1 : tokens)
 		{
-			String token = tokens[i];
-			if (token.indexOf("=") > -1)
+			String token = token1;
+			if (token.contains("="))
 			{
 				String[] subTokens = token.split("=");
 				token = subTokens[0];

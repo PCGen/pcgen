@@ -33,7 +33,7 @@ public class StackIntegrationTest extends
 {
 
 	static StackToken token = new StackToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

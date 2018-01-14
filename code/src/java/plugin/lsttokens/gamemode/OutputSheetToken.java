@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 30/05/2010 10:00:00 PM
- *
- * $Id: InfoSheetToken.java 18181 2012-11-06 19:50:30Z javydreamercsw $
  */
 package plugin.lsttokens.gamemode;
 
@@ -37,24 +33,19 @@ import pcgen.util.Logging;
  * game mode specific information output sheet to be specified that will be 
  * displayed on the summary tab when editing a character. 
  *
- * <br/>
- * Last Editor: $Author: javydreamercsw $
- * Last Edited: $Date: 2012-11-06 20:50:30 +0100 (Di, 06 Nov 2012) $
  * 
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 18181 $
  */
 public class OutputSheetToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
 	 */
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		String[] tokens = value.split("\\|");
-		List<String> validTags = new ArrayList<String>(Arrays.asList("HTM", "PDF", "TXT"));
+		List<String> validTags = new ArrayList<>(Arrays.asList("HTM", "PDF", "TXT"));
 		
 		if (tokens.length == 2)
 		{

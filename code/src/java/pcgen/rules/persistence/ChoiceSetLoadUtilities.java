@@ -55,7 +55,7 @@ public final class ChoiceSetLoadUtilities
 	public static <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
 			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
-		List<PrimitiveCollection<T>> orList = new ArrayList<PrimitiveCollection<T>>();
+		List<PrimitiveCollection<T>> orList = new ArrayList<>();
 		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');
 		pipe.addGroupingPair('[', ']');
 		pipe.addGroupingPair('(', ')');
@@ -67,14 +67,14 @@ public final class ChoiceSetLoadUtilities
 			{
 				return null;
 			}
-			List<PrimitiveCollection<T>> andList = new ArrayList<PrimitiveCollection<T>>();
+			List<PrimitiveCollection<T>> andList = new ArrayList<>();
 			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');
 			comma.addGroupingPair('[', ']');
 			comma.addGroupingPair('(', ')');
 			for (; comma.hasNext();)
 			{
 				String primitive = comma.next();
-				if (primitive == null || primitive.length() == 0)
+				if (primitive == null || primitive.isEmpty())
 				{
 					Logging.addParseMessage(Logging.LST_ERROR,
 							"Choice argument was null or empty: " + primitive);
@@ -110,7 +110,7 @@ public final class ChoiceSetLoadUtilities
 				}
 				else
 				{
-					orList.add(new CompoundAndPrimitive<T>(andList));
+					orList.add(new CompoundAndPrimitive<>(andList));
 				}
 			}
 		}
@@ -124,11 +124,11 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new CompoundOrPrimitive<T>(orList);
+			return new CompoundOrPrimitive<>(orList);
 		}
 	}
 
-	protected static boolean hasIllegalSeparator(char separator, String value)
+	private static boolean hasIllegalSeparator(char separator, String value)
 	{
 		if (value.charAt(0) == separator)
 		{
@@ -157,29 +157,29 @@ public final class ChoiceSetLoadUtilities
 	public static <T extends CDOMObject> PrimitiveCollection<T> getPrimitive(
 			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
-		if (joinedOr.length() == 0 || hasIllegalSeparator('|', joinedOr))
+		if (joinedOr.isEmpty() || hasIllegalSeparator('|', joinedOr))
 		{
 			return null;
 		}
-		List<PrimitiveCollection<T>> pcfOrList = new ArrayList<PrimitiveCollection<T>>();
+		List<PrimitiveCollection<T>> pcfOrList = new ArrayList<>();
 		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');
 		pipe.addGroupingPair('[', ']');
 		pipe.addGroupingPair('(', ')');
 		for (; pipe.hasNext();)
 		{
 			String joinedAnd = pipe.next();
-			if (joinedAnd.length() == 0 || hasIllegalSeparator(',', joinedAnd))
+			if (joinedAnd.isEmpty() || hasIllegalSeparator(',', joinedAnd))
 			{
 				return null;
 			}
-			List<PrimitiveCollection<T>> pcfAndList = new ArrayList<PrimitiveCollection<T>>();
+			List<PrimitiveCollection<T>> pcfAndList = new ArrayList<>();
 			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');
 			comma.addGroupingPair('[', ']');
 			comma.addGroupingPair('(', ')');
 			for (; comma.hasNext();)
 			{
 				String primitive = comma.next();
-				if (primitive == null || primitive.length() == 0)
+				if (primitive == null || primitive.isEmpty())
 				{
 					Logging.addParseMessage(Logging.LST_ERROR,
 							"Choice argument was null or empty: " + primitive);
@@ -204,7 +204,7 @@ public final class ChoiceSetLoadUtilities
 			}
 			else
 			{
-				pcfOrList.add(new CompoundAndPrimitive<T>(pcfAndList));
+				pcfOrList.add(new CompoundAndPrimitive<>(pcfAndList));
 			}
 		}
 		if (pcfOrList.size() == 1)
@@ -213,7 +213,7 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new CompoundOrPrimitive<T>(pcfOrList);
+			return new CompoundOrPrimitive<>(pcfOrList);
 		}
 	}
 
@@ -241,7 +241,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				pi.tokKey = key.substring(0, equalLoc);
 				pi.tokValue = key.substring(equalLoc + 1);
-				if (pi.tokValue.length() == 0)
+				if (pi.tokValue.isEmpty())
 				{
 					Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
 							+ " has equals but no target value");
@@ -313,7 +313,7 @@ public final class ChoiceSetLoadUtilities
 			return null;
 		}
 		ObjectContainer<T> p = fgd.getPrimitive(context, pi.tokValue);
-		return new ObjectContainerPrimitive<T>(p);
+		return new ObjectContainerPrimitive<>(p);
 	}
 	
 	public static <T> PrimitiveCollection<T> getTokenPrimitive(
@@ -351,7 +351,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				return null;
 			}
-			return new NegatingPrimitive<T>(typeReference, sc.getAllReference());
+			return new NegatingPrimitive<>(typeReference, sc.getAllReference());
 		}
 		if (tokValue != null)
 		{
@@ -370,8 +370,8 @@ public final class ChoiceSetLoadUtilities
 		}
 		if (key.startsWith(Constants.LST_NOT_TYPE_DOT))
 		{
-			return new NegatingPrimitive<T>(TokenUtilities.getTypeReference(sc,
-				key.substring(6)), sc.getAllReference());
+			return new NegatingPrimitive<>(TokenUtilities.getTypeReference(sc,
+                    key.substring(6)), sc.getAllReference());
 		}
 		if (key.indexOf('%') == -1)
 		{
@@ -379,8 +379,8 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new PatternMatchingReference<T>(sc.getReferenceClass(),
-					sc.getAllReference(), key);
+			return new PatternMatchingReference<>(sc.getReferenceClass(),
+                    sc.getAllReference(), key);
 		}
 	}
 	
@@ -395,7 +395,7 @@ public final class ChoiceSetLoadUtilities
 	public static <T extends CDOMObject> QualifierToken<T> getQualifier(
 			LoadContext loadContext, SelectionCreator<T> sc, String key)
 	{
-		if (key == null || key.length() == 0)
+		if (key == null || key.isEmpty())
 		{
 			Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE
 					+ "item was null or empty");
@@ -466,8 +466,8 @@ public final class ChoiceSetLoadUtilities
 		{
 			tokKey = tokKey.substring(1);
 		}
-		for (Iterator<QualifierToken<T>> it = new QualifierTokenIterator<T, QualifierToken<T>>(
-				sc.getReferenceClass(), tokKey); it.hasNext();)
+		for (Iterator<QualifierToken<T>> it = new QualifierTokenIterator<>(
+                sc.getReferenceClass(), tokKey); it.hasNext();)
 		{
 			QualifierToken<T> token = it.next();
 			if (token.initialize(loadContext, sc, tokValue, tokRestriction,

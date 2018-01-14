@@ -44,10 +44,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
+
 public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>
 {
@@ -82,7 +79,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 		// e.g.: TYPE.Hammer,Hand Axe=Simple|Urgosh,Waraxe=Martial
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		List<ChangeProf> list = new ArrayList<ChangeProf>();
+		List<ChangeProf> list = new ArrayList<>();
 
 		while (tok.hasMoreTokens())
 		{
@@ -110,7 +107,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 
 			String newType = tokText.substring(equalLoc + 1);
-			if (newType.length() == 0)
+			if (newType.isEmpty())
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
 				cpr.addErrorMessage("Improper " + getTokenName()
@@ -137,7 +134,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 					context.getReferenceContext().getCDOMTypeReference(WEAPONPROF_CLASS, val);
 
 			String profs = tokText.substring(0, equalLoc);
-			if (profs.length() == 0)
+			if (profs.isEmpty())
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
 				cpr.addErrorMessage("Improper " + getTokenName()
@@ -176,7 +173,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 		HashMapToList<CDOMGroupRef<WeaponProf>, CDOMReference<WeaponProf>> m =
-				new HashMapToList<CDOMGroupRef<WeaponProf>, CDOMReference<WeaponProf>>();
+				new HashMapToList<>();
 		for (ChangeProf cp : added)
 		{
 			CDOMReference<WeaponProf> source = cp.getSource();
@@ -185,9 +182,9 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 
 		SortedSet<CDOMReference<WeaponProf>> set =
-				new TreeSet<CDOMReference<WeaponProf>>(
-					ReferenceUtilities.REFERENCE_SORTER);
-		Set<String> returnSet = new TreeSet<String>();
+				new TreeSet<>(
+						ReferenceUtilities.REFERENCE_SORTER);
+		Set<String> returnSet = new TreeSet<>();
 		for (CDOMGroupRef<WeaponProf> result : m.getKeySet())
 		{
 			StringBuilder sb = new StringBuilder();

@@ -36,7 +36,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static ProficiencyToken token = new ProficiencyToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -515,14 +515,14 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 	}
 
-	protected void construct(LoadContext loadContext, String one)
+	protected static void construct(LoadContext loadContext, String one)
 	{
 		loadContext.getReferenceContext().constructCDOMObject(WeaponProf.class, one);
 		loadContext.getReferenceContext().constructCDOMObject(ShieldProf.class, one);
 		loadContext.getReferenceContext().constructCDOMObject(ArmorProf.class, one);
 	}
 
-	private boolean isClearLegal()
+	private static boolean isClearLegal()
 	{
 		return false;
 	}

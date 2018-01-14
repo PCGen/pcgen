@@ -34,7 +34,6 @@ import pcgen.core.character.SpellBook;
  * SpellBookFacet is a Facet that tracks the SpellBooks possessed by a Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellBookFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, Equipment>
@@ -205,7 +204,7 @@ public class SpellBookFacet extends AbstractStorageFacet<CharID> implements
 		Map<String, SpellBook> componentMap = getCachedMap(id);
 		if (componentMap == null)
 		{
-			componentMap = new LinkedHashMap<String, SpellBook>();
+			componentMap = new LinkedHashMap<>();
 			setCache(id, componentMap);
 		}
 		return componentMap;

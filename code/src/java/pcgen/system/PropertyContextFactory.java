@@ -1,5 +1,4 @@
 /*
- * PropertyContextFactory.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 4, 2010, 6:34:29 PM
  */
 package pcgen.system;
 
@@ -26,17 +24,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- */
+
 public class PropertyContextFactory
 {
 
 	private static PropertyContextFactory DEFAULT_FACTORY;
-	private final Map<String, PropertyContext> contextMap = new HashMap<String, PropertyContext>();
+	private final Map<String, PropertyContext> contextMap = new HashMap<>();
 	private final String dir;
 
 	public PropertyContextFactory(String dir)
@@ -57,15 +53,7 @@ public class PropertyContextFactory
 	public void registerAndLoadPropertyContext(PropertyContext context)
 	{
 		registerPropertyContext(context);
-		String filePath;
-		if (dir == null)
-		{
-			filePath = ConfigurationSettings.getSettingsDir();
-		}
-		else
-		{
-			filePath = dir;
-		}
+		String filePath = (dir == null) ? ConfigurationSettings.getSettingsDir() : dir;
 		loadPropertyContext(new File(filePath, context.getName()));
 	}
 
@@ -132,21 +120,13 @@ public class PropertyContextFactory
 
 	void loadPropertyContexts()
 	{
-		File settingsDir;
-		if (dir == null)
-		{
-			settingsDir = new File(ConfigurationSettings.getSettingsDir());
-		}
-		else
-		{
-			settingsDir = new File(dir);
-		}
+		File settingsDir = new File(dir == null ? ConfigurationSettings.getSettingsDir() : dir);
 		File[] files = settingsDir.listFiles();
 		if (files == null)
 		{
 			return;
 		}
-		for (File file : files)
+		for (final File file : files)
 		{
 			if (!file.isDirectory() && file.getName().endsWith(".ini")) //$NON-NLS-1$
 			{
@@ -193,44 +173,18 @@ public class PropertyContextFactory
 
 	public void savePropertyContexts()
 	{
-		File settingsDir;
-		if (dir == null)
-		{
-			settingsDir = new File(ConfigurationSettings.getSettingsDir());
-		}
-		else
-		{
-			settingsDir = new File(dir);
-		}
+		File settingsDir = new File((dir == null) ? ConfigurationSettings.getSettingsDir() : dir);
 		if (settingsDir.exists() || settingsDir.mkdirs())
 		{
-			for (PropertyContext context : contextMap.values())
+			contextMap.values().forEach(context ->
 			{
 				savePropertyContext(settingsDir, context);
-			}
+			});
 		}
 		else
 		{
 			Logging.errorPrint("Could not create directory to save settings files");
 		}
-	}
-
-	/**
-	 * Retrieves the PropertyContext with the given name.
-	 * If one is not found then a new one will be created
-	 * and returned.
-	 * @param fileName the name of the PropertyContext
-	 * @return a PropertyContext with given name
-	 */
-	public PropertyContext getPropertyContext(String fileName)
-	{
-		PropertyContext context = contextMap.get(fileName);
-		if (context == null)
-		{
-			context = new PropertyContext(fileName);
-			contextMap.put(fileName, context);
-		}
-		return context;
 	}
 
 	void registerPropertyContext(PropertyContext context)

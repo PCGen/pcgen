@@ -17,11 +17,13 @@
  */
 package pcgen.base.formula;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-public class MultiplyingFormulaTest extends TestCase
+public class MultiplyingFormulaTest
 {
 
+	@Test
 	public void testToString()
 	{
 		assertEquals("*1", new MultiplyingFormula(1).toString());
@@ -30,21 +32,23 @@ public class MultiplyingFormulaTest extends TestCase
 		assertEquals("*-3", new MultiplyingFormula(-3).toString());
 	}
 	
+	@Test
 	public void testIdentity()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(1);
-		assertEquals(2, f.resolve(Integer.valueOf(2)).intValue());
-		assertEquals(2, f.resolve(Double.valueOf(2.5)).intValue());
+		assertEquals(2, f.resolve(2).intValue());
+		assertEquals(2, f.resolve(2.5).intValue());
 		testBrokenCalls(f);
 	}
 
+	@Test
 	public void testEquality()
 	{
 		MultiplyingFormula f1 = new MultiplyingFormula(1);
 		MultiplyingFormula f2 = new MultiplyingFormula(1);
 		MultiplyingFormula f3 = new MultiplyingFormula(2);
 		MultiplyingFormula f4 = new MultiplyingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
 		assertFalse(f1.equals(null));
@@ -54,27 +58,30 @@ public class MultiplyingFormulaTest extends TestCase
 		assertFalse(f1.equals(f4));
 	}
 
+	@Test
 	public void testPositive()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(3);
-		assertEquals(15, f.resolve(Integer.valueOf(5)).intValue());
+		assertEquals(15, f.resolve(5).intValue());
 		//TODO Need to specify the order of operations - is this rounded first or second?
 		//assertEquals(17, f.resolve(Double.valueOf(5.5)).intValue());
 		testBrokenCalls(f);
 	}
 
+	@Test
 	public void testZero()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(0);
-		assertEquals(0, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(0, f.resolve(Double.valueOf(2.3)).intValue());
+		assertEquals(0, f.resolve(5).intValue());
+		assertEquals(0, f.resolve(2.3).intValue());
 		testBrokenCalls(f);
 	}
 
+	@Test
 	public void testNegative()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(-2);
-		assertEquals(-10, f.resolve(Integer.valueOf(5)).intValue());
+		assertEquals(-10, f.resolve(5).intValue());
 		//TODO Need to specify the order of operations - is this rounded first or second?
 		//assertEquals(13, f.resolve(Double.valueOf(-6.7)).intValue());
 		testBrokenCalls(f);
@@ -93,7 +100,7 @@ public class MultiplyingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{});
+			f.resolve();
 			fail("empty array should be illegal");
 		}
 		catch (IllegalArgumentException e)
@@ -102,7 +109,7 @@ public class MultiplyingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{Integer.valueOf(4), Double.valueOf(2.5)});
+			f.resolve(4, 2.5);
 			fail("two arguments in array should be illegal");
 		}
 		catch (IllegalArgumentException e)
@@ -111,7 +118,7 @@ public class MultiplyingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(Integer.valueOf(4), Double.valueOf(2.5));
+			f.resolve(4, 2.5);
 			fail("two arguments should be illegal");
 		}
 		catch (IllegalArgumentException e)

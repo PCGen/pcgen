@@ -34,7 +34,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static PreracetypeToken token = new PreracetypeToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -116,7 +116,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<Prerequisite> getObjectKey()
+	private static ObjectKey<Prerequisite> getObjectKey()
 	{
 		return ObjectKey.PRERACETYPE;
 	}

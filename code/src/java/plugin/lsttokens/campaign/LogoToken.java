@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 30/01/2008
- *
- * $Id$
  */
 package plugin.lsttokens.campaign;
 
@@ -38,19 +34,13 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>LogoToken</code> parses the LOGO Token.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * {@code LogoToken} parses the LOGO Token.
  */
 public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
 	@Override
@@ -107,7 +97,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 			//empty indicates no token
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CampaignSourceEntry cse : added)
 		{
 			set.add(cse.getLSTformat());

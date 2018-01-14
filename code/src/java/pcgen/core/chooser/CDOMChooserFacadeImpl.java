@@ -1,5 +1,4 @@
 /*
- * GeneralChooserFacadeBase.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,17 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/01/2012 9:23:01 AM
- *
- * $Id$
  */
 package pcgen.core.chooser;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
@@ -45,18 +40,13 @@ import pcgen.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>GeneraChooserFacadeBase</code> is a base from which a 
+ * The Class {@code GeneraChooserFacadeBase} is a base from which a
  * ChooserFacade may be simply implemented. The implementing class need only call 
  * the constructor and implement the commit to process the selections.
  * 
  * @param <T> The type of objects being chosen from. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class CDOMChooserFacadeImpl<T> implements ChooserFacade
@@ -177,15 +167,15 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		this.stringDelimiter = stringDelimiter;
 				
 		// Build working content
-		availableList = new DefaultListFacade<InfoFacade>(createInfoFacadeList(origAvailable, stringDelimiter));
-		selectedList = new DefaultListFacade<InfoFacade>(createInfoFacadeList(origSelected, stringDelimiter));
-		numSelectionsRemain = new DefaultReferenceFacade<Integer>(maxNewSelections);
-		finalSelected = new ArrayList<T>(origSelected);
+		availableList = new DefaultListFacade<>(createInfoFacadeList(origAvailable, stringDelimiter));
+		selectedList = new DefaultListFacade<>(createInfoFacadeList(origSelected, stringDelimiter));
+		numSelectionsRemain = new DefaultReferenceFacade<>(maxNewSelections);
+		finalSelected = new ArrayList<>(origSelected);
 	}
 
 	private List<InfoFacade> createInfoFacadeList(List<? extends T> origAvailable2, String stringDelimiter)
 	{
-		List<InfoFacade> infoFacadeList = new ArrayList<InfoFacade>(origAvailable2.size());
+		List<InfoFacade> infoFacadeList = new ArrayList<>(origAvailable2.size());
 		for (T object : origAvailable2)
 		{
 			if (object instanceof InfoFacade)
@@ -215,27 +205,18 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		return infoFacadeList;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final ListFacade<InfoFacade> getAvailableList()
 	{
 		return availableList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final ListFacade<InfoFacade> getSelectedList()
 	{
 		return selectedList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final void addSelected(InfoFacade item)
 	{
@@ -251,9 +232,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()-1);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final void removeSelected(InfoFacade item)
 	{
@@ -265,18 +243,12 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()+1);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<Integer> getRemainingSelections()
 	{
 		return numSelectionsRemain;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void commit()
 	{
@@ -300,9 +272,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final void rollback()
 	{
@@ -313,9 +282,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		finalSelected.addAll(origSelected);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final String getName()
 	{
@@ -328,9 +294,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		return availableTableTypeNameTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getAvailableTableTitle()
 	{
@@ -361,13 +324,10 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		return selectionCountName;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getBranchNames(InfoFacade item)
 	{
-		List<String> branches = new ArrayList<String>();
+		List<String> branches = new ArrayList<>();
 		
 		if (item instanceof PObject)
 		{
@@ -380,9 +340,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		return branches;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ChooserTreeViewType getDefaultView()
 	{
@@ -422,9 +379,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		this.requireCompleteSelection = requireCompleteSelection;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isRequireCompleteSelection()
 	{
@@ -439,9 +393,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		this.preferRadioSelection = preferRadioSelection;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isPreferRadioSelection()
 	{
@@ -458,9 +409,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		this.userInput = userInput;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isInfoAvailable()
 	{
@@ -493,18 +441,12 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{
 			return String.valueOf(cdomObj);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
@@ -512,9 +454,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 				Globals.getSourceDisplay(), true);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSourceForNodeDisplay()
 		{
@@ -522,18 +461,12 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 				SourceFormat.LONG, false);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKeyName()
 		{
 			return cdomObj.getKeyName();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean isNamePI()
 		{
@@ -548,9 +481,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			return cdomObj;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getType()
 		{
@@ -570,9 +500,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			this.delimiter = StringUtils.trimToNull(delimiter);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{
@@ -588,45 +515,30 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			return string;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSourceForNodeDisplay()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKeyName()
 		{
 			return string;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean isNamePI()
 		{
 	    	return false;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getType()
 		{

@@ -478,22 +478,22 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	public static class TrackingObjectCommitStrategy implements
 			ObjectCommitStrategy
 	{
-		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> positiveMap = new DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject>(
-				HashMap.class, IdentityHashMap.class);
+		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> positiveMap = new DoubleKeyMap<>(
+                HashMap.class, IdentityHashMap.class);
 
-		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> negativeMap = new DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject>(
-				HashMap.class, IdentityHashMap.class);
+		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> negativeMap = new DoubleKeyMap<>(
+                HashMap.class, IdentityHashMap.class);
 
-		private final DoubleKeyMapToList<URI, CDOMObject, ListKey<?>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, ListKey<?>>(
-				HashMap.class, IdentityHashMap.class);
+		private final DoubleKeyMapToList<URI, CDOMObject, ListKey<?>> globalClearSet = new DoubleKeyMapToList<>(
+                HashMap.class, IdentityHashMap.class);
 
-		private final DoubleKeyMapToList<URI, CDOMObject, FactSetKey<?>> globalClearFactSet = new DoubleKeyMapToList<URI, CDOMObject, FactSetKey<?>>(
-				HashMap.class, IdentityHashMap.class);
+		private final DoubleKeyMapToList<URI, CDOMObject, FactSetKey<?>> globalClearFactSet = new DoubleKeyMapToList<>(
+                HashMap.class, IdentityHashMap.class);
 
-		private final HashMapToList<URI, ConcretePrereqObject> preClearSet = new HashMapToList<URI, ConcretePrereqObject>();
+		private final HashMapToList<URI, ConcretePrereqObject> preClearSet = new HashMapToList<>();
 
-		private final TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String> patternClearSet = new TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String>(
-				HashMap.class, IdentityHashMap.class, HashMap.class);
+		private final TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String> patternClearSet = new TripleKeyMapToList<>(
+                HashMap.class, IdentityHashMap.class, HashMap.class);
 
 		private URI sourceURI;
 
@@ -677,8 +677,8 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo,
 				MapKey<K, V> mk)
 		{
-			return new MapChanges<K, V>(getPositive(extractURI, cdo).getMapFor(
-					mk), getNegative(extractURI, cdo).getMapFor(mk), false);
+			return new MapChanges<>(getPositive(extractURI, cdo).getMapFor(
+                    mk), getNegative(extractURI, cdo).getMapFor(mk), false);
 		}
 
 		// ==== end of MapKey manipulation functions ====
@@ -728,28 +728,28 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		@Override
 		public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk)
 		{
-			return new CollectionChanges<T>(getPositive(extractURI, cdo)
-					.getListFor(lk), getNegative(extractURI, cdo)
-					.getListFor(lk), globalClearSet.containsInList(extractURI,
-					cdo, lk));
+			return new CollectionChanges<>(getPositive(extractURI, cdo)
+                    .getListFor(lk), getNegative(extractURI, cdo)
+                    .getListFor(lk), globalClearSet.containsInList(extractURI,
+                    cdo, lk));
 		}
 
 		@Override
 		public <T> Changes<Indirect<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk)
 		{
-			return new CollectionChanges<Indirect<T>>(getPositive(extractURI, cdo).getSetFor(lk),
-				getNegative(extractURI, cdo).getSetFor(lk),
-				globalClearFactSet.containsInList(extractURI, cdo, lk));
+			return new CollectionChanges<>(getPositive(extractURI, cdo).getSetFor(lk),
+                    getNegative(extractURI, cdo).getSetFor(lk),
+                    globalClearFactSet.containsInList(extractURI, cdo, lk));
 		}
 
 		@Override
 		public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
 				ListKey<T> lk)
 		{
-			return new PatternChanges<T>(getPositive(extractURI, cdo)
-					.getListFor(lk), patternClearSet.getListFor(extractURI,
-					cdo, lk), globalClearSet
-					.containsInList(extractURI, cdo, lk));
+			return new PatternChanges<>(getPositive(extractURI, cdo)
+                    .getListFor(lk), patternClearSet.getListFor(extractURI,
+                    cdo, lk), globalClearSet
+                    .containsInList(extractURI, cdo, lk));
 		}
 
 		public URI getExtractURI()
@@ -796,11 +796,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 				 */
 				return newObj;
 			}
-			catch (InstantiationException e)
-			{
-				Logging.errorPrint("Error instantiating " + cl.getSimpleName(), e);
-			}
-			catch (IllegalAccessException e)
+			catch (InstantiationException | IllegalAccessException e)
 			{
 				Logging.errorPrint("Error instantiating " + cl.getSimpleName(), e);
 			}
@@ -811,9 +807,9 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		public Changes<Prerequisite> getPrerequisiteChanges(
 				ConcretePrereqObject obj)
 		{
-			return new CollectionChanges<Prerequisite>(getPositive(extractURI,
-					obj).getPrerequisiteList(), null, preClearSet
-					.containsInList(extractURI, obj));
+			return new CollectionChanges<>(getPositive(extractURI,
+                    obj).getPrerequisiteList(), null, preClearSet
+                    .containsInList(extractURI, obj));
 		}
 
 		@Override

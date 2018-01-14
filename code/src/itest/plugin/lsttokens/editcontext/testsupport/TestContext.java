@@ -30,9 +30,9 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 public class TestContext
 {
 
-	private Map<URI, List<String>> map = new HashMap<URI, List<String>>();
+	private Map<URI, List<String>> map = new HashMap<>();
 
-	public void putText(URI testCampaign, String[] str)
+	public void putText(URI testCampaign, String... str)
 	{
 		map.put(testCampaign, str == null ? null : Arrays.asList(str));
 	}
@@ -52,7 +52,7 @@ public class TestContext
 	 * necessary.
 	 */
 	private Map<URI, CampaignSourceEntry> cm =
-			new LinkedHashMap<URI, CampaignSourceEntry>();
+            new LinkedHashMap<>();
 
 	public void putCampaign(URI uri, CampaignSourceEntry testCampaign)
 	{

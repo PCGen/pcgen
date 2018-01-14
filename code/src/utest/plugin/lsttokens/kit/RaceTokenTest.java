@@ -30,7 +30,7 @@ public class RaceTokenTest extends AbstractKitTokenTestCase<KitRace>
 {
 
 	static RaceToken token = new RaceToken();
-	static CDOMSubLineLoader<KitRace> loader = new CDOMSubLineLoader<KitRace>(
+	static CDOMSubLineLoader<KitRace> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitRace.class);
 
 	@Override

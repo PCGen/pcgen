@@ -1,5 +1,4 @@
 /*
- * EquipBuyToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.startpack;
@@ -84,7 +77,7 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 			return new ParseResult.Fail("Formula in " + getTokenName()
 					+ " was not valid: " + f.toString(), context);
 		}
-		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		List<Prerequisite> prereqs = new ArrayList<>();
 
 		while (sep.hasNext())
 		{
@@ -97,7 +90,7 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 			}
 			prereqs.add(prereq);
 		}
-		kit.put(ObjectKey.EQUIP_BUY, new QualifiedObject<Formula>(f, prereqs));
+		kit.put(ObjectKey.EQUIP_BUY, new QualifiedObject<>(f, prereqs));
 		return ParseResult.SUCCESS;
 	}
 

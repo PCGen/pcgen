@@ -1,5 +1,4 @@
 /*
- * CampaignPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/01/2009 10:59:55 PM
- *
- * $Id: $
  */
 package pcgen.gui2.converter.panel;
 
@@ -38,7 +33,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -51,14 +46,10 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>CampaignPanel</code> displays a panel allowing 
+ * The Class {@code CampaignPanel} displays a panel allowing
  * the user to select the campaigns to be converted.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class CampaignPanel extends ConvertSubPanel
 {
@@ -66,7 +57,7 @@ public class CampaignPanel extends ConvertSubPanel
 	private List<Campaign> gameModeCampaigns;
 	private String folderName;
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -75,7 +66,7 @@ public class CampaignPanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#returnAllowed()
 	 */
 	@Override
@@ -84,14 +75,14 @@ public class CampaignPanel extends ConvertSubPanel
 		return true;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{
 		GameMode game = pc.get(ObjectKey.GAME_MODE);
-		List<String> gameModeList = new ArrayList<String>();
+		List<String> gameModeList = new ArrayList<>();
 		gameModeList.addAll(game.getAllowedModes());
 		
 		File sourceFolder = pc.get(ObjectKey.DIRECTORY);
@@ -99,7 +90,7 @@ public class CampaignPanel extends ConvertSubPanel
 
 		// Only add those campaigns in the user's chosen folder and game mode
 		List<Campaign> allCampaigns = Globals.getCampaignList();
-		gameModeCampaigns = new ArrayList<Campaign>();
+		gameModeCampaigns = new ArrayList<>();
 		for (Campaign campaign : allCampaigns)
 		{
 			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
@@ -113,7 +104,7 @@ public class CampaignPanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#setupDisplay(javax.swing.JPanel, pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
@@ -180,9 +171,7 @@ public class CampaignPanel extends ConvertSubPanel
 		initSourceSelection(model, table);
 	}
 
-	/**
-	 * 
-	 */
+
 	private void initSourceSelection(CampaignTableModel model, JTable table)
 	{
 		// Select any previous selections
@@ -226,10 +215,10 @@ public class CampaignPanel extends ConvertSubPanel
 	{
 		
 		/** The column names. */
-		private String[] columnNames = {"Campaign", "Location"};
+		private final String[] columnNames = {"Campaign", "Location"};
 		
 		/** The row data. */
-		private Object[][] rowData;
+		private final Object[][] rowData;
 
 		/**
 		 * Instantiates a new campaign table model.
@@ -251,16 +240,16 @@ public class CampaignPanel extends ConvertSubPanel
 			}
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.AbstractTableModel#getColumnName(int)
 		 */
 		@Override
 		public String getColumnName(int col)
 		{
-			return columnNames[col].toString();
+			return columnNames[col];
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getRowCount()
 		 */
 		@Override
@@ -269,7 +258,7 @@ public class CampaignPanel extends ConvertSubPanel
 			return rowData.length;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getColumnCount()
 		 */
 		@Override
@@ -278,7 +267,7 @@ public class CampaignPanel extends ConvertSubPanel
 			return columnNames.length;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableModel#getValueAt(int, int)
 		 */
 		@Override
@@ -287,7 +276,7 @@ public class CampaignPanel extends ConvertSubPanel
 			return rowData[row][col];
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.AbstractTableModel#isCellEditable(int, int)
 		 */
 		@Override
@@ -296,7 +285,7 @@ public class CampaignPanel extends ConvertSubPanel
 			return false;
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.AbstractTableModel#setValueAt(java.lang.Object, int, int)
 		 */
 		@Override

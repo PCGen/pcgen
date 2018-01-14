@@ -48,10 +48,10 @@ public class StartingLanguageFacetTest extends
 		l1.setName("Language1");
 		Language l2 = new Language();
 		l2.setName("Language2");
-		CDOMDirectSingleRef<Language> ref1 = new CDOMDirectSingleRef<Language>(l1);
+		CDOMDirectSingleRef<Language> ref1 = new CDOMDirectSingleRef<>(l1);
 		SimpleAssociatedObject apo1 = new SimpleAssociatedObject();
 		cdo1.putToList(Language.STARTING_LIST, ref1, apo1);
-		CDOMDirectSingleRef<Language> ref2 = new CDOMDirectSingleRef<Language>(l2);
+		CDOMDirectSingleRef<Language> ref2 = new CDOMDirectSingleRef<>(l2);
 		SimpleAssociatedObject apo2 = new SimpleAssociatedObject();
 		cdo2.putToList(Language.STARTING_LIST, ref2, apo2);
 		source = new CDOMObject[]{cdo1, cdo2};

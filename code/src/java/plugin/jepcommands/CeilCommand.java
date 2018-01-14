@@ -6,7 +6,7 @@ import pcgen.util.PCGenCommand;
 import java.util.Stack;
 
 /**
- * Celing JEP Command.  eg. ceil(12.6) --> 13
+ * Celing JEP Command. {@literal  eg. ceil(12.6) --> 13 }
  */
 public class CeilCommand extends PCGenCommand
 {
@@ -31,8 +31,8 @@ public class CeilCommand extends PCGenCommand
 
 	/**
 	 * Runs ceil on the inStack. The parameter is popped
-	 * off the <code>inStack</code>, and the ceiling of it's value is
-	 * pushed back to the top of <code>inStack</code>.
+	 * off the {@code inStack}, and the ceiling of it's value is
+	 * pushed back to the top of {@code inStack}.
 	 * @param inStack the jep stack
 	 * @throws ParseException
 	 */

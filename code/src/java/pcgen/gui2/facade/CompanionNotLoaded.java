@@ -1,5 +1,4 @@
 /*
- * CompanionNotLoaded.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 25/03/2012 11:07:05 AM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -30,15 +25,10 @@ import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.ReferenceFacade;
 
 /**
- * The Class <code>CompanionNotLoaded</code> represents a characters's companion 
+ * The Class {@code CompanionNotLoaded} represents a characters's companion
  * (familiar, animal companion, mount etc) that is not currently loaded.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CompanionNotLoaded implements CompanionFacade
 {
@@ -57,42 +47,30 @@ public class CompanionNotLoaded implements CompanionFacade
 	 */
 	public CompanionNotLoaded(String name, File file, RaceFacade race, String compType)
 	{
-		this.nameRef = new DefaultReferenceFacade<String>(name);
-		this.fileRef = new DefaultReferenceFacade<File>(file);
-		this.raceRef = new DefaultReferenceFacade<RaceFacade>(race);
+		this.nameRef = new DefaultReferenceFacade<>(name);
+		this.fileRef = new DefaultReferenceFacade<>(file);
+		this.raceRef = new DefaultReferenceFacade<>(race);
 		this.companionType = compType;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<String> getNameRef()
 	{
 		return nameRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<File> getFileRef()
 	{
 		return fileRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
 	{
 		return raceRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getCompanionType()
 	{

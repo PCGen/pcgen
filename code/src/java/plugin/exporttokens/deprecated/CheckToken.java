@@ -15,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.exporttokens.deprecated;
 
@@ -79,7 +72,7 @@ public class CheckToken extends Token
 		{
 			if (saveModsBuf.length() > 0)
 			{
-				saveModsBuf.append(".");
+				saveModsBuf.append('.');
 			}
 			saveModsBuf.append(aTok.nextToken());
 		}
@@ -92,7 +85,7 @@ public class CheckToken extends Token
 		}
 		if (isNosign) 
 		{
-			return getCheckToken(pc, saveType, saveMods) + "";
+			return String.valueOf(getCheckToken(pc, saveType, saveMods));
 		}
 		return Delta.toString(getCheckToken(pc, saveType, saveMods));
 	}

@@ -6,7 +6,7 @@ import pcgen.util.PCGenCommand;
 import java.util.Stack;
 
 /**
- * Deal with max() JEP command eg. max(12.6, 20) --> 20
+ * Deal with max() JEP command eg. {@literal max(12.6, 20) --> 20}
  */
 public class MaxCommand extends PCGenCommand
 {
@@ -15,7 +15,6 @@ public class MaxCommand extends PCGenCommand
 	 * Initializes the number of parameters to = -1, indicating a variable
 	 * number of parameters.
 	 * </p>
-	 *
 	 */
 	public MaxCommand()
 	{

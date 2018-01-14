@@ -24,11 +24,11 @@ Sling bullets (20)												TYPE:Gear.Ammunition.Sling Bullet											COST:0
 #
 Antitoxin (vial)													TYPE:Gear															COST:50	WT:0
 # Arcane focus
-Crystal														TYPE:Gear.Arcane Focus													COST:10	WT:1
-Orb															TYPE:Gear.Arcane Focus													COST:20	WT:3
-Rod															TYPE:Gear.Arcane Focus													COST:10	WT:2
-Staff															TYPE:Gear.Arcane Focus													COST:5	WT:4
-Wand															TYPE:Gear.Arcane Focus													COST:10	WT:1
+Crystal								KEY:Arcane Focus (Crystal)						TYPE:Gear.Arcane Focus													COST:10	WT:1
+Orb									KEY:Arcane Focus (Orb)						TYPE:Gear.Arcane Focus													COST:20	WT:3
+Rod									KEY:Arcane Focus (Rod)						TYPE:Gear.Arcane Focus													COST:10	WT:2
+Staff									KEY:Arcane Focus (Staff)						TYPE:Gear.Arcane Focus													COST:5	WT:4
+Wand									KEY:Arcane Focus (Wand)						TYPE:Gear.Arcane Focus													COST:10	WT:1
 #
 Backpack														TYPE:Gear.Container			CONTAINS:30									COST:2	WT:5
 Ball bearings (bag of 1,000)					KEY:Ball bearings (bag of 1000)	TYPE:Gear															COST:1	WT:2
@@ -56,10 +56,10 @@ Clothes, Traveler's						KEY:Clothes (Traveler's)		TYPE:Gear.Clothing											
 Component pouch													TYPE:Gear															COST:25	WT:2
 Crowbar														TYPE:Gear															COST:2	WT:5
 # Druidic Focus
-Sprig of mistletoe												TYPE:Gear.Druidic Focus													COST:1	WT:0
-Totem															TYPE:Gear.Druidic Focus													COST:1	WT:0
-Wooden staff													TYPE:Gear.Druidic Focus													COST:5	WT:4
-Yew wand														TYPE:Gear.Druidic Focus													COST:10	WT:1
+Sprig of mistletoe						KEY:Druidic Focus (Sprig of mistletoe)						TYPE:Gear.Druidic Focus													COST:1	WT:0
+Totem									KEY:Druidic Focus (Totem)						TYPE:Gear.Druidic Focus													COST:1	WT:0
+Wooden staff							KEY:Druidic Focus (Wooden staff)						TYPE:Gear.Druidic Focus													COST:5	WT:4
+Yew wand								KEY:Druidic Focus (Yew wand)						TYPE:Gear.Druidic Focus													COST:10	WT:1
 #
 Fishing tackle													TYPE:Gear															COST:1	WT:4
 Flask or tankard													TYPE:Gear															COST:0.02	WT:1
@@ -227,43 +227,12 @@ Scroll Case
 
 
 
-###Block: Add item identifiers for expansion
-# Equipment Name		Type
-Club.MOD			TYPE:Club
-Dagger.MOD			TYPE:Dagger
-Greatclub.MOD		TYPE:Greatclub.Club
-Handaxe.MOD			TYPE:Handaxe.Axe
-Javelin.MOD			TYPE:Javelin
-Light Hammer.MOD		TYPE:Light Hammer.Hammer
-Mace.MOD			TYPE:Mace
-Quarterstaff.MOD		TYPE:Quarterstaff
-Sickle.MOD			TYPE:Sickle
-Spear.MOD			TYPE:Spear
-Unarmed Strike.MOD	TYPE:Unarmed Strike
-Crossbow (Light).MOD	TYPE:Crossbow.Light Crossbow
-Dart.MOD			TYPE:Dart
-Shortbow.MOD		TYPE:Shortbow.Bow
-Sling.MOD			TYPE:Sling
-Battleaxe.MOD		TYPE:Battleaxe.Axe
-Flail.MOD			TYPE:Flail
-Glaive.MOD			TYPE:Glaive
-Greataxe.MOD		TYPE:Greataxe.Axe
-Greatsword.MOD		TYPE:Greatsword.Sword
-Halberd.MOD			TYPE:Halberd
-Lance.MOD			TYPE:Lance
-Longsword.MOD		TYPE:Longsword.Sword
-Maul.MOD			TYPE:Maul.Hammer
-Morningstar.MOD		TYPE:Morningstar
-Pike.MOD			TYPE:Pike
-Rapier.MOD			TYPE:Rapier.Sword
-Scimitar.MOD		TYPE:Scimitar.Sword
-Shortsword.MOD		TYPE:Shortsword.Sword
-Trident.MOD			TYPE:Trident
-War Pick.MOD		TYPE:War Pick
-Warhammer.MOD		TYPE:Warhammer.Hammer
-Whip.MOD			TYPE:Whip
-Blowgun.MOD			TYPE:Blowgun
-Crossbow (Hand).MOD	TYPE:Hand Crossbow.Crossbow
-Crossbow (Heavy).MOD	TYPE:Heavy Crossbow.Crossbow
-Longbow.MOD			TYPE:Longbow.Bow
-Net.MOD			TYPE:Net
+Wizard Spellbook	KEY:Spellbook ~ Wizard		TYPE:SPELLBOOK	NUMPAGES:400	PAGEUSAGE:1
+Warlock Book of Shadows	TYPE:SPELLBOOK	PAGEUSAGE:1	NUMPAGES:400
+
+alms box
+Block of Incense
+book of lore
+censer
+little bag of sand
+String (10')

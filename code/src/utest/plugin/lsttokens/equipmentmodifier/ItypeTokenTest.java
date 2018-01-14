@@ -33,7 +33,7 @@ public class ItypeTokenTest extends
 {
 
 	static ItypeToken token = new ItypeToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -69,12 +69,6 @@ public class ItypeTokenTest extends
 	public ListKey<String> getListKey()
 	{
 		return ListKey.ITEM_TYPES;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

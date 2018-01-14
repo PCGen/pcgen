@@ -37,10 +37,14 @@ import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
-public class TokenRegistration
+public final class TokenRegistration
 {
 
-	public static Set<String> ppiSet = new HashSet<String>();
+	public static final Set<String> ppiSet = new HashSet<>();
+
+	private TokenRegistration()
+	{
+	}
 
 	public static void register(PrerequisiteParserInterface ppi)
 		throws PersistenceLayerException
@@ -59,10 +63,9 @@ public class TokenRegistration
 		}
 	}
 
-	public static Set<LstToken> tokenSet = new HashSet<LstToken>();
+	public static final Set<LstToken> tokenSet = new HashSet<>();
 
 	public static void register(LstToken token)
-		throws PersistenceLayerException
 	{
 		if (!tokenSet.contains(token))
 		{
@@ -80,10 +83,9 @@ public class TokenRegistration
 		}
 	}
 
-	public static Set<Token> exportSet = new HashSet<Token>();
+	public static final Set<Token> exportSet = new HashSet<>();
 
 	public static void register(Token token)
-		throws PersistenceLayerException
 	{
 		if (!exportSet.contains(token))
 		{
@@ -101,7 +103,7 @@ public class TokenRegistration
 		PreParserFactory.clear();
 	}
 
-	public static Set<String> pwSet = new HashSet<String>();
+	public static final Set<String> pwSet = new HashSet<>();
 
 	public static void register(PrerequisiteWriterInterface writer)
 		throws PersistenceLayerException
@@ -120,17 +122,13 @@ public class TokenRegistration
 		{
 			TokenLibrary.addBonusClass(cl);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
 	}
 
-	public static Set<ModifierFactory<?>> mSet = new HashSet<ModifierFactory<?>>();
+	public static final Set<ModifierFactory<?>> mSet = new HashSet<>();
 
 	public static void register(ModifierFactory<?> m)
 	{

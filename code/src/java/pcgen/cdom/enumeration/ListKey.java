@@ -14,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on June 18, 2005.
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.cdom.enumeration;
 
@@ -86,7 +80,6 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.utils.DeferredLine;
 
 /**
- * @author Tom Parker <thpr@users.sourceforge.net>
  * 
  * This is a Typesafe enumeration of legal List Characteristics of an object. It
  * is designed to act as an index to a specific Object items within a
@@ -103,192 +96,193 @@ public final class ListKey<T>
 {
 
 	/** FILE_ABILITY_CATEGORY - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_ABILITY_CATEGORY = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_ABILITY_CATEGORY = new ListKey<>();
 	/** FILE_BIO_SET - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_BIO_SET = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_BIO_SET = new ListKey<>();
 	/** FILE_CLASS - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_CLASS = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_CLASS = new ListKey<>();
 	/** FILE_COMPANION_MOD - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_COMPANION_MOD = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_COMPANION_MOD = new ListKey<>();
 	/** FILE_COVER - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_COVER = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_COVER = new ListKey<>();
 	/** FILE_DEITY - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_DEITY = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_DEITY = new ListKey<>();
 	/** FILE_DOMAIN - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_DOMAIN = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_DOMAIN = new ListKey<>();
 	/** FILE_EQUIP - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_EQUIP = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_EQUIP = new ListKey<>();
 	/** FILE_EQUIP_MOD - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_EQUIP_MOD = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_EQUIP_MOD = new ListKey<>();
 	/** FILE_ABILITY - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_ABILITY = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_ABILITY = new ListKey<>();
 	/** FILE_FEAT - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_FEAT = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_FEAT = new ListKey<>();
 	/** FILE_KIT - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_KIT = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_KIT = new ListKey<>();
 	/** FILE_LANGUAGE - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_LANGUAGE = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_LANGUAGE = new ListKey<>();
 	/** FILE_LST_EXCLUDE - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_LST_EXCLUDE = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_LST_EXCLUDE = new ListKey<>();
 	/** FILE_PCC - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_PCC = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_PCC = new ListKey<>();
 	/** FILE_RACE - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_RACE = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_RACE = new ListKey<>();
 	/** FILE_SKILL - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_SKILL = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_SKILL = new ListKey<>();
 	/** FILE_SPELL - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_SPELL = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_SPELL = new ListKey<>();
 	/** FILE_TEMPLATE - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_TEMPLATE = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_TEMPLATE = new ListKey<>();
 	/** FILE_WEAPON_PROF - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_WEAPON_PROF = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_WEAPON_PROF = new ListKey<>();
 	/** GAME_MODE - a ListKey */
-	public static final ListKey<String> GAME_MODE = new ListKey<String>();
+	public static final ListKey<String> GAME_MODE = new ListKey<>();
 	/** LICENSE - a ListKey */
-	public static final ListKey<String> LICENSE = new ListKey<String>();
+	public static final ListKey<String> LICENSE = new ListKey<>();
 	/** LICENSE_FILE - a ListKey */
-	public static final ListKey<CampaignSourceEntry> LICENSE_FILE = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> LICENSE_FILE = new ListKey<>();
 	/** FILE_LOGO - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_LOGO = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_LOGO = new ListKey<>();
 	/** SECTION 15 - a ListKey */
-	public static final ListKey<String> SECTION_15 = new ListKey<String>();
+	public static final ListKey<String> SECTION_15 = new ListKey<>();
 	/** INFO_TEXT - a ListKey */
-	public static final ListKey<String> INFO_TEXT = new ListKey<String>();
+	public static final ListKey<String> INFO_TEXT = new ListKey<>();
 	/** TEMP_BONUS - a ListKey */
-	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<BonusObj>();
+	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<>();
 	/** BOOK_TYPE - a ListKey */
-	public static final ListKey<String> BOOK_TYPE = new ListKey<String>();
+	public static final ListKey<String> BOOK_TYPE = new ListKey<>();
 	//	/** Key for a list of weapon proficiencies */
 	//	public static final ListKey<String> WEAPON_PROF = new ListKey<String>();
-	public static final ListKey<CampaignSourceEntry> FILE_ARMOR_PROF = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<CampaignSourceEntry> FILE_SHIELD_PROF = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<CDOMReference<WeaponProf>> DEITYWEAPON = new ListKey<CDOMReference<WeaponProf>>();
-	public static final ListKey<RaceSubType> RACESUBTYPE = new ListKey<RaceSubType>();
-	public static final ListKey<RaceSubType> REMOVED_RACESUBTYPE = new ListKey<RaceSubType>();
-	public static final ListKey<LevelCommandFactory> ADD_LEVEL = new ListKey<LevelCommandFactory>();
-	public static final ListKey<String> RANGE = new ListKey<String>();
-	public static final ListKey<String> SAVE_INFO = new ListKey<String>();
-	public static final ListKey<String> DURATION = new ListKey<String>();
-	public static final ListKey<String> COMPONENTS = new ListKey<String>();
-	public static final ListKey<String> CASTTIME = new ListKey<String>();
-	public static final ListKey<String> SPELL_RESISTANCE = new ListKey<String>();
-	public static final ListKey<String> VARIANTS = new ListKey<String>();
-	public static final ListKey<SpellSchool> SPELL_SCHOOL = new ListKey<SpellSchool>();
-	public static final ListKey<String> SPELL_SUBSCHOOL = new ListKey<String>();
-	public static final ListKey<String> SPELL_DESCRIPTOR = new ListKey<String>();
-	public static final ListKey<String> SPELL_CLASSLEVEL = new ListKey<String>();
-	public static final ListKey<String> SPELL_DOMAINLEVEL = new ListKey<String>();
-	public static final ListKey<Type> PROHIBITED_ITEM = new ListKey<Type>();
-	public static final ListKey<Type> ITEM = new ListKey<Type>();
-	public static final ListKey<Integer> HITDICE_ADVANCEMENT = new ListKey<Integer>();
-	public static final ListKey<String> ITEM_TYPES = new ListKey<String>();
-	public static final ListKey<CDOMSingleRef<EquipmentModifier>> REPLACED_KEYS = new ListKey<CDOMSingleRef<EquipmentModifier>>();
-	public static final ListKey<SpecialProperty> SPECIAL_PROPERTIES = new ListKey<SpecialProperty>();
-	public static final ListKey<ChangeArmorType> ARMORTYPE = new ListKey<ChangeArmorType>();
-	public static final ListKey<Formula> SPECIALTYKNOWN = new ListKey<Formula>();
-	public static final ListKey<Formula> KNOWN = new ListKey<Formula>();
-	public static final ListKey<Formula> CAST = new ListKey<Formula>();
-	public static final ListKey<QualifiedObject<CDOMSingleRef<Domain>>> DOMAIN = new ListKey<QualifiedObject<CDOMSingleRef<Domain>>>();
-	public static final ListKey<CDOMReference<Deity>> DEITY = new ListKey<CDOMReference<Deity>>();
-	public static final ListKey<KnownSpellIdentifier> KNOWN_SPELLS = new ListKey<KnownSpellIdentifier>();
-	public static final ListKey<SpellProhibitor> SPELL_PROHIBITOR = new ListKey<SpellProhibitor>();
-	public static final ListKey<Description> BENEFIT = new ListKey<Description>();
-	public static final ListKey<PCTemplate> LEVEL_TEMPLATES = new ListKey<PCTemplate>();
-	public static final ListKey<PCTemplate> REPEATLEVEL_TEMPLATES = new ListKey<PCTemplate>();
-	public static final ListKey<PCTemplate> HD_TEMPLATES = new ListKey<PCTemplate>();
-	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE_CHOOSE = new ListKey<CDOMReference<PCTemplate>>();
-	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE_ADDCHOICE = new ListKey<CDOMReference<PCTemplate>>();
-	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE = new ListKey<CDOMReference<PCTemplate>>();
-	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<CDOMReference<PCTemplate>>();
-	public static final ListKey<Vision> VISION_CACHE = new ListKey<Vision>();
-	public static final ListKey<PersistentTransitionChoice<?>> ADD = new ListKey<PersistentTransitionChoice<?>>();
-	public static final ListKey<CDOMReference<? extends PCClass>> FAVORED_CLASS = new ListKey<CDOMReference<? extends PCClass>>();
-	public static final ListKey<Qualifier> QUALIFY = new ListKey<Qualifier>();
-	public static final ListKey<DamageReduction> DAMAGE_REDUCTION = new ListKey<DamageReduction>();
-	public static final ListKey<CDOMSingleRef<PCStat>> UNLOCKED_STATS = new ListKey<CDOMSingleRef<PCStat>>();
-	public static final ListKey<CDOMSingleRef<PCStat>> NONSTAT_STATS = new ListKey<CDOMSingleRef<PCStat>>();
-	public static final ListKey<CDOMSingleRef<PCStat>> NONSTAT_TO_STAT_STATS = new ListKey<CDOMSingleRef<PCStat>>();
-	public static final ListKey<StatLock> STAT_LOCKS = new ListKey<StatLock>();
-	public static final ListKey<StatLock> STAT_MINVALUE = new ListKey<StatLock>();
-	public static final ListKey<StatLock> STAT_MAXVALUE = new ListKey<StatLock>();
-	public static final ListKey<TransitionChoice<Kit>> KIT_CHOICE = new ListKey<TransitionChoice<Kit>>();
-	public static final ListKey<Movement> MOVEMENT = new ListKey<Movement>();
-	public static final ListKey<Movement> BASE_MOVEMENT = new ListKey<Movement>();
-	public static final ListKey<FollowerOption> COMPANIONLIST = new ListKey<FollowerOption>();
-	public static final ListKey<FollowerLimit> FOLLOWERS = new ListKey<FollowerLimit>();
-	public static final ListKey<Description> DESCRIPTION = new ListKey<Description>();
-	public static final ListKey<ChangeProf> CHANGEPROF = new ListKey<ChangeProf>();
-	public static final ListKey<Equipment> NATURAL_WEAPON = new ListKey<Equipment>();
-	public static final ListKey<SpecialAbility> SAB = new ListKey<SpecialAbility>();
-	public static final ListKey<SubClass> SUB_CLASS = new ListKey<SubClass>();
-	public static final ListKey<SubstitutionClass> SUBSTITUTION_CLASS = new ListKey<SubstitutionClass>();
-	public static final ListKey<DeferredLine> SUB_CLASS_LEVEL = new ListKey<DeferredLine>();
-	public static final ListKey<CDOMReference<Skill>> SERVES_AS_SKILL = new ListKey<CDOMReference<Skill>>();
-	public static final ListKey<CDOMReference<Race>> SERVES_AS_RACE = new ListKey<CDOMReference<Race>>();
-	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<CDOMReference<PCClass>>();
-	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
-	public static final ListKey<ChooseSelectionActor<?>> DF_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
-	public static final ListKey<ChooseSelectionActor<?>> GVF_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
-	public static final ListKey<WeaponProfProvider> WEAPONPROF = new ListKey<WeaponProfProvider>();
-	public static final ListKey<CDOMSingleRef<WeaponProf>> IMPLIED_WEAPONPROF = new ListKey<CDOMSingleRef<WeaponProf>>();
-	public static final ListKey<QualifiedObject<CDOMReference<Equipment>>> EQUIPMENT = new ListKey<QualifiedObject<CDOMReference<Equipment>>>();
-	public static final ListKey<ArmorProfProvider> AUTO_ARMORPROF = new ListKey<ArmorProfProvider>();
-	public static final ListKey<ShieldProfProvider> AUTO_SHIELDPROF = new ListKey<ShieldProfProvider>();
-	public static final ListKey<CDOMReference<Skill>> CCSKILL = new ListKey<CDOMReference<Skill>>();
-	public static final ListKey<CDOMReference<Skill>> CSKILL = new ListKey<CDOMReference<Skill>>();
-	public static final ListKey<BonusObj> BONUS = new ListKey<BonusObj>();
-	public static final ListKey<String> UNARMED_DAMAGE = new ListKey<String>();
-	public static final ListKey<Capacity> CAPACITY = new ListKey<Capacity>();
-	public static final ListKey<SpellProhibitor> PROHIBITED_SPELLS = new ListKey<SpellProhibitor>();
-	public static final ListKey<String> COMMENT = new ListKey<String>();
-	public static final ListKey<PersistentTransitionChoice<?>> REMOVE = new ListKey<PersistentTransitionChoice<?>>();
-	public static final ListKey<Type> TYPE = new ListKey<Type>();
-	public static final ListKey<BaseKit> KIT_TASKS = new ListKey<BaseKit>();
-	public static final ListKey<EquipmentModifier> EQMOD = new ListKey<EquipmentModifier>();
-	public static final ListKey<CDOMSingleRef<Race>> APPLIED_RACE = new ListKey<CDOMSingleRef<Race>>();
-	public static final ListKey<EqModRef> EQMOD_INFO = new ListKey<EqModRef>();
-	public static final ListKey<CampaignURL> CAMPAIGN_URL = new ListKey<CampaignURL>();
-	public static final ListKey<Qualifier> FORWARDREF = new ListKey<Qualifier>();
-	public static final ListKey<Campaign> CAMPAIGN = new ListKey<Campaign>();
+	public static final ListKey<CampaignSourceEntry> FILE_ARMOR_PROF = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_SHIELD_PROF = new ListKey<>();
+	public static final ListKey<CDOMReference<WeaponProf>> DEITYWEAPON = new ListKey<>();
+	public static final ListKey<RaceSubType> RACESUBTYPE = new ListKey<>();
+	public static final ListKey<RaceSubType> REMOVED_RACESUBTYPE = new ListKey<>();
+	public static final ListKey<LevelCommandFactory> ADD_LEVEL = new ListKey<>();
+	public static final ListKey<String> RANGE = new ListKey<>();
+	public static final ListKey<String> SAVE_INFO = new ListKey<>();
+	public static final ListKey<String> DURATION = new ListKey<>();
+	public static final ListKey<String> COMPONENTS = new ListKey<>();
+	public static final ListKey<String> CASTTIME = new ListKey<>();
+	public static final ListKey<String> SPELL_RESISTANCE = new ListKey<>();
+	public static final ListKey<String> VARIANTS = new ListKey<>();
+	public static final ListKey<SpellSchool> SPELL_SCHOOL = new ListKey<>();
+	public static final ListKey<String> SPELL_SUBSCHOOL = new ListKey<>();
+	public static final ListKey<String> SPELL_DESCRIPTOR = new ListKey<>();
+	public static final ListKey<String> SPELL_CLASSLEVEL = new ListKey<>();
+	public static final ListKey<String> SPELL_DOMAINLEVEL = new ListKey<>();
+	public static final ListKey<Type> PROHIBITED_ITEM = new ListKey<>();
+	public static final ListKey<Type> ITEM = new ListKey<>();
+	public static final ListKey<Integer> HITDICE_ADVANCEMENT = new ListKey<>();
+	public static final ListKey<String> ITEM_TYPES = new ListKey<>();
+	public static final ListKey<CDOMSingleRef<EquipmentModifier>> REPLACED_KEYS = new ListKey<>();
+	public static final ListKey<SpecialProperty> SPECIAL_PROPERTIES = new ListKey<>();
+	public static final ListKey<ChangeArmorType> ARMORTYPE = new ListKey<>();
+	public static final ListKey<Formula> SPECIALTYKNOWN = new ListKey<>();
+	public static final ListKey<Formula> KNOWN = new ListKey<>();
+	public static final ListKey<Formula> CAST = new ListKey<>();
+	public static final ListKey<QualifiedObject<CDOMSingleRef<Domain>>> DOMAIN = new ListKey<>();
+	public static final ListKey<CDOMReference<Deity>> DEITY = new ListKey<>();
+	public static final ListKey<KnownSpellIdentifier> KNOWN_SPELLS = new ListKey<>();
+	public static final ListKey<SpellProhibitor> SPELL_PROHIBITOR = new ListKey<>();
+	public static final ListKey<Description> BENEFIT = new ListKey<>();
+	public static final ListKey<PCTemplate> LEVEL_TEMPLATES = new ListKey<>();
+	public static final ListKey<PCTemplate> REPEATLEVEL_TEMPLATES = new ListKey<>();
+	public static final ListKey<PCTemplate> HD_TEMPLATES = new ListKey<>();
+	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE_CHOOSE = new ListKey<>();
+	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE_ADDCHOICE = new ListKey<>();
+	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE = new ListKey<>();
+	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<>();
+	public static final ListKey<Vision> VISION_CACHE = new ListKey<>();
+	public static final ListKey<PersistentTransitionChoice<?>> ADD = new ListKey<>();
+	public static final ListKey<CDOMReference<? extends PCClass>> FAVORED_CLASS = new ListKey<>();
+	public static final ListKey<Qualifier> QUALIFY = new ListKey<>();
+	public static final ListKey<DamageReduction> DAMAGE_REDUCTION = new ListKey<>();
+	public static final ListKey<CDOMSingleRef<PCStat>> UNLOCKED_STATS = new ListKey<>();
+	public static final ListKey<CDOMSingleRef<PCStat>> NONSTAT_STATS = new ListKey<>();
+	public static final ListKey<CDOMSingleRef<PCStat>> NONSTAT_TO_STAT_STATS = new ListKey<>();
+	public static final ListKey<StatLock> STAT_LOCKS = new ListKey<>();
+	public static final ListKey<StatLock> STAT_MINVALUE = new ListKey<>();
+	public static final ListKey<StatLock> STAT_MAXVALUE = new ListKey<>();
+	public static final ListKey<TransitionChoice<Kit>> KIT_CHOICE = new ListKey<>();
+	public static final ListKey<Movement> MOVEMENT = new ListKey<>();
+	public static final ListKey<Movement> BASE_MOVEMENT = new ListKey<>();
+	public static final ListKey<FollowerOption> COMPANIONLIST = new ListKey<>();
+	public static final ListKey<FollowerLimit> FOLLOWERS = new ListKey<>();
+	public static final ListKey<Description> DESCRIPTION = new ListKey<>();
+	public static final ListKey<ChangeProf> CHANGEPROF = new ListKey<>();
+	public static final ListKey<Equipment> NATURAL_WEAPON = new ListKey<>();
+	public static final ListKey<SpecialAbility> SAB = new ListKey<>();
+	public static final ListKey<SubClass> SUB_CLASS = new ListKey<>();
+	public static final ListKey<SubstitutionClass> SUBSTITUTION_CLASS = new ListKey<>();
+	public static final ListKey<DeferredLine> SUB_CLASS_LEVEL = new ListKey<>();
+	public static final ListKey<CDOMReference<Skill>> SERVES_AS_SKILL = new ListKey<>();
+	public static final ListKey<CDOMReference<Race>> SERVES_AS_RACE = new ListKey<>();
+	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<>();
+	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<>();
+	public static final ListKey<ChooseSelectionActor<?>> DF_CHOOSE_ACTOR = new ListKey<>();
+	public static final ListKey<ChooseSelectionActor<?>> GVF_CHOOSE_ACTOR = new ListKey<>();
+	public static final ListKey<WeaponProfProvider> WEAPONPROF = new ListKey<>();
+	public static final ListKey<CDOMSingleRef<WeaponProf>> IMPLIED_WEAPONPROF = new ListKey<>();
+	public static final ListKey<QualifiedObject<CDOMReference<Equipment>>> EQUIPMENT = new ListKey<>();
+	public static final ListKey<ArmorProfProvider> AUTO_ARMORPROF = new ListKey<>();
+	public static final ListKey<ShieldProfProvider> AUTO_SHIELDPROF = new ListKey<>();
+	public static final ListKey<CDOMReference<Skill>> CCSKILL = new ListKey<>();
+	public static final ListKey<CDOMReference<Skill>> CSKILL = new ListKey<>();
+	public static final ListKey<BonusObj> BONUS = new ListKey<>();
+	public static final ListKey<String> UNARMED_DAMAGE = new ListKey<>();
+	public static final ListKey<Capacity> CAPACITY = new ListKey<>();
+	public static final ListKey<SpellProhibitor> PROHIBITED_SPELLS = new ListKey<>();
+	public static final ListKey<String> COMMENT = new ListKey<>();
+	public static final ListKey<PersistentTransitionChoice<?>> REMOVE = new ListKey<>();
+	public static final ListKey<Type> TYPE = new ListKey<>();
+	public static final ListKey<BaseKit> KIT_TASKS = new ListKey<>();
+	public static final ListKey<EquipmentModifier> EQMOD = new ListKey<>();
+	public static final ListKey<CDOMSingleRef<Race>> APPLIED_RACE = new ListKey<>();
+	public static final ListKey<EqModRef> EQMOD_INFO = new ListKey<>();
+	public static final ListKey<CampaignURL> CAMPAIGN_URL = new ListKey<>();
+	public static final ListKey<Qualifier> FORWARDREF = new ListKey<>();
+	public static final ListKey<Campaign> CAMPAIGN = new ListKey<>();
 
-	public static final ListKey<Class<?>> DUPES_ALLOWED = new ListKey<Class<?>>();
-	public static final ListKey<ObjectKey<?>> REMOVED_OBJECTKEY = new ListKey<ObjectKey<?>>();
-	public static final ListKey<StringKey> REMOVED_STRINGKEY = new ListKey<StringKey>();
-	public static final ListKey<IntegerKey> REMOVED_INTEGERKEY = new ListKey<IntegerKey>();
-	public static final ListKey<CDOMReference<Ability>> FEAT_TOKEN_LIST = new ListKey<CDOMReference<Ability>>();
-	public static final ListKey<ChooseSelectionActor<?>> NEW_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
-	public static final ListKey<KitStat> STAT_LIST = new ListKey<KitStat>();
-	public static final ListKey<ListKey<ChooseSelectionActor<?>>> GA_CAKEYS = new ListKey<ListKey<ChooseSelectionActor<?>>>();
-	public static final ListKey<String> MONSTER_ROLES = new ListKey<String>();
+	public static final ListKey<Class<?>> DUPES_ALLOWED = new ListKey<>();
+	public static final ListKey<ObjectKey<?>> REMOVED_OBJECTKEY = new ListKey<>();
+	public static final ListKey<StringKey> REMOVED_STRINGKEY = new ListKey<>();
+	public static final ListKey<IntegerKey> REMOVED_INTEGERKEY = new ListKey<>();
+	public static final ListKey<CDOMReference<Ability>> FEAT_TOKEN_LIST = new ListKey<>();
+	public static final ListKey<ChooseSelectionActor<?>> NEW_CHOOSE_ACTOR = new ListKey<>();
+	public static final ListKey<KitStat> STAT_LIST = new ListKey<>();
+	public static final ListKey<ListKey<ChooseSelectionActor<?>>> GA_CAKEYS = new ListKey<>();
+	public static final ListKey<String> MONSTER_ROLES = new ListKey<>();
 
 	//These are case sensitive, please do not change them to upper case
-	public static final ListKey<String> HIDDEN_Equipment = new ListKey<String>();
-	public static final ListKey<String> HIDDEN_Ability = new ListKey<String>();
-	public static final ListKey<String> HIDDEN_Skill = new ListKey<String>();
-	public static final ListKey<QualifiedObject<CDOMReference<Language>>> AUTO_LANGUAGES = new ListKey<QualifiedObject<CDOMReference<Language>>>();
-	public static final ListKey<QualifiedObject<CDOMReference<Language>>> AUTO_LANGUAGE = new ListKey<QualifiedObject<CDOMReference<Language>>>();
-	public static final ListKey<CDOMReference<Skill>> CLASS_SKILL = new ListKey<CDOMReference<Skill>>();
-	public static final ListKey<CDOMReference<Skill>> LOCALCSKILL = new ListKey<CDOMReference<Skill>>();
-	public static final ListKey<CDOMReference<Skill>> LOCALCCSKILL = new ListKey<CDOMReference<Skill>>();
-	public static final ListKey<BonusObj> BONUS_ANYPC = new ListKey<BonusObj>();
-	public static final ListKey<BonusObj> BONUS_PC = new ListKey<BonusObj>();
-	public static final ListKey<EquipBonus> BONUS_EQUIP = new ListKey<EquipBonus>();
-	public static final ListKey<CDOMReference<WeaponProf>> WEAPONBONUS = new ListKey<CDOMReference<WeaponProf>>();
-	public static final ListKey<String> SITUATION = new ListKey<String>();
-	public static final ListKey<FactKey<?>> REMOVED_FACTKEY = new ListKey<FactKey<?>>();
-	public static final ListKey<FactSetKey<?>> REMOVED_FACTSETKEY = new ListKey<FactSetKey<?>>();
-	public static final ListKey<VarModifier<?>> MODIFY = new ListKey<VarModifier<?>>();
-	public static final ListKey<CampaignSourceEntry> FILE_VARIABLE = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<CampaignSourceEntry> FILE_DATACTRL = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<CampaignSourceEntry> FILE_SAVE = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<CampaignSourceEntry> FILE_STAT = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<CampaignSourceEntry> FILE_SIZE = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<CampaignSourceEntry> FILE_ALIGNMENT = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<RemoteModifier<?>> REMOTE_MODIFIER = new ListKey<RemoteModifier<?>>();
-	public static final ListKey<String> GROUP = new ListKey<String>();
-	public static final ListKey<CampaignSourceEntry> FILE_GLOBALMOD = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<CampaignSourceEntry> FILE_DYNAMIC = new ListKey<CampaignSourceEntry>();
-	public static final ListKey<CDOMReference<Dynamic>> GRANTED = new ListKey<CDOMReference<Dynamic>>();
+	public static final ListKey<String> HIDDEN_Equipment = new ListKey<>();
+	public static final ListKey<String> HIDDEN_Ability = new ListKey<>();
+	public static final ListKey<String> HIDDEN_Skill = new ListKey<>();
+	public static final ListKey<QualifiedObject<CDOMReference<Language>>> AUTO_LANGUAGES = new ListKey<>();
+	public static final ListKey<QualifiedObject<CDOMReference<Language>>> AUTO_LANGUAGE = new ListKey<>();
+	public static final ListKey<CDOMReference<Skill>> CLASS_SKILL = new ListKey<>();
+	public static final ListKey<CDOMReference<Skill>> LOCALCSKILL = new ListKey<>();
+	public static final ListKey<CDOMReference<Skill>> LOCALCCSKILL = new ListKey<>();
+	public static final ListKey<BonusObj> BONUS_ANYPC = new ListKey<>();
+	public static final ListKey<BonusObj> BONUS_PC = new ListKey<>();
+	public static final ListKey<EquipBonus> BONUS_EQUIP = new ListKey<>();
+	public static final ListKey<CDOMReference<WeaponProf>> WEAPONBONUS = new ListKey<>();
+	public static final ListKey<String> SITUATION = new ListKey<>();
+	public static final ListKey<FactKey<?>> REMOVED_FACTKEY = new ListKey<>();
+	public static final ListKey<FactSetKey<?>> REMOVED_FACTSETKEY = new ListKey<>();
+	public static final ListKey<VarModifier<?>> MODIFY = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_VARIABLE = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_DATACTRL = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_SAVE = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_STAT = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_SIZE = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_ALIGNMENT = new ListKey<>();
+	public static final ListKey<RemoteModifier<?>> REMOTE_MODIFIER = new ListKey<>();
+	public static final ListKey<String> GROUP = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_GLOBALMOD = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_DYNAMIC = new ListKey<>();
+	public static final ListKey<CDOMReference<Dynamic>> GRANTED = new ListKey<>();
+	public static final ListKey<CampaignSourceEntry> FILE_DATATABLE = new ListKey<>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 
@@ -322,7 +316,7 @@ public final class ListKey<T>
 		ListKey<OT> key = (ListKey<OT>) map.get(name);
 		if (key == null)
 		{
-			key = new ListKey<OT>();
+			key = new ListKey<>();
 			map.put(name, key);
 		}
 		return key;
@@ -330,7 +324,7 @@ public final class ListKey<T>
 
 	private static void buildMap()
 	{
-		map = new CaseInsensitiveMap<ListKey<?>>();
+		map = new CaseInsensitiveMap<>();
 		Field[] fields = ListKey.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
 		{
@@ -347,11 +341,7 @@ public final class ListKey<T>
 						map.put(fields[i].getName(), (ListKey<?>) obj);
 					}
 				}
-				catch (IllegalArgumentException e)
-				{
-					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				catch (IllegalArgumentException | IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}
@@ -379,6 +369,6 @@ public final class ListKey<T>
 
 	public static Collection<ListKey<?>> getAllConstants()
 	{
-		return new HashSet<ListKey<?>>(map.values());
+		return new HashSet<>(map.values());
 	}
 }

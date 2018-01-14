@@ -1,5 +1,4 @@
 /**
- * EquipIconLoader.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 14/02/2011 5:47:54 PM
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -32,19 +29,14 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>EquipIconLoader</code> loads the equipIcon.lst game mode file.
+ * The Class {@code EquipIconLoader} loads the equipIcon.lst game mode file.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class EquipIconLoader extends LstLineFileLoader
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(pcgen.rules.context.LoadContext, java.lang.String, java.net.URI)
 	 */
 	@Override

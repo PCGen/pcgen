@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.overland.gui;
 
@@ -25,8 +23,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -47,6 +45,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import pcgen.system.LanguageBundle;
+
 import plugin.overland.model.RoomBoard;
 import plugin.overland.model.RoomBoardFactory;
 import plugin.overland.model.TravelMethod;
@@ -54,11 +53,7 @@ import plugin.overland.model.TravelMethodFactory;
 import plugin.overland.model.TravelMethodListener;
 import plugin.overland.model.TravelSpeedEvent;
 
-/**
- *
- * @author  Juliean Galak
- * @author Vincent Lhote
- */
+
 public class OverPanel extends javax.swing.JPanel
 {
 	// ### Constants ###
@@ -157,7 +152,9 @@ public class OverPanel extends javax.swing.JPanel
 	private void butToDistActionPerformed()
 	{
 		if (selectedTM == null)
+		{
 			return;
+		}
 		lastEdited = TravelMethodTextField.TIME;
 		Object o = txtTime.getValue();
 		if (o != null && o instanceof Number)
@@ -173,7 +170,9 @@ public class OverPanel extends javax.swing.JPanel
 	private void butImperialToTimeActionPerformed()
 	{
 		if (selectedTM == null)
+		{
 			return;
+		}
 		lastEdited = TravelMethodTextField.IMPERIAL_DISTANCE;
 		Object o = txtDist.getValue();
 		if (o != null && o instanceof Number)
@@ -187,7 +186,9 @@ public class OverPanel extends javax.swing.JPanel
 	private void butMetricToTimeActionPerformed()
 	{
 		if (selectedTM == null)
+		{
 			return;
+		}
 		lastEdited = TravelMethodTextField.METRIC_DISTANCE;
 		Object o = txtDistMetric.getValue();
 		if (o != null && o instanceof Number)
@@ -344,14 +345,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelScaleConv.add(textMap, gridBagConstraints);
 
 		butToMap.setText(LanguageBundle.getString("in_plugin_overland_leftArrow")); //$NON-NLS-1$
-		butToMap.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				butToMapActionPerformed(evt);
-			}
-		});
+		butToMap.addActionListener(this::butToMapActionPerformed);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -359,14 +353,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelScaleConv.add(butToMap, gridBagConstraints);
 
 		butToReal.setText(LanguageBundle.getString("in_plugin_overland_rightArrow")); //$NON-NLS-1$
-		butToReal.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				butToRealActionPerformed(evt);
-			}
-		});
+		butToReal.addActionListener(this::butToRealActionPerformed);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -948,7 +935,9 @@ public class OverPanel extends javax.swing.JPanel
 			public void itemStateChanged(ItemEvent e)
 			{
 				if (e.getStateChange() == ItemEvent.DESELECTED)
+				{
 					return;
+				}
 				changedTM();
 			}
 		});
@@ -984,11 +973,15 @@ public class OverPanel extends javax.swing.JPanel
 	{
 		// remove previous listener
 		if (selectedTM != null)
+		{
 			selectedTM.removeTravelMethodListener(listener);
+		}
 		selectedTM = (TravelMethod) aModel.getSelectedItem();
 		// XXX correct?
 		if (selectedTM == null)
+		{
 			return;
+		}
 
 		method.setModel(selectedTM.getMethodsModel());
 		method.setSelectedIndex(0);
@@ -1039,6 +1032,7 @@ public class OverPanel extends javax.swing.JPanel
 			butToDist.setEnabled(imperialSpeedString != null && metricSpeedString != null);
 			// Updates other text fields based on the last edited one
 			if (lastEdited != null)
+			{
 				switch (lastEdited)
 				{
 					case IMPERIAL_DISTANCE:
@@ -1051,6 +1045,7 @@ public class OverPanel extends javax.swing.JPanel
 						butToDistActionPerformed();
 						break;
 				}
+			}
 		}
 
 		@Override
@@ -1092,7 +1087,6 @@ public class OverPanel extends javax.swing.JPanel
 
 	/** This method updates the Bottom portions of the UI based on changes in the total cost
 	 *  and number of days.  It sets the value into the total box
-	 *
 	 */
 	private void updateBottomUI()
 	{
@@ -1113,16 +1107,15 @@ public class OverPanel extends javax.swing.JPanel
 
 	/** This method updates the middle portions of the UI based on changes in the daily costs
 	 *  It sets the value into the daily total boxes
-	 *
 	 */
 	private void updateMidUI()
 	{
 		Object inn = txtDayInn.getValue();
-		float DayInn = inn instanceof Number ? ((Number) inn).floatValue() : 0f;
+		float DayInn = inn instanceof Number ? ((Number) inn).floatValue() : 0.0f;
 		Object food = txtDayFood.getValue();
-		float DayFood = food instanceof Number ? ((Number) food).floatValue() : 0f;
+		float DayFood = food instanceof Number ? ((Number) food).floatValue() : 0.0f;
 		Object animal = txtDayAnimal.getValue();
-		float DayAnimal = animal instanceof Number ? ((Number) txtDayAnimal.getValue()).floatValue() : 0f;
+		float DayAnimal = animal instanceof Number ? ((Number) txtDayAnimal.getValue()).floatValue() : 0.0f;
 		float result = DayInn + DayFood + DayAnimal;
 
 		txtDayTotal.setValue(result);
@@ -1134,7 +1127,6 @@ public class OverPanel extends javax.swing.JPanel
 
 	/** This method updates the top portions of the UI based on changes in number of people or animals
 	 *  or changes in quality of RB.  It sets the values into the daily and weekly cost boxes
-	 *
 	 */
 	private void updateTopUI()
 	{
@@ -1185,7 +1177,7 @@ public class OverPanel extends javax.swing.JPanel
 		updateMidUI(); //propagate changes down
 	}
 
-	private final class KeyListenerImplementation implements KeyListener
+	private final class KeyListenerImplementation extends KeyAdapter
 	{
 		private JButton button;
 
@@ -1198,24 +1190,12 @@ public class OverPanel extends javax.swing.JPanel
 		}
 
 		@Override
-		public void keyTyped(KeyEvent e)
-		{
-			// nothing to do
-		}
-
-		@Override
 		public void keyReleased(KeyEvent e)
 		{
 			if (KeyEvent.VK_ENTER == e.getKeyCode())
 			{
 				button.doClick();
 			}
-		}
-
-		@Override
-		public void keyPressed(KeyEvent e)
-		{
-			// nothing to do
 		}
 
 	}

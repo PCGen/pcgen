@@ -1,5 +1,4 @@
 /**
- * CharacterAbilities.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 19/03/2011 12:06:34 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -67,31 +62,26 @@ import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 
 /**
- * The Class <code>CharacterAbilities</code> manages the interaction between 
+ * The Class {@code CharacterAbilities} manages the interaction between
  * the core and the user interface for abilities. It listens for changes in 
  * abilities in the core and then updates the lists provided to the UI to
  * reflect the changes. The lists automatically notify any listeners in the 
  * UI of the changes.
  *   
- * <br/>
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CharacterAbilities
 {
 
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
-	private UIDelegate delegate;
+	private final UIDelegate delegate;
 
 	private Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> abilityListMap;
 	private DefaultListFacade<AbilityCategoryFacade> activeCategories;
 	private CharID charID;
-	private DataSetFacade dataSetFacade;
+	private final DataSetFacade dataSetFacade;
 	private final List<ChangeListener> abilityCatSelectionListeners;
 	private final TodoManager todoManager;
 	private GrantedAbilityChangeHandler grantedAbilityChangeHandler;
@@ -111,7 +101,7 @@ public class CharacterAbilities
 		this.delegate = delegate;
 		this.dataSetFacade = dataSetFacade;
 		this.todoManager = todoManager;
-		abilityCatSelectionListeners = new ArrayList<ChangeListener>();
+		abilityCatSelectionListeners = new ArrayList<>();
 		
 		initForCharacter();
 	}
@@ -127,9 +117,9 @@ public class CharacterAbilities
 	
 	private void initForCharacter()
 	{
-		abilityListMap = 
-				new LinkedHashMap<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>>();
-		activeCategories = new DefaultListFacade<AbilityCategoryFacade>();
+		abilityListMap =
+                new LinkedHashMap<>();
+		activeCategories = new DefaultListFacade<>();
 
 		charID = theCharacter.getCharID();
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
@@ -165,8 +155,8 @@ public class CharacterAbilities
 	synchronized void rebuildAbilityLists()
 	{
 		Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap =
-				new LinkedHashMap<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>>();
-		DefaultListFacade<AbilityCategoryFacade> workingActiveCategories = new DefaultListFacade<AbilityCategoryFacade>();
+                new LinkedHashMap<>();
+		DefaultListFacade<AbilityCategoryFacade> workingActiveCategories = new DefaultListFacade<>();
 
 		for (AbilityCategoryFacade category : dataSetFacade.getAbilities().getKeys())
 		{
@@ -213,7 +203,7 @@ public class CharacterAbilities
 			updateAbilityCategoryTodo((AbilityCategory) category);
 		}
 		
-		Set<AbilityCategoryFacade> origCats = new HashSet<AbilityCategoryFacade>(abilityListMap.keySet());
+		Set<AbilityCategoryFacade> origCats = new HashSet<>(abilityListMap.keySet());
 		for (AbilityCategoryFacade category : origCats)
 		{
 			if (!workingAbilityListMap.containsKey(category))
@@ -307,7 +297,7 @@ public class CharacterAbilities
 	private void addCategorisedAbility(CNAbility cna, Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap)
 	{
 		Ability ability = cna.getAbility();
-		List<CNAbilitySelection> cas = new ArrayList<CNAbilitySelection>();
+		List<CNAbilitySelection> cas = new ArrayList<>();
 		Category<Ability> cat = cna.getAbilityCategory();
 		Nature nature = cna.getNature();
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
@@ -475,7 +465,7 @@ public class CharacterAbilities
 		DefaultListFacade<AbilityFacade> abList = abilityListMap.get(category);
 		if (abList == null)
 		{
-			abList = new DefaultListFacade<AbilityFacade>();
+			abList = new DefaultListFacade<>();
 			abilityListMap.put(category, abList);
 		}
 		return abList;
@@ -721,7 +711,7 @@ public class CharacterAbilities
 		DefaultListFacade<AbilityFacade> listFacade = workingAbilityListMap.get(cat);
 		if (listFacade == null)
 		{
-			listFacade = new  DefaultListFacade<AbilityFacade>();
+			listFacade = new DefaultListFacade<>();
 			workingAbilityListMap.put(cat, listFacade);
 		}
 		if (!listFacade.containsElement(ability))
@@ -743,7 +733,7 @@ public class CharacterAbilities
 	}
 
 	/**
-	 * The Class <code>GrantedAbilityChangeHandler</code> responds to changes to 
+	 * The Class {@code GrantedAbilityChangeHandler} responds to changes to
 	 * the character's list of granted abilities.
 	 */
 	private final class GrantedAbilityChangeHandler implements

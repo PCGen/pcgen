@@ -1,5 +1,4 @@
 /*
- * PortraitThumbnailRectFacet.java
  * Copyright (c) James Dempsey 2011.
  * 
  * This program is free software; you can redistribute it and/or modify it under
@@ -27,11 +26,7 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * PortraitThumbnailRectFacet is a Facet that tracks the thumbnail rectangle for 
  * the character's portrait.
  * 
- * Last Editor: $Author$ <br/>
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PortraitThumbnailRectFacet extends AbstractItemFacet<CharID, Rectangle>
 {

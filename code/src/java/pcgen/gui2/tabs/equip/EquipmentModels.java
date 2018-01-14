@@ -1,5 +1,4 @@
 /*
- * EquipmentModels.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 25, 2011, 3:26:08 PM
  */
 package pcgen.gui2.tabs.equip;
 
@@ -73,12 +71,7 @@ import pcgen.system.LanguageBundle;
  * models for both the left and right tables of gear. It also contains the 
  * processing to manage equipping and unequipping actions.
  *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *  
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class EquipmentModels
 {
@@ -189,10 +182,10 @@ public class EquipmentModels
 	private List<EquipNode> getSelectedEquipmentSetNodes()
 	{
 		int[] rows = equipmentSetTable.getSelectedRows();
-		List<EquipNode> paths = new ArrayList<EquipNode>();
-		for (int i = 0; i < rows.length; i++)
+		List<EquipNode> paths = new ArrayList<>();
+		for (int row : rows)
 		{
-			EquipNode path = (EquipNode) equipmentSetTable.getValueAt(rows[i], 0);
+			EquipNode path = (EquipNode) equipmentSetTable.getValueAt(row, 0);
 			if (path.getNodeType() == NodeType.EQUIPMENT)
 			{
 				paths.add(path);
@@ -341,8 +334,7 @@ public class EquipmentModels
 					data[i][0] = path.getEquipment();
 					data[i][1] = equipSet.getQuantity(path);
 				}
-				Object[] columns = new Object[]
-				{
+				Object[] columns = {
 					LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
 					LanguageBundle.getString("in_equipQuantityAbbrev"), //$NON-NLS-1$
 				};
@@ -425,13 +417,13 @@ public class EquipmentModels
 		public void actionPerformed(ActionEvent e)
 		{
 			int[] selectedRows = equipmentTable.getSelectedRows();
-			MapToList<EquipmentFacade, EquipNode> equipMap = new HashMapToList<EquipmentFacade, EquipNode>();
+			MapToList<EquipmentFacade, EquipNode> equipMap = new HashMapToList<>();
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
-			List<EquipmentFacade> equipment = new ArrayList<EquipmentFacade>();
+			List<EquipmentFacade> equipment = new ArrayList<>();
 
-			for (int i = 0; i < selectedRows.length; i++)
+			for (int selectedRow : selectedRows)
 			{
-				EquipmentFacade equipmentFacade = selectedModel.getValue(selectedRows[i]);
+				EquipmentFacade equipmentFacade = selectedModel.getValue(selectedRow);
 				for (EquipNode path : equipSet.getNodes())
 				{
 					if (equipSet.canEquip(path, equipmentFacade))
@@ -454,8 +446,7 @@ public class EquipmentModels
 					data[i][1] = unequippedList.getQuantity(equipmentFacade);
 					data[i][2] = getInitialNode(equipMap, equipSet, equipmentFacade); 
 				}
-				Object[] columns = new Object[]
-				{
+				Object[] columns = {
 					LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
 					LanguageBundle.getString("in_equipQuantityAbbrev"), //$NON-NLS-1$
 					LanguageBundle.getString("in_equipContainer") //$NON-NLS-1$
@@ -524,10 +515,10 @@ public class EquipmentModels
 			// First see if the user has selected a suitable node in the equipped tree
 			List<EquipNode> possibleNodeList = equipMap.getListFor(equipmentFacade);
 			int[] rows = equipmentSetTable.getSelectedRows();
-			List<EquipNode> paths = new ArrayList<EquipNode>();
-			for (int i = 0; i < rows.length; i++)
+			List<EquipNode> paths = new ArrayList<>();
+			for (int row : rows)
 			{
-				EquipNode path = (EquipNode) equipmentSetTable.getValueAt(rows[i], 0);
+				EquipNode path = (EquipNode) equipmentSetTable.getValueAt(row, 0);
 				if (possibleNodeList.contains(path))
 				{
 					return path;
@@ -560,7 +551,7 @@ public class EquipmentModels
 
 	}
 
-	private class SpinnerEditor extends AbstractCellEditor implements TableCellEditor, ChangeListener
+	private static class SpinnerEditor extends AbstractCellEditor implements TableCellEditor, ChangeListener
 	{
 
 		private JSpinner spinner = new JSpinner();

@@ -1,5 +1,4 @@
 /*
- * MaxVerToken.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,14 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 01/06/2013
- *
- * $Id$
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.core.system.MigrationRule;
 import pcgen.persistence.lst.MigrationLstToken;
@@ -30,28 +25,20 @@ import pcgen.persistence.lst.VersionAwareToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>MaxVerToken</code> parses the MAXVER token in migration.lst 
+ * The Class {@code MaxVerToken} parses the MAXVER token in migration.lst
  * game mode files. The MAXVER token specifies the production PCGen version when 
  * the rules object was last coded in the old format.  
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class MaxVerToken extends VersionAwareToken implements MigrationLstToken
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "MAXVER";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean parse(MigrationRule migrationRule, String value,
 		String gameModeName)

@@ -16,47 +16,45 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * AboutBox.java
  *
- * Created on September 18, 2002, 5:38 PM
  */
 package gmgen.gui;
 
-import javax.swing.tree.DefaultMutableTreeNode;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import javax.swing.tree.DefaultMutableTreeNode;
 
 /** This defines the preferences tree
  *
- * @author  devon
  */
 public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 {
-	private List<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
+	private final List<PreferencesPanel> panelList = new ArrayList<>();
 
 	public PreferencesRootTreeNode()
 	{
 		super("Hide me"); //$NON-NLS-1$
 	}
 
-	public List<PreferencesPanel> getPanelList()
+	List<PreferencesPanel> getPanelList()
 	{
-		return panelList;
+		return Collections.unmodifiableList(panelList);
 	}
 
-	public void addPanel(String plugin, PreferencesPanel panel)
+	public void addPanel(final String plugin, final PreferencesPanel panel)
 	{
 		DefaultMutableTreeNode pluginNode = getPluginNode(plugin);
 		pluginNode.add(new DefaultMutableTreeNode(panel));
 		panelList.add(panel);
 	}
 
-	private DefaultMutableTreeNode getPluginNode(String plugin)
+	private DefaultMutableTreeNode getPluginNode(final String plugin)
 	{
 		if(children != null)
 		{
-			for (Object obj : children)
+			for (final Object obj : children)
 			{
 				if (obj instanceof DefaultMutableTreeNode)
 				{

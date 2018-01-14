@@ -22,17 +22,17 @@ import java.util.List;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.solver.AggressiveSolverManager;
 import pcgen.base.solver.ProcessStep;
+import pcgen.base.solver.SolverManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 
 /**
- * This stores the AggressiveSolverManager for each PlayerCharacter.
+ * This stores the SolverManager for each PlayerCharacter.
  */
 public class SolverManagerFacet extends
-		AbstractItemFacet<CharID, AggressiveSolverManager>
+		AbstractItemFacet<CharID, SolverManager>
 {
 	private VariableLibraryFacet variableLibraryFacet;
 
@@ -43,24 +43,24 @@ public class SolverManagerFacet extends
 		return get(id).diagnose(varID);
 	}
 
-	public <T> void addModifier(CharID id, VarModifier<T> vm, VarScoped target,
-		Object source)
+	public <T> boolean addModifier(CharID id, VarModifier<T> vm, VarScoped target,
+		ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.legalScope, target);
+		ScopeInstance scope = scopeFacet.get(id, vm.getLegalScope().getName(), target);
 		VariableID<T> varID =
 				(VariableID<T>) variableLibraryFacet.getVariableID(
-					id.getDatasetID(), scope, vm.varName);
-		get(id).addModifier(varID, vm.modifier, source);
+					id.getDatasetID(), scope, vm.getVarName());
+		return get(id).addModifierAndSolve(varID, vm.getModifier(), source);
 	}
 
 	public <T> void removeModifier(CharID id, VarModifier<T> vm,
-		VarScoped target, Object source)
+		VarScoped target, ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.legalScope, target);
+		ScopeInstance scope = scopeFacet.get(id, vm.getLegalScope().getName(), target);
 		VariableID<T> varID =
 				(VariableID<T>) variableLibraryFacet.getVariableID(
-					id.getDatasetID(), scope, vm.varName);
-		get(id).removeModifier(varID, vm.modifier, source);
+					id.getDatasetID(), scope, vm.getVarName());
+		get(id).removeModifier(varID, vm.getModifier(), source);
 	}
 
 	public void setVariableLibraryFacet(
@@ -73,5 +73,4 @@ public class SolverManagerFacet extends
 	{
 		this.scopeFacet = scopeFacet;
 	}
-
 }

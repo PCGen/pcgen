@@ -39,7 +39,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static SpellstatToken token = new SpellstatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 	private PCStat ps;
 
 	@Override
@@ -230,7 +230,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
+	private static ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
 	{
 		return ObjectKey.SPELL_STAT;
 	}

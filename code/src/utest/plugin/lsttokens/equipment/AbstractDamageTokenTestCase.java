@@ -32,7 +32,7 @@ public abstract class AbstractDamageTokenTestCase extends
 		AbstractCDOMTokenTestCase<Equipment>
 {
 
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -112,7 +112,7 @@ public abstract class AbstractDamageTokenTestCase extends
 	// assertBadUnparse();
 	// }
 
-	private StringKey getStringKey()
+	private static StringKey getStringKey()
 	{
 		return StringKey.DAMAGE;
 	}

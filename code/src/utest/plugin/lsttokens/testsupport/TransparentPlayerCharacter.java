@@ -23,6 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.ListSet;
@@ -48,33 +49,32 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 {
 
 	public final TransparentCharacterDisplay display;
-	public Set<WeaponProf> weaponProfSet = new ListSet<WeaponProf>();
-	public Set<CNAbility> abilitySet = new ListSet<CNAbility>();
-	public Set<PCTemplate> templateSet = new ListSet<PCTemplate>();
-	public Map<Skill, Integer> skillSet = new HashMap<Skill, Integer>();
-	public Race race = null;
+	public Set<WeaponProf> weaponProfSet = new ListSet<>();
+	public Set<CNAbility> abilitySet = new ListSet<>();
+	public Set<PCTemplate> templateSet = new ListSet<>();
+	public Map<Skill, Integer> skillSet = new HashMap<>();
+	public Race race;
 	public int spellcastinglevel = -1;
-	public Set<Race> qualifiedSet = new ListSet<Race>();
+	public Set<Race> qualifiedSet = new ListSet<>();
 	public DoubleKeyMap<Skill, PCClass, SkillCost> skillCostMap =
-			new DoubleKeyMap<Skill, PCClass, SkillCost>();
-	public Map<PCClass, Integer> classMap = new LinkedHashMap<PCClass, Integer>();
+			new DoubleKeyMap<>();
+	public Map<PCClass, Integer> classMap = new LinkedHashMap<>();
 
 	public TransparentPlayerCharacter()
 	{
-		super();
 		display = new TransparentCharacterDisplay(getCharID());
 	}
 
 	public class TransparentCharacterDisplay extends CharacterDisplay
 	{
-		public TransparentCharacterDisplay(CharID id)
+		TransparentCharacterDisplay(CharID id)
 		{
 			super(id);
 		}
 
-		public Deity deity = null;
-		public Set<Domain> domainSet = new ListSet<Domain>();
-		public Set<Language> languageSet = new ListSet<Language>();
+		public Deity deity;
+		public Set<Domain> domainSet = new ListSet<>();
+		public Set<Language> languageSet = new ListSet<>();
 
 		@Override
 		public Deity getDeity()
@@ -99,7 +99,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 		{
 			return classMap.keySet();
 		}
-		
+
 		@Override
 		public Race getRace()
 		{
@@ -124,7 +124,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 		@Override
 		public Set<Skill> getSkillSet()
 		{
-			return (skillSet == null) ? new ListSet<Skill>() : skillSet.keySet();
+			return (skillSet == null) ? new ListSet<>() : skillSet.keySet();
 		}
 
 //		@Override
@@ -148,7 +148,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 		@Override
 		public Float getRank(Skill sk)
 		{
-			return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0f
+			return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0.0f
 				: new Float(skillSet.get(sk));
 		}
 
@@ -163,7 +163,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	@Override
 	public Set<Skill> getSkillSet()
 	{
-		return (skillSet == null) ? new ListSet<Skill>() : skillSet.keySet();
+		return (skillSet == null) ? new ListSet<>() : skillSet.keySet();
 	}
 
 	@Override
@@ -202,7 +202,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	@Override
 	public Float getRank(Skill sk)
 	{
-		return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0f
+		return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0.0f
 			: new Float(skillSet.get(sk));
 	}
 
@@ -233,23 +233,14 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	@Override
 	public Float getMaxRank(Skill sk, PCClass cl)
 	{
-		return new Float(classMap.get(cl) + 3);
+		return (float) (classMap.get(cl) + 3);
 	}
 
 	@Override
 	public List<CNAbility> getCNAbilities(Category<Ability> cat)
 	{
-		List<CNAbility> list = new ArrayList<CNAbility>();
-		for (CNAbility cna : abilitySet)
-		{
-			if (cna.getAbilityCategory().equals(cat))
-			{
-				list.add(cna);
-			}
-		}
-		return list;
+		return abilitySet.stream()
+		                 .filter(cna -> cna.getAbilityCategory().equals(cat))
+		                 .collect(Collectors.toList());
 	}
-	
-	
-	
 }

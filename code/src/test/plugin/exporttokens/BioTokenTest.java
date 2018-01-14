@@ -1,5 +1,4 @@
 /*
- * BioTokenTest.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Dec 8, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -30,18 +24,13 @@ import java.io.StringWriter;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
 
 /**
  * <code>BioTokenTest</code> is ...
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class BioTokenTest extends AbstractCharacterTestCase
 {
@@ -64,7 +53,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 
-		character.setBio("Test bio entry\n2nd line\nThird line\nlast one");
+		character.setPCAttribute(NotePCAttribute.BIO, "Test bio entry\n2nd line\nThird line\nlast one");
 	}
 
 	/**
@@ -96,7 +85,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 			evaluateToken("BIO..,", character));
 
 		FileAccess.setCurrentOutputFilter("foo.htm");
-		character.setBio("Test bio <br/>entry\n2nd line\nThird line\nlast one");
+		character.setPCAttribute(NotePCAttribute.BIO, "Test bio <br/>entry\n2nd line\nThird line\nlast one");
 
 		String expected =
 				"<p>[b]Test bio &lt;br/&gt;entry[/b]</p>\n<p>[b]2nd line[/b]</p>\n<p>[b]Third line[/b]</p>\n<p>[b]last one[/b]</p>";

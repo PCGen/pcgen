@@ -134,8 +134,8 @@ public class EquippedToken implements QualifierToken<Equipment>,
 		Converter<Equipment, R> c)
 	{
 		Converter<Equipment, R> conv =
-				new AddFilterConverter<Equipment, R>(c, this);
-		conv = negated ? new NegateFilterConverter<Equipment, R>(conv) : conv;
+				new AddFilterConverter<>(c, this);
+		conv = negated ? new NegateFilterConverter<>(conv) : conv;
 		return pcs.getCollection(pc, conv);
 	}
 

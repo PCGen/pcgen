@@ -29,7 +29,7 @@ public class PageUsageIntegrationTest extends
 {
 
 	static PageUsageToken token = new PageUsageToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

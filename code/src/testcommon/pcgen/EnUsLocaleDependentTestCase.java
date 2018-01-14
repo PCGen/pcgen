@@ -27,13 +27,10 @@ import org.junit.Before;
  * locale, and also does at the end. Manually calling the methods, or the super classes', especially {@link #before},
  * will break the locale for further tests. 
  * 
- * @author Vincent Lhote
  */
 public abstract class EnUsLocaleDependentTestCase extends
 		LocaleDependentTestCase
 {
-
-	static Locale PREVIOUS_LOCALE;
 
 	@Before
 	public void changeLocale()

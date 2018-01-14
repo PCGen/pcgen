@@ -34,7 +34,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	static ExclassToken token = new ExclassToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -132,7 +132,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<CDOMSingleRef<PCClass>> getObjectKey()
+	private static ObjectKey<CDOMSingleRef<PCClass>> getObjectKey()
 	{
 		return ObjectKey.EX_CLASS;
 	}

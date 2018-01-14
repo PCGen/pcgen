@@ -1,5 +1,4 @@
 /*
- * PreAlign.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
  */
 package plugin.pretokens.test;
 
@@ -41,14 +33,11 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-/**
- * @author wardc
- *
- */
+
 public class PreAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -70,7 +59,7 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 		//
 		int runningTotal = 0;
 
-		if (Globals.getGameModeAlignmentText().length() == 0)
+		if (Globals.getGameModeAlignmentText().isEmpty())
 		{
 			runningTotal = 1;
 		}
@@ -113,8 +102,8 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 	 * @param charAlignment The character's alignment
 	 * @return true if the alignment matches, false if not.
 	 */
-	private boolean alignMatches(final CharacterDisplay display,
-		String desiredAlignment, final PCAlignment charAlignment)
+	private static boolean alignMatches(final CharacterDisplay display,
+	                                    String desiredAlignment, final PCAlignment charAlignment)
 	{
 		PCAlignment al = getPCAlignment(desiredAlignment);
 		if (al.equals(charAlignment))
@@ -144,7 +133,7 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 		return "align"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	@Override
@@ -157,7 +146,7 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), al.getKeyName()); //$NON-NLS-1$
 	}
 
-	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
+	private static PCAlignment getPCAlignment(String desiredAlignIdentifier)
 	{
 		PCAlignment desiredAlign =
 				Globals

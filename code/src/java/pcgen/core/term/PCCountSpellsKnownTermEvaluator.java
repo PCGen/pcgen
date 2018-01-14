@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountSpellsKnownTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,11 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 22:41:16
- *
- * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
- *
  */
 
 package pcgen.core.term;
@@ -47,7 +41,7 @@ public class PCCountSpellsKnownTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Float count = 0f;
+		Float count = 0.0f;
 
 		if (SettingsHandler.getPrintSpellsWithPC())
 		{
