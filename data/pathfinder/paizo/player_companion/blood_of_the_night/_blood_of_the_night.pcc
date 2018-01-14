@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Blood of the Night
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -11,9 +11,9 @@ PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary 2,INCLUDES=Advanced 
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
-SOURCELONG:Blood of the Night
+SOURCELONG:Pathfinder Player Companion: Blood of the Night
 SOURCESHORT:BOTN
-SOURCEWEB:http://paizo.com/products/btpy8v33?Pathfinder-Player-Companion-Blood-of-the-Night
+SOURCEWEB:http://paizo.com/products/btpy8v33
 SOURCEDATE:2012-02
 ISOGL:YES
 

@@ -2,7 +2,7 @@
 CAMPAIGN:Arcane Anthology (PFS)
 KEY:PFS ~ Arcane Anthology
 #GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing PFS.Pathfinder RPG
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 STATUS:BETA
 RANK:1
 GENRE:Fantasy
@@ -16,7 +16,7 @@ PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Arcane Anthology
+SOURCELONG:Pathfinder Player Companion: Arcane Anthology
 SOURCESHORT:ArcA
 SOURCEWEB:http://paizo.com/products/btpy9i8l
 SOURCEDATE:2016-01
@@ -41,7 +41,12 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Arcane Anth
 # Additional Resources
 # Last Updated Wednesday, March 22, 2017
 #
-#Archetypes: All archetypes in this book are legal for play except the deep marshal. The eldritch scoundrel is not available for use with the unchained rogue: Feats: All feats in this book are legal for play; Spells: All spells in this book are legal for play except cyclic reincarnation, fool’s gold, Jatembe’s ire, legendary proportions, and tears to wine; Spellbooks: All spellbooks in this book are legal for play except Last Azlanti’s Analects and Six Warriors. These spellbooks do not allow access to otherwise banned spells. The prayer and meditation book rituals on pages 4–5 are legal for play; Traits: All traits on page 10 are legal for play except Arodenite Historian; Misc.: The variant spellcasting options on page 7 are legal for play. The philanthropic magic arcanist exploit on page 17 is legal for play. The anointings on pages 22–23 are legal for play, except the eldritch enhancement option. The arrowsong’s lament masterpiece on page 31 is not legal for play.
+# Archetypes: All archetypes in this book are legal for play except the deep marshal. The eldritch scoundrel is not available for use with the unchained rogue
+# Feats: All feats in this book are legal for play
+# Spells: All spells in this book are legal for play except cyclic reincarnation, fool's gold, Jatembe's ire, legendary proportions, and tears to wine
+# Spellbooks: All spellbooks in this book are legal for play except Last Azlanti's Analects and Six Warriors. These spellbooks do not allow access to otherwise banned spells. The prayer and meditation book rituals on pages 4-5 are legal for play
+# Traits: All traits on page 10 are legal for play except Arodenite Historian
+# Misc.: The variant spellcasting options on page 7 are legal for play. The philanthropic magic arcanist exploit on page 17 is legal for play. The anointings on pages 22-23 are legal for play, except the eldritch enhancement option. The arrowsong's lament masterpiece on page 31 is not legal for play.
 
 # Data files
 ABILITY:pfs_arca_abilities.lst

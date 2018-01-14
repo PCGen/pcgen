@@ -11,6 +11,176 @@
 # NEWCATEGORY:Spell-like Ability
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
+SOURCE:Adventurer's Armory (PFS)						MAXVER:6.07.05	NEWKEY:PFS ~ Adventurer's Armory
+SOURCE:PF - Demon Hunter's Handbook						MAXVER:6.07.05	NEWKEY:Demon Hunter's Handbook
+SOURCE:PF - Dirty Tactics Toolbox						MAXVER:6.07.05	NEWKEY:Dirty Tactics Toolbox
+SOURCE:People of the Stars (PFS)						MAXVER:6.07.05	NEWKEY:PFS ~ People of the Stars
+SOURCE:PF - Quests and Campaigns						MAXVER:6.07.05	NEWKEY:Quests and Campaigns
+SOURCE:PF - Weapon Master's Handbook					MAXVER:6.07.05	NEWKEY:Weapon Master's Handbook
+
+ABILITY:Special Ability|Mythic Path Ability ~ Relentless Healing	MAXVER:6.07.05	NEWKEY:Mythic Path Ability ~ Relentless Healing (Guardian)
+
+ABILITY:FEAT|Mythic Feat ~ Drink Is Life					MAXVER:6.07.05	NEWKEY:Drink Is Life			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dual Path					MAXVER:6.07.05	NEWKEY:Dual Path				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Extra Mythic Power				MAXVER:6.07.05	NEWKEY:Extra Mythic Power		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Extra Path Ability				MAXVER:6.07.05	NEWKEY:Extra Path Ability		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Fabulous Figments				MAXVER:6.07.05	NEWKEY:Fabulous Figments		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Legendary Teamwork				MAXVER:6.07.05	NEWKEY:Legendary Teamwork		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Lucky Surge					MAXVER:6.07.05	NEWKEY:Lucky Surge			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Maximize Surge					MAXVER:6.07.05	NEWKEY:Maximize Surge			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mythic Paragon					MAXVER:6.07.05	NEWKEY:Mythic Paragon			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mythic Spell Lore				MAXVER:6.07.05	NEWKEY:Mythic Spell Lore		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Potent Surge					MAXVER:6.07.05	NEWKEY:Potent Surge			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Titan Strike					MAXVER:6.07.05	NEWKEY:Titan Strike			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Two-Fisted Drinker				MAXVER:6.07.05	NEWKEY:Two-Fisted Drinker		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Valiant Vault					MAXVER:6.07.05	NEWKEY:Valiant Vault			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Accursed Hex					MAXVER:6.07.05	NEWKEY:Accursed Hex			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Acrobatic					MAXVER:6.07.05	NEWKEY:Acrobatic				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Alertness					MAXVER:6.07.05	NEWKEY:Alertness				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Alignment Channel				MAXVER:6.07.05	NEWKEY:Alignment Channel		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Animal Affinity				MAXVER:6.07.05	NEWKEY:Animal Affinity			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Arcane Armor Training			MAXVER:6.07.05	NEWKEY:Arcane Armor Training		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Arcane Blast					MAXVER:6.07.05	NEWKEY:Arcane Blast			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Arcane Shield					MAXVER:6.07.05	NEWKEY:Arcane Shield			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Arcane Strike					MAXVER:6.07.05	NEWKEY:Arcane Strike			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Aspect of the Beast				MAXVER:6.07.05	NEWKEY:Aspect of the Beast		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Athletic						MAXVER:6.07.05	NEWKEY:Athletic				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Augment Summoning				MAXVER:6.07.05	NEWKEY:Augment Summoning		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Bleeding Critical				MAXVER:6.07.05	NEWKEY:Bleeding Critical		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Blind Fight					MAXVER:6.07.05	NEWKEY:Blind Fight			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Catch Off-Guard				MAXVER:6.07.05	NEWKEY:Catch Off-Guard			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Channel Smite					MAXVER:6.07.05	NEWKEY:Channel Smite			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Charge Through					MAXVER:6.07.05	NEWKEY:Charge Through			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Cleave						MAXVER:6.07.05	NEWKEY:Cleave				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Combat Expertise				MAXVER:6.07.05	NEWKEY:Combat Expertise			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Combat Reflexes				MAXVER:6.07.05	NEWKEY:Combat Reflexes			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Command Undead					MAXVER:6.07.05	NEWKEY:Command Undead			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Critical Focus					MAXVER:6.07.05	NEWKEY:Critical Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Critical Mastery				MAXVER:6.07.05	NEWKEY:Critical Mastery			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dastardly Finish				MAXVER:6.07.05	NEWKEY:Dastardly Finish			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dazzling Display				MAXVER:6.07.05	NEWKEY:Dazzling Display			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deadly Aim					MAXVER:6.07.05	NEWKEY:Deadly Aim				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deadly Stroke					MAXVER:6.07.05	NEWKEY:Deadly Stroke			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Death from Above				MAXVER:6.07.05	NEWKEY:Death from Above			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deceitful					MAXVER:6.07.05	NEWKEY:Deceitful				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deepsight					MAXVER:6.07.05	NEWKEY:Deepsight				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Defensive Combat Training			MAXVER:6.07.05	NEWKEY:Defensive Combat Training	NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deflect Arrows					MAXVER:6.07.05	NEWKEY:Deflect Arrows			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deft Hand					MAXVER:6.07.05	NEWKEY:Deft Hand				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Detect Expertise				MAXVER:6.07.05	NEWKEY:Detect Expertise			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Disruptive					MAXVER:6.07.05	NEWKEY:Disruptive				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Distance Thrower				MAXVER:6.07.05	NEWKEY:Distance Thrower			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Divine Interference				MAXVER:6.07.05	NEWKEY:Divine Interference		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dodge						MAXVER:6.07.05	NEWKEY:Dodge				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dreadful Carnage				MAXVER:6.07.05	NEWKEY:Dreadful Carnage			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Eagle Eyes					MAXVER:6.07.05	NEWKEY:Eagle Eyes				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Eldritch Heritage				MAXVER:6.07.05	NEWKEY:Eldritch Heritage		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Elemental Channel				MAXVER:6.07.05	NEWKEY:Elemental Channel		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Elemental Fist					MAXVER:6.07.05	NEWKEY:Elemental Fist			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Elemental Focus				MAXVER:6.07.05	NEWKEY:Elemental Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Elven Accuracy					MAXVER:6.07.05	NEWKEY:Elven Accuracy			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Endurance					MAXVER:6.07.05	NEWKEY:Endurance				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Eschew Materials				MAXVER:6.07.05	NEWKEY:Eschew Materials			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Far Shot						MAXVER:6.07.05	NEWKEY:Far Shot				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Fast Empathy					MAXVER:6.07.05	NEWKEY:Fast Empathy			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Fire Music					MAXVER:6.07.05	NEWKEY:Fire Music				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Fleet						MAXVER:6.07.05	NEWKEY:Fleet				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Furious Focus					MAXVER:6.07.05	NEWKEY:Furious Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Gnome Trickster				MAXVER:6.07.05	NEWKEY:Gnome Trickster			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Gorgon's Fist					MAXVER:6.07.05	NEWKEY:Gorgon's Fist			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Great Fortitude				MAXVER:6.07.05	NEWKEY:Great Fortitude			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Guided Hand					MAXVER:6.07.05	NEWKEY:Guided Hand			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Heroic Defiance				MAXVER:6.07.05	NEWKEY:Heroic Defiance			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Heroic Recovery				MAXVER:6.07.05	NEWKEY:Heroic Recovery			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Bull Rush				MAXVER:6.07.05	NEWKEY:Improved Bull Rush		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Channel				MAXVER:6.07.05	NEWKEY:Improved Channel			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Counterspell			MAXVER:6.07.05	NEWKEY:Improved Counterspell		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Critical				MAXVER:6.07.05	NEWKEY:Improved Critical		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Dirty Trick				MAXVER:6.07.05	NEWKEY:Improved Dirty Trick		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Disarm				MAXVER:6.07.05	NEWKEY:Improved Disarm			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Drag					MAXVER:6.07.05	NEWKEY:Improved Drag			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Familiar				MAXVER:6.07.05	NEWKEY:Improved Familiar		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Grapple				MAXVER:6.07.05	NEWKEY:Improved Grapple			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Initiative				MAXVER:6.07.05	NEWKEY:Improved Initiative		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Overrun				MAXVER:6.07.05	NEWKEY:Improved Overrun			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Reposition				MAXVER:6.07.05	NEWKEY:Improved Reposition		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Steal					MAXVER:6.07.05	NEWKEY:Improved Steal			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Stonecunning			MAXVER:6.07.05	NEWKEY:Improved Stonecunning		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Sunder				MAXVER:6.07.05	NEWKEY:Improved Sunder			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Trip					MAXVER:6.07.05	NEWKEY:Improved Trip			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Unarmed Strike			MAXVER:6.07.05	NEWKEY:Improved Unarmed Strike	NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Intimidating Prowess				MAXVER:6.07.05	NEWKEY:Intimidating Prowess		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Iron Will					MAXVER:6.07.05	NEWKEY:Iron Will				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Knockout Artist				MAXVER:6.07.05	NEWKEY:Knockout Artist			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Lightning Reflexes				MAXVER:6.07.05	NEWKEY:Lightning Reflexes		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Lucky Halfling					MAXVER:6.07.05	NEWKEY:Lucky Halfling			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Lunge						MAXVER:6.07.05	NEWKEY:Lunge				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Magical Aptitude				MAXVER:6.07.05	NEWKEY:Magical Aptitude			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Manyshot						MAXVER:6.07.05	NEWKEY:Manyshot				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Medusa's Wrath					MAXVER:6.07.05	NEWKEY:Medusa's Wrath			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Missile Shield					MAXVER:6.07.05	NEWKEY:Missile Shield			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mobility						MAXVER:6.07.05	NEWKEY:Mobility				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Monastic Legacy				MAXVER:6.07.05	NEWKEY:Monastic Legacy			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mounted Archery				MAXVER:6.07.05	NEWKEY:Mounted Archery			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mounted Combat					MAXVER:6.07.05	NEWKEY:Mounted Combat			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mythic Crafter					MAXVER:6.07.05	NEWKEY:Mythic Crafter			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Natural Spell					MAXVER:6.07.05	NEWKEY:Natural Spell			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Nimble Moves					MAXVER:6.07.05	NEWKEY:Nimble Moves			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Penetrating Strike				MAXVER:6.07.05	NEWKEY:Penetrating Strike		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Persuasive					MAXVER:6.07.05	NEWKEY:Persuasive				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Pinpoint Targeting				MAXVER:6.07.05	NEWKEY:Pinpoint Targeting		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Point-Blank Shot				MAXVER:6.07.05	NEWKEY:Point-Blank Shot			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Power Attack					MAXVER:6.07.05	NEWKEY:Power Attack			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Powerful Shape					MAXVER:6.07.05	NEWKEY:Powerful Shape			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Prophetic Visionary				MAXVER:6.07.05	NEWKEY:Prophetic Visionary		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Quick Draw					MAXVER:6.07.05	NEWKEY:Quick Draw				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Racial Heritage				MAXVER:6.07.05	NEWKEY:Racial Heritage			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Rapid Reload					MAXVER:6.07.05	NEWKEY:Rapid Reload			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Rapid Shot					MAXVER:6.07.05	NEWKEY:Rapid Shot				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Rhetorical Flourish				MAXVER:6.07.05	NEWKEY:Rhetorical Flourish		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Ride-By Attack					MAXVER:6.07.05	NEWKEY:Ride-By Attack			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Run						MAXVER:6.07.05	NEWKEY:Run					NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Saving Shield					MAXVER:6.07.05	NEWKEY:Saving Shield			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Scorpion Style					MAXVER:6.07.05	NEWKEY:Scorpion Style			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Selective Channeling				MAXVER:6.07.05	NEWKEY:Selective Channeling		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Self-Sufficient				MAXVER:6.07.05	NEWKEY:Self-Sufficient			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Shatter Defenses				MAXVER:6.07.05	NEWKEY:Shatter Defenses			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Shield Focus					MAXVER:6.07.05	NEWKEY:Shield Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Shield Slam					MAXVER:6.07.05	NEWKEY:Shield Slam			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Shot on the Run				MAXVER:6.07.05	NEWKEY:Shot on the Run			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Skill Focus					MAXVER:6.07.05	NEWKEY:Skill Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Snatch Arrows					MAXVER:6.07.05	NEWKEY:Snatch Arrows			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Sociable						MAXVER:6.07.05	NEWKEY:Sociable				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spell Focus					MAXVER:6.07.05	NEWKEY:Spell Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spell Mastery					MAXVER:6.07.05	NEWKEY:Spell Mastery			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spell Penetration				MAXVER:6.07.05	NEWKEY:Spell Penetration		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spellbreaker					MAXVER:6.07.05	NEWKEY:Spellbreaker			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spirited Charge				MAXVER:6.07.05	NEWKEY:Spirited Charge			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spontaneous Metafocus			MAXVER:6.07.05	NEWKEY:Spontaneous Metafocus		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spring Attack					MAXVER:6.07.05	NEWKEY:Spring Attack			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Stealthy						MAXVER:6.07.05	NEWKEY:Stealthy				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Strike Back					MAXVER:6.07.05	NEWKEY:Strike Back			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Strong Comeback				MAXVER:6.07.05	NEWKEY:Strong Comeback			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Stunning Fist					MAXVER:6.07.05	NEWKEY:Stunning Fist			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Throw Anything					MAXVER:6.07.05	NEWKEY:Throw Anything			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Toughness					MAXVER:6.07.05	NEWKEY:Toughness				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Trample						MAXVER:6.07.05	NEWKEY:Trample				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Tripping Staff					MAXVER:6.07.05	NEWKEY:Tripping Staff			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Turn Undead					MAXVER:6.07.05	NEWKEY:Turn Undead			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Two-Weapon Defense				MAXVER:6.07.05	NEWKEY:Two-Weapon Defense		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Two-Weapon Fighting				MAXVER:6.07.05	NEWKEY:Two-Weapon Fighting		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Two-Weapon Rend				MAXVER:6.07.05	NEWKEY:Two-Weapon Rend			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Undead Master					MAXVER:6.07.05	NEWKEY:Undead Master			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Unseat						MAXVER:6.07.05	NEWKEY:Unseat				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Vital Strike					MAXVER:6.07.05	NEWKEY:Vital Strike			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Voice of the Sibyl				MAXVER:6.07.05	NEWKEY:Voice of the Sibyl		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Warrior Priest					MAXVER:6.07.05	NEWKEY:Warrior Priest			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Weapon Finesse					MAXVER:6.07.05	NEWKEY:Weapon Finesse			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Weapon Focus					MAXVER:6.07.05	NEWKEY:Weapon Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Weapon Specialization			MAXVER:6.07.05	NEWKEY:Weapon Specialization		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Witch Knife					MAXVER:6.07.05	NEWKEY:Witch Knife			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Non-Mythic Feat				MAXVER:6.07.05	NEWKEY:Non-Mythic Feat			NEWCATEGORY:Mythic Feat
+
 EQUIPMENT:Spellbook (Wizard's/Blank)					MAXVER:6.07.05	NEWKEY:Spellbook
 EQUIPMENT:Spellbook (Arcanist's/Blank)					MAXVER:6.07.05	NEWKEY:Spellbook
 EQUIPMENT:Magus Spellbook							MAXVER:6.07.05	NEWKEY:Spellbook

@@ -369,7 +369,7 @@ public final class PrerequisiteUtilities
 		int numMatches = 0;
 		for (String s : assocs)
 		{
-			if (subKey.equalsIgnoreCase(s))
+			if (subKey.equalsIgnoreCase(s) || s.endsWith("|"+subKey))
 			{
 				numMatches++;
 			}
@@ -381,7 +381,7 @@ public final class PrerequisiteUtilities
 	{
 		for (String s : assocs)
 		{
-			if (subKey.equalsIgnoreCase(s))
+			if (subKey.equalsIgnoreCase(s) || s.endsWith("|"+subKey))
 			{
 				return true;
 			}
