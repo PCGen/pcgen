@@ -25,6 +25,7 @@ import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.lang.ObjectUtil;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
@@ -111,9 +112,9 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				@Override
 				public boolean contains(VarScoped item)
 				{
-					return (item instanceof CDOMObject)
-						&& ((CDOMObject) item).containsInList(ListKey.GROUP,
-							groupName);
+					return ObjectUtil.compareWithNull(item.getLocalScopeName(), scope.getName())
+						&& (item instanceof CDOMObject)
+						&& ((CDOMObject) item).containsInList(ListKey.GROUP, groupName);
 				}
 
 				@Override
@@ -134,9 +135,10 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			group = new ObjectGrouping()
 			{
 				@Override
-				public boolean contains(VarScoped cdo)
+				public boolean contains(VarScoped item)
 				{
-					return true;
+					return ObjectUtil.compareWithNull(item.getLocalScopeName(),
+						scope.getName());
 				}
 
 				@Override
@@ -157,9 +159,10 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			group = new ObjectGrouping()
 			{
 				@Override
-				public boolean contains(VarScoped cdo)
+				public boolean contains(VarScoped item)
 				{
-					return cdo.getKeyName().equalsIgnoreCase(groupingName);
+					return ObjectUtil.compareWithNull(item.getLocalScopeName(), scope.getName())
+						&& item.getKeyName().equalsIgnoreCase(groupingName);
 				}
 
 				@Override
