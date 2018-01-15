@@ -21,7 +21,11 @@ package pcgen.gui2.util.treetable;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Vector;
+
 import pcgen.gui2.util.table.Row;
+
+import javax.swing.tree.TreeNode;
 
 /**
  *
@@ -29,6 +33,8 @@ import pcgen.gui2.util.table.Row;
 public class DefaultSortableTreeTableNode extends DefaultTreeTableNode
         implements SortableTreeTableNode
 {
+
+    protected Vector<TreeTableNode> children;
 
     public DefaultSortableTreeTableNode()
     {
