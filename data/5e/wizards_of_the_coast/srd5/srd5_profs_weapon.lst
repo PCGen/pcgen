@@ -14,8 +14,7 @@ Mace				TYPE:Weapon.Simple.Monk
 Quarterstaff		TYPE:Weapon.Simple.Monk
 Sickle			TYPE:Weapon.Simple.Monk
 Spear				TYPE:Weapon.Simple.Monk
-Unarmed Strike		TYPE:Weapon.Simple
-Unarmed Strike (Monk)	TYPE:Weapon.Monk
+Unarmed Strike		TYPE:Weapon.Simple.Monk
 Crossbow (Light)		TYPE:Weapon.Simple
 Dart				TYPE:Weapon.Simple
 Shortbow			TYPE:Weapon.Simple
