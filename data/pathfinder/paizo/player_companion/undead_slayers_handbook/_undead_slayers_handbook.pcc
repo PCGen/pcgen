@@ -7,7 +7,12 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:http://paizo.com/
 SOURCELONG:Pathfinder Player Companion: Undead Slayer's Handbook
@@ -42,6 +47,8 @@ EQUIPMENT:ush_equip_general.lst
 ABILITY:ush_feats.lst
 KIT:ush_kits.lst
 SPELL:ush_spells.lst
+
+EQUIPMENT:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/arg_equip_general.lst|(INCLUDE:Incense)|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 
 
 # ENTRY DATE: 2016-05-27

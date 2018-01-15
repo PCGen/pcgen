@@ -14,12 +14,12 @@ Calistria.MOD	NAMEISPI:YES	DOMAINS:Innuendo Subdomain|PREALIGN:CG,TN,CN,CE						
 Gorum.MOD		NAMEISPI:YES	DOMAINS:Fist Subdomain|PREALIGN:CG,TN,CN,CE												SOURCEPAGE:p.17
 Gozreh.MOD		NAMEISPI:YES	DOMAINS:Flowing Subdomain|PREALIGN:LN,NG,TN,CN,NE											SOURCEPAGE:p.17
 Irori.MOD		NAMEISPI:YES	DOMAINS:Fist Subdomain|PREALIGN:LN,LG,TN,LE												SOURCEPAGE:p.17
-Nalinivati.MOD	NAMEISPI:YES	DOMAINS:Aristocracy Subdomain|PREALIGN:LN,NG,TN,CN,NE											SOURCEPAGE:p.16
+#Nalinivati.MOD	NAMEISPI:YES	DOMAINS:Aristocracy Subdomain|PREALIGN:LN,NG,TN,CN,NE											SOURCEPAGE:p.16
 Nethys.MOD		NAMEISPI:YES	DOMAINS:Aeon Subdomain,Solitude Subdomain|PREALIGN:LN,NG,TN,CN,NE									SOURCEPAGE:p.16
 Pharasma.MOD	NAMEISPI:YES	DOMAINS:Flowing Subdomain,Psychopomp Subdomain (Death),Psychopomp Subdomain (Repose)|PREALIGN:LN,NG,TN,CN,NE	SOURCEPAGE:p.17
 Sivanah.MOD		NAMEISPI:YES	DOMAINS:Aeon Subdomain,Innuendo Subdomain|PREALIGN:LN,NG,TN,CN,NE									SOURCEPAGE:p.16
-Sun Wukong.MOD	NAMEISPI:YES	DOMAINS:Innuendo Subdomain|PREALIGN:CG,TN,CN,CE												SOURCEPAGE:p.17
-Yamatsumi.MOD	NAMEISPI:YES	DOMAINS:Fist Subdomain,Flowing Subdomain,Solitude Subdomain|PREALIGN:LN,NG,TN,CN,NE						SOURCEPAGE:p.17
+#Sun Wukong.MOD	NAMEISPI:YES	DOMAINS:Innuendo Subdomain|PREALIGN:CG,TN,CN,CE												SOURCEPAGE:p.17
+#Yamatsumi.MOD	NAMEISPI:YES	DOMAINS:Fist Subdomain,Flowing Subdomain,Solitude Subdomain|PREALIGN:LN,NG,TN,CN,NE						SOURCEPAGE:p.17
 
 ###Block: Inquisitor Support
 # Deity Name	Modify VAR
@@ -29,9 +29,9 @@ Calistria.MOD	BONUS:VAR|InquisitorDomainInnuendoSubdomain|1|PREALIGN:CG,TN,CN,CE
 Gorum.MOD		BONUS:VAR|InquisitorDomainFistSubdomain|1|PREALIGN:CG,TN,CN,CE
 Gozreh.MOD		BONUS:VAR|InquisitorDomainFlowingSubdomain|1|PREALIGN:LN,NG,TN,CN,NE
 Irori.MOD		BONUS:VAR|InquisitorDomainFistSubdomain|1|PREALIGN:LN,LG,TN,LE
-Nalinivati.MOD	BONUS:VAR|InquisitorDomainAristocracySubdomain|1|PREALIGN:LN,NG,TN,CN,NE
+#Nalinivati.MOD	BONUS:VAR|InquisitorDomainAristocracySubdomain|1|PREALIGN:LN,NG,TN,CN,NE
 Nethys.MOD		BONUS:VAR|InquisitorDomainAeonSubdomain,InquisitorDomainSolitudeSubdomain|1|PREALIGN:LN,NG,TN,CN,NE
 Pharasma.MOD	BONUS:VAR|InquisitorDomainFlowingSubdomain,InquisitorDomainPsychopompSubdomainDeath,PsychopompSubdomainRepose|1|PREALIGN:LN,NG,TN,CN,NE
 Sivanah.MOD		BONUS:VAR|InquisitorDomainAeonSubdomain,InquisitorDomainInnuendoSubdomain|1|PREALIGN:LN,NG,TN,CN,NE
-Sun Wukong.MOD	BONUS:VAR|InquisitorDomainInnuendoSubdomain|1|PREALIGN:CG,TN,CN,CE
-Yamatsumi.MOD	BONUS:VAR|InquisitorDomainFistSubdomain,InquisitorDomainFlowingSubdomain,InquisitorDomainSolitudeSubdomain|1|PREALIGN:LN,NG,TN,CN,NE
+#Sun Wukong.MOD	BONUS:VAR|InquisitorDomainInnuendoSubdomain|1|PREALIGN:CG,TN,CN,CE
+#Yamatsumi.MOD	BONUS:VAR|InquisitorDomainFistSubdomain,InquisitorDomainFlowingSubdomain,InquisitorDomainSolitudeSubdomain|1|PREALIGN:LN,NG,TN,CN,NE

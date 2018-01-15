@@ -56,3 +56,9 @@ Blood Beak					KEY:Warpriest Bonus Feat ~ Blood Beak				CATEGORY:Special Ability
 
 
 
+# ------------------------------
+# Arcanist Bloodlines
+# ------------------------------
+###Block: Arcanist Bloodlines
+Imperious Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	BONUS:VAR|Sorcerer_Imperious_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Imperious Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Imperious
+Kobold Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	BONUS:VAR|Sorcerer_Kobold_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Kobold Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Kobold

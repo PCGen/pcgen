@@ -54,7 +54,7 @@ SPELL:pots_spells.lst
 TEMPLATE:pots_templates.lst
 
 
-EQUIPMOD:@\pathfinder\paizo\roleplaying_game\ultimate_combat\uc_equipmods.lst|(INCLUDE:FRAGILE)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+EQUIPMOD:@\pathfinder\paizo\roleplaying_game\ultimate_combat\uc_equipmods.lst|(INCLUDE:Special Quality ~ Fragile)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
 # ENTRY DATE: 2015-01
 # LST MONKEY: Andrew Maitland
