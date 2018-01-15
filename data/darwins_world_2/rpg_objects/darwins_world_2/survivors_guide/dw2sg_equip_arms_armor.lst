@@ -135,6 +135,8 @@ Stun Baton													PROFICIENCY:WEAPON|Stun Baton			TYPE:Weapon.Simple.Melee.
 Stun gun.MOD																																												COST:50
 Tonfa.MOD																																													COST:10
 
+Unarmed Strike												PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning													COST:0	WT:0		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3														SIZE:M		MODS:NO	
+
 #	Archaic Melee Weapons
 # Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Range		Reach		Size		Source Page		Special Property											FACT
 Battleaxe													PROFICIENCY:WEAPON|Battleaxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing																		COST:10	WT:7		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8														SIZE:M	SOURCEPAGE:p.188
