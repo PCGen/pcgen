@@ -28,6 +28,7 @@ PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 SAVE:sr__saves.lst
 STAT:sr__stats.lst
+SIZE:sr__sizes.lst
 
 ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_abilities_class.lst
 ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_abilities_occupations.lst
