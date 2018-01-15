@@ -32,7 +32,7 @@ BIO
 			<levels_total>4</levels_total>
 			<levels_ecl>4</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Ftr4                   </shortform>
+			<shortform>Ftr4</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -954,17 +953,25 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
-	<!-- Character Rage -->
+
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -1009,31 +1016,29 @@ BIO
 			<capacity>260</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
-		<item>
-					<name>Rapier</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>20</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MARTIAL.MELEE.STANDARD.PIERCING.FINESSEABLE.SWORD.METAL</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="Default Set">
+			<item>
+				<name>Rapier</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>20</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MARTIAL.MELEE.STANDARD.PIERCING.FINESSEABLE.SWORD.METAL</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1116,6 +1121,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Armor Proficiency (Heavy)</name>
@@ -1177,6 +1183,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1189,8 +1196,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Darkvision</name>
 			<description>Range 60; Darkvision is the extraordinary ability to see with no light source at all, out to a range specified for the creature. Darkvision is black and white only (colors cannot be discerned). It does not allow characters to see anything that they could not see otherwise-invisible objects are still invisible, and illusions are still visible as what they seem to be. Likewise, darkvision subjects a creature to gaze attacks normally. The presence of light does not spoil darkvision.</description>
@@ -1235,7 +1243,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
@@ -1258,7 +1266,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1299,15 +1307,12 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Armor Spikes, Axe, Axe (Throwing), Battleaxe, Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Dire), Flail (Light), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Halfspear, Hammer (Light), Handaxe, Javelin, Katana, Kusari-gama, Lance, Longbow, Longbow (Composite), Longspear, Longsword, Mace, Mace (Heavy), Mace (Light), Mind Blade, Morningstar, Pick, Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Spells(Ray), Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Wakizashi, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
 	<languages>Common, Orc</languages>
 
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1315,11 +1320,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================

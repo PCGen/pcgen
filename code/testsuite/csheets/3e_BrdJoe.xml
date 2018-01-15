@@ -32,7 +32,7 @@ BIO
 			<levels_total>1</levels_total>
 			<levels_ecl>1</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Brd1                   </shortform>
+			<shortform>Brd1</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -932,17 +931,25 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
-	<!-- Character Rage -->
+
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -961,10 +968,8 @@ BIO
 			<capacity>130</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
+		<equipmentset name="Default Set">
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1007,6 +1012,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Armor Proficiency (Light)</name>
@@ -1048,6 +1054,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1060,8 +1067,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>+1 racial bonus on Listen, Search, and Spot checks.</name>
 			<description>+1 racial bonus on Listen, Search, and Spot checks.</description>
@@ -1139,7 +1147,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Virtual "Special Ability" Ability Objects -->
+		<!-- Visible Virtual "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Countersong</name>
 			<description>for 10 rounds you can use your music or poetics to counter magical effects that depend on sound</description>
@@ -1173,7 +1181,7 @@ BIO
 			<virtual>T</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>+2 racial saving throw bonus against enchantment spells or effects</name>
 			<description>+2 racial saving throw bonus against enchantment spells or effects</description>
@@ -1218,7 +1226,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1259,15 +1267,12 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Halfspear, Javelin, Mace, Mace (Heavy), Mace (Light), Morningstar, Quarterstaff, Shieldbash, Shortbow (Composite), Shortspear, Sickle, Sling, Spells(Ray), Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Draconic, Elven</languages>
 
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1275,11 +1280,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1293,10 +1295,9 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="0" spelllistclass="Bard" spellcastertype="Arcane">
 			<level number="0" known="4" cast="2">
-				<spell>
+					<spell>
 						<name>Flare</name>
 						<outputname>Flare</outputname>
 						<times_memorized>1</times_memorized>
@@ -1325,7 +1326,7 @@ BIO
 						<description>Dazzles one creature (-1 attack).</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Ghost Sound</name>
 						<outputname>Ghost Sound</outputname>
 						<times_memorized>1</times_memorized>
@@ -1354,7 +1355,7 @@ BIO
 						<description>Figment sounds.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Light</name>
 						<outputname>Light</outputname>
 						<times_memorized>1</times_memorized>
@@ -1383,7 +1384,7 @@ BIO
 						<description>Object shines like a torch.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Mage Hand</name>
 						<outputname>Mage Hand</outputname>
 						<times_memorized>1</times_memorized>
