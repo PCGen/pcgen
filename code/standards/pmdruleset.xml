@@ -2,18 +2,16 @@
 
 <!--
    - Code quality rule set for use with the PCGen Java code.
-   - See https://pmd.github.io/pmd-5.8.1/pmd-java/rules/index.html
+   - See https://pmd.github.io/pmd-6.0.0/pmd_rules_java.html
    - for descriptions of the rules applied. 
  -->
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    name="PCGen Code Rules"
-    xmlns="http://pmd.sf.net/ruleset/1.0.0"
-    xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
-    xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 
-                        http://pmd.sf.net/ruleset_xml_schema.xsd" >
+<ruleset name="Custom Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
 
   <description>
-  PMD rules customised for PCGen's code. 
+  PMD rules customised for PCGen's code.
   </description>
 
   <!--<rule ref="rulesets/java/android.xml">-->
@@ -31,22 +29,16 @@
   <rule ref="rulesets/java/clone.xml">
     <exclude name="ProperCloneImplementation" />
     <exclude name="CloneThrowsCloneNotSupportedException" />
-    <exclude name="CloneMethodMustImplementCloneable" />
     <exclude name="CloneMethodMustBePublic" />
   </rule>
   <rule ref="rulesets/java/codesize.xml" >
     <exclude name="TooManyFields" />
     <exclude name="TooManyMethods" />
     <exclude name="CyclomaticComplexity" />
-    <exclude name="StdCyclomaticComplexity" />
-    <exclude name="ModifiedCyclomaticComplexity" />
     <exclude name="ExcessivePublicCount" />
     <exclude name="NPathComplexity" />
     <exclude name="ExcessiveMethodLength" />
     <exclude name="ExcessiveClassLength" />
-    <exclude name="NcssConstructorCount" />
-    <exclude name="NcssMethodCount" />
-    <exclude name="NcssTypeCount" />
     <exclude name="ExcessiveParameterList" />
   </rule>
   <!--<rule ref="rulesets/java/comments.xml" />-->
@@ -56,9 +48,10 @@
     <exclude name="CouplingBetweenObjects" />
     <exclude name="ExcessiveImports" />
     <exclude name="LawOfDemeter" />
-    <exclude name="LooseCoupling" />
   </rule>
   <rule ref="rulesets/java/design.xml">
+    <!-- This was causing an NPE in several classes -->
+    <exclude name="DataClass" />
     <exclude name="EqualsNull" />
     <exclude name="InstantiationToGetClass" />
     <exclude name="SingleMethodSingleton" />
@@ -113,7 +106,6 @@
   <rule ref="rulesets/java/empty.xml">
     <exclude name="EmptyCatchBlock" />
     <exclude name="EmptyIfStmt" />
-    <exclude name="EmptyStaticInitializer" />
     <exclude name="EmptyInitializer" />
     <exclude name="EmptyStatementNotInLoop" />
   </rule>
@@ -140,7 +132,6 @@
   <rule ref="rulesets/java/logging-java.xml">
     <exclude name="AvoidPrintStackTrace" />
     <exclude name="SystemPrintln" />
-    <exclude name="GuardLogStatementJavaUtil" />
     <exclude name="LoggerIsNotStaticFinal" />
   </rule>
   <rule ref="rulesets/java/migrating.xml">
@@ -173,7 +164,6 @@
     <exclude name="AvoidCatchingGenericException" />
     <exclude name="AvoidCatchingNPE" />
     <exclude name="AvoidThrowingRawExceptionTypes" />
-    <exclude name="SignatureDeclareThrowsException" />
     <exclude name="AvoidCatchingThrowable" />
     <exclude name="DoNotThrowExceptionInFinally" />
     <exclude name="AvoidThrowingNullPointerException" />
@@ -199,7 +189,6 @@
     <exclude name="ArrayIsStoredDirectly" />
   </rule>
   <rule ref="rulesets/java/typeresolution.xml">
-    <exclude name="LooseCoupling" />
     <exclude name="SignatureDeclareThrowsException" />
   </rule>
   <rule ref="rulesets/java/unnecessary.xml">
@@ -208,7 +197,6 @@
     <exclude name="UselessOverridingMethod" />
     <exclude name="UnnecessaryReturn" />
     <exclude name="UselessQualifiedThis" />
-    <exclude name="UnnecessaryFinalModifier" />
     <!-- This is excluded because we use "public" in Interfaces almost universally (as a semantic hint as to its real behavior) -->
     <exclude name="UnnecessaryModifier" />
   </rule>
