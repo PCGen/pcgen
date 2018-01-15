@@ -78,8 +78,8 @@ jacocoTestReport {
     }
 
     afterEvaluate {
-       	classDirectories = files(classDirectories.files.collect {
-      			fileTree(dir: it, exclude: ['**/testsupport/**', '**/Abstract**TestCase', '**/**Test', 'pcgen/base/formula/parse/FormulaParser**', 'pcgen/base/formula/parse/AST**', 'pcgen/base/formula/parse/JJT**', 'pcgen/base/formula/parse/Node**', 'pcgen/base/formula/parse/ParseException**', 'pcgen/base/formula/parse/SimpleCharStream**', 'pcgen/base/formula/parse/Token**'])
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['**/testsupport/**', '**/Abstract**TestCase', '**/**Test', 'pcgen/base/formula/parse/FormulaParser**', 'pcgen/base/formula/parse/AST**', 'pcgen/base/formula/parse/JJT**', 'pcgen/base/formula/parse/Node**', 'pcgen/base/formula/parse/ParseException**', 'pcgen/base/formula/parse/SimpleCharStream**', 'pcgen/base/formula/parse/Token**'])
         })
     }
 }
@@ -135,6 +135,10 @@ task sourceJar(type: Jar) {
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4.1'
 }
 
 // Rules for how we publish our artifacts in ivy compliant format
