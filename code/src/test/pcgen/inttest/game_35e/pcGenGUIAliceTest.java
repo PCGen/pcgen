@@ -1,22 +1,22 @@
 
 package pcgen.inttest.game_35e;
 
-import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests a Unit Test Case designed to hit many features of PCGen
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIAliceTest extends pcGenGUITestCase
+public class pcGenGUIAliceTest extends PcgenFtlTestCase
 {
 
 
 	public pcGenGUIAliceTest()
 	{
-		// Empty Constructor
+		super("35e_alice");
 	}
 
 	/**

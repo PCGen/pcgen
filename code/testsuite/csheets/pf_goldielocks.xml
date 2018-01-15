@@ -39,7 +39,7 @@ BIO
 			<levels_total>30</levels_total>
 			<levels_ecl>30</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Sor  Dra30                 </shortform>
+			<shortform>Sor,Dra30</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -48,7 +48,6 @@ BIO
 			<description>God of the forge, protection, strategy</description>
 			<domainlist>Artifice, Earth, Good, Law, Protection</domainlist>
 			<favoredweapon>Warhammer</favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
 			<source>Paizo Inc. - Core Rulebook, p.45</source>
@@ -1077,17 +1076,25 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
-	<!-- Character Rage -->
+
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -1210,94 +1217,92 @@ BIO
 			<capacity>199680</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
-		<item>
-					<name>Bite</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Claws</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Tail Slap</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Wing</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="Default Set">
+			<item>
+				<name>Bite</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Claws</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Tail Slap</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Wing</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1464,7 +1469,9 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1487,8 +1494,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Dragon Age Category</name>
 			<description></description>
@@ -1819,7 +1827,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Dragon Traits</name>
 			<description></description>
@@ -1864,7 +1872,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Base Size ~ Colossal</name>
 			<description></description>
@@ -2074,7 +2082,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
-	<!-- Hidden Standard "Internal" Ability Objects -->
+		<!-- Hidden Normal "Internal" Ability Objects -->
 		<ability_object>
 			<name>Dragon Age Selected</name>
 			<description></description>
@@ -2086,7 +2094,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
-	<!-- Hidden Automatic "Internal" Ability Objects -->
+		<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Archetype Display</name>
 			<description></description>
@@ -2138,7 +2146,7 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Bite, Claws, Tail Slap, Wing</weapon_proficiencies>
 	<languages>Draconic</languages>
 
@@ -2206,11 +2214,7 @@ BIO
 		</template>
 	</templates>
 
-
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -2218,11 +2222,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -2233,182 +2234,181 @@ BIO
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
-
 		<racial_innate>
-			<spell>
-					<name>Bless</name>
-					<outputname>Bless</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>50 ft.</range>
-					<components>V, S, DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc></dc>
-					<duration>30 minutes</duration>
-					<effect>Bless fills your allies with courage.</effect>
-					<target>The caster and all allies within a 50-ft. burst, centered on the caster</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Enchantment</school>
-						<subschool>Compulsion</subschool>
-						<descriptor>Mind-Affecting</descriptor>
-						<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr1</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.249</source>
-						<sourcepage>p.249</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>Yes (harmless)</spell_resistance>
-					<description>Bless fills your allies with courage.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Daylight</name>
-					<outputname>Daylight</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>Touch</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc></dc>
-					<duration>300 minutes [D]</duration>
-					<effect>You touch an object when you cast this spell, causing the object to shed bright light in a 60-foot radius.</effect>
-					<target>Object touched</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Light</descriptor>
-						<fullschool>Evocation [Light]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr3, Sor3</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.264</source>
-						<sourcepage>p.264</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>You touch an object when you cast this spell, causing the object to shed bright light in a 60-foot radius.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Detect Evil</name>
-					<outputname>Detect Evil</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>60 ft.</range>
-					<components>V, S, DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc></dc>
-					<duration>Concentration, up to 300 minutes [D]</duration>
-					<effect>You can sense the presence of evil.</effect>
-					<target>Cone-shaped emanation</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr1</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.266</source>
-						<sourcepage>p.266</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>You can sense the presence of evil.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Foresight</name>
-					<outputname>Foresight</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>Personal or touch</range>
-					<components>V, S, M/DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc>27</dc>
-					<duration>300 minutes</duration>
-					<effect>This spell grants you a powerful sixth sense in relation to yourself or another.</effect>
-					<target>See text</target>
-					<saveinfo>None or Will negates (harmless)</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Sor9</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.285</source>
-						<sourcepage>p.285</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>No or yes (harmless)</spell_resistance>
-					<description>This spell grants you a powerful sixth sense in relation to yourself or another.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Geas/Quest</name>
-					<outputname>Geas/Quest</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>Close (100 ft.)</range>
-					<components>V</components>
-					<castingtime>10 minutes</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc></dc>
-					<duration>30 days or until discharged [D]</duration>
-					<effect>This spell functions similarly to lesser geas, except that it affects a creature of any HD and allows no saving throw.</effect>
-					<target>One living creature</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Enchantment</school>
-						<subschool>Compulsion</subschool>
-						<descriptor>Language-Dependent, Mind-Affecting</descriptor>
-						<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr6, Sor6</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.288</source>
-						<sourcepage>p.288</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>This spell functions similarly to lesser geas, except that it affects a creature of any HD and allows no saving throw.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Sunburst</name>
-					<outputname>Sunburst</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>Long (1600 ft.)</range>
-					<components>V, S, M/DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc>26</dc>
-					<duration>Instantaneous</duration>
-					<effect>Sunburst causes a globe of searing radiance to explode silently from a point you select.</effect>
-					<target>80-ft.-radius burst</target>
-					<saveinfo>Reflex partial; see text</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Light</descriptor>
-						<fullschool>Evocation [Light]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Sor8</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.355</source>
-						<sourcepage>p.355</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>Sunburst causes a globe of searing radiance to explode silently from a point you select.</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Bless</name>
+						<outputname>Bless</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>50 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc></dc>
+						<duration>30 minutes</duration>
+						<effect>Bless fills your allies with courage.</effect>
+						<target>The caster and all allies within a 50-ft. burst, centered on the caster</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.249</source>
+							<sourcepage>p.249</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Bless fills your allies with courage.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Daylight</name>
+						<outputname>Daylight</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc></dc>
+						<duration>300 minutes [D]</duration>
+						<effect>You touch an object when you cast this spell, causing the object to shed bright light in a 60-foot radius.</effect>
+						<target>Object touched</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Light</descriptor>
+							<fullschool>Evocation [Light]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr3, Sor3</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.264</source>
+							<sourcepage>p.264</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You touch an object when you cast this spell, causing the object to shed bright light in a 60-foot radius.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Detect Evil</name>
+						<outputname>Detect Evil</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 300 minutes [D]</duration>
+						<effect>You can sense the presence of evil.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.266</source>
+							<sourcepage>p.266</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You can sense the presence of evil.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Foresight</name>
+						<outputname>Foresight</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>Personal or touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc>27</dc>
+						<duration>300 minutes</duration>
+						<effect>This spell grants you a powerful sixth sense in relation to yourself or another.</effect>
+						<target>See text</target>
+						<saveinfo>None or Will negates (harmless)</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Sor9</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.285</source>
+							<sourcepage>p.285</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>No or yes (harmless)</spell_resistance>
+						<description>This spell grants you a powerful sixth sense in relation to yourself or another.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Geas/Quest</name>
+						<outputname>Geas/Quest</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>Close (100 ft.)</range>
+						<components>V</components>
+						<castingtime>10 minutes</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc></dc>
+						<duration>30 days or until discharged [D]</duration>
+						<effect>This spell functions similarly to lesser geas, except that it affects a creature of any HD and allows no saving throw.</effect>
+						<target>One living creature</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Language-Dependent, Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr6, Sor6</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.288</source>
+							<sourcepage>p.288</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>This spell functions similarly to lesser geas, except that it affects a creature of any HD and allows no saving throw.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Sunburst</name>
+						<outputname>Sunburst</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>Long (1600 ft.)</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc>26</dc>
+						<duration>Instantaneous</duration>
+						<effect>Sunburst causes a globe of searing radiance to explode silently from a point you select.</effect>
+						<target>80-ft.-radius burst</target>
+						<saveinfo>Reflex partial; see text</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Light</descriptor>
+							<fullschool>Evocation [Light]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Sor8</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.355</source>
+							<sourcepage>p.355</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>Sunburst causes a globe of searing radiance to explode silently from a point you select.</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate>
 
 		<class_innate>
@@ -2417,10 +2417,9 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="1" spelllistclass="Sorcerer/Cleric (Arcane)" spellcastertype="Arcane">
 			<level number="0" known="9" cast="6">
-				<spell>
+					<spell>
 						<name>Acid Splash</name>
 						<outputname>Acid Splash</outputname>
 						<times_memorized>1</times_memorized>
@@ -2449,7 +2448,7 @@ BIO
 						<description>You fire a small orb of acid at the target dealing 1d3 points of acid damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Create Water</name>
 						<outputname>Create Water</outputname>
 						<times_memorized>1</times_memorized>
@@ -2478,7 +2477,7 @@ BIO
 						<description>This spell generates wholesome, drinkable water, just like clean rain water.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Magic</name>
 						<outputname>Detect Magic</outputname>
 						<times_memorized>1</times_memorized>
@@ -2507,7 +2506,7 @@ BIO
 						<description>You detect magical auras.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Poison</name>
 						<outputname>Detect Poison</outputname>
 						<times_memorized>1</times_memorized>
@@ -2536,7 +2535,7 @@ BIO
 						<description>You determine whether a creature, object, or area has been poisoned or is poisonous.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Flare</name>
 						<outputname>Flare</outputname>
 						<times_memorized>1</times_memorized>
@@ -2565,7 +2564,7 @@ BIO
 						<description>This cantrip creates a burst of light.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Ghost Sound</name>
 						<outputname>Ghost Sound</outputname>
 						<times_memorized>1</times_memorized>
@@ -2594,7 +2593,7 @@ BIO
 						<description>Ghost sound allows you to create a volume of sound that rises, recedes, approaches, or remains at a fixed place.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Mage Hand</name>
 						<outputname>Mage Hand</outputname>
 						<times_memorized>1</times_memorized>
@@ -2623,7 +2622,7 @@ BIO
 						<description>You point your finger at an object and can lift it and move it at will from a distance.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Mending</name>
 						<outputname>Mending</outputname>
 						<times_memorized>1</times_memorized>
@@ -2652,7 +2651,7 @@ BIO
 						<description>This spell repairs damaged objects, restoring 1d4 hit points to the object.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Open/Close</name>
 						<outputname>Open/Close</outputname>
 						<times_memorized>1</times_memorized>
@@ -2683,7 +2682,7 @@ BIO
 					</spell>
 			</level>
 			<level number="1" known="5" cast="8">
-				<spell>
+					<spell>
 						<name>Alarm</name>
 						<outputname>Alarm</outputname>
 						<times_memorized>1</times_memorized>
@@ -2712,7 +2711,7 @@ BIO
 						<description>Alarm creates a subtle ward on an area you select.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Animate Rope</name>
 						<outputname>Animate Rope</outputname>
 						<times_memorized>1</times_memorized>
@@ -2741,7 +2740,7 @@ BIO
 						<description>You can animate a nonliving rope-like object.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Comprehend Languages</name>
 						<outputname>Comprehend Languages</outputname>
 						<times_memorized>1</times_memorized>
@@ -2770,7 +2769,7 @@ BIO
 						<description>You can understand the spoken words of creatures or read otherwise incomprehensible written messages.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Cure Light Wounds</name>
 						<outputname>Cure Light Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -2799,7 +2798,7 @@ BIO
 						<description>When laying your hand upon a living creature, you channel positive energy that cures 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Curse Water</name>
 						<outputname>Curse Water</outputname>
 						<times_memorized>1</times_memorized>
@@ -2830,7 +2829,7 @@ BIO
 					</spell>
 			</level>
 			<level number="2" known="5" cast="8">
-				<spell>
+					<spell>
 						<name>Acid Arrow</name>
 						<outputname>Acid Arrow</outputname>
 						<times_memorized>1</times_memorized>
@@ -2859,7 +2858,7 @@ BIO
 						<description>An arrow of acid springs from your hand and speeds to its target dealing 2d4 points of acid damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Alter Self</name>
 						<outputname>Alter Self</outputname>
 						<times_memorized>1</times_memorized>
@@ -2888,7 +2887,7 @@ BIO
 						<description>You can assume the form of any Small or Medium creature of the humanoid type.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Cat&#39;s Grace</name>
 						<outputname>Cat&#39;s Grace</outputname>
 						<times_memorized>1</times_memorized>
@@ -2917,7 +2916,7 @@ BIO
 						<description>The transmuted creature becomes more graceful, agile, and coordinated granting a +4 enhancement bonus to Dexterity.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Eagle&#39;s Splendor</name>
 						<outputname>Eagle&#39;s Splendor</outputname>
 						<times_memorized>1</times_memorized>
@@ -2946,7 +2945,7 @@ BIO
 						<description>The transmuted creature becomes more poised, articulate, and personally forceful gaining a +4 enhancement bonus to Charisma.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fox&#39;s Cunning</name>
 						<outputname>Fox&#39;s Cunning</outputname>
 						<times_memorized>1</times_memorized>
@@ -2977,7 +2976,7 @@ BIO
 					</spell>
 			</level>
 			<level number="3" known="4" cast="8">
-				<spell>
+					<spell>
 						<name>Arcane Sight</name>
 						<outputname>Arcane Sight</outputname>
 						<times_memorized>1</times_memorized>
@@ -3006,7 +3005,7 @@ BIO
 						<description>This spell makes your eyes glow blue and allows you to see magical auras within 120 feet of you.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Blink</name>
 						<outputname>Blink</outputname>
 						<times_memorized>1</times_memorized>
@@ -3035,7 +3034,7 @@ BIO
 						<description>You &quot;blink&quot; quickly back and forth between the Material Plane and the Ethereal Plane and look as though you&#39;re winking in and out of reality at random.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -3068,7 +3067,7 @@ BIO
 			<level number="4" known="0" cast="0"/>
 			<level number="5" known="0" cast="0"/>
 			<level number="6" known="3" cast="7">
-				<spell>
+					<spell>
 						<name>Globe of Invulnerability</name>
 						<outputname>Globe of Invulnerability</outputname>
 						<times_memorized>1</times_memorized>
@@ -3097,7 +3096,7 @@ BIO
 						<description>This spell functions like lesser globe of invulnerability, except that it also excludes 4th-level spells and spell-like effects.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Guards and Wards</name>
 						<outputname>Guards and Wards</outputname>
 						<times_memorized>1</times_memorized>
@@ -3126,7 +3125,7 @@ BIO
 						<description>This powerful spell is primarily used to defend a stronghold or fortress by creating a number of magical wards and effects.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Heal</name>
 						<outputname>Heal</outputname>
 						<times_memorized>1</times_memorized>
@@ -3157,7 +3156,7 @@ BIO
 					</spell>
 			</level>
 			<level number="7" known="3" cast="7">
-				<spell>
+					<spell>
 						<name>Arcane Sight (Greater)</name>
 						<outputname>Arcane Sight (Greater)</outputname>
 						<times_memorized>1</times_memorized>
@@ -3186,7 +3185,7 @@ BIO
 						<description>This spell functions like arcane sight, except that you automatically know which spells or magical effects are active upon any individual or object you see.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Teleport (Greater)</name>
 						<outputname>Teleport (Greater)</outputname>
 						<times_memorized>1</times_memorized>
@@ -3215,7 +3214,7 @@ BIO
 						<description>This spell functions like teleport, except that there is no range limit and there is no chance you arrive off target.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Vision</name>
 						<outputname>Vision</outputname>
 						<times_memorized>1</times_memorized>
@@ -3246,7 +3245,7 @@ BIO
 					</spell>
 			</level>
 			<level number="8" known="3" cast="7">
-				<spell>
+					<spell>
 						<name>Antimagic Field</name>
 						<outputname>Antimagic Field</outputname>
 						<times_memorized>1</times_memorized>
@@ -3275,7 +3274,7 @@ BIO
 						<description>An invisible barrier impervious to most magical effects surrounds you and moves with you.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Dimensional Lock</name>
 						<outputname>Dimensional Lock</outputname>
 						<times_memorized>1</times_memorized>
@@ -3304,7 +3303,7 @@ BIO
 						<description>You create a shimmering emerald barrier that completely blocks extradimensional travel.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Shout (Greater)</name>
 						<outputname>Shout (Greater)</outputname>
 						<times_memorized>1</times_memorized>
@@ -3335,7 +3334,7 @@ BIO
 					</spell>
 			</level>
 			<level number="9" known="2" cast="4">
-				<spell>
+					<spell>
 						<name>Teleportation Circle</name>
 						<outputname>Teleportation Circle</outputname>
 						<times_memorized>1</times_memorized>
@@ -3364,7 +3363,7 @@ BIO
 						<description>You create a circle on the floor or other horizontal surface that teleports, as greater teleport, any creature who stands on it to a designated spot.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Wish</name>
 						<outputname>Wish</outputname>
 						<times_memorized>1</times_memorized>
@@ -3401,193 +3400,192 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-<!-- ### BEGIN innate memorized spells ### -->
-
+		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spells ### -->
 		<racial_innate_memorized>
-			<spell>
-					<name>Bless</name>
-					<outputname>Bless</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>50 ft.</range>
-					<components>V, S, DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc></dc>
-					<duration>30 minutes</duration>
-					<effect>Bless fills your allies with courage.</effect>
-					<target>The caster and all allies within a 50-ft. burst, centered on the caster</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Enchantment</school>
-						<subschool>Compulsion</subschool>
-						<descriptor>Mind-Affecting</descriptor>
-						<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr1</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.249</source>
-						<sourcepage>p.249</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>Yes (harmless)</spell_resistance>
-					<description>Bless fills your allies with courage.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Daylight</name>
-					<outputname>Daylight</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>Touch</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc></dc>
-					<duration>300 minutes [D]</duration>
-					<effect>You touch an object when you cast this spell, causing the object to shed bright light in a 60-foot radius.</effect>
-					<target>Object touched</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Light</descriptor>
-						<fullschool>Evocation [Light]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr3, Sor3</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.264</source>
-						<sourcepage>p.264</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>You touch an object when you cast this spell, causing the object to shed bright light in a 60-foot radius.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Detect Evil</name>
-					<outputname>Detect Evil</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>60 ft.</range>
-					<components>V, S, DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc></dc>
-					<duration>Concentration, up to 300 minutes [D]</duration>
-					<effect>You can sense the presence of evil.</effect>
-					<target>Cone-shaped emanation</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr1</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.266</source>
-						<sourcepage>p.266</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>You can sense the presence of evil.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Foresight</name>
-					<outputname>Foresight</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>Personal or touch</range>
-					<components>V, S, M/DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc>27</dc>
-					<duration>300 minutes</duration>
-					<effect>This spell grants you a powerful sixth sense in relation to yourself or another.</effect>
-					<target>See text</target>
-					<saveinfo>None or Will negates (harmless)</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Sor9</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.285</source>
-						<sourcepage>p.285</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>No or yes (harmless)</spell_resistance>
-					<description>This spell grants you a powerful sixth sense in relation to yourself or another.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Geas/Quest</name>
-					<outputname>Geas/Quest</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>Close (100 ft.)</range>
-					<components>V</components>
-					<castingtime>10 minutes</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc></dc>
-					<duration>30 days or until discharged [D]</duration>
-					<effect>This spell functions similarly to lesser geas, except that it affects a creature of any HD and allows no saving throw.</effect>
-					<target>One living creature</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Enchantment</school>
-						<subschool>Compulsion</subschool>
-						<descriptor>Language-Dependent, Mind-Affecting</descriptor>
-						<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Clr6, Sor6</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.288</source>
-						<sourcepage>p.288</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>This spell functions similarly to lesser geas, except that it affects a creature of any HD and allows no saving throw.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Sunburst</name>
-					<outputname>Sunburst</outputname>
-					<times_memorized>At Will</times_memorized>
-					<range>Long (1600 ft.)</range>
-					<components>V, S, M/DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>30</casterlevel>
-					<dc>26</dc>
-					<duration>Instantaneous</duration>
-					<effect>Sunburst causes a globe of searing radiance to explode silently from a point you select.</effect>
-					<target>80-ft.-radius burst</target>
-					<saveinfo>Reflex partial; see text</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Light</descriptor>
-						<fullschool>Evocation [Light]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Sor8</sourcelevel>
-						<source>Paizo Inc. - Core Rulebook, p.355</source>
-						<sourcepage>p.355</sourcepage>
-						<sourceshort>CR</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>Sunburst causes a globe of searing radiance to explode silently from a point you select.</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Bless</name>
+						<outputname>Bless</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>50 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc></dc>
+						<duration>30 minutes</duration>
+						<effect>Bless fills your allies with courage.</effect>
+						<target>The caster and all allies within a 50-ft. burst, centered on the caster</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.249</source>
+							<sourcepage>p.249</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Bless fills your allies with courage.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Daylight</name>
+						<outputname>Daylight</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc></dc>
+						<duration>300 minutes [D]</duration>
+						<effect>You touch an object when you cast this spell, causing the object to shed bright light in a 60-foot radius.</effect>
+						<target>Object touched</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Light</descriptor>
+							<fullschool>Evocation [Light]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr3, Sor3</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.264</source>
+							<sourcepage>p.264</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You touch an object when you cast this spell, causing the object to shed bright light in a 60-foot radius.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Detect Evil</name>
+						<outputname>Detect Evil</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 300 minutes [D]</duration>
+						<effect>You can sense the presence of evil.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr1</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.266</source>
+							<sourcepage>p.266</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You can sense the presence of evil.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Foresight</name>
+						<outputname>Foresight</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>Personal or touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc>27</dc>
+						<duration>300 minutes</duration>
+						<effect>This spell grants you a powerful sixth sense in relation to yourself or another.</effect>
+						<target>See text</target>
+						<saveinfo>None or Will negates (harmless)</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Sor9</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.285</source>
+							<sourcepage>p.285</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>No or yes (harmless)</spell_resistance>
+						<description>This spell grants you a powerful sixth sense in relation to yourself or another.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Geas/Quest</name>
+						<outputname>Geas/Quest</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>Close (100 ft.)</range>
+						<components>V</components>
+						<castingtime>10 minutes</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc></dc>
+						<duration>30 days or until discharged [D]</duration>
+						<effect>This spell functions similarly to lesser geas, except that it affects a creature of any HD and allows no saving throw.</effect>
+						<target>One living creature</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Language-Dependent, Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr6, Sor6</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.288</source>
+							<sourcepage>p.288</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>This spell functions similarly to lesser geas, except that it affects a creature of any HD and allows no saving throw.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Sunburst</name>
+						<outputname>Sunburst</outputname>
+						<times_memorized>At Will</times_memorized>
+						<range>Long (1600 ft.)</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>30</casterlevel>
+						<dc>26</dc>
+						<duration>Instantaneous</duration>
+						<effect>Sunburst causes a globe of searing radiance to explode silently from a point you select.</effect>
+						<target>80-ft.-radius burst</target>
+						<saveinfo>Reflex partial; see text</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Light</descriptor>
+							<fullschool>Evocation [Light]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Sor8</sourcelevel>
+							<source>Paizo Inc. - Core Rulebook, p.355</source>
+							<sourcepage>p.355</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>Sunburst causes a globe of searing radiance to explode silently from a point you select.</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate_memorized>
-
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
+		<!-- ### END innate memorized spells ### -->
+		<!-- ### BEGIN class innate memorized spells ### -->
+		<class_innate_memorized>
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
+		<!-- ### END innate memorized spell section -->
+	
+		<!-- ### BEGIN class Spellbook memorized spells ### -->
 	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>

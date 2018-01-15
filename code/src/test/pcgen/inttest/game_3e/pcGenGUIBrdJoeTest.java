@@ -19,15 +19,15 @@
  */
 package pcgen.inttest.game_3e;
 
-import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Test a 3e 1st lvl Half-Elf Bard 
  */
 @SuppressWarnings("nls")
-public class pcGenGUIBrdJoeTest extends pcGenGUITestCase
+public class pcGenGUIBrdJoeTest extends PcgenFtlTestCase
 {
 
 	/**
