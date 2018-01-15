@@ -284,6 +284,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			implements SortableTreeTableNode
 	{
 
+		// A Wrapper for the children declaration in DefaultMutableTreeNode, so we can also extend Row
 		protected Vector<TreeTableNode> children;
 
 		private final int level;
