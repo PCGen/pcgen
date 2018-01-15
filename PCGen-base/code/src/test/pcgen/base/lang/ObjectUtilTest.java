@@ -30,33 +30,33 @@ public class ObjectUtilTest extends TestCase
 
 	public void testNulls()
 	{
-		assertTrue(ObjectUtil.compareWithNull(null, null));
+		assertTrue(ObjectUtil.identityEquals(null).test(null));
 	}
 
 	public void testNullObject()
 	{
-		assertFalse(ObjectUtil.compareWithNull(null, new Object()));
+		assertFalse(ObjectUtil.identityEquals(null).test(new Object()));
 	}
 
 	public void testObjectNull()
 	{
-		assertFalse(ObjectUtil.compareWithNull(new Object(), null));
+		assertFalse(ObjectUtil.identityEquals(new Object()).test(null));
 	}
 
 	public void testDifferent()
 	{
-		assertFalse(ObjectUtil.compareWithNull(new Object(), new Object()));
+		assertFalse(ObjectUtil.identityEquals(new Object()).test(new Object()));
 	}
 
 	public void testSameInstance()
 	{
 		Object obj = new Object();
-		assertTrue(ObjectUtil.compareWithNull(obj, obj));
+		assertTrue(ObjectUtil.identityEquals(obj).test(obj));
 	}
 
-	public void testEqualsMethod()
+	public void testEqualsMethodIsIdentity()
 	{
-		assertTrue(ObjectUtil.compareWithNull(new Integer(1), new Integer(1)));
+		assertFalse(ObjectUtil.identityEquals(new Integer(1)).test(new Integer(1)));
 	}
 
 }
