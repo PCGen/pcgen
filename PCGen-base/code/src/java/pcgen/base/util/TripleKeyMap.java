@@ -418,15 +418,9 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	{
 		try
 		{
-			return thirdClass.newInstance();
+			return thirdClass.getConstructor().newInstance();
 		}
-		catch (InstantiationException e)
-		{
-			throw new IllegalArgumentException(
-				"Class for TripleKeyMap must possess "
-					+ "a zero-argument constructor", e);
-		}
-		catch (IllegalAccessException e)
+		catch (ReflectiveOperationException e)
 		{
 			throw new IllegalArgumentException(
 				"Class for TripleKeyMap must possess "

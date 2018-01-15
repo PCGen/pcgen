@@ -75,19 +75,15 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	 * @param cl
 	 *            The Class (extending Map) to be used as the underlying Map of
 	 *            this GenericMapToList
-	 * @throws IllegalAccessException
-	 *             if there is a security problem in accessing the given class
-	 * @throws InstantiationException
-	 *             if the given class does not have a public, zero argument
-	 *             constructor
+	 * @throws ReflectiveOperationException 
+	 *             if there is a problem in constructing the Map
 	 * @throws NullPointerException
 	 *             if the given Class is null
 	 */
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	public GenericMapToList(Class<? extends Map> cl)
-		throws InstantiationException, IllegalAccessException
+	public GenericMapToList(Class<? extends Map> cl) throws ReflectiveOperationException
 	{
-		super(cl.newInstance());
+		super(cl.getConstructor().newInstance());
 		underlyingClass = cl;
 	}
 
@@ -121,13 +117,7 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 		{
 			return new GenericMapToList<>(cl);
 		}
-		catch (InstantiationException e)
-		{
-			throw new IllegalArgumentException(
-				"Class for GenericMapToList must possess "
-					+ "a zero-argument constructor", e);
-		}
-		catch (IllegalAccessException e)
+		catch (ReflectiveOperationException e)
 		{
 			throw new IllegalArgumentException(
 				"Class for GenericMapToList must possess "
@@ -149,14 +139,10 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 		try
 		{
 			@SuppressWarnings("unchecked")
-			Map<K, Boolean> map = underlyingClass.newInstance();
+			Map<K, Boolean> map = underlyingClass.getConstructor().newInstance();
 			return Collections.newSetFromMap(map);
 		}
-		catch (InstantiationException e)
-		{
-			throw new UnreachableError("Constructor should have caught this", e);
-		}
-		catch (IllegalAccessException e)
+		catch (ReflectiveOperationException e)
 		{
 			throw new UnreachableError("Constructor should have caught this", e);
 		}

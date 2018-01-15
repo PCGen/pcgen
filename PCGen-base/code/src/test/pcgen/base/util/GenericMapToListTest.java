@@ -36,13 +36,9 @@ public class GenericMapToListTest extends TestCase
 			new GenericMapToList(NoZeroArgConstructorMap.class);
 			fail("Expected InstantiationException");
 		}
-		catch (InstantiationException e)
+		catch (ReflectiveOperationException e)
 		{
 			// OK
-		}
-		catch (IllegalAccessException e)
-		{
-			fail(e.getMessage());
 		}
 	}
 
@@ -54,13 +50,13 @@ public class GenericMapToListTest extends TestCase
 			new GenericMapToList(NoPublicZeroArgConstructorMap.class);
 			fail("Expected IllegalAccessException");
 		}
-		catch (InstantiationException e)
+		catch (NoSuchMethodException e)
+		{
+			// OK - please keep this separate!
+		}
+		catch (ReflectiveOperationException e)
 		{
 			fail(e.getMessage());
-		}
-		catch (IllegalAccessException e)
-		{
-			// OK
 		}
 	}
 
@@ -71,13 +67,13 @@ public class GenericMapToListTest extends TestCase
 			new GenericMapToList(StrangeMap.class);
 			fail();
 		}
-		catch (IllegalArgumentException | IllegalAccessException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (InstantiationException e)
+		catch (NoSuchMethodException e)
 		{
 			//OK, expected
+		}
+		catch (ReflectiveOperationException e)
+		{
+			fail(e.getMessage());
 		}
 	}
 }

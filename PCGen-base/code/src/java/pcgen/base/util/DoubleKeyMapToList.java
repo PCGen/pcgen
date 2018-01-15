@@ -541,15 +541,9 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	{
 		try
 		{
-			return firstClass.newInstance();
+			return firstClass.getConstructor().newInstance();
 		}
-		catch (InstantiationException e)
-		{
-			throw new IllegalArgumentException(
-				"Class for DoubleKeyMap must possess "
-					+ "a zero-argument constructor", e);
-		}
-		catch (IllegalAccessException e)
+		catch (ReflectiveOperationException e)
 		{
 			throw new IllegalArgumentException(
 				"Class for DoubleKeyMap must possess "
