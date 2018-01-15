@@ -104,12 +104,6 @@ public class TableColumn implements Loadable
 	}
 
 	@Override
-	public String getLSTformat()
-	{
-		return name;
-	}
-
-	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;

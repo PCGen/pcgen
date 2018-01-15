@@ -610,12 +610,6 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		sourceURI = source;
 	}
 
-    @Override
-	public String getLSTformat()
-	{
-		return getKeyName();
-	}
-
 	public void setInternal(boolean internal)
 	{
 		isInternal = internal;

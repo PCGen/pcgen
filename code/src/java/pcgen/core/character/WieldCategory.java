@@ -83,12 +83,6 @@ public final class WieldCategory implements Loadable
 	}
 
     @Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
-    @Override
 	public boolean isInternal()
 	{
 		return false;

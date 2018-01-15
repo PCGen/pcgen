@@ -37,7 +37,7 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		UserFunction ftn, String value)
 	{
-		String existing = ftn.getLSTformat();
+		String existing = ftn.getOriginalExpression();
 		if (existing != null)
 		{
 			if (!existing.equalsIgnoreCase(value))
@@ -65,7 +65,7 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 	@Override
 	public String[] unparse(LoadContext context, UserFunction ftn)
 	{
-		return new String[]{ftn.getLSTformat()};
+		return new String[]{ftn.getOriginalExpression()};
 	}
 
 	@Override

@@ -195,7 +195,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			for (SpecialAbility ab : added)
 			{
 				StringBuilder sb = new StringBuilder();
-				sb.append(ab.getLSTformat());
+				sb.append(ab.getKeyName());
 				if (ab.hasPrerequisites())
 				{
 					sb.append(Constants.PIPE);
