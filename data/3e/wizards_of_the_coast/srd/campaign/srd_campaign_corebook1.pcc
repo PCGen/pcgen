@@ -26,7 +26,7 @@ ALIGNMENT:@/3e/wizards_of_the_coast/srd/basics/srd__align.lst
 SAVE:@/3e/wizards_of_the_coast/srd/basics/srd__saves.lst
 STAT:@/3e/wizards_of_the_coast/srd/basics/srd__stats.lst
 DATACONTROL:@/3e/wizards_of_the_coast/srd/basics/srd__datacontrols.lst
-
+SIZE:@/3e/wizards_of_the_coast/srd/basics/srd__sizes.lst
 
 
 # Basics
