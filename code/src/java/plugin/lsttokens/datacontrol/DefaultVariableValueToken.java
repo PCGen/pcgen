@@ -107,10 +107,9 @@ public class DefaultVariableValueToken extends
 		}
 		catch (IllegalArgumentException e)
 		{
-			return new ParseResult.Fail("ModifierType "
-				+ fmtManager.getIdentifierType()
-				+ " could not be initialized to a default value of: "
-				+ defaultValue, context);
+			return new ParseResult.Fail("ModifierType " + fmtManager.getIdentifierType()
+				+ " could not be initialized to a default value of: " + defaultValue
+				+ " due to " + e.getLocalizedMessage(), context);
 		}
 		dvv.setModifier(defaultModifier);
 		varContext.addDefault(cl, defaultModifier);
