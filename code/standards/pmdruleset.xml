@@ -41,7 +41,6 @@
         <exclude name="UseCollectionIsEmpty"/>
         <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
         <exclude name="UseVarargs"/>
-
     </rule>
     <rule ref="category/java/codestyle.xml">
         <exclude name="AbstractNaming"/>
@@ -68,7 +67,6 @@
         <exclude name="MethodNamingConventions"/>
         <exclude name="OnlyOneReturn"/>
         <exclude name="PrematureDeclaration"/>
-
         <exclude name="ShortClassName"/>
         <exclude name="ShortVariable"/>
         <exclude name="SuspiciousConstantFieldName"/>
@@ -81,7 +79,6 @@
         <!-- This is excluded because we use "useless" parenthesis for readability -->
         <exclude name="UselessParentheses"/>
         <exclude name="UselessQualifiedThis"/>
-
         <exclude name="VariableNamingConventions"/>
     </rule>
     <rule ref="category/java/design.xml">
@@ -89,7 +86,6 @@
         <exclude name="AvoidDeeplyNestedIfStmts"/>
         <exclude name="AvoidThrowingNullPointerException"/>
         <exclude name="AvoidThrowingRawExceptionTypes"/>
-
         <exclude name="ClassWithOnlyPrivateConstructorsShouldBeFinal"/>
         <exclude name="CollapsibleIfStatements"/>
         <exclude name="CouplingBetweenObjects"/>
@@ -111,7 +107,6 @@
         <exclude name="SimplifyBooleanReturns"/>
         <exclude name="SimplifyBooleanExpressions"/>
         <exclude name="SimplifyConditional"/>
-
         <exclude name="SingularField"/>
         <exclude name="SwitchDensity"/>
         <exclude name="TooManyFields"/>
@@ -138,7 +133,6 @@
         <exclude name="DataflowAnomalyAnalysis"/>
         <exclude name="DoNotCallGarbageCollectionExplicitly"/>
         <exclude name="DoNotCallSystemExit"/>
-
         <exclude name="EmptyCatchBlock"/>
         <exclude name="EmptyIfStmt"/>
         <exclude name="EmptyStatementNotInLoop"/>
@@ -153,7 +147,6 @@
         <exclude name="ReturnEmptyArrayRatherThanNull"/>
         <exclude name="SimpleDateFormatNeedsLocale"/>
         <exclude name="SingleMethodSingleton"/>
-
         <exclude name="UseEqualsToCompareStrings"/>
         <exclude name="UseLocaleWithCaseConversions"/>
     </rule>
@@ -185,6 +178,5 @@
         <exclude name="UseIndexOfChar"/>
         <exclude name="UseStringBufferForStringAppends"/>
         <exclude name="UselessStringValueOf"/>
-
     </rule>
 </ruleset>
