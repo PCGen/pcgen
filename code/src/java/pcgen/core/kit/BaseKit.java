@@ -213,12 +213,6 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	}
 
     @Override
-	public String getLSTformat()
-	{
-		return null;
-	}
-
-    @Override
 	public boolean isInternal()
 	{
 		return false;

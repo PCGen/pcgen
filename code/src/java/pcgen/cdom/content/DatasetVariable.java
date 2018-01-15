@@ -50,17 +50,6 @@ public class DatasetVariable extends UserContent
 	}
 
 	/**
-	 * Not designed to be used for this object.
-	 * 
-	 * @see pcgen.cdom.base.Loadable#getLSTformat()
-	 */
-	@Override
-	public String getLSTformat()
-	{
-		return null;
-	}
-
-	/**
 	 * Sets the scope name in which the variable is legal.
 	 * 
 	 * @param scope
