@@ -44,6 +44,15 @@ public interface ManagerFactory
 		return fdm.getWith(DependencyManager.ASSERTED, assertedFormat);
 	}
 
+	/**
+	 * Generates a DependencyManager with additional contents to handle variable
+	 * dependencies.
+	 * 
+	 * @param fdm
+	 *            The DependencyManager from which the returned DependencyManager should
+	 *            be derived
+	 * @return The DependencyManager with contents to handle variables
+	 */
 	public default DependencyManager withVariables(DependencyManager fdm)
 	{
 		return fdm.getWith(DependencyManager.VARSTRATEGY, new StaticStrategy())
