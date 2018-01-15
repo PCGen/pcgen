@@ -33,4 +33,8 @@ jdepend {
 	sourceSets = []
 }
 
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.4.1'
+}
+
 task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'jdependMain'] }
