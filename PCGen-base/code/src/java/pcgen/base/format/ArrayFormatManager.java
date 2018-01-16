@@ -49,13 +49,13 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * The list separator character used to parse instructions and separate list items
 	 * that will be part of the array.
 	 */
-	private final char listSep;
+	private final char listSeparator;
 
 	/**
 	 * The group separator character used to parse instructions and separate groups of
 	 * lists that will be part of the array.
 	 */
-	private final char groupSep;
+	private final char groupSeparator;
 
 	/**
 	 * The FormatManager representing objects contained within the array.
@@ -73,22 +73,23 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * 
 	 * @param underlying
 	 *            The FormatManager representing objects contained within the array
-	 * @param groupSep
+	 * @param groupSeparator
 	 *            The group separator character used to parse instructions and separate
 	 *            groups of lists that will be part of the array
-	 * @param listSep
+	 * @param listSeparator
 	 *            The separator character used to parse lists in the instructions and
 	 *            separate list items that will be part of the array
 	 */
-	public ArrayFormatManager(FormatManager<T> underlying, char groupSep, char listSep)
+	public ArrayFormatManager(FormatManager<T> underlying, char groupSeparator,
+		char listSeparator)
 	{
 		componentManager = underlying;
 		@SuppressWarnings("unchecked")
 		Class<T[]> arrayClass = (Class<T[]>) Array
 			.newInstance(underlying.getManagedClass(), 0).getClass();
 		this.formatClass = arrayClass;
-		this.groupSep = groupSep;
-		this.listSep = listSep;
+		this.groupSeparator = groupSeparator;
+		this.listSeparator = listSeparator;
 	}
 
 	/**
@@ -110,12 +111,12 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 			@SuppressWarnings("unchecked")
 			DispatchingFormatManager<T> dfm =
 					(DispatchingFormatManager<T>) componentManager;
-			String[] groups = splitInstructions(instructions, groupSep);
+			String[] groups = splitInstructions(instructions, groupSeparator);
 			T[] returnValue = null;
 			for (String group : groups)
 			{
 				T[] converted = dfm.convertViaDispatch(
-					fm -> new ArrayFormatManager<>(fm, groupSep, listSep), group);
+					fm -> new ArrayFormatManager<>(fm, groupSeparator, listSeparator), group);
 				returnValue =
 						ArrayUtilities.mergeArray(managedClass, returnValue, converted);
 			}
@@ -144,7 +145,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 			@SuppressWarnings("unchecked")
 			DispatchingFormatManager<T> dfm =
 					(DispatchingFormatManager<T>) componentManager;
-			String[] groups = splitInstructions(instructions, groupSep);
+			String[] groups = splitInstructions(instructions, groupSeparator);
 			for (String group : groups)
 			{
 				Indirect<T>[] converted =
@@ -163,7 +164,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	private <R> R[] convertInternal(Function<? super String, R> mapper,
 		String instructions, Class<R> managedClass)
 	{
-		return Arrays.stream(splitInstructions(instructions, listSep))
+		return Arrays.stream(splitInstructions(instructions, listSeparator))
 					 .map(mapper)
 					 .toArray(buildOfClass(managedClass));
 	}
@@ -234,18 +235,18 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 			Stream<Tuple<String, String>> unconverted =
 					Arrays.stream(array).map(dfm::unconvertSeparated);
 			List<String> results =
-					TupleUtil.arrayLeftAndCombine(unconverted, listSep);
-			return StringUtil.join(results, groupSep);
+					TupleUtil.arrayLeftAndCombine(unconverted, listSeparator);
+			return StringUtil.join(results, groupSeparator);
 		}
 		return Arrays.stream(array)
 				 .map(componentManager::unconvert)
-				 .collect(joining(listSep));
+				 .collect(joining(listSeparator));
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return componentManager.hashCode() * listSep * groupSep;
+		return componentManager.hashCode() * listSeparator * groupSeparator;
 	}
 
 	@Override
@@ -256,7 +257,8 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 			ArrayFormatManager<?> other = (ArrayFormatManager<?>) o;
 			//skip formatClass because it is derived
 			return componentManager.equals(other.componentManager)
-				&& (groupSep == other.groupSep) && (listSep == other.listSep);
+				&& (groupSeparator == other.groupSeparator)
+				&& (listSeparator == other.listSeparator);
 		}
 		return false;
 	}
@@ -326,12 +328,12 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 							  .map(this::makeDispatched)
 							  .map(Dispatched::unconvertSeparated);
 				List<String> results =
-						TupleUtil.arrayLeftAndCombine(unconverted, listSep);
-				return StringUtil.join(results, groupSep);
+						TupleUtil.arrayLeftAndCombine(unconverted, listSeparator);
+				return StringUtil.join(results, groupSeparator);
 			}
 			return Arrays.stream(array)
 						 .map(Indirect::getUnconverted)
-						 .collect(joining(listSep));
+						 .collect(joining(listSeparator));
 		}
 
 		private Dispatched makeDispatched(Indirect<T> x)
