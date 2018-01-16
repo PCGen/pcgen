@@ -78,7 +78,7 @@ public class TreeMapToListTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			// OK
+			//expected
 		}
 	}
 
@@ -96,7 +96,7 @@ public class TreeMapToListTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			// OK
+			//expected
 		}
 	}
 

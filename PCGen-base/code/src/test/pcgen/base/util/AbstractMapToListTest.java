@@ -71,7 +71,7 @@ public abstract class AbstractMapToListTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			// OK
+			//expected
 		}
 	}
 
@@ -448,7 +448,7 @@ public abstract class AbstractMapToListTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			// OK
+			//expected
 		}
 		populate(dkm);
 		try
@@ -458,7 +458,7 @@ public abstract class AbstractMapToListTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 		assertEquals(CONST_A, dkm.getElementInList(Integer.valueOf(1), 0));
 		assertEquals(CONST_B, dkm.getElementInList(Integer.valueOf(1), 1));

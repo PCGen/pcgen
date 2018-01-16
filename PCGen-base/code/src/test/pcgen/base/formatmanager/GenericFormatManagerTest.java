@@ -41,7 +41,7 @@ public class GenericFormatManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -54,7 +54,7 @@ public class GenericFormatManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -67,7 +67,7 @@ public class GenericFormatManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -80,7 +80,7 @@ public class GenericFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -145,6 +145,12 @@ public class GenericFormatManagerTest extends TestCase
 	public void testGetComponent()
 	{
 		assertNull(manager.getComponentManager());
+	}
+
+
+	public void testIsDirect()
+	{
+		assertEquals(database.isDirect(), manager.isDirect());
 	}
 
 	private class Keyed

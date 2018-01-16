@@ -55,7 +55,7 @@ public class ArrayFormatFactoryTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -68,7 +68,7 @@ public class ArrayFormatFactoryTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -108,4 +108,24 @@ public class ArrayFormatFactoryTest extends TestCase
 		manager = factory.build("STRING", library);
 		assertEquals(new StringManager(), manager.getComponentManager());
 	}
+
+	/*
+	 * Note that this is currently failing due to an error check in ArrayFormatFactory.
+	 * This is not "strict" behavior, in that if an enhancement is made that fixes this
+	 * limitation, please remove this test.
+	 */
+	public void testFailInvalidSub()
+	{
+		try
+		{
+			assertFalse(library.hasFormatManager("ARRAY[ARRAY[NUMBER]]"));
+			library.getFormatManager("ARRAY[ARRAY[NUMBER]]");
+			fail("bad input value should fail");
+		}
+		catch (NullPointerException | IllegalArgumentException e)
+		{
+			//expected
+		}
+	}
+
 }

@@ -57,7 +57,7 @@ public class DefaultGraphEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -66,7 +66,7 @@ public class DefaultGraphEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -75,7 +75,7 @@ public class DefaultGraphEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 	}
 
@@ -98,7 +98,7 @@ public class DefaultGraphEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -107,7 +107,7 @@ public class DefaultGraphEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 	}
 

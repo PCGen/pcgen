@@ -586,7 +586,7 @@ public class DoubleKeyMapTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			// OK
+			//expected
 		}
 	}
 	

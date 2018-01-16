@@ -19,6 +19,8 @@ package pcgen.base.format;
 import java.util.Arrays;
 
 import junit.framework.TestCase;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
 
 public class ArrayFormatManagerTest extends TestCase
 {
@@ -40,7 +42,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -53,7 +55,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -66,7 +68,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -79,7 +81,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -92,7 +94,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 		try
 		{
@@ -101,7 +103,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 		try
 		{
@@ -110,7 +112,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -123,7 +125,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 		try
 		{
@@ -132,7 +134,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 		try
 		{
@@ -141,7 +143,7 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -229,5 +231,55 @@ public class ArrayFormatManagerTest extends TestCase
 				new ArrayFormatManager<>(new NumberManager(), '\n', '|');
 		assertTrue(Arrays.equals(ARR_N3_4_5, mgr.convert("-3|4|5")));
 		assertTrue(Arrays.equals(ARR_N3_4P1_5, mgr.convert("-3|4.1|5")));
+	}
+
+	public void testIsDirect()
+	{
+		assertTrue(manager.isDirect());
+		assertTrue(new ArrayFormatManager<>(new BooleanManager(), '\n', ',').isDirect());
+		assertTrue(new ArrayFormatManager<>(new StringManager(), '\n', ',').isDirect());
+		assertFalse(new ArrayFormatManager<>(new FormatManager() {
+
+			@Override
+			public Object convert(String inputStr)
+			{
+				return null;
+			}
+
+			@Override
+			public Indirect convertIndirect(String inputStr)
+			{
+				return null;
+			}
+
+			@Override
+			public boolean isDirect()
+			{
+				return false;
+			}
+
+			@Override
+			public String unconvert(Object obj)
+			{
+				return null;
+			}
+
+			@Override
+			public Class getManagedClass()
+			{
+				return Object.class;
+			}
+
+			@Override
+			public String getIdentifierType()
+			{
+				return null;
+			}
+
+			@Override
+			public FormatManager getComponentManager()
+			{
+				return null;
+			}}, '\n', ',').isDirect());
 	}
 }

@@ -31,7 +31,7 @@ public class StringManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -44,7 +44,7 @@ public class StringManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -57,7 +57,7 @@ public class StringManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -95,5 +95,10 @@ public class StringManagerTest extends TestCase
 	public void testGetComponent()
 	{
 		assertNull(manager.getComponentManager());
+	}
+
+	public void testIsDirect()
+	{
+		assertTrue(manager.isDirect());
 	}
 }

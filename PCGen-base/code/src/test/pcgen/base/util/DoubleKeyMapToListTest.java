@@ -538,7 +538,7 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 		catch (NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 		populate();
 		copy.addAll(dkm);

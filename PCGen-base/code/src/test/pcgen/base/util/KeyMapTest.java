@@ -198,7 +198,7 @@ public class KeyMapTest extends TestCase
 		}
 		catch (UnsupportedOperationException e)
 		{
-			//okay
+			//expected
 		}
 		assertEquals(3, s.size());
 		otom.put(SC, D6);
@@ -230,7 +230,7 @@ public class KeyMapTest extends TestCase
 		}
 		catch (UnsupportedOperationException e)
 		{
-			//okay
+			//expected
 		}
 		assertEquals(3, s.size());
 		otom.put(SC, D6);
@@ -263,7 +263,7 @@ public class KeyMapTest extends TestCase
 		}
 		catch (UnsupportedOperationException e)
 		{
-			//okay
+			//expected
 		}
 		assertEquals(3, s.size());
 		otom.put(SC, D6);

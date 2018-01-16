@@ -90,7 +90,7 @@ public class GenericMapToListTest_IdentityHash extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			// OK
+			//expected
 		}
 	}
 

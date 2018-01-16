@@ -76,7 +76,7 @@ public class GenericMapToListTest_Tree extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			// OK
+			//expected
 		}
 	}
 
@@ -90,7 +90,7 @@ public class GenericMapToListTest_Tree extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			// OK
+			//expected
 		}
 	}
 

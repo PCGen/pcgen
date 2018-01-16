@@ -54,7 +54,7 @@ public class MappedDequeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -63,7 +63,7 @@ public class MappedDequeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -72,7 +72,7 @@ public class MappedDequeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -81,7 +81,7 @@ public class MappedDequeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -90,7 +90,7 @@ public class MappedDequeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -99,7 +99,7 @@ public class MappedDequeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//ok
+			//expected
 		}
 	}
 

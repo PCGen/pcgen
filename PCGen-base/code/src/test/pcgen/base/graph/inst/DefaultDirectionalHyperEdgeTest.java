@@ -77,7 +77,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -89,7 +89,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -101,7 +101,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -113,7 +113,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -125,7 +125,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -137,7 +137,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 	}
 
@@ -153,7 +153,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -162,7 +162,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 		assertEquals(node5, edge3.getNodeAt(0));
 		assertEquals(node6, edge3.getNodeAt(1));
@@ -173,7 +173,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -182,7 +182,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 		assertEquals(node3, edge4.getNodeAt(0));
 		assertEquals(node4, edge4.getNodeAt(1));
@@ -194,7 +194,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -203,7 +203,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 	}
 
@@ -347,7 +347,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -356,7 +356,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -365,7 +365,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -376,7 +376,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -386,7 +386,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -397,7 +397,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 	}
 

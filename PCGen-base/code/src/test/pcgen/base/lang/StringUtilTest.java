@@ -143,7 +143,7 @@ public class StringUtilTest extends TestCase
 		}
 		catch (NullPointerException e)
 		{
-			//OK
+			//expected
 		}
 		try
 		{
@@ -152,7 +152,7 @@ public class StringUtilTest extends TestCase
 		}
 		catch (NullPointerException e)
 		{
-			//OK
+			//expected
 		}
 	}
 }

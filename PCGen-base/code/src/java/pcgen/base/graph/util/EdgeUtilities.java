@@ -19,7 +19,7 @@ package pcgen.base.graph.util;
 
 import java.util.function.Function;
 
-import pcgen.base.graph.inst.DefaultGraphEdge;
+import pcgen.base.graph.base.Edge;
 
 /**
  * EdgeUtilities is a utility class designed to provide utility methods when working with
@@ -45,7 +45,7 @@ public final class EdgeUtilities
 	 * @return A Function that will return the Node at the given location in the Edge
 	 *         provided to said Function
 	 */
-	public static <N> Function<DefaultGraphEdge<N>, N> getNode(int i)
+	public static <N> Function<Edge<N>, N> getNode(int i)
 	{
 		return edge -> edge.getNodeAt(i);
 	}

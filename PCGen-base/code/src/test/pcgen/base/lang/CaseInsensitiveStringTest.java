@@ -34,7 +34,7 @@ public class CaseInsensitiveStringTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//OK
+			//expected
 		}
 	}
 	

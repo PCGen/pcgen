@@ -96,7 +96,7 @@ public class IdentityListTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			//ok
+			//expected
 		}
 		assertEquals(1, ls.size());
 		assertEquals(null, ls.get(0));
@@ -112,7 +112,7 @@ public class IdentityListTest extends TestCase
 		}
 		catch (NullPointerException e)
 		{
-			//ok
+			//expected
 		}
 	}
 

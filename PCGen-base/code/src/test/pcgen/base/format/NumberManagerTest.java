@@ -31,7 +31,7 @@ public class NumberManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -44,7 +44,7 @@ public class NumberManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -57,7 +57,7 @@ public class NumberManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -70,7 +70,7 @@ public class NumberManagerTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -83,7 +83,7 @@ public class NumberManagerTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -124,5 +124,10 @@ public class NumberManagerTest extends TestCase
 	public void testGetComponent()
 	{
 		assertNull(manager.getComponentManager());
+	}
+
+	public void testIsDirect()
+	{
+		assertTrue(manager.isDirect());
 	}
 }

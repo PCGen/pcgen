@@ -29,7 +29,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -42,7 +42,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -55,7 +55,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -68,7 +68,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -81,7 +81,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -94,7 +94,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -107,7 +107,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -120,7 +120,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -129,7 +129,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -142,7 +142,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -151,7 +151,7 @@ public class OrderedPairTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok
+			//expected
 		}
 	}
 

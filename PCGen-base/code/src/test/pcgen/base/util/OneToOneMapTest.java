@@ -185,7 +185,7 @@ public class OneToOneMapTest extends TestCase
 		}
 		catch (UnsupportedOperationException e)
 		{
-			//okay
+			//expected
 		}
 		assertEquals(3, s.size());
 		otom.put(Integer.valueOf(4), Double.valueOf(6));
@@ -217,7 +217,7 @@ public class OneToOneMapTest extends TestCase
 		}
 		catch (UnsupportedOperationException e)
 		{
-			//okay
+			//expected
 		}
 		assertEquals(3, s.size());
 		otom.put(Integer.valueOf(4), Double.valueOf(6));

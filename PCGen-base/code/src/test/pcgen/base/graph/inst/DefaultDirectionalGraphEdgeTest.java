@@ -60,7 +60,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -69,7 +69,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -78,7 +78,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 	}
 
@@ -101,7 +101,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -110,7 +110,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 	}
 

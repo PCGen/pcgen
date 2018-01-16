@@ -38,7 +38,7 @@ public class GenericMapToListTest extends TestCase
 		}
 		catch (ReflectiveOperationException e)
 		{
-			// OK
+			//expected
 		}
 	}
 

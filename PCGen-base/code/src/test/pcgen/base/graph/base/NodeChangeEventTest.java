@@ -46,7 +46,7 @@ public class NodeChangeEventTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -58,7 +58,7 @@ public class NodeChangeEventTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 	}
 

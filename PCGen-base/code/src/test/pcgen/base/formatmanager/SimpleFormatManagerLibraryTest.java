@@ -54,7 +54,21 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
+		}
+	}
+
+	public void testFailInvalidSub()
+	{
+		try
+		{
+			assertFalse(library.hasFormatManager("NUMBER[NUMBER]"));
+			library.getFormatManager("NUMBER[NUMBER]");
+			fail("bad input value should fail");
+		}
+		catch (NullPointerException | IllegalArgumentException e)
+		{
+			//expected
 		}
 	}
 
@@ -68,7 +82,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -82,7 +96,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 
@@ -103,7 +117,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 		//This is okay (equality)
 		library.addFormatManager(new NumberManager());
@@ -119,7 +133,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			//ok as well
+			//expected
 		}
 	}
 

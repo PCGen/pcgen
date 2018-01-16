@@ -72,7 +72,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -81,7 +81,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -91,7 +91,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException iae)
 		{
-			// OK
+			//expected
 		}
 	}
 
@@ -107,7 +107,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -116,7 +116,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			// OK
+			//expected
 		}
 	}
 
@@ -159,7 +159,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//OK
+			//expected
 		}
 		try
 		{
@@ -168,7 +168,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			//OK
+			//expected
 		}
 		DefaultHyperEdge<Integer> newEdge =
 				edge1.createReplacementEdge(Arrays.asList(new Integer[]{4, 5}));

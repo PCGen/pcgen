@@ -15,7 +15,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -30,7 +30,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 		separator = new ParsingSeparator(",", ',');
 		//before the comma
@@ -48,7 +48,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 		//We are NOT String.split like to consume blanks...
 		separator = new ParsingSeparator(",,", ',');
@@ -70,7 +70,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -88,7 +88,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (ParsingSeparator.GroupingMismatchException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -106,7 +106,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (ParsingSeparator.GroupingMismatchException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -125,7 +125,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (ParsingSeparator.GroupingMismatchException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -145,7 +145,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -165,7 +165,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -190,7 +190,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -214,7 +214,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -238,7 +238,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -262,7 +262,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -284,7 +284,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -308,7 +308,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (NoSuchElementException e)
 		{
-			//ok
+			//expected
 		}
 	}
 
@@ -324,7 +324,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (IllegalStateException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -333,7 +333,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (IllegalStateException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -342,7 +342,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (IllegalStateException e)
 		{
-			//ok
+			//expected
 		}
 		try
 		{
@@ -351,7 +351,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (IllegalStateException e)
 		{
-			//ok
+			//expected
 		}
 		//but reuse of same is okay
 		separator.addGroupingPair('(', ')');
@@ -365,7 +365,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (IllegalStateException e)
 		{
-			//ok
+			//expected
 		}
 		separator = new ParsingSeparator("a,b\"c,d\",e,f\"g\"", ',');
 		separator.next();
@@ -377,7 +377,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (IllegalStateException e)
 		{
-			//ok
+			//expected
 		}
 	}
 	
@@ -393,7 +393,7 @@ public class ParsingSeparatorTest extends TestCase
 		}
 		catch (UnsupportedOperationException e)
 		{
-			//OK
+			//expected
 		}
 	}
 }

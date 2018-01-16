@@ -47,7 +47,7 @@ public class EdgeChangeEventTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 		try
 		{
@@ -59,7 +59,7 @@ public class EdgeChangeEventTest extends TestCase
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
-			// OK
+			//expected
 		}
 	}
 
