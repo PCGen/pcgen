@@ -20,6 +20,7 @@ package plugin.lsttokens;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
@@ -111,9 +112,9 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				@Override
 				public boolean contains(VarScoped item)
 				{
-					return (item instanceof CDOMObject)
-						&& ((CDOMObject) item).containsInList(ListKey.GROUP,
-							groupName);
+					return Objects.equals(item.getLocalScopeName(), scope.getName())
+						&& (item instanceof CDOMObject)
+						&& ((CDOMObject) item).containsInList(ListKey.GROUP, groupName);
 				}
 
 				@Override
@@ -134,9 +135,9 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			group = new ObjectGrouping()
 			{
 				@Override
-				public boolean contains(VarScoped cdo)
+				public boolean contains(VarScoped item)
 				{
-					return true;
+					return Objects.equals(item.getLocalScopeName(), scope.getName());
 				}
 
 				@Override
@@ -157,9 +158,10 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			group = new ObjectGrouping()
 			{
 				@Override
-				public boolean contains(VarScoped cdo)
+				public boolean contains(VarScoped item)
 				{
-					return cdo.getKeyName().equalsIgnoreCase(groupingName);
+					return Objects.equals(item.getLocalScopeName(), scope.getName())
+						&& item.getKeyName().equalsIgnoreCase(groupingName);
 				}
 
 				@Override
