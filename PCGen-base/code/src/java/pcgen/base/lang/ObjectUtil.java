@@ -34,27 +34,6 @@ public final class ObjectUtil
 	}
 
 	/**
-	 * Returns true if the two given objects are identical as reported by
-	 * .equals()
-	 * 
-	 * This is tolerant of one or both of the values being null, and will return
-	 * true if both are null (and false if only one is null).
-	 * 
-	 * @param o1
-	 *            The first object to be compared for equality
-	 * @param o2
-	 *            The second object to be compared for equality
-	 * @param <T>
-	 *            The class of object being compared
-	 * @return true if the two objects are equal; false otherwise
-	 */
-	@SuppressWarnings("PMD.CompareObjectsWithEquals")
-	public static <T> boolean compareWithNull(T o1, T o2)
-	{
-		return (o1 == o2) || ((o1 != null) && o1.equals(o2));
-	}
-
-	/**
 	 * Returns a Predicate that indicates whether the object provided to the Predicate is
 	 * equal (identity equal, meaning ==) to the object provided to this method.
 	 * 
