@@ -110,7 +110,7 @@ public class SolverFactory implements DefaultStore
 				{
 					//Generics were violated during addSolverFormat if we got here
 					return new FailureResult("Default Modifier for Format: "
-							+ entry.getKey() + " cannot produce: " + defaultValue.getClass());
+						+ entry.getKey() + " cannot produce: " + defaultValue.getClass());
 				}
 			}
 			catch (NullPointerException e)
