@@ -87,9 +87,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			}
 
 			@Override
-			public Class getVariableFormat()
+			public FormatManager getVariableFormat()
 			{
-				return Number.class;
+				return FormatUtilities.NUMBER_MANAGER;
 			}
 
 			@Override
@@ -125,9 +125,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			}
 
 			@Override
-			public Class getVariableFormat()
+			public FormatManager getVariableFormat()
 			{
-				return String.class;
+				return FormatUtilities.STRING_MANAGER;
 			}
 
 			@Override
@@ -145,7 +145,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	}
 
 	public void isValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
+		FormatManager<?> formatManager, FormatManager<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(
@@ -160,7 +160,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected FormulaSemantics generateFormulaSemantics(
 		FormulaManager formulaManager, LegalScope globalScope,
-		Class<?> assertedFormat)
+		FormatManager<?> assertedFormat)
 	{
 		return new FormulaSemantics()
 			.getWith(FormulaSemantics.FMANAGER, formulaManager)
@@ -223,12 +223,12 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		return new EvaluationManager()
 			.getWith(EvaluationManager.FMANAGER, localSetup.getFormulaManager())
 			.getWith(EvaluationManager.INSTANCE, localSetup.getGlobalScopeInst())
-			.getWith(EvaluationManager.ASSERTED, Number.class)
+			.getWith(EvaluationManager.ASSERTED, FormatUtilities.NUMBER_MANAGER)
 			.getWith(ManagerKey.CONTEXT, context);
 	}
 
 	protected void isNotValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
+		FormatManager<?> formatManager, FormatManager<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(
@@ -246,15 +246,14 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		DependencyManager fdm = generateDependencyManager(getFormulaManager(),
 			getGlobalScopeInst(), null);
 		new DependencyVisitor().visit(node, fdm);
-		return fdm.getVariables();
+		return fdm.get(DependencyManager.VARIABLES).getVariables();
 	}
 
 	private DependencyManager generateDependencyManager(
 		FormulaManager formulaManager, ScopeInstance globalScopeInst,
-		Class<?> assertedFormat)
+		FormatManager<?> assertedFormat)
 	{
-		return new DependencyManager()
-			.getWith(DependencyManager.FMANAGER, formulaManager)
+		return new DependencyManager(formulaManager)
 			.getWith(DependencyManager.INSTANCE, globalScopeInst)
 			.getWith(DependencyManager.ASSERTED, assertedFormat);
 	}

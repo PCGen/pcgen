@@ -44,6 +44,10 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 
 	private final Set<ReferenceManufacturer<?>> listening = new HashSet<>();
 
+	private TrackingReferenceContext()
+	{
+	}
+	
 	@Override
 	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
@@ -147,4 +151,10 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		track.addToListFor(ref, getSourceURI(), src);
 	}
 
+	public static TrackingReferenceContext createTrackingReferenceContext()
+	{
+		TrackingReferenceContext context = new TrackingReferenceContext();
+		context.initialize();
+		return context;
+	}
 }

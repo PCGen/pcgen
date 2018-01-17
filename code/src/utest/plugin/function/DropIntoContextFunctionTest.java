@@ -119,7 +119,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		ScopeInstance scopeInst = getInstanceFactory().get("EQUIPMENT", equip);
 		VariableID varID = vl.getVariableID(scopeInst, "LocalVar");
 		getVariableStore().put(varID, 2);
-		LoadContext context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		LoadContext context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		context.getReferenceContext().importObject(equip);
 		evaluatesTo(formula, node, 2, context);
@@ -163,7 +163,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		ScopeInstance globalInst = getInstanceFactory().getGlobalInstance("Global");
 		VariableID varIDq = vl.getVariableID(globalInst, "EquipVar");
 		getVariableStore().put(varIDq, "EquipKey");
-		LoadContext context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		LoadContext context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		context.getReferenceContext().importObject(equip);
 		context.getReferenceContext().importObject(equipalt);

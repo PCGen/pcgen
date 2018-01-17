@@ -30,6 +30,10 @@ class EditorReferenceContext extends RuntimeReferenceContext
 	private final HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<>();
 	private final HashMapToList<URI, Loadable> forgetMap = new HashMapToList<>();
 
+	private EditorReferenceContext()
+	{
+	}
+
 	@Override
 	<T extends CDOMObject> T performCopy(T object, String copyName)
 	{
@@ -93,4 +97,10 @@ class EditorReferenceContext extends RuntimeReferenceContext
 		super.forget(cdo);
 	}
 
+	public static EditorReferenceContext createEditorReferenceContext()
+	{
+		EditorReferenceContext context = new EditorReferenceContext();
+		context.initialize();
+		return context;
+	}
 }

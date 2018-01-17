@@ -51,6 +51,10 @@ public class GameReferenceContext extends AbstractReferenceContext
 
 	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<>();
 
+	private GameReferenceContext()
+	{
+	}
+	
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
@@ -151,6 +155,13 @@ public class GameReferenceContext extends AbstractReferenceContext
 	{
 		throw new UnsupportedOperationException(
 				"GameReferenceContext cannot provide a factory based manufacturer");
+	}
+
+	public static GameReferenceContext createGameReferenceContext()
+	{
+		GameReferenceContext context = new GameReferenceContext();
+		context.initialize();
+		return context;
 	}
 
 }

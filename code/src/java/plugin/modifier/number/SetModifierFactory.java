@@ -70,7 +70,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 						formulaManager, varScope, formatManager);
 			NEPCalculation<Number> calc =
 					new FormulaCalculation<>(f, this);
-			return new CalculationModifier<>(calc, userPriority);
+			return new CalculationModifier<>(calc, userPriority, formatManager);
 		}
 	}
 

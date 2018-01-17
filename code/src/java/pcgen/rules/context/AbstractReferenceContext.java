@@ -36,7 +36,6 @@ import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectDatabase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.CategorizedClassIdentity;
@@ -50,6 +49,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.format.table.ColumnFormatFactory;
+import pcgen.cdom.format.table.DataTable;
+import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatFactory;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
@@ -68,7 +69,7 @@ import pcgen.core.SubClass;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
-public abstract class AbstractReferenceContext implements ObjectDatabase
+public abstract class AbstractReferenceContext
 {
 
 	@SuppressWarnings("rawtypes")
@@ -77,6 +78,8 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
 	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
+	private static final Class<DataTable> DATA_TABLE_CLASS = DataTable.class;
+	private static final Class<TableColumn> TABLE_COLUMN_CLASS = TableColumn.class;
 
 	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap =
             new DoubleKeyMap<>();
@@ -89,12 +92,12 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	
 	private final SimpleFormatManagerLibrary fmtLibrary = new SimpleFormatManagerLibrary();
 
-	public AbstractReferenceContext()
+	public void initialize()
 	{
 		FormatUtilities.loadDefaultFormats(fmtLibrary);
 		fmtLibrary.addFormatManager(new DiceFormat());
-		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(this));
-		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(this));
+		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));
+		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(this.getManufacturer(AbstractReferenceContext.DATA_TABLE_CLASS)));
 	}
 
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
@@ -210,13 +213,11 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
 	}
 
-	@Override
 	public <T extends Loadable> T get(Class<T> c, String val)
 	{
 		return silentlyGetConstructedCDOMObject(c, val);
 	}
 
-	@Override
 	public <T extends Loadable> Indirect<T> getIndirect(Class<T> c, String val)
 	{
 		return getCDOMReference(c, val);

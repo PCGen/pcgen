@@ -96,7 +96,7 @@ public class InputFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		String s = (String) args[0].jjtAccept(visitor, null);
+		String s = (String) args[0].jjtAccept(visitor, manager);
 		return visitor
 			.visitVariable(ChannelUtilities.createVarName(s), manager);
 	}

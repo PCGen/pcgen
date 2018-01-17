@@ -17,8 +17,11 @@
  */
 package pcgen.base.calculation;
 
+import java.util.Objects;
+
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.util.FormatManager;
 
 /**
  * A CalculationModifier is a Modifier that is a wrapper around a
@@ -43,6 +46,8 @@ public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 	 */
 	private final NEPCalculation<T> toDo;
 
+	private final FormatManager<T> formatManager;
+
 	/**
 	 * Constructs a new CalculationModifier from the given NEPCalculation and
 	 * user priority.
@@ -58,14 +63,12 @@ public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 	 * @throws IllegalArgumentException
 	 *             if the given NEPCalculation is null
 	 */
-	public CalculationModifier(NEPCalculation<T> calc, int userPriority)
+	public CalculationModifier(NEPCalculation<T> calc, int userPriority,
+		FormatManager<T> formatManager)
 	{
-		if (calc == null)
-		{
-			throw new IllegalArgumentException("Calculation cannot be null");
-		}
-		toDo = calc;
+		toDo = Objects.requireNonNull(calc);
 		this.userPriority = userPriority;
+		this.formatManager = Objects.requireNonNull(formatManager);
 	}
 
 	@Override
@@ -99,9 +102,9 @@ public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 	}
 
 	@Override
-	public Class<T> getVariableFormat()
+	public FormatManager<T> getVariableFormat()
 	{
-		return toDo.getVariableFormat();
+		return formatManager;
 	}
 
 	@Override

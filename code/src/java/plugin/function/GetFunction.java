@@ -17,6 +17,7 @@ package plugin.function;
 
 import java.util.Arrays;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -41,11 +42,6 @@ import pcgen.rules.context.AbstractReferenceContext;
  */
 public class GetFunction implements Function
 {
-
-	/**
-	 * A constant referring to the String Class.
-	 */
-	private static final Class<String> STRING_CLASS = String.class;
 
 	@Override
 	public String getFunctionName()
@@ -98,7 +94,7 @@ public class GetFunction implements Function
 		String format = (String) args[0].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, null));
 		String stringRepresentation = (String) args[1].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, STRING_CLASS));
+			manager.getWith(EvaluationManager.ASSERTED, FormatUtilities.STRING_MANAGER));
 		return manager.get(ManagerKey.CONTEXT).getReferenceContext()
 			.getFormatManager(format).convert(stringRepresentation);
 	}

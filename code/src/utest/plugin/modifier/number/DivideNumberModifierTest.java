@@ -197,7 +197,7 @@ public class DivideNumberModifierTest
 		Modifier<Number> modifier =
 				factory.getModifier(35, "4.3", new ManagerFactory(){}, null, varScope, numManager);
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertSame(Number.class, modifier.getVariableFormat());
+		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(3.2, modifier.process(EvalManagerUtilities.getInputEM(13.76)));
 	}
 }

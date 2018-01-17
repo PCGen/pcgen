@@ -48,7 +48,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 		}
 		Indirect<CDOMObject> n = formatManager.convertIndirect(instructions);
 		NEPCalculation<CDOMObject> calc = new IndirectCalculation<>(n, this);
-		return new CalculationModifier<>(calc, userPriority);
+		return new CalculationModifier<>(calc, userPriority, formatManager);
 	}
 
 	/**

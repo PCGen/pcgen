@@ -21,7 +21,6 @@ import java.util.Objects;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectDatabase;
 
 /**
  * A ColumnFormatManager is a FormatManager that defines the format of a
@@ -35,9 +34,9 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 {
 
 	/**
-	 * The ObjectDatabase used to construct or look up TableColumn objects.
+	 * The FormatManager used to construct or look up TableColumn objects.
 	 */
-	private final ObjectDatabase database;
+	private final FormatManager<TableColumn> columnFormat;
 
 	/**
 	 * The Format of any Column referred to by this ColumnFormatManager
@@ -46,33 +45,33 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 
 	/**
 	 * Constructs a new ColumnFormatManager that will use the underlying
-	 * AbstractReferenceContext to construct and look up TableColumn objects of
+	 * FormatManager to construct and look up TableColumn objects of
 	 * the format of the given FormatManager.
 	 * 
-	 * @param objDatabase
-	 *            The ObjectDatabase used to construct or look up TableColumn
+	 * @param columnFormat
+	 *            The FormatManager used to construct or look up TableColumn
 	 *            objects
 	 * @param formatManager
 	 *            The Format of TableColumns referred to by this
 	 *            ColumnFormatManager
 	 */
-	public ColumnFormatManager(ObjectDatabase objDatabase,
+	public ColumnFormatManager(FormatManager<TableColumn> columnFormat,
 		FormatManager<T> formatManager)
 	{
-		database = Objects.requireNonNull(objDatabase);
+		this.columnFormat = Objects.requireNonNull(columnFormat);
 		underlying = Objects.requireNonNull(formatManager);
 	}
 
 	@Override
 	public TableColumn convert(String inputStr)
 	{
-		return database.get(TableColumn.class, inputStr);
+		return columnFormat.convert(inputStr);
 	}
 
 	@Override
 	public Indirect<TableColumn> convertIndirect(String inputStr)
 	{
-		return database.getIndirect(TableColumn.class, inputStr);
+		return columnFormat.convertIndirect(inputStr);
 	}
 
 	@Override

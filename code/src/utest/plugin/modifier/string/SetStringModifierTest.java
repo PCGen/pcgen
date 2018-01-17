@@ -57,7 +57,7 @@ public class SetStringModifierTest
 		Modifier<String> modifier =
 				factory.getModifier(5, "MyString", new ManagerFactory(){}, null, varScope, stringManager);
 		assertEquals(5L <<32, modifier.getPriority());
-		assertSame(String.class, modifier.getVariableFormat());
+		assertEquals(stringManager, modifier.getVariableFormat());
 		assertEquals("MyString", modifier.process(EvalManagerUtilities.getInputEM("Wrong Answer")));
 	}
 

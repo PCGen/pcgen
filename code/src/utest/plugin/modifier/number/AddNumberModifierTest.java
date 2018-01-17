@@ -197,7 +197,7 @@ public class AddNumberModifierTest
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertSame(Number.class, modifier.getVariableFormat());
+		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(10.8, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
 }

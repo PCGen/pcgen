@@ -55,12 +55,6 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	}
 
 	@Override
-	public Class<T> getVariableFormat()
-	{
-		return basicCalc.getVariableFormat();
-	}
-
-	@Override
 	public String getIdentification()
 	{
 		return basicCalc.getIdentification();
