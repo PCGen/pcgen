@@ -278,12 +278,16 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	{
 		EvaluationManager manager = (EvaluationManager) data;
 		FormatManager<?> asserted = manager.get(EvaluationManager.ASSERTED);
+		if (asserted == null)
+		{
+			return node.getText();
+		}
 		//The quotes are stripped by the parser
 		try
 		{
 			return asserted.convert(node.getText());
 		}
-		catch (NullPointerException | IllegalArgumentException e)
+		catch (IllegalArgumentException e)
 		{
 			//Give up and return a String
 			return node.getText();
