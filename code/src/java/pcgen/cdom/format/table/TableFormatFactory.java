@@ -25,7 +25,7 @@ import pcgen.base.util.FormatManager;
 
 /**
  * An TableFormatFactory builds a FormatManager supporting a DataTable from the
- * name of the formats of the component of the TableFormat.
+ * name of the format of the lookup column of the TableFormat.
  */
 public class TableFormatFactory implements FormatManagerFactory
 {
@@ -75,16 +75,7 @@ public class TableFormatFactory implements FormatManagerFactory
 				"Multidimensional Table format not supported: " + subFormatName
 					+ " may not contain brackets");
 		}
-		String[] parts = subFormatName.split(",");
-		if (parts.length != 2)
-		{
-			throw new IllegalArgumentException(
-				"Table format must have 2 sub parts (lookup and result), found: "
-					+ subFormatName);
-		}
-		return new TableFormatManager(tableFormat,
-			library.getFormatManager(parts[0]),
-			library.getFormatManager(parts[1]));
+		return new TableFormatManager(tableFormat, library.getFormatManager(subFormatName));
 	}
 
 	@Override

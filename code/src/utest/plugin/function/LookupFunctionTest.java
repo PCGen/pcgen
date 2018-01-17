@@ -143,7 +143,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
+		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
@@ -173,7 +173,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
+		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
@@ -221,7 +221,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
+		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
@@ -254,7 +254,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
+		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
@@ -263,48 +263,6 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		String formula = "lookup(TableA,\"That\",badf())";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, numberManager, null);
-	}
-
-	@Test
-	public void testBadResultColumnFormat()
-	{
-		Finder finder = new Finder();
-		TableFinder tablefinder = new TableFinder();
-		DataTable dt = doTableSetup();
-		tablefinder.map.put("A", dt);
-		finder.map.put("Name", buildColumn("Name", stringManager));
-		finder.map.put("Value", buildColumn("Value", numberManager));
-		finder.map.put("Result", buildColumn("Result", stringManager));
-
-		VariableLibrary vl = getVariableLibrary();
-		WriteableVariableStore vs = getVariableStore();
-
-		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
-		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
-
-		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("STRING", formatLibrary);
-		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
-
-		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
-		vs.put(tableID, tableMgr.convert("A"));
-
-		VariableID columnID =
-				vl.getVariableID(getGlobalScopeInst(), "ResultColumn");
-		vs.put(columnID, columnMgr.convert("Result"));
-
-		String formula = "lookup(TableA,\"That\",ResultColumn)";
-		SimpleNode node = TestUtilities.doParse(formula);
-
-		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
-		semanticsVisitor.visit(node, semantics);
-		if (semantics.isValid())
-		{
-			TestCase.fail("Expected Invalid Formula: " + formula);
-		}
 	}
 
 	@Test
@@ -321,7 +279,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
+		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
@@ -366,7 +324,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 				vl.getVariableID(getGlobalScopeInst(), "ResultColumn");
 		vs.put(columnID, columnMgr.convert("Value"));
 
-		String formula = "lookup(\"TABLE[NUMBER,NUMBER]\",\"A\",\"That\",ResultColumn)";
+		String formula = "lookup(\"TABLE[NUMBER]\",\"A\",\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
@@ -432,7 +390,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 				vl.getVariableID(getGlobalScopeInst(), "ResultColumn");
 		vs.put(columnID, columnMgr.convert("Value"));
 
-		String formula = "lookup(\"TABLE[STRING,NUMBER]\",55,\"That\",ResultColumn)";
+		String formula = "lookup(\"TABLE[STRING]\",55,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
@@ -465,7 +423,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 				vl.getVariableID(getGlobalScopeInst(), "ResultColumn");
 		vs.put(columnID, columnMgr.convert("Value"));
 
-		String formula = "lookup(get(\"TABLE[STRING,NUMBER]\",\"A\"),\"That\",ResultColumn)";
+		String formula = "lookup(get(\"TABLE[STRING]\",\"A\"),\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
@@ -503,7 +461,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		VariableLibrary vl = getVariableLibrary();
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
-		String formula = "lookup(get(\"TABLE[STRING,NUMBER]\",\"A\"),\"That\",get(\"COLUMN[NUMBER]\",\"Value\"))";
+		String formula = "lookup(get(\"TABLE[STRING]\",\"A\"),\"That\",get(\"COLUMN[NUMBER]\",\"Value\"))";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
@@ -542,7 +500,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 				vl.getVariableID(getGlobalScopeInst(), "ResultColumn");
 		vs.put(columnID, columnMgr.convert("Value"));
 
-		String formula = "lookup(\"TABLE[STRING,NUMBER]\",\"A\",\"That\",ResultColumn,\"TooMuch\")";
+		String formula = "lookup(\"TABLE[STRING]\",\"A\",\"That\",ResultColumn,\"TooMuch\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
@@ -570,7 +528,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
+		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
@@ -613,7 +571,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
+		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
