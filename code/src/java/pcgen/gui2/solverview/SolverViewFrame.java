@@ -112,6 +112,12 @@ public class SolverViewFrame extends JFrame
 	private void update()
 	{
 		updateObjects();
+		if ((activeObject == null) && (selectedScope.getParentScope() != null))
+		{
+			//scopeFacet will error if we continue...
+			tableModel.setSteps(Collections.emptyList());
+			return;
+		}
 		ScopeInstance scope =
 				scopeFacet.get(activeIdentifier, selectedScope.getName(), activeObject);
 		if (variableLibraryFacet
