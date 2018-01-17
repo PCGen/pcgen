@@ -24,7 +24,7 @@ SKILL:Stealth			RANK:1
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=13|DEX=15|CON=14|INT=12|WIS=10|CHA=8
 GEAR:Rapier		QTY:1	SIZE:PC	LOCATION:Primary Hand
-GEAR:Leather	QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Leather Armor	QTY:1	SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Apostasy Wraith Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Apostasy Wraith],[!PRERACE:1,%]	SOURCEPAGE:p.4
 ALIGN:CE
@@ -214,7 +214,7 @@ SKILL:Survival	RANK:1
 SKILL:Stealth	RANK:1
 ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency (Net)
 STAT:STR=15|DEX=14|CON=13|INT=10|WIS=12|CHA=8
-GEAR:Leather	QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Leather Armor	QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Kukri		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Net		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Shortbow	QTY:1		SIZE:PC	LOCATION:Equipped
@@ -242,7 +242,7 @@ GENDER:Neuter
 NAME:Quantium Golem
 ABILITY:CATEGORY=FEAT|Whirlwind Attack
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon
+GEAR:Bastard Sword	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon
 
 STARTPACK:Kakuen-Taka Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kakuen-Taka],[!PRERACE:1,%]	SOURCEPAGE:p.20
 ALIGN:CE
@@ -346,8 +346,8 @@ SKILL:Perception			RANK:1
 SKILL:Spellcraft			RANK:1
 ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=8|DEX=13|CON=10|INT=15|WIS=12|CHA=14
-GEAR:Crossbow (Light)	QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:20	SIZE:PC	LOCATION:Crossbow (Light)
+GEAR:Light Crossbow	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:20	SIZE:PC	LOCATION:Light Crossbow
 GEAR:Quarterstaff		QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Amulet			QTY:1		SIZE:PC	LOCATION:Equipped
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Charm Person|Mage Armor|Magic Missile
@@ -495,11 +495,11 @@ ABILITY:CATEGORY=FEAT|Combat Expertise
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Dazzling Display
 ABILITY:CATEGORY=FEAT|Deadly Stroke
-ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency (Bastard Sword)
 ABILITY:CATEGORY=FEAT|Greater Feint
-ABILITY:CATEGORY=FEAT|Greater Weapon Focus (Sword (Bastard))
-ABILITY:CATEGORY=FEAT|Greater Weapon Specialization (Sword (Bastard))
-ABILITY:CATEGORY=FEAT|Improved Critical (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Greater Weapon Focus (Bastard Sword)
+ABILITY:CATEGORY=FEAT|Greater Weapon Specialization (Bastard Sword)
+ABILITY:CATEGORY=FEAT|Improved Critical (Bastard Sword)
 ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
 ABILITY:CATEGORY=FEAT|Improved Critical (Talons)
 ABILITY:CATEGORY=FEAT|Improved Disarm
@@ -508,10 +508,10 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quick Draw								FREE:YES
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Blade Barrier)	FREE:YES
 ABILITY:CATEGORY=FEAT|Shatter Defenses							FREE:YES
-ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Bastard))					FREE:YES
-ABILITY:CATEGORY=FEAT|Weapon Specialization (Sword (Bastard))			FREE:YES
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bastard Sword)					FREE:YES
+ABILITY:CATEGORY=FEAT|Weapon Specialization (Bastard Sword)			FREE:YES
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Keen ~ Weapon.Special Ability ~ Vorpal ~ Melee
+GEAR:Bastard Sword	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Keen ~ Weapon.Special Ability ~ Vorpal ~ Melee
 
 STARTPACK:Oronci Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Oronci],[!PRERACE:1,%]	SOURCEPAGE:p.36
 ALIGN:CE
@@ -529,7 +529,7 @@ ABILITY:CATEGORY=FEAT|Nimble Moves
 ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 GEAR:Battleaxe			QTY:1	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Shield (Heavy/Wooden)	QTY:1	SIZE:M	LOCATION:Secondary Hand
+GEAR:Heavy Wooden Shield	QTY:1	SIZE:M	LOCATION:Secondary Hand
 
 STARTPACK:Petrified Maiden Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Petrified Maiden],[!PRERACE:1,%]	SOURCEPAGE:p.37
 ALIGN:NE
@@ -683,7 +683,7 @@ ABILITY:CATEGORY=FEAT|Blind-Fight
 ABILITY:CATEGORY=FEAT|Critical Focus
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Improved Bull Rush
-ABILITY:CATEGORY=FEAT|Improved Critical (Spells (Ray))
+ABILITY:CATEGORY=FEAT|Improved Critical (Ray Spells)
 ABILITY:CATEGORY=FEAT|Improved Critical (Toothed Tentacle)
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will

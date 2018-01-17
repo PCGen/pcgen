@@ -497,7 +497,7 @@ ABILITY:CATEGORY=FEAT|Shield Focus
 ABILITY:CATEGORY=FEAT|Stand Still
 GEAR:Full Plate		SIZE:L	LOCATION:Equipped
 GEAR:Shortspear		SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +3 ~ Weapon
-GEAR:Shield (Tower)	SIZE:L	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Tower Shield	SIZE:L	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Armor
 
 STARTPACK:Archon (Star) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Star)],[!PRERACE:1,%]	SOURCEPAGE:p.32
 ALIGN:LG
@@ -530,7 +530,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Stand Still
 GEAR:Full Plate			SIZE:L	LOCATION:Equipped
 GEAR:Starknife			SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Holy ~ Weapon
-GEAR:Shield (Heavy/Steel)	SIZE:L	LOCATION:Secondary Hand
+GEAR:Heavy Steel Shield	SIZE:L	LOCATION:Secondary Hand
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Implosion
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal (Mass)
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Miracle
@@ -593,9 +593,9 @@ ABILITY:CATEGORY=FEAT|Lunge
 ABILITY:CATEGORY=FEAT|Multiattack
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Leather			SIZE:H	LOCATION:Equipped
-GEAR:Shield (Heavy/Wooden)	SIZE:H	LOCATION:Carried
-GEAR:Mace (Heavy)			SIZE:H	LOCATION:Equipped
+GEAR:Leather Armor			SIZE:H	LOCATION:Equipped
+GEAR:Heavy Wooden Shield	SIZE:H	LOCATION:Carried
+GEAR:Heavy Mace			SIZE:H	LOCATION:Equipped
 GEAR:Rock (Medium)				LOCATION:Carried
 
 STARTPACK:Attic Whisperer Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Attic Whisperer],[!PRERACE:1,%]	SOURCEPAGE:p.34
@@ -705,7 +705,7 @@ SKILL:Perception			RANK:2
 ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Scale Mail		LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Warhammer		LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Hammer (Light)	LOCATION:Carried
+GEAR:Light Hammer	LOCATION:Carried
 
 STARTPACK:Badger Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Badger],[!PRERACE:1,%]	SOURCEPAGE:p.40
 ALIGN:LN
@@ -855,7 +855,7 @@ SKILL:Perception
 SKILL:Sense Motive
 SKILL:Stealth
 ABILITY:CATEGORY=FEAT|Dodge
-GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
+GEAR:Short Sword	SIZE:T	LOCATION:Equipped
 
 STARTPACK:Bunyip Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bunyip],[!PRERACE:1,%]	SOURCEPAGE:p.50
 ALIGN:TN
@@ -1201,7 +1201,7 @@ ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Hover
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
-GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried	EQMOD:Special Ability ~ +1 ~ Weapon.Special Quality ~ Composite Bow Strength Rating|7
+GEAR:Composite Longbow	SIZE:L	LOCATION:Carried	EQMOD:Special Ability ~ +1 ~ Weapon.Special Quality ~ Composite Bow Strength Rating|7
 
 STARTPACK:Daemon (Meladaemon) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Meladaemon)]
 RACE:Daemon (Meladaemon)	!PRERACE:1,%
@@ -1757,7 +1757,7 @@ SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
-GEAR:Leather	LOCATION:Equipped
+GEAR:Leather Armor	LOCATION:Equipped
 GEAR:Greataxe	LOCATION:Equipped
 
 STARTPACK:Draugr Captain Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Draugr Captain]
@@ -1770,7 +1770,7 @@ SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
-GEAR:Leather	LOCATION:Equipped
+GEAR:Leather Armor	LOCATION:Equipped
 GEAR:Greataxe	LOCATION:Equipped
 
 STARTPACK:Dullahan Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dullahan]
@@ -3041,7 +3041,7 @@ ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Self-Sufficient
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Hide			SIZE:H	LOCATION:Armor
+GEAR:Hide Armor			SIZE:H	LOCATION:Armor
 GEAR:Spear			SIZE:H	LOCATION:Both Hands
 GEAR:Rock (Medium)			LOCATION:Carried
 
@@ -3062,9 +3062,9 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=FEAT|Rapid Shot
-GEAR:Leather					SIZE:L	LOCATION:Armor
+GEAR:Leather Armor					SIZE:L	LOCATION:Armor
 GEAR:Longsword					SIZE:L	LOCATION:Primary Hand
-GEAR:Longbow (Composite)			SIZE:L	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
+GEAR:Composite Longbow			SIZE:L	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
 GEAR:Arrow				QTY:20			LOCATION:Carried
 
 STARTPACK:Gloomwing Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloomwing]
@@ -3146,7 +3146,7 @@ SKILL:Sleight of Hand
 SKILL:Stealth
 SKILL:Use Magic Device
 ABILITY:CATEGORY=FEAT|Dodge
-GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
+GEAR:Short Sword	SIZE:T	LOCATION:Equipped
 
 STARTPACK:Gremlin (Nuglub) Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Nuglub)]
 RACE:Gremlin (Nuglub)	!PRERACE:1,%
@@ -3226,7 +3226,7 @@ SKILL:Perception
 SKILL:Perform (String Instruments)
 SKILL:Stealth
 ABILITY:CATEGORY=FEAT|Dodge
-GEAR:Sword (Short)			SIZE:T	LOCATION:Equipped
+GEAR:Short Sword			SIZE:T	LOCATION:Equipped
 GEAR:Longbow				SIZE:T	LOCATION:Carried
 GEAR:Arrow			QTY:20	SIZE:T	LOCATION:Carried
 
@@ -3259,8 +3259,8 @@ SKILL:Perception
 SKILL:Stealth
 SKILL:Survival
 ABILITY:CATEGORY=FEAT|Self-Sufficient
-GEAR:Leather			SIZE:S	LOCATION:Equipped
-GEAR:Sword (Short)		SIZE:S	LOCATION:Equipped
+GEAR:Leather Armor			SIZE:S	LOCATION:Equipped
+GEAR:Short Sword		SIZE:S	LOCATION:Equipped
 GEAR:Dart			QTY:4	SIZE:S	LOCATION:Carried
 GEAR:Net				SIZE:S	LOCATION:Carried
 
@@ -3497,7 +3497,7 @@ SKILL:Perception			RANK:2
 SKILL:Sense Motive		RANK:2
 SKILL:Stealth			RANK:2
 ABILITY:CATEGORY=FEAT|Flyby Attack
-GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
+GEAR:Short Sword	SIZE:T	LOCATION:Equipped
 
 STARTPACK:Inevitable (Kolyarut) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Kolyarut)]
 RACE:Inevitable (Kolyarut)	!PRERACE:1,%
@@ -3516,7 +3516,7 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Suggestion)
-GEAR:Sword (Bastard)	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +2 ~ Weapon
+GEAR:Bastard Sword	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +2 ~ Weapon
 
 STARTPACK:Inevitable (Lhaksharut) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Lhaksharut)]
 RACE:Inevitable (Lhaksharut)	!PRERACE:1,%
@@ -3772,7 +3772,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Flail	SIZE:H	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Light Flail	SIZE:H	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Bolas	SIZE:H	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Leprechaun Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leprechaun]	SOURCEPAGE:p.177
@@ -3824,8 +3824,8 @@ SKILL:Perception	RANK:2
 SKILL:Survival	RANK:2
 ABILITY:CATEGORY=FEAT|Weapon Focus (Longspear)
 GEAR:Longspear				LOCATION:Both Hands
-GEAR:Crossbow (Light)			LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
+GEAR:Light Crossbow			LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:10	LOCATION:Carried
 
 STARTPACK:Lurker in Light Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lurker in Light]	SOURCEPAGE:p.180
 RACE:Lurker in Light	!PRERACE:1,%
@@ -3891,7 +3891,7 @@ TEMPLATE:Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Werebear
 GEAR:Chain Shirt			LOCATION:Equipped
-GEAR:Axe (Throwing)	QTY:2	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Throwing Axe	QTY:2	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Detect Poison
 
 # COMMENT:  The Bestiary seems to have made some minor errors here.
@@ -3939,11 +3939,11 @@ TEMPLATE:Lycanthrope (Hybrid Form)
 # COMMENT:    full hit points for the first hit die.
 STARTPACK:Lycanthrope (Weretiger/Human Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
 KIT:Lycanthrope (Weretiger Common)
-GEAR:Sword (Short)	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Short Sword	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Lycanthrope (Weretiger/Hybrid Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
 KIT:Lycanthrope (Weretiger Common)
-GEAR:Sword (Short)	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Short Sword	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon
 TEMPLATE:Lycanthrope (Hybrid Form)
 
 STARTPACK:Lycanthrope (Weretiger Common)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0
@@ -4422,9 +4422,9 @@ ABILITY:CATEGORY=Favored Class|Fighter
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longbow)
 SKILL:Intimidate	RANK:1
 ABILITY:CATEGORY=FEAT|Iron Will
-GEAR:Leather					LOCATION:Equipped
+GEAR:Leather Armor					LOCATION:Equipped
 GEAR:Longsword					LOCATION:Both Hands
-GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+2
+GEAR:Composite Longbow			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+2
 GEAR:Arrow				QTY:20	LOCATION:Carried
 
 STARTPACK:Pech Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pech]	SOURCEPAGE:p.206
@@ -4442,7 +4442,7 @@ SKILL:Stealth				RANK:6
 ABILITY:CATEGORY=FEAT|Cleave
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Pick (Heavy)	SIZE:S	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Heavy Pick	SIZE:S	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Peryton Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Peryton]	SOURCEPAGE:p.207
 RACE:Peryton	!PRERACE:1,%
@@ -4745,7 +4745,7 @@ SKILL:Survival		RANK:2
 SKILL:Use Magic Device	RANK:2
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Sword (Short)			SIZE:S	LOCATION:Equipped
+GEAR:Short Sword			SIZE:S	LOCATION:Equipped
 GEAR:Poison (Blue Whinnis)	QTY:4			LOCATION:Carried
 
 STARTPACK:Quickwood Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quickwood]	SOURCEPAGE:p.228
@@ -4890,7 +4890,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Weapon Focus (Scythe)
 GEAR:Scythe		SIZE:M	LOCATION:Both Hands
-GEAR:Leather	SIZE:S	LOCATION:Equipped
+GEAR:Leather Armor	SIZE:S	LOCATION:Equipped
 
 STARTPACK:Reefclaw Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Reefclaw]	SOURCEPAGE:p.234
 RACE:Reefclaw	!PRERACE:1,%
@@ -5065,7 +5065,7 @@ ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Sword (Short)	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Short Sword	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 SELECT:roll("1d20")
 GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[31]	OPTION:1,1
 GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[32]	OPTION:2,2
@@ -5238,7 +5238,7 @@ SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
-GEAR:Sword (Short)		LOCATION:Equipped
+GEAR:Short Sword		LOCATION:Equipped
 GEAR:Dagger			QTY:2	LOCATION:Carried
 
 STARTPACK:Slime Mold Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slime Mold]	SOURCEPAGE:p.249
@@ -5360,10 +5360,10 @@ SKILL:Sleight of Hand	RANK:2
 SKILL:Stealth		RANK:2
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Weapon Focus (Morningstar)
-GEAR:Leather				SIZE:S	LOCATION:Equipped
+GEAR:Leather Armor				SIZE:S	LOCATION:Equipped
 GEAR:Morningstar				SIZE:S	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Crossbow (Light)			SIZE:S	LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:10	SIZE:S	LOCATION:Carried
+GEAR:Light Crossbow			SIZE:S	LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:10	SIZE:S	LOCATION:Carried
 
 STARTPACK:Sylph Rogue 1	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sylph]	SOURCEPAGE:p.257
 RACE:Sylph	!PRERACE:1,%
@@ -5386,7 +5386,7 @@ SKILL:Sleight of Hand	RANK:1
 SKILL:Stealth		RANK:1
 SKILL:Use Magic Device	RANK:1
 ABILITY:CATEGORY=FEAT|Dodge
-GEAR:Leather		LOCATION:Equipped
+GEAR:Leather Armor		LOCATION:Equipped
 GEAR:Dagger		QTY:2	LOCATION:Equipped
 
 STARTPACK:Tendriculos Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tendriculos]	SOURCEPAGE:p.259
@@ -5604,8 +5604,8 @@ SKILL:Survival		RANK:3
 ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=FEAT|Ride-By Attack
 GEAR:Trident				LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Crossbow (Heavy)			LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
+GEAR:Heavy Crossbow			LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:10	LOCATION:Carried
 
 STARTPACK:Troll (Ice) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Ice)]	SOURCEPAGE:p.271
 RACE:Troll (Ice)	!PRERACE:1,%
@@ -5687,7 +5687,7 @@ ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Positive Energy
 SKILL:Diplomacy			RANK:1
 SKILL:Knowledge (Religion)	RANK:1
 DEITY:None	DOMAIN:Charm|Water
-ABILITY:CATEGORY=FEAT|Weapon Focus (Mace (Heavy))
+ABILITY:CATEGORY=FEAT|Weapon Focus (Heavy Mace)
 GEAR:Scale Mail	LOCATION:Equipped
 GEAR:Trident	LOCATION:Equipped
 GEAR:Sling		LOCATION:Carried
@@ -5715,7 +5715,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Weapon Focus (Rhoka Sword)
 GEAR:Studded Leather				LOCATION:Equipped
 GEAR:Rhoka Sword					LOCATION:Both Hands
-GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+4
+GEAR:Composite Longbow			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+4
 GEAR:Arrow				QTY:20	LOCATION:Carried
 
 STARTPACK:Vampiric Mist Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampiric Mist]	SOURCEPAGE:p.277
@@ -5950,7 +5950,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Leather			LOCATION:Equipped	EQMOD:Special Ability ~ +4 ~ Armor
+GEAR:Leather Armor			LOCATION:Equipped	EQMOD:Special Ability ~ +4 ~ Armor
 GEAR:Cloak of Resistance +4	LOCATION:Equipped
 GEAR:Staff of Charming		LOCATION:Equipped
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Detect Magic
@@ -6110,4 +6110,4 @@ SKILL:Swim			RANK:1
 SKILL:Use Magic Device	RANK:2
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Sword (Short)	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Short Sword	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon

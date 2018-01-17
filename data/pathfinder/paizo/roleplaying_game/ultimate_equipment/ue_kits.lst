@@ -318,7 +318,7 @@ GEAR:Backpack				QTY:1	SIZE:PC	LOCATION:Carried
 GEAR:Potion of Cure Moderate Wounds	QTY:1	SIZE:PC	LOCATION:Backpack
 GEAR:Oil of Bless Weapon		QTY:1	SIZE:PC	LOCATION:Backpack
 GEAR:Longspear				QTY:1	SIZE:PC	LOCATION:Primary Hand
-GEAR:Shield (Tower)			QTY:1	SIZE:PC	LOCATION:Shield
+GEAR:Tower Shield			QTY:1	SIZE:PC	LOCATION:Shield
 GEAR:Sack					QTY:3	SIZE:PC	LOCATION:Carried
 GEAR:Sunrod					QTY:1	SIZE:PC	LOCATION:Backpack
 GEAR:Alchemist's Fire (Flask)		QTY:5	SIZE:PC	LOCATION:Backpack
@@ -328,7 +328,7 @@ GEAR:Backpack				QTY:1	SIZE:PC	LOCATION:Carried
 GEAR:Potion of Cure Moderate Wounds	QTY:1	SIZE:PC	LOCATION:Backpack
 GEAR:Oil of Bless Weapon		QTY:1	SIZE:PC	LOCATION:Backpack
 GEAR:Longspear				QTY:1	SIZE:PC	LOCATION:Primary Hand
-GEAR:Shield (Tower)			QTY:1	SIZE:PC	LOCATION:Shield
+GEAR:Tower Shield			QTY:1	SIZE:PC	LOCATION:Shield
 GEAR:Sack					QTY:3	SIZE:PC	LOCATION:Carried
 GEAR:Sunrod					QTY:1	SIZE:PC	LOCATION:Backpack
 GEAR:Acid (Flask)				QTY:5	SIZE:PC	LOCATION:Backpack

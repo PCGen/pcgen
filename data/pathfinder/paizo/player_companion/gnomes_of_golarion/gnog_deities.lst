@@ -5,6 +5,6 @@ SOURCELONG:Gnomes of Golarion	SOURCESHORT:GNOG	SOURCEWEB:http://paizo.com/produc
 
 
 # Deity Name	Product Identity?	Domains											Description of Deity/Title				FACTSET						Deity Weapon			Align		Source Page
-Brigh			NAMEISPI:YES	DOMAINS:Artifice,Earth,Fire,Knowledge|PREALIGN:TN,NG,CN,NE,LN		DESC:Goddess of invention, clockwork		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Hammer (Light)	ALIGN:TN	SOURCEPAGE:p.24
-Nivi Rhombodazzle	NAMEISPI:YES	DOMAINS:Community,Earth,Luck,Trickery|PREALIGN:TN,NG,CN,NE,LN		DESC:Goddess of gems, stealth, gambling		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Hammer (Light)	ALIGN:TN	SOURCEPAGE:p.23
+Brigh			NAMEISPI:YES	DOMAINS:Artifice,Earth,Fire,Knowledge|PREALIGN:TN,NG,CN,NE,LN		DESC:Goddess of invention, clockwork		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Light Hammer	ALIGN:TN	SOURCEPAGE:p.24
+Nivi Rhombodazzle	NAMEISPI:YES	DOMAINS:Community,Earth,Luck,Trickery|PREALIGN:TN,NG,CN,NE,LN		DESC:Goddess of gems, stealth, gambling		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Light Hammer	ALIGN:TN	SOURCEPAGE:p.23
 Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:TN,NG,CN,NE,LN	DESC:Goddess of illusions, reflections, mystery	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Scarf (Bladed)	ALIGN:TN	SOURCEPAGE:p.23

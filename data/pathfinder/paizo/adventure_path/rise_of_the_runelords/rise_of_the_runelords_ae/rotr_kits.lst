@@ -82,7 +82,7 @@ ABILITY:CATEGORY=Favored Class|Monk
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 GEAR:Potion of Cure Light Wounds	LOCATION:Equipped
-GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:Special Quality ~ Composite Bow Strength Rating|+1.Material ~ Wood
+GEAR:Composite Shortbow		LOCATION:Both Hands	EQMOD:Special Quality ~ Composite Bow Strength Rating|+1.Material ~ Wood
 GEAR:Ring of Protection +1		LOCATION:Equipped
 GEAR:Thieves' Tools			LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Item
 GEAR:Musical Instrument (Flute)	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Item
@@ -127,7 +127,7 @@ ABILITY:CATEGORY=FEAT|Brew Potion
 ABILITY:CATEGORY=FEAT|Combat Casting
 GEAR:Potion of Cure Light Wounds	QTY:2			LOCATION:Carried
 GEAR:Wand								LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
-GEAR:Leather					SIZE:S	LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Leather
+GEAR:Leather Armor					SIZE:S	LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Leather
 GEAR:Spear						SIZE:S	LOCATION:Both Hands
 GEAR:Sling						SIZE:S	LOCATION:Carried
 GEAR:Cloak of Resistance +1					LOCATION:Equipped
@@ -177,8 +177,8 @@ ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Elf)
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 GEAR:Studded Leather					LOCATION:Equipped
-GEAR:Flail (Heavy)					LOCATION:Both Hands
-GEAR:Longbow (Composite)				LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
+GEAR:Heavy Flail					LOCATION:Both Hands
+GEAR:Composite Longbow				LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow					QTY:20	LOCATION:Carried
 GEAR:Arrow					QTY:4		LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Bane ~ Weapon|Humanoids (Elf)
 
@@ -198,17 +198,17 @@ SKILL:Climb		RANK:1
 SKILL:Intimidate	RANK:1
 SKILL:Linguistics	RANK:1	SELECTION:Goblin
 SKILL:Swim		RANK:1
-ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bastard Sword)
 ABILITY:CATEGORY=FEAT|Athletic
 ABILITY:CATEGORY=FEAT|Blind-Fight
-ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency(Sword (Bastard))
+ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency(Bastard Sword)
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 GEAR:Banded Mail						LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
-GEAR:Shield (Heavy/Steel)				LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
-GEAR:Sword (Bastard)					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Heavy Steel Shield				LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Bastard Sword					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Longbow (Composite +0)				LOCATION:Carried
+GEAR:Composite Longbow (+0 Str)				LOCATION:Carried
 GEAR:Everburning Torch					LOCATION:Carried
 GEAR:Coin (Platinum Piece)		QTY:2		LOCATION:Carried
 
@@ -327,17 +327,17 @@ DEITY:Lamashtu	DOMAIN:Evil|Strength
 SKILL:Intimidate			RANK:1
 SKILL:Knowledge (Religion)	RANK:3
 SKILL:Linguistics			RANK:1	FREE:YES	SELECTION:Goblin
-ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bastard Sword)
 ABILITY:CATEGORY=FEAT|Lamashtu's Mark
 ABILITY:CATEGORY=FEAT|Dazzling Display
-ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency (Sword (Bastard))
+ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency (Bastard Sword)
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
 TEMPLATE:Lamashtu's Gift
 GEAR:Breastplate					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
-GEAR:Sword (Bastard)				LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Bastard Sword				LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Sihedron Medallion				LOCATION:Equipped
-GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
+GEAR:Composite Longbow			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow				QTY:20	LOCATION:Carried
 GEAR:Holy Symbol (Silver)			LOCATION:Carried
 GEAR:Coin (Platinum Piece)	QTY:7		LOCATION:Carried

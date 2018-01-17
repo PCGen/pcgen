@@ -6,7 +6,7 @@ SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:COTCTPG	SOURCE
 Hide Shirt													PROFICIENCY:ARMOR|Hide Shirt							TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal				COST:90	WT:25		ACCHECK:-3													MAXDEX:4						SOURCEPAGE:p.13	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
 
 ### BLOCK: Shield
-Klar																			PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard									COST:12	WT:6		ACCHECK:-1																				SOURCEPAGE:p.13	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
+Klar																			PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard									COST:12	WT:6		ACCHECK:-1																				SOURCEPAGE:p.13	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
 
 ### BLOCK: Weapon
 Starknife							PROFICIENCY:WEAPON|Starknife													TYPE:Weapon.Resizable.Melee.Martial.Standard.Piercing					COST:24	WT:3					CRITMULT:x3	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Steel	WIELD:Light					RANGE:20			SOURCEPAGE:p.13

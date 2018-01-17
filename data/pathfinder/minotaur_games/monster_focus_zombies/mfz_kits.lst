@@ -17,7 +17,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
-GEAR:Leather	LOCATION:Armor
+GEAR:Leather Armor	LOCATION:Armor
 
 #
 # End

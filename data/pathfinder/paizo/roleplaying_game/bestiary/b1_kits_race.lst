@@ -19,9 +19,9 @@ SKILL:Knowledge (Religion)	RANK:1
 ABILITY:CATEGORY=FEAT|Turn Undead
 STAT:STR=8|DEX=10|CON=14|INT=13|WIS=15|CHA=12
 GEAR:Scale Mail				LOCATION:Equipped
-GEAR:Mace (Heavy)				LOCATION:Primary Hand
-GEAR:Crossbow (Light)			LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
+GEAR:Heavy Mace				LOCATION:Primary Hand
+GEAR:Light Crossbow			LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:20	LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Command
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Evil
@@ -174,7 +174,7 @@ ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 GEAR:Full Plate			SIZE:L	LOCATION:Equipped		EQMOD:Special Ability ~ +5 ~ Armor
 GEAR:Greatsword			SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Dancing ~ Melee
-GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried		EQMOD:Special Ability ~ +5 ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+9
+GEAR:Composite Longbow	SIZE:L	LOCATION:Carried		EQMOD:Special Ability ~ +5 ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+9
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Etherealness
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal (Mass)
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Miracle
@@ -420,7 +420,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 GEAR:Scimitar			LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
-GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
+GEAR:Composite Longbow	LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
 
 
 STARTPACK:Azata (Ghaele) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Ghaele)],[!PRERACE:1,%]	SOURCEPAGE:p.25
@@ -706,7 +706,7 @@ ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)		FREE:YES
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Weapon Focus (Morningstar)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-GEAR:Leather	LOCATION:Equipped
+GEAR:Leather Armor	LOCATION:Equipped
 GEAR:Morningstar	LOCATION:Both Hands
 
 
@@ -722,8 +722,8 @@ ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Morningstar				LOCATION:Primary Hand
 GEAR:Javelin			QTY:3	LOCATION:Carried
-GEAR:Leather				LOCATION:Equipped
-GEAR:Shield (Light/Wooden)		LOCATION:Equipped
+GEAR:Leather Armor				LOCATION:Equipped
+GEAR:Light Wooden Shield		LOCATION:Equipped
 
 
 STARTPACK:Bulette Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bulette],[!PRERACE:1,%]	SOURCEPAGE:p.39
@@ -783,7 +783,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Run
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 GEAR:Breastplate			SIZE:L	LOCATION:Equipped
-GEAR:Shield (Heavy/Steel)	SIZE:L	LOCATION:Equipped
+GEAR:Heavy Steel Shield	SIZE:L	LOCATION:Equipped
 GEAR:Longsword			SIZE:M	LOCATION:Equipped
 GEAR:Spear				SIZE:M	LOCATION:Carried
 
@@ -1051,9 +1051,9 @@ ABILITY:CATEGORY=FEAT|Great Cleave
 ABILITY:CATEGORY=FEAT|Improved Bull Rush
 ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-GEAR:Hide			SIZE:L	LOCATION:Equipped
+GEAR:Hide Armor			SIZE:L	LOCATION:Equipped
 GEAR:Greataxe		SIZE:L	LOCATION:Both Hands
-GEAR:Crossbow (Heavy)	SIZE:L	LOCATION:Carried
+GEAR:Heavy Crossbow	SIZE:L	LOCATION:Carried
 
 STARTPACK:Dark Creeper Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dark Creeper],[!PRERACE:1,%]	SOURCEPAGE:p.53
 ALIGN:CN
@@ -1081,9 +1081,9 @@ ABILITY:CATEGORY=FEAT|Double Slice
 ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-GEAR:Leather				LOCATION:Equipped
-GEAR:Sword (Short)			LOCATION:Primary Hand
-GEAR:Sword (Short)			LOCATION:Secondary Hand
+GEAR:Leather Armor				LOCATION:Equipped
+GEAR:Short Sword			LOCATION:Primary Hand
+GEAR:Short Sword			LOCATION:Secondary Hand
 GEAR:Poison (Black Smear)	QTY:6	LOCATION:Carried
 
 
@@ -1359,10 +1359,10 @@ SKILL:Stealth	RANK:3
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-GEAR:Leather						SIZE:S	LOCATION:Equipped
-GEAR:Sword (Short)					SIZE:S	LOCATION:Both Hands
-GEAR:Crossbow (Repeating Light)			SIZE:S	LOCATION:Carried
-GEAR:Bolt (Crossbow)			QTY:10			LOCATION:Carried
+GEAR:Leather Armor						SIZE:S	LOCATION:Equipped
+GEAR:Short Sword					SIZE:S	LOCATION:Both Hands
+GEAR:Repeating Light Crossbow			SIZE:S	LOCATION:Carried
+GEAR:Crossbow Bolt			QTY:10			LOCATION:Carried
 GEAR:Poison (Medium Spider Venom)	QTY:10			LOCATION:Carried
 GEAR:Aklys									LOCATION:Carried
 
@@ -1448,7 +1448,7 @@ ABILITY:CATEGORY=FEAT|Rapid Shot
 ABILITY:CATEGORY=FEAT|Shot on the Run
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Longsword			LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon
-GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
+GEAR:Composite Longbow	LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
 GEAR:Rope (Hemp/50 ft)		LOCATION:Carried
 
 
@@ -1472,9 +1472,9 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Multiattack
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
-ABILITY:CATEGORY=FEAT|Weapon Focus (Chain (Spiked))
+ABILITY:CATEGORY=FEAT|Weapon Focus (Spiked Chain)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-GEAR:Chain (Spiked)	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Unholy ~ Weapon
+GEAR:Spiked Chain	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Unholy ~ Weapon
 
 
 STARTPACK:Devil (Ice) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Ice)],[!PRERACE:1,%]	SOURCEPAGE:p.77
@@ -3147,10 +3147,10 @@ ABILITY:CATEGORY=FEAT|Blind-Fight
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
-ABILITY:CATEGORY=FEAT|Weapon Focus (Mace (Heavy))
+ABILITY:CATEGORY=FEAT|Weapon Focus (Heavy Mace)
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
-GEAR:Mace (Heavy)					LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+2
+GEAR:Heavy Mace					LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Composite Longbow			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+2
 GEAR:Arrow				QTY:20	LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Blindness/Deafness	PREVARGT:IsDriderCleric,0
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Meld into Stone	PREVARGT:IsDriderCleric,0
@@ -3225,11 +3225,11 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Leather					SIZE:M	LOCATION:Equipped
-GEAR:Shield (Light/Steel)			SIZE:M	LOCATION:Equipped
+GEAR:Leather Armor					SIZE:M	LOCATION:Equipped
+GEAR:Light Steel Shield			SIZE:M	LOCATION:Equipped
 GEAR:Rapier						SIZE:M	LOCATION:Primary Hand
-GEAR:Crossbow (Hand)				SIZE:M	LOCATION:Carried
-GEAR:Bolt (Crossbow)		QTY:20			LOCATION:Carried
+GEAR:Hand Crossbow				SIZE:M	LOCATION:Carried
+GEAR:Crossbow Bolt		QTY:20			LOCATION:Carried
 GEAR:Poison (Drow Poison)	QTY:2				LOCATION:Carried
 
 
@@ -3254,10 +3254,10 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Knell|Hold Person|Silence
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless|Cause Fear|Cure Light Wounds|Protection from Law
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bleed|Detect Poison|Read Magic|Resistance
 GEAR:Breastplate						SIZE:M	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
-GEAR:Shield (Heavy/Steel)				SIZE:M	LOCATION:Equipped
+GEAR:Heavy Steel Shield				SIZE:M	LOCATION:Equipped
 GEAR:Rapier							SIZE:M	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Crossbow (Hand)					SIZE:M	LOCATION:Carried
-GEAR:Bolt (Crossbow)			QTY:20			LOCATION:Carried
+GEAR:Hand Crossbow					SIZE:M	LOCATION:Carried
+GEAR:Crossbow Bolt			QTY:20			LOCATION:Carried
 GEAR:Poison (Drow Poison)		QTY:4				LOCATION:Carried
 GEAR:Potion of Invisibility						LOCATION:Carried
 GEAR:Scroll (Dispel Magic/Divine)					LOCATION:Carried
@@ -3280,7 +3280,7 @@ ABILITY:CATEGORY=FEAT|Stealthy
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 GEAR:Dagger						LOCATION:Carried
-GEAR:Longbow (Composite +0)			LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Composite Longbow (+0 Str)			LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow				QTY:20	LOCATION:Carried
 
 
@@ -3296,9 +3296,9 @@ SKILL:Stealth	RANK:1
 ABILITY:CATEGORY=FEAT|Weapon Focus (Warhammer)
 STAT:STR=12|DEX=9|CON=13|INT=10|WIS=11|CHA=8
 GEAR:Chainmail			LOCATION:Equipped
-GEAR:Shield (Heavy/Steel)	LOCATION:Equipped
+GEAR:Heavy Steel Shield	LOCATION:Equipped
 GEAR:Warhammer			LOCATION:Primary Hand
-GEAR:Crossbow (Light)		LOCATION:Carried
+GEAR:Light Crossbow		LOCATION:Carried
 
 
 STARTPACK:Eagle Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle]	SOURCEPAGE:p.118
@@ -3818,9 +3818,9 @@ ABILITY:CATEGORY=FEAT|Improved Overrun
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-GEAR:Leather		SIZE:L	LOCATION:Equipped
-GEAR:Flail			SIZE:L	LOCATION:Primary Hand
-GEAR:Flail			SIZE:L	LOCATION:Secondary Hand
+GEAR:Leather Armor		SIZE:L	LOCATION:Equipped
+GEAR:Light Flail			SIZE:L	LOCATION:Primary Hand
+GEAR:Light Flail			SIZE:L	LOCATION:Secondary Hand
 GEAR:Javelin	QTY:2	SIZE:L	LOCATION:Carried
 
 
@@ -4099,7 +4099,7 @@ SKILL:Stealth		RANK:6
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Mobility
-GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|3
+GEAR:Composite Longbow	LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|3
 GEAR:Scimitar			LOCATION:Primary Hand
 GEAR:Chainmail			LOCATION:Equipped
 
@@ -4120,7 +4120,7 @@ SKILL:Stealth		RANK:6
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Mobility
-GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|3
+GEAR:Composite Longbow	LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|3
 GEAR:Scimitar			LOCATION:Primary Hand
 GEAR:Chainmail			LOCATION:Equipped
 
@@ -4336,7 +4336,7 @@ ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Greatclub)
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Weapon Focus (Greatclub)
 GEAR:Greatclub	SIZE:L	LOCATION:Both Hands
-GEAR:Hide		SIZE:L	LOCATION:Equipped
+GEAR:Hide Armor		SIZE:L	LOCATION:Equipped
 GEAR:Rock (Small)			LOCATION:Not Carried
 
 
@@ -4383,7 +4383,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
 GEAR:Greatsword			SIZE:H	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Longbow (Composite)	SIZE:H	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating|14
+GEAR:Composite Longbow	SIZE:H	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating|14
 GEAR:Breastplate			SIZE:H	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
 
 
@@ -4418,8 +4418,8 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:2
 ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Longspear			LOCATION:Both Hands
-GEAR:Leather			LOCATION:Equipped
-GEAR:Shield (Heavy/Wooden)	LOCATION:Equipped
+GEAR:Leather Armor			LOCATION:Equipped
+GEAR:Heavy Wooden Shield	LOCATION:Equipped
 GEAR:Battleaxe			LOCATION:Carried
 
 
@@ -4434,9 +4434,9 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Ride	RANK:1
 SKILL:Swim	RANK:1
 ABILITY:CATEGORY=FEAT|Improved Initiative
-GEAR:Leather					SIZE:S	LOCATION:Equipped
-GEAR:Shield (Light/Wooden)			SIZE:S	LOCATION:Equipped
-GEAR:Sword (Short)				SIZE:S	LOCATION:Primary Hand
+GEAR:Leather Armor					SIZE:S	LOCATION:Equipped
+GEAR:Light Wooden Shield			SIZE:S	LOCATION:Equipped
+GEAR:Short Sword				SIZE:S	LOCATION:Primary Hand
 GEAR:Shortbow					SIZE:S	LOCATION:Carried
 GEAR:Arrow				QTY:20			LOCATION:Carried
 
@@ -4575,7 +4575,7 @@ ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Skill Focus (Bluff)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 GEAR:Morningstar	SIZE:M	LOCATION:Equipped
-GEAR:Leather	SIZE:M	LOCATION:Equipped
+GEAR:Leather Armor	SIZE:M	LOCATION:Equipped
 
 
 STARTPACK:Hell Hound Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hell Hound],[!PRERACE:1,%]	SOURCEPAGE:p.173
@@ -4643,10 +4643,10 @@ ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 STAT:STR=15|DEX=13|CON=14|INT=10|WIS=12|CHA=8
 GEAR:Longsword			LOCATION:Primary Hand
-GEAR:Shield (Light/Steel)	LOCATION:Equipped
+GEAR:Light Steel Shield	LOCATION:Equipped
 GEAR:Studded Leather		LOCATION:Equipped
 GEAR:Longbow			LOCATION:Carried
-GEAR:Arrows (20)			LOCATION:Carried
+GEAR:20 Arrows			LOCATION:Carried
 
 
 STARTPACK:Homunculus Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Homunculus],[!PRERACE:1,%]	SOURCEPAGE:p.176
@@ -4815,7 +4815,7 @@ ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 GEAR:Longspear	SIZE:S	LOCATION:Both Hands
 GEAR:Sling		SIZE:S	LOCATION:Carried
-GEAR:Leather	SIZE:S	LOCATION:Equipped
+GEAR:Leather Armor	SIZE:S	LOCATION:Equipped
 
 
 STARTPACK:Kraken Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kraken],[!PRERACE:1,%]	SOURCEPAGE:p.184
@@ -5016,7 +5016,7 @@ ABILITY:CATEGORY=FEAT|Multiattack
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 GEAR:Morningstar				LOCATION:Primary Hand
 GEAR:Javelin			QTY:3	LOCATION:Carried
-GEAR:Shield (Heavy/Wooden)		LOCATION:Equipped
+GEAR:Heavy Wooden Shield		LOCATION:Equipped
 
 
 STARTPACK:Manticore Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Manticore]	SOURCEPAGE:p.199
@@ -5187,8 +5187,8 @@ SKILL:Perception	RANK:1
 SKILL:Swim		RANK:1
 ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 GEAR:Trident				SIZE:M	LOCATION:Both Hands
-GEAR:Crossbow (Heavy)			SIZE:M	LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:10			LOCATION:Carried
+GEAR:Heavy Crossbow			SIZE:M	LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:10			LOCATION:Carried
 
 STARTPACK:Mimic Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mimic],[!PRERACE:1,%]	SOURCEPAGE:p.205
 ALIGN:TN
@@ -5492,7 +5492,7 @@ SKILL:Perception	RANK:2
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Toughness
 GEAR:Greatclub		SIZE:L	LOCATION:Both Hands
-GEAR:Hide			SIZE:L	LOCATION:Equipped
+GEAR:Hide Armor			SIZE:L	LOCATION:Equipped
 GEAR:Javelin	QTY:4	SIZE:L	LOCATION:Carried
 
 STARTPACK:Oni (Ogre Mage) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Oni (Ogre Mage)]	SOURCEPAGE:221
@@ -5514,8 +5514,8 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword			SIZE:PC	LOCATION:Both Hands
-GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+7
-GEAR:Arrows (20)			SIZE:PC	LOCATION:Equipped
+GEAR:Composite Longbow	SIZE:PC	LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+7
+GEAR:20 Arrows			SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Orc Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orc,RACESUBTYPE=Orc]	SOURCEPAGE:p.222
 RACE:Orc	!PRERACE:1,%
@@ -5627,7 +5627,7 @@ SKILL:Stealth			RANK:4
 SKILL:Use Magic Device		RANK:4
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Sword (Short)	SIZE:PC	LOCATION:Equipped
+GEAR:Short Sword	SIZE:PC	LOCATION:Equipped
 GEAR:Longbow		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Pseudodragon Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pseudodragon]	SOURCEPAGE:p.229
@@ -5805,8 +5805,8 @@ SKILL:Survival		RANK:2
 SKILL:Swim			RANK:2
 ABILITY:CATEGORY=FEAT|Great Fortitude
 GEAR:Trident				LOCATION:Both Hands
-GEAR:Crossbow (Heavy)			LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
+GEAR:Heavy Crossbow			LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:10	LOCATION:Carried
 
 STARTPACK:Salamander Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander]	SOURCEPAGE:p.240
 RACE:Salamander	!PRERACE:1,%
@@ -6068,7 +6068,7 @@ ABILITY:CATEGORY=FEAT|Cleave
 STAT:STR=15|DEX=11|CON=10|INT=9|WIS=10|CHA=12
 GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Shield (Heavy/Steel)	SIZE:PC	LOCATION:Equipped
+GEAR:Heavy Steel Shield	SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Skum Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skum]	SOURCEPAGE:p.253
 RACE:Skum	!PRERACE:1,%
@@ -6272,9 +6272,9 @@ SKILL:Perception				RANK:1
 SKILL:Stealth				RANK:1
 SKILL:Survival				RANK:1
 ABILITY:CATEGORY=FEAT|Toughness
-GEAR:Pick (Heavy)				SIZE:S	LOCATION:Both Hands
-GEAR:Crossbow (Light)			SIZE:S	LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:10			LOCATION:Carried
+GEAR:Heavy Pick				SIZE:S	LOCATION:Both Hands
+GEAR:Light Crossbow			SIZE:S	LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:10			LOCATION:Carried
 
 STARTPACK:Tarrasque Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Tarrasque],[!PRERACE:1,%]	SOURCEPAGE:p.262
 ALIGN:TN
@@ -6315,7 +6315,7 @@ SKILL:Linguistics		RANK:1
 SKILL:Perception		RANK:1
 SKILL:Stealth		RANK:1
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Leather			SIZE:M	LOCATION:Equipped
+GEAR:Leather Armor			SIZE:M	LOCATION:Equipped
 GEAR:Dagger				SIZE:M	LOCATION:Primary Hand
 GEAR:Shortbow			SIZE:M	LOCATION:Carried
 GEAR:Arrow		QTY:20			LOCATION:Carried
@@ -6339,9 +6339,9 @@ SKILL:Sleight of Hand	RANK:1
 SKILL:Stealth		RANK:1
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Studded Leather			SIZE:M	LOCATION:Equipped
-GEAR:Sword (Short)			SIZE:M	LOCATION:Primary Hand
-GEAR:Crossbow (Light)			SIZE:M	LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:20			LOCATION:Carried
+GEAR:Short Sword			SIZE:M	LOCATION:Primary Hand
+GEAR:Light Crossbow			SIZE:M	LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:20			LOCATION:Carried
 LANGBONUS:Abyssal		PRELANG:1,Infernal
 LANGBONUS:Infernal	PRELANG:1,Abyssal
 
@@ -6681,11 +6681,11 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
-ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Short))
+ABILITY:CATEGORY=FEAT|Weapon Focus (Short Sword)
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-GEAR:Shield (Heavy/Steel)			LOCATION:Equipped
-GEAR:Sword (Short)				LOCATION:Primary Hand
-GEAR:Sword (Short)				LOCATION:Secondary Hand
+GEAR:Heavy Steel Shield			LOCATION:Equipped
+GEAR:Short Sword				LOCATION:Primary Hand
+GEAR:Short Sword				LOCATION:Secondary Hand
 GEAR:Longbow			QTY:2		LOCATION:Carried
 GEAR:Arrow				QTY:40	LOCATION:Carried
 
@@ -6958,9 +6958,9 @@ TEMPLATE:Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Wererat
 GEAR:Studded Leather			LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
-GEAR:Sword (Short)			LOCATION:Primary Hand
-GEAR:Crossbow (Light)			LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
+GEAR:Short Sword			LOCATION:Primary Hand
+GEAR:Light Crossbow			LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:20	LOCATION:Carried
 
 
 STARTPACK:Lycanthrope (Wererat/Hybrid Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.197
@@ -6990,8 +6990,8 @@ ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Werewolf
 GEAR:Chainmail				LOCATION:Equipped
 GEAR:Longsword				LOCATION:Primary Hand
-GEAR:Crossbow (Light)			LOCATION:Carried
-GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
+GEAR:Light Crossbow			LOCATION:Carried
+GEAR:Crossbow Bolt	QTY:20	LOCATION:Carried
 
 
 STARTPACK:Lycanthrope (Werewolf/Hybrid Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.198

@@ -472,7 +472,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 #ABILITY:CATEGORY=FEAT|Shot on the Run
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
-GEAR:Longbow (Composite +0)	LOCATION:Equipped	EQMOD:Special Quality ~ Composite Bow Strength Rating.Special Ability ~ +1 ~ Weapon
+GEAR:Composite Longbow (+0 Str)	LOCATION:Equipped	EQMOD:Special Quality ~ Composite Bow Strength Rating.Special Ability ~ +1 ~ Weapon
 
 
 STARTPACK:Behemoth (Tempest) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Behemoth (Tempest)],[!PRERACE:1,%]	SOURCEPAGE:p.37
@@ -863,7 +863,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Staggering Critical
 GEAR:Greatclub		LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Rock (Medium)	LOCATION:Carried
-GEAR:Hide			LOCATION:Equipped
+GEAR:Hide Armor			LOCATION:Equipped
 
 STARTPACK:Daemon (Crucidaemon) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daemon (Crucidaemon)],[!PRERACE:1,%]	SOURCEPAGE:p.62
 ALIGN:NE
@@ -912,7 +912,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Ability Focus (Aura of Doom)
 #ABILITY:CATEGORY=FEAT|Combat Casting
 #ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Sword (Short)	LOCATION:Equipped
+GEAR:Short Sword	LOCATION:Equipped
 
 
 STARTPACK:Deathtrap Ooze Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Deathtrap Ooze],[!PRERACE:1,%]	SOURCEPAGE:p.64
@@ -1052,8 +1052,8 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Lunge
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
-#ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Short))
-GEAR:Sword (Short)	QTY:2	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon
+#ABILITY:CATEGORY=FEAT|Weapon Focus (Short Sword)
+GEAR:Short Sword	QTY:2	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Demon (Coloxus) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Coloxus)],[!PRERACE:1,%]	SOURCEPAGE:p.72
@@ -1632,7 +1632,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Precise Shot
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 #ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Shortbow (Composite +0)	LOCATION:Equipped	EQMOD:Special Quality ~ Composite Bow Strength Rating.Special Ability ~ +1 ~ Weapon.Special Ability ~ Shock ~ Weapon
+GEAR:Composite Shortbow (+0 Str)	LOCATION:Equipped	EQMOD:Special Quality ~ Composite Bow Strength Rating.Special Ability ~ +1 ~ Weapon.Special Ability ~ Shock ~ Weapon
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
@@ -1710,7 +1710,7 @@ STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Self-Sufficient
 GEAR:Club		SIZE:H	LOCATION:Equipped
 GEAR:Rock (Small)			LOCATION:Carried
-GEAR:Hide				LOCATION:Equipped
+GEAR:Hide Armor				LOCATION:Equipped
 
 
 STARTPACK:Giant (Cave) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Cave)],[!PRERACE:1,%]	SOURCEPAGE:p.127
@@ -1728,7 +1728,7 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Battleaxe)
 GEAR:Battleaxe	LOCATION:Equipped
 GEAR:Rock (Small)	LOCATION:Carried
-GEAR:Hide		LOCATION:Equipped
+GEAR:Hide Armor		LOCATION:Equipped
 
 
 STARTPACK:Giant (Desert) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Desert)],[!PRERACE:1,%]	SOURCEPAGE:p.128
@@ -1749,7 +1749,7 @@ STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Scimitar)
 GEAR:Scimitar	QTY:2	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Rock (Small)		LOCATION:Carried
-GEAR:Leather		LOCATION:Equipped
+GEAR:Leather Armor		LOCATION:Equipped
 
 
 STARTPACK:Giant (Jungle) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Jungle)],[!PRERACE:1,%]	SOURCEPAGE:p.129
@@ -1770,7 +1770,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 #ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
-GEAR:Longbow (Composite +0)	QTY:2	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating
+GEAR:Composite Longbow (+0 Str)	QTY:2	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating
 
 
 STARTPACK:Girtablilu Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Girtablilu],[!PRERACE:1,%]	SOURCEPAGE:p.130
@@ -1791,7 +1791,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Mobility
 #ABILITY:CATEGORY=FEAT|Vital Strike
 GEAR:Spear		LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Leather	LOCATION:Equipped
+GEAR:Leather Armor	LOCATION:Equipped
 
 
 STARTPACK:Globster Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Globster],[!PRERACE:1,%]	SOURCEPAGE:p.131
@@ -2093,7 +2093,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Alertness
 #ABILITY:CATEGORY=FEAT|Dodge
 GEAR:Battleaxe	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Leather	LOCATION:Equipped
+GEAR:Leather Armor	LOCATION:Equipped
 
 
 STARTPACK:Jellyfish (Death's Head) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Jellyfish (Death's Head)],[!PRERACE:1,%]	SOURCEPAGE:p.155
@@ -2279,7 +2279,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Precise Shot
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
-GEAR:Longbow (Composite +0)	LOCATION:Carried	EQMOD:Special Ability ~ +1 ~ Weapon.Special Quality ~ Composite Bow Strength Rating
+GEAR:Composite Longbow (+0 Str)	LOCATION:Carried	EQMOD:Special Ability ~ +1 ~ Weapon.Special Quality ~ Composite Bow Strength Rating
 GEAR:Halberd			LOCATION:Carried	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Breastplate			LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor
 
@@ -2987,8 +2987,8 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 #SKILL:Stealth		RANK:12
 #SKILL:Swim			RANK:10
 #ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Sword (Short)	LOCATION:Equipped
-GEAR:Crossbow (Light)	LOCATION:Carried
+GEAR:Short Sword	LOCATION:Equipped
+GEAR:Light Crossbow	LOCATION:Carried
 
 
 STARTPACK:Norn Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Norn],[!PRERACE:1,%]	SOURCEPAGE:p.202
@@ -3026,7 +3026,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Phantasmal Killer)
 GEAR:Shears	LOCATION:Primary Hand
-GEAR:Hide	LOCATION:Equipped		EQMOD:Special Ability ~ +3 ~ Armor
+GEAR:Hide Armor	LOCATION:Equipped		EQMOD:Special Ability ~ +3 ~ Armor
 
 
 STARTPACK:Nuckelavee Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Nuckelavee],[!PRERACE:1,%]	SOURCEPAGE:p.203
@@ -3140,7 +3140,7 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Half-Plate			LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Greatclub			LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Longbow (Composite +0)	LOCATION:Carried	EQMOD:Special Quality ~ Composite Bow Strength Rating
+GEAR:Composite Longbow (+0 Str)	LOCATION:Carried	EQMOD:Special Quality ~ Composite Bow Strength Rating
 
 
 STARTPACK:Oni (Spirit) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Oni (Spirit)],[!PRERACE:1,%]	SOURCEPAGE:p.209
@@ -3271,7 +3271,7 @@ STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Quick Draw
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 GEAR:Pistol		QTY:2	LOCATION:Two Weapons	EQMOD:Special Ability ~ +1 ~ Weapon
-GEAR:Leather		LOCATION:Equipped
+GEAR:Leather Armor		LOCATION:Equipped
 
 
 STARTPACK:Parasite (Rot Grub Swarm) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Parasite (Rot Grub Swarm)],[!PRERACE:1,%]	SOURCEPAGE:p.215
@@ -4078,7 +4078,7 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 #SKILL:Sense Motive	RANK:2
 #SKILL:Stealth		RANK:19
 #ABILITY:CATEGORY=FEAT|Alertness
-GEAR:Sword (Short)	LOCATION:Equipped
+GEAR:Short Sword	LOCATION:Equipped
 GEAR:Shortbow		LOCATION:Carried
 
 
@@ -4146,9 +4146,9 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Improved Initiative
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
-#ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Short))
+#ABILITY:CATEGORY=FEAT|Weapon Focus (Short Sword)
 GEAR:Longsword
-GEAR:Sword (Short)
+GEAR:Short Sword
 
 
 STARTPACK:Thriae Queen Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thriae (Queen)],[!PRERACE:1,%]	SOURCEPAGE:p.263-265
@@ -4171,14 +4171,14 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Critical Focus
 #ABILITY:CATEGORY=FEAT|Greater Spell Penetration
 #ABILITY:CATEGORY=FEAT|Improved Critical (Sting)
-#ABILITY:CATEGORY=FEAT|Improved Critical (Mace (Light))
+#ABILITY:CATEGORY=FEAT|Improved Critical (Light Mace)
 #ABILITY:CATEGORY=FEAT|Improved Initiative
 #ABILITY:CATEGORY=FEAT|Improved Iron Will
 #ABILITY:CATEGORY=FEAT|Iron Will
 #ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Regenerate)
 #ABILITY:CATEGORY=FEAT|Spell Penetration
-#ABILITY:CATEGORY=FEAT|Weapon Focus (Mace (Light))
-GEAR:Mace (Light)	LOCATION:Primary Hand	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Axiomatic ~ Weapon
+#ABILITY:CATEGORY=FEAT|Weapon Focus (Light Mace)
+GEAR:Light Mace	LOCATION:Primary Hand	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Axiomatic ~ Weapon
 
 
 STARTPACK:Thriae Seer Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thriae (Seer)],[!PRERACE:1,%]	SOURCEPAGE:p.266
@@ -4218,7 +4218,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Precise Shot
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 GEAR:Chain Shirt			LOCATION:Equipped
-GEAR:Longbow (Composite +0)	LOCATION:Equipped	EQMOD:Special Quality ~ Composite Bow Strength Rating
+GEAR:Composite Longbow (+0 Str)	LOCATION:Equipped	EQMOD:Special Quality ~ Composite Bow Strength Rating
 
 
 STARTPACK:Titan (Hekatonkheires) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Titan (Hekatonkheires)],[!PRERACE:1,%]	SOURCEPAGE:p.268-269

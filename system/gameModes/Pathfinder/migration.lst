@@ -11,6 +11,82 @@
 # NEWCATEGORY:Spell-like Ability
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
+EQUIPMENT:Arrows (20)								MAXVER:6.07.05	NEWKEY:20 Arrows
+EQUIPMENT:Bolts (Crossbow/10)							MAXVER:6.07.05	NEWKEY:10 Crossbow Bolts
+EQUIPMENT:Bolts (Crossbow/Repeating/5)					MAXVER:6.07.05	NEWKEY:5 Repeating Crossbow Bolts
+EQUIPMENT:Bullets (Sling/10)							MAXVER:6.07.05	NEWKEY:10 Sling Bullets
+EQUIPMENT:Darts (Blowgun/10)							MAXVER:6.07.05	NEWKEY:10 Blowgun Darts
+EQUIPMENT:Bolt (Crossbow)							MAXVER:6.07.05	NEWKEY:Crossbow Bolt
+EQUIPMENT:Bolt (Crossbow/Repeating)						MAXVER:6.07.05	NEWKEY:Repeating Crossbow Bolt
+EQUIPMENT:Bullet (Sling)							MAXVER:6.07.05	NEWKEY:Sling Bullet
+EQUIPMENT:Dart (Blowgun)							MAXVER:6.07.05	NEWKEY:Blowgun Dart
+EQUIPMENT:Bolt (Screaming)							MAXVER:6.07.05	NEWKEY:Screaming Bolt
+EQUIPMENT:Arrow (Slaying)							MAXVER:6.07.05	NEWKEY:Slaying Arrow
+EQUIPMENT:Arrow (Slaying/Greater)						MAXVER:6.07.05	NEWKEY:Greater Slaying Arrow
+EQUIPMENT:Arrow (Sleep)								MAXVER:6.07.05	NEWKEY:Sleep Arrow
+EQUIPMENT:Padded									MAXVER:6.07.05	NEWKEY:Padded Armor
+EQUIPMENT:Leather									MAXVER:6.07.05	NEWKEY:Leather Armor
+EQUIPMENT:Hide									MAXVER:6.07.05	NEWKEY:Hide Armor
+EQUIPMENT:Shield (Light/Wooden)						MAXVER:6.07.05	NEWKEY:Light Wooden Shield
+EQUIPMENT:Shield (Light/Steel)						MAXVER:6.07.05	NEWKEY:Light Steel Shield
+EQUIPMENT:Shield (Heavy/Wooden)						MAXVER:6.07.05	NEWKEY:Heavy Wooden Shield
+EQUIPMENT:Shield (Heavy/Steel)						MAXVER:6.07.05	NEWKEY:Heavy Steel Shield
+EQUIPMENT:Shield (Tower)							MAXVER:6.07.05	NEWKEY:Tower Shield
+EQUIPMENT:Barding (Padded)							MAXVER:6.07.05	NEWKEY:Padded Barding
+EQUIPMENT:Barding (Leather)							MAXVER:6.07.05	NEWKEY:Leather Barding
+EQUIPMENT:Barding (Studded Leather)						MAXVER:6.07.05	NEWKEY:Studded Leather Barding
+EQUIPMENT:Barding (Chain Shirt)						MAXVER:6.07.05	NEWKEY:Chain Shirt Barding
+EQUIPMENT:Barding (Hide)							MAXVER:6.07.05	NEWKEY:Hide Barding
+EQUIPMENT:Barding (Scale Mail)						MAXVER:6.07.05	NEWKEY:Scale Mail Barding
+EQUIPMENT:Barding (Chainmail)							MAXVER:6.07.05	NEWKEY:Chainmail Barding
+EQUIPMENT:Barding (Breastplate)						MAXVER:6.07.05	NEWKEY:Breastplate Barding
+EQUIPMENT:Barding (Splint Mail)						MAXVER:6.07.05	NEWKEY:Splint Mail Barding
+EQUIPMENT:Barding (Banded Mail)						MAXVER:6.07.05	NEWKEY:Banded Mail Barding
+EQUIPMENT:Barding (Half-Plate)						MAXVER:6.07.05	NEWKEY:Half-Plate Barding
+EQUIPMENT:Barding (Full Plate)						MAXVER:6.07.05	NEWKEY:Full Plate Barding
+EQUIPMENT:Dagger (Punching)							MAXVER:6.07.05	NEWKEY:Punching Dagger
+EQUIPMENT:Gauntlet (Spiked)							MAXVER:6.07.05	NEWKEY:Spiked Gauntlet
+EQUIPMENT:Mace (Light)								MAXVER:6.07.05	NEWKEY:Light Mace
+EQUIPMENT:Mace (Heavy)								MAXVER:6.07.05	NEWKEY:Heavy Mace
+EQUIPMENT:Axe (Throwing)							MAXVER:6.07.05	NEWKEY:Throwing Axe
+EQUIPMENT:Hammer (Light)							MAXVER:6.07.05	NEWKEY:Light Hammer
+EQUIPMENT:Pick (Light)								MAXVER:6.07.05	NEWKEY:Light Pick
+EQUIPMENT:Sword (Short)								MAXVER:6.07.05	NEWKEY:Short Sword
+EQUIPMENT:Flail									MAXVER:6.07.05	NEWKEY:Light Flail
+EQUIPMENT:Pick (Heavy)								MAXVER:6.07.05	NEWKEY:Heavy Pick
+EQUIPMENT:Flail (Heavy)								MAXVER:6.07.05	NEWKEY:Heavy Flail
+EQUIPMENT:Sword (Bastard)							MAXVER:6.07.05	NEWKEY:Bastard Sword
+EQUIPMENT:Waraxe (Dwarven)							MAXVER:6.07.05	NEWKEY:Dwarven Waraxe
+EQUIPMENT:Chain (Spiked)							MAXVER:6.07.05	NEWKEY:Spiked Chain
+EQUIPMENT:Curve Blade (Elven)							MAXVER:6.07.05	NEWKEY:Elven Curve Blade
+EQUIPMENT:Axe (Orc Double)							MAXVER:6.07.05	NEWKEY:Orc Double Axe
+EQUIPMENT:Flail (Dire)								MAXVER:6.07.05	NEWKEY:Dire Flail
+EQUIPMENT:Hammer (Gnome Hooked)						MAXVER:6.07.05	NEWKEY:Gnome Hooked Hammer
+EQUIPMENT:Sword (Two-Bladed)							MAXVER:6.07.05	NEWKEY:Two-Bladed Sword
+EQUIPMENT:Urgrosh (Dwarven)							MAXVER:6.07.05	NEWKEY:Dwarven Urgrosh
+EQUIPMENT:Nunchaku (Metal)							MAXVER:6.07.05	NEWKEY:Metal Nunchaku
+EQUIPMENT:Battleaxe (Adamantine)						MAXVER:6.07.05	NEWKEY:Adamantine Battleaxe
+EQUIPMENT:Dagger (Adamantine)							MAXVER:6.07.05	NEWKEY:Adamantine Dagger
+EQUIPMENT:Dagger (Assassin's)							MAXVER:6.07.05	NEWKEY:Assassin's Dagger
+EQUIPMENT:Longsword (Cold Iron/Masterwork)				MAXVER:6.07.05	NEWKEY:Masterwork Cold Iron Longsword
+EQUIPMENT:Dagger (Silver/Masterwork)					MAXVER:6.07.05	NEWKEY:Masterwork Silver Dagger
+EQUIPMENT:Sun Blade (Bastard)							MAXVER:6.07.05	NEWKEY:Sun Blade (Bastard Sword)
+EQUIPMENT:Sun Blade (Short)							MAXVER:6.07.05	NEWKEY:Sun Blade (Short Sword)
+EQUIPMENT:Shieldbash (Light)							MAXVER:6.07.05	NEWKEY:Shieldbash (Light Shield)
+EQUIPMENT:Shieldbash (Heavy)							MAXVER:6.07.05	NEWKEY:Shieldbash (Heavy Shield)
+EQUIPMENT:Touch Attack (Ray)							MAXVER:6.07.05	NEWKEY:Touch Attack (Ray Spell)
+ABILITY:Natural Attack|Touch Attack (Ray)					MAXVER:6.07.05	NEWKEY:Touch Attack (Ray Spell)
+EQUIPMENT:Crossbow (Light)							MAXVER:6.07.05	NEWKEY:Light Crossbow
+EQUIPMENT:Crossbow (Heavy)							MAXVER:6.07.05	NEWKEY:Heavy Crossbow
+EQUIPMENT:Longbow (Composite)							MAXVER:6.07.05	NEWKEY:Composite Longbow
+EQUIPMENT:Longbow (Composite +0)						MAXVER:6.07.05	NEWKEY:Composite Longbow (+0 Str)
+EQUIPMENT:Shortbow (Composite)						MAXVER:6.07.05	NEWKEY:Composite Shortbow
+EQUIPMENT:Shortbow (Composite +0)						MAXVER:6.07.05	NEWKEY:Composite Shortbow (+0 Str)
+EQUIPMENT:Crossbow (Hand)							MAXVER:6.07.05	NEWKEY:Hand Crossbow
+EQUIPMENT:Crossbow (Repeating Heavy)					MAXVER:6.07.05	NEWKEY:Repeating Heavy Crossbow
+EQUIPMENT:Crossbow (Repeating Light)					MAXVER:6.07.05	NEWKEY:Repeating Light Crossbow
+EQUIPMENT:Sling Staff (Halfling)						MAXVER:6.07.05	NEWKEY:Halfling Sling Staff
+
 SOURCE:Adventurer's Armory (PFS)						MAXVER:6.07.05	NEWKEY:PFS ~ Adventurer's Armory
 SOURCE:PF - Demon Hunter's Handbook						MAXVER:6.07.05	NEWKEY:Demon Hunter's Handbook
 SOURCE:PF - Dirty Tactics Toolbox						MAXVER:6.07.05	NEWKEY:Dirty Tactics Toolbox

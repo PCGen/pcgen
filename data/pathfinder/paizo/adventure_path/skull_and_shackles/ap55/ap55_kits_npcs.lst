@@ -38,7 +38,7 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 GEAR:Dagger			QTY:3	LOCATION:Carried
 GEAR:Dagger				LOCATION:Equipped
-GEAR:Padded				LOCATION:Equipped
+GEAR:Padded Armor				LOCATION:Equipped
 GEAR:Steadfast Grapple		LOCATION:Carried
 GEAR:Frying Pan			LOCATION:Carried
 
@@ -75,9 +75,9 @@ GEAR:Amulet of Natural Armor +1			LOCATION:Equipped
 GEAR:Bracers of Armor +1				LOCATION:Equipped
 GEAR:Tidewater Cutlass					LOCATION:Primary Hand
 GEAR:Masterwork Cat-O'-Nine-Tails			LOCATION:Secondary Hand
-GEAR:Bolt (Screaming)			QTY:3		LOCATION:Carried
-GEAR:Bolts (Crossbow/10)				LOCATION:Carried
-GEAR:Crossbow (Light)					LOCATION:Carried
+GEAR:Screaming Bolt			QTY:3		LOCATION:Carried
+GEAR:10 Crossbow Bolts				LOCATION:Carried
+GEAR:Light Crossbow					LOCATION:Carried
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 GEAR:Shackles of Compliance				LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:200	LOCATION:Not Carried
@@ -109,8 +109,8 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 GEAR:Besmara's Tricorne					LOCATION:Equipped
 GEAR:Masterwork Rapier					LOCATION:Equipped
-GEAR:Bolts (Crossbow/10)		QTY:2		LOCATION:Carried
-GEAR:Crossbow (Heavy)					LOCATION:Carried
+GEAR:10 Crossbow Bolts		QTY:2		LOCATION:Carried
+GEAR:Heavy Crossbow					LOCATION:Carried
 GEAR:Dagger							LOCATION:Carried
 GEAR:Holy Symbol (Wooden)				LOCATION:Carried
 GEAR:Scroll (Cure Light Wounds)	QTY:2		LOCATION:Carried
@@ -156,9 +156,9 @@ ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Intimidate)
 ABILITY:CATEGORY=Favored Class|Fighter
 GEAR:Whip							LOCATION:Primary Hand
-GEAR:Leather						LOCATION:Equipped
+GEAR:Leather Armor						LOCATION:Equipped
 GEAR:Masterwork Handaxe					LOCATION:Carried
-GEAR:Dagger (Punching)					LOCATION:Carried
+GEAR:Punching Dagger					LOCATION:Carried
 GEAR:Arrow					QTY:12	LOCATION:Carried
 GEAR:Poison (Black Adder Venom)			LOCATION:Carried
 GEAR:Poison (Oil of Taggit)		QTY:8		LOCATION:Carried
@@ -185,6 +185,6 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Stealth)
 ABILITY:CATEGORY=Favored Class|Warrior
 GEAR:Cutlass			LOCATION:Primary Hand
 GEAR:Pirate Clothes (Basic)	LOCATION:Equipped
-GEAR:Axe (Throwing)		LOCATION:Carried
+GEAR:Throwing Axe		LOCATION:Carried
 GEAR:Dagger				LOCATION:Carried
 GEAR:Sap				LOCATION:Carried

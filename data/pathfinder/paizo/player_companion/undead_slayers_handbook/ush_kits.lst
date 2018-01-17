@@ -56,7 +56,7 @@ STARTPACK:Skeleton Slayer's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:120
 GEAR:Acid (Flask)				QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Club					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sling					QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Bullets (Sling/10)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:10 Sling Bullets			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Holy Water (Flask)			QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Tanglefoot Bag			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Rope (Hemp/50 ft)			QTY:1		SIZE:PC	LOCATION:Carried

@@ -36,7 +36,7 @@ GEAR:Longspear				QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Backpack				QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Sack					QTY:3	SIZE:PC	LOCATION:Not Carried
 GEAR:Sunrod					QTY:1	SIZE:PC	LOCATION:Not Carried
-GEAR:Shield (Tower)			QTY:1	SIZE:PC	LOCATION:Not Carried
+GEAR:Tower Shield			QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Alchemist's Fire (Flask)		QTY:5	SIZE:PC	LOCATION:Not Carried
 
 #COST:485	WT:64
@@ -48,7 +48,7 @@ GEAR:Longspear				QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Backpack				QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Sack					QTY:3	SIZE:PC	LOCATION:Not Carried
 GEAR:Sunrod					QTY:1	SIZE:PC	LOCATION:Not Carried
-GEAR:Shield (Tower)			QTY:1	SIZE:PC	LOCATION:Not Carried
+GEAR:Tower Shield			QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Acid (Flask)				QTY:5	SIZE:PC	LOCATION:Not Carried
 
 #COST:485	WT:64

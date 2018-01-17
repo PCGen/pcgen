@@ -119,7 +119,7 @@ Invisible Ink (Good)																			TYPE:Goods.General.Writing.Liquid.Vial			
 Invisible Ink (Superior)																		TYPE:Goods.General.Writing.Liquid.Vial					COST:75	WT:0																		SOURCEPAGE:p.10								SPROP:DC 35 Craft (Alchemy) to reveal without trigger
 Itching Powder																				TYPE:Goods.Alchemical.Consumable						COST:60	WT:2																		SOURCEPAGE:p.10								SPROP: Fort DC12 to resist or -2 penalty to attack, save, skill, and ability checks.
 Kaava Musk																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:0.5																	SOURCEPAGE:p.10								SPROP:+5 bonus to tracking target with musk on by scent
-Keros Oil (Flask)														PROFICIENCY:WEAPON|Spells (Touch)	TYPE:Goods.Alchemical.Weapon.Ranged.Fire					COST:5			CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	RANGE:5	SIZE:M	SOURCEPAGE:p.11								SPROP:Taking a mouthful from the bottle is a standard action.
+Keros Oil (Flask)														PROFICIENCY:WEAPON|Touch Spells	TYPE:Goods.Alchemical.Weapon.Ranged.Fire					COST:5			CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	RANGE:5	SIZE:M	SOURCEPAGE:p.11								SPROP:Taking a mouthful from the bottle is a standard action.
 Liquid Ice																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:2																		SOURCEPAGE:p.11
 Marker Dye (Flask)																			TYPE:Goods.Alchemical.Flask.Consumable					COST:15	WT:1																		SOURCEPAGE:p.11								SPROP:Creates obvious stain.
 Scent Cloak																					TYPE:Goods.Alchemical.Consumable						COST:20	WT:2																		SOURCEPAGE:p.11								SPROP:Add +10 to the DC for target being tracked by sent. Lasts 1 hour.

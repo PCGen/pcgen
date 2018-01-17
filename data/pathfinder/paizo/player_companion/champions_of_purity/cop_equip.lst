@@ -6,7 +6,7 @@ Breastplate.COPY=Field Medic's Breastplate
 Full Plate.COPY=Phoenix Armor
 Whip.COPY=Rythius (The Kyton Scourge)
 Pistol (Double-Barreled).COPY=Seraphic Pistol
-Shield (Tower).COPY=Equalizer Shield
+Tower Shield.COPY=Equalizer Shield
 
 ###Block: New Equipment
 # Equipment Name			Product Identity?	Type								Cost		Weight	Modifier				Source Page		Special Property
