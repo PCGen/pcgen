@@ -17,9 +17,7 @@
  */
 package plugin.modifier.cdom;
 
-import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -27,6 +25,8 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.IndirectCalculation;
+import pcgen.cdom.formula.FormulaCalc;
+import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
 
 /**
@@ -37,7 +37,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 {
 
 	@Override
-	public PCGenModifier<CDOMObject> getModifier(int userPriority, String instructions,
+	public FormulaModifier<CDOMObject> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<CDOMObject> formatManager)
 	{
@@ -48,7 +48,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 		}
 		Indirect<CDOMObject> n = formatManager.convertIndirect(instructions);
 		NEPCalculation<CDOMObject> calc = new IndirectCalculation<>(n, this);
-		return new CalculationModifier<>(calc, userPriority, formatManager);
+		return new FormulaCalc<>(calc, formatManager);
 	}
 
 	/**

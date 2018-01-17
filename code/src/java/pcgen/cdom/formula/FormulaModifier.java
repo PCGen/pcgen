@@ -19,7 +19,7 @@ package pcgen.cdom.formula;
 
 import java.util.Collection;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.solver.Modifier;
 
 public interface FormulaModifier<T> extends Modifier<T>
 {

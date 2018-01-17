@@ -72,7 +72,7 @@ public interface ModifierFactory<T>
 	 *            The FormatManager for the Modifier to be returned
 	 * @return a FormulaModifier with the given instructions
 	 */
-	public FormulaModifier<T> getModifier(int userPriority, String instructions,
+	public FormulaModifier<T> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<T> formatManager);
 

@@ -196,6 +196,7 @@ public class MaxNumberModifierTest extends TestCase
 		MaxModifierFactory factory = new MaxModifierFactory();
 		FormulaModifier<Number> modifier =
 				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));

@@ -77,8 +77,7 @@ public class MasterModifierFactory
 	 *         parameters
 	 */
 	public <T> FormulaModifier<T> getModifier(String modIdentifier,
-		String modInstructions, LegalScope varScope,
-		ManagerFactory managerFactory, 
+		String modInstructions, ManagerFactory managerFactory, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
 		Class<T> varClass = formatManager.getManagedClass();

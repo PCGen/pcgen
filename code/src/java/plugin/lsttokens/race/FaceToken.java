@@ -19,7 +19,6 @@ package plugin.lsttokens.race;
 
 import java.util.Collection;
 
-import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.math.OrderedPair;
@@ -121,10 +120,8 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		{
 			for (VarModifier<?> vm : added)
 			{
-				FormulaModifier<?> modifier = vm.getModifier();
 				if (VAR_NAME.equals(vm.getVarName())
 					&& (vm.getLegalScope().getParentScope() == null)
-					&& (modifier.getUserPriority() == MOD_PRIORITY)
 					&& (vm.getModifier().getIdentification()
 						.equals(MOD_IDENTIFICATION)))
 				{

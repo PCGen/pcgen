@@ -23,7 +23,7 @@ import java.util.List;
 
 import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -76,83 +76,48 @@ public final class FormulaCalc<T> implements FormulaModifier<T>
 		formatManager = fmtManager;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public int getUserPriority()
+	public long getPriority()
 	{
-		return userPriority;
+		return ((long) userPriority << 32) + toDo.getInherentPriority();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public T process(T input, ScopeInformation scopeInfo, Object source)
+	public T process(EvaluationManager manager)
 	{
-		//TODO Associations???
-		return toDo.process(input, scopeInfo, source);
+		return toDo.process(manager);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public int getInherentPriority()
+	public void getDependencies(DependencyManager manager)
 	{
-		return toDo.getInherentPriority();
+		toDo.getDependencies(manager);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm, Class<?> assertedFormat)
-	{
-		toDo.getDependencies(scopeInfo, fdm, assertedFormat);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getInstructions()
 	{
 		return toDo.getInstructions();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<T> getVariableFormat()
 	{
 		return toDo.getVariableFormat();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentification()
 	{
 		return toDo.getIdentification();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return userPriority ^ toDo.hashCode();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

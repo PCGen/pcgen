@@ -15,11 +15,11 @@
  */
 package pcgen.rules.persistence.token;
 
-import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.FormulaModifier;
 
 /**
  * An AbstractFixedSetModifierFactory is a ModifierToken/BasicCalculation that returns a
@@ -34,7 +34,7 @@ public abstract class AbstractFixedSetModifierFactory<T>
 {
 
 	@Override
-	public PCGenModifier<T> getModifier(int userPriority, String instructions,
+	public FormulaModifier<T> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
@@ -43,7 +43,7 @@ public abstract class AbstractFixedSetModifierFactory<T>
 			throw new IllegalArgumentException(
 				"FormatManager must manage " + getVariableFormat().getName());
 		}
-		return getFixedModifier(userPriority, formatManager, instructions);
+		return getFixedModifier(formatManager, instructions);
 	}
 
 }
