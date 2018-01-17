@@ -27,7 +27,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
@@ -49,6 +48,7 @@ import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.solver.testsupport.TrackingVariableCache;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
+import pcgen.cdom.formula.FormulaCalc;
 import pcgen.cdom.formula.FormulaModifier;
 import pcgen.cdom.formula.scope.EquipmentScope;
 import pcgen.cdom.reference.CDOMFactory;
@@ -119,7 +119,7 @@ public class SetSolverManagerTest
 		
 		NEPCalculation calc = new ProcessCalculation<>(new Equipment(),
 				new BasicSet(), equipmentManager);
-		CalculationModifier em = new CalculationModifier<>(calc, 0, equipmentManager);
+		FormulaCalc em = new FormulaCalc<>(calc, equipmentManager);
 		solverFactory.addSolverFormat(Equipment.class, em);
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
@@ -231,11 +231,11 @@ public class SetSolverManagerTest
 		
 		NEPCalculation calc1 = new ProcessCalculation<>(equip,
 				new BasicSet(), equipmentManager);
-		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, 2000, equipmentManager);
+		FormulaCalc mod_e1 = new FormulaCalc<>(calc1, equipmentManager);
 
 		NEPCalculation calc2 = new ProcessCalculation<>(equipalt,
 				new BasicSet(), equipmentManager);
-		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, 3000, equipmentManager);
+		FormulaCalc mod_e2 = new FormulaCalc<>(calc2, equipmentManager);
 
 		manager.addModifier(varIDe, mod2, scopeInste);
 		manager.addModifier(varIDa, mod3, scopeInsta);

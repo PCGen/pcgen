@@ -25,6 +25,7 @@ import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
 
 /**
  * A FormulaCalc is a Modifier that is a wrapper around a NEPCalculation. A
@@ -170,5 +171,21 @@ public final class FormulaCalc<T> implements FormulaModifier<T>
 		List<String> list = new ArrayList<String>();
 		list.add("PRIORITY=" + userPriority);
 		return list;
+	}
+
+	/**
+	 * The object references referred to by the embedded NEPCalculation in this
+	 * FormulaCalc.
+	 * 
+	 * NOTE: DO NOT DELETE THIS EVEN THOUGH IT APPEARS UNUSED. Its use is holding the
+	 * references so that they are not garbage collected.
+	 */
+	@SuppressWarnings("unused")
+	private Collection<Indirect<?>> references;
+
+	@Override
+	public void addReferences(Collection<Indirect<?>> collection)
+	{
+		references = collection;
 	}
 }

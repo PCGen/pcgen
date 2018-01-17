@@ -110,6 +110,20 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			return toAdd;
 		}
 
+		/**
+		 * The object references referred to by this AddDirectArrayModifier.
+		 * 
+		 * NOTE: DO NOT DELETE THIS EVEN THOUGH IT APPEARS UNUSED. Its use is holding the
+		 * references so that they are not garbage collected.
+		 */
+		@SuppressWarnings("unused")
+		private Collection<Indirect<?>> references;
+
+		@Override
+		public void addReferences(Collection<Indirect<?>> collection)
+		{
+			references = collection;
+		}
 	}
 
 	/**
@@ -141,6 +155,21 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		protected T[] getArray()
 		{
 			return toAdd.get();
+		}
+
+		/**
+		 * The object references referred to by this AddIndirectArrayModifier.
+		 * 
+		 * NOTE: DO NOT DELETE THIS EVEN THOUGH IT APPEARS UNUSED. Its use is holding the
+		 * references so that they are not garbage collected.
+		 */
+		@SuppressWarnings("unused")
+		private Collection<Indirect<?>> references;
+
+		@Override
+		public void addReferences(Collection<Indirect<?>> collection)
+		{
+			references = collection;
 		}
 	}
 

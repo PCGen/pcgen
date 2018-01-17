@@ -20,6 +20,7 @@ package pcgen.cdom.formula;
 import java.util.Collection;
 
 import pcgen.base.solver.Modifier;
+import pcgen.base.util.Indirect;
 
 public interface FormulaModifier<T> extends Modifier<T>
 {
@@ -27,5 +28,7 @@ public interface FormulaModifier<T> extends Modifier<T>
 	public void addAssociation(String assocInstructions);
 
 	public Collection<String> getAssociationInstructions();
+
+	public void addReferences(Collection<Indirect<?>> references);
 
 }
