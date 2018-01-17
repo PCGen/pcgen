@@ -283,7 +283,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		{
 			return asserted.convert(node.getText());
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//Give up and return a String
 			return node.getText();
