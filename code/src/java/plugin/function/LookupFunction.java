@@ -128,15 +128,7 @@ public class LookupFunction implements Function
 			return null;
 		}
 		ColumnFormatManager<?> cf = (ColumnFormatManager<?>) resultColumn;
-		FormatManager<?> rf = tableFormatManager.getResultFormat();
-		if (!rf.equals(cf.getComponentManager()))
-		{
-			semantics.setInvalid(
-				"Parse Error: Invalid Result Column Type: " + resultColumn.getClass()
-					+ " found in table that does not contain that type");
-			return null;
-		}
-		return rf;
+		return cf.getComponentManager();
 	}
 
 	@Override
