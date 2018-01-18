@@ -199,6 +199,7 @@ public class AddNumberModifierTest
 		AddModifierFactory factory = new AddModifierFactory();
 		FormulaModifier<Number> modifier =
 				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(10.8, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
