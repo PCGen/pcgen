@@ -106,10 +106,10 @@ Bladeguard																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:
 Bloodblock																					TYPE:Goods.Alchemical.Consumable						COST:25	WT:0
 Bodybalm																					TYPE:Goods.Alchemical.Consumable						COST:25	WT:0																		SOURCEPAGE:p.9								SPROP:Provides +5 alchemical bonus to Heal checks for long-term care, poison, disease.
 Distilled Terrap Sap																			TYPE:Goods.Alchemical.Consumable						COST:30	WT:0.5																	SOURCEPAGE:p.10								SPROP:Provides +5 alchemical bonus to saves against scent attacks within 20' for 1d6 rounds
-Desnan Candle Firework		NAMEISPI:YES	OUTPUTNAME:Firework, Desnan Candle								TYPE:Goods.Alchemical.Consumable						COST:5	WT:0																		SOURCEPAGE:p.10
-Paper Candle Firework						OUTPUTNAME:Firework, Paper Candle								TYPE:Goods.Alchemical.Consumable						COST:1	WT:0																		SOURCEPAGE:p.10
-Skyrocket Firework						OUTPUTNAME:Firework, Skyrocket								TYPE:Goods.Alchemical.Consumable						COST:50	WT:1																		SOURCEPAGE:p.10
-Starfountain Firework						OUTPUTNAME:Firework, Starfountain								TYPE:Goods.Alchemical.Consumable						COST:500	WT:100																	SOURCEPAGE:p.10
+Desnan Candle (Firework)		NAMEISPI:YES	OUTPUTNAME:Firework, Desnan Candle								TYPE:Goods.Alchemical.Consumable						COST:5	WT:0																		SOURCEPAGE:p.10
+Paper Candle (Firework)						OUTPUTNAME:Firework, Paper Candle								TYPE:Goods.Alchemical.Consumable						COST:1	WT:0																		SOURCEPAGE:p.10
+Skyrocket (Firework)						OUTPUTNAME:Firework, Skyrocket								TYPE:Goods.Alchemical.Consumable						COST:50	WT:1																		SOURCEPAGE:p.10
+Starfountain (Firework)						OUTPUTNAME:Firework, Starfountain								TYPE:Goods.Alchemical.Consumable						COST:500	WT:100																	SOURCEPAGE:p.10
 Flash Powder																				TYPE:Goods.Alchemical.Consumable						COST:50	WT:0																												SPROP:10-foot burst, Fortitude DC 13 to not be blinded for 1 round.
 Fuse Grenade																				TYPE:Goods.Alchemical.Consumable						COST:100	WT:1																		SOURCEPAGE:p.10								SPROP:Light 1d3 round then explodes for 2d6 bludgeon + 1d6 fire for 10' burst (DC15 reflex for 1/2)
 Glowing Ink (Vial)																			TYPE:Goods.General.Writing.Liquid.Vial					COST:5	WT:0																		SOURCEPAGE:p.10								SPROP:+2 perception check to locate item written with this ink
