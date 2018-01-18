@@ -178,6 +178,12 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return mfgmap.containsKey(cat);
 	}
 
+	/**
+	 * Return a new RuntimeReferenceContext. This ReferenceContext is initialized as per
+	 * the rules of AbstractReferenceContext.
+	 * 
+	 * @return A new RuntimeReferenceContext
+	 */
 	public static RuntimeReferenceContext createRuntimeReferenceContext()
 	{
 		RuntimeReferenceContext context = new RuntimeReferenceContext();

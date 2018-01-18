@@ -55,7 +55,7 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	 * DataTable should have the lookup and result formats matching the formats
 	 * of the given FormatManagers.
 	 * 
-	 * @param objDatabase
+	 * @param tableFormat
 	 *            The FormatManager used to construct or look up DataTable
 	 *            objects
 	 * @param lookupFormat

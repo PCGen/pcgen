@@ -151,6 +151,12 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		track.addToListFor(ref, getSourceURI(), src);
 	}
 
+	/**
+	 * Return a new TrackingReferenceContext. This ReferenceContext is initialized as per
+	 * the rules of AbstractReferenceContext.
+	 * 
+	 * @return A new TrackingReferenceContext
+	 */
 	public static TrackingReferenceContext createTrackingReferenceContext()
 	{
 		TrackingReferenceContext context = new TrackingReferenceContext();

@@ -69,6 +69,25 @@ import pcgen.core.SubClass;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
+/**
+ * An AbstractReferenceContext is responsible for dealing with References during load of a
+ * PCGen dataset from LST files.
+ * 
+ * Most of the function relates to 3 areas: (1) Managing the ReferenceManagers that
+ * actually hold the references to CDOMObjects (Skills, Languages, etc.) (2) Managing the
+ * overall loading process of the managers (e.g. resolving those references once load is
+ * complete) (3) Managing Formats available in the data
+ * 
+ * References are necessary because we need to be able to parse data that, for example,
+ * provides: AUTO:LANGUAGE|Draconic ... and we may or may not have loaded Language files.
+ * It would be impossible to load everything in order (there will be circular references).
+ * The result is that the loading system always refers to objects indirectly when they are
+ * referenced by a Token like AUTO:LANGUAGE. This indirect reference is a "CDOMReference"
+ * (and may refer to one or more CDOMObjects - groups are allowed). Once the load is
+ * complete, the references can be resolved to their actual underlying objects and any
+ * references that were made where an object of that name does not exist can be
+ * identified.
+ */
 public abstract class AbstractReferenceContext
 {
 
@@ -96,8 +115,10 @@ public abstract class AbstractReferenceContext
 	{
 		FormatUtilities.loadDefaultFormats(fmtLibrary);
 		fmtLibrary.addFormatManager(new DiceFormat());
-		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));
-		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(this.getManufacturer(AbstractReferenceContext.DATA_TABLE_CLASS)));
+		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(
+			this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));
+		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(
+			this.getManufacturer(AbstractReferenceContext.DATA_TABLE_CLASS)));
 	}
 
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(

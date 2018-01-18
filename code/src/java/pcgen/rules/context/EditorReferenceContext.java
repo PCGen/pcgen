@@ -97,6 +97,12 @@ class EditorReferenceContext extends RuntimeReferenceContext
 		super.forget(cdo);
 	}
 
+	/**
+	 * Return a new EditorReferenceContext. This ReferenceContext is initialized as per
+	 * the rules of AbstractReferenceContext.
+	 * 
+	 * @return A new EditorReferenceContext
+	 */
 	public static EditorReferenceContext createEditorReferenceContext()
 	{
 		EditorReferenceContext context = new EditorReferenceContext();
