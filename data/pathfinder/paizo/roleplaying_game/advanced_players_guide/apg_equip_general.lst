@@ -23,7 +23,7 @@ Hourglass (6 seconds)		OUTPUTNAME:Hourglass, 6 seconds		TYPE:Goods.General						
 Iron Spike											TYPE:Goods.General									COST:0.05	WT:1		SOURCEPAGE:p.182
 Magnet											TYPE:Goods.General									COST:0.5	WT:0.5	SOURCEPAGE:p.182
 Marbles											TYPE:Goods.General									COST:0.1	WT:2		SOURCEPAGE:p.182
-#Paper (Sheet)			OUTPUTNAME:Paper, Sheet				TYPE:Goods.General									COST:.4	WT:0		SOURCEPAGE:p.182
+#Paper			OUTPUTNAME:Paper, Sheet				TYPE:Goods.General									COST:.4	WT:0		SOURCEPAGE:p.182
 # Duplicated from Core.
 Periscope											TYPE:Goods.General									COST:20	WT:4		SOURCEPAGE:p.182
 Ring (Poison Pill)		OUTPUTNAME:Ring, Poison Pill			TYPE:Goods.General									COST:20	WT:0		SOURCEPAGE:p.182

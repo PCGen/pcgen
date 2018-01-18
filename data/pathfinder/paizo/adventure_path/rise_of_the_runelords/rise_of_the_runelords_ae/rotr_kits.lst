@@ -82,10 +82,10 @@ ABILITY:CATEGORY=Favored Class|Monk
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 GEAR:Potion of Cure Light Wounds	LOCATION:Equipped
-GEAR:Composite Shortbow		LOCATION:Both Hands	EQMOD:Special Quality ~ Composite Bow Strength Rating|+1.Material ~ Wood
+GEAR:Composite Shortbow			LOCATION:Both Hands	EQMOD:Special Quality ~ Composite Bow Strength Rating|+1.Material ~ Wood
 GEAR:Ring of Protection +1		LOCATION:Equipped
 GEAR:Thieves' Tools			LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Item
-GEAR:Musical Instrument (Flute)	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Item
+GEAR:Musical Instrument			LOCATION:Equipped		EQMOD:Musical Instrument (Flute).Special Quality ~ Masterwork ~ Item
 GEAR:Flurry of Blows			LOCATION:Equipped
 
 
@@ -339,7 +339,7 @@ GEAR:Bastard Sword				LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Sihedron Medallion				LOCATION:Equipped
 GEAR:Composite Longbow			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow				QTY:20	LOCATION:Carried
-GEAR:Holy Symbol (Silver)			LOCATION:Carried
+GEAR:Silver Holy Symbol			LOCATION:Carried
 GEAR:Coin (Platinum Piece)	QTY:7		LOCATION:Carried
 GEAR:Coin (Gold Piece)		QTY:5		LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cause Fear

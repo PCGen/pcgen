@@ -10,6 +10,164 @@
 # EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	MAXDEVVER:6.1.2
 # NEWCATEGORY:Spell-like Ability
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
+#EQUIPMENT:										MAXVER:6.07.05	NEWKEY:
+
+
+EQUIPMENT:Blanket (Winter)							MAXVER:6.07.05	NEWKEY:Blanket
+EQUIPMENT:Bottle (Glass)							MAXVER:6.07.05	NEWKEY:Bottle
+EQUIPMENT:Case (Map or Scroll)						MAXVER:6.07.05	NEWKEY:Scroll Case
+EQUIPMENT:Chalk (1 Piece)							MAXVER:6.07.05	NEWKEY:Chalk
+EQUIPMENT:Fishing Net (25 Sq Ft)						MAXVER:6.07.05	NEWKEY:Fishing Net
+EQUIPMENT:Flask (Empty)								MAXVER:6.07.05	NEWKEY:Flask
+EQUIPMENT:Ink (1 oz Vial)							MAXVER:6.07.05	NEWKEY:Ink
+EQUIPMENT:Ink (Color/1 oz Vial)						MAXVER:6.07.05	NEWKEY:Colored Ink
+EQUIPMENT:Jug (Clay)								MAXVER:6.07.05	NEWKEY:Jug
+EQUIPMENT:Ladder (10 Ft)							MAXVER:6.07.05	NEWKEY:Ladder
+EQUIPMENT:Lamp (Common)								MAXVER:6.07.05	NEWKEY:Lamp
+EQUIPMENT:Lantern (Bullseye)							MAXVER:6.07.05	NEWKEY:Bullseye Lantern
+EQUIPMENT:Lantern (Hooded)							MAXVER:6.07.05	NEWKEY:Hooded Lantern
+EQUIPMENT:Lock (Simple)								MAXVER:6.07.05	NEWKEY:Simple Lock
+EQUIPMENT:Lock (Average)							MAXVER:6.07.05	NEWKEY:Average Lock
+EQUIPMENT:Lock (Good)								MAXVER:6.07.05	NEWKEY:Good Lock
+EQUIPMENT:Lock (Superior)							MAXVER:6.07.05	NEWKEY:Superior Lock
+EQUIPMENT:Manacles (Small)							MAXVER:6.07.05	NEWKEY:Small Manacles
+EQUIPMENT:Manacles (Medium)							MAXVER:6.07.05	NEWKEY:Medium Manacles
+EQUIPMENT:Manacles (Large)							MAXVER:6.07.05	NEWKEY:Large Manacles
+EQUIPMENT:Manacles (Huge)							MAXVER:6.07.05	NEWKEY:Huge Manacles
+EQUIPMENT:Manacles (Masterwork/Small)					MAXVER:6.07.05	NEWKEY:Small Masterwork Manacles
+EQUIPMENT:Manacles (Masterwork/Medium)					MAXVER:6.07.05	NEWKEY:Medium Masterwork Manacles
+EQUIPMENT:Manacles (Masterwork/Large)					MAXVER:6.07.05	NEWKEY:Large Masterwork Manacles
+EQUIPMENT:Manacles (Masterwork/Huge)					MAXVER:6.07.05	NEWKEY:Huge Masterwork Manacles
+EQUIPMENT:Mirror (Small/Steel)						MAXVER:6.07.05	NEWKEY:Mirror
+EQUIPMENT:Mug or Tankard (Clay)						MAXVER:6.07.05	NEWKEY:Clay Mug
+EQUIPMENT:Oil (1 Pint Flask)							MAXVER:6.07.05	NEWKEY:Oil
+EQUIPMENT:Paper (Sheet)								MAXVER:6.07.05	NEWKEY:Paper
+EQUIPMENT:Parchment (Sheet)							MAXVER:6.07.05	NEWKEY:Parchment
+EQUIPMENT:Pick (Miner's)							MAXVER:6.07.05	NEWKEY:Miner's Pick
+EQUIPMENT:Pitcher (Clay)							MAXVER:6.07.05	NEWKEY:Pitcher
+EQUIPMENT:Pole (10 Ft)								MAXVER:6.07.05	NEWKEY:Pole
+EQUIPMENT:Pot (Iron)								MAXVER:6.07.05	NEWKEY:Pot
+EQUIPMENT:Pouch (Belt)								MAXVER:6.07.05	NEWKEY:Belt Pouch
+EQUIPMENT:Ram (Portable)							MAXVER:6.07.05	NEWKEY:Portable Ram
+EQUIPMENT:Rations (Trail/Per Day)						MAXVER:6.07.05	NEWKEY:Trail Ration
+EQUIPMENT:Rope (Hemp/50 ft)							MAXVER:6.07.05	NEWKEY:Hemp Rope (50 ft)
+EQUIPMENT:Rope (Silk/50 ft)							MAXVER:6.07.05	NEWKEY:Silk Rope (50 ft)
+EQUIPMENT:Shovel or Spade							MAXVER:6.07.05	NEWKEY:Shovel
+EQUIPMENT:Soap (per lb)								MAXVER:6.07.05	NEWKEY:Soap
+EQUIPMENT:Acid (Flask)								MAXVER:6.07.05	NEWKEY:Acid
+EQUIPMENT:Alchemist's Fire (Flask)						MAXVER:6.07.05	NEWKEY:Alchemist's Fire
+EQUIPMENT:Antitoxin (Vial)							MAXVER:6.07.05	NEWKEY:Antitoxin
+EQUIPMENT:Holy Water (Flask)							MAXVER:6.07.05	NEWKEY:Holy Water
+EQUIPMENT:Artisan's Tools (Armor)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Baskets)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Books)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Bows)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Calligraphy)					MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Carpentry)					MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Cloth)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Clothing)					MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Gemcutting)					MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Glass)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Jewelry)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Leather)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Locks)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Paintings)					MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Pottery)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Sculptures)					MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Ships)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Shoes)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Stonemasonry)					MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Traps)						MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Weaponsmithing)				MAXVER:6.07.05	NEWKEY:Artisan's Tools
+EQUIPMENT:Musical Instrument (Harpsichord)				MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Piano)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Pipe Organ)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Bells)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Chimes)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Drums)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Gong)						MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Fiddle)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Harp)						MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Lute)						MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Mandolin)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Flute)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Pan Pipes)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Recorder)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Musical Instrument (Trumpet)					MAXVER:6.07.05	NEWKEY:Musical Instrument
+EQUIPMENT:Holy Symbol (Wooden)						MAXVER:6.07.05	NEWKEY:Wooden Holy Symbol
+EQUIPMENT:Holy Symbol (Silver)						MAXVER:6.07.05	NEWKEY:Silver Holy Symbol
+EQUIPMENT:Scale (Merchant's)							MAXVER:6.07.05	NEWKEY:Merchant's Scale
+EQUIPMENT:Unholy Symbol (Wooden)						MAXVER:6.07.05	NEWKEY:Wooden Unholy Symbol
+EQUIPMENT:Unholy Symbol (Silver)						MAXVER:6.07.05	NEWKEY:Silver Unholy Symbol
+EQUIPMENT:Outfit (Artisan's)							MAXVER:6.07.05	NEWKEY:Artisan's Outfit
+EQUIPMENT:Vestments (Cleric's)						MAXVER:6.07.05	NEWKEY:Cleric's Vestments
+EQUIPMENT:Outfit (Cold-Weather)						MAXVER:6.07.05	NEWKEY:Cold-Weather Outfit
+EQUIPMENT:Outfit (Courtier's)							MAXVER:6.07.05	NEWKEY:Courtier's Outfit
+EQUIPMENT:Outfit (Entertainer's)						MAXVER:6.07.05	NEWKEY:Entertainer's Outfit
+EQUIPMENT:Outfit (Explorer's)							MAXVER:6.07.05	NEWKEY:Explorer's Outfit
+EQUIPMENT:Outfit (Monk's)							MAXVER:6.07.05	NEWKEY:Monk's Outfit
+EQUIPMENT:Outfit (Noble's)							MAXVER:6.07.05	NEWKEY:Noble's Outfit
+EQUIPMENT:Outfit (Peasant's)							MAXVER:6.07.05	NEWKEY:Peasant's Outfit
+EQUIPMENT:Outfit (Royal)							MAXVER:6.07.05	NEWKEY:Royal Outfit
+EQUIPMENT:Outfit (Scholar's)							MAXVER:6.07.05	NEWKEY:Scholar's Outfit
+EQUIPMENT:Outfit (Traveler's)							MAXVER:6.07.05	NEWKEY:Traveler's Outfit
+EQUIPMENT:Ale (Gallon)								MAXVER:6.07.05	NEWKEY:Gallon of Ale
+EQUIPMENT:Ale (Mug)								MAXVER:6.07.05	NEWKEY:Mug of Ale
+EQUIPMENT:Banquet (Per Person)						MAXVER:6.07.05	NEWKEY:Banquet (Per Person)
+EQUIPMENT:Bread (Loaf)								MAXVER:6.07.05	NEWKEY:Loaf of Bread
+EQUIPMENT:Cheese (Hunk)								MAXVER:6.07.05	NEWKEY:Hunk of Cheese
+EQUIPMENT:Inn (Good/Per Day)							MAXVER:6.07.05	NEWKEY:Good Inn Stay (Per Day)
+EQUIPMENT:Inn (Common/Per Day)						MAXVER:6.07.05	NEWKEY:Common Inn Stay (Per Day)
+EQUIPMENT:Inn (Poor/Per Day)							MAXVER:6.07.05	NEWKEY:Poor Inn Stay (Per Day)
+EQUIPMENT:Meals (Good/Per Day)						MAXVER:6.07.05	NEWKEY:Good Meal (Per Day)
+EQUIPMENT:Meals (Common/Per Day)						MAXVER:6.07.05	NEWKEY:Common Meal (Per Day)
+EQUIPMENT:Meals (Poor/Per Day)						MAXVER:6.07.05	NEWKEY:Poor Meal (Per Day)
+EQUIPMENT:Meat (Chunk)								MAXVER:6.07.05	NEWKEY:Chunk of Meat
+EQUIPMENT:Wine (Common/Pitcher)						MAXVER:6.07.05	NEWKEY:Pitcher of Wine
+EQUIPMENT:Wine (Fine/Bottle)							MAXVER:6.07.05	NEWKEY:Bottle of Fine Wine
+EQUIPMENT:Dog (Guard)								MAXVER:6.07.05	NEWKEY:Guard Dog
+EQUIPMENT:Dog (Riding)								MAXVER:6.07.05	NEWKEY:Riding Dog
+EQUIPMENT:Feed (Per Day)							MAXVER:6.07.05	NEWKEY:Feed
+EQUIPMENT:Horse (Heavy)								MAXVER:6.07.05	NEWKEY:Heavy Horse
+EQUIPMENT:Horse (Heavy/Combat Trained)					MAXVER:6.07.05	NEWKEY:Heavy Horse (Combat Trained)
+EQUIPMENT:Horse (Light)								MAXVER:6.07.05	NEWKEY:Light Horse
+EQUIPMENT:Horse (Light/Combat Trained)					MAXVER:6.07.05	NEWKEY:Light Horse (Combat Trained)
+EQUIPMENT:Saddle (Military)							MAXVER:6.07.05	NEWKEY:Military Saddle
+EQUIPMENT:Saddle (Pack)								MAXVER:6.07.05	NEWKEY:Pack Saddle
+EQUIPMENT:Saddle (Riding)							MAXVER:6.07.05	NEWKEY:Riding Saddle
+EQUIPMENT:Saddle (Exotic/Military)						MAXVER:6.07.05	NEWKEY:Exotic Military Saddle
+EQUIPMENT:Saddle (Exotic/Pack)						MAXVER:6.07.05	NEWKEY:Exotic Pack Saddle
+EQUIPMENT:Saddle (Exotic/Riding)						MAXVER:6.07.05	NEWKEY:Exotic Riding Saddle
+EQUIPMENT:Hireling (Trained)							MAXVER:6.07.05	NEWKEY:Trained Hireling (Per Day)
+EQUIPMENT:Hireling (Untrained)						MAXVER:6.07.05	NEWKEY:Untrained Hireling (Per Day)
+EQUIPMENT:Quartz (Blue)								MAXVER:6.07.05	NEWKEY:Blue Quartz
+EQUIPMENT:Pearl (Freshwater/Irregular)					MAXVER:6.07.05	NEWKEY:Freshwater Pearl
+EQUIPMENT:Rock Crystal (Clear Quartz)					MAXVER:6.07.05	NEWKEY:Rock Crystal
+EQUIPMENT:Quartz (Rose)								MAXVER:6.07.05	NEWKEY:Rose Quartz
+EQUIPMENT:Quartz (Smoky)							MAXVER:6.07.05	NEWKEY:Smoky Quartz
+EQUIPMENT:Quartz (Star Rose)							MAXVER:6.07.05	NEWKEY:Star Rose Quartz
+EQUIPMENT:Garnet (Red)								MAXVER:6.07.05	NEWKEY:Red Garnet
+EQUIPMENT:Garnet (Brown-Green)						MAXVER:6.07.05	NEWKEY:Brown-Green Garnet
+EQUIPMENT:Pearl (White)								MAXVER:6.07.05	NEWKEY:White Pearl
+EQUIPMENT:Pearl (Golden)							MAXVER:6.07.05	NEWKEY:Golden Pearl
+EQUIPMENT:Pearl (Pink)								MAXVER:6.07.05	NEWKEY:Pink Pearl
+EQUIPMENT:Pearl (Silver)							MAXVER:6.07.05	NEWKEY:Silver Pearl
+EQUIPMENT:Spinel (Red)								MAXVER:6.07.05	NEWKEY:Red Spinel
+EQUIPMENT:Spinel (Red-Brown)							MAXVER:6.07.05	NEWKEY:Red-Brown Spinel
+EQUIPMENT:Spinel (Deep Green)							MAXVER:6.07.05	NEWKEY:Deep Green Spinel
+EQUIPMENT:Garnet (Violet)							MAXVER:6.07.05	NEWKEY:Violet Garnet
+EQUIPMENT:Pearl (Black)								MAXVER:6.07.05	NEWKEY:Black Pearl
+EQUIPMENT:Spinel (Deep Blue)							MAXVER:6.07.05	NEWKEY:Deep Blue Spinel
+EQUIPMENT:Topaz (Golden Yellow)						MAXVER:6.07.05	NEWKEY:Golden Yellow Topaz
+EQUIPMENT:Opal (White)								MAXVER:6.07.05	NEWKEY:White Opal
+EQUIPMENT:Opal (Black)								MAXVER:6.07.05	NEWKEY:Black Opal
+EQUIPMENT:Opal (Fire)								MAXVER:6.07.05	NEWKEY:Fire Opal
+EQUIPMENT:Sapphire (Blue)							MAXVER:6.07.05	NEWKEY:Blue Sapphire
+EQUIPMENT:Corundum (Fiery Yellow)						MAXVER:6.07.05	NEWKEY:Fiery Yellow Corundum
+EQUIPMENT:Corundum (Rich Purple)						MAXVER:6.07.05	NEWKEY:Rich Purple Corundum
+EQUIPMENT:Star Sapphire (Blue)						MAXVER:6.07.05	NEWKEY:Blue Star Sapphire
+EQUIPMENT:Star Sapphire (Black)						MAXVER:6.07.05	NEWKEY:Black Star Sapphire
+EQUIPMENT:Emerald (Clearest Bright Green)					MAXVER:6.07.05	NEWKEY:Clearest Bright Green Emerald
 
 EQUIPMENT:Arrows (20)								MAXVER:6.07.05	NEWKEY:20 Arrows
 EQUIPMENT:Bolts (Crossbow/10)							MAXVER:6.07.05	NEWKEY:10 Crossbow Bolts

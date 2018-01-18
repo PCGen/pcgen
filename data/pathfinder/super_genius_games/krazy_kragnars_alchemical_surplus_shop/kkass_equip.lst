@@ -26,7 +26,7 @@ Landvines																TYPE:Goods.Alchemical.Consumable								COST:100	WT:1		
 Landvines (Greater)		OUTPUTNAME:Landvines, Greater								TYPE:Goods.Alchemical.Consumable								COST:250	WT:1																									SOURCEPAGE:p.6
 Mage Candle																TYPE:Goods.Alchemical.Consumable								COST:2	WT:0																									SOURCEPAGE:p.6
 Mummy Leech																TYPE:Goods.Alchemical.Consumable								COST:35	WT:0																									SOURCEPAGE:p.6
-Nightglow Candle															TYPE:Goods.Alchemical.Consumable.LightSource						COST:50	WT:0																									SOURCEPAGE:p.6
+Nightglow Candle															TYPE:Goods.Alchemical.Consumable.Light Source						COST:50	WT:0																									SOURCEPAGE:p.6
 Blue Salve																TYPE:Goods.Alchemical.Consumable								COST:10	WT:1																									SOURCEPAGE:p.7
 Golden Salve															TYPE:Goods.Alchemical.Consumable								COST:10	WT:1																									SOURCEPAGE:p.7
 Red Salve																TYPE:Goods.Alchemical.Consumable								COST:5	WT:1																									SOURCEPAGE:p.7

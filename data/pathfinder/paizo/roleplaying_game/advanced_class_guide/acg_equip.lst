@@ -25,10 +25,10 @@ Whip.MOD			TYPE:PrehensileOK
 
 ###Block: Adding types to manacles for Slayer's Manacles choice
 # Equipment Name		Type
-Manacles (Small).MOD	TYPE:Manacles
-Manacles (Medium).MOD	TYPE:Manacles
-Manacles (Large).MOD	TYPE:Manacles
-Manacles (Huge).MOD	TYPE:Manacles
+Small Manacles.MOD	TYPE:Manacles
+Medium Manacles.MOD	TYPE:Manacles
+Large Manacles.MOD	TYPE:Manacles
+Huge Manacles.MOD	TYPE:Manacles
 
 
 ###Block: Brawler's Flurry

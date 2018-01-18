@@ -5,10 +5,10 @@ SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEWEB:http://paizo.com/products/
 
 STARTPACK:Vigilante's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:8
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch			QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Ration	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
 ### Starting Gold

@@ -77,7 +77,7 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger							LOCATION:Primary Hand
 GEAR:Shortbow						LOCATION:Carried
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
+GEAR:Musical Instrument					LOCATION:Carried		EQMOD:Musical Instrument (Pan Pipes).Special Quality ~ Masterwork ~ Item
 
 
 STARTPACK:Cayhound Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cayhound],[!PRERACE:1,%]	SOURCEPAGE:p.8
