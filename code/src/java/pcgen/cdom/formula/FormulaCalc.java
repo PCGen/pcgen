@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.lobobrowser.util.Objects;
+
 import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -42,7 +44,7 @@ public final class FormulaCalc<T> implements FormulaModifier<T>
 	/**
 	 * The user priority for this FormulaCalc.
 	 */
-	private int userPriority = 0;
+	private Integer userPriority;
 
 	/**
 	 * The NEPCalculation to be performed by this FormulaCalc.
@@ -77,10 +79,15 @@ public final class FormulaCalc<T> implements FormulaModifier<T>
 		formatManager = fmtManager;
 	}
 
+	private int getUserPriority()
+	{
+		return (userPriority == null) ? 0 : userPriority;
+	}
+
 	@Override
 	public long getPriority()
 	{
-		return ((long) userPriority << 32) + toDo.getInherentPriority();
+		return ((long) getUserPriority() << 32) + toDo.getInherentPriority();
 	}
 
 	@Override
@@ -116,7 +123,7 @@ public final class FormulaCalc<T> implements FormulaModifier<T>
 	@Override
 	public int hashCode()
 	{
-		return userPriority ^ toDo.hashCode();
+		return getUserPriority() ^ toDo.hashCode();
 	}
 
 	@Override
@@ -125,7 +132,7 @@ public final class FormulaCalc<T> implements FormulaModifier<T>
 		if (o instanceof FormulaCalc)
 		{
 			FormulaCalc<?> other = (FormulaCalc<?>) o;
-			return (other.userPriority == userPriority)
+			return Objects.equals(other.userPriority, userPriority)
 				&& other.toDo.equals(toDo);
 		}
 		return false;
@@ -169,7 +176,10 @@ public final class FormulaCalc<T> implements FormulaModifier<T>
 	public Collection<String> getAssociationInstructions()
 	{
 		List<String> list = new ArrayList<String>();
-		list.add("PRIORITY=" + userPriority);
+		if (userPriority != null)
+		{
+			list.add("PRIORITY=" + userPriority);
+		}
 		return list;
 	}
 
