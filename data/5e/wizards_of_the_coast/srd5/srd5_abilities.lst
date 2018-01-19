@@ -174,7 +174,7 @@ Choose Language	CATEGORY:Language		TYPE:Language.Spoken.Choice	MULT:YES	CHOOSE:U
 # Ability Name		Category of Ability	Type							Auto Weapon Prof					Weapon prof. bonus
 Club				CATEGORY:Weapon		TYPE:Weapon Proficiency.Simple.Monk		AUTO:WEAPONPROF|Club				BONUS:WEAPONPROF=Club|TOHIT|Proficiency_Bonus|TYPE=Class
 Dagger			CATEGORY:Weapon		TYPE:Weapon Proficiency.Simple.Monk		AUTO:WEAPONPROF|Dagger				BONUS:WEAPONPROF=Dagger|TOHIT|Proficiency_Bonus|TYPE=Class
-Unarmed Strike (Monk)	CATEGORY:Weapon		TYPE:Weapon Proficiency.Monk			AUTO:WEAPONPROF|Unarmed Strike (Monk)	BONUS:WEAPONPROF=Unarmed Strike (Monk)|TOHIT|Proficiency_Bonus|TYPE=Class
+Unarmed Strike		CATEGORY:Weapon		TYPE:Weapon Proficiency.Monk			AUTO:WEAPONPROF|Unarmed Strike		BONUS:WEAPONPROF=Unarmed Strike|TOHIT|Proficiency_Bonus|TYPE=Class
 Greatclub			CATEGORY:Weapon		TYPE:Weapon Proficiency.Simple		AUTO:WEAPONPROF|Greatclub			BONUS:WEAPONPROF=Greatclub|TOHIT|Proficiency_Bonus|TYPE=Class
 Handaxe			CATEGORY:Weapon		TYPE:Weapon Proficiency.Simple.Monk		AUTO:WEAPONPROF|Handaxe				BONUS:WEAPONPROF=Handaxe|TOHIT|Proficiency_Bonus|TYPE=Class
 Javelin			CATEGORY:Weapon		TYPE:Weapon Proficiency.Simple.Monk		AUTO:WEAPONPROF|Javelin				BONUS:WEAPONPROF=Javelin|TOHIT|Proficiency_Bonus|TYPE=Class
