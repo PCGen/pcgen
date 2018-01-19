@@ -17,8 +17,11 @@
  */
 package pcgen.base.format;
 
+import java.util.Comparator;
+
 import pcgen.base.lang.NumberUtilities;
 import pcgen.base.util.BasicIndirect;
+import pcgen.base.util.ComparableManager;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 
@@ -26,7 +29,7 @@ import pcgen.base.util.Indirect;
  * A NumberManager is a FormatManager that provides services for Numbers
  * (effectively Double and Integer).
  */
-public class NumberManager implements FormatManager<Number>
+public class NumberManager implements FormatManager<Number>, ComparableManager<Number>
 {
 
 	/**
@@ -103,5 +106,11 @@ public class NumberManager implements FormatManager<Number>
 	public boolean isDirect()
 	{
 		return true;
+	}
+
+	@Override
+	public Comparator<Number> getComparator()
+	{
+		return NumberUtilities.NUMBER_COMPARATOR;
 	}
 }
