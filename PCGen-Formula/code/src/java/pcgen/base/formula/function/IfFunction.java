@@ -189,12 +189,13 @@ public class IfFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
 		args[0].jjtAccept(visitor,
 			manager.getWith(DependencyManager.ASSERTED, FormatUtilities.BOOLEAN_MANAGER));
-		args[1].jjtAccept(visitor, manager);
+		FormatManager<?> tFormat = (FormatManager<?>) args[1].jjtAccept(visitor, manager);
 		args[2].jjtAccept(visitor, manager);
+		return tFormat;
 	}
 }

@@ -17,11 +17,15 @@
  */
 package pcgen.base.formula.visitor;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.IndirectDependency;
+import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.OperatorLibrary;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStrategy;
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
@@ -41,6 +45,7 @@ import pcgen.base.formula.parse.ASTUnaryMinus;
 import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
+import pcgen.base.formula.parse.Operator;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.util.FormatManager;
 
@@ -89,7 +94,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTLogical node, Object data)
 	{
-		return checkAllChildren(node, data);
+		return visitRelational(node, data);
 	}
 
 	/**
@@ -98,7 +103,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTEquality node, Object data)
 	{
-		return checkAllChildren(node, data);
+		return visitRelational(node, data);
 	}
 
 	/**
@@ -107,7 +112,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTRelational node, Object data)
 	{
-		return checkAllChildren(node, data);
+		return visitRelational(node, data);
 	}
 
 	/**
@@ -116,7 +121,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTArithmetic node, Object data)
 	{
-		return checkAllChildren(node, data);
+		return visitOperatorNode(node, data);
 	}
 
 	/**
@@ -125,7 +130,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTGeometric node, Object data)
 	{
-		return checkAllChildren(node, data);
+		return visitOperatorNode(node, data);
 	}
 
 	/**
@@ -134,7 +139,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTUnaryMinus node, Object data)
 	{
-		return evaluateSingleChild(node, data);
+		return visitUnaryNode(node, data);
 	}
 
 	/**
@@ -143,7 +148,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTUnaryNot node, Object data)
 	{
-		return evaluateSingleChild(node, data);
+		return visitUnaryNode(node, data);
 	}
 
 	/**
@@ -152,7 +157,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTExpon node, Object data)
 	{
-		return checkAllChildren(node, data);
+		return visitOperatorNode(node, data);
 	}
 
 	/**
@@ -170,7 +175,8 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTNum node, Object data)
 	{
-		return data;
+		//We assume semantics passed
+		return FormatUtilities.NUMBER_MANAGER;
 	}
 
 	/**
@@ -194,18 +200,14 @@ public class DependencyVisitor implements FormulaParserVisitor
 			FunctionLibrary library = formulaManager.get(FormulaManager.FUNCTION);
 			Function function = library.getFunction(name);
 			Node[] args = VisitorUtilities.accumulateArguments(argNode);
-			function.getDependencies(this, manager, args);
+			return function.getDependencies(this, manager, args);
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			visitVariable(name, manager);
+			return getVariableFormat(manager, name).getComponentManager();
 		}
-		else
-		{
-			throw new IllegalStateException(
-				"Invalid Formula (unrecognized node: " + argNode + ")");
-		}
-		return data;
+		throw new IllegalStateException(
+				"Evaluation called on invalid Function (failed semantics?)");
 	}
 
 	/**
@@ -216,8 +218,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenSingleWord node, Object data)
 	{
-		visitVariable(node.getText(), (DependencyManager) data);
-		return data;
+		return visitVariable(node.getText(), (DependencyManager) data);
 	}
 
 	/**
@@ -226,13 +227,34 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * @param varName
 	 *            The variable name to be added as a dependency
 	 */
-	public void visitVariable(String varName, DependencyManager manager)
+	public FormatManager<?> visitVariable(String varName, DependencyManager manager)
 	{
+		FormatManager<?> formatManager = getVariableFormat(manager, varName);
 		VariableStrategy varStrategy = manager.get(DependencyManager.VARSTRATEGY);
 		if (varStrategy != null)
 		{
 			varStrategy.addVariable(manager, varName);
 		}
+		return formatManager;
+	}
+
+	/**
+	 * Returns the format for a given Variable name, in the scope as described by the
+	 * DependencyManager.
+	 * 
+	 * @param manager
+	 *            The DependencyManager used to determine the context of analysis of the
+	 *            given variable name
+	 * @param varName
+	 *            The variable name for which the format should be returned
+	 * @return The format for the given Variable, in the scope as described by the
+	 *         DependencyManager
+	 */
+	public FormatManager<?> getVariableFormat(DependencyManager manager, String varName)
+	{
+		VariableLibrary varLib = manager.get(DependencyManager.FMANAGER).getFactory();
+		LegalScope legalScope = manager.get(DependencyManager.INSTANCE).getLegalScope();
+		return varLib.getVariableFormat(legalScope, varName);
 	}
 
 	/**
@@ -266,14 +288,19 @@ public class DependencyVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Has a dependency IF the asserted format is not a String and it implies something else
+	 * A Quoted String, thus returns a StringManager, or if the appropriate format if one
+	 * is asserted.
 	 */
 	@Override
 	public Object visit(ASTQuotString node, Object data)
 	{
 		DependencyManager manager = (DependencyManager) data;
 		FormatManager<?> asserted = manager.get(DependencyManager.ASSERTED);
-		if ((asserted != null) && !asserted.isDirect())
+		if (asserted == null)
+		{
+			return FormatUtilities.STRING_MANAGER;
+		}
+		if (!asserted.isDirect())
 		{
 			IndirectDependency refManager = manager.get(DependencyManager.INDIRECTS);
 			if (refManager != null)
@@ -281,7 +308,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 				refManager.add(asserted.convertIndirect(node.getText()));
 			}
 		}
-		return data;
+		return asserted;
 	}
 
 	/**
@@ -295,17 +322,56 @@ public class DependencyVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Processes all child nodes of the given node. For each, performs a
-	 * double-dispatch in order to reach another method on this
-	 * DependencyVisitor for the child.
+	 * Processes an Operator node.
+	 * 
+	 * @param node
+	 *            The node to be checked for dependencies
+	 * @return A FormatManager object, which will indicate the format returned
+	 *         by the Operator.
 	 */
-	private Object checkAllChildren(SimpleNode node, Object data)
+	private FormatManager<?> visitOperatorNode(SimpleNode node, Object data)
 	{
-		int childCount = node.jjtGetNumChildren();
-		for (int i = 0; i < childCount; i++)
-		{
-			node.jjtGetChild(i).jjtAccept(this, data);
-		}
-		return data;
+		DependencyManager manager = (DependencyManager) data;
+		Node child1 = node.jjtGetChild(0);
+		FormatManager<?> format1 = (FormatManager<?>) child1.jjtAccept(this, data);
+		Node child2 = node.jjtGetChild(1);
+		FormatManager<?> format2 = (FormatManager<?>) child2.jjtAccept(this, data);
+		OperatorLibrary opLib =
+				manager.get(DependencyManager.FMANAGER).getOperatorLibrary();
+		Operator op = node.getOperator();
+		return opLib.processAbstract(op, format1.getManagedClass(),
+			format2.getManagedClass());
+	}
+
+	private FormatManager<?> visitUnaryNode(SimpleNode node, Object data)
+	{
+		Node child = node.jjtGetChild(0);
+		FormatManager<?> format = (FormatManager<?>) child.jjtAccept(this, data);
+		DependencyManager manager = (DependencyManager) data;
+		OperatorLibrary opLib =
+				manager.get(DependencyManager.FMANAGER).getOperatorLibrary();
+		Operator op = node.getOperator();
+		return opLib.processAbstract(op, format.getManagedClass());
+	}
+
+	/**
+	 * Processes a relational node for dependencies.
+	 * 
+	 * Expect this to return Boolean.class :)
+	 * 
+	 * @param node
+	 *            The node to be validated to ensure it has two valid children
+	 *            that can be compared.
+	 * @param data
+	 *            The incoming FormulaSemantics object (as Object to assist
+	 *            other methods in this class)
+	 * @return A FormatManager object, which will indicate the format returned
+	 *         by the Operator.
+	 */
+	private Object visitRelational(SimpleNode node, Object data)
+	{
+		node.jjtGetChild(0).jjtAccept(this, data);
+		node.jjtGetChild(1).jjtAccept(this, data);
+		return FormatUtilities.BOOLEAN_MANAGER;
 	}
 }

@@ -188,7 +188,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 			depManager.get(ArgumentDependencyManager.KEY).getMaximumArgument());
 
 		depManager = setupDM();
-		new ComplexNEPFormula<>("value()").getDependencies(depManager);
+		new ComplexNEPFormula<>("value()").getDependencies(
+			depManager.getWith(DependencyManager.INPUT_FORMAT, numberManager));
 		assertTrue(depManager.get(DependencyManager.VARIABLES).getVariables().isEmpty());
 		assertEquals(-1,
 			depManager.get(ArgumentDependencyManager.KEY).getMaximumArgument());

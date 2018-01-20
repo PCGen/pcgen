@@ -231,8 +231,10 @@ public interface Function
 	 *            The DependencyManager used to support analysis of the Function
 	 * @param args
 	 *            The arguments to this Function within the Formula
+	 * @return a FormatManager indicating the format of the value returned by this
+	 *         Function
 	 */
-	void getDependencies(DependencyVisitor visitor, DependencyManager manager,
+	FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager,
 		Node[] args);
 
 	/*

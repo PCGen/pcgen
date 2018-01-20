@@ -155,13 +155,14 @@ public abstract class AbstractNaryFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
 		for (Node n : args)
 		{
 			n.jjtAccept(visitor, manager);
 		}
+		return FormatUtilities.NUMBER_MANAGER;
 	}
 
 	/**
