@@ -73,8 +73,8 @@ Traveling Spellbook																		TYPE:Goods.Tools.Book.Spellbook							COST:
 Stationary																					TYPE:Goods.General.Writing.Documents					COST:1	WT:0																		SOURCEPAGE:p.8
 Stove Can																					TYPE:Goods.General								COST:10	WT:1								EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]					SOURCEPAGE:p.8
 # 2 differents items?
-String (50 feet)																				TYPE:Goods.General								COST:0.01	WT:0.5																	SOURCEPAGE:p.8
-Twine (50 feet)																				TYPE:Goods.General								COST:0.01	WT:0.5																	SOURCEPAGE:p.8
+String (50 ft.)																				TYPE:Goods.General								COST:0.01	WT:0.5																	SOURCEPAGE:p.8
+Twine (50 ft.)																				TYPE:Goods.General								COST:0.01	WT:0.5																	SOURCEPAGE:p.8
 #TODO this is supposed to vary by ink/size between 1cp to 10gp per color
 Tattoo																					TYPE:Goods.Service								COST:1	WT:0																		SOURCEPAGE:p.8
 Tent (Small)						OUTPUTNAME:Tent, Small (1 person)								TYPE:Goods.General								COST:10	WT:5																		SOURCEPAGE:p.8								SPROP:Setup time of 20 min.
