@@ -27,6 +27,7 @@ PCC:@/homebrew/conversion_support/conversion_support.pcc
 ALIGNMENT:srd__align.lst
 SAVE:srd__saves.lst
 STAT:srd__stats.lst
+SIZE:srd__sizes.lst
 DATACONTROL:srd__datacontrols.lst
 
 

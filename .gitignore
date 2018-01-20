@@ -5,6 +5,7 @@ batch-convert.jar
 plugins/*.jar
 plugins/*plugins/
 
+bin/
 code/bin/
 code/build/
 code/comp-manifest
@@ -51,3 +52,6 @@ data/customsources/*
 /.checkstyle
 /installers/win-installer/includes/data.nsh
 /.nb-gradle-properties
+
+.classpath
+.project
