@@ -5,3 +5,5 @@
 /.checkstyle
 /.pmd
 /.ruleset
+/.project
+/.classpath
