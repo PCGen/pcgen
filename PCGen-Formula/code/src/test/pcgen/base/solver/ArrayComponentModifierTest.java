@@ -29,7 +29,7 @@ import pcgen.base.util.FormatManager;
 
 public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 {
-	private final FormatManager<Number[]> NAF = new ArrayFormatManager(numberManager, ',');
+	private final FormatManager<Number[]> NAF = new ArrayFormatManager(numberManager, '\n', ',');
 
 	@Test
 	public void testConstructor()
