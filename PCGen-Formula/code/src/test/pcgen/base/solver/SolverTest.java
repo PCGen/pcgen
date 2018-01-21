@@ -37,7 +37,7 @@ import pcgen.base.util.FormatManager;
 public class SolverTest extends TestCase
 {
 	protected FormatManager<Number> numberManager = FormatUtilities.NUMBER_MANAGER;
-	private final FormatManager<Number[]> NAF = new ArrayFormatManager(numberManager, ',');
+	private final FormatManager<Number[]> NAF = new ArrayFormatManager(numberManager, '\n', ',');
 
 	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private EvaluationManager evalManager;

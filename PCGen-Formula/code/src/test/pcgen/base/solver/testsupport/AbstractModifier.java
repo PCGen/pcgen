@@ -69,7 +69,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	private static final FormatManager<Number> NUMBER_FORMAT = new NumberManager();
 	private static final FormatManager<String> STRING_FORMAT = new StringManager();
 	private static final FormatManager<Number[]> NUMBER_ARR_FORMAT =
-			new ArrayFormatManager(NUMBER_FORMAT, ',');
+			new ArrayFormatManager(NUMBER_FORMAT, '\n', ',');
 
 	private final FormatManager<T> format;
 	private final int priority;
