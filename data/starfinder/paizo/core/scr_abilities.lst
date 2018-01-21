@@ -2009,7 +2009,7 @@ Aballon			TYPE:Home Planet		CATEGORY:Internal						DESC:Gain no language current
 Akiton			TYPE:Home Planet		CATEGORY:Internal	AUTO:LANG|Akitonian		DESC:Gain Akitonian	
 Castrovel			TYPE:Home Planet		CATEGORY:Internal	AUTO:LANG|Castrovelian		DESC:Gain Castrovelian	
 Verces			TYPE:Home Planet		CATEGORY:Internal	AUTO:LANG|Vercite			DESC:Gain Vercite		
-
+The Diaspora		TYPE:Home Planet		CATEGORY:Internal						DESC:Gain no language currently
 
 # Factions
 No Faction				SORTKEY:1	TYPE:Faction	CATEGORY:Internal

@@ -474,6 +474,119 @@ Rending Trip						KEY:Sentinel Boon ~ Zon-Kuthon ~ Rending Trip			CATEGORY:Speci
 Sight of Perfect Night					KEY:Sentinel Boon ~ Zon-Kuthon ~ Sight of Perfect Night	CATEGORY:Special Ability	TYPE:Faith Based Boon.SpecialQuality.Extraordinary	SOURCEPAGE:p.164		DESC:If you have performed your daily obedience, all the training you have done in perfect darkness has left you with the uncanny ability to sense your surroundings even in the blackest night. You gain blindsense with a range of 20 feet. If you already have blindsense with a range of 20 feet or greater, instead increase the range of your blindsense by 10 feet.
 Sentinel of Zon-Kuthon		NAMEISPI:Yes	KEY:Temp Bonus ~ Sentinel of Zon-Kuthon				CATEGORY:Internal			ASPECT:SaveBonus|+2 sacred bonus on saves vs. spells that deal hit point damage.		SPELLS:Divine Boon Choice|TIMES=3|CASTERLEVEL=TL|Compel Hostility|PREVARGTEQ:SentinelLVL,3		SPELLS:Divine Boon Choice|TIMES=2|CASTERLEVEL=TL|Touch of Bloodletting|PREVARGTEQ:SentinelLVL,3		SPELLS:Divine Boon Choice|TIMES=1|CASTERLEVEL=TL|Vampiric Touch|PREVARGTEQ:SentinelLVL,3		VISION:Blindsense (20')|PREMULT:2,[PREVARGTEQ:SentinelLVL,9],[!PREVISION:1,Blindsense=20]		BONUS:VISION|Blindsense|10|PREMULT:2,[PREVARGTEQ:SentinelLVL,9],[PREVISION:1,Blindsense=20]
 
+# ==============================
+# Variant Spellcasting
+# ==============================
+
+#Abadar
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=5|Word of Recall|PREDEITY:1,Abadar
+CATEGORY=Class|Paladin.MOD		SPELLLEVEL:CLASS|Paladin=4|Word of Recall|PREDEITY:1,Abadar
+
+#Asmodeus
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=4|Geas (Lesser)|Cleric=5|Geas/Quest (Asmodean)|PREDEITY:1,Asmodeus
+
+#Calistria
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=3|Rage|Cleric=4|Suggestion|PREDEITY:1,Calistria
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=3|Rage|Inquisitor=4|Suggestion|PREDEITY:1,Calistria
+
+#Cayden Cailean
+CATEGORY=Class|Bard.MOD			SPELLLEVEL:CLASS|Bard=1|Knock (Caydenite)|PREDEITY:1,Cayden Cailean
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=1|Knock (Caydenite)|PREDEITY:1,Cayden Cailean
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=1|Knock (Caydenite)|PREDEITY:1,Cayden Cailean
+
+#Desna
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=5|Dream|PREDEITY:1,Desna
+CATEGORY=Class|Druid.MOD		SPELLLEVEL:CLASS|Druid=5|Dream|PREDEITY:1,Desna
+CATEGORY=Class|Ranger.MOD		SPELLLEVEL:CLASS|Ranger=4|Dream|PREDEITY:1,Desna
+
+#Erastil
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=2|Animal Messenger,Goodberry|PREDEITY:1,Erastil
+CATEGORY=Class|Paladin.MOD		SPELLLEVEL:CLASS|Paladin=2|Animal Messenger,Goodberry|PREDEITY:1,Erastil
+CATEGORY=Class|Ranger.MOD		SPELLLEVEL:CLASS|Ranger=2|Goodberry|PREDEITY:1,Erastil
+
+#Gorum
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=3|Rage,Heat Metal,Lead Blades|Cleric=8|Iron Body|PREDEITY:1,Gorum
+CATEGORY=Class|Druid.MOD		SPELLLEVEL:CLASS|Druid=3|Rage|Druid=8|Iron Body|PREDEITY:1,Gorum
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=3|Lead Blades|PREDEITY:1,Gorum
+
+#Gozreh
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=2|Whispering Wind (Gozren)|PREDEITY:1,Gozreh
+CATEGORY=Class|Druid.MOD		SPELLLEVEL:CLASS|Druid=2|Whispering Wind (Gozren)|Druid=3|Water Walk|PREDEITY:1,Gozreh
+CATEGORY=Class|Ranger.MOD		SPELLLEVEL:CLASS|Ranger=1|Create Water,Purify Food and Drink|Ranger=2|Whispering Wind (Gozren)|PREDEITY:1,Gozreh
+
+#Iomedae
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=4|Good Hope,Mark of Justice|Cleric=8|Holy Sword|PREDEITY:1,Iomedae
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=6|Holy Sword|PREDEITY:1,Iomedae
+CATEGORY=Class|Paladin.MOD		SPELLLEVEL:CLASS|Paladin=3|Good Hope,Mark of Justice|PREDEITY:1,Iomedae
+
+#Irori
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=1|Stone Fist|Cleric=4|Haste|Cleric=6|Legend Lore,Transformation|Cleric=8|Astral Projection,Moment of Prescience|PREDEITY:1,Irori
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=1|Stone Fist|Inquisitor=4|Haste,Legend Lore|Inquisitor=5|Transformation|Inquisitor=6|Astral Projection,Moment of Prescience|PREDEITY:1,Irori
+
+#Lamashtu
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=5|Baleful Polymorph|Cleric=6|Nightmare|PREDEITY:1,Lamashtu
+CATEGORY=Class|Druid.MOD		SPELLLEVEL:CLASS|Druid=5|Baleful Polymorph|PREDEITY:1,Lamashtu
+
+#Nethys
+CATEGORY=Class|Bard.MOD			SPELLLEVEL:CLASS|Bard=2|Arcane Lock|Bard=3|Imbue with Spell Ability|Bard=4|Permanency|PREDEITY:1,Nethys
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=0|Arcane Mark|Cleric=2|Arcane Lock,Fox's Cunning|Cleric=5|Permanency|PREDEITY:1,Nethys
+CATEGORY=Class|Sorcerer.MOD		SPELLLEVEL:CLASS|Sorcerer=4|Imbue with Spell Ability|PREDEITY:1,Nethys
+CATEGORY=Class|Wizard.MOD		SPELLLEVEL:CLASS|Wizard=4|Imbue with Spell Ability|PREDEITY:1,Nethys
+
+#Norgorber
+CATEGORY=Class|Cleric.MOD		ABILITY:Internal|AUTOMATIC|Norgorber Aspect|PREDEITY:1,Norgorber
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Internal|AUTOMATIC|Norgorber Aspect|PREDEITY:1,Norgorber
+Norgorber Aspect				CATEGORY:Internal		BONUS:ABILITYPOOL|Norgorber Aspect Choice|1
+
+Blackfingers			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You worship Norgorber in his Blackfingers aspect.			SPELLLEVEL:CLASS|Cleric=2|Pernicious Poison
+Father Skinsaw			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You worship Norgorber in his Father Skinsaw aspect.			SPELLLEVEL:CLASS|Cleric=6|Circle of Death
+Gray Master				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You worship Norgorber in his Gray Master aspect.				SPELLLEVEL:CLASS|Cleric=3|Clairaudience/Clairvoyance	SPELLLEVEL:CLASS|Antipaladin=2|Clairaudience/Clairvoyance
+Reaper of Reputation		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You worship Norgorber in his Reaper of Reputation aspect.		SPELLLEVEL:CLASS|Cleric=3|Nondetection
+No Norgorber Aspect							CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You have not chosen any specific aspect of Norgorber to worship.
+
+#Pharasma
+CATEGORY=Class|Adept.MOD		SPELLLEVEL:CLASS|Adept=2|Augury,Death Knell|Adept=3|Speak with Dead|PREDEITY:1,Pharasma
+CATEGORY=Class|Bard.MOD			SPELLLEVEL:CLASS|Bard=2|Augury,Death Knell|Bard=3|Speak with Dead|PREDEITY:1,Pharasma
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=2|False Life|Cleric=3|Clairaudience/Clairvoyance|Cleric=8|Moment of Prescience|PREDEITY:1,Pharasma
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=2|Augury,False Life|Inquisitor=3|Clairaudience/Clairvoyance|Inquisitor=6|Moment of Prescience|PREDEITY:1,Pharasma
+CATEGORY=Class|Ranger.MOD		SPELLLEVEL:CLASS|Ranger=2|Augury,Death Knell|Ranger=3|Speak with Dead|PREDEITY:1,Pharasma
+CATEGORY=Class|Sorcerer.MOD		SPELLLEVEL:CLASS|Sorcerer=2|Augury,Death Knell|Sorcerer=3|Speak with Dead|PREDEITY:1,Pharasma
+CATEGORY=Class|Wizard.MOD		SPELLLEVEL:CLASS|Wizard=2|Augury,Death Knell|Wizard=3|Speak with Dead|PREDEITY:1,Pharasma
+
+#Rovagug
+CATEGORY=Class|Adept.MOD		SPELLLEVEL:CLASS|Adept=4|Baleful Polymorph|PREDEITY:1,Rovagug
+CATEGORY=Class|Antipaladin.MOD	SPELLLEVEL:CLASS|Antipaladin=4|Baleful Polymorph|PREDEITY:1,Rovagug
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=4|Baleful Polymorph|PREDEITY:1,Rovagug
+CATEGORY=Class|Druid.MOD		SPELLLEVEL:CLASS|Druid=4|Baleful Polymorph|PREDEITY:1,Rovagug
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=4|Baleful Polymorph|PREDEITY:1,Rovagug
+
+#Sarenrae
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=3|Flame Blade|Cleric=7|Sunbeam|Cleric=8|Sunburst|PREDEITY:1,Sarenrae
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=1|Sun Metal|Inquisitor=3|Flame Blade|Inquisitor=5|Sunbeam|Inquisitor=6|Sunburst|PREDEITY:1,Sarenrae
+CATEGORY=Class|Paladin.MOD		SPELLLEVEL:CLASS|Paladin=2|Flame Blade|Paladin=4|Sunbeam|PREDEITY:1,Sarenrae
+CATEGORY=Class|Ranger.MOD		SPELLLEVEL:CLASS|Ranger=2|Flame Blade|Ranger=3|Daylight|Ranger=4|Sunbeam|PREDEITY:1,Sarenrae
+
+#Shelyn
+CATEGORY=Class|Adept.MOD		SPELLLEVEL:CLASS|Adept=2|Charm Animal|PREDEITY:1,Shelyn
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=1|Charm Person|Cleric=2|Charm Animal|Cleric=4|Good Hope|Cleric=8|Sympathy (Shelynite)|PREDEITY:1,Shelyn
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=1|Charm Person|Inquisitor=2|Charm Animal|Inquisitor=4|Good Hope|PREDEITY:1,Shelyn
+CATEGORY=Class|Paladin.MOD		SPELLLEVEL:CLASS|Paladin=1|Charm Person|Paladin=2|Charm Animal|Paladin=4|Good Hope|PREDEITY:1,Shelyn
+
+#Torag
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=5|Fabricate,Major Creation|PREDEITY:1,Torag
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=0|Mending|Inquisitor=3|Fabricate,Major Creation|PREDEITY:1,Torag
+CATEGORY=Class|Paladin.MOD		SPELLLEVEL:CLASS|Paladin=1|Mending|Paladin=3|Fabricate,Major Creation|PREDEITY:1,Torag
+
+#Urgathoa
+CATEGORY=Class|Antipaladin.MOD	SPELLLEVEL:CLASS|Antipaladin=1|Purify Food and Drink|Antipaladin=2|Ghoul Touch|PREDEITY:1,Urgathoa
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=2|Ghoul Touch|PREDEITY:1,Urgathoa
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=0|Purify Food and Drink|Inquisitor=2|Ghoul Touch|PREDEITY:1,Urgathoa
+CATEGORY=Class|Sorcerer.MOD		SPELLLEVEL:CLASS|Sorcerer=3|Contagion,Remove Disease|PREDEITY:1,Urgathoa
+CATEGORY=Class|Wizard.MOD		SPELLLEVEL:CLASS|Wizard=3|Contagion,Remove Disease|PREMULT:2,[PRESUBCLASS:1,Necromancer],[PREDEITY:1,Urgathoa]
+
+#Zon-Kuthon
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=4|Symbol of Pain|PREDEITY:1,Zon-Kuthon
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=4|Symbol of Pain|PREDEITY:1,Zon-Kuthon
 
 #####TEMPLATE#####
 

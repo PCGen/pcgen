@@ -94,7 +94,7 @@ public class MasterModifierFactory
 		 * getDependencies needs to be called during LST load, so that object references are captured
 		 */
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			null, formatManager.getManagedClass());
+			null, formatManager);
 		fdm = fdm.getWith(DependencyManager.VARSTRATEGY, new IgnoreVariables());
 		fdm = fdm.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
 		modifier.getDependencies(fdm);

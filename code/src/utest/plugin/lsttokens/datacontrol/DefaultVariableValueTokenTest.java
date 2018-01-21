@@ -18,10 +18,10 @@
 package plugin.lsttokens.datacontrol;
 
 import java.net.URISyntaxException;
+import java.util.Objects;
 
 import org.junit.Test;
 
-import pcgen.base.lang.ObjectUtil;
 import pcgen.cdom.content.DefaultVarValue;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -149,12 +149,7 @@ public class DefaultVariableValueTokenTest extends
 	@Override
 	public void isCDOMEqual(DefaultVarValue cdo1, DefaultVarValue cdo2)
 	{
-		boolean same =
-				ObjectUtil
-					.compareWithNull(cdo1.getKeyName(), cdo2.getKeyName())
-					&& ObjectUtil.compareWithNull(cdo1.getKeyName(),
-						cdo2.getKeyName());
-		if (!same)
+		if (!Objects.equals(cdo1.getKeyName(), cdo2.getKeyName()))
 		{
 			fail("Mismatched");
 		}

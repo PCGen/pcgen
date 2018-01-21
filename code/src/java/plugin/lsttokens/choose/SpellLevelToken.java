@@ -264,7 +264,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public SpellLevel decodeChoice(LoadContext context, String s)
 	{
-		return SpellLevel.decodeChoice(s);
+		return SpellLevel.decodeChoice(context, s);
 	}
 
 	@Override

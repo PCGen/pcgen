@@ -1305,7 +1305,7 @@ public final class Globals
 	}
 
 	private static final LoadContext globalContext = new RuntimeLoadContext(
-			new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+			RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
 
 	public static LoadContext getGlobalContext()
 	{

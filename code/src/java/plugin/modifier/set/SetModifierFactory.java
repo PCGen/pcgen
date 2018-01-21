@@ -186,9 +186,9 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		protected abstract T[] getArray();
 
 		@Override
-		public Class<T[]> getVariableFormat()
+		public FormatManager<T[]> getVariableFormat()
 		{
-			return fmtManager.getManagedClass();
+			return fmtManager;
 		}
 
 		@Override

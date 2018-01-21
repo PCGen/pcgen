@@ -422,7 +422,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public CNAbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(context, s);
 	}
 
 	@Override

@@ -368,7 +368,7 @@ public final class FormulaFactory
 	{
 		NEPFormula<T> formula = getNEPFormulaFor(formatManager, expression);
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
-			formulaManager, varScope, formatManager.getManagedClass());
+			formulaManager, varScope, formatManager);
 		formula.isValid(formatManager, semantics);
 		if (!semantics.isValid())
 		{

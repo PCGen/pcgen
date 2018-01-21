@@ -84,7 +84,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		URI testURI = testCampaign.getURI();
 		primaryContext = getPrimaryContext();
 		secondaryContext =
-				new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 					new ConsolidatedListCommitStrategy());
 		primaryContext.setSourceURI(testURI);
 		primaryContext.setExtractURI(testURI);
@@ -100,7 +100,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 
 	protected LoadContext getPrimaryContext()
 	{
-		return new RuntimeLoadContext(new RuntimeReferenceContext(),
+		return new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
 	}
 

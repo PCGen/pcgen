@@ -2592,7 +2592,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
 	private LoadContext context = new RuntimeLoadContext(getRefContext(), masterLCS);
-	private GameReferenceContext gameRefContext = new GameReferenceContext();
+	private GameReferenceContext gameRefContext = GameReferenceContext.createGameReferenceContext();
 	private LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
 	private String defaultSourceTitle;
 
@@ -2625,8 +2625,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private AbstractReferenceContext getRefContext()
 	{
 		return SettingsHandler.inputUnconstructedMessages() ?
-				new TrackingReferenceContext() :
-				new RuntimeReferenceContext();
+				TrackingReferenceContext.createTrackingReferenceContext() :
+				RuntimeReferenceContext.createRuntimeReferenceContext();
 	}
 
 

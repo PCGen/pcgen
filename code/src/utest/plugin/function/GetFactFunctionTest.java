@@ -104,7 +104,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics
 			(getFormulaManager(), getGlobalScope(), null);
-		LoadContext context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		LoadContext context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		Object result = semanticsVisitor.visit(node,
 			semantics.getWith(ManagerKey.CONTEXT, context));
@@ -124,7 +124,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		fd.setUsableLocation(Equipment.class);
 		fd.setFormatManager(STRING_MANAGER);
 		fd.setVisibility(Visibility.HIDDEN);
-		LoadContext context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		LoadContext context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 
 		context.getReferenceContext().importObject(fd);
@@ -167,7 +167,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		fd.setUsableLocation(Equipment.class);
 		fd.setFormatManager(STRING_MANAGER);
 		fd.setVisibility(Visibility.HIDDEN);
-		LoadContext context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		LoadContext context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		context.getReferenceContext().importObject(fd);
 

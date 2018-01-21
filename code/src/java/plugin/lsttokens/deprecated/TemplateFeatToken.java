@@ -193,7 +193,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	@Override
 	public CNAbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(context, s);
 	}
 
 	@Override

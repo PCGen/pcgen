@@ -18,7 +18,9 @@
 package plugin.function;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -35,11 +37,8 @@ import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
-import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectDatabase;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.format.table.ColumnFormatFactory;
 import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
@@ -112,10 +111,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidWrongFormat1()
 	{
 		Finder finder = new Finder();
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
-		finder.map.put(TableColumn.class, "Result",
-			buildColumn("Result", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
+		finder.map.put("Result", buildColumn("Result", stringManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
@@ -136,17 +133,16 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidWrongFormat2()
 	{
 		Finder finder = new Finder();
+		TableFinder tablefinder = new TableFinder();
 		DataTable dt = doTableSetup();
-		finder.map.put(DataTable.class, "A", dt);
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
-		finder.map.put(TableColumn.class, "Result",
-			buildColumn("Result", stringManager));
+		tablefinder.map.put("A", dt);
+		finder.map.put("Value", buildColumn("Value", numberManager));
+		finder.map.put("Result", buildColumn("Result", stringManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 
-		TableFormatFactory fac = new TableFormatFactory(finder);
+		TableFormatFactory fac = new TableFormatFactory(tablefinder);
 		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
@@ -169,14 +165,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidWrongFormat3()
 	{
-		Finder finder = new Finder();
+		TableFinder tablefinder = new TableFinder();
 		DataTable dt = doTableSetup();
-		finder.map.put(DataTable.class, "A", dt);
+		tablefinder.map.put("A", dt);
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 
-		TableFormatFactory fac = new TableFormatFactory(finder);
+		TableFormatFactory fac = new TableFormatFactory(tablefinder);
 		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
@@ -192,10 +188,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidBadSemantics1()
 	{
 		Finder finder = new Finder();
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
-		finder.map.put(TableColumn.class, "Result",
-			buildColumn("Result", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
+		finder.map.put("Result", buildColumn("Result", stringManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
@@ -217,17 +211,16 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidBadSemantics2()
 	{
 		Finder finder = new Finder();
+		TableFinder tablefinder = new TableFinder();
 		DataTable dt = doTableSetup();
-		finder.map.put(DataTable.class, "A", dt);
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
-		finder.map.put(TableColumn.class, "Result",
-			buildColumn("Result", stringManager));
+		tablefinder.map.put("A", dt);
+		finder.map.put("Value", buildColumn("Value", numberManager));
+		finder.map.put("Result", buildColumn("Result", stringManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 
-		TableFormatFactory fac = new TableFormatFactory(finder);
+		TableFormatFactory fac = new TableFormatFactory(tablefinder);
 		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
@@ -251,17 +244,16 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidBadSemantics3()
 	{
 		Finder finder = new Finder();
+		TableFinder tablefinder = new TableFinder();
 		DataTable dt = doTableSetup();
-		finder.map.put(DataTable.class, "A", dt);
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
-		finder.map.put(TableColumn.class, "Result",
-			buildColumn("Value", stringManager));
+		tablefinder.map.put("A", dt);
+		finder.map.put("Value", buildColumn("Value", numberManager));
+		finder.map.put("Result", buildColumn("Value", stringManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 
-		TableFormatFactory fac = new TableFormatFactory(finder);
+		TableFormatFactory fac = new TableFormatFactory(tablefinder);
 		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
@@ -277,19 +269,17 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	public void testBadResultColumnFormat()
 	{
 		Finder finder = new Finder();
+		TableFinder tablefinder = new TableFinder();
 		DataTable dt = doTableSetup();
-		finder.map.put(DataTable.class, "A", dt);
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
-		finder.map.put(TableColumn.class, "Result",
-			buildColumn("Result", stringManager));
+		tablefinder.map.put("A", dt);
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
+		finder.map.put("Result", buildColumn("Result", stringManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 
-		TableFormatFactory fac = new TableFormatFactory(finder);
+		TableFormatFactory fac = new TableFormatFactory(tablefinder);
 		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
@@ -321,17 +311,16 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	public void testBasic()
 	{
 		Finder finder = new Finder();
+		TableFinder tablefinder = new TableFinder();
 		DataTable dt = doTableSetup();
-		finder.map.put(DataTable.class, "A", dt);
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
+		tablefinder.map.put("A", dt);
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 
-		TableFormatFactory fac = new TableFormatFactory(finder);
+		TableFormatFactory fac = new TableFormatFactory(tablefinder);
 		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
@@ -363,10 +352,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		Finder finder = new Finder();
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
@@ -398,10 +385,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		Finder finder = new Finder();
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
@@ -433,10 +418,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		Finder finder = new Finder();
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
@@ -468,10 +451,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		Finder finder = new Finder();
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
@@ -514,10 +495,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 			context.getReferenceContext().importObject(dt.getColumn(i));
 		}
 
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
 		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
@@ -549,10 +528,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		Finder finder = new Finder();
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
@@ -582,19 +559,17 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	public void testNoColumn()
 	{
 		Finder finder = new Finder();
+		TableFinder tablefinder = new TableFinder();
 		DataTable dt = doTableSetup();
-		finder.map.put(DataTable.class, "A", dt);
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
-		finder.map.put(TableColumn.class, "Result",
-			buildColumn("Result", stringManager));
+		tablefinder.map.put("A", dt);
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
+		finder.map.put("Result", buildColumn("Result", stringManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 
-		TableFormatFactory fac = new TableFormatFactory(finder);
+		TableFormatFactory fac = new TableFormatFactory(tablefinder);
 		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
@@ -627,19 +602,17 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	public void testNoLookup()
 	{
 		Finder finder = new Finder();
+		TableFinder tablefinder = new TableFinder();
 		DataTable dt = doTableSetup();
-		finder.map.put(DataTable.class, "A", dt);
-		finder.map.put(TableColumn.class, "Name",
-			buildColumn("Name", stringManager));
-		finder.map.put(TableColumn.class, "Value",
-			buildColumn("Value", numberManager));
-		finder.map.put(TableColumn.class, "Result",
-			buildColumn("Result", stringManager));
+		tablefinder.map.put("A", dt);
+		finder.map.put("Name", buildColumn("Name", stringManager));
+		finder.map.put("Value", buildColumn("Value", numberManager));
+		finder.map.put("Result", buildColumn("Result", stringManager));
 
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 
-		TableFormatFactory fac = new TableFormatFactory(finder);
+		TableFormatFactory fac = new TableFormatFactory(tablefinder);
 		FormatManager<?> tableMgr = fac.build("STRING,NUMBER", formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
@@ -668,7 +641,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		}
 	}
 
-	private Object buildColumn(String string, FormatManager<?> manager)
+	private TableColumn buildColumn(String string, FormatManager<?> manager)
 	{
 		TableColumn tc = new TableColumn();
 		tc.setName(string);
@@ -676,20 +649,97 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		return tc;
 	}
 
-	private static class Finder implements ObjectDatabase
+	private static class Finder implements FormatManager<TableColumn>
 	{
-		DoubleKeyMap<Class<?>, String, Object> map = new DoubleKeyMap<>();
+		Map<String, TableColumn> map = new HashMap<>();
 
 		@Override
-		public <T extends Loadable> T get(Class<T> cl, String name)
+		public TableColumn convert(String inputStr)
 		{
-			return (T) map.get(cl, name);
+			return map.get(inputStr);
 		}
 
 		@Override
-		public <T extends Loadable> Indirect<T> getIndirect(Class<T> cl, String name)
+		public Indirect<TableColumn> convertIndirect(String inputStr)
 		{
 			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public boolean isDirect()
+		{
+			return true;
+		}
+
+		@Override
+		public String unconvert(TableColumn obj)
+		{
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public Class<TableColumn> getManagedClass()
+		{
+			return TableColumn.class;
+		}
+
+		@Override
+		public String getIdentifierType()
+		{
+			return "COLUMN";
+		}
+
+		@Override
+		public FormatManager<?> getComponentManager()
+		{
+			return null;
+		}
+	}
+
+	private static class TableFinder implements FormatManager<DataTable>
+	{
+		Map<String, DataTable> map = new HashMap<>();
+
+		@Override
+		public DataTable convert(String inputStr)
+		{
+			return map.get(inputStr);
+		}
+
+		@Override
+		public Indirect<DataTable> convertIndirect(String inputStr)
+		{
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public boolean isDirect()
+		{
+			return true;
+		}
+
+		@Override
+		public String unconvert(DataTable obj)
+		{
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public Class<DataTable> getManagedClass()
+		{
+			return DataTable.class;
+		}
+
+		@Override
+		public String getIdentifierType()
+		{
+			return "TABLE";
+		}
+
+		@Override
+		public FormatManager<?> getComponentManager()
+		{
+			return null;
 		}
 	}
 

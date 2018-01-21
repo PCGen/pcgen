@@ -79,8 +79,8 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
-		primaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
 		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
 				"TestObj");
 		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
