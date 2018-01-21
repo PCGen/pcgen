@@ -32,7 +32,7 @@ package pcgen.base.util;
  * @param <T>
  *            The type of object for which this FormatManager provides services
  */
-public interface FormatManager<T>
+public interface FormatManager<T> extends Converter<T>
 {
 
 	/**
@@ -54,6 +54,7 @@ public interface FormatManager<T>
 	 * @return An object of the type for which this FormatManager provides
 	 *         services
 	 */
+	@Override
 	public T convert(String inputStr);
 
 	/**

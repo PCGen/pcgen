@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2015-7 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -22,9 +22,17 @@ import static pcgen.base.util.ArrayUtilities.buildOfClass;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.base.util.ArrayUtilities;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.Converter;
+import pcgen.base.util.Tuple;
+import pcgen.base.util.TupleUtil;
 
 /**
  * An ArrayFormatManager wraps an underlying FormatManager to produce arrays of
@@ -38,10 +46,16 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 {
 
 	/**
-	 * The separator character used to parse instructions and separate items
+	 * The list separator character used to parse instructions and separate list items
 	 * that will be part of the array.
 	 */
-	private final char separator;
+	private final char listSeparator;
+
+	/**
+	 * The group separator character used to parse instructions and separate groups of
+	 * lists that will be part of the array.
+	 */
+	private final char groupSeparator;
 
 	/**
 	 * The FormatManager representing objects contained within the array.
@@ -58,20 +72,24 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * FormatManager and separator.
 	 * 
 	 * @param underlying
-	 *            The FormatManager representing objects contained within the
-	 *            array
-	 * @param separator
-	 *            The separator character used to parse instructions and
-	 *            separate items that will be part of the array
+	 *            The FormatManager representing objects contained within the array
+	 * @param groupSeparator
+	 *            The group separator character used to parse instructions and separate
+	 *            groups of lists that will be part of the array
+	 * @param listSeparator
+	 *            The separator character used to parse lists in the instructions and
+	 *            separate list items that will be part of the array
 	 */
-	public ArrayFormatManager(FormatManager<T> underlying, char separator)
+	public ArrayFormatManager(FormatManager<T> underlying, char groupSeparator,
+		char listSeparator)
 	{
-		@SuppressWarnings("unchecked")
-		Class<T[]> fClass = (Class<T[]>) Array
-			.newInstance(underlying.getManagedClass(), 0).getClass();
-		this.separator = separator;
-		formatClass = fClass;
 		componentManager = underlying;
+		@SuppressWarnings("unchecked")
+		Class<T[]> arrayClass = (Class<T[]>) Array
+			.newInstance(underlying.getManagedClass(), 0).getClass();
+		this.formatClass = arrayClass;
+		this.groupSeparator = groupSeparator;
+		this.listSeparator = listSeparator;
 	}
 
 	/**
@@ -79,39 +97,32 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * to in the instructions should be separated by the separator provided at
 	 * construction of this ArrayFormatManager.
 	 */
+	@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 	@Override
 	public T[] convert(String instructions)
 	{
-		Class<T> componentClass = componentManager.getManagedClass();
 		if ((instructions == null) || instructions.isEmpty())
 		{
+			return ArrayUtilities.buildEmpty(componentManager.getManagedClass());
+		}
+		Class<T> managedClass = componentManager.getManagedClass();
+		if (componentManager instanceof DispatchingFormatManager)
+		{
 			@SuppressWarnings("unchecked")
-			T[] toSet = (T[]) Array.newInstance(componentClass, 0);
-			return toSet;
+			DispatchingFormatManager<T> dfm =
+					(DispatchingFormatManager<T>) componentManager;
+			String[] groups = splitInstructions(instructions, groupSeparator);
+			T[] returnValue = null;
+			for (String group : groups)
+			{
+				T[] converted = dfm.convertViaDispatch(
+					fm -> new ArrayFormatManager<>(fm, groupSeparator, listSeparator), group);
+				returnValue =
+						ArrayUtilities.mergeArray(managedClass, returnValue, converted);
+			}
+			return returnValue;
 		}
-		if (!hasValidSeparators(instructions))
-		{
-			throw new IllegalArgumentException(
-				"Poorly formatted instructions (bad separator location): "
-					+ instructions);
-		}
-		String[] items = instructions.split(Character.toString(separator));
-		@SuppressWarnings("unchecked")
-		T[] toSet = (T[]) Array.newInstance(componentClass, items.length);
-		for (int i = 0; i < items.length; i++)
-		{
-			T obj = componentManager.convert(items[i]);
-			toSet[i] = obj;
-		}
-		return toSet;
-	}
-
-	private boolean hasValidSeparators(String value)
-	{
-		//assume not empty due to checks on instructions
-		return (value.charAt(0) != separator)
-			&& (value.charAt(value.length() - 1) != separator)
-			&& (!value.contains(String.valueOf(new char[]{separator, separator})));
+		return convertInternal(componentManager::convert, instructions, managedClass);
 	}
 
 	/**
@@ -119,44 +130,66 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * referred to in the instructions should be separated by the separator
 	 * provided at construction of this ArrayFormatManager.
 	 */
+	@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 	@Override
 	public Indirect<T[]> convertIndirect(String instructions)
 	{
-		/*
-		 * Common code with convertObjectContainer may be a surprise, but
-		 * consider that the instructions may not just be a,b,c. They could be
-		 * things like: a,GROUP=b. The GROUP= will return more than one object,
-		 * so on everything here, we want to check ObjectContainer to get the
-		 * full set of items.
-		 */
-		return convertInstructions(instructions);
-	}
-
-	private ArrayIndirect convertInstructions(String instructions)
-	{
 		if ((instructions == null) || instructions.isEmpty())
 		{
-			@SuppressWarnings("unchecked")
-			Indirect<T>[] toSet =
-					(Indirect<T>[]) Array.newInstance(Indirect.class, 0);
-			return new ArrayIndirect(toSet);
+			return new ArrayIndirect(ArrayUtilities.buildEmpty(getIndirectClass()));
 		}
-		if (!hasValidSeparators(instructions))
+		Class<Indirect<T>> managedClass = getIndirectClass();
+		Indirect<T>[] array = null;
+		if (componentManager instanceof DispatchingFormatManager)
+		{
+			@SuppressWarnings("unchecked")
+			DispatchingFormatManager<T> dfm =
+					(DispatchingFormatManager<T>) componentManager;
+			String[] groups = splitInstructions(instructions, groupSeparator);
+			for (String group : groups)
+			{
+				Indirect<T>[] converted =
+						dfm.convertViaDispatch(fm -> new Derived(fm), group);
+				array = ArrayUtilities.mergeArray(managedClass, array, converted);
+			}
+		}
+		else
+		{
+			array = convertInternal(componentManager::convertIndirect, instructions,
+				managedClass);
+		}
+		return buildIndirect(array);
+	}
+
+	private <R> R[] convertInternal(Function<? super String, R> mapper,
+		String instructions, Class<R> managedClass)
+	{
+		return Arrays.stream(splitInstructions(instructions, listSeparator))
+					 .map(mapper)
+					 .toArray(buildOfClass(managedClass));
+	}
+
+	/**
+	 * Builds an ArrayIndirect from the given array of Indirect objects.
+	 * 
+	 * @param array
+	 *            the Array of Indirect objects to be converted to an ArrayIndirect
+	 * @return an ArrayIndirect with the contents of the given array.
+	 */
+	protected ArrayIndirect buildIndirect(Indirect<T>[] array)
+	{
+		return new ArrayIndirect(array);
+	}
+
+	private String[] splitInstructions(String instructions, char separator)
+	{
+		if (!StringUtil.hasValidSeparators(instructions, separator))
 		{
 			throw new IllegalArgumentException(
 				"Poorly formatted instructions (bad separator location): "
 					+ instructions);
 		}
-		String[] items = instructions.split(Character.toString(separator));
-		@SuppressWarnings("unchecked")
-		Indirect<T>[] toSet =
-				(Indirect<T>[]) Array.newInstance(Indirect.class, items.length);
-		for (int i = 0; i < items.length; i++)
-		{
-			Indirect<T> indirect = componentManager.convertIndirect(items[i]);
-			toSet[i] = indirect;
-		}
-		return new ArrayIndirect(toSet);
+		return StringUtil.split(instructions, separator);
 	}
 
 	/**
@@ -194,15 +227,26 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	@Override
 	public String unconvert(T[] array)
 	{
+		if (componentManager instanceof DispatchingFormatManager)
+		{
+			@SuppressWarnings("unchecked")
+			DispatchingFormatManager<T> dfm =
+					(DispatchingFormatManager<T>) componentManager;
+			Stream<Tuple<String, String>> unconverted =
+					Arrays.stream(array).map(dfm::unconvertSeparated);
+			List<String> results =
+					TupleUtil.arrayLeftAndCombine(unconverted, listSeparator);
+			return StringUtil.join(results, groupSeparator);
+		}
 		return Arrays.stream(array)
-					 .map(componentManager::unconvert)
-					 .collect(joining(separator));
+				 .map(componentManager::unconvert)
+				 .collect(joining(listSeparator));
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return componentManager.hashCode() * separator;
+		return componentManager.hashCode() * listSeparator * groupSeparator;
 	}
 
 	@Override
@@ -211,20 +255,34 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		if (o instanceof ArrayFormatManager)
 		{
 			ArrayFormatManager<?> other = (ArrayFormatManager<?>) o;
+			//skip formatClass because it is derived
 			return componentManager.equals(other.componentManager)
-				&& (separator == other.separator);
+				&& (groupSeparator == other.groupSeparator)
+				&& (listSeparator == other.listSeparator);
 		}
 		return false;
 	}
 
+	@Override
+	public boolean isDirect()
+	{
+		return componentManager.isDirect();
+	}
+
 	/**
-	 * ArrayIndirect is a facade that can convert an ObjectContainer<T>[] into
-	 * an ObjectContainer<T[]>.
+	 * Returns a properly-cast version of the Indirect class object.
 	 * 
-	 * This is necessary since the underlying componentManager will return
-	 * ObjectContainer<T> objects (which is more than one ObjectContainer, and
-	 * can be put into an array), but the interface for FormatManager is
-	 * ObjectContainer<T[]> (a single ObjectContainer resolving to an array).
+	 * @return A properly-cast version of the Indirect class object.
+	 */
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	private Class<Indirect<T>> getIndirectClass()
+	{
+		return (Class) Indirect.class;
+	}
+
+	/**
+	 * ArrayIndirect is a wrapper that converts an array of Indirect objects into an
+	 * Indirect of an array.
 	 */
 	private final class ArrayIndirect implements Indirect<T[]>
 	{
@@ -263,16 +321,49 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		@Override
 		public String getUnconverted()
 		{
+			if (componentManager instanceof DispatchingFormatManager)
+			{
+				Stream<Tuple<String, String>> unconverted = 
+						Arrays.stream(array)
+							  .map(this::makeDispatched)
+							  .map(Dispatched::unconvertSeparated);
+				List<String> results =
+						TupleUtil.arrayLeftAndCombine(unconverted, listSeparator);
+				return StringUtil.join(results, groupSeparator);
+			}
 			return Arrays.stream(array)
 						 .map(Indirect::getUnconverted)
-						 .collect(joining(separator));
+						 .collect(joining(listSeparator));
 		}
 
+		private Dispatched makeDispatched(Indirect<T> x)
+		{
+			return (Dispatched) x;
+		}
 	}
 
-	@Override
-	public boolean isDirect()
+	/**
+	 * DerivedArrayFormatManager is an ArrayFormatManager that builds an Indirect using
+	 * the original "parent" ArrayFormatManager, so that the Derived ArrayFormatManager
+	 * (and specifically it's componentManager) is not shared.
+	 */
+	private final class Derived implements Converter<Indirect<T>[]>
 	{
-		return componentManager.isDirect();
+		/**
+		 * The FormatManager representing objects contained within the array.
+		 */
+		private final FormatManager<T> derivedComponentMgr;
+
+		private Derived(FormatManager<T> fm)
+		{
+			derivedComponentMgr = fm;
+		}
+
+		@Override
+		public Indirect<T>[] convert(String inputStr)
+		{
+			return ArrayFormatManager.this.convertInternal(
+				derivedComponentMgr::convertIndirect, inputStr, getIndirectClass());
+		}
 	}
 }

@@ -95,7 +95,7 @@ public interface DirectionalEdge<N> extends Edge<N>
 	public List<N> getSinkNodes();
 	
 	/**
-	 * Returns an identifier indicating the association between this
+	 * Returns an identifier indicating the type of interface between this
 	 * DirectionalEdge and the given Node. Returns 0 (zero) if this
 	 * DirectionalEdge is not attached to the given Node. If attached, the
 	 * return value is a Bitmask of DirectionalEdge.SOURCE and

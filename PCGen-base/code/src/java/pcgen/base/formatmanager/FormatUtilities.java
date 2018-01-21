@@ -79,12 +79,12 @@ public final class FormatUtilities
 	}
 
 	/**
-	 * Initializes the given SimpleFormatManagerLibrary with the known
-	 * FormatManager / FormatManagerFactory objects in the base library.
+	 * Initializes the given SimpleFormatManagerLibrary with the known FormatManager
+	 * objects in the base library.
 	 * 
 	 * @param library
-	 *            The SimpleFormatManagerLibrary to be loaded with the known
-	 *            FormatManager / FormatManagerFactory objects
+	 *            The SimpleFormatManagerLibrary to be loaded with the known FormatManager
+	 *            objects
 	 */
 	public static void loadDefaultFormats(SimpleFormatManagerLibrary library)
 	{
@@ -92,7 +92,20 @@ public final class FormatUtilities
 		library.addFormatManager(STRING_MANAGER);
 		library.addFormatManager(BOOLEAN_MANAGER);
 		library.addFormatManager(ORDEREDPAIR_MANAGER);
-		library.addFormatManagerBuilder(new ArrayFormatFactory());
+	}
+
+	/**
+	 * Initializes the given SimpleFormatManagerLibrary with default FormatManagerFactory
+	 * objects in the base library.
+	 * 
+	 * @param library
+	 *            The SimpleFormatManagerLibrary to be loaded with default
+	 *            FormatManagerFactory objects
+	 */
+	public static void loadDefaultFactories(SimpleFormatManagerLibrary library)
+	{
+		library.addFormatManagerBuilder(new CompoundFormatFactory(','));
+		library.addFormatManagerBuilder(new ArrayFormatFactory('\n', ','));
 	}
 
 	/**

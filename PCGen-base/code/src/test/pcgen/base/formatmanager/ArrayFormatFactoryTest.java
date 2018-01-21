@@ -42,7 +42,8 @@ public class ArrayFormatFactoryTest extends TestCase
 		super.setUp();
 		library = new SimpleFormatManagerLibrary();
 		FormatUtilities.loadDefaultFormats(library);
-		factory = new ArrayFormatFactory();
+		factory = new ArrayFormatFactory('\n', ',');
+		library.addFormatManagerBuilder(factory);
 	}
 
 	public void testFailBadSubFormat()

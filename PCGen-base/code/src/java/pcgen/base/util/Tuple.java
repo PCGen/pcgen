@@ -68,6 +68,4 @@ public class Tuple<F, S>
 	{
 		return second;
 	}
-	
-	
 }
