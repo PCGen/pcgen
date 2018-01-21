@@ -542,7 +542,7 @@ Blackfingers			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.
 Father Skinsaw			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You worship Norgorber in his Father Skinsaw aspect.			SPELLLEVEL:CLASS|Cleric=6|Circle of Death
 Gray Master				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You worship Norgorber in his Gray Master aspect.				SPELLLEVEL:CLASS|Cleric=3|Clairaudience/Clairvoyance	SPELLLEVEL:CLASS|Antipaladin=2|Clairaudience/Clairvoyance
 Reaper of Reputation		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You worship Norgorber in his Reaper of Reputation aspect.		SPELLLEVEL:CLASS|Cleric=3|Nondetection
-No Aspect							CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You have not chosen any specific aspect of Norgorber to worship.
+No Norgorber Aspect							CATEGORY:Special Ability	TYPE:NorgorberAspectChoice.SpecialQuality			DESCISPI:YES	DESC:You have not chosen any specific aspect of Norgorber to worship.
 
 #Pharasma
 CATEGORY=Class|Adept.MOD		SPELLLEVEL:CLASS|Adept=2|Augury,Death Knell|Adept=3|Speak with Dead|PREDEITY:1,Pharasma
