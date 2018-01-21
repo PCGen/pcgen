@@ -88,7 +88,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		 */
 		private T[] toSet;
 
-		public SetDirectArrayModifier(FormatManager<T[]> formatManager,
+		private SetDirectArrayModifier(FormatManager<T[]> formatManager,
 			T[] toSet)
 		{
 			super(formatManager);
@@ -135,7 +135,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toSet;
 
-		public SetIndirectArrayModifier(FormatManager<T[]> formatManager,
+		private SetIndirectArrayModifier(FormatManager<T[]> formatManager,
 			Indirect<T[]> toSet)
 		{
 			super(formatManager);
@@ -174,7 +174,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	/**
 	 * The Modifier that implements SET for Set objects
 	 */
-	public abstract class SetArrayModifier implements FormulaModifier<T[]>
+	private abstract class SetArrayModifier implements FormulaModifier<T[]>
 	{
 
 		/**
@@ -184,7 +184,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 
 		private final FormatManager<T[]> fmtManager;
 
-		public SetArrayModifier(FormatManager<T[]> formatManager)
+		SetArrayModifier(FormatManager<T[]> formatManager)
 		{
 			this.fmtManager = formatManager;
 		}

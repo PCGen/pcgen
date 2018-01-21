@@ -69,8 +69,8 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 					FormulaFactory.getValidFormula(instructions, managerFactory,
 						formulaManager, varScope, formatManager);
 			NEPCalculation<Number> calc =
-					new FormulaCalculation<Number>(f, this);
-			return new FormulaCalc<Number>(calc, formatManager);
+					new FormulaCalculation<>(f, this);
+			return new FormulaCalc<>(calc, formatManager);
 		}
 	}
 

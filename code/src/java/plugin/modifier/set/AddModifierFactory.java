@@ -91,7 +91,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private T[] toAdd;
 
-		public AddDirectArrayModifier(FormatManager<T[]> formatManager,
+		private AddDirectArrayModifier(FormatManager<T[]> formatManager,
 			T[] toAdd)
 		{
 			super(formatManager);
@@ -138,7 +138,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toAdd;
 
-		public AddIndirectArrayModifier(FormatManager<T[]> formatManager,
+		private AddIndirectArrayModifier(FormatManager<T[]> formatManager,
 			Indirect<T[]> toAdd)
 		{
 			super(formatManager);
@@ -176,7 +176,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	/**
 	 * The Modifier that implements ADD for Set objects
 	 */
-	public abstract class AddArrayModifier implements FormulaModifier<T[]>
+	private abstract class AddArrayModifier implements FormulaModifier<T[]>
 	{
 
 		/**
@@ -186,7 +186,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 
 		private final FormatManager<T[]> fmtManager;
 
-		public AddArrayModifier(FormatManager<T[]> formatManager)
+		AddArrayModifier(FormatManager<T[]> formatManager)
 		{
 			this.fmtManager = formatManager;
 		}
