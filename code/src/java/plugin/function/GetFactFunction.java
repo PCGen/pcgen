@@ -19,7 +19,6 @@ package plugin.function;
 
 import java.util.Arrays;
 
-import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -76,7 +75,7 @@ public class GetFactFunction implements Function
 		else
 		{
 			semantics.setInvalid("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 2-3 got "
+				+ " received incorrect # of arguments, expected: 3 got "
 				+ args.length + " " + Arrays.asList(args));
 			return null;
 		}
@@ -227,19 +226,15 @@ public class GetFactFunction implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager fdm, Node[] args)
 	{
-		int argCount = args.length;
-		if (argCount == 2)
-		{
-			args[0].jjtAccept(visitor,
-				fdm.getWith(DependencyManager.ASSERTED, null));
-		}
-		else if (argCount == 3)
-		{
-			args[1].jjtAccept(visitor,
-				fdm.getWith(DependencyManager.ASSERTED, FormatUtilities.STRING_MANAGER));
-		}
+		String legalScopeName = ((ASTQuotString) args[0]).getText();
+		String factName = ((ASTQuotString) args[2]).getText();
+		AbstractReferenceContext refContext =
+				fdm.get(ManagerKey.CONTEXT).getReferenceContext();
+		FactDefinition<?, ?> factDef = refContext.silentlyGetConstructedCDOMObject(
+			FactDefinition.class, legalScopeName + "." + factName);
+		return factDef.getFormatManager();
 	}
 }

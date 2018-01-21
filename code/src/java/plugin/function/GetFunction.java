@@ -100,7 +100,7 @@ public class GetFunction implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor, DependencyManager manager,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager,
 		Node[] args)
 	{
 		@SuppressWarnings("PMD.PrematureDeclaration")
@@ -112,6 +112,7 @@ public class GetFunction implements Function
 		FormatManager<?> formatManager = refContext.getFormatManager(format);
 		Indirect<?> reference = formatManager.convertIndirect(stringRepresentation);
 		manager.get(ManagerKey.REFERENCES).put(reference);
+		return formatManager;
 	}
 
 }
