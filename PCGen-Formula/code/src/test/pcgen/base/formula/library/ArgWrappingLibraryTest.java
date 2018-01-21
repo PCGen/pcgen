@@ -137,9 +137,10 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 			}
 
 			@Override
-			public void getDependencies(DependencyVisitor visitor,
+			public FormatManager<?> getDependencies(DependencyVisitor visitor,
 				DependencyManager manager, Node[] args)
 			{
+				return null;
 			}
 		};
 	}

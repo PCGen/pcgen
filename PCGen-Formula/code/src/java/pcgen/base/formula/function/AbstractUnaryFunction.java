@@ -125,10 +125,10 @@ public abstract class AbstractUnaryFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		args[0].jjtAccept(visitor, manager);
+		return (FormatManager<?>) args[0].jjtAccept(visitor, manager);
 	}
 
 	/**

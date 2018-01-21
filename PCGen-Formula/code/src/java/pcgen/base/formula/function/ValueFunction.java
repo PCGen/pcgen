@@ -81,9 +81,10 @@ public class ValueFunction implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
+		return manager.get(DependencyManager.INPUT_FORMAT);
 	}
 
 }

@@ -159,7 +159,7 @@ public class ArgFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
 		ASTNum node = (ASTNum) args[0];
@@ -177,6 +177,6 @@ public class ArgFunction implements Function
 		{
 			argManager.addArgument(argNum);
 		}
-		visitor.visit((SimpleNode) masterArgs[argNum], manager);
+		return (FormatManager<?>) visitor.visit((SimpleNode) masterArgs[argNum], manager);
 	}
 }

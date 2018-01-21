@@ -194,13 +194,14 @@ public class GenericFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
 		FormulaManager formulaManager = manager.get(DependencyManager.FMANAGER);
 		FunctionLibrary withArgs = new ArgWrappingLibrary(
 			formulaManager.get(FormulaManager.FUNCTION), args);
 		FormulaManager subFtn = formulaManager.getWith(FormulaManager.FUNCTION, withArgs);
-		visitor.visit(root, manager.getWith(DependencyManager.FMANAGER, subFtn));
+		return (FormatManager<?>) visitor.visit(root,
+			manager.getWith(DependencyManager.FMANAGER, subFtn));
 	}
 }
