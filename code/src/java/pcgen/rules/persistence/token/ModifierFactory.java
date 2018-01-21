@@ -76,6 +76,22 @@ public interface ModifierFactory<T>
 		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<T> formatManager);
 
+	/**
+	 * Returns a PCGenModifier with the given instructions.
+	 * 
+	 * The instructions must be Fixed (does not require a calculation to determine what it
+	 * means), or this method will throw an exception.
+	 * 
+	 * The instructions will be parsed, and an IllegalArgumentException thrown if the
+	 * instructions are not valid for this type of ModifierFactory.
+	 * 
+	 * @param formatManager
+	 *            The FormatManager for the PCGenModifier to be returned
+	 * @param instructions
+	 *            The String form of the instructions of the PCGenModifier to be returned
+	 * 
+	 * @return a PCGenModifier with the given instructions
+	 */
 	public PCGenModifier<T> getFixedModifier(FormatManager<T> formatManager,
 		String instructions);
 }

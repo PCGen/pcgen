@@ -120,6 +120,16 @@ public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 		return false;
 	}
 
+	/**
+	 * Returns true if the given FormatManager is equal to the FormatManager for this
+	 * CalculationModifier.
+	 * 
+	 * @param fm
+	 *            The FormatManager to check if it is equal to the FormatManager for this
+	 *            CalculationModifier
+	 * @return true if the given FormatManager is equal to the FormatManager for this
+	 *         CalculationModifier; false otherwise
+	 */
 	public boolean isCompatible(FormatManager<?> fm)
 	{
 		return formatManager.equals(fm);

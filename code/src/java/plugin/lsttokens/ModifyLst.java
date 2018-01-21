@@ -42,6 +42,10 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+/**
+ * The MODIFY token defined by ModifyLst defines a calculation to be performed in the
+ * (new) formula system.
+ */
 public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>
 {
