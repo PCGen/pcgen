@@ -20,7 +20,7 @@ CATEGORY=Internal|Deific Obedience Benefits.MOD		ABILITY:Special Ability|AUTOMAT
 Crimson Decree						KEY:Exalted Boon ~ Achaekek ~ Crimson Decree			CATEGORY:Special Ability	TYPE:Faith Based Boon.SpecialQuality.SpellLike		SOURCEPAGE:p.5		DESC:Each day, upon performing your obedience, choose one of the following spell-like abilities: Doom 3/day, Death Knell 2/day, or Blood Biography 1/day		ABILITY:Internal|AUTOMATIC|Temp Bonus ~ Exalted of Achaekek|PREMULT:3,[PREVARGTEQ:DeificObedienceActive,1],[!PRECLASS:1,Evangelist=1],[!PRECLASS:1,Sentinel=1]
 Blood Scent							KEY:Exalted Boon ~ Achaekek ~ Blood Scent				CATEGORY:Special Ability	TYPE:Faith Based Boon.SpecialQuality.SpellLike		SOURCEPAGE:p.5		DESC:If you have performed your daily obedience, three times per day, you can cast blood scent (Advanced Race Guide p.143) on yourself as a spell-like ability. This ability does not grant the spell's bonus on attack and damage rolls, even if you are an orc or have a rage ability.
 Focused Assassin						KEY:Exalted Boon ~ Achaekek ~ Focused Assassin			CATEGORY:Special Ability	TYPE:Faith Based Boon.SpecialQuality.Supernatural	SOURCEPAGE:p.5		DESC:If you have performed your daily obedience, when you perform your obedience for the day, if you are not contracted to kill a target, you can name a single target. You need not know the exact name of your target, but you must know a suitably detailed and correct description, such as “the thieves' guild's second in command.” Against that target, you gain a +2 profane bonus on attack rolls and weapon damage rolls, and you deal an additional 2d6 points of damage. The save DCs of any spells you cast on the target increase by 2. If you are contracted to kill a target, these bonuses apply against that target; if you are contracted to kill multiple targets, you must choose one target against whom these bonuses apply when you perform your obedience.
-Exalted of Achaekek		NAMEISPI:Yes	KEY:Temp Bonus ~ Exalted of Achaekek				CATEGORY:Internal			ASPECT:CombatBonus|+2 profane bonus to confirm critical hits while wielding a sawtooth sabre.		SPELLS:Divine Boon Choice|TIMES=3|CASTERLEVEL=TL|Doom|PREMULT:1,[PREVARGTEQ:DeificBoonLVL,12],[PREVARGTEQ:ExaltedLVL,3]		SPELLS:Divine Boon Choice|TIMES=2|CASTERLEVEL=TL|Death Knell|PREMULT:1,[PREVARGTEQ:DeificBoonLVL,12],[PREVARGTEQ:ExaltedLVL,3]		SPELLS:Divine Boon Choice|TIMES=1|CASTERLEVEL=TL|Blood Biography|PREMULT:1,[PREVARGTEQ:DeificBoonLVL,12],[PREVARGTEQ:ExaltedLVL,3]		SPELLS:Divine Boon (spell variant)|TIMES=3|CASTERLEVEL=TL|Blood Scent|PREMULT:1,[PREVARGTEQ:DeificBoonLVL,16],[PREVARGTEQ:ExaltedLVL,6]
+Exalted of Achaekek		NAMEISPI:Yes	KEY:Temp Bonus ~ Exalted of Achaekek				CATEGORY:Internal			ASPECT:CombatBonus|+2 profane bonus to confirm critical hits while wielding a sawtooth sabre.		SPELLS:Divine Boon Choice|TIMES=3|CASTERLEVEL=TL|Doom|PREMULT:1,[PREVARGTEQ:DeificBoonLVL,12],[PREVARGTEQ:ExaltedLVL,3]		SPELLS:Divine Boon Choice|TIMES=2|CASTERLEVEL=TL|Death Knell|PREMULT:1,[PREVARGTEQ:DeificBoonLVL,12],[PREVARGTEQ:ExaltedLVL,3]		SPELLS:Divine Boon Choice|TIMES=1|CASTERLEVEL=TL|Blood Biography|PREMULT:1,[PREVARGTEQ:DeificBoonLVL,12],[PREVARGTEQ:ExaltedLVL,3]		SPELLS:Divine Boon (spell variant)|TIMES=3|CASTERLEVEL=TL|Blood Scent (Achaekek)|PREMULT:1,[PREVARGTEQ:DeificBoonLVL,16],[PREVARGTEQ:ExaltedLVL,6]
 
 CATEGORY=Internal|Deific Obedience Benefits.MOD		ABILITY:Special Ability|AUTOMATIC|Sentinel Boon ~ Achaekek ~ Blood Must Flow|PREMULT:2,[PREDEITY:1,Achaekek],[PREVARGTEQ:SentinelLVL,3]		ABILITY:Special Ability|AUTOMATIC|Sentinel Boon ~ Achaekek ~ Bleeding Wounds|PREMULT:2,[PREDEITY:1,Achaekek],[PREVARGTEQ:SentinelLVL,6]		ABILITY:Special Ability|AUTOMATIC|Sentinel Boon ~ Achaekek ~ Mantis Style Mastery|PREMULT:2,[PREDEITY:1,Achaekek],[PREVARGTEQ:SentinelLVL,9]
 Blood Must Flow						KEY:Sentinel Boon ~ Achaekek ~ Blood Must Flow			CATEGORY:Special Ability	TYPE:Faith Based Boon.SpecialQuality.SpellLike		SOURCEPAGE:p.5		DESC:Each day, upon performing your obedience, choose one of the following spell-like abilities: Lead Blades 3/day, Spiritual Weapon 2/day, or Keen Edge 1/day		ABILITY:Internal|AUTOMATIC|Temp Bonus ~ Sentinel of Achaekek|PREMULT:2,[PREVARGTEQ:DeificObedienceActive,1],[PRECLASS:1,Sentinel=1]
@@ -351,6 +351,59 @@ Tragic Accident						KEY:Sentinel Boon ~ Zyphus ~ Tragic Accident			CATEGORY:Spe
 Unfairness of the World					KEY:Sentinel Boon ~ Zyphus ~ Unfairness of the World		CATEGORY:Special Ability	TYPE:Faith Based Boon.SpecialQuality.Supernatural	SOURCEPAGE:p.89		DESC:If you have performed your daily obedience, once per day, you can channel all of your outrage through your weapon, afflicting your opponent with deadly negative energy. You must declare your use of this ability before you roll an attack. On a hit, the target gains %1 negative levels unless it succeeds at a Fortitude saving throw (DC %2). If you openly wear an unholy symbol of Zyphus, the saving throw DC to resist this effect increases by 2.|3+TL/2|10+TL/2+CHA	DESCISPI:YES
 Sentinel of Zyphus		NAMEISPI:Yes	KEY:Temp Bonus ~ Sentinel of Zyphus					CATEGORY:Internal			SPELLS:Divine Boon Choice|TIMES=3|CASTERLEVEL=TL|Bungle|PREVARGTEQ:SentinelLVL,3		SPELLS:Divine Boon Choice|TIMES=2|CASTERLEVEL=TL|Spontaneous Immolation|PREVARGTEQ:SentinelLVL,3		SPELLS:Divine Boon Choice|TIMES=1|CASTERLEVEL=TL|Deadly Juggernaut|PREVARGTEQ:SentinelLVL,3
 
+# ==============================
+# Variant Spellcasting
+# ==============================
+
+#Achaekek
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=1|Keen Senses,Negate Aroma|Cleric=2|Spider Climb|PREDEITY:1,Achaekek
+CATEGORY=Class|Druid.MOD		SPELLLEVEL:CLASS|Druid=1|Murderous Command|PREDEITY:1,Achaekek
+
+#Alseta
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=0|Open/Close|Cleric=2|Arcane Lock,Knock|PREDEITY:1,Achaekek
+
+#Besmara
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=4|Geas (Lesser/Besmaran)|Cleric=5|Curse of Disgust (Besmaran)|PREDEITY:1,Besmara
+
+#Brigh
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=5|Unbreakable Construct|Cleric=7|Control Construct|PREDEITY:1,Brigh
+
+#Ghlaunder
+CATEGORY=Class|Cleric.MOD		ABILITY:Internal|AUTOMATIC|Ghlaunder Spellcasting|PREDEITY:1,Ghlaunder	SPELLLEVEL:CLASS|Cleric=2|Summon Swarm|PREDEITY:1,Ghlaunder
+CATEGORY=Class|Druid.MOD		ABILITY:Internal|AUTOMATIC|Ghlaunder Spellcasting|PREDEITY:1,Ghlaunder
+CATEGORY=Class|Ranger.MOD		ABILITY:Internal|AUTOMATIC|Ghlaunder Spellcasting|PREDEITY:1,Ghlaunder	SPELLLEVEL:CLASS|Ranger=2|Summon Swarm|PREDEITY:1,Ghlaunder
+Ghlaunder Spellcasting			CATEGORY:Internal		BONUS:ABILITYPOOL|Ghlaunder Spellcasting Choice|1
+
+Standard Divine Spells			KEY:Standard Ghlaunder Spells			CATEGORY:Special Ability	TYPE:SpecialQuality.GhlaunderSpellcastingChoice		DESC:Your divine spells affect animals normally.
+Variant Divine Spells			KEY:Variant Ghlaunder Spells			CATEGORY:Special Ability	TYPE:SpecialQuality.GhlaunderSpellcastingChoice		DESC:Your divine spells affect vermin instead of animals when using animal-oriented spells (such as animal shapes, detect animals or plants, and hide from animals); these spells can not be used to affect animals.
+
+#Groetus
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=4|Fear|PREDEITY:1,Groetus	SPELLLEVEL:CLASS|Cleric=2|Confusion (Lesser)|Cleric=4|Confusion|PREMULT:2,[PREDEITY:1,Groetus],[PREDOMAIN:1,Madness,Void]
+
+#Gyronna
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=6|Eyebite|PREDEITY:1,Gyronna
+
+#Hanspur
+CATEGORY=Class|Druid.MOD		SPELLLEVEL:CLASS|Druid=3|Water Walk|PREDEITY:1,Hanspur
+CATEGORY=Class|Ranger.MOD		SPELLLEVEL:CLASS|Ranger=2|Water Breathing|PREDEITY:1,Hanspur
+
+#Kurgess
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=1|Expeditious Retreat,Jump|PREDEITY:1,Kurgess
+
+#Milani
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=3|Coordinated Effort,Good Hope|PREDEITY:1,Milani
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=3|Good Hope|PREDEITY:1,Milani
+CATEGORY=Class|Ranger.MOD		SPELLLEVEL:CLASS|Ranger=1|Remove Fear|Ranger=3|Coordinated Effort,Good Hope,Imbue with Spell Ability|PREDEITY:1,Milani
+
+#Naderi
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=1|Confusion (Lesser)|Cleric=3|Crushing Despair|Cleric=5|Suffocation|PREDEITY:1,Naderi
+CATEGORY=Class|Inquisitor.MOD		SPELLLEVEL:CLASS|Inquisitor=1|Confusion (Lesser)|Inquisitor=3|Crushing Despair|Inquisitor=5|Suffocation|PREDEITY:1,Naderi
+
+#Sivanah
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=0|Ghost Sound|Cleric=1|Silent Image|Cleric=2|Hypnotic Pattern|Cleric=6|Veil|PREDEITY:1,Sivanah
+
+#Zyphus
+CATEGORY=Class|Cleric.MOD		SPELLLEVEL:CLASS|Cleric=0|Daze,Mage Hand|Cleric=1|Bungle|Cleric=2|Spectral Hand|PREDEITY:1,Zyphus
 
 #####TEMPLATE#####
 

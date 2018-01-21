@@ -1,0 +1,3 @@
+#SOURCELONG:Inner Sea Faiths	SOURCESHORT:ISF	SOURCEDATE:2016-03
+
+ABILITYCATEGORY:Ghlaunder Spellcasting Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhlaunderSpellcastingChoice									DISPLAYLOCATION:Class Features
