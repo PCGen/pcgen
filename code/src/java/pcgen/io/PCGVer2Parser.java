@@ -4684,7 +4684,8 @@ final class PCGVer2Parser implements PCGParser
 							{
 								CNAbilitySelection as =
 										CNAbilitySelection
-											.getAbilitySelectionFromPersistentFormat(feat);
+											.getAbilitySelectionFromPersistentFormat(
+												Globals.getContext(), feat);
 								thePC.addTemplateFeat(subt, as);
 							}
 						}

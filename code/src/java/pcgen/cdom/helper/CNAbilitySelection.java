@@ -30,8 +30,8 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
+import pcgen.rules.context.LoadContext;
 
 public class CNAbilitySelection extends ConcretePrereqObject implements
 		QualifyingObject, Reducible
@@ -103,7 +103,7 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 	}
 
 	public static CNAbilitySelection getAbilitySelectionFromPersistentFormat(
-		String persistentFormat)
+		LoadContext context, String persistentFormat)
 	{
 		StringTokenizer st =
 				new StringTokenizer(persistentFormat, Constants.PIPE);
@@ -133,7 +133,7 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 		Nature nat = Nature.valueOf(natString);
 		String ab = st.nextToken();
 		Ability a =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					Ability.class, ac, ab);
 		if (a == null)
 		{
