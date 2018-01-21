@@ -24,7 +24,6 @@ import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.helper.ReferenceDependency;
 
@@ -52,28 +51,27 @@ public class PCGenManagerFactory implements ManagerFactory
 
 	@Override
 	public FormulaSemantics generateFormulaSemantics(FormulaManager manager,
-		LegalScope legalScope, FormatManager<?> assertedFormat)
+		LegalScope legalScope)
 	{
 		FormulaSemantics semantics = ManagerFactory.super.generateFormulaSemantics(
-			manager, legalScope, assertedFormat);
+			manager, legalScope);
 		return semantics.getWith(ManagerKey.CONTEXT, context);
 	}
 
 	@Override
-	public EvaluationManager generateEvaluationManager(FormulaManager formulaManager,
-		FormatManager<?> assertedFormat)
+	public EvaluationManager generateEvaluationManager(FormulaManager formulaManager)
 	{
 		EvaluationManager evalManager = ManagerFactory.super.generateEvaluationManager(
-			formulaManager, assertedFormat);
+			formulaManager);
 		return evalManager.getWith(ManagerKey.CONTEXT, context);
 	}
 
 	@Override
 	public DependencyManager generateDependencyManager(FormulaManager formulaManager,
-		ScopeInstance scopeInst, FormatManager<?> assertedFormat)
+		ScopeInstance scopeInst)
 	{
 		DependencyManager depManager = ManagerFactory.super.generateDependencyManager(
-			formulaManager, scopeInst, assertedFormat);
+			formulaManager, scopeInst);
 		return depManager.getWith(ManagerKey.CONTEXT, context)
 			.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
 	}

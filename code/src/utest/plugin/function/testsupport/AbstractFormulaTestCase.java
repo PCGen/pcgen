@@ -83,7 +83,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
 				managerFactory.generateFormulaSemantics(localSetup.getFormulaManager(),
-					getGlobalScope(), assertedFormat);
+					getGlobalScope());
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
 		{
@@ -139,7 +139,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
 				managerFactory.generateFormulaSemantics(localSetup.getFormulaManager(),
-					getGlobalScope(), assertedFormat);
+					getGlobalScope());
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
 		{
@@ -152,7 +152,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		DependencyManager fdm =
 				managerFactory.generateDependencyManager(getFormulaManager(),
-					getGlobalScopeInst(), null);
+					getGlobalScopeInst());
 		new DependencyVisitor().visit(node, fdm);
 		return fdm.get(DependencyManager.VARIABLES).getVariables();
 	}
@@ -225,7 +225,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public EvaluationManager generateManager()
 	{
 		EvaluationManager em = managerFactory.generateEvaluationManager(
-			localSetup.getFormulaManager(), FormatUtilities.NUMBER_MANAGER);
+			localSetup.getFormulaManager());
 		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
 	}
 

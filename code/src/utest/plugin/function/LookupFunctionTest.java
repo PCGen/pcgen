@@ -328,7 +328,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
@@ -361,7 +361,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
@@ -394,7 +394,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
@@ -427,7 +427,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
@@ -465,7 +465,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
@@ -504,7 +504,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())

@@ -104,7 +104,7 @@ public class SetSolverManagerTest
 		equipScope.setParent(globalScope);
 		vsLib.registerScope(equipScope);
 		sl = new VariableLibrary(vsLib);
-		arrayManager = new ArrayFormatManager<>(stringManager, ',');
+		arrayManager = new ArrayFormatManager<>(stringManager, '\n', ',');
 		ManagerFactory managerFactory = new ManagerFactory()
 		{
 		};
