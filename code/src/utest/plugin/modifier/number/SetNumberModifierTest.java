@@ -22,6 +22,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.LegalScope;
@@ -29,7 +30,6 @@ import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.IndividualSetup;
-import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
 import plugin.modifier.testsupport.EvalManagerUtilities;
@@ -46,7 +46,7 @@ public class SetNumberModifierTest
 		try
 		{
 			SetModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -199,8 +199,9 @@ public class SetNumberModifierTest
 	public void testGetModifier()
 	{
 		SetModifierFactory factory = new SetModifierFactory();
-		Modifier<Number> modifier =
-				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
+		PCGenModifier<Number> modifier =
+				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
@@ -214,8 +215,9 @@ public class SetNumberModifierTest
 		setup.getLegalScopeLibrary().registerScope(varScope);
 		IndividualSetup iSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
 		SetModifierFactory factory = new SetModifierFactory();
-		Modifier<Number> modifier =
-				factory.getModifier(35, "6+5", new ManagerFactory(){}, iSetup.getFormulaManager(), varScope, numManager);
+		PCGenModifier<Number> modifier =
+				factory.getModifier("6+5", new ManagerFactory(){}, iSetup.getFormulaManager(), varScope, numManager);
+		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());
 		EvaluationManager evalManager = EvalManagerUtilities.getInputEM(4.3);

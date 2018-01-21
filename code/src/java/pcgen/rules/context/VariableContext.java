@@ -90,10 +90,10 @@ public class VariableContext
 	 * For Tokens
 	 */
 	public <T> PCGenModifier<T> getModifier(String modType, String modValue,
-		int priorityNumber, LegalScope varScope, FormatManager<T> formatManager)
+		LegalScope varScope, FormatManager<T> formatManager)
 	{
 		return getModFactory().getModifier(modType, modValue, managerFactory,
-			priorityNumber, varScope, formatManager);
+			varScope, formatManager);
 	}
 
 	public Set<LegalScope> getKnownLegalScopes(String varName)
