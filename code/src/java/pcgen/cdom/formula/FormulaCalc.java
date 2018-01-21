@@ -109,9 +109,9 @@ public final class FormulaCalc<T> implements FormulaModifier<T>
 	}
 
 	@Override
-	public Class<T> getVariableFormat()
+	public FormatManager<T> getVariableFormat()
 	{
-		return toDo.getVariableFormat();
+		return formatManager;
 	}
 
 	@Override
