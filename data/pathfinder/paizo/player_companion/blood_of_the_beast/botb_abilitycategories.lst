@@ -1,0 +1,73 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 March 2017
+
+ABILITYCATEGORY:Prowler Spirit Choice						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:ProwlerSpirit														PLURAL:Prowler Spirit Choices					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Tiger Weapon Choice							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:TigerWeapon															PLURAL:Tiger Weapon Choices					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Lion Seance Boon							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:ProwlerSeanceBoonSeanceBoon												PLURAL:Lion Seance Boons					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cheetah Seance Boon							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:CheetahBoon															PLURAL:Cheetah Seance Boons					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cheetah Skill Choice						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:CheetahSkill															PLURAL:Cheetah Skill Choices					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Ravener Hunter Mystery						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterMystery													PLURAL:Ravener Hunter Mysteries				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Ancestor Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterAncestorRevelation											PLURAL:Ravener Hunter Ancestor Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Battle Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterBattleRevelation												PLURAL:Ravener Hunter Battle Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Flame Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterFlameRevelation												PLURAL:Ravener Hunter Flame Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Heavens Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterHeavensRevelation												PLURAL:Ravener Hunter Heavens Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Life Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterLifeRevelation												PLURAL:Ravener Hunter Life Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Lunar Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterLunarRevelation												PLURAL:Ravener Hunter Lunar Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Nature Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterNatureRevelation												PLURAL:Ravener Hunter Nature Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Solar Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterSolarRevelation												PLURAL:Ravener Hunter Solar Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Stone Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterStoneRevelation												PLURAL:Ravener Hunter Stone Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Time Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterTimeRevelation												PLURAL:Ravener Hunter Time Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Volcano Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterVolcanoRevelation												PLURAL:Ravener Hunter Volcano Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Waves Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterWavesRevelation												PLURAL:Ravener Hunter Waves Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Wind Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterWindRevelation												PLURAL:Ravener Hunter Wind Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Wood Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterWoodRevelation												PLURAL:Ravener Hunter Wood Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ravener Hunter Maneuver Mastery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RavenerHunterManeuverMastery												PLURAL:Ravener Hunter Maneuver Masteries			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Serendipity Shaman Spirit						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SerendipityShamanSpirit																						DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Lucky Bonus Defiant Luck Choice					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LuckyBonusDefiantLuck													PLURAL:Lucky Feat Defiant Luck Choices			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Poison Darter Poison Style Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PoisonDarterStyleChoice													PLURAL:Poison Darter Poison Style Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Poison Darter Rogue Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PoisonDarterTalentChoice													PLURAL:Poison Darter Rogue Talents				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Poison Darter Poison Discovery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PoisonDarterDiscoveryChoice												PLURAL:Poison Darter Poison Discoveries			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Expanded Versatility Act Skills					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedVersatilityActSkills																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Expanded Versatility Comedy Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedVersatilityComedySkills																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Expanded Versatility Dance Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedVersatilityDanceSkills																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Expanded Versatility Keyboard Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedVersatilityKeyboardSkills																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Expanded Versatility Oratory Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedVersatilityOratorySkills																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Expanded Versatility Percussion Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedVersatilityPercussionSkills																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Expanded Versatility Sing Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedVersatilitySingSkills																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Expanded Versatility String Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedVersatilityStringSkills																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Expanded Versatility Wind Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedVersatilityWindSkills																					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Martial Performance Act Groups					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceActGroups																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Martial Performance Comedy Groups				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceComedyGroups																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Martial Performance Dance Groups				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceDanceGroups																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Martial Performance Keyboard Groups				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceKeyboardGroups																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Martial Performance Oratory Groups				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceOratoryGroups																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Martial Performance Percussion Groups				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformancePercussionGroups																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Martial Performance Sing Groups					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceSingGroups																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Martial Performance String Groups				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceStringGroups																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Martial Performance Wind Groups					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceWindGroups																					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Naga Bloodrager Bloodline Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:NagaBloodRagerBloodline				ABILITYLIST:Special Bloodline Feat				PLURAL:Naga Bloodrager Bloodline Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Naga Bloodline Feat							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:NagaBloodline					ABILITYLIST:Skill Focus(Knowledge (dungeoneering))	PLURAL:Naga Bloodline Feats					DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:First Mothers Fang Bonus Combat Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:FirstMothersFangCombatFeat												PLURAL:First Mothers Fang Bonus Combat Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:First Mothers Fang Exotic Melee Weapon			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FirstMothersFangExoticMeleeWeapon																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:First Mothers Fang Exotic Ranged Weapon			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FirstMothersFangExoticRangedWeapon																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:First Mothers Fang Social Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FirstMothersFangSocialTalent												PLURAL:First Mothers Fang Social Talents			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:First Mothers Fang Social Grace Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FirstMothersFangSocialGraceSkill											PLURAL:First Mothers Fang Social Grace Skills		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Opportunist Bonus Skill Point					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OpportunistSkillRank													PLURAL:Opportunist Bonus Skill Points			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Opportunist Edge							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OpportunistEdge														PLURAL:Opportunist Edges					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Opportunist Rogue Talent						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OpportunistTalent														PLURAL:Opportunist Rogue Talents				DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Varana Wizard Favored Class Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation.Metamagic				ABILITYLIST:Spell Mastery					PLURAL:Varana Wizard Favored Class Bonus Feats		DISPLAYLOCATION:Feats
+
