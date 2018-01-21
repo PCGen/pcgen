@@ -18,12 +18,18 @@
 package pcgen.base.lang;
 
 import java.math.BigDecimal;
+import java.util.Comparator;
 
 /**
  * A Set of utilities related to java.lang.Number.
  */
 public final class NumberUtilities
 {
+
+	/**
+	 * A Comparator for Number.
+	 */
+	public static final Comparator<Number> NUMBER_COMPARATOR = new NumberComparator();
 
 	/**
 	 * Private Constructor for Utility Class.
