@@ -21,7 +21,6 @@ import java.util.Objects;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectDatabase;
 
 /**
  * A TableFormatManager is a FormatManager that defines the format of a
@@ -36,9 +35,9 @@ public final class TableFormatManager implements FormatManager<DataTable>
 {
 
 	/**
-	 * The ObjectDatabase used to construct or look up DataTable objects.
+	 * The FormatManager used to construct or look up DataTable objects.
 	 */
-	private final ObjectDatabase database;
+	private final FormatManager<DataTable> tableFormat;
 
 	/**
 	 * The Format of any DataTable referred to by this TableFormatManager.
@@ -52,12 +51,12 @@ public final class TableFormatManager implements FormatManager<DataTable>
 
 	/**
 	 * Constructs a new TableFormatManager that will use the underlying
-	 * AbstractReferenceContext to construct and look up DataTable objects. The
+	 * FormatManager to construct and look up DataTable objects. The
 	 * DataTable should have the lookup and result formats matching the formats
 	 * of the given FormatManagers.
 	 * 
-	 * @param objDatabase
-	 *            The ObjectDatabase used to construct or look up DataTable
+	 * @param tableFormat
+	 *            The FormatManager used to construct or look up DataTable
 	 *            objects
 	 * @param lookupFormat
 	 *            The FormatManager for the format of the Lookup column of the
@@ -66,10 +65,10 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	 *            The FormatManager for the format of the Result column of the
 	 *            DataTable format represented by this TableFormatManager
 	 */
-	public TableFormatManager(ObjectDatabase objDatabase,
+	public TableFormatManager(FormatManager<DataTable> tableFormat,
 		FormatManager<?> lookupFormat, FormatManager<?> resultFormat)
 	{
-		this.database = Objects.requireNonNull(objDatabase);
+		this.tableFormat = Objects.requireNonNull(tableFormat);
 		this.lookupFormat = Objects.requireNonNull(lookupFormat);
 		this.resultFormat = Objects.requireNonNull(resultFormat);
 	}
@@ -78,7 +77,7 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	public DataTable convert(String inputStr)
 	{
 		//TODO Does this need validation that the lookup/result columns are appropriate?
-		return database.get(DataTable.class, inputStr);
+		return tableFormat.convert(inputStr);
 	}
 
 	@Override
@@ -90,7 +89,7 @@ public final class TableFormatManager implements FormatManager<DataTable>
 		 * need to be checked... but how? Does this need to be like Categorized
 		 * references? ugh
 		 */
-		return database.getIndirect(DataTable.class, inputStr);
+		return tableFormat.convertIndirect(inputStr);
 	}
 
 	@Override

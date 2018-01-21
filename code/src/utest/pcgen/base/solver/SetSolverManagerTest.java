@@ -68,12 +68,6 @@ public class SetSolverManagerTest
 		}
 
 		@Override
-		public Class getVariableFormat()
-		{
-			return Equipment.class;
-		}
-
-		@Override
 		public int getInherentPriority()
 		{
 			return 0;
@@ -125,7 +119,7 @@ public class SetSolverManagerTest
 		
 		NEPCalculation calc = new ProcessCalculation<>(new Equipment(),
 				new BasicSet(), equipmentManager);
-		CalculationModifier em = new CalculationModifier<>(calc, 0);
+		CalculationModifier em = new CalculationModifier<>(calc, 0, equipmentManager);
 		solverFactory.addSolverFormat(Equipment.class, em);
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
@@ -229,11 +223,11 @@ public class SetSolverManagerTest
 		
 		NEPCalculation calc1 = new ProcessCalculation<>(equip,
 				new BasicSet(), equipmentManager);
-		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, 2000);
+		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, 2000, equipmentManager);
 
 		NEPCalculation calc2 = new ProcessCalculation<>(equipalt,
 				new BasicSet(), equipmentManager);
-		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, 3000);
+		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, 3000, equipmentManager);
 
 		manager.addModifier(varIDe, mod2, scopeInste);
 		manager.addModifier(varIDa, mod3, scopeInsta);

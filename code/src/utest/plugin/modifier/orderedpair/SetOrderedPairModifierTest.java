@@ -58,7 +58,7 @@ public class SetOrderedPairModifierTest
 		Modifier<OrderedPair> modifier =
 				factory.getModifier(5, "3,2", new ManagerFactory(){}, null, varScope, opManager);
 		assertEquals(5L <<32, modifier.getPriority());
-		assertSame(OrderedPair.class, modifier.getVariableFormat());
+		assertEquals(opManager, modifier.getVariableFormat());
 		assertEquals(new OrderedPair(3, 2),
 			modifier.process(EvalManagerUtilities.getInputEM(new OrderedPair(5, 6))));
 	}

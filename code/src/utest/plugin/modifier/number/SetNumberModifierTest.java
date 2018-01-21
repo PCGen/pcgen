@@ -18,7 +18,6 @@
 package plugin.modifier.number;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
@@ -203,7 +202,7 @@ public class SetNumberModifierTest
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
 		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertSame(Number.class, modifier.getVariableFormat());
+		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
 
@@ -218,7 +217,7 @@ public class SetNumberModifierTest
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6+5", new ManagerFactory(){}, iSetup.getFormulaManager(), varScope, numManager);
 		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertSame(Number.class, modifier.getVariableFormat());
+		assertEquals(numManager, modifier.getVariableFormat());
 		EvaluationManager evalManager = EvalManagerUtilities.getInputEM(4.3);
 		assertEquals(11, modifier.process(
 			evalManager.getWith(EvaluationManager.FMANAGER, iSetup.getFormulaManager())));

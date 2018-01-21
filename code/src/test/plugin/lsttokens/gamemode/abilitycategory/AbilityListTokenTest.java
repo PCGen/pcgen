@@ -47,7 +47,7 @@ public class AbilityListTokenTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
 		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 	}

@@ -22,7 +22,6 @@ import java.util.regex.Pattern;
 import pcgen.base.formatmanager.FormatManagerFactory;
 import pcgen.base.formatmanager.FormatManagerLibrary;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.ObjectDatabase;
 
 /**
  * An TableFormatFactory builds a FormatManager supporting a DataTable from the
@@ -38,22 +37,22 @@ public class TableFormatFactory implements FormatManagerFactory
 			Pattern.compile(Pattern.quote("TABLE["), Pattern.CASE_INSENSITIVE);
 
 	/**
-	 * The ObjectDatabase used by ColumnFormatManager objects built by this
+	 * The FormatManager used by ColumnFormatManager objects built by this
 	 * TableFormatFactory.
 	 */
-	private final ObjectDatabase database;
+	private final FormatManager<DataTable> tableFormat;
 
 	/**
-	 * Constructs a new TableFormatFactory with the given ObjectDatabase to be
+	 * Constructs a new TableFormatFactory with the given FormatManager to be
 	 * used by TableFormatManager objects built by this TableFormatFactory.
 	 * 
-	 * @param objDatabase
-	 *            The ObjectDatabase used by TableFormatManager objects built by
+	 * @param tableFormat
+	 *            The FormatManager used by TableFormatManager objects built by
 	 *            this TableFormatFactory
 	 */
-	public TableFormatFactory(ObjectDatabase objDatabase)
+	public TableFormatFactory(FormatManager<DataTable> tableFormat)
 	{
-		this.database = objDatabase;
+		this.tableFormat = tableFormat;
 	}
 
 	@Override
@@ -83,7 +82,7 @@ public class TableFormatFactory implements FormatManagerFactory
 				"Table format must have 2 sub parts (lookup and result), found: "
 					+ subFormatName);
 		}
-		return new TableFormatManager(database,
+		return new TableFormatManager(tableFormat,
 			library.getFormatManager(parts[0]),
 			library.getFormatManager(parts[1]));
 	}

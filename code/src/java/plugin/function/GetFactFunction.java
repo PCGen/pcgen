@@ -19,6 +19,7 @@ package plugin.function;
 
 import java.util.Arrays;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -47,7 +48,6 @@ public class GetFactFunction implements Function
 {
 
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
-	private static final Class<String> STRING_CLASS = String.class;
 
 	@Override
 	public String getFunctionName()
@@ -215,13 +215,13 @@ public class GetFactFunction implements Function
 			throw new IllegalStateException("result must be String or VarScoped");
 		}
 		//TODO This cast is reckless :(
-		return evaluateFromObject(visitor, (CDOMObject) vs, args[2]);
+		return evaluateFromObject(visitor, (CDOMObject) vs, args[2], manager);
 	}
 
 	private Object evaluateFromObject(EvaluateVisitor visitor,
-		CDOMObject object, Node node)
+		CDOMObject object, Node node, EvaluationManager manager)
 	{
-		String factName = (String) node.jjtAccept(visitor, null);
+		String factName = (String) node.jjtAccept(visitor, manager);
 		FactKey<Object> fk = FactKey.valueOf(factName);
 		return object.getResolved(fk);
 	}
@@ -234,12 +234,12 @@ public class GetFactFunction implements Function
 		if (argCount == 2)
 		{
 			args[0].jjtAccept(visitor,
-				fdm.getWith(DependencyManager.ASSERTED, CDOMOBJECT_CLASS));
+				fdm.getWith(DependencyManager.ASSERTED, null));
 		}
 		else if (argCount == 3)
 		{
 			args[1].jjtAccept(visitor,
-				fdm.getWith(DependencyManager.ASSERTED, STRING_CLASS));
+				fdm.getWith(DependencyManager.ASSERTED, FormatUtilities.STRING_MANAGER));
 		}
 	}
 }
