@@ -17,17 +17,17 @@
  */
 package pcgen.cdom.content;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.cdom.formula.FormulaModifier;
 
 /**
  * A VarModifier is a container for all the information necessary to modify a
- * variable. This includes the scope, the variable name, and the FormulaModifier
+ * variable. This includes the scope, the variable name, and the PCGenModifier
  * to be applied. This allows that grouping of information to be passed as a
  * single unit of information.
  * 
  * @param <T>
- *            The format of the variable modified by the FormulaModifier in this
+ *            The format of the variable modified by the PCGenModifier in this
  *            VarModifier
  */
 public class VarModifier<T>
@@ -45,10 +45,10 @@ public class VarModifier<T>
 	private final LegalScope legalScope;
 
 	/**
-	 * The FormulaModifier to be applied to the Variable when this VarModifier is
+	 * The PCGenModifier to be applied to the Variable when this VarModifier is
 	 * applied.
 	 */
-	private final FormulaModifier<T> modifier;
+	private final PCGenModifier<T> modifier;
 
 	/**
 	 * Constructs a new VarModifier containing all the information necessary to
@@ -60,13 +60,13 @@ public class VarModifier<T>
 	 * @param legalScope
 	 *            the LegalScope in which the Modifier is applied
 	 * @param modifier
-	 *            The FormulaModifier to be applied to the Variable when this
+	 *            The PCGenModifier to be applied to the Variable when this
 	 *            VarModifier is applied
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters are null
 	 */
 	public VarModifier(String varName, LegalScope legalScope,
-		FormulaModifier<T> modifier)
+		PCGenModifier<T> modifier)
 	{
 		if (varName == null)
 		{
@@ -106,11 +106,11 @@ public class VarModifier<T>
 	}
 
 	/**
-	 * Retrieves the FormulaModifier for this VarModifier.
+	 * Retrieves the PCGenModifier for this VarModifier.
 	 * 
-	 * @return the FormulaModifier for this VarModifier
+	 * @return the PCGenModifier for this VarModifier
 	 */
-	public FormulaModifier<T> getModifier()
+	public PCGenModifier<T> getModifier()
 	{
 		return modifier;
 	}

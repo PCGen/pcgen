@@ -17,9 +17,8 @@
  */
 package plugin.modifier.set;
 
-import java.util.Collection;
-import java.util.Collections;
-
+import pcgen.base.calculation.AbstractPCGenModifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -27,8 +26,6 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.cdom.formula.AssociationUtilities;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
@@ -60,7 +57,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	}
 
 	@Override
-	public FormulaModifier<T[]> getModifier(String instructions,
+	public PCGenModifier<T[]> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
@@ -69,7 +66,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	}
 
 	@Override
-	public FormulaModifier<T[]> getFixedModifier(
+	public PCGenModifier<T[]> getFixedModifier(
 		FormatManager<T[]> fmtManager, String instructions)
 	{
 		T[] toSet = fmtManager.convert(instructions);
@@ -106,21 +103,6 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		{
 			return toSet;
 		}
-
-		/**
-		 * The object references referred to by this SetDirectArrayModifier.
-		 * 
-		 * NOTE: DO NOT DELETE THIS EVEN THOUGH IT APPEARS UNUSED. Its use is holding the
-		 * references so that they are not garbage collected.
-		 */
-		@SuppressWarnings("unused")
-		private Collection<Indirect<?>> references;
-
-		@Override
-		public void addReferences(Collection<Indirect<?>> collection)
-		{
-			references = collection;
-		}
 	}
 
 	/**
@@ -153,34 +135,13 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		{
 			return toSet.get();
 		}
-
-		/**
-		 * The object references referred to by this SetIndirectArrayModifier.
-		 * 
-		 * NOTE: DO NOT DELETE THIS EVEN THOUGH IT APPEARS UNUSED. Its use is holding the
-		 * references so that they are not garbage collected.
-		 */
-		@SuppressWarnings("unused")
-		private Collection<Indirect<?>> references;
-
-		@Override
-		public void addReferences(Collection<Indirect<?>> collection)
-		{
-			references = collection;
-		}
-
 	}
 
 	/**
 	 * The Modifier that implements SET for Set objects
 	 */
-	private abstract class SetArrayModifier implements FormulaModifier<T[]>
+	abstract class SetArrayModifier extends AbstractPCGenModifier<T[]>
 	{
-
-		/**
-		 * The user priority of this SetModifier
-		 */
-		private int userPriority;
 
 		private final FormatManager<T[]> fmtManager;
 
@@ -192,7 +153,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		@Override
 		public long getPriority()
 		{
-			return ((long) userPriority << 32);
+			return ((long) getUserPriority() << 32);
 		}
 
 		@Override
@@ -234,20 +195,6 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		public FormatManager<T[]> getFormatManager()
 		{
 			return fmtManager;
-		}
-
-		@Override
-		public void addAssociation(String assocInstructions)
-		{
-			userPriority =
-					AssociationUtilities.processUserPriority(assocInstructions);
-		}
-
-		@Override
-		public Collection<String> getAssociationInstructions()
-		{
-			String priority = AssociationUtilities.unprocessUserPriority(userPriority);
-			return Collections.singleton(priority);
 		}
 	}
 }

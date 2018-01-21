@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -30,7 +31,6 @@ import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.rules.persistence.MasterModifierFactory;
@@ -89,11 +89,11 @@ public class VariableContext
 	/*
 	 * For Tokens
 	 */
-	public <T> FormulaModifier<T> getModifier(String modType, String modValue,
+	public <T> PCGenModifier<T> getModifier(String modType, String modValue,
 		LegalScope varScope, FormatManager<T> formatManager)
 	{
-		return getModFactory().getModifier(modType, modValue, managerFactory, varScope,
-			formatManager);
+		return getModFactory().getModifier(modType, modValue, managerFactory,
+			varScope, formatManager);
 	}
 
 	public Set<LegalScope> getKnownLegalScopes(String varName)

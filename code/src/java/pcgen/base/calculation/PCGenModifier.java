@@ -15,20 +15,33 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.formula;
+package pcgen.base.calculation;
 
 import java.util.Collection;
 
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.Indirect;
 
-public interface FormulaModifier<T> extends Modifier<T>
+/**
+ * PCGenModifier is a Modifier that has additional characteristics to support PCGen
+ * 
+ * @param <T>
+ *            The format that this PCGenModifier acts upon
+ */
+public interface PCGenModifier<T> extends Modifier<T>
 {
 
 	public void addAssociation(String assocInstructions);
 
 	public Collection<String> getAssociationInstructions();
 
-	public void addReferences(Collection<Indirect<?>> references);
+	/**
+	 * Add object references to this PCGenModifier. These are captured solely as
+	 * dependency management.
+	 * 
+	 * @param collection
+	 *            The Collection of Indirect objects that this PCGenModifier references.
+	 */
+	public void addReferences(Collection<Indirect<?>> collection);
 
 }

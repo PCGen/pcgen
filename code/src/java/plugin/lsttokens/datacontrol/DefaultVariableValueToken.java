@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DefaultVarValue;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -106,7 +106,7 @@ public class DefaultVariableValueToken extends
 				+ fmtManager.getIdentifierType() + " requires a SET modifier",
 				context);
 		}
-		FormulaModifier<T> defaultModifier;
+		PCGenModifier<T> defaultModifier;
 		try
 		{
 			defaultModifier = m.getFixedModifier(fmtManager, defaultValue);

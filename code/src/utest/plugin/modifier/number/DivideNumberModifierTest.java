@@ -23,12 +23,12 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.FormulaModifier;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class DivideNumberModifierTest
@@ -196,7 +196,7 @@ public class DivideNumberModifierTest
 	public void testGetModifier()
 	{
 		DivideModifierFactory factory = new DivideModifierFactory();
-		FormulaModifier<Number> modifier =
+		PCGenModifier<Number> modifier =
 				factory.getModifier("4.3", new ManagerFactory(){}, null, varScope, numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());

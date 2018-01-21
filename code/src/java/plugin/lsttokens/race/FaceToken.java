@@ -19,13 +19,13 @@ package plugin.lsttokens.race;
 
 import java.util.Collection;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Race;
@@ -71,7 +71,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 					.getFormatManager("ORDEREDPAIR");
 		ScopeInstance scopeInst = context.getActiveScope();
 		LegalScope scope = scopeInst.getLegalScope();
-		FormulaModifier<OrderedPair> modifier;
+		PCGenModifier<OrderedPair> modifier;
 		try
 		{
 			modifier = context.getVariableContext()
@@ -120,12 +120,13 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		{
 			for (VarModifier<?> vm : added)
 			{
+				PCGenModifier<?> modifier = vm.getModifier();
 				if (VAR_NAME.equals(vm.getVarName())
 					&& (vm.getLegalScope().getParentScope() == null)
-					&& (vm.getModifier().getIdentification()
+					&& (modifier.getIdentification()
 						.equals(MOD_IDENTIFICATION)))
 				{
-					face = vm.getModifier().getInstructions();
+					face = modifier.getInstructions();
 					if (face.endsWith(",0"))
 					{
 						face = face.substring(0, face.length() - 2);

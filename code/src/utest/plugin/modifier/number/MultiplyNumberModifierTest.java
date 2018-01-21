@@ -23,12 +23,12 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
@@ -197,7 +197,7 @@ public class MultiplyNumberModifierTest
 	public void testGetModifier()
 	{
 		MultiplyModifierFactory factory = new MultiplyModifierFactory();
-		FormulaModifier<Number> modifier =
+		PCGenModifier<Number> modifier =
 				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());

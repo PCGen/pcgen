@@ -22,6 +22,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.LegalScope;
@@ -31,7 +32,6 @@ import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.FormulaModifier;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class SetNumberModifierTest
@@ -199,7 +199,7 @@ public class SetNumberModifierTest
 	public void testGetModifier()
 	{
 		SetModifierFactory factory = new SetModifierFactory();
-		FormulaModifier<Number> modifier =
+		PCGenModifier<Number> modifier =
 				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());
@@ -215,7 +215,7 @@ public class SetNumberModifierTest
 		setup.getLegalScopeLibrary().registerScope(varScope);
 		IndividualSetup iSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
 		SetModifierFactory factory = new SetModifierFactory();
-		FormulaModifier<Number> modifier =
+		PCGenModifier<Number> modifier =
 				factory.getModifier("6+5", new ManagerFactory(){}, iSetup.getFormulaManager(), varScope, numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());

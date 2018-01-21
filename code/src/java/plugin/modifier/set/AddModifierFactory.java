@@ -18,11 +18,12 @@
 package plugin.modifier.set;
 
 import java.lang.reflect.Array;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import pcgen.base.calculation.AbstractPCGenModifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -30,8 +31,6 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.cdom.formula.AssociationUtilities;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.persistence.token.ModifierFactory;
 
 /**
@@ -63,7 +62,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	}
 
 	@Override
-	public FormulaModifier<T[]> getModifier(String instructions,
+	public PCGenModifier<T[]> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
@@ -72,7 +71,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	}
 
 	@Override
-	public FormulaModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager,
+	public PCGenModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager,
 		String instructions)
 	{
 		T[] toAdd = fmtManager.convert(instructions);
@@ -110,20 +109,6 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			return toAdd;
 		}
 
-		/**
-		 * The object references referred to by this AddDirectArrayModifier.
-		 * 
-		 * NOTE: DO NOT DELETE THIS EVEN THOUGH IT APPEARS UNUSED. Its use is holding the
-		 * references so that they are not garbage collected.
-		 */
-		@SuppressWarnings("unused")
-		private Collection<Indirect<?>> references;
-
-		@Override
-		public void addReferences(Collection<Indirect<?>> collection)
-		{
-			references = collection;
-		}
 	}
 
 	/**
@@ -157,32 +142,13 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			return toAdd.get();
 		}
 
-		/**
-		 * The object references referred to by this AddIndirectArrayModifier.
-		 * 
-		 * NOTE: DO NOT DELETE THIS EVEN THOUGH IT APPEARS UNUSED. Its use is holding the
-		 * references so that they are not garbage collected.
-		 */
-		@SuppressWarnings("unused")
-		private Collection<Indirect<?>> references;
-
-		@Override
-		public void addReferences(Collection<Indirect<?>> collection)
-		{
-			references = collection;
-		}
 	}
 
 	/**
 	 * The Modifier that implements ADD for Set objects
 	 */
-	private abstract class AddArrayModifier implements FormulaModifier<T[]>
+	private abstract class AddArrayModifier extends AbstractPCGenModifier<T[]>
 	{
-
-		/**
-		 * The user priority of this AddModifier
-		 */
-		private int userPriority;
 
 		private final FormatManager<T[]> fmtManager;
 
@@ -194,7 +160,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		@Override
 		public long getPriority()
 		{
-			return ((long) userPriority << 32) + 3;
+			return ((long) getUserPriority() << 32) + 3;
 		}
 
 		@Override
@@ -245,20 +211,6 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		public FormatManager<T[]> getFormatManager()
 		{
 			return fmtManager;
-		}
-
-		@Override
-		public void addAssociation(String assocInstructions)
-		{
-			userPriority =
-					AssociationUtilities.processUserPriority(assocInstructions);
-		}
-
-		@Override
-		public Collection<String> getAssociationInstructions()
-		{
-			String priority = AssociationUtilities.unprocessUserPriority(userPriority);
-			return Collections.singleton(priority);
 		}
 	}
 }

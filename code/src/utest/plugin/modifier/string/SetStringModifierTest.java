@@ -22,12 +22,12 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.format.StringManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
@@ -56,7 +56,7 @@ public class SetStringModifierTest
 	public void testGetModifier()
 	{
 		ModifierFactory<String> factory = new SetModifierFactory();
-		FormulaModifier<String> modifier =
+		PCGenModifier<String> modifier =
 				factory.getModifier("MyString", new ManagerFactory(){}, null, varScope, stringManager);
 		modifier.addAssociation("PRIORITY=5");
 		assertEquals(5L <<32, modifier.getPriority());

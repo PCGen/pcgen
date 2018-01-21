@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.lang.StringUtil;
@@ -33,7 +34,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -100,7 +100,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 				+ " needed third argument: " + value, context);
 		}
 		String modInstructions = sep.next();
-		FormulaModifier<?> modifier;
+		PCGenModifier<?> modifier;
 		try
 		{
 			FormatManager<?> format = context.getVariableContext()
@@ -182,7 +182,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 
 	private String unparseModifier(VarModifier<?> vm)
 	{
-		FormulaModifier<?> modifier = vm.getModifier();
+		PCGenModifier<?> modifier = vm.getModifier();
 		String type = modifier.getIdentification();
 		StringBuilder sb = new StringBuilder();
 		sb.append(type);

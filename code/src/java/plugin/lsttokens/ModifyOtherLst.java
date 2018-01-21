@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-16 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-18 (C) Thomas Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -37,7 +38,6 @@ import pcgen.cdom.base.ObjectGrouping;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -206,7 +206,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				+ " needed 5th argument: " + value, context);
 		}
 		String modInstructions = sep.next();
-		FormulaModifier<?> modifier;
+		PCGenModifier<?> modifier;
 		try
 		{
 			FormatManager<?> format = context.getVariableContext()
@@ -296,7 +296,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 
 	private String unparseModifier(VarModifier<?> vm)
 	{
-		FormulaModifier<?> modifier = vm.getModifier();
+		PCGenModifier<?> modifier = vm.getModifier();
 		String type = modifier.getIdentification();
 		StringBuilder sb = new StringBuilder();
 		sb.append(type);

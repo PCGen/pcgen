@@ -27,7 +27,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.NEPCalculation;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
@@ -48,8 +50,6 @@ import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.solver.testsupport.TrackingVariableCache;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
-import pcgen.cdom.formula.FormulaCalc;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.cdom.formula.scope.EquipmentScope;
 import pcgen.cdom.reference.CDOMFactory;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
@@ -113,18 +113,18 @@ public class SetSolverManagerTest
 		fm = fm.getWith(FormulaManager.FUNCTION, fl);
 		SolverFactory solverFactory = new SolverFactory();
 		ModifierFactory am1 = new plugin.modifier.set.SetModifierFactory<>();
-		FormulaModifier emptyArrayMod =
+		PCGenModifier emptyArrayMod =
 				am1.getModifier("", managerFactory, null, globalScope, arrayManager);
 		solverFactory.addSolverFormat(arrayManager.getManagedClass(), emptyArrayMod);
 		
 		NEPCalculation calc = new ProcessCalculation<>(new Equipment(),
 				new BasicSet(), equipmentManager);
-		FormulaCalc em = new FormulaCalc<>(calc, equipmentManager);
+		CalculationModifier em = new CalculationModifier<>(calc, equipmentManager);
 		solverFactory.addSolverFormat(Equipment.class, em);
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
 		ModifierFactory mfn = new plugin.modifier.number.SetModifierFactory();
-		FormulaModifier mod =
+		PCGenModifier mod =
 				mfn.getModifier("0", managerFactory, null, globalScope, numberManager);
 		mod.addAssociation("PRIORITY=0");
 		solverFactory.addSolverFormat(numberManager.getManagedClass(), mod);
@@ -151,7 +151,7 @@ public class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am1 = new plugin.modifier.set.AddModifierFactory<>();
-		FormulaModifier mod = am1.getModifier("France,England", new ManagerFactory()
+		PCGenModifier mod = am1.getModifier("France,England", new ManagerFactory()
 		{
 		}, null, globalScope, arrayManager);
 		mod.addAssociation("PRIORITY=2000");
@@ -211,31 +211,31 @@ public class SetSolverManagerTest
 		
 		ModifierFactory am1 = new plugin.modifier.number.SetModifierFactory();
 		ModifierFactory amString = new plugin.modifier.string.SetModifierFactory();
-		FormulaModifier mod2 = am1.getModifier("2", new ManagerFactory()
+		PCGenModifier mod2 = am1.getModifier("2", new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
 		mod2.addAssociation("PRIORITY=2000");
-		FormulaModifier mod3 = am1.getModifier("3", new ManagerFactory()
+		PCGenModifier mod3 = am1.getModifier("3", new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
 		mod3.addAssociation("PRIORITY=2000");
-		FormulaModifier mod4 = am1.getModifier("4", new ManagerFactory()
+		PCGenModifier mod4 = am1.getModifier("4", new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
 		mod4.addAssociation("PRIORITY=3000");
 		String formula = "dropIntoContext(\"EQUIPMENT\",EquipVar,LocalVar)";
-		FormulaModifier modf = am1.getModifier(formula, new ManagerFactory()
+		PCGenModifier modf = am1.getModifier(formula, new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
 		modf.addAssociation("PRIORITY=2000");
 		
 		NEPCalculation calc1 = new ProcessCalculation<>(equip,
 				new BasicSet(), equipmentManager);
-		FormulaCalc mod_e1 = new FormulaCalc<>(calc1, equipmentManager);
+		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, equipmentManager);
 
 		NEPCalculation calc2 = new ProcessCalculation<>(equipalt,
 				new BasicSet(), equipmentManager);
-		FormulaCalc mod_e2 = new FormulaCalc<>(calc2, equipmentManager);
+		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, equipmentManager);
 
 		manager.addModifier(varIDe, mod2, scopeInste);
 		manager.addModifier(varIDa, mod3, scopeInsta);

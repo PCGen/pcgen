@@ -36,6 +36,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -48,7 +49,6 @@ import pcgen.cdom.facet.FormulaSetupFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableLibraryFacet;
-import pcgen.cdom.formula.FormulaModifier;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JComboBoxEx;
@@ -358,7 +358,7 @@ public class SolverViewFrame extends JFrame
 				case 2:
 					return ps.getResult();
 				case 3:
-					return ((FormulaModifier<?>) ps.getModifier()).getPriority();
+					return ((PCGenModifier<?>) ps.getModifier()).getPriority();
 				case 4:
 					return ps.getSourceInfo();
 				default:
