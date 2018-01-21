@@ -1,0 +1,22 @@
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Legacy of Dragons	SOURCESHORT:LoD	SOURCEWEB:http://paizo.com/products/btpy9nfl?Pathfinder-Player-Companion-Legacy-of-Dragons	SOURCEDATE:2016-08
+# Original Entry By: Gwen T. (evilpixie87)
+
+ABILITYCATEGORY:Draconic Heritage Choice					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:DraconicHeritage												DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Dragon Mystery Revelation					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonRevelation.GeneralRevelation			PLURAL:Dragon Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Dragon Mystery Associated Element		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Internal			TYPE:Dragon Mystery Associated Element									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Dragon Mystery Breath Weapon Shape		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:Dragon Mystery Breath Weapon Shape									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Dragon Mystery Dragon Senses I			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Internal			TYPE:Dragon Mystery Senses I											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Dragon Mystery Dragon Senses II		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Internal			TYPE:Dragon Mystery Senses II											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Dragon Mystery Dragon Form Type		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:Dragon Mystery Dragon Form										DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Dragonheir Scion Bloodline Type				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:DragonheirScionBloodlineChoice										DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Mindwyrm Mesmer Associated Element			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MindwyrmMesmerAssociatedElement									DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Scaled Fist Associated Element				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:ScaledFistAssociatedElement										DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Drake Companion Power					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DrakeCompanionPower					PLURAL:Drake Companion Powers		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Wyrmwitch Patron						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WyrmwitchPatron						PLURAL:Wyrmwitch Patrons		DISPLAYLOCATION:Class Features

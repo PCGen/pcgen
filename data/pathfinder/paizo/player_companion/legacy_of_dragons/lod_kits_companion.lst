@@ -1,0 +1,103 @@
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Legacy of Dragons	SOURCESHORT:LoD	SOURCEWEB:http://paizo.com/products/btpy9nfl?Pathfinder-Player-Companion-Legacy-of-Dragons	SOURCEDATE:2016-08
+# Original Entry By: Gwen T. (evilpixie87)
+
+
+STARTPACK:Companion (Aether Drake) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Companion (Aether Drake)],[!PRERACE:1,%]	SOURCEPAGE:p.22
+ALIGN:LN|TN|CN|LE|NE|CE
+RACE:Companion (Aether Drake)	!PRERACE:1,%
+NAME:Companion (Aether Drake)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Companion (Air Drake) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Companion (Air Drake)],[!PRERACE:1,%]	SOURCEPAGE:p.22
+ALIGN:LN|TN|CN|LE|NE|CE
+RACE:Companion (Air Drake)	!PRERACE:1,%
+NAME:Companion (Air Drake)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Companion (Cold Drake) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Companion (Cold Drake)],[!PRERACE:1,%]	SOURCEPAGE:p.22
+ALIGN:LN|TN|CN|LE|NE|CE
+RACE:Companion (Cold Drake)	!PRERACE:1,%
+NAME:Companion (Cold Drake)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Companion (Earth Drake) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Companion (Earth Drake)],[!PRERACE:1,%]	SOURCEPAGE:p.22
+ALIGN:LN|TN|CN|LE|NE|CE
+RACE:Companion (Earth Drake)	!PRERACE:1,%
+NAME:Companion (Earth Drake)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Companion (Fire Drake) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Companion (Fire Drake)],[!PRERACE:1,%]	SOURCEPAGE:p.22
+ALIGN:LN|TN|CN|LE|NE|CE
+RACE:Companion (Fire Drake)	!PRERACE:1,%
+NAME:Companion (Fire Drake)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Companion (Water Drake) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Companion (Water Drake)],[!PRERACE:1,%]	SOURCEPAGE:p.22
+ALIGN:LN|TN|CN|LE|NE|CE
+RACE:Companion (Water Drake)	!PRERACE:1,%
+NAME:Companion (Water Drake)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Familiar (Calligraphy Wyrm) Default	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.26
+ALIGN:TN
+RACE:Calligraphy Wyrm	!PRERACE:1,%
+NAME:Familiar (Calligraphy Wyrm)
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Bluff				RANK:1
+SKILL:Craft (calligraphy)	RANK:1
+SKILL:Fly				RANK:3
+SKILL:Knowledge (arcana)	RANK:1
+SKILL:Linguistics			RANK:1
+SKILL:Perception			RANK:1
+SKILL:Spellcraft			RANK:1
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:Calligraphy Wyrm Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Calligraphy Wyrm],[!PRERACE:1,%]	SOURCEPAGE:p.26
+ALIGN:TN
+RACE:Calligraphy Wyrm	!PRERACE:1,%
+NAME:Calligraphy Wyrm
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Bluff				RANK:1
+SKILL:Craft (calligraphy)	RANK:1
+SKILL:Fly				RANK:3
+SKILL:Knowledge (arcana)	RANK:1
+SKILL:Linguistics			RANK:1
+SKILL:Perception			RANK:1
+SKILL:Spellcraft			RANK:1
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:Familiar (Pseudowyvern) Default	TYPE:Improved Familiar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Pseudowyvern)],[!PRERACE:1,%]	SOURCEPAGE:p.XXX
+ALIGN:TN
+RACE:Pseudowyvern	!PRERACE:1,%
+NAME:Familiar (Pseudowyvern)
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Fly				RANK:3
+SKILL:Perception			RANK:1
+SKILL:Sense Motive		RANK:1
+SKILL:Stealth			RANK:3
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:Pseudowyvern Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Pseudowyvern],[!PRERACE:1,%]	SOURCEPAGE:p.XXX
+ALIGN:TN
+RACE:Pseudowyvern	!PRERACE:1,%
+NAME:Pseudowyvern
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Fly				RANK:3
+SKILL:Perception			RANK:1
+SKILL:Sense Motive		RANK:1
+SKILL:Stealth			RANK:3
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
