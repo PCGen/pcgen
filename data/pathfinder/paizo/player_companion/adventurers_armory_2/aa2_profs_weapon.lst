@@ -1,0 +1,84 @@
+# CVS $Revision: 13827 $ $Author: evilpixie87 $ -- Mon Jul 03 04:10:09 2017 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Adventurer's Armory 2	SOURCESHORT:AA2	SOURCEWEB:http://paizo.com/products/btpy9tom?Pathfinder-Player-Companion-Adventurers-Armory-2	SOURCEDATE:2017-06
+#Original Entry: Gwen. T (evilpixie87)
+
+# ==============================
+# Weapon Types
+# ==============================
+
+# MARTIAL WEAPONS
+# -- light
+Cat-o'-Nine-Tails				TYPE:Martial.OneHanded.Light.Melee.Slashing.MeleeSlashing
+
+# EXOTIC WEAPONS
+# -- light
+Flying Talon				TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
+Razor (Drow)				TYPE:Exotic.Light.Melee.Slashing.MeleeSlashing.Drow
+Sanpkhang					TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
+War-Shield (Dwarven/as Weapon)	TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Dwarven
+Waveblade					TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
+
+# -- 1-handers
+Sickle-Sword				TYPE:Exotic.OneHanded.Melee.Slashing.MeleeSlashing
+
+# -- 2-handers
+Battle Ladder (Gnome)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Double.Gnome
+Boarding Gaff				TYPE:Exotic.TwoHanded.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
+Butchering Axe				TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing
+Chain-Hammer				TYPE:Exotic.TwoHanded.Melee.Thrown.Bludgeoning.MeleeBludgeoning
+Dorn-Dergar (Dwarven)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Dwarven
+Fauchard					TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing
+
+# -- ranged
+Flask Thrower				TYPE:Exotic.Ranged
+Hornbow (Orc)				TYPE:Exotic.Ranged.Piercing.RangedPiercing.Archery.Orc
+Stormshaft Javelin			TYPE:Exotic.Thrown.Piercing.RangedPiercing.Spear
+
+# ==============================
+# Weapon Groups
+# ==============================
+
+#Axes:
+Butchering Axe.MOD			TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
+
+#Blades, Heavy:
+Sickle-Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+
+#Blades, Light:
+Razor (Drow).MOD				TYPE:Bladelight.Weapon Group Blades Light
+Sanpkhang.MOD				TYPE:Bladelight.Weapon Group Blades Light
+
+#Bows:
+Hornbow (Orc).MOD				TYPE:Bow.Weapon Group Bows
+
+#Close:
+Waveblade.MOD				TYPE:Close.Weapon Group Close
+War-Shield (Dwarven/as Weapon).MOD	TYPE:Close.Weapon Group Close
+
+#Double:
+Battle Ladder (Gnome).MOD		TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Boarding Gaff.MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Chain-Hammer.MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+
+#Flails:
+Cat-o'-Nine-Tails.MOD			TYPE:Flail.Weapon Group Flails
+Dorn-Dergar (Dwarven).MOD		TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
+Flying Talon.MOD				TYPE:Flail.Weapon Group Flails
+
+#Hammers:
+Chain-Hammer.MOD				TYPE:Hammer.Weapon Group Hammers.Weapon Group Hammers TwoHanded
+
+#Monk:
+Sanpkhang.MOD				TYPE:Monk.Weapon Group Monk
+
+#Pole Arms:
+Boarding Gaff.MOD				TYPE:Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded
+Fauchard.MOD				TYPE:Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded
+
+#Spears:
+Stormshaft Javelin.MOD			TYPE:Spear.Weapon Group Spears
+
+#Thrown:
+Chain-Hammer.MOD				TYPE:Thrown.Weapon Group Thrown
+Flask Thrower.MOD				TYPE:Thrown.Weapon Group Thrown
+Stormshaft Javelin.MOD			TYPE:Thrown.Weapon Group Thrown

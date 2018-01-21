@@ -1,0 +1,126 @@
+# CVS $Revision: 13827 $ $Author: evilpixie87 $ -- Mon Jul 03 04:10:09 2017 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Adventurer's Armory 2	SOURCESHORT:AA2	SOURCEWEB:http://paizo.com/products/btpy9tom?Pathfinder-Player-Companion-Adventurers-Armory-2	SOURCEDATE:2017-06
+#Original Entry: Gwen. T (evilpixie87)
+
+# ==============================
+# Ammunition
+# ==============================
+
+Bolt, Acid					KEY:Bolt (Acid)				TYPE:Ammunition.Resizable.Specific.Bolt.Individual.Alchemical	COST:40			BASEQTY:1		EQMOD:STEEL			MODS:NO			SOURCEPAGE:p.24			SPROP:Deals an additional 1d4 points of acid damage, does not cause splash damage.
+Bolt, Alchemical Fire			KEY:Bolt (Alchemical Fire)		TYPE:Ammunition.Resizable.Specific.Bolt.Individual.Alchemical	COST:50			BASEQTY:1		EQMOD:WOOD			MODS:NO			SOURCEPAGE:p.24			SPROP:Deals an additional 1d4 points of fire damage, does not cause splash damage or set target on fire.
+Bolt, Liquid Ice				KEY:Bolt (Liquid Ice)			TYPE:Ammunition.Resizable.Specific.Bolt.Individual.Alchemical	COST:40			BASEQTY:1		EQMOD:STEEL			MODS:NO			SOURCEPAGE:p.24			SPROP:Deals an additional 1d4 points of cold damage, does not cause splash damage.
+Bolt, Poison				KEY:Bolt (Poison)				TYPE:Ammunition.Resizable.Specific.Bolt.Individual.Alchemical	COST:25			BASEQTY:1		EQMOD:Cold Iron		MODS:NO			SOURCEPAGE:p.25			SPROP:Double all range increment penalties, bolt's cost does not include the cost of the injury or contact poison, which must be included during creation.
+
+# ==============================
+# Armor
+# ==============================
+
+Alkenstar Fortress Plate		PROFICIENCY:ARMOR|Alkenstar Fortress Plate	TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard			COST:2100	WT:75		ACCHECK:-7		EQMOD:STEEL			MAXDEX:0		SPELLFAILURE:40		SOURCEPAGE:p.6		BONUS:COMBAT|AC|8|TYPE=Armor|PREVAREQ:DisableArmorBonus,0																			SPROP:If targeted by a ranged weapon (not energy or magical attacks) that ignores armor bonus to AC, add half the fortress plate's bonus (including enhancement bonuses) to the AC against that attack. The dwarven weapon familiarity racial trait increases this projectile-only bonus by 1. Fortress plate's armor category can't be reduced by any effect (including by special materials, such as mithral).
+Chain Coat					PROFICIENCY:ARMOR|Chain Coat				TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard			COST:75	WT:40		ACCHECK:-2		EQMOD:STEEL			MAXDEX:5		SPELLFAILURE:30		SOURCEPAGE:p.6		BONUS:COMBAT|AC|4|TYPE=Armor|PREVAREQ:DisableArmorBonus,0																			SPROP:If wielding a spiked chain, you can affix it to one hand. If proficient with spiked chains, you can treat it as a one-handed weapon while attached. You can affix a spiked chain to each hand this way.
+Erutaki Coat				PROFICIENCY:ARMOR|Erutaki Coat			TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard			COST:80	WT:24		ACCHECK:-2		EQMOD:LEATHER		MAXDEX:3		SPELLFAILURE:20		SOURCEPAGE:p.6		BONUS:COMBAT|AC|4|TYPE=Armor|PREVAREQ:DisableArmorBonus,0																			SPROP:Treat as armored coat and cold weather outfit. +2 on stealth checks in snowy environments.
+Reinforced Tunic				PROFICIENCY:ARMOR|Reinforced Tunic			TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:1	WT:5		ACCHECK:0		EQMOD:CLOTH			MAXDEX:5		SPELLFAILURE:5		SOURCEPAGE:p.6		BONUS:COMBAT|AC|1|TYPE=Armor|PREVAREQ:DisableArmorBonus,0																			SPROP:Additional +2 AC vs. attack rolls made to confirm critical hits against the wearer.
+Spider-silk Bodysuit			PROFICIENCY:ARMOR|Spider-silk Bodysuit		TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:850	WT:4		ACCHECK:-1		EQMOD:CLOTH			MAXDEX:6		SPELLFAILURE:0		SOURCEPAGE:p.6		BONUS:COMBAT|AC|3|TYPE=Armor|PREVAREQ:DisableArmorBonus,0			BONUS:EQMARMOR|MAXDEX|2|PREABILITY:1,CATEGORY=Special Ability,Drow ~ Weapon Familiarity
+Varisian Dancing Scarves		PROFICIENCY:ARMOR|Varisian Dancing Scarves	TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:150	WT:8		ACCHECK:0		EQMOD:CLOTH.LEATHER				SPELLFAILURE:0		SOURCEPAGE:p.6		BONUS:COMBAT|AC|0|TYPE=Armor|PREVAREQ:DisableArmorBonus,0																			SPROP:When you move at least 10 feet during your turn, gain additional +2 AC until your next turn.
+
+# ==============================
+# Shields
+# ==============================
+
+Snarlshield, Steel			KEY:Snarlshield (Steel)				PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard.Close.Weapon.Resizable.Melee.ShieldBash			COST:50	WT:20		ACCHECK:-3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:DISARM.STEEL			WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.6	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0		SPROP:The snarlshield has the disarm quality when used as a weapon to bash an opponent.
+Snarlshield, Wooden			KEY:Snarlshield (Wooden)			PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard.Close.Weapon.Resizable.Melee.ShieldBash			COST:37	WT:15		ACCHECK:-3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:DISARM.WOOD				WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.6	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0		SPROP:The snarlshield has the disarm quality when used as a weapon to bash an opponent.
+War-Shield, Dwarven			KEY:War-Shield (Dwarven/as Shield)		PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close.Weapon.Resizable.Melee.ShieldBash.Dwarven		COST:50	WT:8		ACCHECK:-1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:STEEL					WIELD:Light					SIZE:M	SOURCEPAGE:p.6	SPELLFAILURE:20		BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0		SPROP:If using the Two-Weapon Fighting feat and wielding two dwarven war-shields, increase the higher of the two shield bonuses by 1. Lose this benefit for 1 round after a shield bash (unless also using Improved Shield Bash feat or a similar benefit). A dwarven war-shield gains no benefit from shield spikes.
+
+# ==============================
+# Weapons
+# ==============================
+##Did not include WT or COST for Dwarven War-Shield, as these are included in the shield version of the item.
+Lantern Staff										PROFICIENCY:WEAPON|Quarterstaff				TYPE:Weapon.Resizable.Melee.TwoHanded.Simple.Standard.Bludgeoning.Quarterstaff																		COST:15	WT:9		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:STEEL													WIELD:TwoHanded							SIZE:M	SOURCEPAGE:p.9				SPROP:Deals 1 point of fire damage in addition to the normal damage when lit.
+Boarding Axe										PROFICIENCY:WEAPON|Handaxe					TYPE:Weapon.Resizable.Melee.Light.Finesseable.Martial.Standard.Piercing.Slashing.Axe																	COST:6	WT:3		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d6					EQMOD:STEEL													WIELD:Light								SIZE:M	SOURCEPAGE:p.8				SPROP:+2 circumstance bonus on Climb checks to scale wooden or other penetrable surfaces, such as ice.
+Cat-o'-Nine-Tails										PROFICIENCY:WEAPON|Cat-o'-Nine-Tails			TYPE:Weapon.Resizable.Melee.Light.Finesseable.Martial.Standard.Slashing.Flail																			COST:1	WT:1		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4					EQMOD:LEATHER.DISARM.NONLETHAL									WIELD:Light								SIZE:M	SOURCEPAGE:p.8				SPROP:Deals no damage to creatures with an armor bonus of +1 or higher or a natural armor bonus of +3 or higher.
+Dueling Dagger										PROFICIENCY:WEAPON|Dagger					TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Martial.Standard.Piercing.Slashing.Dagger															COST:12	WT:1		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d4					EQMOD:STEEL													WIELD:Light			RANGE:10				SIZE:M	SOURCEPAGE:p.8				SPROP:When fighting defensively or using Combat Expertise, increase AC 1. If not proficient, treat as a dagger with no special benefits.
+Katar, Tri-Bladed				KEY:Katar (Tri-Bladed)			PROFICIENCY:WEAPON|Dagger (Punching)			TYPE:Weapon.Resizable.Melee.Light.Finesseable.Martial.Standard.Piercing.Dagger																		COST:6	WT:2		CRITMULT:x4	CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL													WIELD:Light								SIZE:M	SOURCEPAGE:p.9
+Cutlass											PROFICIENCY:WEAPON|Scimitar					TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Standard.Slashing.Sword																				COST:15	WT:4		CRITMULT:x2	CRITRANGE:3							DAMAGE:1d6					EQMOD:STEEL													WIELD:OneHanded							SIZE:M	SOURCEPAGE:p.8
+Flying Talon										PROFICIENCY:WEAPON|Flying Talon				TYPE:Weapon.Resizable.Melee.Light.Finesseable.Reach.Exotic.Standard.Piercing.Slashing																	COST:15	WT:5		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL.DISARM.TRIP											WIELD:Light					REACHMULT:2		SIZE:M	SOURCEPAGE:p.8				SPROP:You cannot make attacks of opportunity with a flying talon and do not threaten any squares with it.
+Razor, Drow					KEY:Razor (Drow)				PROFICIENCY:WEAPON|Razor (Drow)				TYPE:Weapon.Resizable.Melee.Light.Finesseable.Exotic.Standard.Slashing.Dagger.Drow																		COST:25	WT:2		CRITMULT:x2	CRITRANGE:3							DAMAGE:1d4					EQMOD:STEEL													WIELD:Light								SIZE:M	SOURCEPAGE:p.9				SPROP:A confirmed critical hit or sneak attack deals an additional 2 points of damage; this is precision damage and not multiplied on a critical hit.
+Sanpkhang											PROFICIENCY:WEAPON|Sanpkhang					TYPE:Weapon.Resizable.Melee.Light.Finesseable.Exotic.Standard.Slashing.Piercing.Dagger																	COST:60	WT:1		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d4					EQMOD:STEEL.MONK												WIELD:Light								SIZE:M	SOURCEPAGE:p.9				SPROP:Any injury poison delivered with a sanpkhang has its DC increased by 1, or by 2 if delivered as part of a critical hit or sneak attack.
+War-Shield, Dwarven			KEY:War-Shield (Dwarven/as Weapon)	PROFICIENCY:WEAPON|War-Shield (Dwarven/as Weapon)	TYPE:Weapon.Resizable.Melee.Light.Finesseable.Exotic.Standard.Slashing.Piercing.Dwarven																	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:STEEL													WIELD:Light								SIZE:M	SOURCEPAGE:p.6
+Waveblade											PROFICIENCY:WEAPON|Waveblade					TYPE:Weapon.Resizable.Melee.Light.Finesseable.Exotic.Standard.Slashing.Piercing.Dagger																	COST:5	WT:2		CRITMULT:x2	CRITRANGE:3							DAMAGE:1d6					EQMOD:STEEL.MONK												WIELD:Light								SIZE:M	SOURCEPAGE:p.9				SPROP:You gain a +2 bonus to your CMD against disarm attempts made to disarm you of a waveblade.
+Sickle-Sword										PROFICIENCY:WEAPON|Sickle-Sword				TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Standard.Slashing.Sword																				COST:20	WT:4		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8					EQMOD:STEEL.DISTRACTING											WIELD:OneHanded							SIZE:M	SOURCEPAGE:p.9				SPROP:When wielded in one hand with nothing in the other, you can spend a swift action to gain a +2 bonus on your next attack roll before the end of your turn.
+Spiral Rapier										PROFICIENCY:WEAPON|Rapier					TYPE:Weapon.Resizable.Melee.OneHanded.Finesseable.Exotic.Standard.Piercing.Sword																		COST:80	WT:3		CRITMULT:x2	CRITRANGE:3							DAMAGE:1d6					EQMOD:STEEL.BLOCKING.DISARM										WIELD:OneHanded							SIZE:M	SOURCEPAGE:p.9				SPROP:You can't wield a spiral rapier in two hands in order to apply 1-1/2 times your Strength modifier to its damage.
+Battle Ladder, Gnome			KEY:Battle Ladder (Gnome)		PROFICIENCY:WEAPON|Battle Ladder (Gnome)			TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Double.Bludgeoning.Gnome				ALTTYPE:Weapon.Resizable.Melee.Exotic.Bludgeoning						COST:20	WT:8		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:WOOD.TRIP				ALTEQMOD:WOOD.TRIP					WIELD:TwoHanded							SIZE:M	SOURCEPAGE:p.8
+Boarding Gaff										PROFICIENCY:WEAPON|Boarding Gaff				TYPE:Weapon.Resizable.Melee.TwoHanded.Reach.Exotic.Standard.Double.Slashing.Piercing			ALTTYPE:Weapon.Resizable.Melee.Exotic.Slashing.Piercing					COST:8	WT:8		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:STEEL.WOOD.TRIP			ALTEQMOD:STEEL.WOOD.TRIP				WIELD:TwoHanded				REACHMULT:2		SIZE:M	SOURCEPAGE:p.8
+Butchering Axe										PROFICIENCY:WEAPON|Butchering Axe				TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Slashing.Axe																				COST:65	WT:25		CRITMULT:x2	CRITRANGE:3							DAMAGE:3d6					EQMOD:STEEL													WIELD:TwoHanded							SIZE:M	SOURCEPAGE:p.8				BONUS:WEAPONPROF=Butchering Axe|TOHIT|-2|PREMULT:1,[PREMULT:2,[PRESIZELTEQ:S],[!PRESTAT:1,STR=17]],[PREMULT:2,[PRESIZEGTEQ:M],[!PRESTAT:1,STR=19]]
+Chain-Hammer										PROFICIENCY:WEAPON|Chain-Hammer				TYPE:Weapon.Resizable.Melee.TwoHanded.Ranged.Thrown.Exotic.Standard.Double.Bludgeoning			ALTTYPE:Weapon.Resizable.Melee.Exotic.Bludgeoning						COST:35	WT:8		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:STEEL					ALTEQMOD:STEEL						WIELD:TwoHanded		RANGE:10				SIZE:M	SOURCEPAGE:p.8				SPROP:The chain-hammer's maximum throwing range is 10 feet.
+Dorn-Dergar, Dwarven			KEY:Dorn-Dergar (Dwarven)		PROFICIENCY:WEAPON|Dorn-Dergar (Dwarven)			TYPE:Weapon.Resizable.Melee.TwoHanded.Reach.Exotic.Standard.Bludgeoning.Dwarven																		COST:50	WT:15		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d10					EQMOD:STEEL										REACH:10		WIELD:TwoHanded							SIZE:M	SOURCEPAGE:p.8				SPROP:The weapon can be used either with or without reach; changing between the two is a move action.
+Fauchard											PROFICIENCY:WEAPON|Fauchard					TYPE:Weapon.Resizable.Melee.TwoHanded.Reach.Exotic.Standard.Slashing																				COST:14	WT:10		CRITMULT:x2	CRITRANGE:3							DAMAGE:1d10					EQMOD:STEEL.TRIP												WIELD:TwoHanded				REACHMULT:2		SIZE:M	SOURCEPAGE:p.8
+Piston Maul, Gnome			KEY:Piston Maul (Gnome)			PROFICIENCY:WEAPON|Greatclub					TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Bludgeoning.Gnome																				COST:70	WT:15		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d10					EQMOD:STEEL													WIELD:TwoHanded							SIZE:M	SOURCEPAGE:p.9				SPROP:Successful sunder attacks deal an additional 4 points of damage. Requires a thunderstone to function; otherwise, it functions as a greatclub. Inserting a thunderstone is a standard action, and powers the weapon for 24 hours, after which the thunderstone is consumed.
+Ripsaw Glaive, Gnome			KEY:Ripsaw Glaive (Gnome)		PROFICIENCY:WEAPON|Glaive					TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Reach.Standard.Slashing.Gnome																			COST:30	WT:12		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d10					EQMOD:STEEL													WIELD:TwoHanded				REACHMULT:2		SIZE:M	SOURCEPAGE:p.9				SPROP:When the cord is pulled as a move action, the blade spins rapidly for %1 rounds. While spinning, gain a +2 bonus on damage rolls with the weapon. When not spinning, treat this weapon as a glaive.|STR
+Switchscythe										PROFICIENCY:WEAPON|Scythe					TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Piercing.Slashing.Scythe																		COST:18	WT:10		CRITMULT:x4	CRITRANGE:1							DAMAGE:2d4					EQMOD:STEEL.TRIP												WIELD:TwoHanded							SIZE:M	SOURCEPAGE:p.9				SPROP:Opening the blade is a swift action, and closing it again is a standard action. Use Bluff or Sleight of Hand to treat as a hidden weapon; 1 minute of work grants a +5 bonus on such checks. This disguise is ruined when the weapon is opened. 
+Flask Thrower										PROFICIENCY:WEAPON|Flask Thrower				TYPE:Weapon.Resizable.Ranged.Exotic.Standard.Container.Projectile																	CONTAINS:UNLIM		COST:25	WT:4																		EQMOD:WOOD.LEATHER											WIELD:TwoHandsOnly	RANGE:20				SIZE:M	SOURCEPAGE:p.8				SPROP:Launches thrown substances that deal splash damage, such as acid, alchemist's fire, or holy water, as well as tools such as tanglefoot bags, thunderstones, or caltrops.
+Hornbow, Orc				KEY:Hornbow (Orc)				PROFICIENCY:WEAPON|Hornbow (Orc)				TYPE:Weapon.Resizable.Ranged.Exotic.Standard.Piercing.Container.Projectile.Bow.Composite.Orc												CONTAINS:UNLIM|Arrow	COST:130	WT:7		CRITMULT:x3	CRITRANGE:1							DAMAGE:2d6					EQMOD:WOOD													WIELD:TwoHandsOnly	RANGE:110				SIZE:M	SOURCEPAGE:p.8	MODS:REQUIRED	BONUS:WEAPON|DAMAGE|min(STR,0)
+Stormshaft Javelin									PROFICIENCY:WEAPON|Javelin					TYPE:Weapon.Resizable.Ranged.Exotic.Standard.Piercing.Thrown.Javelin																				COST:35	WT:3		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:STEEL.WOOD												WIELD:OneHandOnly		RANGE:30				SIZE:M	SOURCEPAGE:p.8				SPROP:Uses a thunderstone behind the head. A successful strike causes target to take damage as normal and be the center of the thunderstone's effect. On a miss, roll as a missed splash weapon to determine the center of the thunderstone's effect.
+
+Greatclub, Brutally Weighted		KEY:Greatclub(Brutally Weighted)	PROFICIENCY:WEAPON|Greatclub					TYPE:Weapon.Resizable.Melee.TwoHanded.Martial.Standard.Bludgeoning.Club.Hammer																		COST:3005	WT:9		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d10					EQMOD:WOOD													WIELD:TwoHanded							SIZE:M	SOURCEPAGE:p.10				SPROP:Creatures hit taks a –2 penalty to CMD against bull rush, reposition, and trip combat maneuvers until the end of their next turn or until after being subject to such a maneuver (whichever comes first).
+Tetsubo, Brutally Weighted		KEY:Tetsubo (Brutally Weighted)	PROFICIENCY:WEAPON|Tetsubo					TYPE:Weapon.Resizable.EasternWeapon.Eastern.Melee.TwoHanded.Exotic.Bludgeoning.Hammer																	COST:3020	WT:10		CRITMULT:x4	CRITRANGE:1							DAMAGE:1d10					EQMOD:STEEL													WIELD:TwoHanded							SIZE:M	SOURCEPAGE:p.10				SPROP:Creatures hit taks a –2 penalty to CMD against bull rush, reposition, and trip combat maneuvers until the end of their next turn or until after being subject to such a maneuver (whichever comes first).
+Rhoka Sword, Serrated Edge		KEY:Rhoka Sword (Serrated Edge)	PROFICIENCY:WEAPON|Rhoka Sword				TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Slashing.Sword																						COST:4025	WT:6		CRITMULT:x2	CRITRANGE:3							DAMAGE:1d8					EQMOD:STEEL													WIELD:OneHanded							SIZE:M	SOURCEPAGE:p.10				SPROP:When you make an attack, you can take a –2 penalty on the attack roll. If you do and the attack deals damage, the weapon also inflicts 1 point of bleed damage. This bleed stacks with itself (up to a total of 2 points of bleed), but does not stack with bleed from other sources.
+Sawtooth Sabre, Serrated Edge		KEY:Sawtooth Sabre (Serrated Edge)	PROFICIENCY:WEAPON|Sawtooth Sabre				TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Slashing.Sword																						COST:4035	WT:2		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8					EQMOD:STEEL													WIELD:OneHanded							SIZE:M	SOURCEPAGE:p.10				SPROP:When you make an attack, you can take a –2 penalty on the attack roll. If you do and the attack deals damage, the weapon also inflicts 1 point of bleed damage. This bleed stacks with itself (up to a total of 2 points of bleed), but does not stack with bleed from other sources.
+
+
+# ==============================
+# Weapon Groups
+# ==============================
+
+#Axes:
+Boarding Axe.MOD				TYPE:Axe.Weapon Group Axes
+Butchering Axe.MOD			TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
+
+#Blades, Heavy:
+Cutlass.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sickle-Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Switchscythe.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
+
+#Blades, Light:
+Dueling Dagger.MOD			TYPE:Bladelight.Weapon Group Blades Light
+Razor (Drow).MOD				TYPE:Bladelight.Weapon Group Blades Light
+Sanpkhang.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Spiral Rapier.MOD				TYPE:Bladelight.Weapon Group Blades Light
+
+#Bows:
+Hornbow (Orc).MOD				TYPE:Bow.Weapon Group Bows
+
+#Close:
+Katar (Tri-Bladed).MOD			TYPE:Close.Weapon Group Close
+Waveblade.MOD				TYPE:Close.Weapon Group Close
+War-Shield (Dwarven/as Weapon).MOD	TYPE:Close.Weapon Group Close
+
+#Double:
+Battle Ladder (Gnome).MOD		TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Boarding Gaff.MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Chain-Hammer.MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+
+#Flails:
+Cat-o'-Nine-Tails.MOD			TYPE:Flail.Weapon Group Flails
+Dorn-Dergar (Dwarven).MOD		TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
+Flying Talon.MOD				TYPE:Flail.Weapon Group Flails
+
+#Hammers:
+Chain-Hammer.MOD				TYPE:Hammer.Weapon Group Hammers.Weapon Group Hammers TwoHanded
+Lantern Staff.MOD				TYPE:Hammer.Weapon Group Hammers.Weapon Group Hammers TwoHanded
+Piston Maul (Gnome).MOD			TYPE:Hammer.Weapon Group Hammers.Weapon Group Hammers TwoHanded
+
+#Monk:
+Sanpkhang.MOD				TYPE:Monk.Weapon Group Monk
+
+#Pole Arms:
+Boarding Gaff.MOD				TYPE:Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded
+Fauchard.MOD				TYPE:Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded
+Ripsaw Glaive (Gnome).MOD		TYPE:Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded
+
+#Spears:
+Stormshaft Javelin.MOD			TYPE:Spear.Weapon Group Spears
+
+#Thrown:
+Chain-Hammer.MOD				TYPE:Thrown.Weapon Group Thrown
+Dueling Dagger.MOD			TYPE:Thrown.Weapon Group Thrown
+Flask Thrower.MOD				TYPE:Thrown.Weapon Group Thrown
+Stormshaft Javelin.MOD			TYPE:Thrown.Weapon Group Thrown
