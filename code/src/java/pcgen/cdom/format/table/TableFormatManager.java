@@ -107,7 +107,7 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	@Override
 	public int hashCode()
 	{
-		return lookupFormat.hashCode() + 5;
+		return lookupFormat.hashCode() + 33;
 	}
 
 	@Override
