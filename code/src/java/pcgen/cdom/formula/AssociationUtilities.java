@@ -19,7 +19,7 @@ package pcgen.cdom.formula;
  * AssociationUtilities is a set of utility functions related to associations (placed on
  * formulas). The most common of these associations is PRIORITY=x
  */
-public class AssociationUtilities
+public final class AssociationUtilities
 {
 	private AssociationUtilities()
 	{

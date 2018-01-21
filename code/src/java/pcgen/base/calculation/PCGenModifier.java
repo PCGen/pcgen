@@ -31,8 +31,30 @@ import pcgen.base.util.Indirect;
 public interface PCGenModifier<T> extends Modifier<T>
 {
 
+	/**
+	 * Adds an Association to this PCGenModifier.
+	 * 
+	 * @param assocInstructions
+	 *            The instructions of the Association to be added to this PCGenModifier
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the given instructions are not valid or are not a supported
+	 *             Association for this PCGenModifier
+	 */
 	public void addAssociation(String assocInstructions);
 
+	/**
+	 * Returns a Collection of the instructions (String format) for the Associations on
+	 * this PCGenModifier.
+	 * 
+	 * Ownership of the returned Collection should be transferred to the calling object,
+	 * and no reference to the underlying contents of the PCGenModifier should be
+	 * maintained. (There should be no way for the PCGenModifier to alter this Collection
+	 * after it is returned and no method for the returned Collection to modify the
+	 * PCGenModifier)
+	 * 
+	 * @return the instructions (String format) for the Associations on this PCGenModifier
+	 */
 	public Collection<String> getAssociationInstructions();
 
 	/**
