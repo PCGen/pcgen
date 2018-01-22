@@ -177,7 +177,7 @@ A-Test Choose Class Base																					CATEGORY:FEAT		TYPE:Test											
 
 #TEST-53
 #Ability (can be feat):
-TargetedAbility ~ WeaponProf																					CATEGORY:FEAT		TYPE:TEST-53																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|ANY																																					ABILITY:FEAT|VIRTUAL|Weapon Focus(%LIST)
+TargetedAbility ~ WeaponProf																					CATEGORY:FEAT		TYPE:TEST-53																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|ANY																																					ABILITY:FEAT|VIRTUAL|Weapon Focus (%LIST)
 
 Give 5 Dodge AC																							CATEGORY:FEAT		TYPE:Test																																																																																																																										BONUS:COMBAT|AC|5|TYPE=Dodge																																																											COST:0
 Give 5 Deflection AC																						CATEGORY:FEAT		TYPE:Test																																																																																																																										BONUS:COMBAT|AC|5|TYPE=Deflection																																																										COST:0

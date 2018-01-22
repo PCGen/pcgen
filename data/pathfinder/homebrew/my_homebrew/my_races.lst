@@ -11,7 +11,6 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #	MOVE:Walk,
 #	BONUS:VAR|Manueverability|
 #	BONUS:VAR|AC_Natural_Armor|0|TYPE=Base
-#	FACE:
 #	REACH:
 #	LEGS:
 #	HANDS:
@@ -48,7 +47,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #
 #####Example
 
-#Xill		STARTFEATS:1	SIZE:M	MOVE:Walk,40		FACE:5	REACH:5	VISION:Darkvision (60')	PREALIGN:2	LANGAUTO:Infernal		BONUS:COMBAT|AC|7|TYPE=NaturalArmor		BONUS:STAT|STR|4	BONUS:STAT|DEX|6	BONUS:STAT|CON|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2		MONCSKILL:Balance|Climb|Diplomacy|Escape Artist|Intimidate|Listen|Move Silently|Sense Motive|Spot|Tumble|Use Rope	AUTO:WEAPONPROF|Longbow|Sword (Short)|TYPE.Martial|TYPE.Simple		LEGS:2	HANDS:4	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4		SAB:Implant (Ex)	SAB:Improved Grab (Ex)	SAB:Paralysis (Ex)	SAB:Planewalk (Su)	SAB:Spell Resistance (Ex)		SR:21		MONSTERCLASS:Outsider:5		RACETYPE:Outsider	HITDICEADVANCEMENT:8,15		LEVELADJUSTMENT:4	CR:6	SOURCEPAGE:MonstersT-Z
+#Xill		STARTFEATS:1	SIZE:M	MOVE:Walk,40		REACH:5	VISION:Darkvision (60')	PREALIGN:2	LANGAUTO:Infernal		BONUS:COMBAT|AC|7|TYPE=NaturalArmor		BONUS:STAT|STR|4	BONUS:STAT|DEX|6	BONUS:STAT|CON|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2		MONCSKILL:Balance|Climb|Diplomacy|Escape Artist|Intimidate|Listen|Move Silently|Sense Motive|Spot|Tumble|Use Rope	AUTO:WEAPONPROF|Longbow|Sword (Short)|TYPE.Martial|TYPE.Simple		LEGS:2	HANDS:4	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4		SAB:Implant (Ex)	SAB:Improved Grab (Ex)	SAB:Paralysis (Ex)	SAB:Planewalk (Su)	SAB:Spell Resistance (Ex)		SR:21		MONSTERCLASS:Outsider:5		RACETYPE:Outsider	HITDICEADVANCEMENT:8,15		LEVELADJUSTMENT:4	CR:6	SOURCEPAGE:MonstersT-Z
 
 #####
 #Xill is the name of the race. It must be the first field on each line, the remaining tags may be of any order.
@@ -59,9 +58,6 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #C=Colossal). Size is used in determining to-hit, AC, and affects some skills).
 #
 #The MOVE tag determines the Type and Speed of the different movement types the race has.
-#
-#The FACE tag Describes how much space the creature takes up. For 3.0 rules this tag is used for the Face statistic. For 3.5
-#rules this tag is used for the Space statistic. If only one number is used it is assumed to represent all sides.
 #
 #The REACH tag determines the reach of the Race.
 #
@@ -118,7 +114,6 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #TYPE:zzz
 #RACESUBTYPE:xyz
 #MOVE:
-#FACE:
 #REACH:
 #BONUS:COMBAT|AC|xxy|TYPE=NaturalArmor
 #BONUS:STAT|STR|

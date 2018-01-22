@@ -1,6 +1,33 @@
 
+###Block: Formula System
+DEFAULTVARIABLEVALUE:NUMBER|0
+DEFAULTVARIABLEVALUE:ORDEREDPAIR|0,0
+DEFAULTVARIABLEVALUE:BOOLEAN|False
+DEFAULTVARIABLEVALUE:DICE|0
+DEFAULTVARIABLEVALUE:STRING|
+
+
+###Block: Dynamic
+
+
+
+
+
+
+
+
+
+###Block: FACTs and FACTSETs
 # Name			Dataformat		Visible	Explanation
 FACTSETDEF:SPELL|Deity	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:Just for Listing deities that are predisposed to certain spells.
 #
 FACTSETDEF:DEITY|Animal	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred animal(s)
 FACTSETDEF:DEITY|Colors	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred color(s)
+
+
+
+
+
+
+
+

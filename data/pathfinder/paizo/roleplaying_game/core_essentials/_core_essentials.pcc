@@ -41,11 +41,22 @@ PUBNAMELONG:Paizo Inc.
 #COPYRIGHT:Yeti from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
 #COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing)).
 
-BIOSET:ce_biosettings.lst
+ALIGNMENT:ce__align.lst
+DATACONTROL:ce__datacontrols.lst
+DATATABLE:ce__datatables.lst
+DYNAMIC:ce__dynamics.lst
+GLOBALMODIFIER:ce__globalmodifiers.lst
+SAVE:ce__saves.lst
+SIZE:ce__sizes.lst
+STAT:ce__stats.lst
+VARIABLE:ce__variables.lst
+
+
 
 ABILITY:ce_abilities.lst
 ABILITY:ce_abilities_race.lst
 ABILITYCATEGORY:ce_abilitycategories.lst
+BIOSET:ce_biosettings.lst
 CLASS:ce_classes_race.lst
 DEITY:ce_deities.lst
 DOMAIN:ce_domains.lst
@@ -60,5 +71,3 @@ TEMPLATE:ce_templates.lst
 ARMORPROF:ce_profs_armor.lst
 WEAPONPROF:ce_profs_weapon.lst
 
-DATACONTROL:ce__datacontrols.lst
-SIZE:ce__sizes.lst
