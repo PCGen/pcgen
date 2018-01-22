@@ -275,6 +275,7 @@ FACTDEF:ABILITY|Cleric_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SE
 FACTDEF:ABILITY|Cleric_Archetype_Spellcasting			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Spellcasting		EXPLANATION:Determines whether the archetype affects - SpontaneousCasting
 FACTDEF:ABILITY|Cleric_Archetype_Domains				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Domains			EXPLANATION:Determines whether the archetype affects - SpontaneousCasting
 FACTDEF:ABILITY|Cleric_Archetype_SkillRanks			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SkillRanks			EXPLANATION:Determines whether the archetype affects - SpontaneousCasting
+FACTDEF:ABILITY|Cleric_Archetype_Aura				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Aura				EXPLANATION:Determines whether the archetype affects - Aura
 
 FACTDEF:ABILITY|Cleric_Archetype_ChannelEnergy1			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ChannelEnergy1		EXPLANATION:Remove Cleric ChannelEnergy1
 FACTDEF:ABILITY|Cleric_Archetype_ChannelEnergy2			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ChannelEnergy2		EXPLANATION:Remove Cleric ChannelEnergy2
