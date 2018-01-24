@@ -8,7 +8,7 @@ SOURCELONG:Adventurer's Armory 2	SOURCESHORT:AA2	SOURCEWEB:http://paizo.com/prod
 
 # MARTIAL WEAPONS
 # -- light
-Cat-o'-Nine-Tails				TYPE:Martial.OneHanded.Light.Melee.Slashing.MeleeSlashing
+Cat-O'-Nine-Tails				TYPE:Martial.OneHanded.Light.Melee.Slashing.MeleeSlashing
 
 # EXOTIC WEAPONS
 # -- light
@@ -61,7 +61,7 @@ Boarding Gaff.MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHand
 Chain-Hammer.MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
 
 #Flails:
-Cat-o'-Nine-Tails.MOD			TYPE:Flail.Weapon Group Flails
+Cat-O'-Nine-Tails.MOD			TYPE:Flail.Weapon Group Flails
 Dorn-Dergar (Dwarven).MOD		TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Flying Talon.MOD				TYPE:Flail.Weapon Group Flails
 
