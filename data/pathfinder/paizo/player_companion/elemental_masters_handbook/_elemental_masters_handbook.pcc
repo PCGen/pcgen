@@ -48,7 +48,6 @@ ABILITY:support/emh_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unch
 CLASS:support/emh_classes_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
 
 
-FORWARDREF:ABILITY=Special Ability|Varisian Tattoo ~ Ragario,Wild Talent ~ Void Healer
 FORWARDREF:SPELL|Wall of Ectoplasm
 
 
