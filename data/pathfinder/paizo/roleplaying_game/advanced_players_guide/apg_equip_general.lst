@@ -17,7 +17,7 @@ Chest (Medium)			OUTPUTNAME:Chest, Medium			TYPE:Goods.General.Container			CONTA
 Chest (Large)			OUTPUTNAME:Chest, Large				TYPE:Goods.General.Container			CONTAINS:UNLIM|Any		COST:10	WT:100	SOURCEPAGE:p.182
 Chest (Huge)			OUTPUTNAME:Chest, Huge				TYPE:Goods.General.Container			CONTAINS:UNLIM|Any		COST:25	WT:250	SOURCEPAGE:p.182
 Earplugs											TYPE:Goods.General									COST:0.03	WT:0		SOURCEPAGE:p.182
-Hourglass (1 hour)		OUTPUTNAME:Hourglass, 1 hour			TYPE:Goods.General									COST:25	WT:1		SOURCEPAGE:p.182
+Hourglass (1 Hour)		OUTPUTNAME:Hourglass, 1 hour			TYPE:Goods.General									COST:25	WT:1		SOURCEPAGE:p.182
 Hourglass (1 minute)		OUTPUTNAME:Hourglass, 1 minute		TYPE:Goods.General									COST:20	WT:0.5	SOURCEPAGE:p.182
 Hourglass (6 seconds)		OUTPUTNAME:Hourglass, 6 seconds		TYPE:Goods.General									COST:10	WT:0		SOURCEPAGE:p.182
 Iron Spike											TYPE:Goods.General									COST:0.05	WT:1		SOURCEPAGE:p.182
