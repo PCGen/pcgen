@@ -33,7 +33,7 @@ COPYRIGHT:Bat, Mobat from the Tome of Horrors Complete Copyright 2011, Necromanc
 COPYRIGHT:Death Worm from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene and Erica Balsley.
 COPYRIGHT:Flumph from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowell and Douglas Naismith.
 COPYRIGHT:Mongrelmen from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax
-COPYRIGHT:Pathfinder Campaign Setting: Distant Worlds � 2012, Paizo Publishing, LLC; Author: James L. Sutter
+COPYRIGHT:Pathfinder Campaign Setting: Distant Worlds (c) 2012, Paizo Publishing, LLC; Author: James L. Sutter
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Distant Worlds" Copyright 2015, PCGen Data team (Including, but not limited to Andrew Maitland)
 
 # Do not remove the EXTRAFILE comment.
@@ -48,6 +48,7 @@ ABILITY:dw_abilities_race.lst
 EQUIPMENT:dw_equip.lst
 KIT:dw_kits.lst
 LANGUAGE:dw_languages.lst
+WEAPONPROF:dw_profs_weapon.lst
 RACE:dw_races.lst
 SPELL:dw_spells.lst
 

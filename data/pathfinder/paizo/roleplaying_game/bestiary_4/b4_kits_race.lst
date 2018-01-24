@@ -3379,7 +3379,7 @@ SKILL:Survival				RANK:5
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Multiweapon Fighting
-ABILITY:CATEGORY=FEAT|Weapon Focus (shobhad longrifle)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Shobhad Longrifle)
 GEAR:Hide						SIZE:L	LOCATION:Equipped
 GEAR:Longsword			QTY:2		SIZE:L	LOCATION:Carried
 GEAR:Shobhad Longrifle		QTY:1		SIZE:L	LOCATION:Carried
