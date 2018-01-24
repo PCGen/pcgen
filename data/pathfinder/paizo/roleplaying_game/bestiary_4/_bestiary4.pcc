@@ -77,7 +77,7 @@ ABILITY:support/b4_abilities_race_ma.lst|PRECAMPAIGN:1,Mythic Adventures
 SPELL:support/b4_spells_modified_ma.lst|PRECAMPAIGN:1,Mythic Adventures
 
 FORWARDREF:ABILITY=Special Ability|Mythic Power,Surge
-FORWARDREF:FEAT|Mythic Feat ~ Alertness,Mythic Feat ~ Cleave,Mythic Feat ~ Combat Reflexes,Mythic Feat ~ Critical Focus,Mythic Feat ~ Deadly Aim,Mythic Feat ~ Great Fortitude,Mythic Feat ~ Improved Critical (ballista (heavy)),Mythic Feat ~ Improved Critical (slam),Mythic Feat ~ Improved Initiative,Mythic Feat ~ Improved Sunder,Mythic Feat ~ Iron Will,Mythic Feat ~ Lightning Reflexes,Mythic Feat ~ Persuasive,Mythic Feat ~ Point-Blank Shot,Mythic Feat ~ Power Attack,Mythic Feat ~ Skill Focus (Stealth),Mythic Feat ~ Toughness,Mythic Feat ~ Weapon Finesse,Mythic Feat ~ Weapon Focus (claw),Mythic Feat ~ Weapon Focus (mandibles),Mythic Feat ~ Weapon Focus (Pincer),Mythic Feat ~ Vital Strike,Mythic Feat ~ Improved Critical (mace (heavy)),Mythic Feat ~ Weapon Focus (Slam),Mythic Feat ~ Weapon Focus (Spear)
+#FORWARDREF:ABILITY=Mythic Feat|Alertness,Cleave,Combat Reflexes,Critical Focus,Deadly Aim,Great Fortitude,Improved Critical (ballista (heavy)),Improved Critical (slam),Improved Initiative,Improved Sunder,Iron Will,Lightning Reflexes,Persuasive,Point-Blank Shot,Power Attack,Skill Focus (Stealth),Toughness,Weapon Finesse,Weapon Focus (claw),Weapon Focus (mandibles),Weapon Focus (Pincer),Vital Strike,Improved Critical (mace (heavy)),Weapon Focus (Slam),Weapon Focus (Spear)
 
 
 # ENTRY DATE: 2016-06
