@@ -59,7 +59,8 @@ ${pcstring('RACESUBTYPE.${racesubtype}')}
 <b>Multiclassing experience penalty</b> ${pcstring('EXP.PENALTY')}<br>
 <b>Favored Classes</b> ${pcstring('FAVOREDLIST')}<br>
 <b>Total Classes</b> ${pcvar('COUNT[CLASSES]')}<br>
-<b>Face</b> ${pcstring('FACE')}<br>
+<b>Size</b>  ${pcstring('SIZELONG')} or  ${pcstring('SIZE')} <br>
+<b>Face</b> ${pcstring('FACE')}  or NEW SYSTEM: ${pc.val.face}<br>
 <b>Reach</b> ${pcstring('REACH')}<br>
 <b>Encumbrance Category:</b> ${pcstring('TOTAL.LOAD')}<br>
 

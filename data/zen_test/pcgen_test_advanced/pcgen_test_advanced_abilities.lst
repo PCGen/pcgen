@@ -1522,14 +1522,14 @@ CODE-2835												CATEGORY:FEAT			TYPE:General.Code																DESC: caus
 
 # Starfinder 3rd Tier Abilities lost issue - CODE-3199
 
-Starfinder Test ~ Weapon Test					CATEGORY:Class		ABILITY:Proficiency|AUTOMATIC|Weapon Prof ~ Basic Weapons
+Starfinder Test ~ Weapon Test					CATEGORY:Class	TYPE:Starfinder Test Class Feature	ABILITY:Proficiency|AUTOMATIC|Weapon Prof ~ Basic Weapons
 Weapon Prof ~ Basic Weapons	CATEGORY:Proficiency	TYPE:Proficiency	ABILITY:Weapon|AUTOMATIC|TYPE=Basic Melee
 Weapon 1				CATEGORY:Weapon	TYPE:Basic Melee
 Weapon 2				CATEGORY:Weapon	TYPE:Basic Melee
 
 
 # Error when adding:
-Weapon Specialization SF	CATEGORY:FEAT	CHOOSE:ABILITYSELECTION|Proficiency|TYPE=Weapon Specialization	MULT:YES	STACK:NO	ABILITY:Ability Pool Child|AUTOMATIC|%LIST
+Weapon Specialization SF	CATEGORY:FEAT	CHOOSE:ABILITYSELECTION|Proficiency|TYPE=Weapon Specialization	MULT:YES	STACK:NO	ABILITY:Weapon Specialization SF|AUTOMATIC|%LIST
 
 Weapon Specialization SF ~ Basic Choice	CATEGORY:Proficiency	TYPE:Weapon Specialization	ABILITY:FEAT|AUTOMATIC|Weapon Specialization SF(Weapon Specialization ~ Basic Choice)
 
