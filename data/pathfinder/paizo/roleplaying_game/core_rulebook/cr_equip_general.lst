@@ -52,10 +52,10 @@ Bracelets		TYPE:Wrist.Bracelet					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
 Bracers		TYPE:Wrist.Bracer					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
 # From "summary of magic item creation costs"
 Potion		TYPE:Potion.Consumable			COST:0	WT:0				MODS:REQUIRED
-Rod			TYPE:Rod					COST:0	WT:0				MODS:REQUIRED
-Scroll		TYPE:Scroll.Consumable			COST:0	WT:0				MODS:REQUIRED
-Staff			TYPE:Staff					COST:0	WT:0				MODS:REQUIRED
-Wand			TYPE:Wand					COST:0	WT:0				MODS:REQUIRED
+Rod			TYPE:Rod					COST:0	WT:5				MODS:REQUIRED
+Scroll		TYPE:Scroll.Consumable			COST:0	WT:0.01				MODS:REQUIRED
+Staff			TYPE:Staff					COST:0	WT:5				MODS:REQUIRED
+Wand			TYPE:Wand					COST:0	WT:0.0625				MODS:REQUIRED
 # From Magic Overview "Components"
 Spell Component	TYPE:Spell Component.Consumable	COST:0	WT:0				MODS:REQUIRED
 Spell Focus		TYPE:Spell Component.Focus		COST:0	WT:0				MODS:REQUIRED

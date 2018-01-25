@@ -273,7 +273,7 @@ EQMOD ~ PurposePower_CastSevenAtWill																			CATEGORY:Intelligent Item
 
 
 # Other Objects granting abilities:
-Siren Move																								CATEGORY:Internal																																																																																																																																								MOVE:Swim,60
+Pearl of the Sirines ~ Swim Speed																								CATEGORY:Internal																																																																																																																																								MOVE:Swim,60
 Belt of Dwarvenkind ~ Languages																				CATEGORY:Special Ability	TYPE:WondrousItem																																																																																																																																						AUTO:LANG|Dwarven
 
 
