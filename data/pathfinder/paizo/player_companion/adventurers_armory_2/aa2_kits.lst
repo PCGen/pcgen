@@ -18,7 +18,7 @@ GEAR:Scroll (Identify)							QTY:2		SIZE:PC	LOCATION:Scroll Box																!
 GEAR:Scroll (Mount)							QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
 GEAR:Scroll (Rope Trick)						QTY:1		SIZE:PC	LOCATION:Scroll Box
 GEAR:Thunderstone								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Wand of Mage Armor							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:SPL_CHRG|SPELLNAME[Mage Armor]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[16]		!PRECLASS:1,Magus=1
+GEAR:Wand of Mage Armor							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Mage Armor]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[16]		!PRECLASS:1,Magus=1
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
@@ -36,7 +36,7 @@ GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:MWORKW												PRECLASS:1,Magus=1
+GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon												PRECLASS:1,Magus=1
 FUNDS:gp	QTY:3
 
 STARTPACK:Arcane Adept Package					TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:997
@@ -51,7 +51,7 @@ GEAR:Scroll (Identify)							QTY:2		SIZE:PC	LOCATION:Scroll Box																!
 GEAR:Scroll (Mount)							QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
 GEAR:Scroll (Rope Trick)						QTY:1		SIZE:PC	LOCATION:Scroll Box
 GEAR:Thunderstone								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Wand of Mage Armor							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:SPL_CHRG|SPELLNAME[Mage Armor]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[16]		!PRECLASS:1,Magus=1
+GEAR:Wand of Mage Armor							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Mage Armor]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[16]		!PRECLASS:1,Magus=1
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
@@ -69,16 +69,16 @@ GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:MWORKW												PRECLASS:1,Magus=1
+GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon												PRECLASS:1,Magus=1
 
 
 STARTPACK:Daring Bravo Package (Trait)				TYPE:Adventuring Kit	EQUIPBUY:0				PREABILITY:1,CATEGORY=Special Ability,Trait ~ Well-Provisioned Adventurer
-GEAR:Chain Shirt								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
+GEAR:Chain Shirt								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Crossbow (Light)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
-GEAR:Rapier									QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:MWORKW
+GEAR:Rapier									QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sap									QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Alchemical Silver
+GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Alchemical Silver
 GEAR:Acid (Flask)								QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Alchemist's Kindness						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
@@ -93,7 +93,7 @@ GEAR:Jewelry								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Grooming Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:TYPE=Goods.Instrument						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:MWORKT
+GEAR:TYPE=Goods.Instrument						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Item
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mirror (Small/Steel)						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Perfume/Cologne							QTY:1		SIZE:PC	LOCATION:Backpack
@@ -108,12 +108,12 @@ FUNDS:gp	QTY:5
 
 
 STARTPACK:Daring Bravo Package					TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:995
-GEAR:Chain Shirt								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
+GEAR:Chain Shirt								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Crossbow (Light)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
-GEAR:Rapier									QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:MWORKW
+GEAR:Rapier									QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sap									QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Alchemical Silver
+GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Alchemical Silver
 GEAR:Acid (Flask)								QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Alchemist's Kindness						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
@@ -128,7 +128,7 @@ GEAR:Jewelry								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Grooming Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:TYPE=Goods.Instrument						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:MWORKT
+GEAR:TYPE=Goods.Instrument						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Item
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mirror (Small/Steel)						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Perfume/Cologne							QTY:1		SIZE:PC	LOCATION:Backpack
@@ -143,11 +143,11 @@ GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	
 
 STARTPACK:Holy Warrior Package (Trait)				TYPE:Adventuring Kit	EQUIPBUY:0				PREABILITY:1,CATEGORY=Special Ability,Trait ~ Well-Provisioned Adventurer
 GEAR:Shield (Heavy/Steel)						QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Breastplate								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Morningstar								QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Cold Iron
+GEAR:Breastplate								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Morningstar								QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Cold Iron
 GEAR:Crossbow (Heavy)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
-GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:MWORKW
+GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Holy Water (Flask)							QTY:4		SIZE:PC	LOCATION:Carried
 GEAR:Oil of Bless Weapon						QTY:1		SIZE:PC	LOCATION:Backpack
@@ -173,11 +173,11 @@ FUNDS:gp	QTY:7
 
 STARTPACK:Holy Warrior Package					TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:993
 GEAR:Shield (Heavy/Steel)						QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Breastplate								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Morningstar								QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Cold Iron
+GEAR:Breastplate								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Morningstar								QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Cold Iron
 GEAR:Crossbow (Heavy)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
-GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:MWORKW
+GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Holy Water (Flask)							QTY:4		SIZE:PC	LOCATION:Carried
 GEAR:Oil of Bless Weapon						QTY:1		SIZE:PC	LOCATION:Backpack
@@ -204,7 +204,7 @@ STARTPACK:Lore Seeker Package (Trait)				TYPE:Adventuring Kit	EQUIPBUY:0				PREA
 GEAR:Crossbow (Light)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Quarterstaff								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Alchemical Silver
+GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Alchemical Silver
 GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Oil of Erase								QTY:1		SIZE:PC	LOCATION:Backpack
@@ -243,7 +243,7 @@ STARTPACK:Lore Seeker Package						TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOS
 GEAR:Crossbow (Light)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Quarterstaff								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Alchemical Silver
+GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Alchemical Silver
 GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Oil of Erase								QTY:1		SIZE:PC	LOCATION:Backpack
@@ -347,7 +347,7 @@ GEAR:Half-Plate								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Heavy/Wooden)						QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Javelin								QTY:4		SIZE:PC	LOCATION:Carried
 GEAR:Lance									QTY:1		SIZE:PC	LOCATION:Carried																	!PREABILITY:1,CATEGORY=Special Ability,Samurai ~ Mount,Cavalier ~ Mount,Divine Bond ~ Special Mount
-GEAR:Lance									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:MWORKW												PREABILITY:1,CATEGORY=Special Ability,Samurai ~ Mount,Cavalier ~ Mount,Divine Bond ~ Special Mount
+GEAR:Lance									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon												PREABILITY:1,CATEGORY=Special Ability,Samurai ~ Mount,Cavalier ~ Mount,Divine Bond ~ Special Mount
 GEAR:Longsword								QTY:1		SIZE:PC	LOCATION:Primary Hand
 GEAR:Sunrod									QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
@@ -377,7 +377,7 @@ GEAR:Half-Plate								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Heavy/Wooden)						QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Javelin								QTY:4		SIZE:PC	LOCATION:Carried
 GEAR:Lance									QTY:1		SIZE:PC	LOCATION:Carried																	!PREABILITY:1,CATEGORY=Special Ability,Samurai ~ Mount,Cavalier ~ Mount,Divine Bond ~ Special Mount
-GEAR:Lance									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:MWORKW												PREABILITY:1,CATEGORY=Special Ability,Samurai ~ Mount,Cavalier ~ Mount,Divine Bond ~ Special Mount
+GEAR:Lance									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon												PREABILITY:1,CATEGORY=Special Ability,Samurai ~ Mount,Cavalier ~ Mount,Divine Bond ~ Special Mount
 GEAR:Longsword								QTY:1		SIZE:PC	LOCATION:Primary Hand
 GEAR:Sunrod									QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
@@ -402,9 +402,9 @@ GEAR:Saddlebags								QTY:1		SIZE:PC	LOCATION:Not Carried
 
 
 STARTPACK:Shadowy Stalker Package (Trait)				TYPE:Adventuring Kit	EQUIPBUY:0				PREABILITY:1,CATEGORY=Special Ability,Trait ~ Well-Provisioned Adventurer
-GEAR:Leather								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
+GEAR:Leather								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Dagger									QTY:3		SIZE:PC	LOCATION:Carried
-GEAR:Sickle									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:MWORKW
+GEAR:Sickle									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sap									QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Smokestick								QTY:2		SIZE:PC	LOCATION:Backpack (Masterwork)
@@ -430,9 +430,9 @@ FUNDS:gp	QTY:1
 
 
 STARTPACK:Shadowy Stalker Package					TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:999
-GEAR:Leather								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
+GEAR:Leather								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Dagger									QTY:3		SIZE:PC	LOCATION:Carried
-GEAR:Sickle									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:MWORKW
+GEAR:Sickle									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sap									QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Smokestick								QTY:2		SIZE:PC	LOCATION:Backpack (Masterwork)
@@ -458,14 +458,14 @@ GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	
 
 STARTPACK:Wilderness Wanderer Package (Trait/Melee Focus)	TYPE:Adventuring Kit	EQUIPBUY:0				PREABILITY:1,CATEGORY=Special Ability,Trait ~ Well-Provisioned Adventurer
 GEAR:Shield (Light/Wooden/Quickdraw)				QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Studded Leather							QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Flail									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Cold Iron
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+1												!PRESTAT:1,STR=14
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+2												PREMULT:2,[PRESTAT:1,STR=14],[!PRESTAT:1,STR=16]
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+3												PREMULT:2,[PRESTAT:1,STR=16],[!PRESTAT:1,STR=18]
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+4												PRESTAT:1,STR=18
+GEAR:Studded Leather							QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Flail									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Cold Iron
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+1												!PRESTAT:1,STR=14
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+2												PREMULT:2,[PRESTAT:1,STR=14],[!PRESTAT:1,STR=16]
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+3												PREMULT:2,[PRESTAT:1,STR=16],[!PRESTAT:1,STR=18]
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+4												PRESTAT:1,STR=18
 GEAR:Arrows (20)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands		EQMOD:MWORKW
+GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sword (Short)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Alchemist's Fire (Flask)						QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
@@ -493,14 +493,14 @@ FUNDS:gp	QTY:.2
 
 STARTPACK:Wilderness Wanderer Package (Melee Focus)		TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:999.8
 GEAR:Shield (Light/Wooden/Quickdraw)				QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Studded Leather							QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Flail									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Cold Iron
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+1												!PRESTAT:1,STR=14
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+2												PREMULT:2,[PRESTAT:1,STR=14],[!PRESTAT:1,STR=16]
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+3												PREMULT:2,[PRESTAT:1,STR=16],[!PRESTAT:1,STR=18]
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+4												PRESTAT:1,STR=18
+GEAR:Studded Leather							QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Flail									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Cold Iron
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+1												!PRESTAT:1,STR=14
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+2												PREMULT:2,[PRESTAT:1,STR=14],[!PRESTAT:1,STR=16]
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+3												PREMULT:2,[PRESTAT:1,STR=16],[!PRESTAT:1,STR=18]
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+4												PRESTAT:1,STR=18
 GEAR:Arrows (20)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands		EQMOD:MWORKW
+GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sword (Short)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Alchemist's Fire (Flask)						QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
@@ -527,12 +527,12 @@ GEAR:Holly and Mistletoe						QTY:1		SIZE:PC	LOCATION:Equipped																	P
 
 STARTPACK:Wilderness Wanderer Package (Trait/Ranged Focus)	TYPE:Adventuring Kit	EQUIPBUY:0				PREABILITY:1,CATEGORY=Special Ability,Trait ~ Well-Provisioned Adventurer
 GEAR:Shield (Light/Wooden/Quickdraw)				QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Studded Leather							QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Flail									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Cold Iron
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+1.MWORKW											!PRESTAT:1,STR=14
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+2.MWORKW											PREMULT:2,[PRESTAT:1,STR=14],[!PRESTAT:1,STR=16]
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+3.MWORKW											PREMULT:2,[PRESTAT:1,STR=16],[!PRESTAT:1,STR=18]
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+4.MWORKW											PRESTAT:1,STR=18
+GEAR:Studded Leather							QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Flail									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Cold Iron
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+1.Special Quality ~ Masterwork ~ Weapon											!PRESTAT:1,STR=14
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+2.Special Quality ~ Masterwork ~ Weapon											PREMULT:2,[PRESTAT:1,STR=14],[!PRESTAT:1,STR=16]
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon											PREMULT:2,[PRESTAT:1,STR=16],[!PRESTAT:1,STR=18]
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+4.Special Quality ~ Masterwork ~ Weapon											PRESTAT:1,STR=18
 GEAR:Arrows (20)								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands
 GEAR:Sword (Short)							QTY:1		SIZE:PC	LOCATION:Carried
@@ -562,12 +562,12 @@ FUNDS:gp	QTY:.2
 
 STARTPACK:Wilderness Wanderer Package (Ranged Focus)		TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:999.8
 GEAR:Shield (Light/Wooden/Quickdraw)				QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Studded Leather							QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Flail									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Cold Iron
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+1.MWORKW											!PRESTAT:1,STR=14
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+2.MWORKW											PREMULT:2,[PRESTAT:1,STR=14],[!PRESTAT:1,STR=16]
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+3.MWORKW											PREMULT:2,[PRESTAT:1,STR=16],[!PRESTAT:1,STR=18]
-GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:BOWSTR|+4.MWORKW											PRESTAT:1,STR=18
+GEAR:Studded Leather							QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Flail									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Cold Iron
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+1.Special Quality ~ Masterwork ~ Weapon											!PRESTAT:1,STR=14
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+2.Special Quality ~ Masterwork ~ Weapon											PREMULT:2,[PRESTAT:1,STR=14],[!PRESTAT:1,STR=16]
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon											PREMULT:2,[PRESTAT:1,STR=16],[!PRESTAT:1,STR=18]
+GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Composite Bow Strength Rating|+4.Special Quality ~ Masterwork ~ Weapon											PRESTAT:1,STR=18
 GEAR:Arrows (20)								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands
 GEAR:Sword (Short)							QTY:1		SIZE:PC	LOCATION:Carried
