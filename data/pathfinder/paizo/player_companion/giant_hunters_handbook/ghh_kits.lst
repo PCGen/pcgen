@@ -22,7 +22,7 @@ GEAR:Block and Tackle		QTY:1	SIZE:PC
 GEAR:Chain (10 Ft)		QTY:5	SIZE:PC
 GEAR:Climber's Kit		QTY:1	SIZE:PC
 GEAR:Crowbar			QTY:1	SIZE:PC
-GEAR:Pole (10 Ft)			QTY:1	SIZE:PC
+GEAR:Pole			QTY:1	SIZE:PC
 
 # ==============================
 # Kits Added by Traits

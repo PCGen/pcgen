@@ -20,19 +20,19 @@ Tatami-do			PROFICIENCY:ARMOR|Tatami-do			TYPE:Armor.Heavy.ArmorProfHeavy.Suit.S
 
 ###Block: Armor
 # Equipment Name				Product Identity?	Required Armor Proficiency			Type													Cost		Weight	AC Penalty Check	Modifier					Maximum DEX Bonus	Source, Long Desc.		Source, Short Desc.	Source Page		% of Spell Failure	Ability																												Combat bonus										Stat bonus		Modify VAR														Add to vision			Special Property																Auto Equip
-Padded.MOD																												COST:5	WT:10																							SOURCEPAGE:p.14
+Padded Armor.MOD																												COST:5	WT:10																							SOURCEPAGE:p.14
 Haramaki.MOD																											COST:3	WT:1														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
 Quilted Cloth.MOD																											COST:100	WT:15																							SOURCEPAGE:p.13
 Silken Ceremonial Armor.MOD																									COST:30	WT:4														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
 Lamellar Cuirass.MOD																										COST:15	WT:8														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
-Leather.MOD																												COST:10	WT:15																							SOURCEPAGE:p.10
+Leather Armor.MOD																												COST:10	WT:15																							SOURCEPAGE:p.10
 Parade								PROFICIENCY:ARMOR|Parade			TYPE:Armor.Light.ArmorProfLight.Suit.Standard						COST:25	WT:20		ACCHECK:-1		EQMOD:Material ~ Leather				MAXDEX:5											SOURCEPAGE:p.13	SPELLFAILURE:15																															BONUS:COMBAT|AC|3|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
 Studded Leather.MOD																										COST:25	WT:20																							SOURCEPAGE:p.14
 Wooden.MOD																												COST:20	WT:25																							SOURCEPAGE:p.14
 Chain Shirt.MOD																											COST:100	WT:25																							SOURCEPAGE:p.10
 Lamellar (Leather).MOD																										COST:60	WT:25														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
 Armored Coat.MOD																											COST:50	WT:20																							SOURCEPAGE:p.10
-Hide.MOD																												COST:15	WT:25																							SOURCEPAGE:p.11
+Hide Armor.MOD																												COST:15	WT:25																							SOURCEPAGE:p.11
 Do-maru.MOD																												COST:200	WT:30														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
 Kikko Armor.MOD																											COST:30	WT:25														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
 Lamellar (Horn).MOD																										COST:100	WT:30														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
@@ -108,34 +108,34 @@ Demon Prince Armor						PROFICIENCY:ARMOR|Full Plate			TYPE:Artifact.Major.Armor
 # Equipment Name				Product Identity?	Output Name						Required Shield Proficiency		Type														Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability																						Spell Res.	Caster level				Combat bonus			Bonus to spell cast/day																									Modify VAR																						List of Known Class Spells by Level
 #Buckler.MOD																																			COST:5	WT:5																										SOURCEPAGE:p.10
 # Equipment Name				Product Identity?	Output Name						Required Shield Proficiency		Type														Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability																						Spell Res.	Caster level				Combat bonus			Bonus to spell cast/day																									Modify VAR																						List of Known Class Spells by Level
-Klar																PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close									COST:12	WT:6		ACCHECK:-1																							SOURCEPAGE:p.12	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Shield (Light/Steel/Quickdraw)				OUTPUTNAME:Shield, Light Steel Quickdraw	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close									COST:59	WT:7		ACCHECK:-2								EQMOD:Material ~ Steel														SOURCEPAGE:p.12	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Shield (Light/Steel).MOD																																COST:9	WT:6																										SOURCEPAGE:p.12
-Shield (Light/Wooden/Quickdraw)				OUTPUTNAME:Shield, Light Wooden Quickdraw	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close									COST:53	WT:6		ACCHECK:-2								EQMOD:Material ~ Wood														SOURCEPAGE:p.12	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Shield (Light/Wooden).MOD																																COST:3	WT:5																										SOURCEPAGE:p.12
-Madu (Leather)														PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close									COST:40	WT:5		ACCHECK:-2								EQMOD:Material ~ Leather													SOURCEPAGE:p.13	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Madu (Steel)														PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close									COST:50	WT:6		ACCHECK:-2								EQMOD:Material ~ Steel														SOURCEPAGE:p.13	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Shield (Heavy/Steel).MOD																																COST:20	WT:15																										SOURCEPAGE:p.11
-Shield (Heavy/Wooden).MOD																																COST:7	WT:10																										SOURCEPAGE:p.11
-Shield (Tower).MOD																																	COST:30	WT:45																										SOURCEPAGE:p.14
-Avalanche Shield														PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.LesserMajor.Heavy							COST:15020	WT:10		ACCHECK:-2								EQMOD:Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel											SOURCEPAGE:p.130	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Belligerent Shield													PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.GreaterMajor.Heavy							COST:20020	WT:15		ACCHECK:-2								EQMOD:Special Ability ~ Animated ~ Shield.Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel										SOURCEPAGE:p.130	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Klar																PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard.Close									COST:12	WT:6		ACCHECK:-1																							SOURCEPAGE:p.12	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Shield (Light/Steel/Quickdraw)				OUTPUTNAME:Shield, Light Steel Quickdraw	PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard.Close									COST:59	WT:7		ACCHECK:-2								EQMOD:Material ~ Steel														SOURCEPAGE:p.12	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Light Steel Shield.MOD																																COST:9	WT:6																										SOURCEPAGE:p.12
+Shield (Light/Wooden/Quickdraw)				OUTPUTNAME:Shield, Light Wooden Quickdraw	PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard.Close									COST:53	WT:6		ACCHECK:-2								EQMOD:Material ~ Wood														SOURCEPAGE:p.12	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Light Wooden Shield.MOD																																COST:3	WT:5																										SOURCEPAGE:p.12
+Madu (Leather)														PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard.Close									COST:40	WT:5		ACCHECK:-2								EQMOD:Material ~ Leather													SOURCEPAGE:p.13	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Madu (Steel)														PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard.Close									COST:50	WT:6		ACCHECK:-2								EQMOD:Material ~ Steel														SOURCEPAGE:p.13	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Heavy Steel Shield.MOD																																COST:20	WT:15																										SOURCEPAGE:p.11
+Heavy Wooden Shield.MOD																																COST:7	WT:10																										SOURCEPAGE:p.11
+Tower Shield.MOD																																	COST:30	WT:45																										SOURCEPAGE:p.14
+Avalanche Shield														PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.LesserMajor.Heavy							COST:15020	WT:10		ACCHECK:-2								EQMOD:Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel											SOURCEPAGE:p.130	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Belligerent Shield													PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.GreaterMajor.Heavy							COST:20020	WT:15		ACCHECK:-2								EQMOD:Special Ability ~ Animated ~ Shield.Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel										SOURCEPAGE:p.130	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
 Burglar's Buckler														PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Magic.Specific.GreaterMinor.Buckler							COST:3505	WT:5		ACCHECK:-1								EQMOD:Special Ability ~ +1 ~ Shield.Material ~ Wood													SOURCEPAGE:p.130	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Caster's Shield (Greater)					OUTPUTNAME:Caster's Shield, Greater		PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.GreaterMedium.Heavy							COST:1003	WT:5		ACCHECK:-2								EQMOD:Special Ability ~ +3 ~ Shield.Material ~ Wood													SOURCEPAGE:p.131	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Celestial Shield														PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Magic.Specific.GreaterMedium.Light							COST:4020	WT:5		ACCHECK:-1								EQMOD:Special Ability ~ Blinding ~ Shield.Special Ability ~ +2 ~ Shield.Material ~ Steel											SOURCEPAGE:p.131	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Collapsible Tower														PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.LesserMedium.Heavy							COST:4020	WT:7		ACCHECK:-2								EQMOD:Special Ability ~ +2 ~ Shield.Material ~ Steel												SOURCEPAGE:p.131	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Dragonslayer's Shield													PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.LesserMedium.Heavy							COST:3020	WT:15		ACCHECK:-2								EQMOD:Special Ability ~ +2 ~ Shield.Material ~ Steel												SOURCEPAGE:p.131	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Caster's Shield (Greater)					OUTPUTNAME:Caster's Shield, Greater		PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.GreaterMedium.Heavy							COST:1003	WT:5		ACCHECK:-2								EQMOD:Special Ability ~ +3 ~ Shield.Material ~ Wood													SOURCEPAGE:p.131	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Celestial Shield														PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Magic.Specific.GreaterMedium.Light							COST:4020	WT:5		ACCHECK:-1								EQMOD:Special Ability ~ Blinding ~ Shield.Special Ability ~ +2 ~ Shield.Material ~ Steel											SOURCEPAGE:p.131	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Collapsible Tower														PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.LesserMedium.Heavy							COST:4020	WT:7		ACCHECK:-2								EQMOD:Special Ability ~ +2 ~ Shield.Material ~ Steel												SOURCEPAGE:p.131	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Dragonslayer's Shield													PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.LesserMedium.Heavy							COST:3020	WT:15		ACCHECK:-2								EQMOD:Special Ability ~ +2 ~ Shield.Material ~ Steel												SOURCEPAGE:p.131	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
 Elysian Shield				NAMEISPI:YES								PROFICIENCY:SHIELD|Tower Shield	TYPE:Shield.Magic.Specific.GreaterMajor.Tower							COST:27470	WT:45		ACCHECK:-10								EQMOD:Special Ability ~ Ghost Touch ~ Armor.Special Ability ~ +2 ~ Shield.Material ~ Steel						MAXDEX:2				SOURCEPAGE:p.132	SPELLFAILURE:50																																	BONUS:COMBAT|AC|4|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
 Force Tower															PROFICIENCY:SHIELD|Tower Shield	TYPE:Shield.Magic.Specific.GreaterMajor.Tower							COST:9030	WT:22		ACCHECK:-10								EQMOD:Special Ability ~ Arrow Deflection ~ Shield.Special Ability ~ Ghost Touch ~ Armor.Material ~ Mithril ~ Shield.Special Ability ~ +1 ~ Shield				MAXDEX:2				SOURCEPAGE:p.132	SPELLFAILURE:50																																	BONUS:COMBAT|AC|4|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Living Steel Heavy Shield												PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Specific.LesserMinor.Heavy								COST:20	WT:15		ACCHECK:-2								EQMOD:Material ~ Living Steel ~ Shield												SOURCEPAGE:p.132	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Maelstrom Shield														PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.GreaterMedium.Heavy							COST:10020	WT:10		ACCHECK:-2								EQMOD:Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel											SOURCEPAGE:p.132	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Mithral Heavy Shield													PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.LesserMinor.Heavy							COST:20	WT:5		ACCHECK:0								EQMOD:Material ~ Mithril ~ Shield												SOURCEPAGE:p.132	SPELLFAILURE:5																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Living Steel Heavy Shield												PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Specific.LesserMinor.Heavy								COST:20	WT:15		ACCHECK:-2								EQMOD:Material ~ Living Steel ~ Shield												SOURCEPAGE:p.132	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Maelstrom Shield														PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.GreaterMedium.Heavy							COST:10020	WT:10		ACCHECK:-2								EQMOD:Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel											SOURCEPAGE:p.132	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Mithral Heavy Shield													PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.LesserMinor.Heavy							COST:20	WT:5		ACCHECK:0								EQMOD:Material ~ Mithril ~ Shield												SOURCEPAGE:p.132	SPELLFAILURE:5																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
 Quick Block Buckler													PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Magic.Specific.GreaterMajor.Buckler							COST:11005	WT:15		ACCHECK:-1								EQMOD:Special Ability ~ Arrow Deflection ~ Shield.Special Ability ~ +3 ~ Shield.Material ~ Wood											SOURCEPAGE:p.132	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
 Spell Ward Tower Shield													PROFICIENCY:SHIELD|Tower Shield	TYPE:Shield.Magic.Specific.GreaterMajor.Tower							COST:9030	WT:15		ACCHECK:-10								EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ Spell Resistance / 13 ~ Armor.Material ~ Steel					MAXDEX:2				SOURCEPAGE:p.133	SPELLFAILURE:50																																	BONUS:COMBAT|AC|4|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Tempest Shield														PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.GreaterMedium.Heavy							COST:11020	WT:10		ACCHECK:-2								EQMOD:Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel											SOURCEPAGE:p.133	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Volcanic Shield														PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.GreaterMedium.Heavy							COST:10020	WT:10		ACCHECK:-2								EQMOD:Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel											SOURCEPAGE:p.133	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Wyrmslayer's Shield													PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Specific.LesserMajor.Heavy							COST:4020	WT:15		ACCHECK:-2								EQMOD:Special Ability ~ +4 ~ Shield.Material ~ Steel												SOURCEPAGE:p.133	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
-Zombie Skin Shield													PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Magic.Specific.GreaterMinor.Light							COST:1009	WT:15		ACCHECK:-1								EQMOD:Special Ability ~ +1 ~ Shield.Material ~ Steel												SOURCEPAGE:p.133	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Tempest Shield														PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.GreaterMedium.Heavy							COST:11020	WT:10		ACCHECK:-2								EQMOD:Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel											SOURCEPAGE:p.133	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Volcanic Shield														PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.GreaterMedium.Heavy							COST:10020	WT:10		ACCHECK:-2								EQMOD:Special Ability ~ Bashing ~ Shield / Heavy.Special Ability ~ +1 ~ Shield.Material ~ Steel											SOURCEPAGE:p.133	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Wyrmslayer's Shield													PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Magic.Specific.LesserMajor.Heavy							COST:4020	WT:15		ACCHECK:-2								EQMOD:Special Ability ~ +4 ~ Shield.Material ~ Steel												SOURCEPAGE:p.133	SPELLFAILURE:15																																	BONUS:COMBAT|AC|2|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
+Zombie Skin Shield													PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Magic.Specific.GreaterMinor.Light							COST:1009	WT:15		ACCHECK:-1								EQMOD:Special Ability ~ +1 ~ Shield.Material ~ Steel												SOURCEPAGE:p.133	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0
 Absorbing Shield.MOD																			TYPE:GreaterMajor														WT:15																										SOURCEPAGE:p.130
 Caster's Shield.MOD																			TYPE:GreaterMajor														WT:5																										SOURCEPAGE:p.130
 Darkwood Buckler.MOD																			TYPE:LesserMinor																																								SOURCEPAGE:p.131
@@ -151,32 +151,32 @@ Fortress Shield.MOD																			TYPE:LesserMajor														WT:45							
 
 ###Block: Barding
 # Equipment Name										Output Name						Required Armor Proficiency		Type																Contains			Cost		Weight	AC Penalty Check	Base Quantity	Modifier								Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus			Bonus to Situation			Bonus to skill		Bonus Weapon Mods														Weapon prop. bonus					Special Property																								Description
-Barding (Haramaki)																PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Barding.Mount									COST:6	WT:1		ACCHECK:0					EQMOD:Material ~ Cloth																	SOURCEPAGE:p.80	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Padded).MOD																																																																						SOURCEPAGE:p.80
-Barding (Quilted Cloth)																PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:200	WT:15		ACCHECK:0					EQMOD:Material ~ Cloth								MAXDEX:8								SOURCEPAGE:p.80	SPELLFAILURE:10		BONUS:COMBAT|AC|1|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Silken Ceremonial)															PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:60	WT:4		ACCHECK:0					EQMOD:Material ~ Cloth																	SOURCEPAGE:p.80	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Lamellar Cuirass)															PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Barding.Mount									COST:30	WT:8		ACCHECK:0					EQMOD:Material ~ Leather							MAXDEX:4								SOURCEPAGE:p.80	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Parade)																	PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:50	WT:20		ACCHECK:-1					EQMOD:Material ~ Leather							MAXDEX:5								SOURCEPAGE:p.80	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Wooden)																	PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:40	WT:25		ACCHECK:-1					EQMOD:Material ~ Wood								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Lamellar/Leather)															PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:120	WT:25		ACCHECK:-2					EQMOD:Material ~ Leather							MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Armored Coat)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:100	WT:20		ACCHECK:-2					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Do-maru)																	PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:400	WT:30		ACCHECK:-4					EQMOD:Material ~ Leather							MAXDEX:4								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Kikko)																	PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:60	WT:25		ACCHECK:-3					EQMOD:Material ~ Steel								MAXDEX:4								SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Lemellar/Horn)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:200	WT:30		ACCHECK:-4					EQMOD:Material ~ Bone								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Agile Breastplate)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:800	WT:25		ACCHECK:-4					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0	BONUS:SITUATION|Acrobatics=Jump|3	BONUS:SKILL|Climb|3
-Barding (Four-mirror)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:90	WT:45		ACCHECK:-5					EQMOD:Material ~ Steel								MAXDEX:2								SOURCEPAGE:p.80	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Lamellar/Steel)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:300	WT:35		ACCHECK:-5					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Mountain Pattern)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:500	WT:40		ACCHECK:-4					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Kusari Gusoku)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:700	WT:45		ACCHECK:-7					EQMOD:Material ~ Steel								MAXDEX:1								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Lamellar/Iron)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:400	WT:50		ACCHECK:-7					EQMOD:Material ~ Steel								MAXDEX:0								SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Tatami-do)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:2000	WT:45		ACCHECK:-6					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Agile Half-Plate)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:1700	WT:55		ACCHECK:-7					EQMOD:Material ~ Steel								MAXDEX:0								SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor|PREVAREQ:DisableArmorBonus,0	BONUS:SITUATION|Acrobatics=Jump|3	BONUS:SKILL|Climb|3
-Barding (Lamellar/Stone)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:1000	WT:45		ACCHECK:-7					EQMOD:Material ~ Stone								MAXDEX:0								SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (O-yoroi)																	PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:3400	WT:45		ACCHECK:-6					EQMOD:Material ~ Steel								MAXDEX:2								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
-Barding (Stone Plate)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:3600	WT:75		ACCHECK:-6					EQMOD:Material ~ Stone								MAXDEX:1								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Haramaki)																PROFICIENCY:ARMOR|Light Barding	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Barding.Mount									COST:6	WT:1		ACCHECK:0					EQMOD:Material ~ Cloth																	SOURCEPAGE:p.80	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Padded Barding.MOD																																																																						SOURCEPAGE:p.80
+Barding (Quilted Cloth)																PROFICIENCY:ARMOR|Light Barding	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:200	WT:15		ACCHECK:0					EQMOD:Material ~ Cloth								MAXDEX:8								SOURCEPAGE:p.80	SPELLFAILURE:10		BONUS:COMBAT|AC|1|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Silken Ceremonial)															PROFICIENCY:ARMOR|Light Barding	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:60	WT:4		ACCHECK:0					EQMOD:Material ~ Cloth																	SOURCEPAGE:p.80	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Lamellar Cuirass)															PROFICIENCY:ARMOR|Light Barding	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Barding.Mount									COST:30	WT:8		ACCHECK:0					EQMOD:Material ~ Leather							MAXDEX:4								SOURCEPAGE:p.80	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Parade)																	PROFICIENCY:ARMOR|Light Barding	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:50	WT:20		ACCHECK:-1					EQMOD:Material ~ Leather							MAXDEX:5								SOURCEPAGE:p.80	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Wooden)																	PROFICIENCY:ARMOR|Light Barding	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:40	WT:25		ACCHECK:-1					EQMOD:Material ~ Wood								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Lamellar/Leather)															PROFICIENCY:ARMOR|Light Barding	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:120	WT:25		ACCHECK:-2					EQMOD:Material ~ Leather							MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Armored Coat)																PROFICIENCY:ARMOR|Medium Barding	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:100	WT:20		ACCHECK:-2					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Do-maru)																	PROFICIENCY:ARMOR|Medium Barding	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:400	WT:30		ACCHECK:-4					EQMOD:Material ~ Leather							MAXDEX:4								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Kikko)																	PROFICIENCY:ARMOR|Medium Barding	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:60	WT:25		ACCHECK:-3					EQMOD:Material ~ Steel								MAXDEX:4								SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Lemellar/Horn)																PROFICIENCY:ARMOR|Medium Barding	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:200	WT:30		ACCHECK:-4					EQMOD:Material ~ Bone								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Agile Breastplate)															PROFICIENCY:ARMOR|Medium Barding	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:800	WT:25		ACCHECK:-4					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0	BONUS:SITUATION|Acrobatics=Jump|3	BONUS:SKILL|Climb|3
+Barding (Four-mirror)																PROFICIENCY:ARMOR|Medium Barding	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:90	WT:45		ACCHECK:-5					EQMOD:Material ~ Steel								MAXDEX:2								SOURCEPAGE:p.80	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Lamellar/Steel)															PROFICIENCY:ARMOR|Medium Barding	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:300	WT:35		ACCHECK:-5					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Mountain Pattern)															PROFICIENCY:ARMOR|Medium Barding	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:500	WT:40		ACCHECK:-4					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Kusari Gusoku)																PROFICIENCY:ARMOR|Heavy Barding	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:700	WT:45		ACCHECK:-7					EQMOD:Material ~ Steel								MAXDEX:1								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Lamellar/Iron)																PROFICIENCY:ARMOR|Heavy Barding	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:400	WT:50		ACCHECK:-7					EQMOD:Material ~ Steel								MAXDEX:0								SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Tatami-do)																PROFICIENCY:ARMOR|Heavy Barding	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:2000	WT:45		ACCHECK:-6					EQMOD:Material ~ Steel								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Agile Half-Plate)															PROFICIENCY:ARMOR|Heavy Barding	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:1700	WT:55		ACCHECK:-7					EQMOD:Material ~ Steel								MAXDEX:0								SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor|PREVAREQ:DisableArmorBonus,0	BONUS:SITUATION|Acrobatics=Jump|3	BONUS:SKILL|Climb|3
+Barding (Lamellar/Stone)															PROFICIENCY:ARMOR|Heavy Barding	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:1000	WT:45		ACCHECK:-7					EQMOD:Material ~ Stone								MAXDEX:0								SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (O-yoroi)																	PROFICIENCY:ARMOR|Heavy Barding	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:3400	WT:45		ACCHECK:-6					EQMOD:Material ~ Steel								MAXDEX:2								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
+Barding (Stone Plate)																PROFICIENCY:ARMOR|Heavy Barding	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:3600	WT:75		ACCHECK:-6					EQMOD:Material ~ Stone								MAXDEX:1								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
 Barding (Haramaki).COPY=Barding (Haramaki/Large)
 Barding (Haramaki/Large).MOD																																									COST:12	WT:2																								SIZE:L
-Barding (Padded).COPY=Barding (Padded/Large)
+Padded Barding.COPY=Barding (Padded/Large)
 Barding (Padded/Large).MOD																																									COST:20	WT:20																								SIZE:L
 Barding (Quilted Cloth).COPY=Barding (Quilted Cloth/Large)
 Barding (Quilted Cloth/Large).MOD																																								COST:400	WT:30																								SIZE:L
@@ -184,21 +184,21 @@ Barding (Silken Ceremonial).COPY=Barding (Silken Ceremonial/Large)
 Barding (Silken Ceremonial/Large).MOD																																							COST:120	WT:8																								SIZE:L
 Barding (Lamellar Cuirass).COPY=Barding (Lamellar Cuirass/Large)
 Barding (Lamellar Cuirass/Large).MOD																																							COST:60	WT:16																								SIZE:L
-Barding (Leather).COPY=Barding (Leather/Large)
+Leather Barding.COPY=Barding (Leather/Large)
 Barding (Leather/Large).MOD																																									COST:40	WT:30																								SIZE:L
 Barding (Parade).COPY=Barding (Parade/Large)
 Barding (Parade/Large).MOD																																									COST:100	WT:40																								SIZE:L
-Barding (Studded Leather).COPY=Barding (Studded Leather/Large)
+Studded Leather Barding.COPY=Barding (Studded Leather/Large)
 Barding (Studded Leather/Large).MOD																																								COST:100	WT:40																								SIZE:L
 Barding (Wooden).COPY=Barding (Wooden/Large)
 Barding (Wooden/Large).MOD																																									COST:80	WT:50																								SIZE:L
-Barding (Chain Shirt).COPY=Barding (Chain Shirt/Large)
+Chain Shirt Barding.COPY=Barding (Chain Shirt/Large)
 Barding (Chain Shirt/Large).MOD																																								COST:400	WT:100																							SIZE:L
 Barding (Lamellar/Leather).COPY=Barding (Lamellar/Leather/Large)
 Barding (Lamellar/Leather/Large).MOD																																							COST:240	WT:50																								SIZE:L
 Barding (Armored Coat).COPY=Barding (Armored Coat/Large)
 Barding (Armored Coat/Large).MOD																																								COST:200	WT:40																								SIZE:L
-Barding (Hide).COPY=Barding (Hide/Large)
+Hide Barding.COPY=Barding (Hide/Large)
 Barding (Hide/Large).MOD																																									COST:60	WT:50																								SIZE:L
 Barding (Do-maru).COPY=Barding (Do-maru/Large)
 Barding (Do-maru/Large).MOD																																									COST:800	WT:60																								SIZE:L
@@ -206,13 +206,13 @@ Barding (Kikko).COPY=Barding (Kikko/Large)
 Barding (Kikko/Large).MOD																																									COST:120	WT:50																								SIZE:L
 Barding (Lemellar/Horn).COPY=Barding (Lemellar/Horn/Large)
 Barding (Lemellar/Horn/Large).MOD																																								COST:400	WT:60																								SIZE:L
-Barding (Scale Mail).COPY=Barding (Scale Mail/Large)
+Scale Mail Barding.COPY=Barding (Scale Mail/Large)
 Barding (Scale Mail/Large).MOD																																								COST:200	WT:60																								SIZE:L
 Barding (Agile Breastplate).COPY=Barding (Agile Breastplate/Large)
 Barding (Agile Breastplate/Large).MOD																																							COST:800	WT:50																								SIZE:L
-Barding (Chainmail).COPY=Barding (Chainmail/Large)
+Chainmail Barding.COPY=Barding (Chainmail/Large)
 Barding (Chainmail/Large).MOD																																									COST:600	WT:80																								SIZE:L
-Barding (Breastplate).COPY=Barding (Breastplate/Large)
+Breastplate Barding.COPY=Barding (Breastplate/Large)
 Barding (Breastplate/Large).MOD																																								COST:800	WT:60																								SIZE:L
 Barding (Four-mirror).COPY=Barding (Four-mirror/Large)
 Barding (Four-mirror/Large).MOD																																								COST:180	WT:90																								SIZE:L
@@ -220,11 +220,11 @@ Barding (Lamellar/Steel).COPY=Barding (Lamellar/Steel/Large)
 Barding (Lamellar/Steel/Large).MOD																																								COST:600	WT:70																								SIZE:L
 Barding (Mountain Pattern).COPY=Barding (Mountain Pattern/Large)
 Barding (Mountain Pattern/Large).MOD																																							COST:1000	WT:80																								SIZE:L
-Barding (Splint Mail).COPY=Barding (Splint Mail/Large)
+Splint Mail Barding.COPY=Barding (Splint Mail/Large)
 Barding (Splint Mail/Large).MOD																																								COST:800	WT:90																								SIZE:L
 Barding (Kusari Gusoku).COPY=Barding (Kusari Gusoku/Large)
 Barding (Kusari Gusoku/Large).MOD																																								COST:1400	WT:90																								SIZE:L
-Barding (Banded Mail).COPY=Barding (Banded Mail/Large)
+Banded Mail Barding.COPY=Barding (Banded Mail/Large)
 Barding (Banded Mail/Large).MOD																																								COST:1000	WT:70																								SIZE:L
 Barding (Lamellar/Iron).COPY=Barding (Lamellar/Iron/Large)
 Barding (Lamellar/Iron/Large).MOD																																								COST:800	WT:80																								SIZE:L
@@ -232,13 +232,13 @@ Barding (Tatami-do).COPY=Barding (Tatami-do/Large)
 Barding (Tatami-do/Large).MOD																																									COST:4000	WT:90																								SIZE:L
 Barding (Agile Half-Plate).COPY=Barding (Agile Half-Plate/Large)
 Barding (Agile Half-Plate/Large).MOD																																							COST:3400	WT:110																							SIZE:L
-Barding (Half-Plate).COPY=Barding (Half-Plate/Large)
+Half-Plate Barding.COPY=Barding (Half-Plate/Large)
 Barding (Half-Plate/Large).MOD																																								COST:2400	WT:100																							SIZE:L
 Barding (Lamellar/Stone).COPY=Barding (Lamellar/Stone/Large)
 Barding (Lamellar/Stone/Large).MOD																																								COST:2000	WT:90																								SIZE:L
 Barding (O-yoroi).COPY=Barding (O-yoroi/Large)
 Barding (O-yoroi/Large).MOD																																									COST:6800	WT:90																								SIZE:L
-Barding (Full Plate).COPY=Barding (Full Plate/Large)
+Full Plate Barding.COPY=Barding (Full Plate/Large)
 Barding (Full Plate/Large).MOD																																								COST:6000	WT:90																								SIZE:L
 Barding (Stone Plate).COPY=Barding (Stone Plate/Large)
 Barding (Stone Plate/Large).MOD																																								COST:7200	WT:150																							SIZE:L
@@ -247,11 +247,11 @@ Barding (Stone Plate/Large).MOD																																								COST:7200
 
 ####Block: Ammunition
 # Equipment Name										Output Name						Required Armor Proficiency		Type																Contains			Cost		Weight	AC Penalty Check	Base Quantity	Modifier								Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus			Bonus to Situation			Bonus to skill		Bonus Weapon Mods														Weapon prop. bonus					Special Property																								Description
-Arrows (20).MOD																																											COST:1	WT:3					BASEQTY:20																				SOURCEPAGE:p.23
-Darts (Blowgun/10).MOD									OUTPUTNAME:Blowgun Darts (10)																													COST:0.5	WT:0					BASEQTY:10																				SOURCEPAGE:p.24
-Bolts (Crossbow/10).MOD									OUTPUTNAME:Crossbow Bolts (10)																												COST:1	WT:1					BASEQTY:10																				SOURCEPAGE:p.26
-Bolts (Crossbow/Repeating/5).MOD							OUTPUTNAME:Repeating Crossbow Bolts (5)																											COST:1	WT:1					BASEQTY:5																				SOURCEPAGE:p.34
-Bullets (Sling/10).MOD									OUTPUTNAME:Sling Bullets (10)																													COST:0.1	WT:5					BASEQTY:10																				SOURCEPAGE:p.37
+20 Arrows.MOD																																											COST:1	WT:3					BASEQTY:20																				SOURCEPAGE:p.23
+10 Blowgun Darts.MOD									OUTPUTNAME:Blowgun Darts (10)																													COST:0.5	WT:0					BASEQTY:10																				SOURCEPAGE:p.24
+10 Crossbow Bolts.MOD									OUTPUTNAME:Crossbow Bolts (10)																												COST:1	WT:1					BASEQTY:10																				SOURCEPAGE:p.26
+5 Repeating Crossbow Bolts.MOD							OUTPUTNAME:Repeating Crossbow Bolts (5)																											COST:1	WT:1					BASEQTY:5																				SOURCEPAGE:p.34
+10 Sling Bullets.MOD									OUTPUTNAME:Sling Bullets (10)																													COST:0.1	WT:5					BASEQTY:10																				SOURCEPAGE:p.37
 Atlatl Dart																								TYPE:Ammunition.Resizable.Standard.AtlatlDart													COST:1	WT:2					BASEQTY:1		EQMOD:Material ~ Steel.Material ~ Wood										MODS:YES					SOURCEPAGE:p.23
 Bamboo Shaft Arrows (10)																					TYPE:Ammunition.Resizable.Standard.Arrow														COST:1	WT:0.5				BASEQTY:10		EQMOD:Material ~ Steel.Material ~ Wood										MODS:YES					SOURCEPAGE:p.23
 Blunt Arrows (20)																							TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:Material ~ Wood											MODS:YES					SOURCEPAGE:p.24
@@ -282,14 +282,14 @@ Arrow (Hushing/Greater)																						TYPE:Ammunition.Resizable.Standard.
 #Arrow (Hushing/Greater).MOD							OUTPUTNAME:Greater Hushing Arrow																															EQMOD:Special Ability ~ Enhancement Cost|1045.Special Ability ~ +1 ~ Ammunition												SOURCEPAGE:p.156					SPELLS:Magic Item|TIMES=1|Silence,16						SPROP:Creature struck affected by Silence.
 Arrow (Searing).MOD																																																																						SOURCEPAGE:p.159
 Arrow (Sizzling).MOD																																																																						SOURCEPAGE:p.160
-Arrow (Slaying).MOD																																																																						SOURCEPAGE:p.160
-Arrow (Slaying/Greater).MOD																																																																					SOURCEPAGE:p.160
-Arrow (Sleep).MOD																																																																							SOURCEPAGE:p.160
-Bolt (Crossbow).COPY=Bolt (Dust)
+Slaying Arrow.MOD																																																																						SOURCEPAGE:p.160
+Greater Slaying Arrow.MOD																																																																					SOURCEPAGE:p.160
+Sleep Arrow.MOD																																																																							SOURCEPAGE:p.160
+Crossbow Bolt.COPY=Bolt (Dust)
 Bolt (Dust).MOD										OUTPUTNAME:Dust Bolt																																								EQMOD:Special Ability ~ Bane ~ Weapon|Outsider (Water).Special Ability ~ Enhancement Cost|1729.Special Ability ~ +1 ~ Ammunition										SOURCEPAGE:p.154																																												SPROP:Any living creature struck begins dying of thirst as per Cup of Dust.
-Bolt (Screaming).MOD																																																																						SOURCEPAGE:p.159
+Screaming Bolt.MOD																																																																						SOURCEPAGE:p.159
 Bolt (Tangle).MOD																																																																							SOURCEPAGE:p.162
-Bullet (Sling).COPY=Bullet (Alchemist's)
+Sling Bullet.COPY=Bullet (Alchemist's)
 Bullet (Alchemist's).MOD								OUTPUTNAME:Alchemist's Bullet									TYPE:Container														CONTAINS:*1|Splash=1											EQMOD:Special Ability ~ Enhancement Cost|330.Special Ability ~ +1 ~ Ammunition														SOURCEPAGE:p.150																																																																						DESC:On successful hit, splash damage is dealt as normal.
 Bullet (Firearm).COPY=Bullet (Burrowing/Greater)
 Bullet (Burrowing/Greater).MOD							OUTPUTNAME:Greater Burrowing Bullet																																						EQMOD:Special Ability ~ Enhancement Cost|1721.Special Ability ~ +1 ~ Ammunition														SOURCEPAGE:p.153																																												SPROP:Target staggered for 1d3+2 rounds.
@@ -391,20 +391,20 @@ Meteor Hammer														PROFICIENCY:WEAPON|Meteor Hammer							TYPE:Weapon.Re
 Sword (Seven-Branched)						OUTPUTNAME:Seven-Branched Sword		PROFICIENCY:WEAPON|Sword (Seven-Branched)						TYPE:Weapon.Resizable.EasternWeapon.Eastern.Melee.TwoHanded.Exotic.Slashing.Disarm.Monk.Sword																							COST:50	WT:7										CRITMULT:x3	CRITRANGE:1							DAMAGE:1d10					EQMOD:Material ~ Steel													WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.36
 Tetsubo															PROFICIENCY:WEAPON|Tetsubo								TYPE:Weapon.Resizable.EasternWeapon.Eastern.Melee.TwoHanded.Exotic.Bludgeoning.Hammer																								COST:20	WT:10										CRITMULT:x4	CRITRANGE:1							DAMAGE:1d10					EQMOD:Material ~ Steel													WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.39
 Throwing Shield														PROFICIENCY:WEAPON|Throwing Shield							TYPE:Weapon.Resizable.Melee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip																										COST:50											CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:Special Quality ~ Performance.Special Quality ~ Trip											WIELD:TwoHanded	RANGE:20				SIZE:M	SOURCEPAGE:p.39
-Axe (Orc Double).MOD						OUTPUTNAME:Orc Double Axe																																																					COST:60	WT:15																																																		SOURCEPAGE:p.34
-Axe (Throwing).MOD						OUTPUTNAME:Throwing Axe																																																						COST:8	WT:2																																																		SOURCEPAGE:p.39
+Orc Double Axe.MOD						OUTPUTNAME:Orc Double Axe																																																					COST:60	WT:15																																																		SOURCEPAGE:p.34
+Throwing Axe.MOD						OUTPUTNAME:Throwing Axe																																																						COST:8	WT:2																																																		SOURCEPAGE:p.39
 Battleaxe.MOD																																																																COST:10	WT:6																																																		SOURCEPAGE:p.24
 Bec De Corbin.MOD																																																																COST:15	WT:12																																																		SOURCEPAGE:p.24
-Chain (Spiked).MOD						OUTPUTNAME:Spiked Chain																																																						COST:25	WT:10																																																		SOURCEPAGE:p.37
+Spiked Chain.MOD						OUTPUTNAME:Spiked Chain																																																						COST:25	WT:10																																																		SOURCEPAGE:p.37
 Club.MOD																																																																	COST:0	WT:3																																																		SOURCEPAGE:p.25
-Curve Blade (Elven).MOD						OUTPUTNAME:Elven Curve Blade																																																					COST:80	WT:7																																																		SOURCEPAGE:p.27
-Dagger (Punching).MOD						OUTPUTNAME:Punching Dagger																																																					COST:2	WT:1																																																		SOURCEPAGE:p.34
+Elven Curve Blade.MOD						OUTPUTNAME:Elven Curve Blade																																																					COST:80	WT:7																																																		SOURCEPAGE:p.27
+Punching Dagger.MOD						OUTPUTNAME:Punching Dagger																																																					COST:2	WT:1																																																		SOURCEPAGE:p.34
 Dagger.MOD																																																																	COST:2	WT:1																																																		SOURCEPAGE:p.26
 Falchion.MOD																																																																COST:75	WT:8																																																		SOURCEPAGE:p.27
-Flail (Dire).MOD							OUTPUTNAME:Dire Flail																																																						COST:90	WT:10																																																		SOURCEPAGE:p.26
-Flail (Heavy).MOD							OUTPUTNAME:Heavy Flail																																																						COST:15	WT:10																																																		SOURCEPAGE:p.29
-Flail.MOD								OUTPUTNAME:Light Flail																																																						COST:8	WT:5																																																		SOURCEPAGE:p.31
-Gauntlet (Spiked).MOD						OUTPUTNAME:Spiked Gauntlet																																																					COST:5	WT:1																																																		SOURCEPAGE:p.38
+Dire Flail.MOD							OUTPUTNAME:Dire Flail																																																						COST:90	WT:10																																																		SOURCEPAGE:p.26
+Heavy Flail.MOD							OUTPUTNAME:Heavy Flail																																																						COST:15	WT:10																																																		SOURCEPAGE:p.29
+Light Flail.MOD								OUTPUTNAME:Light Flail																																																						COST:8	WT:5																																																		SOURCEPAGE:p.31
+Spiked Gauntlet.MOD						OUTPUTNAME:Spiked Gauntlet																																																					COST:5	WT:1																																																		SOURCEPAGE:p.38
 Gauntlet.MOD																																																																COST:2	WT:1																																																		SOURCEPAGE:p.28
 Glaive.MOD																																																																	COST:8	WT:10																																																		SOURCEPAGE:p.28
 Greataxe.MOD																																																																COST:20	WT:12																																																		SOURCEPAGE:p.28
@@ -412,22 +412,22 @@ Greatclub.MOD																																																																COS
 Greatsword.MOD																																																																COST:50	WT:8																																																		SOURCEPAGE:p.28
 Guisarme.MOD																																																																COST:9	WT:12																																																		SOURCEPAGE:p.28
 Halberd.MOD																																																																	COST:10	WT:12																																																		SOURCEPAGE:p.28
-Hammer (Gnome Hooked).MOD					OUTPUTNAME:Gnome Hooked Hammer																																																				COST:20	WT:6																																																		SOURCEPAGE:p.28
-Hammer (Light).MOD						OUTPUTNAME:Light Hammer																																																						COST:1	WT:2																																																		SOURCEPAGE:p.31
+Gnome Hooked Hammer.MOD					OUTPUTNAME:Gnome Hooked Hammer																																																				COST:20	WT:6																																																		SOURCEPAGE:p.28
+Light Hammer.MOD						OUTPUTNAME:Light Hammer																																																						COST:1	WT:2																																																		SOURCEPAGE:p.31
 Handaxe.MOD																																																																	COST:6	WT:3																																																		SOURCEPAGE:p.29
 Kama.MOD																																																																	COST:2	WT:2																																																		SOURCEPAGE:p.30
 Kukri.MOD																																																																	COST:8	WT:2																																																		SOURCEPAGE:p.31
 Lance.MOD																																																																	COST:10	WT:10																																																		SOURCEPAGE:p.31
 Longspear.MOD																																																																COST:5	WT:9																																																		SOURCEPAGE:p.32
 Longsword.MOD																																																																COST:15	WT:4																																																		SOURCEPAGE:p.32
-Mace (Heavy).MOD							OUTPUTNAME:Heavy Mace																																																						COST:12	WT:8																																																		SOURCEPAGE:p.29
-Mace (Light).MOD							OUTPUTNAME:Light Mace																																																						COST:5	WT:4																																																		SOURCEPAGE:p.31
+Heavy Mace.MOD							OUTPUTNAME:Heavy Mace																																																						COST:12	WT:8																																																		SOURCEPAGE:p.29
+Light Mace.MOD							OUTPUTNAME:Light Mace																																																						COST:5	WT:4																																																		SOURCEPAGE:p.31
 Morningstar.MOD																																																																COST:8	WT:6																																																		SOURCEPAGE:p.33
 Net.MOD																																																																	COST:20	WT:6																																																		SOURCEPAGE:p.33
 Nunchaku.MOD																																																																COST:2	WT:2																																																		SOURCEPAGE:p.33
-Nunchaku (Metal).MOD																																																															COST:2	WT:2																																																		SOURCEPAGE:p.33
-Pick (Heavy).MOD							OUTPUTNAME:Heavy Pick																																																						COST:8	WT:6																																																		SOURCEPAGE:p.29
-Pick (Light).MOD							OUTPUTNAME:Light Pick																																																						COST:4	WT:3																																																		SOURCEPAGE:p.32
+Metal Nunchaku.MOD																																																															COST:2	WT:2																																																		SOURCEPAGE:p.33
+Heavy Pick.MOD							OUTPUTNAME:Heavy Pick																																																						COST:8	WT:6																																																		SOURCEPAGE:p.29
+Light Pick.MOD							OUTPUTNAME:Light Pick																																																						COST:4	WT:3																																																		SOURCEPAGE:p.32
 Quarterstaff.MOD																																																																COST:0	WT:4																																																		SOURCEPAGE:p.34
 Ranseur.MOD																																																																	COST:10	WT:12																																																		SOURCEPAGE:p.34
 Rapier.MOD																																																																	COST:20	WT:2																																																		SOURCEPAGE:p.34
@@ -442,12 +442,12 @@ Sickle.MOD																																																																	COST:
 Spear.MOD																																																																	COST:2	WT:6																																																		SOURCEPAGE:p.37
 Spiked Armor.MOD																																																																COST:50	WT:5																																																		SOURCEPAGE:p.37
 Starknife.MOD																																																																COST:24	WT:3																																																		SOURCEPAGE:p.38
-Sword (Bastard).MOD						OUTPUTNAME:Bastard Sword																																																					COST:35	WT:6																																																		SOURCEPAGE:p.23
-Sword (Short).MOD							OUTPUTNAME:Shortsword																																																						COST:10	WT:2																																																		SOURCEPAGE:p.36
-Sword (Two-Bladed).MOD						OUTPUTNAME:Two-bladed sword																																																					COST:100	WT:10																																																		SOURCEPAGE:p.39
+Bastard Sword.MOD						OUTPUTNAME:Bastard Sword																																																					COST:35	WT:6																																																		SOURCEPAGE:p.23
+Short Sword.MOD							OUTPUTNAME:Shortsword																																																						COST:10	WT:2																																																		SOURCEPAGE:p.36
+Two-Bladed Sword.MOD						OUTPUTNAME:Two-bladed sword																																																					COST:100	WT:10																																																		SOURCEPAGE:p.39
 Trident.MOD																																																																	COST:15	WT:4																																																		SOURCEPAGE:p.39
-Urgrosh (Dwarven).MOD						OUTPUTNAME:Dwarven Urgrosh																																																					COST:50	WT:12																																																		SOURCEPAGE:p.27
-Waraxe (Dwarven).MOD						OUTPUTNAME:Dwarven Waraxe																																																					COST:30	WT:8																																																		SOURCEPAGE:p.27
+Dwarven Urgrosh.MOD						OUTPUTNAME:Dwarven Urgrosh																																																					COST:50	WT:12																																																		SOURCEPAGE:p.27
+Dwarven Waraxe.MOD						OUTPUTNAME:Dwarven Waraxe																																																					COST:30	WT:8																																																		SOURCEPAGE:p.27
 Warhammer.MOD																																																																COST:12	WT:5																																																		SOURCEPAGE:p.40
 Whip.MOD																																																																	COST:1	WT:2																																																		SOURCEPAGE:p.40
 Battle Aspergillum.MOD																																																															COST:5																																																			SOURCEPAGE:p.23
@@ -463,33 +463,33 @@ Falcata.MOD																																																																	COST
 Khopesh.MOD																																																																	COST:20	WT:8																										EQMOD:Material ~ Steel																							SOURCEPAGE:p.30
 Mancatcher.MOD																																																																COST:15	WT:10																										EQMOD:Material ~ Steel																							SOURCEPAGE:p.32
 Axe (Undercutting).MOD																																																																																																																			SOURCEPAGE:p.163
-Sword (Bastard).COPY=Bastard's Sting
+Bastard Sword.COPY=Bastard's Sting
 Bastard's Sting.MOD																																																																																											EQMOD:Material ~ Adamantine ~ Weapon.Special Ability ~ Enhancement Cost|123000.Special Ability ~ +2 ~ Weapon.Material ~ Steel																SOURCEPAGE:p.150										SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=AntipaladinLVL|Unholy Blight,10+WIS+AntipaladinLVL/2|PREVARGTEQ:AntipaladinLVL,1																																												BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement|PREVARGTEQ:AntipaladinLVL,1		SPROP:While wielded by an antipaladin, deals 2d6 points of negative energy damage to all living creatures that start their turn adjacent to the wielder.
-Battleaxe (Adamantine).MOD																																																																																																																		SOURCEPAGE:p.150
+Adamantine Battleaxe.MOD																																																																																																																		SOURCEPAGE:p.150
 Beaststrike Club.MOD																																																																																																																			SOURCEPAGE:p.150
 Blade of Binding.MOD																																																																																																																			SOURCEPAGE:p.150
 Katana.COPY=Blade of the Rising Sun
 Blade of the Rising Sun.MOD																																																																																										EQMOD:Special Ability ~ Bane ~ Weapon|Undead.Special Ability ~ Glorious ~ Melee.Special Ability ~ Enhancement Cost|51800																	SOURCEPAGE:p.152																																																																																								SPROP:On critical threat, target surrounded by sunlight as per Faerie Fire for 1 turn. Deals 1d6 to undead.
 Katana.COPY=Blade of the Sword-Saint
 Blade of the Sword-Saint.MOD																																																																																										EQMOD:Special Ability ~ Ki Intensifying ~ Melee.Special Ability ~ Enhancement Cost|75300.Special Ability ~ +3 ~ Weapon																		SOURCEPAGE:p.152																																																																																								SPROP:Can be employed as though the wielder were unarmed.|PREVARGTEQ:MonkLVL,1
-Sword (Short).COPY=Cutthroat's Apprentice
+Short Sword.COPY=Cutthroat's Apprentice
 Cutthroat's Apprentice.MOD																																																																																										EQMOD:Special Ability ~ Dancing ~ Melee.Special Ability ~ Enhancement Cost|33900.Special Ability ~ +1 ~ Weapon																			SOURCEPAGE:p.153																																																																																								SPROP:Can be drawn as per Quick Draw feat. Dances 8 rounds 2/day. Provides flanking.
-Dagger (Adamantine).MOD																																																																																																																			SOURCEPAGE:p.150
-Dagger (Assassin's).MOD																																																																																																																			SOURCEPAGE:p.150
+Adamantine Dagger.MOD																																																																																																																			SOURCEPAGE:p.150
+Assassin's Dagger.MOD																																																																																																																			SOURCEPAGE:p.150
 Dagger.COPY=Dagger (Bloodthirst)
 Dagger (Bloodthirst).MOD					OUTPUTNAME:Bloodthirst Dagger																																																																																	EQMOD:Special Ability ~ Enhancement Cost|60800.Special Ability ~ +2 ~ Weapon.Special Ability ~ Wounding ~ Weapon																			SOURCEPAGE:p.152																																																																																								SPROP:Deals an additional +1 point of damage against the target for each bleeding wound the creature possesses (maximum +10).
-Dagger (Silver/Masterwork).MOD																																																																																																																	SOURCEPAGE:p.157
+Masterwork Silver Dagger.MOD																																																																																																																	SOURCEPAGE:p.157
 Dagger.COPY=Dagger of Doubling
 Dagger of Doubling.MOD																																																																																											EQMOD:Special Ability ~ Enhancement Cost|10300.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.153																																																																																								SPROP:Can be split into 2 identical daggers.
 Dagger of Venom.MOD																																																																																																																			SOURCEPAGE:p.153
-Curve Blade (Elven).COPY=Demonsorrow Curve Blade
+Elven Curve Blade.COPY=Demonsorrow Curve Blade
 Demonsorrow Curve Blade.MOD																																																																																										EQMOD:Special Ability ~ Bane ~ Weapon|Outsiders (Evil).Material ~ Cold Iron.Special Ability ~ Holy ~ Weapon.Special Ability ~ Enhancement Cost|90460.Special Ability ~ +3 ~ Weapon														SOURCEPAGE:p.153																																																																																								SPROP:Bars all creatures with the demon subtype within 60 ft from teleporting as per Dimensional Anchor.
 Rapier.COPY=Disarming Blade
 Disarming Blade.MOD																																																																																											EQMOD:Special Ability ~ Dueling ~ Melee.Special Ability ~ Enhancement Cost|17800.Special Ability ~ +1 ~ Weapon																		SOURCEPAGE:p.153																																																																																								SPROP:Following a successful disarm attempt with the weapon, the wielder can move the disarmed weapon 5 feet in any direction as a swift action.
 Halberd.COPY=Dragon's Doom
 Dragon's Doom.MOD																																																																																												EQMOD:Special Ability ~ Bane ~ Weapon|Dragon|Special Ability ~ Enhancement Cost|40300.Special Ability ~ +2 ~ Weapon																		SOURCEPAGE:p.154																																																																																								SPROP:Head glows when a creature of the dragon type is within 100 ft of the weapon. 3/day, can ignore dragon's DR.
 Dwarven Thrower.MOD																																																																																																																			SOURCEPAGE:p.154
-Flail (Heavy).COPY=Earthenflail
+Heavy Flail.COPY=Earthenflail
 Earthenflail.MOD																																																																																												EQMOD:Special Ability ~ +1 ~ Weapon																																																																																																															SPROP:Ignores the hardness of any object with hardness less than 20. As a swift action the wielder can suppress this property and cause the weapon to phase through earth and stone, thereby ignoring cover. Does no damage to earth and stone while this ability is active.
 Battle Aspergillum.COPY=Everflowing Aspergillum
 Everflowing Aspergillum.MOD																																																																																										EQMOD:Special Ability ~ Enhancement Cost|7800.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.154																																																																																								SPROP:The holy water in this battle aspergillum never runs dry.
@@ -503,14 +503,14 @@ Guisarme.COPY=Guisarme (Dragoncatch)
 Guisarme (Dragoncatch).MOD					OUTPUTNAME:Dragoncatch Guisarme																																																																																EQMOD:Special Ability ~ Bane ~ Weapon|Dragon.Special Ability ~ Enhancement Cost|13300.Special Ability ~ +1 ~ Weapon																		SOURCEPAGE:p.154																																																																																								SPROP:Can be used to make a special trip maneuver against creatures using wings to fly.
 Warhammer.COPY=Ghoul's Lament
 Ghoul's Lament.MOD																																																																																											EQMOD:Special Ability ~ Disruption ~ Weapon.Special Ability ~ Ghost Touch ~ Weapon.Special Ability ~ Enhancement Cost|35300.Special Ability ~ +1 ~ Weapon																	SOURCEPAGE:p.155																																																																																								SPROP:3/day can knock an undead creature prone (Fort DC 20 negates).
-Sword (Short).COPY=Gloom Blade
+Short Sword.COPY=Gloom Blade
 Gloom Blade.MOD																																																																																												EQMOD:Special Ability ~ Enhancement Cost|8500.Special Quality ~ Masterwork ~ Weapon																				SOURCEPAGE:p.155																																																																																								SPROP:+1 in dim light, +2 in darkness, and bestows Blind-Fight feat in supernatural darkness.
 Guarding Blade.MOD																																																																																																																			SOURCEPAGE:p.155
 Warhammer.COPY=Hammer (Dwarfbond)
 Hammer (Dwarfbond).MOD						OUTPUTNAME:Dwarfbond Hammer																																																																																	EQMOD:Special Ability ~ Enhancement Cost|25300.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.154																																																																										BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement|PRERACE:1,Dwarf,RACESUBTYPE=Dwarf	SPROP:When thrown will return just before thrower's next turn. Deals an extra 1d8 against creatures of the Giant subtype.|PRERACE:1,Dwarf,RACESUBTYPE=Dwarf
 Meteor Hammer.COPY=Hammer (Polarity)
 Hammer (Polarity).MOD						OUTPUTNAME:Polarity Hammer																																																																																	EQMOD:Special Ability ~ Enhancement Cost|12300.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.158																																																																																								SPROP:In meteor mode, +2 on drag or reposition combat maneuvers against metal targets. In fortress mode wielder can move any metal object within reach and gains additional +2 to AC against metal.
-Hammer (Light).COPY=Hammer (Ricochet)
+Light Hammer.COPY=Hammer (Ricochet)
 Hammer (Ricochet).MOD																																																																																																																			SOURCEPAGE:p.159
 Scorpion Whip.COPY=Hellscourge
 Hellscourge.MOD																																																																																												EQMOD:Special Ability ~ Enhancement Cost|39300.Special Ability ~ +1 ~ Weapon.Special Ability ~ Unholy ~ Weapon																		SOURCEPAGE:p.156																																																			BONUS:SKILL|Intimidate|5																																	SPROP:Shaken creature struck becomes Frightened (DC 17 Will negates), Frightened or Panicked creature must cower 1d4 rounds.
@@ -523,7 +523,7 @@ Lance (Shieldsplitter).MOD																																																						
 Scorpion Whip.COPY=Lash of the Howler
 Lash of the Howler.MOD																																																																																											EQMOD:Special Ability ~ Enhancement Cost|18300.Special Ability ~ +1 ~ Weapon.Special Ability ~ Vicious ~ Melee																		SOURCEPAGE:p.156																																																																																								SPROP:Creature struck sickened until quill removed (DC 14 Ref negates).
 Life-Drinker.MOD																																																																																																																				SOURCEPAGE:p.157
-Longsword (Cold Iron/Masterwork).MOD																																																																																																																SOURCEPAGE:p.153
+Masterwork Cold Iron Longsword.MOD																																																																																																																SOURCEPAGE:p.153
 Luck Blade (0 Wishes).MOD																																																																																																																		SOURCEPAGE:p.157
 Luck Blade (1 Wish).MOD																																																																																																																			SOURCEPAGE:p.157
 Luck Blade (2 Wishes).MOD																																																																																																																		SOURCEPAGE:p.157
@@ -545,7 +545,7 @@ Shatterspike.MOD																																																																
 Shifter's Sorrow.MOD																																																																																																																			SOURCEPAGE:p.160
 Sling.COPY=Sling (Frostbite)
 Sling (Frostbite).MOD						OUTPUTNAME:Frostbite Sling																																																																																	EQMOD:Special Ability ~ Frost ~ Weapon.Special Ability ~ Enhancement Cost|9380.Special Ability ~ +1 ~ Weapon																			SOURCEPAGE:p.155																																																																																								SPROP:3/day wielder can hurl a magic snowball for 1d6+6 nonlethal cold damage that leaves target fatigued.
-Dagger (Punching).COPY=Spider's Fang
+Punching Dagger.COPY=Spider's Fang
 Spider's Fang.MOD																																																																																												EQMOD:Special Ability ~ Keen ~ Weapon.Special Ability ~ Enhancement Cost|79100.Special Ability ~ +2 ~ Weapon.Special Ability ~ Wounding ~ Weapon																		SOURCEPAGE:p.160																																									BONUS:SITUATION|Acrobatics=Move Through|2|TYPE=Competence																																						SPROP:2/day can poison as per Poison spell (Fort DC 20 negates).
 Spirit Blade.MOD																																																																																																																				SOURCEPAGE:p.161
 Mere Club.COPY=Spirit Caller
@@ -553,8 +553,8 @@ Spirit Caller.MOD																																																															
 Starknife (Sparkwake).MOD																																																																																																																		SOURCEPAGE:p.161
 Glaive.COPY=Summoner's Sorrow
 Summoner's Sorrow.MOD																																																																																											EQMOD:Material ~ Cold Iron.Special Ability ~ Enhancement Cost|42800.Special Ability ~ +2 ~ Weapon																		SOURCEPAGE:p.161	SOURCEPAGE:p.161																																																																																					SPROP:2d6 against summoned creatures and wielder can make a dispel check to send away or destroy the creature. 1/day wielder can attempt Dismissal instead.
-Sun Blade (Short).MOD																																																																																																																			SOURCEPAGE:p.161
-Sun Blade (Bastard).MOD																																																																																																																			SOURCEPAGE:p.161
+Sun Blade (Short Sword).MOD																																																																																																																			SOURCEPAGE:p.161
+Sun Blade (Bastard Sword).MOD																																																																																																																			SOURCEPAGE:p.161
 Sword of Life Stealing.MOD																																																																																																																		SOURCEPAGE:p.162
 Sword of Subtlety.MOD																																																																																																																			SOURCEPAGE:p.162
 Sword of the Planes.MOD																																																																																																																			SOURCEPAGE:p.162
@@ -566,7 +566,7 @@ Trident of Stability.MOD																																																								
 Trident of Warning.MOD																																																																																																																			SOURCEPAGE:p.163
 Trident.COPY=Trident (Triton's)
 Trident (Triton's).MOD						OUTPUTNAME:Triton's Trident																																																																																	EQMOD:Special Ability ~ Bane ~ Weapon|Monstrous Humanoids.Special Ability ~ Enhancement Cost|15060.Special Ability ~ +1 ~ Weapon															SOURCEPAGE:p.162										SPELLS:Magic Item|TIMES=3|Hydraulic Push	SPELLS:Magic Item|TIMES=1|Hydraulic Torrent																																																																SPROP:CMB for either Hydraulic Push or Hydraulic Torrent is +6
-Sword (Bastard).COPY=Valor's Minion
+Bastard Sword.COPY=Valor's Minion
 Valor's Minion.MOD																																																																																											EQMOD:Special Ability ~ Holy ~ Weapon.Special Ability ~ Enhancement Cost|41300.Special Ability ~ +2 ~ Weapon																			SOURCEPAGE:p.163																																																																																								SPROP:Whenever a wielder uses either the challenge or smite evil class feature, one additional use of that class feature can be sacrificed to treat the smite or challenge as three class levels higher.
 Falchion.COPY=Warbringer
 Warbringer.MOD																																																																																												EQMOD:Special Ability ~ Keen ~ Weapon.Special Ability ~ Enhancement Cost|61300.Special Ability ~ +3 ~ Weapon.Special Ability ~ Vicious ~ Melee																	SOURCEPAGE:p.163																																																																																								SPROP:On critical hit, wielder gains Rage 1 round, creature struck attacks nearest ally as per Murderous Command (DC 14 Will negates)
@@ -574,7 +574,7 @@ Cursed Sword (-2)														PROFICIENCY:WEAPON|Longsword								TYPE:Magic.Cu
 Berserking Sword														PROFICIENCY:WEAPON|Greatsword								TYPE:Magic.Cursed.Weapon.Resizable.Melee.TwoHanded.Martial.Standard.Slashing.Sword.BladeHeavy																							COST:0	WT:8										CRITMULT:x2	CRITRANGE:2							DAMAGE:2d6					EQMOD:Material ~ Steel													WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.343																																																														BONUS:WEAPONPROF=Greatsword|TOHIT,DAMAGE|2																			SPROP:Whenever used in battle the wielder goes berserk as per Barbarian's Rage ability.
 Biting Battleaxe														PROFICIENCY:WEAPON|Battleaxe								TYPE:Magic.Cursed.Weapon.Resizable.Melee.OneHanded.Martial.Standard.Slashing.Axe																									COST:0	WT:6										CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8					EQMOD:Material ~ Steel													WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.343				ABILITY:FEAT|VIRTUAL|Great Cleave																																																																															SPROP:When using Great Cleave feat, the wielder makes an additional attack against a random adjacent creature, always counting self as adjacent.
 Heavy Hammer														PROFICIENCY:WEAPON|Warhammer								TYPE:Magic.Cursed.Weapon.Resizable.Melee.OneHanded.Martial.Standard.Bludgeoning.Hammer																								COST:0	WT:20																																																		SOURCEPAGE:p.346																																				BONUS:MOVEADD|TYPE.All|-10																						BONUS:WEAPONPROF=Warhammer|TOHIT|-2	BONUS:WEAPONPROF=Warhammer|DAMAGE|4															SPROP:Must be used as primary weapon
-Mace of Blood														PROFICIENCY:WEAPON|Mace (Heavy)							TYPE:Magic.Cursed.Weapon.Resizable.Melee.OneHanded.Simple.Standard.Bludgeoning.Mace.Hammer																							COST:0	WT:8										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8					EQMOD:Special Ability ~ +3 ~ Weapon	EQMOD:Material ~ Steel										WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.347																																																																																								SPROP:Must be coated in blood every day. Owner must make a DC 13 Will save every day or become Chaotic Evil.
+Mace of Blood														PROFICIENCY:WEAPON|Heavy Mace							TYPE:Magic.Cursed.Weapon.Resizable.Melee.OneHanded.Simple.Standard.Bludgeoning.Mace.Hammer																							COST:0	WT:8										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8					EQMOD:Special Ability ~ +3 ~ Weapon	EQMOD:Material ~ Steel										WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.347																																																																																								SPROP:Must be coated in blood every day. Owner must make a DC 13 Will save every day or become Chaotic Evil.
 Net of Snaring														PROFICIENCY:WEAPON|Net									TYPE:Magic.Cursed.Weapon.Resizable.Exotic.Ranged.Standard.Thrown																												COST:0	WT:1																										EQMOD:Special Quality ~ Nonlethal															RANGE:10						SOURCEPAGE:p.348																																																																																								SPROP:Can only be thrown underwater. If thrown on land, targets creature that threw it.
 Unwieldy Glaive														PROFICIENCY:WEAPON|Glaive								TYPE:Magic.Cursed.Weapon.Resizable.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm																							COST:0	WT:10										CRITMULT:x3	CRITRANGE:1							DAMAGE:1d10					EQMOD:Material ~ Steel													WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.351																																																																																								SPROP:When attack of opportunity is attempted, wielder takes a 2 penalty to AC and on attack rolls until the end of its next turn
 Buffoon's Sword.MOD																																																																																																																			SOURCEPAGE:p.344
@@ -586,8 +586,8 @@ Ring of Rat Fangs Bite Attack												PROFICIENCY:WEAPON|Unarmed Strike						
 
 
 ####Block: Ranged Weapons
-Underwater Crossbow (Heavy)												PROFICIENCY:WEAPON|Underwater Crossbow (Heavy)					TYPE:Weapon.Resizable.Ranged.Simple.Piercing.Crossbow																														COST:100	WT:8										CRITMULT:x2	CRITRANGE:2							DAMAGE:1d10					EQMOD:Material ~ Wood																RANGE:120						SOURCEPAGE:p.39																																																																																								SPROP:20 ft range when used underwater
-Underwater Crossbow (Light)												PROFICIENCY:WEAPON|Underwater Crossbow (Light)					TYPE:Weapon.Resizable.Ranged.Simple.Piercing.Crossbow																														COST:70	WT:4										CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8					EQMOD:Material ~ Wood																RANGE:80						SOURCEPAGE:p.40																																																																																								SPROP:20 ft range when used underwater
+Underwater Heavy Crossbow												PROFICIENCY:WEAPON|Underwater Heavy Crossbow					TYPE:Weapon.Resizable.Ranged.Simple.Piercing.Crossbow																														COST:100	WT:8										CRITMULT:x2	CRITRANGE:2							DAMAGE:1d10					EQMOD:Material ~ Wood																RANGE:120						SOURCEPAGE:p.39																																																																																								SPROP:20 ft range when used underwater
+Underwater Light Crossbow												PROFICIENCY:WEAPON|Underwater Light Crossbow					TYPE:Weapon.Resizable.Ranged.Simple.Piercing.Crossbow																														COST:70	WT:4										CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8					EQMOD:Material ~ Wood																RANGE:80						SOURCEPAGE:p.40																																																																																								SPROP:20 ft range when used underwater
 Amentum															PROFICIENCY:WEAPON|Amentum								TYPE:Weapon.Resizable.Ranged.Martial.Piercing.Spear																														COST:0	WT:1										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:Material ~ Steel																RANGE:50						SOURCEPAGE:p.23
 Atlatl															PROFICIENCY:WEAPON|Atlatl								TYPE:Weapon.Resizable.Ranged.Martial.Piercing																															COST:2	WT:2										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:Material ~ Wood																RANGE:50						SOURCEPAGE:p.23
 Hunga Munga															PROFICIENCY:WEAPON|Hunga Munga							TYPE:Weapon.Resizable.Ranged.Thrown.Martial.Piercing.BladeLight																												COST:4	WT:3										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:Material ~ Steel																RANGE:15						SOURCEPAGE:p.30
@@ -607,18 +607,18 @@ Rope Dart															PROFICIENCY:WEAPON|Rope Dart								TYPE:Weapon.Resizabl
 Snag Net															PROFICIENCY:WEAPON|Snag Net								TYPE:Weapon.Resizable.Ranged.Exotic.Piercing.Thrown																														COST:30	WT:10																										EQMOD:Material ~ Rope																RANGE:10						SOURCEPAGE:p.37
 Blowgun.MOD																																																																	COST:2	WT:1																																																		SOURCEPAGE:p.24
 Bolas.MOD																																																																	COST:5	WT:2																																																		SOURCEPAGE:p.24
-Crossbow (Hand).MOD						OUTPUTNAME:Hand Crossbow																																																					COST:100	WT:2																																																		SOURCEPAGE:p.29
-Crossbow (Heavy).MOD						OUTPUTNAME:Heavy Crossbow																																																					COST:50	WT:8																																																		SOURCEPAGE:p.29
-Crossbow (Light).MOD						OUTPUTNAME:Light Crossbow																																																					COST:35	WT:4																																																		SOURCEPAGE:p.31
-Crossbow (Repeating Heavy).MOD				OUTPUTNAME:Repeating Heavy Crossbow																																																				COST:400	WT:12																																																		SOURCEPAGE:p.35
-Crossbow (Repeating Light).MOD				OUTPUTNAME:Repeating Light Crossbow																																																				COST:250	WT:6																																																		SOURCEPAGE:p.35
+Hand Crossbow.MOD						OUTPUTNAME:Hand Crossbow																																																					COST:100	WT:2																																																		SOURCEPAGE:p.29
+Heavy Crossbow.MOD						OUTPUTNAME:Heavy Crossbow																																																					COST:50	WT:8																																																		SOURCEPAGE:p.29
+Light Crossbow.MOD						OUTPUTNAME:Light Crossbow																																																					COST:35	WT:4																																																		SOURCEPAGE:p.31
+Repeating Heavy Crossbow.MOD				OUTPUTNAME:Repeating Heavy Crossbow																																																				COST:400	WT:12																																																		SOURCEPAGE:p.35
+Repeating Light Crossbow.MOD				OUTPUTNAME:Repeating Light Crossbow																																																				COST:250	WT:6																																																		SOURCEPAGE:p.35
 Dart.MOD																																																																	COST:0.5	WT:0.5																																																	SOURCEPAGE:p.26
 Javelin.MOD																																																																	COST:1	WT:2																																																		SOURCEPAGE:p.30
-Longbow (Composite).MOD						OUTPUTNAME:Composite Longbow																																																					COST:100	WT:3																																																		SOURCEPAGE:p.25
+Composite Longbow.MOD						OUTPUTNAME:Composite Longbow																																																					COST:100	WT:3																																																		SOURCEPAGE:p.25
 Longbow.MOD																																																																	COST:75	WT:3																																																		SOURCEPAGE:p.32
-Shortbow (Composite).MOD					OUTPUTNAME:Composite Shortbow																																																					COST:75	WT:2																																																		SOURCEPAGE:p.25
+Composite Shortbow.MOD					OUTPUTNAME:Composite Shortbow																																																					COST:75	WT:2																																																		SOURCEPAGE:p.25
 Shortbow.MOD																																																																COST:30	WT:2																																																		SOURCEPAGE:p.36
-Sling Staff (Halfling).MOD					OUTPUTNAME:Halfling Sling Staff																																																				COST:20	WT:3																																																		SOURCEPAGE:p.29
+Halfling Sling Staff.MOD					OUTPUTNAME:Halfling Sling Staff																																																				COST:20	WT:3																																																		SOURCEPAGE:p.29
 Sling.MOD																																																																	COST:0																																																			SOURCEPAGE:p.37
 Chakram.MOD																																																																	COST:1	WT:1																																																		SOURCEPAGE:p.25
 Pilum.MOD																																																																	COST:5	WT:4																																																		SOURCEPAGE:p.34
@@ -628,7 +628,7 @@ Oathbow.MOD																																																																					
 Spear.COPY=Spear (Heartswood)
 Spear (Heartswood).MOD						OUTPUTNAME:Heartswood Spear																																																																																	EQMOD:Special Ability ~ Bane ~ Weapon|Undead.Special Ability ~ Enhancement Cost|50300.Special Ability ~ +2 ~ Weapon																		SOURCEPAGE:p.156																																																																																								SPROP:When swung as a staff, does bludgeoning damage and has Disrupting property.
 Cursed Backbiter Spear													PROFICIENCY:WEAPON|Shortspear								TYPE:Magic.Cursed.Weapon.Resizable.Melee.OneHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear																							COST:0	WT:3										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:Material ~ Steel.Material ~ Wood												WIELD:OneHanded	RANGE:20				SIZE:M	SOURCEPAGE:p.345																																																														BONUS:WEAPONPROF=Shortspear|TOHIT,DAMAGE|2																			SPROP:When attack roll is natural 1, deals damage to wielder.
-Deadly Returns Throwing Axe												PROFICIENCY:WEAPON|Axe (Throwing)							TYPE:Magic.Cursed.Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Martial.Standard.Slashing.Axe																					COST:0	WT:2										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:Special Ability ~ Returning ~ Thrown.Material ~ Steel											WIELD:Light		RANGE:10				SIZE:M	SOURCEPAGE:p.345																																																																																								SPROP:Only returns when wielder misses target. On return, attacks wielder.
+Deadly Returns Throwing Axe												PROFICIENCY:WEAPON|Throwing Axe							TYPE:Magic.Cursed.Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Martial.Standard.Slashing.Axe																					COST:0	WT:2										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:Special Ability ~ Returning ~ Thrown.Material ~ Steel											WIELD:Light		RANGE:10				SIZE:M	SOURCEPAGE:p.345																																																																																								SPROP:Only returns when wielder misses target. On return, attacks wielder.
 Arrowbreak Bow														PROFICIENCY:WEAPON|Shortbow								TYPE:Magic.Cursed.Weapon.Resizable.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow														CONTAINS:UNLIM|Arrow					COST:0	WT:2		SLOTS:2							CRITMULT:x3	CRITRANGE:1							DAMAGE:1d6					EQMOD:Material ~ Wood																RANGE:60						SOURCEPAGE:p.342																																																														BONUS:WEAPONPROF=Shortbow|TOHIT,DAMAGE|2						BONUS:WEAPON|DAMAGE|min(STR,0)									SPROP:Arrows are always broken on either a hit or a miss.
 Nearfiring Bow														PROFICIENCY:WEAPON|Shortbow								TYPE:Magic.Cursed.Weapon.Resizable.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow														CONTAINS:UNLIM|Arrow					COST:0	WT:2		SLOTS:2							CRITMULT:x3	CRITRANGE:1							DAMAGE:1d6					EQMOD:Material ~ Wood																RANGE:60						SOURCEPAGE:p.347																															BONUS:COMBAT|RANGEPENALTY|2																																							BONUS:WEAPON|DAMAGE|min(STR,0)									SPROP:Takes an additional 4 penalty on critical confirmation rolls when firing beyond the first range increment.
 
@@ -636,8 +636,8 @@ Nearfiring Bow														PROFICIENCY:WEAPON|Shortbow								TYPE:Magic.Cursed
 # Weapon Groups
 Nunchaku.MOD																										TYPE:Weapon Group Flails
 Nunchaku.MOD																										TYPE:Weapon Group Monk
-Nunchaku (Metal).MOD																									TYPE:Weapon Group Flails
-Nunchaku (Metal).MOD																									TYPE:Weapon Group Monk
+Metal Nunchaku.MOD																									TYPE:Weapon Group Flails
+Metal Nunchaku.MOD																									TYPE:Weapon Group Monk
 Siangham.MOD																										TYPE:Weapon Group Monk
 
 ###Block: Weapon Groups
@@ -686,10 +686,10 @@ Wakizashi.MOD				TYPE:Bladelight.Weapon Group Blades Light
 # Weapon Group Close
 #
 Brass Knuckles.MOD			TYPE:Close.Weapon Group Close
-Shield (Heavy/Steel).MOD		TYPE:Close.Weapon Group Close
-Shield (Heavy/Wooden).MOD		TYPE:Close.Weapon Group Close
-Shield (Light/Steel).MOD		TYPE:Close.Weapon Group Close
-Shield (Light/Wooden).MOD		TYPE:Close.Weapon Group Close
+Heavy Steel Shield.MOD		TYPE:Close.Weapon Group Close
+Heavy Wooden Shield.MOD		TYPE:Close.Weapon Group Close
+Light Steel Shield.MOD		TYPE:Close.Weapon Group Close
+Light Wooden Shield.MOD		TYPE:Close.Weapon Group Close
 Stake (Wood).MOD				TYPE:Close.Weapon Group Close
 Armor Spikes.MOD				TYPE:Close.Weapon Group Close
 Dan Bong.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
@@ -707,8 +707,8 @@ Wushu Dart.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk.Thrown.We
 # Weapon Group Crossbows
 #
 Crossbow (Repeating Hand).MOD		TYPE:Crossbow.Weapon Group Crossbows
-Underwater Crossbow (Light).MOD	TYPE:Crossbow.Weapon Group Crossbows
-Underwater Crossbow (Heavy).MOD	TYPE:Crossbow.Weapon Group Crossbows
+Underwater Light Crossbow.MOD	TYPE:Crossbow.Weapon Group Crossbows
+Underwater Heavy Crossbow.MOD	TYPE:Crossbow.Weapon Group Crossbows
 Crossbow (Double).MOD			TYPE:Crossbow.Weapon Group Crossbows
 Tube Arrow Shooter.MOD			TYPE:Crossbow.Weapon Group Crossbows
 #

@@ -5,8 +5,8 @@ SOURCELONG:Halflings of Golarion	SOURCESHORT:HAOG	SOURCEWEB:http://paizo.com/pro
 
 ###Block: Weapons, Ranged
 # Equipment Name	Required Weapon Proficiency		Type																Contains				Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Range		Source Page		Weapon prop. bonus
-Sling (Double)	PROFICIENCY:WEAPON|Sling (Double)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Double.Bludgeoning.Container.Projectile.Sling	CONTAINS:UNLIM|SlingStone	COST:10	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Wood		RANGE:50	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
-Sling (Stiched)	PROFICIENCY:WEAPON|Sling (Stiched)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Bludgeoning.Container.Projectile.Sling.Disarm.Trip	CONTAINS:1|SlingStone		COST:0	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Leather	RANGE:0	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
+Sling (Double)	PROFICIENCY:WEAPON|Sling (Double)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Double.Bludgeoning.Container.Projectile.Sling	CONTAINS:UNLIM|Sling Stone	COST:10	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Wood		RANGE:50	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
+Sling (Stiched)	PROFICIENCY:WEAPON|Sling (Stiched)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Bludgeoning.Container.Projectile.Sling.Disarm.Trip	CONTAINS:1|Sling Stone		COST:0	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Leather	RANGE:0	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
 
 
 ###Block: Ammunition

@@ -3,8 +3,8 @@ SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
 # Original Entry by: Andrew Maitland, Stefan Radermacher
 
 # Equipment Name			Weapon prop. bonus
-Shield (Heavy/Wooden).MOD	BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Shield-Trained
-Shield (Heavy/Steel).MOD	BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Shield-Trained
+Heavy Wooden Shield.MOD	BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Shield-Trained
+Heavy Steel Shield.MOD	BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Shield-Trained
 
 ###Block: Altars
 # Equipment Name		Product Identity?	Type			Cost		Weight	Source Page
@@ -33,36 +33,36 @@ Altar of Zon-Huthon	NAMEISPI:YES	TYPE:Magic.Altar	COST:8000	WT:150	SOURCEPAGE:p.
 # Equipment Name							Type		Cost		Weight	Source, Long Desc.		Source, Short Desc.	Source Page
 Chain Shirt.COPY=All-Seeing Armor
 Chainmail.COPY=Armor Of The Unqenchable Fire
-Leather.COPY=Blackfingers Apron
-Shield (Light/Steel).COPY=Bronze Whisperer's Shield
+Leather Armor.COPY=Blackfingers Apron
+Light Steel Shield.COPY=Bronze Whisperer's Shield
 Chain Shirt.COPY=Calmitous Mail
 Chain Shirt.COPY=Dawnflower Chain Vest
 Studded Leather.COPY=Deadeye Leather
-Shield (Heavy/Wooden).COPY=Driftwood Shield
+Heavy Wooden Shield.COPY=Driftwood Shield
 Breastplate.COPY=Eternal Iron Breastplate
 Scale Mail.COPY=Fangtide Scale Mail
 Half-Plate.COPY=Forgefather's Half-Plate
 Breastplate.COPY=Golden Judge's Breastplate
 Chainmail.COPY=Gravewatcher Chainmail
-Leather.COPY=Gray Master's Leathers
+Leather Armor.COPY=Gray Master's Leathers
 Chainmail.COPY=Grim Gloom Mail
 Half-Plate.COPY=Half-Plate Of The Dark Prince
 Breastplate.COPY=Inheritor's Breastplate
-Leather.COPY=Kimle Coat
+Leather Armor.COPY=Kimle Coat
 Chainmail.COPY=Lucky Drunk's Mail
-Leather.COPY=Milanite Armor
+Leather Armor.COPY=Milanite Armor
 Studded Leather.COPY=Painspike Armor
 Chainmail.COPY=Pallid Chain
-Hide.COPY=Pelt Of The Demon Mother
-Leather.COPY=Perfection Leather
-Leather.COPY=Red Stalker Armor
+Hide Armor.COPY=Pelt Of The Demon Mother
+Leather Armor.COPY=Perfection Leather
+Leather Armor.COPY=Red Stalker Armor
 Chain Shirt.COPY=Rosy Hauberk
 Studded Leather.COPY=Sea Banshee Coat
 Chainmail.COPY=Starsong Mail
 Chainmail.COPY=Toiler's Armor
 Chain Shirt.COPY=Veiled Chain
 # Weapons
-Sword (Short).COPY=Black Alibi
+Short Sword.COPY=Black Alibi
 Glaive.COPY=Blade Of Three Fancies
 Greatsword.COPY=Bloodlight
 Rapier.COPY=Carouser's Retort
@@ -70,20 +70,20 @@ Scimitar.COPY=Dawnfire
 Morningstar.COPY=Enduring Bloom
 Dagger.COPY=Fate Blade
 Warhammer.COPY=Forgefather's Sledge
-Crossbow (Light).COPY=Fugitive Finder
+Light Crossbow.COPY=Fugitive Finder
 Sawtooth Sabre.COPY=Fuming Blood Sabre
-Mace (Light).COPY=Hell's Eye
+Light Mace.COPY=Hell's Eye
 Longsword.COPY=Inheritor's Light
 Longbow.COPY=Kinbonded Bow
 Scythe.COPY=Nail Of The Princess
-Flail (Heavy).COPY=Obliviating Flail
+Heavy Flail.COPY=Obliviating Flail
 Whip.COPY=Perfectionist Shavtoosh
 Quarterstaff.COPY=Quarterstaff Of Entwined Serpents
 Falchion.COPY=Redlust's Daughter
 Greataxe.COPY=Rusting Teeth Of The Rough Beast
 Starknife.COPY=Shooting Starknife
 Trident.COPY=Stormstrike
-Chain (Spiked).COPY=Umbral Chain
+Spiked Chain.COPY=Umbral Chain
 Whip.COPY=Vengeful Kiss
 
 # Magic Armor and Shields

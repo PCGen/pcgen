@@ -4,7 +4,7 @@ SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com
 
 ###Block: Weapon Proficiencies
 # Ability Name					Category of Ability		Type			Visible	Auto Weapon Prof
-Inner Sea Pirate ~ Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Cutlass|Hook Hand|Rapier|Sword (Short)
+Inner Sea Pirate ~ Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Cutlass|Hook Hand|Rapier|Short Sword
 
 ###Block: Inner Sea Pirate abilities
 # Ability Name	Unique Key						Category of Ability		Type			Visible	Define			Ability							Bonus Ability Pool
@@ -13,7 +13,7 @@ Advanced Tricks	KEY:Inner Sea Pirate ~ Advanced Tricks	CATEGORY:Special Ability	
 Sneak Attack	KEY:Inner Sea Pirate ~ Sneak Attack		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Pirate Tricks
 # Ability Name	Unique Key					Category of Ability		Type								Description																																																																								Weapon prof. bonus																												Source Page
-Classic Duelist	KEY:Pirate Trick ~ Classic Duelist	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You gain a +1 competence bonus on attack rolls made with a cutlass, rapier, or short sword.																																																									BONUS:WEAPONPROF=Cutlass|DAMAGE,TOHIT|1|TYPE=Competence	BONUS:WEAPONPROF=Rapier|DAMAGE,TOHIT|1|TYPE=Competence	BONUS:WEAPONPROF=Sword (Short)|DAMAGE,TOHIT|1|TYPE=Competence	SOURCEPAGE:p.24
+Classic Duelist	KEY:Pirate Trick ~ Classic Duelist	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You gain a +1 competence bonus on attack rolls made with a cutlass, rapier, or short sword.																																																									BONUS:WEAPONPROF=Cutlass|DAMAGE,TOHIT|1|TYPE=Competence	BONUS:WEAPONPROF=Rapier|DAMAGE,TOHIT|1|TYPE=Competence	BONUS:WEAPONPROF=Short Sword|DAMAGE,TOHIT|1|TYPE=Competence	SOURCEPAGE:p.24
 Deep Breath		KEY:Pirate Trick ~ Deep Breath	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You can hold your breath for %1 rounds before you must start making  Constitution checks.|CON*3																																																																																								SOURCEPAGE:p.24
 Drink for Free	KEY:Pirate Trick ~ Drink for Free	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You are admired or feared in the taverns you frequent. You can designate %1 taverns as “favored taverns". When in a favored tavern, you drink for free. In addition, you gain a +2 circumstance bonus on Diplomacy and Intimidate checks within a favored tavern.|CL																																																												SOURCEPAGE:p.24
 Farseer		KEY:Pirate Trick ~ Farseer		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:Pirates take turns serving as lookouts. You reduce any distance-based penalties on Perception checks by half when you are at least 10 feet off the ground or above the deck of a ship.																																																																									SOURCEPAGE:p.24

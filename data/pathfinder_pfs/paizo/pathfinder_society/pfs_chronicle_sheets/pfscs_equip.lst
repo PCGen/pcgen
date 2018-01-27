@@ -112,7 +112,7 @@ Sojourner in the Sunless Wastes																TYPE:Magic.Wonderous.PFS			COST:2
 # PFS Module PZO9537
 #
 
-Sword (Bastard).COPY=Iron Lash
+Bastard Sword.COPY=Iron Lash
 Iron Lash.MOD																			TYPE:Magic.Wonderous.PFS			COST:90335			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9537					EQMOD:Material ~ Cold Iron.Special Ability ~ +2 ~ Weapon.Special Ability ~ Unholy ~ Weapon										SOURCELONG:PFS Module The Moonscar																																			SPROP:(cost should be 90,335) This +2 cold iron bastard sword becomes a +2 unholy cold iron bastard sword in the hands of an antipaladin sworn to the demon lord Nocticula. In the hands of a good creature, Iron Lash bestows one permanent negative level as though it were unholy while granting none of the associated benefits of the unholy special ability.&nl;Once per day, the wielder of this sword can cast finger of death with a range of 60 feet, dealing 150 points of damage on a successful hit. If the target succeeds at a DC 20 Fortitude saving throw, the attack instead deals 3d6+15 points of damage. This is a death effect.
 
 #

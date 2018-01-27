@@ -189,7 +189,7 @@ CATEGORY=Class|Inquisitor.MOD																																	ABILITY:Internal|A
 
 CATEGORY=Class|Inquisitor.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple
 CATEGORY=Class|Inquisitor.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
-CATEGORY=Class|Inquisitor.MOD										AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
+CATEGORY=Class|Inquisitor.MOD										AUTO:WEAPONPROF|Hand Crossbow|Longbow|Repeating Heavy Crossbow|Repeating Light Crossbow|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 
 
 CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_ClassSkills|0

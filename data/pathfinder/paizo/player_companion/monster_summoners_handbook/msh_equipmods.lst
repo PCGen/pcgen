@@ -6,4 +6,4 @@ SOURCELONG:Monster Summoner's Handbook	SOURCESHORT:MSH	SOURCEWEB:http://paizo.co
 # Weapon Ability
 # ==============================
 
-Summon Bane			KEY:Summon Bane		TYPE:Weapon.Melee.Ranged		PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.21	PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged			SPROP:+2 enhancement bonus and does +2d6 bonus damage against summoned creatures.
+Summon Bane			KEY:Special Ability ~ Summon Bane ~ Weapon		TYPE:Weapon.Melee.Ranged		PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.21	PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged			SPROP:+2 enhancement bonus and does +2d6 bonus damage against summoned creatures.

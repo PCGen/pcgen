@@ -11,8 +11,8 @@ STARTPACK:Bounty Hunter's Kit (Common)	TYPE:Adventuring Kit	APPLY:INSTANT	EQUIPB
 GEAR:Area Map		QTY:1	SIZE:PC
 GEAR:Caltrops		QTY:1	SIZE:PC
 GEAR:Chain (10 Ft)	QTY:1	SIZE:PC
-GEAR:Lock (Average)	QTY:1	SIZE:PC
-GEAR:Manacles (Medium)	QTY:1	SIZE:PC
+GEAR:Average Lock	QTY:1	SIZE:PC
+GEAR:Medium Manacles	QTY:1	SIZE:PC
 GEAR:Net			QTY:1	SIZE:PC
 GEAR:Sap			QTY:1	SIZE:PC
 
@@ -21,8 +21,8 @@ GEAR:Area Map				QTY:1	SIZE:PC
 GEAR:Caltrops				QTY:1	SIZE:PC
 GEAR:Chain (10 Ft)			QTY:1	SIZE:PC
 GEAR:Footprint Book			QTY:1	SIZE:PC
-GEAR:Lock (Good)				QTY:1	SIZE:PC
-GEAR:Manacles (Masterwork/Medium)	QTY:1	SIZE:PC
+GEAR:Good Lock				QTY:1	SIZE:PC
+GEAR:Medium Masterwork Manacles	QTY:1	SIZE:PC
 GEAR:Net					QTY:1	SIZE:PC
 GEAR:Sap					QTY:1	SIZE:PC
 GEAR:Tanglefoot Bag			QTY:1	SIZE:PC
@@ -31,6 +31,6 @@ GEAR:Thieves' Tools (Masterwork)	QTY:1	SIZE:PC
 STARTPACK:Melee Contingency Kit	TYPE:Adventuring Kit	APPLY:INSTANT	EQUIPBUY:150
 GEAR:Morningstar (Cold Iron)	QTY:1	SIZE:PC
 GEAR:Sickle (Silver)		QTY:1	SIZE:PC
-GEAR:Acid (Flask)			QTY:2	SIZE:PC
-GEAR:Alchemist's Fire (Flask)	QTY:2	SIZE:PC
-GEAR:Holy Water (Flask)		QTY:2	SIZE:PC
+GEAR:Acid			QTY:2	SIZE:PC
+GEAR:Alchemist's Fire	QTY:2	SIZE:PC
+GEAR:Holy Water		QTY:2	SIZE:PC

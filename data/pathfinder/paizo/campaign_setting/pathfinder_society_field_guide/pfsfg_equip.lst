@@ -2,7 +2,7 @@
 SOURCELONG:Pathfinder Society Field Guide	SOURCESHORT:PFSFG	SOURCEWEB:http://paizo.com/products/btpy8mfq	SOURCEDATE:2011-08
 # Original Entry by: Mark Means
 
-#Chirurgeon's Bag			COST:2	WT:0.5	SOURCEPAGE:p.47	TYPE:Goods.Container.General	CONTAINS:4|Pouch (Belt)=1|Healer's Kit=1|Bottle (Stong Brandy)=1|Potion of Cure Light Wounds=1|Smelling Salts=1|Alchemist's Kindness=2|Antiplague (Vial)=1|Antitoxin (Vial)=1|Bloodblock=1|Soothe Syrup=1		DESC:This sturdy leather case straps to the waist or thigh, or can be slung over a shoulder. Designed to contain: leather pouch, healer's kit, bottle of strong brandy, potion of cure light wounds, vial of smelling salts*, 2 doses each of alchemist's kindness*, antiplague*, antitoxin, bloodblock*, soothe syrup*. ([*] are detailed in the Advanced Player's Guide.)
+#Chirurgeon's Bag			COST:2	WT:0.5	SOURCEPAGE:p.47	TYPE:Goods.Container.General	CONTAINS:4|Belt Pouch=1|Healer's Kit=1|Bottle (Stong Brandy)=1|Potion of Cure Light Wounds=1|Smelling Salts=1|Alchemist's Kindness=2|Antiplague (Vial)=1|Antitoxin=1|Bloodblock=1|Soothe Syrup=1		DESC:This sturdy leather case straps to the waist or thigh, or can be slung over a shoulder. Designed to contain: leather pouch, healer's kit, bottle of strong brandy, potion of cure light wounds, vial of smelling salts*, 2 doses each of alchemist's kindness*, antiplague*, antitoxin, bloodblock*, soothe syrup*. ([*] are detailed in the Advanced Player's Guide.)
 # Equipment Name				Type								Contains			Cost		Weight	Modifier					Source Page		Vision			Innate Spells																												Modify VAR				Special Property																																							Description
 Chirurgeon's Bag				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any	COST:0.5	WT:0.5							SOURCEPAGE:p.47																																																																																	DESC:This sturdy leather case straps to the waist or thigh, or can be slung over a shoulder. Designed to contain: leather pouch, healer's kit, bottle of strong brandy, potion of cure light wounds, vial of smelling salts*, 2 doses each of alchemist's kindness*, antiplague*, antitoxin, bloodblock*, soothe syrup*. ([*] are detailed in the Advanced Player's Guide.)
 Chronicler's Supplies			TYPE:Goods.General									COST:40	WT:4.5							SOURCEPAGE:p.47																																																																																	DESC:Contains: map case, 2 vials of ink, 2 inkpens, 10 sheets of paper, 2 blank journals, a pound of fine powder for drying ink, 20-foot measuring cord.
@@ -22,7 +22,7 @@ Bottle (Stong Brandy)			TYPE:Goods.Food.Consumable.Goods.Liquid.Food					COST:10
 #Adventuring Gear
 
 Journal					TYPE:Goods.Tools.Book									COST:10	WT:1								SOURCEPAGE:p.48
-Lantern (Miner's)				TYPE:Goods.General.LightSource.Lantern						COST:15	WT:2								SOURCEPAGE:p.48
+Lantern (Miner's)				TYPE:Goods.General.Light Source.Lantern						COST:15	WT:2								SOURCEPAGE:p.48
 Measuring Cord (10 ft.)			TYPE:Goods.General									COST:1	WT:0.5							SOURCEPAGE:p.48
 Powder					TYPE:Goods.General.Consumable								COST:0.01	WT:0.5							SOURCEPAGE:p.48
 String (50 ft.)				TYPE:Goods.General									COST:0.01	WT:0.5							SOURCEPAGE:p.48

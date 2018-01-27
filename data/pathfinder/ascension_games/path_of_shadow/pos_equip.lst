@@ -3,7 +3,7 @@ Breastplate.COPY=Entropic Raiment
 Entropic Raiment.MOD		SOURCEPAGE:p.69	TYPE:Greater Major Armor	COST:99350	SPROP:+4 deathless undead controlling breastplate	EQMOD:Special Ability ~ +4 ~ Armor
 Studded Leather.COPY=Infiltrator's Armor
 Infiltrator's Armor		SOURCEPAGE:p.70	TYPE:Lesser Major Armor		COST:17025	SPROP:+2 blending glamered shadow studded leather, cast Snuff at will	EQMOD:Special Ability ~ +2 ~ Armor
-Shield (Light/Steel).COPY=Penumbral Ward
+Light Steel Shield.COPY=Penumbral Ward
 Penumbral Ward.MOD		SOURCEPAGE:p.70	TYPE:Lesser Major Armor		COST:33159	SPROP:+2 ghost touch gloom light steel shield	EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Ghost Touch ~ Weapon
 
 
@@ -12,10 +12,10 @@ Arrow of Forgotten Graves	COST:450	TYPE:Lesser Minor
 Dagger.COPY=Hidden Blade
 Hidden Blade.MOD			COST:18302	TYPE:Greater Medium	SPROP:+2 concealed sneaky dagger	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Concealed ~ Weapon
 
-Shortbow (Composite).COPY=Phantom Pain
+Composite Shortbow.COPY=Phantom Pain
 Phantom Pain.MOD			COST:53875	TYPE:Greater Major	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Necrotic ~ Weapon	SPROP:+1 adaptive endless ammunition necrotic composite shortbow
 
-Chain (Spiked).COPY=Tormentor's Shackle
+Spiked Chain.COPY=Tormentor's Shackle
 Tormentor's Shackle.MOD		COST:75325	TYPE:Greater Major	SPROP:+3 cruel ominous spiked chain	EQMOD:Special Ability ~ +3 ~ Weapon
 
 Scythe.COPY=Twilight Reaver

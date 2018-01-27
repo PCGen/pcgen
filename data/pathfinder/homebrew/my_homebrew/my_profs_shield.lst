@@ -15,10 +15,10 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #
 #####1st Example
 
-#Shield (Light)
+#Light Shield
 
 #####
-#Shield (Light) is the name of the shield proficiency. This needs to be the same text that appears in the shield's PROFICIENCY tag.
+#Light Shield is the name of the shield proficiency. This needs to be the same text that appears in the shield's PROFICIENCY tag.
 #
 #
 #

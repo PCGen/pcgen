@@ -6,10 +6,10 @@ SOURCELONG:Monster Summoner's Handbook	SOURCESHORT:MSH	SOURCEWEB:http://paizo.co
 # Magic Armor
 # ==============================
 
-Armor of Fragmenting Stone			PROFICIENCY:ARMOR|Full Plate		TYPE:Enhancement.Armor.Heavy.ArmorProfHeavy.Suit.Specific		COST:1500	WT:60		ACCHECK:-6							EQMOD:MAGIC_COST|16000.PLUS2A.STEEL		MAXDEX:1								SOURCEPAGE:p.20	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor|PREVAREQ:DisableArmorBonus,0		BONUS:VAR|ArmorCheckPenalty|6			SPROP:Summon Medium earth elemental 1/day for up to 7 rounds.
+Full Plate.COPY=Armor of Fragmenting Stone																	EQMOD:Special Ability ~ Enhancement Cost|16000.Special Ability ~ +2 ~ Armor										SOURCEPAGE:p.20								SPROP:Summon Medium earth elemental 1/day for up to 7 rounds.
 
 # ==============================
 # Magic Weapon
 # ==============================
 
-Sword of Tempests					PROFICIENCY:WEAPON|Longsword		TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword		COST:15	WT:6		CRITMULT:x2	CRITRANGE:2		DAMAGE:1d8		EQMOD:MAGIC_COST|19000.PLUS2W.STEEL		WIELD:OneHanded		RANGE:30		SIZE:M	SOURCEPAGE:p.21																							SPROP:3/day, with confirmed critical, can summon Medium air elemental for up to 7 rounds.
+Longsword.COPY=Sword of Tempests																	EQMOD:Special Ability ~ Enhancement Cost|19000.Special Ability ~ +2 ~ Weapon							SOURCEPAGE:p.21																							SPROP:3/day, with confirmed critical, can summon Medium air elemental for up to 7 rounds.

@@ -40,7 +40,7 @@ ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)		FREE:YES
 
 #GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 #GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
-#GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
+#GEAR:Dwarven Waraxe		SIZE:PC	LOCATION:Primary Hand
 #GEAR:Shortbow			SIZE:PC	LOCATION:Carried
 GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:Special Ability ~ +5 ~ Armor.Special Ability ~ Shadow ~ Armor
 #Treasure double (+5 shadow full plate, other treasure)

@@ -17,7 +17,7 @@ Mind Blade (Two-Handed Slashing)		OUTPUTNAME:Mind Blade, Two-Handed Slashing	PRO
 
 Mind Dagger														PROFICIENCY:WEAPON|Mind Blade							TYPE:Weapon.Resizable.Melee.Finesseable.Slashing.MindBlade.Thrown	COST:0	WT:0											CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:Light						SIZE:M	SOURCEPAGE:p.31
 
-Mind Shield																			PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Resizable.Standard						COST:0	WT:0		SLOTS:1	ACCHECK:0																								SOURCEPAGE:p.31																											BONUS:COMBAT|AC|2|TYPE=Shield
+Mind Shield																			PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Resizable.Standard						COST:0	WT:0		SLOTS:1	ACCHECK:0																								SOURCEPAGE:p.31																											BONUS:COMBAT|AC|2|TYPE=Shield
 
 # COMMENT:  Cost for Dull Grey Ioun Stone made up
 Ioun Stone (Dull Grey)				OUTPUTNAME:Ioun Stone, [NAME]															TYPE:Magic.Wondrous.Ioun							COST:25	WT:0.02																												SOURCEPAGE:p.177																																																																																																																						SPROP:Provides 1 psionic power point then disintegrates.
