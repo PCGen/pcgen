@@ -73,7 +73,7 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
-		LegalScope scope = context.getActiveScope().getLegalScope();
+		LegalScope scope = context.getActiveScope();
 
 		if (!DatasetVariable.isLegalName(varName))
 		{

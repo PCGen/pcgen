@@ -21,7 +21,6 @@ import java.util.Collection;
 
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
@@ -69,8 +68,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		FormatManager<OrderedPair> formatManager =
 				(FormatManager<OrderedPair>) context.getReferenceContext()
 					.getFormatManager("ORDEREDPAIR");
-		ScopeInstance scopeInst = context.getActiveScope();
-		LegalScope scope = scopeInst.getLegalScope();
+		LegalScope scope = context.getActiveScope();
 		PCGenModifier<OrderedPair> modifier;
 		try
 		{
