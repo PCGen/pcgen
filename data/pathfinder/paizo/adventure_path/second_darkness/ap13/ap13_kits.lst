@@ -74,8 +74,8 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Belt Pouch						LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:33	LOCATION:Belt Pouch
 GEAR:Wand of Shocking Grasp				LOCATION:Carried
-GEAR:Scroll (Pyrotechnics)				LOCATION:Carried
-GEAR:Scroll (Shrink Item)				LOCATION:Carried
+GEAR:Scroll of Pyrotechnics				LOCATION:Carried
+GEAR:Scroll of Shrink Item				LOCATION:Carried
 GEAR:Bracers of Armor +1				LOCATION:Equipped
 GEAR:Sickle							LOCATION:Primary Hand
 GEAR:Spellbook			LOCATION:Carried
@@ -167,7 +167,7 @@ GEAR:Rapier						LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Key Stump					LOCATION:Secondary Hand
 GEAR:Belt Pouch					LOCATION:Carried
 GEAR:Coin (Gold Piece)		QTY:25	LOCATION:Belt Pouch
-GEAR:Potion of Barkskin +2			LOCATION:Belt Pouch
+GEAR:Potion of Barkskin			LOCATION:Belt Pouch
 GEAR:Poison (Drow Poison)	QTY:3		LOCATION:Belt Pouch
 LANGBONUS:Varisian
 
@@ -500,7 +500,7 @@ GEAR:Leather Armor						LOCATION:Equipped
 GEAR:Dagger							LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Thunderstone				QTY:4		LOCATION:Carried
 GEAR:Thieves' Tools					LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
-GEAR:Potion of Shield of Faith +3			LOCATION:Carried
+GEAR:Potion of Shield of Faith (CL 6th)			LOCATION:Carried
 GEAR:Potion of Spider Climb				LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:178	LOCATION:Carried
 LANGBONUS:Varisian

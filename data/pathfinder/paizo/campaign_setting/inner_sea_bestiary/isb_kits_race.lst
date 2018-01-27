@@ -399,7 +399,7 @@ ABILITY:CATEGORY=FEAT|Greater Spell Penetration
 ABILITY:CATEGORY=FEAT|Improved Great Fortitude
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Boots of Speed		QTY:1	SIZE:PC	LOCATION:Equipped
-GEAR:Rod (Cancellation)		QTY:2	SIZE:PC	LOCATION:Carried
+GEAR:Rod of Cancellation		QTY:2	SIZE:PC	LOCATION:Carried
 GEAR:Staff of Power		QTY:1	SIZE:PC	LOCATION:Both Hands
 GEAR:Bracers of Armor +6	QTY:1	SIZE:PC	LOCATION:Equipped
 GEAR:Mirror of Life Trapping	QTY:1	SIZE:PC	LOCATION:Carried

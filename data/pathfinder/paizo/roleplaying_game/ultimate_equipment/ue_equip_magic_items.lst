@@ -105,7 +105,7 @@ Ring of Arcane Mastery														TYPE:Magic.Ring.GreaterMedium	COST:20000	WT:
 Ring of Arcane Signets.MOD													TYPE:LesserMinor			COST:1000	WT:0					SOURCEPAGE:p.167
 Ring of Blinking.MOD														TYPE:GreaterMedium		COST:27000	WT:0					SOURCEPAGE:p.168
 Ring of Chameleon Power.MOD													TYPE:LesserMedium			COST:12700	WT:0					SOURCEPAGE:p.168
-Ring of Climbing (Improved).MOD												TYPE:LesserMedium			COST:10000	WT:0					SOURCEPAGE:p.168
+Ring of Improved Climbing.MOD													TYPE:LesserMedium			COST:10000	WT:0					SOURCEPAGE:p.168
 Ring of Climbing.MOD														TYPE:LesserMinor			COST:2500	WT:0					SOURCEPAGE:p.168
 Ring of Continuation														TYPE:Magic.Ring.GreaterMajor	COST:56000	WT:0					SOURCEPAGE:p.168
 Ring of Counterspells.MOD													TYPE:GreaterMinor			COST:4000	WT:0					SOURCEPAGE:p.168
@@ -118,21 +118,21 @@ Ring of Elemental Command (Air).MOD												TYPE:GreaterMajor			COST:200000	W
 Ring of Elemental Command (Earth).MOD											TYPE:GreaterMajor			COST:200000	WT:0					SOURCEPAGE:p.169
 Ring of Elemental Command (Fire).MOD											TYPE:GreaterMajor			COST:200000	WT:0					SOURCEPAGE:p.169
 Ring of Elemental Command (Water).MOD											TYPE:GreaterMajor			COST:200000	WT:0					SOURCEPAGE:p.169
-Ring of Energy Resistance (Minor/Acid).MOD										TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Major/Acid).MOD										TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Greater/Acid).MOD										TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Minor/Cold).MOD										TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Major/Cold).MOD										TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Greater/Cold).MOD										TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Minor/Electricity).MOD									TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Major/Electricity).MOD									TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Greater/Electricity).MOD									TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Minor/Fire).MOD										TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Major/Fire).MOD										TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Greater/Fire).MOD										TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Minor/Sonic).MOD										TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Major/Sonic).MOD										TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
-Ring of Energy Resistance (Greater/Sonic).MOD										TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
+Ring of Minor Acid Energy Resistance.MOD											TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
+Ring of Major Acid Energy Resistance.MOD											TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
+Ring of Greater Acid Energy Resistance.MOD										TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
+Ring of Minor Cold Energy Resistance.MOD											TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
+Ring of Major Cold Energy Resistance.MOD											TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
+Ring of Greater Cold Energy Resistance.MOD										TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
+Ring of Minor Electricity Energy Resistance.MOD										TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
+Ring of Major Electricity Energy Resistance.MOD										TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
+Ring of Greater Electricity Energy Resistance.MOD									TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
+Ring of Minor Fire Energy Resistance.MOD											TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
+Ring of Major Fire Energy Resistance.MOD											TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
+Ring of Greater Fire Energy Resistance.MOD										TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
+Ring of Minor Sonic Energy Resistance.MOD											TYPE:LesserMedium			COST:12000	WT:0					SOURCEPAGE:p.170
+Ring of Major Sonic Energy Resistance.MOD											TYPE:LesserMajor			COST:28000	WT:0					SOURCEPAGE:p.170
+Ring of Greater Sonic Energy Resistance.MOD										TYPE:LesserMajor			COST:44000	WT:0					SOURCEPAGE:p.170
 Ring of Energy Shroud (Acid)													TYPE:Magic.Ring.GreaterMedium	COST:19500	WT:0					SOURCEPAGE:p.170	SPELLS:Magic Item|TIMES=1|Elemental Aura																						SPROP:Grants Acid Resistance 10
 Ring of Energy Shroud (Cold)													TYPE:Magic.Ring.GreaterMedium	COST:19500	WT:0					SOURCEPAGE:p.170	SPELLS:Magic Item|TIMES=1|Elemental Aura																						SPROP:Grants Cold Resistance 10
 Ring of Energy Shroud (Electricity)												TYPE:Magic.Ring.GreaterMedium	COST:19500	WT:0					SOURCEPAGE:p.170	SPELLS:Magic Item|TIMES=1|Elemental Aura																						SPROP:Grants Electricity Resistance 10
@@ -151,7 +151,7 @@ Ring of Inner Fortitude (Greater)				OUTPUTNAME:Ring of Inner Fortitude, Greater
 Ring of Inner Fortitude (Major)				OUTPUTNAME:Ring of Inner Fortitude, Major		TYPE:Magic.Ring.LesserMajor	COST:42000	WT:0					SOURCEPAGE:p.171																													SPROP:Reduces ability damage or penalty by 4, ability drain by 2.
 Ring of Inner Fortitude (Minor)				OUTPUTNAME:Ring of Inner Fortitude, Minor		TYPE:Magic.Ring.GreaterMedium	COST:18000	WT:0					SOURCEPAGE:p.171																													SPROP:Reduces ability damage or penalty by 2, ability drain by 1.
 Ring of Invisibility.MOD													TYPE:GreaterMedium		COST:20000	WT:0					SOURCEPAGE:p.171
-Ring of Jumping (Improved).MOD												TYPE:LesserMedium			COST:10000	WT:0					SOURCEPAGE:p.172
+Ring of Improved Jumping.MOD												TYPE:LesserMedium			COST:10000	WT:0					SOURCEPAGE:p.172
 Ring of Jumping.MOD														TYPE:LesserMinor			COST:2500	WT:0					SOURCEPAGE:p.172
 Ring of Ki Mastery														TYPE:Magic.Ring.LesserMedium	COST:10000	WT:0					SOURCEPAGE:p.172																													SPROP:Can store up to 2 Ki points.
 Ring of Maniacal Devices													TYPE:Magic.Ring.GreaterMinor	COST:5000	WT:0					SOURCEPAGE:p.172											BONUS:SKILL|Craft (Traps),Disable Device|5|TYPE=Competence
@@ -174,14 +174,14 @@ Ring of Spell Knowledge I													TYPE:Magic.Ring.LesserMinor	COST:1500	WT:0
 Ring of Spell Knowledge II													TYPE:Magic.Ring.GreaterMinor	COST:6000	WT:0					SOURCEPAGE:p.174																						BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=2|1
 Ring of Spell Knowledge III													TYPE:Magic.Ring.LesserMedium	COST:13500	WT:0					SOURCEPAGE:p.174																						BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=3|1
 Ring of Spell Knowledge IV													TYPE:Magic.Ring.GreaterMedium	COST:24000	WT:0					SOURCEPAGE:p.174																						BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=4|1
-Ring of Spell Storing (Major).MOD												TYPE:GreaterMajor			COST:200000	WT:0					SOURCEPAGE:p.174
-Ring of Spell Storing (Minor).MOD												TYPE:GreaterMedium		COST:18000	WT:0					SOURCEPAGE:p.174
+Ring of Major Spell Storing.MOD												TYPE:GreaterMajor			COST:200000	WT:0					SOURCEPAGE:p.174
+Ring of Minor Spell Storing.MOD												TYPE:GreaterMedium		COST:18000	WT:0					SOURCEPAGE:p.174
 Ring of Spell Storing.MOD													TYPE:GreaterMajor			COST:50000	WT:0					SOURCEPAGE:p.174
 Ring of Spell Turning.MOD													TYPE:GreaterMajor			COST:100000	WT:0					SOURCEPAGE:p.174
 Ring of Strength Sapping													TYPE:Magic.Ring.LesserMedium	COST:8000	WT:0					SOURCEPAGE:p.175																													SPROP:On successful unarmed attack, target takes 1d4 STR damage (DC 20 Fort negates) conferring +2 STR bonus to wearer.
 Ring of Sustenance.MOD														TYPE:LesserMinor			COST:2500	WT:0					SOURCEPAGE:p.175
 Ring of Swarming Stabs														TYPE:Magic.Ring.GreaterMinor	COST:6000	WT:0					SOURCEPAGE:p.175																													SPROP:Wearer can deal an additional 1d6 flanking sneak attack damage.
-Ring of Swimming (Improved).MOD												TYPE:LesserMedium			COST:10000	WT:0					SOURCEPAGE:p.175
+Ring of Improved Swimming.MOD												TYPE:LesserMedium			COST:10000	WT:0					SOURCEPAGE:p.175
 Ring of Swimming.MOD														TYPE:LesserMinor			COST:2500	WT:0					SOURCEPAGE:p.175
 Ring of Tactical Precision													TYPE:Magic.Ring.LesserMedium	COST:11000	WT:0					SOURCEPAGE:p.175											BONUS:SKILL|Profession (Soldier)|5|TYPE=Competence										SPROP:May be imbued with a teamwork feat for 24 hours.
 Ring of Telekinesis.MOD														TYPE:GreaterMajor			COST:75000	WT:0					SOURCEPAGE:p.175
@@ -206,44 +206,44 @@ Steelhand Circle															TYPE:Magic.Ring.LesserMedium	COST:12000	WT:0					
 
 ###Block:Rods
 # Equipment Name					Output Name						Type					Cost		Weight	Source Page		Ability								Innate Spells												Caster level						Combat bonus			Bonus to Situation						Bonus to skill									Modify VAR			Special Property
-Rod (Absorption).MOD											TYPE:GreaterMajor			COST:50000	WT:5		SOURCEPAGE:p.179
-Rod (Alertness).MOD											TYPE:GreaterMajor			COST:85000	WT:4		SOURCEPAGE:p.180																																BONUS:COMBAT|INITIATIVE|1
+Rod of Absorption.MOD											TYPE:GreaterMajor			COST:50000	WT:5		SOURCEPAGE:p.179
+Rod of Alertness.MOD											TYPE:GreaterMajor			COST:85000	WT:4		SOURCEPAGE:p.180																																BONUS:COMBAT|INITIATIVE|1
 Rod (Balance)					OUTPUTNAME:Rod of Balance			TYPE:Magic.Rod.GreaterMedium	COST:15000	WT:5		SOURCEPAGE:p.180																																					BONUS:SITUATION|Acrobatics=Jump|10|TYPE=Competence
 Rod (Beguiling)					OUTPUTNAME:Rod of Beguiling			TYPE:Magic.Rod.GreaterMedium	COST:18000	WT:5		SOURCEPAGE:p.180																																														BONUS:SKILL|Bluff,Sleight of Hand|5|TYPE=Competence
-Rod (Cancellation).MOD											TYPE:LesserMedium			COST:11000	WT:5		SOURCEPAGE:p.181
+Rod of Cancellation.MOD											TYPE:LesserMedium			COST:11000	WT:5		SOURCEPAGE:p.181
 Rod (Conduit)					OUTPUTNAME:Conduit Rod				TYPE:Magic.Rod.GreaterMedium	COST:12000	WT:5		SOURCEPAGE:p.178																								BONUS:CASTERLEVEL|DESCRIPTOR.Electricity|1																														SPROP:Gain electricity resistance 5, +1 effective caster level when casting any spell with electricity descriptor.
 Rod (Dwarven Might)				OUTPUTNAME:Rod of Dwarven Might		TYPE:Magic.Rod.GreaterMajor	COST:80000	WT:10		SOURCEPAGE:p.181
 Rod (Earthbind)					OUTPUTNAME:Earthbind Rod			TYPE:Magic.Rod.LesserMajor	COST:26500	WT:5		SOURCEPAGE:p.178
-Rod (Enemy Detection).MOD										TYPE:LesserMajor			COST:23500	WT:5		SOURCEPAGE:p.181
+Rod of Enemy Detection.MOD										TYPE:LesserMajor			COST:23500	WT:5		SOURCEPAGE:p.181
 Rod (Escape)					OUTPUTNAME:Rod of Escape			TYPE:Magic.Rod.GreaterMedium	COST:15000	WT:5		SOURCEPAGE:p.181																																														BONUS:SKILL|Escape Artist|5|Competence					BONUS:VAR|CMD_Grapple|5
 Rod (Fiery Nimbus)				OUTPUTNAME:Fiery Nimbus Rod			TYPE:Magic.Rod.LesserMajor	COST:22305	WT:3		SOURCEPAGE:p.178
-Rod (Flailing).MOD											TYPE:GreaterMajor			COST:50000	WT:5		SOURCEPAGE:p.181
-Rod (Flame Extinguishing).MOD			OUTPUTNAME:Rod of Flame Extinguishing	TYPE:GreaterMedium		COST:15000	WT:5		SOURCEPAGE:p.181
+Rod of Flailing.MOD											TYPE:GreaterMajor			COST:50000	WT:5		SOURCEPAGE:p.181
+Rod of Flame Extinguishing.MOD			OUTPUTNAME:Rod of Flame Extinguishing	TYPE:GreaterMedium		COST:15000	WT:5		SOURCEPAGE:p.181
 Rod (Grounding)					OUTPUTNAME:Grounding Rod			TYPE:Magic.Rod.GreaterMedium	COST:12000	WT:10		SOURCEPAGE:p.178
 Rod (Ice)						OUTPUTNAME:Rod of Ice				TYPE:Magic.Rod.LesserMedium	COST:8500	WT:5		SOURCEPAGE:p.182
-Rod (Immovable).MOD											TYPE:LesserMedium			COST:5000	WT:5		SOURCEPAGE:p.178
+Immovable Rod.MOD											TYPE:LesserMedium			COST:5000	WT:5		SOURCEPAGE:p.178
 Rod (Liberator's)					OUTPUTNAME:Liberator's Rod			TYPE:Magic.Rod.LesserMajor	COST:30000	WT:5		SOURCEPAGE:p.179
-Rod (Lordly Might).MOD											TYPE:GreaterMajor			COST:70000	WT:10		SOURCEPAGE:p.182
-Rod (Metal and Mineral Detection).MOD								TYPE:LesserMedium			COST:10500	WT:5		SOURCEPAGE:p.182
+Rod of Lordly Might.MOD											TYPE:GreaterMajor			COST:70000	WT:10		SOURCEPAGE:p.182
+Rod of Metal and Mineral Detection.MOD								TYPE:LesserMedium			COST:10500	WT:5		SOURCEPAGE:p.182
 Rod (Mind Mastery)				OUTPUTNAME:Rod of Mind Mastery		TYPE:Magic.Rod.GreaterMajor	COST:67000	WT:5		SOURCEPAGE:p.182										SPELLS:Magic Item|TIMES=3|Detect Thoughts	SPELLS:Magic Item|TIMES=1|Discern Lies
-Rod (Negation).MOD											TYPE:LesserMajor			COST:37000	WT:5		SOURCEPAGE:p.183
+Rod of Negation.MOD											TYPE:LesserMajor			COST:37000	WT:5		SOURCEPAGE:p.183
 Rod (Nettles)					OUTPUTNAME:Rod of Nettles			TYPE:Magic.Rod.GreaterMedium	COST:18000	WT:5		SOURCEPAGE:p.183
 Rod (Ruin)						OUTPUTNAME:Rod of Ruin				TYPE:Magic.Rod.GreaterMedium	COST:16000	WT:5		SOURCEPAGE:p.183
-Rod (Rulership).MOD											TYPE:GreaterMajor			COST:60000	WT:8		SOURCEPAGE:p.183
+Rod of Rulership.MOD											TYPE:GreaterMajor			COST:60000	WT:8		SOURCEPAGE:p.183
 Rod (Sapling)					OUTPUTNAME:Sapling Rod				TYPE:Magic.Rod.GreaterMedium	COST:16650	WT:5		SOURCEPAGE:p.186	ABILITY:Special Ability|AUTOMATIC|Woodland Stride																																					BONUS:SKILL|Survival|5|TYPE=Competence
-Rod (Security).MOD											TYPE:GreaterMajor			COST:61000	WT:5		SOURCEPAGE:p.183
+Rod of Security.MOD											TYPE:GreaterMajor			COST:61000	WT:5		SOURCEPAGE:p.183
 Rod (Shadows)					OUTPUTNAME:Rod of Shadows			TYPE:Magic.Rod.GreaterMajor	COST:64305	WT:5		SOURCEPAGE:p.184	ABILITY:Special Ability|AUTOMATIC|See in Darkness	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=8|Deeper Darkness
-Rod (Splendor).MOD											TYPE:LesserMajor			COST:25000	WT:5		SOURCEPAGE:p.184
+Rod of Splendor.MOD											TYPE:LesserMajor			COST:25000	WT:5		SOURCEPAGE:p.184
 Rod (Steadfast Resolve)				OUTPUTNAME:Rod of Steadfast Resolve		TYPE:Magic.Rod.LesserMajor	COST:38305	WT:5		SOURCEPAGE:p.184
 Rod (Aboleth)					OUTPUTNAME:Rod of the Aboleth			TYPE:Magic.Rod.LesserMajor	COST:29000	WT:5		SOURCEPAGE:p.184
-Rod (Python).MOD												TYPE:GreaterMedium		COST:13000	WT:10		SOURCEPAGE:p.184
-Rod (Viper).MOD												TYPE:GreaterMedium		COST:19000	WT:5		SOURCEPAGE:p.184
+Rod of the Python.MOD												TYPE:GreaterMedium		COST:13000	WT:10		SOURCEPAGE:p.184
+Rod of the Viper.MOD												TYPE:GreaterMedium		COST:19000	WT:5		SOURCEPAGE:p.184
 Rod (Wayang)					OUTPUTNAME:Rod of the Wayang			TYPE:Magic.Rod.GreaterMedium	COST:12000	WT:5		SOURCEPAGE:p.185
-Rod (Thunder and Lightning).MOD									TYPE:LesserMajor			COST:33000	WT:5		SOURCEPAGE:p.185
+Rod of Thunder and Lightning.MOD									TYPE:LesserMajor			COST:33000	WT:5		SOURCEPAGE:p.185
 Rod (Thunderous Force)				OUTPUTNAME:Rod of Thunderous Force		TYPE:Magic.Rod.LesserMedium	COST:5400	WT:5		SOURCEPAGE:p.185
 Rod (Trap-Stealer's)				OUTPUTNAME:Trap-Stealer's Rod			TYPE:Magic.Rod.GreaterMedium	COST:13500	WT:5		SOURCEPAGE:p.187																																														BONUS:SKILL|Disable Device|4|TYPE=Competence
-Rod (Withering).MOD											TYPE:LesserMajor			COST:25000	WT:5		SOURCEPAGE:p.185
-Rod (Wonder).MOD												TYPE:GreaterMedium		COST:12000	WT:5		SOURCEPAGE:p.185
+Rod of Withering.MOD											TYPE:LesserMajor			COST:25000	WT:5		SOURCEPAGE:p.185
+Rod of Wonder.MOD												TYPE:GreaterMedium		COST:12000	WT:5		SOURCEPAGE:p.185
 Scepter of Heaven					OUTPUTNAME:Scepter of Heaven			TYPE:Magic.Rod.GreaterMajor	COST:74000	WT:3		SOURCEPAGE:p.186
 Suzerain Scepter					OUTPUTNAME:Suzerain Scepter			TYPE:Magic.Rod.LesserMajor	COST:20000	WT:5		SOURCEPAGE:p.186										SPELLS:Magic Item|TIMES=1|Good Hope																															BONUS:SKILL|Knowledge (Nobility),Diplomacy|5|TYPE=Competence
 
@@ -282,15 +282,15 @@ Rod (Elemental/Electricity/Greater)	OUTPUTNAME:Greater Elemental (Electricity) M
 Rod (Elemental/Fire/Lesser)		OUTPUTNAME:Lesser Elemental (Fire) Metamagic Rod		TYPE:Magic.Rod.Metamagic.LesserMedium	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.188
 Rod (Elemental/Fire)			OUTPUTNAME:Elemental (Fire) Metamagic Rod				TYPE:Magic.Rod.Metamagic.LesserMedium	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.188
 Rod (Elemental/Fire/Greater)		OUTPUTNAME:Greater Elemental (Fire) Metamagic Rod		TYPE:Magic.Rod.Metamagic.LesserMajor	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.188
-Rod (Empower/Lesser).MOD												TYPE:Metamagic.LesserMedium			COST:9000	WT:5												SOURCEPAGE:p.188
-Rod (Empower).MOD														TYPE:Metamagic.LesserMajor			COST:32500	WT:5												SOURCEPAGE:p.188
-Rod (Empower/Greater).MOD												TYPE:Metamagic.GreaterMajor			COST:73000	WT:5												SOURCEPAGE:p.188
-Rod (Enlarge/Lesser).MOD												TYPE:Metamagic.LesserMedium			COST:3000	WT:5												SOURCEPAGE:p.189
-Rod (Enlarge).MOD														TYPE:Metamagic.LesserMedium			COST:11000	WT:5												SOURCEPAGE:p.189
-Rod (Enlarge/Greater).MOD												TYPE:Metamagic.LesserMajor			COST:24500	WT:5												SOURCEPAGE:p.189
-Rod (Extend/Lesser).MOD													TYPE:Metamagic.LesserMedium			COST:3000	WT:5												SOURCEPAGE:p.189
-Rod (Extend).MOD														TYPE:Metamagic.LesserMedium			COST:11000	WT:5												SOURCEPAGE:p.189
-Rod (Extend/Greater).MOD												TYPE:Metamagic.LesserMajor			COST:24500	WT:5												SOURCEPAGE:p.189
+Lesser Empower Metamagic Rod.MOD											TYPE:Metamagic.LesserMedium			COST:9000	WT:5												SOURCEPAGE:p.188
+Empower Metamagic Rod.MOD												TYPE:Metamagic.LesserMajor			COST:32500	WT:5												SOURCEPAGE:p.188
+Greater Empower Metamagic Rod.MOD											TYPE:Metamagic.GreaterMajor			COST:73000	WT:5												SOURCEPAGE:p.188
+Lesser Enlarge Metamagic Rod.MOD											TYPE:Metamagic.LesserMedium			COST:3000	WT:5												SOURCEPAGE:p.189
+Enlarge Metamagic Rod.MOD												TYPE:Metamagic.LesserMedium			COST:11000	WT:5												SOURCEPAGE:p.189
+Greater Enlarge Metamagic Rod.MOD											TYPE:Metamagic.LesserMajor			COST:24500	WT:5												SOURCEPAGE:p.189
+Lesser Extend Metamagic Rod.MOD											TYPE:Metamagic.LesserMedium			COST:3000	WT:5												SOURCEPAGE:p.189
+Extend Metamagic Rod.MOD												TYPE:Metamagic.LesserMedium			COST:11000	WT:5												SOURCEPAGE:p.189
+Greater Extend Metamagic Rod.MOD											TYPE:Metamagic.LesserMajor			COST:24500	WT:5												SOURCEPAGE:p.189
 Rod (Flaring/Lesser)			OUTPUTNAME:Lesser Flaring Metamagic Rod				TYPE:Magic.Rod.Metamagic.LesserMedium	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.189
 Rod (Flaring)				OUTPUTNAME:Flaring Metamagic Rod					TYPE:Magic.Rod.Metamagic.LesserMedium	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.189
 Rod (Flaring/Greater)			OUTPUTNAME:Greater Flaring Metamagic Rod				TYPE:Magic.Rod.Metamagic.LesserMajor	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.189
@@ -303,9 +303,9 @@ Rod (Intensified/Greater).MOD		OUTPUTNAME:Greater Intensified Metamagic Rod			TY
 Rod (Lingering/Lesser).MOD		OUTPUTNAME:Lesser Lingering Metamagic Rod				TYPE:Metamagic.LesserMedium			COST:3000	WT:5												SOURCEPAGE:p.189
 Rod (Lingering/Normal).MOD		OUTPUTNAME:Lingering Metamagic Rod					TYPE:Metamagic.LesserMedium			COST:11000	WT:5												SOURCEPAGE:p.189
 Rod (Lingering/Greater).MOD		OUTPUTNAME:Greater Lingering Metamagic Rod			TYPE:Metamagic.LesserMajor			COST:24500	WT:5												SOURCEPAGE:p.189
-Rod (Maximize/Lesser).MOD												TYPE:Metamagic.GreaterMedium			COST:14000	WT:5												SOURCEPAGE:p.189
-Rod (Maximize).MOD													TYPE:Metamagic.GreaterMajor			COST:54000	WT:5												SOURCEPAGE:p.189
-Rod (Maximize/Greater).MOD												TYPE:Metamagic.GreaterMajor			COST:121500	WT:5												SOURCEPAGE:p.189
+Lesser Maximize Metamagic Rod.MOD											TYPE:Metamagic.GreaterMedium			COST:14000	WT:5												SOURCEPAGE:p.189
+Maximize Metamagic Rod.MOD												TYPE:Metamagic.GreaterMajor			COST:54000	WT:5												SOURCEPAGE:p.189
+Greater Maximize Metamagic Rod.MOD											TYPE:Metamagic.GreaterMajor			COST:121500	WT:5												SOURCEPAGE:p.189
 Rod (Merciful/Lesser).MOD		OUTPUTNAME:Lesser Merciful Metamagic Rod				TYPE:Metamagic.LesserMedium			COST:1500	WT:5												SOURCEPAGE:p.190
 Rod (Merciful/Normal).MOD		OUTPUTNAME:Merciful Metamagic Rod					TYPE:Metamagic.LesserMedium			COST:5500	WT:5												SOURCEPAGE:p.190
 Rod (Merciful/Greater).MOD		OUTPUTNAME:Greater Merciful Metamagic Rod				TYPE:Metamagic.GreaterMedium			COST:12250	WT:5												SOURCEPAGE:p.190
@@ -315,9 +315,9 @@ Rod (Persistent/Greater).MOD		OUTPUTNAME:Greater Persistent Metamagic Rod			TYPE
 Rod (Piercing/Lesser)			OUTPUTNAME:Lesser Piercing Metamagic Rod				TYPE:Magic.Rod.Metamagic.LesserMedium	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.190
 Rod (Piercing)				OUTPUTNAME:Piercing Metamagic Rod					TYPE:Magic.Rod.Metamagic.LesserMedium	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.190
 Rod (Piercing/Greater)			OUTPUTNAME:Greater Piercing Metamagic Rod				TYPE:Magic.Rod.Metamagic.LesserMajor	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.190
-Rod (Quicken/Lesser).MOD												TYPE:Metamagic.LesserMajor			COST:35000	WT:5												SOURCEPAGE:p.190
-Rod (Quicken).MOD														TYPE:Metamagic.GreaterMajor			COST:75500	WT:5												SOURCEPAGE:p.190
-Rod (Quicken/Greater).MOD												TYPE:Metamagic.GreaterMajor			COST:170000	WT:5												SOURCEPAGE:p.190
+Lesser Quicken Metamagic Rod.MOD											TYPE:Metamagic.LesserMajor			COST:35000	WT:5												SOURCEPAGE:p.190
+Quicken Metamagic Rod.MOD												TYPE:Metamagic.GreaterMajor			COST:75500	WT:5												SOURCEPAGE:p.190
+Greater Quicken Metamagic Rod.MOD											TYPE:Metamagic.GreaterMajor			COST:170000	WT:5												SOURCEPAGE:p.190
 Rod (Reach/Lesser).MOD			OUTPUTNAME:Lesser Reach Metamagic Rod				TYPE:Metamagic.LesserMedium			COST:3000	WT:5												SOURCEPAGE:p.190
 Rod (Reach/Normal).MOD			OUTPUTNAME:Reach Metamagic Rod					TYPE:Metamagic.LesserMedium			COST:11000	WT:5												SOURCEPAGE:p.190
 Rod (Reach/Greater).MOD			OUTPUTNAME:Greater Reach Metamagic Rod				TYPE:Metamagic.LesserMajor			COST:24500	WT:5												SOURCEPAGE:p.190
@@ -330,9 +330,9 @@ Rod (Selective/Greater).MOD		OUTPUTNAME:Greater Selective Metamagic Rod			TYPE:M
 Rod (Sickening/Lesser).MOD		OUTPUTNAME:Lesser Sickening Metamagic Rod				TYPE:Metamagic.LesserMedium			COST:9000	WT:5												SOURCEPAGE:p.191
 Rod (Sickening/Normal).MOD		OUTPUTNAME:Sickening Metamagic Rod					TYPE:Metamagic.LesserMajor			COST:32500	WT:5												SOURCEPAGE:p.191
 Rod (Sickening/Greater).MOD		OUTPUTNAME:Greater Sickening Metamagic Rod			TYPE:Metamagic.GreaterMajor			COST:73000	WT:5												SOURCEPAGE:p.191
-Rod (Silent/Lesser).MOD													TYPE:Metamagic.LesserMedium			COST:3000	WT:5												SOURCEPAGE:p.191
-Rod (Silent).MOD														TYPE:Metamagic.LesserMedium			COST:11000	WT:5												SOURCEPAGE:p.191
-Rod (Silent/Greater).MOD												TYPE:Metamagic.LesserMajor			COST:24500	WT:5												SOURCEPAGE:p.191
+Lesser Silent Metamagic Rod.MOD											TYPE:Metamagic.LesserMedium			COST:3000	WT:5												SOURCEPAGE:p.191
+Silent Metamagic Rod.MOD												TYPE:Metamagic.LesserMedium			COST:11000	WT:5												SOURCEPAGE:p.191
+Greater Silent Metamagic Rod.MOD											TYPE:Metamagic.LesserMajor			COST:24500	WT:5												SOURCEPAGE:p.191
 Rod (Thanatopic/Lesser)			OUTPUTNAME:Lesser Thanatopic Metamagic Rod			TYPE:Magic.Rod.Metamagic.LesserMedium	COST:9000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.191
 Rod (Thanatopic)				OUTPUTNAME:Thanatopic Metamagic Rod					TYPE:Magic.Rod.Metamagic.LesserMajor	COST:32500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.191
 Rod (Thanatopic/Greater)		OUTPUTNAME:Greater Thanatopic Metamagic Rod			TYPE:Magic.Rod.Metamagic.GreaterMajor	COST:73000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.191
@@ -447,15 +447,15 @@ Belt of Mighty Constitution +4.MOD												TYPE:LesserMedium																	
 Belt of Mighty Constitution +6.MOD												TYPE:LesserMajor																																				COST:36000	WT:1																								SOURCEPAGE:p.209
 Belt of Mighty Hurling (Greater)				OUTPUTNAME:Belt of Mighty Hurling, Greater	TYPE:Magic.Wondrous.Belt.LesserMajor																																COST:42000	WT:1																								SOURCEPAGE:p.209																																																																										BONUS:COMBAT|TOHIT.Thrown|((max(STR,DEX)-DEX))|TYPE=Ranged																					BONUS:RANGEADD|THROWN|10																																																											BONUS:STAT|STR|4|TYPE=Enhancement
 Belt of Mighty Hurling (Lesser)				OUTPUTNAME:Belt of Mighty Hurling, Lesser		TYPE:Magic.Wondrous.Belt.LesserMedium																																COST:14000	WT:1																								SOURCEPAGE:p.210																																																																										BONUS:COMBAT|TOHIT.Thrown|((max(STR,DEX)-DEX))|TYPE=Ranged																					BONUS:RANGEADD|THROWN|10																																																											BONUS:STAT|STR|2|TYPE=Enhancement
-Belt of Physical Might (DEX/CON) +2.MOD											TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.210
-Belt of Physical Might (DEX/CON) +4.MOD											TYPE:LesserMajor																																				COST:40000	WT:1																								SOURCEPAGE:p.210
-Belt of Physical Might (DEX/CON) +6.MOD											TYPE:GreaterMajor																																				COST:90000	WT:1																								SOURCEPAGE:p.210
-Belt of Physical Might (STR/CON) +2.MOD											TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.210
-Belt of Physical Might (STR/CON) +4.MOD											TYPE:LesserMajor																																				COST:40000	WT:1																								SOURCEPAGE:p.210
-Belt of Physical Might (STR/CON) +6.MOD											TYPE:GreaterMajor																																				COST:90000	WT:1																								SOURCEPAGE:p.210
-Belt of Physical Might (STR/DEX) +2.MOD											TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.210
-Belt of Physical Might (STR/DEX) +4.MOD											TYPE:LesserMajor																																				COST:40000	WT:1																								SOURCEPAGE:p.210
-Belt of Physical Might (STR/DEX) +6.MOD											TYPE:GreaterMajor																																				COST:90000	WT:1																								SOURCEPAGE:p.210
+Belt of Physical Might +2 (Dex/Con).MOD											TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.210
+Belt of Physical Might +4 (Dex/Con).MOD											TYPE:LesserMajor																																				COST:40000	WT:1																								SOURCEPAGE:p.210
+Belt of Physical Might +6 (Dex/Con).MOD											TYPE:GreaterMajor																																				COST:90000	WT:1																								SOURCEPAGE:p.210
+Belt of Physical Might +2 (Str/Con).MOD											TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.210
+Belt of Physical Might +4 (Str/Con).MOD											TYPE:LesserMajor																																				COST:40000	WT:1																								SOURCEPAGE:p.210
+Belt of Physical Might +6 (Str/Con).MOD											TYPE:GreaterMajor																																				COST:90000	WT:1																								SOURCEPAGE:p.210
+Belt of Physical Might +2 (Str/Dex).MOD											TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.210
+Belt of Physical Might +4 (Str/Dex).MOD											TYPE:LesserMajor																																				COST:40000	WT:1																								SOURCEPAGE:p.210
+Belt of Physical Might +6 (Str/Dex).MOD											TYPE:GreaterMajor																																				COST:90000	WT:1																								SOURCEPAGE:p.210
 Belt of Physical Perfection +2.MOD												TYPE:LesserMedium																																				COST:16000	WT:1																								SOURCEPAGE:p.210
 Belt of Physical Perfection +4.MOD												TYPE:GreaterMajor																																				COST:64000	WT:1																								SOURCEPAGE:p.210
 Belt of Physical Perfection +6.MOD												TYPE:GreaterMajor																																				COST:144000	WT:1																								SOURCEPAGE:p.210
@@ -496,11 +496,11 @@ Bodywrap of Mighty Strikes +7													TYPE:Magic.Wondrous.GreaterMajor.Robe	
 Cassock of the Clergy														TYPE:Magic.Wondrous.GreaterMinor.Robe																																COST:4600	WT:1																								SOURCEPAGE:p.214																												SPELLS:Magic Item|TIMES=1|CASTERLEVEL=1|Bless,11|Sanctuary,11																																																																																																																										BONUS:SPELLCAST|TYPE=Divine;LEVEL=0|1
 Corset of Dire Witchcraft													TYPE:Bodywear.Magic.Wondrous.GreaterMedium																															COST:22000	WT:1																								SOURCEPAGE:p.214																																																																										BONUS:COMBAT|AC|4|TYPE=Armor																																																																																																																																																						SPROP:Wearer may increase caster level of one Hex by +2 for 24 hours|PRECLASS:1,Witch=1
 Corset of the Vishkanya														TYPE:Magic.Wondrous.LesserMinor.Bodywear																																COST:3000	WT:1																								SOURCEPAGE:p.214																																																																																																																																																																																																																																				SPROP:Wearer can gain +5 on Escape Artist checks for up to 10 rounds per day.
-Vestment (Druid's).MOD						OUTPUTNAME:Druid's Vestment				TYPE:LesserMinor.Robe																																			COST:3750	WT:0																								SOURCEPAGE:p.215
+Druid's Vestment.MOD														TYPE:LesserMinor.Robe																																			COST:3750	WT:0																								SOURCEPAGE:p.215
 Eidolon Anchoring Harness													TYPE:Magic.Wondrous.GreaterMinor.Shirt																																COST:6000	WT:1																								SOURCEPAGE:p.215																																																																																																																																																																																																																																				SPROP:Eidolon may expend 1 use of its master's Summon Monster ability to remain on the material plane
 Gunman's Duster															TYPE:Magic.Wondrous.LesserMajor.Robe																																COST:36000	WT:5																								SOURCEPAGE:p.215																																																																										BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:COMBAT|AC|2+Global_LuckBonus|TYPE=Luck																																																																																								BONUS:VAR|GritPoints|1																																																			SPROP:+1 to bonus granted by Gunslinger's Dodge deed|PREVARGTEQ:GunslingerLVL,1	SPROP:Wearer may use Gunslinger's Dodge deed once per day.|PREVARLT:GunslingerLVL,1
 Mnemonic Vestments														TYPE:Magic.Wondrous.GreaterMinor.Robe																																COST:5000	WT:1																								SOURCEPAGE:p.216
-Robe (Monk's).MOD							OUTPUTNAME:Monk's Robe					TYPE:LesserMedium.Robe																																			COST:13000	WT:1																								SOURCEPAGE:p.216
+Monk's Robe.MOD															TYPE:LesserMedium.Robe																																			COST:13000	WT:1																								SOURCEPAGE:p.216
 Otherworldly Kimono														TYPE:Magic.Wondrous.GreaterMajor.Robe																																COST:67000	WT:1																								SOURCEPAGE:p.216																																																																			BONUS:CASTERLEVEL|ALLSPELLS|4																																						BONUS:SAVE|ALL|4|TYPE=Resistance																																																																																																																		SPROP:Once per day, the wearer can capture a single creature within 60 feet within the kimono (no save).																																																																																																																																																																																														TEMPBONUS:PC|SAVE|ALL|2|TYPE=Resistance.STACK	TEMPBONUS:PC|CASTERLEVEL|ALLSPELLS|2
 Resplendent Robe of the Thespian												TYPE:Magic.Wondrous.GreaterMajor.Robe																																COST:75000	WT:1																								SOURCEPAGE:p.216																							SR:18																																																																																						BONUS:SAVE|ALL|4|TYPE=Resistance|PRECLASS:1,Bard=1																																																																																																															SPROP:Disguises the presence of armor as normal clothing.	SPROP:+2 to overcome spell resistance|PRECLASS:1,Bard=1
 Robe of Arcane Heritage														TYPE:Magic.Wondrous.LesserMedium.Robe																																COST:16000	WT:1																								SOURCEPAGE:p.216																																																																																																																																																																														BONUS:VAR|BloodlineLVL|4	BONUS:VAR|BloodlineFeatProgression|-4	BONUS:VAR|BloodlineCasterLVL|-4
@@ -634,7 +634,7 @@ Slippers of Spider Climbing.MOD												TYPE:GreaterMinor																				
 Slippers of the Triton														TYPE:Magic.Wondrous.Boot.GreaterMajor																																COST:56000	WT:1												MOVE:Swim,30										SOURCEPAGE:p.233																																																																																																																																																																																																																																				SPROP:Water Breathing
 Tremor Boots															TYPE:Magic.Wondrous.Boot.LesserMedium																																COST:10000	WT:1																								SOURCEPAGE:p.233																																																																																																																																																																																																																																				SPROP:Tremorsense 20 ft
 Verdant Boots															TYPE:Magic.Wondrous.Boot.LesserMedium																																COST:12000	WT:1																								SOURCEPAGE:p.233
-Boots (Winged).MOD						OUTPUTNAME:Winged Boots					TYPE:LesserMedium																																				COST:16000	WT:2																								SOURCEPAGE:p.233																												SPELLS:Magic Item|TIMES=3|CASTERLEVEL=8|Fly
+Winged Boots.MOD															TYPE:LesserMedium																																				COST:16000	WT:2																								SOURCEPAGE:p.233																												SPELLS:Magic Item|TIMES=3|CASTERLEVEL=8|Fly
 Apprentice's Cheating Gloves													TYPE:Magic.Wondrous.Glove.LesserMinor																																COST:2200	WT:0																								SOURCEPAGE:p.234																												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Mage Hand|Prestidigitation
 Assisting Gloves															TYPE:Magic.Wondrous.Glove.LesserMinor																																COST:180	WT:1																								SOURCEPAGE:p.234
 Challenger's Gloves														TYPE:Magic.Wondrous.Glove.LesserMinor																																COST:2200	WT:0																								SOURCEPAGE:p.234
@@ -742,15 +742,15 @@ Headband of Inspired Wisdom +6.MOD												TYPE:LesserMajor																		
 Headband of Intuition														TYPE:Magic.Wondrous.Headband.GreaterMinor																																COST:7000	WT:1																								SOURCEPAGE:p.250
 Headband of Ki Focus														TYPE:Magic.Wondrous.Headband.GreaterMinor																																COST:5400	WT:1																								SOURCEPAGE:p.250
 Headband of Knucklebones													TYPE:Magic.Wondrous.Headband.GreaterMedium																															COST:27500	WT:1																								SOURCEPAGE:p.250																												SPELLS:Magic Item|TIMES=3|CASTERLEVEL=9|Command Undead	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=9|Animate Dead
-Headband of Mental Prowess (INT/WIS) +2.MOD										TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.250
-Headband of Mental Prowess (INT/WIS) +4.MOD										TYPE:LesserMedium																																				COST:40000	WT:1																								SOURCEPAGE:p.250
-Headband of Mental Prowess (INT/WIS) +6.MOD										TYPE:LesserMedium																																				COST:90000	WT:1																								SOURCEPAGE:p.250
-Headband of Mental Prowess (INT/CHA) +2.MOD										TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.250
-Headband of Mental Prowess (INT/CHA) +4.MOD										TYPE:LesserMedium																																				COST:40000	WT:1																								SOURCEPAGE:p.250
-Headband of Mental Prowess (INT/CHA) +6.MOD										TYPE:LesserMedium																																				COST:90000	WT:1																								SOURCEPAGE:p.250
-Headband of Mental Prowess (WIS/CHA) +2.MOD										TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.250
-Headband of Mental Prowess (WIS/CHA) +4.MOD										TYPE:LesserMedium																																				COST:40000	WT:1																								SOURCEPAGE:p.250
-Headband of Mental Prowess (WIS/CHA) +6.MOD										TYPE:LesserMedium																																				COST:90000	WT:1																								SOURCEPAGE:p.250
+Headband of Mental Prowess +2 (Int/Wis).MOD										TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.250
+Headband of Mental Prowess +4 (Int/Wis).MOD										TYPE:LesserMedium																																				COST:40000	WT:1																								SOURCEPAGE:p.250
+Headband of Mental Prowess +6 (Int/Wis).MOD										TYPE:LesserMedium																																				COST:90000	WT:1																								SOURCEPAGE:p.250
+Headband of Mental Prowess +2 (Int/Cha).MOD										TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.250
+Headband of Mental Prowess +4 (Int/Cha).MOD										TYPE:LesserMedium																																				COST:40000	WT:1																								SOURCEPAGE:p.250
+Headband of Mental Prowess +6 (Int/Cha).MOD										TYPE:LesserMedium																																				COST:90000	WT:1																								SOURCEPAGE:p.250
+Headband of Mental Prowess +2 (Wis/Cha).MOD										TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.250
+Headband of Mental Prowess +4 (Wis/Cha).MOD										TYPE:LesserMedium																																				COST:40000	WT:1																								SOURCEPAGE:p.250
+Headband of Mental Prowess +6 (Wis/Cha).MOD										TYPE:LesserMedium																																				COST:90000	WT:1																								SOURCEPAGE:p.250
 Headband of Mental Resilience													TYPE:Magic.Wondrous.Headband.GreaterMajor																																COST:64000	WT:1																								SOURCEPAGE:p.250																																																																																																																																																																							BONUS:STAT|INT,WIS,CHA|2|TYPE=Enhancement																																																							SPROP:Wearer gains 5 temporary ability points. Any damage or drain to a mental ability score taken by the wearer is subtracted from these points first.
 Headband of Mental Superiority +2.MOD											TYPE:LesserMedium																																				COST:16000	WT:1																								SOURCEPAGE:p.251
 Headband of Mental Superiority +4.MOD											TYPE:GreaterMajor																																				COST:64000	WT:1																								SOURCEPAGE:p.251
@@ -816,7 +816,7 @@ Everwake Amulet															TYPE:Magic.Wondrous.Amulet.LesserMedium											
 Feychild Necklace															TYPE:Magic.Wondrous.Amulet.GreaterMinor																																COST:6000	WT:0.5																							SOURCEPAGE:p.258																												SPELLS:Magic Item|TIMES=1|Dancing Lights|Ghost Sound|Prestidigitation|Speak with Animals|!PRERACE:1,Gnome																																																																																																																																	BONUS:VAR|HasLowLightVision|1|!PRERACE:1,Gnome																																																																																																																																																																																																																																						AUTO:LANG|Gnome
 Forge Fist Amulet															TYPE:Magic.Wondrous.Amulet.LesserMedium																																COST:13000	WT:1																								SOURCEPAGE:p.258
 Frost Fist Amulet															TYPE:Magic.Wondrous.Amulet.LesserMedium																																COST:10000	WT:1																								SOURCEPAGE:p.258
-Scarab (Golembane).MOD						OUTPUTNAME:Golembane Scarab				TYPE:LesserMinor																																				COST:2500	WT:0																								SOURCEPAGE:p.258
+Golembane Scarab.MOD														TYPE:LesserMinor																																				COST:2500	WT:0																								SOURCEPAGE:p.258
 Gravewatch Pendant														TYPE:Magic.Wondrous.Amulet.LesserMedium																																COST:8000	WT:1																								SOURCEPAGE:p.258
 Guardian Gorget															TYPE:Magic.Wondrous.Amulet.LesserMedium																																COST:12000	WT:1																								SOURCEPAGE:p.258																																																																										BONUS:COMBAT|AC|2|TYPE=Armor
 Hand of Glory.MOD															TYPE:LesserMedium																																				COST:8000	WT:2																								SOURCEPAGE:p.259
@@ -826,13 +826,13 @@ Medallion of Thoughts.MOD													TYPE:LesserMedium																									
 Mind Sentinel Medallion														TYPE:Magic.Wondrous.Amulet.LesserMinor																																COST:3500	WT:0																								SOURCEPAGE:p.259
 Mummer's Ruff															TYPE:Magic.Wondrous.Amulet.LesserMinor																																COST:3500	WT:0																								SOURCEPAGE:p.259																												SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Ventriloquism																																																																																		BONUS:SITUATION|Bluff=Imitate Voice|10
 Necklace of Adaptation.MOD													TYPE:LesserMedium																																				COST:9000	WT:1																								SOURCEPAGE:p.259
-Necklace of Fireballs I.MOD					OUTPUTNAME:Necklace of Fireballs (Type I)		TYPE:LesserMinor																																				COST:1650	WT:1																								SOURCEPAGE:p.259
-Necklace of Fireballs II.MOD					OUTPUTNAME:Necklace of Fireballs (Type II)	TYPE:LesserMinor																																				COST:2700	WT:1																								SOURCEPAGE:p.259
-Necklace of Fireballs III.MOD					OUTPUTNAME:Necklace of Fireballs (Type III)	TYPE:GreaterMinor																																				COST:4350	WT:1																								SOURCEPAGE:p.259
-Necklace of Fireballs IV.MOD					OUTPUTNAME:Necklace of Fireballs (Type IV)	TYPE:GreaterMinor																																				COST:5400	WT:1																								SOURCEPAGE:p.259
-Necklace of Fireballs V.MOD					OUTPUTNAME:Necklace of Fireballs (Type V)		TYPE:GreaterMinor																																				COST:5850	WT:1																								SOURCEPAGE:p.259
-Necklace of Fireballs VI.MOD					OUTPUTNAME:Necklace of Fireballs (Type VI)	TYPE:LesserMedium																																				COST:8100	WT:1																								SOURCEPAGE:p.259
-Necklace of Fireballs VII.MOD					OUTPUTNAME:Necklace of Fireballs (Type VII)	TYPE:LesserMedium																																				COST:8700	WT:1																								SOURCEPAGE:p.259
+Necklace of Fireballs (Type I).MOD												TYPE:LesserMinor																																				COST:1650	WT:1																								SOURCEPAGE:p.259
+Necklace of Fireballs (Type II).MOD												TYPE:LesserMinor																																				COST:2700	WT:1																								SOURCEPAGE:p.259
+Necklace of Fireballs (Type III).MOD											TYPE:GreaterMinor																																				COST:4350	WT:1																								SOURCEPAGE:p.259
+Necklace of Fireballs (Type IV).MOD												TYPE:GreaterMinor																																				COST:5400	WT:1																								SOURCEPAGE:p.259
+Necklace of Fireballs (Type V).MOD												TYPE:GreaterMinor																																				COST:5850	WT:1																								SOURCEPAGE:p.259
+Necklace of Fireballs (Type VI).MOD												TYPE:LesserMedium																																				COST:8100	WT:1																								SOURCEPAGE:p.259
+Necklace of Fireballs (Type VII).MOD											TYPE:LesserMedium																																				COST:8700	WT:1																								SOURCEPAGE:p.259
 Necklace of Ki Serenity														TYPE:Magic.Wondrous.Amulet.LesserMedium																																COST:16000	WT:0																								SOURCEPAGE:p.260																																																																																																																																																																														BONUS:VAR|KiPoolLVL|4
 Necklace of Netted Stars													TYPE:Magic.Wondrous.Amulet.LesserMajor																																COST:42000	WT:1																								SOURCEPAGE:p.260
 Periapt of Health.MOD														TYPE:GreaterMinor																																				COST:7500	WT:0																								SOURCEPAGE:p.260
@@ -1000,20 +1000,20 @@ Brazier of Conjuring Fire Elementals											TYPE:Magic.Wondrous.GreaterMajor	
 Broom of Flying.MOD														TYPE:LesserMedium																																				COST:17000	WT:3																								SOURCEPAGE:p.285
 Campfire Bead.MOD															TYPE:LeastMinor																																				COST:720	WT:0																								SOURCEPAGE:p.286
 Candle of Clean Air														TYPE:Magic.Wondrous.GreaterMinor																																	COST:7500	WT:0																								SOURCEPAGE:p.286
-Candle of Invocation (Lawful-Good).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
-Candle of Invocation (Neutral-Good).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
-Candle of Invocation (Chaotic-Good).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
-Candle of Invocation (Lawful-Neutral).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
+Candle of Invocation (Lawful Good).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
+Candle of Invocation (Neutral Good).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
+Candle of Invocation (Chaotic Good).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
+Candle of Invocation (Lawful Neutral).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
 Candle of Invocation (Neutral).MOD												TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
-Candle of Invocation (Chaotic-Neutral).MOD										TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
-Candle of Invocation (Lawful-Evil).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
-Candle of Invocation (Neutral-Evil).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
-Candle of Invocation (Chaotic-Evil).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
+Candle of Invocation (Chaotic Neutral).MOD										TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
+Candle of Invocation (Lawful Evil).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
+Candle of Invocation (Neutral Evil).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
+Candle of Invocation (Chaotic Evil).MOD											TYPE:LesserMedium																																				COST:8400	WT:0.5																							SOURCEPAGE:p.286
 Candle of Truth.MOD														TYPE:LesserMinor																																				COST:2500	WT:0.5																							SOURCEPAGE:p.286
 Cape of Bravado															TYPE:Magic.Wondrous.GreaterMinor																																	COST:7000	WT:1																								SOURCEPAGE:p.286																																																																										BONUS:COMBAT|AC|1|TYPE=Insight																																							BONUS:SITUATION|Bluff=Feint|5|TYPE=Competence
-Carpet of Flying (10 ft by 10 ft).MOD											TYPE:GreaterMajor																																				COST:60000	WT:15																								SOURCEPAGE:p.286
-Carpet of Flying (5 ft by 10 ft).MOD											TYPE:LesserMajor																																				COST:35000	WT:10																								SOURCEPAGE:p.286
-Carpet of Flying (5 ft by 5 ft).MOD												TYPE:GreaterMedium																																			COST:20000	WT:8																								SOURCEPAGE:p.286
+Carpet of Flying (10 ft. by 10 ft.).MOD											TYPE:GreaterMajor																																				COST:60000	WT:15																								SOURCEPAGE:p.286
+Carpet of Flying (5 ft. by 10 ft.).MOD											TYPE:LesserMajor																																				COST:35000	WT:10																								SOURCEPAGE:p.286
+Carpet of Flying (5 ft. by 5 ft.).MOD											TYPE:GreaterMedium																																			COST:20000	WT:8																								SOURCEPAGE:p.286
 Cauldron of Brewing.MOD														TYPE:LesserMinor																																				COST:3000	WT:5																								SOURCEPAGE:p.287
 Cauldron of Flying.MOD														TYPE:LesserMajor																																				COST:40000	WT:100																							SOURCEPAGE:p.287
 Cauldron of Plenty.MOD														TYPE:LesserMedium																																				COST:15000	WT:25																								SOURCEPAGE:p.287
@@ -1036,10 +1036,10 @@ Coin of the Untrodden Road													TYPE:Magic.Wondrous.GreaterMinor									
 Concealing Pocket															TYPE:Magic.Wondrous.LesserMinor																																	COST:1000	WT:0																								SOURCEPAGE:p.289
 Construct Channel Brick.MOD													TYPE:LesserMedium																																				COST:10000	WT:1																								SOURCEPAGE:p.289
 Crystal Ball.MOD															TYPE:LesserMajor																																				COST:42000	WT:7																								SOURCEPAGE:p.289
-Crystal Ball (Detect Thoughts).MOD												TYPE:GreaterMajor																																				COST:51000	WT:7																								SOURCEPAGE:p.289
-Crystal Ball (See Invisibility).MOD												TYPE:GreaterMajor																																				COST:50000	WT:7																								SOURCEPAGE:p.289
-Crystal Ball (Telepathy).MOD													TYPE:GreaterMajor																																				COST:70000	WT:7																								SOURCEPAGE:p.289
-Crystal Ball (True Seeing).MOD												TYPE:GreaterMajor																																				COST:80000	WT:7																								SOURCEPAGE:p.289
+Crystal Ball with Detect Thoughts.MOD											TYPE:GreaterMajor																																				COST:51000	WT:7																								SOURCEPAGE:p.289
+Crystal Ball with See Invisibility.MOD											TYPE:GreaterMajor																																				COST:50000	WT:7																								SOURCEPAGE:p.289
+Crystal Ball with Telepathy.MOD												TYPE:GreaterMajor																																				COST:70000	WT:7																								SOURCEPAGE:p.289
+Crystal Ball with True Seeing.MOD												TYPE:GreaterMajor																																				COST:80000	WT:7																								SOURCEPAGE:p.289
 Cube of Force.MOD															TYPE:GreaterMajor																																				COST:62000	WT:0.5																							SOURCEPAGE:p.290
 Cube of Frost Resistance.MOD													TYPE:GreaterMedium																																			COST:27000	WT:2																								SOURCEPAGE:p.290
 Cubic Gate.MOD															TYPE:GreaterMajor																																				COST:164000	WT:2																								SOURCEPAGE:p.290
@@ -1102,7 +1102,7 @@ Figurine of Wondrous Power (Serpentine Owl).MOD										TYPE:LesserMedium						
 Figurine of Wondrous Power (Silver Raven).MOD										TYPE:LesserMinor																																				COST:3800	WT:1																								SOURCEPAGE:p.298
 Figurine of Wondrous Power (Slate Spider)											TYPE:Magic.Wondrous.LesserMedium																																	COST:10000	WT:1																								SOURCEPAGE:p.299																																																																																																																																																																																																																																				SPROP:This figure of wondrous power uses the same general rules for all magic items of this type (Core Rulebook 513). This statuette of a spider with stubby legs can be used once per day for 1 minute. When activated, the figurine spouts longer, segmented legs, and scampers about the activator, picking lint off robes, chiseling grime from armor, or otherwise grooming its activator. If commanded to do so as a free action, it perches on the muzzle of a one-handed or two-handed firearm barrel and, after the firearm is fired, travels down the barrel and cleans out the firearm. Each time the slate spider cleans a firearm, the next shot the firearm fires has no chance of misfiring. When animated, a slate spider has 1 hit point and is considered an attended object. An animated slate spider will never willingly leave space of its animator.
 Flying Ointment.MOD														TYPE:LesserMinor																																				COST:2250	WT:0																								SOURCEPAGE:p.299
-Boat (Folding).MOD														TYPE:GreaterMinor																																				COST:7200	WT:4																								SOURCEPAGE:p.299
+Folding Boat.MOD														TYPE:GreaterMinor																																				COST:7200	WT:4																								SOURCEPAGE:p.299
 Formula Alembic															TYPE:Magic.Wondrous.LeastMinor																																	COST:200	WT:2																								SOURCEPAGE:p.299
 Gem of Brightness.MOD														TYPE:LesserMedium																																				COST:13000	WT:0																								SOURCEPAGE:p.299
 Gem of Seeing.MOD															TYPE:GreaterMajor																																				COST:75000	WT:0																								SOURCEPAGE:p.300
@@ -1112,7 +1112,7 @@ Goblin Skull Bomb															TYPE:Magic.Wondrous.Consumable.LesserMinor						
 Golem Manual (Clay).MOD														TYPE:LesserMedium																																				COST:12000	WT:5																								SOURCEPAGE:p.300
 Golem Manual (Flesh).MOD													TYPE:LesserMedium																																				COST:8000	WT:5																								SOURCEPAGE:p.300
 Golem Manual (Iron).MOD														TYPE:LesserMajor																																				COST:35000	WT:5																								SOURCEPAGE:p.300
-Golem Manual (Stone/Greater).MOD												TYPE:LesserMajor																																				COST:44000	WT:5																								SOURCEPAGE:p.301
+Golem Manual (Stone Guardian).MOD												TYPE:LesserMajor																																				COST:44000	WT:5																								SOURCEPAGE:p.301
 Golem Manual (Stone).MOD													TYPE:GreaterMedium																																			COST:22000	WT:5																								SOURCEPAGE:p.301
 Grave Salt																TYPE:Magic.Wondrous.Consumable.LesserMinor																															COST:1100	WT:5																								SOURCEPAGE:p.301
 Grim Lantern															TYPE:Magic.Wondrous.GreaterMinor																																	COST:5800	WT:2																								SOURCEPAGE:p.301
@@ -1181,21 +1181,21 @@ Lord's Banner (Victory).MOD													TYPE:GreaterMajor																							
 Lyre of Building.MOD														TYPE:LesserMedium																																				COST:13000	WT:5																								SOURCEPAGE:p.308
 Malleable Symbol															TYPE:Magic.Wondrous.LesserMedium																																	COST:10000	WT:1																								SOURCEPAGE:p.309
 Mallet of Building														TYPE:Magic.Wondrous.GreaterMinor																																	COST:5000	WT:2																								SOURCEPAGE:p.309
-Manual of Bodily Health (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.309
-Manual of Bodily Health (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.309
-Manual of Bodily Health (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.309
-Manual of Bodily Health (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.309
-Manual of Bodily Health (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.309
-Manual of Gainful Exercise (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.309
-Manual of Gainful Exercise (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.309
-Manual of Gainful Exercise (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.309
-Manual of Gainful Exercise (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.309
-Manual of Gainful Exercise (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.309
-Manual of Quickness of Action (+1).MOD											TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.309
-Manual of Quickness of Action (+2).MOD											TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.309
-Manual of Quickness of Action (+3).MOD											TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.309
-Manual of Quickness of Action (+4).MOD											TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.309
-Manual of Quickness of Action (+5).MOD											TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.309
+Manual of Bodily Health +1.MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.309
+Manual of Bodily Health +2.MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.309
+Manual of Bodily Health +3.MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.309
+Manual of Bodily Health +4.MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.309
+Manual of Bodily Health +5.MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.309
+Manual of Gainful Exercise +1.MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.309
+Manual of Gainful Exercise +2.MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.309
+Manual of Gainful Exercise +3.MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.309
+Manual of Gainful Exercise +4.MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.309
+Manual of Gainful Exercise +5.MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.309
+Manual of Quickness of Action +1.MOD											TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.309
+Manual of Quickness of Action +2.MOD											TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.309
+Manual of Quickness of Action +3.MOD											TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.309
+Manual of Quickness of Action +4.MOD											TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.309
+Manual of Quickness of Action +5.MOD											TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.309
 Manual of War															TYPE:Magic.Wondrous.GreaterMinor																																	COST:7500	WT:2																								SOURCEPAGE:p.310
 Martyr's Tear															TYPE:Magic.Wondrous.GreaterMinor																																	COST:6000	WT:0																								SOURCEPAGE:p.310
 Marvelous Pigments.MOD														TYPE:GreaterMinor																																				COST:4000	WT:0																								SOURCEPAGE:p.310
@@ -1286,7 +1286,7 @@ Stone of Alarm.MOD														TYPE:LesserMinor																																
 Stone of Alliance															TYPE:Magic.Wondrous.GreaterMinor																																	COST:5000	WT:0																								SOURCEPAGE:p.321
 Stone of Conjuring Earth Elementals												TYPE:Magic.Wondrous.GreaterMajor																																	COST:90000	WT:5																								SOURCEPAGE:p.321
 Stone of Good Luck (Luckstone).MOD												TYPE:GreaterMedium																																			COST:20000	WT:0																								SOURCEPAGE:p.321
-Stone Salve (Ounce).MOD														TYPE:GreaterMinor																																				COST:4000	WT:0																								SOURCEPAGE:p.321
+Stone Salve.MOD															TYPE:GreaterMinor																																				COST:4000	WT:0																								SOURCEPAGE:p.321
 Strand of Prayer Beads (Greater).MOD											TYPE:GreaterMajor																																				COST:95800	WT:0.5																							SOURCEPAGE:p.321
 Strand of Prayer Beads (Lesser).MOD												TYPE:LesserMedium																																				COST:9600	WT:0.5																							SOURCEPAGE:p.321
 Strand of Prayer Beads.MOD													TYPE:LesserMajor																																				COST:45800	WT:0.5																							SOURCEPAGE:p.321
@@ -1294,21 +1294,21 @@ Stubborn Nail															TYPE:Magic.Wondrous.Consumable.LeastMinor											
 Summoning Shackle															TYPE:Magic.Wondrous.GreaterMinor																																	COST:5000	WT:1																								SOURCEPAGE:p.322
 Summon-Slave Crystal														TYPE:Magic.Wondrous.LesserMedium																																	COST:10000	WT:0																								SOURCEPAGE:p.322
 Sustaining Spoon.MOD														TYPE:GreaterMinor																																				COST:5400	WT:0																								SOURCEPAGE:p.322
-Tome of Clear Thought (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.323
-Tome of Clear Thought (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.323
-Tome of Clear Thought (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.323
-Tome of Clear Thought (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.323
-Tome of Clear Thought (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.323
-Tome of Leadership and Influence (+1).MOD											TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.323
-Tome of Leadership and Influence (+2).MOD											TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.323
-Tome of Leadership and Influence (+3).MOD											TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.323
-Tome of Leadership and Influence (+4).MOD											TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.323
-Tome of Leadership and Influence (+5).MOD											TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.323
-Tome of Understanding (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.323
-Tome of Understanding (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.323
-Tome of Understanding (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.323
-Tome of Understanding (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.323
-Tome of Understanding (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.323
+Tome of Clear Thought +1.MOD													TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.323
+Tome of Clear Thought +2.MOD													TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.323
+Tome of Clear Thought +3.MOD													TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.323
+Tome of Clear Thought +4.MOD													TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.323
+Tome of Clear Thought +5.MOD													TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.323
+Tome of Leadership and Influence +1.MOD											TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.323
+Tome of Leadership and Influence +2.MOD											TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.323
+Tome of Leadership and Influence +3.MOD											TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.323
+Tome of Leadership and Influence +4.MOD											TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.323
+Tome of Leadership and Influence +5.MOD											TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.323
+Tome of Understanding +1.MOD													TYPE:GreaterMedium																																			COST:27500	WT:5																								SOURCEPAGE:p.323
+Tome of Understanding +2.MOD													TYPE:GreaterMajor																																				COST:55000	WT:5																								SOURCEPAGE:p.323
+Tome of Understanding +3.MOD													TYPE:GreaterMajor																																				COST:82500	WT:5																								SOURCEPAGE:p.323
+Tome of Understanding +4.MOD													TYPE:GreaterMajor																																				COST:110000	WT:5																								SOURCEPAGE:p.323
+Tome of Understanding +5.MOD													TYPE:GreaterMajor																																				COST:137500	WT:5																								SOURCEPAGE:p.323
 Traveler's Any-Tool														TYPE:Magic.Wondrous.LeastMinor																																	COST:250	WT:2																								SOURCEPAGE:p.323
 Treasurer's Seal															TYPE:Magic.Wondrous.LesserMedium																																	COST:10000	WT:1																								SOURCEPAGE:p.323
 Unguent of Timelessness.MOD													TYPE:LeastMinor																																				COST:150	WT:0																								SOURCEPAGE:p.324

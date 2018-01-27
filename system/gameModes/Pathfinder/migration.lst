@@ -28,14 +28,13 @@ EQUIPMENT:Candle of Invocation (Lawful-Good)				MAXVER:6.07.05	NEWKEY:Candle of 
 EQUIPMENT:Candle of Invocation (Neutral-Good)				MAXVER:6.07.05	NEWKEY:Candle of Invocation (Neutral Good)
 EQUIPMENT:Candle of Invocation (Chaotic-Good)				MAXVER:6.07.05	NEWKEY:Candle of Invocation (Chaotic Good)
 EQUIPMENT:Candle of Invocation (Lawful-Neutral)				MAXVER:6.07.05	NEWKEY:Candle of Invocation (Lawful Neutral)
-EQUIPMENT:Candle of Invocation (Neutral)					MAXVER:6.07.05	NEWKEY:Candle of Invocation (Neutral)
 EQUIPMENT:Candle of Invocation (Chaotic-Neutral)			MAXVER:6.07.05	NEWKEY:Candle of Invocation (Chaotic Neutral)
 EQUIPMENT:Candle of Invocation (Lawful-Evil)				MAXVER:6.07.05	NEWKEY:Candle of Invocation (Lawful Evil)
 EQUIPMENT:Candle of Invocation (Neutral-Evil)				MAXVER:6.07.05	NEWKEY:Candle of Invocation (Neutral Evil)
 EQUIPMENT:Candle of Invocation (Chaotic-Evil)				MAXVER:6.07.05	NEWKEY:Candle of Invocation (Chaotic Evil)
-EQUIPMENT:Carpet of Flying (5 ft by 5 ft)					MAXVER:6.07.05	NEWKEY:Carpet of Flying (5 ft. by 5 ft.)
-EQUIPMENT:Carpet of Flying (5 ft by 10 ft)				MAXVER:6.07.05	NEWKEY:Carpet of Flying (5 ft. by 10 ft.)
-EQUIPMENT:Carpet of Flying (10 ft by 10 ft)				MAXVER:6.07.05	NEWKEY:Carpet of Flying (10 ft. by 10 ft.)
+#EQUIPMENT:Carpet of Flying (5 ft by 5 ft)					MAXVER:6.07.05	NEWKEY:Carpet of Flying (5 ft. by 5 ft.)
+#EQUIPMENT:Carpet of Flying (5 ft by 10 ft)				MAXVER:6.07.05	NEWKEY:Carpet of Flying (5 ft. by 10 ft.)
+#EQUIPMENT:Carpet of Flying (10 ft by 10 ft)				MAXVER:6.07.05	NEWKEY:Carpet of Flying (10 ft. by 10 ft.)
 EQUIPMENT:Crystal Ball (See Invisibility)					MAXVER:6.07.05	NEWKEY:Crystal Ball with See Invisibility
 EQUIPMENT:Crystal Ball (Detect Thoughts)					MAXVER:6.07.05	NEWKEY:Crystal Ball with Detect Thoughts
 EQUIPMENT:Crystal Ball (Telepathy)						MAXVER:6.07.05	NEWKEY:Crystal Ball with Telepathy

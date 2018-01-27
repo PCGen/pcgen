@@ -49,8 +49,8 @@ GEAR:Entertainer's Outfit		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Harrow Deck				QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Magnet					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Incense				QTY:10	SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Prestidigitation)	QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Augury)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Prestidigitation	QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Augury			QTY:1		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Skeleton Slayer's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:120
 GEAR:Acid				QTY:3		SIZE:PC	LOCATION:Carried

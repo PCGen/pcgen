@@ -154,7 +154,7 @@ ABILITY:CATEGORY=FEAT|Weapon Specialization (Dogslicer)
 ABILITY:CATEGORY=Fighter Bonus Feat|Mounted Combat
 ABILITY:CATEGORY=Fighter Bonus Feat|Ride-By Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Spirited Charge
-GEAR:Potion of Barkskin +2					LOCATION:Carried
+GEAR:Potion of Barkskin					LOCATION:Carried
 GEAR:Potion of Cure Moderate Wounds	QTY:2			LOCATION:Carried
 GEAR:Breastplate					SIZE:S	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor.Material ~ Steel
 GEAR:Dogslicer					SIZE:S	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Steel
@@ -237,11 +237,11 @@ ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Spell Focus (Evocation)
 GEAR:Wand						LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
 GEAR:Potion of Cure Light Wounds		LOCATION:Carried
-GEAR:Scroll (Sleep)				LOCATION:Carried
-GEAR:Scroll (Comprehend Languages/Arcane)	LOCATION:Carried
-GEAR:Scroll (Minor Image)			LOCATION:Carried
-GEAR:Scroll (See Invisibility)		LOCATION:Carried
-GEAR:Scroll (Whispering Wind)			LOCATION:Carried
+GEAR:Scroll of Sleep				LOCATION:Carried
+GEAR:Scroll of Comprehend Languages (Arcane)	LOCATION:Carried
+GEAR:Scroll of Minor Image			LOCATION:Carried
+GEAR:Scroll of See Invisibility		LOCATION:Carried
+GEAR:Scroll of Whispering Wind			LOCATION:Carried
 GEAR:Dagger						LOCATION:Primary Hand
 GEAR:Cloak of Resistance +1			LOCATION:Equipped
 GEAR:Everburning Torch				LOCATION:Carried
