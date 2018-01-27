@@ -328,8 +328,6 @@ ALIGN:TN
 RACE:Clockwork Dragon	!PRERACE:1,%
 NAME:Clockwork Dragon
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-ABILITY:CATEGORY=FEAT|Improved Initiative
-ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 
 STARTPACK:Clockwork Mage Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Clockwork Mage],[!PRERACE:1,%]	SOURCEPAGE:p.32
@@ -337,8 +335,6 @@ ALIGN:TN
 RACE:Clockwork Mage	!PRERACE:1,%
 NAME:Clockwork Mage
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=FEAT|Improved Initiative
-ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 
 STARTPACK:Clockwork Steed Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Clockwork Steed],[!PRERACE:1,%]	SOURCEPAGE:p.33
@@ -346,8 +342,6 @@ ALIGN:TN
 RACE:Clockwork Steed	!PRERACE:1,%
 NAME:Clockwork Steed
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=FEAT|Improved Initiative
-ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 
 STARTPACK:Colossus (Flesh) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Colossus (Flesh)],[!PRERACE:1,%]	SOURCEPAGE:p.35
@@ -380,14 +374,13 @@ ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Greater Sunder
 ABILITY:CATEGORY=FEAT|Greater Vital Strike
 ABILITY:CATEGORY=FEAT|Improved Critical (flail)
-ABILITY:CATEGORY=FEAT|Improved Critical (ballista (heavy))
+ABILITY:CATEGORY=FEAT|Improved Critical (Heavy Ballistae)
 ABILITY:CATEGORY=FEAT|Improved Sunder
 ABILITY:CATEGORY=FEAT|Improved Vital Strike
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Vital Strike
 GEAR:Flail			SIZE:C			LOCATION:Primary Hand
-GEAR:Ballista (Heavy)	SIZE:C	QTY:2		LOCATION:Carried
 
 
 STARTPACK:Colossus (Stone) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Colossus (Stone)],[!PRERACE:1,%]	SOURCEPAGE:p.37
@@ -408,7 +401,6 @@ ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Ballista (Light)	SIZE:C			LOCATION:Carried
 
 
 STARTPACK:Colour Out of Space Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Colour Out of Space],[!PRERACE:1,%]	SOURCEPAGE:p.38
@@ -510,7 +502,7 @@ ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
-STARTPACK:Demon Lord (Dagon)	TYPE:Outsider	VISIBLE:QUALIFY	PRERACE:1,Demon Lord (Dagon)	SOURCEPAGE:p.46
+STARTPACK:Demon Lord (Dagon)	TYPE:Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Demon Lord (Dagon)	SOURCEPAGE:p.46
 ALIGN:CE
 RACE:Demon Lord (Dagon)	!PRERACE:1,%
 NAME:Dagon
@@ -549,7 +541,7 @@ ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Dispel Magic (Greater)
 ABILITY:CATEGORY=FEAT|Vital Strike
 
 
-STARTPACK:Demon Lord (Kostchtchie)	TYPE:Outsider	VISIBLE:QUALIFY	PRERACE:1,Demon Lord (Kostchtchie)	SOURCEPAGE:p.48
+STARTPACK:Demon Lord (Kostchtchie)	TYPE:Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Demon Lord (Kostchtchie)	SOURCEPAGE:p.48
 ALIGN:CE
 RACE:Demon Lord (Kostchtchie)	!PRERACE:1,%
 NAME:Kostchtchie
@@ -587,7 +579,7 @@ GEAR:Warhammer	SIZE:H	LOCATION:Primary Hand	EQMOD:Material ~ Adamantine ~ Weapon
 GEAR:Rock (Medium)		LOCATION:Carried
 
 
-STARTPACK:Demon Lord (Pazuzu)	TYPE:Outsider	VISIBLE:QUALIFY	PRERACE:1,Demon Lord (Pazuzu)	SOURCEPAGE:p.50
+STARTPACK:Demon Lord (Pazuzu)	TYPE:Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Demon Lord (Pazuzu)	SOURCEPAGE:p.50
 ALIGN:CE
 RACE:Demon Lord (Pazuzu)	!PRERACE:1,%
 NAME:Pazuzu
@@ -656,7 +648,7 @@ STARTPACK:Devil (Host) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQU
 ALIGN:LE
 RACE:Devil (Host)	!PRERACE:1,%
 NAME:Host Devil
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=110|CHA=11
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Acrobatics				RANK:7
 SKILL:Escape Artist			RANK:7
 SKILL:Fly					RANK:7
@@ -731,7 +723,6 @@ RACE:Dinosaur (Styracosaurus)	!PRERACE:1,%
 NAME:Styracosaurus
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Perception				RANK:7
-ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Power Attack
@@ -744,7 +735,7 @@ RACE:Dinosaur (Velociraptor)	!PRERACE:1,%
 NAME:Velociraptor
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Acrobatics				RANK:1
-SKILL:Perception				RANK:2
+SKILL:Perception				RANK:1
 SKILL:Stealth				RANK:1
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Finesse
@@ -981,7 +972,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Vital Strike
 
 
-STARTPACK:Empyreal Lord (Cernunnos)	TYPE:Outsider	VISIBLE:QUALIFY	PRERACE:1,Empyreal Lord (Cernunnos)	SOURCEPAGE:p.88
+STARTPACK:Empyreal Lord (Cernunnos)	TYPE:Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Empyreal Lord (Cernunnos)	SOURCEPAGE:p.88
 ALIGN:CG
 RACE:Empyreal Lord (Cernunnos)	!PRERACE:1,%
 NAME:Cernunnos
@@ -1070,7 +1061,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Purify Food and Drink
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Read Magic
 
 
-STARTPACK:Empyreal Lord (Korada)	TYPE:Outsider	VISIBLE:QUALIFY	PRERACE:1,Empyreal Lord (Korada)	SOURCEPAGE:p.90
+STARTPACK:Empyreal Lord (Korada)	TYPE:Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Empyreal Lord (Korada)	SOURCEPAGE:p.90
 ALIGN:NG
 RACE:Empyreal Lord (Korada)	!PRERACE:1,%
 NAME:Korada
@@ -1115,7 +1106,7 @@ GEAR:Unarmed Strike	SIZE:L	LOCATION:Equipped
 GEAR:Quarterstaff		SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +5 ~ Weapon
 
 
-STARTPACK:Empyreal Lord (Vildeis)	TYPE:Outsider	VISIBLE:QUALIFY	PRERACE:1,Empyreal Lord (Vildeis)	SOURCEPAGE:p.92
+STARTPACK:Empyreal Lord (Vildeis)	TYPE:Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Empyreal Lord (Vildeis)	SOURCEPAGE:p.92
 ALIGN:LG
 RACE:Empyreal Lord (Vildeis)	!PRERACE:1,%
 NAME:Vildeis
@@ -1763,7 +1754,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Toughness
 
 
-STARTPACK:Great Old One (Bokrug)	TYPE:Magical Beast	VISIBLE:QUALIFY	PRERACE:1,Great Old One (Bokrug)	SOURCEPAGE:p.136
+STARTPACK:Great Old One (Bokrug)	TYPE:Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Great Old One (Bokrug)	SOURCEPAGE:p.136
 ALIGN:CN
 RACE:Great Old One (Bokrug)	!PRERACE:1,%
 NAME:Bokrug
@@ -1793,7 +1784,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (feeblemind)
 
 
-STARTPACK:Great Old One (Cthulhu)	TYPE:Aberration	VISIBLE:QUALIFY	PRERACE:1,Great Old One (Cthulhu)	SOURCEPAGE:p.138
+STARTPACK:Great Old One (Cthulhu)	TYPE:Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Great Old One (Cthulhu)	SOURCEPAGE:p.138
 ALIGN:CE
 RACE:Great Old One (Cthulhu)	!PRERACE:1,%
 NAME:Cthulhu
@@ -1832,7 +1823,7 @@ ABILITY:CATEGORY=FEAT|Staggering Critical
 ABILITY:CATEGORY=FEAT|Vital Strike
 
 
-STARTPACK:Great Old One (Hastur)	TYPE:Aberration	VISIBLE:QUALIFY	PRERACE:1,Great Old One (Hastur)	SOURCEPAGE:p.140
+STARTPACK:Great Old One (Hastur)	TYPE:Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Great Old One (Hastur)	SOURCEPAGE:p.140
 ALIGN:CE
 RACE:Great Old One (Hastur)	!PRERACE:1,%
 NAME:Hastur
@@ -2280,7 +2271,7 @@ ABILITY:CATEGORY=FEAT|Weapon Focus (bite)
 ABILITY:CATEGORY=FEAT|Weapon Focus (gore)
 
 
-STARTPACK:Kaiju (Agyra)	TYPE:Magical Beast	VISIBLE:QUALIFY	PRERACE:1,Kaiju (Agyra)	SOURCEPAGE:p.166
+STARTPACK:Kaiju (Agyra)	TYPE:Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Kaiju (Agyra)	SOURCEPAGE:p.166
 ALIGN:CN
 RACE:Kaiju (Agyra)	!PRERACE:1,%
 NAME:Agyra
@@ -2305,7 +2296,7 @@ ABILITY:CATEGORY=FEAT|Wingover
 ABILITY:CATEGORY=FEAT|Vital Strike
 
 
-STARTPACK:Kaiju (Bezravnis)	TYPE:Magical Beast	VISIBLE:QUALIFY	PRERACE:1,Kaiju (Bezravnis)	SOURCEPAGE:p.168
+STARTPACK:Kaiju (Bezravnis)	TYPE:Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Kaiju (Bezravnis)	SOURCEPAGE:p.168
 ALIGN:CN
 RACE:Kaiju (Bezravnis)	!PRERACE:1,%
 NAME:Bezravnis
@@ -2329,7 +2320,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Staggering Critical
 ABILITY:CATEGORY=FEAT|Vital Strike
 
-STARTPACK:Kaiju (Mogaru)	TYPE:Magical Beast	VISIBLE:QUALIFY	PRERACE:1,Kaiju (Bezravnis)	SOURCEPAGE:p.697
+STARTPACK:Kaiju (Mogaru)	TYPE:Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PRERACE:1,Kaiju (Bezravnis)	SOURCEPAGE:p.697
 ALIGN:CN
 RACE:Kaiju (Mogaru)	!PRERACE:1,%
 NAME:Mogaru
