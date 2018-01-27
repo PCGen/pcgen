@@ -379,14 +379,14 @@ ABILITY:CATEGORY=FEAT|Great Cleave
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Greater Sunder
 ABILITY:CATEGORY=FEAT|Greater Vital Strike
-ABILITY:CATEGORY=FEAT|Improved Critical (flail)
+ABILITY:CATEGORY=FEAT|Improved Critical (Light Flail)
 ABILITY:CATEGORY=FEAT|Improved Critical (ballista (heavy))
 ABILITY:CATEGORY=FEAT|Improved Sunder
 ABILITY:CATEGORY=FEAT|Improved Vital Strike
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Flail			SIZE:C			LOCATION:Primary Hand
+GEAR:Light Flail			SIZE:C			LOCATION:Primary Hand
 GEAR:Ballista (Heavy)	SIZE:C	QTY:2		LOCATION:Carried
 
 
@@ -925,9 +925,9 @@ ABILITY:CATEGORY=FEAT|Stand Still
 ABILITY:CATEGORY=FEAT|Step Up
 ABILITY:CATEGORY=FEAT|Strike Back
 GEAR:Scale Mail			SIZE:M				LOCATION:Equipped		EQMOD:Special Ability ~ +2 ~ Armor
-GEAR:Shield (Heavy/Wooden)	SIZE:M				LOCATION:Equipped		EQMOD:Special Ability ~ +2 ~ Shield
+GEAR:Heavy Wooden Shield	SIZE:M				LOCATION:Equipped		EQMOD:Special Ability ~ +2 ~ Shield
 GEAR:Battleaxe			SIZE:M				LOCATION:Primary Hand	EQMOD:Special Ability ~ +2 ~ Weapon
-GEAR:Axe (Throwing)		SIZE:M				LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Throwing Axe			SIZE:M				LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Elder Thing Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Elder Thing],[!PRERACE:1,%]	SOURCEPAGE:p.85
@@ -1482,7 +1482,7 @@ ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 ABILITY:CATEGORY=FEAT|Weapon Focus (slam)
-GEAR:TYPE=Goods.Instrument.String		QTY:1		SIZE:M	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Item
+GEAR:TYPE=Goods.Instrument		QTY:1		SIZE:M	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Item.Musical Instrument (Harp)
 
 
 STARTPACK:Freezing Flow Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Freezing Flow],[!PRERACE:1,%]	SOURCEPAGE:p.115
@@ -1520,15 +1520,15 @@ ABILITY:CATEGORY=FEAT|Bleeding Critical
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Critical Focus
 ABILITY:CATEGORY=FEAT|Dodge
-ABILITY:CATEGORY=FEAT|Improved Critical (Chain (Spiked))
+ABILITY:CATEGORY=FEAT|Improved Critical (Spiked Chain)
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Improved Vital Strike
 ABILITY:CATEGORY=FEAT|Lunge
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Step Up
 ABILITY:CATEGORY=FEAT|Vital Strike
-ABILITY:CATEGORY=FEAT|Weapon Focus (Chain (Spiked))
-GEAR:Chain (Spiked)	QTY:1		SIZE:M	LOCATION:Carried
+ABILITY:CATEGORY=FEAT|Weapon Focus (Spiked Chain)
+GEAR:Spiked Chain	QTY:1		SIZE:M	LOCATION:Carried
 
 
 STARTPACK:Galvo Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Galvo],[!PRERACE:1,%]	SOURCEPAGE:p.120
@@ -1648,7 +1648,7 @@ ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 ABILITY:CATEGORY=FEAT|Weapon Focus (rock)
 GEAR:Greatclub		QTY:1		SIZE:L	LOCATION:Carried
 GEAR:Rock (Small)		QTY:1				LOCATION:Carried
-GEAR:Hide			QTY:1		SIZE:L	LOCATION:Carried
+GEAR:Hide Armor		QTY:1		SIZE:L	LOCATION:Carried
 
 
 STARTPACK:Giant (Ocean) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Ocean)],[!PRERACE:1,%]	SOURCEPAGE:p.127
@@ -1692,7 +1692,7 @@ ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (spear)
 ABILITY:CATEGORY=FEAT|Weapon Focus (spear)
 GEAR:Rock (Small)		QTY:1				LOCATION:Carried
 GEAR:Spear			SIZE:L			LOCATION:Both Hands
-GEAR:Leather		SIZE:L			LOCATION:Equipped
+GEAR:Leather Armor	SIZE:L			LOCATION:Equipped
 
 
 STARTPACK:Giant (Slag) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Slag)],[!PRERACE:1,%]	SOURCEPAGE:p.129
@@ -2004,7 +2004,7 @@ ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=FEAT|Stealthy
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Longbow (Composite)					LOCATION:Carried		EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Speed ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
+GEAR:Composite Longbow					LOCATION:Carried		EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Speed ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
 GEAR:Arrow				QTY:10			LOCATION:Carried
 GEAR:Dagger								LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
 
@@ -2429,7 +2429,7 @@ ABILITY:CATEGORY=FEAT|Critical Focus
 ABILITY:CATEGORY=FEAT|Great Cleave
 ABILITY:CATEGORY=FEAT|Improved Bull Rush
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Chain (Spiked)	QTY:1		SIZE:M	LOCATION:Carried
+GEAR:Spiked Chain	QTY:1		SIZE:M	LOCATION:Carried
 
 
 STARTPACK:Lampad Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lampad],[!PRERACE:1,%]	SOURCEPAGE:p.178
@@ -2897,7 +2897,7 @@ SKILL:Stealth				RANK:5
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
-GEAR:Flail (Heavy)		QTY:1		SIZE:M	LOCATION:Carried
+GEAR:Heavy Flail		QTY:1		SIZE:M	LOCATION:Carried
 
 
 STARTPACK:Pickled Punk Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Pickled Punk],[!PRERACE:1,%]	SOURCEPAGE:p.214
@@ -3380,7 +3380,7 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Multiweapon Fighting
 ABILITY:CATEGORY=FEAT|Weapon Focus (shobhad longrifle)
-GEAR:Hide						SIZE:L	LOCATION:Equipped
+GEAR:Hide Armor					SIZE:L	LOCATION:Equipped
 GEAR:Longsword			QTY:2		SIZE:L	LOCATION:Carried
 GEAR:Shobhad Longrifle		QTY:1		SIZE:L	LOCATION:Carried
 GEAR:Javelin			QTY:2		SIZE:L	LOCATION:Carried
@@ -3738,14 +3738,14 @@ SKILL:Use Magic Device			RANK:16
 ABILITY:CATEGORY=FEAT|Awesome Blow
 ABILITY:CATEGORY=FEAT|Critical Focus
 ABILITY:CATEGORY=FEAT|Improved Bull Rush
-ABILITY:CATEGORY=FEAT|Improved Critical (mace (heavy))
+ABILITY:CATEGORY=FEAT|Improved Critical (Heavy Mace)
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Staggering Critical
 ABILITY:CATEGORY=FEAT|Vital Strike
 GEAR:Full Plate			SIZE:C				LOCATION:Equipped			EQMOD:Special Ability ~ +4 ~ Armor.Special Ability ~ Fortification / Moderate ~ Armor
-GEAR:Mace (Heavy)			SIZE:C				LOCATION:Primary Hand		EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Speed ~ Weapon.Special Ability ~ Wounding ~ Weapon
+GEAR:Heavy Mace			SIZE:C				LOCATION:Primary Hand		EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Speed ~ Weapon.Special Ability ~ Wounding ~ Weapon
 
 
 STARTPACK:Tooth Fairy Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Tooth Fairy],[!PRERACE:1,%]	SOURCEPAGE:p.262
@@ -3840,7 +3840,7 @@ ABILITY:CATEGORY=FEAT|Endurance
 ABILITY:CATEGORY=FEAT|Weapon Focus (Spear)
 ABILITY:CATEGORY=FEAT|Weapon Specialization (shortspear)
 GEAR:Breastplate			SIZE:M				LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
-GEAR:Shield (Heavy/Steel)	SIZE:M				LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Heavy Steel Shield		SIZE:M				LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Shortspear			SIZE:M				LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Javelin			SIZE:M	QTY:4			LOCATION:Carried
 
@@ -3977,7 +3977,7 @@ SKILL:Survival				RANK:3
 ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (battleaxe)
 ABILITY:CATEGORY=FEAT|Nimble Moves
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Leather			SIZE:M				LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Leather Armor		SIZE:M				LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Battleaxe			SIZE:M				LOCATION:Primary Hand
 GEAR:Javelin			SIZE:M	QTY:3			LOCATION:Carried
 
