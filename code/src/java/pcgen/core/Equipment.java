@@ -6675,7 +6675,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		if ("PART".equalsIgnoreCase(childType))
 		{
-			for(EquipmentHead head : heads)
+			for (EquipmentHead head : heads)
 			{
 				if (head.getKeyName().equals(childName))
 				{
