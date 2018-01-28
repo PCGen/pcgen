@@ -1214,4 +1214,50 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return null;
 	}
 
+	/**
+	 * Returns a localChild of the given type with the given name. Will return null if
+	 * this CDOMObject does not have a child of the given type with the given name.
+	 * 
+	 * @param childType
+	 *            The type of the child to be returned
+	 * @param childName
+	 *            The name of the child (of the given type) to be returned
+	 * @return A localChild of the given type with the given name if one exists in this
+	 *         CDOMObject; null otherwise
+	 */
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
+	public CDOMObject getLocalChild(String childType, String childName)
+	{
+		//I don't have any children by default
+		return null;
+	}
+
+	/**
+	 * Returns a non-null List of all the types of child objects in this CDOMObject.
+	 * 
+	 * Note that this is "direct" children, such as an EquipmentHead, not those created
+	 * by attaching or granting objects by someone creating a PC.
+	 * 
+	 * @return A non-null List of all the types of child objects in this CDOMObject
+	 */
+	public List<String> getLocalChildTypes()
+	{
+		//I don't have any children by default
+		return Collections.emptyList();
+	}
+
+	/**
+	 * Returns a non-null List of all the child objects of a given type in this CDOMObject.
+	 * 
+	 * Note that this is "direct" children, such as an EquipmentHead, not those created
+	 * by attaching or granting objects by someone creating a PC.
+	 * 
+	 * @return A non-null List of all the child objects of a given type in this CDOMObject
+	 */
+	public List<CDOMObject> getLocalChildrenOfType(String childType)
+	{
+		//I don't have any children by default
+		return Collections.emptyList();
+	}
+
 }
