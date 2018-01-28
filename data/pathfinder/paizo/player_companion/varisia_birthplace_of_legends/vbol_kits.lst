@@ -6,7 +6,7 @@ STARTPACK:Thrill Seeker	TYPE:Character Trait	VISIBLE:NO	EQUIPBUY:NO	TOTALCOST:0
 GEAR:Star Candle (Firework)	QTY:3	SIZE:PC	LOCATION:Carried
 
 STARTPACK:Shoanti Steed	TYPE:Character Trait	VISIBLE:NO	EQUIPBUY:NO	TOTALCOST:0
-GEAR:Horse (Light/Combat Trained)	QTY:1
+GEAR:Light Horse (Combat Trained)	QTY:1
 
 STARTPACK:Fixer of Odds	TYPE:Character Trait	VISIBLE:NO	EQUIPBUY:NO	TOTALCOST:0
 GEAR:Dagger		QTY:1	SIZE:PC	LOCATION:Carried
@@ -23,5 +23,5 @@ GEAR:Varisian Idol (Vangloris)	OPTION:6
 GEAR:Varisian Idol (Voratalo)		OPTION:7
 
 STARTPACK:Alabaster Outcast	TYPE:Character Trait	VISIBLE:NO	EQUIPBUY:NO	TOTALCOST:0
-GEAR:Outfit (Noble's)
+GEAR:Noble's Outfit
 GEAR:Signet Ring

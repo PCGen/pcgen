@@ -15,10 +15,10 @@ Boarding Gaff						PROFICIENCY:WEAPON|Boarding Gaff		TYPE:Weapon.Resizable.Melee
 Harpoon							PROFICIENCY:WEAPON|Harpoon			TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Ranged.Standard.Slashing.Sword														COST:5	WT:16				CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:Material ~ Steel									WIELD:TwoHanded	RANGE:10				SIZE:M	SOURCEPAGE:p.18
 Dagger.MOD														TYPE:Pirate
 Rapier.MOD														TYPE:Pirate
-Sword (Short).MOD													TYPE:Pirate
+Short Sword.MOD													TYPE:Pirate
 
 ###Block: Ranged Weapons
 # Equipment Name		Unique Key				Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Range		Size		Source Page
 Grappling Hook		KEY:Grappling Hook ~ Weapon	PROFICIENCY:WEAPON|Grappling Hook	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Thrown	COST:6	WT:14		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Steel	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.18
-Crossbow (Light).MOD												TYPE:Pirate
-Crossbow (Heavy).MOD												TYPE:Pirate
+Light Crossbow.MOD												TYPE:Pirate
+Heavy Crossbow.MOD												TYPE:Pirate

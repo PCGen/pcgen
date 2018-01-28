@@ -25,7 +25,7 @@ CATEGORY=Internal|Race Traits ~ Irminsul.MOD					ABILITY:Mythic Feat|AUTOMATIC|T
 CATEGORY=Internal|Race Traits ~ Julunggali.MOD					ABILITY:Special Ability|AUTOMATIC|Mythic Ability ~ Amazing Initiative|Mythic Ability ~ Mythic Saving Throws		ABILITY:Mythic Spell|AUTOMATIC|Baleful Polymorph|Bless|Control Weather (rain only)|Haste|Heal|Move Earth|Prayer|Slow	ABILITY:Mythic Feat|AUTOMATIC|Combat Reflexes	ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative	ABILITY:Mythic Feat|AUTOMATIC|Lightning Reflexes	ABILITY:Mythic Feat|AUTOMATIC|Power Attack
 CATEGORY=Internal|Race Traits ~ Leanan Sidhe.MOD				ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative	ABILITY:Mythic Feat|AUTOMATIC|Persuasive
 CATEGORY=Internal|Race Traits ~ Myrmecoleon.MOD					ABILITY:Mythic Feat|AUTOMATIC|Weapon Focus (mandibles)	ABILITY:Mythic Feat|AUTOMATIC|Power Attack
-CATEGORY=Internal|Race Traits ~ Titan (Fomorian).MOD				ABILITY:Mythic Feat|AUTOMATIC|Improved Critical (mace (heavy))	ABILITY:Mythic Feat|AUTOMATIC|Iron Will	ABILITY:Mythic Feat|AUTOMATIC|Power Attack	ABILITY:Mythic Feat|AUTOMATIC|Vital Strike
+CATEGORY=Internal|Race Traits ~ Titan (Fomorian).MOD				ABILITY:Mythic Feat|AUTOMATIC|Improved Critical (Heavy Mace)	ABILITY:Mythic Feat|AUTOMATIC|Iron Will	ABILITY:Mythic Feat|AUTOMATIC|Power Attack	ABILITY:Mythic Feat|AUTOMATIC|Vital Strike
 CATEGORY=Internal|Race Traits ~ Tyrant Jelly.MOD				ABILITY:Mythic Feat|AUTOMATIC|Weapon Focus (Slam)	ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative
 CATEGORY=Internal|Race Traits ~ Udaeus.MOD					ABILITY:Mythic Feat|AUTOMATIC|Weapon Focus (Spear)
 

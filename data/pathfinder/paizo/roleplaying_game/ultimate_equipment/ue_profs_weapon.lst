@@ -18,8 +18,8 @@ Mere Club					TYPE:Simple.Melee.OneHanded.Bludgeoning.Piercing.Fragile
 Boar Spear					TYPE:Simple.Melee.TwoHanded.Piercing
 
 # -- Ranged
-Underwater Crossbow (Heavy)		TYPE:Simple.Ranged.Piercing
-Underwater Crossbow (Light)		TYPE:Simple.Ranged.Piercing
+Underwater Heavy Crossbow		TYPE:Simple.Ranged.Piercing
+Underwater Light Crossbow		TYPE:Simple.Ranged.Piercing
 
 ####Block: Martial Weapons
 #------light---------
@@ -216,8 +216,8 @@ Wushu Dart.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk.Thrown.We
 # Weapon Group Crossbows
 #
 Crossbow (Repeating Hand).MOD		TYPE:Crossbow.Weapon Group Crossbows
-Underwater Crossbow (Light).MOD	TYPE:Crossbow.Weapon Group Crossbows
-Underwater Crossbow (Heavy).MOD	TYPE:Crossbow.Weapon Group Crossbows
+Underwater Light Crossbow.MOD	TYPE:Crossbow.Weapon Group Crossbows
+Underwater Heavy Crossbow.MOD	TYPE:Crossbow.Weapon Group Crossbows
 Crossbow (Double).MOD			TYPE:Crossbow.Weapon Group Crossbows
 Tube Arrow Shooter.MOD			TYPE:Crossbow.Weapon Group Crossbows
 #

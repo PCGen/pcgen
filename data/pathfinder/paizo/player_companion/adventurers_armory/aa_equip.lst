@@ -41,13 +41,13 @@ Hourglass (1 minute)																			TYPE:Goods.General								COST:20	WT:0.5	
 Hourglass (6 seconds)																			TYPE:Goods.General								COST:10	WT:0																		SOURCEPAGE:p.7
 Iron Spike																					TYPE:Goods.General								COST:0.05	WT:1																		SOURCEPAGE:p.7
 Iron Vial																					TYPE:Goods.General								COST:0.1	WT:1																		SOURCEPAGE:p.7								SPROP:hardness 5, 3 hit points, and break DC 14
-# Waterproof lantern is an EQMOD for Lantern (might be good to switch it to LightSource to apply to non core lantern?)
-Lantern (Bullseye).MOD																			TYPE:Lantern
-Lantern (Hooded).MOD																			TYPE:Lantern
+# Waterproof lantern is an EQMOD for Lantern (might be good to switch it to Light Source to apply to non core lantern?)
+Bullseye Lantern.MOD																			TYPE:Lantern
+Hooded Lantern.MOD																			TYPE:Lantern
 Magnet																					TYPE:Goods.General								COST:0.5	WT:0.5																	SOURCEPAGE:p.7
 Marbles																					TYPE:Goods.General.Consumable							COST:0.1	WT:2																		SOURCEPAGE:p.7								SPROP:DC 10 Reflex to avoid falling unless move at half-speed
 Manacles (Mithral)						OUTPUTNAME:[NAME] Manacles									TYPE:Goods.General								COST:1000	WT:2								EQMOD:Material ~ Mithril ~ Weapon / Item							SOURCEPAGE:p.7								SPROP:hardness 15, 30 hit points, and a break DC of 30
-Paper (Sheet).MOD																																																													SPROP:hardness 0, 1 hit point, and break DC 5
+Paper.MOD																																																													SPROP:hardness 0, 1 hit point, and break DC 5
 Perfume/Cologne																				TYPE:Goods.General								COST:5	WT:0																		SOURCEPAGE:p.7
 Pickle Extractor																				TYPE:Goods.General								COST:0.2	WT:2																		SOURCEPAGE:p.7
 Pocket Watch																				TYPE:Goods.General								COST:250	WT:1																		SOURCEPAGE:p.7
@@ -119,7 +119,7 @@ Invisible Ink (Good)																			TYPE:Goods.General.Writing.Liquid.Vial			
 Invisible Ink (Superior)																		TYPE:Goods.General.Writing.Liquid.Vial					COST:75	WT:0																		SOURCEPAGE:p.10								SPROP:DC 35 Craft (Alchemy) to reveal without trigger
 Itching Powder																				TYPE:Goods.Alchemical.Consumable						COST:60	WT:2																		SOURCEPAGE:p.10								SPROP: Fort DC12 to resist or -2 penalty to attack, save, skill, and ability checks.
 Kaava Musk																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:0.5																	SOURCEPAGE:p.10								SPROP:+5 bonus to tracking target with musk on by scent
-Keros Oil (Flask)														PROFICIENCY:WEAPON|Spells (Touch)	TYPE:Goods.Alchemical.Weapon.Ranged.Fire					COST:5			CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	RANGE:5	SIZE:M	SOURCEPAGE:p.11								SPROP:Taking a mouthful from the bottle is a standard action.
+Keros Oil (Flask)														PROFICIENCY:WEAPON|Touch Spells	TYPE:Goods.Alchemical.Weapon.Ranged.Fire					COST:5			CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	RANGE:5	SIZE:M	SOURCEPAGE:p.11								SPROP:Taking a mouthful from the bottle is a standard action.
 Liquid Ice																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:2																		SOURCEPAGE:p.11
 Marker Dye (Flask)																			TYPE:Goods.Alchemical.Flask.Consumable					COST:15	WT:1																		SOURCEPAGE:p.11								SPROP:Creates obvious stain.
 Scent Cloak																					TYPE:Goods.Alchemical.Consumable						COST:20	WT:2																		SOURCEPAGE:p.11								SPROP:Add +10 to the DC for target being tracked by sent. Lasts 1 hour.
@@ -210,32 +210,26 @@ Cage (Tiny)																					TYPE:Goods.General								COST:2	WT:5											
 Canary																					TYPE:Goods.Animal.Pet								COST:0.04	WT:0.5															SIZE:D	SOURCEPAGE:p.15
 Cat																						TYPE:Goods.Animal.Pet								COST:0.03	WT:8																SIZE:T	SOURCEPAGE:p.15
 Cat (Osirion Wise-Eye)																			TYPE:Goods.Animal.Pet								COST:6	WT:8																SIZE:T	SOURCEPAGE:p.15
-Dog (Guard).MOD																				TYPE:Pet												WT:90																SIZE:S	SOURCEPAGE:p.15
-Dog (Riding).MOD																				TYPE:Pet												WT:120																	SOURCEPAGE:p.15
+Guard Dog.COPY=Dog (Combat Trained)																	TYPE:Pet												WT:90																SIZE:S	SOURCEPAGE:p.15
+Riding Dog.MOD																				TYPE:Pet												WT:120																	SOURCEPAGE:p.15
 Dog Sled																					TYPE:Goods.General.Transportation.Vehicle					COST:20	WT:300																	SOURCEPAGE:p.15
 Donkey Rat																					TYPE:Goods.Animal.Pet								COST:1	WT:50																SIZE:T	SOURCEPAGE:p.15
 Elephant																					TYPE:Goods.Transportation.Mount.Container	CONTAINS:*690|Any		COST:1000																	SIZE:H	SOURCEPAGE:p.16
 Falcon																					TYPE:Goods.Animal.Pet								COST:40	WT:20																SIZE:T	SOURCEPAGE:p.15
 Falconry Gauntlet																				TYPE:Goods.General								COST:10	WT:1																		SOURCEPAGE:p.15
 Hawk																						TYPE:Goods.Animal.Pet								COST:18	WT:20																SIZE:T	SOURCEPAGE:p.15
-Horse (Heavy/Combat Trained).MOD																														WT:1200																	SOURCEPAGE:p.15
-Horse (Heavy).MOD																																	WT:1000																	SOURCEPAGE:p.15
-Horse (Light/Combat Trained).MOD																														WT:900																	SOURCEPAGE:p.15
-Horse (Light).MOD																																	WT:600																	SOURCEPAGE:p.15
+Heavy Horse (Combat Trained).MOD																														WT:1200																	SOURCEPAGE:p.15
+Heavy Horse.MOD																																	WT:1000																	SOURCEPAGE:p.15
+Light Horse (Combat Trained).MOD																														WT:900																	SOURCEPAGE:p.15
+Light Horse.MOD																																	WT:600																	SOURCEPAGE:p.15
 Lizard																					TYPE:Goods.Animal.Pet								COST:0.05	WT:0.2															SIZE:T	SOURCEPAGE:15
 Lizard (Nex Gecko)																			TYPE:Goods.Animal.Pet								COST:12	WT:0.4															SIZE:T	SOURCEPAGE:15
 Monkey																					TYPE:Goods.Animal.Pet								COST:3	WT:5																SIZE:T	SOURCEPAGE:16
 Owl																						TYPE:Goods.Animal.Pet								COST:10	WT:1																SIZE:T	SOURCEPAGE:16
 Owl (Verduran)																				TYPE:Goods.Animal.Pet								COST:20	WT:1																SIZE:T	SOURCEPAGE:16
 
-Mule.COPY=Pack Animal (Donkey/Mule)
-Mule.FORGET
-
-Pack Animal (Donkey/Mule).MOD					OUTPUTNAME:Pack animal, donkey/mule																					WT:600																	SOURCEPAGE:p.16
-Ox.COPY=Pack Animal (Ox)
-Ox.FORGET
-Pack Animal (Ox).MOD						OUTPUTNAME:Pack animal, ox																						WT:1000																	SOURCEPAGE:p.16
-
+Donkey.COPY=Pack Animal (Donkey/Mule)			OUTPUTNAME:Pack animal, donkey/mule																					WT:600																	SOURCEPAGE:p.16
+Ox.COPY=Pack Animal (Ox)					OUTPUTNAME:Pack animal, ox																						WT:1000																	SOURCEPAGE:p.16
 Pack Animal (Yak)							OUTPUTNAME:Pack animal, yak									TYPE:Goods.Transportation.Mount.Container	CONTAINS:*690|Any		COST:24	WT:2000															SIZE:L	SOURCEPAGE:p.16
 Pseudodragon																				TYPE:Goods.Animal.Pet								COST:200	WT:7																		SOURCEPAGE:16								SPROP:Generally considered slavery to own one as a pet
 Rat																						TYPE:Goods.Animal.Pet								COST:0.01	WT:1																SIZE:T	SOURCEPAGE:16

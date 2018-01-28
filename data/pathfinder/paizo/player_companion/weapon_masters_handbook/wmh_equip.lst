@@ -8,11 +8,11 @@ War Flute			PROFICIENCY:WEAPON|War Flute		TYPE:Weapon.Melee.Specialized.OneHande
 
 ###Block: Specific Magic Weapons
 # Equipment Name							Product Identity?	Cost		Modifier
-Hammer (Light).COPY=Cailean Fighting Tankard
+Light Hammer.COPY=Cailean Fighting Tankard
 Longsword.COPY=Crusader's Longsword
 Pistol (Double-Barreled).COPY=Shieldmarshal's Pistol
 Scimitar.COPY=Valorous Blade
-Longbow (Composite).COPY=Windreader's Bow
+Composite Longbow.COPY=Windreader's Bow
 Spear.COPY=Spear of the Honored Ancestors
 
 

@@ -462,7 +462,7 @@ SKILL:Perception			RANK:2
 SKILL:Sense Motive		RANK:2
 SKILL:Stealth			RANK:2
 ABILITY:CATEGORY=FEAT|Flyby Attack
-GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
+GEAR:Short Sword	SIZE:T	LOCATION:Equipped
 
 STARTPACK:Familiar ~ Voidworm	TYPE:Companion	VISIBLE:NO
 ALIGN:CN
