@@ -34,6 +34,9 @@ import pcgen.cdom.format.table.ColumnFormatManager;
 import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatManager;
+import pcgen.cdom.formula.ManagerKey;
+import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This is a Lookup function for finding items in a DataTable.
@@ -79,10 +82,12 @@ public class LookupFunction implements Function
 			return null;
 		}
 
+		LoadContext context = semantics.get(ManagerKey.CONTEXT);
+		AbstractReferenceContext refContext = context.getReferenceContext();
 		//Table node (must be a DataTable)
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object format = args[0].jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, DATATABLE_CLASS));
+			semantics.getWith(FormulaSemantics.ASSERTED, refContext.getManufacturer(DATATABLE_CLASS)));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -99,7 +104,7 @@ public class LookupFunction implements Function
 		//Lookup value (at this point we enforce based on the Table Format)
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> luFormat = (FormatManager<?>) args[1].jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, lookupFormat.getManagedClass()));
+			semantics.getWith(FormulaSemantics.ASSERTED, lookupFormat));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -116,7 +121,7 @@ public class LookupFunction implements Function
 		//Result Column
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object resultColumn = args[2].jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, COLUMN_CLASS));
+			semantics.getWith(FormulaSemantics.ASSERTED, refContext.getManufacturer(COLUMN_CLASS)));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -128,34 +133,28 @@ public class LookupFunction implements Function
 			return null;
 		}
 		ColumnFormatManager<?> cf = (ColumnFormatManager<?>) resultColumn;
-		FormatManager<?> rf = tableFormatManager.getResultFormat();
-		if (!rf.equals(cf.getComponentManager()))
-		{
-			semantics.setInvalid(
-				"Parse Error: Invalid Result Column Type: " + resultColumn.getClass()
-					+ " found in table that does not contain that type");
-			return null;
-		}
-		return rf;
+		return cf.getComponentManager();
 	}
 
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
+		LoadContext context = manager.get(ManagerKey.CONTEXT);
+		AbstractReferenceContext refContext = context.getReferenceContext();
 		DataTable dataTable = (DataTable) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, DATATABLE_CLASS));
+			manager.getWith(EvaluationManager.ASSERTED, refContext.getManufacturer(DATATABLE_CLASS)));
 
 		FormatManager<?> lookupFormat = dataTable.getFormat(0);
 
 		//Lookup value (format based on the table)
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object lookupValue = args[1].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, lookupFormat.getManagedClass()));
+			manager.getWith(EvaluationManager.ASSERTED, lookupFormat));
 
 		//Result Column
 		TableColumn column = (TableColumn) args[2].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, COLUMN_CLASS));
+			manager.getWith(EvaluationManager.ASSERTED, refContext.getManufacturer(COLUMN_CLASS)));
 
 		String columnName = column.getName();
 		if (!dataTable.isColumn(columnName))
@@ -183,9 +182,11 @@ public class LookupFunction implements Function
 	public void getDependencies(DependencyVisitor visitor, DependencyManager manager,
 		Node[] args)
 	{
+		LoadContext context = manager.get(ManagerKey.CONTEXT);
+		AbstractReferenceContext refContext = context.getReferenceContext();
 		//Table name node (must be a Table)
 		args[0].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, DATATABLE_CLASS));
+			manager.getWith(DependencyManager.ASSERTED, refContext.getManufacturer(DATATABLE_CLASS)));
 
 		//TODO a Semantics Check can tell what this is?
 		args[1].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
@@ -197,7 +198,7 @@ public class LookupFunction implements Function
 		 * guarantees here, and right now, not sure of ROI.
 		 */
 		args[2].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, COLUMN_CLASS));
+			manager.getWith(DependencyManager.ASSERTED, refContext.getManufacturer(COLUMN_CLASS)));
 	}
 
 }

@@ -49,6 +49,7 @@ import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.PCGenManagerFactory;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
@@ -58,8 +59,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected FormatManager<Number> numberManager = new NumberManager();
 	protected FormatManager<String> stringManager = new StringManager();
 
-	private final ManagerFactory managerFactory = new ManagerFactory(){};
 	protected LoadContext context;
+	private ManagerFactory managerFactory;
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
 
@@ -67,16 +68,17 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
+		managerFactory = new PCGenManagerFactory(context);
 		setup = context.getVariableContext().getFormulaSetup();
-		setup.getSolverFactory().addSolverFormat(Number.class, getDMod(0));
-		setup.getSolverFactory().addSolverFormat(String.class, getDMod(""));
+		setup.getSolverFactory().addSolverFormat(Number.class, getDMod(0, numberManager));
+		setup.getSolverFactory().addSolverFormat(String.class, getDMod("", stringManager));
 		localSetup = new IndividualSetup(setup, "Global", new MonitorableVariableStore());
 	}
 
 	public void isValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
+		FormatManager<?> formatManager, FormatManager<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
@@ -132,7 +134,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	}
 
 	protected void isNotValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
+		FormatManager<?> formatManager, FormatManager<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
@@ -152,7 +154,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 				managerFactory.generateDependencyManager(getFormulaManager(),
 					getGlobalScopeInst(), null);
 		new DependencyVisitor().visit(node, fdm);
-		return fdm.getVariables();
+		return fdm.get(DependencyManager.VARIABLES).getVariables();
 	}
 
 	protected VariableID<Number> getVariable(String formula)
@@ -222,8 +224,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	public EvaluationManager generateManager()
 	{
-		EvaluationManager em = managerFactory
-			.generateEvaluationManager(localSetup.getFormulaManager(), Number.class);
+		EvaluationManager em = managerFactory.generateEvaluationManager(
+			localSetup.getFormulaManager(), FormatUtilities.NUMBER_MANAGER);
 		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
 	}
 
@@ -232,7 +234,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		return managerFactory;
 	}
 
-	private Modifier getDMod(Object o)
+	private Modifier getDMod(Object o, final FormatManager f)
 	{
 		return new Modifier(){
 
@@ -254,9 +256,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			}
 
 			@Override
-			public Class getVariableFormat()
+			public FormatManager getVariableFormat()
 			{
-				return o.getClass();
+				return f;
 			}
 
 			@Override

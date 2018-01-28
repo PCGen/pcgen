@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-15 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-16 (C) Thomas Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,12 +19,16 @@ package plugin.lsttokens;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.lang.StringUtil;
 import pcgen.base.text.ParsingSeparator;
+import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -33,11 +37,17 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
+/**
+ * The MODIFY token defined by ModifyLst defines a calculation to be performed in the
+ * (new) formula system.
+ */
+public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -47,8 +57,14 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	protected char separator()
+	{
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
 	{
 		if (obj instanceof Campaign)
 		{
@@ -65,7 +81,17 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 			return new ParseResult.Fail(getTokenName() + " may not be empty",
 				context);
 		}
+
+		ScopeInstance scopeInst = context.getActiveScope();
+		LegalScope scope = scopeInst.getLegalScope();
 		String varName = sep.next();
+		if (!context.getVariableContext().isLegalVariableID(scope, varName))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " found invalid var name: " + varName + " Modified on "
+				+ obj.getClass().getSimpleName() + " " + obj.getKeyName(),
+				context);
+		}
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -78,75 +104,13 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 				+ " needed third argument: " + value, context);
 		}
 		String modInstructions = sep.next();
-		int priorityNumber = 0; //Defaults to zero
-		if (sep.hasNext())
-		{
-			String priority = sep.next();
-			if (priority.length() < 10)
-			{
-				return new ParseResult.Fail(getTokenName()
-					+ " was expecting PRIORITY= but got " + priority + " in "
-					+ value, context);
-			}
-			if ("PRIORITY=".equalsIgnoreCase(priority.substring(0, 9)))
-			{
-				try
-				{
-					priorityNumber = Integer.parseInt(priority.substring(9));
-				}
-				catch (NumberFormatException e)
-				{
-					return new ParseResult.Fail(getTokenName()
-						+ " requires Priority to be an integer: "
-						+ priority.substring(9) + " was not an integer");
-				}
-				if (priorityNumber < 0)
-				{
-					return new ParseResult.Fail(getTokenName()
-						+ " Priority requires an integer >= 0. "
-						+ priorityNumber + " was not positive");
-				}
-			}
-			else
-			{
-				return new ParseResult.Fail(getTokenName()
-					+ " was expecting PRIORITY=x but got " + priority + " in "
-					+ value, context);
-			}
-			if (sep.hasNext())
-			{
-				return new ParseResult.Fail(getTokenName()
-					+ " had too many arguments: " + value, context);
-			}
-		}
-		ScopeInstance scopeInst = context.getActiveScope();
-		LegalScope scope = scopeInst.getLegalScope();
-		if (!context.getVariableContext().isLegalVariableID(scope, varName))
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " found invalid var name: " + varName
-					+ "(scope: " + scope.getName() + ") Modified on "
-					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(),
-				context);
-		}
-		FormatManager<?> format =
-				context.getVariableContext().getVariableFormat(scope, varName);
-		return finishProcessing(context, obj, format, varName,
-			modIdentification, modInstructions, priorityNumber);
-	}
-
-	private <T> ParseResult finishProcessing(LoadContext context,
-		CDOMObject obj, FormatManager<T> formatManager, String varName,
-		String modIdentification, String modInstructions, int priorityNumber)
-	{
-		ScopeInstance scopeInst = context.getActiveScope();
-		LegalScope scope = scopeInst.getLegalScope();
-		PCGenModifier<T> modifier;
+		PCGenModifier<?> modifier;
 		try
 		{
-			modifier =
-					context.getVariableContext().getModifier(modIdentification,
-						modInstructions, priorityNumber, scope, formatManager);
+			FormatManager<?> format = context.getVariableContext()
+				.getVariableFormat(scope, varName);
+			modifier = context.getVariableContext().getModifier(
+				modIdentification, modInstructions.toString(), scope, format);
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -154,7 +118,31 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 				+ modIdentification + " had value " + modInstructions
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
-		VarModifier<T> vm = new VarModifier<>(varName, scope, modifier);
+		Set<Object> associationsVisited =
+				Collections.newSetFromMap(new CaseInsensitiveMap<>());
+		while (sep.hasNext())
+		{
+			String assoc = sep.next();
+			int equalLoc = assoc.indexOf('=');
+			if (equalLoc == -1)
+			{
+				return new ParseResult.Fail(getTokenName()
+					+ " was expecting = in an ASSOCIATION but got " + assoc
+					+ " in " + value, context);
+			}
+			String assocName = assoc.substring(0, equalLoc);
+			if (associationsVisited.contains(assocName))
+			{
+				return new ParseResult.Fail(
+					getTokenName()
+						+ " does not allow multiple asspociations with the same name.  "
+						+ "Found multiple: " + assocName + " in " + value,
+					context);
+			}
+			associationsVisited.add(assocName);
+			modifier.addAssociation(assoc);
+		}
+		VarModifier<?> vm = new VarModifier<>(varName, scope, modifier);
 		context.getObjectContext().addToList(obj, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
 	}
@@ -181,11 +169,10 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			for (VarModifier<?> vm : added)
 			{
-				String modText = unparseModifier(vm);
 				StringBuilder sb = new StringBuilder();
 				sb.append(vm.getVarName());
 				sb.append(Constants.PIPE);
-				sb.append(modText);
+				sb.append(unparseModifier(vm));
 				modifiers.add(sb.toString());
 			}
 		}
@@ -201,16 +188,15 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 	{
 		PCGenModifier<?> modifier = vm.getModifier();
 		String type = modifier.getIdentification();
-		int userPriority = modifier.getUserPriority();
 		StringBuilder sb = new StringBuilder();
 		sb.append(type);
 		sb.append(Constants.PIPE);
 		sb.append(modifier.getInstructions());
-		if (userPriority > 0)
+		Collection<String> assocs = modifier.getAssociationInstructions();
+		if (assocs != null && assocs.size() > 0)
 		{
 			sb.append(Constants.PIPE);
-			sb.append("PRIORITY=");
-			sb.append(userPriority);
+			sb.append(StringUtil.join(assocs, Constants.PIPE));
 		}
 		return sb.toString();
 	}

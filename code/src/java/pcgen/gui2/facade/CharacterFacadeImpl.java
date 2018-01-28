@@ -359,7 +359,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (stat instanceof PCStat)
 			{
-				statScoreMap.put(stat, ChannelCompatibility.getStatScore(theCharacter.getCharID(), (PCStat) stat));
+				statScoreMap.put(stat, getStatReferenceFacade(stat));
 			}
 			else
 			{
@@ -498,6 +498,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		wealthRef = new DefaultReferenceFacade<>(theCharacter.totalValue());
 		gearBuySellSchemeRef = new DefaultReferenceFacade<>(findGearBuySellRate());
 		allowDebt = false;
+	}
+
+	private WriteableReferenceFacade<Number> getStatReferenceFacade(StatFacade stat)
+	{
+		return ChannelCompatibility.getStatScore(theCharacter.getCharID(), (PCStat) stat);
 	}
 
 	/**
@@ -1552,7 +1557,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
 		if (score == null)
 		{
-			score = new DefaultReferenceFacade<>(theCharacter.getTotalStatFor((PCStat) stat));
+			score = getStatReferenceFacade(stat);
 			statScoreMap.put(stat, score);
 		}
 		return score;
@@ -1645,7 +1650,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		WriteableReferenceFacade<Number> facade = statScoreMap.get(stat);
 		if (facade == null)
 		{
-			facade = new DefaultReferenceFacade<>(score);
+			facade = getStatReferenceFacade(stat);
+			facade.set(score);
 			statScoreMap.put(stat, facade);
 		}
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016-18 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -30,12 +30,32 @@ import pcgen.base.util.Indirect;
  */
 public interface PCGenModifier<T> extends Modifier<T>
 {
+
 	/**
-	 * Returns the user priority for this PCGenModifier.
+	 * Adds an Association to this PCGenModifier.
 	 * 
-	 * @return The user priority for this PCGenModifier
+	 * @param assocInstructions
+	 *            The instructions of the Association to be added to this PCGenModifier
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the given instructions are not valid or are not a supported
+	 *             Association for this PCGenModifier
 	 */
-	public int getUserPriority();
+	public void addAssociation(String assocInstructions);
+
+	/**
+	 * Returns a Collection of the instructions (String format) for the Associations on
+	 * this PCGenModifier.
+	 * 
+	 * Ownership of the returned Collection should be transferred to the calling object,
+	 * and no reference to the underlying contents of the PCGenModifier should be
+	 * maintained. (There should be no way for the PCGenModifier to alter this Collection
+	 * after it is returned and no method for the returned Collection to modify the
+	 * PCGenModifier)
+	 * 
+	 * @return the instructions (String format) for the Associations on this PCGenModifier
+	 */
+	public Collection<String> getAssociationInstructions();
 
 	/**
 	 * Add object references to this PCGenModifier. These are captured solely as
@@ -45,4 +65,5 @@ public interface PCGenModifier<T> extends Modifier<T>
 	 *            The Collection of Indirect objects that this PCGenModifier references.
 	 */
 	public void addReferences(Collection<Indirect<?>> collection);
+
 }

@@ -22,9 +22,7 @@ package pcgen.core.term;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
@@ -49,8 +47,7 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.EQACCHECK))
+		if (pc.hasControl(CControl.EQACCHECK))
 		{
 			Logging.errorPrint("EQACCHECK term is deprecated (does not function)"
 				+ " when ACCHECK CodeControl is used");

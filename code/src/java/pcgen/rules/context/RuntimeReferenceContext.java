@@ -41,6 +41,10 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 
 	private final Map<ManufacturableFactory<?>, ReferenceManufacturer<?>> mfgmap = new HashMap<>();
 
+	protected RuntimeReferenceContext()
+	{
+	}
+	
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
@@ -174,4 +178,16 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return mfgmap.containsKey(cat);
 	}
 
+	/**
+	 * Return a new RuntimeReferenceContext. This ReferenceContext is initialized as per
+	 * the rules of AbstractReferenceContext.
+	 * 
+	 * @return A new RuntimeReferenceContext
+	 */
+	public static RuntimeReferenceContext createRuntimeReferenceContext()
+	{
+		RuntimeReferenceContext context = new RuntimeReferenceContext();
+		context.initialize();
+		return context;
+	}
 }

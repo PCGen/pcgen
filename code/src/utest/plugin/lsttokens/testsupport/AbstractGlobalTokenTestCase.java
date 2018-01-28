@@ -74,8 +74,8 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 			classSetUp();
 		}
 		TokenRegistration.register(getToken());
-		primaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
 		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"TestObj");
 		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(

@@ -40,6 +40,7 @@ PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 SAVE:dw2sg__saves.lst
 STAT:dw2sg__stats.lst
+SIZE:dw2sg__sizes.lst
 
 #Load required msrd information
 #msrd files

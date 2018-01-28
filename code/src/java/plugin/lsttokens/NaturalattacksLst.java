@@ -42,7 +42,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.SpecialProperty;
 import pcgen.core.WeaponProf;
@@ -421,7 +420,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			// If the size was just a default, check for a size prereq and use that instead.
 			if (obj.get(FormulaKey.SIZE) == null && obj.hasPreReqTypeOf("SIZE"))
 			{
-				Integer requiredSize = getRequiredSize(obj);
+				Integer requiredSize = getRequiredSize(context, obj);
 				if (requiredSize != null)
 				{
 					sizeFormula = FormulaFactory.getFormulaFor(requiredSize);
@@ -460,7 +459,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	 * @param obj The defining object. 
 	 * @return The size integer, or null if none (or multiple) specified.
 	 */
-	private Integer getRequiredSize(CDOMObject obj)
+	private Integer getRequiredSize(LoadContext context, CDOMObject obj)
 	{
 		Set<Prerequisite> sizePrereqs = new HashSet<>();
 		for (Prerequisite prereq : obj.getPrerequisiteList())
@@ -472,9 +471,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		for (Prerequisite prereq : sizePrereqs)
 		{
 			SizeAdjustment sa =
-					Globals
-						.getContext()
-						.getReferenceContext()
+						context.getReferenceContext()
 						.silentlyGetConstructedCDOMObject(SizeAdjustment.class,
 							prereq.getOperand());
 			final int targetSize = sa.get(IntegerKey.SIZEORDER);

@@ -15,8 +15,16 @@
  */
 package pcgen.base.solver;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Arrays;
 import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
@@ -47,15 +55,7 @@ import pcgen.cdom.reference.CDOMFactory;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.ModifierFactory;
-
-import org.junit.Before;
-import org.junit.Test;
 import plugin.function.DropIntoContext;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 public class SetSolverManagerTest
 {
@@ -65,12 +65,6 @@ public class SetSolverManagerTest
 		public String getIdentification()
 		{
 			return "SET";
-		}
-
-		@Override
-		public Class getVariableFormat()
-		{
-			return Equipment.class;
 		}
 
 		@Override
@@ -120,23 +114,25 @@ public class SetSolverManagerTest
 		SolverFactory solverFactory = new SolverFactory();
 		ModifierFactory am1 = new plugin.modifier.set.SetModifierFactory<>();
 		PCGenModifier emptyArrayMod =
-				am1.getModifier(0, "", managerFactory, null, globalScope, arrayManager);
+				am1.getModifier("", managerFactory, null, globalScope, arrayManager);
 		solverFactory.addSolverFormat(arrayManager.getManagedClass(), emptyArrayMod);
 		
 		NEPCalculation calc = new ProcessCalculation<>(new Equipment(),
 				new BasicSet(), equipmentManager);
-		CalculationModifier em = new CalculationModifier<>(calc, 0);
+		CalculationModifier em = new CalculationModifier<>(calc, equipmentManager);
 		solverFactory.addSolverFormat(Equipment.class, em);
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
 		ModifierFactory mfn = new plugin.modifier.number.SetModifierFactory();
-		Modifier mod =
-				mfn.getModifier(0, "0", managerFactory, null, globalScope, numberManager);
+		PCGenModifier mod =
+				mfn.getModifier("0", managerFactory, null, globalScope, numberManager);
+		mod.addAssociation("PRIORITY=0");
 		solverFactory.addSolverFormat(numberManager.getManagedClass(), mod);
 		ModifierFactory mfs = new plugin.modifier.string.SetModifierFactory();
 		Modifier mods =
-				mfs.getModifier(0, "", managerFactory, null, globalScope, stringManager);
+				mfs.getModifier("", managerFactory, null, globalScope, stringManager);
 		solverFactory.addSolverFormat(stringManager.getManagedClass(), mods);
+
 	}
 
 	@Test
@@ -155,9 +151,10 @@ public class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am1 = new plugin.modifier.set.AddModifierFactory<>();
-		PCGenModifier mod = am1.getModifier(2000, "France,England", new ManagerFactory()
+		PCGenModifier mod = am1.getModifier("France,England", new ManagerFactory()
 		{
 		}, null, globalScope, arrayManager);
+		mod.addAssociation("PRIORITY=2000");
 		manager.addModifier(regions, mod, scopeInst);
 		array = vc.get(regions);
 		assertThat(2, is(array.length));
@@ -169,9 +166,10 @@ public class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am2 = new plugin.modifier.set.AddModifierFactory<>();
-		mod = am2.getModifier(3000, "Greece,England", new ManagerFactory()
+		mod = am2.getModifier("Greece,England", new ManagerFactory()
 		{
 		}, null, globalScope, arrayManager);
+		mod.addAssociation("PRIORITY=3000");
 		manager.addModifier(regions, mod, scopeInst);
 		array = vc.get(regions);
 		assertThat(3, is(array.length));
@@ -213,27 +211,31 @@ public class SetSolverManagerTest
 		
 		ModifierFactory am1 = new plugin.modifier.number.SetModifierFactory();
 		ModifierFactory amString = new plugin.modifier.string.SetModifierFactory();
-		PCGenModifier mod2 = am1.getModifier(2000, "2", new ManagerFactory()
+		PCGenModifier mod2 = am1.getModifier("2", new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
-		PCGenModifier mod3 = am1.getModifier(2000, "3", new ManagerFactory()
+		mod2.addAssociation("PRIORITY=2000");
+		PCGenModifier mod3 = am1.getModifier("3", new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
-		PCGenModifier mod4 = am1.getModifier(3000, "4", new ManagerFactory()
+		mod3.addAssociation("PRIORITY=2000");
+		PCGenModifier mod4 = am1.getModifier("4", new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
+		mod4.addAssociation("PRIORITY=3000");
 		String formula = "dropIntoContext(\"EQUIPMENT\",EquipVar,LocalVar)";
-		PCGenModifier modf = am1.getModifier(2000, formula, new ManagerFactory()
+		PCGenModifier modf = am1.getModifier(formula, new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
+		modf.addAssociation("PRIORITY=2000");
 		
 		NEPCalculation calc1 = new ProcessCalculation<>(equip,
 				new BasicSet(), equipmentManager);
-		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, 2000);
+		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, equipmentManager);
 
 		NEPCalculation calc2 = new ProcessCalculation<>(equipalt,
 				new BasicSet(), equipmentManager);
-		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, 3000);
+		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, equipmentManager);
 
 		manager.addModifier(varIDe, mod2, scopeInste);
 		manager.addModifier(varIDa, mod3, scopeInsta);

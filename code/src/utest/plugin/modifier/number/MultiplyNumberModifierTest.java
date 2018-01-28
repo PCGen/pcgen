@@ -17,18 +17,20 @@
  */
 package plugin.modifier.number;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+
 import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 import pcgen.rules.persistence.token.ModifierFactory;
-
-import org.junit.Test;
 import plugin.modifier.testsupport.EvalManagerUtilities;
-import static org.junit.Assert.*;
 
 public class MultiplyNumberModifierTest
 {
@@ -42,7 +44,7 @@ public class MultiplyNumberModifierTest
 		try
 		{
 			ModifierFactory m = new MultiplyModifierFactory();
-			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, new ManagerFactory(){}, null, null, null);
 			fail("Expected MultiplyModifier with null multiply value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -195,10 +197,11 @@ public class MultiplyNumberModifierTest
 	public void testGetModifier()
 	{
 		MultiplyModifierFactory factory = new MultiplyModifierFactory();
-		Modifier<Number> modifier =
-				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
+		PCGenModifier<Number> modifier =
+				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertSame(Number.class, modifier.getVariableFormat());
+		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(27.95, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
 }

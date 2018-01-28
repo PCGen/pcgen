@@ -199,11 +199,11 @@ public class GameModeFileLoader extends PCGenTask
 
 				// Load sizeAdjustment.lst
 				GameModeFileLoader.loadGameModeLstFile(context, sizeLoader, gmName, gameFile,
-									"sizeAdjustment.lst");
+									"sizeAdjustment.lst", false);
 
 				// Load statsandchecks.lst
 				GameModeFileLoader.loadGameModeLstFile(context, statCheckLoader, gmName, gameFile,
-									"statsandchecks.lst");
+									"statsandchecks.lst", false);
 
 				// Load equipIcons.lst
 				GameModeFileLoader.loadGameModeLstFile(context, equipIconLoader, gmName, gameFile,

@@ -56,27 +56,27 @@ public class MasterModifierFactory
 	}
 
 	/**
-	 * Returns a Modifier representing the information given in the parameters.
+	 * Returns a PCGenModifier representing the information given in the
+	 * parameters.
 	 * 
 	 * @param modIdentifier
 	 *            The Identifier of the Modifier (indicating the general
 	 *            function being performed, e.g. ADD)
 	 * @param modInstructions
 	 *            The Instructions of the Modifier (indicating the actual value
-	 *            the Modifier will use)
+	 *            the PCGenModifier will use)
 	 * @param managerFactory
 	 *            The ManagerFactory to be used to support analyzing the
 	 *            instructions
-	 * @param priorityNumber
-	 *            The user priority of the Modifier to be produced
 	 * @param varScope
-	 *            The VariableScope for the Modifier to be returned
+	 *            The VariableScope for the PCGenModifier to be returned
 	 * @param formatManager
-	 *            The FormatManager for the Modifier to be returned
-	 * @return a Modifier representing the information given in the parameters
+	 *            The FormatManager for the PCGenModifier to be returned
+	 * @return a PCGenModifier representing the information given in the
+	 *         parameters
 	 */
-	public <T> PCGenModifier<T> getModifier(String modIdentifier, String modInstructions,
-		ManagerFactory managerFactory, int priorityNumber, LegalScope varScope,
+	public <T> PCGenModifier<T> getModifier(String modIdentifier,
+		String modInstructions, ManagerFactory managerFactory, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
 		Class<T> varClass = formatManager.getManagedClass();
@@ -88,13 +88,13 @@ public class MasterModifierFactory
 				"Requested unknown ModifierType: " + varClass.getSimpleName()
 					+ " " + modIdentifier);
 		}
-		PCGenModifier<T> modifier = factory.getModifier(priorityNumber, modInstructions,
+		PCGenModifier<T> modifier = factory.getModifier(modInstructions,
 			managerFactory, formulaManager, varScope, formatManager);
 		/*
 		 * getDependencies needs to be called during LST load, so that object references are captured
 		 */
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			null, formatManager.getManagedClass());
+			null, formatManager);
 		fdm = fdm.getWith(DependencyManager.VARSTRATEGY, new IgnoreVariables());
 		fdm = fdm.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
 		modifier.getDependencies(fdm);

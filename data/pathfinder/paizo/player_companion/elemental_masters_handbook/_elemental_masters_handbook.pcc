@@ -1,0 +1,56 @@
+CAMPAIGN:Elemental Master's Handbook
+GAMEMODE:Pathfinder
+RANK:3
+TYPE:Paizo Publishing.Pathfinder Player Companion
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:Alpha
+PRECAMPAIGN:9,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Intrigue,INCLUDES=Advanced Race Guide,INCLUDES=Advanced Class Guide,INCLUDES=Occult Adventures
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+#PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Elemental Master's Handbook
+SOURCESHORT:EMH
+SOURCEWEB:http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook
+SOURCEDATE:2017-08
+ISOGL:YES
+
+COVER:elemental_masters_handbook.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook|Buy this publication from Paizo Publishing!
+DESC:Seize Primal Power! The earth, flames, waves, and wind that make up all natural landscapes might seem like mere backgrounds for characters' heroics, but those who understand the fundamental makeup of nature know that these core elements can lend incredible power. Learn how to harness the building blocks of existence with breathtaking feats, magic items, spells, and much more. Plus, characters with an affinity for the elements can train in one of the many archetypes and other character options presented in Pathfinder Player Companion: Elemental Master's Handbook.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Genie, Marid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Elemental Master's Handbook Copyright 2017, Paizo Inc.; Authors: John Compton, Eleanor Ferron, Mikko Kallio, Jason Keeley, Isabelle Lee, and Christopher Wasko.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Elemental Master's Handbook" Copyright 2017, PCgen Data team (including but not limited to Gwen T. (evilpixie87), Paul Grosse, and Andrew Maitland)
+
+ABILITY:emh_abilities.lst
+ABILITY:emh_abilities_class.lst
+ABILITY:emh_abilities_race.lst
+ABILITYCATEGORY:emh_abilitycategories.lst
+CLASS:emh_classes.lst
+EQUIPMENT:emh_equip_arms_armor.lst
+EQUIPMENT:emh_equip_general.lst
+EQUIPMENT:emh_equip_magic_items.lst
+ABILITY:emh_feats.lst
+SKILL:emh_skills.lst
+SPELL:emh_spells.lst
+TEMPLATE:emh_templates.lst
+
+ABILITY:support/emh_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/emh_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+CLASS:support/emh_classes_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+
+
+FORWARDREF:SPELL|Wall of Ectoplasm
+
+
+
+
+

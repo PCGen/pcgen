@@ -37,7 +37,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 {
 
 	@Override
-	public PCGenModifier<CDOMObject> getModifier(int userPriority, String instructions,
+	public PCGenModifier<CDOMObject> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<CDOMObject> formatManager)
 	{
@@ -48,7 +48,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 		}
 		Indirect<CDOMObject> n = formatManager.convertIndirect(instructions);
 		NEPCalculation<CDOMObject> calc = new IndirectCalculation<>(n, this);
-		return new CalculationModifier<>(calc, userPriority);
+		return new CalculationModifier<>(calc, formatManager);
 	}
 
 	/**

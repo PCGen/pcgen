@@ -17,17 +17,19 @@
  */
 package plugin.modifier.string;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.format.StringManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 import pcgen.rules.persistence.token.ModifierFactory;
-
-import org.junit.Test;
 import plugin.modifier.testsupport.EvalManagerUtilities;
-import static org.junit.Assert.*;
 
 public class SetStringModifierTest
 {
@@ -41,7 +43,7 @@ public class SetStringModifierTest
 		try
 		{
 			SetModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -54,10 +56,11 @@ public class SetStringModifierTest
 	public void testGetModifier()
 	{
 		ModifierFactory<String> factory = new SetModifierFactory();
-		Modifier<String> modifier =
-				factory.getModifier(5, "MyString", new ManagerFactory(){}, null, varScope, stringManager);
+		PCGenModifier<String> modifier =
+				factory.getModifier("MyString", new ManagerFactory(){}, null, varScope, stringManager);
+		modifier.addAssociation("PRIORITY=5");
 		assertEquals(5L <<32, modifier.getPriority());
-		assertSame(String.class, modifier.getVariableFormat());
+		assertEquals(stringManager, modifier.getVariableFormat());
 		assertEquals("MyString", modifier.process(EvalManagerUtilities.getInputEM("Wrong Answer")));
 	}
 

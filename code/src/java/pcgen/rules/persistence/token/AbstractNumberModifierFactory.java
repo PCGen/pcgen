@@ -35,29 +35,29 @@ public abstract class AbstractNumberModifierFactory<T> implements
 {
 
 	@Override
-	public PCGenModifier<T> getModifier(int userPriority, String instructions,
+	public PCGenModifier<T> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
 		try
 		{
-			return getFixedModifier(userPriority, formatManager, instructions);
+			return getFixedModifier(formatManager, instructions);
 		}
 		catch (NumberFormatException e)
 		{
 			final NEPFormula<T> f = FormulaFactory.getValidFormula(instructions,
 				managerFactory, formulaManager, varScope, formatManager);
 			NEPCalculation<T> calc = new FormulaCalculation<>(f, this);
-			return new CalculationModifier<>(calc, userPriority);
+			return new CalculationModifier<>(calc, formatManager);
 		}
 	}
 
 	@Override
-	public PCGenModifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> fmtManager, String instructions)
+	public PCGenModifier<T> getFixedModifier(
+		FormatManager<T> formatManager, String instructions)
 	{
-		T n = fmtManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
-		return new CalculationModifier<>(calc, userPriority);
+		T n = formatManager.convert(instructions);
+		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);
+		return new CalculationModifier<>(calc, formatManager);
 	}
 }

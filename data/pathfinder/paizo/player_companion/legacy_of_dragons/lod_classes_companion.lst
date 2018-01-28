@@ -1,0 +1,9 @@
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Legacy of Dragons	SOURCESHORT:LoD	SOURCEWEB:http://paizo.com/products/btpy9nfl?Pathfinder-Player-Companion-Legacy-of-Dragons	SOURCEDATE:2016-08
+# Original Entry By: Gwen T. (evilpixie87)
+
+# Class Name		Output Name				Hit Dice	Type				Max Level	Source Page		Visible	Combat bonus																Save bonus																				Modify VAR																																																												FACT
+CLASS:Drake Companion	OUTPUTNAME:Drake Companion	HD:12		TYPE:Monster.Companion	MAXLEVEL:20	SOURCEPAGE:p.22	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|Monster	FACT:Abb|DC
+# Class Name		Skill Pts/Lvl
+CLASS:Drake Companion	STARTSKILLPTS:3
+1	ABILITY:FEAT|AUTOMATIC|CMB Output

@@ -29,7 +29,6 @@ import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.rules.persistence.token.ModifierFactory;
@@ -63,21 +62,20 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	}
 
 	@Override
-	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
+	public PCGenModifier<T[]> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);
-		return new AddIndirectArrayModifier(formatManager, userPriority,
-			indirect);
+		return new AddIndirectArrayModifier(formatManager, indirect);
 	}
 
 	@Override
-	public Modifier<T[]> getFixedModifier(int userPriority,
-		FormatManager<T[]> fmtManager, String instructions)
+	public PCGenModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager,
+		String instructions)
 	{
 		T[] toAdd = fmtManager.convert(instructions);
-		return new AddDirectArrayModifier(fmtManager, userPriority, toAdd);
+		return new AddDirectArrayModifier(fmtManager, toAdd);
 	}
 
 	/**
@@ -93,9 +91,9 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		private T[] toAdd;
 
 		private AddDirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, T[] toAdd)
+			T[] toAdd)
 		{
-			super(formatManager, userPriority);
+			super(formatManager);
 			this.toAdd = toAdd;
 		}
 
@@ -126,9 +124,9 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		private Indirect<T[]> toAdd;
 
 		private AddIndirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, Indirect<T[]> toAdd)
+			Indirect<T[]> toAdd)
 		{
-			super(formatManager, userPriority);
+			super(formatManager);
 			this.toAdd = toAdd;
 		}
 
@@ -152,30 +150,17 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	private abstract class AddArrayModifier extends AbstractPCGenModifier<T[]>
 	{
 
-		/**
-		 * The user priority of this AddModifier
-		 */
-		private final int userPriority;
-
 		private final FormatManager<T[]> fmtManager;
 
-		protected AddArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority)
+		AddArrayModifier(FormatManager<T[]> formatManager)
 		{
 			this.fmtManager = formatManager;
-			this.userPriority = userPriority;
-		}
-
-		@Override
-		public int getUserPriority()
-		{
-			return userPriority;
 		}
 
 		@Override
 		public long getPriority()
 		{
-			return ((long) userPriority << 32) + 3;
+			return ((long) getUserPriority() << 32) + 3;
 		}
 
 		@Override
@@ -201,9 +186,9 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		protected abstract T[] getArray();
 
 		@Override
-		public Class<T[]> getVariableFormat()
+		public FormatManager<T[]> getVariableFormat()
 		{
-			return fmtManager.getManagedClass();
+			return fmtManager;
 		}
 
 		@Override

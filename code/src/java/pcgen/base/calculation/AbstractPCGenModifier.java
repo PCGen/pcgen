@@ -16,8 +16,10 @@
 package pcgen.base.calculation;
 
 import java.util.Collection;
+import java.util.Collections;
 
 import pcgen.base.util.Indirect;
+import pcgen.cdom.formula.AssociationUtilities;
 
 /**
  * An AbstractPCGenModifier is a PCGenModifier that supports generalized management of
@@ -30,6 +32,12 @@ public abstract class AbstractPCGenModifier<T> implements PCGenModifier<T>
 {
 
 	/**
+	 * The user priority of this SetModifier. Stored as an Object so we can detect "null"
+	 * - meaning it was unset in the data and we should not write out PRIORITY=0
+	 */
+	private Integer userPriority;
+
+	/**
 	 * The object references referred to by the embedded AbstractPCGenModifier.
 	 * 
 	 * NOTE: DO NOT DELETE THIS EVEN THOUGH IT APPEARS UNUSED. Its use is holding the
@@ -37,6 +45,32 @@ public abstract class AbstractPCGenModifier<T> implements PCGenModifier<T>
 	 */
 	@SuppressWarnings("unused")
 	private Collection<Indirect<?>> references;
+	
+	protected int getUserPriority()
+	{
+		return (userPriority == null) ? 0 : userPriority;
+	}
+
+	@Override
+	public void addAssociation(String assocInstructions)
+	{
+		userPriority =
+				AssociationUtilities.processUserPriority(assocInstructions);
+	}
+
+	@Override
+	public Collection<String> getAssociationInstructions()
+	{
+		if (userPriority == null)
+		{
+			return Collections.emptyList();
+		}
+		else
+		{
+			String priority = AssociationUtilities.unprocessUserPriority(userPriority);
+			return Collections.singleton(priority);
+		}
+	}
 
 	@Override
 	public void addReferences(Collection<Indirect<?>> collection)

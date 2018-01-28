@@ -37,6 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Dirty Tacti
 ABILITY:dtt_abilities.lst
 ABILITY:dtt_abilities_class.lst
 ABILITY:dtt_abilities_companion.lst
+ABILITYCATEGORY:dtt_abilitycategories.lst
 COMPANIONMOD:dtt_companionmods.lst
 EQUIPMENT:dtt_equip_arms_armor.lst
 EQUIPMENT:dtt_equip_general.lst

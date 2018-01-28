@@ -21,7 +21,6 @@ import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -54,30 +53,45 @@ public interface ModifierFactory<T>
 	public Class<T> getVariableFormat();
 
 	/**
-	 * Returns a Modifier with the given user priority and instructions. The
-	 * instructions will be parsed, and an IllegalArgumentException thrown if
-	 * the instructions are not valid for this type of ModifierFactory.
+	 * Returns a PCGenModifier with the given instructions. The instructions
+	 * will be parsed, and an IllegalArgumentException thrown if the
+	 * instructions are not valid for this type of ModifierFactory.
 	 * 
-	 * @param userPriority
-	 *            The User Priority for the Modifier to be returned
 	 * @param instructions
-	 *            The String form of the instructions of the Modifier to be
+	 *            The String form of the instructions of the PCGenModifier to be
 	 *            returned
 	 * @param managerFactory
 	 *            The ManagerFactory to be used to support analyzing the
 	 *            instructions
 	 * @param formulaManager
 	 *            The FormulaManager used, if necessary, to initialize the
-	 *            Modifier to be returned
+	 *            PCGenModifier to be returned
 	 * @param varScope
-	 *            The VariableScope for the Modifier to be returned
+	 *            The VariableScope for the PCGenModifier to be returned
 	 * @param formatManager
-	 *            The FormatManager for the Modifier to be returned
+	 *            The FormatManager for the PCGenModifier to be returned
+	 * @return a PCGenModifier with the given instructions
 	 */
-	public PCGenModifier<T> getModifier(int userPriority, String instructions,
+	public PCGenModifier<T> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<T> formatManager);
 
-	public Modifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> formatManager, String instructions);
+	/**
+	 * Returns a PCGenModifier with the given instructions.
+	 * 
+	 * The instructions must be Fixed (does not require a calculation to determine what it
+	 * means), or this method will throw an exception.
+	 * 
+	 * The instructions will be parsed, and an IllegalArgumentException thrown if the
+	 * instructions are not valid for this type of ModifierFactory.
+	 * 
+	 * @param formatManager
+	 *            The FormatManager for the PCGenModifier to be returned
+	 * @param instructions
+	 *            The String form of the instructions of the PCGenModifier to be returned
+	 * 
+	 * @return a PCGenModifier with the given instructions
+	 */
+	public PCGenModifier<T> getFixedModifier(FormatManager<T> formatManager,
+		String instructions);
 }

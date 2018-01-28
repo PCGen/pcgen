@@ -50,7 +50,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 	}
 
 	@Override
-	public PCGenModifier<Number> getModifier(int userPriority, String instructions,
+	public PCGenModifier<Number> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<Number> formatManager)
 	{
@@ -61,7 +61,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 		}
 		try
 		{
-			return getFixedModifier(userPriority, formatManager, instructions);
+			return getFixedModifier(formatManager, instructions);
 		}
 		catch (NumberFormatException e)
 		{
@@ -70,7 +70,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 						formulaManager, varScope, formatManager);
 			NEPCalculation<Number> calc =
 					new FormulaCalculation<>(f, this);
-			return new CalculationModifier<>(calc, userPriority);
+			return new CalculationModifier<>(calc, formatManager);
 		}
 	}
 

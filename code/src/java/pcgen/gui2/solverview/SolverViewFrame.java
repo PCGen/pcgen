@@ -26,6 +26,7 @@ import java.awt.event.ActionListener;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -34,6 +35,7 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
+
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
@@ -112,6 +114,12 @@ public class SolverViewFrame extends JFrame
 	private void update()
 	{
 		updateObjects();
+		if ((activeObject == null) && (selectedScope.getParentScope() != null))
+		{
+			//scopeFacet will error if we continue...
+			tableModel.setSteps(Collections.emptyList());
+			return;
+		}
 		ScopeInstance scope =
 				scopeFacet.get(activeIdentifier, selectedScope.getName(), activeObject);
 		if (variableLibraryFacet
@@ -350,7 +358,7 @@ public class SolverViewFrame extends JFrame
 				case 2:
 					return ps.getResult();
 				case 3:
-					return ((PCGenModifier<?>) ps.getModifier()).getUserPriority();
+					return ((PCGenModifier<?>) ps.getModifier()).getPriority();
 				case 4:
 					return ps.getSourceInfo();
 				default:
