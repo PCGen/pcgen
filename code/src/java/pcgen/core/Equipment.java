@@ -6086,6 +6086,7 @@ public final class Equipment extends PObject implements Serializable,
 				heads.add(null);
 			}
 			head = new EquipmentHead(this, index);
+			head.setName(Integer.toString(index));
 			heads.add(head);
 		}
 		else
@@ -6094,6 +6095,7 @@ public final class Equipment extends PObject implements Serializable,
 			if (head == null)
 			{
 				head = new EquipmentHead(this, index);
+				head.setName(Integer.toString(index));
 				heads.set(headsIndex, head);
 			}
 		}
@@ -6666,5 +6668,21 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 		return resultFacet.getLocalVariable(id, this, varName);
+	}
+
+	@Override
+	public CDOMObject getLocalChild(String childType, String childName)
+	{
+		if ("PART".equalsIgnoreCase(childType))
+		{
+			for(EquipmentHead head : heads)
+			{
+				if (head.getKeyName().equals(childName))
+				{
+					return head;
+				}
+			}
+		}
+		return null;
 	}
 }

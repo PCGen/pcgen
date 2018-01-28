@@ -1214,4 +1214,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return null;
 	}
 
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
+	public CDOMObject getLocalChild(String childType, String childName)
+	{
+		//I don't have any children by default
+		return null;
+	}
+
 }
