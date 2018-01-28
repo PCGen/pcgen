@@ -229,13 +229,12 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 */
 	public FormatManager<?> visitVariable(String varName, DependencyManager manager)
 	{
-		FormatManager<?> formatManager = getVariableFormat(manager, varName);
 		VariableStrategy varStrategy = manager.get(DependencyManager.VARSTRATEGY);
 		if (varStrategy != null)
 		{
 			varStrategy.addVariable(manager, varName);
 		}
-		return formatManager;
+		return getVariableFormat(manager, varName);
 	}
 
 	/**
@@ -253,7 +252,12 @@ public class DependencyVisitor implements FormulaParserVisitor
 	public FormatManager<?> getVariableFormat(DependencyManager manager, String varName)
 	{
 		VariableLibrary varLib = manager.get(DependencyManager.FMANAGER).getFactory();
-		LegalScope legalScope = manager.get(DependencyManager.INSTANCE).getLegalScope();
+		LegalScope legalScope = manager.get(DependencyManager.SCOPE);
+		if (legalScope == null)
+		{
+			//Fall back to INSTANCE
+			legalScope = manager.get(DependencyManager.INSTANCE).getLegalScope();
+		}
 		return varLib.getVariableFormat(legalScope, varName);
 	}
 

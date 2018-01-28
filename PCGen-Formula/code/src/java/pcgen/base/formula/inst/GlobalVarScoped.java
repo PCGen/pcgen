@@ -63,4 +63,9 @@ public class GlobalVarScoped implements VarScoped
 		return null;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "Global Variable Scope";
+	}
 }

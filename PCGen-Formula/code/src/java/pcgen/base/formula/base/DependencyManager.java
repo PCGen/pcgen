@@ -47,7 +47,18 @@ public class DependencyManager
 	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
 
 	/**
-	 * A TypedKey used for storing the ScopeInstance contained in this DependencyManager
+	 * A TypedKey used for storing the LegalScope contained in this DependencyManager.
+	 * 
+	 * The SCOPE TypedKey is required if the INSTANCE TypedKey is not used.  Otherwise,
+	 * for DependencyVisitor it is optional.
+	 */
+	public static final TypedKey<LegalScope> SCOPE = new TypedKey<>();
+
+	/**
+	 * A TypedKey used for storing the ScopeInstance contained in this DependencyManager.
+	 * 
+	 * The INSTANCE TypedKey is optional; it may be required by some VariableStrategy
+	 * objects or other specific situations.
 	 */
 	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<>();
 
