@@ -25,7 +25,6 @@ import java.util.Set;
 
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -82,8 +81,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 				context);
 		}
 
-		ScopeInstance scopeInst = context.getActiveScope();
-		LegalScope scope = scopeInst.getLegalScope();
+		LegalScope scope = context.getActiveScope();
 		String varName = sep.next();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{

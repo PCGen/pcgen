@@ -65,7 +65,7 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 		VariableContext varContext = context.getVariableContext();
 		for (String name : val)
 		{
-			LegalScope scope = context.getActiveScope().getLegalScope();
+			LegalScope scope = context.getActiveScope();
 			if (!varContext.isLegalVariableID(scope, name))
 			{
 				return new ParseResult.Fail(getTokenName()

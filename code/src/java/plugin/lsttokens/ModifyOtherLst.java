@@ -26,7 +26,6 @@ import java.util.Set;
 
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.text.ParsingSeparator;
@@ -102,8 +101,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 	private <GT extends VarScoped> ParseResult continueParsing(
 		LoadContext context, CDOMObject obj, String value, ParsingSeparator sep)
 	{
-		ScopeInstance scopeInst = context.getActiveScope();
-		final LegalScope scope = scopeInst.getLegalScope();
+		final LegalScope scope = context.getActiveScope();
 		final String groupingName = sep.next();
 		ObjectGrouping group;
 		if (groupingName.startsWith("GROUP="))
