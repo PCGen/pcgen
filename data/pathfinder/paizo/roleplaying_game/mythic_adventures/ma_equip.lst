@@ -4,18 +4,18 @@
 ###Block: Base Item.COPY= New Item
 # Shields and Armor
 # Equipment Name
-Shield (Heavy/Steel).COPY=Bastion of the Inheritor
-Leather.COPY=Spiritwalk Armor
+Heavy Steel Shield.COPY=Bastion of the Inheritor
+Leather Armor.COPY=Spiritwalk Armor
 Breastplate.COPY=Stalwart Breastplate
 # Weapons
-Longbow (Composite).COPY=Bow of Erastil
+Composite Longbow.COPY=Bow of Erastil
 Greataxe.COPY=Brutal Axe
 Warhammer.COPY=Chaos Hammer
 Dagger.COPY=Dagger of a Thousand Bites
 Longbow.COPY=Dragonbreath Bow
 Scimitar.COPY=Fire Goddess's Blade
 Pepperbox.COPY=Gun with no Name
-Pick (Heavy).COPY=Pick of Stonecleaving
+Heavy Pick.COPY=Pick of Stonecleaving
 Longsword.COPY=Sacred Avenger
 Quarterstaff.COPY=Shadow Spike
 Dagger.COPY=Shadow's Touch
@@ -117,13 +117,13 @@ Torc of Truespeech							TYPE:Magic.Wondrous.Amulet		COST:60000	WT:2		SOURCEPAGE
 
 ###Block: Artifacts
 # Equipment Name						Product Identity?	Type										Weight	Modifier					Source Page		Stat bonus					Weapon prop. bonus
-Shield (Heavy/Steel).COPY=Aegis
+Heavy Steel Shield.COPY=Aegis
 Greataxe.COPY=Black Iron Axe
 Longspear.COPY=Screaming Spear of the Sun
 Greatsword.COPY=Sword of the Mists
 Kukri.COPY=Witherfang
 Dagger.COPY=Legendsbane
-Mace (Light).COPY=Scepter of the Shining Lord
+Light Mace.COPY=Scepter of the Shining Lord
 
 Aegis.MOD										TYPE:Artifact.Minor						WT:15		EQMOD:Special Ability ~ Determination ~ Armor.Special Ability ~ +4 ~ Shield			SOURCEPAGE:p.
 Black Iron Axe.MOD								TYPE:Artifact.Minor						WT:12		EQMOD:Special Ability ~ Keen ~ Weapon.Special Ability ~ +5 ~ Weapon.Special Ability ~ Vorpal ~ Melee		SOURCEPAGE:p.							BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement.STACK

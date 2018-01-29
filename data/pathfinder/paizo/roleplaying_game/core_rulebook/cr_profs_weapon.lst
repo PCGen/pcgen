@@ -7,8 +7,8 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # -- unarmed
 # Weapon Name			Type
 Grapple				TYPE:Auto.Simple.Melee.Unarmed.Bludgeoning
-Spells (Ray)			TYPE:Auto.Simple.RangedTouch.Spell
-Spells (Touch)			TYPE:Auto.Simple.RangedTouch.Spell
+Ray Spells			TYPE:Auto.Simple.RangedTouch.Spell
+Touch Spells			TYPE:Auto.Simple.RangedTouch.Spell
 Splash Weapon			TYPE:Auto.Simple.Ranged.Splash
 Unarmed Strike			TYPE:Auto.Simple.Light.Melee.Unarmed.Bludgeoning
 # Other
@@ -17,13 +17,13 @@ Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 
 # -- light melee
 Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
-Dagger (Punching)			TYPE:Simple.Light.Melee.Dagger.Piercing.MeleePiercing
-Gauntlet (Spiked)			TYPE:Simple.Light.Melee.Piercing.MeleePiercing.Unarmed
-Mace (Light)			TYPE:Simple.Light.Melee.Bludgeoning.Mace
+Punching Dagger			TYPE:Simple.Light.Melee.Dagger.Piercing.MeleePiercing
+Spiked Gauntlet			TYPE:Simple.Light.Melee.Piercing.MeleePiercing.Unarmed
+Light Mace			TYPE:Simple.Light.Melee.Bludgeoning.Mace
 Sickle				TYPE:Simple.Light.Melee.Slashing.Sickle.MeleeSlashing
 # -- 1-handers
 Club					TYPE:Simple.OneHanded.Melee.Bludgeoning.Club
-Mace (Heavy)			TYPE:Simple.OneHanded.Melee.Bludgeoning.MeleeBludgeoning
+Heavy Mace			TYPE:Simple.OneHanded.Melee.Bludgeoning.MeleeBludgeoning
 Morningstar				TYPE:Simple.OneHanded.Melee.Bludgeoning.MeleeBludgeoning.Piercing.MeleePiercing
 Shortspear				TYPE:Simple.OneHanded.Melee.Piercing.MeleePiercing.Spear
 # -- 2-handers
@@ -32,29 +32,29 @@ Quarterstaff			TYPE:Simple.TwoHanded.Melee.Quarterstaff.DoubleWeapon.Bludgeoning
 Spear					TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.Spear
 # -- Ranged
 Blowgun				TYPE:Simple.Ranged.Piercing.RangedPiercing.Blowgun
-Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery
-Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery
+Heavy Crossbow			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery
+Light Crossbow			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery
 Dart					TYPE:Simple.Thrown.Piercing.RangedPiercing
 Javelin				TYPE:Simple.Thrown.Piercing.RangedPiercing.Spear
 Sling					TYPE:Simple.Ranged.Bludgeoning.RangedBludgeoning
 
 # Martial
 # -- light
-Axe (Throwing)			TYPE:Martial.Light.Thrown.Slashing.Axe.LightMartial
-Hammer (Light)			TYPE:Martial.Light.Thrown.Melee.Bludgeoning.Hammer.LightMartial
+Throwing Axe			TYPE:Martial.Light.Thrown.Slashing.Axe.LightMartial
+Light Hammer			TYPE:Martial.Light.Thrown.Melee.Bludgeoning.Hammer.LightMartial
 Handaxe				TYPE:Martial.Light.Melee.Slashing.MeleeSlashing.Axe.LightMartial
 Kukri					TYPE:Martial.Light.Melee.Slashing.MeleeSlashing.LightMartial
-Pick (Light)			TYPE:Martial.Light.Melee.Piercing.MeleePiercing.Pick.Axe.LightMartial
+Light Pick			TYPE:Martial.Light.Melee.Piercing.MeleePiercing.Pick.Axe.LightMartial
 Sap					TYPE:Martial.Light.Melee.Bludgeoning.MeleeBludgeoning.LightMartial
 #Shieldbash (Light)		TYPE:Martial.Light.Melee.Bludgeoning.MeleeBludgeoning
 Spiked Armor			TYPE:Martial.Light.Melee.Piercing.MeleePiercing.LightMartial
 Starknife				TYPE:Martial.Light.Melee.Ranged.Piercing.MeleePiercing.RangedPiercing.Dagger.LightMartial
-Sword (Short)			TYPE:Martial.Light.Melee.Piercing.MeleePiercing.Sword.LightMartial
+Short Sword			TYPE:Martial.Light.Melee.Piercing.MeleePiercing.Sword.LightMartial
 # 1-handers
 Battleaxe				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Axe.OneHandedMartial
-Flail					TYPE:Martial.OneHanded.Melee.Bludgeoning.Flail.MeleeBludgeoning.OneHandedMartial
+Light Flail					TYPE:Martial.OneHanded.Melee.Bludgeoning.Flail.MeleeBludgeoning.OneHandedMartial
 Longsword				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword.OneHandedMartial
-Pick (Heavy)			TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Pick.Axe.OneHandedMartial
+Heavy Pick			TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Pick.Axe.OneHandedMartial
 Rapier				TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Sword.OneHandedMartial
 Scimitar				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword.OneHandedMartial
 #Shieldbash (Heavy)		TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning
@@ -65,7 +65,7 @@ Falchion				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword
 Glaive				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm
 Greataxe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Axe
 Greatclub				TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Club
-Flail (Heavy)			TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail
+Heavy Flail			TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail
 Greatsword				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword
 Guisarme				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm
 Halberd				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.Piercing.MeleePiercing
@@ -73,8 +73,8 @@ Lance					TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.Spear
 
 Ranseur				TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.Polearm
 Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing
-Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword
-Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.Dwarven
+Bastard Sword			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword
+Dwarven Waraxe			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.Dwarven
 # --ranged
 Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery
 Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery
@@ -87,21 +87,21 @@ Siangham				TYPE:Exotic.Light.Melee.Piercing.MeleePiercing
 # -- 1-handers
 Whip					TYPE:Exotic.OneHanded.Melee.Slashing.MeleeSlashing.Reach
 # -- 2-handers
-Axe (Orc Double)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Orc.Axe.DoubleWeapon
-Chain (Spiked)			TYPE:Exotic.TwoHanded.Melee.Piercing.MeleePiercing.Reach
-Curve Blade (Elven)		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.Elven
-Flail (Dire)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail
-Hammer (Gnome Hooked)		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Piercing.MeleePiercing.Hammer.Pick.Gnome
-Sword (Two-Bladed)		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.DoubleWeapon
-Urgrosh (Dwarven)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.Axe.DoubleWeapon.Dwarven
+Orc Double Axe			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Orc.Axe.DoubleWeapon
+Spiked Chain			TYPE:Exotic.TwoHanded.Melee.Piercing.MeleePiercing.Reach
+Elven Curve Blade		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.Elven
+Dire Flail			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail
+Gnome Hooked Hammer		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Piercing.MeleePiercing.Hammer.Pick.Gnome
+Two-Bladed Sword		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.DoubleWeapon
+Dwarven Urgrosh			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.Axe.DoubleWeapon.Dwarven
 # -- ranged
 Bolas					TYPE:Exotic.Thrown.Bludgeoning
-Crossbow (Hand)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
-Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
-Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
+Hand Crossbow			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
+Repeating Heavy Crossbow	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
+Repeating Light Crossbow	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
 Net					TYPE:Exotic.Thrown.Net
 Shuriken				TYPE:Exotic.Thrown.Piercing.RangedPiercing
-Sling Staff (Halfling)		TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Halfling
+Halfling Sling Staff		TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Halfling
 
 # SPECIALS
 Flurry of Blows			TYPE:Special.Light.Melee.Unarmed.Bludgeoning.Monk
@@ -115,30 +115,30 @@ Rock					TYPE:Simple.Ranged.Bludgeoning.Thrown.Rock
 #Axes:
 # Weapon Name				Type
 Battleaxe.MOD				TYPE:Axe.Weapon Group Axes
-Waraxe (Dwarven).MOD			TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
+Dwarven Waraxe.MOD			TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
 Greataxe.MOD				TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
 Handaxe.MOD					TYPE:Axe.Weapon Group Axes
-Pick (Heavy).MOD				TYPE:Axe.Weapon Group Axes
-Pick (Light).MOD				TYPE:Axe.Weapon Group Axes
-Axe (Orc Double).MOD			TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
-Axe (Throwing).MOD			TYPE:Axe.Weapon Group Axes
+Heavy Pick.MOD				TYPE:Axe.Weapon Group Axes
+Light Pick.MOD				TYPE:Axe.Weapon Group Axes
+Orc Double Axe.MOD			TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
+Throwing Axe.MOD			TYPE:Axe.Weapon Group Axes
 
 #Blades, Heavy:
-Sword (Bastard).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
-Curve Blade (Elven).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Bastard Sword.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
+Elven Curve Blade.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
 Falchion.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Greatsword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
 Longsword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Scimitar.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Scythe.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
-Sword (Two-Bladed).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
+Two-Bladed Sword.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
 
 #Blades, Light:
 Dagger.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Kama.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Kukri.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Rapier.MOD					TYPE:Bladelight.Weapon Group Blades Light
-Sword (Short).MOD				TYPE:Bladelight.Weapon Group Blades Light
+Short Sword.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Sickle.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Starknife.MOD				TYPE:Bladelight.Weapon Group Blades Light
 
@@ -150,46 +150,46 @@ Shortbow.MOD				TYPE:Bow.Weapon Group Bows
 
 #Close:
 Gauntlet.MOD				TYPE:Close.Weapon Group Close
-#Shield (Heavy).MOD	TYPE:Close
-#Shield (Light).MOD	TYPE:Close
+#Heavy Shield.MOD	TYPE:Close
+#Light Shield.MOD	TYPE:Close
 Shieldbash.MOD				TYPE:Close.Weapon Group Close
-Dagger (Punching).MOD			TYPE:Close.Weapon Group Close
+Punching Dagger.MOD			TYPE:Close.Weapon Group Close
 Sap.MOD					TYPE:Close.Weapon Group Close
 Spiked Armor.MOD				TYPE:Close.Weapon Group Close
-Gauntlet (Spiked).MOD			TYPE:Close.Weapon Group Close
+Spiked Gauntlet.MOD			TYPE:Close.Weapon Group Close
 #Spiked Shield.MOD				TYPE:Close.Weapon Group Close
 Unarmed Strike.MOD			TYPE:Close.Weapon Group Close
 
 #Crossbows:
-Crossbow (Hand).MOD			TYPE:Crossbow.Weapon Group Crossbows
-Crossbow (Heavy).MOD			TYPE:Crossbow.Weapon Group Crossbows
-Crossbow (Repeating Heavy).MOD	TYPE:Crossbow.Weapon Group Crossbows
-Crossbow (Light).MOD			TYPE:Crossbow.Weapon Group Crossbows
-Crossbow (Repeating Light).MOD	TYPE:Crossbow.Weapon Group Crossbows
+Hand Crossbow.MOD			TYPE:Crossbow.Weapon Group Crossbows
+Heavy Crossbow.MOD			TYPE:Crossbow.Weapon Group Crossbows
+Repeating Heavy Crossbow.MOD	TYPE:Crossbow.Weapon Group Crossbows
+Light Crossbow.MOD			TYPE:Crossbow.Weapon Group Crossbows
+Repeating Light Crossbow.MOD	TYPE:Crossbow.Weapon Group Crossbows
 
 #Double:
-Flail (Dire).MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
-Urgrosh (Dwarven).MOD			TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
-Hammer (Gnome Hooked).MOD		TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
-Axe (Orc Double).MOD			TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Dire Flail.MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Dwarven Urgrosh.MOD			TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Gnome Hooked Hammer.MOD		TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Orc Double Axe.MOD			TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
 Quarterstaff.MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
-Sword (Two-Bladed).MOD			TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Two-Bladed Sword.MOD			TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
 
 
 #Flails:
-Flail (Dire).MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
-Flail.MOD					TYPE:Flail.Weapon Group Flails
-Flail (Heavy).MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
+Dire Flail.MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
+Light Flail.MOD					TYPE:Flail.Weapon Group Flails
+Heavy Flail.MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Morningstar.MOD				TYPE:Flail.Weapon Group Flails
-Chain (Spiked).MOD			TYPE:Flail.Weapon Group Flails
+Spiked Chain.MOD			TYPE:Flail.Weapon Group Flails
 Whip.MOD					TYPE:Flail.Weapon Group Flails
 
 #Hammers:
 Club.MOD					TYPE:Hammer.Weapon Group Hammers
 Greatclub.MOD				TYPE:Hammer.Weapon Group Hammers.Weapon Group Hammers TwoHanded
-Mace (Heavy).MOD				TYPE:Hammer.Weapon Group Hammers
-Hammer (Light).MOD			TYPE:Hammer.Weapon Group Hammers
-Mace (Light).MOD				TYPE:Hammer.Weapon Group Hammers
+Heavy Mace.MOD				TYPE:Hammer.Weapon Group Hammers
+Light Hammer.MOD			TYPE:Hammer.Weapon Group Hammers
+Light Mace.MOD				TYPE:Hammer.Weapon Group Hammers
 Warhammer.MOD				TYPE:Hammer.Weapon Group Hammers
 
 #Monk:
@@ -228,34 +228,34 @@ Bolas.MOD					TYPE:Thrown.Weapon Group Thrown
 Club.MOD					TYPE:Thrown.Weapon Group Thrown
 Dagger.MOD					TYPE:Thrown.Weapon Group Thrown
 Dart.MOD					TYPE:Thrown.Weapon Group Thrown
-Sling Staff (Halfling).MOD		TYPE:Thrown.Weapon Group Thrown
+Halfling Sling Staff.MOD		TYPE:Thrown.Weapon Group Thrown
 Javelin.MOD					TYPE:Thrown.Weapon Group Thrown
-Hammer (Light).MOD			TYPE:Thrown.Weapon Group Thrown
+Light Hammer.MOD			TYPE:Thrown.Weapon Group Thrown
 Net.MOD					TYPE:Thrown.Weapon Group Thrown
 Shortspear.MOD				TYPE:Thrown.Weapon Group Thrown
 Shuriken.MOD				TYPE:Thrown.Weapon Group Thrown
 Sling.MOD					TYPE:Thrown.Weapon Group Thrown
 Spear.MOD					TYPE:Thrown.Weapon Group Thrown
 Starknife.MOD				TYPE:Thrown.Weapon Group Thrown
-Axe (Throwing).MOD			TYPE:Thrown.Weapon Group Thrown
+Throwing Axe.MOD			TYPE:Thrown.Weapon Group Thrown
 Trident.MOD					TYPE:Thrown.Weapon Group Thrown
 
 
 
 # swordlike weapons (including bastard swords, daggers, elven curve blades, falchions, greatswords, kukris, longswords,
 #punching daggers, rapiers, scimitars, short swords, and two-bladed swords).
-Sword (Bastard).MOD			TYPE:SwordLike.Tengu
+Bastard Sword.MOD			TYPE:SwordLike.Tengu
 Dagger.MOD					TYPE:SwordLike.Tengu
-Curve Blade (Elven).MOD			TYPE:SwordLike.Tengu
+Elven Curve Blade.MOD			TYPE:SwordLike.Tengu
 Falchion.MOD				TYPE:SwordLike.Tengu
 Greatsword.MOD				TYPE:SwordLike.Tengu
 Kukri.MOD					TYPE:SwordLike.Tengu
 Longsword.MOD				TYPE:SwordLike.Tengu
-Dagger (Punching).MOD			TYPE:SwordLike.Tengu
+Punching Dagger.MOD			TYPE:SwordLike.Tengu
 Rapier.MOD					TYPE:SwordLike.Tengu
 Scimitar.MOD				TYPE:SwordLike.Tengu
-Sword (Short).MOD				TYPE:SwordLike.Tengu
-Sword (Two-Bladed).MOD			TYPE:SwordLike.Tengu
+Short Sword.MOD				TYPE:SwordLike.Tengu
+Two-Bladed Sword.MOD			TYPE:SwordLike.Tengu
 
 # Simplify the system to avoid user confusion.
 #Bastard Sword (Exotic)			TYPE:ExoticExtra.SwordLike.Tengu

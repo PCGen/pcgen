@@ -34,8 +34,8 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #FEAT:Multiweapon Fighting
 #STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 #GEAR:Longbow		QTY:2	LOCATION:Carried	SIZE:PC
-#GEAR:Sword (Short)	LOCATION:Primary Hand	SIZE:PC
-#GEAR:Sword (Short)	LOCATION:Secondary Hand	SIZE:PC
+#GEAR:Short Sword	LOCATION:Primary Hand	SIZE:PC
+#GEAR:Short Sword	LOCATION:Secondary Hand	SIZE:PC
 
 #####
 #The STARTPACK tag MUST be the FIRST line of a new kit definition. It starts creation of a new kit. All lines following this

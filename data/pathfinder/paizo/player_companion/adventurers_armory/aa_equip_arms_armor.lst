@@ -15,9 +15,9 @@ Field Plate		PROFICIENCY:ARMOR|Full Plate								TYPE:Armor.Heavy.ArmorProfHeavy
 Stoneplate		PROFICIENCY:ARMOR|Stoneplate								TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard			COST:1800	WT:75		ACCHECK:-6		EQMOD:Material ~ Stone		MAXDEX:1		SOURCEPAGE:p.14	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
 
 #------shields---------
-Klar									PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close					COST:12	WT:6		ACCHECK:-1								SOURCEPAGE:p.12	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
-Madu (Leather)							PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close					COST:40	WT:5		ACCHECK:-2		EQMOD:Material ~ Leather				SOURCEPAGE:p.13	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
-Madu (Steel)							PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close					COST:50	WT:6		ACCHECK:-2		EQMOD:Material ~ Steel					SOURCEPAGE:p.13	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
+Klar									PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard.Close					COST:12	WT:6		ACCHECK:-1								SOURCEPAGE:p.12	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
+Madu (Leather)							PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard.Close					COST:40	WT:5		ACCHECK:-2		EQMOD:Material ~ Leather				SOURCEPAGE:p.13	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
+Madu (Steel)							PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard.Close					COST:50	WT:6		ACCHECK:-2		EQMOD:Material ~ Steel					SOURCEPAGE:p.13	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
 
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Jeff Baril

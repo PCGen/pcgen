@@ -4,26 +4,26 @@
 # Equipment Name
 Splint Mail.COPY=Backbreaker Mail
 Armored Coat.COPY=Blackjacket
-Shield (Heavy/Wooden).COPY=Broadside Bulwark
+Heavy Wooden Shield.COPY=Broadside Bulwark
 Full Plate.COPY=Crag Linnorm Plate
 Parade.COPY=Eagle Knight Dress Uniform
 Leaf Armor.COPY=Ekujae Jungle Armor
 Hellknight Plate.COPY=Gelugon Plate
-Hide.COPY=Ghoul Hide
-Shield (Tower).COPY=Guard of Man
+Hide Armor.COPY=Ghoul Hide
+Tower Shield.COPY=Guard of Man
 Klar.COPY=Lyrune-Quah Klar
-Hide.COPY=Mammoth Hide
+Hide Armor.COPY=Mammoth Hide
 Studded Leather.COPY=Mosswater Stained Leather
 Breastplate.COPY=Numerian Resistance Plate
 Madu (Leather).COPY=Okeno Madu
-Leather.COPY=Scouting Leather
+Leather Armor.COPY=Scouting Leather
 Chain Shirt.COPY=Truefaith Vestments
 Stoneplate.COPY=Tunnel Defender Stoneplate
 Field Plate.COPY=War Commander's Field Plate
 Half-Plate.COPY=Xill Carapace Armor
 
 # Weapons
-Curve blade (Elven).COPY=Calistrian Kiss
+Elven Curve Blade.COPY=Calistrian Kiss
 Sawtooth Sabre.COPY=Crimson Bluff
 Earth Breaker.COPY=Earth Breaker of Righted Injustice
 War Razor.COPY=Final Word
@@ -36,7 +36,7 @@ Quarterstaff.COPY=Quarterstaff of Contemplation
 Khopesh.COPY=Risen Blade
 Aldori Dueling Sword.COPY=Rostland Edge
 Bolas (Shoanti).COPY=Shadde-Quah Spirit Bolas
-Chain (Spiked).COPY=Shadowbound Chains
+Spiked Chain.COPY=Shadowbound Chains
 Greatsword.COPY=Shearing Sword
 Urumi.COPY=Steadfast Urumi
 Bladed Scarf.COPY=Wanderer's Scarf

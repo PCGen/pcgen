@@ -3,7 +3,7 @@ SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products
 
 #   All rods on pages 178-191, except rod of the viper, are legal for play.
 # Equipment Name					Type			!PRECHARACTERTYPE
-Rod (Viper).MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Rod of the Viper.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
 #   All staves on pages 192-203, except unholy staff, are legal for play.
 Unholy Staff.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

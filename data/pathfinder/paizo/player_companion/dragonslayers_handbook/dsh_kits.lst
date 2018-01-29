@@ -16,7 +16,7 @@ GEAR:Boots (Fire-Resistant)				QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Potion of Protection from Energy (Fire)	QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Sack							QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Shield Sconce					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Lock (Simple)					QTY:1		SIZE:PC	LOCATION:Sack
+GEAR:Simple Lock					QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Weapon Cord						QTY:1		SIZE:PC	LOCATION:Sack
 
 STARTPACK:Knight's Kit (Cold)		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:751
@@ -28,7 +28,7 @@ GEAR:Boots (Fire-Resistant)				QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Potion of Protection from Energy (Cold)	QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Sack							QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Shield Sconce					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Lock (Simple)					QTY:1		SIZE:PC	LOCATION:Sack
+GEAR:Simple Lock					QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Weapon Cord						QTY:1		SIZE:PC	LOCATION:Sack
 
 STARTPACK:Tracker's Kit			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:563
@@ -41,7 +41,7 @@ GEAR:Grappling Hook					QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Hammer							QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Piton							QTY:8		SIZE:PC	LOCATION:Sack
 GEAR:Sack							QTY:4		SIZE:PC	LOCATION:Carried
-GEAR:Rope (Silk/50 ft)					QTY:2		SIZE:PC	LOCATION:Sack
+GEAR:Silk Rope (50 ft)					QTY:2		SIZE:PC	LOCATION:Sack
 
 STARTPACK:Trickster's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:474
 GEAR:Alchemical Grease					QTY:1		SIZE:PC	LOCATION:Sack
@@ -51,12 +51,12 @@ GEAR:Candle Lamp						QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Snorkel (Common)					QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Fake Footprint Shoes				QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Grappling Hook					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Mirror (Small/Steel)				QTY:1		SIZE:PC	LOCATION:Sack
+GEAR:Mirror				QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Periscope						QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Potion of Eagle's Splendor			QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Sack							QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Scent Cloak						QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Rope (Silk/50 ft)					QTY:1		SIZE:PC	LOCATION:Sack
+GEAR:Silk Rope (50 ft)					QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Smokestick						QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Sneezing Powder					QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Tindertwig						QTY:5		SIZE:PC	LOCATION:Sack

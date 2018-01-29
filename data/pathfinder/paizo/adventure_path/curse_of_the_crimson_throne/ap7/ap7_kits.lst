@@ -37,11 +37,11 @@ GEAR:Dagger					LOCATION:Primary Hand
 GEAR:Wand					LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Acid Splash]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[28]
 GEAR:Thunderstone				LOCATION:Carried
 GEAR:Tanglefoot Bag		QTY:3	LOCATION:Carried
-GEAR:Acid (Flask)			QTY:3	LOCATION:Carried
-GEAR:Leather				LOCATION:Equipped
-GEAR:Crossbow (Light)			LOCATION:Carried
-GEAR:Bolts (Crossbow/10)		LOCATION:Carried
-GEAR:Garnet (Red)				LOCATION:Carried
+GEAR:Acid			QTY:3	LOCATION:Carried
+GEAR:Leather Armor				LOCATION:Equipped
+GEAR:Light Crossbow			LOCATION:Carried
+GEAR:10 Crossbow Bolts		LOCATION:Carried
+GEAR:Red Garnet				LOCATION:Carried
 
 
 STARTPACK:NPC (Lamm's Lambs)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.16	NAMEISPI:YES
@@ -110,10 +110,10 @@ ABILITY:CATEGORY=Favored Class|Fighter
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Fighter Bonus Feat|Combat Reflexes
 SKILL:Intimidate	RANK:1
-ABILITY:CATEGORY=FEAT|Weapon Focus(Flail)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Light Flail)
 GEAR:Studded Leather		LOCATION:Equipped
-GEAR:Shield (Light/Wooden)	LOCATION:Equipped
-GEAR:Flail				LOCATION:Primary Hand
+GEAR:Light Wooden Shield	LOCATION:Equipped
+GEAR:Light Flail				LOCATION:Primary Hand
 
 
 STARTPACK:NPC (Gaedren Lamm)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.20	NAMEISPI:YES
@@ -157,8 +157,8 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Skill Focus(Bluff)
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger				LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Crossbow (Hand)		LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Bolts (Crossbow/10)	LOCATION:Carried
+GEAR:Hand Crossbow		LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:10 Crossbow Bolts	LOCATION:Carried
 
 
 STARTPACK:NPC (Renegade Guards)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.29
@@ -177,9 +177,9 @@ SKILL:Ride			RANK:2
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Focus(Longsword)
 GEAR:Longsword					LOCATION:Primary Hand
-GEAR:Crossbow (Light)				LOCATION:Carried
-GEAR:Bolts (Crossbow/10)			LOCATION:Carried
-GEAR:Shield (Heavy/Steel)			LOCATION:Equipped
+GEAR:Light Crossbow				LOCATION:Carried
+GEAR:10 Crossbow Bolts			LOCATION:Carried
+GEAR:Heavy Steel Shield			LOCATION:Equipped
 GEAR:Chainmail					LOCATION:Equipped
 GEAR:Coin (Gold Piece)		QTY:20	LOCATION:Carried
 
@@ -205,9 +205,9 @@ ABILITY:CATEGORY=Fighter Bonus Feat|Point-Blank Shot
 ABILITY:CATEGORY=Fighter Bonus Feat|Precise Shot
 GEAR:Chainmail						LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Spear							LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Longbow (Composite)				LOCATION:Both Hands		EQMOD:Special Quality ~ Composite Bow Strength Rating|+2.Special Quality ~ Masterwork ~ Weapon
+GEAR:Composite Longbow				LOCATION:Both Hands		EQMOD:Special Quality ~ Composite Bow Strength Rating|+2.Special Quality ~ Masterwork ~ Weapon
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
-GEAR:Arrow							LOCATION:Longbow (Composite)	EQMOD:Special Ability ~ +2 ~ Weapon
+GEAR:Arrow							LOCATION:Composite Longbow	EQMOD:Special Ability ~ +2 ~ Weapon
 GEAR:Arrow					QTY:19	LOCATION:Carried			EQMOD:Special Ability ~ +2 ~ Weapon
 
 
@@ -240,10 +240,10 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 GEAR:Potion of Invisibility				LOCATION:Carried
 GEAR:Poison (Medium spider venom)			LOCATION:Carried
-GEAR:Leather						LOCATION:Equipped
-GEAR:Gauntlet (Spiked)			QTY:2		LOCATION:Equipped
-GEAR:Crossbow (Hand)					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Bolt (Crossbow)			QTY:20	LOCATION:Carried
+GEAR:Leather Armor						LOCATION:Equipped
+GEAR:Spiked Gauntlet			QTY:2		LOCATION:Equipped
+GEAR:Hand Crossbow					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Crossbow Bolt			QTY:20	LOCATION:Carried
 
 
 STARTPACK:NPC (Trinia Sabor/lvl 4)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.44	NAMEISPI:YES
@@ -272,7 +272,7 @@ ABILITY:CATEGORY=FEAT|Shingle Runner
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Potion of Cat's Grace		LOCATION:Carried
 GEAR:Potion of Jump			LOCATION:Carried
-GEAR:Potion of Shield of Faith +3	LOCATION:Carried
+GEAR:Potion of Shield of Faith (CL 6th)	LOCATION:Carried
 GEAR:Wand					LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Daze Monster]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[10]
 GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Mithril ~ Armor / Light
 GEAR:Dagger					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon

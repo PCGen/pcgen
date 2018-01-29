@@ -63,7 +63,7 @@ Improved Mind Armor (Heavy)	PROFICIENCY:ARMOR|Improved Mind Armor	TYPE:Armor.Hea
 
 ###Block: Mind shield
 # Equipment Name		Required Shield Proficiency		Type						Cost		Weight	Slot Needed	AC Penalty Check	Crit Mult	Crit Range	Damage	Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus			Special Property
-Mind Shield			PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Standard			COST:0	WT:0		SLOTS:1	ACCHECK:0																SOURCEPAGE:p.62					BONUS:COMBAT|AC|2|TYPE=Shield
+Mind Shield			PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Standard			COST:0	WT:0		SLOTS:1	ACCHECK:0																SOURCEPAGE:p.62					BONUS:COMBAT|AC|2|TYPE=Shield
 Mind Shield (Heavy)	PROFICIENCY:SHIELD|Mind Shield	TYPE:Shield.Heavy.Standard.Close	COST:0	WT:0		SLOTS:1	ACCHECK:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.62					BONUS:COMBAT|AC|2|TYPE=Shield
 Mind Shield (Tower)	PROFICIENCY:SHIELD|Mind Shield	TYPE:Shield.Tower.Standard.Close	COST:0	WT:0		SLOTS:1	ACCHECK:-9											MAXDEX:2		SIZE:M	SOURCEPAGE:p.63	SPELLFAILURE:50		BONUS:COMBAT|AC|4|TYPE=Shield	SPROP:can grant full cover
 

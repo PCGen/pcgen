@@ -8,7 +8,7 @@ Hide Shirt		PROFICIENCY:ARMOR|Hide Shirt	TYPE:Armor.Light.ArmorProfLight.Suit.St
 
 ###BLOCK: Shield
 # Equipment Name		Required Shield Proficiency		Type					Cost		Weight	AC Penalty Check	Source Page		% of Spell Failure	Combat bonus
-Klar (as a Shield)	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard	COST:12	WT:6		ACCHECK:-1		SOURCEPAGE:p.14	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
+Klar (as a Shield)	PROFICIENCY:SHIELD|Light Shield	TYPE:Shield.Light.Standard	COST:12	WT:6		ACCHECK:-1		SOURCEPAGE:p.14	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
 
 ###BLOCK: Weapon
 # Equipment Name					Output Name		Required Weapon Proficiency		Type																Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier			Wield Category	Range		Size		Source Page

@@ -5,15 +5,15 @@ Brawler's Flurry			TYPE:Special.Light.Melee.Unarmed.Bludgeoning
 
 # CR
 Dagger.MOD				TYPE:Weapon Group Melee Light Piercing
-Dagger (Punching).MOD		TYPE:Weapon Group Melee Light Piercing
-Pick (Light).MOD			TYPE:Weapon Group Melee Light Piercing
+Punching Dagger.MOD		TYPE:Weapon Group Melee Light Piercing
+Light Pick.MOD			TYPE:Weapon Group Melee Light Piercing
 Spiked Armor.MOD			TYPE:Weapon Group Melee Light Piercing
 Starknife.MOD			TYPE:Weapon Group Melee Light Piercing
-Sword (Short).MOD			TYPE:Weapon Group Melee Light Piercing
+Short Sword.MOD			TYPE:Weapon Group Melee Light Piercing
 Siangham.MOD			TYPE:Weapon Group Melee Light Piercing
 Morningstar.MOD			TYPE:Weapon Group Melee OneHanded Piercing
 Shortspear.MOD			TYPE:Weapon Group Melee OneHanded Piercing
-Pick (Heavy).MOD			TYPE:Weapon Group Melee OneHanded Piercing
+Heavy Pick.MOD			TYPE:Weapon Group Melee OneHanded Piercing
 Rapier.MOD				TYPE:Weapon Group Melee OneHanded Piercing
 Trident.MOD				TYPE:Weapon Group Melee OneHanded Piercing
 Lance.MOD				TYPE:Weapon Group Melee OneHanded Piercing

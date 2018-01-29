@@ -9,7 +9,7 @@ Ioun Stone (Deep Brown Sphere)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous
 Discerning Goggles								TYPE:Magic.Wondrous.Eyegear		COST:13500	WT:0		SOURCEPAGE:p.30													SPROP:Allows wearer to determine creature's alignment.
 Evidentiary Dust									TYPE:Magic.Wondrous.Consumable	COST:600	WT:0		SOURCEPAGE:p.30													SPROP:When thrown on the floor, illuminates all footprints made in the last 24 hours
 Lantern of Concealment								TYPE:Magic.Wondrous			COST:12000	WT:2		SOURCEPAGE:p.31													SPROP:Creates a Hide Campsite effect in a 20-ft cube centered on the lantern
-Luminous Facet									TYPE:Magic.Wondrous.LightSource	COST:850	WT:3		SOURCEPAGE:p.31	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	SPROP:Speaking command word within 60 ft activates or deactivates.
+Luminous Facet									TYPE:Magic.Wondrous.Light Source	COST:850	WT:3		SOURCEPAGE:p.31	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	SPROP:Speaking command word within 60 ft activates or deactivates.
 Smear of Seeing									TYPE:Magic.Wondrous.Consumable	COST:4000	WT:1		SOURCEPAGE:p.31													SPROP:Allows user to see through plaster, stone, wood or similar surfaces up to 10 ft thick
 Teleporting Climbing Rig							TYPE:Magic.Wondrous			COST:7600	WT:7		SOURCEPAGE:p.31													SPROP:Grappling hook teleports to any designated location within 50 feet to which the user has both line of sight and line of effect.
 Toxin Sponge									TYPE:Magic.Wondrous			COST:1125	WT:0		SOURCEPAGE:p.31													SPROP:When the command word is spoken, a toxin sponge can absorb a 10-foot cube of inhaled poison, removing the gas from that area and concentrating it in the sponge

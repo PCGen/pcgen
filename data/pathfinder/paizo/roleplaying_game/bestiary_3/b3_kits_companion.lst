@@ -105,7 +105,7 @@ SKILL:Perception		RANK:6
 SKILL:Sense Motive	RANK:2
 SKILL:Stealth		RANK:19
 ABILITY:CATEGORY=FEAT|Alertness
-GEAR:Sword (Short)	LOCATION:Equipped
+GEAR:Short Sword	LOCATION:Equipped
 GEAR:Shortbow		LOCATION:Carried
 
 

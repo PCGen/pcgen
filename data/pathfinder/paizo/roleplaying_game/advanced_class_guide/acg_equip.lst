@@ -11,24 +11,24 @@
 ###Block: Adding types to some armors and weapons, so they can be identified
 # COMMENT: There should be an easier way
 # Equipment Name		Type
-Leather.MOD			TYPE:LeatherArmor
-Hide.MOD			TYPE:HideArmor
+Leather Armor.MOD			TYPE:LeatherArmor
+Hide Armor.MOD			TYPE:HideArmor
 Brass Knuckles.MOD	TYPE:BrawlingAbilityOK
 Cestus.MOD			TYPE:BrawlingAbilityOK
 Sap.MOD			TYPE:BrawlingAbilityOK
-Crossbow (Hand).MOD	TYPE:InspiredOK
+Hand Crossbow.MOD	TYPE:InspiredOK
 Rapier.MOD			TYPE:InspiredOK
-Sword (Short).MOD		TYPE:InspiredOK
+Short Sword.MOD		TYPE:InspiredOK
 Shortbow.MOD		TYPE:InspiredOK
 Sword Cane.MOD		TYPE:InspiredOK
 Whip.MOD			TYPE:PrehensileOK
 
 ###Block: Adding types to manacles for Slayer's Manacles choice
 # Equipment Name		Type
-Manacles (Small).MOD	TYPE:Manacles
-Manacles (Medium).MOD	TYPE:Manacles
-Manacles (Large).MOD	TYPE:Manacles
-Manacles (Huge).MOD	TYPE:Manacles
+Small Manacles.MOD	TYPE:Manacles
+Medium Manacles.MOD	TYPE:Manacles
+Large Manacles.MOD	TYPE:Manacles
+Huge Manacles.MOD	TYPE:Manacles
 
 
 ###Block: Brawler's Flurry
@@ -44,15 +44,15 @@ Brawler's Flurry			PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Resizable.Melee
 
 # CR
 Dagger.MOD										TYPE:Weapon Group Melee Light Piercing																																					BONUS:WEAPON|TOHIT|-SwashbucklersFinesseToHit									SPROP:+% to melee attacks from Swashbuckler's Finesse [not reflected on combat block]|SwashbucklersFinesseToHit
-Dagger (Punching).MOD								TYPE:Weapon Group Melee Light Piercing
-Pick (Light).MOD									TYPE:Weapon Group Melee Light Piercing
+Punching Dagger.MOD								TYPE:Weapon Group Melee Light Piercing
+Light Pick.MOD									TYPE:Weapon Group Melee Light Piercing
 Spiked Armor.MOD									TYPE:Weapon Group Melee Light Piercing
 Starknife.MOD									TYPE:Weapon Group Melee Light Piercing
-Sword (Short).MOD									TYPE:Weapon Group Melee Light Piercing
+Short Sword.MOD									TYPE:Weapon Group Melee Light Piercing
 Siangham.MOD									TYPE:Weapon Group Melee Light Piercing
 Morningstar.MOD									TYPE:Weapon Group Melee OneHanded Piercing
 Shortspear.MOD									TYPE:Weapon Group Melee OneHanded Piercing
-Pick (Heavy).MOD									TYPE:Weapon Group Melee OneHanded Piercing
+Heavy Pick.MOD									TYPE:Weapon Group Melee OneHanded Piercing
 Rapier.MOD										TYPE:Weapon Group Melee OneHanded Piercing
 Trident.MOD										TYPE:Weapon Group Melee OneHanded Piercing
 Lance.MOD										TYPE:Weapon Group Melee OneHanded Piercing
@@ -236,7 +236,7 @@ Holy Weapon Balm			TYPE:Goods.Alchemical.Consumable	COST:30	WT:0.5	SOURCEPAGE:p.
 ###Block: Specific Armor and Shields
 # COMMENT: Add in natural attack block?
 # Equipment Name			Required Armor Proficiency		Required Shield Proficiency		Type																	Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier							Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus			Weapon prop. bonus					Special Property
-Clawhand Shield									PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard.Close.Weapon.Resizable.Melee.ShieldBash.Nonmetal.Specific.Enhancement	COST:150	WT:8		ACCHECK:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|3858.Special Ability ~ +2 ~ Shield				WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.211	SPELLFAILURE:0		BONUS:COMBAT|AC|2|TYPE=Shield	BONUS:WEAPON|TOHIT|4|PREWEAPONPROF:1,Shieldbash	SPROP:use claw attack when grappled, pinned, or swallowed whole (1d8+STR for medium character)
+Clawhand Shield									PROFICIENCY:SHIELD|Heavy Shield	TYPE:Shield.Heavy.Standard.Close.Weapon.Resizable.Melee.ShieldBash.Nonmetal.Specific.Enhancement	COST:150	WT:8		ACCHECK:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|3858.Special Ability ~ +2 ~ Shield				WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.211	SPELLFAILURE:0		BONUS:COMBAT|AC|2|TYPE=Shield	BONUS:WEAPON|TOHIT|4|PREWEAPONPROF:1,Shieldbash	SPROP:use claw attack when grappled, pinned, or swallowed whole (1d8+STR for medium character)
 Full Plate of the Corpse	PROFICIENCY:ARMOR|Full Plate								TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Specific.Enhancement								COST:1500	WT:50		ACCHECK:-5								EQMOD:Special Ability ~ Enhancement Cost|30000.Special Ability ~ +2 ~ Armor.Material ~ Steel						MAXDEX:1		SIZE:M	SOURCEPAGE:p.211	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor									SPROP:wearer hidden from non-intelligent undead; intelligent undead can save (Will DC 14) to see wearer
 Hero's Hauberk			PROFICIENCY:ARMOR|Chain Shirt								TYPE:Armor.Light.ArmorProfLight.Suit.Specific.Enhancement								COST:100	WT:25		ACCHECK:-1								EQMOD:Material ~ Adamantine ~ Armor / Heavy.Special Ability ~ Enhancement Cost|500.Special Ability ~ +1 ~ Armor				MAXDEX:4		SIZE:M	SOURCEPAGE:p.211	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor									SPROP:DR 1/- of armor stacks with wearer's DR; gain light fortification when raging or maintaining raging song; +1 luck bonus on all ability and skill checks, and the total penalties to attack rolls, ability and skill checks, and saving throws are reduced by 1, while maintaining bardic performance
 # COMMENT: There may be a better way to do this than to explicitly list each terrain, especially if more ranger favored terrains are added

@@ -5,9 +5,9 @@ SOURCELONG:Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/store/
 
 # Deity Name	Product Identity?	Domains											Description of Deity/Title				FACTSET											Deity Weapon				Align		Source Page
 Angradd		NAMEISPI:YES	DOMAINS:Fire,Good,Law,War|PREALIGN:LG,LN,NG					DESC:God of aggressive tactics and warfare	FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Greataxe			ALIGN:LG	SOURCEPAGE:Inside Cover
-Bolka			NAMEISPI:YES	DOMAINS:Charm,Good,Healing|PREALIGN:LG,NG,TN					DESC:Goddess						FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Mace (Light)|Mace (Heavy)	ALIGN:NG	SOURCEPAGE:Inside Cover
-Dranngvit		NAMEISPI:YES	DOMAINS:Knowledge,Law|PREALIGN:LG,LN,LE,TN													FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Pick (Light)			ALIGN:LN	SOURCEPAGE:Inside Cover
-Droskar		NAMEISPI:YES	DOMAINS:Artifice,Charm,Darkness,Evil,Trickery|PREALIGN:TN,LE,NE,CE									FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Hammer (Light)		ALIGN:NE	SOURCEPAGE:Inside Cover
+Bolka			NAMEISPI:YES	DOMAINS:Charm,Good,Healing|PREALIGN:LG,NG,TN					DESC:Goddess						FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Light Mace|Heavy Mace	ALIGN:NG	SOURCEPAGE:Inside Cover
+Dranngvit		NAMEISPI:YES	DOMAINS:Knowledge,Law|PREALIGN:LG,LN,LE,TN													FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Light Pick			ALIGN:LN	SOURCEPAGE:Inside Cover
+Droskar		NAMEISPI:YES	DOMAINS:Artifice,Charm,Darkness,Evil,Trickery|PREALIGN:TN,LE,NE,CE									FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Light Hammer		ALIGN:NE	SOURCEPAGE:Inside Cover
 Folgrit		NAMEISPI:YES	DOMAINS:Community,Law,Nobility|PREALIGN:LG,LN,NG				DESC:Goddess of motherhood, wives, and children	FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Quarterstaff			ALIGN:LG	SOURCEPAGE:Inside Cover
 Grundinnar		NAMEISPI:YES	DOMAINS:Community,Good,Law|PREALIGN:LG,LN,NG													FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Warhammer			ALIGN:LG	SOURCEPAGE:Inside Cover
 Kols			NAMEISPI:YES	DOMAINS:Law,Nobility|PREALIGN:LG,LN,LE,TN														FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	FACTSET:Race|Dwarf	DEITYWEAP:Warhammer			ALIGN:LN	SOURCEPAGE:Inside Cover
