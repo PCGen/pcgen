@@ -538,13 +538,13 @@ abstract class LoadContextInst implements LoadContext
 	@Override
 	public LoadContext dropIntoContext(String scope)
 	{
-		LegalScope legalScope = var.getScope(scope);
-		if (legalScope == null)
+		LegalScope subScope = var.getScope(scope);
+		if (subScope == null)
 		{
 			throw new IllegalArgumentException("LegalVariableScope " + scope
 				+ " does not exist");
 		}
-		return dropIntoContext(legalScope);
+		return dropIntoContext(subScope);
 	}
 
 	private LoadContext dropIntoContext(LegalScope lvs)
@@ -556,7 +556,7 @@ abstract class LoadContextInst implements LoadContext
 			return this;
 		}
 		LoadContext parentLC = dropIntoContext(parent);
-		return new DerivedLoadContext(parentLC, parentLC.getActiveScope());
+		return new DerivedLoadContext(parentLC, lvs);
 	}
 
 	private class DerivedLoadContext implements LoadContext
