@@ -18,6 +18,7 @@
 package pcgen.base.formula.inst;
 
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.base.OperatorLibrary;
@@ -107,7 +108,8 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	}
 
 	@Override
-	public Object evaluate(Operator operator, Object o1, Object o2)
+	public Object evaluate(Operator operator, Object o1, Object o2,
+		Optional<FormatManager<?>> asserted)
 	{
 		List<OperatorAction> actionList = operatorMTL.getListFor(operator);
 		if (actionList != null)
@@ -120,7 +122,7 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 				 * because another OperatorAction might work)
 				 */
 				if (action.abstractEvaluate(o1.getClass(),
-					o2.getClass()) != null)
+					o2.getClass(), asserted) != null)
 				{
 					return action.evaluate(o1, o2);
 				}
@@ -134,7 +136,7 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 
 	@Override
 	public FormatManager<?> processAbstract(Operator operator, Class<?> format1,
-		Class<?> format2)
+		Class<?> format2, Optional<FormatManager<?>> asserted)
 	{
 		List<OperatorAction> actionList = operatorMTL.getListFor(operator);
 		if (actionList != null)
@@ -142,7 +144,7 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 			for (OperatorAction action : actionList)
 			{
 				FormatManager<?> result =
-						action.abstractEvaluate(format1, format2);
+						action.abstractEvaluate(format1, format2, asserted);
 				/*
 				 * null indicates the OperatorAction can't evaluate these, but
 				 * try another (don't unconditionally return result because

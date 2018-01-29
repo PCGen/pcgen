@@ -348,7 +348,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 				manager.get(DependencyManager.FMANAGER).getOperatorLibrary();
 		Operator op = node.getOperator();
 		return opLib.processAbstract(op, format1.getManagedClass(),
-			format2.getManagedClass());
+			format2.getManagedClass(), manager.get(DependencyManager.ASSERTED));
 	}
 
 	private FormatManager<?> visitUnaryNode(SimpleNode node, Object data)

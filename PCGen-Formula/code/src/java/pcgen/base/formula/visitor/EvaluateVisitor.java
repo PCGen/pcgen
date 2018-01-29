@@ -314,7 +314,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		EvaluationManager manager = (EvaluationManager) data;
 		OperatorLibrary opLib =
 				manager.get(EvaluationManager.FMANAGER).getOperatorLibrary();
-		return opLib.evaluate(node.getOperator(), child1result, child2result);
+		Optional<FormatManager<?>> asserted = manager.get(EvaluationManager.ASSERTED);
+		return opLib.evaluate(node.getOperator(), child1result, child2result, asserted);
 	}
 
 	/**

@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.Optional;
+
 import pcgen.base.formula.parse.Operator;
 import pcgen.base.util.FormatManager;
 
@@ -61,34 +63,37 @@ public interface OperatorAction
 	public Operator getOperator();
 
 	/**
-	 * Processes an "abstract" version of the operation, performing a prediction
-	 * of the returned Class rather than on actual objects.
+	 * Processes an "abstract" version of the operation, performing a prediction of the
+	 * format of the returned Class rather than on actual objects.
 	 * 
-	 * If the OperatorAction cannot perform an action on objects of the given
-	 * classes, then the OperatorAction will return null from this method. An
-	 * exception should not be thrown to indicate incompatibility.
+	 * If the OperatorAction cannot perform an action on objects of the given classes,
+	 * then the OperatorAction will return null from this method. An exception should not
+	 * be thrown to indicate incompatibility.
 	 * 
-	 * Note that this provides a prediction of the returned Class, not the
-	 * actual class. However, the returned Class from this method is guaranteed
-	 * to be assignable from than the actual result. In other words, this may
-	 * return Number.class, whereas evaluate may return an Integer or Double.
+	 * Note that this provides a prediction of the returned format, not the actual class.
+	 * However, the returned FormatManager from this method is guaranteed to be
+	 * appropriate for the actual result. In other words, this may return a FormatManager
+	 * for Number.class, whereas evaluate may return an Integer or Double.
 	 * 
-	 * The return value of abstractEvaluate is part of a contract with evaluate.
-	 * If this method returns a non-null value, then evaluate should return a
-	 * non-null value. If this method returns null, then evaluate should throw
-	 * an exception.
+	 * The return value of abstractEvaluate is part of a contract with evaluate. If this
+	 * method returns a non-null value, then evaluate should return a non-null value. If
+	 * this method returns null, then evaluate should throw an exception.
 	 * 
 	 * @param format1
-	 *            The class (data format) of the first argument to the abstract
-	 *            operation
+	 *            The class (data format) of the first argument to the abstract operation
 	 * @param format2
-	 *            The class (data format) of the second argument to the abstract
-	 *            operation
-	 * @return A FormatManager for the data format of the result of the
-	 *         operation if this OperatorAction can process objects of the given
-	 *         classes; null otherwise
+	 *            The class (data format) of the second argument to the abstract operation
+	 * @param asserted
+	 *            The Optional FormatManager indicating the asserted format for the
+	 *            variables. This is not guaranteed to perform a deep evaluation; though
+	 *            some operators may perform a sanity check. Some operators may not
+	 *            require this argument; for others the Operator may not be used if no
+	 *            assertion is provided.
+	 * @return A FormatManager for the data format of the result of the operation if this
+	 *         OperatorAction can process objects of the given classes; null otherwise
 	 */
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2);
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+		Optional<FormatManager<?>> asserted);
 
 	/**
 	 * Perform an evaluation with the two given objects as arguments and returns

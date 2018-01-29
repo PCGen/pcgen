@@ -70,11 +70,11 @@ public class SimpleOperatorLibraryTest extends TestCase
 	public void testEmpty()
 	{
 		assertNull(
-			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS));
+			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null));
 		assertNull(library.processAbstract(Operator.MINUS, NUMBER_CLASS));
 		try
 		{
-			library.evaluate(Operator.ADD, 1, 2);
+			library.evaluate(Operator.ADD, 1, 2, null);
 			fail();
 		}
 		catch (IllegalStateException e)
@@ -97,11 +97,11 @@ public class SimpleOperatorLibraryTest extends TestCase
 	{
 		library.addAction(new NumberAdd());
 		assertEquals(Number.class,
-			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS).getManagedClass());
-		assertEquals(Integer.valueOf(3), library.evaluate(Operator.ADD, 1, 2));
+			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null).getManagedClass());
+		assertEquals(Integer.valueOf(3), library.evaluate(Operator.ADD, 1, 2, null));
 		try
 		{
-			library.evaluate(Operator.ADD, true, false);
+			library.evaluate(Operator.ADD, true, false, null);
 			fail();
 		}
 		catch (IllegalStateException e)
@@ -134,8 +134,8 @@ public class SimpleOperatorLibraryTest extends TestCase
 		library.addAction(new GenericEquals());
 		library.addAction(new NumberEquals());
 		assertEquals(Boolean.class,
-			library.processAbstract(Operator.EQ, NUMBER_CLASS, INTEGER_CLASS).getManagedClass());
-		assertEquals(Boolean.FALSE, library.evaluate(Operator.EQ, 1, 2));
+			library.processAbstract(Operator.EQ, NUMBER_CLASS, INTEGER_CLASS, null).getManagedClass());
+		assertEquals(Boolean.FALSE, library.evaluate(Operator.EQ, 1, 2, null));
 	}
 
 }

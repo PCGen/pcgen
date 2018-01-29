@@ -39,7 +39,7 @@ public class NumberMultiplyTest extends TestCase
 	{
 		try
 		{
-			assertNull(op.abstractEvaluate(null, null));
+			assertNull(op.abstractEvaluate(null, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -47,7 +47,7 @@ public class NumberMultiplyTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(NUMBER_CLASS, null));
+			assertNull(op.abstractEvaluate(NUMBER_CLASS, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -55,7 +55,7 @@ public class NumberMultiplyTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(null, NUMBER_CLASS));
+			assertNull(op.abstractEvaluate(null, NUMBER_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -65,25 +65,25 @@ public class NumberMultiplyTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS));
-		assertNull(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS));
+		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null));
+		assertNull(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null));
 	}
 
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(NUMBER_CLASS, NUMBER_CLASS).getManagedClass());
+			op.abstractEvaluate(NUMBER_CLASS, NUMBER_CLASS, null).getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(DOUBLE_CLASS, DOUBLE_CLASS).getManagedClass());
+			op.abstractEvaluate(DOUBLE_CLASS, DOUBLE_CLASS, null).getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(INTEGER_CLASS, INTEGER_CLASS).getManagedClass());
+			op.abstractEvaluate(INTEGER_CLASS, INTEGER_CLASS, null).getManagedClass());
 		//mixed okay too
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(NUMBER_CLASS, DOUBLE_CLASS).getManagedClass());
+			op.abstractEvaluate(NUMBER_CLASS, DOUBLE_CLASS, null).getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(INTEGER_CLASS, DOUBLE_CLASS).getManagedClass());
+			op.abstractEvaluate(INTEGER_CLASS, DOUBLE_CLASS, null).getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(DOUBLE_CLASS, INTEGER_CLASS).getManagedClass());
+			op.abstractEvaluate(DOUBLE_CLASS, INTEGER_CLASS, null).getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

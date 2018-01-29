@@ -38,7 +38,7 @@ public class StringAddTest extends TestCase
 	{
 		try
 		{
-			assertNull(op.abstractEvaluate(null, null));
+			assertNull(op.abstractEvaluate(null, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -46,7 +46,7 @@ public class StringAddTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(STRING_CLASS, null));
+			assertNull(op.abstractEvaluate(STRING_CLASS, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -54,7 +54,7 @@ public class StringAddTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(null, STRING_CLASS));
+			assertNull(op.abstractEvaluate(null, STRING_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -64,14 +64,14 @@ public class StringAddTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, STRING_CLASS));
-		assertNull(op.abstractEvaluate(STRING_CLASS, NUMBER_CLASS));
+		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, STRING_CLASS, null));
+		assertNull(op.abstractEvaluate(STRING_CLASS, NUMBER_CLASS, null));
 	}
 
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(STRING_CLASS,
-			op.abstractEvaluate(STRING_CLASS, STRING_CLASS).getManagedClass());
+			op.abstractEvaluate(STRING_CLASS, STRING_CLASS, null).getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

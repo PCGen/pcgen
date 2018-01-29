@@ -18,6 +18,7 @@
 package pcgen.base.formula.operator.generic;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
@@ -25,13 +26,13 @@ import pcgen.base.formula.parse.Operator;
 import pcgen.base.util.FormatManager;
 
 /**
- * BooleanEquals performs an equality comparison on two Boolean values.
+ * GenericEquals performs an equality comparison on two values.
  */
 public class GenericEquals implements OperatorAction
 {
 
 	/**
-	 * Indicates that BooleanEquals Performs a comparison for logical equality.
+	 * Indicates that GenericEquals Performs a comparison for logical equality.
 	 * 
 	 * {@inheritDoc}
 	 */
@@ -48,8 +49,13 @@ public class GenericEquals implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2)
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+		Optional<FormatManager<?>> asserted)
 	{
+		if (format1.isArray() || format2.isArray())
+		{
+			return null;
+		}
 		if (format1.equals(format2))
 		{
 			return FormatUtilities.BOOLEAN_MANAGER;

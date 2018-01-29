@@ -28,6 +28,11 @@ import pcgen.base.formula.function.MaxFunction;
 import pcgen.base.formula.function.MinFunction;
 import pcgen.base.formula.function.RoundFunction;
 import pcgen.base.formula.function.ValueFunction;
+import pcgen.base.formula.operator.array.ArrayAdd;
+import pcgen.base.formula.operator.array.ArrayEquals;
+import pcgen.base.formula.operator.array.ArrayNotEqual;
+import pcgen.base.formula.operator.array.ArraySubtract;
+import pcgen.base.formula.operator.array.ArraySubtractInstance;
 import pcgen.base.formula.operator.bool.BooleanAnd;
 import pcgen.base.formula.operator.bool.BooleanNot;
 import pcgen.base.formula.operator.bool.BooleanOr;
@@ -93,6 +98,11 @@ public final class FormulaUtilities
 	{
 		opLib.addAction(new GenericEquals());
 		opLib.addAction(new GenericNotEqual());
+		opLib.addAction(new ArrayAdd());
+		opLib.addAction(new ArrayEquals());
+		opLib.addAction(new ArrayNotEqual());
+		opLib.addAction(new ArraySubtract());
+		opLib.addAction(new ArraySubtractInstance());
 		opLib.addAction(new BooleanAnd());
 		opLib.addAction(new BooleanNot());
 		opLib.addAction(new BooleanOr());

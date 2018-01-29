@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.operator.number;
 
+import java.util.Optional;
+
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
@@ -46,7 +48,8 @@ public class NumberMultiply implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2)
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+		Optional<FormatManager<?>> asserted)
 	{
 		if (FormatUtilities.NUMBER_CLASS.isAssignableFrom(format1)
 			&& FormatUtilities.NUMBER_CLASS.isAssignableFrom(format2))

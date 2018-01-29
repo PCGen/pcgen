@@ -18,6 +18,7 @@
 package pcgen.base.formula.operator.generic;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
@@ -49,8 +50,13 @@ public class GenericNotEqual implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2)
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+		Optional<FormatManager<?>> asserted)
 	{
+		if (format1.isArray() || format2.isArray())
+		{
+			return null;
+		}
 		if (format1.equals(format2))
 		{
 			return FormatUtilities.BOOLEAN_MANAGER;

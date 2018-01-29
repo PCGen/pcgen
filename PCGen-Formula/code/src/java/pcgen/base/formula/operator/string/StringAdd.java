@@ -18,6 +18,7 @@
 package pcgen.base.formula.operator.string;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
@@ -48,7 +49,8 @@ public class StringAdd implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2)
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+		Optional<FormatManager<?>> asserted)
 	{
 		if (FormatUtilities.STRING_CLASS.isAssignableFrom(format1)
 			&& FormatUtilities.STRING_CLASS.isAssignableFrom(format2))

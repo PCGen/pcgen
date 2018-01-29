@@ -482,9 +482,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		OperatorLibrary opLib =
 				semantics.get(FormulaSemantics.FMANAGER).getOperatorLibrary();
-		FormatManager<?> returnedFormat =
-				opLib.processAbstract(op, format1.getManagedClass(),
-					format2.getManagedClass());
+		Optional<FormatManager<?>> asserted = semantics.get(FormulaSemantics.ASSERTED);
+		FormatManager<?> returnedFormat = opLib.processAbstract(op,
+			format1.getManagedClass(), format2.getManagedClass(), asserted);
 		//null response means the library couldn't find an appropriate operator
 		if (returnedFormat == null)
 		{

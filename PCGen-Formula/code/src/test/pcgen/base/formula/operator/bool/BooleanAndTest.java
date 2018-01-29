@@ -38,7 +38,7 @@ public class BooleanAndTest extends TestCase
 	{
 		try
 		{
-			assertNull(op.abstractEvaluate(null, null));
+			assertNull(op.abstractEvaluate(null, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -46,7 +46,7 @@ public class BooleanAndTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(BOOLEAN_CLASS, null));
+			assertNull(op.abstractEvaluate(BOOLEAN_CLASS, null, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -54,7 +54,7 @@ public class BooleanAndTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(null, BOOLEAN_CLASS));
+			assertNull(op.abstractEvaluate(null, BOOLEAN_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -64,14 +64,14 @@ public class BooleanAndTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS));
-		assertNull(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS));
+		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null));
+		assertNull(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null));
 	}
 
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(BOOLEAN_CLASS,
-			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS).getManagedClass());
+			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS, null).getManagedClass());
 	}
 
 	public void testEvaluateFailNull()
