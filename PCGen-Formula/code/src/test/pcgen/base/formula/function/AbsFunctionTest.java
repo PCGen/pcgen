@@ -61,7 +61,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(1));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(1));
 	}
 
 	@Test
@@ -71,7 +71,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(2));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(2));
 	}
 
 	@Test
@@ -81,7 +81,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(6.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(6.3));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -94,7 +94,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(5.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(5.3));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -107,7 +107,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(5.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(5.3));
 	}
 
 	@Test
@@ -117,7 +117,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(5.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(5.3));
 	}
 
 	@Test
@@ -127,7 +127,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(5.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(5.3));
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(0, vars.size());
 	}

@@ -17,8 +17,6 @@
  */
 package pcgen.base.formula.base;
 
-import pcgen.base.util.FormatManager;
-
 /**
  * A ManagerFactory is an object designed to produce the various manager objects used by
  * the visitors to a Formula. This is an interface to allow extension of these behaviors
@@ -33,18 +31,13 @@ public interface ManagerFactory
 	 *            The FormulaManager to be contained in the DependencyManager
 	 * @param scopeInst
 	 *            The ScopeInstance to be contained in the DependencyManager
-	 * @param assertedFormat
-	 *            The FormatManager for the Format (class) currently asserted for the
-	 *            formula served by the DependencyManager
 	 * @return An initialized DependencyManager with the given arguments
 	 */
 	public default DependencyManager generateDependencyManager(
-		FormulaManager formulaManager, ScopeInstance scopeInst,
-		FormatManager<?> assertedFormat)
+		FormulaManager formulaManager, ScopeInstance scopeInst)
 	{
 		DependencyManager fdm = new DependencyManager(formulaManager);
-		fdm = fdm.getWith(DependencyManager.INSTANCE, scopeInst);
-		return fdm.getWith(DependencyManager.ASSERTED, assertedFormat);
+		return fdm.getWith(DependencyManager.INSTANCE, scopeInst);
 	}
 
 	/**
@@ -71,19 +64,15 @@ public interface ManagerFactory
 	 *            FormulaSemantics
 	 * @param legalScope
 	 *            The LegalScope when a Formula is processed with this FormulaSemantics
-	 * @param assertedFormat
-	 *            The format manager for the Format (class) asserted when a Formula is
-	 *            processed with this FormulaSemantics (may be null)
 	 * @return An initialized FormulaSemantics object with the appropriate keys set to the
 	 *         given parameters
 	 */
 	public default FormulaSemantics generateFormulaSemantics(FormulaManager manager,
-		LegalScope legalScope, FormatManager<?> assertedFormat)
+		LegalScope legalScope)
 	{
 		FormulaSemantics semantics = new FormulaSemantics();
 		semantics = semantics.getWith(FormulaSemantics.FMANAGER, manager);
-		semantics = semantics.getWith(FormulaSemantics.SCOPE, legalScope);
-		return semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
+		return semantics.getWith(FormulaSemantics.SCOPE, legalScope);
 	}
 
 	/**
@@ -92,17 +81,13 @@ public interface ManagerFactory
 	 * @param formulaManager
 	 *            The FormulaManager used to evaluate formulas processed by this
 	 *            EvaluationManager
-	 * @param assertedFormat
-	 *            The format manager for the Format (class) asserted by the current
-	 *            context of a formula
 	 * @return A new EvaluationManager initialized with the given parameters
 	 */
 	public default EvaluationManager generateEvaluationManager(
-		FormulaManager formulaManager, FormatManager<?> assertedFormat)
+		FormulaManager formulaManager)
 	{
 		EvaluationManager manager = new EvaluationManager();
-		manager = manager.getWith(EvaluationManager.FMANAGER, formulaManager);
-		return manager.getWith(EvaluationManager.ASSERTED, assertedFormat);
+		return manager.getWith(EvaluationManager.FMANAGER, formulaManager);
 	}
 
 }

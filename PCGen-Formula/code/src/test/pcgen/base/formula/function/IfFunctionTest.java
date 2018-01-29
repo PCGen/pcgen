@@ -92,7 +92,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(2));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -105,7 +105,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(3));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(3));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -118,7 +118,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(7.8));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(7.8));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -131,7 +131,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(-3.4));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-3.4));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -144,7 +144,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(-3.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-3.3));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -157,7 +157,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(-3.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-3.3));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -170,7 +170,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(-3.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-3.3));
 	}
 
 	@Test
@@ -180,7 +180,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(-3.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-3.3));
 	}
 
 	@Test
@@ -190,7 +190,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(-3.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-3.3));
 	}
 
 	@Test
@@ -200,7 +200,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Double.valueOf(-3.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-3.3));
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(0, vars.size());
 	}
@@ -213,7 +213,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
-		evaluatesTo(formula, node, Integer.valueOf(5));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(5));
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());
 		VariableID<?> var = vars.get(0);
@@ -231,7 +231,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
-		evaluatesTo(formula, node, Integer.valueOf(3));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(3));
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(3, vars.size());
 		Set<String> set = new HashSet<String>();

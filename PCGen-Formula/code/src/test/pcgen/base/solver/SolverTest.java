@@ -57,8 +57,8 @@ public class SolverTest extends TestCase
 		sfs.getLegalScopeLibrary().registerScope(new SimpleLegalScope(globalScope, "STAT"));
 		str = indSetup.getInstanceFactory().get("STAT", new MockStat("STR"));
 		con = indSetup.getInstanceFactory().get("STAT", new MockStat("CON"));
-		evalManager = managerFactory
-			.generateEvaluationManager(indSetup.getFormulaManager(), numberManager);
+		evalManager =
+				managerFactory.generateEvaluationManager(indSetup.getFormulaManager());
 	}
 
 	@Test

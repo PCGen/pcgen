@@ -128,7 +128,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		manager.addModifier(mod, modifier, strInst);
 		assertEquals(3, store.get(mod));
 
-		ComplexNEPFormula formula = new ComplexNEPFormula("mod");
+		ComplexNEPFormula formula = new ComplexNEPFormula("mod", numberManager);
 		Modifier<Number> modMod = AbstractModifier.add(formula, 100);
 
 		manager.addModifier(str, modMod, strInst);

@@ -61,7 +61,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(1));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(1));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -74,7 +74,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(-2));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(-2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -87,7 +87,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(6));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(6));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -100,7 +100,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(7));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(7));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -113,7 +113,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(-6));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(-6));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -126,7 +126,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(-5));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(-5));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -139,7 +139,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(-5));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(-5));
 	}
 
 	@Test
@@ -149,7 +149,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(-5));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(-5));
 	}
 
 	@Test
@@ -159,7 +159,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(-5));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(-5));
 	}
 
 	@Test

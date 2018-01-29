@@ -57,7 +57,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	private void resetManager()
 	{
 		depManager = getManagerFactory().generateDependencyManager(getFormulaManager(),
-			getGlobalScopeInst(), null);
+			getGlobalScopeInst());
 		depManager = getManagerFactory().withVariables(depManager);
 		argManager = new ArgumentDependencyManager();
 		depManager = depManager.getWith(ArgumentDependencyManager.KEY, argManager);
@@ -83,7 +83,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		isStatic(formula, node, true);
 		varCapture.visit(node, null);
 		assertEquals(-1, argManager.getMaximumArgument());
-		evaluatesTo(formula, node, Integer.valueOf(4));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(4));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -130,7 +130,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		isStatic(formula, node, true);
 		varCapture.visit(node, depManager);
 		assertEquals(0, argManager.getMaximumArgument());
-		evaluatesTo(formula, node, Integer.valueOf(4));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(4));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -145,13 +145,13 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		isStatic(formula, node, true);
 		varCapture.visit(node, depManager);
 		assertEquals(1, argManager.getMaximumArgument());
-		evaluatesTo(formula, node, Integer.valueOf(5));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(5));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		DependencyManager fdm =
 				getManagerFactory().generateDependencyManager(getFormulaManager(),
-					getGlobalScopeInst(), null);
+					getGlobalScopeInst());
 		fdm = getManagerFactory().withVariables(fdm);
 		/*
 		 * Safe and "ignored" - if this test fails, need to change what FDM is
@@ -171,7 +171,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		isStatic(formula, node, true);
 		varCapture.visit(node, depManager);
 		assertEquals(2, argManager.getMaximumArgument());
-		evaluatesTo(formula, node, Double.valueOf(4.5));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(4.5));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));

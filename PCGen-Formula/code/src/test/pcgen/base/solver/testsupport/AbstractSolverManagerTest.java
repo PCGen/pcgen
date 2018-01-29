@@ -193,7 +193,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	public void testComplex()
 	{
 		ScopeInstance source = globalScopeInst;
-		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
+		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs", numberManager);
 		Modifier<Number> formulaMod = AbstractModifier.add(formula, 100);
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
 		varLibrary.assertLegalVariableID("arms", globalScope, numberManager);
@@ -234,10 +234,10 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	public void testChained()
 	{
 		ScopeInstance source = globalScopeInst;
-		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
+		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs", numberManager);
 		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
 
-		ComplexNEPFormula handsformula = new ComplexNEPFormula("fingers/5");
+		ComplexNEPFormula handsformula = new ComplexNEPFormula("fingers/5", numberManager);
 		Modifier<Number> handsMod = AbstractModifier.add(handsformula, 100);
 
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
@@ -344,13 +344,13 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	public void testCircular()
 	{
 		ScopeInstance source = globalScopeInst;
-		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
+		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs", numberManager);
 		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
 
-		ComplexNEPFormula handsformula = new ComplexNEPFormula("fingers/5");
+		ComplexNEPFormula handsformula = new ComplexNEPFormula("fingers/5", numberManager);
 		Modifier<Number> handsMod = AbstractModifier.add(handsformula, 100);
 
-		ComplexNEPFormula fingersformula = new ComplexNEPFormula("limbs*5");
+		ComplexNEPFormula fingersformula = new ComplexNEPFormula("limbs*5", numberManager);
 		Modifier<Number> fingersMod = AbstractModifier.add(fingersformula, 100);
 
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
@@ -414,10 +414,10 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	public void testIndependence()
 	{
 		ScopeInstance source = globalScopeInst;
-		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
+		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs", numberManager);
 		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
 
-		ComplexNEPFormula handsformula = new ComplexNEPFormula("fingers/5");
+		ComplexNEPFormula handsformula = new ComplexNEPFormula("fingers/5", numberManager);
 		Modifier<Number> handsMod = AbstractModifier.add(handsformula, 100);
 
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
@@ -477,10 +477,10 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	public void testAssertion()
 	{
 		ScopeInstance source = globalScopeInst;
-		ComplexNEPFormula five = new ComplexNEPFormula("5");
+		ComplexNEPFormula five = new ComplexNEPFormula("5", numberManager);
 		Modifier<Number> numMod = AbstractModifier.add(five, 100);
 
-		ComplexNEPFormula fiveString = new ComplexNEPFormula("\"4\"");
+		ComplexNEPFormula fiveString = new ComplexNEPFormula("\"4\"", numberManager);
 		Modifier<Number> strMod = AbstractModifier.add(fiveString, 200);
 
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);

@@ -34,6 +34,7 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
 import pcgen.base.graph.inst.DirectionalSetMapGraph;
@@ -193,8 +194,9 @@ public class DynamicSolverManager implements SolverManager
 		/*
 		 * Now build new edges of things this solver will be dependent upon...
 		 */
-		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			source, varID.getFormatManager());
+		DependencyManager fdm =
+				managerFactory.generateDependencyManager(formulaManager, source);
+		fdm = fdm.getWith(DependencyManager.ASSERTED, varID.getFormatManager());
 		fdm = managerFactory.withVariables(fdm);
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
@@ -295,8 +297,9 @@ public class DynamicSolverManager implements SolverManager
 			throw new IllegalArgumentException("Request to remove Modifier to Solver for "
 				+ varID + " but that channel was never defined");
 		}
-		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			source, varID.getFormatManager());
+		DependencyManager fdm =
+				managerFactory.generateDependencyManager(formulaManager, source);
+		fdm = fdm.getWith(DependencyManager.ASSERTED, varID.getFormatManager());
 		fdm = managerFactory.withVariables(fdm);
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
@@ -468,8 +471,8 @@ public class DynamicSolverManager implements SolverManager
 		 * Solver should "never" be null here, so we accept risk of NPE, since it's always
 		 * a code bug
 		 */
-		EvaluationManager evalManager = managerFactory
-			.generateEvaluationManager(formulaManager, varID.getFormatManager());
+		EvaluationManager evalManager =
+				managerFactory.generateEvaluationManager(formulaManager);
 		T newValue = solver.process(evalManager);
 		Object oldValue = resultStore.put(varID, newValue);
 		return !newValue.equals(oldValue);
@@ -485,8 +488,8 @@ public class DynamicSolverManager implements SolverManager
 			throw new IllegalArgumentException("Request to diagnose VariableID " + varID
 				+ " but that channel was never defined");
 		}
-		EvaluationManager evalManager = managerFactory
-			.generateEvaluationManager(formulaManager, varID.getFormatManager());
+		EvaluationManager evalManager =
+				managerFactory.generateEvaluationManager(formulaManager);
 		return solver.diagnose(evalManager);
 	}
 
@@ -524,5 +527,13 @@ public class DynamicSolverManager implements SolverManager
 			replacement.scopedChannels.put(entry.getKey(), entry.getValue().createReplacement());
 		}
 		return replacement;
+	}
+	
+	@Override
+	public <T> T solve(NEPFormula<T> formula)
+	{
+		EvaluationManager evalManager =
+				managerFactory.generateEvaluationManager(formulaManager);
+		return formula.resolve(evalManager);
 	}
 }

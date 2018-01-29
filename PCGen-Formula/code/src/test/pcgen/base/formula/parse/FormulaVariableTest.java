@@ -71,7 +71,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		VariableID<?> var0 = vars.get(0);
 		assertEquals("a", var0.getName());
 		assertEquals(getGlobalScopeInst(), var0.getScope());
-		evaluatesTo(formula, node, Integer.valueOf(5));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(5));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -90,7 +90,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		VariableID<?> var0 = vars.get(0);
 		assertEquals("a", var0.getName());
 		assertEquals(getGlobalScopeInst(), var0.getScope());
-		evaluatesTo(formula, node, Integer.valueOf(-7));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(-7));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -109,7 +109,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		VariableID<?> var0 = vars.get(0);
 		assertEquals("a", var0.getName());
 		assertEquals(getGlobalScopeInst(), var0.getScope());
-		evaluatesTo(formula, node, Double.valueOf(-7.3));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-7.3));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -126,7 +126,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		hasABVars(formula, node);
 		//Note integer math
-		evaluatesTo(formula, node, Integer.valueOf(10));
+		evaluatesTo(numberManager, formula, node, Integer.valueOf(10));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -143,7 +143,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		hasABVars(formula, node);
 		//Note integer math
-		evaluatesTo(formula, node, Double.valueOf(-4.7));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-4.7));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -161,7 +161,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		hasABCVars(formula, node);
 		//Note integer math
-		evaluatesTo(formula, node, Double.valueOf(-2.5));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(-2.5));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -181,7 +181,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		assertEquals("a", var0.getName());
 		assertEquals(getGlobalScopeInst(), var0.getScope());
 		//Note integer math
-		evaluatesTo(formula, node, Double.valueOf(0.2));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(0.2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -198,7 +198,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		hasABVars(formula, node);
 		//Note integer math
-		evaluatesTo(formula, node, Double.valueOf(1.1));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(1.1));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -215,7 +215,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		hasABVars(formula, node);
 		//Note integer math
-		evaluatesTo(formula, node, Boolean.FALSE);
+		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -243,7 +243,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		hasABVars(formula, node);
 		//Note integer math
-		evaluatesTo(formula, node, Boolean.TRUE);
+		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -260,7 +260,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		hasABVars(formula, node);
 		//Note integer math
-		evaluatesTo(formula, node, Boolean.TRUE);
+		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -287,7 +287,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
 		hasABCVars(formula, node);
-		evaluatesTo(formula, node, Double.valueOf(1.8));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(1.8));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -304,7 +304,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
 		hasABCVars(formula, node);
-		evaluatesTo(formula, node, Double.valueOf(2));
+		evaluatesTo(numberManager, formula, node, Double.valueOf(2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -398,7 +398,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		assertEquals(1, vars.size());
 		VariableID<?> var0 = vars.get(0);
 		assertEquals("a", var0.getName());
-		evaluatesTo(formula, node, Boolean.TRUE);
+		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));

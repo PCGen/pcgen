@@ -188,13 +188,15 @@ public class Solver<T>
 	 */
 	public T process(EvaluationManager evalManager)
 	{
+		EvaluationManager assertedManager = evalManager
+			.getWith(EvaluationManager.ASSERTED, defaultModifier.getVariableFormat());
 		T result = defaultModifier.process(null);
 		for (Long priority : modifierList.getKeySet())
 		{
 			for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 			{
 				EvaluationManager thisManager =
-						evalManager.getWith(EvaluationManager.INPUT, result);
+						assertedManager.getWith(EvaluationManager.INPUT, result);
 				thisManager = thisManager.getWith(EvaluationManager.INSTANCE,
 					modInfo.getInstance());
 				result = modInfo.getModifier().process(thisManager);
@@ -216,6 +218,8 @@ public class Solver<T>
 	 */
 	public List<ProcessStep<T>> diagnose(EvaluationManager evalManager)
 	{
+		EvaluationManager assertedManager = evalManager
+				.getWith(EvaluationManager.ASSERTED, defaultModifier.getVariableFormat());
 		List<ProcessStep<T>> steps = new ArrayList<ProcessStep<T>>();
 		T stepResult = defaultModifier.process(null);
 		steps.add(new ProcessStep<T>(defaultModifier, new DefaultValue(
@@ -227,7 +231,7 @@ public class Solver<T>
 				for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 				{
 					EvaluationManager thisManager =
-							evalManager.getWith(EvaluationManager.INPUT, stepResult);
+							assertedManager.getWith(EvaluationManager.INPUT, stepResult);
 					thisManager = thisManager.getWith(EvaluationManager.INSTANCE,
 						modInfo.getInstance());
 					stepResult = modInfo.getModifier().process(thisManager);

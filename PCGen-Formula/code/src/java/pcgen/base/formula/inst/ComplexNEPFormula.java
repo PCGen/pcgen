@@ -74,20 +74,29 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	private final SimpleNode root;
 
 	/**
-	 * Construct a new ComplexNEPFormula from the given String. This calculates
-	 * the tree of objects representing the calculation to be performed by the
-	 * ComplexNEPFormula, and loads the root of that tree into the root field.
+	 * The FormatManager indicating the format of the result of calculating this
+	 * ComplexNEPFormula.
+	 */
+	private final FormatManager<T> formatManager;
+
+	/**
+	 * Construct a new ComplexNEPFormula from the given String. This calculates the tree
+	 * of objects representing the calculation to be performed by the ComplexNEPFormula,
+	 * and loads the root of that tree into the root field.
 	 * 
 	 * @param expression
 	 *            The String representation of the formula used to construct the
 	 *            ComplexNEPFormula.
+	 * @param formatManager
+	 *            The FormatManager indicating the format of the result of calculating
+	 *            this ComplexNEPFormula.
 	 * @throws IllegalArgumentException
-	 *             if the given String does not represent a well-structured
-	 *             Formula. (For example, if parenthesis are not matched, an
-	 *             exception will be thrown)
+	 *             if the given String does not represent a well-structured Formula. (For
+	 *             example, if parenthesis are not matched, an exception will be thrown)
 	 */
-	public ComplexNEPFormula(String expression)
+	public ComplexNEPFormula(String expression, FormatManager<T> formatManager)
 	{
+		this.formatManager = Objects.requireNonNull(formatManager);
 		try
 		{
 			StringReader reader = new StringReader(Objects.requireNonNull(expression));
@@ -125,8 +134,10 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	@Override
 	public T resolve(EvaluationManager manager)
 	{
+		EvaluationManager evalManager =
+				manager.getWith(EvaluationManager.ASSERTED, formatManager);
 		@SuppressWarnings("unchecked")
-		T result = (T) EVALUATE_VISITOR.visit(root, manager);
+		T result = (T) EVALUATE_VISITOR.visit(root, evalManager);
 		return result;
 	}
 
@@ -152,8 +163,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	}
 
 	@Override
-	public void isValid(FormatManager<T> formatManager,
-		FormulaSemantics semantics)
+	public void isValid(FormulaSemantics semantics)
 	{
 		semantics.resetReport();
 		@SuppressWarnings("PMD.PrematureDeclaration")
@@ -179,5 +189,11 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 		StringBuilder sb = new StringBuilder();
 		RECONSTRUCTION_VISITOR.visit(root, sb);
 		return sb.toString();
+	}
+
+	@Override
+	public FormatManager<T> getFormatManager()
+	{
+		return formatManager;
 	}
 }

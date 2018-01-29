@@ -169,7 +169,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		getVarLibrary().assertLegalVariableID("result", globalScope, numberManager);
 
 		ComplexNEPFormula<Number> dynamicformula =
-				new ComplexNEPFormula<Number>("dynamic(active, quantity)");
+				new ComplexNEPFormula<Number>("dynamic(active, quantity)", numberManager);
 		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
 
 		VariableID<Limb> active = (VariableID<Limb>) getVarLibrary()
@@ -429,7 +429,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		getFunctionLibrary().addFunction(new Dynamic());
 		ComplexNEPFormula<Number> dynamicformula =
-				new ComplexNEPFormula<Number>("dynamic(equipVar, localVar)");
+				new ComplexNEPFormula<Number>("dynamic(equipVar, localVar)", numberManager);
 		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
 
 		manager.addModifier(resultID, dynamicMod, source);

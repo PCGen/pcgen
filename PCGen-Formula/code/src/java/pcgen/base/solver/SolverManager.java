@@ -20,6 +20,7 @@ import java.util.List;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.inst.NEPFormula;
 
 /**
  * A SolverManager manages a series of Solver objects in order to manage dependencies
@@ -169,4 +170,15 @@ public interface SolverManager
 	 *         independent calculation pathways from this SolverManager
 	 */
 	public SolverManager createReplacement(WriteableVariableStore newVarStore);
+	
+	/**
+	 * Directly solves a given NEPFormula using the information in this SolverManager.
+	 * 
+	 * @param formula
+	 *            The NEPFormula to be solved using the information in this SolverManager
+	 * @return The result of evaluating the given formula based on information in this
+	 *         SolverManager
+	 */
+	public <T> T solve(NEPFormula<T> formula);
+
 }

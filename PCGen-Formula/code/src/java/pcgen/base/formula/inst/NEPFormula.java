@@ -63,18 +63,14 @@ public interface NEPFormula<T>
 	 * The given FormulaSemantics must contain information about variable
 	 * values, available functions, and other characteristics required for the
 	 * formula to establish the list of variables contained within the
-	 * NEPFormula. These must be valid within the context of the given
-	 * FormatManager.
+	 * NEPFormula. These must be valid within the context of the format
+	 * of the NEPFormula as returned by getFormatManager().
 	 * 
-	 * @param formatManager
-	 *            The FormatManager in which the NEPFormula should be checked to
-	 *            ensure it is valid
 	 * @param semantics
 	 *            The FormulaSemantics object used to contain and store semantic
 	 *            information about the NEPFormula
 	 */
-	public void isValid(FormatManager<T> formatManager,
-		FormulaSemantics semantics);
+	public void isValid(FormulaSemantics semantics);
 
 	/**
 	 * Determines the dependencies for this formula, including the VariableID
@@ -92,4 +88,12 @@ public interface NEPFormula<T>
 	 *            The DependencyManager to be used to capture the dependencies
 	 */
 	public void getDependencies(DependencyManager depManager);
+	
+	/**
+	 * The FormatManager in which the NEPFormula is processed (and indicating the type of
+	 * value it will return if Evaluate is called).
+	 * 
+	 * @return The FormatManager in which the NEPFormula is processed
+	 */
+	public FormatManager<T> getFormatManager();
 }
