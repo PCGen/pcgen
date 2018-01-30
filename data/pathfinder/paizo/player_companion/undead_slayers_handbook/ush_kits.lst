@@ -18,7 +18,7 @@ GEAR:Holy Text (Typical)		QTY:1		SIZE:PC	LOCATION:Carried
 STARTPACK:Ghost Hunter's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:670
 GEAR:Waterproof Bag			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Candles (10)				QTY:1		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Holy Water (Flask)			QTY:3		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Holy Water			QTY:3		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Potion of Lesser Restoration	QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Crowbar				QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Shovel (Folding)			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
@@ -34,10 +34,10 @@ GEAR:Torch					QTY:4		SIZE:PC	LOCATION:Carried
 GEAR:Tindertwig				QTY:6		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Pyramid Buster's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:310
-GEAR:Chalk (1 Piece)			QTY:3		SIZE:PC	LOCATION:Carried
-GEAR:Parchment (Sheet)			QTY:5		SIZE:PC	LOCATION:Carried
+GEAR:Chalk			QTY:3		SIZE:PC	LOCATION:Carried
+GEAR:Parchment			QTY:5		SIZE:PC	LOCATION:Carried
 GEAR:Drug (Synthetic Mumia)		QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Alchemist's Fire (Flask)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Alchemist's Fire		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Tangleburn Bag			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sunrod					QTY:2		SIZE:PC	LOCATION:Carried
 
@@ -45,19 +45,19 @@ STARTPACK:Seance Kit			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:290
 GEAR:Board Game (Common)		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Candles (10)				QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Candlestick				QTY:10	SIZE:PC	LOCATION:Carried
-GEAR:Outfit (Entertainer's)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Entertainer's Outfit		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Harrow Deck				QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Magnet					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Incense				QTY:10	SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Prestidigitation)	QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Augury)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Prestidigitation	QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Augury			QTY:1		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Skeleton Slayer's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:120
-GEAR:Acid (Flask)				QTY:3		SIZE:PC	LOCATION:Carried
+GEAR:Acid				QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Club					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sling					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bullets (Sling/10)			QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Holy Water (Flask)			QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Holy Water			QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Tanglefoot Bag			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Rope (Hemp/50 ft)			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Crowbar				QTY:1		SIZE:PC	LOCATION:Carried
@@ -66,7 +66,7 @@ GEAR:Holy Symbol (Wooden)		QTY:1		SIZE:PC	LOCATION:Carried
 STARTPACK:Undeath Aid Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:500
 GEAR:Waterproof Bag			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Antiplague (Vial)			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Antitoxin (Vial)			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Antitoxin			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Padzahr				QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Soul Stimulant			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Twitch Tonic				QTY:1		SIZE:PC	LOCATION:Waterproof Bag
@@ -74,10 +74,10 @@ GEAR:Twitch Tonic				QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 STARTPACK:Zombie Slayer's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:170
 GEAR:Waterproof Bag			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Shovel (Folding)			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Oil (1 Pint Flask)			QTY:2		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Oil			QTY:2		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Lantern (Bullseye/Waterproof)	QTY:1		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Alchemist's Fire (Flask)		QTY:1		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Holy Water (Flask)			QTY:2		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Alchemist's Fire		QTY:1		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Holy Water			QTY:2		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Rope (Hemp/50 ft)			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Crowbar				QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Hammer					QTY:1		SIZE:PC	LOCATION:Waterproof Bag

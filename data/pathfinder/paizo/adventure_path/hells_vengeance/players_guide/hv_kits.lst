@@ -5,5 +5,5 @@ SOURCELONG:Hell's Vengeance Player's Guide	SOURCESHORT:HVPG	SOURCEWEB:http://pai
 # Note: the Chelish Noble Kit should also grant "a single additional nonmagical item worth no more than 200 gp".
 
 STARTPACK:Chelish Noble	TYPE:Character Trait	VISIBLE:NO	EQUIPBUY:0
-GEAR:Outfit (Noble's)
+GEAR:Noble's Outfit
 GEAR:Signet Ring

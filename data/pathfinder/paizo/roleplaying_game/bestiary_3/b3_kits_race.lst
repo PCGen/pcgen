@@ -1565,7 +1565,7 @@ STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger					LOCATION:Equipped
 GEAR:Shortbow				LOCATION:Equipped
-GEAR:Musical Instrument (Pan Pipes)	LOCATION:Carried
+GEAR:Musical Instrument			LOCATION:Carried	EQMOD:Musical Instrument (Pan Pipes)
 
 
 STARTPACK:Festrog Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Festrog],[!PRERACE:1,%]	SOURCEPAGE:p.115

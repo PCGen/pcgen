@@ -11,9 +11,9 @@ STARTPACK:Arctic Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:27
 GEAR:Candle					QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Candle Lamp				QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Cleats					QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Outfit (Cold-Weather)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Cold-Weather Outfit		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Handaxe				QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Shovel or Spade			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Shovel			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Signal Whistle			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Pot (Iron)				QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Snowshoes				QTY:1		SIZE:PC	LOCATION:Carried
@@ -38,7 +38,7 @@ GEAR:Twine (50 ft.)			QTY:2		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Tropical Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:120
 GEAR:Antiplague (Vial)			QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Antitoxin (Vial)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Antitoxin			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Fishhook				QTY:5		SIZE:PC	LOCATION:Carried
 GEAR:Hammock				QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Kukri					QTY:1		SIZE:PC	LOCATION:Carried

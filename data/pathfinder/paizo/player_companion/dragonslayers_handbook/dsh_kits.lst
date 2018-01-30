@@ -51,7 +51,7 @@ GEAR:Candle Lamp						QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Snorkel (Common)					QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Fake Footprint Shoes				QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Grappling Hook					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Mirror (Small/Steel)				QTY:1		SIZE:PC	LOCATION:Sack
+GEAR:Mirror				QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Periscope						QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Potion of Eagle's Splendor			QTY:1		SIZE:PC	LOCATION:Sack
 GEAR:Sack							QTY:2		SIZE:PC	LOCATION:Carried
