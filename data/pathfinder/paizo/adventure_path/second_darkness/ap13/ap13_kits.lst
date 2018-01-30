@@ -71,11 +71,11 @@ SKILL:Knowledge (Local)		RANK:2
 SKILL:Spellcraft			RANK:2
 ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Improved Initiative
-GEAR:Pouch (Belt)						LOCATION:Carried
-GEAR:Coin (Gold Piece)			QTY:33	LOCATION:Pouch (Belt)
+GEAR:Belt Pouch						LOCATION:Carried
+GEAR:Coin (Gold Piece)			QTY:33	LOCATION:Belt Pouch
 GEAR:Wand of Shocking Grasp				LOCATION:Carried
-GEAR:Scroll (Pyrotechnics)				LOCATION:Carried
-GEAR:Scroll (Shrink Item)				LOCATION:Carried
+GEAR:Scroll of Pyrotechnics				LOCATION:Carried
+GEAR:Scroll of Shrink Item				LOCATION:Carried
 GEAR:Bracers of Armor +1				LOCATION:Equipped
 GEAR:Sickle							LOCATION:Primary Hand
 GEAR:Spellbook			LOCATION:Carried
@@ -124,8 +124,8 @@ GEAR:Leather				LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
 GEAR:Rapier					LOCATION:Primary Hand
 GEAR:Crossbow (Light)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
-GEAR:Pouch (Belt)				LOCATION:Carried
-GEAR:Coin (Gold Piece)	QTY:17	LOCATION:Pouch (Belt)
+GEAR:Belt Pouch				LOCATION:Carried
+GEAR:Coin (Gold Piece)	QTY:17	LOCATION:Belt Pouch
 LANGBONUS:Halfling|Varisian
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Daze
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Lullaby
@@ -165,10 +165,10 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Leather					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
 GEAR:Rapier						LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Key Stump					LOCATION:Secondary Hand
-GEAR:Pouch (Belt)					LOCATION:Carried
-GEAR:Coin (Gold Piece)		QTY:25	LOCATION:Pouch (Belt)
-GEAR:Potion of Barkskin +2			LOCATION:Pouch (Belt)
-GEAR:Poison (Drow Poison)	QTY:3		LOCATION:Pouch (Belt)
+GEAR:Belt Pouch					LOCATION:Carried
+GEAR:Coin (Gold Piece)		QTY:25	LOCATION:Belt Pouch
+GEAR:Potion of Barkskin			LOCATION:Belt Pouch
+GEAR:Poison (Drow Poison)	QTY:3		LOCATION:Belt Pouch
 LANGBONUS:Varisian
 
 
@@ -198,7 +198,7 @@ ABILITY:CATEGORY=FEAT|Spell Focus (Transmutation)
 #FEAT:Varisian Tattoo (Transmutation)
 GEAR:Bracers of Armor +1	LOCATION:Equipped
 GEAR:Dagger				LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Pouch (Belt)			LOCATION:Carried
+GEAR:Belt Pouch			LOCATION:Carried
 LANGBONUS:Halfling|Varisian
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Daze Monster
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Levitate
@@ -262,9 +262,9 @@ GEAR:Crossbow (Light)					LOCATION:Carried
 GEAR:Bolt (Crossbow)			QTY:10	LOCATION:Carried
 GEAR:Potion of Bull's Strength	QTY:2		LOCATION:Carried
 GEAR:Poison (Black adder venom)			LOCATION:Carried
-GEAR:Pouch (Belt)						LOCATION:Carried
-GEAR:Coin (Gold Piece)			QTY:25	LOCATION:Pouch (Belt)
-GEAR:Coin (Platinum Piece)		QTY:5		LOCATION:Pouch (Belt)
+GEAR:Belt Pouch						LOCATION:Carried
+GEAR:Coin (Gold Piece)			QTY:25	LOCATION:Belt Pouch
+GEAR:Coin (Platinum Piece)		QTY:5		LOCATION:Belt Pouch
 
 
 STARTPACK:NPC (Braddikar Faje)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.30	NAMEISPI:YES
@@ -311,7 +311,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Combat Reflexes
 #ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Stunning Fist
 GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
-GEAR:Outfit (Monk's)			LOCATION:Equipped
+GEAR:Monk's Outfit			LOCATION:Equipped
 GEAR:Unarmed Strike			LOCATION:Equipped
 GEAR:Flurry of Blows			LOCATION:Equipped
 
@@ -365,7 +365,7 @@ GEAR:Longbow (Composite)				LOCATION:Both Hands	EQMOD:Special Quality ~ Composit
 GEAR:Dagger							LOCATION:Carried
 GEAR:Arrow					QTY:20	LOCATION:Carried
 GEAR:Arrow					QTY:8		LOCATION:Carried		EQMOD:Material ~ Alchemical Silver
-GEAR:Alchemist's Fire (Flask)		QTY:2		LOCATION:Carried
+GEAR:Alchemist's Fire		QTY:2		LOCATION:Carried
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Animal Messenger
 LANGBONUS:Orc
@@ -500,7 +500,7 @@ GEAR:Leather						LOCATION:Equipped
 GEAR:Dagger							LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Thunderstone				QTY:4		LOCATION:Carried
 GEAR:Thieves' Tools					LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
-GEAR:Potion of Shield of Faith +3			LOCATION:Carried
+GEAR:Potion of Shield of Faith (CL 6th)			LOCATION:Carried
 GEAR:Potion of Spider Climb				LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:178	LOCATION:Carried
 LANGBONUS:Varisian

@@ -28,9 +28,9 @@ STARTPACK:Spy's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:140
 GEAR:Book of Letters		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Disguise Kit			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Hollow-Heeled Boot		QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Ink (1 oz Vial)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Ink		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Inkpen				QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Paper (Sheet)		QTY:10	SIZE:PC	LOCATION:Carried
+GEAR:Paper		QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Ring (Poison Pill)		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sealing Wax			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Invisible Ink (Simple)	QTY:3		SIZE:PC	LOCATION:Carried

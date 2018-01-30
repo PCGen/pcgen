@@ -37,7 +37,7 @@ GEAR:Dagger					LOCATION:Primary Hand
 GEAR:Wand					LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Acid Splash]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[28]
 GEAR:Thunderstone				LOCATION:Carried
 GEAR:Tanglefoot Bag		QTY:3	LOCATION:Carried
-GEAR:Acid (Flask)			QTY:3	LOCATION:Carried
+GEAR:Acid			QTY:3	LOCATION:Carried
 GEAR:Leather				LOCATION:Equipped
 GEAR:Crossbow (Light)			LOCATION:Carried
 GEAR:Bolts (Crossbow/10)		LOCATION:Carried
@@ -272,7 +272,7 @@ ABILITY:CATEGORY=FEAT|Shingle Runner
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Potion of Cat's Grace		LOCATION:Carried
 GEAR:Potion of Jump			LOCATION:Carried
-GEAR:Potion of Shield of Faith +3	LOCATION:Carried
+GEAR:Potion of Shield of Faith (CL 6th)	LOCATION:Carried
 GEAR:Wand					LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Daze Monster]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[10]
 GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Mithril ~ Armor / Light
 GEAR:Dagger					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon

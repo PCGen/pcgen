@@ -23,7 +23,7 @@ Elemental Proofing (Cold)					TYPE:Goods.Alchemical.Consumable			COST:100	WT:1		
 Elemental Proofing (Electricity)				TYPE:Goods.Alchemical.Consumable			COST:100	WT:1			SOURCEPAGE:p.26
 Elemental Proofing (Fire)					TYPE:Goods.Alchemical.Consumable			COST:100	WT:1			SOURCEPAGE:p.26
 Smoke Cover								TYPE:Goods.Alchemical.Consumable			COST:75	WT:10			SOURCEPAGE:p.26
-Spotlight								TYPE:Goods.Tools.Lightsource				COST:75	WT:18			SOURCEPAGE:p.27
+Spotlight								TYPE:Goods.Tools.Light Source				COST:75	WT:18			SOURCEPAGE:p.27
 Wind Platform							TYPE:Goods.Tools						COST:5000	WT:1600		SOURCEPAGE:p.27
 Wing Hobble								TYPE:Goods.Tools						COST:75	WT:20			SOURCEPAGE:p.27
 

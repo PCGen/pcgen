@@ -77,7 +77,7 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger							LOCATION:Primary Hand
 GEAR:Shortbow						LOCATION:Carried
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
+GEAR:Musical Instrument					LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item.Musical Instrument (Pan Pipes)
 
 
 STARTPACK:Cayhound Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cayhound],[!PRERACE:1,%]	SOURCEPAGE:p.8
@@ -399,7 +399,7 @@ ABILITY:CATEGORY=FEAT|Greater Spell Penetration
 ABILITY:CATEGORY=FEAT|Improved Great Fortitude
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Boots of Speed		QTY:1	SIZE:PC	LOCATION:Equipped
-GEAR:Rod (Cancellation)		QTY:2	SIZE:PC	LOCATION:Carried
+GEAR:Rod of Cancellation		QTY:2	SIZE:PC	LOCATION:Carried
 GEAR:Staff of Power		QTY:1	SIZE:PC	LOCATION:Both Hands
 GEAR:Bracers of Armor +6	QTY:1	SIZE:PC	LOCATION:Equipped
 GEAR:Mirror of Life Trapping	QTY:1	SIZE:PC	LOCATION:Carried

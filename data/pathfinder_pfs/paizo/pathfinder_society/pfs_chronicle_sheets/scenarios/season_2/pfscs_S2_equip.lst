@@ -19,7 +19,7 @@ Tome of Memory (Lesser)																		TYPE:Magic.Wondrous.PFS				COST:1500	WT
 Tome of Memory (Greater)																	TYPE:Magic.Wondrous.PFS				COST:2500	WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-12 (Subtier 10-11)																	SOURCELONG:PFS Chronicle #02-12																																			SPROP:grants a +10 circumstance bonus on Knowledge (history or religion) checks regarding Aroden and his faith
 
 # PFS #2-14
-Flask (Empty).COPY=Nightmare Vapor Flask
+Flask.COPY=Nightmare Vapor Flask
 Nightmare Vapor Flask.MOD																	TYPE:Magic.Wondrous.PFS				COST:2000			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-14															MODS:NO			SOURCELONG:PFS Chronicle #02-14																															SPROP:.CLEAR		SPROP:thrown splash weapon [ranged touch attack, range increment 10 ft.] releasing 10-ft.-radius and 10-ft.-high toxic cloud of nightmare vapor poison [Pathfinder RPG Core Rulebook 560] on use. The cloud dissipates in 1d4 rounds;
 
 # PFS #2-21

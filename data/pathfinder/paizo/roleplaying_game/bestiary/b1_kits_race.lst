@@ -495,7 +495,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Longsword				SIZE:PC	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon
-GEAR:Musical Instrument (Harp)	SIZE:PC	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
+GEAR:Musical Instrument			SIZE:PC	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item.Musical Instrument (Harp)
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Monster
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Hold Person
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Invisibility
@@ -3260,7 +3260,7 @@ GEAR:Crossbow (Hand)					SIZE:M	LOCATION:Carried
 GEAR:Bolt (Crossbow)			QTY:20			LOCATION:Carried
 GEAR:Poison (Drow Poison)		QTY:4				LOCATION:Carried
 GEAR:Potion of Invisibility						LOCATION:Carried
-GEAR:Scroll (Dispel Magic/Divine)					LOCATION:Carried
+GEAR:Scroll of Dispel Magic (Divine)					LOCATION:Carried
 GEAR:Wand of Cure Light Wounds					LOCATION:Carried
 
 STARTPACK:Dryad Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dryad],[!PRERACE:1,%]	SOURCEPAGE:p.116
@@ -5848,7 +5848,7 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger							LOCATION:Primary Hand
 GEAR:Shortbow						LOCATION:Carried
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
+GEAR:Musical Instrument					LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item.Musical Instrument (Pan Pipes)
 
 STARTPACK:Scorpion (Greensting) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Greensting)]	SOURCEPAGE:p.242
 RACE:Scorpion (Greensting)	!PRERACE:1,%
@@ -6873,8 +6873,8 @@ GEAR:Boots of Levitation			LOCATION:Equipped
 GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
 GEAR:Ring of Protection +2			LOCATION:Equipped
 GEAR:Potion of Invisibility			LOCATION:Carried
-GEAR:Scroll (Dominate Person)			LOCATION:Carried
-GEAR:Scroll (Teleport)				LOCATION:Carried
+GEAR:Scroll of Dominate Person			LOCATION:Carried
+GEAR:Scroll of Teleport				LOCATION:Carried
 LANGBONUS:Abyssal|Aklo|Aquan
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Circle of Death
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Fireball

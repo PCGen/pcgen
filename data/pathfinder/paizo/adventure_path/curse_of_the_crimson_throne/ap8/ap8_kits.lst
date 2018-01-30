@@ -105,12 +105,12 @@ ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Rapier)
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Rapier)
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
 ABILITY:CATEGORY=Weapon Training I|Weapon Training 1 Blades Light
-GEAR:Potion of Blur					LOCATION:Pouch (Belt)
-GEAR:Potion of Shield of Faith +3			LOCATION:Pouch (Belt)
+GEAR:Potion of Blur					LOCATION:Belt Pouch
+GEAR:Potion of Shield of Faith (CL 6th)			LOCATION:Belt Pouch
 GEAR:Chain Shirt						LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
 GEAR:Rapier							LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Alchemical Silver
-GEAR:Coin (Gold Piece)			QTY:30	LOCATION:Pouch (Belt)
-GEAR:Pouch (Belt)						LOCATION:Equipped
+GEAR:Coin (Gold Piece)			QTY:30	LOCATION:Belt Pouch
+GEAR:Belt Pouch						LOCATION:Equipped
 
 
 STARTPACK:NPC (Yvicca)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Hag]	SOURCEPAGE:p.33	NAMEISPI:YES
@@ -182,20 +182,20 @@ ABILITY:CATEGORY=FEAT|Alertness
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
-GEAR:Potion of Invisibility	QTY:3		LOCATION:Pouch (Belt)
-GEAR:Potion of Remove Disease	QTY:2		LOCATION:Pouch (Belt)
-GEAR:Wand						LOCATION:Pouch (Belt)	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Cat's Grace]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[11]
-GEAR:Smokestick			QTY:5		LOCATION:Pouch (Belt)
+GEAR:Potion of Invisibility	QTY:3		LOCATION:Belt Pouch
+GEAR:Potion of Remove Disease	QTY:2		LOCATION:Belt Pouch
+GEAR:Wand						LOCATION:Belt Pouch	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Cat's Grace]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[11]
+GEAR:Smokestick			QTY:5		LOCATION:Belt Pouch
 GEAR:Studded Leather				LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Glamered ~ Armor
 GEAR:Bolt (Crossbow)		QTY:30	LOCATION:Carried
 GEAR:Crossbow (Light)				LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Dagger						LOCATION:Primary Hamd	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Alchemist's Fire (Flask)	QTY:2.0	LOCATION:Pouch (Belt)
-GEAR:Flint and Steel				LOCATION:Pouch (Belt)
-GEAR:Manacles (Medium)				LOCATION:Pouch (Belt)
-GEAR:Sealing Wax					LOCATION:Pouch (Belt)
-GEAR:Sewing Needle				LOCATION:Pouch (Belt)
-GEAR:Pouch (Belt)					LOCATION:Equipped
+GEAR:Alchemist's Fire	QTY:2.0	LOCATION:Belt Pouch
+GEAR:Flint and Steel				LOCATION:Belt Pouch
+GEAR:Manacles (Medium)				LOCATION:Belt Pouch
+GEAR:Sealing Wax					LOCATION:Belt Pouch
+GEAR:Sewing Needle				LOCATION:Belt Pouch
+GEAR:Belt Pouch					LOCATION:Equipped
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Enfeeblement|Shield|Acid Splash|Dancing Lights|Ghost Sound|Mage Hand|Open/Close
 TEMPLATE:Jolistina Susperio's Magic Buffs
 

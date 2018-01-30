@@ -10,22 +10,22 @@ STARTPACK:Arcane Adept Package (Trait)				TYPE:Adventuring Kit	EQUIPBUY:0				PRE
 GEAR:Crossbow (Light)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Quarterstaff								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Acid (Flask)								QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Comprehend Languages/Arcane)				QTY:2		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
-GEAR:Scroll (Detect Secret Doors)					QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
-GEAR:Scroll (Glitterdust)						QTY:1		SIZE:PC	LOCATION:Scroll Box
-GEAR:Scroll (Identify)							QTY:2		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
-GEAR:Scroll (Mount)							QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
-GEAR:Scroll (Rope Trick)						QTY:1		SIZE:PC	LOCATION:Scroll Box
+GEAR:Acid								QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Comprehend Languages (Arcane)				QTY:2		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
+GEAR:Scroll of Detect Secret Doors					QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
+GEAR:Scroll of Glitterdust						QTY:1		SIZE:PC	LOCATION:Scroll Box
+GEAR:Scroll of Identify							QTY:2		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
+GEAR:Scroll of Mount							QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
+GEAR:Scroll of Rope Trick						QTY:1		SIZE:PC	LOCATION:Scroll Box
 GEAR:Thunderstone								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Wand of Mage Armor							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Mage Armor]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[16]		!PRECLASS:1,Magus=1
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Ink (1 oz Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Ink							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Inkpen									QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Ioun Torch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Journal								QTY:1		SIZE:PC	LOCATION:Backpack
@@ -34,7 +34,7 @@ GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Scroll Box								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon												PRECLASS:1,Magus=1
 FUNDS:gp	QTY:3
@@ -43,22 +43,22 @@ STARTPACK:Arcane Adept Package					TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOS
 GEAR:Crossbow (Light)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Quarterstaff								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Acid (Flask)								QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Comprehend Languages/Arcane)				QTY:2		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
-GEAR:Scroll (Detect Secret Doors)					QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
-GEAR:Scroll (Glitterdust)						QTY:1		SIZE:PC	LOCATION:Scroll Box
-GEAR:Scroll (Identify)							QTY:2		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
-GEAR:Scroll (Mount)							QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
-GEAR:Scroll (Rope Trick)						QTY:1		SIZE:PC	LOCATION:Scroll Box
+GEAR:Acid								QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Comprehend Languages (Arcane)				QTY:2		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
+GEAR:Scroll of Detect Secret Doors					QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
+GEAR:Scroll of Glitterdust						QTY:1		SIZE:PC	LOCATION:Scroll Box
+GEAR:Scroll of Identify							QTY:2		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
+GEAR:Scroll of Mount							QTY:1		SIZE:PC	LOCATION:Scroll Box																!PRECLASS:1,Magus=1
+GEAR:Scroll of Rope Trick						QTY:1		SIZE:PC	LOCATION:Scroll Box
 GEAR:Thunderstone								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Wand of Mage Armor							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Mage Armor]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[16]		!PRECLASS:1,Magus=1
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Ink (1 oz Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Ink							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Inkpen									QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Ioun Torch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Journal								QTY:1		SIZE:PC	LOCATION:Backpack
@@ -67,7 +67,7 @@ GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Scroll Box								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon												PRECLASS:1,Magus=1
 
@@ -79,28 +79,28 @@ GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Rapier									QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sap									QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Alchemical Silver
-GEAR:Acid (Flask)								QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Acid								QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Alchemist's Kindness						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Sunrod									QTY:3		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Wine (Fine/Bottle)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Outfit (Courtier's)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Courtier's Outfit						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Jewelry								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flask							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Grooming Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:TYPE=Goods.Instrument						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Item
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Mirror (Small/Steel)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mirror						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Perfume/Cologne							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signet Ring								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Whetstone								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
@@ -114,28 +114,28 @@ GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Rapier									QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sap									QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Alchemical Silver
-GEAR:Acid (Flask)								QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Acid								QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Alchemist's Kindness						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Sunrod									QTY:3		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Wine (Fine/Bottle)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Outfit (Courtier's)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Courtier's Outfit						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Jewelry								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flask							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Grooming Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:TYPE=Goods.Instrument						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Item
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Mirror (Small/Steel)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mirror						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Perfume/Cologne							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signet Ring								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Whetstone								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
@@ -148,24 +148,24 @@ GEAR:Morningstar								QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Cold 
 GEAR:Crossbow (Heavy)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
-GEAR:Holy Water (Flask)							QTY:4		SIZE:PC	LOCATION:Carried
+GEAR:Alchemist's Fire						QTY:3		SIZE:PC	LOCATION:Carried
+GEAR:Holy Water							QTY:4		SIZE:PC	LOCATION:Carried
 GEAR:Oil of Bless Weapon						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Potion of Protection from Evil					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sunrod									QTY:3		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Crowbar								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Holy Symbol (Silver)						QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
 FUNDS:gp	QTY:7
@@ -178,24 +178,24 @@ GEAR:Morningstar								QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Cold 
 GEAR:Crossbow (Heavy)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:TYPE=Weapon.Melee							QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
-GEAR:Holy Water (Flask)							QTY:4		SIZE:PC	LOCATION:Carried
+GEAR:Alchemist's Fire						QTY:3		SIZE:PC	LOCATION:Carried
+GEAR:Holy Water							QTY:4		SIZE:PC	LOCATION:Carried
 GEAR:Oil of Bless Weapon						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Potion of Protection from Evil					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sunrod									QTY:3		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Crowbar								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Holy Symbol (Silver)						QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
 
@@ -205,8 +205,8 @@ GEAR:Crossbow (Light)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Quarterstaff								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Alchemical Silver
-GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
-GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Alchemist's Fire						QTY:3		SIZE:PC	LOCATION:Carried
+GEAR:Antitoxin							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Oil of Erase								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Potion of Protection from Evil					QTY:1		SIZE:PC	LOCATION:Carried
@@ -214,15 +214,15 @@ GEAR:Tanglefoot Bag							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Thunderstone								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Compass								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Crowbar								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Everburning Torch							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Grappling Hook							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Ink (1 oz Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Ink							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Inkpen									QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Journal								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Magnifying Glass							QTY:1		SIZE:PC	LOCATION:Backpack
@@ -231,7 +231,7 @@ GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Traveler's Any-Tool						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
@@ -244,8 +244,8 @@ GEAR:Crossbow (Light)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)							QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Quarterstaff								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Dagger									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Material ~ Alchemical Silver
-GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
-GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Alchemist's Fire						QTY:3		SIZE:PC	LOCATION:Carried
+GEAR:Antitoxin							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Oil of Erase								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Potion of Protection from Evil					QTY:1		SIZE:PC	LOCATION:Carried
@@ -253,15 +253,15 @@ GEAR:Tanglefoot Bag							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Thunderstone								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Compass								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Crowbar								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Everburning Torch							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Grappling Hook							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Ink (1 oz Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Ink							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Inkpen									QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Journal								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Magnifying Glass							QTY:1		SIZE:PC	LOCATION:Backpack
@@ -270,7 +270,7 @@ GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Traveler's Any-Tool						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
@@ -283,29 +283,29 @@ GEAR:Shield (Light/Wooden)						QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Shortspear								QTY:1		SIZE:PC	LOCATION:Primary Hand
 GEAR:Sling									QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bullets (Sling/10)							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Antitoxin							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Bead of Blessing							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Holy Water (Flask)							QTY:4		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Cure Light Wounds)					QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Endure Elements/Divine)				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Holy Water							QTY:4		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Endure Elements (Divine)				QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Healer's Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Holy Symbol (Silver)						QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Ioun Torch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Mirror (Small/Steel)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mirror						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Smelling Salts							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Soap (per lb)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 FUNDS:gp	QTY:.4
 
@@ -316,29 +316,29 @@ GEAR:Shield (Light/Wooden)						QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Shortspear								QTY:1		SIZE:PC	LOCATION:Primary Hand
 GEAR:Sling									QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bullets (Sling/10)							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Antitoxin							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Bead of Blessing							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Holy Water (Flask)							QTY:4		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Cure Light Wounds)					QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Endure Elements/Divine)				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Holy Water							QTY:4		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Cure Light Wounds					QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Endure Elements (Divine)				QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Healer's Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Holy Symbol (Silver)						QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Ioun Torch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Mirror (Small/Steel)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mirror						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Smelling Salts							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Soap (per lb)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 
 
@@ -353,16 +353,16 @@ GEAR:Sunrod									QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Banner (Simple)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flask							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Pole								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signet Ring								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Whetstone								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Horse (Heavy/Combat Trained)					QTY:1		SIZE:PC	LOCATION:Not Carried																!PREABILITY:1,CATEGORY=Special Ability,Samurai ~ Mount,Cavalier ~ Mount,Divine Bond ~ Special Mount
@@ -383,16 +383,16 @@ GEAR:Sunrod									QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Banner (Simple)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flask							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Pole								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signet Ring								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Whetstone								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Horse (Heavy/Combat Trained)					QTY:1		SIZE:PC	LOCATION:Not Carried																!PREABILITY:1,CATEGORY=Special Ability,Samurai ~ Mount,Cavalier ~ Mount,Divine Bond ~ Special Mount
@@ -406,14 +406,14 @@ GEAR:Leather								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ M
 GEAR:Dagger									QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Sickle									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sap									QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
+GEAR:Alchemist's Fire						QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Smokestick								QTY:2		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Sunrod									QTY:2		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Caltrops								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Disguise Kit								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Glass Cutter								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
@@ -423,7 +423,7 @@ GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Sleeves of Many Garments						QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
 FUNDS:gp	QTY:1
@@ -434,14 +434,14 @@ GEAR:Leather								QTY:1		SIZE:PC	LOCATION:Equipped			EQMOD:Special Quality ~ M
 GEAR:Dagger									QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Sickle									QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sap									QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Alchemist's Fire (Flask)						QTY:3		SIZE:PC	LOCATION:Carried
+GEAR:Alchemist's Fire						QTY:3		SIZE:PC	LOCATION:Carried
 GEAR:Smokestick								QTY:2		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Sunrod									QTY:2		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Caltrops								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Candle									QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Disguise Kit								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Glass Cutter								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
@@ -451,7 +451,7 @@ GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Sleeves of Many Garments						QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack (Masterwork)
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
 
@@ -467,24 +467,24 @@ GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Qu
 GEAR:Arrows (20)								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sword (Short)							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Alchemist's Fire (Flask)						QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Alchemist's Fire						QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Antitoxin							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Keen Senses						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sunrod									QTY:3		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Climber's Kit							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Outfit (Cold-Weather)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Cold-Weather Outfit						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Fishhook								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pole								QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
 GEAR:Holly and Mistletoe						QTY:1		SIZE:PC	LOCATION:Equipped																	PRESPELLCAST:TYPE=Divine
@@ -502,24 +502,24 @@ GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Qu
 GEAR:Arrows (20)								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sword (Short)							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Alchemist's Fire (Flask)						QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Alchemist's Fire						QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Antitoxin							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Keen Senses						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sunrod									QTY:3		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Climber's Kit							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Outfit (Cold-Weather)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Cold-Weather Outfit						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Fishhook								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pole								QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
 GEAR:Holly and Mistletoe						QTY:1		SIZE:PC	LOCATION:Equipped																	PRESPELLCAST:TYPE=Divine
@@ -536,24 +536,24 @@ GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Qu
 GEAR:Arrows (20)								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands
 GEAR:Sword (Short)							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Alchemist's Fire (Flask)						QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Alchemist's Fire						QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Antitoxin							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Keen Senses						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sunrod									QTY:3		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Climber's Kit							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Outfit (Cold-Weather)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Cold-Weather Outfit						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Fishhook								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pole								QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
 GEAR:Holly and Mistletoe						QTY:1		SIZE:PC	LOCATION:Equipped																	PRESPELLCAST:TYPE=Divine
@@ -571,24 +571,24 @@ GEAR:Longbow (Composite)						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Qu
 GEAR:Arrows (20)								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Greataxe								QTY:1		SIZE:PC	LOCATION:Both Hands
 GEAR:Sword (Short)							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Alchemist's Fire (Flask)						QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Antitoxin (Vial)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Alchemist's Fire						QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Antitoxin							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Potion of Keen Senses						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sunrod									QTY:3		SIZE:PC	LOCATION:Backpack
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Belt Pouch								QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Chalk							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Climber's Kit							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Outfit (Cold-Weather)						QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Cold-Weather Outfit						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Fishhook								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pole								QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Trail Rations						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried																	PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:TYPE=Divine],[PRESPELLCAST:TYPE=Psychic]
 GEAR:Holly and Mistletoe						QTY:1		SIZE:PC	LOCATION:Equipped																	PRESPELLCAST:TYPE=Divine
@@ -596,17 +596,17 @@ GEAR:Holly and Mistletoe						QTY:1		SIZE:PC	LOCATION:Equipped																	P
 
 STARTPACK:Elemental Explorer's Kit (Divine)			TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:2700
 GEAR:Waterproof Bag							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Comprehend Languages/Divine)				QTY:3		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Scroll of Comprehend Languages (Divine)				QTY:3		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Scroll (Planar Adaptation/Divine)				QTY:2		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Scroll (Plane Shift/Divine)					QTY:1		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Scroll of Plane Shift (Divine)					QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Guidebook (Regional)						QTY:4		SIZE:PC	LOCATION:Backpack
 
 
 STARTPACK:Elemental Explorer's Kit (Arcane)			TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:4700
 GEAR:Waterproof Bag							QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Comprehend Languages/Arcane)				QTY:3		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Scroll of Comprehend Languages (Arcane)				QTY:3		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Scroll (Planar Adaptation/Arcane)				QTY:2		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Scroll (Plane Shift/Arcane)					QTY:1		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Scroll of Plane Shift (Arcane)					QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Guidebook (Regional)						QTY:4		SIZE:PC	LOCATION:Backpack
 
 
@@ -615,12 +615,12 @@ GEAR:Manacles (Masterwork/Medium)					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Lock (Average)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Gravelly Tonic							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Elixir of Truth							QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Detect Thoughts)						QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Speak with Dead)						QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Detect Thoughts						QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Speak with Dead						QTY:1		SIZE:PC	LOCATION:Carried
 
 
 STARTPACK:Invisible Enemies Kit					TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:900
-GEAR:Scroll (Glitterdust)						QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Glitterdust						QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Powder									QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Dust of Appearance							QTY:1		SIZE:PC	LOCATION:Carried
 
@@ -629,17 +629,17 @@ STARTPACK:Fiendslayer's Kit						TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:
 GEAR:Celestial Censer							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Holy Symbol (Silver)						QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Weapon Blanch (Cold Iron)					QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Holy Water (Flask)							QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Holy Water							QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Incense								QTY:10	SIZE:PC	LOCATION:Carried
 GEAR:Oil of Align Weapon (Good)					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Silversheen								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Magic Circle Against Evil/Arcane)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Magic Circle Against Evil (Arcane)			QTY:1		SIZE:PC	LOCATION:Carried
 
 
 STARTPACK:Undead Survivor's Kit					TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:900
 GEAR:Potion of Hide from Undead					QTY:4		SIZE:PC	LOCATION:Carried
 GEAR:Potion of Lesser Restoration					QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Holy Water (Flask)							QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Holy Water							QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Holy Weapon Balm							QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Soul Stimulant							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Twitch Tonic								QTY:2		SIZE:PC	LOCATION:Carried
@@ -647,7 +647,7 @@ GEAR:Twitch Tonic								QTY:2		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Underground Survival Kit					TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:644
 GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Chalk (1 Piece)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Climber's Kit							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Compass								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Grappling Hook							QTY:1		SIZE:PC	LOCATION:Backpack

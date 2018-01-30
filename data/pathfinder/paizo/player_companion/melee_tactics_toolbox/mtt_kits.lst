@@ -31,6 +31,6 @@ GEAR:Thieves' Tools (Masterwork)	QTY:1	SIZE:PC
 STARTPACK:Melee Contingency Kit	TYPE:Adventuring Kit	APPLY:INSTANT	EQUIPBUY:150
 GEAR:Morningstar (Cold Iron)	QTY:1	SIZE:PC
 GEAR:Sickle (Silver)		QTY:1	SIZE:PC
-GEAR:Acid (Flask)			QTY:2	SIZE:PC
-GEAR:Alchemist's Fire (Flask)	QTY:2	SIZE:PC
-GEAR:Holy Water (Flask)		QTY:2	SIZE:PC
+GEAR:Acid			QTY:2	SIZE:PC
+GEAR:Alchemist's Fire	QTY:2	SIZE:PC
+GEAR:Holy Water		QTY:2	SIZE:PC

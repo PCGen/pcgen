@@ -6,7 +6,7 @@ SOURCELONG:Shattered Star Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paizo
 # Note: the Alabaster Outcast Kit should also grant "a single additional nonmagical item worth no more than 200 gp".
 
 STARTPACK:Alabaster Outcast	TYPE:Character Trait	VISIBLE:NO
-GEAR:Outfit (Noble's)
+GEAR:Noble's Outfit
 GEAR:Signet Ring
 
 #
