@@ -364,3 +364,7 @@ Familiar (Toad)			CATEGORY:Internal													BONUS:HP|CURRENTMAX|FamiliarGran
 Familiar (Weasel)			CATEGORY:Internal																							BONUS:SAVE|Reflex|FamiliarGrantedBonus_2|TYPE=Familiar
 
 Familiar (Compsognathus)	CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|FamiliarGrantedBonus_4|TYPE=Familiar
+Familiar (Snapping Turtle)	CATEGORY:Internal																							BONUS:SAVE|Fortitude|FamiliarGrantedBonus_2|TYPE=Familiar
+
+#Snapping Turtle
+Shell									KEY:Snapping Turtle ~ Shell						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																											DESC:As a move action, a snapping turtle can pull its extremities and head into its shell.  It cannot move or attack as long as it remains in this state, but its armor bonus from natural armor increases by +4 as long as it does.																																																																																																																																																																																																																																																																																																																																																																																	TEMPBONUS:PC|COMBAT|AC|4|TYPE=NaturalArmor.STACK																																								SOURCEPAGE:p.273
