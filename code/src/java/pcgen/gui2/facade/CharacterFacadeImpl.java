@@ -3679,7 +3679,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public boolean isQualifiedFor(EquipmentFacade equipment)
 	{
 		final Equipment equip = (Equipment) equipment;
-		final boolean accept = PrereqHandler.passesAll(equip.getPrerequisiteList(), theCharacter, equip);
+		final boolean accept = PrereqHandler.passesAll(equip, theCharacter, equip);
 
 		if (accept && (equip.isShield() || equip.isWeapon() || equip.isArmor()))
 		{
@@ -3973,7 +3973,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return false;
 		}
 		Deity aDeity = (Deity) deityFacade;
-		return PrereqHandler.passesAll(aDeity.getPrerequisiteList(), theCharacter, aDeity)
+		return PrereqHandler.passesAll(aDeity, theCharacter, aDeity)
 				&& theCharacter.isQualified(aDeity);
 	}
 	
@@ -3990,7 +3990,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
 		Domain domain = domainFI.getRawObject();
-		if (!PrereqHandler.passesAll(domainFI.getPrerequisiteList(), theCharacter, domain)
+		if (!PrereqHandler.passesAll(domainFI, theCharacter, domain)
 				|| !theCharacter.isQualified(domain))
 		{
 			return false;
@@ -4069,7 +4069,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		PCTemplate template = (PCTemplate) templateFacade;
 
-		if (!PrereqHandler.passesAll(template.getPrerequisiteList(), theCharacter, template))
+		if (!PrereqHandler.passesAll(template, theCharacter, template))
 		{
 			return;
 		}

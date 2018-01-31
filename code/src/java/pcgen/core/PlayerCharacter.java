@@ -39,6 +39,7 @@ import org.jetbrains.annotations.TestOnly;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SolverFactory;
@@ -10237,5 +10238,18 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public boolean hasControl(String string)
 	{
 		return controller.get(ObjectKey.getKeyFor(String.class, '*' + string)) != null;
+	}
+
+	/**
+	 * Directly solves the given NEPFormula in context to this PlayerCharacter.
+	 * 
+	 * @param formula
+	 *            The NEPFormula to be solved
+	 * @return The result of solving the given NEPFormula in context to this
+	 *         PlayerCharacter
+	 */
+	public <T> T solve(NEPFormula<T> formula)
+	{
+		return solverManagerFacet.get(id).solve(formula);
 	}
 }

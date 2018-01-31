@@ -24,9 +24,12 @@ import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.text.ParsingSeparator;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -559,6 +562,13 @@ abstract class LoadContextInst implements LoadContext
 		return new DerivedLoadContext(parentLC, lvs);
 	}
 
+	@Override
+	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager, String instructions)
+	{
+		return FormulaFactory.getValidFormula(instructions, var.getManagerFactory(),
+			var.getDummySetup().getFormulaManager(), getActiveScope(), formatManager);
+	}
+
 	private class DerivedLoadContext implements LoadContext
 	{
 
@@ -841,5 +851,12 @@ abstract class LoadContextInst implements LoadContext
 		{
 			parent.resolvePostValidationTokens();
 		}
-	}
+
+		@Override
+		public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
+			String instructions)
+		{
+			return parent.getValidFormula(formatManager, instructions);
+		}
+}
 }
