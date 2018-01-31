@@ -15,7 +15,7 @@
  */
 package pcgen.rules.persistence.token;
 
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -34,7 +34,7 @@ public abstract class AbstractFixedSetModifierFactory<T>
 {
 
 	@Override
-	public PCGenModifier<T> getModifier(String instructions,
+	public FormulaModifier<T> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{

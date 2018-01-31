@@ -32,7 +32,8 @@ public class AddModifierFactory extends AbstractNumberModifierFactory<Number>
 	 * Identifies that the Modifier objects built by this AddModifierFactory act
 	 * upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
+	 * @return The Format (Number.class) of object upon which Modifiers built by this
+	 *         AddModifierFactory can operate
 	 */
 	@Override
 	public Class<Number> getVariableFormat()
@@ -40,20 +41,12 @@ public class AddModifierFactory extends AbstractNumberModifierFactory<Number>
 		return Number.class;
 	}
 
-	/**
-	 * Returns an Identifier for this type of Modifier
-	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getIdentification()
-	 */
 	@Override
 	public String getIdentification()
 	{
 		return "ADD";
 	}
 
-	/**
-	 * @see pcgen.base.calculation.CalculationInfo#getInherentPriority()
-	 */
 	@Override
 	public int getInherentPriority()
 	{
@@ -62,10 +55,15 @@ public class AddModifierFactory extends AbstractNumberModifierFactory<Number>
 
 	/**
 	 * Performs addition of two Numbers, used by Modifiers produced by this
-	 * AddModifierFactory
+	 * AddModifierFactory.
 	 * 
-	 * @see pcgen.base.calculation.BasicCalculation#process(java.lang.Object,
-	 *      java.lang.Object)
+	 * @param previousValue
+	 *            The first input value used to determine the appropriate result of a
+	 *            Modifier produced by this ModifierFactory.
+	 * @param argument
+	 *            The second input value used to determine the appropriate result of a
+	 *            Modifier produced by this ModifierFactory.
+	 * @return The resulting value of the Modifier when processed
 	 */
 	@Override
 	public Number process(Number previousValue, Number argument)

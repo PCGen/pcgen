@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -89,7 +89,7 @@ public class VariableContext
 	/*
 	 * For Tokens
 	 */
-	public <T> PCGenModifier<T> getModifier(String modType, String modValue,
+	public <T> FormulaModifier<T> getModifier(String modType, String modValue,
 		LegalScope varScope, FormatManager<T> formatManager)
 	{
 		return getModFactory().getModifier(modType, modValue, managerFactory,

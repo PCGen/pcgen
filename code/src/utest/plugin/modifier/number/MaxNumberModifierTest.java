@@ -21,7 +21,7 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -194,7 +194,7 @@ public class MaxNumberModifierTest extends TestCase
 	public void testGetModifier()
 	{
 		MaxModifierFactory factory = new MaxModifierFactory();
-		PCGenModifier<Number> modifier =
+		FormulaModifier<Number> modifier =
 				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());

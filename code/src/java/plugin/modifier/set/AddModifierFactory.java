@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import pcgen.base.calculation.AbstractPCGenModifier;
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -62,7 +62,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	}
 
 	@Override
-	public PCGenModifier<T[]> getModifier(String instructions,
+	public FormulaModifier<T[]> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
@@ -71,7 +71,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	}
 
 	@Override
-	public PCGenModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager,
+	public FormulaModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager,
 		String instructions)
 	{
 		T[] toAdd = fmtManager.convert(instructions);
@@ -79,7 +79,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	}
 
 	/**
-	 * An AddDirectArrayModifier is a PCGenModifier that contains a set of objects to be
+	 * An AddDirectArrayModifier is a FormulaModifier that contains a set of objects to be
 	 * used by the Modifier when executed.
 	 */
 	private final class AddDirectArrayModifier extends AddArrayModifier
@@ -112,7 +112,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	}
 
 	/**
-	 * An AddIndirectArrayModifier is a PCGenModifier that contains a set of Indirect
+	 * An AddIndirectArrayModifier is a FormulaModifier that contains a set of Indirect
 	 * objects to be resolved and used by the Modifier when executed.
 	 */
 	private final class AddIndirectArrayModifier extends AddArrayModifier

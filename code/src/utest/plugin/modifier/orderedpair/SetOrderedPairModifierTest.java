@@ -22,7 +22,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -57,7 +57,7 @@ public class SetOrderedPairModifierTest
 	public void testGetModifier()
 	{
 		ModifierFactory<OrderedPair> factory = new SetModifierFactory();
-		PCGenModifier<OrderedPair> modifier =
+		FormulaModifier<OrderedPair> modifier =
 				factory.getModifier("3,2", new ManagerFactory(){}, null, varScope, opManager);
 		modifier.addAssociation("PRIORITY=5");
 		assertEquals(5L <<32, modifier.getPriority());
