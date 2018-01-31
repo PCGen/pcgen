@@ -364,3 +364,4 @@ Familiar (Toad)			CATEGORY:Internal													BONUS:HP|CURRENTMAX|FamiliarGran
 Familiar (Weasel)			CATEGORY:Internal																							BONUS:SAVE|Reflex|FamiliarGrantedBonus_2|TYPE=Familiar
 
 Familiar (Compsognathus)	CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|FamiliarGrantedBonus_4|TYPE=Familiar
+Familiar (Snapping Turtle)	CATEGORY:Internal																							BONUS:SAVE|Fortitude|FamiliarGrantedBonus_2|TYPE=Familiar
