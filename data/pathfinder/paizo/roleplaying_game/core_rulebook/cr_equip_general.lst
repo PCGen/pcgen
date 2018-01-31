@@ -65,16 +65,16 @@ Gem			TYPE:Gem					COST:0	WT:0				MODS:REQUIRED
 
 ###Block: Tattoo Slot Support
 # Equipment Name	Type				Cost		Weight	Requires Modification?
-Tattoo Head		TYPE:TattooHead		COST:0	WT:0		MODS:REQUIRED
-Tattoo Shoulders	TYPE:TattooShoulders	COST:0	WT:0		MODS:REQUIRED
-Tattoo Neck		TYPE:TattooNeck		COST:0	WT:0		MODS:REQUIRED
-Tattoo Chest	TYPE:TattooChest		COST:0	WT:0		MODS:REQUIRED
-Tattoo Body		TYPE:TattooBody		COST:0	WT:0		MODS:REQUIRED
-Tattoo Belt		TYPE:TattooBelt		COST:0	WT:0		MODS:REQUIRED
-Tattoo Wrist	TYPE:TattooWrist		COST:0	WT:0		MODS:REQUIRED
-Tattoo Hands	TYPE:TattooHands		COST:0	WT:0		MODS:REQUIRED
-Tattoo Ring		TYPE:TattooRing		COST:0	WT:0		MODS:REQUIRED
-Tattoo Feet		TYPE:TattooFeet		COST:0	WT:0		MODS:REQUIRED
+Tattoo Head		TYPE:Tattoo Head		COST:0	WT:0		MODS:REQUIRED
+Tattoo Shoulders	TYPE:Tattoo Shoulders	COST:0	WT:0		MODS:REQUIRED
+Tattoo Neck		TYPE:Tattoo Neck		COST:0	WT:0		MODS:REQUIRED
+Tattoo Chest	TYPE:Tattoo Chest		COST:0	WT:0		MODS:REQUIRED
+Tattoo Body		TYPE:Tattoo Body		COST:0	WT:0		MODS:REQUIRED
+Tattoo Belt		TYPE:Tattoo Belt		COST:0	WT:0		MODS:REQUIRED
+Tattoo Wrist	TYPE:Tattoo Wrist		COST:0	WT:0		MODS:REQUIRED
+Tattoo Hands	TYPE:Tattoo Hands		COST:0	WT:0		MODS:REQUIRED
+Tattoo Ring		TYPE:Tattoo Ring		COST:0	WT:0		MODS:REQUIRED
+Tattoo Feet		TYPE:Tattoo Feet		COST:0	WT:0		MODS:REQUIRED
 
 ###Block: Trade Goods
 # Equipment Name	Output Name				Type			Cost		Weight	Source Page

@@ -524,7 +524,7 @@ Holy Symbol (Platinum/Compartment).MOD												TYPE:Container						CONTAINS:1
 Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Flask)
 Holy Symbol (Platinum/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:510
 Holy Symbol (Tattoo)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:100						SOURCEPAGE:p.66
-Holy Symbol (Tattoo).MOD														TYPE:TattooHead.TattooShoulders.TattooNeck.TattooChest.TattooBody.TattooBelt.TattooWrist.TattooHands.TattooRing.TattooFeet
+Holy Symbol (Tattoo).MOD														TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
 Holy Text (Cheap)																TYPE:Goods.Tools.Book															COST:1	WT:1					SOURCEPAGE:66																																																				SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
 Holy Text (Typical)															TYPE:Goods.Tools.Book															COST:25	WT:2					SOURCEPAGE:66																																																				SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
 Holy Text (Expensive)															TYPE:Goods.Tools.Book															COST:100	WT:20					SOURCEPAGE:66																																																				SPROP:The most expensive versions have detailed illustrations, gilded initials and border decorations, covers made of fine leather, wood, or even metal, and are often oversized and difficult to carry around.
