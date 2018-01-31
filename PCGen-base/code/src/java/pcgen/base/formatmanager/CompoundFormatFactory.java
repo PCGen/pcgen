@@ -28,30 +28,38 @@ public class CompoundFormatFactory implements FormatManagerFactory
 {
 
 	/**
-	 * The separator character used to parse instructions and separate secondary values
-	 * that will be part of a Compound built by a FormatManager produced by this
+	 * The separator character used to parse separate the definition formats of secondary
+	 * values that will be part of a Compound built by a FormatManager produced by this
 	 * CompoundFormatFactory.
 	 */
-	private final char separator;
+	private final char definitionSeparator;
 
-	public CompoundFormatFactory(char separator)
+	/**
+	 * The separator character used to parse instructions - meaning it will separate
+	 * secondary key=value combinations that will be placed into a Compound built by a
+	 * FormatManager produced by this CompoundFormatFactory.
+	 */
+	private final char applicationSeparator;
+
+	public CompoundFormatFactory(char definitionSeparator, char applicationSeparator)
 	{
-		this.separator = separator;
+		this.definitionSeparator = definitionSeparator;
+		this.applicationSeparator = applicationSeparator;
 	}
 
 	@Override
 	public FormatManager<?> build(String subFormatName, FormatManagerLibrary library)
 	{
-		if (!StringUtil.hasValidSeparators(subFormatName, separator))
+		if (!StringUtil.hasValidSeparators(subFormatName, definitionSeparator))
 		{
 			throw new IllegalArgumentException(
 				"Poorly formatted instructions (bad separator location): "
 					+ subFormatName);
 		}
-		String[] instructions = StringUtil.split(subFormatName, separator);
+		String[] instructions = StringUtil.split(subFormatName, definitionSeparator);
 		FormatManager<?> primaryFM = library.getFormatManager(instructions[0]);
 		CompoundFormatManager<?> manager =
-				new CompoundFormatManager<>(primaryFM, separator);
+				new CompoundFormatManager<>(primaryFM, applicationSeparator);
 		for (int i = 1; i < instructions.length; i++)
 		{
 			manager

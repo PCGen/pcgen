@@ -104,7 +104,7 @@ public final class FormatUtilities
 	 */
 	public static void loadDefaultFactories(SimpleFormatManagerLibrary library)
 	{
-		library.addFormatManagerBuilder(new CompoundFormatFactory(','));
+		library.addFormatManagerBuilder(new CompoundFormatFactory(',', '|'));
 		library.addFormatManagerBuilder(new ArrayFormatFactory('\n', ','));
 	}
 
