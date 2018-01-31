@@ -286,6 +286,6 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	@Override
 	public boolean isDirect()
 	{
-		return false;
+		return rm.isDirect();
 	}
 }

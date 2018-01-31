@@ -18,7 +18,7 @@
 package plugin.modifier.set;
 
 import pcgen.base.calculation.AbstractPCGenModifier;
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -44,12 +44,6 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	private static final Class ARRAY_CLASS = Object[].class;
 
 	@Override
-	public String getIdentification()
-	{
-		return "SET";
-	}
-
-	@Override
 	@SuppressWarnings("unchecked")
 	public Class<T[]> getVariableFormat()
 	{
@@ -57,7 +51,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	}
 
 	@Override
-	public PCGenModifier<T[]> getModifier(String instructions,
+	public FormulaModifier<T[]> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
@@ -66,15 +60,15 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	}
 
 	@Override
-	public PCGenModifier<T[]> getFixedModifier(
-		FormatManager<T[]> fmtManager, String instructions)
+	public FormulaModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager,
+		String instructions)
 	{
 		T[] toSet = fmtManager.convert(instructions);
 		return new SetDirectArrayModifier(fmtManager, toSet);
 	}
 
 	/**
-	 * A SetDirectArrayModifier is a PCGenModifier that contains a set of objects 
+	 * A SetDirectArrayModifier is a FormulaModifier that contains a set of objects 
 	 * to be used by the Modifier.
 	 */
 	private final class SetDirectArrayModifier extends SetArrayModifier
@@ -106,7 +100,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	}
 
 	/**
-	 * A SetIndirectArrayModifier is a PCGenModifier that contains a set of Indirect objects
+	 * A SetIndirectArrayModifier is a FormulaModifier that contains a set of Indirect objects
 	 * to be resolved and used by the Modifier when executed.
 	 */
 	private final class SetIndirectArrayModifier extends SetArrayModifier

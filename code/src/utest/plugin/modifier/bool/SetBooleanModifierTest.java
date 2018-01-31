@@ -22,7 +22,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -56,7 +56,7 @@ public class SetBooleanModifierTest
 	public void testGetModifier()
 	{
 		ModifierFactory factory = new SetModifierFactory();
-		PCGenModifier<Boolean> modifier =
+		FormulaModifier<Boolean> modifier =
 				factory.getModifier("True", new ManagerFactory(){}, null, varScope, booleanManager);
 		modifier.addAssociation("PRIORITY=5");
 		assertEquals(5L <<32, modifier.getPriority());
