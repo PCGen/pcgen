@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.stream.Collectors;
 
 /**
  * IdentityList is an implementation of the List Interface that uses Identity
@@ -219,6 +220,13 @@ public class IdentityList<T> implements List<T>
 	public List<T> subList(int startIndex, int endIndex)
 	{
 		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public String toString()
+	{
+		return embeddedList.stream().map(o -> o.getUnderlying().toString())
+			.collect(Collectors.joining(",", "[", "]"));
 	}
 
 	@Override

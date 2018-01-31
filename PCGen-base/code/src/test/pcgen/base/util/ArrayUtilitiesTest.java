@@ -16,6 +16,7 @@
 package pcgen.base.util;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -24,6 +25,13 @@ import pcgen.testsupport.TestSupport;
 
 public class ArrayUtilitiesTest extends TestCase
 {
+
+	private final Integer one = 1;
+	private final Integer two = 2;
+	private final Integer three = 3;
+	private final Integer four = 4;
+	private final Integer five = 5;
+	private final Integer six = 6;
 
 	@Test
 	public void testConstructor()
@@ -40,11 +48,11 @@ public class ArrayUtilitiesTest extends TestCase
 		assertNull(ArrayUtilities.mergeArray(arrayClass, first, second));
 		first = new Integer[]{};
 		assertTrue(ArrayUtilities.mergeArray(arrayClass, first, second).length == 0);
-		first = new Integer[]{3, 4};
+		first = new Integer[]{three, four};
 		assertTrue(ArrayUtilities.mergeArray(arrayClass, first, second) == first);
 		second = new Integer[]{};
 		assertTrue(ArrayUtilities.mergeArray(arrayClass, first, second) == first);
-		second = new Integer[]{5, 6};
+		second = new Integer[]{five, six};
 		assertTrue(Arrays.deepEquals(ArrayUtilities.mergeArray(arrayClass, first, second),
 			new Integer[]{3, 4, 5, 6}));
 		first = new Integer[]{};
@@ -53,4 +61,180 @@ public class ArrayUtilitiesTest extends TestCase
 		assertTrue(ArrayUtilities.mergeArray(arrayClass, first, second) == second);
 	}
 
+	@Test
+	public void testDifferenceBad()
+	{
+		Integer[] first = null;
+		Integer[] second = null;
+		try
+		{
+			ArrayUtilities.calculateDifference(first, second);
+			fail("Expected NPE for null values");
+		}
+		catch (NullPointerException e)
+		{
+			//Expected
+		}
+		first = new Integer[]{};
+		try
+		{
+			ArrayUtilities.calculateDifference(first, second);
+			fail("Expected NPE for null values");
+		}
+		catch (NullPointerException e)
+		{
+			//Expected
+		}
+	}
+
+	@Test
+	public void testDifferenceEmpty()
+	{
+		Integer[] first = new Integer[]{};
+		Integer[] second = new Integer[]{};
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateDifference(first, second);
+		assertEquals(0, tuple.getFirst().size());
+		assertEquals(0, tuple.getSecond().size());
+	}
+
+	@Test
+	public void testDifferenceOnlyRemove()
+	{
+		Integer[] first = new Integer[]{three, four};
+		Integer[] second = new Integer[]{};
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateDifference(first, second);
+		List<Integer> removed = tuple.getFirst();
+		assertEquals(2, removed.size());
+		assertTrue(removed.contains(3));
+		assertTrue(removed.contains(4));
+		assertEquals(0, tuple.getSecond().size());
+	}
+
+	@Test
+	public void testDifferenceOnlyAdd()
+	{
+		Integer[] first = new Integer[]{};
+		Integer[] second = new Integer[]{five, six};
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateDifference(first, second);
+		List<Integer> added = tuple.getSecond();
+		assertEquals(0, tuple.getFirst().size());
+		assertEquals(2, added.size());
+		assertTrue(added.contains(5));
+		assertTrue(added.contains(6));
+	}
+
+	@Test
+	public void testDifferenceFull()
+	{
+		/*
+		 * Specifically use new Integer for tests - IGNORE ANY CODE VALIDATION TOOLS.
+		 * 
+		 * This is specifically testing that the two "3" objects are detected as equal
+		 */
+		Integer[] first = new Integer[]{three, four, six};
+		Integer[] second = new Integer[]{7, new Integer(3), 5};
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateDifference(first, second);
+		List<Integer> removed = tuple.getFirst();
+		List<Integer> added = tuple.getSecond();
+		assertEquals(2, removed.size());
+		assertEquals(2, added.size());
+		assertTrue(added.contains(5));
+		assertTrue(added.contains(7));
+		assertTrue(removed.contains(4));
+		assertTrue(removed.contains(6));
+	}
+
+	@Test
+	public void testIdentityBad()
+	{
+		Integer[] first = null;
+		Integer[] second = null;
+		try
+		{
+			ArrayUtilities.calculateIdentityDifference(first, second);
+			fail("Expected NPE for null values");
+		}
+		catch (NullPointerException e)
+		{
+			//Expected
+		}
+		first = new Integer[]{};
+		try
+		{
+			ArrayUtilities.calculateIdentityDifference(first, second);
+			fail("Expected NPE for null values");
+		}
+		catch (NullPointerException e)
+		{
+			//Expected
+		}
+	}
+
+	@Test
+	public void testIdentityEmpty()
+	{
+		Integer[] first = new Integer[]{};
+		Integer[] second = new Integer[]{};
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateIdentityDifference(first, second);
+		assertEquals(0, tuple.getFirst().size());
+		assertEquals(0, tuple.getSecond().size());
+	}
+
+	@Test
+	public void testIdentityOnlyRemove()
+	{
+		Integer[] first = new Integer[]{three, four};
+		Integer[] second = new Integer[]{};
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateIdentityDifference(first, second);
+		List<Integer> removed = new IdentityList<>(tuple.getFirst());
+		assertEquals(2, removed.size());
+		assertTrue(removed.contains(three));
+		assertTrue(removed.contains(four));
+		assertEquals(0, tuple.getSecond().size());
+	}
+
+	@Test
+	public void testIdentityOnlyAdd()
+	{
+		Integer[] first = new Integer[]{};
+		Integer[] second = new Integer[]{five, six};
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateIdentityDifference(first, second);
+		List<Integer> added = new IdentityList<>(tuple.getSecond());
+		assertEquals(0, tuple.getFirst().size());
+		assertEquals(2, added.size());
+		assertTrue(added.contains(five));
+		assertTrue(added.contains(six));
+	}
+
+	@Test
+	public void testIdentityFull()
+	{
+		/*
+		 * Specifically use new Integer for tests - IGNORE ANY CODE VALIDATION TOOLS.
+		 * 
+		 * This is specifically testing that the two "3" objects are detected as equal
+		 */
+		Integer otherthree = new Integer(3);
+		Integer[] first = new Integer[]{three, four, six};
+		Integer[] second = new Integer[]{two, otherthree, five};
+		Tuple<List<Integer>, List<Integer>> tuple =
+				ArrayUtilities.calculateIdentityDifference(first, second);
+		List<Integer> removed = new IdentityList<>(tuple.getFirst());
+		List<Integer> added = new IdentityList<>(tuple.getSecond());
+		assertEquals(3, removed.size());
+		assertEquals(3, added.size());
+		assertTrue(added.contains(two));
+		assertTrue(added.contains(otherthree));
+		assertTrue(added.contains(five));
+		assertTrue(removed.contains(six));
+		assertTrue(removed.contains(four));
+		assertTrue(removed.contains(three));
+	}
 }

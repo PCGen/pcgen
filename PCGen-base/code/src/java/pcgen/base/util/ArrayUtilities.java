@@ -16,6 +16,9 @@
 package pcgen.base.util;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.IntFunction;
 
 /**
@@ -144,4 +147,65 @@ public final class ArrayUtilities
 		return returnArray;
 	}
 
+	/**
+	 * Calculates the difference between two arrays, using identity comparison.
+	 * 
+	 * @param oldArray
+	 *            The "old" array for comparison
+	 * @param newArray
+	 *            The "new" array for comparison
+	 * @return A Tuple indicating the items removed (present in the "old" array but not
+	 *         the "new" array) and the items added (present in the "new" array, but not
+	 *         the "old" array)
+	 */
+	public static <T> Tuple<List<T>, List<T>> calculateIdentityDifference(T[] oldArray, T[] newArray)
+	{
+		List<T> oldList = Arrays.asList(oldArray);
+		List<T> newList = new IdentityList<>(Arrays.asList(newArray));
+		return processComparison(oldList, newList);
+	}
+
+	/**
+	 * Calculates the difference between two arrays, using object .equals comparison.
+	 * 
+	 * @param oldArray
+	 *            The "old" array for comparison
+	 * @param newArray
+	 *            The "new" array for comparison
+	 * @return A Tuple indicating the items removed (present in the "old" array but not
+	 *         the "new" array) and the items added (present in the "new" array, but not
+	 *         the "old" array)
+	 */
+	public static <T> Tuple<List<T>, List<T>> calculateDifference(T[] oldArray, T[] newArray)
+	{
+		List<T> oldList = Arrays.asList(oldArray);
+		List<T> newList = new ArrayList<>(Arrays.asList(newArray));
+		return processComparison(oldList, newList);
+	}
+
+	/**
+	 * Calculates the difference between two arrays, using the comparison method on the
+	 * given "new" List.
+	 * 
+	 * @param oldArray
+	 *            The "old" array for comparison
+	 * @param newArray
+	 *            The "new" array for comparison
+	 * @return A Tuple indicating the items removed (present in the "old" array but not
+	 *         the "new" array) and the items added (present in the "new" array, but not
+	 *         the "old" array)
+	 */
+	private static <T> Tuple<List<T>, List<T>> processComparison(List<T> oldList,
+		List<T> newList)
+	{
+		List<T> removedList = new ArrayList<>(oldList.size());
+		for (T oldObject : oldList)
+		{
+			if (!newList.remove(oldObject))
+			{
+				removedList.add(oldObject);
+			}
+		}
+		return new Tuple<>(removedList, newList);
+	}
 }
