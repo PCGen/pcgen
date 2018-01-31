@@ -35,7 +35,7 @@ Radiant Tattoo						TYPE:Magic.Wondrous.Consumable		COST:1500		WT:0		SOURCEPAGE:
 Viper Tattoo						TYPE:Magic.Wondrous				COST:18000		WT:0		SOURCEPAGE:27
 Weapon Tattoo						TYPE:Magic.Wondrous.TattooWrist		COST:10000		WT:0		SOURCEPAGE:27
 
-Radiant Tattoo.MOD					TYPE:Consumable.TattooHead.TattooShoulders.TattooNeck.TattooChest.TattooBody.TattooBelt.TattooWrist.TattooHands.TattooRing.TattooFeet
+Radiant Tattoo.MOD					TYPE:TattooHead.TattooShoulders.TattooNeck.TattooChest.TattooBody.TattooBelt.TattooWrist.TattooHands.TattooRing.TattooFeet
 Viper Tattoo.MOD						TYPE:TattooChest.TattooBody.TattooBelt.TattooWrist.TattooHands.TattooRing.TattooFeet
 
 # ==============================
