@@ -2,7 +2,7 @@
 #SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
 # Original Entry by: Mark Means
 
-#Magical Tattoo		COST:0	WT:0	TYPE:Goods.Container.General	SOURCEPAGE:p.?	CONTAINS:UNLIM|TattooBelt=1|TattooBody=1|TattooChest=1|TattooFeet=1|TattooHands=1|TattooHead=1|TattooNeck=1|TattooShoulder=1|TattoRing=2|TattooWrist=1
+#Magical Tattoo		COST:0	WT:0	TYPE:Goods.Container.General	SOURCEPAGE:p.?	CONTAINS:UNLIM|Tattoo Belt=1|Tattoo Body=1|Tattoo Chest=1|Tattoo Feet=1|Tattoo Hands=1|Tattoo Head=1|Tattoo Neck=1|TattooShoulder=1|TattoRing=2|Tattoo Wrist=1
 
 # Equipment Name			Type					Cost		Weight	Requires Modification?	Source Page		Description
 Caster's Tattoo (Lesser)	TYPE:Magic.Wondrous		COST:6000	WT:0						SOURCEPAGE:p.16	DESC:A lesser caster's tattoo is infused with potential magical energy that aids in casting spells of up to third level that normally utilize verbal and somatic components. Once per day, a spellcaster may activate her caster's tattoo as a swift action to automatically enhance the next spell of third level or lower that she casts in that round with both the Still Spell and Silent Spell feats. When she casts the spell, the caster's tattoo flares with light for a moment, then grows faint and faded-it replenishes its energy in 24 hours, after which it becomes bold and colorful and can be used again. Required material components or foci must be in the creature's possession to cast the spell (and are consumed as normal), but need not be held when the spell is cast.
@@ -13,11 +13,11 @@ Spell Tattoo			TYPE:SpellTattoo.Consumable	COST:0	WT:0		MODS:REQUIRED		SOURCEPAG
 Riffle Scroll			TYPE:RiffleScroll.Consumable	COST:0	WT:1		MODS:REQUIRED		SOURCEPAGE:p.14
 
 
-Caster's Tattoo (Lesser).MOD		TYPE:TattooHead.TattooShoulders.TattooNeck.TattooChest.TattooBody.TattooBelt.TattooWrist.TattooHands.TattooRing.TattooFeet
-Caster's Tattoo (Normal).MOD		TYPE:TattooHead.TattooShoulders.TattooNeck.TattooChest.TattooBody.TattooBelt.TattooWrist.TattooHands.TattooRing.TattooFeet
-Caster's Tattoo (Greater).MOD		TYPE:TattooHead.TattooShoulders.TattooNeck.TattooChest.TattooBody.TattooBelt.TattooWrist.TattooHands.TattooRing.TattooFeet
-Reservoir Tattoo.MOD			TYPE:TattooHead.TattooShoulders.TattooNeck.TattooChest.TattooBody.TattooBelt.TattooWrist.TattooHands.TattooRing.TattooFeet
-Spell Tattoo.MOD				TYPE:TattooHead.TattooShoulders.TattooNeck.TattooChest.TattooBody.TattooBelt.TattooWrist.TattooHands.TattooRing.TattooFeet
+Caster's Tattoo (Lesser).MOD		TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Caster's Tattoo (Normal).MOD		TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Caster's Tattoo (Greater).MOD		TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Reservoir Tattoo.MOD			TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Spell Tattoo.MOD				TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
 
 #
 ###END
