@@ -46,7 +46,7 @@ Aklys				TYPE:Exotic.Melee.Ranged
 Rope Gauntlet		TYPE:Exotic.Melee
 Sawtooth Sabre		TYPE:Exotic.Melee
 Sika				TYPE:Exotic.Melee
-Swordbreaker (Dagger)	TYPE:Exotic.Melee
+Swordbrekaer Dagger	KEY:Swordbreaker (Dagger)	TYPE:Exotic.Melee
 Battle Poi			TYPE:Exotic.Melee
 Falcata			TYPE:Exotic.Melee.Tengu
 Khopesh			TYPE:Exotic.Melee.Tengu
@@ -55,8 +55,8 @@ Shotel			TYPE:Exotic.Melee
 Temple Sword		TYPE:Exotic.Melee.Monk
 Mancatcher			TYPE:Exotic.Melee
 Boomerang			TYPE:Exotic.Ranged
-Crossbow (Double)		TYPE:Exotic.Ranged
-Crossbow (Launching)	TYPE:Exotic.Ranged
+Double Crossbow	KEY:Crossbow (Double)		TYPE:Exotic.Ranged
+Launching Crossbow	KEY:Crossbow (Launching)	TYPE:Exotic.Ranged
 Lasso				TYPE:Exotic.Melee
 Sling Glove			TYPE:Exotic.Melee
 Throwing Shield		TYPE:Exotic.Melee.Ranged

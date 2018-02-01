@@ -13,25 +13,25 @@ Cat-O'-Nine-Tails				TYPE:Martial.OneHanded.Light.Melee.Slashing.MeleeSlashing
 # EXOTIC WEAPONS
 # -- light
 Flying Talon				TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
-Razor (Drow)				TYPE:Exotic.Light.Melee.Slashing.MeleeSlashing.Drow
+Drow Razor	KEY:Razor (Drow)				TYPE:Exotic.Light.Melee.Slashing.MeleeSlashing.Drow
 Sanpkhang					TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
-War-Shield (Dwarven/as Weapon)	TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Dwarven
+Dwarven War-Shield	KEY:War-Shield (Dwarven/as Weapon)	TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Dwarven
 Waveblade					TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
 
 # -- 1-handers
 Sickle-Sword				TYPE:Exotic.OneHanded.Melee.Slashing.MeleeSlashing
 
 # -- 2-handers
-Battle Ladder (Gnome)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Double.Gnome
+Gnome Battle Ladder	KEY:Battle Ladder (Gnome)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Double.Gnome
 Boarding Gaff				TYPE:Exotic.TwoHanded.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
 Butchering Axe				TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing
 Chain-Hammer				TYPE:Exotic.TwoHanded.Melee.Thrown.Bludgeoning.MeleeBludgeoning
-Dorn-Dergar (Dwarven)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Dwarven
+Dwarven Dorn-Dergar	KEY:Dorn-Dergar (Dwarven)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Dwarven
 Fauchard					TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing
 
 # -- ranged
 Flask Thrower				TYPE:Exotic.Ranged
-Hornbow (Orc)				TYPE:Exotic.Ranged.Piercing.RangedPiercing.Archery.Orc
+Orc Hornbow	KEY:Hornbow (Orc)				TYPE:Exotic.Ranged.Piercing.RangedPiercing.Archery.Orc
 Stormshaft Javelin			TYPE:Exotic.Thrown.Piercing.RangedPiercing.Spear
 
 # ==============================

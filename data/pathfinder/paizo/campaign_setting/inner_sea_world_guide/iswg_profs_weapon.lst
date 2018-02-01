@@ -11,7 +11,7 @@ Horsechopper					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.MeleePiercing.Me
 Ogre Hook						TYPE:Martial.Melee.TwoHanded.Piercing.MeleePiercing.Polearm
 Aldori Dueling Sword	NAMEISPI:YES	TYPE:Martial.Exotic.Melee.OneHanded.Slashing.MeleeSlashing
 Sawtooth Sabre					TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing.Bladeheavy
-Bolas (Shoanti)		NAMEISPI:YES	TYPE:Exotic.Thrown.Bludgeoning
+Shoanti Bolas	KEY:Bolas (Shoanti)		NAMEISPI:YES	TYPE:Exotic.Thrown.Bludgeoning
 Urumi							TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing.Flail.Monk
 Bladed Scarf					TYPE:Exotic.Melee.TwoHanded.Slashing.MeleeSlashing
 Firearms						TYPE:Exotic.Ranged.Piercing.RangedPiercing
