@@ -9,10 +9,10 @@ Dogslicer				TYPE:Goblin
 Horsechopper			TYPE:Goblin
 
 # COMMENT: Dwarven weaponprofs
-Helmet (Dwarven Boulder)	TYPE:Melee.Dwarven.Bludgeoning.Exotic
-Waraxe (Dwarven Double)		TYPE:Melee.Dwarven.Slashing.Exotic
-Longaxe (Dwarven)			TYPE:Melee.Dwarven.Slashing.Exotic
-Longhammer (Dwarven)		TYPE:Melee.Dwarven.Bludgeoning.Exotic.Reach
+Dwarven Boulder Helmet	KEY:Helmet (Dwarven Boulder)	TYPE:Melee.Dwarven.Bludgeoning.Exotic
+Dwarven Double Waraxe	KEY:Waraxe (Dwarven Double)		TYPE:Melee.Dwarven.Slashing.Exotic
+Dwarven Longaxe	KEY:Longaxe (Dwarven)			TYPE:Melee.Dwarven.Slashing.Exotic
+Dwarven Longhammer	KEY:Longhammer (Dwarven)		TYPE:Melee.Dwarven.Bludgeoning.Exotic.Reach
 
 # COMMENT: Catfolk Claw Blades
 #Claw Blades (Catfolk)		TYPE:Melee.Light.ClawBlades.Slashing.Piercing.Finesseable
@@ -26,7 +26,7 @@ Kobold Tail Attachment		TYPE:Melee.Light.Natural.KoboldTailAttachment
 #Tail Attachment (Sweeper)				TYPE:KoboldTailAttachment
 
 # COMMENT: Ratfolk Tailblade weaponprof
-Tailblade (Ratfolk)		TYPE:Melee.Light.RatfolkTailblade.Slashing
+Ratfolk Tailblade	KEY:Tailblade (Ratfolk)		TYPE:Melee.Light.RatfolkTailblade.Slashing
 
 # COMMENT: Tengu Terror Kite Proficiency
 Terror Kite				TYPE:TerrorKite
