@@ -1161,3 +1161,28 @@ Legs ~ 25		VISIBLE:NO		LEGS:25
 Legs ~ 26		VISIBLE:NO		LEGS:26
 Legs ~ 27		VISIBLE:NO		LEGS:27
 Legs ~ 28		VISIBLE:NO		LEGS:28
+
+
+Race Bonus Language ~ Aboleth			VISIBLE:NO				LANGBONUS:Aboleth
+Race Bonus Language ~ Boggard			VISIBLE:NO				LANGBONUS:Boggard
+Race Bonus Language ~ Cyclops			VISIBLE:NO				LANGBONUS:Cyclops
+Race Bonus Language ~ Dark Folk		VISIBLE:NO				LANGBONUS:Dark Folk
+Race Bonus Language ~ Drow			VISIBLE:NO				LANGBONUS:Drow
+Race Bonus Language ~ Drow Sign Language	VISIBLE:NO				LANGBONUS:Drow Sign Language
+Race Bonus Language ~ Pidgin of Giant	VISIBLE:NO				LANGBONUS:Pidgin of Giant
+Race Bonus Language ~ Sahuagin		VISIBLE:NO				LANGBONUS:Sahuagin
+Race Bonus Language ~ Sphinx			VISIBLE:NO				LANGBONUS:Sphinx
+Race Bonus Language ~ Tengu			VISIBLE:NO				LANGBONUS:Tengu
+Race Bonus Language ~ Treant			VISIBLE:NO				LANGBONUS:Treant
+Race Bonus Language ~ Vegepygmy		VISIBLE:NO				LANGBONUS:Vegepygmy
+Race Bonus Language ~ Worg			VISIBLE:NO				LANGBONUS:Worg
+Race Bonus Language ~ Daemon			VISIBLE:NO				LANGBONUS:Daemon
+Race Bonus Language ~ D'ziriak		VISIBLE:NO				LANGBONUS:D'ziriak
+Race Bonus Language ~ Grippli			VISIBLE:NO				LANGBONUS:Grippli
+Race Bonus Language ~ Protean			VISIBLE:NO				LANGBONUS:Protean
+Race Bonus Language ~ Catfolk			VISIBLE:NO				LANGBONUS:Catfolk
+Race Bonus Language ~ Samsaran		VISIBLE:NO				LANGBONUS:Samsaran
+Race Bonus Language ~ Strix			VISIBLE:NO				LANGBONUS:Strix
+Race Bonus Language ~ Vanaran			VISIBLE:NO				LANGBONUS:Vanaran
+Race Bonus Language ~ Vishkanya		VISIBLE:NO				LANGBONUS:Vishkanya
+Race Bonus Language ~ Wayang			VISIBLE:NO				LANGBONUS:Wayang
