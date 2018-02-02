@@ -100,8 +100,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 					.getListAssociations(list, ref);
 			for (AssociatedPrereqObject apo : assoc)
 			{
-				if (PrereqHandler
-						.passesAll(apo.getPrerequisiteList(), pc, deity))
+				if (PrereqHandler.passesAll(apo, pc, deity))
 				{
 					returnSet.addAll(c.convert(ref));
 					break;

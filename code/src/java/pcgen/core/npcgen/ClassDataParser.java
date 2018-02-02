@@ -630,8 +630,7 @@ class ClassDataHandler extends DefaultHandler
 				{
 					// TODO This null for source is incorrect!
 					// TODO Not sure if effect of null for PC
-					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), (PlayerCharacter) null,
-							null))
+					if (PrereqHandler.passesAll(apo, (PlayerCharacter) null, null))
 					{
 						int lvl = apo
 								.getAssociation(AssociationKey.SPELL_LEVEL);

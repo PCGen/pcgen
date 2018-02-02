@@ -128,8 +128,7 @@ public final class SpellLevel
 			{
 				for (AssociatedPrereqObject apo : assoc)
 				{
-					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), aPC,
-							sp))
+					if (PrereqHandler.passesAll(apo, aPC, sp))
 					{
 						if (levelKey.equals(apo
 								.getAssociation(AssociationKey.SPELL_LEVEL)))
@@ -149,8 +148,7 @@ public final class SpellLevel
 			{
 				for (AssociatedPrereqObject apo : assoc)
 				{
-					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), aPC,
-							sp))
+					if (PrereqHandler.passesAll(apo, aPC, sp))
 					{
 						if (levelKey.equals(apo
 								.getAssociation(AssociationKey.SPELL_LEVEL)))
