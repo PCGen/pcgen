@@ -33,12 +33,12 @@ Shield Sconce		KEY:Special Quality ~ Shield Sconce ~ Shield		TYPE:Shield					COS
 
 
 #Old KEYs
-Poison Pill Ring	KEY:POISON_RING	TYPE:Ring.Container	COST:20	VISIBLE:NO	SOURCEPAGE:p.7	PRETYPE:1,Ring	SPROP:Can hold a single poison pill.
-Sanctified			KEY:SNCTFD		TYPE:Shield					COST:100	VISIBLE:NO	SOURCEPAGE:p.25	PRETYPE:1,Shield												SPROP:Adds +1 sacred/profane bonus when charged
-Throwing			KEY:THRWNG		TYPE:Shield					COST:50	VISIBLE:NO	SOURCEPAGE:p.5	PRETYPE:1,Shield												SPROP:Can unclasp and throw as a free action (except tower).
-Consecrated			KEY:CNSCRTD		TYPE:Weapon.Melee				COST:150	VISIBLE:NO	SOURCEPAGE:p.25	PRETYPE:2,Weapon,Melee											SPROP:Channel Smite (1/2 dmg) when charged, on next hit
-Sawback			KEY:SAWBCK		TYPE:Weapon.Melee				COST:5	VISIBLE:NO	SOURCEPAGE:p.12	PRETYPE:3,Weapon,Melee,Slashing									SPROP:Crude carpentry saw
-Tear-away Clothing	KEY:TEARAWAY	TYPE:Goods.Clothing			COST:5	VISIBLE:NO	SOURCEPAGE:p.14	PRETYPE:1,Clothing											SPROP:Clothing can be easily torn off and removed as a standard action
-Hollowed Pommel		KEY:HLWPML		TYPE:Goods.General			COST:5	VISIBLE:NO	SOURCEPAGE:p.7	PRETYPE:1,Weapon												SPROP:Can contain a single item.
-Lantern, Waterproof	KEY:LTNWTP		TYPE:Goods.General.LightSource	COST:5	VISIBLE:NO	SOURCEPAGE:p.7	PRETYPE:1,Lantern
-Shield Sconce		KEY:SHDSCO		TYPE:Shield					COST:1	VISIBLE:NO	SOURCEPAGE:p.8							!PRETYPE:1,Buckler	BONUS:EQM|WEIGHTADD|0.5	SPROP:May hold a torch.
+Special Quality ~ Poison Pill Ring ~ Ring.COPY=POISON_RING		VISIBLE:NO
+Special Quality ~ Sanctified Shield ~ Shield.COPY=SNCTFD		VISIBLE:NO
+Special Quality ~ Throwing Shield ~ Shield.COPY=THRWNG		VISIBLE:NO
+Special Quality ~ Consecrated Weapon ~ Weapon.COPY=CNSCRTD		VISIBLE:NO
+Special Quality ~ Sawback ~ Sword.COPY=SAWBCK				VISIBLE:NO
+Special Quality ~ Tear-away Clothing ~ Clothing.COPY=TEARAWAY	VISIBLE:NO
+Special Quality ~ Hollowed Pommel ~ Weapon.COPY=HLWPML		VISIBLE:NO
+Special Quality ~ Waterproof Lantern ~ Lantern.COPY=LTNWTP		VISIBLE:NO
+Special Quality ~ Shield Sconce ~ Shield.COPY=SHDSCO			VISIBLE:NO

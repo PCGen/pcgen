@@ -8,4 +8,4 @@ Charges (60)	KEY:Special Ability ~ Charged Item / 60 Maximum														COST:(
 
 
 #Old KEYs
-Charges (60)	KEY:CHARGED_ITEM_60														COST:((BASECOST/60)*%CHARGES)-BASECOST	VISIBLE:NO																																																																																																	CHOOSE:NOCHOICE					CHARGES:1|60
+Special Ability ~ Charged Item / 60 Maximum.COPY=CHARGED_ITEM_60	VISIBLE:NO

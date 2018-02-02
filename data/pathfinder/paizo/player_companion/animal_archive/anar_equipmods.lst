@@ -8,4 +8,4 @@ Combat-Trained	KEY:Special Quality ~ Combat-Trained ~ Animal	TYPE:Animal	BONUS:I
 
 
 #Old KEYs
-Combat-Trained	KEY:COMBAT_TRAINED	TYPE:Animal	BONUS:ITEMCOST|TYPE.Animal|(BASECOST/2)	VISIBLE:NO
+Special Quality ~ Combat-Trained ~ Animal.COPY=COMBAT_TRAINED	VISIBLE:NO
