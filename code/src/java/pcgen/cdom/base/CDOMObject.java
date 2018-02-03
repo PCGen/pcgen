@@ -1218,7 +1218,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public boolean hasPrerequisites()
 	{
-		return hasPrerequisites() || (getListFor(ListKey.PREREQUISITE) != null)
+		return super.hasPrerequisites() || (getListFor(ListKey.PREREQUISITE) != null)
 			|| (getListFor(ListKey.REQUIREMENT) != null);
 	}
 
