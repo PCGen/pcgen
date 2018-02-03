@@ -5,4 +5,4 @@ SOURCELONG:Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/store/
 # EXOTIC
 # -- 2-handers
 # Weapon Name		Type
-Dorn-Dergar (Dwarven)	TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Dwarven.TwoHanded.Reach.Weapon Group Flails
+Dwarven Dorn-Dergar	KEY:Dorn-Dergar (Dwarven)	TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Dwarven.TwoHanded.Reach.Weapon Group Flails
