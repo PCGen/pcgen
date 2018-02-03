@@ -4,7 +4,7 @@
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
 # Weapon Name	Type
-Dagger (Chain)	TYPE:Weapon.Simple.Light.Melee.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing
+Chain Dagger	KEY:Dagger (Chain)	TYPE:Weapon.Simple.Light.Melee.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing
 Binding Contract	TYPE:Weapon.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail
 Feathers		TYPE:Weapon.Melee.Slashing.Exotic.Finesseable
 Cannon		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm

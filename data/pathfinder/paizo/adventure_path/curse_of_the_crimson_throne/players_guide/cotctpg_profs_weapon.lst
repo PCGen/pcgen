@@ -3,8 +3,8 @@ SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:COTCTPG	SOURCE
 
 # Weapon Name	Type
 Starknife		TYPE:Martial.Melee.Piercing.Sword
-Klar (as weapon)	TYPE:Martial.Melee.Slashing
+Klar	KEY:Klar (as weapon)	TYPE:Martial.Melee.Slashing
 Earth Breaker	TYPE:Martial.Melee.Bludgeoning.MeleeTwoHanded
 Sawtooth Sabre	TYPE:Exotic.Melee.Slashing.Sword
-Scarf (Bladed)	TYPE:Exotic.Melee.Slashing.MeleeTwoHanded
+Bladed Scarf	KEY:Scarf (Bladed)	TYPE:Exotic.Melee.Slashing.MeleeTwoHanded
 Shoanti Bola	TYPE:Exotic.Ranged.Bludgeoning.Piercing.Thrown
