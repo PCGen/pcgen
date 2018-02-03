@@ -1,6 +1,5 @@
 package plugin.lsttokens;
 
-import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
@@ -32,14 +31,11 @@ public class RequirementLst extends AbstractNonEmptyToken<CDOMObject>
 	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
-		if (true)
-		{
-			return new ParseResult.Fail("Not supported since it is not monitored in an ongoing fashion");
-		}
-		NEPFormula<Boolean> formula =
-				context.getValidFormula(FormatUtilities.BOOLEAN_MANAGER, value);
-		obj.addToListFor(ListKey.REQUIREMENT, formula);
-		return ParseResult.SUCCESS;
+		return new ParseResult.Fail("Not supported since it is not monitored in an ongoing fashion");
+//		NEPFormula<Boolean> formula =
+//				context.getValidFormula(FormatUtilities.BOOLEAN_MANAGER, value);
+//		obj.addToListFor(ListKey.REQUIREMENT, formula);
+//		return ParseResult.SUCCESS;
 	}
 
 	@Override
