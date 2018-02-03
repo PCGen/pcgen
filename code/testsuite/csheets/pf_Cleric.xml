@@ -2614,7 +2614,7 @@ BIO
 			<power>You see truth in the pure and burning light of the sun, and can call upon its blessing or wrath to work great deeds.</power>
 		</domain>
 	</domains>
-	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Mere Club, Morningstar, Quarterstaff, Rock, Scimitar, Shortspear, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Splash Weapon, Stake, Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Heavy Crossbow, Light Crossbow, Dagger, Punching Dagger, Dart, Gauntlet, Spiked Gauntlet, Grapple, Javelin, Longspear, Heavy Mace, Light Mace, Mere Club, Morningstar, Quarterstaff, Rock, Scimitar, Shortspear, Sickle, Sling, Spear, Boar Spear, Ray Spells, Touch Spells, Splash Weapon, Stake, Unarmed Strike</weapon_proficiencies>
 	<languages>Celestial, Common</languages>
 
 
