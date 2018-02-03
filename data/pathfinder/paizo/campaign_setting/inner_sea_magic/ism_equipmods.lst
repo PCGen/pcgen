@@ -52,48 +52,48 @@ Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Comple
 
 
 #Old KEYs
-Magical Tattoo	KEY:Tattoo Belt		TYPE:Wonderous.Belt		VISIBLE:NO	ITYPE:Tattoo Belt		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.BELT|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooGirdle		TYPE:Wonderous.Girdle		VISIBLE:NO	ITYPE:Tattoo Belt		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.GIRDLE|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooBodywear	TYPE:Wonderous.Bodywear		VISIBLE:NO	ITYPE:Tattoo Body		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Bodywear|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooRobe		TYPE:Wonderous.Robe		VISIBLE:NO	ITYPE:Tattoo Body		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Robe|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooMantle		TYPE:Wonderous.Mantle		VISIBLE:NO	ITYPE:Tattoo Body		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Mantle|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooVest		TYPE:Wonderous.Vest		VISIBLE:NO	ITYPE:Tattoo Body		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Vest|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooShirt		TYPE:Wonderous.Shirt		VISIBLE:NO	ITYPE:Tattoo Chest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Shirt|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:Tattoo Chest		TYPE:Wonderous.Chest		VISIBLE:NO	ITYPE:Tattoo Chest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Chest|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooMantle		TYPE:Wonderous.Mantle		VISIBLE:NO	ITYPE:Tattoo Chest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Mantle|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooVest		TYPE:Wonderous.Vest		VISIBLE:NO	ITYPE:Tattoo Chest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Vest|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooFootwear	TYPE:Wonderous.Footwear		VISIBLE:NO	ITYPE:Tattoo Feet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Footwear|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooBoot		TYPE:Wonderous.Boot		VISIBLE:NO	ITYPE:Tattoo Feet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Boot|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:Tattoo Feet		TYPE:Wonderous.Feet		VISIBLE:NO	ITYPE:Tattoo Feet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Feet|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooShoes		TYPE:Wonderous.Shoes		VISIBLE:NO	ITYPE:Tattoo Feet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Shoes|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooSlippers	TYPE:Wonderous.Slippers		VISIBLE:NO	ITYPE:Tattoo Feet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Slippers|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooHandwear	TYPE:Wonderous.Handwear		VISIBLE:NO	ITYPE:Tattoo Hands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Handwear|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooGlove		TYPE:Wonderous.Glove		VISIBLE:NO	ITYPE:Tattoo Hands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Glove|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:Tattoo Hands		TYPE:Wonderous.Hands		VISIBLE:NO	ITYPE:Tattoo Hands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Hands|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooGauntlet	TYPE:Wonderous.Gauntlet		VISIBLE:NO	ITYPE:Tattoo Hands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Gauntlet|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooHeadgear	TYPE:Wonderous.Headgear		VISIBLE:NO	ITYPE:Tattoo Head		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Headgear|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:Tattoo Head		TYPE:Wonderous.Head		VISIBLE:NO	ITYPE:Tattoo Head		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Head|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooCirclet		TYPE:Wonderous.Circlet		VISIBLE:NO	ITYPE:Tattoo Head		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Circlet|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooCrown		TYPE:Wonderous.Crown		VISIBLE:NO	ITYPE:Tattoo Head		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Crown|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooHat		TYPE:Wonderous.Hat		VISIBLE:NO	ITYPE:Tattoo Head		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Hat|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooHelm		TYPE:Wonderous.Helm		VISIBLE:NO	ITYPE:Tattoo Head		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Helm|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooMask		TYPE:Wonderous.Mask		VISIBLE:NO	ITYPE:Tattoo Head		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Mask|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooNeckwear	TYPE:Wonderous.Neckwear		VISIBLE:NO	ITYPE:Tattoo Neck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Neckwear|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooAmulet		TYPE:Wonderous.Amulet		VISIBLE:NO	ITYPE:Tattoo Neck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Amulet|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:Tattoo Neck		TYPE:Wonderous.Neck		VISIBLE:NO	ITYPE:Tattoo Neck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Neck|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooBrooch		TYPE:Wonderous.Brooch		VISIBLE:NO	ITYPE:Tattoo Neck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Brooch|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooMedallion	TYPE:Wonderous.Medallion	VISIBLE:NO	ITYPE:Tattoo Neck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Medallion|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooNecklace	TYPE:Wonderous.Necklace		VISIBLE:NO	ITYPE:Tattoo Neck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Necklace|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooPeriapt		TYPE:Wonderous.Periapt		VISIBLE:NO	ITYPE:Tattoo Neck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Periapt|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooScarab		TYPE:Wonderous.Scarab		VISIBLE:NO	ITYPE:Tattoo Neck		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Scarab|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:Tattoo Ring		TYPE:Wonderous.Ring		VISIBLE:NO	ITYPE:Tattoo Ring		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Ring|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooCape		TYPE:Wonderous.Cape		VISIBLE:NO	ITYPE:Tattoo Shoulders	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Cape|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:Tattoo Shoulders	TYPE:Wonderous.Shoulders	VISIBLE:NO	ITYPE:Tattoo Shoulders	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Shoulders|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooCloak		TYPE:Wonderous.Cloak		VISIBLE:NO	ITYPE:Tattoo Shoulders	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Cloak|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooArmwear		TYPE:Wonderous.Armwear		VISIBLE:NO	ITYPE:Tattoo Wrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Armwear|BASECOST	SPROP:Tattoo
-Magical Tattoo	KEY:TattooBracer		TYPE:Wonderous.Bracer		VISIBLE:NO	ITYPE:Tattoo Wrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Bracer|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:Tattoo Wrist		TYPE:Wonderous.Wrist		VISIBLE:NO	ITYPE:Tattoo Wrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Wrist|BASECOST		SPROP:Tattoo
-Magical Tattoo	KEY:TattooBracelet	TYPE:Wonderous.Bracelet		VISIBLE:NO	ITYPE:Tattoo Wrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Bracelet|BASECOST	SPROP:Tattoo
+Special Quality ~ Magical Tattoo / Belt.COPY=TattooBelt		VISIBLE:NO	TYPE:Belt
+Special Quality ~ Magical Tattoo / Belt.COPY=TattooGirdle		VISIBLE:NO	TYPE:Girdle
+Special Quality ~ Magical Tattoo / Body.COPY=TattooBodywear		VISIBLE:NO	TYPE:Bodywear
+Special Quality ~ Magical Tattoo / Body.COPY=TattooRobe		VISIBLE:NO	TYPE:Robe
+Special Quality ~ Magical Tattoo / Body.COPY=TattooMantle		VISIBLE:NO	TYPE:Mantle
+Special Quality ~ Magical Tattoo / Body.COPY=TattooVest		VISIBLE:NO	TYPE:Vest
+Special Quality ~ Magical Tattoo / Chest.COPY=TattooShirt		VISIBLE:NO	TYPE:Shirt
+Special Quality ~ Magical Tattoo / Chest.COPY=TattooChest		VISIBLE:NO	TYPE:Chest
+Special Quality ~ Magical Tattoo / Chest.COPY=TattooMantle		VISIBLE:NO	TYPE:Mantle
+Special Quality ~ Magical Tattoo / Chest.COPY=TattooVest		VISIBLE:NO	TYPE:Vest
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooFootwear		VISIBLE:NO	TYPE:Footwear
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooBoot		VISIBLE:NO	TYPE:Boot
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooFeet		VISIBLE:NO	TYPE:Feet
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooShoes		VISIBLE:NO	TYPE:Shoes
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooSlippers		VISIBLE:NO	TYPE:Slippers
+Special Quality ~ Magical Tattoo / Hands.COPY=TattooHandwear	VISIBLE:NO	TYPE:Handwear
+Special Quality ~ Magical Tattoo / Hands.COPY=TattooGlove		VISIBLE:NO	TYPE:Glove
+Special Quality ~ Magical Tattoo / Hands.COPY=TattooHands		VISIBLE:NO	TYPE:Hands
+Special Quality ~ Magical Tattoo / Hands.COPY=TattooGauntlet	VISIBLE:NO	TYPE:Gauntlet
+Special Quality ~ Magical Tattoo / Head.COPY=TattooHeadgear		VISIBLE:NO	TYPE:Headgear
+Special Quality ~ Magical Tattoo / Head.COPY=TattooHead		VISIBLE:NO	TYPE:Head
+Special Quality ~ Magical Tattoo / Head.COPY=TattooCirclet		VISIBLE:NO	TYPE:Circlet
+Special Quality ~ Magical Tattoo / Head.COPY=TattooCrown		VISIBLE:NO	TYPE:Crown
+Special Quality ~ Magical Tattoo / Head.COPY=TattooHat		VISIBLE:NO	TYPE:Hat
+Special Quality ~ Magical Tattoo / Head.COPY=TattooHelm		VISIBLE:NO	TYPE:Helm
+Special Quality ~ Magical Tattoo / Head.COPY=TattooMask		VISIBLE:NO	TYPE:Mask
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooNeckwear		VISIBLE:NO	TYPE:Neckwear
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooAmulet		VISIBLE:NO	TYPE:Amulet
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooNeck		VISIBLE:NO	TYPE:Neck
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooBrooch		VISIBLE:NO	TYPE:Brooch
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooMedallion	VISIBLE:NO	TYPE:Medallion
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooNecklace		VISIBLE:NO	TYPE:Necklace
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooPeriapt		VISIBLE:NO	TYPE:Periapt
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooScarab		VISIBLE:NO	TYPE:Scarab
+Special Quality ~ Magical Tattoo / Ring.COPY=TattooRing		VISIBLE:NO	TYPE:Ring
+Special Quality ~ Magical Tattoo / Shoulders.COPY=TattooCape	VISIBLE:NO	TYPE:Cape
+Special Quality ~ Magical Tattoo / Shoulders.COPY=TattooShoulders	VISIBLE:NO	TYPE:Shoulders
+Special Quality ~ Magical Tattoo / Shoulders.COPY=TattooCloak	VISIBLE:NO	TYPE:Cloak
+Special Quality ~ Magical Tattoo / Wrist.COPY=TattooArmwear		VISIBLE:NO	TYPE:Armwear
+Special Quality ~ Magical Tattoo / Wrist.COPY=TattooBracer		VISIBLE:NO	TYPE:Bracer
+Special Quality ~ Magical Tattoo / Wrist.COPY=TattooWrist		VISIBLE:NO	TYPE:Wrist
+Special Quality ~ Magical Tattoo / Wrist.COPY=TattooBracelet	VISIBLE:NO	TYPE:Bracelet
 
 
 ###Block: Spell Tattoo
@@ -101,13 +101,13 @@ Magical Tattoo	KEY:TattooBracelet	TYPE:Wonderous.Bracelet		VISIBLE:NO	ITYPE:Tatt
 Divine						KEY:TATTOO_DIVINE				TYPE:SpellTattoo													VISIBLE:NO	ITYPE:Divine													!PRETYPE:1,Divine,Arcane
 Arcane						KEY:TATTOO_ARCANE				TYPE:SpellTattoo													VISIBLE:NO	ITYPE:Arcane													!PRETYPE:1,Divine,Arcane
 
-Spell Effect (Single Use/Completion)	KEY:TATTA_1USE	NAMEOPT:SPELL	TYPE:SpellTattoo.Arcane	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:NO	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:2,SpellTattoo,Arcane						CHOOSE:EQBUILDER.SPELL|Arcane|0|9
-Spell Effect (Single Use/Completion)	KEY:TATTD_1USE	NAMEOPT:SPELL	TYPE:SpellTattoo.Divine	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:NO	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:2,SpellTattoo,Divine						CHOOSE:EQBUILDER.SPELL|Divine|0|9
+Special Ability ~ Spell Effect / Completion / Spell Tattoo / Arcane.COPY=TATTA_1USE	VISIBLE:NO
+Special Ability ~ Spell Effect / Completion / Spell Tattoo / Divine.COPY=TATTD_1USE	VISIBLE:NO
 
 ###Block: Riffle Scroll
 # Modifier Name					Unique Key		Naming Option	Type					Cost											Visible		Type granted				Source Page			Required Type			Prohibited Type			Choose
 Divine						KEY:RIFFLE_DIVINE				TYPE:RiffleScroll														VISIBLE:NO	ITYPE:Divine													!PRETYPE:1,Divine,Arcane
 Arcane						KEY:RIFFLE_ARCANE				TYPE:RiffleScroll														VISIBLE:NO	ITYPE:Arcane													!PRETYPE:1,Divine,Arcane
 
-Spell Effect (Single Use/Completion)	KEY:RIFFA_1USE	NAMEOPT:SPELL	TYPE:RiffleScroll.Arcane	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:NO	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:2,RiffleScroll,Arcane						CHOOSE:EQBUILDER.SPELL|Arcane|0|8
-Spell Effect (Single Use/Completion)	KEY:RIFFD_1USE	NAMEOPT:SPELL	TYPE:RiffleScroll.Divine	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:NO	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:2,RiffleScroll,Divine						CHOOSE:EQBUILDER.SPELL|Divine|0|8
+Special Ability ~ Spell Effect / Completion / Riffle Scroll / Arcane.COPY=RIFFA_1USE	VISIBLE:NO
+Special Ability ~ Spell Effect / Completion / Riffle Scroll / Divine.COPY=RIFFD_1USE	VISIBLE:NO

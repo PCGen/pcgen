@@ -13,4 +13,4 @@ Armor Vents		KEY:Special Quality ~ Armor Vents ~ Armor		TYPE:Armor		COST:100		VI
 
 
 #Old KEYs
-Armor Vents		KEY:VENTS_A		TYPE:Armor		COST:100		VISIBLE:NO		SOURCEPAGE:p.28		PRETYPE:2,Armor,Medium,Heavy		BONUS:EQM|WEIGHTADD|-5		SPROP:Armor with armor vents imposes only a -2 penalty (instead of -4) on Fortitude saves to avoid taking nonlethal damage from heat exposure, but also has 10 fewer hit points than normal because of its more intricate construction.
+Special Quality ~ Armor Vents ~ Armor.COPY=VENTS_A	VISIBLE:NO

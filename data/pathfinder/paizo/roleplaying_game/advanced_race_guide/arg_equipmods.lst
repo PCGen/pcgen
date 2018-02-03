@@ -43,17 +43,17 @@ Whipwood		KEY:Material ~ Whipwood	TYPE:BaseMaterial.Weapon	COST:500	VISIBLE:QUAL
 
 
 #Old KEYs
-Darkleaf Cloth		KEY:DLEAF_CLOTH			TYPE:BaseMaterial.MasterworkQuality.Cloth.Clothing		COST:500			VISIBLE:NO	ITYPE:Darkleaf	REPLACES:MWORKA,MWORKW	SOURCEPAGE:p.27										BONUS:EQM|WEIGHTDIV|2
-Darkleaf Cloth		KEY:DLEAF_ARMR_LGT		TYPE:BaseMaterial.MasterworkQuality.Armor				COST:750			VISIBLE:NO	ITYPE:Darkleaf	REPLACES:MWORKA		SOURCEPAGE:p.27	PRETYPE:1,Light	PRETYPE:1,EQMOD=LEATHER,Nonmetal	BONUS:EQM|WEIGHTDIV|2	BONUS:EQMARMOR|MAXDEX|2	BONUS:EQMARMOR|SPELLFAILURE|-10	BONUS:EQMARMOR|ACCHECK|3
-Darkleaf Cloth		KEY:DLEAF_ARMR_MED		TYPE:BaseMaterial.MasterworkQuality.Armor				COST:1500			VISIBLE:NO	ITYPE:Darkleaf	REPLACES:MWORKA		SOURCEPAGE:p.27	PRETYPE:1,Medium	PRETYPE:1,EQMOD=LEATHER,Nonmetal	BONUS:EQM|WEIGHTDIV|2	BONUS:EQMARMOR|MAXDEX|2	BONUS:EQMARMOR|SPELLFAILURE|-10	BONUS:EQMARMOR|ACCHECK|3
-Darkleaf Cloth		KEY:DLEAF_ITEM			TYPE:BaseMaterial.MasterworkQuality.Instruments.Tools.Goods	COST:WT*375			VISIBLE:NO	ITYPE:Darkleaf	REPLACES:MWORKA,MWORKW	SOURCEPAGE:p.27										BONUS:EQM|WEIGHTDIV|2
-Wyroot(1 Life Point)	KEY:WROOT_1				TYPE:BaseMaterial.Weapon						COST:BASECOST+1000	VISIBLE:NO	ITYPE:Wyroot	REPLACES:MWORKW		SOURCEPAGE:p.27	PRETYPE:1,EQMOD=WOOD																					SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 1 life point.  Unspent life points dissipate at dusk.
-Wyroot(2 Life Points)	KEY:WROOT_2				TYPE:BaseMaterial.Weapon						COST:BASECOST+2000	VISIBLE:NO	ITYPE:Wyroot	REPLACES:MWORKW		SOURCEPAGE:p.27	PRETYPE:1,EQMOD=WOOD																					SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 2 life points.  Unspent life points dissipate at dusk.
-Wyroot(3 Life Points)	KEY:WROOT_3				TYPE:BaseMaterial.Weapon						COST:BASECOST+4000	VISIBLE:NO	ITYPE:Wyroot	REPLACES:MWORKW		SOURCEPAGE:p.27	PRETYPE:1,EQMOD=WOOD																					SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 3 life points.  Unspent life points dissipate at dusk.
-Purifier Celestial	KEY:AAPURIFIER_CELESTIAL	TYPE:Armor									COST:0			VISIBLE:NO	ITYPE:Purifier Celestial			SOURCEPAGE:p.86	PREABILITY:1,CATEGORY=Archetype,Oracle Archetype ~ Purifier	BONUS:EQM|WEIGHTDIV|2|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:No benefit.	SPROP:The purifier's armor takes on a golden or silvery sheen and becomes light as a feather.|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier
-Cruel				KEY:CRUEL				TYPE:Weapon.Ammunition							PLUS:1			VISIBLE:NO								SOURCEPAGE:p.124	SPROP:When the wielder strikes a creature that is frightened, shaken, or panicked, that creature becomes sickened for 1 round. When the wielder uses the weapon to knock unconscious or kill a creature, he gains 5 temporary hit points that last for 10 minutes.
-Guarding			KEY:GUARD				TYPE:Shield									PLUS:1			VISIBLE:NO									SOURCEPAGE:p.148	SPROP:Allows the wearer to transfer some or all of the shield's enhancement bonus to an adjacent creature's AC
-Guarding (Greater)	KEY:GGUARD				TYPE:Shield									PLUS:2			VISIBLE:NO									SOURCEPAGE:p.148	SPROP:Allows the wearer to transfer some or all of the shield's enhancement bonus to any number of adjacent allies.  All selected allies receive the same bonus. If a shielded target is ever more than 5 feet from the wearer, the effect ends for that target but not for any other targets.
-Cloudburst			KEY:CLOUDB				TYPE:Armor													VISIBLE:NO									SOURCEPAGE:p.160	BONUS:ITEMCOST|TYPE.Armor|5000	SPROP:If an attack strikes the wearer and deals at least 10 points of electricity damage, as a swift action on the wearer's next turn that does not provoke an attack of opportunity, she may use shocking grasp as a spell-like ability, dealing 1d6 points of electricity damage for every 10 points of damage dealt to the wearer since last turn.
-Undine Weaponshaft	KEY:UNDWEAP				TYPE:Weapon													VISIBLE:NO									SOURCEPAGE:p.177	PRETYPE:1,Reach,Spear,Polearm	BONUS:ITEMCOST|TYPE.Weapon|300	SPROP:As a full-round action, an undine can make a single melee attack with the weapon and use her hydraulic push spell-like ability against the target of that melee attack.
-Whipwood			KEY:WWOOD				TYPE:BaseMaterial.MasterworkQuality.Weapon.Shield		COST:BASECOST+500		VISIBLE:NO	ITYPE:Wooden.Whipwood.Masterwork	REPLACES:MWORKA,MWORKW	SOURCEPAGE:p.207	PRETYPE:1,Wooden	BONUS:VAR|CMD_Sunder|2	SPROP:+5 Weapon's HP
+Material ~ Darkleaf Cloth ~ Clothing.COPY=DLEAF_CLOTH						VISIBLE:NO
+Material ~ Darkleaf Cloth ~ Armor / Light.COPY=DLEAF_ARMR_LGT				VISIBLE:NO
+Material ~ Darkleaf Cloth ~ Armor / Medium.COPY=DLEAF_ARMR_MED				VISIBLE:NO
+Material ~ Darkleaf Cloth ~ Item.COPY=DLEAF_ITEM						VISIBLE:NO
+Material ~ Wyroot / 1 Life Point.COPY=WROOT_1							VISIBLE:NO
+Material ~ Wyroot / 2 Life Points.COPY=WROOT_2							VISIBLE:NO
+Material ~ Wyroot / 3 Life Points.COPY=WROOT_3							VISIBLE:NO
+Special Quality ~ Purifier Celestial Armor ~ Archetype.COPY=AAPURIFIER_CELESTIAL	VISIBLE:NO
+Special Ability ~ Cruel ~ Weapon.COPY=CRUEL							VISIBLE:NO
+Special Ability ~ Guarding ~ Shield.COPY=GUARD							VISIBLE:NO
+Special Ability ~ Guarding / Greater ~ Shield.COPY=GGUARD					VISIBLE:NO
+Special Ability ~ Cloudburst ~ Armor.COPY=CLOUDB						VISIBLE:NO
+Special Quality ~ Undine Weaponshaft ~ Weapon.COPY=UNDWEAP					VISIBLE:NO
+Material ~ Whipwood.COPY=WWOOD									VISIBLE:NO

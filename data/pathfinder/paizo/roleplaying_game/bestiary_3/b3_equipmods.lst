@@ -11,5 +11,5 @@ Paper Cut		KEY:Special Ability ~ Paper Cut ~ Monster	TYPE:Weapon			VISIBLE:QUALI
 
 
 #Old KEYs
-Bleed			KEY:BLEED	TYPE:Weapon	PLUS:2	VISIBLE:NO	SOURCEPAGE:p.62	PRETYPE:1,Enhancement.Weapon	SPROP:deals 2d6 points of bleed damage per hit
-Paper Cut		KEY:PPRCT	TYPE:Weapon			VISIBLE:NO	SOURCEPAGE:p.76	PRETYPE:1,Weapon			SPROP:deals 1d6 points of bleed damage per hit
+Special Ability ~ Bleed ~ Monster.COPY=BLEED		VISIBLE:NO
+Special Ability ~ Paper Cut ~ Monster.COPY=PPRCT	VISIBLE:NO

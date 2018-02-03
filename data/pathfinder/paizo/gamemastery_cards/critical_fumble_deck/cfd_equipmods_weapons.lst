@@ -14,4 +14,4 @@ Sure Grip		KEY:Special Ability ~ Sure Grip ~ Weapon	TYPE:Weapon	PLUS:1	VISIBLE:Q
 
 
 #Old KEYs
-Sure Grip		KEY:SURE	TYPE:Weapon	PLUS:1	VISIBLE:NO	PRETYPE:2,Enhancement,Weapon	SPROP:only confirm critical fumbles on a natural 1
+Special Ability ~ Sure Grip ~ Weapon.COPY=SURE	VISIBLE:NO

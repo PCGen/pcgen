@@ -32,13 +32,13 @@ Gory							KEY:Special Ability ~ Gory ~ Amulet of Mighty Fists			TYPE:AmuletOfMi
 
 
 #Old KEYs
-Adamant						KEY:ADMNT_ABILITY			TYPE:Armor					PLUS:2				VISIBLE:NO					SOURCEPAGE:24				PRETYPE:3,Enhancement,Armor,Heavy												SPROP:Once per day grants DR 3/— for 9 rounds as a swift action.
-Ghost Spike						KEY:GHOST_SPIKE			TYPE:Armor					PLUS:2				VISIBLE:NO					SOURCEPAGE:24				PRETYPE:2,Enhancement,Armor													SPROP:Once per day as a standard action, grows +1 ghost touch armor spikes for 10 rounds.
-Spellsink						KEY:SPELLSINK			TYPE:Armor.Shield				PLUS:1				VISIBLE:NO					SOURCEPAGE:24				PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]								SPROP:Once per day can absorb targeted spell if caster fails DC 14 Will save.
-Bewildering						KEY:BEWILDER			TYPE:Weapon.Ammunition			PLUS:1				VISIBLE:NO					SOURCEPAGE:24				PRETYPE:2,Enhancement,Weapon													SPROP:3/day struck enemy confused 1d6 rounds, Will 17 to end effect.
-Dazzling Radiance					KEY:DAZZL_RAD			TYPE:Weapon.Melee				PLUS:1				VISIBLE:NO					SOURCEPAGE:24				PRETYPE:3,Enhancement,Weapon,Melee												SPROP:When used with the Dazzling Display feat, creatures within 15 feet are blinded for 2 rounds, dazzled for an additional 1d4 rounds; Fort DC 17 to avoid blindness.
-Gory							KEY:GORY				TYPE:Weapon.Melee				PLUS:3				VISIBLE:NO					SOURCEPAGE:24				PRETYPE:3,Enhancement,Weapon,Melee												SPROP:Deals 1d2 points stackable of bleed damage, Intimidate to demoralize as immediate action with bonus equal to character level.
-Sapping						KEY:SAPPING				TYPE:Weapon.Ammunition			PLUS:1				VISIBLE:NO					SOURCEPAGE:24				PRETYPE:2,Enhancement,Weapon					PRETYPE:1,EQMOD=NONLETHAL				SPROP:Deals an additional 2d6 of nonlethal damage, target becomes fatigued for 5 rounds on a confirmed critical hit.
-Bewildering						KEY:BEWILDER_AMF			TYPE:AmuletOfMightyFists		PLUS:1				VISIBLE:NO					SOURCEPAGE:24				PRETYPE:1,EQMOD=MightyFist_AMF												SPROP:3/day struck enemy confused 1d6 rounds, Will 17 to end effect.
-Dazzling Radiance					KEY:DAZZL_RAD_AMF			TYPE:AmuletOfMightyFists		PLUS:1				VISIBLE:NO					SOURCEPAGE:24				PRETYPE:1,EQMOD=MightyFist_AMF												SPROP:When used with the Dazzling Display feat, creatures within 15 feet are blinded for 2 rounds, dazzled for an additional 1d4 rounds; Fort DC 17 to avoid blindness.
-Gory							KEY:GORY_AMF			TYPE:AmuletOfMightyFists		PLUS:3				VISIBLE:NO					SOURCEPAGE:24				PRETYPE:1,EQMOD=MightyFist_AMF												SPROP:Deals 1d2 points stackable of bleed damage, Intimidate to demoralize as immediate action with bonus equal to character level.
+Special Ability ~ Adamant ~ Armor.COPY=ADMNT_ABILITY						VISIBLE:NO
+Special Ability ~ Ghost Spike ~ Armor.COPY=GHOST_SPIKE					VISIBLE:NO
+Special Ability ~ Spellsink ~ Armor.COPY=SPELLSINK						VISIBLE:NO
+Special Ability ~ Bewildering ~ Weapon.COPY=BEWILDER						VISIBLE:NO
+Special Ability ~ Dazzling Radiance ~ Melee.COPY=DAZZL_RAD					VISIBLE:NO
+Special Ability ~ Gory ~ Melee.COPY=GORY								VISIBLE:NO
+Special Ability ~ Sapping ~ Weapon.COPY=SAPPING							VISIBLE:NO
+Special Ability ~ Bewildering ~ Amulet of Mighty Fists.COPY=BEWILDER_AMF		VISIBLE:NO
+Special Ability ~ Dazzling Radiance ~ Amulet of Mighty Fists.COPY=DAZZL_RAD_AMF	VISIBLE:NO
+Special Ability ~ Gory ~ Amulet of Mighty Fists.COPY=GORY_AMF				VISIBLE:NO

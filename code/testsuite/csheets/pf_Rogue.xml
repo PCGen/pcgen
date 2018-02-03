@@ -1260,7 +1260,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
-				<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
+				<special_properties>nonlethal</special_properties>
 				<template></template>
 				<type>B</type>
 				<weight>1</weight>
@@ -2421,7 +2421,7 @@ BIO
 				<long>Small</long>
 				<short>S</short>
 			</size>
-			<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
+			<special_properties>nonlethal</special_properties>
 			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.MARTIAL.STANDARD.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
@@ -3387,7 +3387,7 @@ BIO
 					<long>Small</long>
 					<short>S</short>
 				</size>
-				<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
+				<special_properties>nonlethal</special_properties>
 				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.MARTIAL.STANDARD.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
