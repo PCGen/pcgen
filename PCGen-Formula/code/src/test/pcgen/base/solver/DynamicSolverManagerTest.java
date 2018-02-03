@@ -178,9 +178,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			.getVariableID(getGlobalScopeInst(), "Result");
 
 		Limb hands = limbManager.convert("Hands");
-		ScopeInstance handsInst = getScopeInstance("LIMB", hands);
+		ScopeInstance handsInst = getScopeInstance("Global.LIMB", hands);
 		Limb fingers = limbManager.convert("Fingers");
-		ScopeInstance fingersInst = getScopeInstance("LIMB", fingers);
+		ScopeInstance fingersInst = getScopeInstance("Global.LIMB", fingers);
 
 		VariableID<Number> handsID =
 				(VariableID<Number>) getVarLibrary().getVariableID(handsInst, "Quantity");
@@ -297,7 +297,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		@Override
 		public String getLocalScopeName()
 		{
-			return "LIMB";
+			return "Global.LIMB";
 		}
 
 		@Override
@@ -361,7 +361,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, em);
 			FormulaManager fManager = em.get(EvaluationManager.FMANAGER);
 			ScopeInstanceFactory siFactory = fManager.getScopeInstanceFactory();
-			ScopeInstance scopeInst = siFactory.get("LIMB", vs);
+			ScopeInstance scopeInst = siFactory.get("Global.LIMB", vs);
 			//Rest of Equation
 			return args[1].jjtAccept(visitor,
 				em.getWith(EvaluationManager.INSTANCE, scopeInst));
@@ -376,7 +376,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			TrainingStrategy ts = new TrainingStrategy();
 			DependencyManager trainer = dm.getWith(DependencyManager.VARSTRATEGY, ts);
 			visitor.visitVariable(varName, trainer);
-			DynamicDependency dd = new DynamicDependency(ts.getControlVar(), "LIMB");
+			DynamicDependency dd = new DynamicDependency(ts.getControlVar(), "Global.LIMB");
 			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, dd);
 			FormatManager<?> returnFormat = visitor.visitVariable(name, dynamic);
 			dm.get(DependencyManager.DYNAMIC).addDependency(dd);
@@ -404,9 +404,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			.getVariableID(getGlobalScopeInst(), "ResultVar");
 
 		Limb equip = limbManager.convert("EquipKey");
-		ScopeInstance equipInst = getScopeInstance("LIMB", equip);
+		ScopeInstance equipInst = getScopeInstance("Global.LIMB", equip);
 		Limb equipalt  = limbManager.convert("EquipAlt");
-		ScopeInstance altInst = getScopeInstance("LIMB", equipalt);
+		ScopeInstance altInst = getScopeInstance("Global.LIMB", equipalt);
 
 		VariableID<Number> equipID =
 				(VariableID<Number>) getVarLibrary().getVariableID(equipInst, "LocalVar");

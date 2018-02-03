@@ -69,14 +69,38 @@ public class LegalScopeLibrary
 		{
 			throw new IllegalArgumentException("LegalScope must have a name");
 		}
-		LegalScope current = scopes.get(name);
+		if (name.indexOf('.') != -1)
+		{
+			throw new IllegalArgumentException("LegalScope name must not contain a period '.'");
+		}
+		String fullName = buildFullName(scope);
+		LegalScope current = scopes.get(fullName);
 		if ((current != null) && !current.equals(scope))
 		{
-			throw new IllegalArgumentException(
-				"A Scope with name " + name + " is already registered");
+			throw new IllegalArgumentException("A Scope with name fully qualified name "
+				+ fullName + " is already registered");
 		}
 		scopeChildren.addToListFor(scope.getParentScope(), scope);
-		scopes.put(name, scope);
+		scopes.put(fullName, scope);
+	}
+
+	private String buildFullName(LegalScope scope)
+	{
+		StringBuilder stringBuilder = new StringBuilder();
+		internalBuildFullName(stringBuilder, scope);
+		return stringBuilder.toString();
+	}
+
+	private void internalBuildFullName(StringBuilder stringBuilder,
+		LegalScope scope)
+	{
+		LegalScope parent = scope.getParentScope();
+		if (parent != null)
+		{
+			internalBuildFullName(stringBuilder, scope.getParentScope());
+			stringBuilder.append('.');
+		}
+		stringBuilder.append(scope.getName());
 	}
 
 	/**

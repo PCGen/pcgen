@@ -38,7 +38,7 @@ public class MockStat implements VarScoped
 	@Override
 	public String getLocalScopeName()
 	{
-		return "STAT";
+		return "Global.STAT";
 	}
 
 	@Override

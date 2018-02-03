@@ -52,7 +52,7 @@ public class LegalScopeLibraryTest extends TestCase
 		library.registerScope(subScope);
 		try
 		{
-			library.registerScope(new SimpleLegalScope(null, "SubScope"));
+			library.registerScope(new SimpleLegalScope(globalScope, "SubScope"));
 			fail("dupe name be rejected in registerScope");
 		}
 		catch (IllegalArgumentException e)
@@ -90,7 +90,7 @@ public class LegalScopeLibraryTest extends TestCase
 		library.registerScope(globalScope);
 		//test getScope
 		assertEquals(globalScope, library.getScope("Global"));
-		assertEquals(subScope, library.getScope("SubScope"));
+		assertEquals(subScope, library.getScope("Global.SubScope"));
 		assert(library.getScope("OtherScope") == null);
 		assert(library.getScope(null) == null);
 	}

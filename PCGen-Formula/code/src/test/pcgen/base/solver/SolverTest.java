@@ -55,8 +55,8 @@ public class SolverTest extends TestCase
 		IndividualSetup indSetup = new IndividualSetup(sfs, "Global", new SimpleVariableStore());
 		inst = indSetup.getGlobalScopeInst();
 		sfs.getLegalScopeLibrary().registerScope(new SimpleLegalScope(globalScope, "STAT"));
-		str = indSetup.getInstanceFactory().get("STAT", new MockStat("STR"));
-		con = indSetup.getInstanceFactory().get("STAT", new MockStat("CON"));
+		str = indSetup.getInstanceFactory().get("Global.STAT", new MockStat("STR"));
+		con = indSetup.getInstanceFactory().get("Global.STAT", new MockStat("CON"));
 		evalManager =
 				managerFactory.generateEvaluationManager(indSetup.getFormulaManager());
 	}

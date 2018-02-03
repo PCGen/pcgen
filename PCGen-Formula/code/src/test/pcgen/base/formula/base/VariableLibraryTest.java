@@ -355,9 +355,9 @@ public class VariableLibraryTest extends TestCase
 		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
 		varScopeLib.registerScope(spScope);
 		SimpleVarScoped eq = new SimpleVarScoped();
-		eq.scopeName = "Equipment";
+		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
-		ScopeInstance eqInst = instanceFactory.get("Equipment", eq);
+		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", eq);
 		try
 		{
 			varLib.getVariableID(null, "Walk");
@@ -444,16 +444,16 @@ public class VariableLibraryTest extends TestCase
 		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
 		varScopeLib.registerScope(eqScope);
 		SimpleVarScoped eq = new SimpleVarScoped();
-		eq.scopeName = "Equipment";
+		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
-		ScopeInstance eqInst = instanceFactory.get("Equipment", eq);
+		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", eq);
 		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
 		varScopeLib.registerScope(eqPartScope);
 		SimpleVarScoped eqpart = new SimpleVarScoped();
-		eqpart.scopeName = "Part";
+		eqpart.scopeName = "Global.Equipment.Part";
 		eqpart.name = "Mod";
 		eqpart.parent = eq;
-		ScopeInstance eqPartInst = instanceFactory.get("Part", eqpart);
+		ScopeInstance eqPartInst = instanceFactory.get("Global.Equipment.Part", eqpart);
 		assertTrue(
 			varLib.assertLegalVariableID("Walk", globalScope, numberManager));
 		assertTrue(
@@ -541,15 +541,15 @@ public class VariableLibraryTest extends TestCase
 				new SimpleLegalScope(globalScope, "Equipment");
 		varScopeLib.registerScope(eqScope);
 		SimpleVarScoped eq = new SimpleVarScoped();
-		eq.scopeName = "Equipment";
+		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
-		ScopeInstance eqInst = instanceFactory.get("Equipment", eq);
+		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", eq);
 		LegalScope abScope = new SimpleLegalScope(globalScope, "Ability");
 		varScopeLib.registerScope(abScope);
 		SimpleVarScoped ab = new SimpleVarScoped();
-		ab.scopeName = "Ability";
+		ab.scopeName = "Global.Ability";
 		ab.name = "Dodge";
-		ScopeInstance abInst = instanceFactory.get("Ability", ab);
+		ScopeInstance abInst = instanceFactory.get("Global.Ability", ab);
 
 		assertTrue(
 			varLib.assertLegalVariableID("Walk", eqScope, numberManager));

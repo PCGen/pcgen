@@ -119,16 +119,16 @@ public class ScopeInstanceFactoryTest extends TestCase
 		{
 			//ok
 		}
-		Scoped lvs = new Scoped("LVar", "Local", gvs);
-		ScopeInstance lsi = factory.get("Local", lvs);
+		Scoped lvs = new Scoped("LVar", "Global.Local", gvs);
+		ScopeInstance lsi = factory.get("Global.Local", lvs);
 		assertTrue(local.equals(lsi.getLegalScope()));
 		assertTrue(scopeInst.equals(lsi.getParentScope()));
 		assertEquals("Local", lsi.getLegalScope().getName());
 
 		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
 		library.registerScope(sublocal);
-		Scoped slvs = new Scoped("SVar", "SubLocal", lvs);
-		ScopeInstance slsi = factory.get("Local", slvs);
+		Scoped slvs = new Scoped("SVar", "Global.Local.SubLocal", lvs);
+		ScopeInstance slsi = factory.get("Global.Local", slvs);
 		assertTrue(local.equals(slsi.getLegalScope()));
 		assertTrue(scopeInst.equals(slsi.getParentScope()));
 		assertEquals("Local", slsi.getLegalScope().getName());
