@@ -871,7 +871,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<template></template>
 				<type>B</type>
 				<weight>10</weight>
@@ -931,7 +931,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<template></template>
 				<type>B</type>
 				<weight>0</weight>
@@ -1611,7 +1611,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+			<special_properties>disarm, trip</special_properties>
 			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>10</weight>
 			<bonuslist></bonuslist>
@@ -1637,7 +1637,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+			<special_properties>disarm, trip</special_properties>
 			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
@@ -2368,7 +2368,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>10</weight>
 				<bonuslist></bonuslist>
@@ -2389,7 +2389,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
