@@ -2322,16 +2322,16 @@ Reflexive Shot				KEY:Zen Archer ~ Reflexive Shot					CATEGORY:Special Ability	T
 Trick Shot					KEY:Zen Archer ~ Trick Shot						CATEGORY:Special Ability	TYPE:ClassFeatures.MonkClassFeatures.SpecialQuality.Supernatural.MonkDiamondBody																																																									DESC:At 11th level, a zen archer may hit targets that he might otherwise miss. By spending 1 point from his ki pool as a swift action, the zen archer can ignore concealment. By spending 2 points, he can ignore total concealment or cover. By spending 3 points, he can ignore total cover, even firing arrows around corners. The arrow must still be able to reach the target; a target inside a closed building with no open doors or windows cannot be attacked. These effects last for 1 round. This ability replaces diamond body.																																																																																																																																																																																											SOURCEPAGE:p.115
 Ki Focus Bow				KEY:Zen Archer ~ Ki Focus Bow						CATEGORY:Special Ability	TYPE:ClassFeatures.MonkClassFeatures.SpecialQuality.Supernatural.MonkTongueOfTheSunAndMoon																																																							DESC:At 17th level, as long as he has at least 1 point of ki in his ki pool, a zen archer may treat arrows fired from his bow as if they were ki focus weapons, allowing him to use his special ki attacks as if his arrows were unarmed attacks. This ability replaces tongue of the sun and moon.																																																																																																																																																																																																																																		SOURCEPAGE:p.115
 
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_FarShot|0			
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_PointBlankShot|0		
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_PreciseShot|0			
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_RapidShot|0			
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_ImprovedPreciseShot|0
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_FocusedShot|0
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_Manyshot|0
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_PartingShot|0
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_PinpointTargeting|0
-CATEGORY=Internal|Monk Bonus Feat ~ Default.MOD	DEFINE:MonkBonusFeat_ShotontheRun|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_FarShot|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_PointBlankShot|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_PreciseShot|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_RapidShot|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedPreciseShot|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_FocusedShot|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_Manyshot|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_PartingShot|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_PinpointTargeting|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ShotontheRun|0
 
 CATEGORY=Special Ability|Zen Archer ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_CombatReflexes|1|PREVARGTEQ:MonkBonusFeatLVL,1	
 CATEGORY=Special Ability|Zen Archer ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_DeflectArrows|1|PREVARGTEQ:MonkBonusFeatLVL,1	
