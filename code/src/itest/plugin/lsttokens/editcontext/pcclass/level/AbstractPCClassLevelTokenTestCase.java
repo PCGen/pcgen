@@ -17,14 +17,12 @@
  */
 package plugin.lsttokens.editcontext.pcclass.level;
 
-import java.net.URI;
 import java.net.URISyntaxException;
-
-import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 
+import junit.framework.TestCase;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -36,6 +34,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import util.TestURI;
 
 public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 {
@@ -55,8 +54,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	@BeforeClass
 	public static final void classSetUp() throws URISyntaxException
 	{
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
 	}
 

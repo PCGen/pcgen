@@ -57,7 +57,7 @@ public class XtraskillptsperlvlToken extends AbstractNonEmptyToken<Race> impleme
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(race, FormulaKey.SKILL_POINTS_PER_LEVEL, formula);
 		return ParseResult.SUCCESS;

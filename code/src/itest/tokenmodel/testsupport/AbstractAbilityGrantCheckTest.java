@@ -29,6 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.choose.NoChoiceToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import util.TestURI;
 
 public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTest
 {
@@ -59,7 +60,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		ParseResult result = TYPE_TOKEN.parseToken(context, a, "Selectable");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -72,19 +73,19 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_FEATSELECTION_TOKEN.parseToken(context, a, target);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -97,25 +98,25 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_STACK_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_FEATSELECTION_TOKEN.parseToken(context, a, target);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -128,13 +129,13 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_NOCHOICE_TOKEN.parseToken(context, a, null);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -147,19 +148,19 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_STACK_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_NOCHOICE_TOKEN.parseToken(context, a, null);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -273,7 +274,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 					getGrantPrefix() + "Grantor (" + s + ")");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return parent;

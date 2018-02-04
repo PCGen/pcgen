@@ -51,7 +51,7 @@ public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate>
 		catch (IllegalArgumentException iae)
 		{
 			return new ParseResult.Fail("Invalid Gender provided in " + getTokenName()
-					+ ": " + value, context);
+					+ ": " + value);
 		}
 	}
 

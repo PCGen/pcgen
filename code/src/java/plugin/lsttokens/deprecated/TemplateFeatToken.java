@@ -95,7 +95,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value, context);
+							+ ": .CLEAR was not the first list item: " + value);
 				}
 			}
 			else

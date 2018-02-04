@@ -57,7 +57,7 @@ public class AgeToken extends AbstractNonEmptyToken<KitBio> implements
 		}
 		catch(NumberFormatException e)
 		{
-			return new ParseResult.Fail("Illegal value for AGE: " + value, context);
+			return new ParseResult.Fail("Illegal value for AGE: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}

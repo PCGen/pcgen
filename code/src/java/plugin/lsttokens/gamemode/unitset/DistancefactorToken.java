@@ -46,7 +46,7 @@ public class DistancefactorToken extends AbstractNonEmptyToken<UnitSet>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Misunderstood Double in Tag: " + value, context);
+			return new ParseResult.Fail("Misunderstood Double in Tag: " + value);
 		}
 	}
 

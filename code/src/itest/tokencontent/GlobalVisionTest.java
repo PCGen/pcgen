@@ -27,6 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.VisionLst;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalVisionTest extends AbstractContentTokenTest
 {
@@ -47,7 +48,7 @@ public class GlobalVisionTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "Normal (40)");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

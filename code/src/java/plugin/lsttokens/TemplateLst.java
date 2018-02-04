@@ -64,7 +64,7 @@ public class TemplateLst extends AbstractToken implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ cdo.getClass().getSimpleName(), context);
+				+ cdo.getClass().getSimpleName());
 		}
 		ListKey<CDOMReference<PCTemplate>> lk;
 		String remaining;

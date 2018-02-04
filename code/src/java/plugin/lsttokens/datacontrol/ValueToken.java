@@ -44,7 +44,7 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 			{
 				return new ParseResult.Fail("Parse of Function: "
 					+ ftn.getKeyName() + " with value: " + value
-					+ " attempted to reassign from: " + existing, context);
+					+ " attempted to reassign from: " + existing);
 			}
 			return ParseResult.SUCCESS;
 		}
@@ -56,7 +56,7 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 		{
 			return new ParseResult.Fail("Parse of Function: "
 				+ ftn.getKeyName() + " with value: " + value
-				+ " failed due to: " + e.getMessage(), context);
+				+ " failed due to: " + e.getMessage());
 		}
 		context.getVariableContext().addFunction(ftn.getFunction());
 		return ParseResult.SUCCESS;

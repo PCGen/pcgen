@@ -94,7 +94,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		// Currently, this isn't going to work with monk attacks
 		// - their unarmed stuff won't be affected.
@@ -128,7 +128,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (numTokens < MIN_TOKEN_COUNT)
 			{
 				return new ParseResult.Fail("Invalid Build of " + "Natural Weapon in "
-						+ getTokenName() + ": " + wpn, context);
+						+ getTokenName() + ": " + wpn);
 			}
 
 			String attackName = commaTok.nextToken();
@@ -136,7 +136,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (attackName.equalsIgnoreCase(Constants.LST_NONE))
 			{
 				return new ParseResult.Fail("Attempt to Build 'None' as a "
-						+ "Natural Weapon in " + getTokenName() + ": " + wpn, context);
+						+ "Natural Weapon in " + getTokenName() + ": " + wpn);
 			}
 
 			attackName = attackName.intern();
@@ -192,14 +192,14 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " was given invalid number of attacks: "
-							+ bonusAttacks, context);
+							+ bonusAttacks);
 				}
 				naturalWeapon.addToListFor(ListKey.BONUS, aBonus);
 			}
 			catch (NumberFormatException exc)
 			{
 				return new ParseResult.Fail("Non-numeric value for number of attacks in "
-						+ getTokenName() + ": '" + numAttacks + '\'', context);
+						+ getTokenName() + ": '" + numAttacks + '\'');
 			}
 
 			equipHead.put(StringKey.DAMAGE, commaTok.nextToken());
@@ -225,7 +225,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 					catch (NumberFormatException exc)
 					{
 						return new ParseResult.Fail("Non-numeric value for hands required: '"
-								+ handsOrSpropString + '\'', context);
+								+ handsOrSpropString + '\'');
 					}
 				}
 			}

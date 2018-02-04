@@ -64,8 +64,7 @@ public class EdrToken extends AbstractIntToken<Equipment> implements
 		if (ControlUtilities.hasControlToken(context, CControl.EDR))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when EDR control is used: " + value,
-				context);
+				+ " is disabled when EDR control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}

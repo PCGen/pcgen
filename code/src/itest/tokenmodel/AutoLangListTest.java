@@ -35,6 +35,7 @@ import plugin.lsttokens.ability.MultToken;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class AutoLangListTest extends AbstractTokenModelTest
 {
@@ -47,7 +48,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 				new MultToken().parseToken(context, source, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
@@ -110,13 +111,13 @@ public class AutoLangListTest extends AbstractTokenModelTest
 		ParseResult result = AUTO_LANG_TOKEN.parseToken(context, source, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_LANG_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

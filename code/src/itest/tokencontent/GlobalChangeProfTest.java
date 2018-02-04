@@ -29,6 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ChangeprofLst;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalChangeProfTest extends AbstractContentTokenTest
 {
@@ -53,7 +54,7 @@ public class GlobalChangeProfTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "Axe=Martial");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

@@ -64,8 +64,7 @@ public class SituationToken extends AbstractTokenWithSeparator<Skill> implements
 				{
 					return new ParseResult.Fail("  Non-sensical "
 						+ getTokenName()
-						+ ": .CLEARALL was not the first list item: " + value,
-						context);
+						+ ": .CLEARALL was not the first list item: " + value);
 				}
 				context.getObjectContext().removeList(skill, ListKey.SITUATION);
 			}

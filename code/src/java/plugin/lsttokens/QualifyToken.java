@@ -81,12 +81,12 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (!getLegalTypes().contains(obj.getClass()))
 		{
 			return new ParseResult.Fail("Cannot use QUALIFY on a "
-					+ obj.getClass(), context);
+					+ obj.getClass());
 		}
 		return super.parseNonEmptyToken(context, obj, value);
 	}
@@ -105,7 +105,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " requires at least two arguments, QualifyType and Key: "
-					+ value, context);
+					+ value);
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String firstToken = st.nextToken();
@@ -114,7 +114,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (rm == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " unable to generate manufacturer for type: " + value, context);
+					+ " unable to generate manufacturer for type: " + value);
 		}
 
 		while (st.hasMoreTokens())

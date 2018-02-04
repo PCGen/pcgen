@@ -73,36 +73,36 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (obj instanceof NonInteractive)
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Non-Interactive object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
 		if (!count.isValid())
 		{
 			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString(), context);
+					+ " was not valid: " + count.toString());
 		}
 		if (!count.isStatic())
 		{
 			return new ParseResult.Fail("Count in "
-					+ getTokenName() + " must be a number", context);
+					+ getTokenName() + " must be a number");
 		}
 		if (count.resolveStatic().intValue() <= 0)
 		{
 			return new ParseResult.Fail("Count in "
-					+ getTokenName() + " must be > 0", context);
+					+ getTokenName() + " must be > 0");
 		}
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " must have a | separating "
-					+ "count from the list of possible values: " + value, context);
+					+ "count from the list of possible values: " + value);
 		}
 		List<CDOMReference<Kit>> refs = new ArrayList<>();
 
@@ -126,7 +126,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Non-sensical "
 					+ getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 		ChoiceSet<Kit> cs = new ChoiceSet<>(getTokenName(),
 				new QualifiedDecorator<>(rcs));

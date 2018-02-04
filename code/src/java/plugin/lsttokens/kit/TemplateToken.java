@@ -112,7 +112,7 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 					{
 						return new ParseResult.Fail("Did not understand "
 							+ getTokenName() + " option: " + subStr
-							+ " in line: " + value, context);
+							+ " in line: " + value);
 					}
 				}
 			}

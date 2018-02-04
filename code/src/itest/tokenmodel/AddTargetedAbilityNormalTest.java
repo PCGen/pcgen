@@ -33,6 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.add.AbilityToken;
 
 import tokenmodel.testsupport.AbstractAddListTokenTest;
+import util.TestURI;
 
 public class AddTargetedAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 {
@@ -48,7 +49,7 @@ public class AddTargetedAbilityNormalTest extends AbstractAddListTokenTest<Abili
 				ADD_ABILITY_TOKEN.parseToken(context, source, "FEAT|NORMAL|Granted (English)");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -126,19 +127,19 @@ public class AddTargetedAbilityNormalTest extends AbstractAddListTokenTest<Abili
 		ParseResult result = AUTO_LANG_TOKEN.parseToken(context, a, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_LANG_TOKEN.parseToken(context, a, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);

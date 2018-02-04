@@ -91,19 +91,19 @@ public class SpellCasterToken extends AbstractNonEmptyToken<CDOMObject> implemen
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+						+ " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0", context);
+								+ " must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value, context);
+					+ " had too many pipe separated items: " + value);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -145,8 +145,7 @@ public class SpellCasterToken extends AbstractNonEmptyToken<CDOMObject> implemen
 					{
 						return new ParseResult.Fail(
 							"  Error was encountered while parsing " + getFullName()
-								+ ": " + token + " is not a valid reference: " + value,
-							context);
+								+ ": " + token + " is not a valid reference: " + value);
 					}
 					groups.add(ref);
 				}
@@ -161,7 +160,7 @@ public class SpellCasterToken extends AbstractNonEmptyToken<CDOMObject> implemen
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 
 		ReferenceChoiceSet<PCClass> grcs = groups.isEmpty() ? null

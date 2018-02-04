@@ -38,6 +38,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import util.TestURI;
 
 public class DataTypeTokenTest extends TestCase
 {
@@ -54,8 +55,7 @@ public class DataTypeTokenTest extends TestCase
 	public static void classSetUp() throws URISyntaxException
 	{
 		testCampaign =
-				new CampaignSourceEntry(new Campaign(), new URI(
-					"file:/Test%20Case"));
+				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
 	}
 

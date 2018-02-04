@@ -104,19 +104,19 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (rm == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " unable to generate manufacturer for type: " + value, context);
+					+ " unable to generate manufacturer for type: " + value);
 		}
 		if (!st.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " must include at least one target object", context);
+					+ " must include at least one target object");
 		}
 		if (!rm.getReferenceClass().equals(obj.getClass()))
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting a POBJECT Type valid for "
 					+ obj.getClass().getSimpleName() + ", found: "
-							+ firstToken, context);
+							+ firstToken);
 		}
 
 		String servekey = StringPClassUtil.getStringFor(obj.getClass());

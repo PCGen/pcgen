@@ -74,7 +74,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		String visionString = aTok.nextToken();
@@ -82,7 +82,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot have only PRExxx subtoken in " + getTokenName()
-							+ ": " + value, context);
+							+ ": " + value);
 		}
 
 		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<>();
@@ -151,7 +151,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
-							+ getTokenName(), context);
+							+ getTokenName());
 		}
 
 		while (true)
@@ -161,7 +161,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				return new ParseResult.Fail(
 						"   (Did you put vision after the " + "PRExxx tags in "
-								+ getTokenName() + ":?)", context);
+								+ getTokenName() + ":?)");
 			}
 			for (AssociatedPrereqObject edge : edgeList)
 			{

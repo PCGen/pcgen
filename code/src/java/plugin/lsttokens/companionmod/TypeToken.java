@@ -56,7 +56,7 @@ public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
 		if (cat == null)
 		{
 			return new ParseResult.Fail("Cannot find Companion List: "
-				+ value, context);
+				+ value);
 		}
 		context.getReferenceContext().reassociateCategory(cat, mod);
 		return ParseResult.SUCCESS;

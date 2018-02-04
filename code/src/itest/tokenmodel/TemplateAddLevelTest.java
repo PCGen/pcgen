@@ -26,6 +26,7 @@ import plugin.lsttokens.template.AddLevelToken;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class TemplateAddLevelTest extends AbstractTokenModelTest
 {
@@ -40,7 +41,7 @@ public class TemplateAddLevelTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, source, "Granted|3");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

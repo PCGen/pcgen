@@ -18,16 +18,14 @@
 package plugin.lsttokens.testsupport;
 
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Locale;
-
-import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.AbilityCategory;
@@ -45,6 +43,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+import util.TestURI;
 
 public abstract class AbstractGlobalTokenTestCase extends TestCase
 {
@@ -60,8 +59,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	public static void classSetUp() throws URISyntaxException
 	{
 		Locale.setDefault(Locale.US);
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
 	}
 
@@ -222,7 +220,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		}
 		else
 		{
-			pr.addMessagesToLog();
+			pr.addMessagesToLog(TestURI.getURI());
 			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();

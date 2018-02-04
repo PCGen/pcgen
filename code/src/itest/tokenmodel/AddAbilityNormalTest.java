@@ -41,6 +41,7 @@ import org.junit.Test;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
+import util.TestURI;
 
 public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 {
@@ -63,7 +64,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 		ParseResult result = runToken(source);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

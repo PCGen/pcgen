@@ -46,7 +46,7 @@ public class TempBonusLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		final String v =
 				value.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
@@ -54,7 +54,7 @@ public class TempBonusLst extends AbstractNonEmptyToken<CDOMObject> implements
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(
-				getTokenName() + " requires a SubToken", context);
+				getTokenName() + " requires a SubToken");
 		}
 		return context.processSubToken(obj, getTokenName(),
 			v.substring(0, pipeLoc), v.substring(pipeLoc + 1));

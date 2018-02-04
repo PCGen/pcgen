@@ -26,6 +26,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
+import util.TestURI;
 
 public abstract class AbstractCampaignTokenTestCase extends
 		AbstractCDOMTokenTestCase<Campaign>
@@ -47,7 +48,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		URI uri = new URI("http://www.sourceforge.net");
+		URI uri = TestURI.getURI();
 		primaryContext.setSourceURI(uri);
 		secondaryContext.setSourceURI(uri);
 	}

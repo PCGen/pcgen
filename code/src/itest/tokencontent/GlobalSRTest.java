@@ -26,6 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.SrLst;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalSRTest extends AbstractContentTokenTest
 {
@@ -46,7 +47,7 @@ public class GlobalSRTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "25+INT");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

@@ -88,7 +88,7 @@ public class KitFeatToken extends AbstractTokenWithSeparator<KitAbilities>
 			{
 				return new ParseResult.Fail(
 					"Attempting to change the Category of a Feat to '" + token
-						+ '\'', context);
+						+ '\'');
 			}
 			CDOMReference<Ability> ref =
 					TokenUtilities.getTypeOrPrimitive(rm, token);

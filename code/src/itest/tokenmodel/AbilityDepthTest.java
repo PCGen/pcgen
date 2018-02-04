@@ -41,6 +41,7 @@ import junit.framework.TestSuite;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
+import util.TestURI;
 
 public class AbilityDepthTest extends AbstractTokenModelTest
 {
@@ -120,7 +121,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 					firstPrefix + mid.getKeyName());
 		if (!result.passed())
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail();
 		}
 		result =
@@ -128,7 +129,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 					secondPrefix + target.getKeyName());
 		if (!result.passed())
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail();
 		}
 

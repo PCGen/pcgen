@@ -56,7 +56,7 @@ public class VisibleToken extends AbstractNonEmptyToken<ContentDefinition>
 		else
 		{
 			return new ParseResult.Fail("Unable to understand "
-				+ getTokenName() + " tag: " + value, context);
+				+ getTokenName() + " tag: " + value);
 		}
 		factDef.setVisibility(vis);
 		return ParseResult.SUCCESS;

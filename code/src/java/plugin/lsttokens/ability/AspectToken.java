@@ -72,7 +72,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting '|', format is: "
-					+ "AspectName|Aspect value|Variable|... was: " + value, context);
+					+ "AspectName|Aspect value|Variable|... was: " + value);
 		}
 		String key = value.substring(0, pipeLoc);
 		if (key.isEmpty())
@@ -80,7 +80,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty type, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value, context);
+					+ value);
 		}
 		String val = value.substring(pipeLoc + 1);
 		if (val.isEmpty())
@@ -88,14 +88,14 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value, context);
+					+ value);
 		}
 		if (val.startsWith(Constants.PIPE))
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value, context);
+					+ value);
 		}
 		Aspect a = parseAspect(key, val);
 		MapChanges<AspectName, List<Aspect>> mc =

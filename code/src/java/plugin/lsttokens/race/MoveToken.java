@@ -105,7 +105,7 @@ public class MoveToken extends AbstractTokenWithSeparator<Race> implements
 			if (moves.countTokens() != 0)
 			{
 				return new ParseResult.Fail("Badly formed MOVE token "
-					+ "(extra value at end of list): " + value, context);
+					+ "(extra value at end of list): " + value);
 			}
 		}
 		cm.setMoveRatesFlag(0);

@@ -62,7 +62,7 @@ public class EQToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getFullTokenName()
-				+ " was given invalid type: " + bonus, context);
+				+ " was given invalid type: " + bonus);
 		}
 		bon.setTokenSource(getFullTokenName());
 		EquipBonus eb = new EquipBonus(bon, constraints);

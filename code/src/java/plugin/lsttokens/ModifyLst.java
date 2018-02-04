@@ -69,7 +69,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " may not be used in Campaign Files.  "
-				+ "Please use the Global Modifier file", context);
+				+ "Please use the Global Modifier file");
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -77,8 +77,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " may not be empty",
-				context);
+			return new ParseResult.Fail(getTokenName() + " may not be empty");
 		}
 
 		LegalScope scope = context.getActiveScope();
@@ -88,19 +87,18 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail(
 				getTokenName() + " found invalid var name: " + varName
 					+ "(scope: " + scope.getName() + ") Modified on "
-					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(),
-				context);
+					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 		}
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " needed 2nd argument: " + value, context);
+				+ " needed 2nd argument: " + value);
 		}
 		String modIdentification = sep.next();
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " needed third argument: " + value, context);
+				+ " needed third argument: " + value);
 		}
 		String modInstructions = sep.next();
 		FormulaModifier<?> modifier;
@@ -115,7 +113,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail(getTokenName() + " Modifier "
 				+ modIdentification + " had value " + modInstructions
-				+ " but it was not valid: " + iae.getMessage(), context);
+				+ " but it was not valid: " + iae.getMessage());
 		}
 		Set<Object> associationsVisited =
 				Collections.newSetFromMap(new CaseInsensitiveMap<>());
@@ -127,7 +125,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return new ParseResult.Fail(getTokenName()
 					+ " was expecting = in an ASSOCIATION but got " + assoc
-					+ " in " + value, context);
+					+ " in " + value);
 			}
 			String assocName = assoc.substring(0, equalLoc);
 			if (associationsVisited.contains(assocName))
@@ -135,8 +133,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 				return new ParseResult.Fail(
 					getTokenName()
 						+ " does not allow multiple asspociations with the same name.  "
-						+ "Found multiple: " + assocName + " in " + value,
-					context);
+						+ "Found multiple: " + assocName + " in " + value);
 			}
 			associationsVisited.add(assocName);
 			modifier.addAssociation(assoc);

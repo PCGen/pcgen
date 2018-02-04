@@ -62,7 +62,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		if (tok.countTokens() != 3)
 		{
 			return new ParseResult.Fail("URL token requires three arguments. Link kind, "
-							+ "link and description.  : " + value, context);
+							+ "link and description.  : " + value);
 		}
 		String urlTypeName = tok.nextToken();
 		String urlText = tok.nextToken();
@@ -102,7 +102,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		catch (URISyntaxException e)
 		{
 			return new ParseResult.Fail("Invalid URL (" + e.getMessage()
-					+ ") : " + value, context);
+					+ ") : " + value);
 		}
 		// Create URL object
 		CampaignURL campUrl = new CampaignURL(urlType, urlTypeName, uri,

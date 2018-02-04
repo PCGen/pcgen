@@ -32,6 +32,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class TemplateFavoredClassTest extends AbstractTokenModelTest
 {
@@ -58,7 +59,7 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, source, "Favorite");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -77,13 +78,13 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, source, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_CLASS_TOKEN.parseToken(context, source, "Favorite");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

@@ -53,7 +53,7 @@ public class WtToken extends AbstractNonEmptyToken<Equipment> implements
 			if (weight.compareTo(BigDecimal.ZERO) < 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " was expecting a decimal value >= 0 : " + value, context);
+						+ " was expecting a decimal value >= 0 : " + value);
 			}
 			context.getObjectContext().put(eq, ObjectKey.WEIGHT, weight);
 			return ParseResult.SUCCESS;
@@ -61,7 +61,7 @@ public class WtToken extends AbstractNonEmptyToken<Equipment> implements
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail("Expected a Double for "
-					+ getTokenName() + ": " + value, context);
+					+ getTokenName() + ": " + value);
 		}
 	}
 

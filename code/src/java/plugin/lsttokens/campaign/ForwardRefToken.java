@@ -65,7 +65,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " requires at least two arguments, "
-					+ "ReferenceType and Key: " + value, context);
+					+ "ReferenceType and Key: " + value);
 		}
 		if (value.lastIndexOf('|') != pipeLoc)
 		{
@@ -82,7 +82,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		if (rm == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " unable to generate manufacturer for type: " + value, context);
+					+ " unable to generate manufacturer for type: " + value);
 		}
 
 		String rest = value.substring(pipeLoc + 1);

@@ -81,7 +81,7 @@ public class PreCompatibilityToken implements
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getMessage(), context);
+			return new ParseResult.Fail(e.getMessage());
 		}
 	}
 

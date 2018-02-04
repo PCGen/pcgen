@@ -60,7 +60,7 @@ public class StatusToken implements CDOMPrimaryToken<Campaign>
 		else
 		{
 			return new ParseResult.Fail("You should use 'RELEASE', 'ALPHA', 'BETA', or 'TESTONLY' as the "
-				+ getTokenName() + ": " + value, context);
+				+ getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(campaign, ObjectKey.STATUS, set);
 		return ParseResult.SUCCESS;

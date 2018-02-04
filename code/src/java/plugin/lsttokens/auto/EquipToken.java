@@ -102,13 +102,13 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 								"Invalid " + getTokenName() + ": " + value
 									+ "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
-						return new ParseResult.Fail(errorText, context);
+						return new ParseResult.Fail(errorText);
 					}
 					prereq = getPrerequisite(token);
 					if (prereq == null)
 					{
 						return new ParseResult.Fail("Error generating Prerequisite "
-								+ prereq + " in " + getFullName(), context);
+								+ prereq + " in " + getFullName());
 					}
 					int preStart = value.indexOf(token) - 1;
 					equipItems = value.substring(0, preStart);
@@ -119,7 +119,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		else
 		{
 			return new ParseResult.Fail("Use of [] for Prerequisites is no longer supported, "
-					+ "please use | based standard", context);
+					+ "please use | based standard");
 		}
 
 		ParseResult pr = checkForIllegalSeparator('|', equipItems);

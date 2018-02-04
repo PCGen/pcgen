@@ -51,7 +51,7 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE, formula);
 		return ParseResult.SUCCESS;

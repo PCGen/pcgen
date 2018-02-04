@@ -43,6 +43,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+import util.TestURI;
 
 @SuppressWarnings("nls")
 public abstract class AbstractTokenTestCase<T extends Loadable> extends
@@ -60,8 +61,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	@BeforeClass
 	public static void classSetUp() throws URISyntaxException
 	{
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
 	}
 
@@ -259,7 +259,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		}
 		else
 		{
-			pr.addMessagesToLog();
+			pr.addMessagesToLog(TestURI.getURI());
 			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
@@ -277,7 +277,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		}
 		else
 		{
-			pr.addMessagesToLog();
+			pr.addMessagesToLog(TestURI.getURI());
 			secondaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();

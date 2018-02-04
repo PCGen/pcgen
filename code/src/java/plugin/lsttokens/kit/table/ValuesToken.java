@@ -71,7 +71,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 			if (thing.isEmpty())
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " arguments has invalid pipe separator: " + value, context);
+						+ " arguments has invalid pipe separator: " + value);
 			}
 			KitGear optionInfo = new KitGear();
 			for (String s : thing.split("[\\[\\]]"))
@@ -84,7 +84,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 				if (colonLoc == -1)
 				{
 					return new ParseResult.Fail("Expected colon in Value item: " + s
-							+ " within: " + value, context);
+							+ " within: " + value);
 				}
 				String key = s.substring(0, colonLoc);
 				String thingValue = s.substring(colonLoc + 1);
@@ -94,33 +94,33 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 							thingValue);
 					if (!passed)
 					{
-						return new ParseResult.Fail("Failure in token: " + key, context);
+						return new ParseResult.Fail("Failure in token: " + key);
 					}
 				}
 				catch (PersistenceLayerException e)
 				{
 					return new ParseResult.Fail("Failure in token: " + key
-							+ ' ' + e.getMessage(), context);
+							+ ' ' + e.getMessage());
 				}
 			}
 			if (!sep.hasNext())
 			{
-				return new ParseResult.Fail("Odd token count in Value: " + value, context);
+				return new ParseResult.Fail("Odd token count in Value: " + value);
 			}
 			String range = sep.next();
-			ParseResult pr = processRange(context, kitTable, optionInfo, range);
+			ParseResult pr = processRange(kitTable, optionInfo, range);
 			if (!pr.passed())
 			{
 				return new ParseResult.Fail("Invalid Range in Value: " + range
-						+ " within " + value, context);
+						+ " within " + value + " report was: " + pr);
 			}
 		}
 
 		return ParseResult.SUCCESS;
 	}
 
-	private ParseResult processRange(LoadContext context, KitTable kitTable,
-		KitGear optionInfo, String range)
+	private ParseResult processRange(KitTable kitTable, KitGear optionInfo,
+			String range)
 	{
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', range);
 		if (!pr.passed())
@@ -144,19 +144,19 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(
-				"Expected more than one value in a range, found: " + range, context);
+				"Expected more than one value in a range, found: " + range);
 		}
 		Formula min = FormulaFactory.getFormulaFor(minString);
 		if (!min.isValid())
 		{
 			return new ParseResult.Fail(
-				"Min Formula in " + getTokenName() + " was not valid: " + min.toString(), context);
+				"Min Formula in " + getTokenName() + " was not valid: " + min.toString());
 		}
 		Formula max = FormulaFactory.getFormulaFor(maxString);
 		if (!max.isValid())
 		{
 			return new ParseResult.Fail(
-				"Max Formula in " + getTokenName() + " was not valid: " + max.toString(), context);
+				"Max Formula in " + getTokenName() + " was not valid: " + max.toString());
 		}
 		kitTable.addGear(optionInfo, min, max);
 		return ParseResult.SUCCESS;

@@ -78,7 +78,7 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer moves = new StringTokenizer(value, Constants.COMMA);
 		Movement cm;
@@ -114,7 +114,7 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				return new ParseResult.Fail(
 						"Badly formed MOVE token "
-								+ "(extra value at end of list): " + value, context);
+								+ "(extra value at end of list): " + value);
 			}
 		}
 		cm.setMoveRatesFlag(0);

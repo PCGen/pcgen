@@ -26,6 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.MoveLst;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalMoveTest extends AbstractContentTokenTest
 {
@@ -46,7 +47,7 @@ public class GlobalMoveTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "Fly,30");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

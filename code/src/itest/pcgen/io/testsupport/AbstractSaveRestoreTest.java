@@ -17,12 +17,12 @@
  */
 package pcgen.io.testsupport;
 
-import compare.InequalityTesterInst;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
-import java.net.URI;
 import java.util.Collections;
+
+import compare.InequalityTesterInst;
 import junit.framework.TestCase;
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.Constants;
@@ -82,6 +82,7 @@ import pcgen.util.chooser.RandomChooser;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import util.TestURI;
 
 public abstract class AbstractSaveRestoreTest extends TestCase
 {
@@ -90,7 +91,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	protected PlayerCharacter pc;
 	protected PlayerCharacter reloadedPC;
 	protected CharID id;
-	private static URI URI;
 	private static boolean setup = false;
 
 	public static void setUpBeforeClass() throws Exception
@@ -109,7 +109,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 				.parseLine(
 					mode,
 					"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
-					0, URI, "Default");
+					0, TestURI.getURI(), "Default");
 			mode.setAlignmentText("Alignment");
 		}
 	}
@@ -117,7 +117,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	@Override
 	protected void setUp() throws Exception
 	{
-		URI = new URI("file:/Test%20Case");
 		super.setUp();
 		setUpBeforeClass();
 		setUpContext();

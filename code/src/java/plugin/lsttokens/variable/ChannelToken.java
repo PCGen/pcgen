@@ -126,7 +126,7 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 			return new ParseResult.Fail(getTokenName()
 				+ " found a var defined in incompatible variable scopes: "
 				+ varName + " was requested in " + fullscope
-				+ " but was previously in " + sb.toString(), context);
+				+ " but was previously in " + sb.toString());
 		}
 		dv.setName(channelName);
 		dv.setFormat(format);

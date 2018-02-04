@@ -42,6 +42,7 @@ import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.test.PreVariableTester;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalSpellKnownTest extends AbstractContentTokenTest
 {
@@ -79,7 +80,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "CLASS|Wizard=2|Fireball");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -137,7 +138,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 				token.parseToken(context, source, "CLASS|Wizard=2|Fireball|PREVARLTEQ:3,MyCasterLevel");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
