@@ -41,9 +41,6 @@ import pcgen.rules.persistence.token.ParseResult;
 public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

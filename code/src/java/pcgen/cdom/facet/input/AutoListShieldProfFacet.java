@@ -62,9 +62,6 @@ public class AutoListShieldProfFacet extends
 	 *            The ShieldProf that was granted to a Player Character
 	 * @return A new ProfProvider that wraps the given ShieldProf into a
 	 *         ProfProvider
-	 * 
-	 *         (non-Javadoc)
-	 * @see pcgen.cdom.facet.base.AbstractItemConvertingFacet#convert(java.lang.Object)
 	 */
 	@Override
 	protected ProfProvider<ShieldProf> convert(ShieldProf ap)
