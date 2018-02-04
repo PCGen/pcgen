@@ -194,11 +194,6 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 		return rm.validate(validator);
 	}
 
-	public boolean containsUnconstructed(String name)
-	{
-		return rm.containsObjectKeyed(name);
-	}
-
 	@Override
 	public String getReferenceDescription()
 	{
