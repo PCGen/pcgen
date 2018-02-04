@@ -17,14 +17,14 @@
  */
 package tokenmodel;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.template.AddLevelToken;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class TemplateAddLevelTest extends AbstractTokenModelTest

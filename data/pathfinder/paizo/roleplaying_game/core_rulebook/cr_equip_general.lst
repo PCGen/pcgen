@@ -65,16 +65,16 @@ Gem			TYPE:Gem					COST:0	WT:0				MODS:REQUIRED
 
 ###Block: Tattoo Slot Support
 # Equipment Name	Type				Cost		Weight	Requires Modification?
-Tattoo Head		TYPE:TattooHead		COST:0	WT:0		MODS:REQUIRED
-Tattoo Shoulders	TYPE:TattooShoulders	COST:0	WT:0		MODS:REQUIRED
-Tattoo Neck		TYPE:TattooNeck		COST:0	WT:0		MODS:REQUIRED
-Tattoo Chest	TYPE:TattooChest		COST:0	WT:0		MODS:REQUIRED
-Tattoo Body		TYPE:TattooBody		COST:0	WT:0		MODS:REQUIRED
-Tattoo Belt		TYPE:TattooBelt		COST:0	WT:0		MODS:REQUIRED
-Tattoo Wrist	TYPE:TattooWrist		COST:0	WT:0		MODS:REQUIRED
-Tattoo Hands	TYPE:TattooHands		COST:0	WT:0		MODS:REQUIRED
-Tattoo Ring		TYPE:TattooRing		COST:0	WT:0		MODS:REQUIRED
-Tattoo Feet		TYPE:TattooFeet		COST:0	WT:0		MODS:REQUIRED
+Tattoo Head		TYPE:Tattoo Head		COST:0	WT:0		MODS:REQUIRED
+Tattoo Shoulders	TYPE:Tattoo Shoulders	COST:0	WT:0		MODS:REQUIRED
+Tattoo Neck		TYPE:Tattoo Neck		COST:0	WT:0		MODS:REQUIRED
+Tattoo Chest	TYPE:Tattoo Chest		COST:0	WT:0		MODS:REQUIRED
+Tattoo Body		TYPE:Tattoo Body		COST:0	WT:0		MODS:REQUIRED
+Tattoo Belt		TYPE:Tattoo Belt		COST:0	WT:0		MODS:REQUIRED
+Tattoo Wrist	TYPE:Tattoo Wrist		COST:0	WT:0		MODS:REQUIRED
+Tattoo Hands	TYPE:Tattoo Hands		COST:0	WT:0		MODS:REQUIRED
+Tattoo Ring		TYPE:Tattoo Ring		COST:0	WT:0		MODS:REQUIRED
+Tattoo Feet		TYPE:Tattoo Feet		COST:0	WT:0		MODS:REQUIRED
 
 ###Block: Trade Goods
 # Equipment Name	Output Name				Type			Cost		Weight	Source Page
@@ -218,8 +218,8 @@ Artisan's Tools (Stonemasonry)	TYPE:Goods.Tools.Artisan.CraftToolsStonemasonry		
 Artisan's Tools (Traps)			TYPE:Goods.Tools.Artisan.CraftToolsTraps														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.CraftToolsWeapons													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Weapons)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Climber's Kit				TYPE:Goods.Tools.Masterwork.Resizable														COST:80	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Climb|2|TYPE=Circumstance
-Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable														COST:50	WT:8		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.161	BONUS:SKILL|Disguise|2|TYPE=Circumstance
-Healer's Kit				TYPE:Goods.Tools.Masterwork																COST:50	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.161	BONUS:SKILL|Heal|2|TYPE=Circumstance
+Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable														COST:50	WT:8		EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	SOURCEPAGE:p.161	BONUS:SKILL|Disguise|2|TYPE=Circumstance
+Healer's Kit				TYPE:Goods.Tools.Masterwork																COST:50	WT:1		EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	SOURCEPAGE:p.161	BONUS:SKILL|Heal|2|TYPE=Circumstance
 Holly and Mistletoe			TYPE:Goods.Tools.SpellComponent.DivineFocus																							SOURCEPAGE:p.161
 Holy Symbol (Wooden)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:1									SOURCEPAGE:p.161
 Holy Symbol (Silver)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.161
@@ -241,7 +241,7 @@ Musical Instrument (Recorder)		TYPE:Goods.Tools.Instrument.Wind.Resizable							
 Musical Instrument (Trumpet)		TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Scale (Merchant's)			TYPE:Goods.Tools																		COST:2	WT:1						SOURCEPAGE:p.161																SPROP:+2 to appraise items valued by weight
 Spell Component Pouch			TYPE:Goods.Tools.Container					CONTAINS:UNLIM									COST:5	WT:2								SOURCEPAGE:p.161
-Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook								NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3									SOURCEPAGE:p.161
+Spellbook		TYPE:Goods.Tools.Book.Spellbook								NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3									SOURCEPAGE:p.161
 Thieves' Tools				TYPE:Goods.Tools.Thief.ThiefTools															COST:30	WT:1							SOURCEPAGE:p.161	BONUS:SKILL|Disable Device|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Unholy Symbol (Wooden)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:1									SOURCEPAGE:p.161
 Unholy Symbol (Silver)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.161

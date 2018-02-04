@@ -21,8 +21,8 @@ package gmgen.gui;
 
 import java.awt.BorderLayout;
 import java.util.HashMap;
-
 import java.util.Map;
+
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;

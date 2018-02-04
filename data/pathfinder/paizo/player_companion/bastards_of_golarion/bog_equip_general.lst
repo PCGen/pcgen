@@ -10,7 +10,7 @@ SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/produ
 # ==============================
 
 # Equipment Name		Type					Cost		Source Page		Special Property
-Kin's Face Tattoo		TYPE:Magic.Wondrous		COST:1600	SOURCEPAGE:p.11
+Kin's Face Tattoo		TYPE:Magic.Wondrous.Tattoo Head		COST:1600	SOURCEPAGE:p.11
 
 
 

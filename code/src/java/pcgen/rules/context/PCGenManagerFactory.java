@@ -51,28 +51,27 @@ public class PCGenManagerFactory implements ManagerFactory
 
 	@Override
 	public FormulaSemantics generateFormulaSemantics(FormulaManager manager,
-		LegalScope legalScope, Class<?> assertedFormat)
+		LegalScope legalScope)
 	{
 		FormulaSemantics semantics = ManagerFactory.super.generateFormulaSemantics(
-			manager, legalScope, assertedFormat);
+			manager, legalScope);
 		return semantics.getWith(ManagerKey.CONTEXT, context);
 	}
 
 	@Override
-	public EvaluationManager generateEvaluationManager(FormulaManager formulaManager,
-		Class<?> assertedFormat)
+	public EvaluationManager generateEvaluationManager(FormulaManager formulaManager)
 	{
 		EvaluationManager evalManager = ManagerFactory.super.generateEvaluationManager(
-			formulaManager, assertedFormat);
+			formulaManager);
 		return evalManager.getWith(ManagerKey.CONTEXT, context);
 	}
 
 	@Override
 	public DependencyManager generateDependencyManager(FormulaManager formulaManager,
-		ScopeInstance scopeInst, Class<?> assertedFormat)
+		ScopeInstance scopeInst)
 	{
 		DependencyManager depManager = ManagerFactory.super.generateDependencyManager(
-			formulaManager, scopeInst, assertedFormat);
+			formulaManager, scopeInst);
 		return depManager.getWith(ManagerKey.CONTEXT, context)
 			.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
 	}

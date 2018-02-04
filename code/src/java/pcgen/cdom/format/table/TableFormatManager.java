@@ -21,24 +21,18 @@ import java.util.Objects;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectDatabase;
 
 /**
  * A TableFormatManager is a FormatManager that defines the format of a
  * DataTable.
- * 
- * Note that a DataTable can have more than one TableFormatManager represent
- * that DataTable. This is possible because the Result format is only indicative
- * that such a column exists in the DataTable, not that it has a specific name
- * or that it is the only column.
  */
 public final class TableFormatManager implements FormatManager<DataTable>
 {
 
 	/**
-	 * The ObjectDatabase used to construct or look up DataTable objects.
+	 * The FormatManager used to construct or look up DataTable objects.
 	 */
-	private final ObjectDatabase database;
+	private final FormatManager<DataTable> tableFormat;
 
 	/**
 	 * The Format of any DataTable referred to by this TableFormatManager.
@@ -46,51 +40,40 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	private final FormatManager<?> lookupFormat;
 
 	/**
-	 * The Format of any DataTable referred to by this TableFormatManager.
-	 */
-	private final FormatManager<?> resultFormat;
-
-	/**
-	 * Constructs a new TableFormatManager that will use the underlying
-	 * AbstractReferenceContext to construct and look up DataTable objects. The
-	 * DataTable should have the lookup and result formats matching the formats
-	 * of the given FormatManagers.
+	 * Constructs a new TableFormatManager that will use the underlying FormatManager to
+	 * construct and look up DataTable objects. The DataTable should have the lookup
+	 * format matching the format of the given FormatManager.
 	 * 
-	 * @param objDatabase
-	 *            The ObjectDatabase used to construct or look up DataTable
-	 *            objects
+	 * @param tableFormat
+	 *            The FormatManager used to construct or look up DataTable objects
 	 * @param lookupFormat
-	 *            The FormatManager for the format of the Lookup column of the
-	 *            DataTable format represented by this TableFormatManager
-	 * @param resultFormat
-	 *            The FormatManager for the format of the Result column of the
-	 *            DataTable format represented by this TableFormatManager
+	 *            The FormatManager for the format of the Lookup column of the DataTable
+	 *            format represented by this TableFormatManager
 	 */
-	public TableFormatManager(ObjectDatabase objDatabase,
-		FormatManager<?> lookupFormat, FormatManager<?> resultFormat)
+	public TableFormatManager(FormatManager<DataTable> tableFormat,
+		FormatManager<?> lookupFormat)
 	{
-		this.database = Objects.requireNonNull(objDatabase);
+		this.tableFormat = Objects.requireNonNull(tableFormat);
 		this.lookupFormat = Objects.requireNonNull(lookupFormat);
-		this.resultFormat = Objects.requireNonNull(resultFormat);
 	}
 
 	@Override
 	public DataTable convert(String inputStr)
 	{
 		//TODO Does this need validation that the lookup/result columns are appropriate?
-		return database.get(DataTable.class, inputStr);
+		return tableFormat.convert(inputStr);
 	}
 
 	@Override
 	public Indirect<DataTable> convertIndirect(String inputStr)
 	{
 		/*
-		 * TODO Need validation that the lookup/result columns are appropriate?
+		 * TODO Need validation that the lookup column is appropriate?
 		 * Yes, probably during the initialization of these references, it will
 		 * need to be checked... but how? Does this need to be like Categorized
 		 * references? ugh
 		 */
-		return database.getIndirect(DataTable.class, inputStr);
+		return tableFormat.convertIndirect(inputStr);
 	}
 
 	@Override
@@ -111,8 +94,6 @@ public final class TableFormatManager implements FormatManager<DataTable>
 		StringBuilder sb = new StringBuilder();
 		sb.append("TABLE[");
 		sb.append(lookupFormat.getIdentifierType());
-		sb.append(",");
-		sb.append(resultFormat.getIdentifierType());
 		sb.append("]");
 		return sb.toString();
 	}
@@ -126,7 +107,7 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	@Override
 	public int hashCode()
 	{
-		return lookupFormat.hashCode() ^ resultFormat.hashCode();
+		return lookupFormat.hashCode() + 33;
 	}
 
 	@Override
@@ -135,8 +116,7 @@ public final class TableFormatManager implements FormatManager<DataTable>
 		if (o instanceof TableFormatManager)
 		{
 			TableFormatManager other = (TableFormatManager) o;
-			return lookupFormat.equals(other.lookupFormat)
-				&& resultFormat.equals(other.resultFormat);
+			return lookupFormat.equals(other.lookupFormat);
 		}
 		return false;
 	}
@@ -151,18 +131,6 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	public FormatManager<?> getLookupFormat()
 	{
 		return lookupFormat;
-	}
-
-	/**
-	 * Returns the FormatManager for the format of the Result column of the
-	 * DataTable format represented by this TableFormatManager.
-	 * 
-	 * @return The FormatManager for the format of the Result column of the
-	 *         DataTable format represented by this TableFormatManager
-	 */
-	public FormatManager<?> getResultFormat()
-	{
-		return resultFormat;
 	}
 
 	@Override

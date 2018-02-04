@@ -440,13 +440,13 @@ CLASS:Druid.MOD
 # Class Name
 CLASS:Wizard.MOD
 SUBCLASS:Air	CHOICE:SCHOOL|AirSchool		KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|AirSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Air School|Earth Opposition School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Feature|AUTOMATIC|Air School|Earth Opposition School
 SUBCLASS:Earth	CHOICE:SCHOOL|EarthSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|EarthSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Air Opposition School|Earth School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Feature|AUTOMATIC|Air Opposition School|Earth School
 SUBCLASS:Fire	CHOICE:SCHOOL|FireSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|FireSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Fire School|Water Opposition School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Feature|AUTOMATIC|Fire School|Water Opposition School
 SUBCLASS:Water	CHOICE:SCHOOL|WaterSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|WaterSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Fire Opposition School|Water School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Feature|AUTOMATIC|Fire Opposition School|Water School
 
 ### Block: Prestige Classes
 ###Block: Battle Herald --------------------------------------------------------------------------------------------------------------------------------------------

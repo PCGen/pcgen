@@ -1,0 +1,13 @@
+
+
+MOVEMENT:Walk
+MOVEMENT:Fly
+MOVEMENT:Burrow
+MOVEMENT:Climb
+MOVEMENT:Swim
+
+
+VISION:Low-Light Vision
+VISION:Darkvision
+VISION:Tremorsense
+

@@ -96,7 +96,7 @@ public class InputFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		String s = (String) args[0].jjtAccept(visitor, null);
+		String s = (String) args[0].jjtAccept(visitor, manager);
 		return visitor
 			.visitVariable(ChannelUtilities.createVarName(s), manager);
 	}
@@ -109,11 +109,11 @@ public class InputFunction implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager fdm, Node[] args)
 	{
 		ASTQuotString inputName = (ASTQuotString) args[0];
 		String varName = inputName.getText();
-		visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm);
+		return visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm);
 	}
 }

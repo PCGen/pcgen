@@ -7,11 +7,11 @@ SOURCELONG:Heroes of the Wild	SOURCESHORT:HotW	SOURCEWEB:http://paizo.com/produc
 # Magic Armor
 # ==============================
 
-Arboreal Armor			PROFICIENCY:ARMOR|Wooden		TYPE:Armor.Magic.Light.ArmorProfLight.Suit.Specific.Nonmetal		COST:20	WT:25								ACCHECK:-1		EQMOD:MAGIC_COST|2500.WILD_A.LEATHER|WOOD.PLUS1A			MAXDEX:3		SOURCEPAGE:p.28	SPELLFAILURE:15																																																																						BONUS:COMBAT|AC|3|TYPE=Armor
+Arboreal Armor			PROFICIENCY:ARMOR|Wooden		TYPE:Armor.Magic.Light.ArmorProfLight.Suit.Specific.Nonmetal		COST:20	WT:25								ACCHECK:-1		EQMOD:Special Ability ~ Enhancement Cost|2500.Special Ability ~ Wild ~ Armor.Material ~ Leather|Material ~ Wood.Special Ability ~ +1 ~ Armor			MAXDEX:3		SOURCEPAGE:p.28	SPELLFAILURE:15																																																																						BONUS:COMBAT|AC|3|TYPE=Armor
 
 # ==============================
 # Magic Weapon
 # ==============================
 
-Shatterstone Hammer		PROFICIENCY:WEAPON|Warhammer				TYPE:Weapon.Magic.Resizable.Melee.OneHanded.Martial.Specific.Bludgeoning.Hammer																					COST:12	WT:5				CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:MAGIC_COST|24400.STEEL.PLUS1W												WIELD:OneHanded													SIZE:M	SOURCEPAGE:p.142
+Shatterstone Hammer		PROFICIENCY:WEAPON|Warhammer				TYPE:Weapon.Magic.Resizable.Melee.OneHanded.Martial.Specific.Bludgeoning.Hammer																					COST:12	WT:5				CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:Special Ability ~ Enhancement Cost|24400.Material ~ Steel.Special Ability ~ +1 ~ Weapon												WIELD:OneHanded													SIZE:M	SOURCEPAGE:p.142
 

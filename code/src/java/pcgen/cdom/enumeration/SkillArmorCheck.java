@@ -21,7 +21,6 @@ import java.util.List;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -144,9 +143,7 @@ public enum SkillArmorCheck
 
 	protected int calculateMax(PlayerCharacter pc)
 	{
-		String acCheckVar =
-				ControlUtilities.getControlToken(Globals.getContext(),
-					CControl.PCACCHECK);
+		String acCheckVar = pc.getControl(CControl.PCACCHECK);
 		if (acCheckVar == null)
 		{
 			return calculateMaxOld(pc);

@@ -52,7 +52,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Mace (Heavy)			LOCATION:Primary Hand	EQMOD:PLUS1W.FLAME
+GEAR:Mace (Heavy)			LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming ~ Weapon
 
 
 STARTPACK:Angel (Choral) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Choral)],[!PRERACE:1,%]	SOURCEPAGE:p.60
@@ -90,8 +90,8 @@ SKILL:Stealth			RANK:4
 ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 GEAR:Leather			LOCATION:Equipped
-GEAR:Longsword			LOCATION:Primary Hand	EQMOD:MWORKW
-GEAR:Sword (Short)		LOCATION:Secondary Hand	EQMOD:MWORKW
+GEAR:Longsword			LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Sword (Short)		LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Shortbow			LOCATION:Carried
 
 
@@ -173,5 +173,5 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Poison
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Light
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
-GEAR:Sickle		SIZE:M	LOCATION:Primary Hand	EQMOD:PLUS3W.ICY_BRST
+GEAR:Sickle		SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Icy Burst ~ Weapon
 

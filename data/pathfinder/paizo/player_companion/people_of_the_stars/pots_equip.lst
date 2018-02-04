@@ -1,7 +1,7 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Equipment Name				Unique Key			Required Weapon Proficiency			Type					Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Size		Source Page		Special Property
-Kasatha Spinal Sword							PROFICIENCY:WEAPON|Kasatha Spinal Sword	TYPE:Exotic.Piercing.Slashing	COST:50	WT:3		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d6	EQMOD:FRAGILE	WIELD:Light		SIZE:M				SPROP:The save DC of a nonmagical injury poison applied to a kasatha spinal sword increases by 2. Kasathas treat kasatha spinal swords as martial weapons.
+Kasatha Spinal Sword							PROFICIENCY:WEAPON|Kasatha Spinal Sword	TYPE:Exotic.Piercing.Slashing	COST:50	WT:3		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d6	EQMOD:Special Quality ~ Fragile	WIELD:Light		SIZE:M				SPROP:The save DC of a nonmagical injury poison applied to a kasatha spinal sword increases by 2. Kasathas treat kasatha spinal swords as martial weapons.
 
 # Interstellar Equipment
 Anchoring Balloon															TYPE:Interstellar Equipment	COST:300	WT:25																SOURCEPAGE:p.19

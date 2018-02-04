@@ -24,9 +24,6 @@ import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.VarScoped;
-import pcgen.base.formula.inst.SimpleScopeInstance;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -84,7 +81,7 @@ abstract class LoadContextInst implements LoadContext
 	//Per file
 	private CDOMObject stateful;
 	
-	private ScopeInstance scopeInst = null;
+	private LegalScope legalScope = null;
 
 	static
 	{
@@ -529,27 +526,25 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public ScopeInstance getActiveScope()
+	public LegalScope getActiveScope()
 	{
-		if (scopeInst == null)
+		if (legalScope == null)
 		{
-			LegalScope legalScope = var.getScope("Global");
-			scopeInst = new SimpleScopeInstance(null, legalScope,
-				new DummyVarScoped(legalScope));
+			legalScope = var.getScope("Global");
 		}
-		return scopeInst;
+		return legalScope;
 	}
 
 	@Override
 	public LoadContext dropIntoContext(String scope)
 	{
-		LegalScope legalScope = var.getScope(scope);
-		if (legalScope == null)
+		LegalScope subScope = var.getScope(scope);
+		if (subScope == null)
 		{
 			throw new IllegalArgumentException("LegalVariableScope " + scope
 				+ " does not exist");
 		}
-		return dropIntoContext(legalScope);
+		return dropIntoContext(subScope);
 	}
 
 	private LoadContext dropIntoContext(LegalScope lvs)
@@ -561,50 +556,25 @@ abstract class LoadContextInst implements LoadContext
 			return this;
 		}
 		LoadContext parentLC = dropIntoContext(parent);
-		SimpleScopeInstance localInst = new SimpleScopeInstance(parentLC.getActiveScope(),
-			lvs, new DummyVarScoped(lvs));
-		return new DerivedLoadContext(parentLC, localInst);
-	}
-
-	private static class DummyVarScoped implements VarScoped
-	{
-
-		private LegalScope lvs;
-
-		private DummyVarScoped(LegalScope lvs)
-		{
-			this.lvs = lvs;
-		}
-
-		@Override
-		public String getKeyName()
-		{
-			return "Context (during Load)";
-		}
-
-		@Override
-		public String getLocalScopeName()
-		{
-			return lvs.getName();
-		}
-
-		@Override
-		public VarScoped getVariableParent()
-		{
-			return null;
-		}
-		
+		return new DerivedLoadContext(parentLC, lvs);
 	}
 
 	private class DerivedLoadContext implements LoadContext
 	{
 
+		/**
+		 * The parent LoadContext for this DerivedLoadContext
+		 */
 		private final LoadContext parent;
-		private final ScopeInstance scopeInst;
 
-		public DerivedLoadContext(LoadContext parent, ScopeInstance lvs)
+		/**
+		 * The derived Scope for this DerivedLoadContext
+		 */
+		private final LegalScope derivedScope;
+
+		public DerivedLoadContext(LoadContext parent, LegalScope scope)
 		{
-			this.scopeInst = lvs;
+			this.derivedScope = scope;
 			this.parent = parent;
 		}
 
@@ -822,9 +792,9 @@ abstract class LoadContextInst implements LoadContext
 		}
 
 		@Override
-		public ScopeInstance getActiveScope()
+		public LegalScope getActiveScope()
 		{
-			return scopeInst;
+			return derivedScope;
 		}
 
 		@Override
@@ -836,22 +806,19 @@ abstract class LoadContextInst implements LoadContext
 				throw new IllegalArgumentException("LegalVariableScope "
 					+ scope + " does not exist");
 			}
-			LegalScope currentScope = scopeInst.getLegalScope();
-			if (currentScope.equals(toScope))
+			if (derivedScope.equals(toScope))
 			{
 				return this;
 			}
-			else if (currentScope.getParentScope().equals(toScope))
+			else if (derivedScope.getParentScope().equals(toScope))
 			{
 				//Jump up from here
 				return parent;
 			}
-			else if (toScope.getParentScope().equals(currentScope))
+			else if (toScope.getParentScope().equals(derivedScope))
 			{
 				//Direct drop from this
-				SimpleScopeInstance localInst = new SimpleScopeInstance(scopeInst,
-					toScope, new DummyVarScoped(toScope));
-				return new DerivedLoadContext(this, localInst);
+				return new DerivedLoadContext(this, derivedScope);
 			}
 			//Random jump to somewhere else...
 			return LoadContextInst.this.dropIntoContext(toScope);

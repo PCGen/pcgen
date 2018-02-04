@@ -29,6 +29,7 @@ DATACONTROL:modernbasics__datacontrol.lst
 ### GM Moved
 SAVE:modernbasics__saves.lst
 STAT:modernbasics__stats.lst
+SIZE:modernbasics__sizes.lst
 
 
 

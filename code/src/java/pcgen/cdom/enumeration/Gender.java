@@ -53,6 +53,13 @@ public enum Gender implements GenderFacade
 		}
 	},
 
+	Host {
+		@Override
+		public String toString()
+		{
+			return LanguageBundle.getString("in_genderHost");
+		}
+	},
 	Unknown {
 		@Override
 		public String toString()

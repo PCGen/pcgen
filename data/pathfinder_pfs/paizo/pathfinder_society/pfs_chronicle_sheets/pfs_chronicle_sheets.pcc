@@ -35,7 +35,7 @@ EQUIPMENT:pfscs_equip.lst
 # needed for Gorge of Gluttons
 EQUIPMENT:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/arg_equip_arms_armor.lst|(INCLUDE:Dogslicer)|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 WEAPONPROF:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/arg_profs_weapon.lst|(INCLUDE:Dogslicer)|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
-EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_equipmods.lst|(INCLUDE:FRAGILE)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_equipmods.lst|(INCLUDE:Special Quality ~ Fragile)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
 # needed for Skill Specialization
 ABILITYCATEGORY:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pfsfg_abilitycategories_skillspecialization.lst|!PRECAMPAIGN:1,INCLUDES=Pathfinder Society Field Guide

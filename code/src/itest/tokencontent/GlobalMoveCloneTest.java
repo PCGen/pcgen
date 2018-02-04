@@ -24,6 +24,7 @@ import pcgen.core.Movement;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.MovecloneLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalMoveCloneTest extends AbstractContentTokenTest

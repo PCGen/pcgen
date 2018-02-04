@@ -17,7 +17,7 @@ Chest (Medium)			OUTPUTNAME:Chest, Medium			TYPE:Goods.General.Container			CONTA
 Chest (Large)			OUTPUTNAME:Chest, Large				TYPE:Goods.General.Container			CONTAINS:UNLIM|Any		COST:10	WT:100	SOURCEPAGE:p.182
 Chest (Huge)			OUTPUTNAME:Chest, Huge				TYPE:Goods.General.Container			CONTAINS:UNLIM|Any		COST:25	WT:250	SOURCEPAGE:p.182
 Earplugs											TYPE:Goods.General									COST:0.03	WT:0		SOURCEPAGE:p.182
-Hourglass (1 hour)		OUTPUTNAME:Hourglass, 1 hour			TYPE:Goods.General									COST:25	WT:1		SOURCEPAGE:p.182
+Hourglass (1 Hour)		OUTPUTNAME:Hourglass, 1 hour			TYPE:Goods.General									COST:25	WT:1		SOURCEPAGE:p.182
 Hourglass (1 minute)		OUTPUTNAME:Hourglass, 1 minute		TYPE:Goods.General									COST:20	WT:0.5	SOURCEPAGE:p.182
 Hourglass (6 seconds)		OUTPUTNAME:Hourglass, 6 seconds		TYPE:Goods.General									COST:10	WT:0		SOURCEPAGE:p.182
 Iron Spike											TYPE:Goods.General									COST:0.05	WT:1		SOURCEPAGE:p.182
@@ -93,9 +93,9 @@ Pulley												TYPE:Goods.Tools													COST:2	WT:10		SOURCEPAGE:p.182
 Saw													TYPE:Goods.Tools													COST:0.04	WT:2		SOURCEPAGE:p.182
 Sextant												TYPE:Goods.Tools													COST:500	WT:2		SOURCEPAGE:p.182
 #Alchemists formula Book - DO NOT DELETE
-Formula Book											TYPE:Goods.Tools.Spellbook			NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3
+Spellbook.COPY=Formula Book
 Symptom Kit												TYPE:Goods.Tools													COST:25	WT:5		SOURCEPAGE:p.182
-Traveling Spellbook (Blank)									TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.182
+Traveling Spellbook									TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.182
 
 ###Block: Clothing
 # Equipment Name		Output Name				Type							Cost		Weight	Source Page

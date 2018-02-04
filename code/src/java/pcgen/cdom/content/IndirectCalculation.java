@@ -15,6 +15,8 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.base.calculation.AbstractNEPCalculation;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.formula.base.EvaluationManager;
@@ -48,7 +50,7 @@ public final class IndirectCalculation<T> extends AbstractNEPCalculation<T>
 	public IndirectCalculation(Indirect<T> object, BasicCalculation<T> calc)
 	{
 		super(calc);
-		this.obj = object;
+		this.obj = Objects.requireNonNull(object);
 	}
 
 	@Override

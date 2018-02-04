@@ -28,7 +28,7 @@ CLASS:Ninja		HD:8		TYPE:Base.PC.Rogue	MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLV
 CLASS:Ninja		PREMULT:1,[PRECLASS:1,Ninja=1],[!PRECLASS:1,TYPE.Rogue=1]
 CLASS:Ninja		SERVESAS:CLASS|Rogue
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+CLASS:Ninja		STARTSKILLPTS:8
 1	ABILITY:Class|AUTOMATIC|Ninja
 ###Block: Vars
 4	BONUS:VAR|UncannyDodgeFlankingLevel|NinjaLVL|TYPE=EachClass.REPLACE
@@ -40,9 +40,9 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ninja Trick|PREVAREQ:Ninja_CF_Trick,0
 2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ki Pool|PREVAREQ:Ninja_CF_KiPool,0
 3	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ No Trace|PREVAREQ:Ninja_CF_NoTrace,0
-4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVAREQ:Ninja_CF_UncannyDodge,0
 6	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Light Steps|PREVAREQ:Ninja_CF_LightSteps,0
-8	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+8	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVAREQ:Ninja_CF_ImprovedUncannyDodge,0
 20	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Hidden Master|PREVAREQ:Ninja_CF_HiddenMaster,0
 
 
@@ -54,7 +54,7 @@ CLASS:Samurai	HD:10		TYPE:Base.PC.Cavalier	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:Fig
 CLASS:Samurai	PREMULT:1,[PRECLASS:1,Samurai=1],[!PRECLASS:1,TYPE.Cavalier=1]
 CLASS:Samurai		SERVESAS:CLASS|Cavalier
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
+CLASS:Samurai	STARTSKILLPTS:4
 1	ABILITY:Class|AUTOMATIC|Samurai
 ###Block: Level progression
 1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Challenge|PREVAREQ:Samurai_CF_Challenge,0

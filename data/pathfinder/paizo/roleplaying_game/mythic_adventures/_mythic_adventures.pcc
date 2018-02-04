@@ -15,7 +15,7 @@ PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Mythic Adventures
 SOURCESHORT:MA
-#SOURCEWEB:http://paizo.com/pathfinderRPG/btpy8ywe
+SOURCEWEB:http://paizo.com/products/btpy8ywe
 SOURCEDATE:2013-08
 ISOGL:YES
 
@@ -37,11 +37,14 @@ COPYRIGHT:PCGen dataset conversion for "Mythic Adventures" Copyright 2013, PCGen
 
 # Data files
 ABILITY:ma_abilities.lst
+ABILITY:ma_abilities_race.lst
+ABILITY:ma_abilities_spell.lst
 ABILITYCATEGORY:ma_abilitycategories.lst
 COMPANIONMOD:ma_companionmods.lst
 EQUIPMENT:ma_equip.lst
 EQUIPMOD:ma_equipmods.lst
 ABILITY:ma_feats.lst
+SKILL:ma_skills.lst
 SPELL:ma_spells.lst
 TEMPLATE:ma_templates.lst
 

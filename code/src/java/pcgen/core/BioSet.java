@@ -27,6 +27,7 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
@@ -520,7 +521,7 @@ public final class BioSet extends PObject implements NonInteractive
 		final String htwt = getTokenNumberInMaps("SEX", 0, pc.getDisplay().getRegionString(), pc
 			.getRace().getKeyName().trim());
 
-		if (htwt == null)
+		if (htwt == null || htwt == "0")
 		{
 			return;
 		}
@@ -575,7 +576,6 @@ public final class BioSet extends PObject implements NonInteractive
 
 				break;
 			}
-			genderTok.nextToken(); // burn next token
 		}
 	}
 

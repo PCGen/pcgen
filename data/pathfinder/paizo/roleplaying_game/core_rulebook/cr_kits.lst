@@ -12,7 +12,7 @@ STARTPACK:Monk Flurry of Blows	VISIBLE:NO	APPLY:INSTANT	TOTALCOST:0
 
 ### Wizard Starting Spellbook
 STARTPACK:Wizard Spellbook	VISIBLE:NO	TOTALCOST:0
-GEAR:Spellbook (Wizard's/Blank)	LOCATION:Carried
+GEAR:Spellbook	LOCATION:Carried
 
 ### Starting Clothing
 STARTPACK:Free Clothing at 1st Level	TYPE:Starting.Clothing	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECHARACTERTYPE:1,PC,NPC]	TOTALCOST:0

@@ -10,3 +10,16 @@ GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+### Starting Gold
+STARTPACK:Classes Starting Gold ~ UI	TYPE:Starting.Gold	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Vigilante=1]
+TEMPLATE:Starting Gold ~ UI
+
+STARTPACK:Starting Gold UI ~ Random	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:10*roll("5d6")	PRECLASS:1,Vigilante=1
+
+STARTPACK:Starting Gold UI ~ Maximum	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:300	PRECLASS:1,Vigilante=1
+
+STARTPACK:Starting Gold UI ~ Average	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:175	PRECLASS:1,Vigilante=1

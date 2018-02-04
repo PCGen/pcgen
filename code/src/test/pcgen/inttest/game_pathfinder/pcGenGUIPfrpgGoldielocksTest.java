@@ -2,22 +2,22 @@
  */
 package pcgen.inttest.game_pathfinder;
 
-import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests a Unit Test Case of a pathfinder great wyrm gold dragon.
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIPfrpgGoldielocksTest extends pcGenGUITestCase
+public class pcGenGUIPfrpgGoldielocksTest extends PcgenFtlTestCase
 {
 
 
 	public pcGenGUIPfrpgGoldielocksTest()
 	{
-		//	super("pf_goldielocks");
+		super("pf_goldielocks");
 	}
 
 	/**

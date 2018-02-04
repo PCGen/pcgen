@@ -26,8 +26,8 @@ public class EditorLoadContext extends LoadContextInst
 
 	public EditorLoadContext()
 	{
-		super(new EditorReferenceContext(), new EditorListContext(),
-				new EditorObjectContext());
+		super(EditorReferenceContext.createEditorReferenceContext(),
+			new EditorListContext(), new EditorObjectContext());
 		contextType = "Editor";
 	}
 

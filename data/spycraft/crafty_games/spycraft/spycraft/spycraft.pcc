@@ -35,6 +35,7 @@ URL:RPG Now|http://rpg.drivethrustuff.com/index.php?cPath=562&affiliate_id=71282
 #PCC:@/homebrew/conversion_support/conversion_support.pcc
 SAVE:spycraft__saves.lst
 STAT:spycraft__stats.lst
+SIZE:spycraft__sizes.lst
 
 ABILITY:spycraft_abilities.lst
 ABILITY:spycraft_abilities_class.lst

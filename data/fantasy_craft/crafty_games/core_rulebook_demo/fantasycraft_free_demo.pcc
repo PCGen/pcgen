@@ -62,6 +62,7 @@ BONUS:ABILITYPOOL|NPC Type Selector|1|PRECLASS:1,TYPE=Monster
 
 STAT:fc__stats.lst
 SAVE:fc__saves.lst
+SIZE:fc__sizes.lst
 
 
 

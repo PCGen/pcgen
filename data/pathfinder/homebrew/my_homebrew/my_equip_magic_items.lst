@@ -15,7 +15,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #
 #####1st Example
 
-#Dagger		PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Resizable.Melee.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger		COST:2	WT:1		CRITMULT:x2		CRITRANGE:2		DAMAGE:1d4		EQMOD:STEEL		WIELD:Light		RANGE:10	SIZE:M
+#Dagger		PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Resizable.Melee.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger		COST:2	WT:1		CRITMULT:x2		CRITRANGE:2		DAMAGE:1d4		EQMOD:Material ~ Steel		WIELD:Light		RANGE:10	SIZE:M
 
 #####
 #

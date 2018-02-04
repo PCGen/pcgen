@@ -148,7 +148,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		OrderedPairManager opManager = new OrderedPairManager();
 		LoadContext context = Globals.getContext();
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope().getLegalScope(), opManager, "Face");
+			context.getActiveScope(), opManager, "Face");
 		Race race = new Race();
 		race.setName("TestRace");
 		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(FormulaFactory.getFormulaFor(5)));

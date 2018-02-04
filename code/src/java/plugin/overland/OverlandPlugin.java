@@ -33,11 +33,11 @@ import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
+import plugin.overland.gui.OverPanel;
 
 import gmgen.GMGenSystemView;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-import plugin.overland.gui.OverPanel;
 
 /**
  * The {@code Overland Plugin} provides a number

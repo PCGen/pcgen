@@ -3,4 +3,4 @@ SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHOR
 # Original Entry by: Paul Grosse
 
 # Equipment Name	Required Weapon Proficiency		Type													Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Range		Size		Source Page		Bonus to skill
-Totem Spear		PROFICIENCY:WEAPON|Totem Spear	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Reach.Standard.Piercing.Spear	COST:25	WT:6		SLOTS:2	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10	EQMOD:STEEL	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.35	BONUS:SKILL|Acrobatics|2|TYPE=Circumstance
+Totem Spear		PROFICIENCY:WEAPON|Totem Spear	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Reach.Standard.Piercing.Spear	COST:25	WT:6		SLOTS:2	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10	EQMOD:Material ~ Steel	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.35	BONUS:SKILL|Acrobatics|2|TYPE=Circumstance

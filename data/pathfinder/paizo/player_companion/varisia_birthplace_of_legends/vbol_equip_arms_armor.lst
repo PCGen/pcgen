@@ -12,14 +12,14 @@ Klar (as a Shield)	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard	
 
 ###BLOCK: Weapon
 # Equipment Name					Output Name		Required Weapon Proficiency		Type																Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier			Wield Category	Range		Size		Source Page
-Starknife									PROFICIENCY:WEAPON|Starknife		TYPE:Weapon.Resizable.Melee.Light.Martial.Standard.Piercing							COST:24	WT:3				CRITMULT:x3	CRITRANGE:1	DAMAGE:1d4	EQMOD:STEEL			WIELD:Light		RANGE:20	SIZE:M	SOURCEPAGE:p.14
-Klar (as a Weapon)				OUTPUTNAME:Klar	PROFICIENCY:WEAPON|Klar			TYPE:Weapon.Resizable.Melee.Light.Martial.Standard.Slashing							COST:0	WT:0				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:STEEL			WIELD:Light				SIZE:M	SOURCEPAGE:p.14
-Earth Breaker								PROFICIENCY:WEAPON|Earth Breaker	TYPE:Weapon.Resizable.Melee.TwoHanded.Martial.Standard.Bludgeoning					COST:40	WT:14				CRITMULT:x3	CRITRANGE:1	DAMAGE:2d6	EQMOD:STEEL			WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.14
-Scarf (Bladed)								PROFICIENCY:WEAPON|Scarf (Bladed)	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Reach.Finesseable.Slashing			COST:12	WT:2				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:CLOTH.DISARM.TRIP	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.14
-Totem Spear									PROFICIENCY:WEAPON|Totem Spear	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Reach.Standard.Piercing.Spear				COST:25	WT:6		SLOTS:2	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10	EQMOD:STEEL			WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.14
-Shoanti Bola								PROFICIENCY:WEAPON|Shoanti Bola	TYPE:Weapon.Resizable.Ranged.Exotic.Standard.Bludgeoning.Piercing.Thrown				COST:15	WT:2				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:LEATHER.TRIP				RANGE:10	SIZE:M	SOURCEPAGE:p.14
+Starknife									PROFICIENCY:WEAPON|Starknife		TYPE:Weapon.Resizable.Melee.Light.Martial.Standard.Piercing							COST:24	WT:3				CRITMULT:x3	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Steel			WIELD:Light		RANGE:20	SIZE:M	SOURCEPAGE:p.14
+Klar (as a Weapon)				OUTPUTNAME:Klar	PROFICIENCY:WEAPON|Klar			TYPE:Weapon.Resizable.Melee.Light.Martial.Standard.Slashing							COST:0	WT:0				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Steel			WIELD:Light				SIZE:M	SOURCEPAGE:p.14
+Earth Breaker								PROFICIENCY:WEAPON|Earth Breaker	TYPE:Weapon.Resizable.Melee.TwoHanded.Martial.Standard.Bludgeoning					COST:40	WT:14				CRITMULT:x3	CRITRANGE:1	DAMAGE:2d6	EQMOD:Material ~ Steel			WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.14
+Scarf (Bladed)								PROFICIENCY:WEAPON|Scarf (Bladed)	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Reach.Finesseable.Slashing			COST:12	WT:2				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Cloth.Special Quality ~ Disarm.Special Quality ~ Trip	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.14
+Totem Spear									PROFICIENCY:WEAPON|Totem Spear	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Reach.Standard.Piercing.Spear				COST:25	WT:6		SLOTS:2	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10	EQMOD:Material ~ Steel			WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.14
+Shoanti Bola								PROFICIENCY:WEAPON|Shoanti Bola	TYPE:Weapon.Resizable.Ranged.Exotic.Standard.Bludgeoning.Piercing.Thrown				COST:15	WT:2				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Leather.Special Quality ~ Trip				RANGE:10	SIZE:M	SOURCEPAGE:p.14
 
-Boot																TYPE:Weapon.Resizable.Melee.Light.Standard.Ranged.Thrown.Martial.Standard.Bludgeoning.Hammer	COST:0	WT:1				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:WOOD			WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.27
+Boot																TYPE:Weapon.Resizable.Melee.Light.Standard.Ranged.Thrown.Martial.Standard.Bludgeoning.Hammer	COST:0	WT:1				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Wood			WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.27
 Boot.COPY=Bucket
 Boot.COPY=Frying Pan
 Boot.COPY=Mug

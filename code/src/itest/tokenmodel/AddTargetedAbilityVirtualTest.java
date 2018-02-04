@@ -31,6 +31,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.add.AbilityToken;
+
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 
 public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Ability>

@@ -26,8 +26,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 import pcgen.core.VariableProcessor;
 import pcgen.facade.core.CharacterFacade;
@@ -66,7 +68,9 @@ public class CalculatorDialog extends JDialog
 		contentPane.setLayout(new BorderLayout());
 		outputText.setEditable(false);
 		contentPane.add(formulaPanel, BorderLayout.NORTH);
-		contentPane.add(outputText, BorderLayout.CENTER);
+	 
+	    JScrollPane js = new JScrollPane( outputText, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED ) ;
+	    contentPane.add(js, BorderLayout.CENTER);
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 

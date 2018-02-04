@@ -33,6 +33,7 @@ URL:RPG Now|http://rpg.drivethrustuff.com/product_info.php?products_id=69024?aff
 SAVE:gaslight__saves.lst
 STAT:gaslight__stats.lst
 DATACONTROL:gaslight__datacontrols.lst
+SIZE:gaslight__sizes.lst
 
 ### Files
 ABILITY:gaslight_abilities_class.lst

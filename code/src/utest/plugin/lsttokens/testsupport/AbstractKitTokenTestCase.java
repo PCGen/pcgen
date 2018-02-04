@@ -73,9 +73,9 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
-		primaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
 		URI testURI = testCampaign.getURI();
 		primaryContext.setSourceURI(testURI);

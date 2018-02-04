@@ -959,18 +959,18 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 
 ###Block: Dragon Age Category templates
 # Template Name				Challenge Rating	Visible	Template																					Define				Stat bonus												Modify VAR																						Add Levels			Vision
-Dragon Age Category (Wyrmling)				VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0														BONUS:VAR|DragonAgeCatagory|1																							VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Very Young)	CR:2			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:STAT|WIS,CHA|2	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|2	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|2		VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Young)		CR:4			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:STAT|WIS,CHA|2	BONUS:VAR|AC_Natural_Armor|6|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|3	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|4		VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Juvenile)	CR:5			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|10	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|AC_Natural_Armor|9|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|4	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|6		VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Young Adult)	CR:7			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|12	BONUS:STAT|DEX|-4	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|AC_Natural_Armor|12|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|5	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|8		VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Adult)		CR:8			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|14	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|AC_Natural_Armor|15|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|6	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|10	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Mature Adult)	CR:9			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|16	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|AC_Natural_Armor|18|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|7	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|12	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Old)		CR:11			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|18	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|AC_Natural_Armor|21|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|8	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|14	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Very Old)	CR:12			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|20	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|AC_Natural_Armor|24|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|9	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|16	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Ancient)		CR:13			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|22	BONUS:STAT|DEX|-6	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|AC_Natural_Armor|27|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|10	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|18	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Wyrm)		CR:14			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|24	BONUS:STAT|DEX|-8	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|AC_Natural_Armor|30|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|11	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|20	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Great Wyrm)	CR:16			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:STAT|STR|26	BONUS:STAT|DEX|-8	BONUS:STAT|CON|14	BONUS:STAT|WIS,CHA|12	BONUS:VAR|AC_Natural_Armor|33|TYPE=Base.STACK	BONUS:VAR|DragonAgeCatagory|12	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|22	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Wyrmling)				VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0														BONUS:VAR|DragonAgeCategory|1																							VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Very Young)	CR:2			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:STAT|WIS,CHA|2	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|2	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30		ADDLEVEL:Dragon|2		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Young)		CR:4			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:STAT|WIS,CHA|2	BONUS:VAR|AC_Natural_Armor|6|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|3	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30		ADDLEVEL:Dragon|4		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Juvenile)	CR:5			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|10	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|AC_Natural_Armor|9|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|4	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30		ADDLEVEL:Dragon|6		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Young Adult)	CR:7			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|12	BONUS:STAT|DEX|-4	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|AC_Natural_Armor|12|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|5	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30		ADDLEVEL:Dragon|8		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Adult)		CR:8			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|14	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|AC_Natural_Armor|15|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|6	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30		ADDLEVEL:Dragon|10	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Mature Adult)	CR:9			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|16	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|AC_Natural_Armor|18|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|7	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30		ADDLEVEL:Dragon|12	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Old)		CR:11			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|18	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|AC_Natural_Armor|21|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|8	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30		ADDLEVEL:Dragon|14	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Very Old)	CR:12			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|20	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|AC_Natural_Armor|24|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|9	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30		ADDLEVEL:Dragon|16	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Ancient)		CR:13			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|22	BONUS:STAT|DEX|-6	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|AC_Natural_Armor|27|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|10	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30	ADDLEVEL:Dragon|18	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Wyrm)		CR:14			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|24	BONUS:STAT|DEX|-8	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|AC_Natural_Armor|30|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|11	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30	ADDLEVEL:Dragon|20	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Great Wyrm)	CR:16			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCategory|0	BONUS:STAT|STR|26	BONUS:STAT|DEX|-8	BONUS:STAT|CON|14	BONUS:STAT|WIS,CHA|12	BONUS:VAR|AC_Natural_Armor|33|TYPE=Base.STACK	BONUS:VAR|DragonAgeCategory|12	BONUS:VAR|FrightfulPresenceRange|DragonAgeCategory*30	ADDLEVEL:Dragon|22	VISION:Blindsense (60')|Darkvision (120')
 
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
@@ -1109,9 +1109,16 @@ Monster is a PC																								BONUS:VAR|IsPC|1
 
 
 
-Assign RaceType ~ Outsider		VISIBLE:NO																																							RACETYPE:Outsider
-Assign RaceType ~ Fey			VISIBLE:NO																																							RACETYPE:Fey
-Assign RaceSubType ~ Extraplanar	VISIBLE:NO																																											RACESUBTYPE:Extraplanar
+Assign RaceType ~ Aberration			VISIBLE:NO																																							RACETYPE:Aberration		
+Assign RaceType ~ Construct			VISIBLE:NO																																							RACETYPE:Construct		
+Assign RaceType ~ Dragon			VISIBLE:NO																																							RACETYPE:Dragon		
+Assign RaceType ~ Outsider			VISIBLE:NO																																							RACETYPE:Outsider		
+Assign RaceType ~ Fey				VISIBLE:NO																																							RACETYPE:Fey			
+Assign RaceType ~ Plant				VISIBLE:NO																																							RACETYPE:Plant			
+Assign RaceType ~ Humanoid			VISIBLE:NO																																							RACETYPE:Humanoid		
+Assign RaceType ~ Monstrous Humanoid	VISIBLE:NO																																							RACETYPE:Monstrous Humanoid
+Assign RaceType ~ Undead			VISIBLE:NO																																							RACETYPE:Undead		
+Assign RaceSubType ~ Extraplanar		VISIBLE:NO																																											RACESUBTYPE:Extraplanar
 
 
 
@@ -1154,3 +1161,28 @@ Legs ~ 25		VISIBLE:NO		LEGS:25
 Legs ~ 26		VISIBLE:NO		LEGS:26
 Legs ~ 27		VISIBLE:NO		LEGS:27
 Legs ~ 28		VISIBLE:NO		LEGS:28
+
+
+Race Bonus Language ~ Aboleth			VISIBLE:NO				LANGBONUS:Aboleth
+Race Bonus Language ~ Boggard			VISIBLE:NO				LANGBONUS:Boggard
+Race Bonus Language ~ Cyclops			VISIBLE:NO				LANGBONUS:Cyclops
+Race Bonus Language ~ Dark Folk		VISIBLE:NO				LANGBONUS:Dark Folk
+Race Bonus Language ~ Drow			VISIBLE:NO				LANGBONUS:Drow
+Race Bonus Language ~ Drow Sign Language	VISIBLE:NO				LANGBONUS:Drow Sign Language
+Race Bonus Language ~ Pidgin of Giant	VISIBLE:NO				LANGBONUS:Pidgin of Giant
+Race Bonus Language ~ Sahuagin		VISIBLE:NO				LANGBONUS:Sahuagin
+Race Bonus Language ~ Sphinx			VISIBLE:NO				LANGBONUS:Sphinx
+Race Bonus Language ~ Tengu			VISIBLE:NO				LANGBONUS:Tengu
+Race Bonus Language ~ Treant			VISIBLE:NO				LANGBONUS:Treant
+Race Bonus Language ~ Vegepygmy		VISIBLE:NO				LANGBONUS:Vegepygmy
+Race Bonus Language ~ Worg			VISIBLE:NO				LANGBONUS:Worg
+Race Bonus Language ~ Daemon			VISIBLE:NO				LANGBONUS:Daemon
+Race Bonus Language ~ D'ziriak		VISIBLE:NO				LANGBONUS:D'ziriak
+Race Bonus Language ~ Grippli			VISIBLE:NO				LANGBONUS:Grippli
+Race Bonus Language ~ Protean			VISIBLE:NO				LANGBONUS:Protean
+Race Bonus Language ~ Catfolk			VISIBLE:NO				LANGBONUS:Catfolk
+Race Bonus Language ~ Samsaran		VISIBLE:NO				LANGBONUS:Samsaran
+Race Bonus Language ~ Strix			VISIBLE:NO				LANGBONUS:Strix
+Race Bonus Language ~ Vanaran			VISIBLE:NO				LANGBONUS:Vanaran
+Race Bonus Language ~ Vishkanya		VISIBLE:NO				LANGBONUS:Vishkanya
+Race Bonus Language ~ Wayang			VISIBLE:NO				LANGBONUS:Wayang

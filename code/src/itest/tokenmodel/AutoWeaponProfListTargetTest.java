@@ -19,8 +19,6 @@ package tokenmodel;
 
 import java.util.Collection;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
@@ -40,6 +38,8 @@ import plugin.lsttokens.ability.MultToken;
 import plugin.lsttokens.choose.LangToken;
 import plugin.lsttokens.deprecated.AutoFeatToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest

@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Fri Nov  8 13:07:25 2013 -- reformated by prettylst.pl v1.50 (build 21703)
+CAMPAIGN:Dragon Empires Primer
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer
+SOURCESHORT:DEP
+SOURCEWEB:http://paizo.com/products/btpy8pg0
+SOURCEDATE:2012-01
+ISOGL:YES
+
+COVER:dragon_empires_primer.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8pg0|Buy this publication from Paizo Publishing!
+DESC:The distant continent of Tian Xia rests on the opposite side of the world from the Inner Sea region, and it shows. From the treacherous jungles of naga-ruled Nagajor to the sorcerous kingdom of Dtang Ma, and from the trackless and unforgiving deserts of Shaguang to the wondrous city of Goka, countless opportunities can be found for any character or adventure in amazingly expansive Tian Xia. While the extensive Dragon Empires Gazetteer unveils dozens of the mystical continent's secrets, the Dragon Empires Primer provides information pertinent to creating characters for campaigns set in this vast and diverse region. This volume of Player Companion provides players and Game Masters alike with all of the settingspecific traits and trappings they need to customize and play characters in the Dragon Empires.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Player Companion: Dragon Empires Primer Copyright 2011, Paizo Inc.; Authors: Tim Hitchcock and Colin McComb.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Dragon Empires Primer" Copyright 2013, PCGen Data Team (including, but not limited to swiftbrook, Paul Shipley, Paul Grosse, Andrew Maitland, Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+ABILITY:dep_abilities.lst
+ABILITY:dep_abilities_class.lst
+ABILITYCATEGORY:dep_abilitycategories.lst
+CLASS:dep_classes.lst
+DOMAIN:dep_domains.lst
+ABILITY:dep_feats.lst
+KIT:dep_kits.lst
+LANGUAGE:dep_languages.lst
+RACE:dep_races.lst
+SKILL:dep_skills.lst
+SPELL:dep_spells.lst
+TEMPLATE:dep_templates.lst
+
+WEAPONPROF:dep_profs_weapon.lst

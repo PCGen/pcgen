@@ -18,8 +18,6 @@
  */
 package pcgen.gui2;
 
-import gmgen.GMGenSystem;
-
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
@@ -36,12 +34,12 @@ import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.ItemFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TemplateFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.coreview.CoreViewFrame;
@@ -59,6 +57,8 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import gmgen.GMGenSystem;
 
 /**
  * The PCGenActionMap is the action map for the PCGenFrame, and as such

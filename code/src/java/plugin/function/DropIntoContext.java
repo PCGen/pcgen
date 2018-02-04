@@ -184,7 +184,7 @@ public class DropIntoContext implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor, DependencyManager fdm,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager fdm,
 		Node[] args)
 	{
 		String legalScopeName = ((ASTQuotString) args[0]).getText();
@@ -207,9 +207,13 @@ public class DropIntoContext implements Function
 
 		DynamicDependency dd = new DynamicDependency(ts.getControlVar(), legalScopeName);
 		fdm.get(DependencyManager.DYNAMIC).addDependency(dd);
+		FormulaManager fm = fdm.get(DependencyManager.FMANAGER);
+		ScopeInstanceFactory siFactory = fm.getScopeInstanceFactory();
+		LegalScope legalScope = siFactory.getScope(legalScopeName);
 		DependencyManager dynamic = fdm.getWith(DependencyManager.VARSTRATEGY, dd);
+		dynamic = dynamic.getWith(DependencyManager.SCOPE, legalScope);
 		//Rest of Equation
-		args[2].jjtAccept(visitor, dynamic);
+		return (FormatManager<?>) args[2].jjtAccept(visitor, dynamic);
 	}
 
 }

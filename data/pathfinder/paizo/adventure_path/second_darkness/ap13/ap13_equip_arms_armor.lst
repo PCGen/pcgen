@@ -3,4 +3,4 @@ SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky	SOURCESHORT:AP13	SOURC
 
 
 # Equipment Name	Required Weapon Proficiency	Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Size		Source Page
-Key Stump		PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Resizable.Melee.Finesseable.Simple.Piercing.Slashing	COST:2	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:STEEL	WIELD:Light		SIZE:M	SOURCEPAGE:p.21
+Key Stump		PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Resizable.Melee.Finesseable.Simple.Piercing.Slashing	COST:2	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Material ~ Steel	WIELD:Light		SIZE:M	SOURCEPAGE:p.21

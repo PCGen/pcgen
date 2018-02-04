@@ -10,9 +10,9 @@ Buzzblade, Boggle						KEY:Buzzblade (Boggle)	OUTPUTNAME:Boggle Buzzblade							
 Crossbow, Boggle						KEY:Crossbow (Boggle)	OUTPUTNAME:Boggle Crossbow							TYPE:Exotic.Ranged.Weapon.Boggle.Projectile.Piercing				COST:200	WT:3					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6							RANGE:120	SIZE:M	SOURCEPAGE:p.16																									SPROP:A relatively small crossbow with superior range, the boggle crossbow comes with a scope and adjustment dials for long distance accuracy.|PRERULE:1,DisplayFullEquip
 Bolts (Boggle Crossbow)																				TYPE:Ammo.Ammunition.BoggleCrossbowBolt.Exotic					COST:2	WT:1																					SOURCEPAGE:p.16
 
-Boggle Brew (Vial)																				TYPE:Boggle											COST:1												EQMOD:BOGGLE_BREW								SOURCEPAGE:p.16																									SPROP:one dose
-Boggle Brew (Bottle)																				TYPE:Boggle											COST:10	WT:1											EQMOD:BOGGLE_BREW								SOURCEPAGE:p.16																									SPROP:20 doses
-Boggle Brew (Cask)																				TYPE:Boggle											COST:750	WT:50											EQMOD:BOGGLE_BREW								SOURCEPAGE:p.16																									SPROP:2000 doses
+Boggle Brew (Vial)																				TYPE:Boggle											COST:1												EQMOD:Special Quality ~ Boggle Brew								SOURCEPAGE:p.16																									SPROP:one dose
+Boggle Brew (Bottle)																				TYPE:Boggle											COST:10	WT:1											EQMOD:Special Quality ~ Boggle Brew								SOURCEPAGE:p.16																									SPROP:20 doses
+Boggle Brew (Cask)																				TYPE:Boggle											COST:750	WT:50											EQMOD:Special Quality ~ Boggle Brew								SOURCEPAGE:p.16																									SPROP:2000 doses
 
 
 # Quartz Armor Gem

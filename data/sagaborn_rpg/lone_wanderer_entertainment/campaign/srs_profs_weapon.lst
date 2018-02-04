@@ -1,5 +1,6 @@
 
 Unarmed				TYPE:Weapons.Automatic Weapon Proficiency.Unarmed
+Unarmed Strike			TYPE:Weapons.Automatic Weapon Proficiency.Unarmed
 
 # Light
 Dagger				TYPE:Weapons.Automatic Weapon Proficiency.Light.Weapon.Melee

@@ -27,6 +27,7 @@ import pcgen.core.ArmorProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.auto.ArmorProfToken;
+
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 
 public class AutoArmorProfTest extends AbstractGrantedListTokenTest<ArmorProf>

@@ -11,8 +11,18 @@ Mythic Simple Template ~ Savage (Not Implemented)	KEY:Mythic Simple Template ~ S
 #
 Mythic															VISIBLE:NO																		RACESUBTYPE:Mythic
 
-Swimming Master ~ Has Swim												VISIBLE:NO	PREMOVE:1,Swim=1							BONUS:MOVEADD|TYPE.Swim|30
-Swimming Master ~ No Swim												VISIBLE:NO					!PREMOVE:1,Swim=1								MOVE:Swim,30
+Has Swim Speed	KEY:Swimming Master ~ Has Swim												VISIBLE:NO	PREMOVE:1,Swim=1							BONUS:MOVEADD|TYPE.Swim|30
+No Swim Speed	KEY:Swimming Master ~ No Swim												VISIBLE:NO					!PREMOVE:1,Swim=1								MOVECLONE:Walk,Swim,*1
 
-Climbing Master ~ Has Climb												VISIBLE:NO	PREMOVE:1,Climb=1							BONUS:MOVEADD|TYPE.Climb|30
-Climbing Master ~ No Climb												VISIBLE:NO					!PREMOVE:1,Climb=1							MOVE:Climb,30
+Has Climb Speed	KEY:Climbing Master ~ Has Climb												VISIBLE:NO	PREMOVE:1,Climb=1							BONUS:MOVEADD|TYPE.Climb|30
+No Climb Speed	KEY:Climbing Master ~ No Climb												VISIBLE:NO					!PREMOVE:1,Climb=1							MOVECLONE:Walk,Climb,*1
+
+###Block: Aspect of the Beast
+Doesn't Have Darkvision	KEY:Mythic Aspect of the Beast ~ Doesn't Have Darkvision	VISIBLE:NO	PREVARLTEQ:DarkvisionRange,0	BONUS:VAR|DarkvisionRange|30|TYPE=Base|PREVARLT:HasLowlightVision,1	BONUS:VAR|DarkvisionRange|60|TYPE=Base|PREVARGTEQ:HasLowlightVision,1
+Has Darkvision		KEY:Mythic Aspect of the Beast ~ Has Darkvision			VISIBLE:NO	PREVARGTEQ:DarkvisionRange,1	BONUS:VAR|DarkvisionRange|30+(10*MythicLevel)
+
+Doesn't Have Claws	KEY:Mythic Aspect of the Beast ~ Doesn't Have Claws		VISIBLE:NO	PREABILITY:0,CATEGORY=Internal,Claw	ABILITY:Internal|AUTOMATIC|Claw
+Has Claws			KEY:Mythic Aspect of the Beast ~ Has Claws			VISIBLE:NO	PREABILITY:1,CATEGORY=Internal,Claw	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1
+
+#
+Augment Summoning (Mythic)	KEY:Mythic Arugment Summoning	VISIBLE:YES	

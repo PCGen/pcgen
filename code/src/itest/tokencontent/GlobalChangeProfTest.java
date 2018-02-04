@@ -27,6 +27,7 @@ import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ChangeprofLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalChangeProfTest extends AbstractContentTokenTest

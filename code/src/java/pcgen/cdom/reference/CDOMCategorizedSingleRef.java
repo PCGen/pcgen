@@ -307,6 +307,6 @@ public class CDOMCategorizedSingleRef<T extends Categorized<T>> extends
 	@Override
 	public String getLSTCategory()
 	{
-		return category.getLSTformat();
+		return category.getKeyName();
 	}
 }

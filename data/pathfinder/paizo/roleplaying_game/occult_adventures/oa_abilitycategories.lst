@@ -11,13 +11,13 @@ ABILITYCATEGORY:Psychic Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 ABILITYCATEGORY:Spiritualist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Spiritualist Class Feature.SpiritualistClassFeatures	PLURAL:Spiritualist Class Features	DISPLAYLOCATION:Class Features
 
 # Archetypes
-# Ability Category				VIsible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Kineticist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Kineticist Archetype	PLURAL:Kineticist Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Medium Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Medium Archetype		PLURAL:Medium Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Mesmerist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Mesmerist Archetype	PLURAL:Mesmerist Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Occultist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Occultist Archetype	PLURAL:Occultist Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Psychic Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Psychic Archetype		PLURAL:Psychic Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Spiritualist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Spiritualist Archetype	PLURAL:Spiritualist Archetypes	DISPLAYLOCATION:Archetype
+# Ability Category				VIsible		Editable?		Change Pool?	Category of Object		Type of Object							Plural description for UI		Display Location
+ABILITYCATEGORY:Kineticist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Kineticist Archetype.KineticistArchetype		PLURAL:Kineticist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Medium Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Medium Archetype.MediumArchetype			PLURAL:Medium Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Mesmerist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Mesmerist Archetype.MesmeristArchetype		PLURAL:Mesmerist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Occultist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Occultist Archetype.OccultistArchetype		PLURAL:Occultist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Psychic Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Psychic Archetype.PsychicArchetype			PLURAL:Psychic Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Spiritualist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Spiritualist Archetype.SpiritualistArchetype	PLURAL:Spiritualist Archetypes	DISPLAYLOCATION:Archetype
 
 # Kineticist class features
 # Ability Category
@@ -27,6 +27,21 @@ ABILITYCATEGORY:Kineticist Blast										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 ABILITYCATEGORY:Kineticist Expanded Element	POOL:Pool_KineticistExpandedElement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Kineticist Expanded Element						PLURAL:Kineticist Expanded Elements					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Kineticist Utility Wild Talent	POOL:Pool_KineticistUtilityWildTalents	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Utility Wild Talent							PLURAL:Utility Wild Talents						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Kineticist Infusion Wild Talent	POOL:Pool_KineticistInfusion			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent							PLURAL:Infusion Wild Talents						DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Aether				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Aether.Utility Wild Talent Aether							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Air				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Air.Utility Wild Talent Air								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Earth				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Earth.Utility Wild Talent Earth							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Fire				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Fire.Utility Wild Talent Fire							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Infusion or Wild Talent Water				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Water.Utility Wild Talent Water							DISPLAYLOCATION:Class Features
+
+
+
+
+
+
+
+
+
 
 # Medium class features
 # Ability Category					VIsible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI			Display Location
@@ -81,6 +96,10 @@ ABILITYCATEGORY:Phantom Size							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CAT
 
 ABILITYCATEGORY:Implement School				POOL:OccultistImplementSchool			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability			TYPE:Implement School						PLURAL:Implement Schools					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Implement School Focus Power		POOL:OccultistFocusPower			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability			TYPE:Implement School Focus Power				PLURAL:Implement School Focus Powers			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Ectoplasm Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:EctoplasmBloodline				ABILITYLIST:Skill Focus (Fly)|Skill Focus (Stealth)	PLURAL:Draconic Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:PsychicBloodline				ABILITYLIST:Skill Focus(Sense Motive)	PLURAL:Draconic Bloodline Feats	DISPLAYLOCATION:Feats
+
 
 
 

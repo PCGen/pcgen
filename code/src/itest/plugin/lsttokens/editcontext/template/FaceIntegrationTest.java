@@ -52,9 +52,9 @@ public class FaceIntegrationTest extends
 		super.setUp();
 		TokenRegistration.register(m);
 		primaryContext.getVariableContext().assertLegalVariableID(
-			primaryContext.getActiveScope().getLegalScope(), opManager, "Face");
+			primaryContext.getActiveScope(), opManager, "Face");
 		secondaryContext.getVariableContext().assertLegalVariableID(
-			secondaryContext.getActiveScope().getLegalScope(), opManager, "Face");
+			secondaryContext.getActiveScope(), opManager, "Face");
 	}
 
 	@Override

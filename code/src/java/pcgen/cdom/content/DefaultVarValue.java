@@ -38,12 +38,6 @@ public class DefaultVarValue extends UserContent
 		return getKeyName();
 	}
 
-	@Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
 	/**
 	 * Sets the FormatManager that manages the data format for which this object
 	 * holds the default value.

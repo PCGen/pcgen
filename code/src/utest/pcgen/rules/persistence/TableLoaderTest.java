@@ -26,7 +26,7 @@ public class TableLoaderTest
 	public void setUp() throws Exception
 	{
 		uri = new URI("file:/Test%20Case");
-		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		loader = new TableLoader();
 	}

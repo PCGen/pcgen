@@ -369,6 +369,7 @@ CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonResistance4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonResistance4=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonResistance6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonResistance6=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonImmunity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonImmunity=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_ClassSkills=True
 
 
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talent3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent3=True

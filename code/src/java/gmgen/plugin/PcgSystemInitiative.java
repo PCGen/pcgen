@@ -20,13 +20,14 @@
  */
 package gmgen.plugin;
 
-import gmgen.plugin.dice.Dice;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
+
+import gmgen.plugin.dice.Dice;
 
 public class PcgSystemInitiative extends SystemInitiative
 {

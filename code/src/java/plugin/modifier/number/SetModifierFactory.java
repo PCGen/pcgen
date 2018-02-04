@@ -20,7 +20,7 @@ package plugin.modifier.number;
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaCalculation;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -41,7 +41,8 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 	 * Identifies that the Modifier objects built by this SetModifierFactory act
 	 * upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
+	 * @return The Format (Number.class) of object upon which Modifiers built by this
+	 *         SetModifierFactory can operate
 	 */
 	@Override
 	public Class<Number> getVariableFormat()
@@ -50,7 +51,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 	}
 
 	@Override
-	public PCGenModifier<Number> getModifier(int userPriority, String instructions,
+	public FormulaModifier<Number> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<Number> formatManager)
 	{
@@ -61,7 +62,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 		}
 		try
 		{
-			return getFixedModifier(userPriority, formatManager, instructions);
+			return getFixedModifier(formatManager, instructions);
 		}
 		catch (NumberFormatException e)
 		{
@@ -70,7 +71,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 						formulaManager, varScope, formatManager);
 			NEPCalculation<Number> calc =
 					new FormulaCalculation<>(f, this);
-			return new CalculationModifier<>(calc, userPriority);
+			return new CalculationModifier<>(calc, formatManager);
 		}
 	}
 

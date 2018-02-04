@@ -36,6 +36,7 @@ import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
+import plugin.dicebag.gui.DiceBagPluginController;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
@@ -45,7 +46,6 @@ import gmgen.pluginmgr.messages.FileMenuOpenMessage;
 import gmgen.pluginmgr.messages.FileMenuSaveMessage;
 import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-import plugin.dicebag.gui.DiceBagPluginController;
 
 /**
  *

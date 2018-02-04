@@ -25,6 +25,7 @@ import pcgen.core.Vision;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.VisionLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalVisionTest extends AbstractContentTokenTest

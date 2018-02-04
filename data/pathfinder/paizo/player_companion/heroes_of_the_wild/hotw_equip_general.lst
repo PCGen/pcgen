@@ -41,7 +41,7 @@ Moss Cloak						TYPE:Magic.Wondrous.Cloak				COST:18700	WT:5		SOURCEPAGE:p.29
 Storm Goggles					TYPE:Magic.Wondrous.Eyegear				COST:6000	WT:0		SOURCEPAGE:p.29
 Thunder Strap					TYPE:Magic.Wondrous					COST:60000	WT:0		SOURCEPAGE:p.29
 
-Oaken Staff				PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Resizable.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Resizable.Melee.Bludgeoning	COST:27800	WT:5		BASEITEM:Staff		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:CALLED.CHARGED_STAFF|CHARGES[10].PLUS1W	ALTEQMOD:PLUS2W	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.28
+Oaken Staff				PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Resizable.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Resizable.Melee.Bludgeoning	COST:27800	WT:5		BASEITEM:Staff		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:Special Ability ~ Called ~ Weapon.Special Ability ~ Staff Charges|CHARGES[10].Special Ability ~ +1 ~ Weapon	ALTEQMOD:Special Ability ~ +2 ~ Weapon	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.28
 
 # ==============================
 # Poisons

@@ -32,14 +32,6 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
 	/**
-	 * Constructor.
-	 */
-	public pcGenGUITestCase()
-	{
-		// Empty Constructor
-	}
-
-	/**
 	 * Standard JUnit style constructor
 	 * @param name
 	 */
@@ -140,13 +132,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		assertXMLEqual(expected, actual);
 	}
 
-	/**
-	 * @return
-	 */
-	protected String getSheetName()
-	{
-		return "code/testsuite/base.xml";
-	}
+	protected abstract String getSheetName();
 
 	/**
 	 * Read the XML file and return it as a String.

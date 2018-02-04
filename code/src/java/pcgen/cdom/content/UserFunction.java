@@ -70,8 +70,7 @@ public class UserFunction extends UserContent
 		}
 	}
 
-	@Override
-	public String getLSTformat()
+	public String getOriginalExpression()
 	{
 		return origExpression;
 	}

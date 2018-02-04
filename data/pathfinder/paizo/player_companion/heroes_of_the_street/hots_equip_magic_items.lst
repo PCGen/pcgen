@@ -6,9 +6,9 @@ SOURCELONG:Heroes of the Street	SOURCESHORT:HotS	SOURCEWEB:http://paizo.com/prod
 # Magic Weapon and Armor
 # ==============================
 
-Cornerstone Crossbow			PROFICIENCY:WEAPON|Crossbow (Light)			TYPE:Weapon.Magic.Resizable.Simple.Ranged.Specific.Piercing.Container.Projectile.Crossbow			CONTAINS:UNLIM|Bolt		COST:35	WT:4		CRITMULT:x2	CRITRANGE:2			DAMAGE:1d8			EQMOD:MAGIC_COST|13000.Seeking.PLUS1W.WOOD			WIELD:TwoHandsOnly					RANGE:80						SIZE:M	SOURCEPAGE:p.14
+Cornerstone Crossbow			PROFICIENCY:WEAPON|Crossbow (Light)			TYPE:Weapon.Magic.Resizable.Simple.Ranged.Specific.Piercing.Container.Projectile.Crossbow			CONTAINS:UNLIM|Bolt		COST:35	WT:4		CRITMULT:x2	CRITRANGE:2			DAMAGE:1d8			EQMOD:Special Ability ~ Enhancement Cost|13000.Special Ability ~ Seeking ~ Ranged.Special Ability ~ +1 ~ Weapon.Material ~ Wood			WIELD:TwoHandsOnly					RANGE:80						SIZE:M	SOURCEPAGE:p.14
 
-Emissary's Breastplate			PROFICIENCY:ARMOR|Breastplate				TYPE:Armor.Magic.Medium.ArmorProfMedium.Suit.Specific														COST:200	WT:30		ACCHECK:-4		MAXDEX:3		SPELLFAILURE:25		EQMOD:MAGIC_COST|10000.STEEL.PLUS1A					BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0		BONUS:VAR|ArmorCheckPenalty|4		SOURCEPAGE:p.15
+Emissary's Breastplate			PROFICIENCY:ARMOR|Breastplate				TYPE:Armor.Magic.Medium.ArmorProfMedium.Suit.Specific														COST:200	WT:30		ACCHECK:-4		MAXDEX:3		SPELLFAILURE:25		EQMOD:Special Ability ~ Enhancement Cost|10000.Material ~ Steel.Special Ability ~ +1 ~ Armor					BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0		BONUS:VAR|ArmorCheckPenalty|4		SOURCEPAGE:p.15
 
 # ==============================
 # Magic Items

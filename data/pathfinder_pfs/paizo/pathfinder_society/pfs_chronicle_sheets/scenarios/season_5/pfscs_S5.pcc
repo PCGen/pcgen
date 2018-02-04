@@ -29,7 +29,7 @@ EQUIPMENT:pfscs_S5_equip.lst
 EQUIPMOD:pfscs_S5_equipmods.lst
 
 # needed for Glorymane
-EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|(INCLUDE:BRONZE)|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|(INCLUDE:Material ~ Bronze)|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 
 #
 # DONE

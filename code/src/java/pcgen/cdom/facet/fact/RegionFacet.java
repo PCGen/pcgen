@@ -17,7 +17,8 @@
  */
 package pcgen.cdom.facet.fact;
 
-import pcgen.base.lang.ObjectUtil;
+import java.util.Objects;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -375,9 +376,9 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 			if (o instanceof RegionCacheInfo)
 			{
 				RegionCacheInfo other = (RegionCacheInfo) o;
-				return ObjectUtil.compareWithNull(region, other.region)
-					&& ObjectUtil.compareWithNull(subregion, other.subregion)
-					&& ObjectUtil.compareWithNull(cachedRegion, other.cachedRegion);
+				return Objects.equals(region, other.region)
+					&& Objects.equals(subregion, other.subregion)
+					&& Objects.equals(cachedRegion, other.cachedRegion);
 			}
 			return false;
 		}

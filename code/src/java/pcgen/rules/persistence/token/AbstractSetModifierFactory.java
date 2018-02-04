@@ -20,7 +20,7 @@ package pcgen.rules.persistence.token;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
 
@@ -74,17 +74,17 @@ public abstract class AbstractSetModifierFactory<T> implements
 	}
 
 	@Override
-	public PCGenModifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> fmtManager, String instructions)
+	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager,
+		String instructions)
 	{
-		if (!getVariableFormat().isAssignableFrom(fmtManager.getManagedClass()))
+		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))
 		{
 			throw new IllegalArgumentException("FormatManager must manage "
 				+ getVariableFormat().getName() + " or a child of that class");
 		}
-		T n = fmtManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
-		return new CalculationModifier<>(calc, userPriority);
+		T n = formatManager.convert(instructions);
+		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);
+		return new CalculationModifier<>(calc, formatManager);
 	}
 
 }
