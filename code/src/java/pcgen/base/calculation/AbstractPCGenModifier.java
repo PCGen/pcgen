@@ -22,13 +22,13 @@ import pcgen.base.util.Indirect;
 import pcgen.cdom.formula.AssociationUtilities;
 
 /**
- * An AbstractPCGenModifier is a PCGenModifier that supports generalized management of
+ * An AbstractPCGenModifier is a FormulaModifier that supports generalized management of
  * references.
  * 
  * @param <T>
  *            The format that this AbstractPCGenModifier acts upon
  */
-public abstract class AbstractPCGenModifier<T> implements PCGenModifier<T>
+public abstract class AbstractPCGenModifier<T> implements FormulaModifier<T>
 {
 
 	/**

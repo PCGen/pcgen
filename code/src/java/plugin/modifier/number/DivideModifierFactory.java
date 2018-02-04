@@ -33,7 +33,8 @@ public class DivideModifierFactory extends AbstractNumberModifierFactory<Number>
 	 * Identifies that the Modifier objects built by this DivideModifierFactory
 	 * act upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
+	 * @return The Format (Number.class) of object upon which Modifiers built by this
+	 *         DivideModifierFactory can operate
 	 */
 	@Override
 	public Class<Number> getVariableFormat()
@@ -45,8 +46,13 @@ public class DivideModifierFactory extends AbstractNumberModifierFactory<Number>
 	 * Performs Division of two values, used by Modifiers produced by this
 	 * DivideModifierFactory
 	 * 
-	 * @see pcgen.base.calculation.BasicCalculation#process(java.lang.Object,
-	 *      java.lang.Object)
+	 * @param previousValue
+	 *            The first input value used to determine the appropriate result of a
+	 *            Modifier produced by this ModifierFactory.
+	 * @param argument
+	 *            The second input value used to determine the appropriate result of a
+	 *            Modifier produced by this ModifierFactory.
+	 * @return The resulting value of the Modifier when processed
 	 */
 	@Override
 	public Number process(Number previousValue, Number argument)
@@ -54,23 +60,12 @@ public class DivideModifierFactory extends AbstractNumberModifierFactory<Number>
 		return NumberUtilities.divide(previousValue, argument);
 	}
 
-	/**
-	 * Returns the inherent priority of an DivideModifier. This is used if two
-	 * Modifiers have the same User Priority. Lower values are processed first.
-	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getInherentPriority()
-	 */
 	@Override
 	public int getInherentPriority()
 	{
 		return 2;
 	}
 
-	/**
-	 * Returns an Identifier for this type of Modifier
-	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getIdentification()
-	 */
 	@Override
 	public String getIdentification()
 	{
