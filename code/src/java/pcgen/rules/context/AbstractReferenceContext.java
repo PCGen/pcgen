@@ -361,7 +361,7 @@ public abstract class AbstractReferenceContext
 	public <T extends Loadable> boolean containsConstructedCDOMObject(
 			Class<T> c, String s)
 	{
-		return getManufacturer(c).containsObject(s);
+		return getManufacturer(c).containsObjectKeyed(s);
 	}
 
 	public void buildDerivedObjects()

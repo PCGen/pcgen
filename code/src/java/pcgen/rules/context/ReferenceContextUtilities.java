@@ -81,7 +81,7 @@ public final class ReferenceContextUtilities
 						ReferenceManufacturer<? extends Loadable> mfg =
 								refContext
 									.getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
-						if (!mfg.containsObject(choice)
+						if (!mfg.containsObjectKeyed(choice)
 							&& (TokenLibrary.getPrimitive(cl, choice) == null)
 							&& !report(validator, clIdentity.getChoiceClass(),
 								choice))
