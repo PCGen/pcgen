@@ -1,5 +1,6 @@
 package plugin.lsttokens;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
@@ -11,14 +12,19 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class RequirementLst extends AbstractNonEmptyToken<CDOMObject>
+/**
+ * Processes the ALLOW token, which is the "new formula token" for Prerequisites.
+ * This is designed to control ONLY situations at a user selection - it does not do
+ * ongoing enforcement. For ongoing enforcement, ENABLE is used.
+ */
+public class AllowLst extends AbstractNonEmptyToken<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
 	public String getTokenName()
 	{
-		return "REQUIREMENT";
+		return "ALLOW";
 	}
 
 	@Override
@@ -31,22 +37,22 @@ public class RequirementLst extends AbstractNonEmptyToken<CDOMObject>
 	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
-		return new ParseResult.Fail("Not supported since it is not monitored in an ongoing fashion");
-//		NEPFormula<Boolean> formula =
-//				context.getValidFormula(FormatUtilities.BOOLEAN_MANAGER, value);
-//		obj.addToListFor(ListKey.REQUIREMENT, formula);
-//		return ParseResult.SUCCESS;
+		NEPFormula<Boolean> formula =
+				context.getValidFormula(FormatUtilities.BOOLEAN_MANAGER, value);
+		obj.addToListFor(ListKey.ALLOW, formula);
+		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<NEPFormula<Boolean>> changes =
-				context.getObjectContext().getListChanges(obj, ListKey.REQUIREMENT);
+				context.getObjectContext().getListChanges(obj, ListKey.ALLOW);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
+		//This is correct - NEPFormula unparses to its instructions with toString()
 		return new String[]{StringUtil.join(changes.getAdded(), Constants.PIPE)};
 	}
 }

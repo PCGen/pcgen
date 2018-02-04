@@ -284,8 +284,8 @@ public final class ListKey<T>
 	public static final ListKey<CampaignSourceEntry> FILE_DYNAMIC = new ListKey<>();
 	public static final ListKey<CDOMReference<Dynamic>> GRANTED = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_DATATABLE = new ListKey<>();
-	public static final ListKey<NEPFormula<Boolean>> REQUIREMENT = new ListKey<>();
-	public static final ListKey<NEPFormula<Boolean>> PREREQUISITE = new ListKey<>();
+	public static final ListKey<NEPFormula<Boolean>> ENABLE = new ListKey<>();
+	public static final ListKey<NEPFormula<Boolean>> ALLOW = new ListKey<>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 

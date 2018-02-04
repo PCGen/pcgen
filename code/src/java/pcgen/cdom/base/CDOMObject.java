@@ -1218,14 +1218,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public boolean hasPrerequisites()
 	{
-		return super.hasPrerequisites() || (getListFor(ListKey.PREREQUISITE) != null)
-			|| (getListFor(ListKey.REQUIREMENT) != null);
+		return super.hasPrerequisites() || (getListFor(ListKey.ALLOW) != null)
+			|| (getListFor(ListKey.ENABLE) != null);
 	}
 
 	@Override
 	public boolean isAvailable(PlayerCharacter aPC)
 	{
-		List<NEPFormula<Boolean>> prerequisites = getListFor(ListKey.PREREQUISITE);
+		List<NEPFormula<Boolean>> prerequisites = getListFor(ListKey.ALLOW);
 		if ((prerequisites == null) || prerequisites.isEmpty())
 		{
 			return true;
@@ -1243,7 +1243,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public boolean isActive(PlayerCharacter aPC)
 	{
-		List<NEPFormula<Boolean>> requirements = getListFor(ListKey.REQUIREMENT);
+		List<NEPFormula<Boolean>> requirements = getListFor(ListKey.ENABLE);
 		if ((requirements == null) || requirements.isEmpty())
 		{
 			return true;
