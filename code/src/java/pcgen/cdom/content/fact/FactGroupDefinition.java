@@ -64,46 +64,30 @@ public class FactGroupDefinition<T extends CDOMObject, F> implements
 		def = fi;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitiveName()
-	 */
 	@Override
 	public String getPrimitiveName()
 	{
 		return def.getFactName();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getGroupingState()
-	 */
 	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getFormatManager()
-	 */
 	@Override
 	public FormatManager<?> getFormatManager()
 	{
 		return def.getFormatManager();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitive(pcgen.rules.context.LoadContext,
-	 *      java.lang.String)
-	 */
 	@Override
 	public ObjectContainer<T> getPrimitive(LoadContext context, String value)
 	{

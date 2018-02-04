@@ -51,11 +51,6 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 		return new CalculationModifier<>(calc, formatManager);
 	}
 
-	/**
-	 * Identifies that this SetModifier acts upon CDOMObject objects.
-	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
-	 */
 	@Override
 	public Class<CDOMObject> getVariableFormat()
 	{

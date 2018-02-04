@@ -141,18 +141,12 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 		return true;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.PostValidationToken#getValidationTokenClass()
-	 */
 	@Override
 	public Class<CDOMObject> getValidationTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.PostValidationToken#getPriority()
-	 */
 	@Override
 	public int getPriority()
 	{

@@ -57,9 +57,6 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		CDOMPrimaryToken<CDOMObject>
 {
 
-	/**
-	 * @see pcgen.rules.persistence.token.AbstractToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -230,9 +227,6 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		return true;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext, java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
@@ -254,9 +248,6 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		return set.toArray(new String[set.size()]);
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
-	 */
 	@Override
 	public Class<CDOMObject> getTokenClass()
 	{

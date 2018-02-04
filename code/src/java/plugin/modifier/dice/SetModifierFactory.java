@@ -26,11 +26,6 @@ import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
  */
 public class SetModifierFactory extends AbstractFixedSetModifierFactory<Dice>
 {
-	/**
-	 * Identifies that this SetModifier acts upon Dice objects.
-	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
-	 */
 	@Override
 	public Class<Dice> getVariableFormat()
 	{

@@ -104,12 +104,6 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 	private static final String COMPANIONLIST = "COMPANIONLIST"; //$NON-NLS-1$
 	private static final String FOLLOWERADJUSTMENT = "FOLLOWERADJUSTMENT"; //$NON-NLS-1$
 
-	/**
-	 * Returns the name of the token this class can process.
-	 *
-	 * @return Token name
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
