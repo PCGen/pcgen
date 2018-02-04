@@ -47,7 +47,7 @@ public class StartskillptsToken extends AbstractNonEmptyToken<PCClass>
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(pcc, FormulaKey.START_SKILL_POINTS,
 				formula);

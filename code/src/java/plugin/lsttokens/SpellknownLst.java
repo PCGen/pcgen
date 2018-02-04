@@ -70,7 +70,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		String workingValue = value;
 		List<Prerequisite> prereqs = new ArrayList<>();
@@ -80,7 +80,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 			if (lastPipeLoc == -1)
 			{
 				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ " not enough tokens: " + value, context);
+						+ " not enough tokens: " + value);
 			}
 			String lastToken = workingValue.substring(lastPipeLoc + 1);
 			if (looksLikeAPrerequisite(lastToken))
@@ -91,7 +91,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				{
 					return new ParseResult.Fail("Invalid prerequisite "
 						+ lastToken + " in " + getTokenName() + " tag: "
-						+ value, context);
+						+ value);
 				}
 				prereqs.add(prerequisite);
 			}
@@ -106,7 +106,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		if (tok.countTokens() < 3)
 		{
 			return new ParseResult.Fail("Insufficient values in SPELLKNOWN tag: "
-					+ value, context);
+					+ value);
 		}
 
 		String tagType = tok.nextToken(); // CLASS only
@@ -123,13 +123,13 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				if (!pr.passed())
 				{
 					return new ParseResult.Fail(getTokenName() + " failed due to " + pr
-						+ ".  Entire token was: " + value, context);
+						+ ".  Entire token was: " + value);
 				}
 			}
 			else
 			{
 				return new ParseResult.Fail("First token of " + getTokenName()
-						+ " must be CLASS: " + value, context);
+						+ " must be CLASS: " + value);
 			}
 		}
 
@@ -156,7 +156,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		if (equalLoc == -1)
 		{
 			return new ParseResult.Fail(
-				"Expected an = in SPELLKNOWN " + "definition: " + tokString, context);
+				"Expected an = in SPELLKNOWN " + "definition: " + tokString);
 		}
 
 		String casterString = tokString.substring(0, equalLoc);
@@ -169,7 +169,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail(
-				"Expected a number for SPELLKNOWN, found: " + spellLevel, context);
+				"Expected a number for SPELLKNOWN, found: " + spellLevel);
 		}
 
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', casterString);

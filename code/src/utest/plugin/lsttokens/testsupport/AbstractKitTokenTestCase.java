@@ -43,6 +43,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+import util.TestURI;
 
 public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestCase
 {
@@ -58,8 +59,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	@BeforeClass
 	public static void classSetUp() throws URISyntaxException
 	{
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
 	}
 
@@ -179,7 +179,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		}
 		else
 		{
-			pr.addMessagesToLog();
+			pr.addMessagesToLog(TestURI.getURI());
 			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();

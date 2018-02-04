@@ -71,7 +71,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		// value should be of the format:
 		// Name1,TYPE.type1,Name3=Prof1|Name4,Name5=Prof2

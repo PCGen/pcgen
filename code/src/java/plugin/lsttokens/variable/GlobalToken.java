@@ -97,7 +97,7 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 			return new ParseResult.Fail(getTokenName()
 				+ " found a var defined in incompatible variable scopes: "
 				+ value + " was requested in " + scope.getName()
-				+ " but was previously in " + sb.toString(), context);
+				+ " but was previously in " + sb.toString());
 		}
 		dv.setName(varName);
 		dv.setFormat(format);

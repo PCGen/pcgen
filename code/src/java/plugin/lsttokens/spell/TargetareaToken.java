@@ -46,7 +46,7 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 		if (value == null || value.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " arguments may not be empty", context);
+				+ " arguments may not be empty");
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -58,7 +58,7 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 			{
 				return new ParseResult.Fail("Unbalanced parentheses in "
 					+ getTokenName() + " '" + value + "' used in spell "
-					+ spell, context);
+					+ spell);
 			}
 			context.getObjectContext().put(spell, StringKey.TARGET_AREA, value);
 		}

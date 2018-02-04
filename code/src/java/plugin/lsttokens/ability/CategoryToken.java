@@ -49,7 +49,7 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, value);
 		if (cat == null)
 		{
-			return new ParseResult.Fail("Cannot find Ability Category: " + value, context);
+			return new ParseResult.Fail("Cannot find Ability Category: " + value);
 		}
 		context.getReferenceContext().reassociateCategory(cat, ability);
 		return ParseResult.SUCCESS;

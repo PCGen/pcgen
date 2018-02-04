@@ -34,6 +34,7 @@ import plugin.lsttokens.QualifyToken;
 
 import org.junit.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalQualifyTest extends AbstractContentTokenTest
 {
@@ -55,7 +56,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

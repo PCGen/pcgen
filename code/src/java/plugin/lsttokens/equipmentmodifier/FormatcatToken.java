@@ -53,7 +53,7 @@ public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
 		catch (IllegalArgumentException iae)
 		{
 			return new ParseResult.Fail("Invalid Format provided in " + getTokenName()
-					+ ": " + value, context);
+					+ ": " + value);
 		}
 		return ParseResult.SUCCESS;
 	}

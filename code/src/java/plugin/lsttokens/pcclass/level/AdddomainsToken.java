@@ -81,7 +81,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 				if (tokString.indexOf(']') != -1)
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must have '[' if it contains a PREREQ tag", context);
+							+ " must have '[' if it contains a PREREQ tag");
 				}
 				domainKey = tokString;
 			}
@@ -90,7 +90,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 				if (tokString.indexOf(']') != tokString.length() - 1)
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must end with ']' if it contains a PREREQ tag", context);
+							+ " must end with ']' if it contains a PREREQ tag");
 				}
 				domainKey = tokString.substring(0, openBracketLoc);
 				String prereqString = tokString.substring(openBracketLoc + 1,
@@ -98,13 +98,13 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 				if (prereqString.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " cannot have empty prerequisite : " + value, context);
+							+ " cannot have empty prerequisite : " + value);
 				}
 				prereq = getPrerequisite(prereqString);
 				if (prereq == null)
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " had invalid prerequisite : " + prereqString, context);
+							+ " had invalid prerequisite : " + prereqString);
 				}
 			}
 			AssociatedPrereqObject apo = context.getListContext().addToList(

@@ -77,7 +77,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + ":"
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+						+ getTokenName() + " had TITLE= but no title: " + value);
 				}
 			}
 			else

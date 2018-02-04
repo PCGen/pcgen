@@ -28,6 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.DrLst;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalDrTest extends AbstractContentTokenTest
 {
@@ -49,7 +50,7 @@ public class GlobalDrTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "5/Light");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

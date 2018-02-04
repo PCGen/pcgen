@@ -52,13 +52,13 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 				if (lim.intValue() <= 0)
 				{
 					return new ParseResult.Fail("Value less than 1 is not valid for "
-							+ getTokenName() + ": " + value, context);
+							+ getTokenName() + ": " + value);
 				}
 			}
 			catch (NumberFormatException nfe)
 			{
 				return new ParseResult.Fail("Value was not a number for "
-						+ getTokenName() + ": " + value, context);
+						+ getTokenName() + ": " + value);
 			}
 		}
 		context.getObjectContext().put(pcc, IntegerKey.LEVEL_LIMIT, lim);

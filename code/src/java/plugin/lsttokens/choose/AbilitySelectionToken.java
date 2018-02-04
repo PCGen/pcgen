@@ -91,7 +91,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 				if ((title == null) || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + Constants.COLON
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+						+ getTokenName() + " had TITLE= but no title: " + value);
 				}
 				activeValue = value.substring(0, pipeLoc);
 			}
@@ -110,7 +110,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		if (!prim.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-				+ ": Contains ANY and a specific reference: " + value, context);
+				+ ": Contains ANY and a specific reference: " + value);
 		}
 		CollectionToAbilitySelection pcs =
 				new CollectionToAbilitySelection(acRef, prim);
@@ -247,7 +247,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		if (barLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " requires a CATEGORY and arguments : " + value, context);
+				+ " requires a CATEGORY and arguments : " + value);
 		}
 		String cat = value.substring(0, barLoc);
 		CDOMSingleRef<AbilityCategory> acRef =
@@ -260,8 +260,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		if (rm == null)
 		{
 			return new ParseResult.Fail(
-				"Could not get Reference Manufacturer for Category: " + cat,
-				context);
+				"Could not get Reference Manufacturer for Category: " + cat);
 		}
 		return parseTokenWithSeparator(context, rm, acRef, obj, abilities);
 	}

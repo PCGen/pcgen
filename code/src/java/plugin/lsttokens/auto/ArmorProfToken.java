@@ -97,13 +97,13 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 								"Invalid " + getTokenName() + ": " + value
 									+ "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
-						return new ParseResult.Fail(errorText, context);
+						return new ParseResult.Fail(errorText);
 					}
 					prereq = getPrerequisite(token);
 					if (prereq == null)
 					{
 						return new ParseResult.Fail("Error generating Prerequisite "
-								+ prereq + " in " + getFullName(), context);
+								+ prereq + " in " + getFullName());
 					}
 					int preStart = value.indexOf(token) - 1;
 					armorProf = value.substring(0, preStart);
@@ -115,7 +115,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 				"Use of [] for Prerequisites has been removed. "
-					+ "Please use | based standard", context);
+					+ "Please use | based standard");
 		}
 
 		ParseResult pr = checkSeparatorsAndNonEmpty('|', armorProf);
@@ -183,7 +183,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 
 		if (!armorProfs.isEmpty() || !equipTypes.isEmpty())

@@ -41,6 +41,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 {
@@ -57,25 +58,25 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 				new MultToken().parseToken(context, granted, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, granted, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, source, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = token.parseToken(context, source, "FEAT|Granted (%LIST)");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -99,31 +100,31 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 				new MultToken().parseToken(context, granted, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new MultToken().parseToken(context, source, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, granted, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, source, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = token.parseToken(context, source, "FEAT|Granted (%LIST)");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

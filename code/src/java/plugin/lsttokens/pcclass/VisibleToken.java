@@ -53,7 +53,7 @@ public class VisibleToken extends AbstractNonEmptyToken<PCClass> implements
 		}
 		else
 		{
-			return new ParseResult.Fail("Can't understand Visibility: " + value, context);
+			return new ParseResult.Fail("Can't understand Visibility: " + value);
 		}
 		context.getObjectContext().put(pcc, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;

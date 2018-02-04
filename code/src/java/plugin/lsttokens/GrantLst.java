@@ -69,7 +69,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String scope = tok.nextToken();
@@ -77,7 +77,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " must have identifier(s), "
-				+ "Format is: DYNAMICSCOPE|DynamicName: " + value, context);
+				+ "Format is: DYNAMICSCOPE|DynamicName: " + value);
 		}
 
 		ReferenceManufacturer<Dynamic> rm =
@@ -87,17 +87,13 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 				"Could not get Reference Manufacturer for Dynamic Scope: "
-					+ scope, context);
+					+ scope);
 		}
 
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
 			CDOMReference<Dynamic> dynamic = rm.getReference(token);
-			if (dynamic == null)
-			{
-				return ParseResult.INTERNAL_ERROR;
-			}
 			context.getObjectContext().addToList(obj, ListKey.GRANTED, dynamic);
 		}
 

@@ -42,6 +42,7 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import util.TestURI;
 
 public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject & Loadable> extends
 		TestCase
@@ -65,8 +66,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 	public static final void classSetUp() throws URISyntaxException
 	{
 		OutputDB.reset();
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		modCampaign = new CampaignSourceEntry(new Campaign(), new URI(
 				"file:/Test%20Case%20Modifier"));
 		classSetUpFired = true;

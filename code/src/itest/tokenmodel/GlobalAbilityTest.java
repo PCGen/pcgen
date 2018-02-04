@@ -31,6 +31,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
 
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import util.TestURI;
 
 public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>
 {
@@ -43,7 +44,7 @@ public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>
 		ParseResult result = token.parseToken(context, source, "FEAT|VIRTUAL|Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

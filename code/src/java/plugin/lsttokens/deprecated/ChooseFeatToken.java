@@ -85,7 +85,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + Constants.COLON
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+						+ getTokenName() + " had TITLE= but no title: " + value);
 				}
 			}
 			else

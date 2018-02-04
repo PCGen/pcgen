@@ -70,7 +70,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " may not be used in Campaign Files.  "
-				+ "Please use the Global Modifier file", context);
+				+ "Please use the Global Modifier file");
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -87,12 +87,12 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " found illegal variable scope: " + scopeName
-				+ " as first argument: " + value, context);
+				+ " as first argument: " + value);
 		}
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " needed 2nd argument: " + value, context);
+				+ " needed 2nd argument: " + value);
 		}
 		LoadContext subContext = context.dropIntoContext(lvs.getName());
 		return continueParsing(subContext, obj, value, sep);
@@ -182,7 +182,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " needed 3rd argument: " + value, context);
+				+ " needed 3rd argument: " + value);
 		}
 		String varName = sep.next();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
@@ -190,19 +190,18 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail(
 				getTokenName() + " found invalid var name: " + varName
 					+ "(scope: " + scope.getName() + ") Modified on "
-					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(),
-				context);
+					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 		}
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " needed 4th argument: " + value, context);
+				+ " needed 4th argument: " + value);
 		}
 		String modIdentification = sep.next();
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " needed 5th argument: " + value, context);
+				+ " needed 5th argument: " + value);
 		}
 		String modInstructions = sep.next();
 		FormulaModifier<?> modifier;
@@ -217,7 +216,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail(getTokenName() + " Modifier "
 				+ modIdentification + " had value " + modInstructions
-				+ " but it was not valid: " + iae.getMessage(), context);
+				+ " but it was not valid: " + iae.getMessage());
 		}
 		Set<Object> associationsVisited =
 				Collections.newSetFromMap(new CaseInsensitiveMap<>());
@@ -229,7 +228,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return new ParseResult.Fail(getTokenName()
 					+ " was expecting = in an ASSOCIATION but got " + assoc
-					+ " in " + value, context);
+					+ " in " + value);
 			}
 			String assocName = assoc.substring(0, equalLoc);
 			if (associationsVisited.contains(assocName))
@@ -237,8 +236,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				return new ParseResult.Fail(
 					getTokenName()
 						+ " does not allow multiple asspociations with the same name.  "
-						+ "Found multiple: " + assocName + " in " + value,
-					context);
+						+ "Found multiple: " + assocName + " in " + value);
 			}
 			associationsVisited.add(assocName);
 			modifier.addAssociation(assoc);

@@ -44,7 +44,7 @@ public class HdToken implements CDOMPrimaryToken<PCClass>
 			Integer in = Integer.valueOf(value);
 			if (in.intValue() <= 0)
 			{
-				return new ParseResult.Fail(getTokenName() + " must be an integer > 0", context);
+				return new ParseResult.Fail(getTokenName() + " must be an integer > 0");
 			}
 			context.getObjectContext().put(pcc, ObjectKey.LEVEL_HITDIE,
 					new HitDie(in));
@@ -54,7 +54,7 @@ public class HdToken implements CDOMPrimaryToken<PCClass>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+					+ getTokenName() + ":<int>");
 		}
 	}
 

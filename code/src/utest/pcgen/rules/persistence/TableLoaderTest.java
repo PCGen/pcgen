@@ -10,6 +10,7 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+import util.TestURI;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class TableLoaderTest
 	@Before
 	public void setUp() throws Exception
 	{
-		uri = new URI("file:/Test%20Case");
+		uri = TestURI.getURI();
 		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		loader = new TableLoader();

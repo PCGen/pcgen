@@ -64,13 +64,13 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (obj instanceof NonInteractive)
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Non-Interactive object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		String key;
 		String val;
@@ -104,7 +104,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				return new ParseResult.Fail(
 					getTokenName() + " is not supported for "
-						+ obj.getClass().getSimpleName(), context);
+						+ obj.getClass().getSimpleName());
 			}
 		}
 
@@ -114,13 +114,13 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			if (maxCount == null || maxCount.isEmpty())
 			{
 				return new ParseResult.Fail(
-					"NUMCHOICES in CHOOSE must be a formula: " + value, context);
+					"NUMCHOICES in CHOOSE must be a formula: " + value);
 			}
 			Formula f = FormulaFactory.getFormulaFor(maxCount);
 			if (!f.isValid())
 			{
 				return new ParseResult.Fail("Number of Choices in "
-						+ getTokenName() + " was not valid: " + f.toString(), context);
+						+ getTokenName() + " was not valid: " + f.toString());
 			}
 			context.getObjectContext().put(obj, FormulaKey.NUMCHOICES, f);
 			pipeLoc = val.indexOf(Constants.PIPE);

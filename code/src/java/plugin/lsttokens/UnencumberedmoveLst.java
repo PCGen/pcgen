@@ -54,7 +54,7 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
@@ -141,7 +141,7 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return new ParseResult.Fail("Invalid value of \""
 						+ loadString + "\" for UNENCUMBEREDMOVE in \""
-						+ obj.getDisplayName() + "\".", context);
+						+ obj.getDisplayName() + "\".");
 			}
 		}
 		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_LOAD,

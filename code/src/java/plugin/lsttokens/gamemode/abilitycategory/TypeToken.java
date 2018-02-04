@@ -66,7 +66,7 @@ public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
 				return new ParseResult.Fail(
 						"Use of named types along with TYPE:* in category "
 								+ ac.getDisplayName() + " is invalid.  Found: "
-								+ value, context);
+								+ value);
 			}
 			else
 			{

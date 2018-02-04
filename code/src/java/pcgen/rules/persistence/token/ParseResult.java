@@ -17,9 +17,9 @@
  */
 package pcgen.rules.persistence.token;
 
+import java.net.URI;
 import java.util.logging.Level;
 
-import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -47,13 +47,13 @@ public interface ParseResult
 	/**
 	 * Log any messages associated with the operation.
 	 */
-	public void printMessages();
+	public void printMessages(URI uri);
 
 	/*
 	 * Temporary method for aiding conversion to use of ParseResult.
 	 * See pcgen.rules.persistence.token.ErrorParsingWrapper for use.
 	 */
-	public void addMessagesToLog();
+	public void addMessagesToLog(URI uri);
 
 	/**
 	 * Class representing a message from the parser.
@@ -85,13 +85,13 @@ public interface ParseResult
 		}
 
 		@Override
-		public void addMessagesToLog()
+		public void addMessagesToLog(URI uri)
 		{
 			//No messages because we passed
 		}
 
 		@Override
-		public void printMessages()
+		public void printMessages(URI uri)
 		{
 			//No messages because we passed
 		}
@@ -109,21 +109,6 @@ public interface ParseResult
 			this.error = new QueuedMessage(Logging.LST_ERROR, error);
 		}
 
-		public Fail(String error, LoadContext context)
-		{
-			if (context == null || context.getSourceURI() == null)
-			{
-				this.error = new QueuedMessage(Logging.LST_ERROR, error);
-			}
-			else
-			{
-				this.error =
-						new QueuedMessage(Logging.LST_ERROR, error
-							+ " (Source: "
-							+ context.getSourceURI() + " )");
-			}
-		}
-
 		@Override
 		public boolean passed()
 		{
@@ -136,16 +121,15 @@ public interface ParseResult
 		}
 
 		@Override
-		public void addMessagesToLog()
+		public void addMessagesToLog(URI uri)
 		{
-			Logging.addParseMessage(error.level, error.message,
-				error.stackTrace);
+			Logging.addParseMessage(error.level, generateText(error, uri), error.stackTrace);
 		}
 
 		@Override
-		public void printMessages()
+		public void printMessages(URI uri)
 		{
-			Logging.log(error.level, error.message, error.stackTrace);
+			Logging.log(error.level, generateText(error, uri), error.stackTrace);
 		}
 
 		@Override
@@ -154,4 +138,10 @@ public interface ParseResult
 			return error.message;
 		}
 	}
+
+	public static String generateText(QueuedMessage message, URI uri)
+	{
+		return message.message + " (Source: " + uri + " )";
+	}
+	
 }

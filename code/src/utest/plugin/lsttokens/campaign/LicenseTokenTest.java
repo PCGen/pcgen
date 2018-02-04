@@ -31,6 +31,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+import util.TestURI;
 
 public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
@@ -65,7 +66,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		URI uri = new URI("http://www.sourceforge.net");
+		URI uri = TestURI.getURI();
 		primaryContext.setSourceURI(uri);
 		secondaryContext.setSourceURI(uri);
 	}

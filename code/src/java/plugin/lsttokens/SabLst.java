@@ -68,7 +68,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);
 
@@ -76,7 +76,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (looksLikeAPrerequisite(firstToken))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-					+ getTokenName(), context);
+					+ getTokenName());
 		}
 
 		boolean foundClear = false;
@@ -96,13 +96,13 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR in "
-							+ getTokenName(), context);
+							+ getTokenName());
 		}
 
 		if (Constants.LST_DOT_CLEAR.equals(firstToken))
 		{
 			return new ParseResult.Fail("SA tag confused by redundant '.CLEAR'"
-					+ aString, context);
+					+ aString);
 		}
 
 		SpecialAbility sa = new SpecialAbility(firstToken.intern());
@@ -123,7 +123,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
 				return new ParseResult.Fail("SA tag confused by '.CLEAR' as a "
-						+ "middle token: " + aString, context);
+						+ "middle token: " + aString);
 			}
 			else if (looksLikeAPrerequisite(token))
 			{
@@ -152,7 +152,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR and a Special Ability in "
-							+ getTokenName(), context);
+							+ getTokenName());
 		}
 
 		while (true)
@@ -161,7 +161,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put Abilities after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)", context);
+						+ "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			sa.addPrerequisite(prereq);
 			if (!tok.hasMoreTokens())

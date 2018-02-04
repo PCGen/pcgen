@@ -64,8 +64,7 @@ public class HandsToken extends AbstractIntToken<PCTemplate> implements
 		if (ControlUtilities.hasControlToken(context, CControl.CREATUREHANDS))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when CREATUREHANDS control is used: " + value,
-				context);
+				+ " is disabled when CREATUREHANDS control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}
