@@ -33,6 +33,11 @@ import pcgen.cdom.formula.scope.PCGenScope;
  */
 public class VarModifier<T>
 {
+	/**
+	 * This is an empty array of VarModifier objects, available for use by a
+	 * VarContainer.
+	 */
+	public static final VarModifier<?>[] EMPTY_VARMODIFIER = new VarModifier[0];
 
 	/**
 	 * The name of the Variable to be modified when this VarModifier is applied.

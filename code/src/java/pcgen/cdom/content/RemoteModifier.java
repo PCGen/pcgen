@@ -38,6 +38,12 @@ public class RemoteModifier<MT>
 {
 
 	/**
+	 * This is an empty array of RemoteModifier objects, available for use by a
+	 * VarContainer.
+	 */
+	public static final RemoteModifier<?>[] EMPTY_REMOTEMODIFIER = new RemoteModifier[0];
+
+	/**
 	 * The VarModifier indicating the variable to which the Modifier should be
 	 * applied.
 	 */

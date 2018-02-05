@@ -40,6 +40,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
@@ -95,10 +97,8 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-import org.apache.commons.lang3.StringUtils;
-
-public final class Equipment extends PObject implements Serializable,
-		Comparable<Object>, VariableContainer, EquipmentFacade, VarScoped
+public final class Equipment extends PObject implements Serializable, Comparable<Object>,
+		VariableContainer, EquipmentFacade, VarScoped
 {
 
 	private static final long serialVersionUID = 1;

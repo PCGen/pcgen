@@ -44,7 +44,8 @@ import pcgen.util.Delta;
 /**
  * Definition and games rules for an equipment modifier.
  */
-public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade, Cloneable
+public final class EquipmentModifier extends PObject
+		implements Comparable<Object>, EquipModFacade, Cloneable
 {
 	private static final String PERCENT_CHOICE_PATTERN = Pattern
 								.quote(Constants.LST_PERCENT_CHOICE);

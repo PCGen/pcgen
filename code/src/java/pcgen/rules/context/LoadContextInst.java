@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Optional;
 
 import pcgen.base.formula.inst.NEPFormula;
+import pcgen.base.proxy.DeferredMethodController;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
@@ -78,6 +79,11 @@ abstract class LoadContextInst implements LoadContext
 	private final TokenSupport support = new TokenSupport();
 
 	private final List<Object> dontForget = new ArrayList<>();
+
+	/**
+	 * The List of CommitTask objects for this LoadContext.
+	 */
+	private final List<DeferredMethodController<?>> commitTasks = new ArrayList<>();
 
 	//Per file
 	private URI sourceURI;
@@ -196,6 +202,11 @@ abstract class LoadContextInst implements LoadContext
 	{
 		getListContext().commit();
 		getObjectContext().commit();
+		for (DeferredMethodController<?> task : commitTasks)
+		{
+			task.run();
+		}
+		commitTasks.clear();
 	}
 
 	@Override
@@ -203,6 +214,7 @@ abstract class LoadContextInst implements LoadContext
 	{
 		getListContext().rollback();
 		getObjectContext().rollback();
+		commitTasks.clear();
 	}
 
 	@Override
@@ -372,7 +384,7 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public <T> Collection<String> unparse(T cdo)
+	public <T extends Loadable> Collection<String> unparse(T cdo)
 	{
 		return support.unparse(this, cdo);
 	}
@@ -553,6 +565,12 @@ abstract class LoadContextInst implements LoadContext
 				+ " does not exist");
 		}
 		return dropIntoContext(subScope);
+	}
+
+	@Override
+	public void addDeferredMethodController(DeferredMethodController<?> commitTask)
+	{
+		commitTasks.add(commitTask);
 	}
 
 	private LoadContext dropIntoContext(PCGenScope lvs)
@@ -792,7 +810,7 @@ abstract class LoadContextInst implements LoadContext
 		}
 
 		@Override
-		public <T> Collection<String> unparse(T cdo)
+		public <T extends Loadable> Collection<String> unparse(T cdo)
 		{
 			return support.unparse(this, cdo);
 		}
@@ -866,5 +884,11 @@ abstract class LoadContextInst implements LoadContext
 		{
 			return parent.getValidFormula(formatManager, instructions);
 		}
-}
+
+		@Override
+		public void addDeferredMethodController(DeferredMethodController<?> controller)
+		{
+			parent.addDeferredMethodController(controller);
+		}
+	}
 }
