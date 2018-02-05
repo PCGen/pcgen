@@ -36,6 +36,7 @@ import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 public class FavClassConvertPlugin extends AbstractToken implements
 		TokenProcessorPlugin
@@ -54,9 +55,15 @@ public class FavClassConvertPlugin extends AbstractToken implements
 		}
 
 		String choices = value.substring(7);
-		if (isEmpty(choices) || hasIllegalSeparator('|', choices))
+		ParseResult pr = checkNonEmpty(choices);
+		if (!pr.passed())
 		{
-			return "Empty Token";
+			return "Empty";
+		}
+		pr = checkForIllegalSeparator('|', choices);
+		if (!pr.passed())
+		{
+			return "Illegal Separator";
 		}
 		boolean foundAny = false;
 		boolean foundOther = false;

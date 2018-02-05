@@ -122,13 +122,139 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return pr;
 			}
-			Equipment anEquip = createNaturalWeapon(context, obj, tokString.intern());
+			String wpn = tokString.intern();
 
-			if (anEquip == null)
+			StringTokenizer commaTok = new StringTokenizer(wpn, Constants.COMMA);
+
+			int numTokens = commaTok.countTokens();
+			if (numTokens < 4)
 			{
-				return ParseResult.INTERNAL_ERROR;
-				//return new ParseResult.Fail("Natural Weapon Creation Failed for : "
-				//		+ tokString, context);
+				return new ParseResult.Fail("Invalid Build of " + "Natural Weapon in "
+						+ getTokenName() + ": " + wpn, context);
+			}
+
+			String attackName = commaTok.nextToken();
+
+			if (attackName.equalsIgnoreCase(Constants.LST_NONE))
+			{
+				return new ParseResult.Fail("Attempt to Build 'None' as a "
+						+ "Natural Weapon in " + getTokenName() + ": " + wpn, context);
+			}
+
+			attackName = attackName.intern();
+			Equipment anEquip = new Equipment();
+			anEquip.setName(attackName);
+			anEquip.put(ObjectKey.PARENT, obj);
+			/*
+			 * This really can't be raw equipment... It really never needs to be
+			 * referred to, but this means that duplicates are never being detected
+			 * and resolved... this needs to have a KEY defined, to keep it
+			 * unique... hopefully this is good enough :)
+			 *
+			 * CONSIDER This really isn't that great, because it's String dependent,
+			 * and may not remove identical items... it certainly works, but is ugly
+			 */
+			// anEquip.setKeyName(obj.getClass().getSimpleName() + ","
+			// + obj.getKeyName() + "," + wpn);
+			/*
+			 * Perhaps the construction above should be through context just to
+			 * guarantee uniqueness of the key?? - that's too paranoid
+			 */
+
+			EquipmentHead equipHead = anEquip.getEquipmentHead(1);
+
+			String profType = commaTok.nextToken();
+			pr = checkForIllegalSeparator('.', profType);
+			if (!pr.passed())
+			{
+				return pr;
+			}
+			StringTokenizer dotTok = new StringTokenizer(profType, Constants.DOT);
+			while (dotTok.hasMoreTokens())
+			{
+				Type type = Type.getConstant(dotTok.nextToken());
+				anEquip.addToListFor(ListKey.TYPE, type);
+			}
+
+			String numAttacks = commaTok.nextToken();
+			boolean attacksFixed = !numAttacks.isEmpty()
+					&& numAttacks.charAt(0) == '*';
+			if (attacksFixed)
+			{
+				numAttacks = numAttacks.substring(1);
+			}
+			anEquip.put(ObjectKey.ATTACKS_PROGRESS, !attacksFixed);
+			try
+			{
+				int bonusAttacks = Integer.parseInt(numAttacks) - 1;
+				final BonusObj aBonus = Bonus.newBonus(context, "WEAPON|ATTACKS|"
+						+ bonusAttacks);
+
+				if (aBonus == null)
+				{
+					return new ParseResult.Fail(getTokenName()
+							+ " was given invalid number of attacks: "
+							+ bonusAttacks, context);
+				}
+				anEquip.addToListFor(ListKey.BONUS, aBonus);
+			}
+			catch (NumberFormatException exc)
+			{
+				return new ParseResult.Fail("Non-numeric value for number of attacks in "
+						+ getTokenName() + ": '" + numAttacks + '\'', context);
+			}
+
+			equipHead.put(StringKey.DAMAGE, commaTok.nextToken());
+
+			// sage_sam 02 Dec 2002 for Bug #586332
+			// allow hands to be required to equip natural weapons
+			int handsrequired = 0;
+			while (commaTok.hasMoreTokens())
+			{
+				final String hString = commaTok.nextToken();
+				if  (hString.startsWith("SPROP="))
+				{
+					anEquip.addToListFor(ListKey.SPECIAL_PROPERTIES,
+						SpecialProperty.createFromLst(hString.substring(6)));
+				}
+				else
+				{
+					try
+					{
+						handsrequired = Integer
+								.parseInt(hString);
+					}
+					catch (NumberFormatException exc)
+					{
+						return new ParseResult.Fail("Non-numeric value for hands required: '"
+								+ hString + '\'', context);
+					}
+				}
+			}
+			anEquip.put(IntegerKey.SLOTS, handsrequired);
+
+			anEquip.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
+
+			WeaponProf cwp = context.getReferenceContext().silentlyGetConstructedCDOMObject(
+					WEAPONPROF_CLASS, attackName);
+			if (cwp == null)
+			{
+				cwp = context.getReferenceContext().constructNowIfNecessary(WEAPONPROF_CLASS,
+						attackName);
+				cwp.addToListFor(ListKey.TYPE, Type.NATURAL);
+			}
+			CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(
+					WEAPONPROF_CLASS, attackName);
+			anEquip.put(ObjectKey.WEAPON_PROF, wp);
+			anEquip.addToListFor(ListKey.IMPLIED_WEAPONPROF, wp);
+
+			if (!ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
+			{
+				equipHead.put(IntegerKey.CRIT_RANGE, 1);
+			}
+			if (!ControlUtilities.hasControlToken(context, CControl.CRITMULT))
+			{
+				equipHead.put(IntegerKey.CRIT_MULT, 2);
 			}
 
 			if (count == 1)
@@ -150,158 +276,6 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			count++;
 		}
 		return ParseResult.SUCCESS;
-	}
-
-	/**
-	 * Create the Natural weapon equipment item aTok = primary weapon
-	 * name,weapon type,num attacks,damage for Example:
-	 * Tentacle,Weapon.Natural.Melee.Slashing,*4,1d6
-	 *
-	 * @param aTok
-	 * @param size
-	 * @return natural weapon
-	 */
-	private Equipment createNaturalWeapon(LoadContext context, CDOMObject obj,
-			String wpn)
-	{
-		StringTokenizer commaTok = new StringTokenizer(wpn, Constants.COMMA);
-
-		int numTokens = commaTok.countTokens();
-		if (numTokens < 4)
-		{
-			Logging.errorPrint("Invalid Build of " + "Natural Weapon in "
-					+ getTokenName() + ": " + wpn);
-			return null;
-		}
-
-		String attackName = commaTok.nextToken();
-
-		if (attackName.equalsIgnoreCase(Constants.LST_NONE))
-		{
-			Logging.errorPrint("Attempt to Build 'None' as a "
-					+ "Natural Weapon in " + getTokenName() + ": " + wpn);
-			return null;
-		}
-
-		attackName = attackName.intern();
-		Equipment anEquip = new Equipment();
-		anEquip.setName(attackName);
-		anEquip.put(ObjectKey.PARENT, obj);
-		/*
-		 * This really can't be raw equipment... It really never needs to be
-		 * referred to, but this means that duplicates are never being detected
-		 * and resolved... this needs to have a KEY defined, to keep it
-		 * unique... hopefully this is good enough :)
-		 *
-		 * CONSIDER This really isn't that great, because it's String dependent,
-		 * and may not remove identical items... it certainly works, but is ugly
-		 */
-		// anEquip.setKeyName(obj.getClass().getSimpleName() + ","
-		// + obj.getKeyName() + "," + wpn);
-		/*
-		 * Perhaps the construction above should be through context just to
-		 * guarantee uniqueness of the key?? - that's too paranoid
-		 */
-
-		EquipmentHead equipHead = anEquip.getEquipmentHead(1);
-
-		String profType = commaTok.nextToken();
-		if (hasIllegalSeparator('.', profType))
-		{
-			return null;
-		}
-		StringTokenizer dotTok = new StringTokenizer(profType, Constants.DOT);
-		while (dotTok.hasMoreTokens())
-		{
-			Type type = Type.getConstant(dotTok.nextToken());
-			anEquip.addToListFor(ListKey.TYPE, type);
-		}
-
-		String numAttacks = commaTok.nextToken();
-		boolean attacksFixed = !numAttacks.isEmpty()
-				&& numAttacks.charAt(0) == '*';
-		if (attacksFixed)
-		{
-			numAttacks = numAttacks.substring(1);
-		}
-		anEquip.put(ObjectKey.ATTACKS_PROGRESS, !attacksFixed);
-		try
-		{
-			int bonusAttacks = Integer.parseInt(numAttacks) - 1;
-			final BonusObj aBonus = Bonus.newBonus(context, "WEAPON|ATTACKS|"
-					+ bonusAttacks);
-
-			if (aBonus == null)
-			{
-				Logging.errorPrint(getTokenName()
-						+ " was given invalid number of attacks: "
-						+ bonusAttacks);
-				return null;
-			}
-			anEquip.addToListFor(ListKey.BONUS, aBonus);
-		}
-		catch (NumberFormatException exc)
-		{
-			Logging.errorPrint("Non-numeric value for number of attacks in "
-					+ getTokenName() + ": '" + numAttacks + '\'');
-			return null;
-		}
-
-		equipHead.put(StringKey.DAMAGE, commaTok.nextToken());
-
-		// sage_sam 02 Dec 2002 for Bug #586332
-		// allow hands to be required to equip natural weapons
-		int handsrequired = 0;
-		while (commaTok.hasMoreTokens())
-		{
-			final String hString = commaTok.nextToken();
-			if  (hString.startsWith("SPROP="))
-			{
-				anEquip.addToListFor(ListKey.SPECIAL_PROPERTIES,
-					SpecialProperty.createFromLst(hString.substring(6)));
-			}
-			else
-			{
-				try
-				{
-					handsrequired = Integer
-							.parseInt(hString);
-				}
-				catch (NumberFormatException exc)
-				{
-					Logging.errorPrint("Non-numeric value for hands required: '"
-							+ hString + '\'');
-					return null;
-				}
-			}
-		}
-		anEquip.put(IntegerKey.SLOTS, handsrequired);
-
-		anEquip.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-
-		WeaponProf cwp = context.getReferenceContext().silentlyGetConstructedCDOMObject(
-				WEAPONPROF_CLASS, attackName);
-		if (cwp == null)
-		{
-			cwp = context.getReferenceContext().constructNowIfNecessary(WEAPONPROF_CLASS,
-					attackName);
-			cwp.addToListFor(ListKey.TYPE, Type.NATURAL);
-		}
-		CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(
-				WEAPONPROF_CLASS, attackName);
-		anEquip.put(ObjectKey.WEAPON_PROF, wp);
-		anEquip.addToListFor(ListKey.IMPLIED_WEAPONPROF, wp);
-
-		if (!ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
-		{
-			equipHead.put(IntegerKey.CRIT_RANGE, 1);
-		}
-		if (!ControlUtilities.hasControlToken(context, CControl.CRITMULT))
-		{
-			equipHead.put(IntegerKey.CRIT_MULT, 2);
-		}
-
-		return anEquip;
 	}
 
 	@Override
