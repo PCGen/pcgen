@@ -140,9 +140,6 @@ class OpposedCheckDialog extends JDialog
 
 			}
 
-			/**
-			 * @see java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.DataFlavor)
-			 */
             @Override
 			public Object getTransferData(DataFlavor flavor)
 				throws UnsupportedFlavorException
@@ -154,18 +151,12 @@ class OpposedCheckDialog extends JDialog
 				return items;
 			}
 
-			/**
-			 * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
-			 */
             @Override
 			public DataFlavor[] getTransferDataFlavors()
 			{
 				return new DataFlavor[]{combatantFlavor};
 			}
 
-			/**
-			 * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.datatransfer.DataFlavor)
-			 */
             @Override
 			public boolean isDataFlavorSupported(DataFlavor flavor)
 			{
@@ -204,9 +195,6 @@ class OpposedCheckDialog extends JDialog
 			}
 		}
 
-		/**
-		 * @see javax.swing.TransferHandler#canImport(javax.swing.JComponent, java.awt.datatransfer.DataFlavor[])
-		 */
         @Override
 		public boolean canImport(JComponent c, DataFlavor[] flavors)
 		{
@@ -226,9 +214,6 @@ class OpposedCheckDialog extends JDialog
 			return false;
 		}
 
-		/**
-		 * @see javax.swing.TransferHandler#createTransferable(javax.swing.JComponent)
-		 */
         @Override
 		protected Transferable createTransferable(JComponent c)
 		{
@@ -241,9 +226,6 @@ class OpposedCheckDialog extends JDialog
 			return null;
 		}
 
-		/**
-		 * @see javax.swing.TransferHandler#exportDone(javax.swing.JComponent, java.awt.datatransfer.Transferable, int)
-		 */
         @Override
 		protected void exportDone(JComponent c, Transferable data, int action)
 		{
@@ -262,18 +244,12 @@ class OpposedCheckDialog extends JDialog
 			sourceModel = null;
 		}
 
-		/**
-		 * @see javax.swing.TransferHandler#getSourceActions(javax.swing.JComponent)
-		 */
         @Override
 		public int getSourceActions(JComponent c)
 		{
 			return TransferHandler.MOVE;
 		}
 
-		/**
-		 * @see javax.swing.TransferHandler#importData(javax.swing.JComponent, java.awt.datatransfer.Transferable)
-		 */
         @Override
 		public boolean importData(JComponent c, Transferable t)
 		{
