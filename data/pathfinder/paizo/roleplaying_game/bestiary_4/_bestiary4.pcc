@@ -54,6 +54,7 @@ ABILITY:b4_abilities_race_arg.lst
 ABILITY:b4_abilities_races_ce.lst
 ABILITYCATEGORY:b4_abilitycategories.lst
 ABILITYCATEGORY:b4_abilitycategories_arg.lst
+COMPANIONMOD:b4_companionmods.lst
 DOMAIN:b4_domains.lst
 EQUIPMENT:b4_equip_arms_armor.lst
 EQUIPMENT:b4_equip_magic_items.lst
