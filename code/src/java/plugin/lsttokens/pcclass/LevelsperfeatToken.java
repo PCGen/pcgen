@@ -115,12 +115,6 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{

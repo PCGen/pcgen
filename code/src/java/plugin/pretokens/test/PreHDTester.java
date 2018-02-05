@@ -66,9 +66,6 @@ public class PreHDTester extends AbstractDisplayPrereqTest implements
 		return "HD"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{

@@ -48,11 +48,6 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 	private static final String URL_KIND_NAME_WEBSITE = "WEBSITE";
 	private static final String URL_KIND_NAME_SURVEY = "SURVEY";
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
     @Override
 	public String getTokenName()
 	{

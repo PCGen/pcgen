@@ -36,9 +36,6 @@ public class VisibleToken extends AbstractNonEmptyToken<Ability> implements
 		CDOMPrimaryToken<Ability>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

@@ -67,9 +67,6 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 	 * 
 	 * All such objects must have a SORTKEY and in PCGen 6.5/6.6, the file order
 	 * must match the SORTKEY order.
-	 * 
-	 * @see pcgen.rules.persistence.token.PostValidationToken#process(pcgen.rules.context.LoadContext,
-	 *      java.util.Collection)
 	 */
 	@Override
 	public boolean process(LoadContext context,
