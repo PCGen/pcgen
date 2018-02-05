@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-16 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-18 (C) Thomas Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -28,25 +28,25 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.base.VarContainer;
+import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.VarModifier;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.Campaign;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMInterfaceToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 /**
  * The MODIFY token defined by ModifyLst defines a calculation to be performed in the
  * (new) formula system.
  */
-public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class ModifyLst extends AbstractTokenWithSeparator<VarHolder> implements
+		CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
 {
 
 	@Override
@@ -63,8 +63,13 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+		VarHolder obj, String value)
 	{
+		if (obj instanceof Ungranted)
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " may not be used in Ungranted objects.");
+		}
 		if (obj instanceof Campaign)
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -87,7 +92,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail(
 				getTokenName() + " found invalid var name: " + varName
 					+ "(scope: " + scope.getName() + ") Modified on "
-					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
+					+ obj.getClass().getSimpleName() + ' ' + obj);
 		}
 		if (!sep.hasNext())
 		{
@@ -138,39 +143,21 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 			associationsVisited.add(assocName);
 			modifier.addAssociation(assoc);
 		}
-		VarModifier<?> vm = new VarModifier<>(varName, scope, modifier);
-		context.getObjectContext().addToList(obj, ListKey.MODIFY, vm);
+		obj.addModifier(new VarModifier<>(varName, scope, modifier));
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
+	public String[] unparse(LoadContext context, VarHolder obj)
 	{
-		Changes<VarModifier<?>> changes =
-				context.getObjectContext().getListChanges(obj, ListKey.MODIFY);
-		if (changes.hasRemovedItems())
-		{
-			Logging.errorPrint(getTokenName()
-				+ " does not support removed items");
-			return null;
-		}
-		if (changes.includesGlobalClear())
-		{
-			Logging.errorPrint(getTokenName() + " does not support .CLEAR");
-			return null;
-		}
-		Collection<VarModifier<?>> added = changes.getAdded();
 		List<String> modifiers = new ArrayList<>();
-		if (added != null && !added.isEmpty())
+		for (VarModifier<?> vm : obj.getModifierArray())
 		{
-			for (VarModifier<?> vm : added)
-			{
-				StringBuilder sb = new StringBuilder();
-				sb.append(vm.getVarName());
-				sb.append(Constants.PIPE);
-				sb.append(unparseModifier(vm));
-				modifiers.add(sb.toString());
-			}
+			StringBuilder sb = new StringBuilder();
+			sb.append(vm.getVarName());
+			sb.append(Constants.PIPE);
+			sb.append(unparseModifier(vm));
+			modifiers.add(sb.toString());
 		}
 		if (modifiers.isEmpty())
 		{
@@ -198,8 +185,14 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public Class<CDOMObject> getTokenClass()
+	public Class<VarHolder> getTokenClass()
 	{
-		return CDOMObject.class;
+		return VarHolder.class;
+	}
+
+	@Override
+	public Class<VarContainer> getReadInterface()
+	{
+		return VarContainer.class;
 	}
 }

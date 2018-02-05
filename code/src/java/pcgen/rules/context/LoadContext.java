@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.formula.inst.NEPFormula;
+import pcgen.base.proxy.DeferredMethodController;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -129,7 +130,17 @@ public interface LoadContext
 
 	public <T> String[] unparseSubtoken(T cdo, String tokenName);
 
-	public <T> Collection<String> unparse(T cdo);
+	/**
+	 * Unparses the given Object into a Collection of String objects, for each token that
+	 * would be on the object.
+	 * 
+	 * @param loadable
+	 *            The loadable object to be unparsed into the tokens used to persist the
+	 *            object
+	 * @return A Collection of Strings representing the tokens that are part of the
+	 *         persistent format of the given Loadable
+	 */
+	public <T extends Loadable> Collection<String> unparse(T loadable);
 
 	/*
 	 * Output Messages
@@ -192,4 +203,14 @@ public interface LoadContext
 	 */
 	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
 		String instructions);
+
+	/**
+	 * Adds a DeferredMethodController to this LoadContext. This DeferredMethodController
+	 * will be run if commit() is called or forgotten with no action if rollback() is
+	 * called.
+	 * 
+	 * @param commitTask
+	 *            The DeferredMethodController to be added to this LoadContext
+	 */
+	public void addDeferredMethodController(DeferredMethodController<?> controller);
 }

@@ -24,7 +24,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.DirectAbilityFacet;
@@ -254,7 +253,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		GlobalModifiers mods = ref.constructNowIfNecessary(GlobalModifiers.class,
 			GlobalModifierLoader.GLOBAL_MODIFIERS);
-		mods.addToListFor(ListKey.GRANTEDVARS, ChannelUtilities.createVarName("AlignmentInput"));
+		mods.addGrantedVariable(ChannelUtilities.createVarName("AlignmentInput"));
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");

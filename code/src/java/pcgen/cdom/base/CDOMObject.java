@@ -37,6 +37,8 @@ import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.content.RemoteModifier;
+import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -56,8 +58,13 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable, BonusContainer, Loadable, Reducible, VarScoped
+		Cloneable, BonusContainer, Loadable, Reducible, VarScoped, VarHolder
 {
+
+	/**
+	 * An Empty String array to support VarHolder
+	 */
+	private static final String[] EMPTY_STRING_ARRAY = new String[0];
 
 	private URI sourceURI = null;
 	
@@ -1260,4 +1267,52 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 		return false;
 	}
+
+	/*
+	 * Begin implementation of methods for VarHolder interface
+	 */
+	@Override
+	public void addModifier(VarModifier<?> vm)
+	{
+		addToListFor(ListKey.MODIFY, vm);
+	}
+
+	@Override
+	public VarModifier<?>[] getModifierArray()
+	{
+		List<VarModifier<?>> list = getListFor(ListKey.MODIFY);
+		return (list == null) ? VarModifier.EMPTY_VARMODIFIER
+			: list.toArray(new VarModifier[list.size()]);
+	}
+
+	@Override
+	public void addRemoteModifier(RemoteModifier<?> vm)
+	{
+		addToListFor(ListKey.REMOTE_MODIFIER, vm);
+	}
+
+	@Override
+	public RemoteModifier<?>[] getRemoteModifierArray()
+	{
+		List<RemoteModifier<?>> list = getListFor(ListKey.REMOTE_MODIFIER);
+		return (list == null) ? RemoteModifier.EMPTY_REMOTEMODIFIER
+			: list.toArray(new RemoteModifier[list.size()]);
+	}
+
+	@Override
+	public void addGrantedVariable(String variableName)
+	{
+		addToListFor(ListKey.GRANTEDVARS, variableName);
+	}
+
+	@Override
+	public String[] getGrantedVariableArray()
+	{
+		List<String> list = getListFor(ListKey.GRANTEDVARS);
+		return (list == null) ? EMPTY_STRING_ARRAY
+			: list.toArray(new String[list.size()]);
+	}
+	/*
+	 * End implementation of methods supporting VarHolder.
+	 */
 }
