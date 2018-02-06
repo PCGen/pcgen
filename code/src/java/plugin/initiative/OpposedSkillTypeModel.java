@@ -64,9 +64,6 @@ public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 		columns.addColumn("TYPE", String.class, null, false, "Type");
 	}
 
-	/**
-	 * @see javax.swing.table.TableModel#getValueAt(int, int)
-	 */
     @Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
