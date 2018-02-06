@@ -40,9 +40,6 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

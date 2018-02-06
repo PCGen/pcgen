@@ -37,11 +37,6 @@ public class EqBuilderEqTypeToken implements
 		CDOMSecondaryToken<EquipmentModifier>
 {
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
