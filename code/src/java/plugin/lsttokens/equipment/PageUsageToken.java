@@ -37,9 +37,6 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

@@ -32,11 +32,6 @@ public class VisibleToken extends AbstractNonEmptyToken<PCTemplate> implements
 		CDOMPrimaryToken<PCTemplate>
 {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

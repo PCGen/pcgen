@@ -44,11 +44,6 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		CDOMPrimaryToken<PCTemplate>
 {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

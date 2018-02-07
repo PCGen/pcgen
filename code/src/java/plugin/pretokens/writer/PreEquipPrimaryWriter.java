@@ -31,19 +31,12 @@ public class PreEquipPrimaryWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
-	 */
     @Override
 	public String kindHandled()
 	{
-		// TODO Auto-generated method stub
 		return "EQUIPPRIMARY";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
-	 */
     @Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
@@ -51,9 +44,6 @@ public class PreEquipPrimaryWriter extends AbstractPrerequisiteWriter implements
 			PrerequisiteOperator.LT};
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
-	 */
     @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException

@@ -871,7 +871,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<template></template>
 				<type>B</type>
 				<weight>10</weight>
@@ -931,7 +931,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<template></template>
 				<type>B</type>
 				<weight>0</weight>
@@ -1611,7 +1611,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+			<special_properties>disarm, trip</special_properties>
 			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>10</weight>
 			<bonuslist></bonuslist>
@@ -1637,7 +1637,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+			<special_properties>disarm, trip</special_properties>
 			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
@@ -2368,7 +2368,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>10</weight>
 				<bonuslist></bonuslist>
@@ -2389,7 +2389,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
@@ -3025,10 +3025,10 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Weapon Focus (Flail (Heavy))</name>
+			<name>Weapon Focus (Heavy Flail)</name>
 			<description>You are especially good at using your chosen weapon.</description>
 			<type>COMBAT.WEAPONFOCUS.DESTINEDBLOODLINE.ORACLEWEAPONMASTERY</type>
-			<associated>Flail (Heavy)</associated>
+			<associated>Heavy Flail</associated>
 			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
@@ -3643,7 +3643,7 @@ BIO
 	  ====================================
 	  ====================================-->
 
-	<weapon_proficiencies>Amentum, Atlatl, Axe (Throwing), Bardiche, Battleaxe, Bayonet, Bec de Corbin, Bill, Blowgun, Broadsword (Nine Ring), Butterfly Sword, Cestus, Chakram, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Double Chicken Saber, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Glaive-Guisarme, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Hooked Lance, Iron Brush, Javelin, Jutte, Katana, Kerambit, Kukri, Lance, Longbow, Longspear, Longsword, Lucerne Hammer, Lungchuan Tamo, Mace (Heavy), Mace (Light), Mattock, Mere Club, Monk&#39;s Spade, Morningstar, Naginata, Nodachi, Pick (Heavy), Pick (Light), Pilum, Poisoned Sand Tube, Quarterstaff, Ranseur, Rapier, Rhomphaia, Rock, Sansetsukon, Sap, Scimitar, Scizore, Scythe, Shang Gou, Shieldbash, Shortbow, Shortspear, Sibat, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Spiked Armor, Splash Weapon, Stake, Starknife, Sword (Bastard), Sword (Short), Sword (Tri-Point Double-Edged), Sword Cane, Tepoztopilli, Terbutje, Tiger Fork, Tonfa, Trident, Tube Arrow Shooter, Unarmed Strike, Waraxe (Dwarven), Warhammer, Wushu Dart</weapon_proficiencies>
+	<weapon_proficiencies>Amentum, Atlatl, Throwing Axe, Bardiche, Battleaxe, Bayonet, Bec de Corbin, Bill, Blowgun, Nine Ring Broadsword, Butterfly Sword, Cestus, Chakram, Club, Heavy Crossbow, Light Crossbow, Dagger, Punching Dagger, Dart, Double Chicken Saber, Falchion, Light Flail, Heavy Flail, Gauntlet, Spiked Gauntlet, Glaive, Glaive-Guisarme, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Light Hammer, Handaxe, Hooked Lance, Iron Brush, Javelin, Jutte, Katana, Kerambit, Kukri, Lance, Longbow, Longspear, Longsword, Lucerne Hammer, Lungchuan Tamo, Heavy Mace, Light Mace, Mattock, Mere Club, Monk&#39;s Spade, Morningstar, Naginata, Nodachi, Heavy Pick, Light Pick, Pilum, Poisoned Sand Tube, Quarterstaff, Ranseur, Rapier, Rhomphaia, Rock, Sansetsukon, Sap, Scimitar, Scizore, Scythe, Shang Gou, Shieldbash, Shortbow, Shortspear, Sibat, Sickle, Sling, Spear, Boar Spear, Ray Spells, Touch Spells, Spiked Armor, Splash Weapon, Stake, Starknife, Bastard Sword, Short Sword, Tri-Point Double-Edged Sword, Sword Cane, Tepoztopilli, Terbutje, Tiger Fork, Tonfa, Trident, Tube Arrow Shooter, Unarmed Strike, Dwarven Waraxe, Warhammer, Wushu Dart</weapon_proficiencies>
 	<languages>Common, Varisian</languages>
 
 

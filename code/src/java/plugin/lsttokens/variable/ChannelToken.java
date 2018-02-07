@@ -99,7 +99,7 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 		LegalScope lvs;
 		if ("GLOBAL".equals(fullscope))
 		{
-			lvs = context.getActiveScope().getLegalScope();
+			lvs = context.getActiveScope();
 		}
 		else
 		{

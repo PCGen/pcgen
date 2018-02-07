@@ -57,9 +57,6 @@ import pcgen.util.Logging;
 public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		CDOMPrimaryToken<Ability>
 {
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -168,12 +165,6 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		return aspect;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryParserToken#unparse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
@@ -198,11 +189,6 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		return set.toArray(new String[set.size()]);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
-	 */
 	@Override
 	public Class<Ability> getTokenClass()
 	{

@@ -97,6 +97,8 @@ Whistle (Silent)							OUTPUTNAME:Whistle, Silent									TYPE:Goods.General				
 Wrist Sheath																				TYPE:Goods.General.Container			CONTAINS:UNLIM|Any=5	COST:1	WT:1																		SOURCEPAGE:p.9								SPROP:Holds 1 forearm-length item or five arrows or bolts. Move action to release 1 or more items (provokes as normal). +2 on Sleight of Hand to hide items in sheath. Can wear one wrist sheath per arm.
 Wrist Sheath (Spring Loaded)					OUTPUTNAME:Wrist Sheath, Spring Loaded							TYPE:Goods.General.Container			CONTAINS:UNLIM|Any=5	COST:5	WT:1																		SOURCEPAGE:p.9								SPROP:Holds 1 forearm-length item or five arrows or bolts. Swift action to release 1 or more items (provokes as normal). +2 on Sleight of Hand to hide items in sheath. Can wear one wrist sheath per arm. Full-round action to insert item.
 
+Tattoo.MOD					TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+
 #Special Substances and Items
 Alchemical Grease																				TYPE:Goods.Alchemical.Consumable						COST:5	WT:1																		SOURCEPAGE:p.9
 Alchemical Solvent (Vial)																		TYPE:Goods.Alchemical.Consumable.Vial					COST:20	WT:0.5																	SOURCEPAGE:p.9								SPROP:Eats through adhesives

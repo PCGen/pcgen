@@ -22,9 +22,9 @@ Vital Guard				KEY:Special Quality ~ Vital Guard ~ Armor		TYPE:Armor		COST:500		
 
 
 #Old KEYs
-Nexavaran Steel			NAMEISPI:YES	KEY:Nexavaran Steel		TYPE:Weapon		COST:(BASECOST)*1.5	VISIBLE:NO		SOURCEPAGE:p.55		PRETYPE:1,Weapon		BONUS:ITEMCOST|TYPE.Enhancement.WEAPON|3000																									SPROP:Treat as cold iron.
+Material ~ Nexavaran Steel.COPY=Nexavaran Steel		VISIBLE:NO
 
-Deflecting				KEY:Deflecting		TYPE:Armor		COST:1000			VISIBLE:NO		SOURCEPAGE:p.55		PRETYPE:1,Armor		BONUS:ITEMCOST|TYPE.Enhancement.WEAPON|500		BONUS:EQM|WEIGHTADD|10		BONUS:MOVEADD|TYPE.Walk|-5|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady,TYPE.DuergarSteady		SPROP:If attacked by a bludgeoning or slashing melee weapon that misses by 5 or less, wearer gains +1 on his next melee attack roll against that opponent if made in the next round.
-Drowscourge				KEY:Drowscourge		TYPE:WEAPON		PLUS:1			VISIBLE:NO		SOURCEPAGE:p.56		PRETYPE:2,Enhancement,Weapon																																SPROP:Against driders, creatures of drow subtype, the weapon's enhancement bonus is +1 better. The bearer is able to detect drow 1/day and gain darkvision (as the spell) 1/day.
-Jarring				KEY:Jarring			TYPE:Armor		COST:1000			VISIBLE:NO		SOURCEPAGE:p.55		PRETYPE:1,Armor		BONUS:ITEMCOST|TYPE.Enhancement.WEAPON|500		BONUS:EQM|WEIGHTADD|20		BONUS:MOVEADD|TYPE.Walk|-5|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady,TYPE.DuergarSteady		SPROP:If attacked by Power Attack with a melee weapon that misses by 5 or less, attacker must make a Fortitude (DC 10 plus bonus Power Attack would have applied to damage).
-Vital Guard				KEY:Vital Guard		TYPE:Armor		COST:500			VISIBLE:NO		SOURCEPAGE:p.55		PRETYPE:1,Armor		BONUS:ITEMCOST|TYPE.Enhancement.WEAPON|250		BONUS:EQM|WEIGHTADD|15		BONUS:MOVEADD|TYPE.Walk|-5|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady,TYPE.DuergarSteady		SPROP:Treat the wearer's armor bonus as +2 higher than normal for the confirmation roll against critical threats.
+Special Quality ~ Deflecting ~ Armor.COPY=Deflecting		VISIBLE:NO
+Special Quality ~ Drowscourge ~ Weapon.COPY=Drowscourge	VISIBLE:NO
+Special Quality ~ Jarring ~ Armor.COPY=Jarring			VISIBLE:NO
+Special Quality ~ Vital Guard ~ Armor.COPY=Vital Guard	VISIBLE:NO

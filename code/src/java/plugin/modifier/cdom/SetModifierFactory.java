@@ -19,7 +19,7 @@ package plugin.modifier.cdom;
 
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -37,7 +37,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 {
 
 	@Override
-	public PCGenModifier<CDOMObject> getModifier(String instructions,
+	public FormulaModifier<CDOMObject> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<CDOMObject> formatManager)
 	{
@@ -51,11 +51,6 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 		return new CalculationModifier<>(calc, formatManager);
 	}
 
-	/**
-	 * Identifies that this SetModifier acts upon CDOMObject objects.
-	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
-	 */
 	@Override
 	public Class<CDOMObject> getVariableFormat()
 	{

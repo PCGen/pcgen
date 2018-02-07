@@ -109,11 +109,11 @@ public class InputFunction implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager fdm, Node[] args)
 	{
 		ASTQuotString inputName = (ASTQuotString) args[0];
 		String varName = inputName.getText();
-		visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm);
+		return visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm);
 	}
 }

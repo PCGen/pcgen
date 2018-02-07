@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.base;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -227,26 +229,29 @@ public final class FormulaFactory
 	{
 
 		/**
-		 * The value of this SimpleFormula
+		 * The value of this SimpleFormula.
 		 */
 		private final T value;
 
 		/**
+		 * The FormatManager of this SimpleFormula.
+		 */
+		private final FormatManager<T> formatManager;
+
+		/**
 		 * Creates a new SimpleFormula from the given value.
 		 * 
-		 * @param val
+		 * @param value
 		 *            The value of this SimpleFormula.
+		 * @param formatManager
+		 *            The FormatManager for the value in this SimpleFormula
 		 * @throws IllegalArgumentException
 		 *             if the given value is null
 		 */
-		private SimpleFormula(T val)
+		private SimpleFormula(T value, FormatManager<T> formatManager)
 		{
-			if (val == null)
-			{
-				throw new IllegalArgumentException(
-					"Cannot create an SimpleFormula with a null value");
-			}
-			value = val;
+			this.value = Objects.requireNonNull(value);
+			this.formatManager = Objects.requireNonNull(formatManager);
 		}
 
 		/**
@@ -292,8 +297,7 @@ public final class FormulaFactory
 		}
 
 		@Override
-		public void isValid(FormatManager<T> formatManager,
-			FormulaSemantics semantics)
+		public void isValid(FormulaSemantics semantics)
 		{
 			Class<?> expectedFormat = formatManager.getManagedClass();
 			if (!expectedFormat.isAssignableFrom(value.getClass()))
@@ -302,6 +306,12 @@ public final class FormulaFactory
 					+ value.getClass() + " found in location requiring a "
 					+ expectedFormat + " (class cannot be evaluated)");
 			}
+		}
+
+		@Override
+		public FormatManager<T> getFormatManager()
+		{
+			return formatManager;
 		}
 	}
 
@@ -329,12 +339,12 @@ public final class FormulaFactory
 		}
 		try
 		{
-			return new SimpleFormula<>(fmtManager.convert(expression));
+			return new SimpleFormula<>(fmtManager.convert(expression), fmtManager);
 		}
 		catch (IllegalArgumentException e)
 		{
 			// Okay, not simple :P
-			return new ComplexNEPFormula<>(expression);
+			return new ComplexNEPFormula<>(expression, fmtManager);
 		}
 	}
 
@@ -368,8 +378,8 @@ public final class FormulaFactory
 	{
 		NEPFormula<T> formula = getNEPFormulaFor(formatManager, expression);
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
-			formulaManager, varScope, formatManager);
-		formula.isValid(formatManager, semantics);
+			formulaManager, varScope);
+		formula.isValid(semantics);
 		if (!semantics.isValid())
 		{
 			throw new IllegalArgumentException("Cannot create a Formula from: "

@@ -20,6 +20,8 @@ Prosthetic Hand												TYPE:Goods.Resizable						COST:1	WT:1		SOURCEPAGE:p.1
 Prosthetic Leg												TYPE:Goods.Resizable						COST:20	WT:6		SOURCEPAGE:p.19
 Tattoo													TYPE:Goods												SOURCEPAGE:p.20
 
+Tattoo.MOD					TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+
 ###Block: Special Substances and Items
 # Equipment Name	Type						Cost		Weight	Source Page
 Tar Bomb		TYPE:Goods.Alchemical.Consumable	COST:15	WT:2		SOURCEPAGE:p.20

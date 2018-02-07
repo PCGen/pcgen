@@ -35,19 +35,12 @@ import java.io.Writer;
 public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
-
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
-	 */
     @Override
 	public String kindHandled()
 	{
 		return "campaign";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
-	 */
     @Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
@@ -55,9 +48,6 @@ public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 			PrerequisiteOperator.LT};
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
-	 */
     @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException
@@ -82,9 +72,6 @@ public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
-	 */
 	@Override
 	public boolean specialCase(Writer writer, Prerequisite prereq)
 			throws IOException

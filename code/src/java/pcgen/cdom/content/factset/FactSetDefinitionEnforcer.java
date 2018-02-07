@@ -66,10 +66,6 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 		def = fsi;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.DeferredToken#process(pcgen.rules.context.LoadContext,
-	 *      pcgen.cdom.base.Loadable)
-	 */
 	@Override
 	public boolean process(LoadContext context, T obj)
 	{
@@ -89,18 +85,12 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 		return false;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.DeferredToken#getDeferredTokenClass()
-	 */
 	@Override
 	public Class<T> getDeferredTokenClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

@@ -29,7 +29,7 @@ import org.junit.Test;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
@@ -104,7 +104,7 @@ public class SetSolverManagerTest
 		equipScope.setParent(globalScope);
 		vsLib.registerScope(equipScope);
 		sl = new VariableLibrary(vsLib);
-		arrayManager = new ArrayFormatManager<>(stringManager, ',');
+		arrayManager = new ArrayFormatManager<>(stringManager, '\n', ',');
 		ManagerFactory managerFactory = new ManagerFactory()
 		{
 		};
@@ -113,7 +113,7 @@ public class SetSolverManagerTest
 		fm = fm.getWith(FormulaManager.FUNCTION, fl);
 		SolverFactory solverFactory = new SolverFactory();
 		ModifierFactory am1 = new plugin.modifier.set.SetModifierFactory<>();
-		PCGenModifier emptyArrayMod =
+		FormulaModifier emptyArrayMod =
 				am1.getModifier("", managerFactory, null, globalScope, arrayManager);
 		solverFactory.addSolverFormat(arrayManager.getManagedClass(), emptyArrayMod);
 		
@@ -124,7 +124,7 @@ public class SetSolverManagerTest
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
 		ModifierFactory mfn = new plugin.modifier.number.SetModifierFactory();
-		PCGenModifier mod =
+		FormulaModifier mod =
 				mfn.getModifier("0", managerFactory, null, globalScope, numberManager);
 		mod.addAssociation("PRIORITY=0");
 		solverFactory.addSolverFormat(numberManager.getManagedClass(), mod);
@@ -151,7 +151,7 @@ public class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am1 = new plugin.modifier.set.AddModifierFactory<>();
-		PCGenModifier mod = am1.getModifier("France,England", new ManagerFactory()
+		FormulaModifier mod = am1.getModifier("France,England", new ManagerFactory()
 		{
 		}, null, globalScope, arrayManager);
 		mod.addAssociation("PRIORITY=2000");
@@ -211,20 +211,20 @@ public class SetSolverManagerTest
 		
 		ModifierFactory am1 = new plugin.modifier.number.SetModifierFactory();
 		ModifierFactory amString = new plugin.modifier.string.SetModifierFactory();
-		PCGenModifier mod2 = am1.getModifier("2", new ManagerFactory()
+		FormulaModifier mod2 = am1.getModifier("2", new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
 		mod2.addAssociation("PRIORITY=2000");
-		PCGenModifier mod3 = am1.getModifier("3", new ManagerFactory()
+		FormulaModifier mod3 = am1.getModifier("3", new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
 		mod3.addAssociation("PRIORITY=2000");
-		PCGenModifier mod4 = am1.getModifier("4", new ManagerFactory()
+		FormulaModifier mod4 = am1.getModifier("4", new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
 		mod4.addAssociation("PRIORITY=3000");
 		String formula = "dropIntoContext(\"EQUIPMENT\",EquipVar,LocalVar)";
-		PCGenModifier modf = am1.getModifier(formula, new ManagerFactory()
+		FormulaModifier modf = am1.getModifier(formula, new ManagerFactory()
 		{
 		}, fm, globalScope, numberManager);
 		modf.addAssociation("PRIORITY=2000");

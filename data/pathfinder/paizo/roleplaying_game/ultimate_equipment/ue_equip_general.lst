@@ -274,6 +274,7 @@ Artisan's Tools (Sculptures).MOD																																						SOURCEPAGE
 Artisan's Tools (Ships).MOD																																							SOURCEPAGE:p.76
 Artisan's Tools (Shoes).MOD																																							SOURCEPAGE:p.76
 Artisan's Tools (Stonemasonry).MOD																																						SOURCEPAGE:p.76
+Artisan's Tools (Tattoos)																	TYPE:Goods.Tools.Artisan.CraftToolsTattoos								COST:5	WT:5					SOURCEPAGE:p.76	BONUS:SKILL|Craft (Tattoos)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Artisan's Tools (Traps).MOD																																							SOURCEPAGE:p.76
 Artisan's Tools (Weaponsmithing).MOD																																					SOURCEPAGE:p.76
 Artisan's Tools (Armor).COPY=Artisan's Tools (Armor/Masterwork)
@@ -314,6 +315,8 @@ Artisan's Tools (Shoes).COPY=Artisan's Tools (Shoes/Masterwork)
 Artisan's Tools (Shoes/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Shoes)|2|TYPE=Circumstance
 Artisan's Tools (Stonemasonry).COPY=Artisan's Tools (Stonemasonry/Masterwork)
 Artisan's Tools (Stonemasonry/Masterwork).MOD																													COST:55																												BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance
+Artisan's Tools (Tattoos).COPY=Artisan's Tools (Tattoos/Masterwork)
+Artisan's Tools (Tattoos/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Tattoos)|2|TYPE=Circumstance
 Artisan's Tools (Traps).COPY=Artisan's Tools (Traps/Masterwork)
 Artisan's Tools (Traps/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance
 Artisan's Tools (Weaponsmithing).COPY=Artisan's Tools (Weaponsmithing/Masterwork)
@@ -521,6 +524,7 @@ Holy Symbol (Platinum/Compartment).MOD												TYPE:Container						CONTAINS:1
 Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Flask)
 Holy Symbol (Platinum/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:510
 Holy Symbol (Tattoo)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:100						SOURCEPAGE:p.66
+Holy Symbol (Tattoo).MOD														TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
 Holy Text (Cheap)																TYPE:Goods.Tools.Book															COST:1	WT:1					SOURCEPAGE:66																																																				SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
 Holy Text (Typical)															TYPE:Goods.Tools.Book															COST:25	WT:2					SOURCEPAGE:66																																																				SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
 Holy Text (Expensive)															TYPE:Goods.Tools.Book															COST:100	WT:20					SOURCEPAGE:66																																																				SPROP:The most expensive versions have detailed illustrations, gilded initials and border decorations, covers made of fine leather, wood, or even metal, and are often oversized and difficult to carry around.

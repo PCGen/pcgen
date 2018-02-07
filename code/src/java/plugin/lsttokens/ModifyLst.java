@@ -23,9 +23,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -82,14 +81,14 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 				context);
 		}
 
-		ScopeInstance scopeInst = context.getActiveScope();
-		LegalScope scope = scopeInst.getLegalScope();
+		LegalScope scope = context.getActiveScope();
 		String varName = sep.next();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " found invalid var name: " + varName + " Modified on "
-				+ obj.getClass().getSimpleName() + " " + obj.getKeyName(),
+			return new ParseResult.Fail(
+				getTokenName() + " found invalid var name: " + varName
+					+ "(scope: " + scope.getName() + ") Modified on "
+					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(),
 				context);
 		}
 		if (!sep.hasNext())
@@ -104,7 +103,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 				+ " needed third argument: " + value, context);
 		}
 		String modInstructions = sep.next();
-		PCGenModifier<?> modifier;
+		FormulaModifier<?> modifier;
 		try
 		{
 			FormatManager<?> format = context.getVariableContext()
@@ -186,7 +185,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 
 	private String unparseModifier(VarModifier<?> vm)
 	{
-		PCGenModifier<?> modifier = vm.getModifier();
+		FormulaModifier<?> modifier = vm.getModifier();
 		String type = modifier.getIdentification();
 		StringBuilder sb = new StringBuilder();
 		sb.append(type);

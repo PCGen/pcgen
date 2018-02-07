@@ -64,9 +64,6 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

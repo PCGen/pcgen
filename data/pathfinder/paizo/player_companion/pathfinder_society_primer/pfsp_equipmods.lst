@@ -16,5 +16,5 @@ Deceptive				KEY:Special Ability ~ Deceptive ~ Amulet of Mighty Fists			TYPE:Amu
 
 
 #Old KEYs
-Deceptive				KEY:DECEPTIVE			TYPE:Weapon.Melee.Ranged		PLUS:1			VISIBLE:NO				SOURCEPAGE:p.14		PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged				SPROP:Add enhancement bonus to Bluff checks to feint, feint as an immediate action when critical hit is confirmed.
-Deceptive				KEY:DECEPTIVE_AMF			TYPE:AmuletOfMightyFists		PLUS:1			VISIBLE:NO				SOURCEPAGE:p.14		PRETYPE:1,EQMOD=MightyFist_AMF							SPROP:Add enhancement bonus to Bluff checks to feint, feint as an immediate action when critical hit is confirmed.									SORTKEY:+1
+Special Ability ~ Deceptive ~ Weapon.COPY=DECEPTIVE					VISIBLE:NO
+Special Ability ~ Deceptive ~ Amulet of Mighty Fists.COPY=DECEPTIVE_AMF		VISIBLE:NO

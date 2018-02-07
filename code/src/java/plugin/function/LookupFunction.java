@@ -179,17 +179,18 @@ public class LookupFunction implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor, DependencyManager manager,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager,
 		Node[] args)
 	{
 		LoadContext context = manager.get(ManagerKey.CONTEXT);
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		//Table name node (must be a Table)
-		args[0].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, refContext.getManufacturer(DATATABLE_CLASS)));
+		TableFormatManager tableFormat = (TableFormatManager) args[0].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED,
+				refContext.getManufacturer(DATATABLE_CLASS)));
 
-		//TODO a Semantics Check can tell what this is?
-		args[1].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
+		args[1].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED, tableFormat.getLookupFormat()));
 
 		/*
 		 * TODO Is there a way to check if the supplied column is part of this table? Not
@@ -197,8 +198,10 @@ public class LookupFunction implements Function
 		 * ManagerKey.REFERENCES, but it could easily be a variable, so there are no
 		 * guarantees here, and right now, not sure of ROI.
 		 */
-		args[2].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, refContext.getManufacturer(COLUMN_CLASS)));
+		ColumnFormatManager<?> columnFormat = (ColumnFormatManager<?>) args[2]
+			.jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED,
+				refContext.getManufacturer(COLUMN_CLASS)));
+		return columnFormat.getComponentManager();
 	}
 
 }

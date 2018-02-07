@@ -39,18 +39,12 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 
-	/**
-	 * @see pcgen.rules.persistence.token.AbstractToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "ICON";
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMToken#parse(pcgen.rules.context.LoadContext, java.lang.Object, java.lang.String)
-	 */
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
@@ -65,9 +59,6 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext, java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
@@ -79,9 +70,6 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[]{icon};
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
-	 */
 	@Override
 	public Class<Equipment> getTokenClass()
 	{

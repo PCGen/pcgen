@@ -19,9 +19,8 @@ package plugin.lsttokens.template;
 
 import java.util.Collection;
 
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
@@ -76,9 +75,8 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		FormatManager<OrderedPair> formatManager =
 				(FormatManager<OrderedPair>) context.getReferenceContext()
 					.getFormatManager("ORDEREDPAIR");
-		ScopeInstance scopeInst = context.getActiveScope();
-		LegalScope scope = scopeInst.getLegalScope();
-		PCGenModifier<OrderedPair> modifier;
+		LegalScope scope = context.getActiveScope();
+		FormulaModifier<OrderedPair> modifier;
 		try
 		{
 			modifier = context.getVariableContext()
@@ -127,7 +125,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		{
 			for (VarModifier<?> vm : added)
 			{
-				PCGenModifier<?> modifier = vm.getModifier();
+				FormulaModifier<?> modifier = vm.getModifier();
 				if (VAR_NAME.equals(vm.getVarName())
 					&& (vm.getLegalScope().getParentScope() == null)
 					&& (modifier.getIdentification()

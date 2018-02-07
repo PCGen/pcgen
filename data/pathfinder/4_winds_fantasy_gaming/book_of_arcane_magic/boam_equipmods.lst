@@ -9,4 +9,7 @@ SOURCEWEB:http://www.4windsfantasygaming.com
 # Modifier Name	Unique Key			Visible	Choose		Nb of Charges
 ### Need to check original source book to see what this was refering to
 # Modifier Name	Unique Key			Visible	Choose		Nb of Charges
-Uses per Day (4)	KEY:USES_PER_DAY_4	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:4|4
+Uses per Day (4)	KEY:Special Ability ~ Uses per Day / 4	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:4|4
+
+#Old KEYs
+Special Ability ~ Uses per Day / 4.COPY=USES_PER_DAY_4	VISIBLE:NO
