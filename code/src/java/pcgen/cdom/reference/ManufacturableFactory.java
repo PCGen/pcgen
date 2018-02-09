@@ -25,8 +25,6 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 
 	boolean isMember(T item);
 
-	String getReferenceDescription();
-
 	public boolean resolve(ReferenceManufacturer<T> rm, String name,
 			CDOMSingleRef<T> value, UnconstructedValidator validator);
 

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.reference;
 
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 
 
@@ -64,4 +65,9 @@ public interface SelectionCreator<T extends Loadable>
 	 * @return The class of object this SelectionCreator represents.
 	 */
 	public Class<T> getReferenceClass();
+
+	public String getReferenceDescription();
+	
+	public ClassIdentity<T> getReferenceIdentity();
+
 }

@@ -89,7 +89,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 		{
 			// allow is not used (empty or an error)
 			FilteredReference<ClassSkillList> filtered = new FilteredReference<>(
-					SKILLLIST_CLASS, context.getReferenceContext()
+					context.getReferenceContext()
 					.getCDOMAllReference(SKILLLIST_CLASS));
 			while (pipeTok.hasMoreTokens())
 			{

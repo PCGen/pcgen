@@ -165,7 +165,6 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 							+ " Error: RaceType was not specified.", context);
 				}
 				races.add(new ObjectMatchingReference<>(tokString,
-						Race.class,
 						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ObjectKey.RACETYPE, RaceType.getConstant(raceType)));
 			}
@@ -178,7 +177,6 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 							+ " Error: RaceSubType was not specified.", context);
 				}
 				races.add(new ListMatchingReference<>(tokString,
-						Race.class,
 						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ListKey.RACESUBTYPE, RaceSubType.getConstant(raceSubType)));
 			}

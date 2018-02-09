@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,6 +18,7 @@
 package pcgen.cdom.reference;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
@@ -42,6 +43,12 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 {
 
 	/**
+	 * The Class that indicates the types of objects objects contained in this
+	 * CDOMTransparentSingleRef.
+	 */
+	private final Class<T> refClass;
+
+	/**
 	 * Holds the reference to which this CDOMTransparentSingleRef will delegate
 	 * behavior.
 	 */
@@ -59,7 +66,8 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	 */
 	public CDOMTransparentSingleRef(Class<T> objClass, String key)
 	{
-		super(objClass, key);
+		super(key);
+		refClass = Objects.requireNonNull(objClass);
 	}
 
 	/**
@@ -266,9 +274,21 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	}
 
 	@Override
-	public void setChoice(String c)
+	public void setChoice(String choice)
 	{
 		throw new IllegalStateException(
 				"Cannot set Choice on a Transparent Reference");
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return refClass;
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return (subReference == null) ? getName() : subReference.getReferenceDescription();
 	}
 }

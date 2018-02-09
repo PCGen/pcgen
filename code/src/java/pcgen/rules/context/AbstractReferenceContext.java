@@ -38,7 +38,6 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.CategorizedClassIdentity;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
@@ -124,19 +123,10 @@ public abstract class AbstractReferenceContext
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl);
 	
-	public abstract <T extends Loadable> boolean hasManufacturer(Class<T> cl);
+	public abstract <T extends Loadable> boolean hasManufacturer(ClassIdentity<T> cl);
 	
-	protected abstract <T extends Categorized<T>> boolean hasManufacturer(
-		Class<T> cl, Category<T> cat);
-
-	protected final <T extends Loadable> ReferenceManufacturer<T> getNewReferenceManufacturer(
-		Class<T> cl)
-	{
-		return constructReferenceManufacturer(cl);
-	}
-
 	protected abstract <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
-		Class<T> cl);
+		ClassIdentity<T> identity);
 
 	/**
 	 * Retrieve the Reference manufacturer that handles this class and category. Note that
@@ -307,11 +297,12 @@ public abstract class AbstractReferenceContext
 
 	public <T extends Loadable> boolean forget(T obj)
 	{
+		//TODO This can be optimized :)
 		if (CATEGORIZED_CLASS.isAssignableFrom(obj.getClass()))
 		{
 			Class cl = obj.getClass();
 			Categorized cdo = (Categorized) obj;
-			if (hasManufacturer(cl, cdo.getCDOMCategory()))
+			if (hasManufacturer(obj.getClassIdentity()))
 			{
                 // Work around a bug in the Eclipse 3.7.0/1 compiler by explicitly extracting a Category<?>
                 return getManufacturer(cl, (Category<?>) cdo.getCDOMCategory()).forgetObject(obj);
@@ -319,7 +310,7 @@ public abstract class AbstractReferenceContext
 		}
 		else
 		{
-			if (hasManufacturer(obj.getClass()))
+			if (hasManufacturer(obj.getClassIdentity()))
 			{
 				return getManufacturer((Class<T>) obj.getClass()).forgetObject(
 						obj);
@@ -448,7 +439,7 @@ public abstract class AbstractReferenceContext
 		}
 	}
 
-	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMDirectReference(T obj)
+	public <T extends Loadable> CDOMSingleRef<T> getCDOMDirectReference(T obj)
 	{
 		@SuppressWarnings("unchecked")
 		CDOMSingleRef<T> ref = (CDOMSingleRef<T>) directRefCache.get(obj);
@@ -495,7 +486,7 @@ public abstract class AbstractReferenceContext
 		ManufacturableFactory<T> factory = rs.getFactory();
 		ManufacturableFactory<T> parent = factory.getParent();
 		ReferenceManufacturer<T> manufacturer = (parent == null) ? null
-				: getManufacturer(parent);
+				: getManufacturerFac(parent);
 		return factory.populate(manufacturer, rs, validator)
 				&& rs.resolveReferences(validator);
 	}
@@ -523,21 +514,8 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(cl).getItemInOrder(item);
 	}
 
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-			ClassIdentity<T> identity)
-	{
-		Class cl = identity.getChoiceClass();
-		if (Categorized.class.isAssignableFrom(cl))
-		{
-			//Do categorized.
-			Category category = ((CategorizedClassIdentity) identity).getCategory();
-			return (ReferenceManufacturer<T>) getManufacturer(cl, category);
-		}
-		else
-		{
-			return getManufacturer(cl);
-		}
-	}
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
+			ClassIdentity<T> identity);
 
 	public <T extends CDOMObject> List<T> getSortedList(Class<T> cl,
 		IntegerKey key)
@@ -577,7 +555,7 @@ public abstract class AbstractReferenceContext
 	public abstract <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl, Category<T> cat);
 
-	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
 		ManufacturableFactory<T> factory);
 
 	public abstract <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(

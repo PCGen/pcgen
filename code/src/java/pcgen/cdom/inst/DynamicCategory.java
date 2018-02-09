@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2016-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -21,6 +21,12 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.helper.SpringHelper;
 
+/**
+ * A DynamicCategory is a method for keeping different Formats of Dynamic objects
+ * separated.
+ * 
+ * This is a simple, non-hierarchical Category.
+ */
 public final class DynamicCategory extends AbstractCategory<Dynamic> implements
 		LegalScope
 {
@@ -37,12 +43,6 @@ public final class DynamicCategory extends AbstractCategory<Dynamic> implements
 	}
 
 	@Override
-	public String getName()
-	{
-		return getDisplayName();
-	}
-
-	@Override
 	public LegalScope getParentScope()
 	{
 		return SpringHelper.getBean(GlobalScope.class);
@@ -51,6 +51,8 @@ public final class DynamicCategory extends AbstractCategory<Dynamic> implements
 	@Override
 	public Dynamic newInstance()
 	{
-		return new Dynamic();
+		Dynamic instance = new Dynamic();
+		instance.setCDOMCategory(this);
+		return instance;
 	}
 }

@@ -28,6 +28,7 @@ import java.util.Set;
 
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -1044,12 +1045,12 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		addAbility(AbilityCategory.FEAT, ab);
 		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<>(
-				CompanionList.class, "Mount");
+				BasicClassIdentity.getIdentity(CompanionList.class), "Mount");
 		CDOMReference<Race> race  = new CDOMDirectSingleRef<>(giantRace);
 		FollowerOption option = new FollowerOption(race, ref);
 		mab.addToListFor(ListKey.COMPANIONLIST, option);
 		ref = new CDOMSimpleSingleRef<>(
-				CompanionList.class, "Familiar");
+				BasicClassIdentity.getIdentity(CompanionList.class), "Familiar");
 		race  = new CDOMDirectSingleRef<>(human);
 		option = new FollowerOption(race, ref);
 		fab.addToListFor(ListKey.COMPANIONLIST, option);

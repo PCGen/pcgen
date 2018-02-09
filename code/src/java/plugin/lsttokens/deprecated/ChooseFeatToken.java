@@ -113,7 +113,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		//Tricky for compatibility...
 		CategorizedChooseInformation<Ability> tc =
 				new CategorizedChooseInformation<>("ABILITY",
-						CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), pcs, Ability.class);
+						CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

@@ -20,6 +20,7 @@ package pcgen.core.kit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.NumericPCAttribute;

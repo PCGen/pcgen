@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -32,17 +32,14 @@ public abstract class CDOMSingleRef<T> extends CDOMReference<T> implements
 {
 
 	/**
-	 * Constructs a new CDOMSingleRef for the given Class and name.
+	 * Constructs a new CDOMSingleRef for the given name.
 	 * 
-	 * @param objClass
-	 *            The Class of the underlying object contained by this
-	 *            CDOMSingleRef.
 	 * @param key
 	 *            An identifier of the object this CDOMSingleRef contains.
 	 */
-	public CDOMSingleRef(Class<T> objClass, String key)
+	public CDOMSingleRef(String key)
 	{
-		super(objClass, key);
+		super(key);
 	}
 
 	/**
@@ -68,9 +65,19 @@ public abstract class CDOMSingleRef<T> extends CDOMReference<T> implements
 	@Override
 	public abstract T get();
 
+	/**
+	 * Returns true if this CDOMSingleRef has been resolved; false otherwise.
+	 * 
+	 * @return true if this CDOMSingleRef has been resolved; false otherwise
+	 */
 	public abstract boolean hasBeenResolved();
 	
-	public abstract void setChoice(String c);
+	/**
+	 * Sets the choice for this CDOMSingleRef.
+	 * 
+	 * @param choice The choice to be set for this CDOMSingleRef
+	 */
+	public abstract void setChoice(String choice);
 	
 	@Override
 	public String getUnconverted()

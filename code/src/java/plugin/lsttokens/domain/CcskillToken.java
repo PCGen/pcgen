@@ -165,7 +165,7 @@ public class CcskillToken extends AbstractTokenWithSeparator<Domain> implements
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<>(Skill.class, context.getReferenceContext()
+			return new PatternMatchingReference<>(context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else

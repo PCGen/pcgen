@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,9 +19,11 @@ package pcgen.cdom.reference;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -37,6 +39,12 @@ public class CDOMCategorizedSingleRef<T extends Categorized<T>> extends
 		CDOMSingleRef<T> implements CategorizedCDOMReference<T>
 {
 
+	/**
+	 * The ClassIdentity that represents the objects contained in this
+	 * CDOMCategorizedSingleRef.
+	 */
+	private final ClassIdentity<T> identity;
+	
 	/**
 	 * The object of the Class this CDOMCategorizedSingleRef represents
 	 */
@@ -58,8 +66,8 @@ public class CDOMCategorizedSingleRef<T extends Categorized<T>> extends
 	/**
 	 * Constructs a new CDOMCategorizedSingleRef for the given Class and name.
 	 * 
-	 * @param objClass
-	 *            The Class of the underlying object contained by this
+	 * @param classIdentity
+	 *            The ClassIdentity of the underlying object contained by this
 	 *            CDOMCategorizedSingleRef.
 	 * @param cat
 	 *            The Category of the underlying object contained by this
@@ -67,19 +75,13 @@ public class CDOMCategorizedSingleRef<T extends Categorized<T>> extends
 	 * @param key
 	 *            An identifier of the object this CDOMCategorizedSingleRef
 	 *            contains.
-	 * @throws IllegalArgumentException
-	 *             if the given Cagegory is null
 	 */
-	public CDOMCategorizedSingleRef(Class<T> objClass, Category<T> cat,
+	public CDOMCategorizedSingleRef(ClassIdentity<T> classIdentity, Category<T> cat,
 			String key)
 	{
-		super(objClass, key);
-		if (cat == null)
-		{
-			throw new IllegalArgumentException(
-					"Cannot build CDOMCategorizedSingleRef with null category");
-		}
-		category = cat;
+		super(key);
+		category = Objects.requireNonNull(cat);
+		identity = Objects.requireNonNull(classIdentity);
 	}
 
 	/**
@@ -308,5 +310,17 @@ public class CDOMCategorizedSingleRef<T extends Categorized<T>> extends
 	public String getLSTCategory()
 	{
 		return category.getKeyName();
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return identity.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return identity.getReferenceDescription();
 	}
 }

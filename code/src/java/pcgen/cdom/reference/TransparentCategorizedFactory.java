@@ -18,6 +18,7 @@
 package pcgen.cdom.reference;
 
 import pcgen.cdom.base.Categorized;
+import pcgen.cdom.base.ClassIdentity;
 
 public class TransparentCategorizedFactory<T extends Categorized<T>>
 		implements ManufacturableFactory<T>
@@ -81,6 +82,7 @@ public class TransparentCategorizedFactory<T extends Categorized<T>>
 	@Override
 	public boolean isMember(T item)
 	{
+		//TODO This is wrong?
 		return refClass.equals(item.getClass());
 	}
 
@@ -117,5 +119,12 @@ public class TransparentCategorizedFactory<T extends Categorized<T>>
 	{
 		throw new UnsupportedOperationException(
 				"Resolution of Parent should not occur on Transparent object");
+	}
+
+	@Override
+	public ClassIdentity<T> getReferenceIdentity()
+	{
+		throw new UnsupportedOperationException(
+				"Resolution to Identity should not occur on Transparent object");
 	}
 }
