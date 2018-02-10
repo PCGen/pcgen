@@ -22,20 +22,22 @@ import pcgen.base.util.FormatManager;
  * "Groupable" FormatManager.
  * 
  * @param <T>
- *            The format of object for which this ObjectManager provides services
+ *            The format of object for which this GroupableFormatManager provides services
  */
-public interface ObjectManager<T extends Loadable> extends FormatManager<T>
+public interface GroupableFormatManager<T extends Loadable> extends FormatManager<T>
 {
 	/**
-	 * Returns true if this ObjectManager contains the given object.
+	 * Returns true if this GroupableFormatManager contains the given object.
 	 * 
 	 * Note that this is testing *object* presence. This will not return true if a
 	 * reference for the given object has been requested; it will only return true if the
-	 * object has actually been constructed by or imported into this ObjectManager.
+	 * object has actually been constructed by or imported into this
+	 * GroupableFormatManager.
 	 * 
 	 * @param o
-	 *            The object to be checked if it is present in this ObjectManager.
-	 * @return true if this ObjectManager contains the object; false otherwise.
+	 *            The object to be checked if it is present in this
+	 *            GroupableFormatManager.
+	 * @return true if this GroupableFormatManager contains the object; false otherwise.
 	 */
 	public boolean containsObject(Object o);
 }

@@ -21,7 +21,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
-import pcgen.cdom.base.ObjectManager;
+import pcgen.cdom.base.GroupableFormatManager;
 
 /**
  * A ReferenceManufacturer is an object capable of creating CDOMReferences of a
@@ -52,7 +52,7 @@ import pcgen.cdom.base.ObjectManager;
  *            The Class of object this ReferenceManufacturer can manufacture
  */
 public interface ReferenceManufacturer<T extends Loadable> extends
-		SelectionCreator<T>, ObjectManager<T>
+		SelectionCreator<T>, GroupableFormatManager<T>
 {
 	/**
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by
