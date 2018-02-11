@@ -70,7 +70,9 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		companionRace = TestHelper.makeRace("Weasel");
 
 		CDOMReference<Race> race  = new CDOMDirectSingleRef<>(companionRace);
-		CDOMSingleRef<CompanionList> ref  = new CDOMSimpleSingleRef<>(BasicClassIdentity.getIdentity(CompanionList.class), companionList.getKeyName());
+		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<>(
+			BasicClassIdentity.getIdentity(CompanionList.class),
+			companionList.getKeyName());
 		FollowerOption option = new FollowerOption(race, ref);
 		masterRace.addToListFor(ListKey.COMPANIONLIST, option);
 	}

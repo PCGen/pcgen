@@ -20,7 +20,13 @@ package pcgen.cdom.reference;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 
-
+/**
+ * A SelectionCreator can create various forms of CDOMReferences for a supported type of
+ * object (as identified by its ClassIdentity).
+ * 
+ * @param <T>
+ *            The Class of object that this SelectionCreator supports.
+ */
 public interface SelectionCreator<T extends Loadable>
 {
 	/**
@@ -66,8 +72,23 @@ public interface SelectionCreator<T extends Loadable>
 	 */
 	public Class<T> getReferenceClass();
 
+	/**
+	 * Returns a description of the contents of this SelectionCreator.
+	 * 
+	 * It is strongly advised that no dependency on this method be created, as it is
+	 * designed for human readability and the return value may be changed without warning.
+	 * 
+	 * @return A description of the contents of this SelectionCreator
+	 */
 	public String getReferenceDescription();
 	
+	/**
+	 * Returns the ClassIdentity for this SelectionCreator. This is more specific than the
+	 * ReferenceClass, since this ClassIdentity will also contain information about the
+	 * Category for a Categorized object.
+	 * 
+	 * @return The ClassIdentity for this SelectionCreator
+	 */
 	public ClassIdentity<T> getReferenceIdentity();
 
 }

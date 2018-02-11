@@ -70,7 +70,8 @@ import pcgen.util.enumeration.Visibility;
 public class AbilityCategory implements Category<Ability>, Loadable,
 		ManufacturableFactory<Ability>, AbilityCategoryFacade
 {
-	private static final ClassIdentity<AbilityCategory> IDENTITY = BasicClassIdentity.getIdentity(AbilityCategory.class);
+	private static final ClassIdentity<AbilityCategory> IDENTITY =
+			BasicClassIdentity.getIdentity(AbilityCategory.class);
 
 	private URI sourceURI;
 

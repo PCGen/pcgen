@@ -33,9 +33,11 @@ import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.util.Logging;
 
 /**
- * An AbstractCategory is designed to facilitate the building of Category objects by sharing common infrastructure and behavior.
+ * An AbstractCategory is designed to facilitate the building of Category objects by
+ * sharing common infrastructure and behavior.
  *
- * @param <T> The Class that this AbstractCategory will categorize
+ * @param <T>
+ *            The Class that this AbstractCategory will categorize
  */
 public abstract class AbstractCategory<T extends Categorized<T>> implements
 		Category<T>, ManufacturableFactory<T>

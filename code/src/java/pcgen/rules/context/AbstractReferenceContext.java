@@ -123,7 +123,17 @@ public abstract class AbstractReferenceContext
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl);
 	
-	public abstract <T extends Loadable> boolean hasManufacturer(ClassIdentity<T> cl);
+	/**
+	 * Returns true if this AbstractReferenceContext has a Manufacturer for the given
+	 * ClassIdentity.
+	 * 
+	 * @param classIdentity
+	 *            The ClassIdentity to be checked to see if this AbstractReferenceContext
+	 *            has a Manufacturer for the ClassIdentity
+	 * @return true if this AbstractReferenceContext has a Manufacturer for the given
+	 *         ClassIdentity; false otherwise
+	 */
+	public abstract <T extends Loadable> boolean hasManufacturer(ClassIdentity<T> classIdentity);
 	
 	protected abstract <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
 		ClassIdentity<T> identity);
@@ -439,6 +449,17 @@ public abstract class AbstractReferenceContext
 		}
 	}
 
+	/**
+	 * Returns a CDOMSingleRef for the given Object.
+	 * 
+	 * If possible an internal reference to the object will be returned; otherwise a
+	 * direct reference may be returned. This possible use of a direct reference allows
+	 * this method to be used before OR after reference resolution.
+	 * 
+	 * @param obj
+	 *            The object for which a CDOMSingleRef should be returned
+	 * @return A CDOMSingleRef for the given Object
+	 */
 	public <T extends Loadable> CDOMSingleRef<T> getCDOMDirectReference(T obj)
 	{
 		@SuppressWarnings("unchecked")
@@ -514,8 +535,15 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(cl).getItemInOrder(item);
 	}
 
+	/**
+	 * Returns the ReferenceManufacturer for the given ClassIdentity.
+	 * 
+	 * @param classIdentity
+	 *            The ClassIdentity for which the ReferenceManufacturer should be returned
+	 * @return The ReferenceManufacturer for the given ClassIdentity
+	 */
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
-			ClassIdentity<T> identity);
+			ClassIdentity<T> classIdentity);
 
 	public <T extends CDOMObject> List<T> getSortedList(Class<T> cl,
 		IntegerKey key)
@@ -555,6 +583,19 @@ public abstract class AbstractReferenceContext
 	public abstract <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl, Category<T> cat);
 
+	/**
+	 * Returns the ReferenceManufacturer for the given ManufacturableFactory.
+	 * 
+	 * Note: Use of this method should be avoided if possible. getManufacturerId is
+	 * preferred; this method is only present for current backward compatibility to how
+	 * parent/child ability categories function, and will be removed when it is practical
+	 * to do so.
+	 * 
+	 * @param factory
+	 *            The ManufacturableFactory for which the ReferenceManufacturer should be
+	 *            returned
+	 * @return The ReferenceManufacturer for the given ManufacturableFactory
+	 */
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
 		ManufacturableFactory<T> factory);
 

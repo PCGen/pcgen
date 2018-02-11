@@ -125,9 +125,9 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				try
 				{
 					Vision vision = Vision.getVision(visionString);
-					AssociatedPrereqObject edge = context.getListContext()
-							.addToList(getTokenName(), obj, Vision.VISIONLIST,
-								context.getReferenceContext().getCDOMDirectReference(vision));
+					AssociatedPrereqObject edge = context.getListContext().addToList(
+						getTokenName(), obj, Vision.VISIONLIST,
+						context.getReferenceContext().getCDOMDirectReference(vision));
 					edgeList.add(edge);
 				}
 				catch (IllegalArgumentException e)
