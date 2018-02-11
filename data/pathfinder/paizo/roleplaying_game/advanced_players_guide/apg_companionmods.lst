@@ -66,9 +66,9 @@ FOLLOWER:EidolonCompanionBonusHD=20	TYPE:Eidolon	HD:1
 # Class of the Master		Type				Bonus to HP
 FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount	BONUS:HP|CURRENTMAX|mastervar("CavalierMountGrantedHP")
 
-###Block:Companion for Cavalier
+###Block:Companion for Cavalier ~ Per Ultimate Wilderness, cavalier mounts may use light armor proficiency in place of share spells to qualify for archetypes
 # Class of the Master		Type				Hit Dice	Ability																								Define												Bonus Ability Pool					Bonus to HP							Stat bonus			Modify VAR															Main Race Type
-FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINE:CavalierMountHP|0				BONUS:HP|CURRENTMAX|var("CavalierMountHP")					BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
+FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionShareSpells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINE:CavalierMountHP|0				BONUS:HP|CURRENTMAX|var("CavalierMountHP")					BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
 FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
 #FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Archetype|AUTOMATIC|Companion ~ Block Share Spells Archetypes
 FOLLOWER:CavalierMountLVL=2	TYPE:Cavalier Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
