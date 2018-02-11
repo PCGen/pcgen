@@ -1,9 +1,9 @@
 # CVS $Revision: 21420 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
-
+#Per Ultimate Wilderness, samurai mounts may use light armor proficiency in place of share spells to qualify for archetypes
 # Class of the Master			Type				Hit Dice	Ability																														Define							Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type
-FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0								BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
+FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionShareSpells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0								BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
 FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
 #FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Archetype|AUTOMATIC|Companion ~ Block Share Spells Archetypes
 FOLLOWER:SamuraiMountLVL=2		TYPE:Samurai Mount	HD:1																																																					BONUS:VAR|MasterLevel|1
