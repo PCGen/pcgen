@@ -60,26 +60,6 @@ import plugin.function.DropIntoContext;
 
 public class SetSolverManagerTest
 {
-	private static final class BasicSet implements BasicCalculation
-	{
-		@Override
-		public String getIdentification()
-		{
-			return "SET";
-		}
-
-		@Override
-		public int getInherentPriority()
-		{
-			return 0;
-		}
-
-		@Override
-		public Object process(Object previousValue, Object argument)
-		{
-			return argument;
-		}
-	}
 
 	private final LegalScope globalScope = new SimpleLegalScope(null, "Global");
 	private TrackingVariableCache vc;
@@ -89,7 +69,9 @@ public class SetSolverManagerTest
 	private DynamicSolverManager manager;
 	private final FormatManager<Number> numberManager = new NumberManager();
 	private final FormatManager<String> stringManager = new StringManager();
-	private final FormatManager<Equipment> equipmentManager = new SimpleReferenceManufacturer<>(new CDOMFactory<>(BasicClassIdentity.getIdentity(Equipment.class)));
+	private final FormatManager<Equipment> equipmentManager =
+			new SimpleReferenceManufacturer<>(
+				new CDOMFactory<>(BasicClassIdentity.getIdentity(Equipment.class)));
 	private ArrayFormatManager<String> arrayManager;
 	private ScopeInstanceFactory siFactory;
 
@@ -255,4 +237,24 @@ public class SetSolverManagerTest
 		assertEquals(4, vc.get(varIDr));
 	}
 
+	private static final class BasicSet implements BasicCalculation
+	{
+		@Override
+		public String getIdentification()
+		{
+			return "SET";
+		}
+
+		@Override
+		public int getInherentPriority()
+		{
+			return 0;
+		}
+
+		@Override
+		public Object process(Object previousValue, Object argument)
+		{
+			return argument;
+		}
+	}
 }
