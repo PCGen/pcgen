@@ -81,9 +81,15 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	}
 
 	@Override
-	public boolean containsObject(String key)
+	public boolean containsObjectKeyed(String key)
 	{
-		return rm.containsObject(key);
+		return rm.containsObjectKeyed(key);
+	}
+
+	@Override
+	public boolean containsObject(Object o)
+	{
+		return rm.containsObject(o);
 	}
 
 	@Override
@@ -186,11 +192,6 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	public boolean validate(UnconstructedValidator validator)
 	{
 		return rm.validate(validator);
-	}
-
-	public boolean containsUnconstructed(String name)
-	{
-		return rm.containsObject(name);
 	}
 
 	@Override
