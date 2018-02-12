@@ -42,7 +42,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSpellListToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 /**
  * The Class {@code SpellknownLst} is responsible for parsing and
@@ -119,12 +118,12 @@ public class SpellknownLst extends AbstractSpellListToken implements
 
 			if (tagType.equalsIgnoreCase("CLASS"))
 			{
-				if (!subParse(context, obj, ClassSpellList.class, tokString,
-						spellString, prereqs))
+				ParseResult pr = subParse(context, obj, ClassSpellList.class, tokString,
+					spellString, prereqs);
+				if (!pr.passed())
 				{
-					return ParseResult.INTERNAL_ERROR;
-					//return new ParseResult.Fail("  " + getTokenName()
-					//		+ " error - entire token was " + value, context);
+					return new ParseResult.Fail(getTokenName() + " failed due to " + pr
+						+ ".  Entire token was: " + value, context);
 				}
 			}
 			else
@@ -149,16 +148,15 @@ public class SpellknownLst extends AbstractSpellListToken implements
 	 *
 	 * @return true, if successful
 	 */
-	private <CL extends Loadable & CDOMList<Spell>> boolean subParse(
+	private <CL extends Loadable & CDOMList<Spell>> ParseResult subParse(
 			LoadContext context, CDOMObject obj, Class<CL> tagType,
 			String tokString, String spellString, List<Prerequisite> prereqs)
 	{
 		int equalLoc = tokString.indexOf(Constants.EQUALS);
 		if (equalLoc == -1)
 		{
-			Logging.errorPrint("Expected an = in SPELLKNOWN " + "definition: "
-					+ tokString);
-			return false;
+			return new ParseResult.Fail(
+				"Expected an = in SPELLKNOWN " + "definition: " + tokString, context);
 		}
 
 		String casterString = tokString.substring(0, equalLoc);
@@ -170,14 +168,14 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Expected a number for SPELLKNOWN, found: "
-					+ spellLevel);
-			return false;
+			return new ParseResult.Fail(
+				"Expected a number for SPELLKNOWN, found: " + spellLevel, context);
 		}
 
-		if (isEmpty(casterString) || hasIllegalSeparator(',', casterString))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', casterString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer clTok = new StringTokenizer(casterString,
@@ -203,9 +201,10 @@ public class SpellknownLst extends AbstractSpellListToken implements
 			slList.add(ref);
 		}
 
-		if (hasIllegalSeparator(',', spellString))
+		pr = checkForIllegalSeparator(',', spellString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer spTok = new StringTokenizer(spellString, ",");
@@ -224,7 +223,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				tpr.addAllPrerequisites(prereqs);
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	@Override

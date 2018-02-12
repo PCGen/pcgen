@@ -108,11 +108,6 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		if (isEmpty(value))
-		{
-			return new ParseResult.Fail("Value in " + getFullName()
-					+ " may not be empty", context);
-		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');

@@ -132,9 +132,10 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 			return new ParseResult.Fail(getFullName()
 					+ " had too many pipe separated items: " + value, context);
 		}
-		if (isEmpty(activeValue) || hasIllegalSeparator(',', activeValue))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
+		if (!pr.passed())
 		{
-			return ParseResult.INTERNAL_ERROR;
+			return pr;
 		}
 
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
