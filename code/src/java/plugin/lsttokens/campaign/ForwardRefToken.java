@@ -86,10 +86,10 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		}
 
 		String rest = value.substring(pipeLoc + 1);
-		if (hasIllegalSeparator(',', rest))
+		ParseResult pr = checkForIllegalSeparator(',', rest);
+		if (!pr.passed())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " keys are comma separated", context);
+			return pr;
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.COMMA);
 		while (st.hasMoreTokens())

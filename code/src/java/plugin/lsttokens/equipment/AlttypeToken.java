@@ -60,7 +60,8 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 			else if (value.charAt(6) == '.')
 			{
 				value = value.substring(7);
-				if (isEmpty(value))
+				ParseResult pr = checkNonEmpty(value);
+				if (!pr.passed())
 				{
 					return new ParseResult.Fail(getTokenName()
 						+ "started with .CLEAR. but expected to have a Type after .: "

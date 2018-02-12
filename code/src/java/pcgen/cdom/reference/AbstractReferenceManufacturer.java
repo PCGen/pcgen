@@ -624,9 +624,15 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *         AbstractReferenceManufacturer; false otherwise.
 	 */
 	@Override
-	public boolean containsObject(String key)
+	public boolean containsObjectKeyed(String key)
 	{
 		return active.containsKey(key);
+	}
+
+	@Override
+	public boolean containsObject(Object o)
+	{
+		return active.containsValue(o);
 	}
 
 	/**

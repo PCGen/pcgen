@@ -98,7 +98,8 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		kitAbil.setCategory(acRef);
 
 		String rest = value.substring(pipeLoc + 1);
-		if (isEmpty(rest) || hasIllegalSeparator('|', rest))
+		ParseResult pr = checkSeparatorsAndNonEmpty('|', rest);
+		if (!pr.passed())
 		{
 			return new ParseResult.Fail(
 				"No abilities found.  ABILITY token "

@@ -33,7 +33,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 /**
  * VALUES token for KitTable
@@ -109,7 +108,8 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 				return new ParseResult.Fail("Odd token count in Value: " + value, context);
 			}
 			String range = sep.next();
-			if (!processRange(kitTable, optionInfo, range))
+			ParseResult pr = processRange(context, kitTable, optionInfo, range);
+			if (!pr.passed())
 			{
 				return new ParseResult.Fail("Invalid Range in Value: " + range
 						+ " within " + value, context);
@@ -119,13 +119,15 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 		return ParseResult.SUCCESS;
 	}
 
-	private boolean processRange(KitTable kitTable, KitGear optionInfo,
-			String range)
+	private ParseResult processRange(LoadContext context, KitTable kitTable,
+		KitGear optionInfo, String range)
 	{
-		if (isEmpty(range) || hasIllegalSeparator(',', range))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', range);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
+
 		ParsingSeparator sep = new ParsingSeparator(range, ',');
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');
@@ -141,24 +143,23 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 		}
 		if (sep.hasNext())
 		{
-			return false;
+			return new ParseResult.Fail(
+				"Expected more than one value in a range, found: " + range, context);
 		}
 		Formula min = FormulaFactory.getFormulaFor(minString);
 		if (!min.isValid())
 		{
-			Logging.errorPrint("Min Formula in " + getTokenName()
-					+ " was not valid: " + min.toString());
-			return false;
+			return new ParseResult.Fail(
+				"Min Formula in " + getTokenName() + " was not valid: " + min.toString(), context);
 		}
 		Formula max = FormulaFactory.getFormulaFor(maxString);
 		if (!max.isValid())
 		{
-			Logging.errorPrint("Max Formula in " + getTokenName()
-					+ " was not valid: " + max.toString());
-			return false;
+			return new ParseResult.Fail(
+				"Max Formula in " + getTokenName() + " was not valid: " + max.toString(), context);
 		}
 		kitTable.addGear(optionInfo, min, max);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	@Override

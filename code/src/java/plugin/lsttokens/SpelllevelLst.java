@@ -41,7 +41,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSpellListToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 
 public class SpelllevelLst extends AbstractSpellListToken implements
@@ -112,18 +111,19 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 
 			if (tagType.equalsIgnoreCase("CLASS"))
 			{
-				if (!subParse(context, obj, ClassSpellList.class, tokString,
-						spellString, prereqs))
+				ParseResult pr = subParse(context, obj, ClassSpellList.class, tokString,
+					spellString, prereqs);
+				if (!pr.passed())
 				{
-					return ParseResult.INTERNAL_ERROR;
-					//return new ParseResult.Fail("  " + getTokenName()
-					//		+ " error - entire token was " + value, context);
+					return new ParseResult.Fail(getTokenName() + " failed due to " + pr
+						+ ".  Entire token was: " + value, context);
 				}
 			}
 			else if (tagType.equalsIgnoreCase("DOMAIN"))
 			{
-				if (!subParse(context, obj, DomainSpellList.class, tokString,
-						spellString, prereqs))
+				ParseResult pr = subParse(context, obj, DomainSpellList.class, tokString,
+					spellString, prereqs);
+				if (!pr.passed())
 				{
 					return new ParseResult.Fail("  " + getTokenName()
 							+ " error - entire token was " + value, context);
@@ -139,16 +139,15 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		return ParseResult.SUCCESS;
 	}
 
-	private <CL extends Loadable & CDOMList<Spell>> boolean subParse(
+	private <CL extends Loadable & CDOMList<Spell>> ParseResult subParse(
 			LoadContext context, CDOMObject obj, Class<CL> tagType,
 			String tokString, String spellString, List<Prerequisite> prereqs)
 	{
 		int equalLoc = tokString.indexOf(Constants.EQUALS);
 		if (equalLoc == -1)
 		{
-			Logging.errorPrint("Expected an = in SPELLLEVEL " + "definition: "
-					+ tokString);
-			return false;
+			return new ParseResult.Fail(
+				"Expected an = in SPELLLEVEL " + "definition: " + tokString, context);
 		}
 
 		String casterString = tokString.substring(0, equalLoc);
@@ -160,14 +159,14 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Expected a number for SPELLLEVEL, found: "
-					+ spellLevel);
-			return false;
+			return new ParseResult.Fail(
+				"Expected a number for SPELLLEVEL, found: " + spellLevel, context);
 		}
 
-		if (isEmpty(casterString) || hasIllegalSeparator(',', casterString))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', casterString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer clTok = new StringTokenizer(casterString,
@@ -193,9 +192,10 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 			slList.add(ref);
 		}
 
-		if (hasIllegalSeparator(',', spellString))
+		pr = checkForIllegalSeparator(',', spellString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer spTok = new StringTokenizer(spellString, ",");
@@ -213,7 +213,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 				tpr.addAllPrerequisites(prereqs);
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	@Override
