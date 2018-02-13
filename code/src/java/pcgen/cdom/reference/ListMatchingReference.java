@@ -306,6 +306,6 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	@Override
 	public String getReferenceDescription()
 	{
-		return all.getReferenceDescription();
+		return all.getReferenceDescription() + " (List " + key + " = " + value + ")";
 	}
 }

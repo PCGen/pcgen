@@ -251,6 +251,6 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	@Override
 	public String getReferenceDescription()
 	{
-		return identity.getReferenceDescription();
+		return identity.getReferenceDescription() + " of TYPE=" + Arrays.asList(types);
 	}
 }

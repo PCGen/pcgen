@@ -289,6 +289,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	@Override
 	public String getReferenceDescription()
 	{
-		return (subReference == null) ? getName() : subReference.getReferenceDescription();
+		return (subReference == null) ? (refClass.getSimpleName() + " " + getName())
+			: subReference.getReferenceDescription();
 	}
 }

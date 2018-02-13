@@ -274,6 +274,8 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	@Override
 	public String getReferenceDescription()
 	{
-		return subReference.getReferenceDescription();
+		return (subReference == null)
+			? refClass.getSimpleName() + " of TYPE=" + Arrays.asList(types)
+			: subReference.getReferenceDescription();
 	}
 }

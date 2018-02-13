@@ -229,6 +229,6 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	@Override
 	public String getReferenceDescription()
 	{
-		return identity.getReferenceDescription();
+		return "ALL " + identity.getReferenceDescription();
 	}
 }

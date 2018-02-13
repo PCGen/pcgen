@@ -321,6 +321,6 @@ public class CDOMCategorizedSingleRef<T extends Categorized<T>> extends
 	@Override
 	public String getReferenceDescription()
 	{
-		return identity.getReferenceDescription();
+		return identity.getReferenceDescription() + " " + getName();
 	}
 }

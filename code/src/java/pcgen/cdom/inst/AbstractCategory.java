@@ -137,7 +137,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 		if (activeObj == null)
 		{
 			// Wasn't constructed!
-			if (key.charAt(0) != '*' && report(validator, key))
+			if (key.charAt(0) != '*' && reportUnconstructed(validator, key))
 			{
 				Logging.errorPrint("Unconstructed Reference: "
 					+ getReferenceDescription() + " " + key);
@@ -151,7 +151,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	}
 
 	//Identify if an item needs to be reported as unconstructed
-	private boolean report(UnconstructedValidator validator, String key)
+	private boolean reportUnconstructed(UnconstructedValidator validator, String key)
 	{
 		return (validator == null) || !validator.allow(getReferenceClass(), this, key);
 	}

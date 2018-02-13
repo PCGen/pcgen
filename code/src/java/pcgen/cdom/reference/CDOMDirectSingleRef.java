@@ -234,6 +234,6 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	@Override
 	public String getReferenceDescription()
 	{
-		return getReferenceClass().getSimpleName();
+		return getReferenceClass().getSimpleName() + " " + getName();
 	}
 }

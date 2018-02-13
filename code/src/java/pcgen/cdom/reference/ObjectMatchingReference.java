@@ -293,6 +293,6 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	@Override
 	public String getReferenceDescription()
 	{
-		return all.getReferenceDescription();
+		return all.getReferenceDescription() + " (Object " + key + " = " + value + ")";
 	}
 }

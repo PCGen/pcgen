@@ -279,6 +279,6 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	@Override
 	public String getReferenceDescription()
 	{
-		return identity.getReferenceDescription();
+		return identity.getReferenceDescription() + " " + getName();
 	}
 }

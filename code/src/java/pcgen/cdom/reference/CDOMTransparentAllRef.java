@@ -248,7 +248,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	@Override
 	public String getChoice()
 	{
-		return subReference == null ? null : subReference.getChoice();
+		return (subReference == null) ? null : subReference.getChoice();
 	}
 
 	@Override
@@ -260,6 +260,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	@Override
 	public String getReferenceDescription()
 	{
-		return subReference.getReferenceDescription();
+		return (subReference == null) ? "ALL " + refClass.getSimpleName()
+			: subReference.getReferenceDescription();
 	}
 }

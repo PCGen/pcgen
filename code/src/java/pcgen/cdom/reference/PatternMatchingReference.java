@@ -266,7 +266,6 @@ public class PatternMatchingReference<T extends Loadable> extends
 	@Override
 	public String getReferenceDescription()
 	{
-		//TODO Is this really what I want?!?
-		return all.getReferenceDescription();
+		return all.getReferenceDescription() + " (Pattern " + pattern + ")";
 	}
 }

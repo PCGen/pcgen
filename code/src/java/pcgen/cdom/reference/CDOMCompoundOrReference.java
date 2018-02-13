@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.StringJoiner;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ClassIdentity;
@@ -259,6 +260,10 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	@Override
 	public String getReferenceDescription()
 	{
-		return identity.getReferenceDescription();
+		StringJoiner joiner =
+				new StringJoiner(" OR ", identity.getReferenceDescription() + "[", "]");
+		references.stream().map(r -> r.getReferenceDescription())
+			.forEach(d -> joiner.add(d));
+		return joiner.toString();
 	}
 }
