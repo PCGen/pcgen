@@ -63,7 +63,7 @@ public class VariableContext
 	 * Lazy instantiation to avoid trying to pull the "Global" scope before it
 	 * is loaded from plugins
 	 */
-	private IndividualSetup getDummySetup()
+	IndividualSetup getDummySetup()
 	{
 		if (dummySetup == null)
 		{

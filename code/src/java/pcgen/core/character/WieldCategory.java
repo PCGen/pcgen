@@ -223,7 +223,7 @@ public final class WieldCategory implements Loadable
 		// TODO what if more than one matches??
 		for (QualifiedObject<CDOMSingleRef<WieldCategory>> qo : categorySwitches)
 		{
-			if (PrereqHandler.passesAll(qo.getPrerequisiteList(), eq, pc))
+			if (PrereqHandler.passesAll(qo, eq, pc))
 			{
 				pcWCat = qo.getRawObject().get();
 			}

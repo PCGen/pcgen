@@ -305,8 +305,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 		for (BaseKit bk : getSafeListFor(ListKey.KIT_TASKS))
 		{
-			if (!PrereqHandler
-				.passesAll(bk.getPrerequisiteList(), tempPC, this))
+			if (!PrereqHandler.passesAll(bk, tempPC, this))
 			{
 				continue;
 			}

@@ -114,7 +114,7 @@ public final class SubstitutionClassApplication
 
 		for (SubstitutionClass sc : cl.getListFor(ListKey.SUBSTITUTION_CLASS))
 		{
-			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, cl))
+			if (!PrereqHandler.passesAll(sc, aPC, cl))
 			{
 				continue;
 			}

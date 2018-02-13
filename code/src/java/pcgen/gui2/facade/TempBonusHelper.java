@@ -256,7 +256,7 @@ public class TempBonusHelper
 				// if Target was this PC, then add
 				// bonus to TempBonusMap
 				theCharacter.setApplied(newB, PrereqHandler.passesAll(
-					newB.getPrerequisiteList(), aEq, theCharacter));
+					newB, aEq, theCharacter));
 				aEq.addTempBonus(newB);
 				TempBonusInfo tempBonusInfo =
 						theCharacter.addTempBonus(newB, originObj, aEq);
