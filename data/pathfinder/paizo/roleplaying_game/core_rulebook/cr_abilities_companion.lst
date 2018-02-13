@@ -112,9 +112,9 @@ Companion Skills	CATEGORY:Special Ability	TYPE:Special													CSKILL:Acroba
 
 ###Block: Companion Advancement abilities
 # Ability Name						Unique Key								Category of Ability		Type					Visible		Required Race												Define				Ability																	Adjust PC Size		Stat bonus					Modify VAR
-+2 to Dexterity and Constitution												CATEGORY:Special Ability	TYPE:CompChoice			VISIBLE:DISPLAY																																										BONUS:STAT|DEX,CON|2|TYPE=Racial
++2 to Dexterity and Constitution												CATEGORY:Special Ability	TYPE:CompChoice			VISIBLE:DISPLAY		!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionAdvancement																														BONUS:STAT|DEX,CON|2|TYPE=Racial
 # COMMENT: This is to replace the multiple choices and make the list properly two choices. - Have the Companion Advancement PRExxx off this main ability.
-Companion Advancement					KEY:Companion Advancement					CATEGORY:Special Ability	TYPE:CompChoice			VISIBLE:DISPLAY															DEFINE:CompanionAdvancement|0																													BONUS:VAR|CompanionAdvancement|1
+Companion Advancement					KEY:Companion Advancement					CATEGORY:Special Ability	TYPE:CompChoice			VISIBLE:DISPLAY		!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionAdvancement			DEFINE:CompanionAdvancement|0																													BONUS:VAR|CompanionAdvancement|1
 #
 Companion Advancement (Ape)				KEY:Companion Advancement ~ Ape				CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Ape)																																	BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Badger (Wolverine))	KEY:Companion Advancement ~ Wolverine			CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Badger (Wolverine))																															BONUS:SIZEMOD|NUMBER|1
