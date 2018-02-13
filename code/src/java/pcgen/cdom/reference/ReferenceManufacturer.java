@@ -19,9 +19,9 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.GroupableFormatManager;
 
 /**
  * A ReferenceManufacturer is an object capable of creating CDOMReferences of a
@@ -52,7 +52,7 @@ import pcgen.cdom.base.Loadable;
  *            The Class of object this ReferenceManufacturer can manufacture
  */
 public interface ReferenceManufacturer<T extends Loadable> extends
-		SelectionCreator<T>, FormatManager<T>
+		SelectionCreator<T>, GroupableFormatManager<T>
 {
 	/**
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by
@@ -105,7 +105,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends
 	 *         Class or Class/Category represented by this
 	 *         ReferenceManufacturer; false otherwise.
 	 */
-	public boolean containsObject(String key);
+	public boolean containsObjectKeyed(String key);
 
 	/**
 	 * Gets the object represented by the given identifier. Will return null if

@@ -91,9 +91,10 @@ public class TemplateLst extends AbstractToken implements
 			remaining = value;
 			specialLegal = true;
 		}
-		if (isEmpty(remaining) || hasIllegalSeparator('|', remaining))
+		ParseResult pr = checkSeparatorsAndNonEmpty('|', remaining);
+		if (!pr.passed())
 		{
-			return ParseResult.INTERNAL_ERROR;
+			return pr;
 		}
 
 		StringTokenizer tok = new StringTokenizer(remaining, Constants.PIPE);

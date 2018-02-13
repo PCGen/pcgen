@@ -102,9 +102,10 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		}
 		else
 		{
-			if (hasIllegalSeparator('|', activeValue))
+			ParseResult pr = checkForIllegalSeparator('|', activeValue);
+			if (!pr.passed())
 			{
-				return ParseResult.INTERNAL_ERROR;
+				return pr;
 			}
 			Set<PrimitiveCollection<T>> set =
                     new HashSet<>();
