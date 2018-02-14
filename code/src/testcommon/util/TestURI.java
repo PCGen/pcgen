@@ -18,10 +18,21 @@ package util;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+/**
+ * This is a URI for use across the test classes
+ */
 public final class TestURI
 {
+	/**
+	 * The (lazily instantiated) Test URI
+	 */
 	private static URI uri;
 	
+	/**
+	 * Returns the test URI.
+	 * 
+	 * @return The test URI
+	 */
 	public static URI getURI()
 	{
 		if (uri == null)

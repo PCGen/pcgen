@@ -92,24 +92,15 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 				getTokenName() + ' ' + type + " has no arguments");
 		}
 
-		String joinChar = getJoinChar(type, new LinkedList<>());
-		if (args.indexOf(joinChar) == 0)
+		char joinChar = getJoinChar(type, new LinkedList<>());
+		ParseResult pr = checkForIllegalSeparator(joinChar, args);
+		if (!pr.passed())
 		{
-			return new ParseResult.Fail(
-				getTokenName() + " arguments may not start with " + joinChar);
-		}
-		if (args.lastIndexOf(joinChar) == args.length() - 1)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " arguments may not end with " + joinChar);
-		}
-		if (args.indexOf(joinChar + joinChar) != -1)
-		{
-			return new ParseResult.Fail(getTokenName()
-				+ " arguments uses double separator " + joinChar + joinChar);
+			return pr;
 		}
 
-		StringTokenizer elements = new StringTokenizer(args, joinChar);
+		StringTokenizer elements =
+				new StringTokenizer(args, Character.toString(joinChar));
 		while (elements.hasMoreTokens())
 		{
 			String aValue = elements.nextToken();
@@ -163,7 +154,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			sb.append(pst.toString().toUpperCase());
 			sb.append('.');
 			Collection<String> valueSet = sp.getValueList();
-			String joinChar = getJoinChar(pst, valueSet);
+			char joinChar = getJoinChar(pst, valueSet);
 			sb.append(StringUtil.join(new TreeSet<>(valueSet), joinChar));
 
 			if (sp.hasPrerequisites())
@@ -176,9 +167,9 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		return list.toArray(new String[list.size()]);
 	}
 
-	private <T> String getJoinChar(ProhibitedSpellType pst, Collection<String> spValues)
+	private <T> char getJoinChar(ProhibitedSpellType pst, Collection<String> spValues)
 	{
-		return pst.getRequiredCount(spValues) == 1 ? Constants.COMMA : Constants.DOT;
+		return pst.getRequiredCount(spValues) == 1 ? ',' : '.';
 	}
 
 	@Override

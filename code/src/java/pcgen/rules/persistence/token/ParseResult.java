@@ -139,6 +139,17 @@ public interface ParseResult
 		}
 	}
 
+	/**
+	 * Generate the text for a given QueuedMessage and URI, which is the text of the
+	 * QueuedMessed indicating the URI as the source of the message.
+	 * 
+	 * @param message
+	 *            The QueuedMessage to be processed
+	 * @param uri
+	 *            The URI indicating the source of the message
+	 * @return The text of the QueuedMessed indicating the URI as the source of the
+	 *         message
+	 */
 	public static String generateText(QueuedMessage message, URI uri)
 	{
 		return message.message + " (Source: " + uri + " )";
