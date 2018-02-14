@@ -434,7 +434,7 @@ public class TableLoaderTest
 			DataTable b = context.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(DataTable.class, "A");
 			assertEquals("The \"Other\"", b.lookup(EQ, "The \"Other\"", 0));
-			assertEquals(3, b.lookup(EQ,"The \"Other\"", 1));
+			assertEquals(3, b.lookup(EQ, "The \"Other\"", 1));
 			assertFalse(b.hasRow(EQ, "This"));
 			assertFalse(b.hasRow(EQ, "That"));
 			assertTrue(b.hasRow(EQ, "The \"Other\""));
