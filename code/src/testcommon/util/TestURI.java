@@ -28,6 +28,11 @@ public final class TestURI
 	 */
 	private static URI uri;
 	
+	private TestURI()
+	{
+		//Private for Utility Class
+	}
+
 	/**
 	 * Returns the test URI.
 	 * 
