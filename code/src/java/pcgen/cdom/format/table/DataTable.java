@@ -325,7 +325,7 @@ public class DataTable implements Loadable
 	private Object[] getRow(LookupType lookupType, Object lookupValue)
 	{
 		Function<? super Map<Object, Object[]>, Object[]> p =
-				lookupType.getPredicate(lookupValue);
+				lookupType.getRowFor(lookupValue);
 		return p.apply(dataByRow);
 	}
 
@@ -374,6 +374,7 @@ public class DataTable implements Loadable
 	{
 		return false;
 	}
+
 	/**
 	 * An Enumeration of the legal lookup types used to determine which row of a table to use.
 	 */
@@ -385,13 +386,13 @@ public class DataTable implements Loadable
 		EXACT
 		{
 			@Override
-			public <V> Function<? super Map<Object, V>, V> getPredicate(Object lookupValue)
+			public <V> Function<? super Map<Object, V>, V> getRowFor(Object lookupValue)
 			{
 				return map -> map.get(lookupValue);
 			}
 
 			@Override
-			public boolean requiresComparison()
+			public boolean requiresSorting()
 			{
 				return false;
 			}
@@ -404,24 +405,41 @@ public class DataTable implements Loadable
 		 */
 		LASTLTEQ {
 			@Override
-			public <V> Function<? super Map<Object, V>, V> getPredicate(Object lookupValue)
+			public <V> Function<? super Map<Object, V>, V> getRowFor(Object lookupValue)
 			{
 				return map -> ((NavigableMap<Object, V>) map).floorEntry(lookupValue).getValue();
 			}
 
 			@Override
-			public boolean requiresComparison()
+			public boolean requiresSorting()
 			{
 				return true;
 			}
 		};
 
-		public abstract <V> Function<? super Map<Object, V>, V> getPredicate(Object lookupValue);
-
-		/*
-		 * Used e.g. to prevent the use of LASTLTEQ in lookup function when the table is not navigable...
+		/**
+		 * Returns a Function that will get the target row for the given lookupValue,
+		 * based on the behavior of the LookupType.
+		 * 
+		 * @param lookupValue
+		 *            The value used to determine which row is to be used
+		 * @return A Function that will get the target row for the given lookupValue
 		 */
-		public abstract boolean requiresComparison();
+		public abstract <V> Function<? super Map<Object, V>, V> getRowFor(Object lookupValue);
+
+		/**
+		 * Returns true if the LookupType requires comparison of values for sorting (not
+		 * just equality). If the format for the lookup column is not Comparable or does
+		 * not have a ComparableManager, then a LookupType that requries sorting cannot be
+		 * used.
+		 * 
+		 * This allows us to prevent errors on formats which are not comparable for
+		 * purposes of sorting. Used e.g. to prevent the use of LASTLTEQ in lookup
+		 * function when the table is not navigable...
+		 * 
+		 * @return true if the LookupType requires sorting of values; false otherwise
+		 */
+		public abstract boolean requiresSorting();
 	}
 
 }

@@ -149,10 +149,11 @@ public class LookupFunction implements Function
 			try
 			{
 				LookupType lookupType = DataTable.LookupType.valueOf(lookupTypeName);
-				if (lookupType.requiresComparison() && !(lookupFormat instanceof ComparableManager))
+				if (lookupType.requiresSorting() && !(lookupFormat instanceof ComparableManager))
 				{
 					semantics.setInvalid("Parse Error: Lookup type: " + lookupTypeName
-						+ " (which requries comparison) was requested on a format that is not Comparable: "
+						+ " (which requries comparison) was requested on "
+						+ "a format that is not Comparable: "
 						+ lookupFormat.getIdentifierType());
 					return null;
 				}
