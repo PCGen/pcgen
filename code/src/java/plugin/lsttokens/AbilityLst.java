@@ -182,8 +182,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		boolean first = true;
 		boolean removed = false;
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, cat);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
+			.getManufacturerByFormatName("ABILITY=" + cat, ABILITY_CLASS);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(

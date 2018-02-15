@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.reference;
 
+import java.util.Objects;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
@@ -40,10 +42,17 @@ public class TransparentFactory<T extends Loadable> implements
 	private final Class<T> refClass;
 	
 	/**
+	 * The String representation of the Format of objects in this TransparentFactory (e.g.
+	 * "ABILITY=FEAT").
+	 */
+	private final String formatRepresentation;
+
+	/**
 	 * Constructs a new TransparentFactory that will process objects of the given Class
 	 */
-	public TransparentFactory(Class<T> objClass)
+	public TransparentFactory(String formatRepresentation, Class<T> objClass)
 	{
+		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
 		if (objClass == null)
 		{
 			throw new IllegalArgumentException("Reference Class for "
@@ -71,19 +80,19 @@ public class TransparentFactory<T extends Loadable> implements
 	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
-		return new CDOMTransparentAllRef<>(refClass);
+		return new CDOMTransparentAllRef<>(formatRepresentation, refClass);
 	}
 
 	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
-		return new CDOMTransparentTypeRef<>(refClass, types);
+		return new CDOMTransparentTypeRef<>(formatRepresentation, refClass, types);
 	}
 
 	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
-		return new CDOMTransparentSingleRef<>(refClass, key);
+		return new CDOMTransparentSingleRef<>(formatRepresentation, refClass, key);
 	}
 
 	@Override
@@ -147,5 +156,11 @@ public class TransparentFactory<T extends Loadable> implements
 	{
 		throw new UnsupportedOperationException(
 				"Resolution to Identity should not occur on Transparent object");
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return formatRepresentation;
 	}
 }

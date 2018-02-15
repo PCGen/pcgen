@@ -747,8 +747,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 
 	private boolean report(UnconstructedValidator validator, String key)
 	{
-		return (validator != null)
-				&& validator.allow(getReferenceClass(), this, key);
+		return (validator != null) && validator.allow(getReferenceIdentity(), key);
 	}
 
     @Override
@@ -840,5 +839,11 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	public ClassIdentity<? extends Loadable> getClassIdentity()
 	{
 		return IDENTITY;
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "ABILITY=" + getKeyName();
 	}
 }

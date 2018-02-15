@@ -153,7 +153,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	//Identify if an item needs to be reported as unconstructed
 	private boolean reportUnconstructed(UnconstructedValidator validator, String key)
 	{
-		return (validator == null) || !validator.allow(getReferenceClass(), this, key);
+		return (validator == null) || !validator.allow(getReferenceIdentity(), key);
 	}
 
 	@Override

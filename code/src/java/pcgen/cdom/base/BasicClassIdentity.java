@@ -125,4 +125,10 @@ public class BasicClassIdentity<T> implements ClassIdentity<T>
 	{
 		return new BasicClassIdentity<>(cl);
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return getName().toUpperCase();
+	}
 }

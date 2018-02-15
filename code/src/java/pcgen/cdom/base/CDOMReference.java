@@ -193,4 +193,13 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	{
 		requiresTarget = required;
 	}
+
+	/**
+	 * Returns the persistent version of the ClassIdentity of the type of object that this
+	 * CDOMReference contains.
+	 * 
+	 * @return The persistent version of the ClassIdentity of the type of object that this
+	 *         CDOMReference contains
+	 */
+	public abstract String getPersistentFormat();
 }

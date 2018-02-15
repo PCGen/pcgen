@@ -17,15 +17,11 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ClassIdentity;
 
 public interface UnconstructedValidator
 {
-	public <T extends Categorized<T>> boolean allow(
-			Class<T> objClass, Category<T> cat, String key);
-
 	public boolean allowDuplicates(Class<?> objClass);
 
-	public <T> boolean allow(Class<T> objClass, String key);
+	public <T> boolean allow(ClassIdentity<T> objClass, String key);
 }

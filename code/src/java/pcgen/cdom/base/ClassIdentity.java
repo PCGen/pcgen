@@ -81,4 +81,11 @@ public interface ClassIdentity<T>
 	 */
 	public boolean isMember(T item);
 
+	/**
+	 * Returns the persistent format for this ClassIdentity.
+	 * 
+	 * @return The persistent format for this ClassIdentity
+	 */
+	public String getPersistentFormat();
+
 }
