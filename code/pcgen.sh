@@ -82,4 +82,5 @@ done
 #     -Dpcgen.filter=/path/to/filter.ini
 #     -Dpcgen.options=/path/to/options.ini
 
+cd $(dirname $(readlink -f $0))
 exec java $javaargs -jar ./pcgen.jar -- "$@"
