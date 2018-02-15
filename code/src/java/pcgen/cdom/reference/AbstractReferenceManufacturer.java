@@ -1278,12 +1278,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	}
 
 	@Override
-	public T getItemInOrder(int index)
-	{
-		return active.getItemInOrder(index);
-	}
-
-	@Override
 	public ManufacturableFactory<T> getFactory()
 	{
 		return factory;

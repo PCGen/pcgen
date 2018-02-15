@@ -20,15 +20,16 @@ package pcgen.core;
 
 import java.net.URI;
 
-import pcgen.cdom.base.Loadable;
-import pcgen.system.LanguageBundle;
-
 import org.apache.commons.lang3.StringUtils;
+
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.util.SortKeyed;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Paper information for output sheets
  */
-public final class PaperInfo implements Loadable
+public final class PaperInfo implements Loadable, SortKeyed
 {
 	private URI sourceURI;
 	private String infoName;
@@ -155,6 +156,7 @@ public final class PaperInfo implements Loadable
 		sortKey = value;
 	}
 
+	@Override
 	public String getSortKey()
 	{
 		return sortKey;
