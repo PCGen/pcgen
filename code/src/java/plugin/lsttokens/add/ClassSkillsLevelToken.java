@@ -129,7 +129,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 				{
 					ObjectMatchingReference<Skill, Boolean> omr =
 							new ObjectMatchingReference<>(tokText,
-									SKILL_CLASS, allRef, ObjectKey.USE_UNTRAINED,
+									allRef, ObjectKey.USE_UNTRAINED,
 									Boolean.TRUE);
 					omr.returnIncludesNulls(true);
 					refs.add(omr);
@@ -137,13 +137,13 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 				else if (Constants.LST_TRAINED.equals(tokText))
 				{
 					refs.add(new ObjectMatchingReference<>(
-							tokText, SKILL_CLASS, allRef,
+							tokText, allRef,
 							ObjectKey.USE_UNTRAINED, Boolean.FALSE));
 				}
 				else if (Constants.LST_EXCLUSIVE.equals(tokText))
 				{
 					refs.add(new ObjectMatchingReference<>(
-							tokText, SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE,
+							tokText, allRef, ObjectKey.EXCLUSIVE,
 							Boolean.TRUE));
 				}
 				else if (Constants.LST_NONEXCLUSIVE.equals(tokText)
@@ -151,7 +151,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 				{
 					ObjectMatchingReference<Skill, Boolean> omr =
 							new ObjectMatchingReference<>(tokText,
-									SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE, Boolean.FALSE);
+									allRef, ObjectKey.EXCLUSIVE, Boolean.FALSE);
 					omr.returnIncludesNulls(true);
 					refs.add(omr);
 				}

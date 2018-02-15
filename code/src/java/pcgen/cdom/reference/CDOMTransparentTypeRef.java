@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -42,6 +42,12 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 {
 
 	/**
+	 * The Class that indicates the types of objects objects contained in this
+	 * CDOMTransparentTypeRef.
+	 */
+	private final Class<T> refClass;
+
+	/**
 	 * Holds the reference to which this CDOMTransparentTypeRef will delegate
 	 * behavior.
 	 */
@@ -65,10 +71,10 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	 */
 	public CDOMTransparentTypeRef(Class<T> objClass, String[] typeArray)
 	{
-		super(objClass, objClass.getSimpleName() + " "
-				+ Arrays.deepToString(typeArray));
+		super(objClass.getSimpleName() + " " + Arrays.deepToString(typeArray));
 		types = new String[typeArray.length];
 		System.arraycopy(typeArray, 0, types, 0, typeArray.length);
+		refClass = objClass;
 	}
 
 	/**
@@ -257,5 +263,19 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	public String getChoice()
 	{
 		return subReference == null ? null : subReference.getChoice();
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return refClass;
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return (subReference == null)
+			? refClass.getSimpleName() + " of TYPE=" + Arrays.asList(types)
+			: subReference.getReferenceDescription();
 	}
 }

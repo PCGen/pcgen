@@ -33,7 +33,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Vision;
 import pcgen.core.prereq.Prerequisite;
@@ -104,7 +103,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					Vision vis = Vision.getVision(visionString.substring(7));
 					context.getListContext().removeFromList(getTokenName(),
 							obj, Vision.VISIONLIST,
-							new CDOMDirectSingleRef<>(vis));
+							context.getReferenceContext().getCDOMDirectReference(vis));
 				}
 				catch (IllegalArgumentException e)
 				{
@@ -126,9 +125,9 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				try
 				{
 					Vision vision = Vision.getVision(visionString);
-					AssociatedPrereqObject edge = context.getListContext()
-							.addToList(getTokenName(), obj, Vision.VISIONLIST,
-									new CDOMDirectSingleRef<>(vision));
+					AssociatedPrereqObject edge = context.getListContext().addToList(
+						getTokenName(), obj, Vision.VISIONLIST,
+						context.getReferenceContext().getCDOMDirectReference(vision));
 					edgeList.add(edge);
 				}
 				catch (IllegalArgumentException e)

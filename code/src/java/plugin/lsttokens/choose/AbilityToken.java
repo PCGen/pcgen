@@ -122,7 +122,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 				new CollectionToChoiceSet<>(coll);
 		CategorizedChooseInformation<Ability> tc =
 				new CategorizedChooseInformation<>(getTokenName(),
-						acRef, pcs, Ability.class);
+						acRef, pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

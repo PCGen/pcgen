@@ -234,7 +234,7 @@ public class AbilityRefChoiceSet implements
 		 */
 		if ("DEITYWEAPON".equals(nameRoot)
 			&& (chooseInfo != null)
-			&& chooseInfo.getClassIdentity().getChoiceClass()
+			&& chooseInfo.getClassIdentity().getReferenceClass()
 				.equals(WeaponProf.class))
 		{
 			Deity deity = aPC.getDeity();

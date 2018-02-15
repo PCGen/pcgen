@@ -206,7 +206,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				for (ChooseSelectionActor<?> csa : newactors)
 				{
-					if (!chooseClass.getChoiceClass().equals(csa.getChoiceClass()))
+					if (!chooseClass.getReferenceClass().equals(csa.getChoiceClass()))
 					{
 						Logging.errorPrint("CHOOSE of type "
 							+ chooseClass.getName() + " on "

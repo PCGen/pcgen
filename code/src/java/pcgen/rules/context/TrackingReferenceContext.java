@@ -83,10 +83,10 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
 		ManufacturableFactory<T> factory)
 	{
-		ReferenceManufacturer<T> mfg = super.getManufacturer(factory);
+		ReferenceManufacturer<T> mfg = super.getManufacturerFac(factory);
 		if (mfg instanceof TrackingManufacturer)
 		{
 			return mfg;

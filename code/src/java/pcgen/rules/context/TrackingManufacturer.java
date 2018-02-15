@@ -23,6 +23,7 @@ import java.util.List;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -288,5 +289,11 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	public boolean isDirect()
 	{
 		return rm.isDirect();
+	}
+
+	@Override
+	public ClassIdentity<T> getReferenceIdentity()
+	{
+		return rm.getReferenceIdentity();
 	}
 }

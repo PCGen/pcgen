@@ -18,14 +18,30 @@
 package pcgen.cdom.reference;
 
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 
+/**
+ * A TransparentFactory is a ManufacturableFactory that produces Transparent CDOMReference
+ * objects. These are CDOMReferences that it will not be reasonable to directly resolve -
+ * because they may be needed across many different data loads (as - for example - the
+ * game modes are not reloaded). These references are therefore resolved a different way
+ * (by loading them with another reference).
+ * 
+ * @param <T> The type of object managed by this TransparentFactory
+ */
 public class TransparentFactory<T extends Loadable> implements
 		ManufacturableFactory<T>
 {
 
+	/**
+	 * The reference Class of object processed by this TrasnsparentFactory.
+	 */
 	private final Class<T> refClass;
-
+	
+	/**
+	 * Constructs a new TransparentFactory that will process objects of the given Class
+	 */
 	public TransparentFactory(Class<T> objClass)
 	{
 		if (objClass == null)
@@ -124,5 +140,12 @@ public class TransparentFactory<T extends Loadable> implements
 	{
 		throw new UnsupportedOperationException(
 				"Resolution of Parent should not occur on Transparent object");
+	}
+
+	@Override
+	public ClassIdentity<T> getReferenceIdentity()
+	{
+		throw new UnsupportedOperationException(
+				"Resolution to Identity should not occur on Transparent object");
 	}
 }

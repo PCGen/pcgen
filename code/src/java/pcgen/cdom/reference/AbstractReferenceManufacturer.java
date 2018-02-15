@@ -38,6 +38,7 @@ import pcgen.base.util.Indirect;
 import pcgen.base.util.KeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.RollMethod;
 import pcgen.util.Logging;
@@ -1365,5 +1366,11 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	public boolean isDirect()
 	{
 		return false;
+	}
+
+	@Override
+	public ClassIdentity<T> getReferenceIdentity()
+	{
+		return factory.getReferenceIdentity();
 	}
 }

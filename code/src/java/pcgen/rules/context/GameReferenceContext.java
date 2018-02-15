@@ -23,9 +23,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -47,7 +49,7 @@ import pcgen.cdom.reference.UnconstructedValidator;
  */
 public class GameReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<>();
+	private final Map<ClassIdentity<?>, ReferenceManufacturer<?>> map = new HashMap<>();
 
 	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<>();
 
@@ -64,21 +66,15 @@ public class GameReferenceContext extends AbstractReferenceContext
 			throw new InternalError(cl
 					+ " is categorized but was fetched without a category");
 		}
-		@SuppressWarnings("unchecked")
-		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(cl);
-		if (mfg == null)
-		{
-			mfg = constructReferenceManufacturer(cl);
-			map.put(cl, mfg);
-		}
-		return mfg;
+		ClassIdentity<T> identity = BasicClassIdentity.getIdentity(cl);
+		return getManufacturerId(identity);
 	}
 
 	@Override
 	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
-		Class<T> cl)
+		ClassIdentity<T> identity)
 	{
-		return new SimpleReferenceManufacturer<>(new TransparentFactory<>(cl));
+		return new SimpleReferenceManufacturer<>(new TransparentFactory<>(identity.getReferenceClass()));
 	}
 
 	@Override
@@ -137,20 +133,13 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends Loadable> boolean hasManufacturer(Class<T> cl)
+	public <T extends Loadable> boolean hasManufacturer(ClassIdentity<T> cl)
 	{
 		return false;
 	}
 
 	@Override
-	protected <T extends Categorized<T>> boolean hasManufacturer(
-			Class<T> cl, Category<T> cat)
-	{
-		return false;
-	}
-
-	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
 			ManufacturableFactory<T> factory)
 	{
 		throw new UnsupportedOperationException(
@@ -168,6 +157,26 @@ public class GameReferenceContext extends AbstractReferenceContext
 		GameReferenceContext context = new GameReferenceContext();
 		context.initialize();
 		return context;
+	}
+
+	@Override
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
+		ClassIdentity<T> identity)
+	{
+		/*
+		 * Note: This is hazardous. It currently only supports non-categorized queries,
+		 * which could fail going forward ... then again, in theory, there can't be a
+		 * ClassIdentity at GameMode load that IS categorized, because they haven't been
+		 * loaded to be resolved... so it is likely impossible/moot
+		 */
+		@SuppressWarnings("unchecked")
+		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(identity);
+		if (mfg == null)
+		{
+			mfg = constructReferenceManufacturer(identity);
+			map.put(identity, mfg);
+		}
+		return mfg;
 	}
 
 }

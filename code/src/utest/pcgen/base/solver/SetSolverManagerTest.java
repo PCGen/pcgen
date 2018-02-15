@@ -28,8 +28,8 @@ import org.junit.Test;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
@@ -49,6 +49,7 @@ import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.solver.testsupport.TrackingVariableCache;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.content.ProcessCalculation;
 import pcgen.cdom.formula.scope.EquipmentScope;
 import pcgen.cdom.reference.CDOMFactory;
@@ -59,26 +60,6 @@ import plugin.function.DropIntoContext;
 
 public class SetSolverManagerTest
 {
-	private static final class BasicSet implements BasicCalculation
-	{
-		@Override
-		public String getIdentification()
-		{
-			return "SET";
-		}
-
-		@Override
-		public int getInherentPriority()
-		{
-			return 0;
-		}
-
-		@Override
-		public Object process(Object previousValue, Object argument)
-		{
-			return argument;
-		}
-	}
 
 	private final LegalScope globalScope = new SimpleLegalScope(null, "Global");
 	private TrackingVariableCache vc;
@@ -88,7 +69,9 @@ public class SetSolverManagerTest
 	private DynamicSolverManager manager;
 	private final FormatManager<Number> numberManager = new NumberManager();
 	private final FormatManager<String> stringManager = new StringManager();
-	private final FormatManager<Equipment> equipmentManager = new SimpleReferenceManufacturer<>(new CDOMFactory<>(Equipment.class));
+	private final FormatManager<Equipment> equipmentManager =
+			new SimpleReferenceManufacturer<>(
+				new CDOMFactory<>(BasicClassIdentity.getIdentity(Equipment.class)));
 	private ArrayFormatManager<String> arrayManager;
 	private ScopeInstanceFactory siFactory;
 
@@ -254,4 +237,24 @@ public class SetSolverManagerTest
 		assertEquals(4, vc.get(varIDr));
 	}
 
+	private static final class BasicSet implements BasicCalculation
+	{
+		@Override
+		public String getIdentification()
+		{
+			return "SET";
+		}
+
+		@Override
+		public int getInherentPriority()
+		{
+			return 0;
+		}
+
+		@Override
+		public Object process(Object previousValue, Object argument)
+		{
+			return argument;
+		}
+	}
 }

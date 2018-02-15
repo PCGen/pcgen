@@ -27,7 +27,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSkillList;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCClass;
@@ -148,7 +148,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<>(Skill.class, context.getReferenceContext()
+			return new PatternMatchingReference<>(context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else
@@ -213,8 +213,8 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 		if (list != null)
 		{
 			ClassSkillList csl = obj.get(ObjectKey.CLASS_SKILLLIST);
-			CDOMDirectSingleRef<ClassSkillList> listref = new CDOMDirectSingleRef<>(
-					csl);
+			CDOMSingleRef<ClassSkillList> listref =
+					context.getReferenceContext().getCDOMDirectReference(csl);
 			for (CDOMReference<Skill> ref : list)
 			{
 				for (Skill sk : ref.getContainedObjects())

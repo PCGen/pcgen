@@ -75,15 +75,15 @@ public final class ReferenceContextUtilities
 						//See CollectionToAbilitySelection.ExpandingConverter
 						continue;
 					}
-					Class<?> cl = clIdentity.getChoiceClass();
+					Class<?> cl = clIdentity.getReferenceClass();
 					if (Loadable.class.isAssignableFrom(cl))
 					{
 						ReferenceManufacturer<? extends Loadable> mfg =
 								refContext
-									.getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
+									.getManufacturerId((ClassIdentity<? extends Loadable>) clIdentity);
 						if (!mfg.containsObjectKeyed(choice)
 							&& (TokenLibrary.getPrimitive(cl, choice) == null)
-							&& !report(validator, clIdentity.getChoiceClass(),
+							&& !report(validator, clIdentity.getReferenceClass(),
 								choice))
 						{
 							Logging.errorPrint("Found "

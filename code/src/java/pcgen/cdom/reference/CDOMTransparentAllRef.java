@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -41,6 +41,12 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 {
 
 	/**
+	 * The Class that indicates the types of objects contained in this
+	 * CDOMTransparentAllRef.
+	 */
+	private final Class<T> refClass;
+
+	/**
 	 * Holds the reference to which this CDOMTransparentAllRef will delegate
 	 * behavior.
 	 */
@@ -55,7 +61,8 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	 */
 	public CDOMTransparentAllRef(Class<T> objClass)
 	{
-		super(objClass, "ALL");
+		super("ALL");
+		refClass = objClass;
 	}
 
 	/**
@@ -241,6 +248,19 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	@Override
 	public String getChoice()
 	{
-		return subReference == null ? null : subReference.getChoice();
+		return (subReference == null) ? null : subReference.getChoice();
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return refClass;
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return (subReference == null) ? "ALL " + refClass.getSimpleName()
+			: subReference.getReferenceDescription();
 	}
 }
