@@ -126,12 +126,6 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	}
 
 	@Override
-	public T getItemInOrder(int item)
-	{
-		return rm.getItemInOrder(item);
-	}
-
-	@Override
 	public T getObject(String key)
 	{
 		return rm.getObject(key);

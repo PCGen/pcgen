@@ -530,11 +530,6 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getConstructedObjectCount();
 	}
 
-	public <T extends Loadable> T getItemInOrder(Class<T> cl, int item)
-	{
-		return getManufacturer(cl).getItemInOrder(item);
-	}
-
 	/**
 	 * Returns the ReferenceManufacturer for the given ClassIdentity.
 	 * 

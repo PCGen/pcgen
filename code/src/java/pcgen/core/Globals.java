@@ -44,6 +44,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.util.SortKeyComparator;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.core.utils.CoreUtility;
@@ -429,17 +430,20 @@ public final class Globals
 	 */
 	public static String getPaperInfo(final int idx, final int infoType)
 	{
-		if ((idx < 0)
-				|| (idx >= SettingsHandler.getGame().getModeContext().getReferenceContext()
-						.getConstructedObjectCount(PaperInfo.class)))
+		if ((idx < 0) || (idx >= getPaperCount()))
 		{
 			return null;
 		}
 
-		final PaperInfo pi = SettingsHandler.getGame().getModeContext().getReferenceContext()
-				.getItemInOrder(PaperInfo.class, idx);
+		return getSortedPaperInfo().get(idx).getPaperInfo(infoType);
+	}
 
-		return pi.getPaperInfo(infoType);
+	private static List<PaperInfo> getSortedPaperInfo()
+	{
+		List<PaperInfo> items = new ArrayList<>(SettingsHandler.getGame().getModeContext()
+			.getReferenceContext().getConstructedCDOMObjects(PaperInfo.class));
+		Collections.sort(items, new SortKeyComparator());
+		return items;
 	}
 
 	/**
@@ -841,11 +845,10 @@ public final class Globals
 	 */
 	public static boolean selectPaper(final String paperName)
 	{
-		for (int i = 0; i < SettingsHandler.getGame().getModeContext().getReferenceContext()
-				.getConstructedObjectCount(PaperInfo.class); ++i)
+		List<PaperInfo> paperInfoObjects = getSortedPaperInfo();
+		for (int i = 0; i < paperInfoObjects.size(); i++)
 		{
-			final PaperInfo pi = SettingsHandler.getGame().getModeContext().getReferenceContext()
-					.getItemInOrder(PaperInfo.class, i);
+			final PaperInfo pi = paperInfoObjects.get(i);
 
 			if (pi.getName().equals(paperName))
 			{

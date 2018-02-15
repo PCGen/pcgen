@@ -335,10 +335,6 @@ public interface ReferenceManufacturer<T extends Loadable> extends
 	 */
 	public int getConstructedObjectCount();
 
-	public T getItemInOrder(int index);
-
-	public String getReferenceDescription();
-
 	public T buildObject(String name);
 
 	public void fireUnconstuctedEvent(CDOMReference<?> reference);
