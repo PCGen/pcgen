@@ -18,7 +18,6 @@
 package pcgen.rules.context;
 
 import java.util.Collection;
-import java.util.List;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -129,12 +128,6 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	public T getObject(String key)
 	{
 		return rm.getObject(key);
-	}
-
-	@Override
-	public List<T> getOrderSortedObjects()
-	{
-		return rm.getOrderSortedObjects();
 	}
 
 	@Override

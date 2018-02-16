@@ -41,6 +41,7 @@ import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -61,6 +62,7 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.cdom.util.IntegerKeyComparator;
+import pcgen.cdom.util.SortKeyComparator;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -342,11 +344,6 @@ public abstract class AbstractReferenceContext
 		// }
 	}
 
-	public <T extends Loadable> List<T> getOrderSortedCDOMObjects(Class<T> c)
-	{
-		return getManufacturer(c).getOrderSortedObjects();
-	}
-
 	public Set<Object> getAllConstructedObjects()
 	{
 		Set<Object> set = new HashSet<>();
@@ -626,5 +623,20 @@ public abstract class AbstractReferenceContext
 				+ " did not return a matching manufacturer: " + mgr.getIdentifierType());
 		}
 		fmtLibrary.addFormatManager(mgr);
+	}
+
+	/**
+	 * Returns a sorted list of items, as sorted by the sort key.
+	 * 
+	 * @param The
+	 *            Class of object to return
+	 * @return The List of items, sorted by their sort key
+	 */
+	public <T extends Loadable & SortKeyRequired> List<T> getSortkeySortedCDOMObjects(
+		Class<T> cl)
+	{
+		List<T> items = new ArrayList<>(getConstructedCDOMObjects(cl));
+		Collections.sort(items, new SortKeyComparator());
+		return items;
 	}
 }

@@ -158,11 +158,13 @@ public class DataSet implements DataSetFacade
 		{
 			kits.addElement(kit);
 		}
-		for (PCAlignment alignment : context.getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class))
+		for (PCAlignment alignment : context.getReferenceContext()
+			.getSortkeySortedCDOMObjects(PCAlignment.class))
 		{
 			alignments.addElement(alignment);
 		}
-		for (PCStat stat : context.getReferenceContext().getOrderSortedCDOMObjects(PCStat.class))
+		for (PCStat stat : context.getReferenceContext()
+			.getSortkeySortedCDOMObjects(PCStat.class))
 		{
 			stats.addElement(stat);
 		}

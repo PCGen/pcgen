@@ -697,7 +697,7 @@ public class PcgCombatant extends Combatant
 				.append("<font class='type'>Sv:</font> ");
 			boolean firstChk = true;
 			for (PCCheck chk : Globals.getContext().getReferenceContext()
-					.getOrderSortedCDOMObjects(PCCheck.class))
+					.getSortkeySortedCDOMObjects(PCCheck.class))
 			{
 				if (!firstChk)
 				{

@@ -17,14 +17,16 @@ package pcgen.cdom.util;
 
 import java.util.Comparator;
 
+import pcgen.cdom.base.SortKeyRequired;
+
 /**
- * This is a trivial sorter for objects that implement the SortKeyed interface
+ * This is a trivial sorter for objects that implement the SortKeyRequired interface
  */
-public class SortKeyComparator implements Comparator<SortKeyed>
+public class SortKeyComparator implements Comparator<SortKeyRequired>
 {
 
 	@Override
-	public int compare(SortKeyed o1, SortKeyed o2)
+	public int compare(SortKeyRequired o1, SortKeyRequired o2)
 	{
 		return o1.getSortKey().compareTo(o1.getSortKey());
 	}
