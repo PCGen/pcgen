@@ -132,8 +132,9 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	
 	public void testConditional()
 	{
-		Ability source = create(Ability.class, "Source");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		Ability source = AbilityCategory.FEAT.newInstance();
+		source.setKeyName("Source");
+		context.getReferenceContext().importObject(source);
 		ParseResult result =
 				token.parseToken(context, source, "CLASS|Wizard=2|Fireball|PREVARLTEQ:3,MyCasterLevel");
 		if (result != ParseResult.SUCCESS)

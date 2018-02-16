@@ -20,7 +20,9 @@ package plugin.lsttokens.editcontext.ability;
 import org.junit.Test;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.ability.MultToken;
@@ -111,5 +113,14 @@ public class MultIntegrationTest extends
 		commit(testCampaign, tc, "YES");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
+	}
+
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

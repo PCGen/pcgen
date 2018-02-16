@@ -139,26 +139,11 @@ public class FavoredClassTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		SubClass obj = cat.newInstance();
+		obj.setName("Two");
+		primaryContext.getReferenceContext().importObject(obj);
 		assertConstructionError();
-	}
-
-	@Test
-	public void testCategorizationPass() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Two");
-		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
-		obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Two");
-		cat = SubClassCategory.getConstant("TestWP1");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
-		assertCleanConstruction();
 	}
 
 	@Test
@@ -170,12 +155,13 @@ public class FavoredClassTokenTest extends
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Sub");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
-		obj = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Sub");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		SubClass obj = cat.newInstance();
+		obj.setName("Sub");
+		primaryContext.getReferenceContext().importObject(obj);
+		obj = cat.newInstance();
+		obj.setName("Sub");
+		secondaryContext.getReferenceContext().importObject(obj);
 		runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP2.Sub"
 				+ getJoinCharacter() + "TestWP3");
 	}

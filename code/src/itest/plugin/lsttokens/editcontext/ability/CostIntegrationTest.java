@@ -18,6 +18,8 @@
 package plugin.lsttokens.editcontext.ability;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.ability.CostToken;
@@ -65,5 +67,14 @@ public class CostIntegrationTest extends
 	public boolean isZeroAllowed()
 	{
 		return true;
+	}
+
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

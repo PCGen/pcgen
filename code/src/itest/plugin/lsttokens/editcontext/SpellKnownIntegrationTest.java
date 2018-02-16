@@ -25,8 +25,10 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.SpellknownLst;
@@ -130,4 +132,12 @@ public class SpellKnownIntegrationTest extends
 		completeRoundRobin(tc);
 	}
 
+	@Override
+	protected CDOMObject construct(LoadContext context, String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
 }

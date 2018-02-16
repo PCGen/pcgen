@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.campaign;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.core.Ability;
@@ -35,6 +37,19 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 
 	static CDOMPrimaryToken<Campaign> token = new ForwardRefToken();
 	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		//Dummy items to ensure Category is initialized
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("Dummy");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = AbilityCategory.FEAT.newInstance();
+		b.setName("Dummy");
+		secondaryContext.getReferenceContext().importObject(b);
+	}
 
 	@Override
 	public CDOMLoader<Campaign> getLoader()
@@ -159,10 +174,12 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	{
 		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
 		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(newCatp, a);
-		Ability b = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(newCats, b);
+		Ability a = newCatp.newInstance();
+		a.setName("Abil3");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = newCats.newInstance();
+		b.setName("Abil3");
+		secondaryContext.getReferenceContext().importObject(b);
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 
@@ -184,10 +201,12 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
 		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(newCatp, a);
-		Ability b = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(newCats, b);
+		Ability a = newCatp.newInstance();
+		a.setName("Abil3");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = newCats.newInstance();
+		b.setName("Abil3");
+		secondaryContext.getReferenceContext().importObject(b);
 		runRoundRobin("ABILITY=NEWCAT|Abil3", "SPELL|Lightning Bolt");
 	}
 
@@ -197,11 +216,13 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
-		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "My Feat");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
-		Ability b = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "My Feat");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, b);
-		runRoundRobin("FEAT|My Feat", "SPELL|Lightning Bolt");
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("My Feat");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = AbilityCategory.FEAT.newInstance();
+		b.setName("My Feat");
+		secondaryContext.getReferenceContext().importObject(b);
+		runRoundRobin("ABILITY=FEAT|My Feat", "SPELL|Lightning Bolt");
 	}
 
 	@Override

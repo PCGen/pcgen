@@ -24,6 +24,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.QualifyToken;
@@ -59,11 +60,12 @@ public class QualifyIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"My Feat");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
-		a = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "My Feat");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("My Feat");
+		primaryContext.getReferenceContext().importObject(a);
+		a = AbilityCategory.FEAT.newInstance();
+		a.setName("My Feat");
+		secondaryContext.getReferenceContext().importObject(a);
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		TestContext tc = new TestContext();
@@ -94,11 +96,12 @@ public class QualifyIntegrationTest extends
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
+		Ability a = pac.newInstance();
+		a.setName("Abil3");
+		primaryContext.getReferenceContext().importObject(a);
+		a = sac.newInstance();
+		a.setName("Abil3");
+		secondaryContext.getReferenceContext().importObject(a);
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "ABILITY=NEWCAT|Abil3");
@@ -113,15 +116,24 @@ public class QualifyIntegrationTest extends
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
+		Ability a = pac.newInstance();
+		a.setName("Abil3");
+		primaryContext.getReferenceContext().importObject(a);
+		a = sac.newInstance();
+		a.setName("Abil3");
+		secondaryContext.getReferenceContext().importObject(a);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "ABILITY=NEWCAT|Abil3");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}
 
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
 }

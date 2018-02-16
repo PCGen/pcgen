@@ -84,10 +84,9 @@ public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>
 			CNAbility cas = cnas.getCNAbility();
 			boolean featExpected =
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
-			boolean abilityExpected =
-					cas.getAbility().equals(
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(
-							Ability.class, AbilityCategory.FEAT, "Granted"));
+			boolean abilityExpected = cas.getAbility()
+				.equals(context.getReferenceContext()
+					.getManufacturerId(AbilityCategory.FEAT).getActiveObject("Granted"));
 			boolean natureExpected = cas.getNature() == Nature.VIRTUAL;
 			boolean selectionExpected = cnas.getSelection() == null;
 			if (featExpected && abilityExpected && natureExpected
@@ -102,8 +101,9 @@ public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>
 	@Override
 	protected Ability createGrantedObject()
 	{
-		Ability a = super.createGrantedObject();
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setKeyName("Granted");
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 

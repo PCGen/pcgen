@@ -73,13 +73,27 @@ public class CategoryTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	@Test
 	public void testRoundRobinFeat() throws PersistenceLayerException
 	{
-		runRoundRobin("FEAT");
+		String str = "FEAT";
+		parse(str);
+		primaryProf.setSourceURI(testCampaign.getURI());
+		String[] unparsed = validateUnparsed(primaryContext, primaryProf, str);
+		parseSecondary(unparsed);
+		// Ensure the objects are the same
+		isCDOMEqual(primaryProf, secondaryProf);
+		validateUnparse(unparsed);
 	}
 
 	@Test
 	public void testRoundRobinMutation() throws PersistenceLayerException
 	{
-		runRoundRobin("Mutation");
+		String str = "Mutation";
+		parse(str);
+		primaryProf.setSourceURI(testCampaign.getURI());
+		String[] unparsed = validateUnparsed(primaryContext, primaryProf, str);
+		parseSecondary(unparsed);
+		// Ensure the objects are the same
+		isCDOMEqual(primaryProf, secondaryProf);
+		validateUnparse(unparsed);
 	}
 
 	@Override
@@ -98,5 +112,23 @@ public class CategoryTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Override
+	protected Ability getSecondary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		secondaryContext.getReferenceContext().importObject(a);
+		return a;
+	}
+
+	@Override
+	protected Ability getPrimary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		primaryContext.getReferenceContext().importObject(a);
+		return a;
 	}
 }

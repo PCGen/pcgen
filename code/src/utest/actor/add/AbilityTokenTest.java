@@ -114,8 +114,9 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		AbilityCategory ff = context.getReferenceContext().constructCDOMObject(AbilityCategory.class, "Fighter Feat");
 		ff.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 		AbilityCategory oc = context.getReferenceContext().constructCDOMObject(AbilityCategory.class, "Some Other Category");
-		Ability badCA = context.getReferenceContext().constructCDOMObject(Ability.class, "ChooseAbility");
-		context.getReferenceContext().reassociateCategory(oc, badCA);
+		Ability badCA = oc.newInstance();
+		badCA.setName("ChooseAbility");
+		context.getReferenceContext().importObject(badCA);
 		try {
 			assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
 			assertTrue(context.processToken(item, "MULT", "Yes"));
@@ -187,8 +188,9 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 
 	protected Ability construct(String one)
 	{
-		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, one);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
-		return obj;
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(one);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

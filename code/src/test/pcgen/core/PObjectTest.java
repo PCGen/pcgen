@@ -255,8 +255,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 
 		Ability pObj = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, "Toughness");
+			.getManufacturerId(AbilityCategory.FEAT).getActiveObject("Toughness");
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
@@ -295,8 +294,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 				null,
 				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 		Ability pObj = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, "Toughness");
+			.getManufacturerId(AbilityCategory.FEAT).getActiveObject("Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");

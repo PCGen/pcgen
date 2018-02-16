@@ -64,6 +64,8 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		super.setUp();
 		TokenRegistration.register(getSubToken());
+		construct(primaryContext, "Dummy");
+		construct(secondaryContext, "Dummy");
 	}
 
 	@Override
@@ -111,9 +113,10 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	protected CDOMObject construct(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
-		loadContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
-		return obj;
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(one);
+		loadContext.getReferenceContext().importObject(a);
+		return a;
 	}
 
 	public String getSubTokenName()
@@ -828,10 +831,10 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	private List<CDOMReference<Ability>> createSingle(String name)
 	{
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
-		Ability obj = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				name);
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
-		CDOMDirectSingleRef<Ability> ar = CDOMDirectSingleRef.getRef(obj);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		primaryContext.getReferenceContext().importObject(a);
+		CDOMDirectSingleRef<Ability> ar = CDOMDirectSingleRef.getRef(a);
 		refs.add(ar);
 		if (name.indexOf('(') != -1)
 		{
@@ -847,8 +850,9 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testUnparseType() throws PersistenceLayerException
 	{
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
-		CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
-				Ability.class, AbilityCategory.FEAT, "Foo", "Bar");
+		CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
+			.getManufacturerId(AbilityCategory.FEAT)
+			.getTypeReference(new String[]{"Foo", "Bar"});
 		refs.add(ref);
 
 		createTC(refs, FormulaFactory.ONE);
@@ -916,8 +920,8 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		if (isAllLegal())
 		{
 			List<CDOMReference<Ability>> refs = createSingle("TestWP1");
-			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext().getCDOMAllReference(
-					Ability.class, AbilityCategory.FEAT);
+			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getAllReference();
 			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
 			assertBadUnparse();
@@ -930,8 +934,8 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		if (isAllLegal())
 		{
 			List<CDOMReference<Ability>> refs = new ArrayList<>();
-			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext().getCDOMAllReference(
-					Ability.class, AbilityCategory.FEAT);
+			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getAllReference();
 			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -946,11 +950,11 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		{
 			List<CDOMReference<Ability>> refs = new ArrayList<>();
 			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
-					.getCDOMTypeReference(Ability.class, AbilityCategory.FEAT,
-							"Foo", "Bar");
+				.getManufacturerId(AbilityCategory.FEAT)
+				.getTypeReference(new String[]{"Foo", "Bar"});
 			refs.add(ref);
-			ref = primaryContext.getReferenceContext().getCDOMAllReference(Ability.class,
-					AbilityCategory.FEAT);
+			ref = primaryContext.getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getAllReference();
 			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
 			assertBadUnparse();

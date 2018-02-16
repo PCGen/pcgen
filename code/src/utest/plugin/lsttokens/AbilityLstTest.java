@@ -59,6 +59,9 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		TokenRegistration.register(new PreLevelWriter());
 		TokenRegistration.register(new PreClassParser());
 		TokenRegistration.register(new PreClassWriter());
+		//We build dummy objects so that AbilityCategory.FEAT has been loaded properly
+		construct(primaryContext, "Dummy");
+		construct(secondaryContext, "Dummy");
 	}
 
 	@Override
@@ -257,16 +260,18 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
-		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil4");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil4");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
+		Ability a = pac.newInstance();
+		a.setName("Abil3");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = sac.newInstance();
+		b.setName("Abil3");
+		secondaryContext.getReferenceContext().importObject(b);
+		a = pac.newInstance();
+		a.setName("Abil4");
+		primaryContext.getReferenceContext().importObject(a);
+		b = sac.newInstance();
+		b.setName("Abil4");
+		secondaryContext.getReferenceContext().importObject(b);
 		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil2", "NEWCAT|VIRTUAL|Abil3|Abil4");
 	}
 
@@ -329,12 +334,12 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("FEAT|AUTOMATIC|Improved Critical(%LIST)|PRECLASS:1,Oracle=8");
 	}
 
-	//  
 	private static Ability construct(LoadContext context, String name)
 	{
-		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, name);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		return ab;
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 
 	@Test

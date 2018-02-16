@@ -26,6 +26,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -46,8 +47,9 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	@Test
 	public void testFromAbility() throws PersistenceLayerException
 	{
-		Ability source = create(Ability.class, "Source");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		Ability source = AbilityCategory.FEAT.newInstance();
+		source.setKeyName("Source");
+		context.getReferenceContext().importObject(source);
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		CNAbilitySelection cas =
@@ -126,7 +128,11 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	@Test
 	public void testFromCompanionMod() throws PersistenceLayerException
 	{
-		CompanionMod source = create(CompanionMod.class, "Source");
+		CompanionList cat = create(CompanionList.class, "Category");
+		context.getReferenceContext().importObject(cat);
+		CompanionMod source = cat.newInstance();
+		cat.setKeyName("Source");
+		context.getReferenceContext().importObject(source);
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		companionModFacet.add(id, source);

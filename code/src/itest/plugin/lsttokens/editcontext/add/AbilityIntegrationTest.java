@@ -123,10 +123,12 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Override
-	protected void construct(LoadContext loadContext, String one)
+	protected Ability construct(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
-		loadContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setKeyName(one);
+		loadContext.getReferenceContext().importObject(a);
+		return a;
 	}
 
 }

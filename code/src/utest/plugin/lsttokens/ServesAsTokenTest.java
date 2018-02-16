@@ -171,11 +171,12 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
+		Ability a = pac.newInstance();
+		a.setName("Abil3");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = sac.newInstance();
+		b.setName("Abil3");
+		secondaryContext.getReferenceContext().importObject(b);
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 

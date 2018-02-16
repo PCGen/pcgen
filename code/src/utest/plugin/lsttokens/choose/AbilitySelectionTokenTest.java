@@ -48,7 +48,9 @@ public class AbilitySelectionTokenTest extends
 			"Special Ability");
 		secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
 			"Special Ability");
-
+		//Build dummy objects so the ReferenceContext is properly initialized
+		construct(primaryContext, "Dummy");
+		construct(secondaryContext, "Dummy");
 	}
 
 	static ChooseLst token = new ChooseLst();
@@ -106,12 +108,13 @@ public class AbilitySelectionTokenTest extends
 	@Override
 	protected Loadable construct(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
-		Category<Ability> cat = loadContext.getReferenceContext()
+		AbilityCategory cat = loadContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
-		loadContext.getReferenceContext().reassociateCategory(cat, obj);
-		return obj;
+		Ability a = cat.newInstance();
+		a.setName(one);
+		loadContext.getReferenceContext().importObject(a);
+		return a;
 	}
 
 	@Override
@@ -120,7 +123,7 @@ public class AbilitySelectionTokenTest extends
 		Category<Ability> cat = primaryContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
-		return primaryContext.getReferenceContext().getManufacturer(getTargetClass(), cat);
+		return primaryContext.getReferenceContext().getManufacturerId(cat);
 	}
 
 	@Override
@@ -145,5 +148,23 @@ public class AbilitySelectionTokenTest extends
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
 		//Hard to get correct - doesn't assume Category :(
+	}
+
+	@Override
+	protected Ability getSecondary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		secondaryContext.getReferenceContext().importObject(a);
+		return a;
+	}
+
+	@Override
+	protected Ability getPrimary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		primaryContext.getReferenceContext().importObject(a);
+		return a;
 	}
 }

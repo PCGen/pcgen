@@ -20,6 +20,7 @@ package tokenmodel.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.Campaign;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCCheck;
@@ -82,7 +83,11 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	@Test
 	public void testFromCompanionMod() throws PersistenceLayerException
 	{
-		CompanionMod source = create(CompanionMod.class, "Source");
+		CompanionList cat = create(CompanionList.class, "Category");
+		context.getReferenceContext().importObject(cat);
+		CompanionMod source = cat.newInstance();
+		cat.setName("Source");
+		context.getReferenceContext().importObject(source);
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());

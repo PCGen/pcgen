@@ -43,7 +43,8 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	@Test
 	public void testFromAbility() throws PersistenceLayerException
 	{
-		Ability source = create(Ability.class, "Source");
+		Ability source = AbilityCategory.FEAT.newInstance();
+		source.setKeyName("Source");
 		ParseResult result =
 				new MultToken().parseToken(context, source, "YES");
 		if (result != ParseResult.SUCCESS)
@@ -51,7 +52,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		context.getReferenceContext().importObject(source);
 		Language granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());

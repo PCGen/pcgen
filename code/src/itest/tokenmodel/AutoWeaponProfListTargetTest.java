@@ -92,8 +92,9 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 	@Test
 	public void testFromAbility() throws PersistenceLayerException
 	{
-		Ability source = create(Ability.class, "Source");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		Ability source = AbilityCategory.FEAT.newInstance();
+		source.setKeyName("Source");
+		context.getReferenceContext().importObject(source);
 		Ability granted = createGrantedObject();
 		context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		ParseResult result =
@@ -154,10 +155,9 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 			CNAbility cas = cnas.getCNAbility();
 			boolean featExpected =
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
-			boolean abilityExpected =
-					cas.getAbility().equals(
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(
-							Ability.class, AbilityCategory.FEAT, "Granted"));
+			boolean abilityExpected = cas.getAbility()
+				.equals(context.getReferenceContext()
+					.getManufacturerId(AbilityCategory.FEAT).getActiveObject("Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
 			boolean selectionExpected = "English".equals(cnas.getSelection());
 			if (featExpected && abilityExpected && natureExpected
@@ -185,8 +185,9 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 
 	protected Ability createGrantedObject()
 	{
-		Ability a = create(Ability.class, "Granted");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setKeyName("Granted");
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 }

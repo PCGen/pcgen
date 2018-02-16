@@ -87,9 +87,8 @@ public class AddTargetedAbilityNormalTest extends AbstractAddListTokenTest<Abili
 				getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
 		for (CNAbility a : abilities)
 		{
-			boolean abilityExpected =
-					a.getAbility().equals(context.getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, "Granted"));
+			boolean abilityExpected = a.getAbility().equals(context.getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getActiveObject("Granted"));
 			if (abilityExpected)
 			{
 				if (pc.getDetailedAssociationCount(a) == 1)
@@ -123,7 +122,8 @@ public class AddTargetedAbilityNormalTest extends AbstractAddListTokenTest<Abili
 	protected Ability createGrantedObject()
 	{
 		context.getReferenceContext().constructCDOMObject(Language.class, "English");
-		Ability a = super.createGrantedObject();
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setKeyName("Granted");
 		ParseResult result = AUTO_LANG_TOKEN.parseToken(context, a, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -142,7 +142,7 @@ public class AddTargetedAbilityNormalTest extends AbstractAddListTokenTest<Abili
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 

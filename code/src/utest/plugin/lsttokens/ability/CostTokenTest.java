@@ -21,6 +21,7 @@ import java.math.BigDecimal;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractBigDecimalTokenTestCase;
@@ -78,5 +79,23 @@ public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Ability>
 	public boolean isClearLegal()
 	{
 		return false;
+	}
+
+	@Override
+	protected Ability getSecondary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		secondaryContext.getReferenceContext().importObject(a);
+		return a;
+	}
+
+	@Override
+	protected Ability getPrimary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		primaryContext.getReferenceContext().importObject(a);
+		return a;
 	}
 }

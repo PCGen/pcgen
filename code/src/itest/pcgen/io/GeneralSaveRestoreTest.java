@@ -38,8 +38,9 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		TokenRegistration.register(new plugin.lsttokens.ability.StackToken());
 		TokenRegistration.register(new plugin.exporttokens.deprecated.TemplateToken());
 		Language lang = context.getReferenceContext().constructCDOMObject(Language.class, "English");
-		Ability a = context.getReferenceContext().constructCDOMObject(Ability.class, "Ab");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("Ab");
+		context.getReferenceContext().importObject(a);
 		PCTemplate pct = context.getReferenceContext().constructCDOMObject(PCTemplate.class, "Templ");
 		try
 		{
