@@ -621,7 +621,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		for (AbilityCategory ac : context.getReferenceContext()
 				.getConstructedCDOMObjects(AbilityCategory.class))
 		{
-			context.getReferenceContext().getManufacturerFac(ac);
+			context.getReferenceContext().getManufacturerId(ac);
 		}
 		
 		for (Campaign c : loaded)

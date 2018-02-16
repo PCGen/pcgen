@@ -29,13 +29,10 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.PCClass;
@@ -155,14 +152,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		TreeMapToList<String, String> map = new TreeMapToList<String, String>();
 		for (CDOMReference<?> ref : changes.getAdded())
 		{
-			String mapKey = key;
-			if (Categorized.class.isAssignableFrom(obj.getClass()))
-			{
-				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
-						.getCDOMCategory();
-				mapKey += '=' + cat.toString();
-			}
-			map.addToListFor(mapKey, ref.getLSTformat(false));
+			map.addToListFor(ref.getPersistentFormat(), ref.getLSTformat(false));
 		}
 		List<String> returnList = new ArrayList<String>();
 		for (String mapKey : map.getKeySet())

@@ -23,11 +23,9 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubClassCategory;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -126,12 +124,10 @@ public class FavClassConvertPlugin extends AbstractToken implements
 				chooseValue.append(Constants.COMMA);
 			}
 			first = false;
-			Class<? extends PCClass> refClass = ref.getReferenceClass();
-			if (SUBCLASS_CLASS.equals(refClass))
+			String prefix = ref.getPersistentFormat();
+			if (prefix.startsWith("SUBCLASS="))
 			{
-				Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
-						.getCDOMCategory();
-				chooseValue.append(parent);
+				chooseValue.append(prefix.substring(9));
 				chooseValue.append('.');
 			}
 			chooseValue.append(ref.getLSTformat(false));
