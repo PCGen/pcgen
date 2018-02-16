@@ -27,6 +27,7 @@ public class RollMethod implements Loadable
 	private URI sourceURI;
 	private String methodName;
 	private String rollMethod;
+	private String sortKey;
 
 	@Override
 	public URI getSourceURI()
@@ -78,6 +79,16 @@ public class RollMethod implements Loadable
 	public String getMethodRoll()
 	{
 		return rollMethod;
+	}
+
+	public void setSortKey(String sortKey)
+	{
+		this.sortKey = sortKey;
+	}
+
+	public String getSortKey()
+	{
+		return sortKey;
 	}
 
 }
