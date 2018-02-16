@@ -18,6 +18,7 @@
 package plugin.lsttokens.subclass;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.SubClass;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -71,5 +72,25 @@ public class ProhibitcostTokenTest extends
 	public boolean isPositiveAllowed()
 	{
 		return true;
+	}
+
+	@Override
+	protected SubClass getSecondary(String name)
+	{
+		SubClassCategory scc = SubClassCategory.getConstant("SCC");
+		SubClass sc = scc.newInstance();
+		sc.setName(name);
+		secondaryContext.getReferenceContext().importObject(sc);
+		return sc;
+	}
+
+	@Override
+	protected SubClass getPrimary(String name)
+	{
+		SubClassCategory scc = SubClassCategory.getConstant("SCC");
+		SubClass sc = scc.newInstance();
+		sc.setName(name);
+		primaryContext.getReferenceContext().importObject(sc);
+		return sc;
 	}
 }

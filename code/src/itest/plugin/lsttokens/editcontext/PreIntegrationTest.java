@@ -23,7 +23,9 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.PreLst;
@@ -85,4 +87,12 @@ public class PreIntegrationTest extends
 		completeRoundRobin(tc);
 	}
 
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
 }

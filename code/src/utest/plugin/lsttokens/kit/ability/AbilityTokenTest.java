@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.kit.ability;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -35,6 +37,18 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	static AbilityToken token = new AbilityToken();
 	static CDOMSubLineLoader<KitAbilities> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitAbilities.class);
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("Dummy");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = AbilityCategory.FEAT.newInstance();
+		b.setName("Dummy");
+		secondaryContext.getReferenceContext().importObject(b);
+	}
 
 	@Override
 	public Class<KitAbilities> getCDOMClass()
@@ -64,42 +78,44 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext()
-				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("Fireball");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = AbilityCategory.FEAT.newInstance();
+		b.setName("Fireball");
+		secondaryContext.getReferenceContext().importObject(b);
 		runRoundRobin("CATEGORY=FEAT|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
-		ab = secondaryContext.getReferenceContext()
-				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("Fireball");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = AbilityCategory.FEAT.newInstance();
+		b.setName("Fireball");
+		b.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
+		secondaryContext.getReferenceContext().importObject(b);
 		runRoundRobin("CATEGORY=FEAT|TYPE=Test");
 	}
 
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext()
-				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "English");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "English");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("Fireball");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = AbilityCategory.FEAT.newInstance();
+		b.setName("Fireball");
+		secondaryContext.getReferenceContext().importObject(b);
+		a = AbilityCategory.FEAT.newInstance();
+		a.setName("English");
+		primaryContext.getReferenceContext().importObject(a);
+		b = AbilityCategory.FEAT.newInstance();
+		b.setName("English");
+		secondaryContext.getReferenceContext().importObject(b);
 		runRoundRobin("CATEGORY=FEAT|English" + getJoinCharacter() + "Fireball");
 	}
 

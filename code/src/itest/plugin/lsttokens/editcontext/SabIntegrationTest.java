@@ -19,7 +19,9 @@ package plugin.lsttokens.editcontext;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.SabLst;
@@ -95,5 +97,12 @@ public class SabIntegrationTest extends
 		// TODO No action for now, since Sab doesn't join
 	}
 	
-	
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
 }

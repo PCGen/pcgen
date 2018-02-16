@@ -54,8 +54,9 @@ public class AbilityListTokenTest extends TestCase
 
 	private static Ability buildFeat(RuntimeLoadContext context, String abName)
 	{
-		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, abName);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		Ability ab = AbilityCategory.FEAT.newInstance();
+		ab.setName(abName);
+		context.getReferenceContext().importObject(ab);
 		return ab;
 	}
 	

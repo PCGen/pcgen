@@ -78,14 +78,18 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	public void testInvalidInputOnlyOne() throws PersistenceLayerException
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
-		SubClass sc = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
-		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
-		sc = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "English");
-		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
-		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "English");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
+		SubClass obj = cat.newInstance();
+		obj.setKeyName("Fireball");
+		primaryContext.getReferenceContext().importObject(obj);
+		obj = cat.newInstance();
+		obj.setKeyName("Fireball");
+		secondaryContext.getReferenceContext().importObject(obj);
+		obj = cat.newInstance();
+		obj.setKeyName("English");
+		primaryContext.getReferenceContext().importObject(obj);
+		obj = cat.newInstance();
+		obj.setKeyName("English");
+		secondaryContext.getReferenceContext().importObject(obj);
 		assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
@@ -94,10 +98,12 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
-		SubClass sc = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
-		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
+		SubClass obj = cat.newInstance();
+		obj.setKeyName("Fireball");
+		primaryContext.getReferenceContext().importObject(obj);
+		obj = cat.newInstance();
+		obj.setKeyName("Fireball");
+		secondaryContext.getReferenceContext().importObject(obj);
 		runRoundRobin("Fireball");
 	}
 }

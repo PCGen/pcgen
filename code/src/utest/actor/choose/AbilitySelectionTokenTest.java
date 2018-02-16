@@ -106,8 +106,9 @@ public class AbilitySelectionTokenTest
 
 	protected Ability construct(String one)
 	{
-		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, one);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
-		return obj;
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(one);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

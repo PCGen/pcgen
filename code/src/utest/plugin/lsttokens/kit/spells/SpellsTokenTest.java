@@ -136,10 +136,12 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "EnhancedFeat");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "EnhancedFeat");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("EnhancedFeat");
+		primaryContext.getReferenceContext().importObject(a);
+		a = AbilityCategory.FEAT.newInstance();
+		a.setName("EnhancedFeat");
+		secondaryContext.getReferenceContext().importObject(a);
 		runRoundRobin("SPELLBOOK=Personal|CLASS=Wizard|Fireball[EnhancedFeat]=2");
 	}
 

@@ -77,7 +77,6 @@ public class CompanionList extends CDOMListObject<Race> implements
 
 	@Override
 	public CompanionMod newInstance()
-		throws InstantiationException, IllegalAccessException
 	{
 		CompanionMod instance = new CompanionMod();
 		instance.setCDOMCategory(this);

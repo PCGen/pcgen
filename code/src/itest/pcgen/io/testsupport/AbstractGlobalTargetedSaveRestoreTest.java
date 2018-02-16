@@ -550,8 +550,9 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	{
 		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
 		T target = create(getObjectClass(), "Target");
-		Ability abil = context.getReferenceContext().constructCDOMObject(Ability.class, "GrantedAbility");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, abil);
+		Ability abil = AbilityCategory.FEAT.newInstance();
+		abil.setName("GrantedAbility");
+		context.getReferenceContext().importObject(abil);
 		new plugin.lsttokens.add.AbilityToken().parseToken(context, target,
 				"FEAT|NORMAL|GrantedAbility");
 		Skill granted = create(Skill.class, "GrantedSkill");
@@ -580,8 +581,9 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	{
 		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
 		T target = create(getObjectClass(), "Target");
-		Ability abil = context.getReferenceContext().constructCDOMObject(Ability.class, "GrantedAbility");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, abil);
+		Ability abil = AbilityCategory.FEAT.newInstance();
+		abil.setName("GrantedAbility");
+		context.getReferenceContext().importObject(abil);
 		new plugin.lsttokens.add.AbilityToken().parseToken(context, target,
 				"FEAT|VIRTUAL|GrantedAbility");
 		Skill granted = create(Skill.class, "GrantedSkill");

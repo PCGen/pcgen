@@ -785,17 +785,15 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			 * Yes, these are thrown away... just need to make sure the
 			 * manufacturer was built.
 			 */
-			context.getReferenceContext().getManufacturer(Ability.class, cat);
+			context.getReferenceContext().getManufacturerId(cat);
 		}
 	}
 
 	public static void createLangBonusObject(LoadContext context)
 	{
-		Ability a =
-				context.getReferenceContext().constructCDOMObject(
-					Ability.class, "*LANGBONUS");
-		context.getReferenceContext().reassociateCategory(
-			AbilityCategory.LANGBONUS, a);
+		Ability a = AbilityCategory.LANGBONUS.newInstance();
+		a.setKeyName("*LANGBONUS");
+		context.getReferenceContext().importObject(a);
 		a.put(ObjectKey.INTERNAL, true);
 		context.unconditionallyProcess(a, "CHOOSE", "LANG|!PC,LANGBONUS");
 		context.unconditionallyProcess(a, "VISIBLE", "NO");

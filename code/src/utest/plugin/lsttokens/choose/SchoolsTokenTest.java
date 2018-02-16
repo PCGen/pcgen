@@ -99,14 +99,12 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	{
 		construct(primaryContext, "Abjuration");
 		construct(secondaryContext, "Abjuration");
-		Ability ss =
-				primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-					"School Stuff");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ss);
-		ss =
-				secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-					"School Stuff");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ss);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName("School Stuff");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = AbilityCategory.FEAT.newInstance();
+		b.setName("School Stuff");
+		secondaryContext.getReferenceContext().importObject(b);
 		runRoundRobin("SCHOOLS|ABILITY=FEAT[School Stuff]");
 	}
 

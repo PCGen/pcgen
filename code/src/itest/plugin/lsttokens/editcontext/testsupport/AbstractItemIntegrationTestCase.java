@@ -21,7 +21,6 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.LoadContext;
 
 public abstract class AbstractItemIntegrationTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
@@ -101,10 +100,5 @@ public abstract class AbstractItemIntegrationTestCase<T extends CDOMObject, TC e
 		commit(testCampaign, tc, getSecondConstant());
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
-	}
-
-	protected void construct(LoadContext loadContext, String one)
-	{
-		loadContext.getReferenceContext().constructCDOMObject(getTargetClass(), one);
 	}
 }

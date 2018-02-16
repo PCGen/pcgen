@@ -46,6 +46,9 @@ public class PCQualifierTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(PC_TOKEN);
+		//Dummy to ensure initialization
+		construct(primaryContext, "Dummy");
+		construct(secondaryContext, "Dummy");
 	}
 
 	@Override
@@ -90,9 +93,9 @@ public class PCQualifierTokenTest extends
 	@Override
 	protected CDOMObject construct(LoadContext loadContext, String one)
 	{
-		Ability a = (Ability) super.construct(loadContext, one);
-		loadContext.getReferenceContext().reassociateCategory(
-			AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(one);
+		loadContext.getReferenceContext().importObject(a);
 		return a;
 	}
 
@@ -100,10 +103,9 @@ public class PCQualifierTokenTest extends
 	protected CDOMObject construct(LoadContext loadContext,
 		Class<? extends CDOMObject> cl, String one)
 	{
-		Ability a = (Ability) super.construct(loadContext, cl, one);
-		loadContext.getReferenceContext().reassociateCategory(
-			AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(one);
+		loadContext.getReferenceContext().importObject(a);
 		return a;
 	}
-
 }

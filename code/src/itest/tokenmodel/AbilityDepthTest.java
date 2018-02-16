@@ -83,8 +83,9 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 	private Ability createAbility(String key)
 	{
-		Ability a = context.getReferenceContext().constructCDOMObject(Ability.class, key);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setKeyName(key);
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 

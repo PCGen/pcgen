@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.editcontext.subclass;
 
+import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.SubClass;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
@@ -77,5 +79,14 @@ public class ProhibitcostIntegrationTest extends
 	protected boolean isClearAllowed()
 	{
 		return false;
+	}
+
+	@Override
+	protected SubClass construct(LoadContext context, String name)
+	{
+		SubClass a = SubClassCategory.getConstant("SCC").newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

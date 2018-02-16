@@ -26,7 +26,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -373,10 +372,5 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 			emptyCommit(modCampaign, tc);
 			completeRoundRobin(tc);
 		}
-	}
-
-	protected void construct(LoadContext loadContext, String one)
-	{
-		loadContext.getReferenceContext().constructCDOMObject(getTargetClass(), one);
 	}
 }

@@ -34,7 +34,7 @@ import util.TestURI;
 public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTest
 {
 
-	private static final plugin.lsttokens.AbilityLst ABILITY_TOKEN =
+	protected static final plugin.lsttokens.AbilityLst ABILITY_TOKEN =
 			new plugin.lsttokens.AbilityLst();
 	protected static final plugin.lsttokens.deprecated.AutoFeatToken AUTO_FEAT_TOKEN =
 			new plugin.lsttokens.deprecated.AutoFeatToken();
@@ -55,21 +55,22 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	public Ability getMultNo(String s)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(s);
 		ParseResult result = TYPE_TOKEN.parseToken(context, a, "Selectable");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	public Ability getMultYesStackNo(String s, String target)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(s);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -88,13 +89,14 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	public Ability getMultYesStackYes(String s, String target)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(s);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -119,13 +121,14 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	public Ability getMultYesStackNoChooseNoChoice(String s)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(s);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -138,13 +141,14 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	public Ability getMultYesStackYesChooseNoChoice(String s)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(s);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -163,6 +167,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 

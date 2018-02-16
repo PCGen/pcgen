@@ -110,9 +110,8 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 				getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.VIRTUAL);
 		for (CNAbility a : abilities)
 		{
-			boolean abilityExpected =
-					a.getAbility().equals(context.getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, "Granted"));
+			boolean abilityExpected = a.getAbility().equals(context.getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getActiveObject("Granted"));
 			if (abilityExpected)
 			{
 				boolean c = assocCheck.check(a);
@@ -130,8 +129,9 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 	@Override
 	protected Ability createGrantedObject()
 	{
-		Ability a = super.createGrantedObject();
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setKeyName("Granted");
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 

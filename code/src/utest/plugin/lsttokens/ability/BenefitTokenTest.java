@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -184,5 +185,23 @@ public class BenefitTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Override
+	protected Ability getSecondary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		secondaryContext.getReferenceContext().importObject(a);
+		return a;
+	}
+
+	@Override
+	protected Ability getPrimary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		primaryContext.getReferenceContext().importObject(a);
+		return a;
 	}
 }

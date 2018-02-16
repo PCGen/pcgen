@@ -55,9 +55,10 @@ public class AbilityTokenTest
 
 	private Ability getObject()
 	{
-		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, ITEM_NAME);
-		context.getReferenceContext().reassociateCategory(CATEGORY, obj);
-		return obj;
+		Ability a = CATEGORY.newInstance();
+		a.setName(ITEM_NAME);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 
 	@Test

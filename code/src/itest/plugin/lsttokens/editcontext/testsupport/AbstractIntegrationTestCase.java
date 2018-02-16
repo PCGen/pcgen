@@ -86,10 +86,14 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		secondaryContext = new EditorLoadContext();
 		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
 		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
-		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
-				"TestObj");
-		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(
-				getCDOMClass(), "TestObj");
+		primaryProf = construct(primaryContext, "TestObj");
+		secondaryProf = construct(secondaryContext, "TestObj");
+	}
+
+	protected T construct(LoadContext context, String name)
+	{
+		return context.getReferenceContext().constructCDOMObject(getCDOMClass(),
+				name);
 	}
 
 	public abstract Class<? extends T> getCDOMClass();

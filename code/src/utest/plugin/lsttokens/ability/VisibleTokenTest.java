@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -194,4 +195,24 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Ability>
 			//Yep!
 		}
 	}
+
+	@Override
+	protected Ability getSecondary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		secondaryContext.getReferenceContext().importObject(a);
+		return a;
+	}
+
+	@Override
+	protected Ability getPrimary(String name)
+	{
+		Ability a = AbilityCategory.FEAT.newInstance();
+		a.setName(name);
+		primaryContext.getReferenceContext().importObject(a);
+		return a;
+	}
+	
+	
 }
