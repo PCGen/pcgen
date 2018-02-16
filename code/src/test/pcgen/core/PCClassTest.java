@@ -27,6 +27,7 @@ import java.util.StringTokenizer;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.PCGenTestCase;
 import pcgen.base.format.StringManager;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -47,7 +48,6 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.Qualifier;
 import pcgen.core.analysis.PCClassKeyChange;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -260,7 +260,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aQClass.setName("QualClass");
 		aQClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(aPrClass);
-		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(ref));
+		aQClass.addToListFor(ListKey.QUALIFY, ref);
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
@@ -344,7 +344,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aQClass.setName("QualClass");
 		aQClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(aPrClass);
-		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(ref));
+		aQClass.addToListFor(ListKey.QUALIFY, ref);
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
@@ -978,7 +978,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		qClass.setName("QualClass");
 		qClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(prClass);
-		qClass.addToListFor(ListKey.QUALIFY, new Qualifier(ref));
+		qClass.addToListFor(ListKey.QUALIFY, ref);
 		nqClass = new PCClass();		
 		nqClass.setName("NonQualClass");
 		nqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");

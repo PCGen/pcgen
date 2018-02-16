@@ -21,7 +21,6 @@ import java.util.List;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.CharID;
@@ -30,7 +29,7 @@ import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.reference.Qualifier;
+import pcgen.cdom.reference.CDOMSingleRef;
 
 /**
  * QualifyFacet is a Facet that tracks the objects to which the Player Character
@@ -60,14 +59,14 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<Qualifier> qualList = cdo.getListFor(ListKey.QUALIFY);
+		List<CDOMSingleRef<? extends Loadable>> references = cdo.getListFor(ListKey.QUALIFY);
 		CacheInfo ci = getConstructingCacheInfo(dfce.getCharID());
 
-		if (qualList != null)
+		if (references != null)
 		{
-			for (Qualifier q : qualList)
+			for (CDOMSingleRef<? extends Loadable> ref : references)
 			{
-				ci.add(q, cdo);
+				ci.add(ref, cdo);
 			}
 		}
 	}
@@ -148,22 +147,23 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	 */
 	private static class CacheInfo
 	{
-		private HashMapToList<String, Qualifier> hml = new HashMapToList<>();
-		private HashMapToList<CDOMObject, Qualifier> sourceMap =
-                new HashMapToList<>();
+		private HashMapToList<String, CDOMSingleRef<? extends Loadable>> hml =
+				new HashMapToList<>();
+		private HashMapToList<CDOMObject, CDOMSingleRef<? extends Loadable>> sourceMap =
+				new HashMapToList<>();
 
 		/**
 		 * Adds the given Qualifier to the CacheInfo, with the given source.
 		 * 
-		 * @param q
+		 * @param ref
 		 *            The Qualifier to be added to this CacheInfo
 		 * @param source
 		 *            The source for the Qualifier being added to this CacheInfo
 		 */
-		public void add(Qualifier q, CDOMObject source)
+		public void add(CDOMSingleRef<? extends Loadable> ref, CDOMObject source)
 		{
-			hml.addToListFor(q.getQualifiedReference().getPersistentFormat(), q);
-			sourceMap.addToListFor(source, q);
+			hml.addToListFor(ref.getPersistentFormat(), ref);
+			sourceMap.addToListFor(source, ref);
 		}
 
 		/**
@@ -176,13 +176,12 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 		 */
 		public void removeAll(CDOMObject object)
 		{
-			List<Qualifier> list = sourceMap.removeListFor(object);
+			List<CDOMSingleRef<? extends Loadable>> list = sourceMap.removeListFor(object);
 			if (list != null)
 			{
-				for (Qualifier q : list)
+				for (CDOMSingleRef<? extends Loadable> ref : list)
 				{
-					hml.removeFromListFor(q.getQualifiedReference().getPersistentFormat(),
-						q);
+					hml.removeFromListFor(ref.getPersistentFormat(), ref);
 				}
 			}
 		}
@@ -201,13 +200,13 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 		{
 			ClassIdentity<? extends Loadable> identity =
 					qualTestObject.getClassIdentity();
-			List<Qualifier> list = hml.getListFor(identity.getPersistentFormat());
+			List<CDOMSingleRef<? extends Loadable>> list =
+					hml.getListFor(identity.getPersistentFormat());
 			if (list != null)
 			{
-				for (Qualifier q : list)
+				for (CDOMSingleRef ref : list)
 				{
-					CDOMReference qRef = q.getQualifiedReference();
-					if (qRef.contains(qualTestObject))
+					if (ref.contains(qualTestObject))
 					{
 						return true;
 					}

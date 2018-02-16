@@ -22,8 +22,9 @@ import java.util.List;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.ClassIdentity;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.reference.Qualifier;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Campaign;
 
@@ -63,10 +64,11 @@ public class LoadValidator implements UnconstructedValidator
 		simpleMap = new HashMapToList<>();
 		for (Campaign c : campaignList)
 		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
+			for (CDOMSingleRef<? extends Loadable> ref : c
+				.getSafeListFor(ListKey.FORWARDREF))
 			{
-				simpleMap.addToListFor(q.getQualifiedReference().getPersistentFormat(),
-					q.getQualifiedReference().getLSTformat(false));
+				simpleMap.addToListFor(ref.getPersistentFormat(),
+					ref.getLSTformat(false));
 			}
 		}
 	}
