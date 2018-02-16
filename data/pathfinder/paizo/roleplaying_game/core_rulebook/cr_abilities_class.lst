@@ -1774,10 +1774,10 @@ CATEGORY=Special Ability|Sorcerer Bloodline ~ Draconic.MOD	ASPECT:NAME|Draconic 
 
 
 
-Air		KEY:Sorcerer Elemental Bloodline (Air)	CATEGORY:Special Ability	TYPE:Sorcerer Elemental Bloodline
-Earth		KEY:Sorcerer Elemental Bloodline (Earth)	CATEGORY:Special Ability	TYPE:Sorcerer Elemental Bloodline
-Fire		KEY:Sorcerer Elemental Bloodline (Fire)	CATEGORY:Special Ability	TYPE:Sorcerer Elemental Bloodline
-Water		KEY:Sorcerer Elemental Bloodline (Water)	CATEGORY:Special Ability	TYPE:Sorcerer Elemental Bloodline
+Air		KEY:Sorcerer Elemental Bloodline (Air)	CATEGORY:Special Ability	TYPE:Sorcerer Elemental Bloodline Choice
+Earth		KEY:Sorcerer Elemental Bloodline (Earth)	CATEGORY:Special Ability	TYPE:Sorcerer Elemental Bloodline Choice
+Fire		KEY:Sorcerer Elemental Bloodline (Fire)	CATEGORY:Special Ability	TYPE:Sorcerer Elemental Bloodline Choice
+Water		KEY:Sorcerer Elemental Bloodline (Water)	CATEGORY:Special Ability	TYPE:Sorcerer Elemental Bloodline Choice
 
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Elemental.MOD	ASPECT:NAME|Elemental Bloodline (Air)|PREABILITY:1,CATEGORY=Special Ability,Sorcerer Elemental Bloodline (Air)	
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Elemental.MOD	ASPECT:NAME|Elemental Bloodline (Earth)|PREABILITY:1,CATEGORY=Special Ability,Sorcerer Elemental Bloodline (Earth)	
