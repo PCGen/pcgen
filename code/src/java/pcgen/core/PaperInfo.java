@@ -23,16 +23,27 @@ import java.net.URI;
 import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Loadable;
-import pcgen.cdom.util.SortKeyed;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.system.LanguageBundle;
 
 /**
  * The Paper information for output sheets
  */
-public final class PaperInfo implements Loadable, SortKeyed
+public final class PaperInfo implements Loadable, SortKeyRequired
 {
+	/**
+	 * The source URI of this PaperInfo.
+	 */
 	private URI sourceURI;
+
+	/**
+	 * The name of this PaperInfo
+	 */
 	private String infoName;
+	
+	/**
+	 * The sort key of this PaperInfo, to indicate which items should appear first.
+	 */
 	private String sortKey;
 
 	/** Array of 6 paper information variables to keep hold of */

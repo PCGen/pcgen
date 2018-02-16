@@ -21,6 +21,7 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.StatFacade;
 
 public final class PCStat extends PObject implements StatFacade,
@@ -41,9 +42,6 @@ public final class PCStat extends PObject implements StatFacade,
 		return getKeyName();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.StatFacade#getName()
-	 */
     @Override
 	public String getName()
 	{
@@ -54,5 +52,11 @@ public final class PCStat extends PObject implements StatFacade,
 	public String getLocalScopeName()
 	{
 		return "STAT";
+	}
+
+	@Override
+	public String getSortKey()
+	{
+		return get(StringKey.SORT_KEY);
 	}
 }

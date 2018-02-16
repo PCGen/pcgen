@@ -262,16 +262,16 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.clearLoadContext();
-		str = BuildUtilities.createStat("Strength", "STR");
+		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 			FormulaFactory.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"),
 			FormulaFactory.getFormulaFor(2));
-		dex = BuildUtilities.createStat("Dexterity", "DEX");
-		con = BuildUtilities.createStat("Constitution", "CON");
-		intel = BuildUtilities.createStat("Intelligence", "INT");
-		wis = BuildUtilities.createStat("Wisdom", "WIS");
-		cha = BuildUtilities.createStat("Charisma", "CHA");
+		dex = BuildUtilities.createStat("Dexterity", "DEX", "B");
+		con = BuildUtilities.createStat("Constitution", "CON", "C");
+		intel = BuildUtilities.createStat("Intelligence", "INT", "D");
+		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
+		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");

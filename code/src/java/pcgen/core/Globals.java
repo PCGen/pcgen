@@ -442,7 +442,7 @@ public final class Globals
 	{
 		List<PaperInfo> items = new ArrayList<>(SettingsHandler.getGame().getModeContext()
 			.getReferenceContext().getConstructedCDOMObjects(PaperInfo.class));
-		Collections.sort(items, new SortKeyComparator());
+		items.sort(SortKeyComparator.instance);
 		return items;
 	}
 
