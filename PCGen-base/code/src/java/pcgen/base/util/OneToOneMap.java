@@ -180,7 +180,7 @@ public class OneToOneMap<K, V>
 	 * mapping for the given key, null is returned.
 	 * 
 	 * @param key
-	 *            The key used to identify which object to remove from thsi
+	 *            The key used to identify which object to remove from this
 	 *            OneToOneMap
 	 * @return Object The value previously mapped to the given keys
 	 */
