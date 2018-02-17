@@ -222,7 +222,7 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		Ability b = AbilityCategory.FEAT.newInstance();
 		b.setName("My Feat");
 		secondaryContext.getReferenceContext().importObject(b);
-		runRoundRobin("ABILITY=FEAT|My Feat", "SPELL|Lightning Bolt");
+		runRoundRobin("FEAT|My Feat", "SPELL|Lightning Bolt");
 	}
 
 	@Override
