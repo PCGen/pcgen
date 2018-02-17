@@ -5,11 +5,11 @@ batch-convert.jar
 plugins/*.jar
 plugins/*plugins/
 
-bin/
-code/bin/
-code/build/
-code/comp-manifest
-code/manifest
+/bin/
+/code/bin/
+/code/build/
+/code/comp-manifest
+/code/manifest
 
 hs_err_*.log
 checkstyle-cachefile
@@ -28,10 +28,10 @@ pcgen.log
 pcgen.log.*
 pcgen_low_mem.bat
 
-output/
-build/
-libs/
-code/testsuite/output/
+/output/
+/build/
+/libs/
+/code/testsuite/output/
 .gradle/
 pcgen-batch-convert.jar
 /.metadata
@@ -43,7 +43,7 @@ pcgen-batch-convert.jar
 
 .idea/
 
-data/customsources/*
+/data/customsources/*
 !data/customsources/readme-customsources.txt
 /.nb-gradle/
 /jre/
