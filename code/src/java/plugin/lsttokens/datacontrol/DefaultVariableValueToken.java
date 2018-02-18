@@ -21,6 +21,7 @@ import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DefaultVarValue;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -119,7 +120,8 @@ public class DefaultVariableValueToken extends
 		}
 		defaultModifier.addAssociation("PRIORITY=0");
 		dvv.setModifier(defaultModifier);
-		context.getVariableContext().addDefault(cl, defaultModifier);
+		context.getVariableContext().addDefault(cl,
+			new ModifierDecoration<>(defaultModifier));
 		return ParseResult.SUCCESS;
 	}
 

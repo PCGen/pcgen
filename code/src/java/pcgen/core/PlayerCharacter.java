@@ -37,8 +37,6 @@ import java.util.TreeSet;
 import org.jetbrains.annotations.TestOnly;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.solver.IndividualSetup;
@@ -66,7 +64,6 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Processor;
 import pcgen.cdom.content.RollMethod;
-import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
@@ -10210,13 +10207,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public boolean hasAbilityInPool(AbilityCategory aCategory)
 	{
 		return grantedAbilityFacet.hasAbilityInPool(id, aCategory);
-	}
-
-	public <T> void addModifier(VarModifier<T> modifier, VarScoped vs,
-		VarScoped source)
-	{
-		ScopeInstance inst = scopeFacet.get(id, source.getLocalScopeName(), source);
-		solverManagerFacet.addModifier(id, modifier, vs, inst);
 	}
 
 	public Object getGlobal(String varName)

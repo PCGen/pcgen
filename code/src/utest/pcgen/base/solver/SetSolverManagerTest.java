@@ -55,6 +55,7 @@ import pcgen.base.solver.testsupport.TrackingVariableCache;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
 import pcgen.cdom.formula.ManagerKey;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.formula.scope.EquipmentScope;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.formula.scope.PCGenScope;
@@ -113,24 +114,26 @@ public class SetSolverManagerTest
 		ModifierFactory am1 = new plugin.modifier.set.SetModifierFactory<>();
 		FormulaModifier emptyArrayMod =
 				am1.getModifier("", managerFactory, null, globalScope, arrayManager);
-		solverFactory.addSolverFormat(arrayManager.getManagedClass(), emptyArrayMod);
+		solverFactory.addSolverFormat(arrayManager.getManagedClass(),
+			new ModifierDecoration<>(emptyArrayMod));
 		
 		ProcessCalculation calc =
 				new ProcessCalculation<>(new Skill(), new BasicSet(), skillManager);
 		CalculationModifier em = new CalculationModifier<>(calc, skillManager);
-		solverFactory.addSolverFormat(Skill.class, em);
+		solverFactory.addSolverFormat(Skill.class, new ModifierDecoration<>(em));
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
 		ModifierFactory mfn = new plugin.modifier.number.SetModifierFactory();
 		FormulaModifier mod =
 				mfn.getModifier("0", managerFactory, null, globalScope, numberManager);
 		mod.addAssociation("PRIORITY=0");
-		solverFactory.addSolverFormat(numberManager.getManagedClass(), mod);
+		solverFactory.addSolverFormat(numberManager.getManagedClass(),
+			new ModifierDecoration<>(mod));
 		ModifierFactory mfs = new plugin.modifier.string.SetModifierFactory();
-		Modifier mods =
+		FormulaModifier mods =
 				mfs.getModifier("", managerFactory, null, globalScope, stringManager);
-		solverFactory.addSolverFormat(stringManager.getManagedClass(), mods);
-
+		solverFactory.addSolverFormat(stringManager.getManagedClass(),
+			new ModifierDecoration<>(mods));
 	}
 
 	@Test
@@ -152,7 +155,7 @@ public class SetSolverManagerTest
 		FormulaModifier mod = am1.getModifier("France,England", managerFactory, null,
 			globalScope, arrayManager);
 		mod.addAssociation("PRIORITY=2000");
-		manager.addModifier(regions, mod, scopeInst);
+		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
 		array = vc.get(regions);
 		assertThat(2, is(array.length));
 		list = Arrays.asList(array);
@@ -166,7 +169,7 @@ public class SetSolverManagerTest
 		mod = am2.getModifier("Greece,England", managerFactory, null, globalScope,
 			arrayManager);
 		mod.addAssociation("PRIORITY=3000");
-		manager.addModifier(regions, mod, scopeInst);
+		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
 		array = vc.get(regions);
 		assertThat(3, is(array.length));
 		list = Arrays.asList(array);
@@ -232,20 +235,20 @@ public class SetSolverManagerTest
 				new BasicSet(), skillManager);
 		CalculationModifier mods2 = new CalculationModifier<>(calc2, skillManager);
 
-		manager.addModifier(varIDe, mod2, scopeInste);
-		manager.addModifier(varIDa, mod3, scopeInsta);
+		manager.addModifier(varIDe, new ModifierDecoration<>(mod2), scopeInste);
+		manager.addModifier(varIDa, new ModifierDecoration<>(mod3), scopeInsta);
 		assertEquals(2, vc.get(varIDe));
 		assertEquals(3, vc.get(varIDa));
 		assertEquals(0, vc.get(varIDr));
 
-		manager.addModifier(varIDq, mods1, globalInst);
-		manager.addModifier(varIDr, modf, globalInst);
+		manager.addModifier(varIDq, new ModifierDecoration<>(mods1), globalInst);
+		manager.addModifier(varIDr, new ModifierDecoration<>(modf), globalInst);
 		assertEquals(2, vc.get(varIDr));
 
-		manager.addModifier(varIDq, mods2, globalInst);
+		manager.addModifier(varIDq, new ModifierDecoration<>(mods2), globalInst);
 		assertEquals(3, vc.get(varIDr));
 
-		manager.addModifier(varIDa, mod4, scopeInsta);
+		manager.addModifier(varIDa, new ModifierDecoration<>(mod4), scopeInsta);
 		assertEquals(4, vc.get(varIDr));
 	}
 

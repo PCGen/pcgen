@@ -9,6 +9,7 @@
 	<!-- A -->
 	<bean id="abilitySelectionApplication" class="pcgen.cdom.facet.AbilitySelectionApplication" />
 	<bean id="activeEqModFacet" class="pcgen.cdom.facet.model.ActiveEqModFacet" />
+	<bean id="activeEqHeadFacet" class="pcgen.cdom.facet.model.ActiveEqHeadFacet" />
 	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
@@ -371,6 +372,9 @@
 	<bean id="listSkillCostFacet" class="pcgen.cdom.facet.analysis.ListSkillCostFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
+	<bean id="loadContextFacet" class="pcgen.cdom.facet.LoadContextFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
 	<bean id="loadFacet" class="pcgen.cdom.facet.analysis.LoadFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="totalWeightFacet" ref="totalWeightFacet"/>
@@ -398,7 +402,7 @@
 	</bean>
 	<bean id="modifierFacet" class="pcgen.cdom.facet.ModifierFacet">
 		<property name="scopeFacet" ref="scopeFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
+		<property name="varScopedFacet" ref="varScopedFacet"/>
 		<property name="solverManagerFacet" ref="solverManagerFacet"/>
 	</bean>
 	<bean id="monsterClassFacet" class="pcgen.cdom.facet.MonsterClassFacet">

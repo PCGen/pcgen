@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.content;
 
-import pcgen.base.solver.Modifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -28,9 +28,16 @@ import pcgen.base.util.FormatManager;
 public class DefaultVarValue extends UserContent
 {
 
+	/**
+	 * The FormatManager for which the default variable value is defined.
+	 */
 	private FormatManager<?> formatManager;
 
-	private Modifier<?> modifier;
+	/**
+	 * The FormulaModifier indicating the default value for the type of object managed by
+	 * the formatManager in this DefaultVarValue.
+	 */
+	private FormulaModifier<?> modifier;
 
 	@Override
 	public String getDisplayName()
@@ -64,24 +71,24 @@ public class DefaultVarValue extends UserContent
 	}
 
 	/**
-	 * Sets the Modifier to be used as the default Modifier for the format
+	 * Sets the FormulaModifier to be used as the default FormulaModifier for the format
 	 * contained by this DefaultVarValue.
 	 * 
 	 * @param modifier
-	 *            the Modifier to be used as the default Modifier for the format
-	 *            contained by this DefaultVarValue
+	 *            the FormulaModifier to be used as the default FormulaModifier for the
+	 *            format contained by this DefaultVarValue
 	 */
-	public void setModifier(Modifier<?> modifier)
+	public void setModifier(FormulaModifier<?> modifier)
 	{
 		this.modifier = modifier;
 	}
 
 	/**
-	 * Returns the Modifier containing the default variable value.
+	 * Returns the FormulaModifier containing the default variable value.
 	 * 
-	 * @return the Modifier containing the default variable value
+	 * @return the FormulaModifier containing the default variable value
 	 */
-	public Modifier<?> getModifier()
+	public FormulaModifier<?> getModifier()
 	{
 		return modifier;
 	}
