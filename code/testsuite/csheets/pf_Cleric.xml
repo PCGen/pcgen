@@ -68,9 +68,9 @@ BIO
 		</skin>
 		<cr>2</cr>
 		<face>
-		<face>5 ft.</face>
+		<face>5 ft. by 5 ft.</face>
 			<short>5 ft.</short>
-			<squares>1</squares>
+			<squares>1 x 1</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
