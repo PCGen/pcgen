@@ -75,9 +75,9 @@ BIO
 		</skin>
 		<cr>23</cr>
 		<face>
-		<face>30 ft.</face>
-			<short>30 ft.</short>
-			<squares>6</squares>
+		<face>30 ft. by 30 ft.</face>
+			<short>30 ft. x 30 ft.</short>
+			<squares>6 x 6</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
