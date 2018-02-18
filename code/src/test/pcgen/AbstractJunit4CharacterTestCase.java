@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 import org.junit.After;
 import org.junit.Before;
 
-import pcgen.base.solver.Modifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -235,8 +236,9 @@ abstract public class AbstractJunit4CharacterTestCase
 	{
 		Class<T> cl = fmtManager.getManagedClass();
 		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		Modifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl, defaultModifier);
+		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl,
+			new ModifierDecoration<>(defaultModifier));
 	}
 
 	protected void additionalSetUp() throws Exception

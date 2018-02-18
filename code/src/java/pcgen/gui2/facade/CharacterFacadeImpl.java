@@ -34,16 +34,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
 import javax.swing.undo.UndoManager;
+
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
@@ -67,7 +69,6 @@ import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.helper.ClassSource;
-import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -3533,27 +3534,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (!newEquip.containsKey(ObjectKey.BASE_ITEM))
 		{
 			newEquip.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(aEq));
-		}
-
-		List<VarModifier<?>> modifiers = newEquip.getListFor(ListKey.MODIFY);
-		if (modifiers != null)
-		{
-			for (VarModifier<?> vm : modifiers)
-			{
-				theCharacter.addModifier(vm, newEquip, newEquip);
-			}
-		}
-
-		for (EquipmentHead head : newEquip.getEquipmentHeads())
-		{
-			modifiers = head.getListFor(ListKey.MODIFY);
-			if (modifiers != null)
-			{
-				for (VarModifier<?> vm : modifiers)
-				{
-					theCharacter.addModifier(vm, head, head);
-				}
-			}
 		}
 
 		EquipmentBuilderFacadeImpl builder =
