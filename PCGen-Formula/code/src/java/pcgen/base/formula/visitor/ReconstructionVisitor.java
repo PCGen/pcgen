@@ -235,8 +235,8 @@ public class ReconstructionVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Processes the function bracket node. These are brackets following a
-	 * bracket function name (though the name was already written by a word
+	 * Processes the FormulaFunction bracket node. These are brackets following a
+	 * bracket FormulaFunction name (though the name was already written by a word
 	 * node), so the brackets are written surrounding the children. It is
 	 * presumed there is only one child, so no separator is necessary.
 	 */
@@ -252,8 +252,8 @@ public class ReconstructionVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Processes the function parenthesis node. These are parenthesis following
-	 * a function name (though the name was already written by a word node), so
+	 * Processes the FormulaFunction parenthesis node. These are parenthesis following
+	 * a FormulaFunction name (though the name was already written by a word node), so
 	 * the parenthesis are written surrounding the children. Since the children
 	 * are arguments to a function, they are separated by commas.
 	 */
@@ -262,7 +262,7 @@ public class ReconstructionVisitor implements FormulaParserVisitor
 	{
 		StringBuilder sb = (StringBuilder) data;
 		sb.append('(');
-		//separator as a paren function can have multiple arguments
+		//separator as a paren FormulaFunction can have multiple arguments
 		processChildrenWithSeparator(node, data, ",");
 		sb.append(')');
 		return data;

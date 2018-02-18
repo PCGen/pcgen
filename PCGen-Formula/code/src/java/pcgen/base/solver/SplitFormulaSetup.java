@@ -17,7 +17,6 @@
  */
 package pcgen.base.solver;
 
-import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.inst.FormulaUtilities;
@@ -92,7 +91,7 @@ public class SplitFormulaSetup
 	 * 
 	 * @return The FunctionLibrary for this SplitFormulaSetup
 	 */
-	public FunctionLibrary getFunctionLibrary()
+	public SimpleFunctionLibrary getFunctionLibrary()
 	{
 		return functionLib;
 	}

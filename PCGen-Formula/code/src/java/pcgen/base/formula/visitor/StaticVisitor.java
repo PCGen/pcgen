@@ -45,8 +45,8 @@ import pcgen.base.formula.parse.SimpleNode;
  * static.
  * 
  * A static formula does not use variables in calculating the result, and does
- * not use a function where the returned value will depend on the context in
- * which the function is called.
+ * not use a FormulaFunction where the returned value will depend on the context
+ * in which the FormulaFunction is called.
  * 
  * As an example, "2+3" is a static formula while "2+T" is not. "max(4,6)" is
  * also a static formula (and one that uses a function).
@@ -232,11 +232,11 @@ public class StaticVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Indicates a function was encountered in the formula. This will decode
-	 * what function is being called, using the FunctionLibrary, and then call
-	 * isStatic() on the Function, relying on the behavior of that method (as
-	 * defined in the contract of the Function interface) to determine if the
-	 * function represents a static value.
+	 * Indicates a FormulaFunction was encountered in the formula. This will decode what
+	 * FormulaFunction is being called, using the FunctionLibrary, and then call
+	 * isStatic() on the Function, relying on the behavior of that method (as defined in
+	 * the contract of the FormulaFunction interface) to determine if the FormulaFunction
+	 * represents a static value.
 	 */
 	@Override
 	public Object visit(ASTPCGenLookup node, Object data)
@@ -271,8 +271,8 @@ public class StaticVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
+	 * This type of node is ONLY encountered as part of a FormulaFunction. Since the
+	 * FormulaFunction should have "consumed" these elements and not called back into
 	 * StaticVisitor, reaching this node in StaticVisitor indicates either an
 	 * error in the implementation of the formula or a tree structure problem in
 	 * the formula.
@@ -280,15 +280,15 @@ public class StaticVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenBracket node, Object data)
 	{
-		//Should be stripped by the function
+		//Should be stripped by the FormulaFunction
 		throw new IllegalStateException(
 			"Static Check called on invalid Formula (reached brackets)");
 	}
 
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
-	 * StaticVisitor, reaching this node in StaticVisitor indicates either an
+	 * FormulaFunction should have "consumed" these elements and not called back
+	 * into StaticVisitor, reaching this node in StaticVisitor indicates either an
 	 * error in the implementation of the formula or a tree structure problem in
 	 * the formula.
 	 */

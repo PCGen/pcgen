@@ -23,7 +23,7 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -37,23 +37,16 @@ import pcgen.base.util.FormatManager;
  * 
  * It is important to understand that this is designed to work for functions
  * that use two values at a time, and when more than two are present, the
- * function is associative (the order in which the arguments are processed does
+ * AbstractNaryFunction is associative (the order in which the arguments are processed does
  * not matter). This is true of functions like calculating a maximum value
  * (where the order is not significant as long as all values are processed).
  * 
  * This is implemented as a repeated check between two values in order to
  * process the variable number of arguments to the function.
  */
-public abstract class AbstractNaryFunction implements Function
+public abstract class AbstractNaryFunction implements FormulaFunction
 {
 
-	/**
-	 * Checks if the given arguments are valid using the given SemanticsVisitor.
-	 * A minimum of two arguments are required, and each must be a valid formula
-	 * value (number, variable, another function, etc.).
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
 		Node[] args, FormulaSemantics semantics)
@@ -87,19 +80,6 @@ public abstract class AbstractNaryFunction implements Function
 		return FormatUtilities.NUMBER_MANAGER;
 	}
 
-	/**
-	 * Evaluates the given arguments using the given EvaluateVisitor. Two or
-	 * more arguments are allowed, and each must be a valid numeric value.
-	 * 
-	 * This method assumes there are at least two arguments, and the arguments
-	 * are valid values. See evaluate on the Function interface for important
-	 * assumptions made when this method is called.
-	 * 
-	 * Actual processing is delegated to (potentially repeated calls to)
-	 * evaluate(Number, Number).
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final Number evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
@@ -115,15 +95,6 @@ public abstract class AbstractNaryFunction implements Function
 		return solution;
 	}
 
-	/**
-	 * Checks if the given arguments are static using the given StaticVisitor.
-	 * 
-	 * This method assumes there are at least two arguments, and the arguments
-	 * are valid values in a formula. See isStatic on the Function interface for
-	 * important assumptions made when this method is called.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
@@ -138,22 +109,6 @@ public abstract class AbstractNaryFunction implements Function
 		return Boolean.TRUE;
 	}
 
-	/**
-	 * Captures dependencies of this function. This includes Variables (in the
-	 * form of VariableIDs), but is not limited to those as the only possible
-	 * dependency.
-	 * 
-	 * Consistent with the contract of the Function interface, this list
-	 * recursively includes all of the contents of items within this function
-	 * (if this function calls another function, etc. all variables in the tree
-	 * below this function are included).
-	 * 
-	 * This method assumes valid arguments to the formula. See getDependencies
-	 * on the Function interface for important assumptions made when this method
-	 * is called.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)

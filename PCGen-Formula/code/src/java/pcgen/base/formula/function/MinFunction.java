@@ -25,12 +25,6 @@ package pcgen.base.formula.function;
 public class MinFunction extends AbstractNaryFunction
 {
 
-	/**
-	 * Returns the function name for this function. This is how it is called by
-	 * a user in a formula.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getFunctionName()
 	{

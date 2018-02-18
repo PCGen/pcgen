@@ -23,7 +23,7 @@ import java.util.Optional;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.OperatorLibrary;
@@ -64,10 +64,10 @@ import pcgen.base.util.FormatManager;
  * 
  * Note that SemanticsVisitor will not produce an error in a situations which is
  * "possibly legal": Specifically, where an String referred to in a formula may
- * or may not be valid at a later time. For details, see the Function interface
- * and examples provided there (and the different requirements on allowArgs() -
- * called by SemanticsVisitor - and getDependencies() - not called by
- * SemanticsVisitor)
+ * or may not be valid at a later time. For details, see the FormulaFunction
+ * interface and examples provided there (and the different requirements on
+ * allowArgs() - called by SemanticsVisitor - and getDependencies() - not called
+ * by SemanticsVisitor).
  * 
  * The objects to be passed in as data to each of the methods on the
  * FormulaParserVisitor interface of SemanticsVisitor is a FormulaSemantics
@@ -233,18 +233,18 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Processes a function encountered in the formula. This will validate the
-	 * structure of the nodes making up the Function within the formula, decode
-	 * what function is being called, using the FunctionLibrary, and then call
-	 * allowArgs() on the Function, relying on the behavior of that method (as
-	 * defined in the contract of the Function interface) to determine if the
-	 * function represents a valid call to the Function.
+	 * Processes a FormulaFunction encountered in the formula. This will validate the
+	 * structure of the nodes making up the FormulaFunction within the formula, decode
+	 * what FormulaFunction is being called, using the FunctionLibrary, and then call
+	 * allowArgs() on the Function, relying on the behavior of that method (as defined in
+	 * the contract of the FormulaFunction interface) to determine if the FormulaFunction
+	 * represents a valid call to the Function.
 	 */
 	@Override
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
 		FormulaSemantics semantics = (FormulaSemantics) data;
-		//Two children are function name and the grouping (parens/brackets)
+		//Two children are FormulaFunction name and the grouping (parens/brackets)
 		if (node.jjtGetNumChildren() != 2)
 		{
 			semantics.setInvalid(getInvalidCountReport(node, 2));
@@ -262,7 +262,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 
 		/*
-		 * Validate the function contents (remember it can have other complex
+		 * Validate the FormulaFunction contents (remember it can have other complex
 		 * structures inside of it)
 		 */
 		ASTPCGenSingleWord ftnNode = (ASTPCGenSingleWord) firstChild;
@@ -270,16 +270,16 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		Node argNode = node.jjtGetChild(1);
 		if (argNode instanceof ASTFParen)
 		{
-			FunctionLibrary library = semantics.get(FormulaSemantics.FMANAGER)
-				.get(FormulaManager.FUNCTION);
-			Function function = library.getFunction(name);
+			FunctionLibrary library =
+					semantics.get(FormulaSemantics.FMANAGER).get(FormulaManager.FUNCTION);
+			FormulaFunction function = library.getFunction(name);
 			if (function == null)
 			{
 				semantics.setInvalid("Function: " + name
 					+ " was not found (called as: " + name + "(...))");
 				return null;
 			}
-			//Extract arguments from the grouping to give them to the function
+			//Extract arguments from the grouping to give them to the FormulaFunction
 			Node[] args = VisitorUtilities.accumulateArguments(argNode);
 			return function.allowArgs(this, args, semantics);
 		}
@@ -377,15 +377,14 @@ public class SemanticsVisitor implements FormulaParserVisitor
 
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
-	 * SemanticsVisitor, reaching this node in SemanticsVisitor indicates either
-	 * an error in the implementation of the formula or a tree structure problem
-	 * in the formula.
+	 * FormulaFunction should have "consumed" these elements and not called back into
+	 * SemanticsVisitor, reaching this node in SemanticsVisitor indicates either an error
+	 * in the implementation of the formula or a tree structure problem in the formula.
 	 */
 	@Override
 	public Object visit(ASTPCGenBracket node, Object data)
 	{
-		//Should be stripped by the function
+		//Should be stripped by the FormulaFunction
 		FormulaSemantics semantics = (FormulaSemantics) data;
 		semantics.setInvalid("Parse Error: Invalid Class: "
 			+ node.getClass().getName()
@@ -395,15 +394,14 @@ public class SemanticsVisitor implements FormulaParserVisitor
 
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
-	 * SemanticsVisitor, reaching this node in SemanticsVisitor indicates either
-	 * an error in the implementation of the formula or a tree structure problem
-	 * in the formula.
+	 * FormulaFunction should have "consumed" these elements and not called back into
+	 * SemanticsVisitor, reaching this node in SemanticsVisitor indicates either an error
+	 * in the implementation of the formula or a tree structure problem in the formula.
 	 */
 	@Override
 	public Object visit(ASTFParen node, Object data)
 	{
-		//Should be stripped by the function
+		//Should be stripped by the FormulaFunction
 		FormulaSemantics semantics = (FormulaSemantics) data;
 		semantics.setInvalid("Parse Error: Invalid Class: "
 			+ node.getClass().getName()

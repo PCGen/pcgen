@@ -27,7 +27,6 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
@@ -38,6 +37,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ScopeManagerInst;
+import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.parse.SimpleNode;
@@ -56,6 +56,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
 	private ManagerFactory managerFactory = new ManagerFactory(){};
+	private SimpleFunctionLibrary functionLibrary;
 
 	@Override
 	protected void setUp() throws Exception
@@ -65,6 +66,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		setup.loadBuiltIns();
 		setup.getLegalScopeManager()
 			.registerScope(new SimpleLegalScope("Global"));
+		functionLibrary = setup.getFunctionLibrary();
 		localSetup = new IndividualSetup(setup, new SimpleVariableStore());
 		setup.getSolverFactory().addSolverFormat(Number.class, new Modifier(){
 
@@ -146,9 +148,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
-			localSetup.getFormulaManager(), getGlobalScope());
-		semantics =
-				semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
+			getFormulaManager(), getGlobalScope());
+		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
 		{
@@ -160,7 +161,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public void isStatic(String formula, SimpleNode node, boolean b)
 	{
 		StaticVisitor staticVisitor =
-				new StaticVisitor(localSetup.getFormulaManager().get(FormulaManager.FUNCTION));
+				new StaticVisitor(getFormulaManager().get(FormulaManager.FUNCTION));
 		boolean isStat =
 				((Boolean) staticVisitor.visit(node, null)).booleanValue();
 		if (isStat != b)
@@ -211,7 +212,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public EvaluationManager generateManager()
 	{
 		EvaluationManager em =
-				managerFactory.generateEvaluationManager(localSetup.getFormulaManager());
+				managerFactory.generateEvaluationManager(getFormulaManager());
 		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
 	}
 
@@ -226,9 +227,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
-			localSetup.getFormulaManager(), getGlobalScope());
-		semantics =
-				semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
+			getFormulaManager(), getGlobalScope());
+		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
 		{
@@ -266,24 +266,24 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		return (VariableID<Boolean>) variableLibrary.getVariableID(globalInst, formula);
 	}
 
-	protected FunctionLibrary getFunctionLibrary()
+	protected SimpleFunctionLibrary getFunctionLibrary()
 	{
-		return localSetup.getFormulaManager().get(FormulaManager.FUNCTION);
+		return functionLibrary;
 	}
 
 	protected OperatorLibrary getOperatorLibrary()
 	{
-		return localSetup.getFormulaManager().getOperatorLibrary();
+		return getFormulaManager().getOperatorLibrary();
 	}
 
 	protected VariableLibrary getVariableLibrary()
 	{
-		return localSetup.getFormulaManager().getFactory();
+		return getFormulaManager().getFactory();
 	}
 
 	protected WriteableVariableStore getVariableStore()
 	{
-		return (WriteableVariableStore) localSetup.getFormulaManager()
+		return (WriteableVariableStore) getFormulaManager()
 			.get(FormulaManager.RESULTS);
 	}
 

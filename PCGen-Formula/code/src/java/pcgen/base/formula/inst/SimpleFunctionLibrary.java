@@ -19,44 +19,40 @@ package pcgen.base.formula.inst;
 
 import java.util.Objects;
 
-import pcgen.base.formula.base.Function;
-import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.FormulaFunction;
+import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * SimpleFunctionLibrary is a simple implementation of the FunctionLibrary
- * interface.
+ * SimpleFunctionLibrary is a simple implementation of the FunctionLibrary interface.
  * 
- * This triggers exceptions if a null function or function with a null name is
- * added to the FunctionLibrary.
+ * This triggers exceptions if a null FormulaFunction or FormulaFunction with a null name
+ * is added to the FunctionLibrary.
  * 
- * Note also that SimpleFunctionLibrary treats function names as
- * case-insensitive. Therefore, "Ceil" and "ceil" are identical functions.
+ * Note also that SimpleFunctionLibrary treats FormulaFunction names as case-insensitive.
+ * Therefore, "Ceil" and "ceil" are identical functions.
  */
-public class SimpleFunctionLibrary implements FunctionLibrary
+public class SimpleFunctionLibrary implements WriteableFunctionLibrary
 {
 
 	/**
-	 * Stores the "paren functions" in this FunctionLibrary.
-	 * 
-	 * These are () functions for world-wide clarity :D
+	 * Stores the FormulaFunction objects in this FunctionLibrary.
 	 */
-	private final CaseInsensitiveMap<Function> parenMap =
-			new CaseInsensitiveMap<Function>();
+	private final CaseInsensitiveMap<FormulaFunction> parenMap =
+			new CaseInsensitiveMap<FormulaFunction>();
 
 	/**
-	 * Adds a "paren" function to the SimpleFunctionLibrary.
+	 * Adds a FormulaFunction to the SimpleFunctionLibrary.
 	 * 
-	 * A null Function or a function which returns null from getFunctionName()
-	 * will both trigger an exception.
+	 * A null FormulaFunction or a FormulaFunction which returns null from
+	 * getFunctionName() will both trigger an exception.
 	 * 
-	 * It is important that this method only be called once per Function name.
-	 * If there is an attempt to add a second function with a name already
-	 * matching a "paren" Function within the SimpleFunctionLibrary, then an
-	 * exception will be thrown.
+	 * It is important that this method only be called once per FormulaFunction name. If
+	 * there is an attempt to add a second FormulaFunction with a name already matching a
+	 * FormulaFunction within the SimpleFunctionLibrary, then an exception will be thrown.
 	 */
 	@Override
-	public void addFunction(Function function)
+	public void addFunction(FormulaFunction function)
 	{
 		String functionName = function.getFunctionName();
 		Objects.requireNonNull(functionName, "Cannot add Function with null name");
@@ -69,17 +65,16 @@ public class SimpleFunctionLibrary implements FunctionLibrary
 	}
 
 	/**
-	 * Returns the "paren" Function with the given function name (evaluated on a
-	 * case-insensitive basis).
+	 * Returns the FormulaFunction with the given name (evaluated on a case-insensitive
+	 * basis).
 	 * 
-	 * Per the contractual requirement of FunctionLibrary, will return null if
-	 * no "paren" Function with the given function name is in the
-	 * SimpleFunctionLibrary.
+	 * Per the contractual requirement of FunctionLibrary, will return null if no
+	 * FormulaFunction with the given name is in the SimpleFunctionLibrary.
 	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Function getFunction(String functionName)
+	public FormulaFunction getFunction(String functionName)
 	{
 		return parenMap.get(functionName);
 	}

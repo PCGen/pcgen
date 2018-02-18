@@ -17,8 +17,8 @@
  */
 package pcgen.base.formula.inst;
 
-import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
+import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.function.AbsFunction;
 import pcgen.base.formula.function.CeilFunction;
 import pcgen.base.formula.function.FloorFunction;
@@ -63,13 +63,13 @@ public final class FormulaUtilities
 	}
 
 	/**
-	 * Load the "built-in" functions into the given FunctionLibrary.
+	 * Load the "built-in" functions into the given WriteableFunctionLibrary.
 	 * 
 	 * @param functionLib
-	 *            The FunctionLibrary to which the built in functions should be
+	 *            The WriteableFunctionLibrary to which the built in functions should be
 	 *            added.
 	 */
-	public static void loadBuiltInFunctions(FunctionLibrary functionLib)
+	public static void loadBuiltInFunctions(WriteableFunctionLibrary functionLib)
 	{
 		functionLib.addFunction(new AbsFunction());
 		functionLib.addFunction(new CeilFunction());

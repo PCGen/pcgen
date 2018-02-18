@@ -17,56 +17,26 @@
  */
 package pcgen.base.formula.base;
 
-
-
 /**
- * A FunctionLibrary is a container for Function objects. There are two forms of
- * Functions:
- * 
- * (Paren) Function: A paren function is a function that uses parenthesis () to
- * contain the arguments to the function. An example of this is
- * var("CL=Fighter")
- * 
- * "var" is the function, "CL=Fighter" is the (one) argument to the function
- * 
- * Bracket Function: A bracket function is a "built in" value that can be used
- * in a function. An example of this include (but are certainly not limited to)
- * COUNT[SKILLS] and COUNT[STATS]
- * 
- * Apologies to those outside the USA since the name of () and [] varies by
- * region.
+ * A FunctionLibrary is a container for FormulaFunction objects.
  */
+@FunctionalInterface
 public interface FunctionLibrary
 {
 
 	/**
-	 * Adds a function to the FunctionLibrary. This is used for functions that
-	 * are followed by parenthesis ()
+	 * Returns the FormulaFunction with the given name.
 	 * 
-	 * FunctionLibrary does not define the behavior if an object attempts to add
-	 * null or attempts to add a function with a null name. An exception may be
-	 * thrown (implementation dependent).
+	 * FunctionLibrary does not define the behavior if an object attempts to get a
+	 * FormulaFunction with the name null. An exception may be thrown.
 	 * 
-	 * @param function
-	 *            The function to be added to the FunctionLibrary
-	 */
-	public void addFunction(Function function);
-
-	/**
-	 * Returns the Function with the given function name. This will return a
-	 * function that was added to the FunctionLibrary via the addFunction()
-	 * method.
-	 * 
-	 * FunctionLibrary does not define the behavior if an object attempts to get
-	 * a function with the name null. An exception may be thrown.
-	 * 
-	 * "null" is a legal return value if there is no function in the
-	 * FunctionLibrary for the given function name.
+	 * "null" is a legal return value if there is no FormulaFunction in the
+	 * FunctionLibrary for the given name.
 	 * 
 	 * @param functionName
-	 *            The name of the Function to be returned.
-	 * @return The Function with the given function name.
+	 *            The name of the FormulaFunction to be returned.
+	 * @return The FormulaFunction with the given name.
 	 */
-	public Function getFunction(String functionName);
+	public FormulaFunction getFunction(String functionName);
 
 }

@@ -24,7 +24,7 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -39,28 +39,15 @@ import pcgen.base.util.FormatManager;
  * 
  * In the case of this implementation, conditional is a Boolean.
  */
-public class IfFunction implements Function
+public class IfFunction implements FormulaFunction
 {
 
-	/**
-	 * Returns the function name for this function. This is how it is called by
-	 * a user in a formula.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getFunctionName()
 	{
 		return "IF";
 	}
 
-	/**
-	 * Checks if the given arguments are valid using the given SemanticsVisitor.
-	 * Three arguments are required, and each must be a valid formula value
-	 * (number, variable, another function, etc.).
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
 		Node[] args, FormulaSemantics semantics)
@@ -122,15 +109,6 @@ public class IfFunction implements Function
 		return tFormat;
 	}
 
-	/**
-	 * Evaluates the given arguments using the given EvaluateVisitor.
-	 * 
-	 * This method assumes there are three arguments, and the arguments are
-	 * valid values. See evaluate on the Function interface for important
-	 * assumptions made when this method is called.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
@@ -145,15 +123,6 @@ public class IfFunction implements Function
 		return args[which].jjtAccept(visitor, manager);
 	}
 
-	/**
-	 * Checks if the given arguments are static using the given StaticVisitor.
-	 * 
-	 * This method assumes the arguments are valid values in a formula. See
-	 * isStatic on the Function interface for important assumptions made when
-	 * this method is called.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
@@ -174,22 +143,6 @@ public class IfFunction implements Function
 		return Boolean.TRUE;
 	}
 
-	/**
-	 * Captures dependencies of the IF function. This includes Variables (in the
-	 * form of VariableIDs), but is not limited to those as the only possible
-	 * dependency.
-	 * 
-	 * Consistent with the contract of the Function interface, this list
-	 * recursively includes all of the contents of items within this function
-	 * (if this function calls another function, etc. all variables in the tree
-	 * below this function are included)
-	 * 
-	 * This method assumes the arguments are valid values in a formula. See
-	 * getVariables on the Function interface for important assumptions made
-	 * when this method is called.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
