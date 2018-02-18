@@ -24,7 +24,7 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
-import pcgen.cdom.inst.Dynamic;
+import pcgen.cdom.formula.scope.GlobalScope;
 
 /**
  * ScopeFacet stores the relationship from a Character, LegalScope, and
@@ -32,8 +32,6 @@ import pcgen.cdom.inst.Dynamic;
  */
 public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 {
-	public static final VarScoped GLOBAL_FACT = new Global();
-
 	/**
 	 * Returns the Global ScopeInstance for the PlayerCharacter represented by
 	 * the given CharID.
@@ -46,7 +44,7 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	 */
 	public ScopeInstance getGlobalScope(CharID id)
 	{
-		return get(id).getGlobalInstance("Global");
+		return get(id).getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 	}
 
 	/**
@@ -103,13 +101,5 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	public Collection<VarScoped> getObjectsWithVariables(CharID id)
 	{
 		return get(id).getInstancedObjects();
-	}
-
-	private static class Global extends Dynamic
-	{
-		public Global()
-		{
-			setName("Global");
-		}
 	}
 }

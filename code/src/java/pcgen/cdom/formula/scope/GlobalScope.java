@@ -25,6 +25,8 @@ import pcgen.base.formula.base.LegalScope;
 public class GlobalScope implements LegalScope
 {
 
+	public static final String GLOBAL_SCOPE_NAME = "Global";
+
 	/**
 	 * The String representation of the objects covered by this Scope
 	 * 
@@ -33,7 +35,7 @@ public class GlobalScope implements LegalScope
 	@Override
 	public String getName()
 	{
-		return "Global";
+		return GLOBAL_SCOPE_NAME;
 	}
 
 	/**
