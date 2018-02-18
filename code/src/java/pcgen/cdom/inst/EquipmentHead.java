@@ -168,7 +168,7 @@ public final class EquipmentHead extends CDOMObject
 	@Override
 	public String getLocalScopeName()
 	{
-		return "EQUIPMENT.PART";
+		return "PC.EQUIPMENT.PART";
 	}
 
 	@Override

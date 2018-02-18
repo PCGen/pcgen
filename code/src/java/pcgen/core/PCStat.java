@@ -51,7 +51,7 @@ public final class PCStat extends PObject implements StatFacade,
 	@Override
 	public String getLocalScopeName()
 	{
-		return "STAT";
+		return "PC.STAT";
 	}
 
 	@Override

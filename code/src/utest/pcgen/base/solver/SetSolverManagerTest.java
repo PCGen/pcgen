@@ -180,7 +180,7 @@ public class SetSolverManagerTest
 	@Test
 	public void testProcessDynamicSet()
 	{
-		LegalScope skillScope = vsLib.getScope("SKILL");
+		LegalScope skillScope = vsLib.getScope("PC.SKILL");
 		sl.assertLegalVariableID("LocalVar", skillScope, numberManager);
 		sl.assertLegalVariableID("ResultVar", globalScope, numberManager);
 		sl.assertLegalVariableID("SkillVar", globalScope, skillManager);
@@ -190,11 +190,11 @@ public class SetSolverManagerTest
 		Skill skillalt = new Skill();
 		skillalt.setName("SkillAlt");
 
-		ScopeInstance scopeInste = siFactory.get("SKILL", skill);
+		ScopeInstance scopeInste = siFactory.get("PC.SKILL", skill);
 		VariableID varIDe = sl.getVariableID(scopeInste, "LocalVar");
 		manager.createChannel(varIDe);
 		vc.put(varIDe, 2);
-		ScopeInstance scopeInsta = siFactory.get("SKILL", skillalt);
+		ScopeInstance scopeInsta = siFactory.get("PC.SKILL", skillalt);
 		VariableID varIDa = sl.getVariableID(scopeInsta, "LocalVar");
 		manager.createChannel(varIDa);
 		vc.put(varIDa, 3);

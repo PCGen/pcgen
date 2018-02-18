@@ -73,7 +73,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidWrongArgType()
 	{
-		LegalScope skillScope = getScopeLibrary().getScope("SKILL");
+		LegalScope skillScope = getScopeLibrary().getScope("PC.SKILL");
 		getVariableLibrary().assertLegalVariableID("LocalVar", skillScope, numberManager);
 		String s = "getFact(\"SKILL\",\"SkillKey\",LocalVar)";
 		SimpleNode simpleNode = TestUtilities.doParse(s);

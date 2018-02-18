@@ -39,7 +39,7 @@ public class EquipmentPartScope implements LegalScope
 	@Override
 	public String getName()
 	{
-		return "EQUIPMENT.PART";
+		return "PART";
 	}
 
 	/**

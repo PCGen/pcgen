@@ -133,4 +133,17 @@ public class VarModifier<T>
 		}
 		return false;
 	}
+
+	/**
+	 * Returns the fully qualified Legal Scope Name for the LegalScope in this
+	 * VarModifier.
+	 * 
+	 * (e.g. The LegalScope might be "SKILL" and the fully qualified name "PC.SKILL")
+	 * 
+	 * @return The fully qualified Legal Scope Name for the LegalScope in this VarModifier
+	 */
+	public String getFullLegalScopeName()
+	{
+		return LegalScope.getFullName(getLegalScope());
+	}
 }

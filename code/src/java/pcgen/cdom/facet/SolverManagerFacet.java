@@ -46,7 +46,7 @@ public class SolverManagerFacet extends
 	public <T> boolean addModifier(CharID id, VarModifier<T> vm, VarScoped target,
 		ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.getLegalScope().getName(), target);
+		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), target);
 		VariableID<T> varID =
 				(VariableID<T>) variableLibraryFacet.getVariableID(
 					id.getDatasetID(), scope, vm.getVarName());
@@ -56,7 +56,7 @@ public class SolverManagerFacet extends
 	public <T> void removeModifier(CharID id, VarModifier<T> vm,
 		VarScoped target, ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.getLegalScope().getName(), target);
+		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), target);
 		VariableID<T> varID =
 				(VariableID<T>) variableLibraryFacet.getVariableID(
 					id.getDatasetID(), scope, vm.getVarName());

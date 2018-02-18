@@ -28,7 +28,7 @@ public final class PCCheck extends PObject implements NonInteractive,
 	@Override
 	public String getLocalScopeName()
 	{
-		return "SAVE";
+		return "PC.SAVE";
 	}
 
 	@Override

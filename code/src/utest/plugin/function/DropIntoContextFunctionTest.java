@@ -17,6 +17,9 @@
  */
 package plugin.function;
 
+import org.junit.Test;
+
+import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -35,9 +38,6 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-
-import junit.framework.TestCase;
-import org.junit.Test;
 
 public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 {
@@ -103,7 +103,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 	public void testBasic()
 	{
 		VariableLibrary vl = getVariableLibrary();
-		LegalScope skillScope = getScopeLibrary().getScope("SKILL");
+		LegalScope skillScope = getScopeLibrary().getScope("PC.SKILL");
 		vl.assertLegalVariableID("LocalVar", skillScope, numberManager);
 
 		String formula =
@@ -124,7 +124,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		Skill skill = new Skill();
 		skill.setName("SkillKey");
-		ScopeInstance scopeInst = getInstanceFactory().get("SKILL", skill);
+		ScopeInstance scopeInst = getInstanceFactory().get("PC.SKILL", skill);
 		VariableID varID = vl.getVariableID(scopeInst, "LocalVar");
 		getVariableStore().put(varID, 2);
 		context.getReferenceContext().importObject(skill);
@@ -138,7 +138,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 	public void testDynamic()
 	{
 		VariableLibrary vl = getVariableLibrary();
-		LegalScope skillScope = getScopeLibrary().getScope("SKILL");
+		LegalScope skillScope = getScopeLibrary().getScope("PC.SKILL");
 		LegalScope globalScope =
 				getScopeLibrary().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("LocalVar", skillScope, numberManager);
@@ -164,10 +164,10 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		skill.setName("SkillKey");
 		Skill skillalt = new Skill();
 		skillalt.setName("SkillAlt");
-		ScopeInstance scopeInste = getInstanceFactory().get("SKILL", skill);
+		ScopeInstance scopeInste = getInstanceFactory().get("PC.SKILL", skill);
 		VariableID varIDe = vl.getVariableID(scopeInste, "LocalVar");
 		getVariableStore().put(varIDe, 2);
-		ScopeInstance scopeInsta = getInstanceFactory().get("SKILL", skillalt);
+		ScopeInstance scopeInsta = getInstanceFactory().get("PC.SKILL", skillalt);
 		VariableID varIDa = vl.getVariableID(scopeInsta, "LocalVar");
 		getVariableStore().put(varIDa, 3);
 		ScopeInstance globalInst =
