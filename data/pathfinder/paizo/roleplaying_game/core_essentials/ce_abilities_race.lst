@@ -75,15 +75,6 @@ REACH_15							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:REACH_15
 REACH_20							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:REACH_20
 REACH_30							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:REACH_30
 #
-FACE_0							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:FACE_0
-FACE_1							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:FACE_1
-FACE_2							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:FACE_2
-FACE_5							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:FACE_5
-FACE_10							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:FACE_10
-FACE_15							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:FACE_15
-FACE_20							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:FACE_20
-FACE_30							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:FACE_30
-#
 SIZE_F							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:SIZE_F
 SIZE_D							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:SIZE_D
 SIZE_T							CATEGORY:Internal		VISIBLE:NO																TEMPLATE:SIZE_T
