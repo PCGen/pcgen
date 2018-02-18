@@ -171,7 +171,6 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	public void testDynamic()
 	{
 		VariableLibrary vl = getVariableLibrary();
-		LegalScope skillScope = getScopeLibrary().getScope("SKILL");
 		LegalScope globalScope =
 				getScopeLibrary().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("SkillVar", globalScope, stringManager);

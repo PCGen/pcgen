@@ -58,7 +58,6 @@ import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.EquipmentScope;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.formula.scope.SkillScope;
-import pcgen.core.Equipment;
 import pcgen.core.Skill;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
@@ -79,7 +78,6 @@ public class SetSolverManagerTest
 	private DynamicSolverManager manager;
 	private final FormatManager<Number> numberManager = new NumberManager();
 	private final FormatManager<String> stringManager = new StringManager();
-	private FormatManager<Equipment> equipmentManager;
 	private FormatManager<Skill> skillManager;
 	private ArrayFormatManager<String> arrayManager;
 	private ScopeInstanceFactory siFactory;
@@ -105,7 +103,6 @@ public class SetSolverManagerTest
 		context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
-		equipmentManager = context.getReferenceContext().getManufacturer(Equipment.class);
 		skillManager = context.getReferenceContext().getManufacturer(Skill.class);
 		managerFactory = new MyManagerFactory(context);
 		siFactory = new ScopeInstanceFactory(vsLib);
@@ -117,13 +114,9 @@ public class SetSolverManagerTest
 				am1.getModifier("", managerFactory, null, globalScope, arrayManager);
 		solverFactory.addSolverFormat(arrayManager.getManagedClass(), emptyArrayMod);
 		
-		NEPCalculation calc = new ProcessCalculation<>(new Equipment(),
-				new BasicSet(), equipmentManager);
-		CalculationModifier em = new CalculationModifier<>(calc, equipmentManager);
-		solverFactory.addSolverFormat(Equipment.class, em);
-
-		calc = new ProcessCalculation<>(new Skill(), new BasicSet(), skillManager);
-		em = new CalculationModifier<>(calc, skillManager);
+		ProcessCalculation calc =
+				new ProcessCalculation<>(new Skill(), new BasicSet(), skillManager);
+		CalculationModifier em = new CalculationModifier<>(calc, skillManager);
 		solverFactory.addSolverFormat(Skill.class, em);
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
@@ -232,11 +225,11 @@ public class SetSolverManagerTest
 		
 		NEPCalculation calc1 = new ProcessCalculation<>(skill,
 				new BasicSet(), skillManager);
-		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, skillManager);
+		CalculationModifier mods1 = new CalculationModifier<>(calc1, skillManager);
 
 		NEPCalculation calc2 = new ProcessCalculation<>(skillalt,
 				new BasicSet(), skillManager);
-		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, skillManager);
+		CalculationModifier mods2 = new CalculationModifier<>(calc2, skillManager);
 
 		manager.addModifier(varIDe, mod2, scopeInste);
 		manager.addModifier(varIDa, mod3, scopeInsta);
@@ -244,11 +237,11 @@ public class SetSolverManagerTest
 		assertEquals(3, vc.get(varIDa));
 		assertEquals(0, vc.get(varIDr));
 
-		manager.addModifier(varIDq, mod_e1, globalInst);
+		manager.addModifier(varIDq, mods1, globalInst);
 		manager.addModifier(varIDr, modf, globalInst);
 		assertEquals(2, vc.get(varIDr));
 
-		manager.addModifier(varIDq, mod_e2, globalInst);
+		manager.addModifier(varIDq, mods2, globalInst);
 		assertEquals(3, vc.get(varIDr));
 
 		manager.addModifier(varIDa, mod4, scopeInsta);
@@ -276,6 +269,9 @@ public class SetSolverManagerTest
 		}
 	}
 	
+	/**
+	 * A custom ManagerFactory to inject the LoadContext.
+	 */
 	private static class MyManagerFactory implements ManagerFactory
 	{
 		private final LoadContext context;
