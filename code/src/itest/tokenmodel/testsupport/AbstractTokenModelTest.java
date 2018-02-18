@@ -18,7 +18,7 @@
 package tokenmodel.testsupport;
 
 import junit.framework.TestCase;
-import pcgen.base.solver.Modifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
@@ -46,6 +46,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.util.CControl;
@@ -325,8 +326,9 @@ public abstract class AbstractTokenModelTest extends TestCase
 	{
 		Class<T> cl = fmtManager.getManagedClass();
 		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		Modifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl, defaultModifier);
+		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl,
+			new ModifierDecoration<>(defaultModifier));
 	}
 
 	public abstract CDOMToken<?> getToken();

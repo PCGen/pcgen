@@ -18,14 +18,16 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 
 public class ActiveEqModFacetTest extends
-		AbstractConsolidatingFacetTest<Equipment, EquipmentModifier>
+		AbstractConsolidatingFacetTest<EquipmentHead, EquipmentModifier>
 {
 
 	private ActiveEqModFacet facet = new ActiveEqModFacet();
@@ -47,25 +49,25 @@ public class ActiveEqModFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CharID, Equipment> getListener()
+	protected DataFacetChangeListener<CharID, EquipmentHead> getListener()
 	{
 		return facet;
 	}
 
 	@Override
-	protected Equipment getSourceObject()
+	protected EquipmentHead getSourceObject()
 	{
 		Equipment e = new Equipment();
 		e.setName("e" + n++);
 		EquipmentModifier mod = getObject();
 		e.addToEqModifierList(mod, true);
-		return e;
+		return e.getEquipmentHead(1);
 	}
 
 	@Override
-	protected EquipmentModifier getConverted(Equipment e)
+	protected EquipmentModifier getConverted(EquipmentHead e)
 	{
-		return e.getEqModifierList(true).get(0);
+		return e.getSafeListFor(ListKey.EQMOD).get(0);
 	}
 
 	@Override
