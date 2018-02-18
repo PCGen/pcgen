@@ -28,6 +28,7 @@ import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.Equipment;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
@@ -133,7 +134,8 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 	{
 		VariableLibrary vl = getVariableLibrary();
 		LegalScope equipScope = getScopeLibrary().getScope("EQUIPMENT");
-		LegalScope globalScope = getScopeLibrary().getScope("Global");
+		LegalScope globalScope =
+				getScopeLibrary().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("LocalVar", equipScope, numberManager);
 		vl.assertLegalVariableID("EquipVar", globalScope, stringManager);
 
@@ -160,7 +162,8 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		ScopeInstance scopeInsta = getInstanceFactory().get("EQUIPMENT", equipalt);
 		VariableID varIDa = vl.getVariableID(scopeInsta, "LocalVar");
 		getVariableStore().put(varIDa, 3);
-		ScopeInstance globalInst = getInstanceFactory().getGlobalInstance("Global");
+		ScopeInstance globalInst =
+				getInstanceFactory().getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 		VariableID varIDq = vl.getVariableID(globalInst, "EquipVar");
 		getVariableStore().put(varIDq, "EquipKey");
 		LoadContext context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),

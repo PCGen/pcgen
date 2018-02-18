@@ -36,6 +36,7 @@ import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.formula.ManagerKey;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.Equipment;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
@@ -158,7 +159,8 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	{
 		VariableLibrary vl = getVariableLibrary();
 		LegalScope equipScope = getScopeLibrary().getScope("EQUIPMENT");
-		LegalScope globalScope = getScopeLibrary().getScope("Global");
+		LegalScope globalScope =
+				getScopeLibrary().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("EquipVar", globalScope, stringManager);
 
 		FactDefinition fd = new FactDefinition();
@@ -188,7 +190,8 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		equip.setName("EquipKey");
 		Equipment equipalt = new Equipment();
 		equipalt.setName("EquipAlt");
-		ScopeInstance globalInst = getInstanceFactory().getGlobalInstance("Global");
+		ScopeInstance globalInst =
+				getInstanceFactory().getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 		VariableID varIDq = vl.getVariableID(globalInst, "EquipVar");
 		getVariableStore().put(varIDq, "EquipKey");
 		context.getReferenceContext().importObject(equip);
