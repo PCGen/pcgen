@@ -2087,9 +2087,9 @@ Wish									KEY:Crossblooded Spell ~ Wish									CATEGORY:Internal	TYPE:Sorcer
 World Wave								KEY:Crossblooded Spell ~ World Wave								CATEGORY:Internal	TYPE:Sorcerer Bloodline Bonus Spell	PREABILITY:1,CATEGORY=Crossblooded Bloodline,Aquatic Bloodline																PREVARGTEQ:BloodlineCasterLVL,19	SPELLKNOWN:CLASS|Sorcerer=9|World Wave
 
 ###Block: Dragon Disciple Crossblooded Sorcerer Support
-Draconic Bloodline		KEY:Dragon Disciple ~ Draconic Crossblooded Bloodline			CATEGORY:Internal		TYPE:Dragon Disciple Bloodline Choice	CHOOSE:ABILITYSELECTION|Blood of Dragons|!PC,QUALIFIED[TYPE=SorcererBloodlineChoice]		MULT:YES	STACK:NO	ABILITY:Blood of Dragons|AUTOMATIC|%LIST	PREABILITY:1,CATEGORY=Special Ability,Dragon Disciple ~ Blood of Dragons	PREABILITY:1,CATEGORY=Archetype,Sorcerer Archetype ~ Crossblooded
+Draconic Bloodline		KEY:Dragon Disciple ~ Draconic Crossblooded Bloodline			CATEGORY:Internal		TYPE:Dragon Disciple Bloodline Choice	CHOOSE:ABILITYSELECTION|Blood of Dragons Bloodline|!PC,QUALIFIED[TYPE=SorcererBloodlineChoice]		MULT:YES	STACK:NO	ABILITY:Blood of Dragons Bloodline|AUTOMATIC|%LIST	PREABILITY:1,CATEGORY=Special Ability,Dragon Disciple ~ Blood of Dragons	PREABILITY:1,CATEGORY=Archetype,Sorcerer Archetype ~ Crossblooded
 
-Draconic Bloodline		KEY:Draconic Bloodline ~ Crossblooded		CATEGORY:Blood of Dragons		TYPE:SorcererBloodlineChoice		BONUS:VAR|BloodlineCasterLVL|DragonDiscipleLVL		BONUS:VAR|BloodlineLVL|DragonDiscipleLVL		BONUS:VAR|BloodlineProgressionLVL|DragonDiscipleLVL		ABILITY:Internal|AUTOMATIC|Draconic Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Draconic		ABILITY:Crossblooded Bloodline|AUTOMATIC|Draconic Bloodline		PREABILITY:1,CATEGORY=Archetype,Sorcerer Archetype ~ Crossblooded
+Draconic Bloodline		KEY:Draconic Bloodline ~ Crossblooded		CATEGORY:Blood of Dragons Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|BloodlineCasterLVL|DragonDiscipleLVL		BONUS:VAR|BloodlineLVL|DragonDiscipleLVL		BONUS:VAR|BloodlineProgressionLVL|DragonDiscipleLVL		ABILITY:Internal|AUTOMATIC|Draconic Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Draconic		ABILITY:Crossblooded Bloodline|AUTOMATIC|Draconic Bloodline		PREABILITY:1,CATEGORY=Archetype,Sorcerer Archetype ~ Crossblooded
 
 ###Block: Magus Spellblend
 # Core Rulebook
