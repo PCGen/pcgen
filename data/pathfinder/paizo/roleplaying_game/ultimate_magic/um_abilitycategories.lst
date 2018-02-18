@@ -122,12 +122,7 @@ ABILITYCATEGORY:Black Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YE
 
 ###Block: Crossblooded Sorcerer ability categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object						Specific choices list					Plural description for UI			Display Location
-#ABILITYCATEGORY:Crossblooded Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal				TYPE:SorcererCrossbloodedBloodline												PLURAL:Crossblooded Bloodlines		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Sorcerer			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer																								DISPLAYLOCATION:Class Features
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object						Specific choices list					Plural description for UI			Display Location
-ABILITYCATEGORY:Crossblooded Bloodline Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility												PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Bonus Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice												PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat													PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Bloodline Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Sorcerer Bloodline Bonus Spell													PLURAL:Sorcerer Bloodline Bonus Spells	DISPLAYLOCATION:Class Features
 
 
 ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures.Magus Class Feature									PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features

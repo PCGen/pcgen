@@ -237,14 +237,14 @@ CATEGORY=FEAT|Exotic Weapon Proficiency.MOD	TYPE:BorealBloodline
 CATEGORY=FEAT|Power Attack.MOD			TYPE:BorealBloodline
 CATEGORY=FEAT|Toughness.MOD				TYPE:BorealBloodline
 
-#Deepearth Bonus Feats:
-CATEGORY=FEAT|Acrobatic Steps.MOD			TYPE:DeepearthBloodline
-CATEGORY=FEAT|Alertness.MOD				TYPE:DeepearthBloodline
-CATEGORY=FEAT|Blind-Fight.MOD				TYPE:DeepearthBloodline
-CATEGORY=FEAT|Forge Ring.MOD				TYPE:DeepearthBloodline
-CATEGORY=FEAT|Nimble Moves.MOD			TYPE:DeepearthBloodline
-CATEGORY=FEAT|Stealthy.MOD				TYPE:DeepearthBloodline
-CATEGORY=FEAT|Still Spell.MOD				TYPE:DeepearthBloodline
+#Deep Earth Bonus Feats:
+CATEGORY=FEAT|Acrobatic Steps.MOD			TYPE:DeepEarthBloodline
+CATEGORY=FEAT|Alertness.MOD				TYPE:DeepEarthBloodline
+CATEGORY=FEAT|Blind-Fight.MOD				TYPE:DeepEarthBloodline
+CATEGORY=FEAT|Forge Ring.MOD				TYPE:DeepEarthBloodline
+CATEGORY=FEAT|Nimble Moves.MOD			TYPE:DeepEarthBloodline
+CATEGORY=FEAT|Stealthy.MOD				TYPE:DeepEarthBloodline
+CATEGORY=FEAT|Still Spell.MOD				TYPE:DeepEarthBloodline
 
 #Dreamspun Bonus Feats: Skill Focus
 CATEGORY=FEAT|Alertness.MOD				TYPE:DreamspunBloodline
