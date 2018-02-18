@@ -19,9 +19,12 @@ package pcgen.base.formula.function;
 
 import org.junit.Test;
 
+import junit.framework.TestCase;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
+import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
@@ -45,6 +48,32 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager().getWith(EvaluationManager.INPUT, 1);
 		performEvaluation(numberManager, formula, node, Integer.valueOf(1), manager);
+		Object rv =
+				new ReconstructionVisitor().visit(node, new StringBuilder());
+		assertTrue(rv.toString().equals(formula));
+	}
+
+
+	@Test
+	public void testWeirdUsage()
+	{
+		String formula = "if(4==value(),5,6)";
+		SimpleNode node = TestUtilities.doParse(formula);
+		//My isValid due to need to set INPUT_FORMAT
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaSemantics semantics = getManagerFactory().generateFormulaSemantics(
+			getFormulaManager(), getGlobalScope());
+		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT, numberManager);
+		semanticsVisitor.visit(node, semantics);
+		if (!semantics.isValid())
+		{
+			TestCase.fail("Expected Valid Formula: " + formula
+				+ " but was told: " + semantics.getReport());
+		}
+		//end my isValid
+		isStatic(formula, node, false);
+		EvaluationManager manager = generateManager().getWith(EvaluationManager.INPUT, 1);
+		performEvaluation(numberManager, formula, node, Integer.valueOf(6), manager);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
