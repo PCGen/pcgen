@@ -24,7 +24,9 @@ import pcgen.base.formula.base.LegalScope;
  */
 public class GlobalScope implements LegalScope
 {
-
+	/**
+	 * The name of the Global Scope for PCGen characters, publicly available for reuse...
+	 */
 	public static final String GLOBAL_SCOPE_NAME = "Global";
 
 	/**
