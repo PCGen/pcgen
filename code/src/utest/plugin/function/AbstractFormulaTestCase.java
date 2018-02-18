@@ -45,6 +45,7 @@ import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.MonitorableVariableStore;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.rules.context.LoadContext;
 
@@ -65,7 +66,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		super.setUp();
 		setup = new SplitFormulaSetup();
 		LegalScopeUtilities.loadLegalScopeLibrary(setup.getLegalScopeLibrary());
-		localSetup = new IndividualSetup(setup, "Global", new MonitorableVariableStore());
+		localSetup = new IndividualSetup(setup, GlobalScope.GLOBAL_SCOPE_NAME,
+			new MonitorableVariableStore());
 		setup.getSolverFactory().addSolverFormat(Number.class, new Modifier()
 		{
 

@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.DataSetInitializationFacet;
 import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
@@ -533,7 +534,7 @@ abstract class LoadContextInst implements LoadContext
 	{
 		if (legalScope == null)
 		{
-			legalScope = var.getScope("Global");
+			legalScope = var.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		}
 		return legalScope;
 	}

@@ -22,6 +22,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +34,10 @@ import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
+import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
@@ -49,19 +53,25 @@ import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.solver.testsupport.TrackingVariableCache;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.content.ProcessCalculation;
+import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.EquipmentScope;
-import pcgen.cdom.reference.CDOMFactory;
-import pcgen.cdom.reference.SimpleReferenceManufacturer;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.SkillScope;
 import pcgen.core.Equipment;
+import pcgen.core.Skill;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.function.DropIntoContext;
 
 public class SetSolverManagerTest
 {
 
-	private final LegalScope globalScope = new SimpleLegalScope(null, "Global");
+	private final LegalScope globalScope =
+			new SimpleLegalScope(null, GlobalScope.GLOBAL_SCOPE_NAME);
 	private TrackingVariableCache vc;
 	private LegalScopeLibrary vsLib;
 	private VariableLibrary sl;
@@ -69,11 +79,12 @@ public class SetSolverManagerTest
 	private DynamicSolverManager manager;
 	private final FormatManager<Number> numberManager = new NumberManager();
 	private final FormatManager<String> stringManager = new StringManager();
-	private final FormatManager<Equipment> equipmentManager =
-			new SimpleReferenceManufacturer<>(
-				new CDOMFactory<>(BasicClassIdentity.getIdentity(Equipment.class)));
+	private FormatManager<Equipment> equipmentManager;
+	private FormatManager<Skill> skillManager;
 	private ArrayFormatManager<String> arrayManager;
 	private ScopeInstanceFactory siFactory;
+	private RuntimeLoadContext context;
+	private MyManagerFactory managerFactory;
 
 	@Before
 	public void setUp() throws Exception
@@ -86,11 +97,17 @@ public class SetSolverManagerTest
 		EquipmentScope equipScope = new EquipmentScope();
 		equipScope.setParent(globalScope);
 		vsLib.registerScope(equipScope);
+		SkillScope skillScope = new SkillScope();
+		skillScope.setParent(globalScope);
+		vsLib.registerScope(skillScope);
 		sl = new VariableLibrary(vsLib);
 		arrayManager = new ArrayFormatManager<>(stringManager, '\n', ',');
-		ManagerFactory managerFactory = new ManagerFactory()
-		{
-		};
+		context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		equipmentManager = context.getReferenceContext().getManufacturer(Equipment.class);
+		skillManager = context.getReferenceContext().getManufacturer(Skill.class);
+		managerFactory = new MyManagerFactory(context);
 		siFactory = new ScopeInstanceFactory(vsLib);
 		fm = new SimpleFormulaManager(ol, sl, siFactory, vc, new SolverFactory());
 		fm = fm.getWith(FormulaManager.FUNCTION, fl);
@@ -104,6 +121,10 @@ public class SetSolverManagerTest
 				new BasicSet(), equipmentManager);
 		CalculationModifier em = new CalculationModifier<>(calc, equipmentManager);
 		solverFactory.addSolverFormat(Equipment.class, em);
+
+		calc = new ProcessCalculation<>(new Skill(), new BasicSet(), skillManager);
+		em = new CalculationModifier<>(calc, skillManager);
+		solverFactory.addSolverFormat(Skill.class, em);
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
 		ModifierFactory mfn = new plugin.modifier.number.SetModifierFactory();
@@ -134,9 +155,8 @@ public class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am1 = new plugin.modifier.set.AddModifierFactory<>();
-		FormulaModifier mod = am1.getModifier("France,England", new ManagerFactory()
-		{
-		}, null, globalScope, arrayManager);
+		FormulaModifier mod = am1.getModifier("France,England", managerFactory, null,
+			globalScope, arrayManager);
 		mod.addAssociation("PRIORITY=2000");
 		manager.addModifier(regions, mod, scopeInst);
 		array = vc.get(regions);
@@ -149,9 +169,8 @@ public class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am2 = new plugin.modifier.set.AddModifierFactory<>();
-		mod = am2.getModifier("Greece,England", new ManagerFactory()
-		{
-		}, null, globalScope, arrayManager);
+		mod = am2.getModifier("Greece,England", managerFactory, null, globalScope,
+			arrayManager);
 		mod.addAssociation("PRIORITY=3000");
 		manager.addModifier(regions, mod, scopeInst);
 		array = vc.get(regions);
@@ -168,57 +187,56 @@ public class SetSolverManagerTest
 	@Test
 	public void testProcessDynamicSet()
 	{
-		LegalScope equipScope = vsLib.getScope("EQUIPMENT");
-		sl.assertLegalVariableID("LocalVar", equipScope, numberManager);
+		LegalScope skillScope = vsLib.getScope("SKILL");
+		sl.assertLegalVariableID("LocalVar", skillScope, numberManager);
 		sl.assertLegalVariableID("ResultVar", globalScope, numberManager);
-		sl.assertLegalVariableID("EquipVar", globalScope, equipmentManager);
+		sl.assertLegalVariableID("SkillVar", globalScope, skillManager);
 
-		Equipment equip = new Equipment();
-		equip.setName("EquipKey");
-		Equipment equipalt = new Equipment();
-		equipalt.setName("EquipAlt");
+		Skill skill = new Skill();
+		skill.setName("SkillKey");
+		Skill skillalt = new Skill();
+		skillalt.setName("SkillAlt");
 
-		ScopeInstance scopeInste = siFactory.get("EQUIPMENT", equip);
+		ScopeInstance scopeInste = siFactory.get("SKILL", skill);
 		VariableID varIDe = sl.getVariableID(scopeInste, "LocalVar");
 		manager.createChannel(varIDe);
 		vc.put(varIDe, 2);
-		ScopeInstance scopeInsta = siFactory.get("EQUIPMENT", equipalt);
+		ScopeInstance scopeInsta = siFactory.get("SKILL", skillalt);
 		VariableID varIDa = sl.getVariableID(scopeInsta, "LocalVar");
 		manager.createChannel(varIDa);
 		vc.put(varIDa, 3);
-		ScopeInstance globalInst = siFactory.getGlobalInstance("Global");
-		VariableID varIDq = sl.getVariableID(globalInst, "EquipVar");
+		ScopeInstance globalInst =
+				siFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+		VariableID varIDq = sl.getVariableID(globalInst, "SkillVar");
 		manager.createChannel(varIDq);
 		VariableID varIDr = sl.getVariableID(globalInst, "ResultVar");
 		manager.createChannel(varIDr);
 		
 		ModifierFactory am1 = new plugin.modifier.number.SetModifierFactory();
 		ModifierFactory amString = new plugin.modifier.string.SetModifierFactory();
-		FormulaModifier mod2 = am1.getModifier("2", new ManagerFactory()
-		{
-		}, fm, globalScope, numberManager);
+		FormulaModifier mod2 =
+				am1.getModifier("2", managerFactory, fm, globalScope, numberManager);
 		mod2.addAssociation("PRIORITY=2000");
-		FormulaModifier mod3 = am1.getModifier("3", new ManagerFactory()
-		{
-		}, fm, globalScope, numberManager);
+		FormulaModifier mod3 =
+				am1.getModifier("3", managerFactory, fm, globalScope, numberManager);
 		mod3.addAssociation("PRIORITY=2000");
-		FormulaModifier mod4 = am1.getModifier("4", new ManagerFactory()
-		{
-		}, fm, globalScope, numberManager);
+		FormulaModifier mod4 =
+				am1.getModifier("4", managerFactory, fm, globalScope, numberManager);
 		mod4.addAssociation("PRIORITY=3000");
-		String formula = "dropIntoContext(\"EQUIPMENT\",EquipVar,LocalVar)";
-		FormulaModifier modf = am1.getModifier(formula, new ManagerFactory()
-		{
-		}, fm, globalScope, numberManager);
+		String formula = "dropIntoContext(\"SKILL\",SkillVar,LocalVar)";
+		context.getReferenceContext().importObject(skill);
+		context.getReferenceContext().importObject(skillalt);
+		FormulaModifier modf = am1.getModifier(formula, new MyManagerFactory(context), fm,
+			globalScope, numberManager);
 		modf.addAssociation("PRIORITY=2000");
 		
-		NEPCalculation calc1 = new ProcessCalculation<>(equip,
-				new BasicSet(), equipmentManager);
-		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, equipmentManager);
+		NEPCalculation calc1 = new ProcessCalculation<>(skill,
+				new BasicSet(), skillManager);
+		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, skillManager);
 
-		NEPCalculation calc2 = new ProcessCalculation<>(equipalt,
-				new BasicSet(), equipmentManager);
-		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, equipmentManager);
+		NEPCalculation calc2 = new ProcessCalculation<>(skillalt,
+				new BasicSet(), skillManager);
+		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, skillManager);
 
 		manager.addModifier(varIDe, mod2, scopeInste);
 		manager.addModifier(varIDa, mod3, scopeInsta);
@@ -255,6 +273,42 @@ public class SetSolverManagerTest
 		public Object process(Object previousValue, Object argument)
 		{
 			return argument;
+		}
+	}
+	
+	private static class MyManagerFactory implements ManagerFactory
+	{
+		private final LoadContext context;
+
+		public MyManagerFactory(LoadContext context)
+		{
+			this.context = Objects.requireNonNull(context);
+		}
+
+		@Override
+		public DependencyManager generateDependencyManager(FormulaManager formulaManager,
+			ScopeInstance scopeInst)
+		{
+			DependencyManager dm = ManagerFactory.super.generateDependencyManager(
+				formulaManager, scopeInst);
+			return dm.getWith(ManagerKey.CONTEXT, context);
+		}
+
+		@Override
+		public FormulaSemantics generateFormulaSemantics(FormulaManager manager,
+			LegalScope legalScope)
+		{
+			FormulaSemantics fs =
+					ManagerFactory.super.generateFormulaSemantics(manager, legalScope);
+			return fs.getWith(ManagerKey.CONTEXT, context);
+		}
+
+		@Override
+		public EvaluationManager generateEvaluationManager(FormulaManager formulaManager)
+		{
+			EvaluationManager em =
+					ManagerFactory.super.generateEvaluationManager(formulaManager);
+			return em.getWith(ManagerKey.CONTEXT, context);
 		}
 	}
 }
