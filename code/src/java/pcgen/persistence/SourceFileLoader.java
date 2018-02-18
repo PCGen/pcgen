@@ -49,6 +49,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
@@ -710,7 +711,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private void defineVariable(VariableContext varContext,
 		FormatManager<?> formatManager, String varName)
 	{
-		LegalScope varScope = varContext.getScope("Global");
+		LegalScope varScope = varContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		varContext.assertLegalVariableID(varScope, formatManager, varName);
 	}
 

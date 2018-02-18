@@ -21,12 +21,9 @@ import java.util.Arrays;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.parse.ASTPCGenSingleWord;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
@@ -136,21 +133,19 @@ public class GetFactFunction implements Function
 	private FormatManager<?> allowFromScopeName(SemanticsVisitor visitor,
 		FormulaSemantics semantics, String legalScopeName, Node factNode)
 	{
-		FormulaManager fm = semantics.get(FormulaSemantics.FMANAGER);
-		ScopeInstanceFactory siFactory = fm.getScopeInstanceFactory();
-		LegalScope legalScope = siFactory.getScope(legalScopeName);
-		if (legalScope == null)
+		AbstractReferenceContext refContext =
+				semantics.get(ManagerKey.CONTEXT).getReferenceContext();
+		FormatManager<?> formatManager = refContext.getFormatManager(legalScopeName);
+		if (formatManager == null)
 		{
-			semantics.setInvalid("Parse Error: Invalid Scope Name: "
-				+ legalScopeName + " is not a valid scope name");
+			semantics.setInvalid("Parse Error: Invalid Format Name: "
+				+ legalScopeName + " is not a valid Format");
 			return null;
 		}
-		Class<? extends Loadable> objectFormat =
-				StringPClassUtil.getClassFor(legalScopeName);
+		Class<?> objectFormat = formatManager.getManagedClass();
 		if (!CDOMOBJECT_CLASS.isAssignableFrom(objectFormat))
 		{
-			//This is basically an internal error! but catch it anyway for now
-			semantics.setInvalid("Parse Error: Invalid Scope Name: "
+			semantics.setInvalid("Parse Error: Invalid Format Name: "
 				+ legalScopeName + " is not capable of holding a Fact");
 			return null;
 		}
@@ -164,8 +159,6 @@ public class GetFactFunction implements Function
 		}
 		ASTQuotString qs = (ASTQuotString) factNode;
 		String factName = qs.getText();
-		AbstractReferenceContext refContext =
-				semantics.get(ManagerKey.CONTEXT).getReferenceContext();
 		FactDefinition<?, ?> factDef =
 				refContext.silentlyGetConstructedCDOMObject(
 					FactDefinition.class, legalScopeName + "." + factName);
