@@ -4,5 +4,5 @@
 # ORIGINAL ENTRY DATE: 23 May 2016
 
 
-ABILITYCATEGORY:Dragon Drinker Draconic Bloodline Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Sorcerer Draconic Bloodline	TYPE:Draconic Bloodline Choice		PLURAL:Dragon Drinker Draconic Bloodline Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dragon Drinker Draconic Bloodline Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Draconic Bloodline Type	TYPE:Draconic Bloodline Choice		PLURAL:Dragon Drinker Draconic Bloodline Choices			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Wyrm Sniper Training Choice					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:Wyrm Sniper Training Choice		PLURAL:Wyrm Sniper Training Choices			DISPLAYLOCATION:Class Features

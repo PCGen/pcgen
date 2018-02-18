@@ -11,6 +11,9 @@
 # NEWCATEGORY:Spell-like Ability
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
+ABILITY:Internal|Sorcerer ~ BS					MAXVER:6.07.06	NEWKEY:Sorcerer ~ Standard Bloodline Selection
+ABILITY:Internal|Sorcerer ~ Crossblooded BS			MAXVER:6.07.06	NEWKEY:Sorcerer ~ Crossblooded Bloodline Selection
+
 SOURCE:Adventurer's Armory (PFS)						MAXVER:6.07.05	NEWKEY:PFS ~ Adventurer's Armory
 SOURCE:PF - Demon Hunter's Handbook						MAXVER:6.07.05	NEWKEY:Demon Hunter's Handbook
 SOURCE:PF - Dirty Tactics Toolbox						MAXVER:6.07.05	NEWKEY:Dirty Tactics Toolbox
