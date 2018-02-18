@@ -40,7 +40,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 
 # Data Files
 PCC:@/homebrew/conversion_support/conversion_support.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/core_essentials.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/_core_essentials.pcc
 
 
 
