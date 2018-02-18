@@ -24,7 +24,7 @@ import java.util.Collections;
 
 import compare.InequalityTesterInst;
 import junit.framework.TestCase;
-import pcgen.base.solver.Modifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.test.InequalityTester;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
@@ -59,6 +59,7 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
@@ -350,8 +351,9 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	{
 		Class<T> cl = fmtManager.getManagedClass();
 		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		Modifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl, defaultModifier);
+		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl,
+			new ModifierDecoration<>(defaultModifier));
 	}
 
 	protected void runRoundRobin(Runnable preEqualityCleanup)

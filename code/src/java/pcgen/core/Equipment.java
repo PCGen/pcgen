@@ -2458,10 +2458,6 @@ public final class Equipment extends PObject implements Serializable,
 			                            .forEach(aMod ->
 			                            {
 				                            head.removeFromListFor(ListKey.EQMOD, aMod);
-				                            head.removeVarModifiers(
-						                            aPC.getCharID(),
-						                            aMod
-				                            );
 				                            if (bPrimary)
 				                            {
 					                            usePrimaryCache = false;
@@ -2482,7 +2478,6 @@ public final class Equipment extends PObject implements Serializable,
 			    .forEach(aMod ->
 			    {
 				    head.removeFromListFor(ListKey.EQMOD, aMod);
-				    head.removeVarModifiers(aPC.getCharID(), aMod);
 				    if (bPrimary)
 				    {
 					    usePrimaryCache = false;
@@ -2502,7 +2497,6 @@ public final class Equipment extends PObject implements Serializable,
 			    .forEach(aMod ->
 			    {
 				    head.removeFromListFor(ListKey.EQMOD, aMod);
-				    head.removeVarModifiers(aPC.getCharID(), aMod);
 				    if (bPrimary)
 				    {
 					    usePrimaryCache = false;
@@ -2540,7 +2534,6 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			head.addToListFor(ListKey.EQMOD, aMod);
-			head.addVarModifiers(aPC.getCharID(), aMod);
 			if (bPrimary)
 			{
 				usePrimaryCache = false;
@@ -2577,7 +2570,6 @@ public final class Equipment extends PObject implements Serializable,
 			if (allRemoved)
 			{
 				head.removeFromListFor(ListKey.EQMOD, aMod);
-				head.removeVarModifiers(aPC.getCharID(), aMod);
 				if (bPrimary)
 				{
 					usePrimaryCache = false;
@@ -3460,7 +3452,6 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			EquipmentHead head = getEquipmentHead(bPrimary ? 1 : 2);
 			head.removeFromListFor(ListKey.EQMOD, aMod);
-			head.removeVarModifiers(pc.getCharID(), aMod);
 			if (bPrimary)
 			{
 				usePrimaryCache = false;
@@ -3513,10 +3504,6 @@ public final class Equipment extends PObject implements Serializable,
 			                                {
 				                                head.addToListFor(ListKey.EQMOD,
 						                                baseMod);
-				                                head.addVarModifiers(
-						                                pc.getCharID(),
-						                                baseMod
-				                                );
 			                                }));
 		}
 
@@ -3530,7 +3517,6 @@ public final class Equipment extends PObject implements Serializable,
 			        .forEach(baseMod ->
 			        {
 				        head.addToListFor(ListKey.EQMOD, baseMod);
-				        head.addVarModifiers(pc.getCharID(), baseMod);
 			        });
 		}
 		else if (eqMod.isType("MagicalEnhancement"))
@@ -3543,7 +3529,6 @@ public final class Equipment extends PObject implements Serializable,
 			        .forEach(baseMod ->
 			        {
 				        head.addToListFor(ListKey.EQMOD, baseMod);
-				        head.addVarModifiers(pc.getCharID(), baseMod);
 			        });
 		}
 	}
