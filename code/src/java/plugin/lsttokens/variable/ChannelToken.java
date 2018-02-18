@@ -23,6 +23,7 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
@@ -96,16 +97,7 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
-		LegalScope lvs;
-		if ("GLOBAL".equals(fullscope))
-		{
-			lvs = context.getActiveScope();
-		}
-		else
-		{
-			lvs = varContext.getScope(fullscope);
-		}
-
+		LegalScope lvs = varContext.getScope(fullscope);
 		if (!DatasetVariable.isLegalName(varName))
 		{
 			return new ParseResult.Fail(varName
@@ -147,7 +139,7 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 		if (scope == null || scope.equals("Global Variables"))
 		{
 			//Global channel
-			scope = "GLOBAL";
+			scope = GlobalScope.GLOBAL_SCOPE_NAME;
 		}
 		String format = dv.getFormat();
 		if (format == null)

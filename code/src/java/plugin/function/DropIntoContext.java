@@ -40,7 +40,8 @@ import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.formula.ManagerKey;
-import pcgen.util.StringPClassUtil;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.rules.context.AbstractReferenceContext;
 
 public class DropIntoContext implements Function
 {
@@ -131,20 +132,33 @@ public class DropIntoContext implements Function
 	private FormatManager<?> allowFromScopeName(SemanticsVisitor visitor,
 		FormulaSemantics semantics, String legalScopeName, Node node)
 	{
-		FormulaManager fm = semantics.get(FormulaSemantics.FMANAGER);
-		ScopeInstanceFactory siFactory = fm.getScopeInstanceFactory();
-		LegalScope legalScope = siFactory.getScope(legalScopeName);
-		if (legalScope == null)
+		AbstractReferenceContext refContext =
+				semantics.get(ManagerKey.CONTEXT).getReferenceContext();
+		FormatManager<?> formatManager = refContext.getFormatManager(legalScopeName);
+		if (formatManager == null)
 		{
-			semantics.setInvalid("Parse Error: Invalid Scope Name: " + legalScopeName
-				+ " is not a valid scope name");
+			semantics.setInvalid("Parse Error: Invalid Format Name: "
+				+ legalScopeName + " is not a valid Format");
+			return null;
+		}
+		if (!VarScoped.class.isAssignableFrom(formatManager.getManagedClass()))
+		{
+			semantics.setInvalid("Parse Error: Invalid Format Name: "
+				+ legalScopeName + " is not capable of holding a Variable");
 			return null;
 		}
 		//Rest of Equation
-		semantics = semantics.getWith(FormulaSemantics.FMANAGER, fm);
+		if (!(formatManager instanceof ReferenceManufacturer))
+		{
+			semantics.setInvalid("Parse Error: Invalid Format Name: " + legalScopeName
+				+ " is not Buildable");
+			return null;
+		}
+		FormulaManager fm = semantics.get(FormulaSemantics.FMANAGER);
+		ScopeInstanceFactory siFactory = fm.getScopeInstanceFactory();
+		LegalScope legalScope = siFactory.getScope(getScopeNameFor(formatManager));
 		semantics = semantics.getWith(FormulaSemantics.SCOPE, legalScope);
-		FormatManager<?> format = (FormatManager<?>) node.jjtAccept(visitor, semantics);
-		return format;
+		return (FormatManager<?>) node.jjtAccept(visitor, semantics);
 	}
 
 	@Override
@@ -157,9 +171,10 @@ public class DropIntoContext implements Function
 		VarScoped vs;
 		if (result instanceof String)
 		{
-			Class<? extends Loadable> objClass = StringPClassUtil.getClassFor(legalScopeName);
-			vs = (VarScoped) manager.get(ManagerKey.CONTEXT).getReferenceContext()
-				.silentlyGetConstructedCDOMObject(objClass, (String) result);
+			AbstractReferenceContext refContext =
+					manager.get(ManagerKey.CONTEXT).getReferenceContext();
+			FormatManager<?> formatManager = refContext.getFormatManager(legalScopeName);
+			vs = (VarScoped) formatManager.convert((String) result);
 		}
 		else if (result instanceof VarScoped)
 		{
@@ -169,15 +184,15 @@ public class DropIntoContext implements Function
 		{
 			throw new IllegalStateException("result must be String or VarScoped");
 		}
-		return evaluateFromObject(visitor, legalScopeName, vs, args[2], manager);
+		return evaluateFromObject(visitor, vs, args[2], manager);
 	}
 
-	private Object evaluateFromObject(EvaluateVisitor visitor, String legalScopeName,
+	private Object evaluateFromObject(EvaluateVisitor visitor, 
 		VarScoped vs, Node node, EvaluationManager manager)
 	{
 		FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 		ScopeInstanceFactory siFactory = fm.getScopeInstanceFactory();
-		ScopeInstance scopeInst = siFactory.get(legalScopeName, vs);
+		ScopeInstance scopeInst = siFactory.get(vs.getLocalScopeName(), vs);
 		//Rest of Equation
 		return node.jjtAccept(visitor,
 			manager.getWith(EvaluationManager.INSTANCE, scopeInst));
@@ -204,16 +219,30 @@ public class DropIntoContext implements Function
 		{
 			//Error
 		}
-
-		DynamicDependency dd = new DynamicDependency(ts.getControlVar(), legalScopeName);
+		AbstractReferenceContext refContext =
+				fdm.get(ManagerKey.CONTEXT).getReferenceContext();
+		FormatManager<?> formatManager = refContext.getFormatManager(legalScopeName);
+		DynamicDependency dd =
+				new DynamicDependency(ts.getControlVar(), getScopeNameFor(formatManager));
 		fdm.get(DependencyManager.DYNAMIC).addDependency(dd);
 		FormulaManager fm = fdm.get(DependencyManager.FMANAGER);
 		ScopeInstanceFactory siFactory = fm.getScopeInstanceFactory();
-		LegalScope legalScope = siFactory.getScope(legalScopeName);
+		LegalScope legalScope = siFactory.getScope(getScopeNameFor(formatManager));
 		DependencyManager dynamic = fdm.getWith(DependencyManager.VARSTRATEGY, dd);
 		dynamic = dynamic.getWith(DependencyManager.SCOPE, legalScope);
 		//Rest of Equation
 		return (FormatManager<?>) args[2].jjtAccept(visitor, dynamic);
+	}
+
+	private <T, V extends Loadable & VarScoped> String getScopeNameFor(
+		FormatManager<T> formatManager)
+	{
+		//We know this from the VarScoped check above and limit on ReferenceManufacturer
+		@SuppressWarnings("unchecked")
+		ReferenceManufacturer<V> referenceManufacturer =
+				(ReferenceManufacturer<V>) formatManager;
+		V object = referenceManufacturer.buildObject("Dummy");
+		return object.getLocalScopeName();
 	}
 
 }
