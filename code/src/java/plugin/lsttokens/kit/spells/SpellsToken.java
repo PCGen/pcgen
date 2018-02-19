@@ -158,8 +158,8 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				while (subTok.hasMoreTokens())
 				{
 					String featName = subTok.nextToken();
-					CDOMSingleRef<Ability> feat = context.getReferenceContext().getCDOMReference(
-							ABILITY_CLASS, AbilityCategory.FEAT, featName);
+					CDOMSingleRef<Ability> feat = context.getReferenceContext()
+						.getManufacturerId(AbilityCategory.FEAT).getReference(featName);
 					featList.add(feat);
 				}
 				kitSpell.addSpell(ksi, featList, count);

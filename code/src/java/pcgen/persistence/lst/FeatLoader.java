@@ -82,8 +82,9 @@ public final class FeatLoader extends AbilityLoader
 	 */
 	private void loadDefaultFeats(LoadContext context, CampaignSourceEntry firstSource)
 	{
-		Ability wpFeat = context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class,
-				AbilityCategory.FEAT, Constants.INTERNAL_WEAPON_PROF);
+		Ability wpFeat =
+				context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT)
+					.getActiveObject(Constants.INTERNAL_WEAPON_PROF);
 		if (wpFeat == null)
 		{
 
@@ -119,8 +120,8 @@ public final class FeatLoader extends AbilityLoader
 	@Override
 	protected Ability getObjectKeyed(LoadContext context, final String aKey)
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class,
-				AbilityCategory.FEAT, aKey);
+		return context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT)
+			.getActiveObject(aKey);
 	}
 	
 	@Override

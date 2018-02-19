@@ -178,10 +178,8 @@ public class DataSet implements DataSetFacade
 			if (category.isVisibleTo(View.VISIBLE_DISPLAY))
 			{
 //				categories.addElement(category);
-				List<Ability> abList =
-                        new ArrayList<>(Globals.getContext().getReferenceContext()
-                                .getManufacturer(Ability.class, category)
-                                .getAllObjects());
+				List<Ability> abList = new ArrayList<>(Globals.getContext()
+					.getReferenceContext().getManufacturerId(category).getAllObjects());
 				Globals.sortPObjectListByName(abList);
 				DefaultListFacade<AbilityFacade> abilityList =
                         new DefaultListFacade<>(abList);
@@ -331,10 +329,8 @@ public class DataSet implements DataSetFacade
 			|| "ABILITY" == prereq.getKind()
 			|| "ABILITY".equalsIgnoreCase(prereq.getKind()))
 		{
-			Ability ability =
-					Globals.getContext().getReferenceContext()
-						.getManufacturer(Ability.class, cat).getObject(
-							prereq.getKey());
+			Ability ability = Globals.getContext().getReferenceContext()
+				.getManufacturerId(cat).getObject(prereq.getKey());
 			if (ability != null)
 			{
 				prereqList.add(ability);

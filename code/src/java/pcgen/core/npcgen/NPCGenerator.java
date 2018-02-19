@@ -334,8 +334,8 @@ public final class NPCGenerator
 			// User has not specified a weighting for feats for this class
 			// Assume General feats are 5 times as likely to be selected as
 			// any other type
-			for (Ability ability : Globals.getContext().getReferenceContext().getManufacturer(
-					Ability.class, AbilityCategory.FEAT).getAllObjects())
+			for (Ability ability : Globals.getContext().getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getAllObjects())
 			{
 				int weight = 1;
 				if (ability.getSafe(ObjectKey.VISIBILITY) != Visibility.DEFAULT)

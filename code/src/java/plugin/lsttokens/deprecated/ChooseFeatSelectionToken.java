@@ -188,8 +188,6 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		return true;
 	}
 
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
-
 	@Override
 	public String getTokenName()
 	{
@@ -201,8 +199,8 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		CDOMObject obj, String value)
 	{
 		return parseTokenWithSeparator(context,
-			context.getReferenceContext().getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT),
-			obj, value);
+			context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT), obj,
+			value);
 	}
 
 	@Override
@@ -225,17 +223,15 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 	@Override
 	public AbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		Ability ability =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, AbilityCategory.FEAT, s);
+		Ability ability = context.getReferenceContext()
+			.getManufacturerId(AbilityCategory.FEAT).getActiveObject(s);
 
 		if (ability == null)
 		{
 			List<String> choices = new ArrayList<>();
 			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
-			ability =
-					context.getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, baseKey);
+			ability = context.getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getActiveObject(baseKey);
 			if (ability == null)
 			{
 				throw new IllegalArgumentException("String in decodeChoice "

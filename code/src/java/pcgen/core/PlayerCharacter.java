@@ -523,8 +523,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// /////////////////////////////////////
 	// operations
 
-	private final CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-	Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS"));
+	private final CNAbility bonusLanguageAbility =
+			CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL,
+				Globals.getContext().getReferenceContext()
+					.getManufacturerId(AbilityCategory.LANGBONUS)
+					.getActiveObject("*LANGBONUS"));
 	private final CodeControl controller;
 
 	/**
@@ -898,8 +901,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			final String rType = cList.getKeyName();
 			final Race fRace = aF.getRace();
 
-			for (CompanionMod cm : Globals.getContext().getReferenceContext().getManufacturer(
-				CompanionMod.class, cList).getAllObjects())
+			for (CompanionMod cm : Globals.getContext().getReferenceContext()
+				.getManufacturerId(cList).getAllObjects())
 			{
 				final String aType = cm.getType();
 				if (aType.equalsIgnoreCase(rType) && cm.appliesToRace(fRace))
@@ -1477,8 +1480,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int getEffectiveCompanionLevel(final CompanionList compList)
 	{
-		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
-			CompanionMod.class, compList).getAllObjects())
+		for (CompanionMod cMod : Globals.getContext().getReferenceContext()
+			.getManufacturerId(compList).getAllObjects())
 		{
 			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
 
@@ -1547,8 +1550,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			boolean found = false;
 
-			for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
-				CompanionMod.class, aM.getType()).getAllObjects())
+			for (CompanionMod cMod : Globals.getContext().getReferenceContext()
+				.getManufacturerId(aM.getType()).getAllObjects())
 			{
 				if ((cMod.getLevelApplied(mClass) > 0) && !found)
 				{
@@ -1563,8 +1566,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Clear the companionModList so we can add everything to it
 		Collection<CompanionMod> oldCompanionMods = companionModFacet.removeAll(id);
 
-		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
-			CompanionMod.class, aM.getType()).getAllObjects())
+		for (CompanionMod cMod : Globals.getContext().getReferenceContext()
+			.getManufacturerId(aM.getType()).getAllObjects())
 		{
 			// Check all the masters classes
 			for (PCClass mClass : mPC.getClassSet())
@@ -1762,8 +1765,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Old way of handling this
 		// If the character qualifies for any companion mod of this type
 		// they can take unlimited number of them.
-		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
-			CompanionMod.class, cList).getAllObjects())
+		for (CompanionMod cMod : Globals.getContext().getReferenceContext()
+			.getManufacturerId(cList).getAllObjects())
 		{
 			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
 			for (String varName : varmap.keySet())

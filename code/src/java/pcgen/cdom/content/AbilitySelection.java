@@ -80,8 +80,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		}
 		String ab = st.nextToken();
 		Ability a =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, ac, ab);
+				context.getReferenceContext().getManufacturerId(ac).getActiveObject(ab);
 		if (a == null)
 		{
 			throw new IllegalArgumentException(
@@ -130,9 +129,8 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	private static AbilitySelection decodeFeatSelectionChoice(
 		LoadContext context, String persistentFormat)
 	{
-		Ability ability =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, AbilityCategory.FEAT, persistentFormat);
+		Ability ability = context.getReferenceContext()
+			.getManufacturerId(AbilityCategory.FEAT).getActiveObject(persistentFormat);
 
 		if (ability == null)
 		{
@@ -140,10 +138,8 @@ public class AbilitySelection extends Selection<Ability, String> implements
 			String baseKey =
 					AbilityUtilities.getUndecoratedName(persistentFormat,
 						choices);
-			ability =
-					context.getReferenceContext()
-						.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.FEAT, baseKey);
+			ability = context.getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getActiveObject(baseKey);
 			if (ability == null)
 			{
 				throw new IllegalArgumentException("String in decodeChoice "

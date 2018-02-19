@@ -701,9 +701,8 @@ public final class Globals
 			Logging.log(logLevel, "Races=" + getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).size());
 			Logging.log(logLevel, "Classes=" + getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).size());
 			Logging.log(logLevel, "Skills=" + getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).size());
-			Logging.log(logLevel, "Feats="
-					+ getContext().getReferenceContext().getManufacturer(Ability.class,
-					AbilityCategory.FEAT).getConstructedObjectCount());
+			Logging.log(logLevel, "Feats=" + getContext().getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getConstructedObjectCount());
 			Logging.log(logLevel, "Equipment=" + getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).size());
 			Logging.log(logLevel, "ArmorProfs=" + getContext().getReferenceContext().getConstructedCDOMObjects(ArmorProf.class).size());
 			Logging.log(logLevel, "ShieldProfs=" + getContext().getReferenceContext().getConstructedCDOMObjects(ShieldProf.class).size());

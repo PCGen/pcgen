@@ -27,8 +27,6 @@ import java.util.WeakHashMap;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -48,23 +46,6 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	{
 	}
 	
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Category<T> cat)
-	{
-		ReferenceManufacturer<T> mfg = super.getManufacturer(cl, cat);
-		if (mfg instanceof TrackingManufacturer)
-		{
-			return mfg;
-		}
-		if (!listening.contains(mfg))
-		{
-			mfg.addUnconstructedListener(this);
-			listening.add(mfg);
-		}
-		return new TrackingManufacturer<>(this, mfg);
-	}
-
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)

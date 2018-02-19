@@ -25,7 +25,6 @@ import java.util.Map;
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ManufacturableFactory;
@@ -83,14 +82,6 @@ public class GameReferenceContext extends AbstractReferenceContext
 	public boolean validate(UnconstructedValidator validator)
 	{
 		return true;
-	}
-
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Category<T> cat)
-	{
-		return getManufacturerByFormatName(
-			cl.getSimpleName().toUpperCase() + "=" + cat.getKeyName(), cl);
 	}
 
 	@Override

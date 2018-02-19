@@ -353,19 +353,16 @@ final class PCGVer2Parser implements PCGParser
 		if (sourceStr.startsWith(IOConstants.TAG_FEAT + '='))
 		{
 			sourceStr = sourceStr.substring(5);
-			oSource =
-					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, sourceStr);
+			oSource = Globals.getContext().getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getActiveObject(sourceStr);
 			oSource = thePC.getAbilityKeyed(AbilityCategory.FEAT, sourceStr);
 			if (oSource == null)
 			{
 				for (final AbilityCategory cat : SettingsHandler.getGame()
 					.getAllAbilityCategories())
 				{
-					Ability abilSourceObj =
-							Globals.getContext().getReferenceContext()
-								.silentlyGetConstructedCDOMObject(
-									Ability.class, cat, sourceStr);
+					Ability abilSourceObj = Globals.getContext().getReferenceContext()
+						.getManufacturerId(cat).getActiveObject(sourceStr);
 					if (abilSourceObj != null)
 					{
 						oSource = abilSourceObj;
@@ -2578,9 +2575,8 @@ final class PCGVer2Parser implements PCGParser
 				warnings.add(msg);
 				return;
 			}
-			ability =
-					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, innateCategory, abilityKey);
+			ability = Globals.getContext().getReferenceContext()
+				.getManufacturerId(innateCategory).getActiveObject(abilityKey);
 			if (ability == null)
 			{
 				warnings.add("Unable to Find Ability: " + abilityKey);
@@ -2761,9 +2757,8 @@ final class PCGVer2Parser implements PCGParser
 			 * one and add it using non-aggregate (when using aggregate, we
 			 * get clones of the PCs actual feats, which don't get saved or
 			 * preserved) */
-			Ability anAbility =
-					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, abilityKey);
+			Ability anAbility = Globals.getContext().getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getActiveObject(abilityKey);
 			if (anAbility == null)
 			{
 				final String msg =
@@ -4255,11 +4250,8 @@ final class PCGVer2Parser implements PCGParser
 				{
 					final String featKey =
 							EntityEncoder.decode(child.getText());
-					final Ability anAbility =
-							Globals.getContext().getReferenceContext()
-								.silentlyGetConstructedCDOMObject(
-									Ability.class, AbilityCategory.FEAT,
-									featKey);
+					final Ability anAbility = Globals.getContext().getReferenceContext()
+						.getManufacturerId(AbilityCategory.FEAT).getActiveObject(featKey);
 
 					if (anAbility != null)
 					{
@@ -4785,13 +4777,8 @@ final class PCGVer2Parser implements PCGParser
 			final PCGElement element = it.next();
 
 			final String abilityKey = EntityEncoder.decode(element.getText());
-			Ability anAbility = Globals.getContext()
-			                           .getReferenceContext()
-			                           .silentlyGetConstructedCDOMObject(
-					                           Ability.class,
-					                           AbilityCategory.FEAT,
-					                           abilityKey
-			                           );
+			Ability anAbility = Globals.getContext().getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getActiveObject(abilityKey);
 
 			if (anAbility == null)
 			{
@@ -5555,8 +5542,7 @@ final class PCGVer2Parser implements PCGParser
 				for (AbilityCategory aCat : SettingsHandler.getGame().getAllAbilityCategories())
 				{
 					Ability a = Globals.getContext().getReferenceContext()
-							.silentlyGetConstructedCDOMObject(Ability.class,
-									aCat, cKey);
+						.getManufacturerId(aCat).getActiveObject(cKey);
 					if (a != null)
 					{
 						newB = Bonus.newBonus(context, bonus);

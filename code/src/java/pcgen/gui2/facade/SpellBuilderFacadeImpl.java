@@ -435,8 +435,8 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		if (metaAllowed)
 		{
 			List<Ability> metamagicFeats = new ArrayList<>();
-			for (Ability anAbility : Globals.getContext().getReferenceContext().getManufacturer(
-				Ability.class, AbilityCategory.FEAT).getAllObjects())
+			for (Ability anAbility : Globals.getContext().getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getAllObjects())
 			{
 				if (anAbility.isType("Metamagic"))
 				{

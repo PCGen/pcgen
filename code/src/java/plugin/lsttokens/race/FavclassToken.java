@@ -113,8 +113,8 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.getReferenceContext().getCDOMReference(SUBCLASS_CLASS, scc,
-							subclass);
+					ref = context.getReferenceContext().getManufacturerId(scc)
+						.getReference(subclass);
 				}
 				context.getObjectContext().addToList(race,
 						ListKey.FAVORED_CLASS, ref);
