@@ -28,7 +28,7 @@ public class SortKeyComparator implements Comparator<SortKeyRequired>
 	/**
 	 * The singleton instance of SortKeyComparator.
 	 */
-	private static final Comparator<SortKeyRequired> instance = new SortKeyComparator();
+	private static final Comparator<SortKeyRequired> INSTANCE = new SortKeyComparator();
 	
 	private SortKeyComparator()
 	{
@@ -48,7 +48,7 @@ public class SortKeyComparator implements Comparator<SortKeyRequired>
 	 */
 	public static Comparator<SortKeyRequired> getInstance()
 	{
-		return instance;
+		return INSTANCE;
 	}
 
 }
