@@ -495,17 +495,17 @@ Prosthetic limb, storage		KEY:Cybernetic ~ Prosthetic limb (storage)				QUALITY:
 Retinal reflectors			KEY:Cybernetic ~ Retinal reflectors						QUALITY:ItemLevel|3	COST:1350	TYPE:Cybernetic.ItemLevel_3.Eyes
 Speed suspension, minimal		KEY:Cybernetic ~ Speed suspension (minimal)				QUALITY:ItemLevel|4	COST:1900	TYPE:Cybernetic.ItemLevel_4.All legs
 Datajack, high-density			KEY:Cybernetic ~ Datajack (high-density					QUALITY:ItemLevel|5	COST:2600	TYPE:Cybernetic.ItemLevel_5.Brain
-Dermal plating, mk 5			KEY:Cybernetic ~ Dermal plating (mk 5)					QUALITY:ItemLevel|1	COST:3025	TYPE:Cybernetic.ItemLevel_1.Skin
+Dermal plating, mk 1			KEY:Cybernetic ~ Dermal plating (mk 1)					QUALITY:ItemLevel|5	COST:3025	TYPE:Cybernetic.ItemLevel_5.Skin
 Hideaway limb, quickdraw		KEY:Cybernetic ~ Hideaway limb (quickdraw)				QUALITY:ItemLevel|5	COST:3050	TYPE:Cybernetic.ItemLevel_5.Arm or leg
 Wide-spectrum ocular implant		KEY:Cybernetic ~ Wide-spectrum ocular implant				QUALITY:ItemLevel|5	COST:2825	TYPE:Cybernetic.ItemLevel_5.Eyes
 Cardiac accelerator			KEY:Cybernetic ~ Cardiac accelerator					QUALITY:ItemLevel|6	COST:3850	TYPE:Cybernetic.ItemLevel_6.Heart
-Dermal plating, mk 7			KEY:Cybernetic ~ Dermal plating (mk 7)					QUALITY:ItemLevel|2	COST:6950	TYPE:Cybernetic.ItemLevel_2.Skin
+Dermal plating, mk 2			KEY:Cybernetic ~ Dermal plating (mk 2)					QUALITY:ItemLevel|7	COST:6950	TYPE:Cybernetic.ItemLevel_7.Skin
 Darkvision capacitors, advanced	KEY:Cybernetic ~ Darkvision capacitors (advanced)			QUALITY:ItemLevel|8	COST:9000	TYPE:Cybernetic.ItemLevel_8.Eyes
 Datajack, accelerated			KEY:Cybernetic ~ Datajack (accelerated)					QUALITY:ItemLevel|8	COST:8525	TYPE:Cybernetic.ItemLevel_8.Brain
 Speed suspension, standard		KEY:Cybernetic ~ Speed suspension (standard)				QUALITY:ItemLevel|8	COST:8800	TYPE:Cybernetic.ItemLevel_8.All legs
-Dermal plating, mk 9			KEY:Cybernetic ~ Dermal plating (mk 9)					QUALITY:ItemLevel|3	COST:17975	TYPE:Cybernetic.ItemLevel_3.Skin
+Dermal plating, mk 3			KEY:Cybernetic ~ Dermal plating (mk 3)					QUALITY:ItemLevel|9	COST:17975	TYPE:Cybernetic.ItemLevel_9.Skin
 Cybernetic arm, single			KEY:Cybernetic ~ Cybernetic arm (single)					QUALITY:ItemLevel|11	COST:24750	TYPE:Cybernetic.ItemLevel_11.Spinal column
-Dermal plating, mk 12			KEY:Cybernetic ~ Dermal plating (mk 12)					QUALITY:ItemLevel|4	COST:48850	TYPE:Cybernetic.ItemLevel_4.Skin
+Dermal plating, mk 4			KEY:Cybernetic ~ Dermal plating (mk 4)					QUALITY:ItemLevel|12	COST:48850	TYPE:Cybernetic.ItemLevel_12.Skin
 Speed suspension, complete		KEY:Cybernetic ~ Speed suspension (complete)				QUALITY:ItemLevel|12	COST:32900	TYPE:Cybernetic.ItemLevel_12.All legs
 Darkvision capacitors, long-range	KEY:Cybernetic ~ Darkvision capacitors (long-range)			QUALITY:ItemLevel|13	COST:48950	TYPE:Cybernetic.ItemLevel_13.Eyes
 Cybernetic arm, dual			KEY:Cybernetic ~ Cybernetic arm (dual)					QUALITY:ItemLevel|14	COST:70150	TYPE:Cybernetic.ItemLevel_14.Spinal column
