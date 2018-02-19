@@ -76,13 +76,13 @@ Mana Pool	CATEGORY:Special Ability	TYPE:Class Feature	SORTKEY:1	ASPECT:NAME|Mana
 
 # Tracks the Level dependent grants. The DESC is informational only. In case we need to know what should be granted. There is no intention of displaying this information at this time.
 # Level Dependent
-1st Level		KEY:Level Dependent ~ 1		CATEGORY:Internal	DESC:1st Legacy Item, 10 Skill Points to start, 2 Talent Points	BONUS:VAR|Pool_Talent|2	BONUS:VAR|Pool_Legacy_Item|1
+1st Level		KEY:Level Dependent ~ 1		CATEGORY:Internal	DESC:1st Legacy Item (Customizer on Equipment to add to item), 10 Skill Points to start, 2 Talent Points	BONUS:VAR|Pool_Talent|2			DEFINE:LegacyCritRangeBonus|0	DEFINE:LegacyEnhancementBonus|0	DEFINE:LegacyDamageReduction|0	BONUS:VAR|LegacyCritRangeBonus|(TL>=2)+(TL>=6)	BONUS:VAR|LegacyEnhancementBonus|(TL>=4)+(TL>=8)	BONUS:VAR|LegacyDamageReduction|(TL>=2)+(TL>=6)
 2nd Level		KEY:Level Dependent ~ 2		CATEGORY:Internal	DESC:Bonus Hit Point, +1 Skill Point	BONUS:HP|CURRENTMAX|1
 3rd Level		KEY:Level Dependent ~ 3		CATEGORY:Internal	DESC:All Resistances gain +1, +1 Skill Point, 1 Talent Point	BONUS:SAVE|ALL|1	BONUS:VAR|Pool_Talent|1
-4th Level		KEY:Level Dependent ~ 4		CATEGORY:Internal	DESC:+1 Ability Point, +1 Skill Point, 2nd Legacy Item	BONUS:VAR|Pool_Ability_Point|1	BONUS:VAR|Pool_Legacy_Item|1
+4th Level		KEY:Level Dependent ~ 4		CATEGORY:Internal	DESC:+1 Ability Point, +1 Skill Point, 2nd Legacy Item	BONUS:VAR|Pool_Ability_Point|1	
 5th Level		KEY:Level Dependent ~ 5		CATEGORY:Internal	DESC:+1 Deflection Bonus to AC, +1 Skill Point	BONUS:VAR|AC_Deflection|1
 6th Level		KEY:Level Dependent ~ 6		CATEGORY:Internal	DESC:All Resistances gain +1, +1 Skill Point, 1 Talent Point	BONUS:SAVE|ALL|1	BONUS:VAR|Pool_Talent|1
-7th Level		KEY:Level Dependent ~ 7		CATEGORY:Internal	DESC:Natural Armor +1, +1 Skill Point, 3rd Legacy Item	BONUS:VAR|AC_Natural_Armor|1	BONUS:VAR|Pool_Legacy_Item|1
+7th Level		KEY:Level Dependent ~ 7		CATEGORY:Internal	DESC:Natural Armor +1, +1 Skill Point, 3rd Legacy Item	BONUS:VAR|AC_Natural_Armor|1	
 8th Level		KEY:Level Dependent ~ 8		CATEGORY:Internal	DESC:+1 Ability Point, +1 Skill Point	BONUS:VAR|Pool_Ability_Point|1
 
 
@@ -106,9 +106,11 @@ Thievery	CATEGORY:Special Ability	TYPE:Skill	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	
 +1 CHA	CATEGORY:Special Ability	TYPE:Ability Point	BONUS:STAT|CHA|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
 
 ###Block: Legacy Item
-Sample 0	CATEGORY:Special Ability	TYPE:Legacy Item	AUTO:EQUIP|Sample Legacy Item
-Sample 1	CATEGORY:Special Ability	TYPE:Legacy Item	AUTO:EQUIP|Sample Legacy Item
-Sample 2	CATEGORY:Special Ability	TYPE:Legacy Item	AUTO:EQUIP|Sample Legacy Item
+# Sample 0	CATEGORY:Special Ability	TYPE:Legacy Item	AUTO:EQUIP|Sample Legacy Item
+# Sample 1	CATEGORY:Special Ability	TYPE:Legacy Item	AUTO:EQUIP|Sample Legacy Item
+# Sample 2	CATEGORY:Special Ability	TYPE:Legacy Item	AUTO:EQUIP|Sample Legacy Item
+
+
 
 ###Block:
 Cannot use iron					CATEGORY:Special Ability	TYPE:Race Feature
