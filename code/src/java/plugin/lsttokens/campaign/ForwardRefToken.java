@@ -75,7 +75,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 			return cpr;
 		}
 		String firstToken = value.substring(0, pipeLoc);
-		if (firstToken.equals("FEAT"))
+		if ("FEAT".equals(firstToken))
 		{
 			firstToken = "ABILITY=FEAT";
 		}

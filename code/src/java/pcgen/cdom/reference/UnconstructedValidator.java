@@ -19,9 +19,32 @@ package pcgen.cdom.reference;
 
 import pcgen.cdom.base.ClassIdentity;
 
+/**
+ * An UnconstructedValidator indicates what behaviors are allowed for a given
+ * Class/ClassIdentity for things like unconstructed references and duplicates.
+ */
 public interface UnconstructedValidator
 {
+	/**
+	 * Returns true if the given Class allows duplicate objects to exist.
+	 * 
+	 * @param objClass
+	 *            The Class to be checked
+	 * @return true if the given Class allows duplicate objects to exist; false otherwise
+	 */
 	public boolean allowDuplicates(Class<?> objClass);
 
-	public <T> boolean allow(ClassIdentity<T> objClass, String key);
+	/**
+	 * Returns true if the given key for the given ClassIdentity is allowed to be
+	 * unconstructed.
+	 * 
+	 * @param objClass
+	 *            The ClassIdentity of the object key to be validated
+	 * @param key
+	 *            The key of the object to be checked to see if it is allowed to remain
+	 *            unconstructed
+	 * @return true if the given key for the given ClassIdentity is allowed to be
+	 *         unconstructed; false otherwise
+	 */
+	public <T> boolean allowUnconstructed(ClassIdentity<T> identity, String key);
 }

@@ -747,7 +747,8 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 
 	private boolean report(UnconstructedValidator validator, String key)
 	{
-		return (validator != null) && validator.allow(getReferenceIdentity(), key);
+		return (validator != null)
+			&& validator.allowUnconstructed(getReferenceIdentity(), key);
 	}
 
     @Override

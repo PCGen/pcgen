@@ -625,6 +625,17 @@ public abstract class AbstractReferenceContext
 		fmtLibrary.addFormatManager(mgr);
 	}
 
+	/**
+	 * Returns the ReferenceManufacturer for a given Format name and class.
+	 * 
+	 * @param formatName
+	 *            The (persistent) name of the format for which the ReferenceManufacturer
+	 *            should be returned
+	 * @param cl
+	 *            The class, indicating additional information about the
+	 *            ReferenceManufacturer to be returned
+	 * @return The ReferenceManufacturer for a given Format name and class
+	 */
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
-		String firstToken, Class<T> c);
+		String formatName, Class<T> cl);
 }

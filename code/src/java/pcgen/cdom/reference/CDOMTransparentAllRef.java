@@ -62,6 +62,9 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	/**
 	 * Constructs a new CDOMTransparentAllRef for the given Class.
 	 * 
+	 * @param formatRepresentation
+	 *            the persistent representation of the ClassIdentity of the objects to be
+	 *            stored in this CDOMTransparentAllRef
 	 * @param objClass
 	 *            The Class of the underlying objects contained by this
 	 *            CDOMTransparentTypeRef.
@@ -80,9 +83,6 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	 * Note that the behavior of this class is undefined if the underlying
 	 * CDOMGroupRef has not yet been resolved.
 	 * 
-	 * @param formatRepresentation
-	 *            the persistent representation of the ClassIdentity of the objects to be
-	 *            stored in this CDOMTransparentAllRef
 	 * @param item
 	 *            The object to be tested to see if it is referred to by this
 	 *            CDOMTransparentAllRef.

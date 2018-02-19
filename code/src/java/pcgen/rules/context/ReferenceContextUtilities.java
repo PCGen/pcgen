@@ -103,7 +103,7 @@ public final class ReferenceContextUtilities
 	private static boolean report(UnconstructedValidator validator,
 		ClassIdentity<?> cl, String key)
 	{
-		return validator != null && validator.allow(cl, key);
+		return validator != null && validator.allowUnconstructed(cl, key);
 	}
 
 	public static <T extends Categorized<T>> ReferenceManufacturer<? extends Loadable> getManufacturer(

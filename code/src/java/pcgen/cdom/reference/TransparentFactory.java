@@ -30,7 +30,13 @@ import pcgen.cdom.base.Loadable;
  * game modes are not reloaded). These references are therefore resolved a different way
  * (by loading them with another reference).
  * 
- * @param <T> The type of object managed by this TransparentFactory
+ * Please note one significant item about a TransparentFactory (which will impact the
+ * GameMode's ReferenceContext). No Categorized object should ever be constructed directly
+ * in the game mode - it will not be properly initialized with it's category, and thus
+ * will encounter many problems during its life cycle.
+ * 
+ * @param <T>
+ *            The type of object managed by this TransparentFactory
  */
 public class TransparentFactory<T extends Loadable> implements
 		ManufacturableFactory<T>

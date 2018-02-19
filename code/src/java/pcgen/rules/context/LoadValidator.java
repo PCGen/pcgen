@@ -38,7 +38,7 @@ public class LoadValidator implements UnconstructedValidator
 	}
 
 	@Override
-	public <T> boolean allow(ClassIdentity<T> cl, String s)
+	public <T> boolean allowUnconstructed(ClassIdentity<T> cl, String s)
 	{
 		if (simpleMap == null)
 		{

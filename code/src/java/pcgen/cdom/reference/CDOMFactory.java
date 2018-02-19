@@ -142,11 +142,8 @@ public class CDOMFactory<T extends Loadable> implements
 
 	private boolean report(UnconstructedValidator validator, String key)
 	{
-		/*
-		 * CONSIDER This will likely fail on categorized items, especially those with
-		 * parents.
-		 */
-		return validator != null && validator.allow(getReferenceIdentity(), key);
+		return validator != null
+			&& validator.allowUnconstructed(getReferenceIdentity(), key);
 	}
 
 	@Override
