@@ -317,7 +317,7 @@ ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALP
 ###COMMENT: Internal Category is for all hidden abilities.
 
 
-PREVIEWDIR:d20/fantasy
+PREVIEWDIR:d20/sagaborn
 PREVIEWSHEET:Standard.htm.ftl
 
 OUTPUTSHEET:DIRECTORY|d20/sagaborn

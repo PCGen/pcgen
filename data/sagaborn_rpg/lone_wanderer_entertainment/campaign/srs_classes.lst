@@ -79,7 +79,7 @@ CLASS:Wylder	DESC:Self-taught and undisciplined, the wylders are the wild mages 
 CLASS:Wylder	MAXLEVEL:8	PREPCLEVEL:MAX=8
 CLASS:Wylder	HD:8	TYPE:Base.PC
 CLASS:Wylder	FACT:Abb|Wyl	FACT:ClassType|Mage
-CLASS:Wylder	DEFINE:WylderLVL|0	BONUS:VAR|WylderLVL|CL	BONUS:VAR|CasterLVL|WylderLVL
+CLASS:Wylder	DEFINE:WylderLVL|0	BONUS:VAR|WylderLVL|CL	BONUS:VAR|CasterLVL|classlevel()
 CLASS:Wylder	SOURCEPAGE:p.
 CLASS:Wylder	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
 CLASS:Wylder	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
@@ -119,7 +119,7 @@ CLASS:Luminar	DESC:Formally trained spellcasters are called luminar. They must b
 CLASS:Luminar	MAXLEVEL:8	PREPCLEVEL:MAX=8
 CLASS:Luminar	HD:6	TYPE:Base.PC
 CLASS:Luminar	FACT:Abb|Lum	FACT:ClassType|Mage
-CLASS:Luminar	DEFINE:LuminarLVL|0	BONUS:VAR|LuminarLVL|classlevel()	
+CLASS:Luminar	DEFINE:LuminarLVL|0	BONUS:VAR|LuminarLVL|classlevel()	BONUS:VAR|CasterLVL|classlevel()
 CLASS:Luminar	SOURCEPAGE:p.
 CLASS:Luminar	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
 CLASS:Luminar	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
@@ -148,7 +148,7 @@ CLASS:Bard	DESC:For some individuals with the talent, music and song become powe
 CLASS:Bard	MAXLEVEL:8	PREPCLEVEL:MAX=8
 CLASS:Bard	HD:8	TYPE:Base.PC
 CLASS:Bard	FACT:Abb|Brd	FACT:ClassType|Mage
-CLASS:Bard	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	BONUS:VAR|CasterLVL|BardLVL
+CLASS:Bard	DEFINE:BardLVL|0	DEFINE:CasterLVL|0	BONUS:VAR|BardLVL|CL	BONUS:VAR|CasterLVL|classlevel()
 CLASS:Bard	SOURCEPAGE:p.
 CLASS:Bard	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
 CLASS:Bard	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1

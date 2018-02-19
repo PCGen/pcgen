@@ -13,8 +13,8 @@ Weapon Dexterity	KEY:Weapon Dexterity	BONUS:WEAPON|TOHIT|WeaponDexterityToHit
 
 
 
-Legacy Armor		TYPE:Shield.Armor		DR:LegacyDamageReduction/-	BONUS:COMBAT|AC|LegacyEnhancementBonus|TYPE=Enhancement
-Legacy Weapon		TYPE:Weapon			BONUS:EQMWEAPON|CRITRANGEADD|LegacyCritRangeBonus	BONUS:WEAPON|TOHIT|LegacyEnhancementBonus	BONUS:WEAPON|DAMAGE|LegacyEnhancementBonus	
+Legacy Armor		TYPE:Shield.Armor		SPROP:+% enhancement bonus to armor class|LegacyEnhancementBonus	SPROP:DR %/-|LegacyDamageReduction	DR:LegacyDamageReduction/-	BONUS:COMBAT|AC|LegacyEnhancementBonus|TYPE=Enhancement
+Legacy Weapon		TYPE:Weapon						SPROP:+% to CritRange|LegacyCritRangeBonus	SPROP:+% enhancement bonus to hit and damage|LegacyEnhancementBonus	BONUS:EQMWEAPON|CRITRANGEADD|LegacyCritRangeBonus	BONUS:WEAPON|TOHIT|LegacyEnhancementBonus	BONUS:WEAPON|DAMAGE|LegacyEnhancementBonus	
 Legacy Focus		TYPE:Weapon.Armor.Shield.Goods.Tools	SPROP:Imbued with a 0 mana spell, can cast as a free action.|PREPCLEVEL:MIN=2	SPROP:Imbued with a 1 mana spell that does not have a dice pool.|PREPCLEVEL:MIN=4	SPROP:Item can be called to its owner at any time.|PREPCLEVEL:MIN=6	SPROP:Imbued with a 3 mana spell that does not have a dice pool.|PREPCLEVEL:MIN=8
 
 
