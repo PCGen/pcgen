@@ -22,6 +22,7 @@ import java.util.Objects;
 import pcgen.base.formula.base.DefaultStore;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.OperatorLibrary;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
 import pcgen.base.util.TypedKey;

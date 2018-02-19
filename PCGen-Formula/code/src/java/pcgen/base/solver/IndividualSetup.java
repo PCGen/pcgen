@@ -17,10 +17,10 @@ package pcgen.base.solver;
 
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScopeLibrary;
-import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableStore;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleFormulaManager;
+import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 
 /**
  * An IndividualSetup is returned by a SplitFormulaSetup. This contains the information
@@ -40,11 +40,6 @@ public class IndividualSetup
 	private final FormulaManager formulaManager;
 
 	/**
-	 * The "Global" ScopeInstance for this IndividualSetup.
-	 */
-	private final ScopeInstance globalScopeInst;
-
-	/**
 	 * Constructs a new IndividualSetup with the "global" LegalScope of the given name.
 	 * The IndividualSetup will have a unique Global Scope Instance, VariableStore (and
 	 * thus FormulaManager and ScopeInformation).
@@ -58,23 +53,19 @@ public class IndividualSetup
 	 * 
 	 * @param parent
 	 *            The parent SplitFormulaSetup for this IndividualSetup
-	 * @param globalName
-	 *            The name of the "global" LegalScope for this IndividualSetup
 	 * @param variableStore
 	 *            the VariableStore to be used by the FormulaManager in this
 	 *            IndividualSetup
 	 */
-	public IndividualSetup(SplitFormulaSetup parent, String globalName,
-		VariableStore variableStore)
+	public IndividualSetup(SplitFormulaSetup parent, VariableStore variableStore)
 	{
-		LegalScopeLibrary scopeLibrary = parent.getLegalScopeLibrary();
-		instanceFactory = new ScopeInstanceFactory(scopeLibrary);
+		LegalScopeLibrary scopeLibrary = parent.getLegalScopeManager();
+		instanceFactory = new SimpleScopeInstanceFactory(scopeLibrary);
 		SimpleFormulaManager fManager = new SimpleFormulaManager(
 			parent.getOperatorLibrary(), parent.getVariableLibrary(), instanceFactory,
 			variableStore, parent.getSolverFactory());
 		formulaManager =
 				fManager.getWith(FormulaManager.FUNCTION, parent.getFunctionLibrary());
-		globalScopeInst = instanceFactory.getGlobalInstance(globalName);
 	}
 
 	/**
@@ -95,15 +86,5 @@ public class IndividualSetup
 	public FormulaManager getFormulaManager()
 	{
 		return formulaManager;
-	}
-
-	/**
-	 * Return the "Global" ScopeInstance for this IndividualSetup.
-	 * 
-	 * @return the "Global" ScopeInstance for this IndividualSetup
-	 */
-	public ScopeInstance getGlobalScopeInst()
-	{
-		return globalScopeInst;
 	}
 }

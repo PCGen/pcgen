@@ -6,12 +6,13 @@ import java.util.List;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
 
-public class LegalScopeLibraryTest extends TestCase
+public class ScopeManagerInstTest extends TestCase
 {
 
-	private LegalScopeLibrary library;
+	private ScopeManagerInst legalScopeManager;
 	SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
 	SimpleLegalScope subScope = new SimpleLegalScope(globalScope, "SubScope");
 	SimpleLegalScope otherScope = new SimpleLegalScope(globalScope, "OtherScope");
@@ -20,7 +21,7 @@ public class LegalScopeLibraryTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		library = new LegalScopeLibrary();
+		legalScopeManager = new ScopeManagerInst();
 	}
 
 	@Test
@@ -28,7 +29,7 @@ public class LegalScopeLibraryTest extends TestCase
 	{
 		try
 		{
-			library.registerScope(null);
+			legalScopeManager.registerScope(null);
 			fail("null must be rejected in registerScope");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -42,25 +43,40 @@ public class LegalScopeLibraryTest extends TestCase
 	{
 		try
 		{
-			library.registerScope(new BadLegalScope());
+			legalScopeManager.registerScope(new BadLegalScope());
 			fail("null name must be rejected in registerScope");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
-		library.registerScope(subScope);
 		try
 		{
-			library.registerScope(new SimpleLegalScope(globalScope, "SubScope"));
+			legalScopeManager.registerScope(subScope);
+			fail("should reject because parent has not been added");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
+		try
+		{
+			legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "SubScope"));
 			fail("dupe name be rejected in registerScope");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//ok
 		}
-		//But this is okay
-		library.registerScope(subScope);
+	}
+	
+	@Test
+	public void testDupeOkay()
+	{
+		legalScopeManager.registerScope(globalScope);
+		legalScopeManager.registerScope(subScope);
+		//This is okay
+		legalScopeManager.registerScope(subScope);
 	}
 
 	@Test
@@ -68,7 +84,7 @@ public class LegalScopeLibraryTest extends TestCase
 	{
 		try
 		{
-			library.getChildScopes(null);
+			legalScopeManager.getChildScopes(null);
 			fail("null must be rejected in getChildScopes");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -80,48 +96,46 @@ public class LegalScopeLibraryTest extends TestCase
 	@Test
 	public void testGetScope()
 	{
-		List<LegalScope> children = library.getChildScopes(globalScope);
+		List<LegalScope> children = legalScopeManager.getChildScopes(globalScope);
 		if (children != null)
 		{
 			assertEquals(0, children.size());
 		}
-		//Note order is significant - child first to check it works
-		library.registerScope(subScope);
-		library.registerScope(globalScope);
+		legalScopeManager.registerScope(globalScope);
+		legalScopeManager.registerScope(subScope);
 		//test getScope
-		assertEquals(globalScope, library.getScope("Global"));
-		assertEquals(subScope, library.getScope("Global.SubScope"));
-		assert(library.getScope("OtherScope") == null);
-		assert(library.getScope(null) == null);
+		assertEquals(globalScope, legalScopeManager.getScope("Global"));
+		assertEquals(subScope, legalScopeManager.getScope("Global.SubScope"));
+		assert(legalScopeManager.getScope("OtherScope") == null);
+		assert(legalScopeManager.getScope(null) == null);
 	}
 
 	@Test
 	public void testGetChildScopes()
 	{
-		List<LegalScope> children = library.getChildScopes(globalScope);
+		List<LegalScope> children = legalScopeManager.getChildScopes(globalScope);
 		if (children != null)
 		{
 			assertEquals(0, children.size());
 		}
-		//Note order is significant - child first to check it works
-		library.registerScope(subScope);
-		library.registerScope(globalScope);
+		legalScopeManager.registerScope(globalScope);
+		legalScopeManager.registerScope(subScope);
 		//test getChildScopes
-		children = library.getChildScopes(globalScope);
+		children = legalScopeManager.getChildScopes(globalScope);
 		assertEquals(1, children.size());
 		assertEquals(subScope, children.get(0));
 		//test independence of children list
 		children.add(globalScope);
 		// Ensure not saved in Library
-		List<LegalScope> children2 = library.getChildScopes(globalScope);
+		List<LegalScope> children2 = legalScopeManager.getChildScopes(globalScope);
 		assertEquals(1, children2.size());
 		assertEquals(2, children.size());
 		// And ensure references are not kept the other direction to be altered
 		// by changes in the underlying DoubleKeyMap
-		library.registerScope(otherScope);
+		legalScopeManager.registerScope(otherScope);
 		assertEquals(1, children2.size());
 		assertEquals(2, children.size());
-		List<LegalScope> children3 = library.getChildScopes(globalScope);
+		List<LegalScope> children3 = legalScopeManager.getChildScopes(globalScope);
 		assertEquals(2, children3.size());
 		assertTrue(children3.contains(subScope));
 		assertTrue(children3.contains(otherScope));
@@ -131,13 +145,12 @@ public class LegalScopeLibraryTest extends TestCase
 	@Test
 	public void testGetLegalScopes()
 	{
-		Collection<LegalScope> legal = library.getLegalScopes();
+		Collection<LegalScope> legal = legalScopeManager.getLegalScopes();
 		assertEquals(0, legal.size());
-		//Note order is significant - child first to check it works
-		library.registerScope(subScope);
-		library.registerScope(globalScope);
+		legalScopeManager.registerScope(globalScope);
+		legalScopeManager.registerScope(subScope);
 		//test getChildScopes
-		legal = library.getLegalScopes();
+		legal = legalScopeManager.getLegalScopes();
 		assertEquals(2, legal.size());
 		assertTrue(legal.contains(globalScope));
 		assertTrue(legal.contains(subScope));
@@ -157,15 +170,15 @@ public class LegalScopeLibraryTest extends TestCase
 		{
 			//Check this stuff only if we could add - otherwise dependence is ok
 			// Ensure not saved in Library
-			Collection<LegalScope> children2 = library.getLegalScopes();
+			Collection<LegalScope> children2 = legalScopeManager.getLegalScopes();
 			assertEquals(2, children2.size());
 			assertEquals(3, legal.size());
 			// And ensure references are not kept the other direction to be altered
 			// by changes in the underlying DoubleKeyMap
-			library.registerScope(otherScope);
+			legalScopeManager.registerScope(otherScope);
 			assertEquals(1, children2.size());
 			assertEquals(2, legal.size());
-			Collection<LegalScope> children3 = library.getLegalScopes();
+			Collection<LegalScope> children3 = legalScopeManager.getLegalScopes();
 			assertEquals(2, children3.size());
 			assertTrue(children3.contains(subScope));
 			assertTrue(children3.contains(otherScope));

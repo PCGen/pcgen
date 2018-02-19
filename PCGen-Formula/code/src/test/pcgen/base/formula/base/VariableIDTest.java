@@ -22,23 +22,24 @@ import org.junit.Test;
 import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
+import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 
 public class VariableIDTest extends TestCase
 {
 
 	NumberManager numberManager = FormatUtilities.NUMBER_MANAGER;
-	private LegalScopeLibrary library;
+	private ScopeManagerInst legalScopeManager;
 	private ScopeInstanceFactory instanceFactory;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		library = new LegalScopeLibrary();
-		library.registerScope(new SimpleLegalScope(null, "Global"));
-		instanceFactory = new ScopeInstanceFactory(library);
+		legalScopeManager = new ScopeManagerInst();
+		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global"));
+		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 	}
 
 	@Test
@@ -113,7 +114,7 @@ public class VariableIDTest extends TestCase
 	public void testEquals()
 	{
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		library.registerScope(new SimpleLegalScope(null, "Global2"));
+		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
@@ -131,7 +132,7 @@ public class VariableIDTest extends TestCase
 	public void testHashCode()
 	{
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		library.registerScope(new SimpleLegalScope(null, "Global2"));
+		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");

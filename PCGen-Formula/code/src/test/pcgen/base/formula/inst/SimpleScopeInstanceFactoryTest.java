@@ -20,15 +20,15 @@ package pcgen.base.formula.inst;
 import org.junit.Test;
 
 import junit.framework.TestCase;
-import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
 
-public class ScopeInstanceFactoryTest extends TestCase
+public class SimpleScopeInstanceFactoryTest extends TestCase
 {
 
 	private ScopeInstanceFactory factory;
-	private LegalScopeLibrary library;
+	private ScopeManagerInst legalScopeManager;
 	private ScopeInstance scopeInst;
 	private SimpleLegalScope local;
 
@@ -36,13 +36,13 @@ public class ScopeInstanceFactoryTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		library = new LegalScopeLibrary();
-		factory = new ScopeInstanceFactory(library);
+		legalScopeManager = new ScopeManagerInst();
+		factory = new SimpleScopeInstanceFactory(legalScopeManager);
 		SimpleLegalScope scope = new SimpleLegalScope(null, "Global");
-		library.registerScope(scope);
+		legalScopeManager.registerScope(scope);
 		scopeInst = factory.getGlobalInstance("Global");
 		local = new SimpleLegalScope(scope, "Local");
-		library.registerScope(local);
+		legalScopeManager.registerScope(local);
 	}
 
 	@Test
@@ -50,7 +50,7 @@ public class ScopeInstanceFactoryTest extends TestCase
 	{
 		try
 		{
-			new ScopeInstanceFactory(null);
+			new SimpleScopeInstanceFactory(null);
 			fail("null library must be rejected");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -126,7 +126,7 @@ public class ScopeInstanceFactoryTest extends TestCase
 		assertEquals("Local", lsi.getLegalScope().getName());
 
 		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
-		library.registerScope(sublocal);
+		legalScopeManager.registerScope(sublocal);
 		Scoped slvs = new Scoped("SVar", "Global.Local.SubLocal", lvs);
 		ScopeInstance slsi = factory.get("Global.Local", slvs);
 		assertTrue(local.equals(slsi.getLegalScope()));
