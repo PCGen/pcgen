@@ -268,4 +268,10 @@ public class PatternMatchingReference<T extends Loadable> extends
 	{
 		return all.getReferenceDescription() + " (Pattern " + pattern + ")";
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return all.getPersistentFormat();
+	}
 }

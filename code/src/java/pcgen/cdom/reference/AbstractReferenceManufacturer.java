@@ -1350,4 +1350,10 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	{
 		return factory.getReferenceIdentity();
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return factory.getPersistentFormat();
+	}
 }

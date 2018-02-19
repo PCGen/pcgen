@@ -3,7 +3,7 @@
 # DroneMasterLVL sets the Variable based upon what the Master DroneCompanionLVL is set too. This is crucial as higher levels the master can alter this.
 # DroneAbilityIncrease bonuses the Chasis Ability Increases
 
-FOLLOWER:SpyDrone=1		TYPE:SpyDrone
+FOLLOWER:SpyDrone=1		TYPE:SpyDrone	ABILITY:Internal|AUTOMATIC|DRONE Skill Unit ~ Stealth|Drone Chasis ~ Hover	BONUS:ABILITYPOOL|Understand Language|1	DEFINE:DroneMasterLVL|0	BONUS:VAR|DroneMasterLVL|1
 FOLLOWER:NormalFollower=1	TYPE:Follower
 
 

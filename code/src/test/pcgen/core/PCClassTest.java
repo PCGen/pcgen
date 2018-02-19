@@ -260,8 +260,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aQClass.setName("QualClass");
 		aQClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(aPrClass);
-		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
-		//aQClass.setQualifyString("KEY_PreReqClass|PreReqVar");
+		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(ref));
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
@@ -345,7 +344,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aQClass.setName("QualClass");
 		aQClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(aPrClass);
-		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
+		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(ref));
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
@@ -979,7 +978,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		qClass.setName("QualClass");
 		qClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(prClass);
-		qClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
+		qClass.addToListFor(ListKey.QUALIFY, new Qualifier(ref));
 		nqClass = new PCClass();		
 		nqClass.setName("NonQualClass");
 		nqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");

@@ -49,6 +49,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
@@ -610,6 +611,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// load ability categories first as they used to only be at the game mode
 		abilityCategoryLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_ABILITY_CATEGORY));
 
+		//Force all AbilityCategory objects to be imported as manufacturers
+		for (AbilityCategory ac : context.getReferenceContext()
+				.getConstructedCDOMObjects(AbilityCategory.class))
+		{
+			context.getReferenceContext().getManufacturerFac(ac);
+		}
+		
 		for (Campaign c : loaded)
 		{
 			c.applyTo(context.getReferenceContext());
@@ -703,7 +711,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private void defineVariable(VariableContext varContext,
 		FormatManager<?> formatManager, String varName)
 	{
-		LegalScope varScope = varContext.getScope("Global");
+		LegalScope varScope = varContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		varContext.assertLegalVariableID(varScope, formatManager, varName);
 	}
 

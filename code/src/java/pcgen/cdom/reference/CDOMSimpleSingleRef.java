@@ -281,4 +281,10 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	{
 		return identity.getReferenceDescription() + " " + getName();
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return identity.getPersistentFormat();
+	}
 }

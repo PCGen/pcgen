@@ -283,4 +283,10 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	{
 		return rm.getReferenceIdentity();
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return rm.getPersistentFormat();
+	}
 }

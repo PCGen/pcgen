@@ -222,6 +222,7 @@ import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.cdom.formula.MonitorableVariableStore;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
@@ -635,7 +636,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		SplitFormulaSetup formulaSetup =
 				formulaSetupFacet.get(id.getDatasetID());
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
-		IndividualSetup mySetup = new IndividualSetup(formulaSetup, "Global", varStore);
+		IndividualSetup mySetup = new IndividualSetup(formulaSetup,
+			GlobalScope.GLOBAL_SCOPE_NAME, varStore);
 		scopeFacet.set(id, mySetup.getInstanceFactory());
 		variableStoreFacet.set(id, varStore);
 		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());

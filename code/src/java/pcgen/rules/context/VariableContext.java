@@ -32,6 +32,7 @@ import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.PluginFunctionLibrary;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.rules.persistence.MasterModifierFactory;
 import pcgen.util.Logging;
@@ -67,7 +68,7 @@ public class VariableContext
 	{
 		if (dummySetup == null)
 		{
-			dummySetup = new IndividualSetup(formulaSetup, "Global",
+			dummySetup = new IndividualSetup(formulaSetup, GlobalScope.GLOBAL_SCOPE_NAME,
 				new SimpleVariableStore());
 		}
 		return dummySetup;

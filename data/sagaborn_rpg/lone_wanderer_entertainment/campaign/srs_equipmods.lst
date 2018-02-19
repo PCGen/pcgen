@@ -5,20 +5,16 @@ IRON	KEY:IRON	TYPE:Weapon.BaseMaterial.Any
 
 
 
-Masterwork		KEY:Masterwork	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon.Ammunition.Armor.Shield.Tools.Amulet.Ring.Staff.Wand
-	COST:0
-	VISIBLE:QUALIFY	ITYPE:Masterwork	
-	PRETYPE:1,Weapon,Ammunition,Armor,Shield,Tools,Amulet,Ring,Staff,Wand	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood		ASSIGNTOALL:YES
-	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement
-	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement
-	BONUS:ITEMCOST|TYPE.WEAPON|300					
-	BONUS:ITEMCOST|TYPE.AMMUNITION|6					
-	BONUS:ITEMCOST|TYPE.ARMOR|150
-	BONUS:ITEMCOST|TYPE.SHIELD|150
-	BONUS:ITEMCOST|TYPE.THIEF|70
-	BONUS:ITEMCOST|TYPE.INSTRUMENT|95
-	BONUS:ITEMCOST|TYPE.Tools|50
+Masterwork		KEY:Masterwork	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon.Ammunition.Armor.Shield.Tools.Amulet.Ring.Staff.Wand	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork		PRETYPE:1,Weapon,Ammunition,Armor,Shield,Tools,Amulet,Ring,Staff,Wand	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood		ASSIGNTOALL:YES	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	BONUS:ITEMCOST|TYPE.WEAPON|300						BONUS:ITEMCOST|TYPE.AMMUNITION|6						BONUS:ITEMCOST|TYPE.ARMOR|150	BONUS:ITEMCOST|TYPE.SHIELD|150	BONUS:ITEMCOST|TYPE.THIEF|70	BONUS:ITEMCOST|TYPE.INSTRUMENT|95	BONUS:ITEMCOST|TYPE.Tools|50
 
 Melee Weapon	KEY:Melee Weapon		BONUS:WEAPON|ATTACKS|MeleeWeaponAttacks
 Ranged Weapon	KEY:Ranged Weapon		BONUS:WEAPON|ATTACKS|RangedWeaponAttacks
 Weapon Dexterity	KEY:Weapon Dexterity	BONUS:WEAPON|TOHIT|WeaponDexterityToHit
+
+
+
+Legacy Armor		TYPE:Shield.Armor		SPROP:+% enhancement bonus to armor class|LegacyEnhancementBonus	SPROP:DR %/-|LegacyDamageReduction	DR:LegacyDamageReduction/-	BONUS:COMBAT|AC|LegacyEnhancementBonus|TYPE=Enhancement
+Legacy Weapon		TYPE:Weapon						SPROP:+% to CritRange|LegacyCritRangeBonus	SPROP:+% enhancement bonus to hit and damage|LegacyEnhancementBonus	BONUS:EQMWEAPON|CRITRANGEADD|LegacyCritRangeBonus	BONUS:WEAPON|TOHIT|LegacyEnhancementBonus	BONUS:WEAPON|DAMAGE|LegacyEnhancementBonus	
+Legacy Focus		TYPE:Weapon.Armor.Shield.Goods.Tools	SPROP:Imbued with a 0 mana spell, can cast as a free action.|PREPCLEVEL:MIN=2	SPROP:Imbued with a 1 mana spell that does not have a dice pool.|PREPCLEVEL:MIN=4	SPROP:Item can be called to its owner at any time.|PREPCLEVEL:MIN=6	SPROP:Imbued with a 3 mana spell that does not have a dice pool.|PREPCLEVEL:MIN=8
+
+

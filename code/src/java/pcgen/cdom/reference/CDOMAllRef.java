@@ -231,4 +231,10 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	{
 		return "ALL " + identity.getReferenceDescription();
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return identity.getPersistentFormat();
+	}
 }

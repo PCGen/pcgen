@@ -591,9 +591,6 @@ public abstract class AbstractReferenceContext
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
 		ManufacturableFactory<T> factory);
 
-	public abstract <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-		Class<T> cl, Class<? extends Category<T>> catClass, String category);
-
 	abstract <T extends CDOMObject> T performCopy(T object, String copyName);
 
 	public abstract <T extends CDOMObject> T performMod(T obj);
@@ -639,4 +636,18 @@ public abstract class AbstractReferenceContext
 		items.sort(SortKeyComparator.getInstance());
 		return items;
 	}
+
+  /**
+   * Returns the ReferenceManufacturer for a given Format name and class.
+	 * 
+	 * @param formatName
+	 *            The (persistent) name of the format for which the ReferenceManufacturer
+	 *            should be returned
+	 * @param cl
+	 *            The class, indicating additional information about the
+	 *            ReferenceManufacturer to be returned
+	 * @return The ReferenceManufacturer for a given Format name and class
+	 */
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
+		String formatName, Class<T> cl);
 }

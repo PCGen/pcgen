@@ -64,4 +64,10 @@ public final class DynamicCategory extends AbstractCategory<Dynamic> implements
 		instance.setCDOMCategory(this);
 		return instance;
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return getKeyName().toUpperCase();
+	}
 }

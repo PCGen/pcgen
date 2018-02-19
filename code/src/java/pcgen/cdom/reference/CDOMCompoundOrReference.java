@@ -266,4 +266,10 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 			.forEach(d -> joiner.add(d));
 		return joiner.toString();
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return identity.getPersistentFormat();
+	}
 }

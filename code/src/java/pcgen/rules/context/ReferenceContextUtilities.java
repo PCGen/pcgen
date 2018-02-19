@@ -19,7 +19,6 @@ package pcgen.rules.context;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
@@ -83,8 +82,7 @@ public final class ReferenceContextUtilities
 									.getManufacturerId((ClassIdentity<? extends Loadable>) clIdentity);
 						if (!mfg.containsObjectKeyed(choice)
 							&& (TokenLibrary.getPrimitive(cl, choice) == null)
-							&& !report(validator, clIdentity.getReferenceClass(),
-								choice))
+							&& !report(validator, clIdentity, choice))
 						{
 							Logging.errorPrint("Found "
 								+ rm.getReferenceDescription() + " "
@@ -103,9 +101,9 @@ public final class ReferenceContextUtilities
 	}
 
 	private static boolean report(UnconstructedValidator validator,
-		Class<?> cl, String key)
+		ClassIdentity<?> cl, String key)
 	{
-		return validator != null && validator.allow(cl, key);
+		return validator != null && validator.allowUnconstructed(cl, key);
 	}
 
 	public static <T extends Categorized<T>> ReferenceManufacturer<? extends Loadable> getManufacturer(
@@ -150,9 +148,6 @@ public final class ReferenceContextUtilities
 		ReferenceManufacturer<? extends Loadable> rm;
 		if (Categorized.class.isAssignableFrom(c))
 		{
-			Class<? extends Category<T>> catClass =
-					(Class<? extends Category<T>>) StringPClassUtil
-						.getCategoryClassFor(className);
 			if (categoryName == null)
 			{
 				Logging
@@ -166,9 +161,7 @@ public final class ReferenceContextUtilities
 				return null;
 			}
 
-			rm =
-					refContext.getManufacturer((Class<T>) c, catClass,
-						categoryName);
+			rm = refContext.getManufacturerByFormatName(firstToken, c);
 			if (rm == null)
 			{
 				Logging.log(Logging.LST_ERROR, "  Error encountered: "

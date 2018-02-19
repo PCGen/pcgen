@@ -22,7 +22,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
@@ -32,8 +31,6 @@ import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
-import pcgen.cdom.reference.TransparentCategorizedFactory;
-import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentFactory;
 import pcgen.cdom.reference.UnconstructedValidator;
 
@@ -49,9 +46,7 @@ import pcgen.cdom.reference.UnconstructedValidator;
  */
 public class GameReferenceContext extends AbstractReferenceContext
 {
-	private final Map<ClassIdentity<?>, ReferenceManufacturer<?>> map = new HashMap<>();
-
-	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<>();
+	private final Map<String, ReferenceManufacturer<?>> mapByPers = new HashMap<>();
 
 	private GameReferenceContext()
 	{
@@ -74,34 +69,14 @@ public class GameReferenceContext extends AbstractReferenceContext
 	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
 		ClassIdentity<T> identity)
 	{
-		return new SimpleReferenceManufacturer<>(new TransparentFactory<>(identity.getReferenceClass()));
+		return new SimpleReferenceManufacturer<>(new TransparentFactory<>(
+			identity.getPersistentFormat(), identity.getReferenceClass()));
 	}
 
 	@Override
 	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<>(
-                map.values());
-		for (Class<?> cl : catmap.getKeySet())
-		{
-			returnList.addAll(catmap.values(cl));
-		}
-		return returnList;
-	}
-
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Class<? extends Category<T>> catClass, String cat)
-	{
-		@SuppressWarnings("unchecked")
-		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
-				.get(cl, cat);
-		if (mfg == null)
-		{
-			mfg = new TransparentCategorizedReferenceManufacturer<>(new TransparentCategorizedFactory<>(cl, cat), catClass, cat);
-			catmap.put(cl, cat, mfg);
-		}
-		return mfg;
+		return new ArrayList<>(mapByPers.values());
 	}
 
 	@Override
@@ -114,8 +89,8 @@ public class GameReferenceContext extends AbstractReferenceContext
 	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		Class<? extends Category<T>> catClass = getGenericClass(cat);
-		return getManufacturer(cl, catClass, cat.getKeyName());
+		return getManufacturerByFormatName(
+			cl.getSimpleName().toUpperCase() + "=" + cat.getKeyName(), cl);
 	}
 
 	@Override
@@ -163,18 +138,21 @@ public class GameReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
 		ClassIdentity<T> identity)
 	{
-		/*
-		 * Note: This is hazardous. It currently only supports non-categorized queries,
-		 * which could fail going forward ... then again, in theory, there can't be a
-		 * ClassIdentity at GameMode load that IS categorized, because they haven't been
-		 * loaded to be resolved... so it is likely impossible/moot
-		 */
+		String persistent = identity.getPersistentFormat();
+		return getManufacturerByFormatName(persistent, identity.getReferenceClass());
+	}
+
+	@Override
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
+		String formatName, Class<T> refClass)
+	{
 		@SuppressWarnings("unchecked")
-		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(identity);
+		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) mapByPers.get(formatName);
 		if (mfg == null)
 		{
-			mfg = constructReferenceManufacturer(identity);
-			map.put(identity, mfg);
+			mfg = new SimpleReferenceManufacturer<>(
+				new TransparentFactory<>(formatName, refClass));
+			mapByPers.put(formatName, mfg);
 		}
 		return mfg;
 	}

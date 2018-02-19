@@ -18,6 +18,7 @@
 package pcgen.cdom.reference;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
@@ -53,15 +54,25 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	private CDOMGroupRef<T> subReference = null;
 
 	/**
+	 * The String representation of the Format of objects in this CDOMTransparentSingleRef (e.g.
+	 * "ABILITY=FEAT").
+	 */
+	private final String formatRepresentation;
+
+	/**
 	 * Constructs a new CDOMTransparentAllRef for the given Class.
 	 * 
+	 * @param formatRepresentation
+	 *            the persistent representation of the ClassIdentity of the objects to be
+	 *            stored in this CDOMTransparentAllRef
 	 * @param objClass
 	 *            The Class of the underlying objects contained by this
 	 *            CDOMTransparentTypeRef.
 	 */
-	public CDOMTransparentAllRef(Class<T> objClass)
+	public CDOMTransparentAllRef(String formatRepresentation, Class<T> objClass)
 	{
 		super("ALL");
+		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
 		refClass = objClass;
 	}
 
@@ -262,5 +273,12 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	{
 		return (subReference == null) ? "ALL " + refClass.getSimpleName()
 			: subReference.getReferenceDescription();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		// TODO Auto-generated method stub
+		return formatRepresentation;
 	}
 }

@@ -23,6 +23,8 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -39,15 +41,9 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
-
-	private static final Class<Dynamic> DYNAMIC_CLASS = Dynamic.class;
-	private static final Class<DynamicCategory> DYNAMIC_CATEGORY_CLASS =
-			DynamicCategory.class;
 
 	@Override
 	public String getTokenName()
@@ -80,9 +76,10 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				+ "Format is: DYNAMICSCOPE|DynamicName: " + value);
 		}
 
+		DynamicCategory cat = context.getReferenceContext()
+				.silentlyGetConstructedCDOMObject(DynamicCategory.class, scope);
 		ReferenceManufacturer<Dynamic> rm =
-				context.getReferenceContext().getManufacturer(DYNAMIC_CLASS,
-					DYNAMIC_CATEGORY_CLASS, scope);
+				context.getReferenceContext().getManufacturerId(cat);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(
