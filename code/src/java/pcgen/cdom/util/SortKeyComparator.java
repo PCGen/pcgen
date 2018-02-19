@@ -25,7 +25,10 @@ import pcgen.cdom.base.SortKeyRequired;
 public class SortKeyComparator implements Comparator<SortKeyRequired>
 {
 
-	public static final Comparator<SortKeyRequired> instance = new SortKeyComparator();
+	/**
+	 * The singleton instance of SortKeyComparator.
+	 */
+	private static final Comparator<SortKeyRequired> instance = new SortKeyComparator();
 	
 	private SortKeyComparator()
 	{
@@ -36,6 +39,16 @@ public class SortKeyComparator implements Comparator<SortKeyRequired>
 	public int compare(SortKeyRequired o1, SortKeyRequired o2)
 	{
 		return o1.getSortKey().compareTo(o2.getSortKey());
+	}
+
+	/**
+	 * Returns the SortKeyComparator instance.
+	 * 
+	 * @return the SortKeyComparator instance
+	 */
+	public static Comparator<SortKeyRequired> getInstance()
+	{
+		return instance;
 	}
 
 }

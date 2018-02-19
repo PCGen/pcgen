@@ -716,7 +716,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(";<br>");
 
 			List<PCStat> statList = new ArrayList<>(pcOut.getUnmodifiableStatList());
-			statList.sort(SortKeyComparator.instance);
+			statList.sort(SortKeyComparator.getInstance());
 			
 			for (PCStat stat : statList)
 			{

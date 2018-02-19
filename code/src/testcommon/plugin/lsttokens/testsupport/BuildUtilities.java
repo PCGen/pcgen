@@ -53,11 +53,32 @@ public final class BuildUtilities
 		return sa;
 	}
 
+	/**
+	 * Create a Stat for the test system with a Sortkey. This will be provided a default
+	 * sort key.
+	 * 
+	 * @param name
+	 *            The name of the stat to be created
+	 * @param abb
+	 *            The abbreviation of the stat to be created
+	 * @return The new PCStat
+	 */
 	public static PCStat createStat(String name, String abb)
 	{
 		return createStat(name, abb, "ZZ");
 	}
 
+	/**
+	 * Create a Stat for the test system with a Sortkey.
+	 * 
+	 * @param name
+	 *            The name of the stat to be created
+	 * @param abb
+	 *            The abbreviation of the stat to be created
+	 * @param sortKey
+	 *            The sort key of the stat to be created
+	 * @return The new PCStat
+	 */
 	public static PCStat createStat(String name, String abb, String sortKey)
 	{
 		PCStat stat = new PCStat();

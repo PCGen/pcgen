@@ -636,7 +636,7 @@ public abstract class AbstractReferenceContext
 		Class<T> cl)
 	{
 		List<T> items = new ArrayList<>(getConstructedCDOMObjects(cl));
-		items.sort(SortKeyComparator.instance);
+		items.sort(SortKeyComparator.getInstance());
 		return items;
 	}
 }

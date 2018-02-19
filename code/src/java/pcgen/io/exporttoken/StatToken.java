@@ -92,7 +92,7 @@ public class StatToken extends Token
 			return "";
 		}
 		List<PCStat> statList = new ArrayList<>(pc.getDisplay().getStatSet());
-		Collections.sort(statList, SortKeyComparator.instance);
+		Collections.sort(statList, SortKeyComparator.getInstance());
 		PCStat stat = statList.get(indexOfStat);
 
 		String findType = "STAT";
