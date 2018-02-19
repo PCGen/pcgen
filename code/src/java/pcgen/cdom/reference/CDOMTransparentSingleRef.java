@@ -55,18 +55,28 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	private CDOMSingleRef<T> subReference = null;
 
 	/**
+	 * The String representation of the Format of objects in this CDOMTransparentSingleRef (e.g.
+	 * "ABILITY=FEAT").
+	 */
+	private final String formatRepresentation;
+
+	/**
 	 * Constructs a new CDOMTransparentSingleRef for the given Class and name.
 	 * 
+	 * @param formatRepresentation
+	 *            the persistent representation of the ClassIdentity of the objects to be
+	 *            stored in this CDOMTransparentSingleRef
 	 * @param objClass
 	 *            The Class of the underlying object contained by this
 	 *            CDOMTransparentSingleRef.
 	 * @param key
-	 *            An identifier of the object this CDOMTransparentSingleRef
-	 *            contains.
+	 *            An identifier of the object this CDOMTransparentSingleRef contains.
 	 */
-	public CDOMTransparentSingleRef(Class<T> objClass, String key)
+	public CDOMTransparentSingleRef(String formatRepresentation, Class<T> objClass,
+		String key)
 	{
 		super(key);
+		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
 		refClass = Objects.requireNonNull(objClass);
 	}
 
@@ -291,5 +301,12 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	{
 		return (subReference == null) ? (refClass.getSimpleName() + " " + getName())
 			: subReference.getReferenceDescription();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		// TODO Auto-generated method stub
+		return formatRepresentation;
 	}
 }

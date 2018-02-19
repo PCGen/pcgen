@@ -30,9 +30,10 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.MasterListInterface;
@@ -41,7 +42,6 @@ import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
-import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.system.LoadInfo;
@@ -58,8 +58,6 @@ import pcgen.system.PropertyContext;
 import pcgen.util.ComparableComparator;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * Handles game modes.
@@ -2629,22 +2627,17 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 				RuntimeReferenceContext.createRuntimeReferenceContext();
 	}
 
-
 	static <T extends Loadable> void resolveReferenceManufacturer(
 			AbstractReferenceContext rc, ReferenceManufacturer<T> rm)
 	{
-		Class<T> c = rm.getReferenceClass();
-		ReferenceManufacturer<T> mfg;
-		if (Categorized.class.isAssignableFrom(c))
+		String identityName = rm.getPersistentFormat();
+		ReferenceManufacturer<T> mfg =
+				rc.getManufacturerByFormatName(identityName, rm.getReferenceClass());
+		// If format fails, fall back to class
+		if ((mfg == null) && (identityName.indexOf('=') == -1))
 		{
-			TransparentCategorizedReferenceManufacturer tcrm = (TransparentCategorizedReferenceManufacturer) rm;
-			String category = tcrm.getCDOMCategory();
-			Class catClass = tcrm.getCategoryClass();
-			mfg = (ReferenceManufacturer<T>) rc.getManufacturer((Class) c, catClass, category);
-		}
-		else
-		{
-			mfg = rc.getManufacturer(c);
+			Class<T> cl = rm.getReferenceClass();
+			mfg = rc.getManufacturer(cl);
 		}
 		for (CDOMReference<T> ref : rm.getAllReferences())
 		{

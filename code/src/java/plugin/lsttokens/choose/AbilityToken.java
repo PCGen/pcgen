@@ -245,9 +245,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 				context.getReferenceContext().getCDOMReference(
 					ABILITY_CATEGORY_CLASS, cat);
 		String abilities = value.substring(barLoc + 1);
-		ReferenceManufacturer<Ability> rm =
-				context.getReferenceContext().getManufacturer(ABILITY_CLASS,
-					ABILITY_CATEGORY_CLASS, cat);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
+			.getManufacturerByFormatName("ABILITY=" + cat, ABILITY_CLASS);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(

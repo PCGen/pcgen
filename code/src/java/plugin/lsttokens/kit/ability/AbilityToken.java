@@ -107,8 +107,8 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, acName);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
+			.getManufacturerByFormatName("ABILITY=" + acName, ABILITY_CLASS);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(

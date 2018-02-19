@@ -25,7 +25,10 @@ import pcgen.cdom.base.Loadable;
  * object (as identified by its ClassIdentity).
  * 
  * @param <T>
- *            The Class of object that this SelectionCreator supports.
+ *            The Class of object that this SelectionCreator supports. Note that this is
+ *            NOT sufficient to uniquely identify the SelectionCreator... to do that
+ *            please inspect getReferenceIdentity, not the just the plain Generics on the
+ *            SelectionCreator.
  */
 public interface SelectionCreator<T extends Loadable>
 {

@@ -610,6 +610,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// load ability categories first as they used to only be at the game mode
 		abilityCategoryLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_ABILITY_CATEGORY));
 
+		//Force all AbilityCategory objects to be imported as manufacturers
+		for (AbilityCategory ac : context.getReferenceContext()
+				.getConstructedCDOMObjects(AbilityCategory.class))
+		{
+			context.getReferenceContext().getManufacturerFac(ac);
+		}
+		
 		for (Campaign c : loaded)
 		{
 			c.applyTo(context.getReferenceContext());

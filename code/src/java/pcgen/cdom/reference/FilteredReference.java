@@ -167,4 +167,10 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 			.forEach(d -> joiner.add(d));
 		return joiner.toString();
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return baseSet.getPersistentFormat();
+	}
 }

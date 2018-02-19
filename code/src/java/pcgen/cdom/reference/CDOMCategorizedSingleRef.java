@@ -323,4 +323,10 @@ public class CDOMCategorizedSingleRef<T extends Categorized<T>> extends
 	{
 		return identity.getReferenceDescription() + " " + getName();
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return identity.getPersistentFormat();
+	}
 }

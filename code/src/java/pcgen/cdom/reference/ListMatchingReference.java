@@ -308,4 +308,10 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	{
 		return all.getReferenceDescription() + " (List " + key + " = " + value + ")";
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return all.getPersistentFormat();
+	}
 }

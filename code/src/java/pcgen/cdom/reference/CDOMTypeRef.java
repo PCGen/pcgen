@@ -253,4 +253,10 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	{
 		return identity.getReferenceDescription() + " of TYPE=" + Arrays.asList(types);
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return identity.getPersistentFormat();
+	}
 }

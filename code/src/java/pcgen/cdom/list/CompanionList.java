@@ -106,4 +106,10 @@ public class CompanionList extends CDOMListObject<Race> implements
 		}
 		return false;
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "COMPANIONLIST=" + getKeyName();
+	}
 }

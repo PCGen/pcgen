@@ -26,14 +26,12 @@ import java.util.TreeSet;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.Qualifier;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
@@ -52,7 +50,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.StringPClassUtil;
 
 /**
  * Deals with the QUALIFY token for Abilities
@@ -121,8 +118,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st
 					.nextToken());
-			context.getObjectContext().addToList(obj, ListKey.QUALIFY, new Qualifier(rm
-					.getReferenceClass(), ref));
+			context.getObjectContext().addToList(obj, ListKey.QUALIFY, new Qualifier(ref));
 		}
 
 		return ParseResult.SUCCESS;
@@ -141,16 +137,8 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<>();
 		for (Qualifier qual : quals)
 		{
-			Class<? extends Loadable> cl = qual.getQualifiedClass();
-			String s = StringPClassUtil.getStringFor(cl);
 			CDOMSingleRef<?> ref = qual.getQualifiedReference();
-			String key = s;
-			if (ref instanceof CategorizedCDOMReference)
-			{
-				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
-						.getCDOMCategory();
-				key += '=' + cat.getKeyName();
-			}
+			String key = ref.getPersistentFormat();
 			map.addToListFor(key, ref);
 		}
 		Set<CDOMSingleRef<?>> set = new TreeSet<>(

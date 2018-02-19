@@ -295,4 +295,10 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	{
 		return all.getReferenceDescription() + " (Object " + key + " = " + value + ")";
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return all.getPersistentFormat();
+	}
 }

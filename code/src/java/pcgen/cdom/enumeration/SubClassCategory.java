@@ -184,4 +184,10 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	{
 		return "SubClass Category " + getKeyName();
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "SUBCLASS=" + getKeyName();
+	}
 }

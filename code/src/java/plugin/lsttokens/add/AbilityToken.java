@@ -189,8 +189,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean allowStack = false;
 		int dupChoices = 0;
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, first);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
+			.getManufacturerByFormatName("ABILITY=" + first, ABILITY_CLASS);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(

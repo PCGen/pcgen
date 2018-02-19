@@ -236,4 +236,10 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	{
 		return getReferenceClass().getSimpleName() + " " + getName();
 	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return referencedObject.getClassIdentity().getPersistentFormat();
+	}
 }

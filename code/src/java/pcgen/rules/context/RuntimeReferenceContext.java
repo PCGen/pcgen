@@ -24,6 +24,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
@@ -45,6 +46,8 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	private static final Class<Categorized> CATEGORIZED_CLASS = Categorized.class;
 
 	private final Map<ClassIdentity<?>, ReferenceManufacturer<?>> map = new HashMap<>();
+
+	private final CaseInsensitiveMap<ClassIdentity<?>> nameMap = new CaseInsensitiveMap<>();
 
 	protected RuntimeReferenceContext()
 	{
@@ -73,6 +76,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		{
 			mfg = constructReferenceManufacturer(identity);
 			map.put(identity, mfg);
+			nameMap.put(identity.getPersistentFormat(), identity);
 		}
 		return mfg;
 	}
@@ -142,22 +146,9 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		{
 			rm = new SimpleReferenceManufacturer<>(factory);
 			map.put(identity, rm);
+			nameMap.put(identity.getPersistentFormat(), identity);
 		}
 		return rm;
-	}
-
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Class<? extends Category<T>> catClass, String category)
-	{
-		Category<T> cat = silentlyGetConstructedCDOMObject(catClass, category);
-		if (cat == null)
-		{
-			Logging.errorPrint("Cannot find " + cl.getSimpleName()
-					+ " Category " + category);
-			return null;
-		}
-		return getManufacturer(cl, cat);
 	}
 
 	/**
@@ -211,5 +202,27 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		RuntimeReferenceContext context = new RuntimeReferenceContext();
 		context.initialize();
 		return context;
+	}
+
+	@Override
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
+		String formatName, Class<T> refClass)
+	{
+		ClassIdentity<?> identity = nameMap.get(formatName);
+		if (identity == null)
+		{
+			/*
+			 * CONSIDER This is risky, but supportable for now. In practice, nothing can
+			 * break this, but that is only due to luck. Longer term, we really need to be
+			 * able to understand how to convert a String into a ClassIdentity, but right
+			 * now we have that post-hoc based on the ReferenceManufacturer objects that
+			 * have already been created. (To some degree, there are items that will
+			 * ALWAYS be post-hoc due to data driven items like DYNAMIC, so maybe this
+			 * isn't fatal, there will always be order of operations risk here, it's just
+			 * an understanding of how things have to work)
+			 */
+			return null;
+		}
+		return (ReferenceManufacturer<T>) map.get(identity);
 	}
 }

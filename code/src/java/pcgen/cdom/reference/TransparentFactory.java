@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.reference;
 
+import java.util.Objects;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
@@ -28,7 +30,13 @@ import pcgen.cdom.base.Loadable;
  * game modes are not reloaded). These references are therefore resolved a different way
  * (by loading them with another reference).
  * 
- * @param <T> The type of object managed by this TransparentFactory
+ * Please note one significant item about a TransparentFactory (which will impact the
+ * GameMode's ReferenceContext). No Categorized object should ever be constructed directly
+ * in the game mode - it will not be properly initialized with it's category, and thus
+ * will encounter many problems during its life cycle.
+ * 
+ * @param <T>
+ *            The type of object managed by this TransparentFactory
  */
 public class TransparentFactory<T extends Loadable> implements
 		ManufacturableFactory<T>
@@ -40,10 +48,17 @@ public class TransparentFactory<T extends Loadable> implements
 	private final Class<T> refClass;
 	
 	/**
+	 * The String representation of the Format of objects in this TransparentFactory (e.g.
+	 * "ABILITY=FEAT").
+	 */
+	private final String formatRepresentation;
+
+	/**
 	 * Constructs a new TransparentFactory that will process objects of the given Class
 	 */
-	public TransparentFactory(Class<T> objClass)
+	public TransparentFactory(String formatRepresentation, Class<T> objClass)
 	{
+		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
 		if (objClass == null)
 		{
 			throw new IllegalArgumentException("Reference Class for "
@@ -71,19 +86,19 @@ public class TransparentFactory<T extends Loadable> implements
 	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
-		return new CDOMTransparentAllRef<>(refClass);
+		return new CDOMTransparentAllRef<>(formatRepresentation, refClass);
 	}
 
 	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
-		return new CDOMTransparentTypeRef<>(refClass, types);
+		return new CDOMTransparentTypeRef<>(formatRepresentation, refClass, types);
 	}
 
 	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
-		return new CDOMTransparentSingleRef<>(refClass, key);
+		return new CDOMTransparentSingleRef<>(formatRepresentation, refClass, key);
 	}
 
 	@Override
@@ -147,5 +162,11 @@ public class TransparentFactory<T extends Loadable> implements
 	{
 		throw new UnsupportedOperationException(
 				"Resolution to Identity should not occur on Transparent object");
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return formatRepresentation;
 	}
 }
