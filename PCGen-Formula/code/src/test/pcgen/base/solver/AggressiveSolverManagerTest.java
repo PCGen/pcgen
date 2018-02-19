@@ -88,7 +88,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testTrivial()
 	{
-		getVariableLibrary().assertLegalVariableID("Limbs", getGlobalScope(),
+		getVariableLibrary().assertLegalVariableID("Limbs", getInstanceFactory().getScope("Global"),
 			FormatUtilities.NUMBER_MANAGER);
 		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Limbs");
@@ -105,7 +105,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	public void testAddModifierExternal()
 	{
 		WriteableVariableStore store = getVariableStore();
-		LegalScope globalScope = getGlobalScope();
+		LegalScope globalScope = getInstanceFactory().getScope("Global");
 		ScopeInstance globalScopeInst = getGlobalScopeInst();
 		getVariableLibrary().assertLegalVariableID("STR", globalScope, FormatUtilities.NUMBER_MANAGER);
 		VariableID<Number> str =
@@ -115,7 +115,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		assertEquals(null, store.get(str));
 		manager.createChannel(str);
 		assertEquals(0, store.get(str));
-		
+
 		SimpleLegalScope localScope = new SimpleLegalScope(globalScope, "STAT");
 		getScopeLibrary().registerScope(localScope);
 

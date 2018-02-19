@@ -248,7 +248,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testVariable1()
 	{
-		getVariableLibrary().assertLegalVariableID("a", getGlobalScope(), FormatUtilities.BOOLEAN_MANAGER);
+		getVariableLibrary().assertLegalVariableID("a", getInstanceFactory().getScope("Global"), FormatUtilities.BOOLEAN_MANAGER);
 		VariableID<Boolean> variable =
 				(VariableID<Boolean>) getVariableLibrary().getVariableID(getGlobalScopeInst(), "a");
 		getVariableStore().put(variable, true);

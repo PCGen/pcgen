@@ -26,10 +26,13 @@ import junit.framework.TestCase;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
+import pcgen.base.formula.inst.GlobalVarScoped;
+import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.MockStat;
 import pcgen.base.util.FormatManager;
@@ -39,6 +42,7 @@ public class SolverTest extends TestCase
 	private final FormatManager<Number[]> NAF =
 			new ArrayFormatManager(FormatUtilities.NUMBER_MANAGER, '\n', ',');
 
+	private FormulaManager formulaManager;
 	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private EvaluationManager evalManager;
 	private ScopeInstance inst;
@@ -49,16 +53,18 @@ public class SolverTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		SplitFormulaSetup sfs = new SplitFormulaSetup();
+		FormulaSetupFactory setup = new FormulaSetupFactory();
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-		sfs.getLegalScopeManager().registerScope(globalScope);
-		IndividualSetup indSetup = new IndividualSetup(sfs, new SimpleVariableStore());
-		inst = indSetup.getInstanceFactory().getGlobalInstance("Global");
-		sfs.getLegalScopeManager().registerScope(new SimpleLegalScope(globalScope, "STAT"));
-		str = indSetup.getInstanceFactory().get("Global.STAT", new MockStat("STR"));
-		con = indSetup.getInstanceFactory().get("Global.STAT", new MockStat("CON"));
-		evalManager =
-				managerFactory.generateEvaluationManager(indSetup.getFormulaManager());
+		legalScopeManager.registerScope(globalScope);
+		legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "STAT"));
+		setup.setLegalScopeManagerSupplier(() -> legalScopeManager);
+		formulaManager = setup.generate();
+		ScopeInstanceFactory scopeInstanceFactory = formulaManager.getScopeInstanceFactory();
+		inst = scopeInstanceFactory.get("Global", new GlobalVarScoped("Global"));
+		str = scopeInstanceFactory.get("Global.STAT", new MockStat("STR"));
+		con = scopeInstanceFactory.get("Global.STAT", new MockStat("CON"));
+		evalManager = managerFactory.generateEvaluationManager(formulaManager);
 	}
 
 	@Test

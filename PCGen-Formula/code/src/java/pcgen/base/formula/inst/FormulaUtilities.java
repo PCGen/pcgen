@@ -73,8 +73,10 @@ public final class FormulaUtilities
 	 * @param functionLib
 	 *            The WriteableFunctionLibrary to which the built in functions should be
 	 *            added.
+	 * @return The given FunctionLibrary
 	 */
-	public static void loadBuiltInFunctions(WriteableFunctionLibrary functionLib)
+	public static WriteableFunctionLibrary loadBuiltInFunctions(
+		WriteableFunctionLibrary functionLib)
 	{
 		functionLib.addFunction(new AbsFunction());
 		functionLib.addFunction(new CeilFunction());
@@ -85,16 +87,17 @@ public final class FormulaUtilities
 		functionLib.addFunction(new MinFunction());
 		functionLib.addFunction(new RoundFunction());
 		functionLib.addFunction(new ValueFunction());
+		return functionLib;
 	}
 
 	/**
 	 * Load the "built-in" operators into the given OperatorLibrary.
 	 * 
 	 * @param opLib
-	 *            The OperatorLibrary to which the built in operators should be
-	 *            added.
+	 *            The OperatorLibrary to which the built in operators should be added.
+	 * @return The given OperatorLibrary
 	 */
-	public static void loadBuiltInOperators(OperatorLibrary opLib)
+	public static OperatorLibrary loadBuiltInOperators(OperatorLibrary opLib)
 	{
 		opLib.addAction(new GenericEquals());
 		opLib.addAction(new GenericNotEqual());
@@ -120,6 +123,7 @@ public final class FormulaUtilities
 		opLib.addAction(new NumberRemainder());
 		opLib.addAction(new NumberSubtract());
 		opLib.addAction(new StringAdd());
+		return opLib;
 	}
 
 }
