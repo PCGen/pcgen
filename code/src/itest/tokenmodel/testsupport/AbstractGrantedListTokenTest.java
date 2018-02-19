@@ -124,7 +124,7 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	@Test
 	public void testFromStat() throws PersistenceLayerException
 	{
-		PCStat source = create(PCStat.class, "Source");
+		PCStat source = cha;
 		T granted = createGrantedObject();
 		processToken(source);
 		/*

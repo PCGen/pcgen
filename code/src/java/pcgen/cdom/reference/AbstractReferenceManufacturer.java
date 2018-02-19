@@ -995,22 +995,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	}
 
 	/**
-	 * Returns a List of all of the objects contained in this
-	 * AbstractReferenceManufacturer in the original order in which they were
-	 * imported into this AbstractReferenceManufacturer. This will not return
-	 * null, it will return an empty list if no objects have been constructed by
-	 * or imported into this AbstractReferenceManufacturer.
-	 * 
-	 * @return A List of all of the objects contained in this
-	 *         AbstractReferenceManufacturer
-	 */
-	@Override
-	public List<T> getOrderSortedObjects()
-	{
-		return active.insertOrderValues();
-	}
-
-	/**
 	 * Builds any objects whose construction was deferred. Identifiers for
 	 * objects for which construction was deferred were inserted into the
 	 * AbstractReferenceManufacturer using constructIfNecessary(String). Objects
@@ -1124,8 +1108,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	@Override
 	public void injectConstructed(ReferenceManufacturer<T> arm)
 	{
-		// Must maintain order
-		for (T value : active.insertOrderValues())
+		for (T value : active.keySortedValues())
 		{
 			arm.addObject(value, active.getKeyFor(value));
 		}

@@ -13,6 +13,7 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -34,6 +35,7 @@ public final class BuildUtilities
 		final PCAlignment align = new PCAlignment();
 		align.setName(longName);
 		align.setKeyName(shortName);
+		align.put(StringKey.SORT_KEY, shortName);
 		return align;
 	}
 
@@ -51,11 +53,38 @@ public final class BuildUtilities
 		return sa;
 	}
 
+	/**
+	 * Create a Stat for the test system with a Sortkey. This will be provided a default
+	 * sort key.
+	 * 
+	 * @param name
+	 *            The name of the stat to be created
+	 * @param abb
+	 *            The abbreviation of the stat to be created
+	 * @return The new PCStat
+	 */
 	public static PCStat createStat(String name, String abb)
+	{
+		return createStat(name, abb, "ZZ");
+	}
+
+	/**
+	 * Create a Stat for the test system with a Sortkey.
+	 * 
+	 * @param name
+	 *            The name of the stat to be created
+	 * @param abb
+	 *            The abbreviation of the stat to be created
+	 * @param sortKey
+	 *            The sort key of the stat to be created
+	 * @return The new PCStat
+	 */
+	public static PCStat createStat(String name, String abb, String sortKey)
 	{
 		PCStat stat = new PCStat();
 		stat.setName(name);
 		stat.setKeyName(abb);
+		stat.put(StringKey.SORT_KEY, sortKey);
 		stat.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + stat.getKeyName()),
 				FormulaFactory.getFormulaFor(stat.getKeyName() + "SCORE-10"));

@@ -19,13 +19,18 @@ package pcgen.core;
 
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.SortKeyRequired;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.AlignmentFacade;
 
 /**
- * {@code PCAlignment}.
- * 
+ * Represents an Alignment (LG, NG, etc).
  */
 public final class PCAlignment extends PObject implements AlignmentFacade,
 		NonInteractive, SortKeyRequired
 {
+	@Override
+	public String getSortKey()
+	{
+		return get(StringKey.SORT_KEY);
+	}
 }

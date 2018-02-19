@@ -23,6 +23,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
@@ -207,6 +208,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	public void testFromStat() throws PersistenceLayerException
 	{
 		PCStat source = create(PCStat.class, "Source");
+		source.put(StringKey.SORT_KEY, "Source");
 		processToken(source);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());

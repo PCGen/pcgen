@@ -82,7 +82,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		final GameMode gamemode = SettingsHandler.getGame();
 		LoadContext context = Globals.getContext();
 		
-		str = BuildUtilities.createStat("Strength", "STR");
+		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 				FormulaFactory.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"),
@@ -91,27 +91,27 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		str.put(VariableKey.getConstant("MAXLEVELSTAT=" + str.getKeyName()),
 				FormulaFactory.getFormulaFor(str.getKeyName() + "SCORE-10"));
 
-		dex = BuildUtilities.createStat("Dexterity", "DEX");
+		dex = BuildUtilities.createStat("Dexterity", "DEX", "B");
 		dex.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		dex.put(VariableKey.getConstant("MAXLEVELSTAT=" + dex.getKeyName()),
 				FormulaFactory.getFormulaFor(dex.getKeyName() + "SCORE-10"));
 
-		PCStat con = BuildUtilities.createStat("Constitution", "CON");
+		PCStat con = BuildUtilities.createStat("Constitution", "CON", "C");
 		con.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		con.put(VariableKey.getConstant("MAXLEVELSTAT=" + con.getKeyName()),
 				FormulaFactory.getFormulaFor(con.getKeyName() + "SCORE-10"));
 
-		intel = BuildUtilities.createStat("Intelligence", "INT");
+		intel = BuildUtilities.createStat("Intelligence", "INT", "D");
 		intel.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		intel.put(VariableKey.getConstant("MAXLEVELSTAT=" + intel.getKeyName()),
 				FormulaFactory.getFormulaFor(intel.getKeyName() + "SCORE-10"));
 
-		wis = BuildUtilities.createStat("Wisdom", "WIS");
+		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		wis.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		wis.put(VariableKey.getConstant("MAXLEVELSTAT=" + wis.getKeyName()),
 				FormulaFactory.getFormulaFor(wis.getKeyName() + "SCORE-10"));
 
-		cha = BuildUtilities.createStat("Charisma", "CHA");
+		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 		cha.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		cha.put(VariableKey.getConstant("MAXLEVELSTAT=" + cha.getKeyName()),
 				FormulaFactory.getFormulaFor(cha.getKeyName() + "SCORE-10"));

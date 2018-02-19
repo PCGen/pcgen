@@ -597,8 +597,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		//Set Race before Stat/Check due to Default object in Pathfinder/RSRD
 		setRace(Globals.s_EMPTYRACE);
 
-		statFacet.addAll(id, refContext.getOrderSortedCDOMObjects(PCStat.class));
-		checkFacet.addAll(id, refContext.getOrderSortedCDOMObjects(PCCheck.class));
+		statFacet.addAll(id, refContext.getSortkeySortedCDOMObjects(PCStat.class));
+		checkFacet.addAll(id, refContext.getSortkeySortedCDOMObjects(PCCheck.class));
 		campaignFacet.addAll(id, loadedCampaigns);
 
 		setGold(BigDecimal.ZERO);

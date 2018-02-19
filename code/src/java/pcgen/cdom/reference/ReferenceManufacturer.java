@@ -17,11 +17,10 @@
 package pcgen.cdom.reference;
 
 import java.util.Collection;
-import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.GroupableFormatManager;
+import pcgen.cdom.base.Loadable;
 
 /**
  * A ReferenceManufacturer is an object capable of creating CDOMReferences of a
@@ -154,18 +153,6 @@ public interface ReferenceManufacturer<T extends Loadable> extends
 	 *         ReferenceManufacturer
 	 */
 	public Collection<T> getAllObjects();
-
-	/**
-	 * Returns a List of all of the objects contained in this
-	 * ReferenceManufacturer sorted by the order they were added to the
-	 * ReferenceManufacturer. This will not return null, it will return an empty
-	 * list if no objects have been constructed by or imported into this
-	 * ReferenceManufacturer.
-	 * 
-	 * @return A List of all of the objects contained in this
-	 *         ReferenceManufacturer
-	 */
-	public List<T> getOrderSortedObjects();
 
 	/**
 	 * Changes the identifier for a given object, as stored in this

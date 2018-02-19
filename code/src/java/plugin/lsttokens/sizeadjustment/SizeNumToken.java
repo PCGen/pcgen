@@ -65,52 +65,27 @@ public class SizeNumToken extends AbstractIntToken<SizeAdjustment> implements
 		Collection<? extends SizeAdjustment> obj)
 	{
 		boolean returnValue = true;
-		Collection<SizeAdjustment> ordered;
-		boolean hasAny = false;
-		//First loop to detect deprecated case, remove in 6.7
+		Map<Integer, SizeAdjustment> map = new TreeMap<>();
 		for (SizeAdjustment sa : obj)
 		{
-			if (sa.get(IntegerKey.SIZENUM) != null)
+			Integer sizenum = sa.get(IntegerKey.SIZENUM);
+			if (sizenum == null)
 			{
-				hasAny = true;
+				Logging.errorPrint("Size: " + sa.getKeyName()
+					+ " did not have a SIZENUM (cannot be assumed)");
+				returnValue = false;
+				continue;
 			}
-		}
-		if (hasAny)
-		{
-			Map<Integer, SizeAdjustment> map =
-					new TreeMap<>();
-			for (SizeAdjustment sa : obj)
+			SizeAdjustment previous = map.put(sizenum, sa);
+			if (previous != null)
 			{
-				Integer sizenum = sa.get(IntegerKey.SIZENUM);
-				if (sizenum == null)
-				{
-					Logging.errorPrint("Size: " + sa.getKeyName()
-						+ " did not have a SIZENUM (cannot be assumed)");
-					returnValue = false;
-					continue;
-				}
-				SizeAdjustment previous = map.put(sizenum, sa);
-				if (previous != null)
-				{
-					Logging.errorPrint("Size: " + sa.getKeyName()
-						+ " and size: " + previous.getKeyName()
-						+ " had identical SIZENUM: " + sizenum);
-					returnValue = false;
-				}
+				Logging.errorPrint("Size: " + sa.getKeyName() + " and size: "
+					+ previous.getKeyName() + " had identical SIZENUM: " + sizenum);
+				returnValue = false;
 			}
-			ordered = map.values();
-		}
-		else
-		{
-			//Provide a fall back to avoid immediate failure
-			Logging.deprecationPrint(
-				"SizeAdjustment items must have a SIZENUM", context);
-			ordered =
-					context.getReferenceContext().getOrderSortedCDOMObjects(
-						SizeAdjustment.class);
 		}
 		int order = 0;
-		for (SizeAdjustment sa : ordered)
+		for (SizeAdjustment sa : map.values())
 		{
 			sa.put(IntegerKey.SIZEORDER, order++);
 		}
