@@ -22,6 +22,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
+
+import junit.framework.TestCase;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.core.AbilityCategory;
@@ -37,10 +41,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-
-import junit.framework.TestCase;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import util.TestURI;
 
@@ -238,5 +238,4 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		assertEquals("Unexpected messages in unparse/reparse", 0,
 			secondaryContext.getWriteMessageCount());
 	}
-
 }

@@ -26,7 +26,6 @@ import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
-import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -140,10 +139,20 @@ public class FavoredClassTokenTest extends
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		SubClass obj = cat.newInstance();
-		obj.setName("Two");
-		primaryContext.getReferenceContext().importObject(obj);
+		constructCategorized(primaryContext, cat, "Two");
 		assertConstructionError();
+	}
+
+	@Test
+	public void testCategorizationPass() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		assertTrue(parse("TestWP1.Two"));
+		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
+		constructCategorized(primaryContext, cat, "Two");
+		cat = SubClassCategory.getConstant("TestWP1");
+		constructCategorized(primaryContext, cat, "Two");
+		assertCleanConstruction();
 	}
 
 	@Test
@@ -156,12 +165,8 @@ public class FavoredClassTokenTest extends
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		SubClass obj = cat.newInstance();
-		obj.setName("Sub");
-		primaryContext.getReferenceContext().importObject(obj);
-		obj = cat.newInstance();
-		obj.setName("Sub");
-		secondaryContext.getReferenceContext().importObject(obj);
+		constructCategorized(primaryContext, cat, "Sub");
+		constructCategorized(secondaryContext, cat, "Sub");
 		runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP2.Sub"
 				+ getJoinCharacter() + "TestWP3");
 	}

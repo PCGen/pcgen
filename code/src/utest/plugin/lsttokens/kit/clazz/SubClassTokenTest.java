@@ -23,7 +23,6 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.PCClass;
-import pcgen.core.SubClass;
 import pcgen.core.kit.KitClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
@@ -78,18 +77,10 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	public void testInvalidInputOnlyOne() throws PersistenceLayerException
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
-		SubClass obj = cat.newInstance();
-		obj.setKeyName("Fireball");
-		primaryContext.getReferenceContext().importObject(obj);
-		obj = cat.newInstance();
-		obj.setKeyName("Fireball");
-		secondaryContext.getReferenceContext().importObject(obj);
-		obj = cat.newInstance();
-		obj.setKeyName("English");
-		primaryContext.getReferenceContext().importObject(obj);
-		obj = cat.newInstance();
-		obj.setKeyName("English");
-		secondaryContext.getReferenceContext().importObject(obj);
+		constructCategorized(primaryContext, cat, "Fireball");
+		constructCategorized(secondaryContext, cat, "Fireball");
+		constructCategorized(primaryContext, cat, "English");
+		constructCategorized(secondaryContext, cat, "English");
 		assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
@@ -98,12 +89,8 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
-		SubClass obj = cat.newInstance();
-		obj.setKeyName("Fireball");
-		primaryContext.getReferenceContext().importObject(obj);
-		obj = cat.newInstance();
-		obj.setKeyName("Fireball");
-		secondaryContext.getReferenceContext().importObject(obj);
+		constructCategorized(primaryContext, cat, "Fireball");
+		constructCategorized(secondaryContext, cat, "Fireball");
 		runRoundRobin("Fireball");
 	}
 }

@@ -230,9 +230,9 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	 * @return the Class contained within this ChoiceSet
 	 */
 	@Override
-	public ClassIdentity<T> getClassIdentity()
+	public Class<T> getReferenceClass()
 	{
-		return category.get();
+		return category.get().getReferenceClass();
 	}
 
 	/**
@@ -325,5 +325,11 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return category.get().getPersistentFormat();
 	}
 }

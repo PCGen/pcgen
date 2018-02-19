@@ -28,6 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -171,12 +172,8 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability a = pac.newInstance();
-		a.setName("Abil3");
-		primaryContext.getReferenceContext().importObject(a);
-		Ability b = sac.newInstance();
-		b.setName("Abil3");
-		secondaryContext.getReferenceContext().importObject(b);
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil3");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil3");
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 

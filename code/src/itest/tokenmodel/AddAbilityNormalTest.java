@@ -35,6 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.choose.NoChoiceToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.Test;
@@ -131,10 +132,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	@Override
 	protected Ability createGrantedObject()
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setKeyName("Granted");
-		context.getReferenceContext().importObject(a);
-		return a;
+		return BuildUtilities.buildFeat(context, "Granted");
 	}
 
 	//TODO CODE-2016/CODE-1921 (needs to be consistent with other methods of ADD:)

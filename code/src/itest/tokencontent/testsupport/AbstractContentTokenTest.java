@@ -41,6 +41,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
 import pcgen.persistence.PersistenceLayerException;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
@@ -48,9 +49,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	@Test
 	public void testFromAbility() throws PersistenceLayerException
 	{
-		Ability source = AbilityCategory.FEAT.newInstance();
-		source.setKeyName("Source");
-		context.getReferenceContext().importObject(source);
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		CNAbilitySelection cas =

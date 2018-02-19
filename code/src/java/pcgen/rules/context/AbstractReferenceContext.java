@@ -97,7 +97,6 @@ public abstract class AbstractReferenceContext
 	private static final Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
-	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 	private static final Class<DataTable> DATA_TABLE_CLASS = DataTable.class;
 	private static final Class<TableColumn> TABLE_COLUMN_CLASS = TableColumn.class;
 
@@ -258,53 +257,22 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c, cat).getActiveObject(val);
 	}
 
-	public <T extends Categorized<T>> void reassociateCategory(Category<T> cat,
-		T obj)
-	{
-		Category<T> oldCat = obj.getCDOMCategory();
-		if (oldCat == null && cat == null || oldCat != null
-				&& oldCat.equals(cat))
-		{
-			Logging.errorPrint("Worthless Category change encountered: "
-					+ obj.getDisplayName() + " " + oldCat);
-		}
-		reassociateCategory(getGenericClass(obj), obj, oldCat, cat);
-	}
-
 	@SuppressWarnings("unchecked")
 	protected <T> Class<T> getGenericClass(T obj)
 	{
 		return (Class<T>) obj.getClass();
 	}
 
-	private <T extends Categorized<T>> void reassociateCategory(
-			Class<T> cl, T obj, Category<T> oldCat, Category<T> cat)
-	{
-		getManufacturer(cl, oldCat).forgetObject(obj);
-		obj.setCDOMCategory(cat);
-		getManufacturer(cl, cat).addObject(obj, obj.getKeyName());
-	}
-
 	public <T extends Loadable> void importObject(T orig)
 	{
-		if (CATEGORIZED_CLASS.isAssignableFrom(orig.getClass()))
-		{
-			Class cl = orig.getClass();
-			importCategorized(orig, cl);
-		}
-		else
-		{
-			getManufacturer((Class<T>) orig.getClass()).addObject(orig,
-					orig.getKeyName());
-		}
-	}
-
-	private <T extends Categorized<T>> void importCategorized(Loadable orig,
-		Class<T> cl)
-	{
-		T obj = (T) orig;
-		getManufacturer(cl, obj.getCDOMCategory()).addObject(obj,
-				obj.getKeyName());
+		/*
+		 * Assume a class will behave well and return its own identity. This is made to
+		 * avoid having to have Loadable<T>
+		 */
+		@SuppressWarnings("unchecked")
+		ClassIdentity<T> identity = (ClassIdentity<T>) orig.getClassIdentity();
+		ReferenceManufacturer<T> mfg = getManufacturerId(identity);
+		mfg.addObject(orig, orig.getKeyName());
 	}
 
 	public <T extends Loadable> boolean forget(T obj)
@@ -439,8 +407,9 @@ public abstract class AbstractReferenceContext
 				}
 				if (needSelf)
 				{
-					SubClass self = constructCDOMObject(SUBCLASS_CLASS, key);
-					reassociateCategory(SUBCLASS_CLASS, self, null, cat);
+					SubClass self = cat.newInstance();
+					self.setDisplayName(key);
+					importObject(self);
 				}
 			}
 		}

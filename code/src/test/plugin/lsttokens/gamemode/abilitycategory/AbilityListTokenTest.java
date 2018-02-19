@@ -30,6 +30,7 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 
 /**
@@ -52,14 +53,6 @@ public class AbilityListTokenTest extends TestCase
 		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 	}
 
-	private static Ability buildFeat(RuntimeLoadContext context, String abName)
-	{
-		Ability ab = AbilityCategory.FEAT.newInstance();
-		ab.setName(abName);
-		context.getReferenceContext().importObject(ab);
-		return ab;
-	}
-	
 	private void assertContains(AbilityCategory cat, Ability ab, boolean expected)
 	{
 		String key = ab.getKeyName();
@@ -87,7 +80,7 @@ public class AbilityListTokenTest extends TestCase
 			0, aCat.getAbilityRefs().size());
 
 		AbilityListToken token = new AbilityListToken();
-		Ability track = buildFeat(context, "Track");
+		Ability track = BuildUtilities.buildFeat(context, "Track");
 		token.parseToken(context, aCat, "Track");
 		assertEquals("Test category should now have 1 key", 1, aCat
 				.getAbilityRefs().size());
@@ -108,9 +101,9 @@ public class AbilityListTokenTest extends TestCase
 			0, aCat.getAbilityRefs().size());
 
 		AbilityListToken token = new AbilityListToken();
-		Ability track = buildFeat(context, "Track");
-		Ability pbs = buildFeat(context, "Point Blank Shot");
-		Ability pa = buildFeat(context, "Power Attack");
+		Ability track = BuildUtilities.buildFeat(context, "Track");
+		Ability pbs = BuildUtilities.buildFeat(context, "Point Blank Shot");
+		Ability pa = BuildUtilities.buildFeat(context, "Power Attack");
 		token.parseToken(context, aCat, "Track|Point Blank Shot");
 		assertEquals("Test category should now have 2 keys", 2, aCat
 			.getAbilityRefs().size());
@@ -133,8 +126,8 @@ public class AbilityListTokenTest extends TestCase
 			0, aCat.getAbilityRefs().size());
 
 		AbilityListToken token = new AbilityListToken();
-		Ability pbs = buildFeat(context, "Point Blank Shot");
-		Ability sf = buildFeat(context, "Skill Focus");
+		Ability pbs = BuildUtilities.buildFeat(context, "Point Blank Shot");
+		Ability sf = BuildUtilities.buildFeat(context, "Skill Focus");
 		token.parseToken(context, aCat, "Point Blank Shot|Skill Focus (Ride)|Skill Focus (Bluff)");
 		assertEquals("Test category should now have 3 keys", 3, aCat
 			.getAbilityRefs().size());

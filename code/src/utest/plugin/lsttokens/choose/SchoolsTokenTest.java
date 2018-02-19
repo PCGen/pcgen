@@ -24,7 +24,6 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.identifier.SpellSchool;
-import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -35,6 +34,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
@@ -99,12 +99,8 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	{
 		construct(primaryContext, "Abjuration");
 		construct(secondaryContext, "Abjuration");
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName("School Stuff");
-		primaryContext.getReferenceContext().importObject(a);
-		Ability b = AbilityCategory.FEAT.newInstance();
-		b.setName("School Stuff");
-		secondaryContext.getReferenceContext().importObject(b);
+		BuildUtilities.buildAbility(primaryContext, AbilityCategory.FEAT, "School Stuff");
+		BuildUtilities.buildAbility(secondaryContext, AbilityCategory.FEAT, "School Stuff");
 		runRoundRobin("SCHOOLS|ABILITY=FEAT[School Stuff]");
 	}
 

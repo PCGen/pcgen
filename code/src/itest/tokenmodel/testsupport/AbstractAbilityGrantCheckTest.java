@@ -28,6 +28,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.choose.NoChoiceToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import util.TestURI;
 
@@ -55,22 +56,19 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	public Ability getMultNo(String s)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName(s);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = TYPE_TOKEN.parseToken(context, a, "Selectable");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	public Ability getMultYesStackNo(String s, String target)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName(s);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -89,14 +87,12 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	public Ability getMultYesStackYes(String s, String target)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName(s);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -121,14 +117,12 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	public Ability getMultYesStackNoChooseNoChoice(String s)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName(s);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -141,14 +135,12 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	public Ability getMultYesStackYesChooseNoChoice(String s)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName(s);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -167,7 +159,6 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().importObject(a);
 		return a;
 	}
 

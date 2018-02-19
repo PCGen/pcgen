@@ -37,6 +37,7 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.SpellknownLst;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.test.PreVariableTester;
@@ -132,9 +133,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	
 	public void testConditional()
 	{
-		Ability source = AbilityCategory.FEAT.newInstance();
-		source.setKeyName("Source");
-		context.getReferenceContext().importObject(source);
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		ParseResult result =
 				token.parseToken(context, source, "CLASS|Wizard=2|Fireball|PREVARLTEQ:3,MyCasterLevel");
 		if (result != ParseResult.SUCCESS)

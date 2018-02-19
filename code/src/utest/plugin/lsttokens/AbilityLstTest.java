@@ -33,6 +33,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -260,18 +261,10 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability a = pac.newInstance();
-		a.setName("Abil3");
-		primaryContext.getReferenceContext().importObject(a);
-		Ability b = sac.newInstance();
-		b.setName("Abil3");
-		secondaryContext.getReferenceContext().importObject(b);
-		a = pac.newInstance();
-		a.setName("Abil4");
-		primaryContext.getReferenceContext().importObject(a);
-		b = sac.newInstance();
-		b.setName("Abil4");
-		secondaryContext.getReferenceContext().importObject(b);
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil3");
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil4");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil3");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil4");
 		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil2", "NEWCAT|VIRTUAL|Abil3|Abil4");
 	}
 

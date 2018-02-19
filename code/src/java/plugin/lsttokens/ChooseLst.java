@@ -23,7 +23,6 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.NonInteractive;
@@ -199,14 +198,14 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (newChoose != null)
 		{
-			ClassIdentity<?> chooseClass = newChoose.getClassIdentity();
+			Class<?> chooseClass = newChoose.getReferenceClass();
 			List<ChooseSelectionActor<?>> newactors =
 					obj.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 			if (newactors != null)
 			{
 				for (ChooseSelectionActor<?> csa : newactors)
 				{
-					if (!chooseClass.getReferenceClass().equals(csa.getChoiceClass()))
+					if (!chooseClass.equals(csa.getChoiceClass()))
 					{
 						Logging.errorPrint("CHOOSE of type "
 							+ chooseClass.getName() + " on "

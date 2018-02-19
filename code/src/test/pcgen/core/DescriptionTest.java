@@ -210,7 +210,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 */
 	public void testComplexVariableReplacement()
 	{
-		final Ability dummy = new Ability();
+		final Ability dummy = AbilityCategory.FEAT.newInstance();
 		dummy.setKeyName("Dummy");
 		Globals.getContext().unconditionallyProcess(dummy, "CATEGORY", "FEAT");
 		Globals.getContext().unconditionallyProcess(dummy, "CHOOSE", "LANG|ALL");

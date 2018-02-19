@@ -70,4 +70,10 @@ public class ArmorProficiencyToken extends
 		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(ARMORPROF_CLASS), obj, value);
 	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "ARMORPROF";
+	}
 }

@@ -59,6 +59,16 @@ public class BasicClassIdentity<T> implements ClassIdentity<T>
 		 * are unique exceptions that it would be nice to get rid of someday.
 		 */
 		underlyingClass = Objects.requireNonNull(cl);
+		try
+		{
+			underlyingClass.newInstance();
+		}
+		catch (InstantiationException | IllegalAccessException e)
+		{
+			throw new IllegalArgumentException("Class " + cl.getCanonicalName()
+				+ " for BasicClassIdentity must have public zero argument constructor",
+				e);
+		}
 	}
 
 	@Override
@@ -74,9 +84,17 @@ public class BasicClassIdentity<T> implements ClassIdentity<T>
 	}
 
 	@Override
-	public T newInstance() throws InstantiationException, IllegalAccessException
+	public T newInstance()
 	{
-		return underlyingClass.newInstance();
+		try
+		{
+			return underlyingClass.newInstance();
+		}
+		catch (InstantiationException | IllegalAccessException e)
+		{
+			//InternalError due to check in constructor
+			throw new InternalError(e);
+		}
 	}
 
 	@Override

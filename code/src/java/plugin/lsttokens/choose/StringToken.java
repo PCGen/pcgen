@@ -101,7 +101,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		SimpleChoiceSet<String> scs =
 				new SimpleChoiceSet<>(set, Constants.PIPE);
 		BasicChooseInformation<String> tc =
-				new BasicChooseInformation<>(getTokenName(), scs);
+				new BasicChooseInformation<>(getTokenName(), scs, "STRING");
 		tc.setTitle("Choose an Item");
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

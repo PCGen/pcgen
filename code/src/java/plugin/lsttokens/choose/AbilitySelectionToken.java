@@ -32,7 +32,6 @@ import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -67,7 +66,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 	
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<Ability> rm, CDOMSingleRef<AbilityCategory> acRef,
+		ReferenceManufacturer<Ability> rm, AbilityCategory cat,
 		CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
@@ -113,7 +112,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 				+ ": Contains ANY and a specific reference: " + value);
 		}
 		CollectionToAbilitySelection pcs =
-				new CollectionToAbilitySelection(acRef, prim);
+				new CollectionToAbilitySelection(cat, prim);
 		CategorizedAbilitySelectionChooseInformation tc =
 				new CategorizedAbilitySelectionChooseInformation(
 					getTokenName(), pcs);
@@ -159,7 +158,8 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		StringBuilder sb = new StringBuilder();
 		if (tc instanceof CategorizedAbilitySelectionChooseInformation)
 		{
-			sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory().getLSTformat(false));
+			sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory()
+				.getKeyName());
 		}
 		else
 		{
@@ -250,9 +250,8 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 				+ " requires a CATEGORY and arguments : " + value);
 		}
 		String cat = value.substring(0, barLoc);
-		CDOMSingleRef<AbilityCategory> acRef =
-				context.getReferenceContext().getCDOMReference(
-					ABILITY_CATEGORY_CLASS, cat);
+		AbilityCategory acRef =
+				context.getReferenceContext().get(ABILITY_CATEGORY_CLASS, cat);
 		String abilities = value.substring(barLoc + 1);
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
 			.getManufacturerByFormatName("ABILITY=" + cat, ABILITY_CLASS);

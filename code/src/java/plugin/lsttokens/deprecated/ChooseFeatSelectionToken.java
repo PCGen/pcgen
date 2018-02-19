@@ -32,7 +32,6 @@ import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -111,11 +110,11 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 				+ ": Contains ANY and a specific reference: " + value);
 		}
 		PrimitiveChoiceSet<AbilitySelection> pcs =
-				new CollectionToAbilitySelection(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), prim);
+				new CollectionToAbilitySelection(AbilityCategory.FEAT, prim);
 		//be tricky for compatibility
 		BasicChooseInformation<AbilitySelection> tc =
 				new BasicChooseInformation<>(
-						"ABILITYSELECTION", pcs);
+						"ABILITYSELECTION", pcs, AbilityCategory.FEAT.getPersistentFormat());
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

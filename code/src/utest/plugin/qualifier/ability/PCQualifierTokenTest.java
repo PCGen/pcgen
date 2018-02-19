@@ -101,11 +101,8 @@ public class PCQualifierTokenTest extends
 
 	@Override
 	protected CDOMObject construct(LoadContext loadContext,
-		Class<? extends CDOMObject> cl, String one)
+		Class<? extends CDOMObject> cl, String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName(one);
-		loadContext.getReferenceContext().importObject(a);
-		return a;
+		return construct(loadContext, name);
 	}
 }

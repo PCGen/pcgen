@@ -67,22 +67,22 @@ public final class ReferenceContextUtilities
 						rm.fireUnconstuctedEvent(singleRef);
 						continue;
 					}
-					ClassIdentity<?> clIdentity = ci.getClassIdentity();
 					if (choice.indexOf('%') > -1)
 					{
 						//patterns or %LIST are OK
 						//See CollectionToAbilitySelection.ExpandingConverter
 						continue;
 					}
-					Class<?> cl = clIdentity.getReferenceClass();
+					Class<?> cl = ci.getReferenceClass();
 					if (Loadable.class.isAssignableFrom(cl))
 					{
-						ReferenceManufacturer<? extends Loadable> mfg =
-								refContext
-									.getManufacturerId((ClassIdentity<? extends Loadable>) clIdentity);
+						@SuppressWarnings("unchecked")
+						ReferenceManufacturer<? extends Loadable> mfg = refContext
+							.getManufacturerByFormatName(ci.getPersistentFormat(),
+								(Class<? extends Loadable>) cl);
 						if (!mfg.containsObjectKeyed(choice)
 							&& (TokenLibrary.getPrimitive(cl, choice) == null)
-							&& !report(validator, clIdentity, choice))
+							&& !report(validator, mfg.getReferenceIdentity(), choice))
 						{
 							Logging.errorPrint("Found "
 								+ rm.getReferenceDescription() + " "

@@ -33,9 +33,6 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		Chooser<String>
 {
 	
-	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
-			.getIdentity(String.class);
-
 	public static final String UCI_NAME = "User Input";
 	
 	/**
@@ -44,9 +41,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	private String title = null;
 
 	@Override
-	public ClassIdentity<String> getClassIdentity()
+	public Class<String> getReferenceClass()
 	{
-		return STRING_INFO;
+		return String.class;
 	}
 
 	@Override
@@ -178,6 +175,12 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	private static AssociationListKey<String> getListKey()
 	{
 		return AssociationListKey.getKeyFor(String.class, "CHOOSE*USERCHOICE");
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "STRING";
 	}
 
 }

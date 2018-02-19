@@ -52,12 +52,8 @@ public interface ClassIdentity<T>
 	 * method.
 	 * 
 	 * @return A new instance of the object represented by this ClassIdentity
-	 * @throws InstantiationException
-	 *             If there is an error in instantiating the object
-	 * @throws IllegalAccessException
-	 *             If there is an access error in attempting to instantiate the object
 	 */
-	public T newInstance() throws InstantiationException, IllegalAccessException;
+	public T newInstance();
 
 	/**
 	 * Returns a description of the contents of this ClassIdentity.

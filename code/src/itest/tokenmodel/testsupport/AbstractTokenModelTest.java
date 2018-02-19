@@ -301,5 +301,4 @@ public abstract class AbstractTokenModelTest extends TestCase
 	{
 		return null;
 	}
-
 }
