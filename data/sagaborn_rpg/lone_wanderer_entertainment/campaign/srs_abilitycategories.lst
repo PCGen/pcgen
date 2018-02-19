@@ -30,5 +30,5 @@ ABILITYCATEGORY:Spellcasting Ability	TYPE:Spellcasting Ability	POOL:Pool_Spellca
 ABILITYCATEGORY:Hunter's Bond			TYPE:Hunter's Bond		POOL:Pool_HuntersBond		CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Character
 
 
-
+ABILITYCATEGORY:Dwarf Knowledge Bonus			TYPE:Dwarf Knowledge Bonus			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Character
 
