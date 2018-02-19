@@ -38,7 +38,7 @@ public interface UnconstructedValidator
 	 * Returns true if the given key for the given ClassIdentity is allowed to be
 	 * unconstructed.
 	 * 
-	 * @param objClass
+	 * @param identity
 	 *            The ClassIdentity of the object key to be validated
 	 * @param key
 	 *            The key of the object to be checked to see if it is allowed to remain
