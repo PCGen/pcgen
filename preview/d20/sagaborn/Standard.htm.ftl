@@ -521,7 +521,7 @@ Wisdom
      <td align="center" class="border10"><b>${pcstring('CHECK.${checks}.STATMOD')}</b></td>
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="border10"><b>${pcstring('CHECK.${checks}.MAGIC')}<br /></b></td>
-     <td align="center" class="font7 epic"><b>+</b></td>
+     <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="border10"><b>${pcstring('CHECK.${checks}.MISC.NOMAGIC.NOSTAT')}<br /></b></td>
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="tempborder"><br /></td>
@@ -563,7 +563,7 @@ Wisdom
      <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE.STAT')}</b></td>
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE.SIZE')}<br /></b></td>
-     <td align="center" class="font7 epic"><b>+</b></td>
+     <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE.MISC')}<br /></b></td>
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="tempborder"><br /></td>
@@ -577,7 +577,7 @@ Wisdom
      <td align="center" class="border10"><b>${pcstring('ATTACK.RANGED.STAT')}</b></td>
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="border10"><b>${pcstring('ATTACK.RANGED.SIZE')}<br /></b></td>
-     <td align="center" class="font7 epic"><b>+</b></td>
+     <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="border10"><b>${pcstring('ATTACK.RANGED.MISC')}<br /></b></td>
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="tempborder"><br /></td>

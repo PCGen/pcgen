@@ -15,6 +15,7 @@ CLASS:Fighter	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractio
 CLASS:Fighter	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
 CLASS:Fighter	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
 CLASS:Fighter	STARTSKILLPTS:1	CSKILL:TYPE=Class
+1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter
 ###Block: Vars
 1	BONUS:VAR|Pool_Talent|1
 2	BONUS:VAR|Pool_Talent|1
@@ -45,6 +46,7 @@ CLASS:Barbarian	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFract
 CLASS:Barbarian	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
 CLASS:Barbarian	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
 CLASS:Barbarian	STARTSKILLPTS:1	CSKILL:TYPE=Class
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage
 3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement
 7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction

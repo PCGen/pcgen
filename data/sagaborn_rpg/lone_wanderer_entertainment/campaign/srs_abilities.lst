@@ -117,22 +117,39 @@ Thievery	CATEGORY:Special Ability	TYPE:Skill	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	
 
 
 
+Human			KEY:Race Features ~ Human		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 to any score
+Dwarf			KEY:Race Features ~ Dwarf		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+2 CON, -1 CHA, low light vision 60’, +2 to knowledge checks on one of the following: stonework, woodwork, or metalwork	BONUS:ABILITYPOOL|Dwarf Knowledge Bonus|1
+Half-Dwarf		KEY:Race Features ~ Half-Dwarf	CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 CON, low light vision 30’
+Elf			KEY:Race Features ~ Elf			CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 DEX, cannot use iron, steel causes discomfort, low light vision 60’, immune to magical sleep, require very little food or water	ABILITY:Special Ability|AUTOMATIC|Cannot use iron|steel causes discomfort
+Elfling		KEY:Race Features ~ Elfling		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+2 CHA, -1 WIS, iron causes discomfort, low light vision 60’, fearless (immune to fear effects)	ABILITY:Special Ability|AUTOMATIC|iron causes discomfort|fearless (immune to fear effects)
+Feral Elfling	KEY:Race Features ~ Feral Elfling	CATEGORY:Special Ability	TYPE:Race Feature	DESC:-1 CHA, +2 DEX, cannot use iron, low light vision 60’, fearless (immune to fear effects)	ABILITY:Special Ability|AUTOMATIC|Cannot use iron
+Faun			KEY:Race Features ~ Faun		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 DEX, +1 CHA, -1 WIS, low light vision 20’, +2 to saves vs charm
+
+
+
+Dwarf Knowledge Bonus	CATEGORY:Special Ability	ASPECT:NAME|+2 to knowledge checks on %1|%LIST	CHOOSE:STRING|stonework|woodwork|metalwork	MULT:YES	STACK:NO	ASPECT:SkillBonus|+2 to knowledge checks on %1|%LIST
+
 ###Block:
 Cannot use iron					CATEGORY:Special Ability	TYPE:Race Feature
-steel causes discomfort				CATEGORY:Special Ability	TYPE:Race Feature
-iron causes discomfort				CATEGORY:Special Ability	TYPE:Race Feature
-fearless (immune to fear effects)		CATEGORY:Special Ability	TYPE:Race Feature
+Steel causes discomfort				CATEGORY:Special Ability	TYPE:Race Feature
+Iron causes discomfort				CATEGORY:Special Ability	TYPE:Race Feature
+Fearless (immune to fear effects)		CATEGORY:Special Ability	TYPE:Race Feature
 
 # Where we track the Class Features.
 # Class Features
 
+Fighter		CATEGORY:Special Ability	TYPE:Fighter Class Feature
+
+
 ###Block: Barbarian Class Featurees
-Rage			KEY:Barbarian ~ Rage			ASPECT:NAME|Rage (%1/day)|RageTimes	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature	DEFINE:RageTimes|0	BONUS:VAR|RageTimes|1+if(BarbarianLVL>=4,2,0)	DESC:A barbarian gains +2 to hit and damage in melee attacks and Damage Reduction of 1 for 30 minutes.
-Fast Movement	KEY:Barbarian ~ Fast Movement								CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature	DESC:A barbarian adds 10' to their base movement speed.	BONUS:VAR|RaceBaseSpeed_Walk|10
-Focused Rage	KEY:Barbarian ~ Focused Rage								CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature	DESC:A barbarian gains +4 to hit and damage, and Damage Reduction of 3 for 30 minutes.
-Damage Reduction	KEY:Barbarian ~ Damage Reduction							CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature	DESC:%1|DamageReduction	ASPECT:NAME|Damage Reduction %1|DamageReduction	DEFINE:DamageReduction|0	BONUS:VAR|DamageReduction|1
+Barbarian																CATEGORY:Special Ability	TYPE:Barbarian Class Feature
+Rage			KEY:Barbarian ~ Rage			ASPECT:NAME|Rage (%1/day)|RageTimes			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature	DEFINE:RageTimes|0	BONUS:VAR|RageTimes|1+if(BarbarianLVL>=4,2,0)	DESC:A barbarian gains +2 to hit and damage in melee attacks and Damage Reduction of 1 for 30 minutes.
+Fast Movement	KEY:Barbarian ~ Fast Movement		ASPECT:NAME|Fast Movement (10')			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature	DESC:A barbarian adds 10' to their base movement speed.	BONUS:VAR|RaceBaseSpeed_Walk|10
+Focused Rage	KEY:Barbarian ~ Focused Rage										CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature	DESC:A barbarian gains +4 to hit and damage, and Damage Reduction of 3 for 30 minutes.
+Damage Reduction	KEY:Barbarian ~ Damage Reduction	ASPECT:NAME|Damage Reduction %1|DamageReduction	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature	DESC:%1|DamageReduction		DEFINE:DamageReduction|0	BONUS:VAR|DamageReduction|1
 
 # Archeon
+Archeon									CATEGORY:Special Ability	TYPE:Archeon Class Feature
 Magic Sense		KEY:Archeon ~ Magic Sense			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Archeon Class Feature	DESC:When an archeon spends time in a place, or with a person or creature, he may detect if magic has been used. He can also sense if it was ravaging magic. He must spend half an hour in the area or with a person to detect this automatically. If an archeon witnesses the use of magic, he can tell if it is ravaging magic with a DC (Difficulty Class) 15 Awareness check.
 Magebane		KEY:Archeon ~ Magebane				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Archeon Class Feature	DESC:An archeon may use his Magebane ability once per round against any creature or person using magic. He may roll two d20s during an attack and choose the highest roll. He may also use it during Heroic Actions.
 Spell Shield	KEY:Archeon ~ Spell Shield			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Archeon Class Feature	DESC:An archeon can create a shield that blocks magical energy around him and those behind him (within 10 feet). This blocks any damaging spell, including AOE. An archeon can do this 3 times per day.
