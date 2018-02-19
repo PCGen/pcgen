@@ -144,7 +144,8 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 			return cpr;
 		}
 		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(prim);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
+		BasicChooseInformation<T> tc =
+				new BasicChooseInformation<>(getTokenName(), pcs, getPersistentFormat());
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -271,6 +272,11 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	protected abstract Class<T> getChooseClass();
+
+	public final String getPersistentFormat()
+	{
+		return getChooseClass().getSimpleName().toUpperCase();
+	}
 
 	protected abstract String getDefaultTitle();
 

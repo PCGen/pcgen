@@ -30,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.QualifyToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class QualifyIntegrationTest extends
@@ -60,12 +61,8 @@ public class QualifyIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName("My Feat");
-		primaryContext.getReferenceContext().importObject(a);
-		a = AbilityCategory.FEAT.newInstance();
-		a.setName("My Feat");
-		secondaryContext.getReferenceContext().importObject(a);
+		BuildUtilities.buildAbility(primaryContext, AbilityCategory.FEAT, "My Feat");
+		BuildUtilities.buildAbility(secondaryContext, AbilityCategory.FEAT, "My Feat");
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		TestContext tc = new TestContext();
@@ -96,12 +93,8 @@ public class QualifyIntegrationTest extends
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability a = pac.newInstance();
-		a.setName("Abil3");
-		primaryContext.getReferenceContext().importObject(a);
-		a = sac.newInstance();
-		a.setName("Abil3");
-		secondaryContext.getReferenceContext().importObject(a);
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil3");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil3");
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "ABILITY=NEWCAT|Abil3");
@@ -116,12 +109,8 @@ public class QualifyIntegrationTest extends
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability a = pac.newInstance();
-		a.setName("Abil3");
-		primaryContext.getReferenceContext().importObject(a);
-		a = sac.newInstance();
-		a.setName("Abil3");
-		secondaryContext.getReferenceContext().importObject(a);
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil3");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil3");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "ABILITY=NEWCAT|Abil3");
 		emptyCommit(modCampaign, tc);

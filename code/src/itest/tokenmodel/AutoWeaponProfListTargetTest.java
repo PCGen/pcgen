@@ -37,6 +37,7 @@ import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.ability.MultToken;
 import plugin.lsttokens.choose.LangToken;
 import plugin.lsttokens.deprecated.AutoFeatToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.Test;
@@ -92,9 +93,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 	@Test
 	public void testFromAbility() throws PersistenceLayerException
 	{
-		Ability source = AbilityCategory.FEAT.newInstance();
-		source.setKeyName("Source");
-		context.getReferenceContext().importObject(source);
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		Ability granted = createGrantedObject();
 		context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		ParseResult result =
@@ -186,7 +185,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 	protected Ability createGrantedObject()
 	{
 		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setKeyName("Granted");
+		a.setName("Granted");
 		context.getReferenceContext().importObject(a);
 		return a;
 	}

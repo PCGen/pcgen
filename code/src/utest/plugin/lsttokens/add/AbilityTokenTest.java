@@ -111,7 +111,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		return true;
 	}
 
-	protected CDOMObject construct(LoadContext loadContext, String one)
+	protected Ability construct(LoadContext loadContext, String one)
 	{
 		Ability a = AbilityCategory.FEAT.newInstance();
 		a.setName(one);
@@ -831,9 +831,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	private List<CDOMReference<Ability>> createSingle(String name)
 	{
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName(name);
-		primaryContext.getReferenceContext().importObject(a);
+		Ability a = construct(primaryContext, name);
 		CDOMDirectSingleRef<Ability> ar = CDOMDirectSingleRef.getRef(a);
 		refs.add(ar);
 		if (name.indexOf('(') != -1)

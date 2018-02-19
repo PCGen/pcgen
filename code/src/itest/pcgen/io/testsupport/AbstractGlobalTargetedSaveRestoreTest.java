@@ -43,6 +43,7 @@ import plugin.lsttokens.auto.WeaponProfToken;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.pcclass.HdToken;
 import plugin.lsttokens.skill.ExclusiveToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject>
@@ -550,9 +551,8 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	{
 		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
 		T target = create(getObjectClass(), "Target");
-		Ability abil = AbilityCategory.FEAT.newInstance();
-		abil.setName("GrantedAbility");
-		context.getReferenceContext().importObject(abil);
+		Ability abil = BuildUtilities.buildAbility(context, AbilityCategory.FEAT,
+			"GrantedAbility");
 		new plugin.lsttokens.add.AbilityToken().parseToken(context, target,
 				"FEAT|NORMAL|GrantedAbility");
 		Skill granted = create(Skill.class, "GrantedSkill");
@@ -581,9 +581,8 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	{
 		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
 		T target = create(getObjectClass(), "Target");
-		Ability abil = AbilityCategory.FEAT.newInstance();
-		abil.setName("GrantedAbility");
-		context.getReferenceContext().importObject(abil);
+		Ability abil = BuildUtilities.buildAbility(context, AbilityCategory.FEAT,
+			"GrantedAbility");
 		new plugin.lsttokens.add.AbilityToken().parseToken(context, target,
 				"FEAT|VIRTUAL|GrantedAbility");
 		Skill granted = create(Skill.class, "GrantedSkill");

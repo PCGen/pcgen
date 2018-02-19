@@ -19,7 +19,6 @@ package pcgen.cdom.reference;
 
 import java.util.Objects;
 
-import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.util.Logging;
@@ -49,22 +48,6 @@ public class CDOMFactory<T extends Loadable> implements
 	public CDOMFactory(ClassIdentity<T> classIdentity)
 	{
 		this.classIdentity = Objects.requireNonNull(classIdentity);
-		try
-		{
-			classIdentity.newInstance();
-		}
-		catch (InstantiationException e)
-		{
-			throw new IllegalArgumentException("Class " + classIdentity + " for "
-				+ getClass().getName()
-				+ " must possess a zero-argument constructor", e);
-		}
-		catch (IllegalAccessException e)
-		{
-			throw new IllegalArgumentException("Class " + classIdentity + " for "
-				+ getClass().getName()
-				+ " must possess a public zero-argument constructor", e);
-		}
 	}
 
 	@Override
@@ -88,16 +71,7 @@ public class CDOMFactory<T extends Loadable> implements
 	@Override
 	public T newInstance()
 	{
-		try
-		{
-			return classIdentity.newInstance();
-		}
-		catch (InstantiationException | IllegalAccessException e)
-		{
-			throw new UnreachableError("Class was tested at "
-				+ "construction to ensure it had a public, "
-				+ "zero-argument constructor");
-		}
+		return classIdentity.newInstance();
 	}
 
 	@Override

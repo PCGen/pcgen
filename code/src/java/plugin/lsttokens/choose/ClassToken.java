@@ -90,4 +90,13 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(PCCLASS_CLASS), obj, value);
 	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		/*
+		 * TODO This is not entirely true, as this is not correct for SubClasses... :/
+		 */
+		return "PCCLASS";
+	}
 }

@@ -21,12 +21,13 @@ package plugin.lsttokens.testsupport;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import junit.framework.TestCase;
+import pcgen.cdom.base.Categorized;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -236,5 +237,14 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	{
 		assertTrue(primaryContext.getReferenceContext().validate(null));
 		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+	}
+
+	protected <C extends Categorized<C>> C constructCategorized(LoadContext context,
+		Category<C> cat, String name)
+	{
+		C obj = cat.newInstance();
+		obj.setName(name);
+		context.getReferenceContext().importObject(obj);
+		return obj;
 	}
 }

@@ -410,5 +410,4 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		pc.setStringFor(PCStringKey.PERSONALITY2, "");
 		pc.setStringFor(PCStringKey.TABNAME, "");
 	}
-
 }

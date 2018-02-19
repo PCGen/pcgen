@@ -27,6 +27,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
@@ -78,44 +79,28 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName("Fireball");
-		primaryContext.getReferenceContext().importObject(a);
-		Ability b = AbilityCategory.FEAT.newInstance();
-		b.setName("Fireball");
-		secondaryContext.getReferenceContext().importObject(b);
+		constructFeat(primaryContext, "Fireball");
+		constructFeat(secondaryContext, "Fireball");
 		runRoundRobin("CATEGORY=FEAT|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName("Fireball");
-		a.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
-		primaryContext.getReferenceContext().importObject(a);
-		Ability b = AbilityCategory.FEAT.newInstance();
-		b.setName("Fireball");
-		b.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
-		secondaryContext.getReferenceContext().importObject(b);
+		Ability ab = constructFeat(primaryContext, "Fireball");
+		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
+		ab = constructFeat(secondaryContext, "Fireball");
+		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
 		runRoundRobin("CATEGORY=FEAT|TYPE=Test");
 	}
 
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName("Fireball");
-		primaryContext.getReferenceContext().importObject(a);
-		Ability b = AbilityCategory.FEAT.newInstance();
-		b.setName("Fireball");
-		secondaryContext.getReferenceContext().importObject(b);
-		a = AbilityCategory.FEAT.newInstance();
-		a.setName("English");
-		primaryContext.getReferenceContext().importObject(a);
-		b = AbilityCategory.FEAT.newInstance();
-		b.setName("English");
-		secondaryContext.getReferenceContext().importObject(b);
+		constructFeat(primaryContext, "Fireball");
+		constructFeat(secondaryContext, "Fireball");
+		constructFeat(primaryContext, "English");
+		constructFeat(secondaryContext, "English");
 		runRoundRobin("CATEGORY=FEAT|English" + getJoinCharacter() + "Fireball");
 	}
 
@@ -141,6 +126,14 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	{
 		assertFalse(parse("CATEGORY=FEAT|TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
+	}
+
+	public Ability constructFeat(LoadContext context, String name)
+	{
+		Ability ab = AbilityCategory.FEAT.newInstance();
+		ab.setDisplayName(name);
+		context.getReferenceContext().importObject(ab);
+		return ab;
 	}
 
 	//TODO Doesn't test TYPE=

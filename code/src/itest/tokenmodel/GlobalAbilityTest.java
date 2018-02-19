@@ -102,7 +102,7 @@ public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>
 	protected Ability createGrantedObject()
 	{
 		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setKeyName("Granted");
+		a.setName("Granted");
 		context.getReferenceContext().importObject(a);
 		return a;
 	}

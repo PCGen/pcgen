@@ -31,6 +31,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -178,12 +179,8 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability a = pac.newInstance();
-		a.setName("Abil3");
-		primaryContext.getReferenceContext().importObject(a);
-		Ability b = sac.newInstance();
-		b.setName("Abil3");
-		secondaryContext.getReferenceContext().importObject(b);
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil3");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil3");
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 
@@ -207,12 +204,8 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability a = pac.newInstance();
-		a.setName("Abil3");
-		primaryContext.getReferenceContext().importObject(a);
-		Ability b = sac.newInstance();
-		b.setName("Abil3");
-		secondaryContext.getReferenceContext().importObject(b);
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil3");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil3");
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class,
@@ -224,12 +217,8 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinFeatSpell()
 			throws PersistenceLayerException
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setName("My Feat");
-		primaryContext.getReferenceContext().importObject(a);
-		Ability b = AbilityCategory.FEAT.newInstance();
-		b.setName("My Feat");
-		secondaryContext.getReferenceContext().importObject(b);
+		BuildUtilities.buildAbility(primaryContext, AbilityCategory.FEAT, "My Feat");
+		BuildUtilities.buildAbility(secondaryContext, AbilityCategory.FEAT, "My Feat");
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class,

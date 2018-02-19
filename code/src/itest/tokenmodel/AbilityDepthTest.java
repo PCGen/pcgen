@@ -84,7 +84,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 	private Ability createAbility(String key)
 	{
 		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setKeyName(key);
+		a.setName(key);
 		context.getReferenceContext().importObject(a);
 		return a;
 	}

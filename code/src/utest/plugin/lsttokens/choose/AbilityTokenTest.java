@@ -35,6 +35,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.qualifier.ability.PCToken;
 
@@ -108,15 +109,12 @@ public class AbilityTokenTest extends
 	}
 
 	@Override
-	protected Loadable construct(LoadContext loadContext, String one)
+	protected Loadable construct(LoadContext loadContext, String name)
 	{
 		AbilityCategory cat = loadContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
-		Ability a = cat.newInstance();
-		a.setName(one);
-		loadContext.getReferenceContext().importObject(a);
-		return a;
+		return BuildUtilities.buildAbility(loadContext, cat, name);
 	}
 
 	@Override

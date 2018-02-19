@@ -15,6 +15,8 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
@@ -141,6 +143,19 @@ public final class BuildUtilities
 		fd.setFormatManager(new StringManager());
 		context.getReferenceContext().importObject(fd);
 		return fd;
+	}
+
+	public static Ability buildFeat(LoadContext context, String name)
+	{
+		return buildAbility(context, AbilityCategory.FEAT, name);
+	}
+
+	public static Ability buildAbility(LoadContext context, AbilityCategory cat, String name)
+	{
+		Ability a = cat.newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 
 }

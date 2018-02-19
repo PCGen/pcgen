@@ -31,7 +31,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.add.AbilityToken;
-
+import plugin.lsttokens.testsupport.BuildUtilities;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 import util.TestURI;
 
@@ -122,8 +122,7 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 	protected Ability createGrantedObject()
 	{
 		context.getReferenceContext().constructCDOMObject(Language.class, "English");
-		Ability a = AbilityCategory.FEAT.newInstance();
-		a.setKeyName("Granted");
+		Ability a = BuildUtilities.buildFeat(context, "Granted");
 		ParseResult result = AUTO_LANG_TOKEN.parseToken(context, a, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -142,7 +141,6 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().importObject(a);
 		return a;
 	}
 

@@ -32,6 +32,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.MultToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
@@ -43,8 +44,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	@Test
 	public void testFromAbility() throws PersistenceLayerException
 	{
-		Ability source = AbilityCategory.FEAT.newInstance();
-		source.setKeyName("Source");
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		ParseResult result =
 				new MultToken().parseToken(context, source, "YES");
 		if (result != ParseResult.SUCCESS)
@@ -52,7 +52,6 @@ public class AutoLangListTest extends AbstractTokenModelTest
 			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().importObject(source);
 		Language granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());

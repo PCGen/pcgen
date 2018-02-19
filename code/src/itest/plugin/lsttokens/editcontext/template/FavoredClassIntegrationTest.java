@@ -19,12 +19,14 @@ package plugin.lsttokens.editcontext.template;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Categorized;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
@@ -121,16 +123,21 @@ public class FavoredClassIntegrationTest extends
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		SubClass obj = cat.newInstance();
-		obj.setKeyName("Sub");
-		primaryContext.getReferenceContext().importObject(obj);
-		obj = cat.newInstance();
-		obj.setKeyName("Sub");
-		secondaryContext.getReferenceContext().importObject(obj);
+		construct(primaryContext, cat, "Sub");
+		construct(secondaryContext, cat, "Sub");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "TestWP1");
 		commit(modCampaign, tc, "TestWP2.Sub");
 		completeRoundRobin(tc);
+	}
+
+	private <T extends Categorized<T>> T construct(LoadContext context, Category<T> cat,
+		String name)
+	{
+		T obj = cat.newInstance();
+		obj.setName(name);
+		context.getReferenceContext().importObject(obj);
+		return obj;
 	}
 
 }
