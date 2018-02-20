@@ -8,7 +8,7 @@ DEFAULTVARIABLEVALUE:STRING|
 
 
 ###Block: Required Facts
-FACTDEF:RACE|BaseSize	DATAFORMAT:PCSIZE	VISIBLE:YES	REQUIRED:YES	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+FACTDEF:RACE|BaseSize	DATAFORMAT:SIZEADJUSTMENT	VISIBLE:YES	REQUIRED:YES	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
 
 
 
