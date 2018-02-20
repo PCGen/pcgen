@@ -30,7 +30,7 @@ import pcgen.util.TestHelper;
  * the generated XML in the testsuite/output folder.
  */
 @SuppressWarnings("nls")
-public abstract class pcGenGUITestCase extends TestCase
+public abstract class PcGenGUITestCase extends TestCase
 {
 
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
@@ -39,7 +39,7 @@ public abstract class pcGenGUITestCase extends TestCase
 	 * Standard JUnit style constructor
 	 * @param name
 	 */
-	public pcGenGUITestCase(String name)
+	public PcGenGUITestCase(String name)
 	{
 		super(name);
 	}
