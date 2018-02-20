@@ -20,10 +20,10 @@ import java.util.List;
 import java.util.Objects;
 
 import pcgen.base.formula.base.DynamicDependency;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
 import pcgen.base.graph.inst.DefaultGraphEdge;

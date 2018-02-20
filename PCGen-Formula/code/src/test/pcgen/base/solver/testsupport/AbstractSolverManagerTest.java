@@ -27,6 +27,7 @@ import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleVariableStore;
+import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SolverManager;
@@ -139,10 +140,10 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			//ok
 		}
 		//Invalid ID very bad
-		VariableLibrary altLibrary = new VariableLibrary(getScopeLibrary());
-		altLibrary.assertLegalVariableID("brains", globalScope, numberManager);
+		VariableLibrary alternateLibrary = new VariableManager(getScopeLibrary());
+		alternateLibrary.assertLegalVariableID("brains", globalScope, numberManager);
 		VariableID<Number> brains =
-				(VariableID<Number>) altLibrary.getVariableID(globalScopeInst,
+				(VariableID<Number>) alternateLibrary.getVariableID(globalScopeInst,
 					"Brains");
 		try
 		{
@@ -323,10 +324,10 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		//Not present is Harmless
 		getManager().removeModifier(hp, modifier, source);
 		//Invalid ID very bad
-		VariableLibrary altLibrary = new VariableLibrary(getScopeLibrary());
-		altLibrary.assertLegalVariableID("brains", globalScope, numberManager);
+		VariableLibrary alternateLibrary = new VariableManager(getScopeLibrary());
+		alternateLibrary.assertLegalVariableID("brains", globalScope, numberManager);
 		VariableID<Number> brains =
-				(VariableID<Number>) altLibrary.getVariableID(globalScopeInst,
+				(VariableID<Number>) alternateLibrary.getVariableID(globalScopeInst,
 					"Brains");
 		try
 		{

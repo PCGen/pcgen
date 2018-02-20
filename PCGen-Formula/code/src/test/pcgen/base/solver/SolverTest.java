@@ -51,10 +51,10 @@ public class SolverTest extends TestCase
 		super.setUp();
 		SplitFormulaSetup sfs = new SplitFormulaSetup();
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
-		sfs.getLegalScopeLibrary().registerScope(globalScope);
-		IndividualSetup indSetup = new IndividualSetup(sfs, "Global", new SimpleVariableStore());
-		inst = indSetup.getGlobalScopeInst();
-		sfs.getLegalScopeLibrary().registerScope(new SimpleLegalScope(globalScope, "STAT"));
+		sfs.getLegalScopeManager().registerScope(globalScope);
+		IndividualSetup indSetup = new IndividualSetup(sfs, new SimpleVariableStore());
+		inst = indSetup.getInstanceFactory().getGlobalInstance("Global");
+		sfs.getLegalScopeManager().registerScope(new SimpleLegalScope(globalScope, "STAT"));
 		str = indSetup.getInstanceFactory().get("Global.STAT", new MockStat("STR"));
 		con = indSetup.getInstanceFactory().get("Global.STAT", new MockStat("CON"));
 		evalManager =

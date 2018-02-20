@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import pcgen.base.formula.inst.ScopeInstanceFactory;
-
 /**
  * A DynamicDependency is a formula dependency that can change the absolute variable upon
  * which the item is dependent.

@@ -17,7 +17,6 @@
  */
 package pcgen.base.formula.base;
 
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.util.TypedKey;
 
 /**

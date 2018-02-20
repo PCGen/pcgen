@@ -20,23 +20,23 @@ package pcgen.base.formula.inst;
 import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 
 public class SimpleVariableStoreTest extends TestCase
 {
 
-	private LegalScopeLibrary library;
+	private ScopeManagerInst legalScopeManager;
 	private ScopeInstanceFactory instanceFactory;
 		
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		library = new LegalScopeLibrary();
-		library.registerScope(new SimpleLegalScope(null, "Global"));
-		instanceFactory = new ScopeInstanceFactory(library);
+		legalScopeManager = new ScopeManagerInst();
+		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global"));
+		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 	}
 
 	public void testNulls()
@@ -97,7 +97,7 @@ public class SimpleVariableStoreTest extends TestCase
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid3 = new VariableID(globalInst, numberManager, "test2");
-		library.registerScope(new SimpleLegalScope(null, "Global2"));
+		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
 		VariableID vid4 = new VariableID(globalInst2, numberManager, "test");
 		assertNull(varStore.put(vid1, Integer.valueOf(9)));

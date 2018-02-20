@@ -18,14 +18,14 @@ package pcgen.base.formula.inst;
 import org.junit.Test;
 
 import junit.framework.TestCase;
-import pcgen.base.formula.base.LegalScopeLibrary;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.solver.SolverFactory;
 
 public class SimpleFormulaManagerTest extends TestCase
 {
 
-	private VariableLibrary varLibrary;
+	private VariableLibrary variableLibrary;
 	private SimpleOperatorLibrary opLibrary;
 	private SimpleVariableStore resultsStore;
 	private SolverFactory defaultStore;
@@ -35,12 +35,12 @@ public class SimpleFormulaManagerTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		LegalScopeLibrary scopeLibrary = new LegalScopeLibrary();
-		varLibrary = new VariableLibrary(scopeLibrary);
+		LegalScopeManager legalScopeManager = new ScopeManagerInst();
+		variableLibrary = new VariableManager(legalScopeManager);
 		opLibrary = new SimpleOperatorLibrary();
 		resultsStore = new SimpleVariableStore();
 		defaultStore = new SolverFactory();
-		siFactory = new ScopeInstanceFactory(scopeLibrary);
+		siFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(null, varLibrary, siFactory,
+			new SimpleFormulaManager(null, variableLibrary, siFactory,
 				resultsStore, defaultStore);
 			fail("null op lib must be rejected");
 		}
@@ -77,7 +77,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(opLibrary, varLibrary, null,
+			new SimpleFormulaManager(opLibrary, variableLibrary, null,
 				resultsStore, defaultStore);
 			fail("null var siFactory must be rejected");
 		}
@@ -87,7 +87,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(opLibrary, varLibrary, siFactory, null,
+			new SimpleFormulaManager(opLibrary, variableLibrary, siFactory, null,
 				defaultStore);
 			fail("null results must be rejected");
 		}
@@ -97,7 +97,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(opLibrary, varLibrary, siFactory,
+			new SimpleFormulaManager(opLibrary, variableLibrary, siFactory,
 				resultsStore, null);
 			fail("null defaults must be rejected");
 		}

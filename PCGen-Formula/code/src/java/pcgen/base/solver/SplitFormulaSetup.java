@@ -18,12 +18,13 @@
 package pcgen.base.solver;
 
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.inst.FormulaUtilities;
+import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
+import pcgen.base.formula.inst.VariableManager;
 
 /**
  * SplitFormulaSetup provides a single location to quickly build the necessary
@@ -45,9 +46,9 @@ public class SplitFormulaSetup
 	private final SolverFactory solverFactory = new SolverFactory();
 
 	/**
-	 * The LegalScopeLibrary for this SplitFormulaSetup.
+	 * The LegalScopeManager for this SplitFormulaSetup.
 	 */
-	private final LegalScopeLibrary legalScopeLib = new LegalScopeLibrary();
+	private final ScopeManagerInst legalScopeLib = new ScopeManagerInst();
 
 	/**
 	 * The SimpleFunctionLibrary for this SplitFormulaSetup.
@@ -64,7 +65,7 @@ public class SplitFormulaSetup
 	/**
 	 * The VariableLibrary for this SplitFormulaSetup.
 	 */
-	private final VariableLibrary variableLib = new VariableLibrary(
+	private final VariableLibrary variableLibrary = new VariableManager(
 		legalScopeLib);
 
 	/**
@@ -83,7 +84,7 @@ public class SplitFormulaSetup
 	 */
 	public VariableLibrary getVariableLibrary()
 	{
-		return variableLib;
+		return variableLibrary;
 	}
 
 	/**
@@ -107,11 +108,11 @@ public class SplitFormulaSetup
 	}
 
 	/**
-	 * Returns the LegalScopeLibrary for this SplitFormulaSetup.
+	 * Returns the LegalScopeManager for this SplitFormulaSetup.
 	 * 
-	 * @return The LegalScopeLibrary for this SplitFormulaSetup
+	 * @return The LegalScopeManager for this SplitFormulaSetup
 	 */
-	public LegalScopeLibrary getLegalScopeLibrary()
+	public ScopeManagerInst getLegalScopeManager()
 	{
 		return legalScopeLib;
 	}

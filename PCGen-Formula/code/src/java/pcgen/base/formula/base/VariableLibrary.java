@@ -17,307 +17,106 @@
  */
 package pcgen.base.formula.base;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-
-import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 
 /**
- * VariableLibrary performs the management of legal variable names within a
- * LegalScope. This ensures that when a VariableID is built, it is in an
- * appropriate structure to be evaluated.
+ * VariableLibrary performs the management of legal variable names within a LegalScope.
+ * This ensures that when a VariableID is built, it is in an appropriate structure to be
+ * evaluated.
  */
-public class VariableLibrary
+public interface VariableLibrary
 {
 
 	/**
-	 * The LegalScopeLibrary that supports to be used to determine "child"
-	 * scopes from any LegalScope (in order to avoid variable name conflicts
-	 * between different but non disjoint scopes).
-	 */
-	private final LegalScopeLibrary library;
-
-	/**
-	 * Constructs a new VariableLibrary, which uses the given LegalScopeLibrary
-	 * to ensure variables are legal within a given scope.
+	 * Asserts the given variable name is valid within the given LegalScope. It will be
+	 * managed by the given FormatManager.
 	 * 
-	 * @param vsLibrary
-	 *            The LegalScopeLibrary used to to ensure variables are legal
-	 *            within a given scope
-	 */
-	public VariableLibrary(LegalScopeLibrary vsLibrary)
-	{
-		library = Objects.requireNonNull(vsLibrary);
-	}
-
-	/**
-	 * Holds a map from variable names and LegalScope objects to the format for
-	 * that variable.
-	 */
-	@SuppressWarnings("PMD.LooseCoupling")
-	private DoubleKeyMap<String, LegalScope, FormatManager<?>> variableDefs =
-			new DoubleKeyMap<>(CaseInsensitiveMap.class, HashMap.class);
-
-	/**
-	 * Asserts the given variable name is valid within the given LegalScope. It
-	 * will be managed by the given FormatManager.
+	 * If no previous definition for the given variable name was encountered, then the
+	 * assertion automatically passes, and the given LegalScope and FormatManager are
+	 * stored as the definition for the given variable name.
 	 * 
-	 * If no previous definition for the given variable name was encountered,
-	 * then the assertion automatically passes, and the given LegalScope and
-	 * FormatManager are stored as the definition for the given variable name.
-	 * 
-	 * If a previous FormatManager exists for the given variable name, then this
-	 * will return true if and only if the given LegalScope is equal to the
-	 * already stored LegalScope.
+	 * If a previous FormatManager exists for the given variable name, then this will pass
+	 * if and only if the given LegalScope is equal to the already stored LegalScope.
 	 * 
 	 * @param varName
-	 *            The variable name for which the given FormatManager and
-	 *            LegalScope is being asserted as valid
+	 *            The variable name for which the given FormatManager and LegalScope is
+	 *            being asserted as valid
 	 * @param legalScope
 	 *            The asserted LegalScope for the given variable name
 	 * @param formatManager
 	 *            The FormatManager for the given variable
 	 * 
-	 * @return true if the assertion of this being a valid LegalScope for the
-	 *         given variable FormatManager and name passes; false otherwise
 	 * @throws IllegalArgumentException
-	 *             if any argument is null of if the variable name is otherwise
-	 *             illegal (is empty or starts/ends with whitespace)
+	 *             if any argument is null of if the variable name is otherwise illegal
+	 *             (is empty or starts/ends with whitespace)
+	 * @throws LegalVariableException
+	 *             if a variable of that name exists in a conflicting scope or in the same
+	 *             scope with a different format
 	 */
-	public boolean assertLegalVariableID(String varName, LegalScope legalScope,
-		FormatManager<?> formatManager)
-	{
-		if (formatManager == null)
-		{
-			throw new IllegalArgumentException("FormatManager cannot be null");
-		}
-		if (legalScope == null)
-		{
-			throw new IllegalArgumentException("LegalScope cannot be null");
-		}
-		VariableID.checkLegalVarName(varName);
-		if (!variableDefs.containsKey(varName))
-		{
-			//Can't be a conflict
-			addLegalVariable(varName, legalScope, formatManager);
-			return true;
-		}
-		FormatManager<?> currentFormat = variableDefs.get(varName, legalScope);
-		if (currentFormat != null)
-		{
-			//Asserted Format Already there
-			return formatManager.equals(currentFormat);
-		}
-		//Now, need to check for conflicts
-		boolean hasConflict = hasParentConflict(varName, legalScope)
-			|| hasChildConflict(varName, legalScope, formatManager);
-		if (!hasConflict)
-		{
-			addLegalVariable(varName, legalScope, formatManager);
-		}
-		return !hasConflict;
-	}
+	public void assertLegalVariableID(String varName, LegalScope legalScope,
+		FormatManager<?> formatManager);
 
 	/**
-	 * Adds a variable to this Library, including the necessary side effect of
-	 * registering the LegalScope to ensure we know children as well as parent
-	 * scopes.
-	 */
-	private void addLegalVariable(String varName, LegalScope legalScope,
-		FormatManager<?> formatManager)
-	{
-		library.registerScope(legalScope);
-		variableDefs.put(varName, legalScope, formatManager);
-	}
-
-	/**
-	 * Returns true if there is a conflict the a parent Scope for the given
+	 * Returns true if the given LegalScope and variable name are a legal combination,
+	 * knowing previous assertions of a FormatManager for the given LegalScope and
 	 * variable name.
-	 */
-	private boolean hasParentConflict(String varName, LegalScope legalScope)
-	{
-		LegalScope parent = legalScope.getParentScope();
-		while (parent != null)
-		{
-			if (variableDefs.containsKey(varName, parent))
-			{
-				//Conflict with a higher level scope
-				return true;
-			}
-			parent = parent.getParentScope();
-		}
-		return false;
-	}
-
-	/**
-	 * Returns true if there is a conflict the a child Scope for the given
-	 * variable name.
-	 */
-	private boolean hasChildConflict(String varName, LegalScope legalScope,
-		FormatManager<?> formatManager)
-	{
-		List<LegalScope> children = library.getChildScopes(legalScope);
-		if (children == null)
-		{
-			return false;
-		}
-		for (LegalScope childScope : children)
-		{
-			if (variableDefs.containsKey(varName, childScope)
-				|| hasChildConflict(varName, childScope, formatManager))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Returns true if the given LegalScope and variable name are a legal
-	 * combination, knowing previous assertions of a FormatManager for the given
-	 * LegalScope and variable name.
 	 * 
-	 * If no previous FormatManager was stored via assertLegalScope for the
-	 * given LegalScope and variable name, then this will unconditionally return
-	 * false.
+	 * If no previous FormatManager was stored via assertLegalScope for the given
+	 * LegalScope and variable name, then this will unconditionally return false.
 	 * 
-	 * If a FormatManager was stored via assertLegalScope for a LegalScope and
-	 * variable name, then this will return true if the given LegalScope is
-	 * compatible with the stored LegalScope.
+	 * If a FormatManager was stored via assertLegalScope for a LegalScope and variable
+	 * name, then this will return true if the given LegalScope is compatible with the
+	 * stored LegalScope.
 	 * 
 	 * @param legalScope
-	 *            The LegalScope to be used to determine if the given
-	 *            combination is legal
+	 *            The LegalScope to be used to determine if the given combination is legal
 	 * @param varName
-	 *            The variable name to be used to determine if the given
-	 *            combination is legal
+	 *            The variable name to be used to determine if the given combination is
+	 *            legal
 	 * 
-	 * @return true if the given LegalScope and variable name are a legal
-	 *         combination; false otherwise
+	 * @return true if the given LegalScope and variable name are a legal combination;
+	 *         false otherwise
 	 */
-	public boolean isLegalVariableID(LegalScope legalScope, String varName)
-	{
-		if (variableDefs.containsKey(varName, Objects.requireNonNull(legalScope)))
-		{
-			return true;
-		}
-		//Recursively check parent
-		LegalScope parent = legalScope.getParentScope();
-		return (parent != null) && isLegalVariableID(parent, varName);
-	}
+	public boolean isLegalVariableID(LegalScope legalScope, String varName);
 
 	/**
-	 * Returns the FormatManager for the given LegalScope and variable name,
-	 * knowing previous assertions of a FormatManager for the given LegalScope
-	 * and variable name.
+	 * Returns the FormatManager for the given LegalScope and variable name, knowing
+	 * previous assertions of a FormatManager for the given LegalScope and variable name.
 	 * 
-	 * If no previous FormatManager was stored via assertLegalScope for the
-	 * given LegalScope and variable name, then this will unconditionally return
-	 * null.
+	 * If no previous FormatManager was stored via assertLegalScope for the given
+	 * LegalScope and variable name, then this will unconditionally return null.
 	 * 
 	 * @param legalScope
-	 *            The LegalScope to be used to determine the FormatManager for
-	 *            the given variable name
+	 *            The LegalScope to be used to determine the FormatManager for the given
+	 *            variable name
 	 * @param varName
 	 *            The variable name to be used to determine the FormatManager
 	 * 
 	 * @return The FormatManager for the given LegalScope and variable name
 	 */
-	public FormatManager<?> getVariableFormat(LegalScope legalScope,
-		String varName)
-	{
-		FormatManager<?> format = variableDefs.get(varName, Objects.requireNonNull(legalScope));
-		if (format == null)
-		{
-			LegalScope parent = legalScope.getParentScope();
-			//Recursively check parent, if possible
-			if (parent != null)
-			{
-				return getVariableFormat(parent, varName);
-			}
-		}
-		return format;
-	}
+	public FormatManager<?> getVariableFormat(LegalScope legalScope, String varName);
 
 	/**
-	 * Returns a non-null set of known LegalScope objects for the given
-	 * FormatManager and variable name.
+	 * Returns a VariableID for the given ScopeInstance and variable name, if legal.
 	 * 
-	 * This is typically used for debugging (e.g. to list potential conflicts)
+	 * The rules for legality are defined in the isLegalVariableID method description.
 	 * 
-	 * Ownership of the returned set is transferred to the calling object and no
-	 * reference to it is maintained by VariableLibrary. Changing the returned
-	 * set will not alter the VariableLibrary.
-	 * 
-	 * @param varName
-	 *            The Variable name for which the relevant LegalScope objects
-	 *            should be returned
-	 * 
-	 * @return The Set of LegalScope objects asserted for the given variable
-	 *         name
-	 * @throws IllegalArgumentException
-	 *             if given variable name is not legal
-	 */
-	public Set<LegalScope> getKnownLegalScopes(String varName)
-	{
-		VariableID.checkLegalVarName(varName);
-		return variableDefs.getSecondaryKeySet(varName);
-	}
-
-	/**
-	 * Returns a VariableID for the given ScopeInstance and variable name, if
-	 * legal.
-	 * 
-	 * The rules for legality are defined in the isLegalVariableID method
-	 * description.
-	 * 
-	 * If isLegalVariableID returns false, then this method will throw an
-	 * exception. isLegalVariableID should be called first to determine if
-	 * calling this method is safe.
+	 * If isLegalVariableID returns false, then this method will throw an exception.
+	 * isLegalVariableID should be called first to determine if calling this method is
+	 * safe.
 	 * 
 	 * @param scopeInst
-	 *            The ScopeInstance used to determine if the ScopeInstance and
-	 *            name are a legal combination
+	 *            The ScopeInstance used to determine if the ScopeInstance and name are a
+	 *            legal combination
 	 * @param varName
-	 *            The variable name used to determine if the ScopeInstance and
-	 *            name are a legal combination
-	 * @return A VariableID of the given ScopeInstance and variable name if they
-	 *         are are a legal combination
+	 *            The variable name used to determine if the ScopeInstance and name are a
+	 *            legal combination
+	 * @return A VariableID of the given ScopeInstance and variable name if they are are a
+	 *         legal combination
 	 * @throws IllegalArgumentException
-	 *             if the name is invalid, or if the ScopeInstance and variable
-	 *             name are not a legal combination
+	 *             if the name is invalid, or if the ScopeInstance and variable name are
+	 *             not a legal combination
 	 */
-	public VariableID<?> getVariableID(ScopeInstance scopeInst, String varName)
-	{
-		return getVarIDMessaged(scopeInst, varName, scopeInst);
-	}
-
-	/**
-	 * Returns a VariableID for the given name that is valid in the given
-	 * ScopeInstance (or any parent ScopeInstance - recursively).
-	 */
-	private VariableID<?> getVarIDMessaged(ScopeInstance scopeInst,
-		String varName, ScopeInstance messageScope)
-	{
-		if (scopeInst == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot get VariableID " + varName + " for "
-					+ messageScope.getLegalScope().getName() + " scope");
-		}
-		VariableID.checkLegalVarName(varName);
-		FormatManager<?> formatManager =
-				variableDefs.get(varName, scopeInst.getLegalScope());
-		if (formatManager != null)
-		{
-			return new VariableID<>(scopeInst, formatManager, varName);
-		}
-		//Recursively check parent scope
-		return getVarIDMessaged(scopeInst.getParentScope(), varName,
-			messageScope);
-	}
+	public VariableID<?> getVariableID(ScopeInstance scopeInst, String varName);
 }
