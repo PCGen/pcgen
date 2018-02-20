@@ -27,7 +27,7 @@ public class GlobalScope implements LegalScope
 	/**
 	 * The name of the Global Scope for PCGen characters, publicly available for reuse...
 	 */
-	public static final String GLOBAL_SCOPE_NAME = "Global";
+	public static final String GLOBAL_SCOPE_NAME = "PC";
 
 	/**
 	 * The String representation of the objects covered by this Scope

@@ -81,40 +81,40 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	@Test
 	public void testValidBasic() throws PersistenceLayerException
 	{
-		assertTrue(parse("EQUIPMENT|IsANumberVar"));
+		assertTrue(parse("PC.EQUIPMENT|IsANumberVar"));
 	}
 
 	@Test
 	public void testValidFormatted() throws PersistenceLayerException
 	{
-		assertTrue(parse("EQUIPMENT|NUMBER=IsANumberVar"));
+		assertTrue(parse("PC.EQUIPMENT|NUMBER=IsANumberVar"));
 	}
 
 	@Test
 	public void testInvalidDoubleEqual() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|STRING==Pipe"));
+		assertFalse(parse("PC.EQUIPMENT|STRING==Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT||STRING=Pipe"));
+		assertFalse(parse("PC.EQUIPMENT||STRING=Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidThreeArgs() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|STRING|Pipe"));
+		assertFalse(parse("PC.EQUIPMENT|STRING|Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidThreeEqualArgs() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|STRING=Pipe=Too"));
+		assertFalse(parse("PC.EQUIPMENT|STRING=Pipe=Too"));
 		assertNoSideEffects();
 	}
 
@@ -128,35 +128,35 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	@Test
 	public void testInvalidOnlyEqual() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|="));
+		assertFalse(parse("PC.EQUIPMENT|="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyFormat() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|=Value"));
+		assertFalse(parse("PC.EQUIPMENT|=Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyVarName() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|NUMBER="));
+		assertFalse(parse("PC.EQUIPMENT|NUMBER="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadFormat() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|BADFORMAT=Illegal"));
+		assertFalse(parse("PC.EQUIPMENT|BADFORMAT=Illegal"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidName() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|NUMBER=Illegal Name!"));
+		assertFalse(parse("PC.EQUIPMENT|NUMBER=Illegal Name!"));
 		assertNoSideEffects();
 	}
 
@@ -177,25 +177,25 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	@Test
 	public void testRoundRobinDefault() throws PersistenceLayerException
 	{
-		runRoundRobin("EQUIPMENT|IsANumberVar");
+		runRoundRobin("PC.EQUIPMENT|IsANumberVar");
 	}
 
 	@Test
 	public void testRoundRobinFormatted() throws PersistenceLayerException
 	{
-		runRoundRobin("EQUIPMENT|STRING=StringVar");
+		runRoundRobin("PC.EQUIPMENT|STRING=StringVar");
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "EQUIPMENT|Alt";
+		return "PC.EQUIPMENT|Alt";
 	}
 
 	@Override
 	protected String getLegalValue()
 	{
-		return "EQUIPMENT|Var";
+		return "PC.EQUIPMENT|Var";
 	}
 
 	@Test
@@ -203,9 +203,9 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	{
 		DatasetVariable dv = new DatasetVariable();
 		ParseResult pr =
-				token.parseToken(primaryContext, dv, "EQUIPMENT|MyVar");
+				token.parseToken(primaryContext, dv, "PC.EQUIPMENT|MyVar");
 		assertTrue(pr.passed());
-		assertFalse(parse("EQUIPMENT|STRING=MyVar"));
+		assertFalse(parse("PC.EQUIPMENT|STRING=MyVar"));
 		assertNoSideEffects();
 	}
 

@@ -308,7 +308,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	@Override
 	public String getLocalScopeName()
 	{
-		return "EQUIPMENT.PART";
+		return "PC.EQUIPMENT.PART";
 	}
 
 	private VarScoped variableParent;

@@ -6655,7 +6655,7 @@ public final class Equipment extends PObject implements Serializable,
 	@Override
 	public String getLocalScopeName()
 	{
-		return "EQUIPMENT";
+		return "PC.EQUIPMENT";
 	}
 
 	public Object getLocalVariable(CharID id, String varName)

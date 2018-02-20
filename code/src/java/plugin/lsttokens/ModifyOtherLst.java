@@ -94,7 +94,8 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail(getTokenName()
 				+ " needed 2nd argument: " + value);
 		}
-		LoadContext subContext = context.dropIntoContext(lvs.getName());
+		String fullName = LegalScope.getFullName(lvs);
+		LoadContext subContext = context.dropIntoContext(fullName);
 		return continueParsing(subContext, obj, value, sep);
 	}
 
@@ -113,8 +114,8 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				@Override
 				public boolean contains(VarScoped item)
 				{
-					return Objects.equals(item.getLocalScopeName(), scope.getName())
-						&& (item instanceof CDOMObject)
+					return Objects.equals(item.getLocalScopeName(),
+						LegalScope.getFullName(scope)) && (item instanceof CDOMObject)
 						&& ((CDOMObject) item).containsInList(ListKey.GROUP, groupName);
 				}
 
@@ -138,7 +139,8 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				@Override
 				public boolean contains(VarScoped item)
 				{
-					return Objects.equals(item.getLocalScopeName(), scope.getName());
+					return Objects.equals(item.getLocalScopeName(),
+						LegalScope.getFullName(scope));
 				}
 
 				@Override
@@ -161,7 +163,8 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				@Override
 				public boolean contains(VarScoped item)
 				{
-					return Objects.equals(item.getLocalScopeName(), scope.getName())
+					return Objects.equals(item.getLocalScopeName(),
+						LegalScope.getFullName(scope))
 						&& item.getKeyName().equalsIgnoreCase(groupingName);
 				}
 
@@ -187,10 +190,9 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		String varName = sep.next();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
-			return new ParseResult.Fail(
-				getTokenName() + " found invalid var name: " + varName
-					+ "(scope: " + scope.getName() + ") Modified on "
-					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
+			return new ParseResult.Fail(getTokenName() + " found invalid var name: "
+				+ varName + "(scope: " + LegalScope.getFullName(scope) + ") Modified on "
+				+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 		}
 		if (!sep.hasNext())
 		{
@@ -273,7 +275,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				VarModifier<?> vm = rm.getVarModifier();
 				StringBuilder sb = new StringBuilder();
 				ObjectGrouping og = rm.getGrouping();
-				sb.append(og.getScope().getName());
+				sb.append(LegalScope.getFullName(og.getScope()));
 				sb.append(Constants.PIPE);
 				sb.append(og.getIdentifier());
 				sb.append(Constants.PIPE);
