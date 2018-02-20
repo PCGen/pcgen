@@ -19,6 +19,7 @@ package pcgen.base.util;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import junit.framework.TestCase;
@@ -233,50 +234,14 @@ public class KeyMapTest extends TestCase
 			//expected
 		}
 		assertEquals(3, s.size());
+		assertEquals(2, otom.keySortedValues().size());
 		otom.put(SC, D6);
+		s = otom.keySortedValues();
 		assertEquals(3, otom.keySet().size());
 		assertEquals(3, s.size());
-		//TODO Check actual ordering...
-	}
-
-	@Test
-	public void testInsertValues()
-	{
-		Collection<Double> s = otom.insertOrderValues();
-		assertNotNull(s);
-		assertEquals(0, s.size());
-		populate();
-		s = otom.insertOrderValues();
-		assertNotNull(s);
-		assertEquals(2, s.size());
-		//copy since we don't know what is returned is modifiable
-		Set<Double> full = new HashSet<>(s);
-		//make sure we didn't lose anything
-		assertEquals(2, full.size());
-		assertTrue(full.remove(D0));
-		assertTrue(full.remove(D5));
-		//check independence
-		try
-		{
-			s.add(D2);
-			assertEquals(2, otom.keySet().size());
-		}
-		catch (UnsupportedOperationException e)
-		{
-			//expected
-		}
-		assertEquals(3, s.size());
-		otom.put(SC, D6);
-		assertEquals(3, otom.keySet().size());
-		assertEquals(3, s.size());
-		//TODO Check actual ordering...
-	}
-
-	@Test
-	public void testGetItemInOrder()
-	{
-		populate();
-		assertEquals(D0, otom.getItemInOrder(0));
-		assertEquals(D5, otom.getItemInOrder(1));
+		Iterator<Double> iterator = s.iterator();
+		assertEquals(0.0, iterator.next());
+		assertEquals(5.0, iterator.next());
+		assertEquals(6.0, iterator.next());
 	}
 }
