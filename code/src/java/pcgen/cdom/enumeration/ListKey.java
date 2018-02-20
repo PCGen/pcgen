@@ -28,6 +28,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.CampaignURL;
@@ -48,7 +49,6 @@ import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.inst.Dynamic;
 import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.Qualifier;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
@@ -197,7 +197,7 @@ public final class ListKey<T>
 	public static final ListKey<Vision> VISION_CACHE = new ListKey<>();
 	public static final ListKey<PersistentTransitionChoice<?>> ADD = new ListKey<>();
 	public static final ListKey<CDOMReference<? extends PCClass>> FAVORED_CLASS = new ListKey<>();
-	public static final ListKey<Qualifier> QUALIFY = new ListKey<>();
+	public static final ListKey<CDOMSingleRef<? extends Loadable>> QUALIFY = new ListKey<>();
 	public static final ListKey<DamageReduction> DAMAGE_REDUCTION = new ListKey<>();
 	public static final ListKey<CDOMSingleRef<PCStat>> UNLOCKED_STATS = new ListKey<>();
 	public static final ListKey<CDOMSingleRef<PCStat>> NONSTAT_STATS = new ListKey<>();
@@ -242,7 +242,7 @@ public final class ListKey<T>
 	public static final ListKey<CDOMSingleRef<Race>> APPLIED_RACE = new ListKey<>();
 	public static final ListKey<EqModRef> EQMOD_INFO = new ListKey<>();
 	public static final ListKey<CampaignURL> CAMPAIGN_URL = new ListKey<>();
-	public static final ListKey<Qualifier> FORWARDREF = new ListKey<>();
+	public static final ListKey<CDOMSingleRef<? extends Loadable>> FORWARDREF = new ListKey<>();
 	public static final ListKey<Campaign> CAMPAIGN = new ListKey<>();
 
 	public static final ListKey<Class<?>> DUPES_ALLOWED = new ListKey<>();

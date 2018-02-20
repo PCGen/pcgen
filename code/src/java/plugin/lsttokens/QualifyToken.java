@@ -32,7 +32,6 @@ import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.Qualifier;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -116,9 +115,8 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 
 		while (st.hasMoreTokens())
 		{
-			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st
-					.nextToken());
-			context.getObjectContext().addToList(obj, ListKey.QUALIFY, new Qualifier(ref));
+			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st.nextToken());
+			context.getObjectContext().addToList(obj, ListKey.QUALIFY, ref);
 		}
 
 		return ParseResult.SUCCESS;
@@ -127,17 +125,16 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<Qualifier> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.QUALIFY);
+		Changes<CDOMSingleRef<? extends Loadable>> changes =
+				context.getObjectContext().getListChanges(obj, ListKey.QUALIFY);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
-		Collection<Qualifier> quals = changes.getAdded();
+		Collection<CDOMSingleRef<? extends Loadable>> references = changes.getAdded();
 		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<>();
-		for (Qualifier qual : quals)
+		for (CDOMSingleRef<? extends Loadable> ref : references)
 		{
-			CDOMSingleRef<?> ref = qual.getQualifiedReference();
 			String key = ref.getPersistentFormat();
 			map.addToListFor(key, ref);
 		}

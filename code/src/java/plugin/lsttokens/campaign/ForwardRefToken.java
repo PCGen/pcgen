@@ -27,7 +27,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.Qualifier;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Campaign;
@@ -98,8 +97,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		{
 			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st
 					.nextToken());
-			context.getObjectContext().addToList(obj, ListKey.FORWARDREF,
-				new Qualifier(ref));
+			context.getObjectContext().addToList(obj, ListKey.FORWARDREF, ref);
 		}
 
 		return ParseResult.SUCCESS;
@@ -108,17 +106,16 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
     @Override
 	public String[] unparse(LoadContext context, Campaign obj)
 	{
-		Changes<Qualifier> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.FORWARDREF);
+		Changes<CDOMSingleRef<? extends Loadable>> changes =
+				context.getObjectContext().getListChanges(obj, ListKey.FORWARDREF);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
-		Collection<Qualifier> quals = changes.getAdded();
+		Collection<CDOMSingleRef<? extends Loadable>> references = changes.getAdded();
 		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<>();
-		for (Qualifier qual : quals)
+		for (CDOMSingleRef<? extends Loadable> ref : references)
 		{
-			CDOMSingleRef<?> ref = qual.getQualifiedReference();
 			String key = ref.getPersistentFormat();
 			map.addToListFor(key, ref);
 		}
