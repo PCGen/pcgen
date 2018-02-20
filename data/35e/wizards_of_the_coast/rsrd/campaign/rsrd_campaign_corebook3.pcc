@@ -24,6 +24,8 @@ INFOTEXT:This is a subset of the RSRD containing rules generally found in Core B
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:@/35e/wizards_of_the_coast/srd35/OGL.txt
+RACE:*/_universal/races.lst
+
 
 SIZE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd__size.lst
 ALIGNMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd__align.lst

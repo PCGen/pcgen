@@ -23,6 +23,8 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 INFOTEXT:This will load the basic options of the MSRD without FX, Menace or races other than Human
 
+RACE:*/_universal/races.lst
+
 # Fact/Factset & Formula System
 DATACONTROL:modernbasics__datacontrol.lst
 

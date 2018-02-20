@@ -30,6 +30,8 @@ LOGO:@/publisher_logos/DHG_OGL_Logo.jpg
 
 
 COVER:51254.jpg
+RACE:*/_universal/races.lst
+
 
 ABILITY:eclipse_srd_abilities.lst
 ABILITY:eclipse_srd_abilities_skills.lst

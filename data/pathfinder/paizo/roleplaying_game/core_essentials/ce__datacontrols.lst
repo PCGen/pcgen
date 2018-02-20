@@ -7,6 +7,9 @@ DEFAULTVARIABLEVALUE:STRING|
 
 
 
+###Block: Required Facts
+FACTDEF:RACE|BaseSize	DATAFORMAT:SIZEADJUSTMENT	VISIBLE:YES	REQUIRED:YES	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+
 
 
 
@@ -24,3 +27,4 @@ FACTSETDEF:SPELL|Deity	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:Just for Listin
 #
 FACTSETDEF:DEITY|Animal	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred animal(s)
 FACTSETDEF:DEITY|Colors	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred color(s)
+

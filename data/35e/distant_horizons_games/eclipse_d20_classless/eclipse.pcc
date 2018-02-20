@@ -37,6 +37,8 @@ URL:RPG Now! Shareware|http://www.rpgnow.com/product_info.php?products_id=51255&
 COVER:51254.jpg
 #Block: Universal Functions -------------------------------------------
 BONUS:ABILITYPOOL|Disadvantages|3|PREVARGTEQ:EclipseClass,1
+RACE:*/_universal/races.lst
+
 
 
 #Block: Files ---------------------------------------------------------
