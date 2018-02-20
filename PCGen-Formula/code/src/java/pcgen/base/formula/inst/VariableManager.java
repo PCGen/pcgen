@@ -89,17 +89,13 @@ public class VariableManager implements VariableLibrary
 			variableDefs.put(varName, legalScope, formatManager);
 		}
 		FormatManager<?> currentFormat = variableDefs.get(varName, legalScope);
-		if (currentFormat != null)
+		//Asserted Format Already there
+		if (!formatManager.equals(currentFormat))
 		{
-			//Asserted Format Already there
-			if (!formatManager.equals(currentFormat))
-			{
-				throw new LegalVariableException(varName + " was asserted in scope: "
-					+ LegalScope.getFullName(legalScope) + " with format "
-					+ formatManager.getIdentifierType()
-					+ " but was previously asserted as a "
-					+ currentFormat.getIdentifierType());
-			}
+			throw new LegalVariableException(varName + " was asserted in scope: "
+				+ LegalScope.getFullName(legalScope) + " with format "
+				+ formatManager.getIdentifierType() + " but was previously asserted as a "
+				+ currentFormat.getIdentifierType());
 		}
 		//Now, need to check for conflicts
 		boolean hasConflict = hasParentConflict(varName, legalScope)
