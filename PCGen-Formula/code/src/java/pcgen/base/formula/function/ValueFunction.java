@@ -18,11 +18,13 @@
 package pcgen.base.formula.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FormulaFunction;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -59,12 +61,18 @@ public class ValueFunction implements FormulaFunction
 	{
 		if (args.length == 0)
 		{
-			return semantics.get(FormulaSemantics.INPUT_FORMAT);
+			Optional<FormatManager<?>> inputFormat =
+					semantics.get(FormulaSemantics.INPUT_FORMAT);
+			if (!inputFormat.isPresent())
+			{
+				throw new SemanticsFailureException("Function value()"
+					+ " unable to proceed without a known INPUT_FORMAT");
+			}
+			return inputFormat.get();
 		}
-		semantics.setInvalid("Function " + "value()"
-			+ " received incorrect # of arguments, expected: 0 got "
-			+ args.length + " " + Arrays.asList(args));
-		return null;
+		throw new SemanticsFailureException("Function " + "value()"
+			+ " received incorrect # of arguments, expected: 0 got " + args.length + " "
+			+ Arrays.asList(args));
 	}
 
 	@Override

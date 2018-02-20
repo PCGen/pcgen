@@ -36,6 +36,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
@@ -157,11 +158,6 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			getFormulaManager(), getInstanceFactory().getScope("Global"));
 		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		semanticsVisitor.visit(node, semantics);
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula + " but was told: "
-				+ semantics.getReport());
-		}
 	}
 
 	public void isStatic(String formula, SimpleNode node, boolean b)
@@ -234,10 +230,15 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
 			getFormulaManager(), getInstanceFactory().getScope("Global"));
 		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
-		semanticsVisitor.visit(node, semantics);
-		if (semantics.isValid())
+		try
 		{
-			TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
+			semanticsVisitor.visit(node, semantics);
+			TestCase.fail(
+				"Expected Invalid Formula: " + formula + " but was valid");
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 

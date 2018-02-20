@@ -20,6 +20,7 @@ package pcgen.base.formula.inst;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -69,8 +70,10 @@ public interface NEPFormula<T>
 	 * @param semantics
 	 *            The FormulaSemantics object used to contain and store semantic
 	 *            information about the NEPFormula
+	 * @throws SemanticsException
+	 *             if there is an error indicating the formula is not valid
 	 */
-	public void isValid(FormulaSemantics semantics);
+	public void isValid(FormulaSemantics semantics) throws SemanticsException;
 
 	/**
 	 * Determines the dependencies for this formula, including the VariableID

@@ -348,15 +348,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 				return null;
 			}
 
-			//If True node
-			@SuppressWarnings("PMD.PrematureDeclaration")
-			FormatManager<?> tFormat =
-					(FormatManager<?>) args[1].jjtAccept(visitor, semantics);
-			if (!semantics.isValid())
-			{
-				return null;
-			}
-			return tFormat;
+			return (FormatManager<?>) args[1].jjtAccept(visitor, semantics);
 		}
 
 		@Override

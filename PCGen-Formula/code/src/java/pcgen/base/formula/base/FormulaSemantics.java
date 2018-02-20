@@ -52,7 +52,6 @@ public class FormulaSemantics
 	 */
 	public FormulaSemantics()
 	{
-		map.put(REPORT, new SemanticsReport());
 	}
 
 	/**
@@ -122,93 +121,6 @@ public class FormulaSemantics
 	 * A TypedKey used for storing the Format of the input object for the formula served
 	 * by this FormulaSemantics.
 	 */
-	public static final TypedKey<FormatManager<?>> INPUT_FORMAT = new TypedKey<>();
-
-	/**
-	 * A TypedKey used for storing a message indicating why the formula served by this
-	 * FormulaSemantics is not valid.
-	 */
-	private static final TypedKey<SemanticsReport> REPORT = new TypedKey<>();
-
-	/**
-	 * Sets the FormulaSemantics to indicate a Formula is not valid, and provides the
-	 * given String as the report indicating why it is invalid.
-	 * 
-	 * @param text
-	 *            The report text, indicating why the Formula is invalid
-	 */
-	public void setInvalid(String text)
-	{
-		SemanticsReport report = get(REPORT);
-		report.setValid(false);
-		report.setReport(text);
-	}
-
-	/**
-	 * Returns the report indicating why the Formula is invalid.
-	 * 
-	 * Is guaranteed to return content only if isValid() returns false.
-	 * 
-	 * @return The report text, indicating why the Formula is invalid
-	 */
-	public String getReport()
-	{
-		return get(REPORT).getReport();
-	}
-
-	/**
-	 * Returns true if the recently processed Formula is valid; false otherwise.
-	 * 
-	 * @return true if the recently processed Formula is valid; false otherwise.
-	 */
-	public boolean isValid()
-	{
-		return get(REPORT).isValid();
-	}
-
-	/**
-	 * Resets this FormulaSemantics to have a clean report.
-	 */
-	public void resetReport()
-	{
-		SemanticsReport report = get(REPORT);
-		report.setValid(true);
-		report.setReport("");
-	}
-
-	/**
-	 * A Class to hold the Report & Validity of the FormulaSemantics.
-	 * 
-	 * Note that this exists because you can't put new items into FormulaSemantics - some
-	 * functions, et al may call getWith and produce a "sub semantics" that is valid
-	 * beyond that point... this needs to be shared among all of those children, so it has
-	 * to be a separate item and internal to the first FormulaSemantics (pre-made)
-	 */
-	private class SemanticsReport
-	{
-		private boolean isValid = true;
-		private String report = "";
-
-		public boolean isValid()
-		{
-			return isValid;
-		}
-
-		public void setValid(boolean isValid)
-		{
-			this.isValid = isValid;
-		}
-
-		public String getReport()
-		{
-			return report;
-		}
-
-		public void setReport(String report)
-		{
-			this.report = report;
-		}
-
-	}
-
+	public static final TypedKey<Optional<FormatManager<?>>> INPUT_FORMAT =
+			new TypedKey<>(Optional.empty());
 }

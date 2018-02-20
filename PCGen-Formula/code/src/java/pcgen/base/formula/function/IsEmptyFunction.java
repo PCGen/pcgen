@@ -16,12 +16,14 @@
 package pcgen.base.formula.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -48,26 +50,20 @@ public class IsEmptyFunction implements FormulaFunction
 		int argCount = args.length;
 		if (argCount != 1)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
+			throw new SemanticsFailureException("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 1 got " + argCount + " "
 				+ Arrays.asList(args));
-			return null;
 		}
 		Node node = args[0];
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> format = (FormatManager<?>) node.jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, null));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
+			semantics.getWith(FormulaSemantics.ASSERTED, Optional.empty()));
 		if (!format.getManagedClass().isArray())
 		{
-			semantics.setInvalid("Parse Error: Invalid Value Format: "
+			throw new SemanticsFailureException("Parse Error: Invalid Value Format: "
 				+ format.getIdentifierType() + " found in " + node.getClass().getName()
 				+ " found in location requiring an "
 				+ "ARRAY (class cannot be evaluated)");
-			return null;
 		}
 		return FormatUtilities.BOOLEAN_MANAGER;
 	}

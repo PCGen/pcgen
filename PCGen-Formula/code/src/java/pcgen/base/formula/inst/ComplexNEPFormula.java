@@ -24,6 +24,8 @@ import java.util.Optional;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
@@ -164,23 +166,24 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	}
 
 	@Override
-	public void isValid(FormulaSemantics semantics)
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
 	{
-		semantics.resetReport();
-		@SuppressWarnings("PMD.PrematureDeclaration")
-		FormatManager<?> formulaFormat =
-				(FormatManager<?>) SEMANTICS_VISITOR.visit(root, semantics);
-		if (!semantics.isValid())
+		try
 		{
-			return;
+			FormatManager<?> formulaFormat =
+					(FormatManager<?>) SEMANTICS_VISITOR.visit(root, semantics);
+			if (!formatManager.equals(formulaFormat))
+			{
+				throw new SemanticsException("Parse Error: Invalid Value Format: "
+						+ formulaFormat + " found in " + root.getClass().getName()
+						+ " found in location requiring a "
+						+ formatManager.getManagedClass()
+						+ " (class cannot be evaluated)");
+			}
 		}
-		if (!formatManager.equals(formulaFormat))
+		catch (SemanticsFailureException e)
 		{
-			semantics.setInvalid("Parse Error: Invalid Value Format: "
-				+ formulaFormat + " found in " + root.getClass().getName()
-				+ " found in location requiring a "
-				+ formatManager.getManagedClass()
-				+ " (class cannot be evaluated)");
+			throw new SemanticsException(e);
 		}
 	}
 

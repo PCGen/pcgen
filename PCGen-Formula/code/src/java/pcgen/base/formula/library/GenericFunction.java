@@ -28,6 +28,7 @@ import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -114,10 +115,9 @@ public class GenericFunction implements FormulaFunction
 		int maxArg = myArgs.getMaximumArgument() + 1;
 		if (maxArg != args.length)
 		{
-			semantics.setInvalid("Function " + functionName + " required: " + maxArg
-				+ " arguments, but was provided " + args.length + " "
+			throw new SemanticsFailureException("Function " + functionName + " required: "
+				+ maxArg + " arguments, but was provided " + args.length + " "
 				+ Arrays.asList(args));
-			return null;
 		}
 		return result;
 	}

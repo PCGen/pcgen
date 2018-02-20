@@ -23,8 +23,9 @@ import java.util.Optional;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FormulaFunction;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -55,10 +56,9 @@ public class IfFunction implements FormulaFunction
 		int argCount = args.length;
 		if (argCount != 3)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 3 got "
-				+ args.length + " " + Arrays.asList(args));
-			return null;
+			throw new SemanticsFailureException("Function " + getFunctionName()
+				+ " received incorrect # of arguments, expected: 3 got " + args.length
+				+ " " + Arrays.asList(args));
 		}
 		//Boolean conditional node
 		Node conditionalNode = args[0];
@@ -66,45 +66,31 @@ public class IfFunction implements FormulaFunction
 		FormatManager<?> format = (FormatManager<?>) conditionalNode.jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED,
 				Optional.of(FormatUtilities.BOOLEAN_MANAGER)));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
 		if (!FormatUtilities.BOOLEAN_MANAGER.equals(format))
 		{
-			semantics.setInvalid("Parse Error: Invalid Value Format: " + format
-				+ " found in " + conditionalNode.getClass().getName()
+			throw new SemanticsFailureException("Parse Error: Invalid Value Format: "
+				+ format + " found in " + conditionalNode.getClass().getName()
 				+ " found in location requiring a"
 				+ " Boolean (class cannot be evaluated)");
-			return null;
 		}
 
 		//If True node
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> tFormat =
 				(FormatManager<?>) args[1].jjtAccept(visitor, semantics);
-		if (!semantics.isValid())
-		{
-			return null;
-		}
 
 		//If False node
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> fFormat =
 				(FormatManager<?>) args[2].jjtAccept(visitor, semantics);
-		if (!semantics.isValid())
-		{
-			return null;
-		}
 
 		//Check for Mismatch in formats between True and False results
 		if (!tFormat.equals(fFormat))
 		{
-			semantics.setInvalid("Parse Error: Invalid Value Format: "
+			throw new SemanticsFailureException("Parse Error: Invalid Value Format: "
 				+ fFormat + " found in " + conditionalNode.getClass().getName()
 				+ " found in location requiring a " + tFormat
 				+ " (class cannot be evaluated)");
-			return null;
 		}
 		return tFormat;
 	}

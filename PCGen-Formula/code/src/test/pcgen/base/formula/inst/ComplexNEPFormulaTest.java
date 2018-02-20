@@ -16,6 +16,7 @@ import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableList;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 
 public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
@@ -90,33 +91,36 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		{
 			//ok
 		}
+		catch (SemanticsException e)
+		{
+			e.printStackTrace();
+			fail("Failed for unknown reason: " + e.getMessage());
+		}
 
-		new ComplexNEPFormula<Number>("3+5", numberMgr).isValid(fs);
-		assertEquals(true, fs.isValid());
-		new ComplexNEPFormula<Number>("3*5", numberMgr).isValid(fs);
-		assertEquals(true, fs.isValid());
-		new ComplexNEPFormula<Number>("(3+5)*7", numberMgr).isValid(fs);
-		assertEquals(true, fs.isValid());
-
-		getVariableLibrary().assertLegalVariableID("a", getInstanceFactory().getScope("Global"), numberMgr);
-		getVariableLibrary().assertLegalVariableID("b", getInstanceFactory().getScope("Global"), numberMgr);
-		new ComplexNEPFormula<Number>("a-b", numberMgr).isValid(fs);
-		assertEquals(true, fs.isValid());
-		new ComplexNEPFormula<Number>("if(a>=b,5,9)", numberMgr).isValid(fs);
-		assertEquals(true, fs.isValid());
-		new ComplexNEPFormula<Number>("if(a==b,5,-9)", numberMgr).isValid(fs);
-		assertEquals(true, fs.isValid());
-
-		getVariableLibrary().assertLegalVariableID("c", getInstanceFactory().getScope("Global"), booleanMgr);
-		getVariableLibrary().assertLegalVariableID("d", getInstanceFactory().getScope("Global"), booleanMgr);
-		new ComplexNEPFormula<String>("if(c||d,\"A\",\"B\")", stringMgr).isValid(fs);
-		assertEquals(true, fs.isValid());
-
-		new ComplexNEPFormula<Number>("value()", numberMgr)
-			.isValid(fs.getWith(FormulaSemantics.INPUT_FORMAT, numberMgr));
-		assertEquals(true, fs.isValid());
-		new ComplexNEPFormula<Number>("3^5", numberMgr).isValid(fs);
-		assertEquals(true, fs.isValid());
+		try {
+			new ComplexNEPFormula<Number>("3+5", numberMgr).isValid(fs);
+			new ComplexNEPFormula<Number>("3*5", numberMgr).isValid(fs);
+			new ComplexNEPFormula<Number>("(3+5)*7", numberMgr).isValid(fs);
+			
+			getVariableLibrary().assertLegalVariableID("a", getInstanceFactory().getScope("Global"), numberMgr);
+			getVariableLibrary().assertLegalVariableID("b", getInstanceFactory().getScope("Global"), numberMgr);
+			new ComplexNEPFormula<Number>("a-b", numberMgr).isValid(fs);
+			new ComplexNEPFormula<Number>("if(a>=b,5,9)", numberMgr).isValid(fs);
+			new ComplexNEPFormula<Number>("if(a==b,5,-9)", numberMgr).isValid(fs);
+			
+			getVariableLibrary().assertLegalVariableID("c", getInstanceFactory().getScope("Global"), booleanMgr);
+			getVariableLibrary().assertLegalVariableID("d", getInstanceFactory().getScope("Global"), booleanMgr);
+			new ComplexNEPFormula<String>("if(c||d,\"A\",\"B\")", stringMgr).isValid(fs);
+			
+			new ComplexNEPFormula<Number>("value()", numberMgr).isValid(
+				fs.getWith(FormulaSemantics.INPUT_FORMAT, Optional.of(numberMgr)));
+			new ComplexNEPFormula<Number>("3^5", numberMgr).isValid(fs);
+		}
+		catch (SemanticsException e)
+		{
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
 	}
 
 	public void testGetDependenciesNone()
@@ -311,36 +315,81 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAssertion()
+	public void testAssertionNumberDirect() throws SemanticsException
 	{
 		ComplexNEPFormula five = new ComplexNEPFormula("5", numberMgr);
-		ComplexNEPFormula fiveMismatch = new ComplexNEPFormula("5", stringMgr);
-		ComplexNEPFormula longWayAround = new ComplexNEPFormula("\"4\"", numberMgr);
-		ComplexNEPFormula fiveString = new ComplexNEPFormula("\"4\"", stringMgr);
+		FormulaSemantics fs = getSemantics();
+		five.isValid(fs);
+	}
+
+	@Test
+	public void testAssertionNumberAsString() throws SemanticsException
+	{
+		ComplexNEPFormula fourString = new ComplexNEPFormula("\"4\"", stringMgr);
+		FormulaSemantics fs = getSemantics();
+		fourString.isValid(fs);
+		try
+		{
+			fourString.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
+			fail("Expected the Conversion to pass for the result to "
+				+ "not be the String the ComplexNEPFormula expected!");
+		}
+		catch (SemanticsException e)
+		{
+			//Expected
+		}
+	}
+
+	@Test
+	public void testAssertionNotANumber()
+	{
 		ComplexNEPFormula notANumber = new ComplexNEPFormula("\"4,4\"", numberMgr);
 
 		FormulaSemantics fs = getSemantics();
-		five.isValid(fs);
-		assertEquals(true, fs.isValid());
+		try
+		{
+			notANumber
+				.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
+			fail("Expected non-number to fail");
+		}
+		catch (SemanticsException e)
+		{
+			//Expected
+		}
+	}
 
-		fiveMismatch.isValid(fs);
-		assertEquals(false, fs.isValid());
+	@Test
+	public void testAssertionFailMismatch()
+	{
+		ComplexNEPFormula fiveMismatch = new ComplexNEPFormula("5", stringMgr);
+		FormulaSemantics fs = getSemantics();
+		try
+		{
+			fiveMismatch.isValid(fs);
+			fail("Expected non-quoted item to fail as a String");
+		}
+		catch (SemanticsException e)
+		{
+			//Expected
+		}
+	}
 
-		fiveString.isValid(fs);
-		assertEquals(true, fs.isValid());
-
-		longWayAround.isValid(fs);
-		assertEquals(false, fs.isValid());
-
+	@Test
+	public void testAssertionNumberAsStringConverted() throws SemanticsException
+	{
+		ComplexNEPFormula longWayAround = new ComplexNEPFormula("\"4\"", numberMgr);
+		FormulaSemantics fs = getSemantics();
+		try
+		{
+			longWayAround.isValid(fs);
+			fail("Expected quoted item to fail as a number "
+				+ "because not convertable without an assertion");
+		}
+		catch (SemanticsException e)
+		{
+			//Expected
+		}
 		longWayAround.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
-		//Note this implicitly tests that the report survives the .getWith
-		assertEquals(true, fs.isValid());
-
-		fiveString.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
-		assertEquals(false, fs.isValid());
-
-		notANumber.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
-		assertEquals(false, fs.isValid());
 	}
 
 	private FormulaSemantics getSemantics()

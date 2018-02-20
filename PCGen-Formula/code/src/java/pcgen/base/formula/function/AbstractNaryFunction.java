@@ -22,8 +22,9 @@ import java.util.Arrays;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FormulaFunction;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -54,27 +55,21 @@ public abstract class AbstractNaryFunction implements FormulaFunction
 		int argCount = args.length;
 		if (argCount < 2)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 2 got "
-				+ args.length + " " + Arrays.asList(args));
-			return null;
+			throw new SemanticsFailureException("Function " + getFunctionName()
+				+ " received incorrect # of arguments, expected: 2 got " + args.length
+				+ " " + Arrays.asList(args));
 		}
 		for (Node n : args)
 		{
 			@SuppressWarnings("PMD.PrematureDeclaration")
 			FormatManager<?> format =
 					(FormatManager<?>) n.jjtAccept(visitor, semantics);
-			if (!semantics.isValid())
-			{
-				return null;
-			}
 			if (!format.equals(FormatUtilities.NUMBER_MANAGER))
 			{
-				semantics.setInvalid("Parse Error: Invalid Value Format: "
-					+ format + " found in " + n.getClass().getName()
-					+ " found in location requiring a"
-					+ " Number (class cannot be evaluated)");
-				return null;
+				throw new SemanticsFailureException(
+					"Parse Error: Invalid Value Format: " + format + " found in "
+						+ n.getClass().getName() + " found in location requiring a"
+						+ " Number (class cannot be evaluated)");
 			}
 		}
 		return FormatUtilities.NUMBER_MANAGER;

@@ -17,11 +17,11 @@
  */
 package pcgen.base.formula.function;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -30,6 +30,7 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
+import pcgen.base.util.FormatManager;
 
 public class ValueFunctionTest extends AbstractFormulaTestCase
 {
@@ -47,7 +48,16 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "value()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+		Optional<FormatManager<?>> assertedFormat = Optional.empty();
+		Objects.requireNonNull(assertedFormat);
+		//My isValid due to need to set INPUT_FORMAT
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaSemantics semantics = getManagerFactory()
+			.generateFormulaSemantics(getFormulaManager(), getInstanceFactory().getScope("Global"));
+		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT,
+			Optional.of(FormatUtilities.NUMBER_MANAGER));
+		semanticsVisitor.visit(node, semantics);
+		//end my isValid
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager().getWith(EvaluationManager.INPUT, 1);
 		performEvaluation(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(1), manager);
@@ -67,13 +77,8 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 		FormulaSemantics semantics = getManagerFactory().generateFormulaSemantics(
 			getFormulaManager(), getInstanceFactory().getScope("Global"));
 		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT,
-			FormatUtilities.NUMBER_MANAGER);
+			Optional.of(FormatUtilities.NUMBER_MANAGER));
 		semanticsVisitor.visit(node, semantics);
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula
-				+ " but was told: " + semantics.getReport());
-		}
 		//end my isValid
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager().getWith(EvaluationManager.INPUT, 1);
