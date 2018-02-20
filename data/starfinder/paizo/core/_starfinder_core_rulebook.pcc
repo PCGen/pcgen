@@ -31,6 +31,8 @@ LOGO:*/_images/logo/Paizo_Publishing.png
 
 INFOTEXT:Starfinder Core Rulebook
 
+RACE:*/_universal/races.lst
+
 
 ALIGNMENT:scr__align.lst
 DATACONTROL:scr__datacontrols.lst
