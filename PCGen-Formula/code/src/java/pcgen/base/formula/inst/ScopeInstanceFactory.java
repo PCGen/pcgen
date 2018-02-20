@@ -159,6 +159,7 @@ public class ScopeInstanceFactory
 	private ScopeInstance getMessaged(LegalScope instScope, VarScoped current,
 		VarScoped original)
 	{
+		//null current means we expect the LegalScope to be a form of global (no parent)
 		if (current == null)
 		{
 			if (instScope.getParentScope() == null)

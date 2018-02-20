@@ -73,7 +73,7 @@ public class LegalScopeLibrary
 		{
 			throw new IllegalArgumentException("LegalScope name must not contain a period '.'");
 		}
-		String fullName = buildFullName(scope);
+		String fullName = LegalScope.getFullName(scope);
 		LegalScope current = scopes.get(fullName);
 		if ((current != null) && !current.equals(scope))
 		{
@@ -82,25 +82,6 @@ public class LegalScopeLibrary
 		}
 		scopeChildren.addToListFor(scope.getParentScope(), scope);
 		scopes.put(fullName, scope);
-	}
-
-	private String buildFullName(LegalScope scope)
-	{
-		StringBuilder stringBuilder = new StringBuilder();
-		internalBuildFullName(stringBuilder, scope);
-		return stringBuilder.toString();
-	}
-
-	private void internalBuildFullName(StringBuilder stringBuilder,
-		LegalScope scope)
-	{
-		LegalScope parent = scope.getParentScope();
-		if (parent != null)
-		{
-			internalBuildFullName(stringBuilder, scope.getParentScope());
-			stringBuilder.append('.');
-		}
-		stringBuilder.append(scope.getName());
 	}
 
 	/**

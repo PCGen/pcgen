@@ -67,4 +67,24 @@ public interface LegalScope
 	 */
 	public String getName();
 
+	/**
+	 * Returns the full name (including parent names) for the given LegalScope.
+	 * 
+	 * @param legalScope
+	 *            The LegalScope for which the full name should be returned
+	 * @return The full name (including parent names) for the given LegalScope
+	 */
+	public static String getFullName(LegalScope legalScope)
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append(legalScope.getName());
+		LegalScope current = legalScope;
+		while ((current = current.getParentScope()) != null)
+		{
+			sb.insert(0, '.');
+			sb.insert(0, current.getName());
+		}
+		return sb.toString();
+	}
+
 }
