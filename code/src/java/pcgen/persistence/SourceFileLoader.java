@@ -142,19 +142,25 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private final LstObjectFileLoader abilityLoader = new AbilityLoader();
 	private final LstObjectFileLoader featLoader = new FeatLoader();
 	private final LstObjectFileLoader<PCTemplate> templateLoader = new GenericLoader<>(PCTemplate.class);
-	private final LstObjectFileLoader<Equipment> equipmentLoader = new GenericLocalVariableLoader<>(Equipment.class, "PC.EQUIPMENT");
-	private final LstObjectFileLoader<EquipmentModifier> eqModLoader = new GenericLocalVariableLoader<>(EquipmentModifier.class, "PC.EQUIPMENT.PART");
+	private final LstObjectFileLoader<Equipment> equipmentLoader =
+			new GenericLocalVariableLoader<>(Equipment.class, "PC.EQUIPMENT");
+	private final LstObjectFileLoader<EquipmentModifier> eqModLoader =
+			new GenericLocalVariableLoader<>(EquipmentModifier.class, "PC.EQUIPMENT.PART");
 	private final LstObjectFileLoader<Race> raceLoader = new GenericLoader<>(Race.class);
-	private final LstObjectFileLoader<Skill> skillLoader = new GenericLocalVariableLoader<>(Skill.class, "PC.SKILL");
+	private final LstObjectFileLoader<Skill> skillLoader =
+			new GenericLocalVariableLoader<>(Skill.class, "PC.SKILL");
 	private final LstObjectFileLoader<WeaponProf> wProfLoader = new GenericLoader<>(WeaponProf.class);
 	private final LstObjectFileLoader<ArmorProf> aProfLoader = new GenericLoader<>(ArmorProf.class);
 	private final LstObjectFileLoader<ShieldProf> sProfLoader = new GenericLoader<>(ShieldProf.class);
 	private final LstObjectFileLoader<Deity> deityLoader = new GenericLoader<>(Deity.class);
 	private final LstObjectFileLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
-	private final LstObjectFileLoader<PCCheck> savesLoader = new GenericLocalVariableLoader<>(PCCheck.class, "PC.SAVE");
+	private final LstObjectFileLoader<PCCheck> savesLoader =
+			new GenericLocalVariableLoader<>(PCCheck.class, "PC.SAVE");
 	private final LstObjectFileLoader<PCAlignment> alignmentLoader = new GenericLoader<>(PCAlignment.class);
-	private final LstObjectFileLoader<PCStat> statLoader = new GenericLocalVariableLoader<>(PCStat.class, "PC.STAT");
-	private final LstObjectFileLoader<SizeAdjustment> sizeLoader = new GenericLocalVariableLoader<>(SizeAdjustment.class, "PC.SIZE");
+	private final LstObjectFileLoader<PCStat> statLoader =
+			new GenericLocalVariableLoader<>(PCStat.class, "PC.STAT");
+	private final LstObjectFileLoader<SizeAdjustment> sizeLoader =
+			new GenericLocalVariableLoader<>(SizeAdjustment.class, "PC.SIZE");
 	private final LstObjectFileLoader<Spell> spellLoader = new GenericLoader<>(Spell.class);
 	private final LstLineFileLoader dataControlLoader = new CDOMControlLoader();
 	private final VariableLoader variableLoader = new VariableLoader();
