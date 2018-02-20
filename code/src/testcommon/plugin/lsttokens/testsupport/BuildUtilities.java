@@ -145,11 +145,31 @@ public final class BuildUtilities
 		return fd;
 	}
 
+	/**
+	 * Build a FEAT in the given LoadContext with the given name.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the FEAT should be built
+	 * @param name
+	 *            The name for the FEAT
+	 * @return The Ability (Feat)
+	 */
 	public static Ability buildFeat(LoadContext context, String name)
 	{
 		return buildAbility(context, AbilityCategory.FEAT, name);
 	}
 
+	/**
+	 * Build an Ability in the given LoadContext with the given Category and name.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the Ability should be built
+	 * @param cat
+	 *            The Category for the Ability
+	 * @param name
+	 *            The name for the Ability
+	 * @return The Ability
+	 */
 	public static Ability buildAbility(LoadContext context, AbilityCategory cat, String name)
 	{
 		Ability a = cat.newInstance();

@@ -27,10 +27,10 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 {
@@ -79,17 +79,17 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		constructFeat(primaryContext, "Fireball");
-		constructFeat(secondaryContext, "Fireball");
+		BuildUtilities.buildFeat(primaryContext, "Fireball");
+		BuildUtilities.buildFeat(secondaryContext, "Fireball");
 		runRoundRobin("CATEGORY=FEAT|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
-		Ability ab = constructFeat(primaryContext, "Fireball");
+		Ability ab = BuildUtilities.buildFeat(primaryContext, "Fireball");
 		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
-		ab = constructFeat(secondaryContext, "Fireball");
+		ab = BuildUtilities.buildFeat(secondaryContext, "Fireball");
 		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
 		runRoundRobin("CATEGORY=FEAT|TYPE=Test");
 	}
@@ -97,10 +97,10 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		constructFeat(primaryContext, "Fireball");
-		constructFeat(secondaryContext, "Fireball");
-		constructFeat(primaryContext, "English");
-		constructFeat(secondaryContext, "English");
+		BuildUtilities.buildFeat(primaryContext, "Fireball");
+		BuildUtilities.buildFeat(secondaryContext, "Fireball");
+		BuildUtilities.buildFeat(primaryContext, "English");
+		BuildUtilities.buildFeat(secondaryContext, "English");
 		runRoundRobin("CATEGORY=FEAT|English" + getJoinCharacter() + "Fireball");
 	}
 
@@ -126,14 +126,6 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	{
 		assertFalse(parse("CATEGORY=FEAT|TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
-	}
-
-	public Ability constructFeat(LoadContext context, String name)
-	{
-		Ability ab = AbilityCategory.FEAT.newInstance();
-		ab.setDisplayName(name);
-		context.getReferenceContext().importObject(ab);
-		return ab;
 	}
 
 	//TODO Doesn't test TYPE=
