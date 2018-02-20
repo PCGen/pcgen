@@ -30,6 +30,8 @@ URL:RPG Now|http://rpg.drivethrustuff.com/product_info.php?products_id=69024?aff
 #EXTRAFILE:gaslight_notes.txt
 
 ### Gamemode:
+RACE:*/_universal/races.lst
+
 SAVE:gaslight__saves.lst
 STAT:gaslight__stats.lst
 DATACONTROL:gaslight__datacontrols.lst
