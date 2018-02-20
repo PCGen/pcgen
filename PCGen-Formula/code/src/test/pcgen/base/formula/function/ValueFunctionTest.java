@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.function;
 
+import java.util.Optional;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -37,7 +39,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "value(3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -45,7 +47,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "value()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager().getWith(EvaluationManager.INPUT, 1);
 		performEvaluation(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(1), manager);

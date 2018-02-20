@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.parse;
 
+import java.util.Optional;
+
 import org.junit.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
@@ -44,7 +46,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(1));
@@ -58,7 +60,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(0));
@@ -72,7 +74,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-5";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(-5));
@@ -86,7 +88,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1.0));
@@ -100,7 +102,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.1";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1.1));
@@ -114,7 +116,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-4.5";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-4.5));
@@ -128,7 +130,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-.5";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-0.5));
@@ -142,7 +144,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = ".2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(0.2));
@@ -156,7 +158,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2+3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -171,7 +173,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2+3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(5.2));
@@ -185,7 +187,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1+3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(5.1));
@@ -199,7 +201,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1+3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(5.5));
@@ -213,7 +215,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2+-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -228,7 +230,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2+-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-1.2));
@@ -242,7 +244,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1+-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-0.9));
@@ -256,7 +258,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1+-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-1.3));
@@ -270,7 +272,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2+3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -285,7 +287,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2+3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1.2));
@@ -299,7 +301,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1+3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(0.9));
@@ -313,7 +315,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1+3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1.3));
@@ -327,7 +329,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1+4+7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(12));
@@ -341,7 +343,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1+4.1+7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(12.1));
@@ -355,7 +357,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1+4+7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(12.2));
@@ -369,7 +371,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.1+-1.1";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note this is a Double
 		assertTrue(getVariables(node).isEmpty());
@@ -384,7 +386,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -399,7 +401,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-1.2));
@@ -413,7 +415,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-0.9));
@@ -427,7 +429,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-1.3));
@@ -441,7 +443,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2--3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -456,7 +458,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2--3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(5.2));
@@ -470,7 +472,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1--3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(5.1));
@@ -484,7 +486,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1--3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(5.5));
@@ -498,7 +500,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -513,7 +515,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-5.2));
@@ -527,7 +529,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-5.1));
@@ -541,7 +543,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-5.5));
@@ -555,7 +557,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1-4-7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(-10));
@@ -569,7 +571,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1-4.1-7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-10.1));
@@ -583,7 +585,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1-4-7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-10.2));
@@ -597,7 +599,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2==3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -612,7 +614,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2==3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -626,7 +628,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1==3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -640,7 +642,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1==3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -654,7 +656,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2==-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -669,7 +671,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2==-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -683,7 +685,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1==-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -697,7 +699,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1==-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -711,7 +713,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2==3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -726,7 +728,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2==3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -740,7 +742,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1==3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -754,7 +756,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1==3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -768,7 +770,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6==6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -782,7 +784,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3==-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -796,7 +798,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3==3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -810,7 +812,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3==-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -824,7 +826,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0==2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -838,7 +840,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3==3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -852,7 +854,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -867,7 +869,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2!=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -881,7 +883,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -895,7 +897,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1!=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -909,7 +911,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2!=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -924,7 +926,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2!=-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -938,7 +940,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1!=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -952,7 +954,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1!=-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -966,7 +968,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -981,7 +983,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2!=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -995,7 +997,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1009,7 +1011,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1!=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1023,7 +1025,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6!=6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1037,7 +1039,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3!=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1051,7 +1053,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3!=3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1065,7 +1067,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3!=-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1079,7 +1081,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0!=2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1093,7 +1095,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3!=3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1107,7 +1109,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1122,7 +1124,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1136,7 +1138,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1150,7 +1152,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1164,7 +1166,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1179,7 +1181,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1193,7 +1195,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1207,7 +1209,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1221,7 +1223,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2<3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1236,7 +1238,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2<3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1250,7 +1252,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1<3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1264,7 +1266,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1<3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1278,7 +1280,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6<6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1292,7 +1294,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3<-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1306,7 +1308,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3<3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1320,7 +1322,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3<-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1334,7 +1336,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0<2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1348,7 +1350,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3<3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1362,7 +1364,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1377,7 +1379,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1391,7 +1393,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1405,7 +1407,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1419,7 +1421,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1434,7 +1436,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1448,7 +1450,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1462,7 +1464,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1476,7 +1478,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2>3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1491,7 +1493,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2>3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1505,7 +1507,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1>3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1519,7 +1521,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1>3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1533,7 +1535,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6>6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1547,7 +1549,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3>-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1561,7 +1563,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3>3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1575,7 +1577,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3>-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1589,7 +1591,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0>2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1603,7 +1605,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3>3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1617,7 +1619,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1632,7 +1634,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1646,7 +1648,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1660,7 +1662,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1674,7 +1676,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1689,7 +1691,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2<=-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1703,7 +1705,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1717,7 +1719,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1<=-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1731,7 +1733,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1746,7 +1748,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-4<=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1760,7 +1762,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-5.1<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1774,7 +1776,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-5.1<=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1788,7 +1790,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6<=6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1802,7 +1804,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3<=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1816,7 +1818,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3<=3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1830,7 +1832,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3<=-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1844,7 +1846,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0<=2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1858,7 +1860,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3<=3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1872,7 +1874,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1887,7 +1889,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1901,7 +1903,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1915,7 +1917,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -1929,7 +1931,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -1944,7 +1946,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2>=-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1958,7 +1960,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1972,7 +1974,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1>=-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -1986,7 +1988,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2001,7 +2003,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2>=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -2015,7 +2017,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -2029,7 +2031,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1>=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
@@ -2043,7 +2045,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "6>=6";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -2057,7 +2059,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-3>=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -2071,7 +2073,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.3>=3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -2085,7 +2087,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-0.3>=-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -2099,7 +2101,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.0>=2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -2113,7 +2115,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3>=3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, booleanManager, null);
+		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
@@ -2127,7 +2129,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2*3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2142,7 +2144,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2*3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(6.4));
@@ -2156,7 +2158,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1*3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(6.3));
@@ -2170,7 +2172,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1*3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(7.14));
@@ -2184,7 +2186,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2*-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2199,7 +2201,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2*-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-6.4));
@@ -2213,7 +2215,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1*-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-6.3));
@@ -2227,7 +2229,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1*-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-7.14));
@@ -2241,7 +2243,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2*3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2256,7 +2258,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2*3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-6.4));
@@ -2270,7 +2272,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1*3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-6.3));
@@ -2284,7 +2286,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1*3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-7.14));
@@ -2298,7 +2300,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1*4*7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(28));
@@ -2312,7 +2314,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1*4.1*7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(28.7));
@@ -2326,7 +2328,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1*4*7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(28.8));
@@ -2340,7 +2342,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.3*0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Don't expect a test for Integer == Zero, Double return is OK
 		assertTrue(getVariables(node).isEmpty());
@@ -2355,7 +2357,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2/3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2370,7 +2372,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2/3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(0.625));
@@ -2384,7 +2386,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1/3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(0.7));
@@ -2398,7 +2400,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1/3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(2.1 / 3.4));
@@ -2412,7 +2414,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2/-8";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2427,7 +2429,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2/-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-0.625));
@@ -2441,7 +2443,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1/-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-0.7));
@@ -2455,7 +2457,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1/-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(2.1 / -3.4));
@@ -2469,7 +2471,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2/3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2484,7 +2486,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2/3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-0.625));
@@ -2498,7 +2500,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1/3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-0.7));
@@ -2512,7 +2514,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1/3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-2.1 / 3.4));
@@ -2526,7 +2528,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1/4/7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1.0 / 4.0 / 7.0));
@@ -2540,7 +2542,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1/4.1/7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1 / 4.1 / 7));
@@ -2554,7 +2556,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1/4/7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1.0 / 4.0 / 7.2));
@@ -2568,7 +2570,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "0/1.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Don't expect a test for Numerator == Integer Zero, Double return is OK
 		assertTrue(getVariables(node).isEmpty());
@@ -2583,7 +2585,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.3/0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(Double.POSITIVE_INFINITY));
@@ -2597,7 +2599,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2%3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2612,7 +2614,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2%3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(2.0));
@@ -2626,7 +2628,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3.1%2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1.1));
@@ -2640,7 +2642,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1%3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(2.1));
@@ -2654,7 +2656,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2%-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2669,7 +2671,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2%-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(2.0));
@@ -2683,7 +2685,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1%-3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(2.1));
@@ -2697,7 +2699,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1%-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(2.1));
@@ -2711,7 +2713,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2%3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2726,7 +2728,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2%3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-2.0));
@@ -2740,7 +2742,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1%3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-2.1));
@@ -2754,7 +2756,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1%3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-2.1));
@@ -2768,7 +2770,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "19%8%2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(1));
@@ -2782,7 +2784,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "9%4.1%2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(0.8));
@@ -2796,7 +2798,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "9%6%1.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(0.6));
@@ -2810,7 +2812,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "0%1.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Don't expect a test for Numerator == Integer Zero, Double return is OK
 		assertTrue(getVariables(node).isEmpty());
@@ -2825,7 +2827,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.3%0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(Double.NaN));
@@ -2839,7 +2841,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2^3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2855,7 +2857,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2^3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(Math.pow(2.0, 3.2)));
@@ -2869,7 +2871,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1^3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(9.261));
@@ -2883,7 +2885,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "2.1^3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(Math.pow(2.1, 3.4)));
@@ -2897,7 +2899,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2^3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
@@ -2913,7 +2915,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2^3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-Math.pow(2.0, 3.2)));
@@ -2927,7 +2929,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1^3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-9.261));
@@ -2941,7 +2943,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "-2.1^3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-Math.pow(2.1, 3.4)));
@@ -2955,7 +2957,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.03^4^7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(Math.pow(1.03, 28)));
@@ -2969,7 +2971,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.03^4.1^7";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(Math.pow(1.03, 28.7)));
@@ -2983,7 +2985,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.03^4^7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(Math.pow(1.03, 28.8)));
@@ -2997,7 +2999,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "0^1.3";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Don't expect a test for Numerator == Integer Zero, Double return is OK
 		assertTrue(getVariables(node).isEmpty());
@@ -3012,7 +3014,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "1.3^0";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		//Don't expect a test for Power == Integer Zero, Double return is OK
 		assertTrue(getVariables(node).isEmpty());
@@ -3027,7 +3029,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "3*(1+2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(9));
@@ -3041,7 +3043,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "((4/(((3-1)))))";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(2));
@@ -3055,8 +3057,8 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "(4<5)+(5>6)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
-		isNotValid(formula, node, booleanManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+		isNotValid(formula, node, booleanManager, Optional.empty());
 	}
 
 	@Test
@@ -3064,8 +3066,8 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "((4<5)+(5>6))-1";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
-		isNotValid(formula, node, booleanManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+		isNotValid(formula, node, booleanManager, Optional.empty());
 	}
 
 	@Test
@@ -3073,8 +3075,8 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "5+((4<5)+(5>6))";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
-		isNotValid(formula, node, booleanManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+		isNotValid(formula, node, booleanManager, Optional.empty());
 	}
 
 	@Test
@@ -3082,7 +3084,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "5+foo(5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 	}
 
 
@@ -3091,7 +3093,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "(4<5)^5";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -3099,8 +3101,8 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "5^(9>8)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
-		isNotValid(formula, node, booleanManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+		isNotValid(formula, node, booleanManager, Optional.empty());
 	}
 
 
@@ -3109,8 +3111,8 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "((4<5)+(5>6))^1";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
-		isNotValid(formula, node, booleanManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+		isNotValid(formula, node, booleanManager, Optional.empty());
 	}
 
 	@Test
@@ -3118,7 +3120,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	{
 		String formula = "5^((4<5)+(5>6))";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
-		isNotValid(formula, node, booleanManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+		isNotValid(formula, node, booleanManager, Optional.empty());
 	}
 }

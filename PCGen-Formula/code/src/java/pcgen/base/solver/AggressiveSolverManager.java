@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.Stack;
 import java.util.Map.Entry;
@@ -174,7 +175,8 @@ public class AggressiveSolverManager implements SolverManager
 		 */
 		DependencyManager fdm =
 				managerFactory.generateDependencyManager(formulaManager, source);
-		fdm = fdm.getWith(DependencyManager.ASSERTED, varID.getFormatManager());
+		fdm = fdm.getWith(DependencyManager.ASSERTED,
+			Optional.of(varID.getFormatManager()));
 		fdm = managerFactory.withVariables(fdm);
 		modifier.getDependencies(fdm);
 		for (VariableID<?> depID : fdm.get(DependencyManager.VARIABLES).getVariables())
@@ -232,7 +234,8 @@ public class AggressiveSolverManager implements SolverManager
 		}
 		DependencyManager fdm =
 				managerFactory.generateDependencyManager(formulaManager, source);
-		fdm = fdm.getWith(DependencyManager.ASSERTED, varID.getFormatManager());
+		fdm = fdm.getWith(DependencyManager.ASSERTED,
+			Optional.of(varID.getFormatManager()));
 		fdm = managerFactory.withVariables(fdm);
 		modifier.getDependencies(fdm);
 		processDependencies(varID, fdm);

@@ -18,6 +18,7 @@
 package pcgen.base.formula.function;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -36,7 +37,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -44,7 +45,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -52,7 +53,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 	}
 
 	@Test
@@ -60,7 +61,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(1));
 		Object rv =
@@ -73,7 +74,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor(-2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(-2));
 		Object rv =
@@ -86,7 +87,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor(6.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(6));
 		Object rv =
@@ -99,7 +100,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor(-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(-6));
 		Object rv =
@@ -112,7 +113,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor( -5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(-6));
 	}
@@ -122,7 +123,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor(-5.3 )";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(-6));
 	}
@@ -132,7 +133,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "floor (-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, true);
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(-6));
 	}
@@ -143,7 +144,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 		getVariableStore().put(getVariable("a"), 5);
 		String formula = "floor(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());

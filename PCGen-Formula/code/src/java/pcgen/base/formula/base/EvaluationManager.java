@@ -18,6 +18,7 @@ package pcgen.base.formula.base;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.TypedKey;
@@ -76,23 +77,23 @@ public final class EvaluationManager
 	/**
 	 * A TypedKey used for storing the FormulaManager contained in this EvaluationManager.
 	 */
-	public static final TypedKey<FormulaManager> FMANAGER =
-			new TypedKey<FormulaManager>();
+	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the ScopeInstance contained in this EvaluationManager.
 	 */
-	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<ScopeInstance>();
+	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the Format (as a Class) asserted by the current context
 	 * of a formula.
 	 */
-	public static final TypedKey<FormatManager<?>> ASSERTED = new TypedKey<FormatManager<?>>();
+	public static final TypedKey<Optional<FormatManager<?>>> ASSERTED =
+			new TypedKey<>(Optional.empty());
 
 	/**
 	 * A TypedKey used for storing the Input Object contained in this EvaluationManager.
 	 */
-	public static final TypedKey<Object> INPUT = new TypedKey<Object>();
+	public static final TypedKey<Object> INPUT = new TypedKey<>();
 
 }

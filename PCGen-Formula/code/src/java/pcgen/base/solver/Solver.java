@@ -20,6 +20,7 @@ package pcgen.base.solver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.Identified;
@@ -184,8 +185,8 @@ public class Solver<T>
 	 */
 	public T process(EvaluationManager evalManager)
 	{
-		EvaluationManager assertedManager = evalManager
-			.getWith(EvaluationManager.ASSERTED, defaultModifier.getVariableFormat());
+		EvaluationManager assertedManager = evalManager.getWith(
+			EvaluationManager.ASSERTED, Optional.of(defaultModifier.getVariableFormat()));
 		T result = defaultModifier.process(null);
 		for (Long priority : modifierList.getKeySet())
 		{
@@ -214,8 +215,8 @@ public class Solver<T>
 	 */
 	public List<ProcessStep<T>> diagnose(EvaluationManager evalManager)
 	{
-		EvaluationManager assertedManager = evalManager
-				.getWith(EvaluationManager.ASSERTED, defaultModifier.getVariableFormat());
+		EvaluationManager assertedManager = evalManager.getWith(
+			EvaluationManager.ASSERTED, Optional.of(defaultModifier.getVariableFormat()));
 		List<ProcessStep<T>> steps = new ArrayList<ProcessStep<T>>();
 		T stepResult = defaultModifier.process(null);
 		steps.add(new ProcessStep<T>(defaultModifier, new DefaultValue(

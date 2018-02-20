@@ -18,6 +18,8 @@
 package pcgen.base.testsupport;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
@@ -139,12 +141,14 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	}
 
 	public void isValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, FormatManager<?> assertedFormat)
+		FormatManager<?> formatManager, Optional<FormatManager<?>> assertedFormat)
 	{
+		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
 			localSetup.getFormulaManager(), getGlobalScope());
-		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
+		semantics =
+				semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
 		{
@@ -176,7 +180,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		SimpleNode node, Object valueOf, EvaluationManager manager)
 	{
 		EvaluationManager evalManager =
-				manager.getWith(EvaluationManager.ASSERTED, formatManager);
+				manager.getWith(EvaluationManager.ASSERTED, Optional.of(formatManager));
 		Object result = new EvaluateVisitor().visit(node, evalManager);
 		if (result.equals(valueOf))
 		{
@@ -217,12 +221,14 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	}
 
 	protected void isNotValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, FormatManager<?> assertedFormat)
+		FormatManager<?> formatManager, Optional<FormatManager<?>> assertedFormat)
 	{
+		Objects.requireNonNull(assertedFormat);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
 			localSetup.getFormulaManager(), getGlobalScope());
-		semantics = semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
+		semantics =
+				semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
 		{

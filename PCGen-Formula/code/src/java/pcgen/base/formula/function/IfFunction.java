@@ -18,6 +18,7 @@
 package pcgen.base.formula.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
@@ -76,7 +77,8 @@ public class IfFunction implements Function
 		Node conditionalNode = args[0];
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> format = (FormatManager<?>) conditionalNode.jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, FormatUtilities.BOOLEAN_MANAGER));
+			semantics.getWith(FormulaSemantics.ASSERTED,
+				Optional.of(FormatUtilities.BOOLEAN_MANAGER)));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -133,8 +135,8 @@ public class IfFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		Boolean b = (Boolean) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, FormatUtilities.BOOLEAN_MANAGER));
+		Boolean b = (Boolean) args[0].jjtAccept(visitor, manager.getWith(
+			EvaluationManager.ASSERTED, Optional.of(FormatUtilities.BOOLEAN_MANAGER)));
 		/*
 		 * Note no attempt to cast or interpret the return values since we do
 		 * not know if they are Boolean or Double (see allowArgs)
@@ -192,8 +194,8 @@ public class IfFunction implements Function
 	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		args[0].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, FormatUtilities.BOOLEAN_MANAGER));
+		args[0].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED,
+			Optional.of(FormatUtilities.BOOLEAN_MANAGER)));
 		FormatManager<?> tFormat = (FormatManager<?>) args[1].jjtAccept(visitor, manager);
 		args[2].jjtAccept(visitor, manager);
 		return tFormat;
