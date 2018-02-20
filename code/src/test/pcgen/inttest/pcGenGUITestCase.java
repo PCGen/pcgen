@@ -9,8 +9,12 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
-import org.custommonkey.xmlunit.XMLTestCase;
+import org.junit.Assert;
+import org.xmlunit.builder.DiffBuilder;
+import org.xmlunit.builder.Input;
+import org.xmlunit.diff.Diff;
 
+import junit.framework.TestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.system.Main;
@@ -26,7 +30,7 @@ import pcgen.util.TestHelper;
  * the generated XML in the testsuite/output folder.
  */
 @SuppressWarnings("nls")
-public abstract class pcGenGUITestCase extends XMLTestCase
+public abstract class pcGenGUITestCase extends TestCase
 {
 
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
@@ -128,8 +132,11 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			new File(TEST_CONFIG_FILE).delete();
 		}
 
-		// Do the XML comparison
-		assertXMLEqual(expected, actual);
+		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
+	              .withTest(Input.fromString(actual))
+	              .build();
+
+		Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
 	}
 
 	protected abstract String getSheetName();
