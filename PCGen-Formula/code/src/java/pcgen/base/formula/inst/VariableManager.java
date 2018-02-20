@@ -90,7 +90,7 @@ public class VariableManager implements VariableLibrary
 		}
 		FormatManager<?> currentFormat = variableDefs.get(varName, legalScope);
 		//Asserted Format Already there
-		if (!formatManager.equals(currentFormat))
+		if ((currentFormat != null) && !formatManager.equals(currentFormat))
 		{
 			throw new LegalVariableException(varName + " was asserted in scope: "
 				+ LegalScope.getFullName(legalScope) + " with format "
