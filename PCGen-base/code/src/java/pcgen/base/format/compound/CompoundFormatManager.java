@@ -310,7 +310,7 @@ public class CompoundFormatManager<T> implements DispatchingFormatManager<Compou
 
 		private PreparedCompoundManager(List<NamedIndirect<?>> assocs)
 		{
-			this.assocs = assocs;
+			this.assocs = Objects.requireNonNull(assocs);
 		}
 
 		@Override
@@ -372,5 +372,28 @@ public class CompoundFormatManager<T> implements DispatchingFormatManager<Compou
 			return CompoundFormatManager.this.getComponentManager();
 		}
 
+		@Override
+		public int hashCode()
+		{
+			return 31 * getOuterType().hashCode() + assocs.hashCode();
+		}
+
+		@Override
+		public boolean equals(Object obj)
+		{
+			if (obj instanceof CompoundFormatManager.PreparedCompoundManager)
+			{
+				CompoundFormatManager<?>.PreparedCompoundManager other =
+						(CompoundFormatManager<?>.PreparedCompoundManager) obj;
+				return (getOuterType().equals(other.getOuterType()))
+					&& assocs.equals(other.assocs);
+			}
+			return false;
+		}
+
+		private CompoundFormatManager<?> getOuterType()
+		{
+			return CompoundFormatManager.this;
+		}
 	}
 }
