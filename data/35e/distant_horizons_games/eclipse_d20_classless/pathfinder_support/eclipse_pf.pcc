@@ -32,6 +32,8 @@ COVER:51254.jpg
 
 #Block: Universal Functions -------------------------------------------
 BONUS:ABILITYPOOL|Disadvantages|3|PREVARGTEQ:EclipseClass,1
+RACE:*/_universal/races.lst
+
 
 
 ABILITY:eclipse_pf_abilities.lst
