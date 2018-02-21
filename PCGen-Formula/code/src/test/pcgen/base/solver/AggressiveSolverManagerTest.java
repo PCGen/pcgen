@@ -17,6 +17,7 @@ package pcgen.base.solver;
 
 import org.junit.Test;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
@@ -88,7 +89,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	public void testTrivial()
 	{
 		getVariableLibrary().assertLegalVariableID("Limbs", getGlobalScope(),
-			numberManager);
+			FormatUtilities.NUMBER_MANAGER);
 		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Limbs");
 		manager.solveChildren(limbs);
@@ -106,7 +107,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		WriteableVariableStore store = getVariableStore();
 		LegalScope globalScope = getGlobalScope();
 		ScopeInstance globalScopeInst = getGlobalScopeInst();
-		getVariableLibrary().assertLegalVariableID("STR", globalScope, numberManager);
+		getVariableLibrary().assertLegalVariableID("STR", globalScope, FormatUtilities.NUMBER_MANAGER);
 		VariableID<Number> str =
 				(VariableID<Number>) getVariableLibrary().getVariableID(globalScopeInst,
 					"STR");
@@ -120,7 +121,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 
 		ScopeInstance strInst = getInstanceFactory().get("Global.STAT", new MockStat("Strength"));
 
-		getVariableLibrary().assertLegalVariableID("Mod", localScope, numberManager);
+		getVariableLibrary().assertLegalVariableID("Mod", localScope, FormatUtilities.NUMBER_MANAGER);
 		VariableID<Number> mod =
 				(VariableID<Number>) getVariableLibrary().getVariableID(strInst, "Mod");
 		
@@ -128,7 +129,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		manager.addModifier(mod, modifier, strInst);
 		assertEquals(3, store.get(mod));
 
-		ComplexNEPFormula formula = new ComplexNEPFormula("mod", numberManager);
+		ComplexNEPFormula formula = new ComplexNEPFormula("mod", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> modMod = AbstractModifier.add(formula, 100);
 
 		manager.addModifier(str, modMod, strInst);

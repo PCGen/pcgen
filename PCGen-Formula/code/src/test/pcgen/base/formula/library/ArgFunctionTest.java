@@ -19,6 +19,7 @@ package pcgen.base.formula.library;
 
 import org.junit.Test;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FunctionLibrary;
@@ -68,10 +69,10 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 		formula = "arg(2, 3)";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 	}
 
 	@Test
@@ -79,11 +80,11 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 		isStatic(formula, node, true);
 		varCapture.visit(node, null);
 		assertEquals(-1, argManager.getMaximumArgument());
-		evaluatesTo(numberManager, formula, node, Integer.valueOf(4));
+		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(4));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -94,7 +95,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(4)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 	}
 
 	@Test
@@ -102,7 +103,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(-1)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 	}
 
 	@Test
@@ -110,7 +111,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(1.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 	}
 
 	@Test
@@ -118,7 +119,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(\"string\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 	}
 
 	@Test
@@ -126,11 +127,11 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(0)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 		isStatic(formula, node, true);
 		varCapture.visit(node, depManager);
 		assertEquals(0, argManager.getMaximumArgument());
-		evaluatesTo(numberManager, formula, node, Integer.valueOf(4));
+		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(4));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -141,11 +142,11 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 		isStatic(formula, node, true);
 		varCapture.visit(node, depManager);
 		assertEquals(1, argManager.getMaximumArgument());
-		evaluatesTo(numberManager, formula, node, Integer.valueOf(5));
+		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(5));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -167,11 +168,11 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 		isStatic(formula, node, true);
 		varCapture.visit(node, depManager);
 		assertEquals(2, argManager.getMaximumArgument());
-		evaluatesTo(numberManager, formula, node, Double.valueOf(4.5));
+		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(4.5));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));

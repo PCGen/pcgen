@@ -51,9 +51,6 @@ import pcgen.base.util.FormatManager;
 public abstract class AbstractFormulaTestCase extends TestCase
 {
 
-	protected FormatManager<Number> numberManager = FormatUtilities.NUMBER_MANAGER;
-	protected FormatManager<String> stringManager = FormatUtilities.STRING_MANAGER;
-
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
 	private ManagerFactory managerFactory = new ManagerFactory(){};
@@ -89,7 +86,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			@Override
 			public FormatManager getVariableFormat()
 			{
-				return numberManager;
+				return FormatUtilities.NUMBER_MANAGER;
 			}
 
 			@Override
@@ -125,7 +122,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			@Override
 			public FormatManager getVariableFormat()
 			{
-				return stringManager;
+				return FormatUtilities.STRING_MANAGER;
 			}
 
 			@Override
@@ -249,7 +246,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		ScopeInstance globalInst =
 				localSetup.getInstanceFactory().getGlobalInstance("Global");
 		variableLibrary.assertLegalVariableID(formula, globalInst.getLegalScope(),
-			numberManager);
+			FormatUtilities.NUMBER_MANAGER);
 		return (VariableID<Number>) variableLibrary.getVariableID(globalInst, formula);
 	}
 
