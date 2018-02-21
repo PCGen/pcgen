@@ -41,9 +41,6 @@ public class SimpleLegalScope implements LegalScope
 	/**
 	 * Constructs a new LegalScope with the given parent LegalScope and name.
 	 * 
-	 * @param parentScope
-	 *            The LegalScope that is a parent of this LegalScope. May be
-	 *            null to represent global
 	 * @param name
 	 *            The name of this SimpleLegalScope
 	 */
