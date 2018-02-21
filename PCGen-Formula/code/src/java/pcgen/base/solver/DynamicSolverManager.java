@@ -35,6 +35,7 @@ import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.formula.base.VariableList;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
@@ -186,15 +187,16 @@ public class DynamicSolverManager implements SolverManager
 		/*
 		 * Now build new edges of things this solver will be dependent upon...
 		 */
-		DependencyManager fdm =
+		DependencyManager dependencyManager =
 				managerFactory.generateDependencyManager(formulaManager, source);
-		fdm = fdm.getWith(DependencyManager.ASSERTED,
+		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
 			Optional.of(varID.getFormatManager()));
-		fdm = managerFactory.withVariables(fdm);
-		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
-		modifier.getDependencies(fdm);
-		addDirectDependencies(varID, fdm);
-		addDynamicDependencies(varID, fdm);
+		dependencyManager = managerFactory.withVariables(dependencyManager);
+		dependencyManager = dependencyManager.getWith(DependencyManager.DYNAMIC,
+			new DynamicManager());
+		modifier.getDependencies(dependencyManager);
+		addDirectDependencies(varID, dependencyManager);
+		addDynamicDependencies(varID, dependencyManager);
 		//Cast above effectively enforced here
 		solver.addModifier(modifier, source);
 		/*
@@ -203,22 +205,24 @@ public class DynamicSolverManager implements SolverManager
 		return solveFromNode(varID);
 	}
 
-	private <T> void addDynamicDependencies(VariableID<T> varID, DependencyManager fdm)
+	private <T> void addDynamicDependencies(VariableID<T> varID,
+		DependencyManager dependencyManager)
 	{
-		DynamicManager dd = fdm.get(DependencyManager.DYNAMIC);
-		for (DynamicDependency dep : dd.getDependencies())
+		DynamicManager dynamicManager = dependencyManager.get(DependencyManager.DYNAMIC);
+		for (DynamicDependency dependency : dynamicManager.getDependencies())
 		{
-			VariableID<?> controlVar = dep.getControlVar();
-			VarScoped vs = (VarScoped) resultStore.get(controlVar);
-			if (vs == null)
+			VariableID<?> controlVar = dependency.getControlVar();
+			VarScoped controlVarValue = (VarScoped) resultStore.get(controlVar);
+			if (controlVarValue == null)
 			{
 				throw new IllegalArgumentException(
 					"Cannot initialize Dynamic Edge of format "
 						+ controlVar.getFormatManager()
 						+ " because no default was provided for that format");
 			}
-			List<VariableID<?>> inputs = dep.generateSources(formulaManager.getFactory(),
-				formulaManager.getScopeInstanceFactory(), vs);
+			List<VariableID<?>> inputs =
+					dependency.generateSources(formulaManager.getFactory(),
+						formulaManager.getScopeInstanceFactory(), controlVarValue);
 			for (VariableID<?> input : inputs)
 			{
 				@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
@@ -226,15 +230,19 @@ public class DynamicSolverManager implements SolverManager
 						new DefaultDirectionalGraphEdge<>(input, varID);
 				dependencies.addEdge(edge);
 				@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
-				DynamicEdge de = new DynamicEdge(controlVar, edge, dep);
-				dynamic.addEdge(de);
+				DynamicEdge dynamicEdge = new DynamicEdge(controlVar, edge, dependency);
+				dynamic.addEdge(dynamicEdge);
 			}
 		}
 	}
 
-	private <T> void addDirectDependencies(VariableID<T> varID, DependencyManager fdm)
+	private <T> void addDirectDependencies(VariableID<T> varID,
+		DependencyManager dependencyManager)
 	{
-		for (VariableID<?> depID : fdm.get(DependencyManager.VARIABLES).getVariables())
+		//Should always exist based on what called this method
+		Optional<VariableList> potentialVariables =
+				dependencyManager.get(DependencyManager.VARIABLES);
+		for (VariableID<?> depID : potentialVariables.get().getVariables())
 		{
 			ensureSolverExists(depID);
 			/*
@@ -281,14 +289,14 @@ public class DynamicSolverManager implements SolverManager
 			throw new IllegalArgumentException("Request to remove Modifier to Solver for "
 				+ varID + " but that channel was never defined");
 		}
-		DependencyManager fdm =
+		DependencyManager dependencyManager =
 				managerFactory.generateDependencyManager(formulaManager, source);
-		fdm = fdm.getWith(DependencyManager.ASSERTED,
+		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
 			Optional.of(varID.getFormatManager()));
-		fdm = managerFactory.withVariables(fdm);
-		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
-		modifier.getDependencies(fdm);
-		processDependencies(varID, fdm);
+		dependencyManager = dependencyManager.getWith(DependencyManager.DYNAMIC,
+			new DynamicManager());
+		modifier.getDependencies(dependencyManager);
+		processDependencies(varID, dependencyManager);
 		//Cast above effectively enforced here
 		solver.removeModifier(modifier, source);
 		solveFromNode(varID);
@@ -302,30 +310,33 @@ public class DynamicSolverManager implements SolverManager
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID for which dependencies will be removed
-	 * @param dm
+	 * @param dependencyManager
 	 *            The DependencyManager containing the dependencies of the given
 	 *            VariableID
 	 */
-	private <T> void processDependencies(VariableID<T> varID, DependencyManager dm)
+	private <T> void processDependencies(VariableID<T> varID,
+		DependencyManager dependencyManager)
 	{
-		DynamicManager dd = dm.get(DependencyManager.DYNAMIC);
-		for (DynamicDependency dep : dd.getDependencies())
+		DynamicManager dynamicManager = dependencyManager.get(DependencyManager.DYNAMIC);
+		for (DynamicDependency dependency : dynamicManager.getDependencies())
 		{
-			VariableID<?> controlVar = dep.getControlVar();
+			VariableID<?> controlVar = dependency.getControlVar();
 			for (DynamicEdge edge : dynamic.getAdjacentEdges(controlVar))
 			{
-				if (edge.isDependency(dep))
+				if (edge.isDependency(dependency))
 				{
 					dependencies.removeEdge(edge.getTargetEdge());
 					dynamic.removeEdge(edge);
 				}
 			}
 		}
-		List<VariableID<?>> deps = dm.get(DependencyManager.VARIABLES).getVariables();
-		if (deps == null)
+		Optional<VariableList> potentialVariables =
+				dependencyManager.get(DependencyManager.VARIABLES);
+		if (!potentialVariables.isPresent())
 		{
 			return;
 		}
+		List<VariableID<?>> dependentVarIDs = potentialVariables.get().getVariables();
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
 				dependencies.getAdjacentEdges(varID);
 		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : edges)
@@ -333,14 +344,14 @@ public class DynamicSolverManager implements SolverManager
 			if (edge.getNodeAt(1) == varID)
 			{
 				VariableID<?> depID = edge.getNodeAt(0);
-				if (deps.contains(depID))
+				if (dependentVarIDs.contains(depID))
 				{
 					dependencies.removeEdge(edge);
-					deps.remove(depID);
+					dependentVarIDs.remove(depID);
 				}
 			}
 		}
-		if (!deps.isEmpty())
+		if (!dependentVarIDs.isEmpty())
 		{
 			/*
 			 * TODO Some form of error here since couldn't find matching edges for all
@@ -499,9 +510,9 @@ public class DynamicSolverManager implements SolverManager
 		{
 			replacement.dependencies.addEdge(edge);
 		}
-		for (Object obj : dynamic.getNodeList())
+		for (Object node : dynamic.getNodeList())
 		{
-			replacement.dynamic.addNode(obj);
+			replacement.dynamic.addNode(node);
 		}
 		for (DynamicEdge edge : dynamic.getEdgeList())
 		{

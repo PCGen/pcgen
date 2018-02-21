@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.analysis;
 
+import java.util.Optional;
+
 import pcgen.base.util.TypedKey;
 
 /**
@@ -29,8 +31,8 @@ public class ArgumentDependencyManager
 	/**
 	 * A TypedKey for use in storing an ArgumentDependencyManager
 	 */
-	public static final TypedKey<ArgumentDependencyManager> KEY =
-			new TypedKey<ArgumentDependencyManager>();
+	public static final TypedKey<Optional<ArgumentDependencyManager>> KEY =
+			new TypedKey<>(Optional.empty());
 
 	/**
 	 * The maximum argument number encountered by this

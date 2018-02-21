@@ -231,10 +231,11 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 */
 	public FormatManager<?> visitVariable(String varName, DependencyManager manager)
 	{
-		VariableStrategy varStrategy = manager.get(DependencyManager.VARSTRATEGY);
-		if (varStrategy != null)
+		Optional<VariableStrategy> varStrategy =
+				manager.get(DependencyManager.VARSTRATEGY);
+		if (varStrategy.isPresent())
 		{
-			varStrategy.addVariable(manager, varName);
+			varStrategy.get().addVariable(manager, varName);
 		}
 		return getVariableFormat(manager, varName);
 	}

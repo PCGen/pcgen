@@ -243,7 +243,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			.generateDependencyManager(getFormulaManager(), getGlobalScopeInst());
 		fdm = managerFactory.withVariables(fdm);
 		new DependencyVisitor().visit(node, fdm);
-		return fdm.get(DependencyManager.VARIABLES).getVariables();
+		return fdm.get(DependencyManager.VARIABLES).get().getVariables();
 	}
 
 	protected VariableID<Number> getVariable(String formula)

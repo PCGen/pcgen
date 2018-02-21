@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.Optional;
+
 /**
  * A ManagerFactory is an object designed to produce the various manager objects used by
  * the visitors to a Formula. This is an interface to allow extension of these behaviors
@@ -51,8 +53,9 @@ public interface ManagerFactory
 	 */
 	public default DependencyManager withVariables(DependencyManager fdm)
 	{
-		return fdm.getWith(DependencyManager.VARSTRATEGY, new StaticStrategy())
-			.getWith(DependencyManager.VARIABLES, new VariableList());
+		return fdm
+			.getWith(DependencyManager.VARSTRATEGY, Optional.of(new StaticStrategy()))
+			.getWith(DependencyManager.VARIABLES, Optional.of(new VariableList()));
 	}
 
 	/**
