@@ -149,21 +149,13 @@ public class VariableID<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (this == obj)
+		if (obj instanceof VariableID)
 		{
-			return true;
+			VariableID<?> other = (VariableID<?>) obj;
+			return varName.equals(other.varName)
+				&& formatManager.equals(other.formatManager) && scope.equals(other.scope);
 		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		VariableID<?> other = (VariableID<?>) obj;
-		return varName.equals(other.varName)
-			&& formatManager.equals(other.formatManager) && scope.equals(other.scope);
+		return false;
 	}
 
 	@Override

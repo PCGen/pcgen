@@ -69,14 +69,9 @@ public class VariableManager implements VariableLibrary
 	public void assertLegalVariableID(String varName, LegalScope legalScope,
 		FormatManager<?> formatManager)
 	{
-		if (formatManager == null)
-		{
-			throw new IllegalArgumentException("FormatManager cannot be null");
-		}
-		if (legalScope == null)
-		{
-			throw new IllegalArgumentException("LegalScope cannot be null");
-		}
+		Objects.requireNonNull(varName);
+		Objects.requireNonNull(legalScope);
+		Objects.requireNonNull(formatManager);
 		if (!legalScopeManager.recognizesScope(legalScope))
 		{
 			throw new IllegalArgumentException("LegalScope " + legalScope.getName()
@@ -199,11 +194,7 @@ public class VariableManager implements VariableLibrary
 	private VariableID<?> getVarIDMessaged(ScopeInstance scopeInst, String varName,
 		ScopeInstance messageScope)
 	{
-		if (scopeInst == null)
-		{
-			throw new IllegalArgumentException("Cannot get VariableID " + varName
-				+ " for " + messageScope.getLegalScope().getName() + " scope");
-		}
+		Objects.requireNonNull(scopeInst);
 		VariableID.checkLegalVarName(varName);
 		FormatManager<?> formatManager =
 				variableDefs.get(varName, scopeInst.getLegalScope());

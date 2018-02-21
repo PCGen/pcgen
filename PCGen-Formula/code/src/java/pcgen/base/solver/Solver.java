@@ -88,11 +88,7 @@ public class Solver<T>
 	@SuppressWarnings({"PMD.AvoidCatchingNPE", "PMD.AvoidCatchingGenericException"})
 	public Solver(Modifier<T> defaultModifier)
 	{
-		if (defaultModifier == null)
-		{
-			throw new IllegalArgumentException(
-				"Default Modifier cannot be null");
-		}
+		Objects.requireNonNull("Default Modifier cannot be null");
 		//Enforce no dependencies
 		try
 		{

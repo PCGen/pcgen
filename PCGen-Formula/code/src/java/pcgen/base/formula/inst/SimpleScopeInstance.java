@@ -57,10 +57,7 @@ public class SimpleScopeInstance implements ScopeInstance
 		VarScoped representing)
 	{
 		this.representing = Objects.requireNonNull(representing);
-		if (scope == null)
-		{
-			throw new IllegalArgumentException("LegalScope cannot be null");
-		}
+		Objects.requireNonNull(scope);
 		if (parent == null)
 		{
 			if (scope.getParentScope() != null)
