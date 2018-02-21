@@ -101,6 +101,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.RaceUtilities;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.character.CharacterSpell;
@@ -382,7 +383,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		playersName = new DefaultReferenceFacade<>(charDisplay.getPlayersName());
 		race = new DefaultReferenceFacade<>(charDisplay.getRace());
 		raceList = new DefaultListFacade<>();
-		if (charDisplay.getRace() != null && charDisplay.getRace() != Globals.s_EMPTYRACE)
+		if (charDisplay.getRace() != null && !charDisplay.getRace().isUnselected())
 		{
 			raceList.addElement(charDisplay.getRace());
 		}
@@ -629,7 +630,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Name", "in_sumTodoName", 1));
 		}
-		if (charDisplay.getRace() == null || Constants.NONESELECTED.equals(charDisplay.getRace().getKeyName()))
+		if (charDisplay.getRace() == null || charDisplay.getRace().isUnselected())
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Race", "in_irTodoRace", 100));
 		}
@@ -1890,7 +1891,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		if (race == null)
 		{
-			race = Globals.s_EMPTYRACE;
+			race = RaceUtilities.getUnselectedRace();
 		}
 		this.race.set(race);
 		if (race instanceof Race && race != charDisplay.getRace())
@@ -1899,7 +1900,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				+ ": Setting race to " + race); //$NON-NLS-1$
 			theCharacter.setRace((Race) race);
 			raceList.clearContents();
-			if (race != Globals.s_EMPTYRACE)
+			if (!race.isUnselected())
 			{
 				raceList.addElement(race);
 			}
@@ -1960,7 +1961,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		updateScorePurchasePool(false);
 		refreshEquipment();
 
-		if (charDisplay.getRace() == null || Constants.NONESELECTED.equals(charDisplay.getRace().getKeyName()))
+		if (charDisplay.getRace() == null || charDisplay.getRace().isUnselected())
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Race", "in_irTodoRace", 100));
 		}
@@ -3052,7 +3053,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		final Race pcRace = charDisplay.getRace();
 		final String selAgeCat = ageCat.toString();
 
-		if ((pcRace != null) && !pcRace.equals(Globals.s_EMPTYRACE))
+		if ((pcRace != null) && !pcRace.isUnselected())
 		{
 			if (selAgeCat != null)
 			{

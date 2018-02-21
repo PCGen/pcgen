@@ -13,13 +13,16 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
+import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
 
@@ -178,4 +181,16 @@ public final class BuildUtilities
 		return a;
 	}
 
+	/**
+	 * Build the unselected Race for unit tests.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the Race should be built
+	 */
+	public static void buildUnselectedRace(LoadContext context)
+	{
+		Race r = context.getReferenceContext().constructCDOMObject(Race.class, "Unselected");
+		r.addToListFor(ListKey.GROUP, "UNSELECTED");
+		r.addToListFor(ListKey.TYPE, Type.valueOf("Humanoid"));
+	}
 }

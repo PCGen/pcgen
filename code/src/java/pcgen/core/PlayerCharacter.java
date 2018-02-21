@@ -246,6 +246,7 @@ import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.RaceUtilities;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
@@ -493,7 +494,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// Should temp mods/bonuses be used/saved?
 	private boolean useTempMods = true;
 
-	// null is <none selected>
 	private int costPool = 0;
 	private int currentEquipSetNumber = 0;
 
@@ -594,7 +594,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		//Do BioSet first, since required by Race
 		bioSetFacet.set(id, SettingsHandler.getGame().getBioSet());
 		//Set Race before Stat/Check due to Default object in Pathfinder/RSRD
-		setRace(Globals.s_EMPTYRACE);
+		setRace(RaceUtilities.getUnselectedRace());
 
 		statFacet.addAll(id, refContext.getSortkeySortedCDOMObjects(PCStat.class));
 		checkFacet.addAll(id, refContext.getSortkeySortedCDOMObjects(PCCheck.class));
@@ -3491,7 +3491,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		boolean success;
 		if (newRace == null)
 		{
-			success = raceInputFacet.set(id, Globals.s_EMPTYRACE);
+			success = raceInputFacet.set(id, RaceUtilities.getUnselectedRace());
 		}
 		else
 		{

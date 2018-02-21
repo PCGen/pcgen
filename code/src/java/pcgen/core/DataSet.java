@@ -499,14 +499,13 @@ public class DataSet implements DataSetFacade
 			    return EQUAL;
 		    }
 
-		    final String NONE_SELECTED = "<none selected>";
-			if (r1.getKeyName().equals(NONE_SELECTED)
-				&& !r2.getKeyName().equals(NONE_SELECTED))
+		    boolean unselected1 = r1.isUnselected();
+		    boolean unselected2 = r1.isUnselected();
+			if (unselected1 && !unselected2)
 			{
 				return BEFORE;
 			}
-			if (!r1.getKeyName().equals(NONE_SELECTED)
-				&& r2.getKeyName().equals(NONE_SELECTED))
+			if (!unselected1 && unselected2)
 			{
 				return AFTER;
 			}
