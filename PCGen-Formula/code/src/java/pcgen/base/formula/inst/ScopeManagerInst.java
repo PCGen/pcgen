@@ -19,6 +19,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -69,12 +70,12 @@ public class ScopeManagerInst implements LegalScopeManager
 			throw new IllegalArgumentException(
 				"LegalScope name must not contain a period '.'");
 		}
-		LegalScope parent = scope.getParentScope();
-		if ((parent != null) && !recognizesScope(parent))
+		Optional<LegalScope> parent = scope.getParentScope();
+		if (parent.isPresent() && !recognizesScope(parent.get()))
 		{
 			throw new IllegalArgumentException(
 				"Attempted to register Scope " + scope.getName() + " before parent scope "
-					+ parent.getName() + " was registered");
+					+ parent.get().getName() + " was registered");
 		}
 		String fullName = LegalScope.getFullName(scope);
 		LegalScope current = scopes.get(fullName);
@@ -83,7 +84,10 @@ public class ScopeManagerInst implements LegalScopeManager
 			throw new IllegalArgumentException("A Scope with name fully qualified name "
 				+ fullName + " is already registered");
 		}
-		scopeChildren.addToListFor(parent, scope);
+		if (parent.isPresent())
+		{
+			scopeChildren.addToListFor(parent.get(), scope);
+		}
 		scopes.put(fullName, scope);
 	}
 

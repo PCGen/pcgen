@@ -63,14 +63,14 @@ public class SimpleScopeInstance implements ScopeInstance
 		}
 		if (parent == null)
 		{
-			if (scope.getParentScope() != null)
+			if (scope.getParentScope().isPresent())
 			{
 				throw new IllegalArgumentException(
 					"Incompatible ScopeInstance and LegalScope: "
 						+ "Parent may only be null " + "when LegalScope has no parent");
 			}
 		}
-		else if (scope.getParentScope() == null)
+		else if (!scope.getParentScope().isPresent())
 		{
 			throw new IllegalArgumentException(
 				"Incompatible ScopeInstance and LegalScope: "
@@ -79,11 +79,12 @@ public class SimpleScopeInstance implements ScopeInstance
 		}
 		else
 		{
-			if (!scope.getParentScope().equals(parent.getLegalScope()))
+			LegalScope parentScope = scope.getParentScope().get();
+			if (!parentScope.equals(parent.getLegalScope()))
 			{
-				throw new IllegalArgumentException("Incompatible ScopeInstance ("
-					+ parent.getLegalScope().getName() + ") and LegalScope parent ("
-					+ scope.getParentScope().getName() + ")");
+				throw new IllegalArgumentException(
+					"Incompatible ScopeInstance (" + parent.getLegalScope().getName()
+						+ ") and LegalScope parent (" + parentScope.getName() + ")");
 			}
 		}
 		this.parent = parent;

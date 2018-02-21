@@ -35,7 +35,7 @@ public class SimpleVariableStoreTest extends TestCase
 	{
 		super.setUp();
 		legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global"));
+		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 	}
 
@@ -97,7 +97,7 @@ public class SimpleVariableStoreTest extends TestCase
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid3 = new VariableID(globalInst, numberManager, "test2");
-		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global2"));
+		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
 		VariableID vid4 = new VariableID(globalInst2, numberManager, "test");
 		assertNull(varStore.put(vid1, Integer.valueOf(9)));

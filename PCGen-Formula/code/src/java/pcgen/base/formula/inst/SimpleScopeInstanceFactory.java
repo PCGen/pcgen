@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
@@ -96,7 +97,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	 */
 	private ScopeInstance getGlobalInstance(LegalScope legalScope)
 	{
-		if (legalScope.getParentScope() != null)
+		if (legalScope.getParentScope().isPresent())
 		{
 			throw new IllegalArgumentException(
 				"Cannot build Global Scope for a LegalScope that has a parent");
@@ -134,15 +135,18 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	private ScopeInstance getMessaged(LegalScope instScope, VarScoped current,
 		VarScoped original)
 	{
+		Optional<LegalScope> potentialParentScope = instScope.getParentScope();
+		//null is Global object
 		if (current == null)
 		{
-			if (instScope.getParentScope() == null)
+			//is instScope Global?
+			if (!potentialParentScope.isPresent())
 			{
-				//Is Global
 				return getGlobalInstance(instScope);
 			}
 			if (original == null)
 			{
+				//Started with a global assertion
 				throw new IllegalArgumentException(
 					"Requested ScopeInstance for null (Global) object, "
 						+ "but with LegalScope that was not Global: "
@@ -150,11 +154,11 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 			}
 			else
 			{
+				//Reached, but did not start with, a global assertion
 				throw new IllegalArgumentException(
-					"Requested ScopeInstance for "
-						+ original.getClass().getName() + " "
-						+ original.getKeyName() + " but in an uncompatible "
-						+ "LegalScope: " + instScope.getName());
+					"Requested ScopeInstance for " + original.getClass().getName() + " "
+						+ original.getKeyName() + " and reached a global parent, "
+						+ "but have only reached Scope: " + instScope.getName());
 			}
 		}
 		VarScoped parentObj = current.getVariableParent();
@@ -162,8 +166,8 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 		if (localScopeName == null)
 		{
 			/*
-			 * Some object may not have a local scope, so just get the parent
-			 * and check the local variable scope of the parent.
+			 * Some object may not have a local scope, so fall up: get the parent and
+			 * check the local variable scope of the parent.
 			 */
 			return getMessaged(instScope, parentObj, original);
 		}
@@ -171,9 +175,8 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 		if (!currentScope.equals(instScope))
 		{
 			/*
-			 * We could be in a sub-scope and the LegalScope is really for a
-			 * parent. If the scopes don't match, fall "up" until a matching
-			 * object or failure
+			 * We could be in a sub-scope and the instScope is really for a parent. If the
+			 * scopes don't match, fall "up" until a matching object or failure.
 			 */
 			return getMessaged(instScope, parentObj, original);
 		}
@@ -183,8 +186,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 		{
 			//Need to build the scope...
 			ScopeInstance parentInstance =
-					getMessaged(instScope.getParentScope(), parentObj,
-						parentObj);
+					getMessaged(potentialParentScope.get(), parentObj, original);
 			inst = constructInstance(parentInstance, currentScope, original);
 			objectToInstanceCache.put(current, inst);
 		}

@@ -18,6 +18,7 @@ package pcgen.base.formula.inst;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import pcgen.base.formula.base.LegalScope;
@@ -121,15 +122,16 @@ public class VariableManager implements VariableLibrary
 	 */
 	private boolean hasParentConflict(String varName, LegalScope legalScope)
 	{
-		LegalScope parent = legalScope.getParentScope();
-		while (parent != null)
+		Optional<LegalScope> potentialParent = legalScope.getParentScope();
+		while (potentialParent.isPresent())
 		{
+			LegalScope parent = potentialParent.get();
 			if (variableDefs.containsKey(varName, parent))
 			{
 				//Conflict with a higher level scope
 				return true;
 			}
-			parent = parent.getParentScope();
+			potentialParent = parent.getParentScope();
 		}
 		return false;
 	}
@@ -160,27 +162,29 @@ public class VariableManager implements VariableLibrary
 	@Override
 	public boolean isLegalVariableID(LegalScope legalScope, String varName)
 	{
-		if (variableDefs.containsKey(varName, Objects.requireNonNull(legalScope)))
+		Objects.requireNonNull(legalScope);
+		if (variableDefs.containsKey(varName, legalScope))
 		{
 			return true;
 		}
 		//Recursively check parent
-		LegalScope parent = legalScope.getParentScope();
-		return (parent != null) && isLegalVariableID(parent, varName);
+		Optional<LegalScope> potentialParent = legalScope.getParentScope();
+		return potentialParent.isPresent()
+			&& isLegalVariableID(potentialParent.get(), varName);
 	}
 
 	@Override
 	public FormatManager<?> getVariableFormat(LegalScope legalScope, String varName)
 	{
-		FormatManager<?> format =
-				variableDefs.get(varName, Objects.requireNonNull(legalScope));
+		Objects.requireNonNull(legalScope);
+		FormatManager<?> format = variableDefs.get(varName, legalScope);
 		if (format == null)
 		{
-			LegalScope parent = legalScope.getParentScope();
+			Optional<LegalScope> potentialParent = legalScope.getParentScope();
 			//Recursively check parent, if possible
-			if (parent != null)
+			if (potentialParent.isPresent())
 			{
-				return getVariableFormat(parent, varName);
+				return getVariableFormat(potentialParent.get(), varName);
 			}
 		}
 		return format;

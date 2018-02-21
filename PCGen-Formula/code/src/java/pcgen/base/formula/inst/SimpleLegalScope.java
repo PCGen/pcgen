@@ -18,6 +18,7 @@
 package pcgen.base.formula.inst;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.base.LegalScope;
 
@@ -30,7 +31,7 @@ public class SimpleLegalScope implements LegalScope
 	/**
 	 * The LegalScope that is a parent of this LegalScope.
 	 */
-	private final LegalScope parent;
+	private final Optional<LegalScope> parent;
 
 	/**
 	 * The name of this LegalScope.
@@ -46,9 +47,28 @@ public class SimpleLegalScope implements LegalScope
 	 * @param name
 	 *            The name of this SimpleLegalScope
 	 */
+	public SimpleLegalScope(String name)
+	{
+		this(Optional.empty(), name);
+	}
+
+	/**
+	 * Constructs a new LegalScope with the given parent LegalScope and name.
+	 * 
+	 * @param parentScope
+	 *            The LegalScope that is a parent of this LegalScope. May be
+	 *            null to represent global
+	 * @param name
+	 *            The name of this SimpleLegalScope
+	 */
 	public SimpleLegalScope(LegalScope parentScope, String name)
 	{
-		this.parent = parentScope;
+		this(Optional.of(parentScope), name);
+	}
+
+	private SimpleLegalScope(Optional<LegalScope> parentScope, String name)
+	{
+		this.parent = Objects.requireNonNull(parentScope);
 		this.name = Objects.requireNonNull(name);
 	}
 
@@ -60,7 +80,7 @@ public class SimpleLegalScope implements LegalScope
 	 * @return The LegalScope that serves as a "parent" for this LegalScope
 	 */
 	@Override
-	public LegalScope getParentScope()
+	public Optional<LegalScope> getParentScope()
 	{
 		return parent;
 	}
