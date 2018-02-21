@@ -571,7 +571,7 @@ public final class NPCGenerator
 					break;
 				}
 			}
-			if ( aPC.getRace() == Globals.s_EMPTYRACE )
+			if (aPC.getRace().isUnselected())
 			{
 				Logging.errorPrint("Unable to select race");
 				return;

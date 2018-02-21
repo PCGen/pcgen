@@ -118,9 +118,6 @@ public interface Constants
 	/** The constant string "None". */
 	String NONE = "None"; //$NON-NLS-1$
 
-	/** The constant string {@literal "<none selected>" }. */
-	String NONESELECTED = "<none selected>"; //$NON-NLS-1$
-
 	/** The extension for a campaign file. */
 	String EXTENSION_CAMPAIGN_FILE = ".pcc"; //$NON-NLS-1$
 
