@@ -2,6 +2,7 @@ package pcgen.base.formula.base;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ public class ScopeManagerInstTest extends TestCase
 {
 
 	private ScopeManagerInst legalScopeManager;
-	SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
+	SimpleLegalScope globalScope = new SimpleLegalScope("Global");
 	SimpleLegalScope subScope = new SimpleLegalScope(globalScope, "SubScope");
 	SimpleLegalScope otherScope = new SimpleLegalScope(globalScope, "OtherScope");
 
@@ -189,9 +190,9 @@ public class ScopeManagerInstTest extends TestCase
 	{
 
 		@Override
-		public LegalScope getParentScope()
+		public Optional<LegalScope> getParentScope()
 		{
-			return null;
+			return Optional.empty();
 		}
 
 		@Override

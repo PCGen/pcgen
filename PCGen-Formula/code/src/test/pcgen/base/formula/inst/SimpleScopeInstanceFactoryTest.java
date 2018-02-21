@@ -38,7 +38,7 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 		super.setUp();
 		legalScopeManager = new ScopeManagerInst();
 		factory = new SimpleScopeInstanceFactory(legalScopeManager);
-		SimpleLegalScope scope = new SimpleLegalScope(null, "Global");
+		SimpleLegalScope scope = new SimpleLegalScope("Global");
 		legalScopeManager.registerScope(scope);
 		scopeInst = factory.getGlobalInstance("Global");
 		local = new SimpleLegalScope(scope, "Local");

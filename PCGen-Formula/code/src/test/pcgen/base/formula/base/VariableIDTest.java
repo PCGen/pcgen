@@ -38,7 +38,7 @@ public class VariableIDTest extends TestCase
 	{
 		super.setUp();
 		legalScopeManager = new ScopeManagerInst();
-		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global"));
+		legalScopeManager.registerScope(new SimpleLegalScope("Global"));
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 	}
 
@@ -114,7 +114,7 @@ public class VariableIDTest extends TestCase
 	public void testEquals()
 	{
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global2"));
+		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
@@ -132,7 +132,7 @@ public class VariableIDTest extends TestCase
 	public void testHashCode()
 	{
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		legalScopeManager.registerScope(new SimpleLegalScope(null, "Global2"));
+		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");

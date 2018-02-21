@@ -64,7 +64,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testAssertVariableFail()
 	{
-		LegalScope globalScope = new SimpleLegalScope(null, "Global");
+		LegalScope globalScope = new SimpleLegalScope("Global");
 		try
 		{
 			variableLibrary.assertLegalVariableID(null, globalScope, numberManager);
@@ -136,7 +136,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testAssertVariable()
 	{
-		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
+		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
 		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
 		SimpleLegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
 		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
@@ -217,7 +217,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testIsLegalVIDFail()
 	{
-		LegalScope globalScope = new SimpleLegalScope(null, "Global");
+		LegalScope globalScope = new SimpleLegalScope("Global");
 		legalScopeManager.registerScope(globalScope);
 		variableLibrary.assertLegalVariableID("Walk", globalScope, numberManager);
 		try
@@ -242,7 +242,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testIsLegalVID()
 	{
-		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
+		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
 		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
 		SimpleLegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
 		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
@@ -280,7 +280,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testGetVIDFail()
 	{
-		LegalScope globalScope = new SimpleLegalScope(null, "Global");
+		LegalScope globalScope = new SimpleLegalScope("Global");
 		legalScopeManager.registerScope(globalScope);
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
@@ -370,7 +370,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testGetVID()
 	{
-		LegalScope globalScope = new SimpleLegalScope(null, "Global");
+		LegalScope globalScope = new SimpleLegalScope("Global");
 		legalScopeManager.registerScope(globalScope);
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
@@ -425,7 +425,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testGetVariableFormat()
 	{
-		LegalScope globalScope = new SimpleLegalScope(null, "Global");
+		LegalScope globalScope = new SimpleLegalScope("Global");
 		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
 		legalScopeManager.registerScope(globalScope);
 		legalScopeManager.registerScope(eqScope);
@@ -464,7 +464,7 @@ public class VariableLibraryTest extends TestCase
 	public void testProveReuse()
 	{
 		BooleanManager booleanManager = FormatUtilities.BOOLEAN_MANAGER;
-		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
+		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
 		legalScopeManager.registerScope(globalScope);
 		LegalScope eqScope =
 				new SimpleLegalScope(globalScope, "Equipment");

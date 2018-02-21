@@ -36,7 +36,7 @@ public class SimpleScopeInstanceTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		scope = new SimpleLegalScope(null, "Global");
+		scope = new SimpleLegalScope("Global");
 		scopeInst = new SimpleScopeInstance(null, scope, GLOBAL_VS);
 		local = new SimpleLegalScope(scope, "Local");
 		localInst = new SimpleScopeInstance(scopeInst, local, LOCAL_VS);

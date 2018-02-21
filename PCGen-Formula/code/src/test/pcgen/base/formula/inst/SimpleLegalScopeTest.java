@@ -30,7 +30,7 @@ public class SimpleLegalScopeTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		scope = new SimpleLegalScope(null, "Global");
+		scope = new SimpleLegalScope("Global");
 	}
 
 	@Test
@@ -51,7 +51,8 @@ public class SimpleLegalScopeTest extends TestCase
 	public void testIsValid()
 	{
 		SimpleLegalScope local = new SimpleLegalScope(scope, "Local");
-		assertEquals(scope, local.getParentScope());
+		assertTrue(local.getParentScope().isPresent());
+		assertEquals(scope, local.getParentScope().get());
 		assertEquals("Local", local.getName());
 		assertEquals("Local", local.toString());
 	}

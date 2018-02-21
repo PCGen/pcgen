@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.Optional;
+
 /**
  * LegalScope identifies a scope in which a particular part of a formula
  * (usually a variable) is valid.
@@ -58,7 +60,7 @@ public interface LegalScope
 	 * 
 	 * @return The LegalScope that serves as a "parent" for this LegalScope
 	 */
-	public LegalScope getParentScope();
+	public Optional<LegalScope> getParentScope();
 
 	/**
 	 * Returns the name of this LegalScope.
@@ -78,11 +80,12 @@ public interface LegalScope
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(legalScope.getName());
-		LegalScope current = legalScope;
-		while ((current = current.getParentScope()) != null)
+		Optional<LegalScope> current = legalScope.getParentScope();
+		while (current.isPresent())
 		{
 			sb.insert(0, '.');
-			sb.insert(0, current.getName());
+			sb.insert(0, current.get().getName());
+			current = current.get().getParentScope();
 		}
 		return sb.toString();
 	}
