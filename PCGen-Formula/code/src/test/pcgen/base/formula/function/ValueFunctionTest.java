@@ -20,6 +20,7 @@ package pcgen.base.formula.function;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.parse.SimpleNode;
@@ -36,7 +37,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "value(3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 	}
 
 	@Test
@@ -44,10 +45,10 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "value()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, null);
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager().getWith(EvaluationManager.INPUT, 1);
-		performEvaluation(numberManager, formula, node, Integer.valueOf(1), manager);
+		performEvaluation(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(1), manager);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -63,7 +64,8 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = getManagerFactory().generateFormulaSemantics(
 			getFormulaManager(), getGlobalScope());
-		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT, numberManager);
+		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT,
+			FormatUtilities.NUMBER_MANAGER);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
 		{
@@ -73,7 +75,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 		//end my isValid
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager().getWith(EvaluationManager.INPUT, 1);
-		performEvaluation(numberManager, formula, node, Integer.valueOf(6), manager);
+		performEvaluation(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(6), manager);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));

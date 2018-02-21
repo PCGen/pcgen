@@ -22,6 +22,7 @@ import java.util.Arrays;
 import org.junit.Test;
 
 import pcgen.base.format.ArrayFormatManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -29,7 +30,7 @@ import pcgen.base.util.FormatManager;
 
 public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 {
-	private final FormatManager<Number[]> NAF = new ArrayFormatManager(numberManager, '\n', ',');
+	private final FormatManager<Number[]> NAF = new ArrayFormatManager(FormatUtilities.NUMBER_MANAGER, '\n', ',');
 
 	@Test
 	public void testConstructor()

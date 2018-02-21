@@ -17,6 +17,7 @@ package pcgen.base.solver;
 
 import org.junit.Test;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.DynamicDependency;
 import pcgen.base.formula.base.EvaluationManager;
@@ -165,11 +166,11 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
 		getScopeLibrary().registerScope(limbScope);
 		getVarLibrary().assertLegalVariableID("active", globalScope, limbManager);
-		getVarLibrary().assertLegalVariableID("quantity", limbScope, numberManager);
-		getVarLibrary().assertLegalVariableID("result", globalScope, numberManager);
+		getVarLibrary().assertLegalVariableID("quantity", limbScope, FormatUtilities.NUMBER_MANAGER);
+		getVarLibrary().assertLegalVariableID("result", globalScope, FormatUtilities.NUMBER_MANAGER);
 
 		ComplexNEPFormula<Number> dynamicformula =
-				new ComplexNEPFormula<Number>("dynamic(active, quantity)", numberManager);
+				new ComplexNEPFormula<Number>("dynamic(active, quantity)", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
 
 		VariableID<Limb> active = (VariableID<Limb>) getVarLibrary()
@@ -218,7 +219,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	public void testTrivial()
 	{
 		getVariableLibrary().assertLegalVariableID("Limbs", getGlobalScope(),
-			numberManager);
+			FormatUtilities.NUMBER_MANAGER);
 		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Limbs");
 		manager.solveChildren(limbs);
@@ -392,8 +393,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
 		getScopeLibrary().registerScope(limbScope);
 
-		getVarLibrary().assertLegalVariableID("LocalVar", limbScope, numberManager);
-		getVarLibrary().assertLegalVariableID("ResultVar", globalScope, numberManager);
+		getVarLibrary().assertLegalVariableID("LocalVar", limbScope, FormatUtilities.NUMBER_MANAGER);
+		getVarLibrary().assertLegalVariableID("ResultVar", globalScope, FormatUtilities.NUMBER_MANAGER);
 		getVarLibrary().assertLegalVariableID("EquipVar", globalScope, limbManager);
 
 		WriteableVariableStore store = getVariableStore();
@@ -429,7 +430,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		getFunctionLibrary().addFunction(new Dynamic());
 		ComplexNEPFormula<Number> dynamicformula =
-				new ComplexNEPFormula<Number>("dynamic(equipVar, localVar)", numberManager);
+				new ComplexNEPFormula<Number>("dynamic(equipVar, localVar)", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
 
 		manager.addModifier(resultID, dynamicMod, source);
