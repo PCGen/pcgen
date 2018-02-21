@@ -18,7 +18,6 @@
 package pcgen.core.npcgen;
 
 import pcgen.base.util.WeightedCollection;
-import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Race;
 import pcgen.util.Logging;
@@ -57,7 +56,7 @@ public class RaceGeneratorOption extends GeneratorOption
 		{
 			for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
 			{
-				if (race.isType(aValue.substring(5)) && !race.getDisplayName().equals(Constants.NONESELECTED))
+				if (race.isType(aValue.substring(5)) && !race.isUnselected())
 				{
 					theChoices.add(race, aWeight);
 				}

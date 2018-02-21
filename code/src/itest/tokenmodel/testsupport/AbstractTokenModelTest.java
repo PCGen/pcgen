@@ -224,11 +224,11 @@ public abstract class AbstractTokenModelTest extends TestCase
 		templateConsolidationFacet = FacetLibrary.getFacet(TemplateFacet.class);
 		weaponProfModelFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
 
-		Globals.createEmptyRace();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.clearLoadContext();
+		BuildUtilities.buildUnselectedRace(Globals.getContext());
 
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),

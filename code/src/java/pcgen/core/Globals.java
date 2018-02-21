@@ -35,15 +35,14 @@ import java.util.stream.Collectors;
 import javax.swing.JFrame;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.content.CNAbilityFactory;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.util.SortKeyComparator;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
@@ -70,8 +69,6 @@ public final class Globals
 {
 	/** These are changed during normal operation */
 	private static final List<PlayerCharacter> pcList = new ArrayList<>();
-	/** Race, a s_EMPTYRACE */
-	public static Race s_EMPTYRACE;
 
 	/** NOTE: The defaultPath is duplicated in LstSystemLoader. */
 	private static final String defaultPcgPath = getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
@@ -765,13 +762,14 @@ public final class Globals
 
 		// Clear Maps (not strictly necessary, but done for consistency)
 		VisionType.clearConstants();
+		FactKey.clearConstants();
+		FactSetKey.clearConstants();
 
 		// Perform other special cleanup
 		Equipment.clearEquipmentTypes();
 		SettingsHandler.getGame().clearLoadContext();
 
 		RaceType.clearConstants();
-		createEmptyRace();
 		CNAbilityFactory.reset();
 	}
 
@@ -1277,18 +1275,6 @@ public final class Globals
 		}
 
 		return num;
-	}
-
-	public static void createEmptyRace()
-	{
-		if (s_EMPTYRACE == null)
-		{
-			s_EMPTYRACE = new Race();
-			s_EMPTYRACE.setName(Constants.NONESELECTED);
-			s_EMPTYRACE.addToListFor(ListKey.TYPE, Type.HUMANOID);
-		}
-
-		getContext().getReferenceContext().importObject(s_EMPTYRACE);
 	}
 
 	private static String expandRelativePath(String path)

@@ -156,6 +156,7 @@ abstract public class AbstractJunit4CharacterTestCase
 		SettingsHandler.setGame("3.5");
 
 		LoadContext context = Globals.getContext();
+		BuildUtilities.buildUnselectedRace(context);
 		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
