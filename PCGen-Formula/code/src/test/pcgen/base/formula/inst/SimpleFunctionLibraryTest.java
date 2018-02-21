@@ -66,7 +66,7 @@ public class SimpleFunctionLibraryTest extends TestCase
 			library.addFunction(f);
 			fail("Expected function with null name to be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep
 		}

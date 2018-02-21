@@ -106,7 +106,7 @@ public class VariableLibraryTest extends TestCase
 			variableLibrary.assertLegalVariableID("Walk", globalScope, null);
 			fail("null FormatManager must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -115,7 +115,7 @@ public class VariableLibraryTest extends TestCase
 			variableLibrary.assertLegalVariableID("Walk", null, numberManager);
 			fail("null scope must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -124,7 +124,7 @@ public class VariableLibraryTest extends TestCase
 		{
 			assertFalse(variableLibrary.isLegalVariableID(globalScope, null));
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -341,7 +341,7 @@ public class VariableLibraryTest extends TestCase
 			variableLibrary.getVariableID(globalInst, "Walk");
 			fail("undefined name must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//undefined, ok
 		}
@@ -350,7 +350,7 @@ public class VariableLibraryTest extends TestCase
 			variableLibrary.getVariableID(eqInst, "Walk");
 			fail("undefined name must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//undefined, ok
 		}
@@ -360,7 +360,7 @@ public class VariableLibraryTest extends TestCase
 			variableLibrary.getVariableID(eqInst, "Float");
 			fail("undefined name (unrelated scope) must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//undefined, ok
 		}

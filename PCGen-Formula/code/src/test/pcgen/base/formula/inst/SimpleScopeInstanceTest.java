@@ -100,7 +100,7 @@ public class SimpleScopeInstanceTest extends TestCase
 			new SimpleScopeInstance(globalInst, null, new GlobalVarScoped("Ignored"));
 			fail("LegalScope cannot be null");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}

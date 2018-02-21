@@ -118,7 +118,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			getManager().addModifier(null, modifier, source);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -127,7 +127,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			getManager().addModifier(hp, null, source);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -136,7 +136,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			getManager().addModifier(hp, modifier, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -301,7 +301,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			getManager().removeModifier(null, modifier, source);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -310,7 +310,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			getManager().removeModifier(hp, null, source);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -319,7 +319,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			getManager().removeModifier(hp, modifier, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
