@@ -59,11 +59,7 @@ public class ScopeManagerInst implements LegalScopeManager
 	public void registerScope(LegalScope scope)
 	{
 		String name = scope.getName();
-		//TODO Barf if parent wasn't registered?
-		if (name == null)
-		{
-			throw new IllegalArgumentException("LegalScope must have a name");
-		}
+		Objects.requireNonNull(name, "LegalScope must have a name");
 		if (name.indexOf('.') != -1)
 		{
 			throw new IllegalArgumentException(

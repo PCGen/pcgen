@@ -147,18 +147,9 @@ public class AggressiveSolverManager implements SolverManager
 	public <T> boolean addModifierAndSolve(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		if (varID == null)
-		{
-			throw new IllegalArgumentException("VariableID cannot be null");
-		}
-		if (modifier == null)
-		{
-			throw new IllegalArgumentException("Modifier cannot be null");
-		}
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Source cannot be null");
-		}
+		Objects.requireNonNull(varID);
+		Objects.requireNonNull(modifier);
+		Objects.requireNonNull(source);
 
 		if (!formulaManager.getFactory()
 			.isLegalVariableID(varID.getScope().getLegalScope(), varID.getName()))
@@ -228,18 +219,9 @@ public class AggressiveSolverManager implements SolverManager
 	public <T> void removeModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		if (varID == null)
-		{
-			throw new IllegalArgumentException("VariableID cannot be null");
-		}
-		if (modifier == null)
-		{
-			throw new IllegalArgumentException("Modifier cannot be null");
-		}
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Source cannot be null");
-		}
+		Objects.requireNonNull(varID);
+		Objects.requireNonNull(modifier);
+		Objects.requireNonNull(source);
 		//Note: This cast is enforced by the solver during addModifier
 		@SuppressWarnings("unchecked")
 		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);

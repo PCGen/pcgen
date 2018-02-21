@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.inst;
 
+import java.util.Objects;
+
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -57,11 +59,7 @@ public class SimpleFunctionLibrary implements FunctionLibrary
 	public void addFunction(Function function)
 	{
 		String functionName = function.getFunctionName();
-		if (functionName == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot add Function with null name");
-		}
+		Objects.requireNonNull(functionName, "Cannot add Function with null name");
 		if (parenMap.containsKey(functionName))
 		{
 			throw new IllegalArgumentException(
