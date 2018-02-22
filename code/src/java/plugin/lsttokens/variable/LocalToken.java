@@ -95,6 +95,10 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " due to " + e.getMessage());
 		}
 		LegalScope lvs = varContext.getScope(fullscope);
+		if (lvs == null)
+		{
+			return new ParseResult.Fail("Could not find scope: " + fullscope);
+		}
 
 		if (!DatasetVariable.isLegalName(varName))
 		{

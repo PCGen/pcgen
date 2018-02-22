@@ -70,7 +70,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		LegalScopeUtilities.loadLegalScopeLibrary(setup.getLegalScopeManager());
 		localSetup = new IndividualSetup(setup, new MonitorableVariableStore());
 		globalInst = localSetup.getInstanceFactory().get(GlobalScope.GLOBAL_SCOPE_NAME,
-			new GlobalVarScoped("Global"));
+			new GlobalVarScoped(GlobalScope.GLOBAL_SCOPE_NAME));
 		setup.getSolverFactory().addSolverFormat(Number.class, new Modifier()
 		{
 

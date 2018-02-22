@@ -47,6 +47,7 @@ import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.MonitorableVariableStore;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.PCGenManagerFactory;
@@ -76,7 +77,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		setup.getSolverFactory().addSolverFormat(Number.class, getDMod(0, numberManager));
 		setup.getSolverFactory().addSolverFormat(String.class, getDMod("", stringManager));
 		localSetup = new IndividualSetup(setup, new MonitorableVariableStore());
-		globalInst = localSetup.getInstanceFactory().getGlobalInstance("Global");
+		globalInst = localSetup.getInstanceFactory().getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 	}
 
 	public void isValid(String formula, SimpleNode node,
