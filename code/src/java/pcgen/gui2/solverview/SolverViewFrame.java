@@ -49,6 +49,7 @@ import pcgen.cdom.facet.FormulaSetupFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableLibraryFacet;
+import pcgen.cdom.facet.model.VarScopedFacet;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JComboBoxEx;
@@ -66,6 +67,8 @@ public class SolverViewFrame extends JFrame
 		.getFacet(SolverManagerFacet.class);
 	private static final FormulaSetupFacet formulaSetupFacet = FacetLibrary
 		.getFacet(FormulaSetupFacet.class);
+	private static final VarScopedFacet varScopedFacet =
+			FacetLibrary.getFacet(VarScopedFacet.class);
 
 	private final JComboBoxEx scopeChooser;
 	private LegalScope selectedScope;
@@ -114,7 +117,7 @@ public class SolverViewFrame extends JFrame
 	private void update()
 	{
 		updateObjects();
-		if ((activeObject == null) && (selectedScope.getParentScope() != null))
+		if ((activeObject == null) && (selectedScope.getParentScope().isPresent()))
 		{
 			//scopeFacet will error if we continue...
 			tableModel.setSteps(Collections.emptyList());
@@ -223,7 +226,7 @@ public class SolverViewFrame extends JFrame
 			activeIdentifier = ((PCRef) item).id;
 			SplitFormulaSetup formulaSetup =
 					formulaSetupFacet.get(activeIdentifier.getDatasetID());
-			for (LegalScope lvs : formulaSetup.getLegalScopeLibrary().getLegalScopes())
+			for (LegalScope lvs : formulaSetup.getLegalScopeManager().getLegalScopes())
 			{
 				scopeChooser.addItem(new LegalScopeWrapper(lvs));
 			}
@@ -236,8 +239,7 @@ public class SolverViewFrame extends JFrame
 	{
 		if (activeIdentifier != null)
 		{
-			Collection<VarScoped> objects =
-					scopeFacet.getObjectsWithVariables(activeIdentifier);
+			Collection<VarScoped> objects = varScopedFacet.getSet(activeIdentifier);
 			objectChooser.removeAllItems();
 			String scopeName = selectedScope.getName();
 			for (VarScoped cdo : objects)

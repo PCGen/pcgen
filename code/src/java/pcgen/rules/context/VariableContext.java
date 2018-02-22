@@ -19,7 +19,6 @@ package pcgen.rules.context;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.Function;
@@ -32,7 +31,6 @@ import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.PluginFunctionLibrary;
-import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.rules.persistence.MasterModifierFactory;
 import pcgen.util.Logging;
@@ -57,7 +55,7 @@ public class VariableContext
 			formulaSetup.getFunctionLibrary().addFunction(f);
 		}
 		LegalScopeUtilities.loadLegalScopeLibrary(formulaSetup
-			.getLegalScopeLibrary());
+			.getLegalScopeManager());
 	}
 
 	/*
@@ -68,8 +66,7 @@ public class VariableContext
 	{
 		if (dummySetup == null)
 		{
-			dummySetup = new IndividualSetup(formulaSetup, GlobalScope.GLOBAL_SCOPE_NAME,
-				new SimpleVariableStore());
+			dummySetup = new IndividualSetup(formulaSetup, new SimpleVariableStore());
 		}
 		return dummySetup;
 	}
@@ -97,16 +94,11 @@ public class VariableContext
 			varScope, formatManager);
 	}
 
-	public Set<LegalScope> getKnownLegalScopes(String varName)
-	{
-		return formulaSetup.getVariableLibrary().getKnownLegalScopes(varName);
-	}
-
-	public boolean assertLegalVariableID(LegalScope varScope,
+	public void assertLegalVariableID(LegalScope varScope,
 		FormatManager<?> formatManager, String varName)
 	{
-		return formulaSetup.getVariableLibrary().assertLegalVariableID(varName,
-			varScope, formatManager);
+		formulaSetup.getVariableLibrary().assertLegalVariableID(varName, varScope,
+			formatManager);
 	}
 
 	public boolean isLegalVariableID(LegalScope varScope, String varName)
@@ -134,7 +126,7 @@ public class VariableContext
 
 	public LegalScope getScope(String name)
 	{
-		return formulaSetup.getLegalScopeLibrary().getScope(name);
+		return formulaSetup.getLegalScopeManager().getScope(name);
 	}
 
 	/**

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.inst;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.LegalScope;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.helper.SpringHelper;
@@ -39,6 +41,9 @@ import pcgen.cdom.helper.SpringHelper;
 public final class DynamicCategory extends AbstractCategory<Dynamic> implements
 		LegalScope
 {
+	private final Optional<LegalScope> parentScope =
+			Optional.of(SpringHelper.getBean(GlobalScope.class));
+
 	@Override
 	public Class<Dynamic> getReferenceClass()
 	{
@@ -52,9 +57,9 @@ public final class DynamicCategory extends AbstractCategory<Dynamic> implements
 	}
 
 	@Override
-	public LegalScope getParentScope()
+	public Optional<LegalScope> getParentScope()
 	{
-		return SpringHelper.getBean(GlobalScope.class);
+		return parentScope;
 	}
 
 	@Override

@@ -40,17 +40,18 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
+import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleFormulaManager;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
+import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
+import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.testsupport.TrackingVariableCache;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
@@ -72,8 +73,8 @@ public class SetSolverManagerTest
 	private final LegalScope globalScope =
 			new SimpleLegalScope(null, GlobalScope.GLOBAL_SCOPE_NAME);
 	private TrackingVariableCache vc;
-	private LegalScopeLibrary vsLib;
-	private VariableLibrary sl;
+	private ScopeManagerInst vsLib;
+	private VariableManager sl;
 	private FormulaManager fm;
 	private DynamicSolverManager manager;
 	private final FormatManager<Number> numberManager = new NumberManager();
@@ -91,21 +92,21 @@ public class SetSolverManagerTest
 		fl.addFunction(new DropIntoContext());
 		OperatorLibrary ol = new SimpleOperatorLibrary();
 		vc = new TrackingVariableCache();
-		vsLib = new LegalScopeLibrary();
+		vsLib = new ScopeManagerInst();
 		EquipmentScope equipScope = new EquipmentScope();
 		equipScope.setParent(globalScope);
 		vsLib.registerScope(equipScope);
 		SkillScope skillScope = new SkillScope();
 		skillScope.setParent(globalScope);
 		vsLib.registerScope(skillScope);
-		sl = new VariableLibrary(vsLib);
+		sl = new VariableManager(vsLib);
 		arrayManager = new ArrayFormatManager<>(stringManager, '\n', ',');
 		context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		skillManager = context.getReferenceContext().getManufacturer(Skill.class);
 		managerFactory = new MyManagerFactory(context);
-		siFactory = new ScopeInstanceFactory(vsLib);
+		siFactory = new SimpleScopeInstanceFactory(vsLib);
 		fm = new SimpleFormulaManager(ol, sl, siFactory, vc, new SolverFactory());
 		fm = fm.getWith(FormulaManager.FUNCTION, fl);
 		SolverFactory solverFactory = new SolverFactory();

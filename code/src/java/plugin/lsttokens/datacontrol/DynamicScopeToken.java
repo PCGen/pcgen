@@ -47,7 +47,7 @@ public class DynamicScopeToken extends AbstractNonEmptyToken<DynamicCategory>
 				+ " is not a valid scope name in " + getTokenName());
 		}
 		obj.setName(value);
-		context.getVariableContext().getFormulaSetup().getLegalScopeLibrary()
+		context.getVariableContext().getFormulaSetup().getLegalScopeManager()
 			.registerScope(obj);
 		return ParseResult.SUCCESS;
 	}

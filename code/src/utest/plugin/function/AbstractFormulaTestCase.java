@@ -30,10 +30,11 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
+import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -59,15 +60,17 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
+	private ScopeInstance globalInst;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 		setup = new SplitFormulaSetup();
-		LegalScopeUtilities.loadLegalScopeLibrary(setup.getLegalScopeLibrary());
-		localSetup = new IndividualSetup(setup, GlobalScope.GLOBAL_SCOPE_NAME,
-			new MonitorableVariableStore());
+		LegalScopeUtilities.loadLegalScopeLibrary(setup.getLegalScopeManager());
+		localSetup = new IndividualSetup(setup, new MonitorableVariableStore());
+		globalInst = localSetup.getInstanceFactory().get(GlobalScope.GLOBAL_SCOPE_NAME,
+			new GlobalVarScoped("Global"));
 		setup.getSolverFactory().addSolverFormat(Number.class, new Modifier()
 		{
 
@@ -224,7 +227,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		return new EvaluationManager()
 			.getWith(EvaluationManager.FMANAGER, localSetup.getFormulaManager())
-			.getWith(EvaluationManager.INSTANCE, localSetup.getGlobalScopeInst())
+			.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst())
 			.getWith(EvaluationManager.ASSERTED, FormatUtilities.NUMBER_MANAGER)
 			.getWith(ManagerKey.CONTEXT, context);
 	}
@@ -264,19 +267,19 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		VariableLibrary variableLibrary = getVariableLibrary();
 		variableLibrary.assertLegalVariableID(formula,
-			localSetup.getGlobalScopeInst().getLegalScope(), numberManager);
+			getGlobalScopeInst().getLegalScope(), numberManager);
 		return (VariableID<Number>) variableLibrary
-			.getVariableID(localSetup.getGlobalScopeInst(), formula);
+			.getVariableID(getGlobalScopeInst(), formula);
 	}
 
 	protected VariableID<Boolean> getBooleanVariable(String formula)
 	{
 		VariableLibrary variableLibrary = getVariableLibrary();
 		variableLibrary.assertLegalVariableID(formula,
-			localSetup.getGlobalScopeInst().getLegalScope(),
+			getGlobalScopeInst().getLegalScope(),
 			FormatUtilities.BOOLEAN_MANAGER);
 		return (VariableID<Boolean>) variableLibrary
-			.getVariableID(localSetup.getGlobalScopeInst(), formula);
+			.getVariableID(getGlobalScopeInst(), formula);
 	}
 
 	protected FunctionLibrary getFunctionLibrary()
@@ -302,12 +305,12 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected LegalScope getGlobalScope()
 	{
-		return localSetup.getGlobalScopeInst().getLegalScope();
+		return getGlobalScopeInst().getLegalScope();
 	}
 
 	protected ScopeInstance getGlobalScopeInst()
 	{
-		return localSetup.getGlobalScopeInst();
+		return globalInst;
 	}
 
 	protected FormulaManager getFormulaManager()
@@ -317,7 +320,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected LegalScopeLibrary getScopeLibrary()
 	{
-		return setup.getLegalScopeLibrary();
+		return setup.getLegalScopeManager();
 	}
 
 	protected ScopeInstanceFactory getInstanceFactory()

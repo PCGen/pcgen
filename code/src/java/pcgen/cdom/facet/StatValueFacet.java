@@ -21,8 +21,8 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractScopeFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;

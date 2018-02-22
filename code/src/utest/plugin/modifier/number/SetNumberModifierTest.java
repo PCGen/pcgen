@@ -214,9 +214,8 @@ public class SetNumberModifierTest
 	{
 		SplitFormulaSetup setup = new SplitFormulaSetup();
 		setup.loadBuiltIns();
-		setup.getLegalScopeLibrary().registerScope(varScope);
-		IndividualSetup iSetup = new IndividualSetup(setup, GlobalScope.GLOBAL_SCOPE_NAME,
-			new SimpleVariableStore());
+		setup.getLegalScopeManager().registerScope(varScope);
+		IndividualSetup iSetup = new IndividualSetup(setup, new SimpleVariableStore());
 		SetModifierFactory factory = new SetModifierFactory();
 		FormulaModifier<Number> modifier =
 				factory.getModifier("6+5", new ManagerFactory(){}, iSetup.getFormulaManager(), varScope, numManager);

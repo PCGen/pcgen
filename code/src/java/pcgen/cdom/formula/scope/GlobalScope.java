@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.formula.scope;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.LegalScope;
 
 /**
@@ -44,8 +46,8 @@ public class GlobalScope implements LegalScope
 	 * @see pcgen.base.formula.base.LegalScope#getParentScope()
 	 */
 	@Override
-	public LegalScope getParentScope()
+	public Optional<LegalScope> getParentScope()
 	{
-		return null;
+		return Optional.empty();
 	}
 }

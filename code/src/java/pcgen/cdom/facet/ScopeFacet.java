@@ -17,11 +17,9 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.Collection;
-
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.formula.scope.GlobalScope;
@@ -84,22 +82,5 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 			localName = active.getLocalScopeName();
 		}
 		return get(id, localName, vs);
-	}
-
-	/**
-	 * Returns a Collection of VarScoped objects indicating the objects on which
-	 * there are variables for the PlayerCharacter represented by the given
-	 * CharID.
-	 * 
-	 * @param id
-	 *            The CharID representing the PlayerCharacter within which the
-	 *            VarScoped objects that have variables should be identified
-	 * @return A Collection of VarScoped objects indicating the objects on which
-	 *         there are variables for the PlayerCharacter represented by the
-	 *         given CharID
-	 */
-	public Collection<VarScoped> getObjectsWithVariables(CharID id)
-	{
-		return get(id).getInstancedObjects();
 	}
 }

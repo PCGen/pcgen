@@ -20,8 +20,8 @@ package plugin.function;
 import org.junit.Test;
 
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.solver.AggressiveSolverManager;
