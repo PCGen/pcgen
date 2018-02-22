@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -47,6 +47,7 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.helper.InfoBoolean;
 import pcgen.cdom.util.FactSetKeyMapToList;
 import pcgen.cdom.util.ListKeyMapToList;
@@ -58,7 +59,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable, BonusContainer, Loadable, Reducible, VarScoped, VarHolder
+		Cloneable, BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder
 {
 
 	/**
@@ -1315,4 +1316,53 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	/*
 	 * End implementation of methods supporting VarHolder.
 	 */
+
+	/**
+	 * Returns the local child of the given child type and child name. Returns null if no
+	 * such type or no child of that type with the given name exists.
+	 * 
+	 * @param childType
+	 *            The child type for which the child should be returned
+	 * @param childName
+	 *            The name of the child of the given type that should be returned
+	 * @return The local child of the given child type and child name
+	 */
+	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
+	public PCGenScoped getLocalChild(String childType, String childName)
+	{
+		//none by default
+		return null;
+	}
+
+	/**
+	 * Returns the List of child types that this CDOMObject contains.
+	 * 
+	 * Contract for implementations of this method: Will not return null (return an empty
+	 * list instead).
+	 * 
+	 * @return The List of child types that this CDOMObject contains
+	 */
+	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
+	public List<String> getChildTypes()
+	{
+		return Collections.emptyList();
+	}
+
+	/**
+	 * Returns the List of children of the given child type. Returns null if this
+	 * CDOMObject has no children of the given type.
+	 * 
+	 * @param childType
+	 *            The child type for which the list of children should be returned
+	 * @return The List of children of the given child type
+	 */
+	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
+	public List<PCGenScoped> getChildren(String childType)
+	{
+		//none by default
+		return null;
+	}
 }

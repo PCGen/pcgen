@@ -87,12 +87,6 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	}
 
 	@Override
-	public boolean containsObject(Object o)
-	{
-		return rm.containsObject(o);
-	}
-
-	@Override
 	public boolean forgetObject(T o)
 	{
 		return rm.forgetObject(o);

@@ -33,8 +33,10 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.grouping.GroupingDefinition;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.LstToken;
@@ -70,6 +72,12 @@ public final class TokenLibrary implements PluginLoader
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken<?>>> QUALIFIER_MAP =
             new DoubleKeyMap<>();
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends PrimitiveToken<?>>> PRIMITIVE_MAP =
+            new DoubleKeyMap<>();
+	
+	/**
+	 * Contains legal GroupingDefinition objects loaded from plugins
+	 */
+	private static final DoubleKeyMap<Class<?>, String, GroupingDefinition<?>> GROUPING_MAP =
             new DoubleKeyMap<>();
 	private static final DoubleKeyMap<Class<?>, String, ModifierFactory<?>> modifierMap =
             new DoubleKeyMap<>();
@@ -116,6 +124,29 @@ public final class TokenLibrary implements PluginLoader
 		if (it.hasNext())
 		{
 			return it.next();
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the GroupingDefinition available with the given Format and grouping key.
+	 * 
+	 * @return The GroupingDefinition available with the given Format and grouping key.
+	 */
+	public static <T extends Loadable> GroupingDefinition<T> getGrouping(
+		ClassIdentity<T> classIdentity, String tokenKey)
+	{
+		boolean isDirect = true;
+		Class<?> actingClass = classIdentity.getReferenceClass();
+		while (actingClass != null)
+		{
+			GroupingDefinition token = GROUPING_MAP.get(actingClass, tokenKey);
+			if ((token != null) && (token.requiresDirect() == isDirect))
+			{
+				return token;
+			}
+			actingClass = actingClass.getSuperclass();
+			isDirect = false;
 		}
 		return null;
 	}
@@ -183,11 +214,35 @@ public final class TokenLibrary implements PluginLoader
 		}
 	}
 
-	public static void addToQualifierMap(QualifierToken<?> p)
+	/**
+	 * Adds a new GroupingDefinition to this TokenLibrary.
+	 * 
+	 * @param definition
+	 *            The GroupingDefinition to be added to this TokenLibrary
+	 */
+	public static void addToGroupingMap(GroupingDefinition<?> definition)
 	{
-		Class newTokClass = p.getClass();
-		Class<?> cl = p.getReferenceClass();
-		String name = p.getTokenName();
+		String name = definition.getIdentification();
+		Class<?> classScope = definition.getUsableLocation();
+		GroupingDefinition<?> prev = GROUPING_MAP.put(classScope, name, definition);
+		if (prev != null)
+		{
+			Logging.errorPrint(
+				"Found a second " + name + " Grouping for " + classScope.getSimpleName());
+		}
+	}
+
+	/**
+	 * Adds a new QualifierToken to this TokenLibrary.
+	 * 
+	 * @param token
+	 *            The QualifierToken to be added to this TokenLibrary
+	 */
+	public static void addToQualifierMap(QualifierToken<?> token)
+	{
+		Class newTokClass = token.getClass();
+		Class<?> cl = token.getReferenceClass();
+		String name = token.getTokenName();
 		Class<? extends QualifierToken> prev = QUALIFIER_MAP.put(cl, name, newTokClass);
 		if (prev != null)
 		{
@@ -362,6 +417,10 @@ public final class TokenLibrary implements PluginLoader
 		{
 			addToPrimitiveMap((PrimitiveToken<?>) token);
 		}
+		if (GroupingDefinition.class.isAssignableFrom(clazz))
+		{
+			addToGroupingMap((GroupingDefinition<?>) token);
+		}
 		if (ModifierFactory.class.isAssignableFrom(clazz))
 		{
 			addToModifierMap((ModifierFactory<?>) token);
@@ -376,7 +435,8 @@ public final class TokenLibrary implements PluginLoader
 					LstToken.class,
 					BonusObj.class,
 					PrerequisiteParserInterface.class,
-					ModifierFactory.class
+					ModifierFactory.class,
+					GroupingDefinition.class
 				};
 	}
 
