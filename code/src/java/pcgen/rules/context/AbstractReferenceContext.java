@@ -173,7 +173,8 @@ public abstract class AbstractReferenceContext
 		T obj;
 		if (CATEGORIZED_CLASS.isAssignableFrom(c))
 		{
-			throw new UnsupportedOperationException("Categorized can't be built directly with null category");
+			throw new UnsupportedOperationException(
+				"Categorized can't be built directly with null category");
 		}
 		else
 		{

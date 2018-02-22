@@ -97,7 +97,8 @@ public class FavClassConvertPlugin extends AbstractToken implements
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.getReferenceContext().getManufacturerId(scc).getReference(subclass);
+					ref = context.getReferenceContext().getManufacturerId(scc)
+						.getReference(subclass);
 				}
 			}
 			refList.add(ref);
