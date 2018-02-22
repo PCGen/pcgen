@@ -59,15 +59,14 @@ import pcgen.system.LanguageBundle;
 public class SolverViewFrame extends JFrame
 {
 
-	private static final ScopeFacet scopeFacet = FacetLibrary
-		.getFacet(ScopeFacet.class);
-	private static final VariableLibraryFacet variableLibraryFacet =
+	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
+	private final VariableLibraryFacet variableLibraryFacet =
 			FacetLibrary.getFacet(VariableLibraryFacet.class);
-	private static final SolverManagerFacet solverManagerFacet = FacetLibrary
-		.getFacet(SolverManagerFacet.class);
-	private static final FormulaSetupFacet formulaSetupFacet = FacetLibrary
-		.getFacet(FormulaSetupFacet.class);
-	private static final VarScopedFacet varScopedFacet =
+	private final SolverManagerFacet solverManagerFacet =
+			FacetLibrary.getFacet(SolverManagerFacet.class);
+	private final FormulaSetupFacet formulaSetupFacet =
+			FacetLibrary.getFacet(FormulaSetupFacet.class);
+	private final VarScopedFacet varScopedFacet =
 			FacetLibrary.getFacet(VarScopedFacet.class);
 
 	private final JComboBoxEx scopeChooser;

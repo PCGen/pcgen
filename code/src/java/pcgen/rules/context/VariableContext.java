@@ -24,6 +24,7 @@ import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.Modifier;
@@ -94,6 +95,24 @@ public class VariableContext
 			varScope, formatManager);
 	}
 
+	/**
+	 * Asserts the given variable name is valid within the given LegalScope. It will be
+	 * managed by the given FormatManager.
+	 * 
+	 * @param varScope
+	 *            The asserted LegalScope for the given variable name
+	 * @param formatManager
+	 *            The FormatManager for the given variable
+	 * @param varName
+	 *            The variable name for which the given FormatManager and LegalScope is
+	 *            being asserted as valid
+	 * @throws IllegalArgumentException
+	 *             if any argument is null of if the variable name is otherwise illegal
+	 *             (is empty or starts/ends with whitespace)
+	 * @throws LegalVariableException
+	 *             if a variable of that name exists in a conflicting scope or in the same
+	 *             scope with a different format
+	 */
 	public void assertLegalVariableID(LegalScope varScope,
 		FormatManager<?> formatManager, String varName)
 	{
