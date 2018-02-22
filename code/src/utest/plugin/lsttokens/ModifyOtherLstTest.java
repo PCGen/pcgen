@@ -26,9 +26,11 @@ import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.VarHolder;
 import pcgen.core.Campaign;
 import pcgen.core.PCTemplate;
+import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
+import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -46,6 +48,9 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 		super.setUp();
 		TokenRegistration.register(new plugin.modifier.number.AddModifierFactory());
 		TokenRegistration.register(new plugin.modifier.number.MultiplyModifierFactory());
+		TokenLibrary.addToGroupingMap(new plugin.grouping.KeyGroupingToken<>());
+		TokenLibrary.addToGroupingMap(new plugin.grouping.GroupGroupingToken<>());
+		TokenLibrary.addToGroupingMap(new plugin.grouping.AllGroupingToken<>());
 	}
 
 	@Override
@@ -269,5 +274,6 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 		LegalScope scope = context.getActiveScope();
 		context.getVariableContext().assertLegalVariableID("MyVar", scope, formatManager);
 		context.getVariableContext().assertLegalVariableID("OtherVar", scope, formatManager);
+		context.getReferenceContext().constructCDOMObject(Skill.class, "Dummy");
 	}
 }

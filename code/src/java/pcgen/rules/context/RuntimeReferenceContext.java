@@ -198,8 +198,14 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
 		String formatName, Class<T> refClass)
 	{
-		Objects.requireNonNull(formatName);
 		Objects.requireNonNull(refClass);
+		return (ReferenceManufacturer<T>) getManufacturerByFormatName(formatName);
+	}
+
+	@Override
+	public ReferenceManufacturer<?> getManufacturerByFormatName(String formatName)
+	{
+		Objects.requireNonNull(formatName);
 		ClassIdentity<?> identity = nameMap.get(formatName);
 		if (identity == null)
 		{
@@ -215,6 +221,6 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 			 */
 			return null;
 		}
-		return (ReferenceManufacturer<T>) map.get(identity);
+		return map.get(identity);
 	}
 }

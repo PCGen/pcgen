@@ -28,6 +28,9 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.grouping.GroupingCollection;
+import pcgen.cdom.grouping.GroupingDefinition;
+import pcgen.cdom.grouping.GroupingInfo;
 import pcgen.cdom.primitive.CompoundAndPrimitive;
 import pcgen.cdom.primitive.CompoundOrPrimitive;
 import pcgen.cdom.primitive.NegatingPrimitive;
@@ -478,6 +481,35 @@ public final class ChoiceSetLoadUtilities
 					"Failed in parsing typeStr: " + key);
 		}
 		return null;
+	}
+
+	/**
+	 * Returns a GroupingCollection based on the given GroupingInfo interpreted within the
+	 * given LoadContext.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the given GroupingInfo will be interpreted
+	 * @param info
+	 *            The GroupingInfo that contains the instructions for what the returned
+	 *            GroupingCollection should contain
+	 * @return A GroupingCollection based on the given GroupingInfo interpreted within the
+	 *         given LoadContext
+	 */
+	public static <T, G extends Loadable> GroupingCollection<? extends Loadable> getDynamicGroup(
+		LoadContext context, GroupingInfo<G> info)
+	{
+		GroupingDefinition<G> groupingDefinition =
+				TokenLibrary.getGrouping(info.getIdentity(), info.getCharacteristic());
+		if (groupingDefinition == null)
+		{
+			/*
+			 * If the given information was not a known GroupingDefintion, we suspect it
+			 * is a key, since object names should be usable directly. Therefore, try
+			 * processing it as a Key.
+			 */
+			groupingDefinition = TokenLibrary.getGrouping(info.getIdentity(), "KEY");
+		}
+		return groupingDefinition.process(context, info);
 	}
 
 }
