@@ -126,7 +126,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			{
 				FormulaModifier<?> modifier = vm.getModifier();
 				if (VAR_NAME.equals(vm.getVarName())
-					&& (vm.getLegalScope().getParentScope() == null)
+					&& (!vm.getLegalScope().getParentScope().isPresent())
 					&& (modifier.getIdentification()
 						.equals(MOD_IDENTIFICATION)))
 				{

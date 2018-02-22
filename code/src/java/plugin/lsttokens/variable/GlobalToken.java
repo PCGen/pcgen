@@ -17,9 +17,8 @@
  */
 package plugin.lsttokens.variable;
 
-import java.util.Set;
-
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.rules.context.LoadContext;
@@ -81,23 +80,15 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " is not a valid variable name");
 		}
 
-		boolean legal =
-				context.getVariableContext().assertLegalVariableID(scope,
-					formatManager, varName);
-		if (!legal)
+		try
 		{
-			Set<LegalScope> known =
-					context.getVariableContext().getKnownLegalScopes(varName);
-			StringBuilder sb = new StringBuilder();
-			for (LegalScope v : known)
-			{
-				sb.append(v.getName());
-				sb.append(", ");
-			}
+			context.getVariableContext().assertLegalVariableID(scope, formatManager,
+				varName);
+		}
+		catch (LegalVariableException e)
+		{
 			return new ParseResult.Fail(getTokenName()
-				+ " found a var defined in incompatible variable scopes: "
-				+ value + " was requested in " + scope.getName()
-				+ " but was previously in " + sb.toString());
+				+ " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(varName);
 		dv.setFormat(format);

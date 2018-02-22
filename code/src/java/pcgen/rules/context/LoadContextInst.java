@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.NEPFormula;
@@ -553,13 +554,13 @@ abstract class LoadContextInst implements LoadContext
 
 	private LoadContext dropIntoContext(LegalScope lvs)
 	{
-		LegalScope parent = lvs.getParentScope();
-		if (parent == null)
+		Optional<LegalScope> parent = lvs.getParentScope();
+		if (!parent.isPresent())
 		{
 			//is Global
 			return this;
 		}
-		LoadContext parentLC = dropIntoContext(parent);
+		LoadContext parentLC = dropIntoContext(parent.get());
 		return new DerivedLoadContext(parentLC, lvs);
 	}
 
@@ -821,12 +822,12 @@ abstract class LoadContextInst implements LoadContext
 			{
 				return this;
 			}
-			else if (derivedScope.getParentScope().equals(toScope))
+			else if (!toScope.getParentScope().isPresent())
 			{
-				//Jump up from here
+				//No parent is global
 				return parent;
 			}
-			else if (toScope.getParentScope().equals(derivedScope))
+			else if (toScope.getParentScope().get().equals(derivedScope))
 			{
 				//Direct drop from this
 				return new DerivedLoadContext(this, derivedScope);

@@ -17,9 +17,8 @@
  */
 package plugin.lsttokens.variable;
 
-import java.util.Set;
-
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
@@ -104,21 +103,14 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " is not a valid channel name");
 		}
 		String channelName = ChannelUtilities.createVarName(varName);
-		boolean legal =
-				varContext.assertLegalVariableID(lvs, formatManager, channelName);
-		if (!legal)
+		try
 		{
-			Set<LegalScope> known = varContext.getKnownLegalScopes(varName);
-			StringBuilder sb = new StringBuilder();
-			for (LegalScope v : known)
-			{
-				sb.append(v.getName());
-				sb.append(", ");
-			}
+			varContext.assertLegalVariableID(lvs, formatManager, channelName);
+		}
+		catch (LegalVariableException e)
+		{
 			return new ParseResult.Fail(getTokenName()
-				+ " found a var defined in incompatible variable scopes: "
-				+ varName + " was requested in " + fullscope
-				+ " but was previously in " + sb.toString());
+				+ " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(channelName);
 		dv.setFormat(format);

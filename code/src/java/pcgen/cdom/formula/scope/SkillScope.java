@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.formula.scope;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.LegalScope;
 
 /**
@@ -28,24 +30,16 @@ public class SkillScope implements LegalScope
 	/**
 	 * The parent of this scope (once loaded)
 	 */
-	private LegalScope parent;
+	private Optional<LegalScope> parent;
 
-	/**
-	 * The String representation of the objects covered by this Scope
-	 * 
-	 * @see pcgen.base.formula.base.LegalScope#getName()
-	 */
 	@Override
 	public String getName()
 	{
 		return "SKILL";
 	}
 
-	/**
-	 * @see pcgen.base.formula.base.LegalScope#getParentScope()
-	 */
 	@Override
-	public LegalScope getParentScope()
+	public Optional<LegalScope> getParentScope()
 	{
 		return parent;
 	}
@@ -58,6 +52,6 @@ public class SkillScope implements LegalScope
 	 */
 	public void setParent(LegalScope parent)
 	{
-		this.parent = parent;
+		this.parent = Optional.of(parent);
 	}
 }

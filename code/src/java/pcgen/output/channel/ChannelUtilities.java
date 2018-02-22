@@ -18,9 +18,9 @@
 package pcgen.output.channel;
 
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ScopeFacet;
