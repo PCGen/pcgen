@@ -39,7 +39,7 @@ public class SetNumberModifierTest
 {
 
 	private LegalScope varScope =
-			new SimpleLegalScope(null, GlobalScope.GLOBAL_SCOPE_NAME);
+			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
 	FormatManager<Number> numManager = new NumberManager();
 
 	@Test

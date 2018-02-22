@@ -71,7 +71,7 @@ public class SetSolverManagerTest
 {
 
 	private final LegalScope globalScope =
-			new SimpleLegalScope(null, GlobalScope.GLOBAL_SCOPE_NAME);
+			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
 	private TrackingVariableCache vc;
 	private ScopeManagerInst vsLib;
 	private VariableManager sl;
@@ -93,6 +93,7 @@ public class SetSolverManagerTest
 		OperatorLibrary ol = new SimpleOperatorLibrary();
 		vc = new TrackingVariableCache();
 		vsLib = new ScopeManagerInst();
+		vsLib.registerScope(globalScope);
 		EquipmentScope equipScope = new EquipmentScope();
 		equipScope.setParent(globalScope);
 		vsLib.registerScope(equipScope);
