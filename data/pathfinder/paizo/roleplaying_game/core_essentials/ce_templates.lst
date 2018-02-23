@@ -1016,11 +1016,11 @@ Plant				VISIBLE:NO																																																													
 # Template Name	Visible	Race Subtype		Type
 Air			VISIBLE:NO
 Angel			VISIBLE:NO
-Aquatic		VISIBLE:NO
+Aquatic		VISIBLE:NO	RACESUBTYPE:Aquatic	ABILITY:Class Skill|AUTOMATIC|Swim
 Archon		VISIBLE:NO
 Azata			VISIBLE:NO
 Chaotic		VISIBLE:NO
-Cold			VISIBLE:NO
+Cold			VISIBLE:NO	RACESUBTYPE:Cold
 Demon			VISIBLE:NO
 Devil			VISIBLE:NO
 Dwarf			VISIBLE:NO	RACESUBTYPE:Dwarf		TYPE:Racial Heritage
@@ -1042,7 +1042,7 @@ Native		VISIBLE:NO
 Oni			VISIBLE:NO
 Orc			VISIBLE:NO	RACESUBTYPE:Orc		TYPE:Racial Heritage
 Reptilian		VISIBLE:NO
-Shapechanger	VISIBLE:NO
+Shapechanger	VISIBLE:NO	RACESUBTYPE:Shapechanger
 Swarm			VISIBLE:NO	MODIFY:FACE|SET|10,10|PRIORITY=200
 Water			VISIBLE:NO
 
