@@ -1956,10 +1956,10 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
 				
-		Globals.createEmptyRace();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		resetContext();
+		BuildUtilities.buildUnselectedRace(Globals.getContext());
 		GameMode gamemode = SettingsHandler.getGame();
 		
 		str = BuildUtilities.createStat("Strength", "STR", "A");

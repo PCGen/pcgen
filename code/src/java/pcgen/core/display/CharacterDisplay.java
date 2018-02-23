@@ -1425,9 +1425,12 @@ public class CharacterDisplay
 
 	private String getDisplayRaceName()
 	{
-		final String raceName = getRace().toString();
-
-		return (raceName.equals(Constants.NONESELECTED) ? "Nothing" : raceName);
+		Race race = getRace();
+		if (race.isUnselected())
+		{
+			return "Nothing";
+		}
+		return getRace().toString();
 	}
 
 	private String getFullDisplayClassName()

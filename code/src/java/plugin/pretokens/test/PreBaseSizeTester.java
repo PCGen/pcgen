@@ -39,8 +39,7 @@ public class PreBaseSizeTester extends AbstractDisplayPrereqTest implements Prer
 	{
 		int runningTotal = 0;
 
-		if ((display.getRace() != null)
-			&& !display.getRace().equals(Globals.s_EMPTYRACE))
+		if ((display.getRace() != null) && !display.getRace().isUnselected())
 		{
 			AbstractReferenceContext ref =
 					Globals.getContext().getReferenceContext();

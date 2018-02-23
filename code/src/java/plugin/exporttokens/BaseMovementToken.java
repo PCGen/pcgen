@@ -58,7 +58,7 @@ public class BaseMovementToken extends AbstractExportToken
 		ExportHandler eh)
 	{
 		String retString = "";
-		if ((display.getRace() != null) && !display.getRace().equals(Globals.s_EMPTYRACE))
+		if ((display.getRace() != null) && !display.getRace().isUnselected())
 		{
 			StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 			aTok.nextToken(); //clear BASEMOVEMENT Token
