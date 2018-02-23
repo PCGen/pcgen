@@ -23,12 +23,10 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.core.character.CompanionMod;
@@ -121,14 +119,11 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 			.entrySet())
 		{
 			CDOMSingleRef<? extends PCClass> ref = me.getKey();
-			Class<? extends PCClass> refClass = ref.getReferenceClass();
-			if (SUBCLASS_CLASS.equals(refClass))
+			String prefix = ref.getPersistentFormat();
+			if (prefix.startsWith("SUBCLASS="))
 			{
-				Category<SubClass> parent =
-						((CategorizedCDOMReference<SubClass>) ref)
-							.getCDOMCategory();
-				set.add(parent.toString() + Constants.DOT + ref.getLSTformat(false) + '='
-					+ me.getValue());
+				set.add(prefix.substring(9) + Constants.DOT + ref.getLSTformat(false)
+					+ '=' + me.getValue());
 			}
 			else
 			{

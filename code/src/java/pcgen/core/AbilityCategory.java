@@ -40,9 +40,9 @@ import pcgen.cdom.enumeration.DisplayLocation;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMAllRef;
-import pcgen.cdom.reference.CDOMCategorizedSingleRef;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSimpleSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CDOMTypeRef;
 import pcgen.cdom.reference.ManufacturableFactory;
@@ -624,7 +624,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
     @Override
 	public CDOMSingleRef<Ability> getReference(String ident)
 	{
-		return new CDOMCategorizedSingleRef<>(this, this, ident);
+		return new CDOMSimpleSingleRef<>(this, ident);
 	}
 
     @Override

@@ -33,7 +33,6 @@ import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.Dynamic;
 import pcgen.cdom.inst.DynamicCategory;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -108,10 +107,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			for (CDOMReference<Dynamic> ref : added)
 			{
-				CategorizedCDOMReference<Dynamic> catRef =
-						(CategorizedCDOMReference<Dynamic>) ref;
-				map.addToListFor(catRef.getLSTCategory(),
-					ref.getLSTformat(false));
+				map.addToListFor(ref.getPersistentFormat(), ref.getLSTformat(false));
 			}
 		}
 		if (map.isEmpty())

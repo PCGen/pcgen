@@ -23,8 +23,8 @@ import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.reference.CDOMAllRef;
-import pcgen.cdom.reference.CDOMCategorizedSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSimpleSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CDOMTypeRef;
 import pcgen.cdom.reference.ManufacturableFactory;
@@ -118,7 +118,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	@Override
 	public CDOMSingleRef<T> getReference(String identifier)
 	{
-		return new CDOMCategorizedSingleRef<>(this, this, identifier);
+		return new CDOMSimpleSingleRef<>(this, identifier);
 	}
 
 	@Override
