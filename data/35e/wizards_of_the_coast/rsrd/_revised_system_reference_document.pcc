@@ -25,6 +25,8 @@ INFOTEXT:The Core Rules for the 3.5 revised edition
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:rsrd_conversion.txt
+RACE:*/_universal/races.lst
+
 
 
 # Basics

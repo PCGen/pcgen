@@ -22,6 +22,8 @@ COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyr
 COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2006, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones, Frank Kliewe.
 
 PCC:@/homebrew/conversion_support/conversion_support.pcc
+RACE:*/_universal/races.lst
+
 
 PCC:modern_basics/modernbasics.pcc
 PCC:modern_creatures/moderncreatures.pcc

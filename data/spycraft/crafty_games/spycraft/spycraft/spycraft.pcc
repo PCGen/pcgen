@@ -33,6 +33,8 @@ URL:RPG Now|http://rpg.drivethrustuff.com/index.php?cPath=562&affiliate_id=71282
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:help_spycraft.html
 #PCC:@/homebrew/conversion_support/conversion_support.pcc
+RACE:*/_universal/races.lst
+
 SAVE:spycraft__saves.lst
 STAT:spycraft__stats.lst
 SIZE:spycraft__sizes.lst

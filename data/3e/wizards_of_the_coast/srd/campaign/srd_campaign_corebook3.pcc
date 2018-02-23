@@ -21,6 +21,8 @@ COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; 
 COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2003, PCgen Data team (Including, but not limited to Bryan McRoberts, Rob Reed (Mynex), Eric Beaudoin, Andrew McDougall (Tir Gwaith), Ian Dale, Paul W. King, Chris Chandler (Barak), Sigurdur H. Olafsson)
 
 INFOTEXT:This is a subset of the SRD containing rules generally found in Core Books I, II and III, this should not be loaded with any other SRD sets.
+RACE:*/_universal/races.lst
+
 
 ALIGNMENT:@/3e/wizards_of_the_coast/srd/basics/srd__align.lst
 SAVE:@/3e/wizards_of_the_coast/srd/basics/srd__saves.lst

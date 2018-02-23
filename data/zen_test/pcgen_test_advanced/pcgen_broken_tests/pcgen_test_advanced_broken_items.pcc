@@ -16,6 +16,9 @@ SOURCESHORT:PTSB
 SOURCEWEB:http://pcgen.sourceforge.net
 ISOGL:YES
 
+RACE:*/_universal/races.lst
+
+
 # Causes EPIC Fail
 #ADD:FEAT|Add Feat PCC
 
