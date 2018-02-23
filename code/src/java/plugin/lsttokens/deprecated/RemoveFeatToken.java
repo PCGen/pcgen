@@ -71,7 +71,6 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	private static final Class<CNAbilitySelection> CAT_ABILITY_SELECTION_CLASS = CNAbilitySelection.class;
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	@Override
 	public String getParentToken()
@@ -148,8 +147,8 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		boolean foundAny = false;
 		boolean foundOther = false;
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability> rm =
+				context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
 
 		while (tok.hasNext())
 		{

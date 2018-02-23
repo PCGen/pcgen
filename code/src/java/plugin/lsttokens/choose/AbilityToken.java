@@ -292,8 +292,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		String ab = st.nextToken();
 		Ability a =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class, ac,
-					ab);
+				context.getReferenceContext().getManufacturerId(ac).getActiveObject(ab);
 		if (a == null)
 		{
 			throw new IllegalArgumentException(
@@ -333,9 +332,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			key = encoded;
 		}
-		Ability a =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, abilityCat, key);
+		Ability a = context.getReferenceContext().getManufacturerId(abilityCat)
+			.getActiveObject(key);
 		if (a == null)
 		{
 			throw new IllegalArgumentException(

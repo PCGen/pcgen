@@ -147,15 +147,16 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		}
 		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(
 				abilityCatName);
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class, ac,
-				abilityKey);
+		return context.getReferenceContext().getManufacturerId(ac)
+			.getActiveObject(abilityKey);
 	}
 
 	@Override
 	protected Ability getMatchingObject(LoadContext context, CDOMObject key)
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class,
-				((Ability) key).getCDOMCategory(), key.getKeyName());
+		return context.getReferenceContext()
+			.getManufacturerId(((Ability) key).getCDOMCategory())
+			.getActiveObject(key.getKeyName());
 	}
 
 	/**

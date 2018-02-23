@@ -117,8 +117,8 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.getReferenceContext().getCDOMReference(SUBCLASS_CLASS, scc,
-							subclass);
+					ref = context.getReferenceContext().getManufacturerId(scc)
+						.getReference(subclass);
 				}
 				context.getObjectContext().addToList(cdo,
 						ListKey.FAVORED_CLASS, ref);

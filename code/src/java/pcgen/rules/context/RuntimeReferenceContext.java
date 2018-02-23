@@ -23,12 +23,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.StringKey;
@@ -57,6 +57,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
+		Objects.requireNonNull(cl);
 		if (Categorized.class.isAssignableFrom(cl))
 		{
 			throw new InternalError(cl
@@ -70,6 +71,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
 		ClassIdentity<T> identity)
 	{
+		Objects.requireNonNull(identity);
 		@SuppressWarnings("unchecked")
 		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(identity);
 		if (mfg == null)
@@ -85,6 +87,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
 		ClassIdentity<T> identity)
 	{
+		Objects.requireNonNull(identity);
 		//TODO Need a special case here for Ability?!? YUCK
 		if (identity instanceof ManufacturableFactory)
 		{
@@ -120,19 +123,6 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 				? 1 : 0;
 			return int1 - int2;
 		}
-	}
-
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Category<T> cat)
-	{
-		if (cat == null)
-		{
-			//TODO BasicClassIdentity will reject this :(
-			ClassIdentity<T> identity = BasicClassIdentity.getIdentity(cl);
-			return getManufacturerId(identity);
-		}
-		return getManufacturerId(cat);
 	}
 
 	@Override
@@ -208,6 +198,8 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
 		String formatName, Class<T> refClass)
 	{
+		Objects.requireNonNull(formatName);
+		Objects.requireNonNull(refClass);
 		ClassIdentity<?> identity = nameMap.get(formatName);
 		if (identity == null)
 		{

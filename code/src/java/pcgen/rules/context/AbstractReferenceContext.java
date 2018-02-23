@@ -38,7 +38,6 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.SortKeyRequired;
@@ -163,22 +162,10 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getAllReference();
 	}
 
-	public <T extends Categorized<T>> CDOMGroupRef<T> getCDOMAllReference(
-		Class<T> c, Category<T> cat)
-	{
-		return getManufacturer(c, cat).getAllReference();
-	}
-
 	public <T extends Loadable> CDOMGroupRef<T> getCDOMTypeReference(
 			Class<T> c, String... val)
 	{
 		return getManufacturer(c).getTypeReference(val);
-	}
-
-	public <T extends Categorized<T>> CDOMGroupRef<T> getCDOMTypeReference(
-			Class<T> c, Category<T> cat, String... val)
-	{
-		return getManufacturer(c, cat).getTypeReference(val);
 	}
 
 	public <T extends Loadable> T constructCDOMObject(Class<T> c, String val)
@@ -186,8 +173,8 @@ public abstract class AbstractReferenceContext
 		T obj;
 		if (CATEGORIZED_CLASS.isAssignableFrom(c))
 		{
-			Class cl = c;
-			obj = (T) getManufacturer(cl, null).constructObject(val);
+			throw new UnsupportedOperationException(
+				"Categorized can't be built directly with null category");
 		}
 		else
 		{
@@ -209,30 +196,11 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getReference(val);
 	}
 
-	public <T extends Categorized<T>> CDOMSingleRef<T> getCDOMReference(
-			Class<T> c, Category<T> cat, String val)
-	{
-		return getManufacturer(c, cat).getReference(val);
-	}
-
 	public <T extends Loadable> void reassociateKey(String key, T obj)
 	{
-		if (CATEGORIZED_CLASS.isAssignableFrom(obj.getClass()))
-		{
-			Class cl = obj.getClass();
-			reassociateCategorizedKey(key, obj, cl);
-		}
-		else
-		{
-			getManufacturer((Class<T>) obj.getClass()).renameObject(key, obj);
-		}
-	}
-
-	private <T extends Categorized<T>> void reassociateCategorizedKey(
-			String key, Loadable orig, Class<T> cl)
-	{
-		T obj = (T) orig;
-		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
+		@SuppressWarnings("unchecked")
+		ClassIdentity<T> identity = (ClassIdentity<T>) obj.getClassIdentity();
+		getManufacturerId(identity).renameObject(key, obj);
 	}
 
 	public <T extends Loadable> T get(Class<T> c, String val)
@@ -249,12 +217,6 @@ public abstract class AbstractReferenceContext
 		String val)
 	{
 		return getManufacturer(c).getActiveObject(val);
-	}
-
-	public <T extends Categorized<T>> T silentlyGetConstructedCDOMObject(
-		Class<T> c, Category<T> cat, String val)
-	{
-		return getManufacturer(c, cat).getActiveObject(val);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -277,24 +239,11 @@ public abstract class AbstractReferenceContext
 
 	public <T extends Loadable> boolean forget(T obj)
 	{
-		//TODO This can be optimized :)
-		if (CATEGORIZED_CLASS.isAssignableFrom(obj.getClass()))
+		@SuppressWarnings("unchecked")
+		ClassIdentity<T> identity = (ClassIdentity<T>) obj.getClassIdentity();
+		if (hasManufacturer(identity))
 		{
-			Class cl = obj.getClass();
-			Categorized cdo = (Categorized) obj;
-			if (hasManufacturer(obj.getClassIdentity()))
-			{
-                // Work around a bug in the Eclipse 3.7.0/1 compiler by explicitly extracting a Category<?>
-                return getManufacturer(cl, (Category<?>) cdo.getCDOMCategory()).forgetObject(obj);
-			}
-		}
-		else
-		{
-			if (hasManufacturer(obj.getClassIdentity()))
-			{
-				return getManufacturer((Class<T>) obj.getClass()).forgetObject(
-						obj);
-			}
+			return getManufacturerId(identity).forgetObject(obj);
 		}
 		return false;
 	}
@@ -408,7 +357,7 @@ public abstract class AbstractReferenceContext
 				if (needSelf)
 				{
 					SubClass self = cat.newInstance();
-					self.setDisplayName(key);
+					self.setKeyName(key);
 					importObject(self);
 				}
 			}
@@ -540,9 +489,6 @@ public abstract class AbstractReferenceContext
 		tm.addAll(getConstructedCDOMObjects(cl));
 		return new ArrayList<>(tm);
 	}
-
-	public abstract <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-		Class<T> cl, Category<T> cat);
 
 	/**
 	 * Returns the ReferenceManufacturer for the given ManufacturableFactory.

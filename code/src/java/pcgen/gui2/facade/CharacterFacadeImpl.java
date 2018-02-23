@@ -1127,8 +1127,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (cat.getParentCategory() == cat)
 			{
-				for (Ability aFeat : Globals.getContext().getReferenceContext().getManufacturer(
-					Ability.class, cat).getAllObjects())
+				for (Ability aFeat : Globals.getContext().getReferenceContext()
+					.getManufacturerId(cat).getAllObjects())
 				{
 					scanForAnyPcTempBonuses(tempBonuses, aFeat);
 				}
