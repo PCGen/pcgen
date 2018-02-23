@@ -1586,6 +1586,33 @@ Swarm Trap		KEY:Ranger Trap ~ Swarm Trap		SORTKEY:Trap Swarm	CATEGORY:Special Ab
 
 ###Block: Sorcerer archetypes
 
+###Block: new style selector abilities for bloodllines
+# COMMENT: These abilities are used in the popup when a bloodline is selected, they automatically grant
+#          the bloodline abilities themselves. Core rulebook has all sorts of variables assigned that
+#          are used in the bloodline powers themselves. These are not ported over because these
+#          bloodlines seem to use an older style of definition that does not use the new variable system.
+
+Anarchic Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Anarchic
+Arial Bloodline		CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Arial
+Bedrock Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Bedrock
+Brutal Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Brutal
+Empyreal Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Empyreal
+Envenomed Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Envenomed
+Groveborn Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Groveborn
+Karmic Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Karmic
+Linnorm Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Linnorm
+Pit-Touched Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Pit-Touched
+Primal Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Primal
+Rime-Blooded Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Rime-Blooded
+Sage Bloodline		CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Sage
+Sanguine Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Sanguine
+Seaborn Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Seaborn
+Sylvan Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Sylvan
+Umbral Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Umbral
+Visionary Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Visionary
+Void-Touched Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Void-Touched
+Warped Bloodline	CATEGORY:Sorcerer Bloodline	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Warped
+
 ###Block: Wildblooded archetype bloodlines
 # COMMENT: The wildblooded archetype is actually done as new bloodlines; it seemed the most efficient way.
 # COMMENT: If needed, one could easily add the actual "Wildblooded" archetype, and limit bloodline choices
