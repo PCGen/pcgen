@@ -1545,3 +1545,7 @@ Forest Step						KEY:Zomok ~ Forest Step						CATEGORY:Special Ability	TYPE:Spec
 Charm Person		CATEGORY:Ability Focus	TYPE:Ability Focus
 Nightmare			CATEGORY:Ability Focus	TYPE:Ability Focus
 Strangling Ensnare	CATEGORY:Ability Focus	TYPE:Ability Focus
+
+
++2 Profane Bonus to Stat	CATEGORY:Internal	TYPE:+2 Profane Bonus to Stat	MULT:YES	CHOOSE:PCSTAT|STR|DEX|CON|INT|WIS|CHA	BONUS:STAT|%LIST|2|TYPE=Profane
+
