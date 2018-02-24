@@ -12,6 +12,7 @@
 # Once a dataset takes on the responsibility of a DATACONTROL file, then it
 # MUST include these entries (or something near equivalent [additional
 # SELECT-ability would be legal]) in one of the DATACONTROL files.
+FACTDEF:RACE|BaseSize	DATAFORMAT:SIZEADJUSTMENT	VISIBLE:YES	REQUIRED:NO	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
 
 # Name						Dataformat		Selectable		Visible
 FACTDEF:ABILITY|AppliedName			DATAFORMAT:String				VISIBLE:YES
