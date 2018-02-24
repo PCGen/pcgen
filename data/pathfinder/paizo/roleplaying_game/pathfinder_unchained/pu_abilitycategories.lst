@@ -49,10 +49,7 @@ ABILITYCATEGORY:Variant Multiclass				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 ABILITYCATEGORY:Signature Skill 5 Ranks			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Signature Skill 05					PLURAL:Signature Skills					DISPLAYLOCATION:Feats
 
 ###Block: Unchained Archetype Support
-ABILITYCATEGORY:Unchained Barbarian Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Archetype	TYPE:Unchained Barbarian Archetype		PLURAL:Unchained Barbarian Archetypes		DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Unchained Monk Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Archetype	TYPE:Unchained Monk Archetype			PLURAL:Unchained Monk Archetypes			DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Unchained Rogue Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Archetype	TYPE:Unchained Rogue Archetype		PLURAL:Unchained Rogue Archetypes			DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Unchained Summoner Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Archetype	TYPE:Unchained Summoner Archetype		PLURAL:Unchained Summoner Archetypes		DISPLAYLOCATION:Archetype
 
 
 
