@@ -30,9 +30,7 @@ URL:RPG Now|http://rpg.drivethrustuff.com/index.php?cPath=562&affiliate_id=71282
 #EXTRAFILE:help_spycraft.html
 #PCC:@/homebrew/conversion_support/conversion_support.pcc
 #COMMENT: CORE BOOK
-DATACONTROL:
-
-
+DATACONTROL:*/_universal/datacontrols_no_align.lst
 RACE:*/_universal/races.lst
 
 SAVE:spycraft__saves.lst
