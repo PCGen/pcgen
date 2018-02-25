@@ -19,6 +19,7 @@ INFOTEXT:For loading in SS and only the parts of the PHB SS uses.<p>In other wor
 
 #The above items are officially illegal in the SS world.
 PCC:@/homebrew/conversion_support/conversion_support.pcc
+DATACONTROL:*/_universal/datacontrols_no_align.lst
 RACE:*/_universal/races.lst
 
 
