@@ -31,7 +31,7 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1135&it=1?affilia
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:DLMagicItemPrices.txt
 #PCC:@/homebrew/conversion_support/conversion_support.pcc
-DATACONTROL:*/_universal/datacontrols_no_align.lst
+DATACONTROL:deadlands__datacontrols.lst
 RACE:*/_universal/races.lst
 
 
