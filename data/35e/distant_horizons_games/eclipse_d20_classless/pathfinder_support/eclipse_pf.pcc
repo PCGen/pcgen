@@ -45,6 +45,7 @@ SKILL:eclipse_pf_skills.lst
 #Block: Core Files ---------------------------------------------------------
 #PCC:../eclipse.pcc
 #COMMENT: Direct Reference is best
+DATACONTROL:../eclipse__datacontols.lst
 
 ABILITY:../eclipse_abilities.lst
 ABILITY:../eclipse_abilities_disadvantages.lst
