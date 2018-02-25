@@ -83,6 +83,28 @@ import plugin.primitive.language.LangBonusToken;
 public abstract class AbstractTokenModelTest extends TestCase
 {
 
+	protected static final MultToken ABILITY_MULT_TOKEN =
+			new plugin.lsttokens.ability.MultToken();
+	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
+			new plugin.lsttokens.ChooseLst();
+	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
+			new plugin.lsttokens.choose.LangToken();
+	private static final VisibleToken ABILITY_VISIBLE_TOKEN =
+			new plugin.lsttokens.ability.VisibleToken();
+	private static final AutoLst AUTO_TOKEN = new plugin.lsttokens.AutoLst();
+	protected static final LangToken AUTO_LANG_TOKEN =
+			new plugin.lsttokens.auto.LangToken();
+	private static final ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
+			new plugin.lsttokens.equipment.ProficiencyToken();
+	private static final TypeLst EQUIP_TYPE_TOKEN =
+			new plugin.lsttokens.TypeLst();
+	private static final LangBonusToken LANGBONUS_PRIM =
+			new plugin.primitive.language.LangBonusToken();
+	private static final plugin.qualifier.language.PCToken PC_QUAL =
+			new plugin.qualifier.language.PCToken();
+	private static final plugin.modifier.cdom.SetModifierFactory SMF =
+			new plugin.modifier.cdom.SetModifierFactory();
+
 	protected LoadContext context;
 	protected PlayerCharacter pc;
 	protected CharID id;
@@ -115,27 +137,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 	{
 		return context.getReferenceContext().constructCDOMObject(cl, key);
 	}
-
-	protected static final MultToken ABILITY_MULT_TOKEN =
-			new plugin.lsttokens.ability.MultToken();
-	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
-			new plugin.lsttokens.ChooseLst();
-	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
-			new plugin.lsttokens.choose.LangToken();
-	private static final VisibleToken ABILITY_VISIBLE_TOKEN =
-			new plugin.lsttokens.ability.VisibleToken();
-	private static final AutoLst AUTO_TOKEN = new plugin.lsttokens.AutoLst();
-	protected static final LangToken AUTO_LANG_TOKEN =
-			new plugin.lsttokens.auto.LangToken();
-	private static final ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
-			new plugin.lsttokens.equipment.ProficiencyToken();
-	private static final TypeLst EQUIP_TYPE_TOKEN =
-			new plugin.lsttokens.TypeLst();
-	private static final LangBonusToken LANGBONUS_PRIM =
-			new plugin.primitive.language.LangBonusToken();
-	private static final plugin.qualifier.language.PCToken PC_QUAL =
-			new plugin.qualifier.language.PCToken();
-	private static final plugin.modifier.cdom.SetModifierFactory SMF = new plugin.modifier.cdom.SetModifierFactory();
 
 	protected void finishLoad()
 	{

@@ -120,7 +120,7 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 		}
 		StringBuilder sb = new StringBuilder();
 		String identifier = format.getIdentifierType();
-		if (!identifier.equals("NUMBER"))
+		if (!"NUMBER".equals(identifier))
 		{
 			sb.append(format.getIdentifierType());
 			sb.append('=');

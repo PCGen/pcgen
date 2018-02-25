@@ -66,6 +66,14 @@ public final class ChannelCompatibility
 		}
 	}
 	
+	/**
+	 * Gets the current Alignment for the PC represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the PC for which the Alignment should be
+	 *            returned
+	 * @return The current Alignment for the PC represented by the given CharID
+	 */
 	public static PCAlignment getCurrentAlignment(CharID id)
 	{
 		String channelName = ControlUtilities
@@ -73,6 +81,14 @@ public final class ChannelCompatibility
 		return (PCAlignment) ChannelUtilities.readGlobalChannel(id, channelName);
 	}
 
+	/**
+	 * Sets the current alignment for the PC represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the PC for which the Alignment should be set
+	 * @param align
+	 *            The Alignment which should be set
+	 */
 	public static void setCurrentAlignment(CharID id, PCAlignment align)
 	{
 		String channelName = ControlUtilities

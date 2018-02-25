@@ -96,7 +96,8 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 	private static final TypeLst EQUIP_TYPE_TOKEN = new plugin.lsttokens.TypeLst();
 	private static final LangBonusToken LANGBONUS_PRIM = new plugin.primitive.language.LangBonusToken();
 	private static final plugin.qualifier.language.PCToken PC_QUAL = new plugin.qualifier.language.PCToken();
-	private static final plugin.modifier.cdom.SetModifierFactory SMF = new plugin.modifier.cdom.SetModifierFactory();
+	private static final plugin.modifier.cdom.SetModifierFactory SMF =
+			new plugin.modifier.cdom.SetModifierFactory();
 
 	protected void finishLoad(LoadContext context)
 	{

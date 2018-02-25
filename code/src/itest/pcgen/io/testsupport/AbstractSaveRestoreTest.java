@@ -93,6 +93,29 @@ import util.TestURI;
 public abstract class AbstractSaveRestoreTest extends TestCase
 {
 
+	private static final plugin.lsttokens.ability.MultToken ABILITY_MULT_TOKEN =
+			new plugin.lsttokens.ability.MultToken();
+	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
+			new plugin.lsttokens.ChooseLst();
+	private static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
+			new plugin.lsttokens.choose.LangToken();
+	private static final plugin.lsttokens.ability.VisibleToken ABILITY_VISIBLE_TOKEN =
+			new plugin.lsttokens.ability.VisibleToken();
+	private static final plugin.lsttokens.AutoLst AUTO_TOKEN =
+			new plugin.lsttokens.AutoLst();
+	protected static final plugin.lsttokens.auto.LangToken AUTO_LANG_TOKEN =
+			new plugin.lsttokens.auto.LangToken();
+	private static final plugin.lsttokens.equipment.ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
+			new plugin.lsttokens.equipment.ProficiencyToken();
+	private static final plugin.lsttokens.TypeLst EQUIP_TYPE_TOKEN =
+			new plugin.lsttokens.TypeLst();
+	private static final plugin.primitive.language.LangBonusToken LANGBONUS_PRIM =
+			new plugin.primitive.language.LangBonusToken();
+	private static final plugin.qualifier.language.PCToken PC_QUAL =
+			new plugin.qualifier.language.PCToken();
+	private static final plugin.modifier.cdom.SetModifierFactory SMF =
+			new plugin.modifier.cdom.SetModifierFactory();
+
 	protected LoadContext context;
 	protected PlayerCharacter pc;
 	protected PlayerCharacter reloadedPC;
@@ -140,28 +163,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	{
 		return context.getReferenceContext().constructCDOMObject(cl, key);
 	}
-
-	private static final plugin.lsttokens.ability.MultToken ABILITY_MULT_TOKEN =
-			new plugin.lsttokens.ability.MultToken();
-	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
-			new plugin.lsttokens.ChooseLst();
-	private static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
-			new plugin.lsttokens.choose.LangToken();
-	private static final plugin.lsttokens.ability.VisibleToken ABILITY_VISIBLE_TOKEN =
-			new plugin.lsttokens.ability.VisibleToken();
-	private static final plugin.lsttokens.AutoLst AUTO_TOKEN =
-			new plugin.lsttokens.AutoLst();
-	protected static final plugin.lsttokens.auto.LangToken AUTO_LANG_TOKEN =
-			new plugin.lsttokens.auto.LangToken();
-	private static final plugin.lsttokens.equipment.ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
-			new plugin.lsttokens.equipment.ProficiencyToken();
-	private static final plugin.lsttokens.TypeLst EQUIP_TYPE_TOKEN =
-			new plugin.lsttokens.TypeLst();
-	private static final plugin.primitive.language.LangBonusToken LANGBONUS_PRIM =
-			new plugin.primitive.language.LangBonusToken();
-	private static final plugin.qualifier.language.PCToken PC_QUAL =
-			new plugin.qualifier.language.PCToken();
-	private static final plugin.modifier.cdom.SetModifierFactory SMF = new plugin.modifier.cdom.SetModifierFactory();
 
 	protected void finishLoad()
 	{

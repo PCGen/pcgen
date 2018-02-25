@@ -63,7 +63,7 @@ public final class ControlUtilities
 	 * 
 	 * @param context
 	 *            The LoadContext in which the code control is being evaluated
-	 * @param command
+	 * @param control
 	 *            The code control for which the value should be returned
 	 * @return The value of a code control in the given LoadContext
 	 */

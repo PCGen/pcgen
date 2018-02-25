@@ -100,6 +100,16 @@ public final class ChannelUtilities
 			RESULT_FACET.get(id), varID);
 	}
 
+	/**
+	 * Reads a Global Channel with the given Channel name.
+	 * 
+	 * @param id
+	 *            The CharID representing the PC on which the channel should be read
+	 * @param channelName
+	 *            The name of the channel to be read
+	 * @return The value of the channel with the given name on the PC represented by the
+	 *         given CharID
+	 */
 	public static Object readGlobalChannel(CharID id, String channelName)
 	{
 		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
@@ -108,6 +118,17 @@ public final class ChannelUtilities
 		return RESULT_FACET.getValue(id, varID);
 	}
 
+	/**
+	 * Sets the value of a Global Channel with the given Channel name.
+	 * 
+	 * @param id
+	 *            The CharID representing the PC on which the channel should be set
+	 * @param channelName
+	 *            The name of the channel to be set
+	 * @param value
+	 *            The value to which the channel should be set, for the channel with the
+	 *            given name on the PC represented by the given CharID
+	 */
 	public static void setGlobalChannel(CharID id, String channelName, Object value)
 	{
 		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);

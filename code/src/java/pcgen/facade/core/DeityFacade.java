@@ -29,6 +29,11 @@ public interface DeityFacade extends InfoFacade
 
 	List<String> getDomainNames();
 
+	/**
+	 * Returns the alignment for the Deity.
+	 * 
+	 * @return The alignment for the Deity
+	 */
 	PCAlignment getAlignment();
 
 	Collection<String> getPantheons();

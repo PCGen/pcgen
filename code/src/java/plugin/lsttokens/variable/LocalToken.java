@@ -146,7 +146,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		sb.append(LegalScope.getFullName(scope));
 		sb.append(Constants.PIPE);
 		String identifier = format.getIdentifierType();
-		if (!identifier.equals("NUMBER"))
+		if (!"NUMBER".equals(identifier))
 		{
 			sb.append(format.getIdentifierType());
 			sb.append('=');
