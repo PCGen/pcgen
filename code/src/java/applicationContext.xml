@@ -46,7 +46,6 @@
 		<property name="ageSetFacet" ref="ageSetFacet"/>
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>
-	<bean id="alignmentFacet" class="pcgen.cdom.facet.model.AlignmentFacet" />
 	<bean id="allowDebtFacet" class="pcgen.cdom.facet.fact.AllowDebtFacet"/>
 	<bean id="appliedBonusFacet" class="pcgen.cdom.facet.AppliedBonusFacet">
 		<property name="addedBonusFacet" ref="addedBonusFacet"/>
@@ -293,6 +292,12 @@
 	</bean>
 	<bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
+	<bean id="grantedVarFacet" class="pcgen.cdom.facet.GrantedVarFacet">
+		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
+		<property name="scopeFacet" ref="scopeFacet"/>
+		<property name="variableLibraryFacet" ref="variableLibraryFacet"/>
+		<property name="variableStoreFacet" ref="variableStoreFacet"/>
+	</bean>
 	<!-- H -->
 	<bean id="handedFacet" class="pcgen.cdom.facet.fact.HandedFacet"/>
 	<bean id="handsFacet" class="pcgen.cdom.facet.analysis.HandsFacet">

@@ -42,7 +42,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
@@ -73,7 +72,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<DeityFacade> deities;
 	private final DefaultListFacade<SkillFacade> skills;
 	private final DefaultListFacade<TemplateFacade> templates;
-	private final DefaultListFacade<AlignmentFacade> alignments;
+	private final DefaultListFacade<PCAlignment> alignments;
 	private final DefaultListFacade<KitFacade> kits;
 	private final DefaultListFacade<StatFacade> stats;
 	private final AbilityMap abilityMap;
@@ -388,7 +387,7 @@ public class DataSet implements DataSetFacade
 	}
 
     @Override
-	public ListFacade<AlignmentFacade> getAlignments()
+	public ListFacade<PCAlignment> getAlignments()
 	{
 		return alignments;
 	}

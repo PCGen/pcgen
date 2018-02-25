@@ -15,13 +15,13 @@
  */
 package pcgen.cdom.util;
 
+import java.util.Objects;
+
+/**
+ * Code Controls
+ */
 public final class CControl
 {
-	
-	private CControl()
-	{
-		//Do not instantiate Utility class
-	}
 
 	public static final String CRITMULT = "CRITMULT";
 
@@ -46,7 +46,7 @@ public final class CControl
 
 	public static final String EDR = "EDR";
 
-	public static final String FACE = "FACE";
+	public static final CControl FACE = new CControl("FACE", "Face");
 
 	public static final String EQRANGE = "EQRANGE";
 
@@ -75,4 +75,37 @@ public final class CControl
 	public static final String STATMODSAVE = "STATMODSAVE";
 	public static final String RACESAVE = "RACESAVE";
 
+	public static final CControl ALIGNMENTINPUT =
+			new CControl("ALIGNMENTINPUT", "Alignment");
+
+	/**
+	 * The name of a code control that contains a default value. This is used when a Code
+	 * Control is already used internally and is overridden by data (rather than just
+	 * being an on/off switch for data)
+	 */
+	private final String name;
+	
+	/**
+	 * The default value (the internal variable name used)
+	 */
+	private final String defaultValue;
+
+	/**
+	 * Constructs a new CControl with the given name and default variable name
+	 */
+	private CControl(String name, String defaultValue)
+	{
+		this.name = Objects.requireNonNull(name);
+		this.defaultValue = Objects.requireNonNull(defaultValue);
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public String getDefaultValue()
+	{
+		return defaultValue;
+	}
 }

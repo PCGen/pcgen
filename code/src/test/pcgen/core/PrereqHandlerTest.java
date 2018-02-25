@@ -4,6 +4,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -40,13 +41,13 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		human.setName("Human");
 		pc.setRace(human);
 
-		pc.setAlignment(le);
+		ChannelCompatibility.setCurrentAlignment(pc.getCharID(), le);
 		assertEquals("Non-negate returns false", false, PrereqHandler.passes(
 			prereq, pc, null));
 		assertEquals("Negate returns false", false, PrereqHandler.passes(
 			prereqNeg, pc, null));
 
-		pc.setAlignment(tn);
+		ChannelCompatibility.setCurrentAlignment(pc.getCharID(), tn);
 		assertEquals("Non-negate returns true", true, PrereqHandler.passes(
 			prereq, pc, null));
 		assertEquals("Negate returns true", true, PrereqHandler.passes(

@@ -25,7 +25,7 @@ import java.util.Iterator;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.base.format.OrderedPairManager;
+import pcgen.PCGenTestCase;
 import pcgen.base.format.StringManager;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMReference;
@@ -145,10 +145,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 */
 	public void testGetPCCText() throws PersistenceLayerException
 	{
-		OrderedPairManager opManager = new OrderedPairManager();
 		LoadContext context = Globals.getContext();
-		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope(), opManager, "Face");
 		Race race = new Race();
 		race.setName("TestRace");
 		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(FormulaFactory.getFormulaFor(5)));

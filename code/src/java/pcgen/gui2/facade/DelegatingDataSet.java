@@ -24,9 +24,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.core.PCAlignment;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
@@ -41,13 +41,13 @@ import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TemplateFacade;
-import pcgen.facade.util.event.MapEvent;
-import pcgen.facade.util.event.MapListener;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
+import pcgen.facade.util.event.MapEvent;
+import pcgen.facade.util.event.MapListener;
 
 /**
  * This class implements a {@code DataSetFacade} by delegating to another
@@ -66,7 +66,7 @@ public class DelegatingDataSet implements DataSetFacade
 	private final DelegatingListFacade<DeityFacade> deities;
 	private final DelegatingListFacade<SkillFacade> skills;
 	private final DelegatingListFacade<TemplateFacade> templates;
-	private final DelegatingListFacade<AlignmentFacade> alignments;
+	private final DelegatingListFacade<PCAlignment> alignments;
 	private final DelegatingListFacade<KitFacade> kits;
 	private final DelegatingListFacade<StatFacade> stats;
 	private final DelegatingAbilitiesMap abilities;
@@ -278,7 +278,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<AlignmentFacade> getAlignments()
+	public ListFacade<PCAlignment> getAlignments()
 	{
 		return alignments;
 	}

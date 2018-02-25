@@ -50,6 +50,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
@@ -88,6 +89,7 @@ import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.io.PCGFile;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.BioSetLoader;
@@ -598,7 +600,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		dynamicLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DYNAMIC));
 		//Load Variables (foundation for other items)
 		variableLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_VARIABLE));
-		defineBuiltinVariables(context);
+		defineBuiltinVariables(gamemode, context);
 		List<CampaignSourceEntry> globalModFileList =
 				fileLists.getListFor(ListKey.FILE_GLOBALMOD);
 		if (globalModFileList.isEmpty())
@@ -703,18 +705,40 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		System.gc();
 	}
 
-	private void defineBuiltinVariables(LoadContext context)
+	/**
+	 * Places the built in variables, if required, into the given LoadContext.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the built in variables will be loaded, if
+	 *            necessary
+	 */
+	public static void defineBuiltinVariables(GameMode gameMode, LoadContext context)
 	{
+		VariableContext varContext = context.getVariableContext();
 		if (!ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
-			VariableContext varContext = context.getVariableContext();
 			FormatManager<?> opManager =
 					context.getReferenceContext().getFormatManager("ORDEREDPAIR");
-			defineVariable(varContext, opManager, "Face");
+			defineVariable(varContext, opManager, CControl.FACE.getDefaultValue());
+		}
+		if (!gameMode.getAlignmentText().isEmpty())
+		{
+			if (!ControlUtilities.hasControlToken(context, CControl.ALIGNMENTINPUT))
+			{
+				FormatManager<?> alignManager =
+						context.getReferenceContext().getFormatManager("ALIGNMENT");
+				String varName = ChannelUtilities
+					.createVarName(CControl.ALIGNMENTINPUT.getDefaultValue());
+				defineVariable(varContext, alignManager, varName);
+				GlobalModifiers modifiers =
+						context.getReferenceContext().constructNowIfNecessary(
+							GlobalModifiers.class, GlobalModifierLoader.GLOBAL_MODIFIERS);
+				modifiers.addToListFor(ListKey.GRANTEDVARS, varName);
+			}
 		}
 	}
 
-	private void defineVariable(VariableContext varContext,
+	private static void defineVariable(VariableContext varContext,
 		FormatManager<?> formatManager, String varName)
 	{
 		LegalScope varScope = varContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);

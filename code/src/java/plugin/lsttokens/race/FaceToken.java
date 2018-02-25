@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.race;
 
-import java.util.Collection;
-
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.math.OrderedPair;
@@ -28,21 +26,19 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Race;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with FACE Token
  */
-public class FaceToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryToken<Race>
+public class FaceToken extends AbstractNonEmptyToken<Race>
+		implements CDOMCompatibilityToken<Race>
 {
 
 	private static final int MOD_PRIORITY = 10;
-	private static final String VAR_NAME = "Face";
 	private static final String MOD_IDENTIFICATION = "SET";
 
 	@Override
@@ -93,51 +89,41 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ " but second item cannot be negative");
 		}
 
-		if (!context.getVariableContext().isLegalVariableID(scope, VAR_NAME))
+		if (!context.getVariableContext().isLegalVariableID(scope, CControl.FACE.getDefaultValue()))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " internal error: found invalid var name: " + VAR_NAME
+				+ " internal error: found invalid var name: " + CControl.FACE.getDefaultValue()
 				+ ", Modified on " + race.getClass().getSimpleName() + ' '
 				+ race.getKeyName());
 		}
 		VarModifier<OrderedPair> vm =
-				new VarModifier<>(VAR_NAME, scope, modifier);
+				new VarModifier<>(CControl.FACE.getDefaultValue(), scope, modifier);
 		context.getObjectContext().addToList(race, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, Race race)
-	{
-		Changes<VarModifier<?>> changes =
-				context.getObjectContext().getListChanges(race, ListKey.MODIFY);
-		Collection<VarModifier<?>> added = changes.getAdded();
-		String face = null;
-		if (added != null)
-		{
-			for (VarModifier<?> vm : added)
-			{
-				FormulaModifier<?> modifier = vm.getModifier();
-				if (VAR_NAME.equals(vm.getVarName())
-					&& (!vm.getLegalScope().getParentScope().isPresent())
-					&& (modifier.getIdentification()
-						.equals(MOD_IDENTIFICATION)))
-				{
-					face = modifier.getInstructions();
-					if (face.endsWith(",0"))
-					{
-						face = face.substring(0, face.length() - 2);
-					}
-				}
-			}
-		}
-		return (face == null) ? null : new String[]{face};
 	}
 
 	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
+	}
+
+	@Override
+	public int compatibilityLevel()
+	{
+		return 6;
+	}
+
+	@Override
+	public int compatibilitySubLevel()
+	{
+		return 6;
+	}
+
+	@Override
+	public int compatibilityPriority()
+	{
+		return 0;
 	}
 
 }

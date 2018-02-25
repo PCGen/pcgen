@@ -213,7 +213,7 @@ public class FaceToken extends AbstractExportToken
 		String varName = getFaceControl();
 		if (varName == null)
 		{
-			varName = "Face";
+			varName = CControl.FACE.getDefaultValue();
 		}
 		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 		return (OrderedPair) resultFacet.getGlobalVariable(id, varName);
