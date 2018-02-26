@@ -791,7 +791,8 @@ Summon Nature's Ally VII	KEY:Naturalist Summon Nature's Ally VII	TYPE:Arcane	SCH
 Summon Nature's Ally VIII	KEY:Naturalist Summon Nature's Ally VIII	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Summoning	COMPS:V, S, F	CASTTIME:1 round	RANGE:Close	TARGETAREA:One summoned creature	DURATION:(ConjurationNaturalistsCharmBonus+(CASTERLEVEL)) minutes [D]	SAVEINFO:None	SPELLRES:No		SOURCEPAGE:p.350	DESC:This spell summons an animal, magical beast, or vermin.|!PRERULE:1,DisplayFullSpell	DESC:This spell functions like summon Nature's Ally I, except that you can summon one creature from the 8th-level list, 1d3 creatures of the same kind from the 7th-level list, or 1d4+1 creatures of the same kind from a lower-level list.|PRERULE:1,DisplayFullSpell
 Summon Nature's Ally IX		KEY:Naturalist Summon Nature's Ally IX	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Summoning	COMPS:V, S, F	CASTTIME:1 round	RANGE:Close	TARGETAREA:One summoned creature	DURATION:(ConjurationNaturalistsCharmBonus+(CASTERLEVEL)) minutes [D]	SAVEINFO:None	SPELLRES:No		SOURCEPAGE:p.350	DESC:This spell summons an animal, magical beast, or vermin.|!PRERULE:1,DisplayFullSpell	DESC:This spell functions like summon Nature's Ally I, except that you can summon one creature from the 9th-level list, 1d3 creatures of the same kind from the 8th-level list, or 1d4+1 creatures of the same kind from a lower-level list.|PRERULE:1,DisplayFullSpell
 
-
+###Block:
+Bomber's Eye.MOD	CLASSES:Investigator=1
 #
 # End
 #
