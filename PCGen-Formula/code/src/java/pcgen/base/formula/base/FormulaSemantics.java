@@ -18,6 +18,7 @@ package pcgen.base.formula.base;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.TypedKey;
@@ -103,33 +104,31 @@ public class FormulaSemantics
 	/**
 	 * A TypedKey used for storing the FormulaManager contained in this FormulaSemantics.
 	 */
-	public static final TypedKey<FormulaManager> FMANAGER =
-			new TypedKey<FormulaManager>();
+	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the LegalScope contained in this FormulaSemantics.
 	 */
-	public static final TypedKey<LegalScope> SCOPE = new TypedKey<LegalScope>();
+	public static final TypedKey<LegalScope> SCOPE = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the Format currently asserted for the formula served by
 	 * this FormulaSemantics.
 	 */
-	public static final TypedKey<FormatManager<?>> ASSERTED = new TypedKey<FormatManager<?>>();
+	public static final TypedKey<Optional<FormatManager<?>>> ASSERTED =
+			new TypedKey<>(Optional.empty());
 
 	/**
 	 * A TypedKey used for storing the Format of the input object for the formula served
 	 * by this FormulaSemantics.
 	 */
-	public static final TypedKey<FormatManager<?>> INPUT_FORMAT =
-			new TypedKey<FormatManager<?>>();
+	public static final TypedKey<FormatManager<?>> INPUT_FORMAT = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing a message indicating why the formula served by this
 	 * FormulaSemantics is not valid.
 	 */
-	private static final TypedKey<SemanticsReport> REPORT =
-			new TypedKey<SemanticsReport>();
+	private static final TypedKey<SemanticsReport> REPORT = new TypedKey<>();
 
 	/**
 	 * Sets the FormulaSemantics to indicate a Formula is not valid, and provides the

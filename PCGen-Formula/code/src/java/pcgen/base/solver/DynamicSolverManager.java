@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.Stack;
 
@@ -187,7 +188,8 @@ public class DynamicSolverManager implements SolverManager
 		 */
 		DependencyManager fdm =
 				managerFactory.generateDependencyManager(formulaManager, source);
-		fdm = fdm.getWith(DependencyManager.ASSERTED, varID.getFormatManager());
+		fdm = fdm.getWith(DependencyManager.ASSERTED,
+			Optional.of(varID.getFormatManager()));
 		fdm = managerFactory.withVariables(fdm);
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
@@ -281,7 +283,8 @@ public class DynamicSolverManager implements SolverManager
 		}
 		DependencyManager fdm =
 				managerFactory.generateDependencyManager(formulaManager, source);
-		fdm = fdm.getWith(DependencyManager.ASSERTED, varID.getFormatManager());
+		fdm = fdm.getWith(DependencyManager.ASSERTED,
+			Optional.of(varID.getFormatManager()));
 		fdm = managerFactory.withVariables(fdm);
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);

@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.visitor;
 
+import java.util.Optional;
+
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -299,20 +301,21 @@ public class DependencyVisitor implements FormulaParserVisitor
 	public Object visit(ASTQuotString node, Object data)
 	{
 		DependencyManager manager = (DependencyManager) data;
-		FormatManager<?> asserted = manager.get(DependencyManager.ASSERTED);
-		if (asserted == null)
+		Optional<FormatManager<?>> asserted = manager.get(DependencyManager.ASSERTED);
+		if (!asserted.isPresent())
 		{
 			return FormatUtilities.STRING_MANAGER;
 		}
-		if (!asserted.isDirect())
+		FormatManager<?> assertedFormat = asserted.get();
+		if (!assertedFormat.isDirect())
 		{
 			IndirectDependency refManager = manager.get(DependencyManager.INDIRECTS);
 			if (refManager != null)
 			{
-				refManager.add(asserted.convertIndirect(node.getText()));
+				refManager.add(assertedFormat.convertIndirect(node.getText()));
 			}
 		}
-		return asserted;
+		return assertedFormat;
 	}
 
 	/**

@@ -18,6 +18,7 @@
 package pcgen.base.formula.visitor;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
@@ -419,20 +420,21 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	public Object visit(ASTQuotString node, Object data)
 	{
 		FormulaSemantics semantics = (FormulaSemantics) data;
-		FormatManager<?> asserted = semantics.get(FormulaSemantics.ASSERTED);
-		if (asserted == null)
+		Optional<FormatManager<?>> asserted = semantics.get(FormulaSemantics.ASSERTED);
+		if (!asserted.isPresent())
 		{
 			return FormatUtilities.STRING_MANAGER;
 		}
+		FormatManager<?> assertedFormat = asserted.get();
 		try
 		{
-			asserted.convertIndirect(node.getText());
-			return asserted;
+			assertedFormat.convertIndirect(node.getText());
+			return assertedFormat;
 		}
 		catch (IllegalArgumentException e)
 		{
 			semantics.setInvalid(
-				"Invalid " + asserted.getIdentifierType() + ": " + e.getMessage());
+				"Invalid " + assertedFormat.getIdentifierType() + ": " + e.getMessage());
 			return null;
 		}
 	}
@@ -590,7 +592,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	{
 		FormulaSemantics semantics = (FormulaSemantics) data;
 		//null assertion since we can't assert what each side of the logical expression is
-		return visitOperatorNode(node, semantics.getWith(FormulaSemantics.ASSERTED, null));
+		return visitOperatorNode(node,
+			semantics.getWith(FormulaSemantics.ASSERTED, Optional.empty()));
 	}
 
 }

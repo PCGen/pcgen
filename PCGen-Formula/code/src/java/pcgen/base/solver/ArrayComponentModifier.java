@@ -19,6 +19,7 @@ package pcgen.base.solver;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -105,7 +106,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		EvaluationManager subManager =
 				manager.getWith(EvaluationManager.INPUT, input[location]);
 		subManager = subManager.getWith(EvaluationManager.ASSERTED,
-			format.getComponentManager());
+			Optional.of(format.getComponentManager()));
 		result[location] = modifier.process(subManager);
 		return result;
 	}

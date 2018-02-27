@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.TypedKey;
@@ -66,14 +67,14 @@ public class DependencyManager
 	 * A TypedKey used for storing the Format currently asserted for the formula served by
 	 * this DependencyManager
 	 */
-	public static final TypedKey<FormatManager<?>> ASSERTED = new TypedKey<>();
+	public static final TypedKey<Optional<FormatManager<?>>> ASSERTED =
+			new TypedKey<>(Optional.empty());
 
 	/**
 	 * A TypedKey used for storing the Format of the input object for the formula served
 	 * by this DependencyManager.
 	 */
-	public static final TypedKey<FormatManager<?>> INPUT_FORMAT =
-			new TypedKey<FormatManager<?>>();
+	public static final TypedKey<FormatManager<?>> INPUT_FORMAT = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the dynamic variables for the formula served by this

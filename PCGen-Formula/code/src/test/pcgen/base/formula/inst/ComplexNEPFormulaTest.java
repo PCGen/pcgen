@@ -1,6 +1,7 @@
 package pcgen.base.formula.inst;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -279,14 +280,14 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		longWayAround.isValid(fs);
 		assertEquals(false, fs.isValid());
 
-		longWayAround.isValid(fs.getWith(FormulaSemantics.ASSERTED, numberMgr));
+		longWayAround.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
 		//Note this implicitly tests that the report survives the .getWith
 		assertEquals(true, fs.isValid());
 
-		fiveString.isValid(fs.getWith(FormulaSemantics.ASSERTED, numberMgr));
+		fiveString.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
 		assertEquals(false, fs.isValid());
 
-		notANumber.isValid(fs.getWith(FormulaSemantics.ASSERTED, numberMgr));
+		notANumber.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
 		assertEquals(false, fs.isValid());
 	}
 

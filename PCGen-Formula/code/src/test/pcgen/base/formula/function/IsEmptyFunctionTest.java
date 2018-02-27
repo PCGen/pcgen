@@ -16,6 +16,7 @@
 package pcgen.base.formula.function;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -42,7 +43,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "isEmpty(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, manager, null);
+		isNotValid(formula, node, manager, Optional.empty());
 	}
 
 	@Test
@@ -50,7 +51,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "isEmpty(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, manager, null);
+		isNotValid(formula, node, manager, Optional.empty());
 	}
 
 	@Test
@@ -58,7 +59,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "isEmpty(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, manager, null);
+		isNotValid(formula, node, manager, Optional.empty());
 	}
 
 	@Test
@@ -67,7 +68,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 		getVariableStore().put(getArrayVariable("a"), EMPTY_ARR);
 		String formula = "isEmpty(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, manager, null);
+		isValid(formula, node, manager, Optional.empty());
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());
@@ -81,7 +82,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 		getVariableStore().put(getArrayVariable("a"), ARR_1);
 		String formula = "isEmpty(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, manager, null);
+		isValid(formula, node, manager, Optional.empty());
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());

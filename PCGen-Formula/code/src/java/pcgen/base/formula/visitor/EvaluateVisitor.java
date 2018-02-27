@@ -18,6 +18,7 @@
 package pcgen.base.formula.visitor;
 
 import java.lang.reflect.Array;
+import java.util.Optional;
 
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -279,15 +280,15 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	public Object visit(ASTQuotString node, Object data)
 	{
 		EvaluationManager manager = (EvaluationManager) data;
-		FormatManager<?> asserted = manager.get(EvaluationManager.ASSERTED);
-		if (asserted == null)
+		Optional<FormatManager<?>> asserted = manager.get(EvaluationManager.ASSERTED);
+		if (!asserted.isPresent())
 		{
 			return node.getText();
 		}
 		//The quotes are stripped by the parser
 		try
 		{
-			return asserted.convert(node.getText());
+			return asserted.get().convert(node.getText());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -366,7 +367,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	{
 		EvaluationManager manager = (EvaluationManager) data;
 		//Pass in null since we can't assert what each side of the logical expression is
-		return evaluateOperatorNode(node, manager.getWith(EvaluationManager.ASSERTED, null));
+		return evaluateOperatorNode(node,
+			manager.getWith(EvaluationManager.ASSERTED, Optional.empty()));
 	}
 
 	/**
@@ -395,8 +397,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 				return resolver.get(id);
 			}
 		}
-		FormatManager<?> asserted = manager.get(EvaluationManager.ASSERTED);
-		if (asserted == null)
+		Optional<FormatManager<?>> asserted = manager.get(EvaluationManager.ASSERTED);
+		if (!asserted.isPresent())
 		{
 			System.out
 				.println("Evaluation called on invalid variable: '" + varName
@@ -404,9 +406,10 @@ public class EvaluateVisitor implements FormulaParserVisitor
 					+ "assuming zero (number)");
 			return 0;
 		}
+		Class<?> managedClass = asserted.get().getManagedClass();
 		System.out.println("Evaluation called on invalid variable: '" + varName
-			+ "', assuming default for " + asserted.getManagedClass().getSimpleName());
-		return fm.getDefault(asserted.getManagedClass());
+			+ "', assuming default for " + managedClass.getSimpleName());
+		return fm.getDefault(managedClass);
 	}
 
 }

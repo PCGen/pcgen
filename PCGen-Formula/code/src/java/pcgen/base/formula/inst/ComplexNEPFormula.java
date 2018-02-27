@@ -19,6 +19,7 @@ package pcgen.base.formula.inst;
 
 import java.io.StringReader;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -135,7 +136,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	public T resolve(EvaluationManager manager)
 	{
 		EvaluationManager evalManager =
-				manager.getWith(EvaluationManager.ASSERTED, formatManager);
+				manager.getWith(EvaluationManager.ASSERTED, Optional.of(formatManager));
 		@SuppressWarnings("unchecked")
 		T result = (T) EVALUATE_VISITOR.visit(root, evalManager);
 		return result;
