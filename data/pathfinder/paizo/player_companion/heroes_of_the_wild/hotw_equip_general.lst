@@ -47,7 +47,7 @@ Oaken Staff				PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Resizable
 # Poisons
 # ==============================
 
-Poison (Listercap Spore)			TYPE:Goods.Poison.Consumable				COST:1125	WT:1		SOURCEPAGE:p.20		SPROP:Contact; Fort DC 20; Freq 1 rnd (6); Effect 1d2 Dex, 1 Con drain/sickened for 1 min; Cure 2 saves
+Poison (Blistercap Spore)			TYPE:Goods.Poison.Consumable				COST:1125	WT:1		SOURCEPAGE:p.20		SPROP:Contact; Fort DC 20; Freq 1 rnd (6); Effect 1d2 Dex, 1 Con drain/sickened for 1 min; Cure 2 saves
 Poison (Brinestump Special)			TYPE:Goods.Poison.Consumable				COST:400	WT:0		SOURCEPAGE:p.20		SPROP:Ingested; Fort DC 15; Onset 1 rnd; Effect nauseated 5 rnd; Cure 1 save
 Poison (Goblinvine Oil)				TYPE:Goods.Poison.Consumable				COST:125	WT:0		SOURCEPAGE:p.20		SPROP:Contact; Fort DC 10; Onset 1 rnd; Effect sickened; Cure 2 saves or 1 min washing affected area
 Poison (Jackalroot Essence)			TYPE:Goods.Poison.Consumable				COST:600	WT:0		SOURCEPAGE:p.20		SPROP:Injury; Fort DC 18; Freq 1 rnd (1d6); Effect uncontrollable laughter (as hideous laughter); Cure 2 saves
