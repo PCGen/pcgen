@@ -6,6 +6,8 @@ package pcgen;
 
 import java.util.Collection;
 
+import pcgen.base.solver.Modifier;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -31,6 +33,8 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
@@ -83,6 +87,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		LoadContext context = Globals.getContext();
 		BuildUtilities.buildUnselectedRace(context);
 		
+		SourceFileLoader.defineBuiltinVariables(gamemode, context);
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 				FormulaFactory.getFormulaFor("STRSCORE"));
@@ -171,6 +176,8 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		SourceFileLoader.createLangBonusObject(context);
+		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
+		proc(context, fmtManager);
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(AbilityCategory.FEAT);
@@ -181,6 +188,15 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		context.loadCampaignFacets();
 
 		character = new PlayerCharacter();
+	}
+
+	private <T> void proc(LoadContext context, FormatManager<T> fmtManager)
+	{
+		Class<T> cl = fmtManager.getManagedClass();
+		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
+		Modifier<T> 
+			defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl, defaultModifier);
 	}
 
 	protected void additionalSetUp() throws Exception

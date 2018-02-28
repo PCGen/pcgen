@@ -182,7 +182,7 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 		assertTrue("Format not equal " + dv1 + " and " + dv2,
 			Objects.equals(dv1.getFormat(), dv2.getFormat()));
 		assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
-			Objects.equals(dv1.getScopeName(), dv2.getScopeName()));
+			Objects.equals(dv1.getScope(), dv2.getScope()));
 		assertTrue("Source URI not equal " + dv1 + " and " + dv2,
 			Objects.equals(dv1.getSourceURI(), dv2.getSourceURI()));
 		assertTrue(

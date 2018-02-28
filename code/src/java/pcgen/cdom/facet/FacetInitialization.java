@@ -23,7 +23,6 @@ import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.input.DynamicFacet;
 import pcgen.cdom.facet.input.MasterUsableSkillFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
-import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
@@ -66,6 +65,7 @@ public final class FacetInitialization
 	{
 		doOtherInitialization();
 		doBridges();
+		GrantedVarFacet grantedVarFacet = FacetLibrary.getFacet(GrantedVarFacet.class);
 		TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 		ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary.getFacet(ConditionalTemplateFacet.class);
 		RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
@@ -79,7 +79,6 @@ public final class FacetInitialization
 		ActiveEqModFacet activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
 
 		GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
-		AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 		BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 		BioSetTrackingFacet bioSetTrackingFacet = FacetLibrary.getFacet(BioSetTrackingFacet.class);
 		CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
@@ -144,9 +143,10 @@ public final class FacetInitialization
 
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
+		grantedVarFacet.addDataFacetChangeListener(charObjectFacet); //model done
+
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		globalModifierFacet.addDataFacetChangeListener(charObjectFacet); //model done
-		alignmentFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		bioSetFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		checkFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		classFacet.addDataFacetChangeListener(charObjectFacet); //model done

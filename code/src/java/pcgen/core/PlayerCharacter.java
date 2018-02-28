@@ -204,7 +204,6 @@ import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.facet.input.TemplateInputFacet;
 import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
-import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.ArmorProfProviderFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
@@ -273,6 +272,8 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
+import pcgen.output.channel.ChannelCompatibility;
+import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.PCGenSettings;
@@ -359,7 +360,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
 
 	//The following are model facets that are only set or getCDOMObjectList or getBonusContainer (nearly isolated)
-	private final AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private final CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 	private final CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 	private final CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
@@ -586,7 +586,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		GlobalModifiers gm =
 				refContext.constructNowIfNecessary(GlobalModifiers.class,
-					"Global Modifiers");
+					GlobalModifierLoader.GLOBAL_MODIFIERS);
 		GlobalModifierFacet globalModifierFacet =
 				FacetLibrary.getFacet(GlobalModifierFacet.class);
 		globalModifierFacet.set(id, gm);
@@ -2604,14 +2604,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		equipmentFacet.remove(id, eq, this);
 		setDirty(true);
-	}
-
-	public void setAlignment(PCAlignment align)
-	{
-		if (alignmentFacet.set(id, align))
-		{
-			setDirty(true);
-		}
 	}
 
 	/**
@@ -6287,10 +6279,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Loaded campaigns
 
 		// Alignment
-		PCAlignment align = alignmentFacet.get(id);
-		if (align != null)
+
+		if (!SettingsHandler.getGame().getAlignmentText().isEmpty())
 		{
-			list.add(align);
+			PCAlignment align = ChannelCompatibility.getCurrentAlignment(id);
+			if (align != null)
+			{
+				list.add(align);
+			}
 		}
 
 		// BioSet

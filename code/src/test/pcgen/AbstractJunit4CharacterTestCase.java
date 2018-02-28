@@ -25,6 +25,8 @@ import java.math.BigDecimal;
 import org.junit.After;
 import org.junit.Before;
 
+import pcgen.base.solver.Modifier;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -53,6 +55,8 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
@@ -158,6 +162,7 @@ abstract public class AbstractJunit4CharacterTestCase
 		LoadContext context = Globals.getContext();
 		BuildUtilities.buildUnselectedRace(context);
 		AbstractReferenceContext ref = context.getReferenceContext();
+		SourceFileLoader.defineBuiltinVariables(gamemode, context);
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -207,6 +212,9 @@ abstract public class AbstractJunit4CharacterTestCase
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		SourceFileLoader.createLangBonusObject(context);
+		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
+		proc(context, fmtManager);
+
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(AbilityCategory.FEAT);
@@ -221,6 +229,14 @@ abstract public class AbstractJunit4CharacterTestCase
 		context.loadCampaignFacets();
 
 		character = new PlayerCharacter();
+	}
+
+	private <T> void proc(LoadContext context, FormatManager<T> fmtManager)
+	{
+		Class<T> cl = fmtManager.getManagedClass();
+		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
+		Modifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl, defaultModifier);
 	}
 
 	protected void additionalSetUp() throws Exception
