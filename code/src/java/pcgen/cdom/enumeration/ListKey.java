@@ -286,6 +286,7 @@ public final class ListKey<T>
 	public static final ListKey<CampaignSourceEntry> FILE_DATATABLE = new ListKey<>();
 	public static final ListKey<NEPFormula<Boolean>> ENABLE = new ListKey<>();
 	public static final ListKey<NEPFormula<Boolean>> ALLOW = new ListKey<>();
+	public static final ListKey<String> GRANTEDVARS = new ListKey<>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 

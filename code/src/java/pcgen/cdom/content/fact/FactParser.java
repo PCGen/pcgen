@@ -35,7 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @param <T>
  *            The type of object upon which the FactParser can be used
  * @param <F>
- *            The format of the data stored in the Factt
+ *            The format of the data stored in the Fact
  */
 public class FactParser<T extends CDOMObject, F> extends
 		AbstractNonEmptyToken<T> implements CDOMSecondaryToken<T>

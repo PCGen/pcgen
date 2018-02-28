@@ -83,6 +83,12 @@ public abstract class AbstractSetModifierFactory<T> implements
 				+ getVariableFormat().getName() + " or a child of that class");
 		}
 		T n = formatManager.convert(instructions);
+		if (n == null)
+		{
+			throw new IllegalArgumentException(
+				"FixedModifier was unable to understand instructions: " + instructions
+					+ " for format: " + formatManager.getIdentifierType());
+		}
 		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);
 		return new CalculationModifier<>(calc, formatManager);
 	}

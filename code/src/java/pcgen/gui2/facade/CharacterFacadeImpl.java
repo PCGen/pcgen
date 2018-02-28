@@ -72,6 +72,8 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AgeSet;
@@ -120,7 +122,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
@@ -175,6 +176,7 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.system.CharacterManager;
@@ -200,7 +202,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private List<ClassFacade> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
 	private DefaultListFacade<TempBonusFacade> availTempBonuses;
-	private DefaultReferenceFacade<AlignmentFacade> alignment;
+	private WriteableReferenceFacade<PCAlignment> alignment;
 	private DefaultListFacade<EquipmentSetFacade> equipmentSets;
 	private DefaultReferenceFacade<GenderFacade> gender;
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
@@ -421,7 +423,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 		}
 
-		alignment = new DefaultReferenceFacade<>(charDisplay.getPCAlignment());
+		GameMode game = (GameMode) dataSet.getGameMode();
+		if (!game.getAlignmentText().isEmpty())
+		{
+			String channelName = ControlUtilities.getControlToken(Globals.getContext(),
+				CControl.ALIGNMENTINPUT);
+			alignment = (WriteableReferenceFacade<PCAlignment>) ChannelUtilities
+					.getGlobalChannel(theCharacter.getCharID(), channelName);
+		}
 		age = new DefaultReferenceFacade<>(charDisplay.getAge());
 		ageCategory = new DefaultReferenceFacade<>();
 		updateAgeCategoryForAge();
@@ -449,7 +458,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		equipmentSets = new DefaultListFacade<>();
 		initEquipSet();
 
-		GameMode game = (GameMode) dataSet.getGameMode();
 		rollMethodRef = new DefaultReferenceFacade<>(game.getRollMethod());
 
 		charLevelsFacade =
@@ -1343,7 +1351,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#getAlignmentRef()
 	 */
 	@Override
-	public ReferenceFacade<AlignmentFacade> getAlignmentRef()
+	public ReferenceFacade<PCAlignment> getAlignmentRef()
 	{
 		return alignment;
 	}
@@ -1352,7 +1360,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#setAlignment(pcgen.core.facade.AlignmentFacade)
 	 */
 	@Override
-	public void setAlignment(AlignmentFacade alignment)
+	public void setAlignment(PCAlignment alignment)
 	{
 		if (!validateAlignmentChange(alignment))
 		{
@@ -1360,10 +1368,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		this.alignment.set(alignment);
-		if (alignment instanceof PCAlignment)
-		{
-			theCharacter.setAlignment((PCAlignment) alignment);
-		}
 		refreshLanguageList();
 
 	}
@@ -1375,17 +1379,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * 
 	 * @param newAlign The alignment to be set
 	 */
-	private boolean validateAlignmentChange(AlignmentFacade newAlign)
+	private boolean validateAlignmentChange(PCAlignment newAlign)
 	{
-		AlignmentFacade oldAlign = this.alignment.get();
+		PCAlignment oldAlign = this.alignment.get();
 
 		if (oldAlign == null || newAlign.equals(oldAlign))
-		{
-			return true;
-		}
-
-		// We can't do any validation if the new alignment isn't a known class
-		if (!(newAlign instanceof PCAlignment))
 		{
 			return true;
 		}
@@ -1399,7 +1397,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		PCAlignment savedAlignmnet = charDisplay.getPCAlignment();
 		for (PCClass aClass : classList)
 		{
-			theCharacter.setAlignment((PCAlignment) newAlign);
+			ChannelCompatibility.setCurrentAlignment(theCharacter.getCharID(), newAlign);
 			{
 				if (!theCharacter.isQualified(aClass))
 				{
@@ -1425,7 +1423,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			if (!delegate.showWarningConfirm(Constants.APPLICATION_NAME,
 					LanguageBundle.getString("in_sumExClassesWarning") + Constants.LINE_SEPARATOR + unqualified))
 			{
-				theCharacter.setAlignment(savedAlignmnet);
+				ChannelCompatibility.setCurrentAlignment(theCharacter.getCharID(), savedAlignmnet);
 				return false;
 			}
 

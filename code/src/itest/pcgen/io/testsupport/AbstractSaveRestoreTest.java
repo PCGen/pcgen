@@ -24,7 +24,9 @@ import java.util.Collections;
 
 import compare.InequalityTesterInst;
 import junit.framework.TestCase;
+import pcgen.base.solver.Modifier;
 import pcgen.base.test.InequalityTester;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
@@ -44,7 +46,6 @@ import pcgen.cdom.facet.TemplateSelectionFacet;
 import pcgen.cdom.facet.WeaponProfFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
-import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
@@ -58,6 +59,8 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.cdom.inst.CodeControl;
+import pcgen.cdom.util.CControl;
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -72,11 +75,14 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 import plugin.bonustokens.Feat;
@@ -86,6 +92,29 @@ import util.TestURI;
 
 public abstract class AbstractSaveRestoreTest extends TestCase
 {
+
+	private static final plugin.lsttokens.ability.MultToken ABILITY_MULT_TOKEN =
+			new plugin.lsttokens.ability.MultToken();
+	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
+			new plugin.lsttokens.ChooseLst();
+	private static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
+			new plugin.lsttokens.choose.LangToken();
+	private static final plugin.lsttokens.ability.VisibleToken ABILITY_VISIBLE_TOKEN =
+			new plugin.lsttokens.ability.VisibleToken();
+	private static final plugin.lsttokens.AutoLst AUTO_TOKEN =
+			new plugin.lsttokens.AutoLst();
+	protected static final plugin.lsttokens.auto.LangToken AUTO_LANG_TOKEN =
+			new plugin.lsttokens.auto.LangToken();
+	private static final plugin.lsttokens.equipment.ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
+			new plugin.lsttokens.equipment.ProficiencyToken();
+	private static final plugin.lsttokens.TypeLst EQUIP_TYPE_TOKEN =
+			new plugin.lsttokens.TypeLst();
+	private static final plugin.primitive.language.LangBonusToken LANGBONUS_PRIM =
+			new plugin.primitive.language.LangBonusToken();
+	private static final plugin.qualifier.language.PCToken PC_QUAL =
+			new plugin.qualifier.language.PCToken();
+	private static final plugin.modifier.cdom.SetModifierFactory SMF =
+			new plugin.modifier.cdom.SetModifierFactory();
 
 	protected LoadContext context;
 	protected PlayerCharacter pc;
@@ -135,27 +164,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		return context.getReferenceContext().constructCDOMObject(cl, key);
 	}
 
-	private static final plugin.lsttokens.ability.MultToken ABILITY_MULT_TOKEN =
-			new plugin.lsttokens.ability.MultToken();
-	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
-			new plugin.lsttokens.ChooseLst();
-	private static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
-			new plugin.lsttokens.choose.LangToken();
-	private static final plugin.lsttokens.ability.VisibleToken ABILITY_VISIBLE_TOKEN =
-			new plugin.lsttokens.ability.VisibleToken();
-	private static final plugin.lsttokens.AutoLst AUTO_TOKEN =
-			new plugin.lsttokens.AutoLst();
-	protected static final plugin.lsttokens.auto.LangToken AUTO_LANG_TOKEN =
-			new plugin.lsttokens.auto.LangToken();
-	private static final plugin.lsttokens.equipment.ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
-			new plugin.lsttokens.equipment.ProficiencyToken();
-	private static final plugin.lsttokens.TypeLst EQUIP_TYPE_TOKEN =
-			new plugin.lsttokens.TypeLst();
-	private static final plugin.primitive.language.LangBonusToken LANGBONUS_PRIM =
-			new plugin.primitive.language.LangBonusToken();
-	private static final plugin.qualifier.language.PCToken PC_QUAL =
-			new plugin.qualifier.language.PCToken();
-
 	protected void finishLoad()
 	{
 		context.commit();
@@ -200,7 +208,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 
 	protected DirectAbilityFacet directAbilityFacet;
 	protected ActiveEqModFacet activeEqModFacet;
-	protected AlignmentFacet alignmentFacet;
 	protected BioSetFacet bioSetFacet;
 	protected CheckFacet checkFacet;
 	protected ClassFacet classFacet;
@@ -233,11 +240,11 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		TokenRegistration.register(EQUIP_PROFICIENCY_TOKEN);
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
+		TokenRegistration.register(SMF);
 		TokenRegistration.register(Feat.class);
 
 		directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 		activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
-		alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 		bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 		checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 		classFacet = FacetLibrary.getFacet(ClassFacet.class);
@@ -323,6 +330,29 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 		ChooserFactory.setDelegate(new MockUIDelegate());
+		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
+		proc(fmtManager);
+		setAlignmentInputCodeControl(context, fmtManager, ref);
+	}
+
+	private void setAlignmentInputCodeControl(LoadContext context,
+		FormatManager<?> fmtManager, AbstractReferenceContext ref)
+	{
+		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
+		String channelName = ChannelUtilities.createVarName("AlignmentInput");
+		context.getVariableContext().assertLegalVariableID(
+			context.getActiveScope(), fmtManager,
+			channelName);
+		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
+		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
+	}
+
+	private <T> void proc(FormatManager<T> fmtManager)
+	{
+		Class<T> cl = fmtManager.getManagedClass();
+		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
+		Modifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl, defaultModifier);
 	}
 
 	protected void runRoundRobin(Runnable preEqualityCleanup)

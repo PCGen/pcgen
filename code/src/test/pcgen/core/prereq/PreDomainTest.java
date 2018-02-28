@@ -30,6 +30,7 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -71,7 +72,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(ng);
+		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
 		character.setDeity(deity);
 
 		assertFalse("Character's deity has Good domain", PrereqHandler.passes(
@@ -102,7 +103,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(ng);
+		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
 		character.setDeity(deity);
 
 		assertFalse("Character's deity has Good domain", PrereqHandler.passes(
