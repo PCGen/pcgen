@@ -480,9 +480,6 @@ public class DataSet implements DataSetFacade
 	class RaceComparator implements Comparator<Race>
 	{
 
-		/* (non-Javadoc)
-		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
-		 */
         @Override
 		public int compare(Race r1, Race r2)
 		{
@@ -496,7 +493,7 @@ public class DataSet implements DataSetFacade
 		    }
 
 		    boolean unselected1 = r1.isUnselected();
-		    boolean unselected2 = r1.isUnselected();
+		    boolean unselected2 = r2.isUnselected();
 			if (unselected1 && !unselected2)
 			{
 				return BEFORE;
