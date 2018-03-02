@@ -2976,6 +2976,12 @@ Poison Use		KEY:Rogue ~ Poison Use			CATEGORY:Special Ability	TYPE:ClassFeatures
 ##	SORCERER	##
 #------------------#
 
+###Block: Bloodline Support - Bonus Feat Variable DEFINEs
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BloodlineFeat_LingeringPerformance|0
+
+###Block: Bloodline Feats
+Lingering Performance		KEY:Sorcerer Bloodline Feat ~ Lingering Performance		CATEGORY:Internal		TYPE:Sorcerer Bloodline Feat		PREVARGTEQ:Sorcerer_BloodlineFeat_LingeringPerformance,1		PREABILITY:1,CATEGORY=Special Ability,Bard ~ Bardic Performance		ABILITY:FEAT|AUTOMATIC|Lingering Performance		DESC:The effects of your bardic performance carry on, even after you have stopped performing.		SOURCEPAGE:p.164		BENEFIT:The bonuses and penalties from your bardic performance continue for 2 rounds after you cease performing. Any other requirement, such as range or specific conditions, must still be met for the effect to continue. If you begin a new bardic performance during this time, the effects of the previous performance immediately cease.
+
 # Sorcerer bloodlines --------------------------------------------------------------------------------------------------------
 
 ###Block: Aquatic Sorcerer Bloodline
