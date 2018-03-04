@@ -23,7 +23,6 @@ COPYRIGHT:Darwins World Copyright 2001, RPGObjects; Authors Dominic Covey and Ch
 INFOTEXT:All the Dwarwin's World Combined Rules.
 
 #PCC:@/homebrew/conversion_support/conversion_support.pcc
-DATACONTROL:*/_universal/datacontrols_no_align.lst
 RACE:*/_universal/races.lst
 
 
