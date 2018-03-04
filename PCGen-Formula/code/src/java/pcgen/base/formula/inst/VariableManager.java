@@ -117,7 +117,7 @@ public class VariableManager implements VariableLibrary
 	 */
 	private boolean hasParentConflict(String varName, LegalScope legalScope)
 	{
-		Optional<LegalScope> potentialParent = legalScope.getParentScope();
+		Optional<? extends LegalScope> potentialParent = legalScope.getParentScope();
 		while (potentialParent.isPresent())
 		{
 			LegalScope parent = potentialParent.get();
@@ -163,7 +163,7 @@ public class VariableManager implements VariableLibrary
 			return true;
 		}
 		//Recursively check parent
-		Optional<LegalScope> potentialParent = legalScope.getParentScope();
+		Optional<? extends LegalScope> potentialParent = legalScope.getParentScope();
 		return potentialParent.isPresent()
 			&& isLegalVariableID(potentialParent.get(), varName);
 	}
@@ -175,7 +175,7 @@ public class VariableManager implements VariableLibrary
 		FormatManager<?> format = variableDefs.get(varName, legalScope);
 		if (format == null)
 		{
-			Optional<LegalScope> potentialParent = legalScope.getParentScope();
+			Optional<? extends LegalScope> potentialParent = legalScope.getParentScope();
 			//Recursively check parent, if possible
 			if (potentialParent.isPresent())
 			{

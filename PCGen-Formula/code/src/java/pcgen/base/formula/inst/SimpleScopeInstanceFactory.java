@@ -135,7 +135,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	private ScopeInstance getMessaged(LegalScope instScope, VarScoped current,
 		VarScoped original)
 	{
-		Optional<LegalScope> potentialParentScope = instScope.getParentScope();
+		Optional<? extends LegalScope> potentialParentScope = instScope.getParentScope();
 		//null is Global object
 		if (current == null)
 		{

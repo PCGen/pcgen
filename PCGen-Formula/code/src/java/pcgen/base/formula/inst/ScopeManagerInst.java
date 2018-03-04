@@ -66,7 +66,7 @@ public class ScopeManagerInst implements LegalScopeManager
 			throw new IllegalArgumentException(
 				"LegalScope name must not contain a period '.'");
 		}
-		Optional<LegalScope> parent = scope.getParentScope();
+		Optional<? extends LegalScope> parent = scope.getParentScope();
 		if (parent.isPresent() && !recognizesScope(parent.get()))
 		{
 			throw new IllegalArgumentException(

@@ -60,7 +60,7 @@ public interface LegalScope
 	 * 
 	 * @return The LegalScope that serves as a "parent" for this LegalScope
 	 */
-	public Optional<LegalScope> getParentScope();
+	public Optional<? extends LegalScope> getParentScope();
 
 	/**
 	 * Returns the name of this LegalScope.
@@ -80,7 +80,7 @@ public interface LegalScope
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(legalScope.getName());
-		Optional<LegalScope> current = legalScope.getParentScope();
+		Optional<? extends LegalScope> current = legalScope.getParentScope();
 		while (current.isPresent())
 		{
 			sb.insert(0, '.');
