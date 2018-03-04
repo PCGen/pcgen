@@ -52,7 +52,9 @@ PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_gui
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_4/_bestiary_4.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_intrigue/_ultimate_intrigue.pcc
 
-
+FORWARDREF:SPELL|Telepathy
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
+FORWARDREF:ABILITY=Special Ability|Mythic Power,Surge
 
 
 
