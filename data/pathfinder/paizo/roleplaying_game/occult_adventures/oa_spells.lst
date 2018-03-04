@@ -145,6 +145,25 @@ Unshakable Zeal			TYPE:Arcane.Divine.Psychic	CLASSES:Bard=5|Inquisitor,Spiritual
 Wall Of Ectoplasm			TYPE:Arcane.Divine.Psychic	CLASSES:Cleric,Psychic,Sorcerer,Spiritualist,Wizard=5											SCHOOL:Evocation												COMPS:V, S, M (small bit of gauze)		CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Opaque sheet of ectoplasm up to (CASTERLEVEL*10) ft. square or a sphere or hemisphere with a radius of up to (CASTERLEVEL) ft.	DURATION:(CASTERLEVEL) minutes	SAVEINFO:None, and Will negates; see text	SPELLRES:Yes		SOURCEPAGE:p.190	DESC:Wall of spirits blocks movement on Material Plane and Ethereal Plane and causes fear.
 Withdraw Affliction		TYPE:Arcane.Divine.Psychic	CLASSES:Psychic,Shaman,Spiritualist=6|Witch=7												SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One afflicted creature										DURATION:Instantaneous							SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.191	DESC:Remove an affliction and inflict it on another creature.
 
+###Block: Knacks - 0-Level Spiritualist Spells: 
+Bleed.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+daze.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+detect magic.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+detect psychic significance.MOD	TYPE:Psychic	CLASSES:Spiritualist=0
+grave words.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+guidance.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+light.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+mage hand.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+mending.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+message.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+open/close.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+read magic.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+resistance.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+stabilize.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+telekinetic projectile.MOD		TYPE:Psychic	CLASSES:Spiritualist=0
+virtue.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+
+
 #Core/APG
 Aid.MOD					TYPE:Psychic	CLASSES:Medium=2
 Alter Self.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2

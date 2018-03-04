@@ -88,6 +88,7 @@ ABILITYCATEGORY:Dazzling Feint Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:Y
 ABILITYCATEGORY:Phrenic Amplification					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Phrenic Amplification						PLURAL:Phrenic Amplifications					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Psychic Discipline						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Psychic Discipline						PLURAL:Psychic Disciplines					DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Phantom Emotional Focus						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Phantom Emotional Focus						PLURAL:Emotional Focuses					DISPLAYLOCATION:Class Features
 
 
 
