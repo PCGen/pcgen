@@ -34,6 +34,20 @@ URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathf
 
 PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/_ultimate_combat.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/_ultimate_magic.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_intrigue/_ultimate_intrigue.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
+
+# Using new file style
+
+
+
+
+
 
 FORWARDREF:RACE|Orc
 FORWARDREF:CLASSSPELLLIST|Magus
