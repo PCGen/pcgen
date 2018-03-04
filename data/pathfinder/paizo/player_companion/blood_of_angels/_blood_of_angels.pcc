@@ -45,8 +45,10 @@ SKILL:boa_skills.lst
 SPELL:boa_spells.lst
 TEMPLATE:boa_templates.lst
 
-ABILITY:support/boa_abilities_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+ABILITY:support/boa_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 CLASS:support/boa_classes_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+
+ABILITY:support/boa_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 
 # ENTRY DATE: 
 # LST MONKEY: 
