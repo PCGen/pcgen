@@ -39,7 +39,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
-public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
+public class GetOtherFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Override
@@ -48,17 +48,17 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		super.setUp();
 		SimpleFormatManagerLibrary formatLibrary = new SimpleFormatManagerLibrary();
 		FormatUtilities.loadDefaultFormats(formatLibrary);
-		getFunctionLibrary().addFunction(new DropIntoContext());
+		getFunctionLibrary().addFunction(new GetOtherFunction());
 		getOperatorLibrary().addAction(new NumberMinus());
 	}
 
 	@Test
 	public void testInvalidWrongArg()
 	{
-		String formula = "dropIntoContext(\"SKILL\")";
+		String formula = "getOther(\"PC.SKILL\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, numberManager, null);
-		String s = "dropIntoContext(\"SKILL\", \"Foo\", 4, 5)";
+		String s = "getOther(\"PC.SKILL\", \"Foo\", 4, 5)";
 		SimpleNode simpleNode = TestUtilities.doParse(s);
 		isNotValid(s, simpleNode, numberManager, null);
 	}
@@ -66,7 +66,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidWrongFormat1()
 	{
-		String formula = "dropIntoContext(3,\"SkillKey\",3)";
+		String formula = "getOther(3,\"SkillKey\",3)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, numberManager, null);
 	}
@@ -74,16 +74,27 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidWrongFormat2()
 	{
-		String formula = "dropIntoContext(\"SKILL\",3,3)";
+		String formula = "getOther(\"PC.SKILL\",3,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaSemantics semantics = generateFormulaSemantics(
+			getFormulaManager(), getGlobalScope(), null);
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
+		if (semantics.isValid())
+		{
+			TestCase.fail(
+				"Expected Invalid Formula: " + formula + " but was valid");
+		}
 	}
 
 	@Test
 	public void testInvalidWrongFormat3()
 	{
 		String formula =
-				"dropIntoContext(\"SKILL\", \"SkillKey\",\"Stuff\")";
+				"getOther(\"PC.SKILL\", \"SkillKey\",\"Stuff\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics
@@ -91,7 +102,8 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		LoadContext context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
-		Object result = semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
+		Object result = semanticsVisitor.visit(node,
+			semantics.getWith(ManagerKey.CONTEXT, context));
 		if (semantics.isValid() && (result instanceof Number))
 		{
 			TestCase.fail(
@@ -107,7 +119,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		vl.assertLegalVariableID("LocalVar", skillScope, numberManager);
 
 		String formula =
-				"dropIntoContext(\"SKILL\",\"SkillKey\",LocalVar)";
+				"getOther(\"PC.SKILL\",\"SkillKey\",LocalVar)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(
@@ -142,17 +154,17 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		LegalScope globalScope =
 				getScopeLibrary().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("LocalVar", skillScope, numberManager);
-		vl.assertLegalVariableID("SkillVar", globalScope, stringManager);
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		vl.assertLegalVariableID("SkillVar", globalScope, context.getManufacturer("SKILL"));
 
 		String formula =
-				"dropIntoContext(\"SKILL\",SkillVar,LocalVar)";
+				"getOther(\"PC.SKILL\",SkillVar,LocalVar)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(
 			getFormulaManager(), getGlobalScope(), null);
-		LoadContext context = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
 		if (!semantics.isValid())
 		{
@@ -173,14 +185,14 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		ScopeInstance globalInst =
 				getInstanceFactory().getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 		VariableID varIDq = vl.getVariableID(globalInst, "SkillVar");
-		getVariableStore().put(varIDq, "SkillKey");
+		getVariableStore().put(varIDq, skill);
 		context.getReferenceContext().importObject(skill);
 		context.getReferenceContext().importObject(skillalt);
 		evaluatesTo(formula, node, 2, context);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertEquals(formula, rv.toString());
-		getVariableStore().put(varIDq, "SkillAlt");
+		getVariableStore().put(varIDq, skillalt);
 		evaluatesTo(formula, node, 3, context);
 	}
 }

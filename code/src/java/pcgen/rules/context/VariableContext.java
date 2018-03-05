@@ -33,6 +33,7 @@ import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.MasterModifierFactory;
 import pcgen.util.Logging;
 
@@ -143,9 +144,9 @@ public class VariableContext
 		formulaSetup.getFunctionLibrary().addFunction(function);
 	}
 
-	public LegalScope getScope(String name)
+	public PCGenScope getScope(String name)
 	{
-		return formulaSetup.getLegalScopeManager().getScope(name);
+		return (PCGenScope) formulaSetup.getLegalScopeManager().getScope(name);
 	}
 
 	/**

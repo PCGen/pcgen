@@ -104,7 +104,18 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "getFact(\"SKILL\",3,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaSemantics semantics = generateFormulaSemantics(
+			getFormulaManager(), getGlobalScope(), null);
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
+		if (semantics.isValid())
+		{
+			TestCase.fail(
+				"Expected Invalid Formula: " + formula + " but was valid");
+		}
 	}
 
 	@Test
@@ -173,7 +184,11 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		VariableLibrary vl = getVariableLibrary();
 		LegalScope globalScope =
 				getScopeLibrary().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
-		vl.assertLegalVariableID("SkillVar", globalScope, stringManager);
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		vl.assertLegalVariableID("SkillVar", globalScope,
+			context.getManufacturer("SKILL"));
 
 		FactDefinition fd = new FactDefinition();
 		fd.setName("SKILL.Stuff");
@@ -181,9 +196,6 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		fd.setUsableLocation(Skill.class);
 		fd.setFormatManager(STRING_MANAGER);
 		fd.setVisibility(Visibility.HIDDEN);
-		LoadContext context = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
 		context.getReferenceContext().importObject(fd);
 
 		String formula =
@@ -206,7 +218,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		ScopeInstance globalInst =
 				getInstanceFactory().getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 		VariableID varIDq = vl.getVariableID(globalInst, "SkillVar");
-		getVariableStore().put(varIDq, "SkillKey");
+		getVariableStore().put(varIDq, skill);
 		context.getReferenceContext().importObject(skill);
 		context.getReferenceContext().importObject(skillalt);
 		FactKey<String> fk = FactKey.getConstant("Stuff", STRING_MANAGER);
@@ -217,7 +229,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertEquals(formula, rv.toString());
-		getVariableStore().put(varIDq, "SkillAlt");
+		getVariableStore().put(varIDq, skillalt);
 		evaluatesTo(formula, node, "Zers!", context);
 	}
 }

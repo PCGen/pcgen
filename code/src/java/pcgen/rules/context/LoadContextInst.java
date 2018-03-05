@@ -39,6 +39,7 @@ import pcgen.cdom.facet.DataSetInitializationFacet;
 import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
@@ -543,7 +544,7 @@ abstract class LoadContextInst implements LoadContext
 	@Override
 	public LoadContext dropIntoContext(String scope)
 	{
-		LegalScope subScope = var.getScope(scope);
+		PCGenScope subScope = var.getScope(scope);
 		if (subScope == null)
 		{
 			throw new IllegalArgumentException("LegalVariableScope " + scope
@@ -552,9 +553,9 @@ abstract class LoadContextInst implements LoadContext
 		return dropIntoContext(subScope);
 	}
 
-	private LoadContext dropIntoContext(LegalScope lvs)
+	private LoadContext dropIntoContext(PCGenScope lvs)
 	{
-		Optional<LegalScope> parent = lvs.getParentScope();
+		Optional<PCGenScope> parent = lvs.getParentScope();
 		if (!parent.isPresent())
 		{
 			//is Global
@@ -812,7 +813,7 @@ abstract class LoadContextInst implements LoadContext
 		@Override
 		public LoadContext dropIntoContext(String scope)
 		{
-			LegalScope toScope = var.getScope(scope);
+			PCGenScope toScope = var.getScope(scope);
 			if (toScope == null)
 			{
 				throw new IllegalArgumentException("LegalVariableScope "
