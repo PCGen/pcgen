@@ -18,6 +18,7 @@
 package plugin.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
@@ -90,8 +91,9 @@ public class LookupFunction implements Function
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		//Table node (must be a DataTable)
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object format = args[0].jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, refContext.getManufacturer(DATATABLE_CLASS)));
+		Object format =
+				args[0].jjtAccept(visitor, semantics.getWith(FormulaSemantics.ASSERTED,
+					Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -108,7 +110,7 @@ public class LookupFunction implements Function
 		//Lookup value (at this point we enforce based on the Table Format)
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> luFormat = (FormatManager<?>) args[1].jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, lookupFormat));
+			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(lookupFormat)));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -124,8 +126,9 @@ public class LookupFunction implements Function
 
 		//Result Column
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object resultColumn = args[2].jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, refContext.getManufacturer(COLUMN_CLASS)));
+		Object resultColumn =
+				args[2].jjtAccept(visitor, semantics.getWith(FormulaSemantics.ASSERTED,
+					Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -175,18 +178,20 @@ public class LookupFunction implements Function
 		LoadContext context = manager.get(ManagerKey.CONTEXT);
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		DataTable dataTable = (DataTable) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, refContext.getManufacturer(DATATABLE_CLASS)));
+			manager.getWith(EvaluationManager.ASSERTED,
+				Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
 
 		FormatManager<?> lookupFormat = dataTable.getFormat(0);
 
 		//Lookup value (format based on the table)
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object lookupValue = args[1].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, lookupFormat));
+			manager.getWith(EvaluationManager.ASSERTED, Optional.of(lookupFormat)));
 
 		//Result Column
 		TableColumn column = (TableColumn) args[2].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, refContext.getManufacturer(COLUMN_CLASS)));
+			manager.getWith(EvaluationManager.ASSERTED,
+				Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
 
 		String columnName = column.getName();
 		if (!dataTable.isColumn(columnName))
@@ -201,8 +206,8 @@ public class LookupFunction implements Function
 		String lookupRule = "EXACT";
 		if (args.length == 4)
 		{
-			lookupRule = (String) args[3].jjtAccept(visitor,
-				manager.getWith(EvaluationManager.ASSERTED, FormatUtilities.STRING_MANAGER));
+			lookupRule = (String) args[3].jjtAccept(visitor, manager.getWith(
+				EvaluationManager.ASSERTED, Optional.of(FormatUtilities.STRING_MANAGER)));
 		}
 		LookupType lookupType = DataTable.LookupType.valueOf(lookupRule);
 		if (!dataTable.hasRow(lookupType, lookupValue))
@@ -226,10 +231,10 @@ public class LookupFunction implements Function
 		//Table name node (must be a Table)
 		TableFormatManager tableFormat = (TableFormatManager) args[0].jjtAccept(visitor,
 			manager.getWith(DependencyManager.ASSERTED,
-				refContext.getManufacturer(DATATABLE_CLASS)));
+				Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
 
-		args[1].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, tableFormat.getLookupFormat()));
+		args[1].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED,
+			Optional.of(tableFormat.getLookupFormat())));
 
 		/*
 		 * TODO Is there a way to check if the supplied column is part of this table? Not
@@ -239,7 +244,7 @@ public class LookupFunction implements Function
 		 */
 		ColumnFormatManager<?> columnFormat = (ColumnFormatManager<?>) args[2]
 			.jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED,
-				refContext.getManufacturer(COLUMN_CLASS)));
+				Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
 		return columnFormat.getComponentManager();
 	}
 

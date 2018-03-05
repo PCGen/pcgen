@@ -16,6 +16,7 @@
 package plugin.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
@@ -60,7 +61,7 @@ public class KeyFunction implements Function
 			return null;
 		}
 		FormatManager<?> objClass = (FormatManager<?>) args[0].jjtAccept(visitor,
-			semantics.getWith(FormulaSemantics.ASSERTED, null));
+			semantics.getWith(FormulaSemantics.ASSERTED, Optional.empty()));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -89,7 +90,8 @@ public class KeyFunction implements Function
 	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		args[0].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
+		args[0].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED, Optional.empty()));
 		return FormatUtilities.STRING_MANAGER;
 	}
 

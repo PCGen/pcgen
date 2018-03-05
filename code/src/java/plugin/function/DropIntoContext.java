@@ -18,6 +18,7 @@
 package plugin.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.DynamicDependency;
@@ -100,7 +101,7 @@ public class DropIntoContext implements Function
 		else if (args[1] instanceof ASTPCGenSingleWord)
 		{
 			//Variable
-			semantics = semantics.getWith(FormulaSemantics.ASSERTED, null);
+			semantics = semantics.getWith(FormulaSemantics.ASSERTED, Optional.empty());
 			FormatManager<?> objClass =
 					(FormatManager<?>) args[1].jjtAccept(visitor, semantics);
 			if (!semantics.isValid())

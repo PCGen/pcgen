@@ -18,6 +18,7 @@
 package plugin.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -103,7 +104,7 @@ public class GetFactFunction implements Function
 		{
 			//Variable
 			FormatManager<?> objClass = (FormatManager<?>) args[1].jjtAccept(visitor,
-				semantics.getWith(FormulaSemantics.ASSERTED, null));
+				semantics.getWith(FormulaSemantics.ASSERTED, Optional.empty()));
 			if (!semantics.isValid())
 			{
 				return null;
