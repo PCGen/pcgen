@@ -397,7 +397,7 @@ Passwall.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
 Perceive Cues.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
 Permanent Image.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
 Persistent Image.MOD			TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
-Phantasmal Killer.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist.MOD			TYPE:Psychic	CLASSES:Spiritualist=4=4
+Phantasmal Killer.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist,Spiritualist=4
 Phantasmal Revenge.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
 Phantasmal Web.MOD			TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=5
 Phantom Blood.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
