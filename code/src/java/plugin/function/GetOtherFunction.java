@@ -40,6 +40,12 @@ import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
 
+/**
+ * Processes the getOther(...) function.
+ * 
+ * This function is capable of "jumping" to another scope and getting a variable from that
+ * scope. In general, this is useful to grab local variables from another object.
+ */
 public class GetOtherFunction implements Function
 {
 
