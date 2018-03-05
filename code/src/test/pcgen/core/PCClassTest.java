@@ -58,9 +58,11 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
+import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreVariableParser;
+import util.TestURI;
 
 
 @SuppressWarnings("nls")
@@ -905,9 +907,12 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		// Create the monseter class type
 		GameMode gamemode = SettingsHandler.getGame();
-		gamemode.addClassType(
-			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
-		gamemode.setSkillMultiplierLevels("4");
+		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
+		methodLoader.parseLine(gamemode.getModeContext(),
+			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO",
+			TestURI.getURI());
+		gamemode.removeSkillMultiplierLevels();
+		gamemode.addSkillMultiplierLevel("4");
 
 		// Create the humanoid class
 		String classDef =

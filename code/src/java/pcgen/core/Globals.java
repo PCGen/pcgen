@@ -361,20 +361,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get global deity list
-	 * @return global deity lis
-	 */
-	public static List<String> getGlobalDeityList()
-	{
-		if (SettingsHandler.getGame() != null)
-		{
-			return SettingsHandler.getGame().getDeityList();
-		}
-
-		return new ArrayList<>();
-	}
-
-	/**
 	 * Return TRUE if in a particular game mode
 	 * @param gameMode
 	 * @return TRUE if in a particular game mode

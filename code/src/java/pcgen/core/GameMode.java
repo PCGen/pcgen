@@ -26,7 +26,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
-import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -71,11 +70,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private List<String> bonusFeatLevels = new ArrayList<>();
 	private List<String> bonusStackList = new ArrayList<>();
 	private List<String> bonusStatLevels = new ArrayList<>();
-	private List<ClassType> classTypeList = new ArrayList<>();
 	private List<String> defaultDataSetList = new ArrayList<>();
-	private List<String> defaultDeityList = new ArrayList<>();
 	private Map<String, XPTable> xpTableInfo = new HashMap<>();
-	private List<String> loadStrings = new ArrayList<>();
 	private List<String> skillMultiplierLevels = new ArrayList<>();
 	@Deprecated
 	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<>();
@@ -102,7 +98,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String displayVariable3Text = "";
 	private String displayVariableName = "";
 	private String displayVariableText = "";
-	private String folderName = "";
+	private final String folderName;
 	private String hpAbbrev = "";
 	private String hpName = "";
 	private String levelUpMessage = "";
@@ -129,7 +125,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int maxNonEpicLevel = Integer.MAX_VALUE;
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
-	private final List<String> schoolsList = new ArrayList<>(20);
 
 	private int skillCosts_Class     = 1;
 	private int skillCost_CrossClass = 2;
@@ -320,24 +315,16 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set Allowed Game modes.
-	 * @param argAllowedModes
+	 * Adds an Allowed Game Mode
 	 */
-	public void setAllowedModes(final String argAllowedModes)
+	public void addAllowedMode(String modeName)
 	{
-		final StringTokenizer aTok = new StringTokenizer(argAllowedModes, "|", false);
-
-		while (aTok.hasMoreTokens())
+		if (allowedModes == null)
 		{
-			final String aString = aTok.nextToken();
-
-			if (allowedModes == null)
-			{
-				allowedModes = new ArrayList<>();
-			}
-
-			allowedModes.add(aString);
+			allowedModes = new ArrayList<>();
 		}
+
+		allowedModes.add(modeName);
 	}
 
 	/**
@@ -446,15 +433,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public ClassType getClassTypeByName(final String aClassKey)
 	{
-		for ( ClassType classType : classTypeList )
+		if (aClassKey == null)
 		{
-			if (classType.getName().equalsIgnoreCase(aClassKey))
-			{
-				return classType;
-			}
+			return null;
 		}
-
-		return null;
+		return getModeContext().getReferenceContext()
+			.silentlyGetConstructedCDOMObject(ClassType.class, aClassKey);
 	}
 
 	/**
@@ -710,18 +694,19 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the skill multiplier levels.
-	 * @param pipeList
+	 * Add a skill multiplier level.
 	 */
-	public void setSkillMultiplierLevels(final String pipeList)
+	public void addSkillMultiplierLevel(String skillMult)
 	{
-		final StringTokenizer aTok = new StringTokenizer(pipeList, "|", false);
-		skillMultiplierLevels.clear();
+		skillMultiplierLevels.add(skillMult);
+	}
 
-		while (aTok.hasMoreTokens())
-		{
-			skillMultiplierLevels.add(aTok.nextToken());
-		}
+	/**
+	 * Removes skill multiplier levels.
+	 */
+	public void removeSkillMultiplierLevels()
+	{
+		skillMultiplierLevels.clear();
 	}
 
 	/**
@@ -761,20 +746,10 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * The formula used to compute spell ranges.
-	 * @param aString
+	 * Adds a Spell Range
 	 */
-	public void setSpellRangeFormula(final String aString)
+	public void addSpellRange(String aRange, String aFormula)
 	{
-		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
-
-		if (aTok.countTokens() < 2)
-		{
-			return;
-		}
-
-		final String aRange = aTok.nextToken().toUpperCase();
-		final String aFormula = aTok.nextToken();
 		spellRangeMap.put(aRange, aFormula);
 	}
 
@@ -1033,69 +1008,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add Class Type.
-	 * 
-	 * @param aString
-	 */
-	public void addClassType(final String aString)
-	{
-		if (Constants.LST_DOT_CLEAR.equals(aString))
-		{
-			classTypeList = null;
-
-			return;
-		}
-
-		if (classTypeList == null)
-		{
-			classTypeList = new ArrayList<>();
-		}
-
-		final ClassType aClassType = new ClassType();
-		final StringTokenizer aTok = new StringTokenizer(aString, "\t");
-		aClassType.setName(aTok.nextToken().intern()); //Name of the Class Type
-
-		while (aTok.hasMoreTokens())
-		{
-			final String bString = aTok.nextToken();
-
-			if (bString.startsWith("CRFORMULA:"))
-			{
-				aClassType.setCRFormula(bString.substring(10));
-			}
-			else if (bString.startsWith("CRMOD:"))
-			{
-				aClassType.setCRMod(bString.substring(6));
-			}
-			else if (bString.startsWith("CRMODPRIORITY:"))
-			{
-				try 
-				{
-					aClassType.setCRModPriority(new Integer(bString.substring(14)));
-				}
-				catch(NumberFormatException e)
-				{
-					Logging.errorPrint("Illegal value for miscinfo.CLASSTYPE.CRMODPRIORITY: " + bString.substring(14));
-				}
-			}
-			else if (bString.startsWith("XPPENALTY:"))
-			{
-				aClassType.setXPPenalty(bString.substring(10).equals("YES"));
-			}
-			else if (bString.startsWith("ISMONSTER:"))
-			{
-				aClassType.setMonster(bString.substring(10).equals("YES"));
-			}
-			else
-			{
-				Logging.errorPrint("Incorrect tag in miscinfo.CLASSTYPE: " + bString);
-			}
-		}
-
-		classTypeList.add(aClassType);
-	}
-
-	/**
 	 * Add a data set to the list of Default Data Sets.
 	 * @param dataSetKey The key of the data set to add.
 	 */
@@ -1115,37 +1027,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void clearDefaultDataSetList()
 	{
 		defaultDataSetList.clear();
-	}
-
-	/**
-	 * Add a row to the Deity List. The list will be created if necessary.
-	 * The special value ".CLEAR" disposes of the list.
-	 * @param argDeityLine
-	 */
-	public void addDeityList(final String argDeityLine)
-	{
-		if (Constants.LST_DOT_CLEAR.equals(argDeityLine))
-		{
-			defaultDeityList = null;
-
-			return;
-		}
-
-		if (defaultDeityList == null)
-		{
-			defaultDeityList = new ArrayList<>();
-		}
-
-		defaultDeityList.add(argDeityLine);
-	}
-
-	/**
-	 * Add Load String.
-	 * @param aString
-	 */
-	public void addLoadString(final String aString)
-	{
-		loadStrings.add(aString);
 	}
 
 	/**
@@ -1195,41 +1076,19 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the XP Awards.
-	 * @param aString
+	 * Adds an XP Award
 	 */
-	public void setXPAwards(final String aString)
+	public void addXPaward(Integer crInteger, Integer value)
 	{
-		String sTmp = "";
-		StringTokenizer aTok = new StringTokenizer(aString, "|", false);
-		
-		while (aTok.hasMoreTokens())
-		{
-			try
-			{
-				sTmp = aTok.nextToken();
-				final String xpAward[] = sTmp.split("=");
-				xpAwardsMap.put(getCRInteger(xpAward[0]), new Integer(xpAward[1]));
-			}
-			catch (ArrayIndexOutOfBoundsException | NumberFormatException e)
-			{
-				Logging.errorPrint("Illegal value for miscinfo.XPAWARD: " + sTmp);
-			}
-		}
+		xpAwardsMap.put(crInteger, value);
 	}
 
 	/**
-	 * Set the CR steps for CRs lower than CR 1.
-	 * @param aString
+	 * Add the CR steps for CRs lower than CR 1.
 	 */
-	public void setCRSteps(final String aString)
+	public void addCRstep(Integer index, String crstep)
 	{
-		StringTokenizer aTok = new StringTokenizer(aString, "|", false);
-		
-		for (Integer index = 0; aTok.hasMoreTokens(); index--)
-		{
-			crStepsMap.put(index, aTok.nextToken());
-		}
+		crStepsMap.put(index, crstep);
 	}
 
 	/**
@@ -1389,15 +1248,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Answer the deity list. May be null.
-	 * @return default unit set
-	 */
-	List<String> getDeityList()
-	{
-		return defaultDeityList;
-	}
-
-	/**
 	 * Gets the list of default data sets.
 	 *
 	 * @return the default data set list
@@ -1430,12 +1280,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	String getHPText()
 	{
 		return hpName;
-	}
-
-
-	List<String> getLoadStrings()
-	{
-		return loadStrings;
 	}
 
 	/**
@@ -2133,27 +1977,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Return an <b>unmodifiable</b> version of the schools list.
-	 * @return an <b>unmodifiable</b> version of the schools list.
-	 */
-	public List<String> getUnmodifiableSchoolsList()
-	{
-		return Collections.unmodifiableList(schoolsList);
-	}
-
-	/**
-	 * Add the school to the list.
-	 * @param school
-	 */
-	public void addToSchoolList(final String school)
-	{
-		if (!schoolsList.contains(school))
-		{
-			schoolsList.add(school);
-		}
-	}
-
-	/**
 	 * Add the display text for a stat.
 	 * @param statValue
 	 * @param statText
@@ -2348,32 +2171,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 				.getConstructedCDOMObjects(AbilityCategory.class);
 	}
 
-	/**
-	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects
-	 * defined by this game mode that match the category key.
-	 *
-	 * @param key The category key to filter for.
-	 * @return A <tt>Collection</tt> of <tt>AbilityCategory</tt> objects.
-	 */
-	public Collection<AbilityCategory> getAllAbilityCatsForKey(String key)
-	{
-		if (key == null)
-		{
-			return Collections.emptyList();
-		}
-		List<AbilityCategory> catList = new ArrayList<>();
-		for (AbilityCategory cat : getAllAbilityCategories())
-		{
-			if (key.equals(cat.getKeyName())
-				|| key.equals(cat.getParentCategory().getKeyName()))
-			{
-				catList.add(cat);
-			}
-		}
-		return Collections.unmodifiableCollection(catList);
-	}
-
-
 	public void setPreviewDir(final String aDir)
 	{
 		thePreviewDir = aDir;
@@ -2398,66 +2195,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Parses the DIESIZE tag's values to create
-	 * the dieSizes array.
-	 *
-	 * @param value
-	 */
-	public void setDieSizes(final String value)
-	{
-		final StringTokenizer aTok = new StringTokenizer(value, ",", false);
-		List<Integer> list = new ArrayList<>();
-		while (aTok.hasMoreTokens())
-		{
-			String aString = aTok.nextToken();
-			// in case there is training\leading whitespace after the comma split
-			aString = aString.trim();
-
-			try
-			{
-			if (aString.contains("MIN="))
-				{
-					String[] t = aString.split("MIN=");
-					String minValue = t[1];
-					int die = Integer.parseInt(minValue);
-					setMinDieSize(die);
-					list.add(die);
-				}
-				else if (aString.contains("MAX="))
-				{
-					String[] t = aString.split("MAX=");
-					String maxValue = t[1];
-					int die = Integer.parseInt(maxValue);
-					setMaxDieSize(die);
-					list.add(die);
-				}
-				else
-				{
-					int die = Integer.parseInt(aString);
-					list.add(die);
-				}
-			}
-			catch (NumberFormatException e)
-			{
-				Logging.errorPrint("Invalid integer value for DIESIZES: " + aString + ".  Original value: DIESIZES:"+ value);
-			}
-
-		}
-		if (list.isEmpty())
-		{
-			return;
-		}
-
-		int[] dieSizes = new int[list.size()];
-
-		for (int i = 0; i < list.size(); i++)
-		{
-			dieSizes[i] = list.get(i);
-		}
-		this.setDieSizes(dieSizes);
-	}
-
-	/**
 	 * Get's current gamemodes MaxDieSize.
 	 * @return maxDieSize
 	 */
@@ -2469,7 +2206,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Sets's current gamemodes MaxDieSize.
 	 * @param dice
 	 */
-	private void setMaxDieSize(final int dice)
+	public void setMaxDieSize(final int dice)
 	{
 		maxDieSize = dice;
 	}
@@ -2486,7 +2223,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Sets's current gamemodes MinDieSize.
 	 * @param dice
 	 */
-	private void setMinDieSize(final int dice)
+	public void setMinDieSize(final int dice)
 	{
 		minDieSize = dice;
 	}
