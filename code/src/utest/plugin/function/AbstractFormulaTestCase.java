@@ -18,6 +18,7 @@
 package plugin.function;
 
 import java.util.List;
+import java.util.Optional;
 
 import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
@@ -167,10 +168,12 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		FormulaManager formulaManager, LegalScope globalScope,
 		FormatManager<?> assertedFormat)
 	{
+		Optional<FormatManager<?>> format =
+				(assertedFormat == null) ? Optional.empty() : Optional.of(assertedFormat);
 		return new FormulaSemantics()
 			.getWith(FormulaSemantics.FMANAGER, formulaManager)
 			.getWith(FormulaSemantics.SCOPE, globalScope)
-			.getWith(FormulaSemantics.ASSERTED, assertedFormat);
+			.getWith(FormulaSemantics.ASSERTED, format);
 	}
 
 	public void isStatic(String formula, SimpleNode node, boolean b)
@@ -228,7 +231,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		return new EvaluationManager()
 			.getWith(EvaluationManager.FMANAGER, localSetup.getFormulaManager())
 			.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst())
-			.getWith(EvaluationManager.ASSERTED, FormatUtilities.NUMBER_MANAGER)
+			.getWith(EvaluationManager.ASSERTED, Optional.of(FormatUtilities.NUMBER_MANAGER))
 			.getWith(ManagerKey.CONTEXT, context);
 	}
 
@@ -258,9 +261,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		FormulaManager formulaManager, ScopeInstance globalScopeInst,
 		FormatManager<?> assertedFormat)
 	{
+		Optional<FormatManager<?>> format =
+				(assertedFormat == null) ? Optional.empty() : Optional.of(assertedFormat);
 		return new DependencyManager(formulaManager)
 			.getWith(DependencyManager.INSTANCE, globalScopeInst)
-			.getWith(DependencyManager.ASSERTED, assertedFormat);
+			.getWith(DependencyManager.ASSERTED, format);
 	}
 
 	protected VariableID<Number> getVariable(String formula)
