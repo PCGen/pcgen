@@ -34,7 +34,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Champions o
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+#support
 DEITY:support/cob_deities_deg.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
+ABILITY:support/cob_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/cob_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
 ABILITY:cob_abilities.lst
 ABILITY:cob_abilities_class.lst
