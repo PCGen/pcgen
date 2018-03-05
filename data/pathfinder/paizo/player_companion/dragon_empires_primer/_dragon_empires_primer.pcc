@@ -51,3 +51,7 @@ SPELL:dep_spells.lst
 TEMPLATE:dep_templates.lst
 
 WEAPONPROF:dep_profs_weapon.lst
+
+# support
+ABILITY:support/dep_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/dep_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
