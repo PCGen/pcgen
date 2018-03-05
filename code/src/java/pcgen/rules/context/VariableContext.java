@@ -144,6 +144,13 @@ public class VariableContext
 		formulaSetup.getFunctionLibrary().addFunction(function);
 	}
 
+	/**
+	 * Returns the PCGenScope for the given name.
+	 * 
+	 * @param name
+	 *            The name of the PCGenScope to be returned
+	 * @return The PCGenScope for the given name
+	 */
 	public PCGenScope getScope(String name)
 	{
 		return (PCGenScope) formulaSetup.getLegalScopeManager().getScope(name);
