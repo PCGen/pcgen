@@ -48,7 +48,6 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleFormulaManager;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
-import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 import pcgen.base.formula.inst.VariableManager;
@@ -58,6 +57,7 @@ import pcgen.cdom.content.ProcessCalculation;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.EquipmentScope;
 import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.formula.scope.SkillScope;
 import pcgen.core.Skill;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
@@ -65,13 +65,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.token.ModifierFactory;
-import plugin.function.DropIntoContext;
+import plugin.function.GetOtherFunction;
 
 public class SetSolverManagerTest
 {
 
-	private final LegalScope globalScope =
-			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
+	private final PCGenScope globalScope = new GlobalScope();
 	private TrackingVariableCache vc;
 	private ScopeManagerInst vsLib;
 	private VariableManager sl;
@@ -89,7 +88,7 @@ public class SetSolverManagerTest
 	public void setUp() throws Exception
 	{
 		FunctionLibrary fl = new SimpleFunctionLibrary();
-		fl.addFunction(new DropIntoContext());
+		fl.addFunction(new GetOtherFunction());
 		OperatorLibrary ol = new SimpleOperatorLibrary();
 		vc = new TrackingVariableCache();
 		vsLib = new ScopeManagerInst();
@@ -218,7 +217,7 @@ public class SetSolverManagerTest
 		FormulaModifier mod4 =
 				am1.getModifier("4", managerFactory, fm, globalScope, numberManager);
 		mod4.addAssociation("PRIORITY=3000");
-		String formula = "dropIntoContext(\"SKILL\",SkillVar,LocalVar)";
+		String formula = "getOther(\"PC.SKILL\",SkillVar,LocalVar)";
 		context.getReferenceContext().importObject(skill);
 		context.getReferenceContext().importObject(skillalt);
 		FormulaModifier modf = am1.getModifier(formula, new MyManagerFactory(context), fm,
