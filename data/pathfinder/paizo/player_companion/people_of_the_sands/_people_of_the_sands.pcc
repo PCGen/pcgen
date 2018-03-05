@@ -44,6 +44,10 @@ SKILL:psand_skills.lst
 SPELL:psand_spells.lst
 TEMPLATE:psand_templates.lst
 
+# support
+ABILITY:support/psand_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/psand_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+
 # ENTRY DATE: 2017-07-30
 # LST MONKEY: Gwen T.
 # LICENSE MONKEY: Paul Grosse
