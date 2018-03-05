@@ -690,9 +690,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		bioLoader.setGameMode(gamemode.getName());
 		bioLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_BIO_SET));
 
-		// Check for the default deities
-		checkRequiredDeities(specificGameModeDir, context);
-
 		// Add default EQ mods
 		addDefaultEquipmentMods(context);
 
@@ -934,34 +931,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			{
 				logError(
 					"Error when closing infile after loading custom items", ex);
-			}
-		}
-	}
-
-	/**
-	 * This method checks to make sure that the deities required for the current
-	 * mode have been loaded into the Globals as Deities. Prior to calling this
-	 * method, deities are stored as simple String objects.
-	 *
-	 * @throws PersistenceLayerException
-	 *             if something bizarre occurs, such as this method being
-	 *             invoked more than once, a change to DeityLoader, or an
-	 *             invalid LST file containing the default deities.
-	 */
-	private void checkRequiredDeities(File dir, LoadContext context)
-		throws PersistenceLayerException
-	{
-		context.setSourceURI(new File(dir, "miscinfo.lst").toURI());
-		//
-		// Add in the default deities (unless they're already there)
-		//
-		final List<String> gDeities = Globals.getGlobalDeityList();
-
-		if ((gDeities != null) && (!gDeities.isEmpty()))
-		{
-			for (String aLine : gDeities)
-			{
-				deityLoader.parseLine(context, null, aLine, globalCampaign);
 			}
 		}
 	}
