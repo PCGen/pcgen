@@ -19,12 +19,13 @@ package pcgen.cdom.formula.scope;
 
 import java.util.Optional;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.util.FormatManager;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This is the global variable scope
  */
-public class GlobalScope implements LegalScope
+public class GlobalScope implements PCGenScope
 {
 	/**
 	 * The name of the Global Scope for PCGen characters, publicly available for reuse...
@@ -38,8 +39,14 @@ public class GlobalScope implements LegalScope
 	}
 
 	@Override
-	public Optional<LegalScope> getParentScope()
+	public Optional<PCGenScope> getParentScope()
 	{
 		return Optional.empty();
+	}
+
+	@Override
+	public FormatManager<?> getFormatManager(LoadContext context)
+	{
+		throw new UnsupportedOperationException("Global Scope does not have a format");
 	}
 }
