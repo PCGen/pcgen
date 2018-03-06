@@ -63,7 +63,7 @@ public final class TokenUtilities
 		}
 		else
 		{
-			return rm.getReference(s);
+			return rm.getReference(new String(s));
 		}
 	}
 

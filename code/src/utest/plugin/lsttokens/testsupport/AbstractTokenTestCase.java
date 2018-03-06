@@ -18,6 +18,7 @@
 package plugin.lsttokens.testsupport;
 
 
+import java.lang.ref.WeakReference;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -312,6 +313,20 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		assertTrue(parse(getAlternateLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer(getLegalValue(), getAlternateLegalValue()));
+	}
+
+	@Test
+	public void testCleanup() throws PersistenceLayerException
+	{
+		String s = new String(getLegalValue());
+		WeakReference<String> wr = new WeakReference<>(s);
+		assertTrue(parse(s));
+		s = null;
+		System.gc();
+		if (wr.get() != null)
+		{
+			fail("retained");
+		}
 	}
 
 	protected abstract String getLegalValue();
