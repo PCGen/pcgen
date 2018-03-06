@@ -39,6 +39,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
+/**
+ * Test getOther() function in the new formula system
+ */
 public class GetOtherFunctionTest extends AbstractFormulaTestCase
 {
 
