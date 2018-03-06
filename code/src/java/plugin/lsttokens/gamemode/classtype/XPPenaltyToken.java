@@ -21,6 +21,9 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+/**
+ * Implements the XPPENALTY token on ClassType
+ */
 public class XPPenaltyToken extends AbstractNonEmptyToken<ClassType>
 		implements CDOMPrimaryToken<ClassType>
 {

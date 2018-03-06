@@ -45,7 +45,7 @@ public class XPAwardToken implements GameModeLstToken
 			String xpAward = aTok.nextToken();
 			try
 			{
-				final String info[] = xpAward.split("=");
+				String[] info = xpAward.split("=");
 				gameMode.addXPaward(gameMode.getCRInteger(info[0]),
 					Integer.valueOf(info[1]));
 			}
