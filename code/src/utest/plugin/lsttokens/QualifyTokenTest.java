@@ -46,10 +46,10 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	{
 		super.setUp();
 		//Dummy builds to ensure initialization
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName("Dummy");
 		primaryContext.getReferenceContext().importObject(a);
-		a = AbilityCategory.FEAT.newInstance();
+		a = BuildUtilities.getFeatCat().newInstance();
 		a.setName("Dummy");
 		secondaryContext.getReferenceContext().importObject(a);
 	}
@@ -217,8 +217,8 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinFeatSpell()
 			throws PersistenceLayerException
 	{
-		BuildUtilities.buildAbility(primaryContext, AbilityCategory.FEAT, "My Feat");
-		BuildUtilities.buildAbility(secondaryContext, AbilityCategory.FEAT, "My Feat");
+		BuildUtilities.buildAbility(primaryContext, BuildUtilities.getFeatCat(), "My Feat");
+		BuildUtilities.buildAbility(secondaryContext, BuildUtilities.getFeatCat(), "My Feat");
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class,

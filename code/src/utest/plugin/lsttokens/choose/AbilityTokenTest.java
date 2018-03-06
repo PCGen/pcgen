@@ -55,7 +55,7 @@ public class AbilityTokenTest extends
 				"Special Ability");
 		secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
 				"Special Ability");
-		//We build dummy objects so that AbilityCategory.FEAT has been loaded properly
+		//We build dummy objects so that BuildUtilities.getFeatCat() has been loaded properly
 		construct(primaryContext, "Dummy");
 		construct(secondaryContext, "Dummy");
 	}
@@ -160,7 +160,7 @@ public class AbilityTokenTest extends
 	@Override
 	protected Ability getSecondary(String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		secondaryContext.getReferenceContext().importObject(a);
 		return a;
@@ -169,7 +169,7 @@ public class AbilityTokenTest extends
 	@Override
 	protected Ability getPrimary(String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		primaryContext.getReferenceContext().importObject(a);
 		return a;

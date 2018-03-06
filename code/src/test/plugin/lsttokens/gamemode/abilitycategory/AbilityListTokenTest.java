@@ -50,7 +50,7 @@ public class AbilityListTokenTest extends TestCase
 		super.setUp();
 		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
-		context.getReferenceContext().importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
 	private void assertContains(AbilityCategory cat, Ability ab, boolean expected)
@@ -73,7 +73,7 @@ public class AbilityListTokenTest extends TestCase
 	{
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
-		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
+		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(BuildUtilities.getFeatCat()));
 		assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
 		assertEquals("Test category should start with an empty list of keys",
@@ -94,7 +94,7 @@ public class AbilityListTokenTest extends TestCase
 	{
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
-		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
+		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(BuildUtilities.getFeatCat()));
 		assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
 		assertEquals("Test category should start with an empty list of keys",
@@ -119,7 +119,7 @@ public class AbilityListTokenTest extends TestCase
 	{
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
-		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
+		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(BuildUtilities.getFeatCat()));
 		assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
 		assertEquals("Test category should start with an empty list of keys",

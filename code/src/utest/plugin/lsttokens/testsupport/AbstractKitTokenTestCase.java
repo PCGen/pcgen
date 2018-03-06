@@ -29,7 +29,6 @@ import junit.framework.TestCase;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -83,8 +82,8 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		primaryContext.setExtractURI(testURI);
 		secondaryContext.setSourceURI(testURI);
 		secondaryContext.setExtractURI(testURI);
-		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
-		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
+		primaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		secondaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 		primaryProf = getSubInstance();
 		secondaryProf = getSubInstance();
 		expectedPrimaryMessageCount = 0;

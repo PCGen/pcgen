@@ -25,7 +25,6 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -34,6 +33,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.SpellknownLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
@@ -135,7 +135,7 @@ public class SpellKnownIntegrationTest extends
 	@Override
 	protected CDOMObject construct(LoadContext context, String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		context.getReferenceContext().importObject(a);
 		return a;

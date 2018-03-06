@@ -159,7 +159,7 @@ public final class BuildUtilities
 	 */
 	public static Ability buildFeat(LoadContext context, String name)
 	{
-		return buildAbility(context, AbilityCategory.FEAT, name);
+		return buildAbility(context, BuildUtilities.getFeatCat(), name);
 	}
 
 	/**
@@ -192,5 +192,13 @@ public final class BuildUtilities
 		Race r = context.getReferenceContext().constructCDOMObject(Race.class, "Unselected");
 		r.addToListFor(ListKey.GROUP, "UNSELECTED");
 		r.addToListFor(ListKey.TYPE, Type.valueOf("Humanoid"));
+	}
+	
+	/**
+	 * Get the FEAT AbilityCategory
+	 */
+	public static AbilityCategory getFeatCat()
+	{
+		return AbilityCategory.FEAT;
 	}
 }

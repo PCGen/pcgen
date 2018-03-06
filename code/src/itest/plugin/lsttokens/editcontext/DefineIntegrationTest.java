@@ -23,7 +23,6 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PCStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -116,7 +115,7 @@ public class DefineIntegrationTest extends
 	@Override
 	protected Ability construct(LoadContext context, String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		context.getReferenceContext().importObject(a);
 		return a;

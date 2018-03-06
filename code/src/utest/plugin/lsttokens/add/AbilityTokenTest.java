@@ -38,7 +38,6 @@ import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -48,6 +47,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -113,7 +113,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	protected Ability construct(LoadContext loadContext, String one)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(one);
 		loadContext.getReferenceContext().importObject(a);
 		return a;
@@ -849,7 +849,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
 		CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
-			.getManufacturerId(AbilityCategory.FEAT)
+			.getManufacturerId(BuildUtilities.getFeatCat())
 			.getTypeReference(new String[]{"Foo", "Bar"});
 		refs.add(ref);
 
@@ -860,7 +860,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	private void createTC(List<CDOMReference<Ability>> refs, Formula count)
 	{
-		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT),
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(BuildUtilities.getFeatCat()),
 				refs, Nature.NORMAL);
 		// TODO: Should this be present for the unit tests?
 		//assertTrue("Invalid grouping state " + rcs.getGroupingState(), rcs.getGroupingState().isValid());
@@ -919,7 +919,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		{
 			List<CDOMReference<Ability>> refs = createSingle("TestWP1");
 			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
-				.getManufacturerId(AbilityCategory.FEAT).getAllReference();
+				.getManufacturerId(BuildUtilities.getFeatCat()).getAllReference();
 			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
 			assertBadUnparse();
@@ -933,7 +933,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		{
 			List<CDOMReference<Ability>> refs = new ArrayList<>();
 			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
-				.getManufacturerId(AbilityCategory.FEAT).getAllReference();
+				.getManufacturerId(BuildUtilities.getFeatCat()).getAllReference();
 			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -948,11 +948,11 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		{
 			List<CDOMReference<Ability>> refs = new ArrayList<>();
 			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
-				.getManufacturerId(AbilityCategory.FEAT)
+				.getManufacturerId(BuildUtilities.getFeatCat())
 				.getTypeReference(new String[]{"Foo", "Bar"});
 			refs.add(ref);
 			ref = primaryContext.getReferenceContext()
-				.getManufacturerId(AbilityCategory.FEAT).getAllReference();
+				.getManufacturerId(BuildUtilities.getFeatCat()).getAllReference();
 			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
 			assertBadUnparse();
@@ -963,7 +963,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testUnparseComplex() throws PersistenceLayerException
 	{
 		List<CDOMReference<Ability>> refs = createSingle("TestWP1");
-		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT),
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(BuildUtilities.getFeatCat()),
 				refs, Nature.VIRTUAL);
 		assert (rcs.getGroupingState().isValid());
 		AbilityChoiceSet cs = new AbilityChoiceSet(

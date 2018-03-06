@@ -25,11 +25,10 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
-
+import plugin.lsttokens.testsupport.BuildUtilities;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 import util.TestURI;
 
@@ -83,10 +82,10 @@ public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>
 		{
 			CNAbility cas = cnas.getCNAbility();
 			boolean featExpected =
-					cas.getAbilityCategory() == AbilityCategory.FEAT;
+					cas.getAbilityCategory() == BuildUtilities.getFeatCat();
 			boolean abilityExpected = cas.getAbility()
 				.equals(context.getReferenceContext()
-					.getManufacturerId(AbilityCategory.FEAT).getActiveObject("Granted"));
+					.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Granted"));
 			boolean natureExpected = cas.getNature() == Nature.VIRTUAL;
 			boolean selectionExpected = cnas.getSelection() == null;
 			if (featExpected && abilityExpected && natureExpected
@@ -101,7 +100,7 @@ public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>
 	@Override
 	protected Ability createGrantedObject()
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName("Granted");
 		context.getReferenceContext().importObject(a);
 		return a;

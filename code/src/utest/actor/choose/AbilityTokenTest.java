@@ -21,7 +21,6 @@ import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CategorizedChooser;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
@@ -30,6 +29,8 @@ import pcgen.rules.context.LoadContext;
 import org.junit.Before;
 import org.junit.Test;
 import plugin.lsttokens.choose.AbilityToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
 import static org.junit.Assert.*;
 
 /**
@@ -39,7 +40,6 @@ import static org.junit.Assert.*;
 public class AbilityTokenTest
 {
 
-	private static final AbilityCategory CATEGORY = AbilityCategory.FEAT;
 	private static final CategorizedChooser<Ability> pca = new AbilityToken();
 	private static final String ITEM_NAME = "ItemName";
 
@@ -50,12 +50,12 @@ public class AbilityTokenTest
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
-		context.getReferenceContext().importObject(CATEGORY);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
 	private Ability getObject()
 	{
-		Ability a = CATEGORY.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(ITEM_NAME);
 		context.getReferenceContext().importObject(a);
 		return a;
@@ -75,13 +75,15 @@ public class AbilityTokenTest
 	@Test
 	public void testDecodeChoice()
 	{
-		assertEquals(getObject(), pca.decodeChoice(context, getExpected(), CATEGORY));
+		assertEquals(getObject(),
+			pca.decodeChoice(context, getExpected(), BuildUtilities.getFeatCat()));
 	}
 
 	@Test
 	public void testLegacyDecodeChoice()
 	{
-		assertEquals(getObject(), pca.decodeChoice(context, "CATEGORY=FEAT|" +ITEM_NAME, CATEGORY));
+		assertEquals(getObject(), pca.decodeChoice(context, "CATEGORY=FEAT|" + ITEM_NAME,
+			BuildUtilities.getFeatCat()));
 	}
 
 }

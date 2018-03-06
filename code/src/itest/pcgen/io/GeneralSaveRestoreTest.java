@@ -21,7 +21,6 @@ import java.util.List;
 
 import pcgen.cdom.content.CNAbility;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
@@ -39,7 +38,7 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		TokenRegistration.register(new plugin.lsttokens.ability.StackToken());
 		TokenRegistration.register(new plugin.exporttokens.deprecated.TemplateToken());
 		Language lang = context.getReferenceContext().constructCDOMObject(Language.class, "English");
-		Ability a = BuildUtilities.buildAbility(context, AbilityCategory.FEAT, "Ab");
+		Ability a = BuildUtilities.buildAbility(context, BuildUtilities.getFeatCat(), "Ab");
 		PCTemplate pct = context.getReferenceContext().constructCDOMObject(PCTemplate.class, "Templ");
 		try
 		{

@@ -33,6 +33,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.qualifier.ability.PCToken;
 
@@ -153,7 +154,7 @@ public class AbilitySelectionTokenTest extends
 	@Override
 	protected Ability getSecondary(String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		secondaryContext.getReferenceContext().importObject(a);
 		return a;
@@ -162,7 +163,7 @@ public class AbilitySelectionTokenTest extends
 	@Override
 	protected Ability getPrimary(String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		primaryContext.getReferenceContext().importObject(a);
 		return a;

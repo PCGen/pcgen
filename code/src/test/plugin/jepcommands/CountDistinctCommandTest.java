@@ -63,13 +63,13 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
         final Ability[] abArray = new Ability[14];
 
-        abArray[0]  = TestHelper.makeAbility("Quick Draw",               AbilityCategory.FEAT,   "General.Fighter");
-        abArray[1]  = TestHelper.makeAbility("Improved Initiative",      AbilityCategory.FEAT,   "General.Fighter");
-        abArray[2]  = TestHelper.makeAbility("Silent Step",              AbilityCategory.FEAT,   "General.Fighter.Rogue");
-        abArray[3]  = TestHelper.makeAbility("Silent Step (Greater)",    AbilityCategory.FEAT,   "General.Fighter.Rogue");
+        abArray[0]  = TestHelper.makeAbility("Quick Draw",               BuildUtilities.getFeatCat(),   "General.Fighter");
+        abArray[1]  = TestHelper.makeAbility("Improved Initiative",      BuildUtilities.getFeatCat(),   "General.Fighter");
+        abArray[2]  = TestHelper.makeAbility("Silent Step",              BuildUtilities.getFeatCat(),   "General.Fighter.Rogue");
+        abArray[3]  = TestHelper.makeAbility("Silent Step (Greater)",    BuildUtilities.getFeatCat(),   "General.Fighter.Rogue");
 
-        abArray[4]  = TestHelper.makeAbility("Hidden 01",                AbilityCategory.FEAT,   "ClassAbility");
-        abArray[5]  = TestHelper.makeAbility("Perform (Dance)",          AbilityCategory.FEAT,   "ClassAbility");
+        abArray[4]  = TestHelper.makeAbility("Hidden 01",                BuildUtilities.getFeatCat(),   "ClassAbility");
+        abArray[5]  = TestHelper.makeAbility("Perform (Dance)",          BuildUtilities.getFeatCat(),   "ClassAbility");
 
         abArray[6]  = TestHelper.makeAbility("Perform (Dance)",          "BARDIC", "Performance.SpecialAbility");
         abArray[7]  = TestHelper.makeAbility("Perform (Oratory)",        "BARDIC", "Performance.SpecialAbility");
@@ -97,13 +97,13 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
         abArray[1].put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
         Globals.getContext().unconditionallyProcess(abArray[1], "CHOOSE", "STRING|one|two|three");
-        AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, abArray[1], "one");
-        AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, abArray[1], "two");
+        AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), abArray[1], "one");
+        AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), abArray[1], "two");
 
-        addAbility(AbilityCategory.FEAT, abArray[0]);
+        addAbility(BuildUtilities.getFeatCat(), abArray[0]);
 		for (int i = 2;6 > i;i++) {
             Ability anAbility = abArray[i];
-            addAbility(AbilityCategory.FEAT, anAbility);
+            addAbility(BuildUtilities.getFeatCat(), anAbility);
         }
 
         for (int i = 6;12 > i;i++) {

@@ -26,9 +26,9 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class AbilityTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<Ability>
@@ -39,7 +39,7 @@ public class AbilityTargetSaveRestoreTest extends
 	{
 		if (cl.equals(Ability.class))
 		{
-			T source = (T) AbilityCategory.FEAT.newInstance();
+			T source = (T) BuildUtilities.getFeatCat().newInstance();
 			source.setName(key);
 			context.getReferenceContext().importObject(source);
 			return source;
@@ -64,7 +64,7 @@ public class AbilityTargetSaveRestoreTest extends
 		{
 			assoc = "Granted";
 		}
-		CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, obj);
+		CNAbility cna = CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, obj);
 		CNAbilitySelection cnas = new CNAbilitySelection(cna, assoc);
 		pc.addAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());
 	}
@@ -79,7 +79,7 @@ public class AbilityTargetSaveRestoreTest extends
 	protected void remove(Object o)
 	{
 		Ability abil = (Ability) o;
-		CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, abil);
+		CNAbility cna = CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, abil);
 		String assoc = null;
 		if (ChooseActivation.hasNewChooseToken(abil))
 		{

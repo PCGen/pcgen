@@ -21,10 +21,10 @@ import java.math.BigDecimal;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractBigDecimalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Ability>
@@ -84,7 +84,7 @@ public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Ability>
 	@Override
 	protected Ability getSecondary(String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		secondaryContext.getReferenceContext().importObject(a);
 		return a;
@@ -93,7 +93,7 @@ public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Ability>
 	@Override
 	protected Ability getPrimary(String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		primaryContext.getReferenceContext().importObject(a);
 		return a;

@@ -24,7 +24,6 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
@@ -43,10 +42,10 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName("Dummy");
 		primaryContext.getReferenceContext().importObject(a);
-		Ability b = AbilityCategory.FEAT.newInstance();
+		Ability b = BuildUtilities.getFeatCat().newInstance();
 		b.setName("Dummy");
 		secondaryContext.getReferenceContext().importObject(b);
 	}

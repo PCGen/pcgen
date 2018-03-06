@@ -546,10 +546,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 				Globals.getContext(),
 				casterFeat,
 				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
-		casterFeat.setCDOMCategory(AbilityCategory.FEAT);
+		casterFeat.setCDOMCategory(BuildUtilities.getFeatCat());
 		context.getReferenceContext().importObject(casterFeat);
 
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, casterFeat, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), casterFeat, null);
 		cast =
 				character.getSpellSupport(charClass).getCastForLevel(11, sbook, true, false, character)
 					+ character.getSpellSupport(charClass).getBonusCastForLevelString(11, sbook, character);

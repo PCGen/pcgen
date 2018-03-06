@@ -28,7 +28,6 @@ import org.junit.BeforeClass;
 import junit.framework.TestCase;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Loadable;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.output.publish.OutputDB;
@@ -41,6 +40,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import util.TestURI;
 
@@ -84,8 +84,8 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		TokenRegistration.register(getToken());
 		primaryContext = new EditorLoadContext();
 		secondaryContext = new EditorLoadContext();
-		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
-		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
+		primaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		secondaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 		primaryProf = construct(primaryContext, "TestObj");
 		secondaryProf = construct(secondaryContext, "TestObj");
 	}

@@ -25,7 +25,6 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
@@ -76,7 +75,7 @@ public class AddTargetedAbilityNormalTest extends AbstractAddListTokenTest<Abili
 	@Override
 	protected int getCount()
 	{
-		return getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL)
+		return getTargetFacet().getPoolAbilities(id, BuildUtilities.getFeatCat(), Nature.NORMAL)
 			.size();
 	}
 
@@ -84,11 +83,11 @@ public class AddTargetedAbilityNormalTest extends AbstractAddListTokenTest<Abili
 	protected boolean containsExpected(Ability granted)
 	{
 		Collection<CNAbility> abilities =
-				getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
+				getTargetFacet().getPoolAbilities(id, BuildUtilities.getFeatCat(), Nature.NORMAL);
 		for (CNAbility a : abilities)
 		{
 			boolean abilityExpected = a.getAbility().equals(context.getReferenceContext()
-				.getManufacturerId(AbilityCategory.FEAT).getActiveObject("Granted"));
+				.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Granted"));
 			if (abilityExpected)
 			{
 				if (pc.getDetailedAssociationCount(a) == 1)

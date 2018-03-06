@@ -217,7 +217,7 @@ abstract public class AbstractJunit4CharacterTestCase
 
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
-		ref.importObject(AbilityCategory.FEAT);
+		ref.importObject(BuildUtilities.getFeatCat());
 		SourceFileLoader.processFactDefinitions(context);
 		additionalSetUp();
 		if (!ref.resolveReferences(null))
