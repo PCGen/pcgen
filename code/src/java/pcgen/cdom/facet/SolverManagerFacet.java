@@ -52,6 +52,9 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 		return get(id).addModifierAndSolve(varID, modifier, source);
 	}
 
+	/**
+	 * Removes a Modifier from the PC.
+	 */
 	public <T> void removeModifier(CharID id, VarModifier<T> vm, VarScoped thisValue,
 		Modifier<T> modifier, ScopeInstance source)
 	{

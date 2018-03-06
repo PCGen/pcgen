@@ -70,12 +70,12 @@ public class RemoteWrappingModifier<T> implements Modifier<T>
 	 *            The underlying FormulaModifier
 	 * @param sourceValue
 	 *            The value of the source() function
-	 * @param formatManager
+	 * @param sourceFormatManager
 	 *            The FormatManager indicating the format of the return value for the
 	 *            source() function
 	 * @param targetValue
 	 *            The value of the target() function
-	 * @param formatManager
+	 * @param targetFormatManager
 	 *            The FormatManager indicating the format of the return value for the
 	 *            target() function
 	 */

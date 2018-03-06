@@ -35,6 +35,9 @@ public class LoadContextFacet extends AbstractItemFacet<DataSetID, LoadContext>
 		set(context.getDataSetID(), context);
 	}
 
+	/**
+	 * Initialize (register this facet as a DataSet initialized facet)
+	 */
 	public void init()
 	{
 		datasetInitializationFacet.addDataSetInitializedFacet(this);
