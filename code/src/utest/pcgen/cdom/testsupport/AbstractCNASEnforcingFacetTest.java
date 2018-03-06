@@ -884,7 +884,8 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		Ability a1 = new Ability();
 		a1.setName("Abil");
 		a1.setCDOMCategory(BuildUtilities.getFeatCat());
-		return new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.VIRTUAL, a1));
+		return new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.VIRTUAL, a1));
 	}
 
 	protected CNAbilitySelection getMultObject(String tgt)
@@ -893,7 +894,8 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		a1.setName("Abil");
 		a1.setCDOMCategory(BuildUtilities.getFeatCat());
 		a1.put(ObjectKey.MULTIPLE_ALLOWED, true);
-		return new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.VIRTUAL, a1), tgt);
+		return new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.VIRTUAL, a1), tgt);
 	}
 
 	//TODO Need to test events :/

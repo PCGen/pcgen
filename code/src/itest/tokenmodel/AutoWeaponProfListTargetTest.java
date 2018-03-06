@@ -128,8 +128,8 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source), "English");
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+			BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source), "English");
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
 		assertEquals(2, directAbilityFacet.getCount(id));

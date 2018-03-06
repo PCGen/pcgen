@@ -210,7 +210,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "TestPsion 1");
 
 		PlayerCharacter aPC = getCharacter();
-		CNAbility cna = AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
+		CNAbility cna = AbstractCharacterTestCase.applyAbility(aPC,
+			BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
 		pObj = cna.getAbility();
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);

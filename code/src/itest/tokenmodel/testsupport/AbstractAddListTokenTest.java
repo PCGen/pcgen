@@ -45,8 +45,8 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected(granted));
 		assertEquals((directAbilityFacet == getTargetFacet()) ? 2 : 1,

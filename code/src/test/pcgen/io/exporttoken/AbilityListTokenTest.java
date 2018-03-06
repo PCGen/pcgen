@@ -59,7 +59,8 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		AbilityCategory bardCategory = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "BARDIC");
 
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", BuildUtilities.getFeatCat(), "General.Fighter");
+		Ability ab1 = TestHelper.makeAbility("Perform (Dance)",
+			BuildUtilities.getFeatCat(), "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		addAbility(BuildUtilities.getFeatCat(), ab1);
@@ -68,11 +69,13 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		addAbility(bardCategory, ab2);
 
-		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", BuildUtilities.getFeatCat(), "General.Fighter");
+		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)",
+			BuildUtilities.getFeatCat(), "General.Fighter");
 		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		addAbility(BuildUtilities.getFeatCat(), ab3);
 
-		Ability ab4 = TestHelper.makeAbility("Silent Step", BuildUtilities.getFeatCat(), "General");
+		Ability ab4 = TestHelper.makeAbility("Silent Step", BuildUtilities.getFeatCat(),
+			"General");
 		ab4.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		addAbility(BuildUtilities.getFeatCat(), ab4);
 	}
@@ -121,12 +124,14 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		AbilityCategory featCategory = 
 			SettingsHandler.getGame().getAbilityCategory("Feat");
 
-		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)", BuildUtilities.getFeatCat(), "General");
+		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)",
+			BuildUtilities.getFeatCat(), "General");
 		ab5.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab5.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 		addAbility(featCategory, ab5);
 
-        Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)", BuildUtilities.getFeatCat(), "Bardic");
+		Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)",
+			BuildUtilities.getFeatCat(), "Bardic");
         ab6.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
         addAbility(featCategory, ab6);
 

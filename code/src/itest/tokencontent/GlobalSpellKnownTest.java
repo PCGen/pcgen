@@ -142,8 +142,8 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		}
 		finishLoad();
 		assertEquals(baseCount(), targetFacetCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertFalse(containsExpected());
 		PCTemplate varsource = create(PCTemplate.class, "VarSource");

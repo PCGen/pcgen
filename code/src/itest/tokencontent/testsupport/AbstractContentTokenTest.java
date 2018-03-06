@@ -52,8 +52,8 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 		Ability source = BuildUtilities.buildFeat(context, "Source");
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());

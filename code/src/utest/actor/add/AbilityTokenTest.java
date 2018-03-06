@@ -64,8 +64,8 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	public void testEncodeChoice()
 	{
 		Ability item = construct("ItemName");
-		CNAbilitySelection as =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
+		CNAbilitySelection as = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
 		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
 			.encodeChoice(as));
 	}
@@ -83,8 +83,8 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 			// OK
 		}
 		Ability item = construct("ItemName");
-		CNAbilitySelection as =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
+		CNAbilitySelection as = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
 		assertEquals(as, pca
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}
@@ -110,9 +110,11 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		context.getReferenceContext().constructCDOMObject(Language.class, "Goo");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Wow");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Rev");
-		AbilityCategory ff = context.getReferenceContext().constructCDOMObject(AbilityCategory.class, "Fighter Feat");
+		AbilityCategory ff = context.getReferenceContext()
+			.constructCDOMObject(AbilityCategory.class, "Fighter Feat");
 		ff.setAbilityCategory(CDOMDirectSingleRef.getRef(BuildUtilities.getFeatCat()));
-		AbilityCategory oc = context.getReferenceContext().constructCDOMObject(AbilityCategory.class, "Some Other Category");
+		AbilityCategory oc = context.getReferenceContext()
+			.constructCDOMObject(AbilityCategory.class, "Some Other Category");
 		Ability badCA = oc.newInstance();
 		badCA.setName("ChooseAbility");
 		context.getReferenceContext().importObject(badCA);
@@ -130,16 +132,22 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		PlayerCharacter pc = new PlayerCharacter();
 		Object source = UserSelection.getInstance();
 		
-		CNAbilitySelection badCACAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(oc, Nature.AUTOMATIC, badCA), "Foo");
-		CNAbilitySelection fooCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, item), "Foo");
-		CNAbilitySelection barCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.VIRTUAL, item), "Bar");
-		CNAbilitySelection gooCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item), "Goo");
-		CNAbilitySelection wowCAS =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item), "Wow");
-		CNAbilitySelection wowFFCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Wow");
-		CNAbilitySelection revCAS =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item), "Rev");
-		CNAbilitySelection revFFCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Rev");
+		CNAbilitySelection badCACAS = new CNAbilitySelection(
+			CNAbilityFactory.getCNAbility(oc, Nature.AUTOMATIC, badCA), "Foo");
+		CNAbilitySelection fooCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, item), "Foo");
+		CNAbilitySelection barCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.VIRTUAL, item), "Bar");
+		CNAbilitySelection gooCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item), "Goo");
+		CNAbilitySelection wowCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item), "Wow");
+		CNAbilitySelection wowFFCAS = new CNAbilitySelection(
+			CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Wow");
+		CNAbilitySelection revCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item), "Rev");
+		CNAbilitySelection revFFCAS = new CNAbilitySelection(
+			CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Rev");
 		
 		assertTrue(pca.allow(fooCAS, pc, false));
 		assertTrue(pca.allow(barCAS, pc, false));

@@ -69,7 +69,8 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", BuildUtilities.getFeatCat(), "General.Fighter");
+		Ability ab1 = TestHelper.makeAbility("Perform (Dance)",
+			BuildUtilities.getFeatCat(), "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		List<Aspect> colourList = new ArrayList<>();
@@ -110,8 +111,10 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		}
 		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Globals.getContext().unconditionallyProcess(skillFocus, "CHOOSE", "SKILL|ALL");
-		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), skillFocus, "KEY_Bluff");
-		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), skillFocus, "KEY_Listen");
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(),
+			skillFocus, "KEY_Bluff");
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(),
+			skillFocus, "KEY_Listen");
 		character.calcActiveBonuses();
 	}
 
