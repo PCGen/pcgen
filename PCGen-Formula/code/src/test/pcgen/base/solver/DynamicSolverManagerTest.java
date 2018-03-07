@@ -15,6 +15,8 @@
  */
 package pcgen.base.solver;
 
+import java.util.Optional;
+
 import org.junit.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
@@ -375,10 +377,10 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			String varName = ((SimpleNode) args[0]).getText();
 			String name = ((SimpleNode) args[1]).getText();
 			TrainingStrategy ts = new TrainingStrategy();
-			DependencyManager trainer = dm.getWith(DependencyManager.VARSTRATEGY, ts);
+			DependencyManager trainer = dm.getWith(DependencyManager.VARSTRATEGY, Optional.of(ts));
 			visitor.visitVariable(varName, trainer);
 			DynamicDependency dd = new DynamicDependency(ts.getControlVar(), "Global.LIMB");
-			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, dd);
+			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
 			FormatManager<?> returnFormat = visitor.visitVariable(name, dynamic);
 			dm.get(DependencyManager.DYNAMIC).addDependency(dd);
 			return returnFormat;

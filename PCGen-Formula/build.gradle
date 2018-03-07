@@ -45,7 +45,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.128'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.129'
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 

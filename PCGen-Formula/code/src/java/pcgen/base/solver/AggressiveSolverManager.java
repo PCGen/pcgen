@@ -30,6 +30,7 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableList;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
@@ -173,13 +174,16 @@ public class AggressiveSolverManager implements SolverManager
 		/*
 		 * Now build new edges of things this solver will be dependent upon...
 		 */
-		DependencyManager fdm =
+		DependencyManager dependencyManager =
 				managerFactory.generateDependencyManager(formulaManager, source);
-		fdm = fdm.getWith(DependencyManager.ASSERTED,
+		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
 			Optional.of(varID.getFormatManager()));
-		fdm = managerFactory.withVariables(fdm);
-		modifier.getDependencies(fdm);
-		for (VariableID<?> depID : fdm.get(DependencyManager.VARIABLES).getVariables())
+		dependencyManager = managerFactory.withVariables(dependencyManager);
+		modifier.getDependencies(dependencyManager);
+		//Should always exist based on where this method was called from
+		Optional<VariableList> potentialVariables =
+				dependencyManager.get(DependencyManager.VARIABLES);
+		for (VariableID<?> depID : potentialVariables.get().getVariables())
 		{
 			ensureSolverExists(depID);
 			/*
@@ -232,13 +236,12 @@ public class AggressiveSolverManager implements SolverManager
 			throw new IllegalArgumentException("Request to remove Modifier to Solver for "
 				+ varID + " but that channel was never defined");
 		}
-		DependencyManager fdm =
+		DependencyManager dependencyManager =
 				managerFactory.generateDependencyManager(formulaManager, source);
-		fdm = fdm.getWith(DependencyManager.ASSERTED,
+		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
 			Optional.of(varID.getFormatManager()));
-		fdm = managerFactory.withVariables(fdm);
-		modifier.getDependencies(fdm);
-		processDependencies(varID, fdm);
+		modifier.getDependencies(dependencyManager);
+		processDependencies(varID, dependencyManager);
 		//Cast above effectively enforced here
 		solver.removeModifier(modifier, source);
 		solveFromNode(varID);
@@ -252,17 +255,20 @@ public class AggressiveSolverManager implements SolverManager
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID for which dependencies will be removed
-	 * @param dm
+	 * @param dependencyManager
 	 *            The DependencyManager containing the dependencies of the given
 	 *            VariableID
 	 */
-	private <T> void processDependencies(VariableID<T> varID, DependencyManager dm)
+	private <T> void processDependencies(VariableID<T> varID,
+		DependencyManager dependencyManager)
 	{
-		List<VariableID<?>> deps = dm.get(DependencyManager.VARIABLES).getVariables();
-		if (deps == null)
+		Optional<VariableList> potentialVariables =
+				dependencyManager.get(DependencyManager.VARIABLES);
+		if (!potentialVariables.isPresent())
 		{
 			return;
 		}
+		List<VariableID<?>> dependentVarIDs = potentialVariables.get().getVariables();
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
 				dependencies.getAdjacentEdges(varID);
 		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : edges)
@@ -270,14 +276,14 @@ public class AggressiveSolverManager implements SolverManager
 			if (edge.getNodeAt(1) == varID)
 			{
 				VariableID<?> depID = edge.getNodeAt(0);
-				if (deps.contains(depID))
+				if (dependentVarIDs.contains(depID))
 				{
 					dependencies.removeEdge(edge);
-					deps.remove(depID);
+					dependentVarIDs.remove(depID);
 				}
 			}
 		}
-		if (!deps.isEmpty())
+		if (!dependentVarIDs.isEmpty())
 		{
 			/*
 			 * TODO Some form of error here since couldn't find matching edges for all

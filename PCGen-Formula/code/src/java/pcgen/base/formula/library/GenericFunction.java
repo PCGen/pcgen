@@ -19,6 +19,7 @@ package pcgen.base.formula.library;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
@@ -122,7 +123,7 @@ public class GenericFunction implements Function
 		//Need to save original to handle "embedded" GenericFunction objects properly
 		ArgumentDependencyManager myArgs = new ArgumentDependencyManager();
 		FormulaSemantics subSemantics =
-				semantics.getWith(ArgumentDependencyManager.KEY, myArgs);
+				semantics.getWith(ArgumentDependencyManager.KEY, Optional.of(myArgs));
 		subSemantics = subSemantics.getWith(FormulaSemantics.FMANAGER, subFormulaMgr);
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> result = (FormatManager<?>) visitor.visit(root, subSemantics);

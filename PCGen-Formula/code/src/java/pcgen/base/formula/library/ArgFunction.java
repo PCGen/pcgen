@@ -19,6 +19,7 @@ package pcgen.base.formula.library;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
@@ -133,12 +134,12 @@ public class ArgFunction implements Function
 
 	private void assertArgs(FormulaSemantics semantics, int argNum)
 	{
-		ArgumentDependencyManager argManager =
+		Optional<ArgumentDependencyManager> argManager =
 				semantics.get(ArgumentDependencyManager.KEY);
 		//If not present, they didn't ask, their own fault
-		if (argManager != null)
+		if (argManager.isPresent())
 		{
-			argManager.addArgument(argNum);
+			argManager.get().addArgument(argNum);
 		}
 	}
 
@@ -164,9 +165,9 @@ public class ArgFunction implements Function
 	{
 		ASTNum node = (ASTNum) args[0];
 		int argNum = Integer.parseInt(node.getText());
-		ArgumentDependencyManager argManager =
+		Optional<ArgumentDependencyManager> argManager =
 				manager.get(ArgumentDependencyManager.KEY);
-		if (argManager == null)
+		if (!argManager.isPresent())
 		{
 			manager.get(DependencyManager.LOG)
 				.add("Encountered ARG Function, "
@@ -175,7 +176,7 @@ public class ArgFunction implements Function
 		}
 		else
 		{
-			argManager.addArgument(argNum);
+			argManager.get().addArgument(argNum);
 		}
 		return (FormatManager<?>) visitor.visit((SimpleNode) masterArgs[argNum], manager);
 	}

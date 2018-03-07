@@ -16,6 +16,7 @@
 package pcgen.base.formula.base;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * StaticStrategy is a strategy used for static variables (Those where the instance and
@@ -26,8 +27,8 @@ public class StaticStrategy implements VariableStrategy
 	@Override
 	public void addVariable(DependencyManager mgr, String varName)
 	{
-		VariableList vars = mgr.get(DependencyManager.VARIABLES);
-		vars.add(Objects.requireNonNull(getVariableID(mgr, varName)));
+		Optional<VariableList> vars = mgr.get(DependencyManager.VARIABLES);
+		vars.get().add(Objects.requireNonNull(getVariableID(mgr, varName)));
 	}
 
 	/**
