@@ -17,6 +17,8 @@
  */
 package pcgen.rules.context;
 
+import java.lang.ref.WeakReference;
+
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -34,7 +36,7 @@ import pcgen.cdom.helper.ReferenceDependency;
  */
 public class PCGenManagerFactory implements ManagerFactory
 {
-	private final LoadContext context;
+	private final WeakReference<LoadContext> context;
 
 	/**
 	 * Constructs a new PCGenManagerFactory with the provided LoadContext to be included
@@ -46,7 +48,7 @@ public class PCGenManagerFactory implements ManagerFactory
 	 */
 	public PCGenManagerFactory(LoadContext context)
 	{
-		this.context = context;
+		this.context = new WeakReference<>(context);
 	}
 
 	@Override
@@ -55,7 +57,7 @@ public class PCGenManagerFactory implements ManagerFactory
 	{
 		FormulaSemantics semantics = ManagerFactory.super.generateFormulaSemantics(
 			manager, legalScope);
-		return semantics.getWith(ManagerKey.CONTEXT, context);
+		return semantics.getWith(ManagerKey.CONTEXT, context.get());
 	}
 
 	@Override
@@ -63,7 +65,7 @@ public class PCGenManagerFactory implements ManagerFactory
 	{
 		EvaluationManager evalManager = ManagerFactory.super.generateEvaluationManager(
 			formulaManager);
-		return evalManager.getWith(ManagerKey.CONTEXT, context);
+		return evalManager.getWith(ManagerKey.CONTEXT, context.get());
 	}
 
 	@Override
@@ -72,7 +74,7 @@ public class PCGenManagerFactory implements ManagerFactory
 	{
 		DependencyManager depManager = ManagerFactory.super.generateDependencyManager(
 			formulaManager, scopeInst);
-		return depManager.getWith(ManagerKey.CONTEXT, context)
+		return depManager.getWith(ManagerKey.CONTEXT, context.get())
 			.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
 	}
 	
