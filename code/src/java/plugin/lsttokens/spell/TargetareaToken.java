@@ -25,15 +25,16 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with TARGETAREA Token
  */
-public class TargetareaToken implements CDOMPrimaryToken<Spell>
+public class TargetareaToken extends AbstractNonEmptyToken<Spell>
+		implements CDOMPrimaryToken<Spell>
 {
-
 	@Override
 	public String getTokenName()
 	{
@@ -41,13 +42,8 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Spell spell, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
 	{
-		if (value == null || value.isEmpty())
-		{
-			return new ParseResult.Fail(getTokenName()
-				+ " arguments may not be empty");
-		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 			context.getObjectContext().remove(spell, StringKey.TARGET_AREA);

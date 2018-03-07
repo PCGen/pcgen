@@ -18,6 +18,7 @@
 package plugin.lsttokens.testsupport;
 
 
+import java.lang.ref.WeakReference;
 import java.net.URISyntaxException;
 import java.util.Locale;
 
@@ -303,6 +304,20 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	{
 		assertTrue(primaryContext.getReferenceContext().validate(null));
 		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+	}
+
+	@Test
+	public void testCleanup() throws PersistenceLayerException
+	{
+		String s = new String(getLegalValue());
+		WeakReference<String> wr = new WeakReference<>(s);
+		assertTrue(parse(s));
+		s = null;
+		System.gc();
+		if (wr.get() != null)
+		{
+			fail("retained");
+		}
 	}
 
 }
