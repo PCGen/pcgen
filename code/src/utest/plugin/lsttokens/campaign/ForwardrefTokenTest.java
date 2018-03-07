@@ -30,6 +30,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -44,10 +45,10 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	{
 		super.setUp();
 		//Dummy items to ensure Category is initialized
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName("Dummy");
 		primaryContext.getReferenceContext().importObject(a);
-		Ability b = AbilityCategory.FEAT.newInstance();
+		Ability b = BuildUtilities.getFeatCat().newInstance();
 		b.setName("Dummy");
 		secondaryContext.getReferenceContext().importObject(b);
 	}
@@ -209,8 +210,8 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
-		constructAbility(primaryContext, AbilityCategory.FEAT, "My Feat");
-		constructAbility(secondaryContext, AbilityCategory.FEAT, "My Feat");
+		constructAbility(primaryContext, BuildUtilities.getFeatCat(), "My Feat");
+		constructAbility(secondaryContext, BuildUtilities.getFeatCat(), "My Feat");
 		runRoundRobin("ABILITY=FEAT|My Feat", "SPELL|Lightning Bolt");
 	}
 

@@ -180,7 +180,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		proc(context, fmtManager);
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
-		ref.importObject(AbilityCategory.FEAT);
+		ref.importObject(BuildUtilities.getFeatCat());
 		additionalSetUp();
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();

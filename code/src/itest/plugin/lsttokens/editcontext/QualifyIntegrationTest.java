@@ -61,8 +61,8 @@ public class QualifyIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		BuildUtilities.buildAbility(primaryContext, AbilityCategory.FEAT, "My Feat");
-		BuildUtilities.buildAbility(secondaryContext, AbilityCategory.FEAT, "My Feat");
+		BuildUtilities.buildAbility(primaryContext, BuildUtilities.getFeatCat(), "My Feat");
+		BuildUtilities.buildAbility(secondaryContext, BuildUtilities.getFeatCat(), "My Feat");
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		TestContext tc = new TestContext();
@@ -120,7 +120,7 @@ public class QualifyIntegrationTest extends
 	@Override
 	protected Ability construct(LoadContext context, String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		context.getReferenceContext().importObject(a);
 		return a;

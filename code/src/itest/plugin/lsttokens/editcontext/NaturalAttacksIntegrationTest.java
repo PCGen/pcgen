@@ -24,7 +24,6 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -33,6 +32,7 @@ import plugin.bonustokens.Weapon;
 import plugin.lsttokens.NaturalattacksLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class NaturalAttacksIntegrationTest extends
@@ -104,7 +104,7 @@ public class NaturalAttacksIntegrationTest extends
 	@Override
 	protected Ability construct(LoadContext context, String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		context.getReferenceContext().importObject(a);
 		return a;

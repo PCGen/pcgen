@@ -24,7 +24,6 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.MasterAvailableSpellFacet;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -81,7 +80,7 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 		fighterCls = TestHelper.makeClass("Fighter");
 		
 		dataset = new MockDataSetFacade(SettingsHandler.getGame());
-		dataset.addAbilityCategory(AbilityCategory.FEAT);
+		dataset.addAbilityCategory(BuildUtilities.getFeatCat());
 		dataset.addClass(wizardCls);
 		dataset.addClass(divineCls);
 		dataset.addClass(fighterCls);

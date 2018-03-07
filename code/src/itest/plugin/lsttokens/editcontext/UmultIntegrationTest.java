@@ -19,12 +19,12 @@ package plugin.lsttokens.editcontext;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.UmultLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class UmultIntegrationTest extends
@@ -85,7 +85,7 @@ public class UmultIntegrationTest extends
 	@Override
 	protected Ability construct(LoadContext context, String name)
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
 		context.getReferenceContext().importObject(a);
 		return a;

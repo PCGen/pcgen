@@ -24,7 +24,6 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -55,8 +54,8 @@ public class AutoLangListTest extends AbstractTokenModelTest
 		Language granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source), "Granted");
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+			BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source), "Granted");
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected(granted));
 		assertEquals(1,
@@ -152,7 +151,8 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	@Override
 	protected Object getAssoc()
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Language.class, "Granted");
+		return context.getReferenceContext()
+			.silentlyGetConstructedCDOMObject(Language.class, "Granted");
 	}
 	
 	

@@ -30,7 +30,6 @@ import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.core.spell.Spell;
@@ -143,8 +142,8 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		}
 		finishLoad();
 		assertEquals(baseCount(), targetFacetCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertFalse(containsExpected());
 		PCTemplate varsource = create(PCTemplate.class, "VarSource");

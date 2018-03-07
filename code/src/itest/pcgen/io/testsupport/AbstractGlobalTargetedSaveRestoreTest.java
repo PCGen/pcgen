@@ -26,7 +26,6 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
@@ -551,7 +550,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	{
 		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
 		T target = create(getObjectClass(), "Target");
-		Ability abil = BuildUtilities.buildAbility(context, AbilityCategory.FEAT,
+		Ability abil = BuildUtilities.buildAbility(context, BuildUtilities.getFeatCat(),
 			"GrantedAbility");
 		new plugin.lsttokens.add.AbilityToken().parseToken(context, target,
 				"FEAT|NORMAL|GrantedAbility");
@@ -581,7 +580,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	{
 		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
 		T target = create(getObjectClass(), "Target");
-		Ability abil = BuildUtilities.buildAbility(context, AbilityCategory.FEAT,
+		Ability abil = BuildUtilities.buildAbility(context, BuildUtilities.getFeatCat(),
 			"GrantedAbility");
 		new plugin.lsttokens.add.AbilityToken().parseToken(context, target,
 				"FEAT|VIRTUAL|GrantedAbility");

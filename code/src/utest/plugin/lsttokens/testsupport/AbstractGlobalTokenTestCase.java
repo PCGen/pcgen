@@ -28,7 +28,6 @@ import org.junit.Test;
 import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -78,8 +77,8 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 				"TestObj");
 		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(
 				getCDOMClass(), "TestObj");
-		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
-		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
+		primaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		secondaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
 	public abstract <T extends CDOMObject> Class<T> getCDOMClass();

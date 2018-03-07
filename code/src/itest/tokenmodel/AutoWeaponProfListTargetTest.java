@@ -27,7 +27,6 @@ import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -129,8 +128,8 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source), "English");
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+			BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source), "English");
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
 		assertEquals(2, directAbilityFacet.getCount(id));
@@ -153,10 +152,10 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		{
 			CNAbility cas = cnas.getCNAbility();
 			boolean featExpected =
-					cas.getAbilityCategory() == AbilityCategory.FEAT;
+					cas.getAbilityCategory() == BuildUtilities.getFeatCat();
 			boolean abilityExpected = cas.getAbility()
 				.equals(context.getReferenceContext()
-					.getManufacturerId(AbilityCategory.FEAT).getActiveObject("Granted"));
+					.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
 			boolean selectionExpected = "English".equals(cnas.getSelection());
 			if (featExpected && abilityExpected && natureExpected
@@ -184,7 +183,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 
 	protected Ability createGrantedObject()
 	{
-		Ability a = AbilityCategory.FEAT.newInstance();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName("Granted");
 		context.getReferenceContext().importObject(a);
 		return a;

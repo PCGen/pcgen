@@ -29,7 +29,6 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
@@ -39,6 +38,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>PreArmorProfTest</code> tests that the PREARMORPROF tag is
@@ -91,7 +91,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
 		assertTrue("Character has the Chainmail proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -131,7 +131,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
 		assertTrue("Character has one of Chainmail or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
@@ -169,7 +169,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 		
 		assertTrue("Character has Medium Armor Proficiency", 
 				PrereqHandler.passes(prereq, character, null));
@@ -199,7 +199,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Breastplate");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
 		assertFalse("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -235,11 +235,11 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 			prereq, character, null));
 		
 		final Ability martialProf = 
-			TestHelper.makeAbility("Armor Proficiency (Single)", AbilityCategory.FEAT, "General");
+			TestHelper.makeAbility("Armor Proficiency (Single)", BuildUtilities.getFeatCat(), "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
 		assertTrue("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -287,7 +287,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		final String barStr =
 			"Bar	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50";
 		featLoader.parseLine(Globals.getContext(), bar, barStr, cse);
-		addAbility(AbilityCategory.FEAT, bar);
+		addAbility(BuildUtilities.getFeatCat(), bar);
 		
 		assertEquals("Character should have 50 bonus hp added.",
 					baseHp+50,
@@ -299,13 +299,13 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 		
 		Ability foo = new Ability();
 		final String fooStr =
 			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREPROFWITHARMOR:1,Full Plate";
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
-		addAbility(AbilityCategory.FEAT, foo);
+		addAbility(BuildUtilities.getFeatCat(), foo);
 		
 		assertEquals("Character has the Full Plate proficiency so the bonus should be added",
 					baseHp+50+50,

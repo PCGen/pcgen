@@ -36,6 +36,7 @@ import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * This class tests the handling of DESC fields in PCGen
@@ -50,9 +51,11 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testEmptyDesc()
 	{
 		final Ability dummy =
-				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
+				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
 		final Description desc = new Description(Constants.EMPTY_STRING);
-		assertTrue(desc.getDescription(this.getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).isEmpty());
+		List<CNAbility> singletonAbility = Collections.singletonList(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, dummy));
+		assertTrue(desc.getDescription(this.getCharacter(), singletonAbility).isEmpty());
 	}
 
 	/**
@@ -61,10 +64,13 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testSimpleDesc()
 	{
 		final Ability dummy =
-				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
+				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
 		final String simpleDesc = "This is a test";
 		final Description desc = new Description(simpleDesc);
-		assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals(simpleDesc));
+		List<CNAbility> singletonAbility = Collections.singletonList(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, dummy));
+		assertTrue(
+			desc.getDescription(getCharacter(), singletonAbility).equals(simpleDesc));
 	}
 
 	/**
@@ -74,7 +80,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testPreReqs() throws Exception
 	{
 		final Ability dummy =
-				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
+				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
 		final String simpleDesc = "This is a test";
 		final Description desc = new Description(simpleDesc);
 
@@ -82,14 +88,16 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Prerequisite prereqNE = factory.parse("PRETEMPLATE:1,KEY_Natural Lycanthrope");
 		desc.addPrerequisite(prereqNE);
-		is(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))), strEq(""));
+		List<CNAbility> singletonAbility = Collections.singletonList(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, dummy));
+		is(desc.getDescription(getCharacter(), singletonAbility), strEq(""));
 
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
 		template.put(StringKey.KEY_NAME, "KEY_Natural Lycanthrope");
 		Globals.getContext().getReferenceContext().importObject(template);
 		getCharacter().addTemplate(template);
-		is(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))), strEq(simpleDesc));
+		is(desc.getDescription(getCharacter(), singletonAbility), strEq(simpleDesc));
 	}
 
 	/**
@@ -98,10 +106,13 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testSimpleReplacement()
 	{
 		final Ability dummy =
-				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
+				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
 		final Description desc = new Description("%1");
 		desc.addVariable("\"Variable\"");
-		assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals("Variable"));
+		List<CNAbility> singletonAbility = Collections.singletonList(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, dummy));
+		assertTrue(
+			desc.getDescription(getCharacter(), singletonAbility).equals("Variable"));
 	}
 
 	/**
@@ -210,7 +221,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 */
 	public void testComplexVariableReplacement()
 	{
-		final Ability dummy = AbilityCategory.FEAT.newInstance();
+		final Ability dummy = BuildUtilities.getFeatCat().newInstance();
 		dummy.setKeyName("Dummy");
 		Globals.getContext().unconditionallyProcess(dummy, "CATEGORY", "FEAT");
 		Globals.getContext().unconditionallyProcess(dummy, "CHOOSE", "LANG|ALL");
@@ -225,10 +236,11 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("%1 test %3 %2");
 		desc.addVariable("TestVar");
 		dummy.addToListFor(ListKey.DESCRIPTION, desc);
-		List<CNAbility> wrappedDummy = Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy));
+		List<CNAbility> wrappedDummy = Collections.singletonList(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, dummy));
 		assertEquals("0 test  ", desc.getDescription(pc, wrappedDummy));
 
-		AbilityCategory category = AbilityCategory.FEAT;
+		AbilityCategory category = BuildUtilities.getFeatCat();
 
 		CNAbility cna = finalizeTest(dummy, "Associated 1", pc, category);
 		finalizeTest(dummy, "Associated 2", pc, category);

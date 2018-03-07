@@ -24,7 +24,6 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.identifier.SpellSchool;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -99,8 +98,8 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	{
 		construct(primaryContext, "Abjuration");
 		construct(secondaryContext, "Abjuration");
-		BuildUtilities.buildAbility(primaryContext, AbilityCategory.FEAT, "School Stuff");
-		BuildUtilities.buildAbility(secondaryContext, AbilityCategory.FEAT, "School Stuff");
+		BuildUtilities.buildAbility(primaryContext, BuildUtilities.getFeatCat(), "School Stuff");
+		BuildUtilities.buildAbility(secondaryContext, BuildUtilities.getFeatCat(), "School Stuff");
 		runRoundRobin("SCHOOLS|ABILITY=FEAT[School Stuff]");
 	}
 
