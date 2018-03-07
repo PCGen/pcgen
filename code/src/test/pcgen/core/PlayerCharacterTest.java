@@ -56,6 +56,7 @@ import pcgen.core.spell.Spell;
 import pcgen.core.system.LoadInfo;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.io.exporttoken.StatToken;
+import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
@@ -64,6 +65,7 @@ import pcgen.util.chooser.RandomChooser;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
+import util.TestURI;
 
 /**
  * The Class <code>PlayerCharacterTest</code> is responsible for testing 
@@ -146,9 +148,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.getReferenceContext().importObject(giantRace);
 	
 		// Create the monster class type
-		SettingsHandler.getGame().addClassType(
-			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
-	
+		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
+		methodLoader.parseLine(SettingsHandler.getGame().getModeContext(),
+			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO",
+			TestURI.getURI());
+
 		pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
