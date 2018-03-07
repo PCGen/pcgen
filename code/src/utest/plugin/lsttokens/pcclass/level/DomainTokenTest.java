@@ -32,6 +32,7 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
@@ -58,19 +59,12 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		TokenRegistration.register(preracewriter);
 	}
 
-	private final PCClass primClass = new PCClass();
-	private final PCClass secClass = new PCClass();
-	
 	@Override
-	protected PCClassLevel getPrimary(String name)
+	protected PCClassLevel get(LoadContext context, String name)
 	{
-		return primClass.getOriginalClassLevel(1);
-	}
-
-	@Override
-	protected PCClassLevel getSecondary(String name)
-	{
-		return secClass.getOriginalClassLevel(1);
+		PCClass pcc = context.getReferenceContext().constructNowIfNecessary(PCClass.class,
+			"Cl");
+		return pcc.getOriginalClassLevel(1);
 	}
 
 	@Override

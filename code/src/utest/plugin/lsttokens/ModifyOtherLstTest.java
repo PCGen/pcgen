@@ -27,6 +27,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
@@ -45,13 +46,6 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 		super.setUp();
 		TokenRegistration.register(new plugin.modifier.number.AddModifierFactory());
 		TokenRegistration.register(new plugin.modifier.number.MultiplyModifierFactory());
-		FormatManager<?> formatManager = primaryContext.getReferenceContext().getFormatManager("NUMBER");
-		LegalScope pscope = primaryContext.getActiveScope();
-		LegalScope sscope = primaryContext.getActiveScope();
-		primaryContext.getVariableContext().assertLegalVariableID(pscope, formatManager, "MyVar");
-		secondaryContext.getVariableContext().assertLegalVariableID(sscope, formatManager, "MyVar");
-		primaryContext.getVariableContext().assertLegalVariableID(pscope, formatManager, "OtherVar");
-		secondaryContext.getVariableContext().assertLegalVariableID(sscope, formatManager, "OtherVar");
 	}
 
 	@Override
@@ -265,5 +259,15 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		FormatManager<?> formatManager = context.getReferenceContext().getFormatManager("NUMBER");
+		LegalScope scope = context.getActiveScope();
+		context.getVariableContext().assertLegalVariableID(scope, formatManager, "MyVar");
+		context.getVariableContext().assertLegalVariableID(scope, formatManager, "OtherVar");
 	}
 }

@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -227,13 +228,7 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Override
-	protected DatasetVariable getPrimary(String name)
-	{
-		return new DatasetVariable();
-	}
-
-	@Override
-	protected DatasetVariable getSecondary(String name)
+	protected DatasetVariable get(LoadContext context, String name)
 	{
 		return new DatasetVariable();
 	}

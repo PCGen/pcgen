@@ -78,8 +78,8 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 				"TestObj");
 		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(
 				getCDOMClass(), "TestObj");
-		primaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
-		secondaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		additionalSetup(primaryContext);
+		additionalSetup(secondaryContext);
 	}
 
 	public abstract <T extends CDOMObject> Class<T> getCDOMClass();
@@ -318,6 +318,36 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		{
 			fail("retained");
 		}
+	}
+
+	@Test
+	public void testAvoidContext() throws PersistenceLayerException
+	{
+		RuntimeLoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		additionalSetup(context);
+		WeakReference<LoadContext> wr = new WeakReference<>(context);
+		CDOMObject item = context.getReferenceContext()
+			.constructCDOMObject(getCDOMClass(), "TestObj");
+		ParseResult pr = getToken().parseToken(context, item, getLegalValue());
+		if (!pr.passed())
+		{
+			fail();
+		}
+		context.commit();
+		assertTrue(pr.passed());
+		context = null;
+		System.gc();
+		if (wr.get() != null)
+		{
+			fail("retained");
+		}
+	}
+
+	protected void additionalSetup(LoadContext context)
+	{
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
 }

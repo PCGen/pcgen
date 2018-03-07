@@ -18,7 +18,6 @@
 package plugin.lsttokens.campaign;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
 import org.junit.Test;
@@ -26,6 +25,7 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
@@ -60,15 +60,6 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	public static ListKey<?> getListKey()
 	{
 		return ListKey.LICENSE;
-	}
-
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		URI uri = TestURI.getURI();
-		primaryContext.setSourceURI(uri);
-		secondaryContext.setSourceURI(uri);
 	}
 
 	@Test
@@ -327,5 +318,13 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		URI uri = TestURI.getURI();
+		context.setSourceURI(uri);
 	}
 }
