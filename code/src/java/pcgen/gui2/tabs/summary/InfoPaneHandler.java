@@ -96,7 +96,10 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	{
 		character.getRaceRef().addReferenceListener(this);
 		character.getGenderRef().addReferenceListener(this);
-		character.getAlignmentRef().addReferenceListener(this);
+		if (!character.getDataSet().getAlignments().isEmpty())
+		{
+			character.getAlignmentRef().addReferenceListener(this);
+		}
 		for (StatFacade stat : character.getDataSet().getStats())
 		{
 			character.getScoreBaseRef(stat).addReferenceListener(this);
