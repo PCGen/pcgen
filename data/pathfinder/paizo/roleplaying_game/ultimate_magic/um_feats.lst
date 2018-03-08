@@ -184,7 +184,7 @@ CATEGORY=FEAT|Combat Casting.MOD													TYPE:DragonShamanBonus
 CATEGORY=FEAT|Dazzling Display.MOD													TYPE:DragonShamanBonus
 CATEGORY=FEAT|Magical Aptitude.MOD													TYPE:DragonShamanBonus
 CATEGORY=FEAT|Spell Penetration.MOD													TYPE:DragonShamanBonus
-CATEGORY=FEAT|Skill Focus (Knowledge [Arcana])	KEY:Skill Focus Knowledge Arcana	CATEGORY:FEAT		TYPE:DragonShamanBonus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Internal,Dragon Shaman Bonus Feats	ABILITY:FEAT|AUTOMATIC|Skill Focus (Knowledge (Arcana))
+Skill Focus (Knowledge [Arcana])			KEY:Skill Focus Knowledge Arcana	CATEGORY:FEAT		TYPE:DragonShamanBonus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Internal,Dragon Shaman Bonus Feats	ABILITY:FEAT|AUTOMATIC|Skill Focus (Knowledge (Arcana))
 
 CATEGORY=FEAT|Improved Overrun.MOD													TYPE:SaurianShamanBonus
 CATEGORY=FEAT|Nimble Moves.MOD													TYPE:SaurianShamanBonus
