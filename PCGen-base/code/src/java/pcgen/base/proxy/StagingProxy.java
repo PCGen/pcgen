@@ -60,7 +60,7 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 	 * The list of PropertyProcessor objects that this StagingProxy will consider when
 	 * interpreting the given interfaces.
 	 */
-	private List<PropertyProcessor> processors;
+	private final List<PropertyProcessor> processors;
 
 	/**
 	 * This is the read interface (interface with "get" methods) served by this
@@ -78,12 +78,12 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 	 * This is the map from the (read) method name to the processors for the methods on
 	 * the read interface of this StagingProxy.
 	 */
-	private Map<String, PropertyProcessor> getProcessors = new HashMap<>();
+	private final Map<String, PropertyProcessor> getProcessors = new HashMap<>();
 
 	/**
 	 * This is the set of "set"/"add"/"put" methods served by this StagingProxy.
 	 */
-	private Set<String> setMethods = new HashSet<>();
+	private final Set<String> setMethods = new HashSet<>();
 
 	/**
 	 * This is the List of method calls to the write interface that this StagingProxy has

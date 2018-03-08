@@ -29,7 +29,7 @@ public class StagingInfoFactory
 	 * The List of PropertyProcessor objects to be provided to the StagingProxy objects
 	 * constructed by this StagingInfoFactory.
 	 */
-	private List<PropertyProcessor> processors = new ArrayList<>();
+	private final List<PropertyProcessor> processors = new ArrayList<>();
 
 	/**
 	 * Adds a new PropertyProcessor to the List of PropertyProcessor objects in this

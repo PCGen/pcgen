@@ -40,7 +40,7 @@ public class MapProcessor implements PropertyProcessor
 	@Override
 	public String getPropertyName(String methodName)
 	{
-		return methodName.equalsIgnoreCase("put") ? "" : methodName.substring(3);
+		return "put".equalsIgnoreCase(methodName) ? "" : methodName.substring(3);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class MapProcessor implements PropertyProcessor
 	public ReadableHandler getInvocationHandler(String methodName, Object[] args)
 	{
 		String propertyName =
-				methodName.equalsIgnoreCase("get") ? "" : methodName.substring(3);
+				"get".equalsIgnoreCase(methodName) ? "" : methodName.substring(3);
 		return new ReadMapProperty(propertyName, args[0]);
 	}
 

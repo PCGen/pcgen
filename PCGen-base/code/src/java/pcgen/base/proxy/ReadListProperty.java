@@ -34,7 +34,7 @@ public class ReadListProperty implements ReadableHandler
 	 * The resulting value of the Property after this ReadListProperty is appropriately
 	 * invoked.
 	 */
-	private List<Object> value = new ArrayList<>();
+	private final List<Object> value = new ArrayList<>();
 
 	/**
 	 * Constructs a new ReadListProperty for the given Property name.
