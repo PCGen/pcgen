@@ -2050,3 +2050,8 @@ Immunity to vision-based attacks										CATEGORY:Special Ability	TYPE:Extraord
 Assign RaceType ~ Outsider											CATEGORY:Internal																																																																																																																																									TEMPLATE:Assign RaceType ~ Outsider
 Assign RaceType ~ Fey												CATEGORY:Internal																																																																																																																																									TEMPLATE:Assign RaceType ~ Fey
 Assign RaceSubType ~ Extraplanar										CATEGORY:Internal																																																																																																																																									TEMPLATE:Assign RaceSubType ~ Extraplanar
+
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
+
+# Universal Monster Rules
+Earth Glide		KEY:Universal Monster Rule ~ Earth Glide		CATEGORY:Special Ability		TYPE:Universal Monster Rule.SpecialQuality.Extraordinary.ModifyMovement		DEFINE:UMR_EarthGlide_SpecificDesc|0		DESC:When the creature burrows, it can pass through stone, dirt, or almost any other sort of earth except metal as easily as a fish swims through water. If protected against fire damage, it can even glide through lava. Its burrowing leaves behind no tunnel or hole, nor does it create any ripple or other sign of its presence. A move earth spell cast on an area containing the burrowing creature flings it back 30 feet, stunning it for 1 round unless it succeeds on a DC 15 Fortitude save.|PERVAREQ:UMR_EarthGlide_SpecificDesc,0		SOURCEPAGE:p.296	ASPECT:Speed|Earth Glide
