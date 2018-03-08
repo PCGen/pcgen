@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.choose;
 
-import java.net.URISyntaxException;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
@@ -40,19 +38,6 @@ import plugin.qualifier.ability.PCToken;
 public class AbilitySelectionTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Ability>
 {
-
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
-			"Special Ability");
-		secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
-			"Special Ability");
-		//Build dummy objects so the ReferenceContext is properly initialized
-		construct(primaryContext, "Dummy");
-		construct(secondaryContext, "Dummy");
-	}
 
 	static ChooseLst token = new ChooseLst();
 	static AbilitySelectionToken subtoken = new AbilitySelectionToken();
@@ -152,20 +137,23 @@ public class AbilitySelectionTokenTest extends
 	}
 
 	@Override
-	protected Ability getSecondary(String name)
+	protected Ability get(LoadContext context, String name)
 	{
 		Ability a = BuildUtilities.getFeatCat().newInstance();
 		a.setName(name);
-		secondaryContext.getReferenceContext().importObject(a);
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	@Override
-	protected Ability getPrimary(String name)
+	protected void additionalSetup(LoadContext context)
 	{
-		Ability a = BuildUtilities.getFeatCat().newInstance();
-		a.setName(name);
-		primaryContext.getReferenceContext().importObject(a);
-		return a;
+		super.additionalSetup(context);
+		context.getReferenceContext().constructCDOMObject(AbilityCategory.class,
+			"Special Ability");
+		//Build dummy objects so the ReferenceContext is properly initialized
+		construct(context, "Dummy");
 	}
+	
+	
 }

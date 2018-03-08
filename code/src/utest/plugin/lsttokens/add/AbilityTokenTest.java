@@ -64,8 +64,6 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		super.setUp();
 		TokenRegistration.register(getSubToken());
-		construct(primaryContext, "Dummy");
-		construct(secondaryContext, "Dummy");
 	}
 
 	@Override
@@ -977,5 +975,12 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		primaryProf.addToListFor(ListKey.ADD, tc);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getSubTokenName() + '|' + "3|FEAT|VIRTUAL|STACKS=2,TestWP1");
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		construct(context, "Dummy");
 	}
 }

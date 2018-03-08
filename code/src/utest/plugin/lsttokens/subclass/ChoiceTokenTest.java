@@ -24,6 +24,7 @@ import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.ProhibitedSpellType;
@@ -225,22 +226,12 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	}
 
 	@Override
-	protected SubClass getSecondary(String name)
+	protected SubClass get(LoadContext context, String name)
 	{
 		SubClassCategory scc = SubClassCategory.getConstant("SCC");
 		SubClass sc = scc.newInstance();
 		sc.setName(name);
-		secondaryContext.getReferenceContext().importObject(sc);
-		return sc;
-	}
-
-	@Override
-	protected SubClass getPrimary(String name)
-	{
-		SubClassCategory scc = SubClassCategory.getConstant("SCC");
-		SubClass sc = scc.newInstance();
-		sc.setName(name);
-		primaryContext.getReferenceContext().importObject(sc);
+		context.getReferenceContext().importObject(sc);
 		return sc;
 	}
 }

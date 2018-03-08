@@ -60,9 +60,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		TokenRegistration.register(new PreLevelWriter());
 		TokenRegistration.register(new PreClassParser());
 		TokenRegistration.register(new PreClassWriter());
-		//We build dummy objects so that BuildUtilities.getFeatCat() has been loaded properly
-		construct(primaryContext, "Dummy");
-		construct(secondaryContext, "Dummy");
 	}
 
 	@Override
@@ -567,4 +564,14 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		return Constants.LST_DOT_CLEAR;
 	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		//We build dummy objects so that AbilityCategory.FEAT has been loaded properly
+		construct(context, "Dummy");
+	}
+
+	
 }

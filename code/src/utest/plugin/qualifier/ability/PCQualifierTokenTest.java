@@ -46,9 +46,6 @@ public class PCQualifierTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(PC_TOKEN);
-		//Dummy to ensure initialization
-		construct(primaryContext, "Dummy");
-		construct(secondaryContext, "Dummy");
 	}
 
 	@Override
@@ -105,4 +102,14 @@ public class PCQualifierTokenTest extends
 	{
 		return construct(loadContext, name);
 	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		//Dummy to ensure initialization
+		construct(context, "Dummy");
+	}
+	
+	
 }
