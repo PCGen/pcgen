@@ -167,13 +167,14 @@ public class GetOtherFunction implements Function
 				(PCGenScope) scopeInstanceFactory.getScope(legalScopeName);
 		LoadContext context = fdm.get(ManagerKey.CONTEXT);
 		args[1].jjtAccept(visitor,
-			fdm.getWith(DependencyManager.VARSTRATEGY, ts).getWith(
+			fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(ts)).getWith(
 				DependencyManager.ASSERTED,
 				Optional.of(legalScope.getFormatManager(context))));
 		DynamicDependency dd = new DynamicDependency(ts.getControlVar(),
 			LegalScope.getFullName(legalScope));
 		fdm.get(DependencyManager.DYNAMIC).addDependency(dd);
-		DependencyManager dynamic = fdm.getWith(DependencyManager.VARSTRATEGY, dd);
+		DependencyManager dynamic =
+				fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
 		dynamic = dynamic.getWith(DependencyManager.SCOPE, legalScope);
 		//Rest of Equation
 		return (FormatManager<?>) args[2].jjtAccept(visitor, dynamic);

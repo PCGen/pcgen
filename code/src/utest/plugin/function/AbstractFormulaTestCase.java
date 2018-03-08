@@ -254,7 +254,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		DependencyManager fdm = generateDependencyManager(getFormulaManager(),
 			getGlobalScopeInst(), null);
 		new DependencyVisitor().visit(node, fdm);
-		return fdm.get(DependencyManager.VARIABLES).getVariables();
+		return fdm.get(DependencyManager.VARIABLES).get().getVariables();
 	}
 
 	private DependencyManager generateDependencyManager(
