@@ -53,7 +53,7 @@ public interface PropertyProcessor
 	/**
 	 * Returns the property name given a write method name.
 	 * 
-	 * @param methodName
+	 * @param writeMethodName
 	 *            The write method name to be converted to the property name
 	 * @return The property name as derived from the given write method name
 	 */
