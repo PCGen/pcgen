@@ -167,7 +167,7 @@ virtue.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
 #Core/APG
 Aid.MOD					TYPE:Psychic	CLASSES:Medium,Spiritualist=2
 Alarm.MOD					TYPE:Psychic	CLASSES:Spiritualist=1
-Alter Wind.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Alter Winds.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
 Alter Self.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
 Analyze Dweomer.MOD			TYPE:Psychic	CLASSES:Spiritualist=6
 Animal Messenger.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
@@ -279,7 +279,7 @@ Dream.MOD					TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4|Spiritualist=5
 
 Eagle's Splendor.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
 Elemental Speech.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
-Endure Elements.MOD			TYPE:Psychic	CLASSES:Spiritualist=1
+Endure Elements.MOD			TYPE:Psychic	CLASSES:Spiritualist=1
 Enemy Hammer.MOD				TYPE:Psychic	CLASSES:Spiritualist=6
 Enervation.MOD				TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=4
 Enlarge Person.MOD			TYPE:Psychic	CLASSES:Medium=1
