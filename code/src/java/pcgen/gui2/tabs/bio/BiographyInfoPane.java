@@ -200,7 +200,10 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			bioItems.add(new PlayerNameItem(character));
 			bioItems.add(new GenderItem(character));
 			bioItems.add(new HandedItem(character));
-			bioItems.add(new AlignmentItem(character));
+			if (!character.getDataSet().getAlignments().isEmpty())
+			{
+				bioItems.add(new AlignmentItem(character));
+			}
 			bioItems.add(new DeityItem(character));
 			bioItems.add(new AgeItem(character));
 			bioItems.add(new SkinColorItem(character));
