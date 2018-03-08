@@ -22,7 +22,7 @@ import java.util.Arrays;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -33,15 +33,9 @@ import pcgen.base.util.FormatManager;
 /**
  * ValueFunction returns the input value to the evaluation
  */
-public class ValueFunction implements Function
+public class ValueFunction implements FormulaFunction
 {
 
-	/**
-	 * Returns the function name for this function. This is how it is called by
-	 * a user in a formula.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getFunctionName()
 	{

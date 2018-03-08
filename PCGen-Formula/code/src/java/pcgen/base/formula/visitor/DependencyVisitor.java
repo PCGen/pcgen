@@ -22,7 +22,7 @@ import java.util.Optional;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.IndirectDependency;
 import pcgen.base.formula.base.LegalScope;
@@ -182,12 +182,12 @@ public class DependencyVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Processes a function encountered in the formula.
+	 * Processes a FormulaFunction encountered in the formula.
 	 * 
-	 * This will decode what function is being called, using the
+	 * This will decode what FormulaFunction is being called, using the
 	 * FunctionLibrary, and then call getDependencies() on the Function, relying
 	 * on the behavior of that method (as defined in the contract of the
-	 * Function interface) to load the DependencyManager.
+	 * FormulaFunction interface) to load the DependencyManager.
 	 */
 	@Override
 	public Object visit(ASTPCGenLookup node, Object data)
@@ -200,7 +200,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 		{
 			FormulaManager formulaManager = manager.get(DependencyManager.FMANAGER);
 			FunctionLibrary library = formulaManager.get(FormulaManager.FUNCTION);
-			Function function = library.getFunction(name);
+			FormulaFunction function = library.getFunction(name);
 			Node[] args = VisitorUtilities.accumulateArguments(argNode);
 			return function.getDependencies(this, manager, args);
 		}
@@ -266,7 +266,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 
 	/**
 	 * This type of node is ONLY encountered as part of a an array call (which
-	 * is parsed like a function). Since the function should have "consumed"
+	 * is parsed like a function). Since the FormulaFunction should have "consumed"
 	 * these elements and not called back into DependencyVisitor, reaching this
 	 * node in DependencyVisitor indicates either an error in the implementation
 	 * of the formula or a tree structure problem in the formula.
@@ -274,14 +274,14 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenBracket node, Object data)
 	{
-		//Should be stripped by the function
+		//Should be stripped by the FormulaFunction
 		throw new IllegalStateException(
 			"Evaluation called on invalid Formula (reached Brackets)");
 	}
 
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
+	 * FormulaFunction should have "consumed" these elements and not called back into
 	 * DependencyVisitor, reaching this node in DependencyVisitor indicates
 	 * either an error in the implementation of the formula or a tree structure
 	 * problem in the formula.
@@ -289,7 +289,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTFParen node, Object data)
 	{
-		//Should be stripped by the function
+		//Should be stripped by the FormulaFunction
 		throw new IllegalStateException(
 			"Evaluation called on invalid Formula (reached Function Parenthesis)");
 	}

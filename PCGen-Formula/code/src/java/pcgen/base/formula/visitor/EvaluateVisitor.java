@@ -22,7 +22,7 @@ import java.util.Optional;
 
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
@@ -198,11 +198,11 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Processes a function encountered in the formula.
+	 * Processes a FormulaFunction encountered in the formula.
 	 * 
-	 * This will decode what function is being called, using the
+	 * This will decode what FormulaFunction is being called, using the
 	 * FunctionLibrary, and then call evaluate() on the Function, relying on the
-	 * behavior of that method (as defined in the contract of the Function
+	 * behavior of that method (as defined in the contract of the FormulaFunction
 	 * interface) to calculate the return value.
 	 */
 	@Override
@@ -217,7 +217,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		{
 			FunctionLibrary ftnLib = manager.get(EvaluationManager.FMANAGER)
 				.get(FormulaManager.FUNCTION);
-			Function function = ftnLib.getFunction(name);
+			FormulaFunction function = ftnLib.getFunction(name);
 			return function.evaluate(this, args, manager);
 		}
 		else if (argNode instanceof ASTPCGenBracket)
@@ -243,7 +243,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
+	 * FormulaFunction should have "consumed" these elements and not called back into
 	 * EvaluateVisitor, reaching this node in EvaluateVisitor indicates either
 	 * an error in the implementation of the formula or a tree structure problem
 	 * in the formula.
@@ -251,14 +251,14 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenBracket node, Object data)
 	{
-		//Should be stripped by the function
+		//Should be stripped by the FormulaFunction
 		throw new IllegalStateException(
 			"Evaluation called on invalid Formula (reached Function Brackets)");
 	}
 
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
+	 * FormulaFunction should have "consumed" these elements and not called back into
 	 * EvaluateVisitor, reaching this node in EvaluateVisitor indicates either
 	 * an error in the implementation of the formula or a tree structure problem
 	 * in the formula.
@@ -266,7 +266,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTFParen node, Object data)
 	{
-		//Should be stripped by the function
+		//Should be stripped by the FormulaFunction
 		throw new IllegalStateException(
 			"Evaluation called on invalid Formula (reached Function Parenthesis)");
 	}

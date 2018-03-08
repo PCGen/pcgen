@@ -23,7 +23,7 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -35,16 +35,9 @@ import pcgen.base.util.FormatManager;
  * AbstractUnaryFunction centralizes common behaviors for Functions that return
  * a Number and only take one argument.
  */
-public abstract class AbstractUnaryFunction implements Function
+public abstract class AbstractUnaryFunction implements FormulaFunction
 {
 
-	/**
-	 * Checks if the given arguments are valid using the given SemanticsVisitor.
-	 * Only one argument is allowed, and it must be a valid formula value
-	 * (number, variable, another function, etc.)
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> allowArgs(SemanticsVisitor visitor,
 		Node[] args, FormulaSemantics semantics)
@@ -74,18 +67,6 @@ public abstract class AbstractUnaryFunction implements Function
 		return format;
 	}
 
-	/**
-	 * Evaluates the given arguments using the given EvaluateVisitor. Only one
-	 * argument is allowed, and it must be a valid numeric value.
-	 * 
-	 * This method assumes there is at least one argument, and the argument is a
-	 * valid value. See evaluate on the Function interface for important
-	 * assumptions made when this method is called.
-	 * 
-	 * Actual processing is delegated to evaluate(Number)
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final Number evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
@@ -93,37 +74,12 @@ public abstract class AbstractUnaryFunction implements Function
 		return evaluate((Number) args[0].jjtAccept(visitor, manager));
 	}
 
-	/**
-	 * Checks if the given arguments are static using the given StaticVisitor.
-	 * 
-	 * This method assumes there is at least one argument, and the argument is a
-	 * valid value in a formula. See isStatic on the Function interface for
-	 * important assumptions made when this method is called.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
 		return (Boolean) args[0].jjtAccept(visitor, null);
 	}
 
-	/**
-	 * Captures dependencies of this function. This includes Variables (in the
-	 * form of VariableIDs), but is not limited to those as the only possible
-	 * dependency.
-	 * 
-	 * Consistent with the contract of the Function interface, this list
-	 * recursively includes all of the contents of items within this function
-	 * (if this function calls another function, etc. all variables in the tree
-	 * below this function are included).
-	 * 
-	 * This method assumes there is at least one argument, and the argument is a
-	 * valid value in a formula. See getDependencies on the Function interface
-	 * for important assumptions made when this method is called.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)

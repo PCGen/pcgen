@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -42,10 +43,6 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		String formula = "floor((arg(0)-10)/2)";
-		SimpleNode node = TestUtilities.doParse(formula);
-		FunctionLibrary ftnLibrary = getFunctionLibrary();
-		ftnLibrary.addFunction(new GenericFunction("d20Mod", node));
 		resetManager();
 	}
 
@@ -61,28 +58,36 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArg()
+	public void testInvalidWrongArgTooFew()
 	{
 		String formula = "d20Mod()";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
-		formula = "d20Mod(2, 3)";
-		node = TestUtilities.doParse(formula);
+	}
+
+	@Test
+	public void testInvalidWrongArgTooMany()
+	{
+		String formula = "d20Mod(2, 3)";
+		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+	}
+
+	@Test
+	public void testInvalidWrongArg()
+	{
 		String formula2 = "floor((14-10)/2)";
 		SimpleNode node2 = TestUtilities.doParse(formula2);
 		getFunctionLibrary().addFunction(new GenericFunction("noargs", node2));
-		formula = "noargs(2)";
-		node = TestUtilities.doParse(formula);
+		isValid(formula2, node2, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+		String formula = "noargs(2)";
+		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 	}
 
 	@Test
 	public void testNoArgs()
 	{
-		String formula2 = "floor((14-10)/2)";
-		SimpleNode node2 = TestUtilities.doParse(formula2);
-		getFunctionLibrary().addFunction(new GenericFunction("noargs", node2));
 		String formula = "noargs()";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -145,9 +150,6 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testEmbedded1()
 	{
-		String formula2 = "floor((arg(0)-arg(1))/2)";
-		SimpleNode node2 = TestUtilities.doParse(formula2);
-		getFunctionLibrary().addFunction(new GenericFunction("embed", node2));
 		String formula = "d20Mod(embed(14,10))";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -166,9 +168,6 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testEmbedded2()
 	{
-		String formula2 = "floor((arg(0)-arg(1))/2)";
-		SimpleNode node2 = TestUtilities.doParse(formula2);
-		getFunctionLibrary().addFunction(new GenericFunction("embed", node2));
 		String formula = "embed(14,d20Mod(14))";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
@@ -184,4 +183,28 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		assertEquals(1, argManager.getMaximumArgument());
 	}
 
+	@Override
+	protected FormulaManager getFormulaManager()
+	{
+		String d20ModFormula = "floor((arg(0)-10)/2)";
+		SimpleNode d20ModNode = TestUtilities.doParse(d20ModFormula);
+		String noArgsFormula = "floor((14-10)/2)";
+		SimpleNode noArgsNode = TestUtilities.doParse(noArgsFormula);
+		String embedFormula = "floor((arg(0)-arg(1))/2)";
+		SimpleNode embedNode = TestUtilities.doParse(embedFormula);
+		FormulaManager formulaManager = super.getFormulaManager();
+		FunctionLibrary functionLibrary = formulaManager.get(FormulaManager.FUNCTION);
+		functionLibrary = getWith(functionLibrary, "d20Mod", d20ModNode);
+		functionLibrary = getWith(functionLibrary, "noargs", noArgsNode);
+		functionLibrary = getWith(functionLibrary, "embed", embedNode);
+		return formulaManager.getWith(FormulaManager.FUNCTION, functionLibrary);
+	}
+
+	public static FunctionLibrary getWith(FunctionLibrary functionLibrary, String name,
+		SimpleNode node)
+	{
+		return lookupName -> name.equalsIgnoreCase(lookupName)
+			? new GenericFunction(name, node) : functionLibrary.getFunction(lookupName);
+	}
+	
 }

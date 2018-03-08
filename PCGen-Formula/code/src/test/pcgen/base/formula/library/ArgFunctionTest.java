@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.parse.ASTNum;
 import pcgen.base.formula.parse.Node;
@@ -44,17 +45,19 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		resetManager();
+		varCapture = new DependencyVisitor();
+	}
+
+	private Node[] getNodes()
+	{
 		ASTNum four = new ASTNum(0);
 		four.setToken("4");
 		ASTNum five = new ASTNum(1);
 		five.setToken("5");
 		String formula = "abs(-4.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		Node[] array = {four, five, node};
-		FunctionLibrary functionLibrary = getFunctionLibrary();
-		functionLibrary.addFunction(new ArgFunction(array));
-		resetManager();
-		varCapture = new DependencyVisitor();
+		return new Node[]{four, five, node};
 	}
 
 	private void resetManager()
@@ -181,4 +184,12 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		assertTrue(rv.toString().equals(formula));
 	}
 
+	@Override
+	protected FormulaManager getFormulaManager()
+	{
+		FormulaManager formulaManager = super.getFormulaManager();
+		FunctionLibrary functionManager = formulaManager.get(FormulaManager.FUNCTION);
+		return formulaManager.getWith(FormulaManager.FUNCTION,
+			ArgFunction.getWithArgs(functionManager, getNodes()));
+	}
 }

@@ -23,9 +23,10 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.DynamicDependency;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
@@ -162,7 +163,6 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	public void testDynamic()
 	{
 		ScopeInstance source = getGlobalScopeInst();
-		getFunctionLibrary().addFunction(new Dynamic());
 		LegalScope globalScope = getGlobalScope();
 
 		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
@@ -322,7 +322,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 	}
 
-	public class Dynamic implements Function
+	public class Dynamic implements FormulaFunction
 	{
 
 		@Override
@@ -430,7 +430,6 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		manager.addModifier(activeID, useEquip, source);
 
-		getFunctionLibrary().addFunction(new Dynamic());
 		ComplexNEPFormula<Number> dynamicformula =
 				new ComplexNEPFormula<Number>("dynamic(equipVar, localVar)", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
@@ -443,5 +442,22 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		manager.addModifier(altID, four, altInst);
 		assertEquals(4, store.get(resultID));
+	}
+
+
+	@Override
+	protected FormulaManager getFormulaManager()
+	{
+		FormulaManager formulaManager = super.getFormulaManager();
+		FunctionLibrary functionLibrary = formulaManager.get(FormulaManager.FUNCTION);
+		functionLibrary = getWith(functionLibrary, new Dynamic());
+		return formulaManager.getWith(FormulaManager.FUNCTION, functionLibrary);
+	}
+	
+	public static FunctionLibrary getWith(FunctionLibrary functionLibrary,
+		FormulaFunction function)
+	{
+		return lookupName -> function.getFunctionName().equalsIgnoreCase(lookupName)
+			? function : functionLibrary.getFunction(lookupName);
 	}
 }

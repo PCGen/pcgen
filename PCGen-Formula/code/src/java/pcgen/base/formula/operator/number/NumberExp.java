@@ -57,7 +57,7 @@ public class NumberExp implements OperatorAction
 	}
 
 	/**
-	 * Performs exponential function on the given arguments.
+	 * Performs exponential operation on the given arguments.
 	 * 
 	 * {@inheritDoc}
 	 */

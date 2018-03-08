@@ -24,7 +24,7 @@ import org.junit.Test;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -62,7 +62,7 @@ public class SimpleFunctionLibraryTest extends TestCase
 	{
 		try
 		{
-			Function f = getPseudoFunction(null);
+			FormulaFunction f = getPseudoFunction(null);
 			library.addFunction(f);
 			fail("Expected function with null name to be rejected");
 		}
@@ -75,7 +75,7 @@ public class SimpleFunctionLibraryTest extends TestCase
 	@Test
 	public void testSimpleFunctionSetGet()
 	{
-		Function abs = getPseudoFunction("Abs");
+		FormulaFunction abs = getPseudoFunction("Abs");
 		library.addFunction(abs);
 		//case insensitive
 		assertEquals(abs, library.getFunction("ABS"));
@@ -86,11 +86,11 @@ public class SimpleFunctionLibraryTest extends TestCase
 	@Test
 	public void testInvalidDupeNameSimpleFunction()
 	{
-		Function abs = getPseudoFunction("Abs");
+		FormulaFunction abs = getPseudoFunction("Abs");
 		library.addFunction(abs);
 		try
 		{
-			Function pseudoFunction = getPseudoFunction("ABS");
+			FormulaFunction pseudoFunction = getPseudoFunction("ABS");
 			library.addFunction(pseudoFunction);
 			fail("Should not have been able to add function twice");
 		}
@@ -101,7 +101,7 @@ public class SimpleFunctionLibraryTest extends TestCase
 		}
 		try
 		{
-			Function pseudoFunction = getPseudoFunction("abs");
+			FormulaFunction pseudoFunction = getPseudoFunction("abs");
 			library.addFunction(pseudoFunction);
 			fail("Should not have been able to add function twice, regardless of case");
 		}
@@ -112,9 +112,9 @@ public class SimpleFunctionLibraryTest extends TestCase
 		}
 	}
 
-	private Function getPseudoFunction(final String name)
+	private FormulaFunction getPseudoFunction(final String name)
 	{
-		return new Function()
+		return new FormulaFunction()
 		{
 
 			@Override

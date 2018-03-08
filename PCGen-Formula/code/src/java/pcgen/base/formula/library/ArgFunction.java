@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2015-8 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -25,7 +25,8 @@ import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.parse.ASTNum;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
@@ -42,12 +43,12 @@ import pcgen.base.util.FormatManager;
  * This is indirectly used within a GenericFunction in order to reference values
  * passed into that function.
  */
-public class ArgFunction implements Function
+public class ArgFunction implements FormulaFunction
 {
 	/**
-	 * The function name for this Function.
+	 * The name for this Function.
 	 */
-	private static final String FUNCTION_NAME = "ARG";
+	public static final String FUNCTION_NAME = "ARG";
 
 	/**
 	 * The "arguments" provided to the GenericFunction.
@@ -61,7 +62,7 @@ public class ArgFunction implements Function
 	 *            The "arguments" provided to the GenericFunction that is being
 	 *            processed
 	 */
-	public ArgFunction(Node[] masterArgs)
+	private ArgFunction(Node[] masterArgs)
 	{
 		this.masterArgs = Objects.requireNonNull(masterArgs);
 	}
@@ -179,5 +180,11 @@ public class ArgFunction implements Function
 			argManager.get().addArgument(argNum);
 		}
 		return (FormatManager<?>) visitor.visit((SimpleNode) masterArgs[argNum], manager);
+	}
+
+	public static FunctionLibrary getWithArgs(FunctionLibrary functionLibrary, Node[] args)
+	{
+		return lookupName -> FUNCTION_NAME.equalsIgnoreCase(lookupName)
+			? new ArgFunction(args) : functionLibrary.getFunction(lookupName);
 	}
 }
