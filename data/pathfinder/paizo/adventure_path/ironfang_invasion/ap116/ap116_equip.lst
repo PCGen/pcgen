@@ -3,7 +3,7 @@ SOURCELONG:Ironfang Invasion, Chapter 2 - Fangs of War	SOURCESHORT:AP116	SOURCEW
 # ORIGINAL ENTRY DATE: 2017-06
 
 
-Club.COPY=Korrigan Club
+Club (Base).COPY=Korrigan Club	VISIBLE:YES	EQMOD:Material ~ Wood
 Korrigan Club.MOD					EQMOD:Special Ability ~ Enhancement Cost|5100.Special Ability ~ +1 ~ Weapon.Special Ability ~ Thundering ~ Weapon			SOURCELONG:Ironfang Invasion, Chapter 2 - Fangs of War	SOURCESHORT:AP116		SOURCEPAGE:p.29									SPROP:Once per day as a standard action, a wielder can animate his own hair to wield the club without his hands for 4 rounds, as if the korrigan club had the dancing weapon special ability. A wielder's head hair or beard hair must be at least 2 feet long to activate this ability. Sundering the wielder's hair (hp 2) immediately causes the korrigan club to fall to the ground and renders the wielder unable to activate this special ability until the lost length regrows.
 
 
