@@ -25,10 +25,12 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.SettingsHandler;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 
 public class AbilitySelection extends Selection<Ability, String> implements
@@ -129,8 +131,12 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	private static AbilitySelection decodeFeatSelectionChoice(
 		LoadContext context, String persistentFormat)
 	{
-		Ability ability = context.getReferenceContext()
-			.getManufacturerId(AbilityCategory.FEAT).getActiveObject(persistentFormat);
+		AbstractReferenceContext referenceContext = context.getReferenceContext();
+		AbilityCategory featCategory =
+				referenceContext.get(AbilityCategory.class, "FEAT");
+		ReferenceManufacturer<Ability> featManufacturer =
+				referenceContext.getManufacturerId(featCategory);
+		Ability ability = featManufacturer.getActiveObject(persistentFormat);
 
 		if (ability == null)
 		{
@@ -138,8 +144,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 			String baseKey =
 					AbilityUtilities.getUndecoratedName(persistentFormat,
 						choices);
-			ability = context.getReferenceContext()
-				.getManufacturerId(AbilityCategory.FEAT).getActiveObject(baseKey);
+			ability = featManufacturer.getActiveObject(baseKey);
 			if (ability == null)
 			{
 				throw new IllegalArgumentException("String in decodeChoice "

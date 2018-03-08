@@ -26,6 +26,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -43,13 +44,16 @@ public final class FeatLoader extends AbilityLoader
 	{
 		Ability feat = aFeat;
 
+		AbstractReferenceContext referenceContext = context.getReferenceContext();
+		AbilityCategory featCategory =
+				referenceContext.get(AbilityCategory.class, "FEAT");
 		if (feat == null)
 		{
 			feat = new Ability();
 			int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
 			String name = tabLoc == -1 ? lstLine : lstLine.substring(0, tabLoc);
 			feat.setName(name.intern());
-			feat.setCDOMCategory(AbilityCategory.FEAT);
+			feat.setCDOMCategory(featCategory);
 			context.addStatefulInformation(feat);
 			context.getReferenceContext().importObject(feat);
 		}
@@ -82,9 +86,11 @@ public final class FeatLoader extends AbilityLoader
 	 */
 	private void loadDefaultFeats(LoadContext context, CampaignSourceEntry firstSource)
 	{
-		Ability wpFeat =
-				context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT)
-					.getActiveObject(Constants.INTERNAL_WEAPON_PROF);
+		AbstractReferenceContext referenceContext = context.getReferenceContext();
+		AbilityCategory featCategory =
+				referenceContext.get(AbilityCategory.class, "FEAT");
+		Ability wpFeat = referenceContext.getManufacturerId(featCategory)
+			.getActiveObject(Constants.INTERNAL_WEAPON_PROF);
 		if (wpFeat == null)
 		{
 
@@ -120,8 +126,10 @@ public final class FeatLoader extends AbilityLoader
 	@Override
 	protected Ability getObjectKeyed(LoadContext context, final String aKey)
 	{
-		return context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT)
-			.getActiveObject(aKey);
+		AbstractReferenceContext referenceContext = context.getReferenceContext();
+		AbilityCategory featCategory =
+				referenceContext.get(AbilityCategory.class, "FEAT");
+		return referenceContext.getManufacturerId(featCategory).getActiveObject(aKey);
 	}
 	
 	@Override
