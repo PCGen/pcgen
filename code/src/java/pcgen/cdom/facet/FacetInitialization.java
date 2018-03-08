@@ -22,6 +22,7 @@ import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.input.DynamicFacet;
 import pcgen.cdom.facet.input.MasterUsableSkillFacet;
+import pcgen.cdom.facet.model.ActiveEqHeadFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
@@ -76,6 +77,7 @@ public final class FacetInitialization
 		EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 		NaturalEquipmentFacet naturalEquipmentFacet = FacetLibrary.getFacet(NaturalEquipmentFacet.class);
 		SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
+		ActiveEqHeadFacet activeEqHeadFacet = FacetLibrary.getFacet(ActiveEqHeadFacet.class);
 		ActiveEqModFacet activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
 
 		GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
@@ -118,7 +120,8 @@ public final class FacetInitialization
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
 		naturalEquipmentFacet.addDataFacetChangeListener(activeEquipmentFacet);
-		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
+		activeEquipmentFacet.addDataFacetChangeListener(activeEqHeadFacet);
+		activeEqHeadFacet.addDataFacetChangeListener(activeEqModFacet);
 
 		nwpFacet.addDataFacetChangeListener(weaponProfFacet);
 
@@ -165,6 +168,7 @@ public final class FacetInitialization
 		companionModFacet.addDataFacetChangeListener(charObjectFacet); //model done
 
 		activeEquipmentFacet.addDataFacetChangeListener(eqObjectFacet);
+		activeEqHeadFacet.addDataFacetChangeListener(eqObjectFacet);
 		activeEqModFacet.addDataFacetChangeListener(eqObjectFacet);
 
 		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
@@ -196,6 +200,7 @@ public final class FacetInitialization
 		FacetLibrary.getFacet(ObjectWrapperFacet.class);
 		FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		FacetLibrary.getFacet(HiddenTypeFacet.class);
+		FacetLibrary.getFacet(LoadContextFacet.class);
 		FacetLibrary.getFacet(VariableLibraryFacet.class);
 		FacetLibrary.getFacet(SolverFactoryFacet.class);
 		FacetLibrary.getFacet(FormulaSetupFacet.class);
