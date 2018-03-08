@@ -18,6 +18,9 @@
 package pcgen.rules.persistence;
 
 import pcgen.base.calculation.IgnoreVariables;
+
+import java.util.Optional;
+
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -96,7 +99,8 @@ public class MasterModifierFactory
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			null);
 		fdm = fdm.getWith(DependencyManager.SCOPE, varScope);
-		fdm = fdm.getWith(DependencyManager.VARSTRATEGY, new IgnoreVariables());
+		fdm = fdm.getWith(DependencyManager.VARSTRATEGY,
+			Optional.of(new IgnoreVariables()));
 		fdm = fdm.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
 		modifier.getDependencies(fdm);
 		modifier.addReferences(fdm.get(ManagerKey.REFERENCES).getReferences());
