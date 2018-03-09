@@ -23,6 +23,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
+import java.util.Objects;
 import java.util.logging.Level;
 
 import javax.swing.JMenu;
@@ -56,14 +57,19 @@ import pcgen.util.Logging;
 public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionListener
 {
 
+	/**
+	 * The context indicating what items are currently loaded/being processed in the UI
+	 */
+	private final UIContext uiContext;
 	private final PCGenFrame frame;
 	private final PCGenActionMap actionMap;
 	private final EquipmentSetMenu equipmentMenu;
 	private final TempBonusMenu tempMenu;
 	private CharacterFacade character;
 
-	public PCGenMenuBar(PCGenFrame frame)
+	public PCGenMenuBar(PCGenFrame frame, UIContext uiContext)
 	{
+		this.uiContext = Objects.requireNonNull(uiContext);
 		this.frame = frame;
 		this.actionMap = frame.getActionMap();
 		this.equipmentMenu = new EquipmentSetMenu();
@@ -258,7 +264,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		public QuickSourceMenu()
 		{
 			super(actionMap.get(PCGenActionMap.SOURCES_LOAD_COMMAND));
-			ReferenceFacade<SourceSelectionFacade> ref = frame.getCurrentSourceSelectionRef();
+			ReferenceFacade<SourceSelectionFacade> ref = uiContext.getCurrentSourceSelectionRef();
 			setSelectedItem(ref.get());
 			ListFacade<SourceSelectionFacade> sources = FacadeFactory.getDisplayedSourceSelections();
 			setListModel(new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(), sources));
@@ -273,7 +279,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 				Object item = e.getItemSelectable().getSelectedObjects()[0];
 				if (frame.loadSourceSelection((SourceSelectionFacade) item))
 				{
-					setSelectedItem(frame.getCurrentSourceSelectionRef().get());
+					setSelectedItem(uiContext.getCurrentSourceSelectionRef().get());
 				}
 			}
 		}

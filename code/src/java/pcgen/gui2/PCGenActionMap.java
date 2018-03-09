@@ -21,6 +21,7 @@ package pcgen.gui2;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 import javax.swing.ActionMap;
 import javax.swing.JOptionPane;
@@ -146,8 +147,14 @@ public final class PCGenActionMap extends ActionMap
 	public static final String MNU_EDIT = "mnuEdit"; //$NON-NLS-1$
 	public static final String MNU_FILE = "mnuFile"; //$NON-NLS-1$
 
-	public PCGenActionMap(PCGenFrame frame)
+	/**
+	 * The context indicating what items are currently loaded/being processed in the UI
+	 */
+	private final UIContext uiContext;
+
+	public PCGenActionMap(PCGenFrame frame, UIContext uiContext)
 	{
+		this.uiContext = Objects.requireNonNull(uiContext);
 		this.frame = frame;
 		initActions();
 	}
@@ -866,7 +873,8 @@ public final class PCGenActionMap extends ActionMap
 		public ReloadSourcesAction()
 		{
 			super("mnuSourcesReload", SOURCES_RELOAD_COMMAND, "shift-shortcut R");
-			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef = frame.getCurrentSourceSelectionRef();
+			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
+					uiContext.getCurrentSourceSelectionRef();
 			currentSourceSelectionRef.addReferenceListener(this);
 			checkEnabled(currentSourceSelectionRef.get());
 		}
@@ -874,7 +882,8 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			SourceSelectionFacade sources = frame.getCurrentSourceSelectionRef().get();
+			SourceSelectionFacade sources =
+					uiContext.getCurrentSourceSelectionRef().get();
 			if (sources != null)
 			{
 				frame.unloadSources();
@@ -901,7 +910,8 @@ public final class PCGenActionMap extends ActionMap
 		public UnloadSourcesAction()
 		{
 			super("mnuSourcesUnload", SOURCES_UNLOAD_COMMAND, "shortcut U");
-			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef = frame.getCurrentSourceSelectionRef();
+			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
+					uiContext.getCurrentSourceSelectionRef();
 			currentSourceSelectionRef.addReferenceListener(this);
 			checkEnabled(currentSourceSelectionRef.get());
 		}

@@ -43,6 +43,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Observer;
 import java.util.logging.LogRecord;
 
@@ -130,6 +131,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	private final PCGenActionMap actionMap;
 	private final CharacterTabs characterTabs;
 	private final PCGenStatusBar statusBar;
+
+	/**
+	 * The context indicating what items are currently loaded/being processed in the UI
+	 */
+	private final UIContext uiContext;
+
 	private final DefaultReferenceFacade<SourceSelectionFacade> currentSourceSelection;
 	private final DefaultReferenceFacade<CharacterFacade> currentCharacterRef;
 	private final DefaultReferenceFacade<DataSetFacade> currentDataSetRef;
@@ -141,13 +148,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	private String section15 = null;
 	private String lastCharacterPath = null;
 
-	public PCGenFrame()
+	public PCGenFrame(UIContext uiContext)
 	{
+		this.uiContext = Objects.requireNonNull(uiContext);
 		Globals.setRootFrame(this);
-		this.currentSourceSelection = new DefaultReferenceFacade<>();
+		this.currentSourceSelection = uiContext.getCurrentSourceSelectionRef();
 		this.currentCharacterRef = new DefaultReferenceFacade<>();
 		this.currentDataSetRef = new DefaultReferenceFacade<>();
-		this.actionMap = new PCGenActionMap(this);
+		this.actionMap = new PCGenActionMap(this, uiContext);
 		this.characterTabs = new CharacterTabs(this);
 		this.statusBar = new PCGenStatusBar(this);
 		this.filenameListener = new FilenameListener();
@@ -168,8 +176,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		root.setActionMap(actionMap);
 		root.setInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, createInputMap(actionMap));
 
-		characterTabs.add(new InfoGuidePane(this));
-		setJMenuBar(new PCGenMenuBar(this));
+		characterTabs.add(new InfoGuidePane(this, uiContext));
+		setJMenuBar(new PCGenMenuBar(this, uiContext));
 		add(new PCGenToolBar(this), BorderLayout.NORTH);
 		add(characterTabs, BorderLayout.CENTER);
 		add(statusBar, BorderLayout.SOUTH);
@@ -527,14 +535,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			character.getFileRef().addReferenceListener(filenameListener);
 		}
-	}
-
-	/**
-	 * @return A reference to the currently loaded sources.
-	 */
-	public ReferenceFacade<SourceSelectionFacade> getCurrentSourceSelectionRef()
-	{
-		return currentSourceSelection;
 	}
 
 	/**
@@ -1457,7 +1457,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	{
 		if (sourceSelectionDialog == null)
 		{
-			sourceSelectionDialog = new SourceSelectionDialog(this);
+			sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
 		}
 		Utility.setComponentRelativeLocation(this, sourceSelectionDialog);
 		sourceSelectionDialog.setVisible(true);
