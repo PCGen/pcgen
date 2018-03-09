@@ -50,7 +50,6 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 		CDOMPrimaryToken<KitSpells>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -111,7 +110,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 					else if (className.equalsIgnoreCase("Default"))
 					{
 						pr.addWarningMessage("Use of Default for CLASS= in KIT "
-										+ "SPELLS line is unnecessary: Ignoring");
+							+ "SPELLS line is unnecessary: Ignoring");
 					}
 					else
 					{
