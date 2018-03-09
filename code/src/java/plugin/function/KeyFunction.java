@@ -21,8 +21,8 @@ import java.util.Optional;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -34,7 +34,7 @@ import pcgen.cdom.base.Identified;
 /**
  * Returns the KEY for an Identified object (includes CDOMObjects)
  */
-public class KeyFunction implements Function
+public class KeyFunction implements FormulaFunction
 {
 
 	@Override

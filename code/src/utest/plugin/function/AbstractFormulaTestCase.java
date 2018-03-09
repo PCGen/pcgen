@@ -26,7 +26,6 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
@@ -34,6 +33,7 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.GlobalVarScoped;
 import pcgen.base.formula.parse.SimpleNode;
@@ -287,9 +287,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			.getVariableID(getGlobalScopeInst(), formula);
 	}
 
-	protected FunctionLibrary getFunctionLibrary()
+	protected WriteableFunctionLibrary getFunctionLibrary()
 	{
-		return localSetup.getFormulaManager().get(FormulaManager.FUNCTION);
+		return (WriteableFunctionLibrary) localSetup.getFormulaManager().get(FormulaManager.FUNCTION);
 	}
 
 	protected OperatorLibrary getOperatorLibrary()

@@ -19,14 +19,14 @@ package pcgen.cdom.content;
 
 import java.io.StringReader;
 
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.library.GenericFunction;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
 
 /**
- * A UserFunction is a Formula Function that has been defined by the user via
+ * A UserFunction is a FormulaFunction that has been defined by the user via
  * data control. This is then made available to the Formula system as a custom
  * function, based on the given name (in UserContent).
  */
@@ -34,9 +34,9 @@ public class UserFunction extends UserContent
 {
 
 	/**
-	 * The underlying Function for this UserFunction.
+	 * The underlying FormulaFunction for this UserFunction.
 	 */
-	private Function function;
+	private FormulaFunction function;
 
 	/**
 	 * The original Expression for this UserFuction.
@@ -76,11 +76,11 @@ public class UserFunction extends UserContent
 	}
 
 	/**
-	 * Returns the Function for this UserFunction.
+	 * Returns the FormulaFunction for this UserFunction.
 	 * 
-	 * @return The Function for this UserFunction
+	 * @return The FormulaFunction for this UserFunction
 	 */
-	public Function getFunction()
+	public FormulaFunction getFunction()
 	{
 		return function;
 	}

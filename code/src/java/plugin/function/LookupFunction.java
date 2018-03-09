@@ -23,9 +23,9 @@ import java.util.Optional;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -49,7 +49,7 @@ import pcgen.rules.context.LoadContext;
  * This function requires 3 arguments: (1) The Table (2) The Value to be looked up in the
  * first column (3) The Column of the result to be returned
  */
-public class LookupFunction implements Function
+public class LookupFunction implements FormulaFunction
 {
 
 	/**

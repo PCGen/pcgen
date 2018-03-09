@@ -20,8 +20,8 @@ import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -36,7 +36,7 @@ import pcgen.cdom.formula.ManagerKey;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 
-public class GetFactFunction implements Function
+public class GetFactFunction implements FormulaFunction
 {
 
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
