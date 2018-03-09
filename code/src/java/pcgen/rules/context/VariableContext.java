@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Objects;
 
 import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.exception.LegalVariableException;
@@ -51,8 +51,8 @@ public class VariableContext
 		formulaSetup.loadBuiltIns();
 		managerFactory = Objects.requireNonNull(fac);
 		PluginFunctionLibrary pfl = PluginFunctionLibrary.getInstance();
-		List<Function> functions = pfl.getFunctions();
-		for (Function f : functions)
+		List<FormulaFunction> functions = pfl.getFunctions();
+		for (FormulaFunction f : functions)
 		{
 			formulaSetup.getFunctionLibrary().addFunction(f);
 		}
@@ -139,7 +139,7 @@ public class VariableContext
 			varName);
 	}
 
-	public void addFunction(Function function)
+	public void addFunction(FormulaFunction function)
 	{
 		formulaSetup.getFunctionLibrary().addFunction(function);
 	}
