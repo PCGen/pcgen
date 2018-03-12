@@ -19,12 +19,17 @@ package pcgen.rules.context;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMFactory;
@@ -37,9 +42,12 @@ import pcgen.util.Logging;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<>();
+	@SuppressWarnings("rawtypes")
+	private static final Class<Categorized> CATEGORIZED_CLASS = Categorized.class;
 
-	private final Map<ManufacturableFactory<?>, ReferenceManufacturer<?>> mfgmap = new HashMap<>();
+	private final Map<ClassIdentity<?>, ReferenceManufacturer<?>> map = new HashMap<>();
+
+	private final CaseInsensitiveMap<ClassIdentity<?>> nameMap = new CaseInsensitiveMap<>();
 
 	protected RuntimeReferenceContext()
 	{
@@ -49,82 +57,88 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
+		Objects.requireNonNull(cl);
 		if (Categorized.class.isAssignableFrom(cl))
 		{
 			throw new InternalError(cl
 					+ " is categorized but was fetched without a category");
 		}
+		ClassIdentity<T> identity = BasicClassIdentity.getIdentity(cl);
+		return getManufacturerId(identity);
+	}
+
+	@Override
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
+		ClassIdentity<T> identity)
+	{
+		Objects.requireNonNull(identity);
 		@SuppressWarnings("unchecked")
-		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(cl);
+		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(identity);
 		if (mfg == null)
 		{
-			mfg = getNewReferenceManufacturer(cl);
-			map.put(cl, mfg);
+			mfg = constructReferenceManufacturer(identity);
+			map.put(identity, mfg);
+			nameMap.put(identity.getPersistentFormat(), identity);
 		}
 		return mfg;
 	}
 
 	@Override
 	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
-		Class<T> cl)
+		ClassIdentity<T> identity)
 	{
-		return new SimpleReferenceManufacturer<>(new CDOMFactory<>(cl));
+		Objects.requireNonNull(identity);
+		//TODO Need a special case here for Ability?!? YUCK
+		if (identity instanceof ManufacturableFactory)
+		{
+			return new SimpleReferenceManufacturer<>((ManufacturableFactory<T>) identity);
+		}
+		return new SimpleReferenceManufacturer<>(new CDOMFactory<>(identity));
 	}
 
 	@Override
 	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<>(
-                map.values());
-		returnList.addAll(mfgmap.values());
-		return returnList;
+		ArrayList<ReferenceManufacturer<?>> list = new ArrayList<>(map.values());
+		Collections.sort(list, new IdentitySorter());
+		return list;
 	}
 
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Category<T> cat)
+	/**
+	 * This implements a Comparator used for a Sorter of ClassIdentity. Note that this
+	 * Comparator is NOT CONSISTENT WITH EQUALS. It is designed solely to sort items with
+	 * categories to the end of the list, so that things they depend upon (such as
+	 * AbilityCategory) are resolved first.
+	 */
+	private class IdentitySorter implements Comparator<ReferenceManufacturer<?>>
 	{
-		if (cat == null)
+		@Override
+		public int compare(ReferenceManufacturer<?> o1, ReferenceManufacturer<?> o2)
 		{
-			@SuppressWarnings("unchecked")
-			ReferenceManufacturer<T> mfg =
-					(ReferenceManufacturer<T>) map.get(cl);
-			if (mfg == null)
-			{
-				mfg = new SimpleReferenceManufacturer<>(new CDOMFactory<>(cl));
-				map.put(cl, mfg);
-			}
-			return mfg;
+			ClassIdentity<?> identity1 = o1.getReferenceIdentity();
+			ClassIdentity<?> identity2 = o2.getReferenceIdentity();
+			int int1 = CATEGORIZED_CLASS.isAssignableFrom(identity1.getReferenceClass())
+				? 1 : 0;
+			int int2 = CATEGORIZED_CLASS.isAssignableFrom(identity2.getReferenceClass())
+				? 1 : 0;
+			return int1 - int2;
 		}
-		return getManufacturer(cat);
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
 			ManufacturableFactory<T> factory)
 	{
+		ClassIdentity<T> identity = factory.getReferenceIdentity();
 		@SuppressWarnings("unchecked")
-		ReferenceManufacturer<T> rm = (ReferenceManufacturer<T>) mfgmap.get(factory);
+		ReferenceManufacturer<T> rm = (ReferenceManufacturer<T>) map.get(identity);
 		if (rm == null)
 		{
 			rm = new SimpleReferenceManufacturer<>(factory);
-			mfgmap.put(factory, rm);
+			map.put(identity, rm);
+			nameMap.put(identity.getPersistentFormat(), identity);
 		}
 		return rm;
-	}
-
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Class<? extends Category<T>> catClass, String category)
-	{
-		Category<T> cat = silentlyGetConstructedCDOMObject(catClass, category);
-		if (cat == null)
-		{
-			Logging.errorPrint("Cannot find " + cl.getSimpleName()
-					+ " Category " + category);
-			return null;
-		}
-		return getManufacturer(cl, cat);
 	}
 
 	/**
@@ -162,20 +176,9 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends Loadable> boolean hasManufacturer(Class<T> cl)
+	public <T extends Loadable> boolean hasManufacturer(ClassIdentity<T> cl)
 	{
 		return map.containsKey(cl);
-	}
-
-	@Override
-	protected <T extends Categorized<T>> boolean hasManufacturer(
-			Class<T> cl, Category<T> cat)
-	{
-		if (cat == null)
-		{
-			return map.containsKey(cl);
-		}
-		return mfgmap.containsKey(cat);
 	}
 
 	/**
@@ -189,5 +192,29 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		RuntimeReferenceContext context = new RuntimeReferenceContext();
 		context.initialize();
 		return context;
+	}
+
+	@Override
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
+		String formatName, Class<T> refClass)
+	{
+		Objects.requireNonNull(formatName);
+		Objects.requireNonNull(refClass);
+		ClassIdentity<?> identity = nameMap.get(formatName);
+		if (identity == null)
+		{
+			/*
+			 * CONSIDER This is risky, but supportable for now. In practice, nothing can
+			 * break this, but that is only due to luck. Longer term, we really need to be
+			 * able to understand how to convert a String into a ClassIdentity, but right
+			 * now we have that post-hoc based on the ReferenceManufacturer objects that
+			 * have already been created. (To some degree, there are items that will
+			 * ALWAYS be post-hoc due to data driven items like DYNAMIC, so maybe this
+			 * isn't fatal, there will always be order of operations risk here, it's just
+			 * an understanding of how things have to work)
+			 */
+			return null;
+		}
+		return (ReferenceManufacturer<T>) map.get(identity);
 	}
 }

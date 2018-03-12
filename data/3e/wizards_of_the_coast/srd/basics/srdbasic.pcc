@@ -23,6 +23,8 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 INFOTEXT:SRD Basics (The base classes, feats, spells, equipment, etc.)
 
 PCC:@/homebrew/conversion_support/conversion_support.pcc
+RACE:*/_universal/races.lst
+
 
 ALIGNMENT:srd__align.lst
 SAVE:srd__saves.lst

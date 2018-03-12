@@ -44,8 +44,6 @@ import pcgen.rules.persistence.token.ParseResult;
 public class KitFeatToken extends AbstractTokenWithSeparator<KitAbilities>
 		implements CDOMPrimaryToken<KitAbilities>, DeprecatedToken
 {
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
-
 	/**
 	 * Gets the name of the tag this class will parse.
 	 *
@@ -77,8 +75,8 @@ public class KitFeatToken extends AbstractTokenWithSeparator<KitAbilities>
 
 		kitAbil.setCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability> rm =
+				context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
 
 		while (st.hasMoreTokens())
 		{
@@ -88,7 +86,7 @@ public class KitFeatToken extends AbstractTokenWithSeparator<KitAbilities>
 			{
 				return new ParseResult.Fail(
 					"Attempting to change the Category of a Feat to '" + token
-						+ '\'', context);
+						+ '\'');
 			}
 			CDOMReference<Ability> ref =
 					TokenUtilities.getTypeOrPrimitive(rm, token);

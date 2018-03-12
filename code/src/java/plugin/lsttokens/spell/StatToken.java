@@ -50,7 +50,7 @@ public class StatToken extends AbstractNonEmptyToken<Spell> implements
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "
-					+ getTokenName() + ": " + value, context);
+					+ getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(spell, ObjectKey.SPELL_STAT, pcs);
 		return ParseResult.SUCCESS;

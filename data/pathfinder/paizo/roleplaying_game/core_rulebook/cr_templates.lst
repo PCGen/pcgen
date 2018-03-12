@@ -42,8 +42,8 @@ Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
 
 ###Block: Alter Self basic size & stat adjustments
 # Template Name		Size		Face/Space	Reach		Req. Known Spell		Stat bonus
-Alter Self (Medium)	SIZE:M	FACE:5	REACH:5	PRESPELL:1,Alter Self	BONUS:STAT|STR|2
-Alter Self (Small)	SIZE:S	FACE:5	REACH:5	PRESPELL:1,Alter Self	BONUS:STAT|DEX|2
+Alter Self (Medium)	SIZE:M			REACH:5	PRESPELL:1,Alter Self	BONUS:STAT|STR|2
+Alter Self (Small)	SIZE:S			REACH:5	PRESPELL:1,Alter Self	BONUS:STAT|DEX|2
 
 ###Block: Righteous Might temporary bonus DR enabler
 # Template Name					Visible		Damage Reduction	Required Ability									Req. Known Spell			Description
@@ -255,15 +255,15 @@ Wild Shape		VISIBLE:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=WildshapeT
 #	now functions as plant shape III.
 ###Block: Shape/Size
 # Template Name				Size		Face/Space	Reach		Visible		Var. Min. Value				Stat bonus								Modify VAR
-Wild Shape (Medium Animal)		SIZE:M	FACE:5	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,1	BONUS:STAT|STR|2							BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
-Wild Shape (Small Animal)		SIZE:S	FACE:5	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,1	BONUS:STAT|DEX|2							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
-Wild Shape (Tiny Animal)		SIZE:T	FACE:2.5	REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,2	BONUS:STAT|DEX|4	BONUS:STAT|STR|-2				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
-Wild Shape (Large Animal)		SIZE:L	FACE:10	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,2	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2				BONUS:VAR|AC_Natural_Armor|4|TYPE=Base
-Wild Shape (Diminutive Animal)	SIZE:D	FACE:1	REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|STR|-4	BONUS:STAT|DEX|6				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
-Wild Shape (Huge Animal)		SIZE:H	FACE:15	REACH:10	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|DEX|-4	BONUS:STAT|STR|6				BONUS:VAR|AC_Natural_Armor|6|TYPE=Base
-Wild Shape (Small Magical Beast)	SIZE:S	FACE:5	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|STR|4							BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
-Wild Shape (Tiny Magical Beast)	SIZE:T	FACE:2.5	REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,4	BONUS:STAT|STR|-2	BONUS:STAT|DEX|8				BONUS:VAR|AC_Natural_Armor|3|TYPE=Base
-Wild Shape (Large Magical Beast)	SIZE:L	FACE:10	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,4	BONUS:STAT|STR|6	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:VAR|AC_Natural_Armor|6|TYPE=Base
+Wild Shape (Medium Animal)		SIZE:M			REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,1	BONUS:STAT|STR|2							BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
+Wild Shape (Small Animal)		SIZE:S			REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,1	BONUS:STAT|DEX|2							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
+Wild Shape (Tiny Animal)		SIZE:T			REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,2	BONUS:STAT|DEX|4	BONUS:STAT|STR|-2				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
+Wild Shape (Large Animal)		SIZE:L			REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,2	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2				BONUS:VAR|AC_Natural_Armor|4|TYPE=Base
+Wild Shape (Diminutive Animal)	SIZE:D			REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|STR|-4	BONUS:STAT|DEX|6				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
+Wild Shape (Huge Animal)		SIZE:H			REACH:10	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|DEX|-4	BONUS:STAT|STR|6				BONUS:VAR|AC_Natural_Armor|6|TYPE=Base
+Wild Shape (Small Magical Beast)	SIZE:S			REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|STR|4							BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
+Wild Shape (Tiny Magical Beast)	SIZE:T			REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,4	BONUS:STAT|STR|-2	BONUS:STAT|DEX|8				BONUS:VAR|AC_Natural_Armor|3|TYPE=Base
+Wild Shape (Large Magical Beast)	SIZE:L			REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,4	BONUS:STAT|STR|6	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:VAR|AC_Natural_Armor|6|TYPE=Base
 
 ###Block: Specific animal, small
 # Template Name						Nb Legs	Nb Hands	Visible		Template					Source Page		Define				Var. Min. Value				Modify VAR						Weapon prof. bonus																	Ability																																																			Bonus Languages		Move					Type							Vision			Natural Attacks
@@ -333,3 +333,6 @@ Bonus Language ~ Any Spoken								VISIBLE:NO																																			
 Fighting Defensively		VISIBLE:NO	SOURCEPAGE:X	TEMPDESC:You are fighting defensively when attacking			TEMPBONUS:ANYPC|COMBAT|TOHIT|-4	TEMPBONUS:ANYPC|VAR|TwoWeaponShield|1|TYPE=Temporary		TEMPBONUS:ANYPC|VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5
 Total Defense			VISIBLE:NO	SOURCEPAGE:X	TEMPDESC:You are defending yourself as a standard action		TEMPBONUS:ANYPC|VAR|TwoWeaponShield|1|TYPE=Temporary		TEMPBONUS:ANYPC|VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5
 Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:X	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.	TEMPBONUS:PC|COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary	TEMPBONUS:PC|COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary	TEMPVALUE:MIN=1|MAX=5|TITLE=Combat Expertise trade off
+
+###Block: Bloodline Abilities
+Celestial Bloodline ~ Wings of Heaven	VISIBLE:NO	SOURCEPAGE:p.74	MOVE:Fly,60	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|4|TYPE=Base

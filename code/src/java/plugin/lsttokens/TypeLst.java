@@ -57,18 +57,19 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 			else if (value.charAt(6) == '.')
 			{
 				value = value.substring(7);
-				if (isEmpty(value))
+				ParseResult pr = checkNonEmpty(value);
+				if (!pr.passed())
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ "started with .CLEAR. but expected to have a Type after .: "
-							+ value, context);
+						+ "started with .CLEAR. but expected to have a Type after .: "
+						+ value);
 				}
 			}
 			else
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ "started with .CLEAR but expected next character to be .: "
-						+ value, context);
+						+ value);
 			}
 		}
 		ParseResult pr = checkForIllegalSeparator('.', value);
@@ -90,7 +91,7 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail(
 							"Non-sensical use of .REMOVE.ADD. in "
-									+ getTokenName() + ": " + value, context);
+									+ getTokenName() + ": " + value);
 				}
 				bRemove = false;
 				bAdd = true;
@@ -101,14 +102,14 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail(
 							"Non-sensical use of .ADD.REMOVE. in "
-									+ getTokenName() + ": " + value, context);
+									+ getTokenName() + ": " + value);
 				}
 				bRemove = true;
 			}
 			else if ("CLEAR".equals(aType))
 			{
 				return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-						+ getTokenName() + ": " + value, context);
+						+ getTokenName() + ": " + value);
 			}
 			else if (bRemove)
 			{
@@ -134,13 +135,13 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ "ended with REMOVE, so didn't have any Type to remove: "
-					+ value, context);
+					+ value);
 		}
 		if (bAdd)
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ "ended with ADD, so didn't have any Type to add: "
-					+ value, context);
+					+ value);
 		}
 		return ParseResult.SUCCESS;
 	}

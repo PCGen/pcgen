@@ -36,7 +36,8 @@ import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.formula.ManagerKey;
-import pcgen.core.Equipment;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.core.Skill;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -61,10 +62,10 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidWrongArgCount()
 	{
-		String formula = "getFact(\"EQUIPMENT\")";
+		String formula = "getFact(\"SKILL\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, numberManager, null);
-		String s = "getFact(\"EQUIPMENT\", \"Foo\", 4, 5)";
+		String s = "getFact(\"SKILL\", \"Foo\", 4, 5)";
 		SimpleNode simpleNode = TestUtilities.doParse(s);
 		isNotValid(s, simpleNode, numberManager, null);
 	}
@@ -72,17 +73,28 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidWrongArgType()
 	{
-		LegalScope equipScope = getScopeLibrary().getScope("EQUIPMENT");
-		getVariableLibrary().assertLegalVariableID("LocalVar", equipScope, numberManager);
-		String s = "getFact(\"EQUIPMENT\",\"EquipKey\",LocalVar)";
+		LegalScope skillScope = getScopeLibrary().getScope("PC.SKILL");
+		getVariableLibrary().assertLegalVariableID("LocalVar", skillScope, numberManager);
+		String s = "getFact(\"SKILL\",\"SkillKey\",LocalVar)";
 		SimpleNode simpleNode = TestUtilities.doParse(s);
-		isNotValid(s, simpleNode, numberManager, null);
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaSemantics semantics = generateFormulaSemantics(
+			getFormulaManager(), getGlobalScope(), null);
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		semanticsVisitor.visit(simpleNode, semantics.getWith(ManagerKey.CONTEXT, context));
+		if (semantics.isValid())
+		{
+			TestCase.fail(
+				"Expected Invalid Formula: " + s + " but was valid");
+		}
 	}
 
 	@Test
 	public void testInvalidWrongFormat1()
 	{
-		String formula = "getFact(3,\"EquipKey\",3)";
+		String formula = "getFact(3,\"SkillKey\",3)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, numberManager, null);
 	}
@@ -90,21 +102,33 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidWrongFormat2()
 	{
-		String formula = "getFact(\"EQUIPMENT\",3,3)";
+		String formula = "getFact(\"SKILL\",3,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaSemantics semantics = generateFormulaSemantics(
+			getFormulaManager(), getGlobalScope(), null);
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
+		if (semantics.isValid())
+		{
+			TestCase.fail(
+				"Expected Invalid Formula: " + formula + " but was valid");
+		}
 	}
 
 	@Test
 	public void testInvalidWrongFormat3()
 	{
 		String formula =
-				"getFact(\"EQUIPMENT\", \"EquipKey\",\"Stuff\")";
+				"getFact(\"SKILL\", \"SkillKey\",\"Stuff\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics
 			(getFormulaManager(), getGlobalScope(), null);
-		LoadContext context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		Object result = semanticsVisitor.visit(node,
 			semantics.getWith(ManagerKey.CONTEXT, context));
@@ -119,17 +143,18 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	public void testBasic()
 	{
 		FactDefinition fd = new FactDefinition();
-		fd.setName("EQUIPMENT.Stuff");
+		fd.setName("SKILL.Stuff");
 		fd.setFactName("Stuff");
-		fd.setUsableLocation(Equipment.class);
+		fd.setUsableLocation(Skill.class);
 		fd.setFormatManager(STRING_MANAGER);
 		fd.setVisibility(Visibility.HIDDEN);
-		LoadContext context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 
 		context.getReferenceContext().importObject(fd);
 		String formula =
-				"getFact(\"EQUIPMENT\",\"EquipKey\",\"Stuff\")";
+				"getFact(\"SKILL\",\"SkillKey\",\"Stuff\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(
@@ -141,8 +166,8 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 				+ " but was told: " + semantics.getReport());
 		}
 		isStatic(formula, node, true);
-		Equipment equip = new Equipment();
-		equip.setName("EquipKey");
+		Skill equip = new Skill();
+		equip.setName("SkillKey");
 		FactKey<String> fk = FactKey.getConstant("Stuff", STRING_MANAGER);
 		equip.put(fk, new BasicIndirect(STRING_MANAGER, "Wow!"));
 
@@ -157,22 +182,24 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	public void testDynamic()
 	{
 		VariableLibrary vl = getVariableLibrary();
-		LegalScope equipScope = getScopeLibrary().getScope("EQUIPMENT");
-		LegalScope globalScope = getScopeLibrary().getScope("Global");
-		vl.assertLegalVariableID("EquipVar", globalScope, stringManager);
+		LegalScope globalScope =
+				getScopeLibrary().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		vl.assertLegalVariableID("SkillVar", globalScope,
+			context.getManufacturer("SKILL"));
 
 		FactDefinition fd = new FactDefinition();
-		fd.setName("EQUIPMENT.Stuff");
+		fd.setName("SKILL.Stuff");
 		fd.setFactName("Stuff");
-		fd.setUsableLocation(Equipment.class);
+		fd.setUsableLocation(Skill.class);
 		fd.setFormatManager(STRING_MANAGER);
 		fd.setVisibility(Visibility.HIDDEN);
-		LoadContext context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
 		context.getReferenceContext().importObject(fd);
 
 		String formula =
-				"getFact(\"EQUIPMENT\",EquipVar,\"Stuff\")";
+				"getFact(\"SKILL\",SkillVar,\"Stuff\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(
@@ -184,24 +211,25 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 				+ " but was told: " + semantics.getReport());
 		}
 		isStatic(formula, node, false);
-		Equipment equip = new Equipment();
-		equip.setName("EquipKey");
-		Equipment equipalt = new Equipment();
-		equipalt.setName("EquipAlt");
-		ScopeInstance globalInst = getInstanceFactory().getGlobalInstance("Global");
-		VariableID varIDq = vl.getVariableID(globalInst, "EquipVar");
-		getVariableStore().put(varIDq, "EquipKey");
-		context.getReferenceContext().importObject(equip);
-		context.getReferenceContext().importObject(equipalt);
+		Skill skill = new Skill();
+		skill.setName("SkillKey");
+		Skill skillalt = new Skill();
+		skillalt.setName("SkillAlt");
+		ScopeInstance globalInst =
+				getInstanceFactory().getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+		VariableID varIDq = vl.getVariableID(globalInst, "SkillVar");
+		getVariableStore().put(varIDq, skill);
+		context.getReferenceContext().importObject(skill);
+		context.getReferenceContext().importObject(skillalt);
 		FactKey<String> fk = FactKey.getConstant("Stuff", STRING_MANAGER);
-		equip.put(fk, new BasicIndirect(STRING_MANAGER, "Wow!"));
-		equipalt.put(fk, new BasicIndirect(STRING_MANAGER, "Zers!"));
+		skill.put(fk, new BasicIndirect(STRING_MANAGER, "Wow!"));
+		skillalt.put(fk, new BasicIndirect(STRING_MANAGER, "Zers!"));
 
 		evaluatesTo(formula, node, "Wow!", context);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertEquals(formula, rv.toString());
-		getVariableStore().put(varIDq, "EquipAlt");
+		getVariableStore().put(varIDq, skillalt);
 		evaluatesTo(formula, node, "Zers!", context);
 	}
 }

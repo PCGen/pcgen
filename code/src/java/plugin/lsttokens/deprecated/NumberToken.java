@@ -51,8 +51,7 @@ public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail(
-					"Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE",
-					context);
+					"Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE");
 			}
 		}
 		catch (PersistenceLayerException e)
@@ -60,7 +59,7 @@ public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 			Logging.replayParsedMessages();
 			return new ParseResult.Fail(
 				"Error in delegation of CHOOSE:NUMBER to TEMPVALUE: "
-					+ e.getLocalizedMessage(), context);
+					+ e.getLocalizedMessage());
 		}
 
 		return ParseResult.SUCCESS;

@@ -47,7 +47,7 @@ public class DistancepatternToken extends AbstractNonEmptyToken<UnitSet>
 		catch (IllegalArgumentException e)
 		{
 			return new ParseResult.Fail("Invalid Decimal Format in "
-					+ getTokenName() + ": " + value + ": " + e.getMessage(), context);
+					+ getTokenName() + ": " + value + ": " + e.getMessage());
 		}
 	}
 

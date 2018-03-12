@@ -133,8 +133,7 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 		Nature nat = Nature.valueOf(natString);
 		String ab = st.nextToken();
 		Ability a =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, ac, ab);
+				context.getReferenceContext().getManufacturerId(ac).getActiveObject(ab);
 		if (a == null)
 		{
 			throw new IllegalArgumentException(

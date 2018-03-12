@@ -24,7 +24,6 @@ import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.inst.AbstractCategory;
-import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.core.SubClass;
 
 /**
@@ -32,8 +31,7 @@ import pcgen.core.SubClass;
  * This Class is a Type Safe Constant.
  */
 public final class SubClassCategory extends AbstractCategory<SubClass>
-		implements TypeSafeConstant, Category<SubClass>,
-		ManufacturableFactory<SubClass>
+		implements TypeSafeConstant, Category<SubClass>
 {
 
 	/**
@@ -161,12 +159,6 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	}
 
 	@Override
-	public Category<SubClass> getParentCategory()
-	{
-		return null;
-	}
-
-	@Override
 	public void setName(String name)
 	{
 		throw new UnsupportedOperationException(
@@ -191,5 +183,11 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	public String getReferenceDescription()
 	{
 		return "SubClass Category " + getKeyName();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "SUBCLASS=" + getKeyName();
 	}
 }

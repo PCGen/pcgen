@@ -93,7 +93,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 				if ((title == null) || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + Constants.COLON
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+						+ getTokenName() + " had TITLE= but no title: " + value);
 				}
 			}
 			else
@@ -122,7 +122,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 				new CollectionToChoiceSet<>(coll);
 		CategorizedChooseInformation<Ability> tc =
 				new CategorizedChooseInformation<>(getTokenName(),
-						acRef, pcs, Ability.class);
+						acRef, pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -238,21 +238,19 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (barLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " requires a CATEGORY and arguments : " + value, context);
+				+ " requires a CATEGORY and arguments : " + value);
 		}
 		String cat = value.substring(0, barLoc);
 		CDOMSingleRef<AbilityCategory> acRef =
 				context.getReferenceContext().getCDOMReference(
 					ABILITY_CATEGORY_CLASS, cat);
 		String abilities = value.substring(barLoc + 1);
-		ReferenceManufacturer<Ability> rm =
-				context.getReferenceContext().getManufacturer(ABILITY_CLASS,
-					ABILITY_CATEGORY_CLASS, cat);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
+			.getManufacturerByFormatName("ABILITY=" + cat, ABILITY_CLASS);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(
-				"Could not get Reference Manufacturer for Category: " + cat,
-				context);
+				"Could not get Reference Manufacturer for Category: " + cat);
 		}
 		return parseTokenWithSeparator(context, rm, acRef, obj, abilities);
 	}
@@ -294,8 +292,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		String ab = st.nextToken();
 		Ability a =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class, ac,
-					ab);
+				context.getReferenceContext().getManufacturerId(ac).getActiveObject(ab);
 		if (a == null)
 		{
 			throw new IllegalArgumentException(
@@ -335,9 +332,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			key = encoded;
 		}
-		Ability a =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, abilityCat, key);
+		Ability a = context.getReferenceContext().getManufacturerId(abilityCat)
+			.getActiveObject(key);
 		if (a == null)
 		{
 			throw new IllegalArgumentException(

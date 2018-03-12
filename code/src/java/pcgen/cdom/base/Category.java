@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.cdom.reference.ManufacturableFactory;
-
 /**
  * Category identifies an object and is used for establishing unique identity of
  * an object. A Category serves as a Category for a particular type of
@@ -29,8 +27,7 @@ import pcgen.cdom.reference.ManufacturableFactory;
  * @param <T>
  *            The Class of object being identified by this Category
  */
-public interface Category<T extends Categorized<T>> extends Loadable,
-		ManufacturableFactory<T>
+public interface Category<T extends Categorized<T>> extends Loadable, ClassIdentity<T>
 {
 
 	/**
@@ -40,6 +37,6 @@ public interface Category<T extends Categorized<T>> extends Loadable,
 	 * @return the Parent Category for the current Category; null if the current
 	 *         Category is a "root" Category.
 	 */
-	Category<T> getParentCategory();
+	public Category<T> getParentCategory();
 
 }

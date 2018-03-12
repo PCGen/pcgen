@@ -556,9 +556,8 @@ public final class CustomData
 	{
 		for (AbilityCategory ac : SettingsHandler.getGame().getAllAbilityCategories())
 		{
-			writeCustomPObjects(customAbilityFilePath(true), Globals
-					.getContext().getReferenceContext().getManufacturer(Ability.class, ac)
-					.getAllObjects().iterator());
+			writeCustomPObjects(customAbilityFilePath(true), Globals.getContext()
+				.getReferenceContext().getManufacturerId(ac).getAllObjects().iterator());
 		}
 	}
 

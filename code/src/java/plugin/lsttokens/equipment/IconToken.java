@@ -51,7 +51,7 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 		URI uri = new URIFactory(eq.getSourceURI(), value).getURI();
 		if (uri == URIFactory.FAILED_URI)
 		{
-			return new ParseResult.Fail(getTokenName() + " must be a valid URI.", context);
+			return new ParseResult.Fail(getTokenName() + " must be a valid URI.");
 		}
 		context.getObjectContext().put(eq, StringKey.ICON, value);
 		context.getObjectContext().put(eq, ObjectKey.ICON_URI, uri);

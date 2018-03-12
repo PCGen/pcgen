@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.choose;
 
-import java.net.URISyntaxException;
-
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -35,6 +33,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.qualifier.ability.PCToken;
 
@@ -45,16 +44,6 @@ public class AbilityTokenTest extends
 	static ChooseLst token = new ChooseLst();
 	static AbilityToken subtoken = new AbilityToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
-				"Special Ability");
-		secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
-				"Special Ability");
-	}
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -105,14 +94,12 @@ public class AbilityTokenTest extends
 	}
 
 	@Override
-	protected Loadable construct(LoadContext loadContext, String one)
+	protected Loadable construct(LoadContext loadContext, String name)
 	{
-		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
-		Category<Ability> cat = loadContext.getReferenceContext()
+		AbilityCategory cat = loadContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
-		loadContext.getReferenceContext().reassociateCategory(cat, obj);
-		return obj;
+		return BuildUtilities.buildAbility(loadContext, cat, name);
 	}
 
 	@Override
@@ -121,7 +108,7 @@ public class AbilityTokenTest extends
 		Category<Ability> cat = primaryContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
-		return primaryContext.getReferenceContext().getManufacturer(getTargetClass(), cat);
+		return primaryContext.getReferenceContext().getManufacturerId(cat);
 	}
 
 	@Override
@@ -153,6 +140,25 @@ public class AbilityTokenTest extends
 	{
 		assertFalse(parse("ABILITY|BadCat|TYPE=Foo"));
 		assertNoSideEffects();
+	}
+
+	@Override
+	protected Ability get(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		context.getReferenceContext().constructCDOMObject(AbilityCategory.class,
+			"Special Ability");
+		//Build dummy objects so the ReferenceContext is properly initialized
+		construct(context, "Dummy");
 	}
 }
 

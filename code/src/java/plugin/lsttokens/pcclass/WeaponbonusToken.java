@@ -93,7 +93,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass>
 				{
 					return new ParseResult.Fail(
 						"  Error was encountered while parsing "
-							+ getTokenName(), context);
+							+ getTokenName());
 				}
 				context.getObjectContext().addToList(pcc, ListKey.WEAPONBONUS, ref);
 			}
@@ -101,7 +101,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass>
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-				+ ": Contains ANY and a specific reference: " + value, context);
+				+ ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}

@@ -44,7 +44,7 @@ public class HandsToken extends AbstractNonEmptyToken<WieldCategory> implements
 			if (intValue < 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " must be an integer >= " + 0, context);
+						+ " must be an integer >= " + 0);
 			}
 			wc.setHandsRequired(Integer.parseInt(value));
 			return ParseResult.SUCCESS;
@@ -53,7 +53,7 @@ public class HandsToken extends AbstractNonEmptyToken<WieldCategory> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+					+ getTokenName() + ":<int>");
 		}
 	}
 

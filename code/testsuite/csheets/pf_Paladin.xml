@@ -68,9 +68,9 @@ BIO
 		</skin>
 		<cr>5</cr>
 		<face>
-		<face>5 ft.</face>
+		<face>5 ft. by 5 ft.</face>
 			<short>5 ft.</short>
-			<squares>1</squares>
+			<squares>1 x 1</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -3604,17 +3604,6 @@ BIO
 		<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Archetype Display</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>FACE_5</name>
 			<description></description>
 			<type></type>
 			<associated></associated>

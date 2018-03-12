@@ -26,6 +26,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import util.TestURI;
+
 import static org.junit.Assert.*;
 
 public class SelectableTokenIntegrationTest
@@ -45,8 +47,7 @@ public class SelectableTokenIntegrationTest
 	public static void classSetUp() throws URISyntaxException
 	{
 		testCampaign =
-				new CampaignSourceEntry(new Campaign(), new URI(
-					"file:/Test%20Case"));
+				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@Before

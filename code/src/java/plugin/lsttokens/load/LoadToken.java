@@ -48,12 +48,12 @@ public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " requires a pipe, found : " + value, context);
+					+ " requires a pipe, found : " + value);
 		}
 		if (pipeLoc != value.lastIndexOf('|'))
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " requires only one pipe, found : " + value, context);
+					+ " requires only one pipe, found : " + value);
 		}
 		String strengthString = value.substring(0, pipeLoc);
 
@@ -66,7 +66,7 @@ public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an Integer strength value : " + strengthString
-					+ " in value: " + value, context);
+					+ " in value: " + value);
 		}
 		String loadString = value.substring(pipeLoc + 1);
 		try
@@ -76,7 +76,7 @@ public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " requires a non-negative load value, found : "
-						+ loadString, context);
+						+ loadString);
 			}
 			info.addLoadScoreValue(strength, load);
 		}
@@ -84,7 +84,7 @@ public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " misunderstood load value : " + loadString
-					+ " in value: " + value, context);
+					+ " in value: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}

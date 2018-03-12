@@ -1,0 +1,76 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Core Essentials
+#GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:RELEASE
+#RANK:0
+#GENRE:Fantasy
+#BOOKTYPE:Core Essentials
+PUBNAMELONG:Paizo Inc.
+#PUBNAMESHORT:Paizo
+#PUBNAMEWEB:http://paizo.com
+#SOURCELONG:Core Essentials
+#SOURCESHORT:CE
+#SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj
+#SOURCEDATE:2009-08
+#ISOGL:YES
+
+#INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+#COPYRIGHT:Open Game License v 1.0a (c) 2000, Wizards of the Coast, Inc.
+#COPYRIGHT:System Reference Document. (c) 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+#COPYRIGHT:Pathfinder RPG Bestiary, (c) 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+#COPYRIGHT:Basidirond from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+#COPYRIGHT:Cave Fisher from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Lawrence Schick.
+#COPYRIGHT:Crystal Ooze from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+#COPYRIGHT:Dark Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Rik Shepard.
+#COPYRIGHT:Dark Stalker from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Simon Muth.
+#COPYRIGHT:Dracolisk from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+#COPYRIGHT:Froghemoth from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+#COPYRIGHT:Giant Slug from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+#COPYRIGHT:Ice Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene.
+#COPYRIGHT:Iron Cobra from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Philip Masters.
+#COPYRIGHT:Marid from the Tome of Horrors III, (c) 2005, Necromancer Games, Inc.; Author Scott Greene.
+#COPYRIGHT:Mite from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Ian Livingstone and Mark Barnes.
+#COPYRIGHT:Nabasu Demon from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+#COPYRIGHT:Russet Mold from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+#COPYRIGHT:Shadow Demon from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Neville White.
+#COPYRIGHT:Vegepygmy from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+#COPYRIGHT:Wood Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Authors Scott Greene and Patrick Lawinger.
+#COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
+#COPYRIGHT:Yellow Musk Zombie from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
+#COPYRIGHT:Yeti from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+#COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing)).
+
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
+ALIGNMENT:ce__align.lst
+DATACONTROL:ce__datacontrols.lst
+DATATABLE:ce__datatables.lst
+DYNAMIC:ce__dynamics.lst
+GLOBALMODIFIER:ce__globalmodifiers.lst
+SAVE:ce__saves.lst
+SIZE:ce__sizes.lst
+STAT:ce__stats.lst
+VARIABLE:ce__variables.lst
+
+
+
+ABILITY:ce_abilities.lst
+ABILITY:ce_abilities_race.lst
+ABILITYCATEGORY:ce_abilitycategories.lst
+BIOSET:ce_biosettings.lst
+CLASS:ce_classes_race.lst
+DEITY:ce_deities.lst
+DOMAIN:ce_domains.lst
+EQUIPMENT:ce_equip_arms_armor.lst
+EQUIPMENT:ce_equip_general.lst
+ABILITY:ce_feats.lst
+LANGUAGE:ce_languages.lst
+SKILL:ce_skills.lst
+SPELL:ce_spells.lst
+TEMPLATE:ce_templates.lst
+
+ARMORPROF:ce_profs_armor.lst
+WEAPONPROF:ce_profs_weapon.lst
+

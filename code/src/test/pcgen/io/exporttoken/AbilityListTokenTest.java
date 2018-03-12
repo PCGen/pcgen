@@ -30,6 +30,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>AbilityListTokenTest</code> tests the functioning of the ABILITYLIST 
@@ -58,22 +59,25 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		AbilityCategory bardCategory = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "BARDIC");
 
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
+		Ability ab1 = TestHelper.makeAbility("Perform (Dance)",
+			BuildUtilities.getFeatCat(), "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
-		addAbility(AbilityCategory.FEAT, ab1);
+		addAbility(BuildUtilities.getFeatCat(), ab1);
 
 		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		addAbility(bardCategory, ab2);
 
-		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", AbilityCategory.FEAT, "General.Fighter");
+		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)",
+			BuildUtilities.getFeatCat(), "General.Fighter");
 		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		addAbility(AbilityCategory.FEAT, ab3);
+		addAbility(BuildUtilities.getFeatCat(), ab3);
 
-		Ability ab4 = TestHelper.makeAbility("Silent Step", AbilityCategory.FEAT, "General");
+		Ability ab4 = TestHelper.makeAbility("Silent Step", BuildUtilities.getFeatCat(),
+			"General");
 		ab4.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		addAbility(AbilityCategory.FEAT, ab4);
+		addAbility(BuildUtilities.getFeatCat(), ab4);
 	}
 
 	/**
@@ -120,12 +124,14 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		AbilityCategory featCategory = 
 			SettingsHandler.getGame().getAbilityCategory("Feat");
 
-		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)", AbilityCategory.FEAT, "General");
+		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)",
+			BuildUtilities.getFeatCat(), "General");
 		ab5.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab5.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 		addAbility(featCategory, ab5);
 
-        Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)", AbilityCategory.FEAT, "Bardic");
+		Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)",
+			BuildUtilities.getFeatCat(), "Bardic");
         ab6.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
         addAbility(featCategory, ab6);
 

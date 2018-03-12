@@ -55,8 +55,7 @@ public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " must have three | delimited arguments : " + value,
-				context);
+				+ " must have three | delimited arguments : " + value);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 3)
@@ -64,22 +63,22 @@ public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail(
 				getTokenName()
 					+ " requires three arguments, MIN=, MAX= and TITLE= : "
-					+ value, context);
+					+ value);
 		}
 		if (!tok.nextToken().startsWith("MIN="))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " first argument was not MIN=", context);
+				+ " first argument was not MIN=");
 		}
 		if (!tok.nextToken().startsWith("MAX="))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " second argument was not MAX=", context);
+				+ " second argument was not MAX=");
 		}
 		if (!tok.nextToken().startsWith("TITLE="))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " third argument was not TITLE=", context);
+				+ " third argument was not TITLE=");
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
 		sb.append(value);

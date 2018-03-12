@@ -38,6 +38,7 @@ import pcgen.base.util.Indirect;
 import pcgen.base.util.KeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.RollMethod;
 import pcgen.util.Logging;
@@ -623,9 +624,15 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *         AbstractReferenceManufacturer; false otherwise.
 	 */
 	@Override
-	public boolean containsObject(String key)
+	public boolean containsObjectKeyed(String key)
 	{
 		return active.containsKey(key);
+	}
+
+	@Override
+	public boolean containsObject(Object o)
+	{
+		return active.containsValue(o);
 	}
 
 	/**
@@ -988,22 +995,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	}
 
 	/**
-	 * Returns a List of all of the objects contained in this
-	 * AbstractReferenceManufacturer in the original order in which they were
-	 * imported into this AbstractReferenceManufacturer. This will not return
-	 * null, it will return an empty list if no objects have been constructed by
-	 * or imported into this AbstractReferenceManufacturer.
-	 * 
-	 * @return A List of all of the objects contained in this
-	 *         AbstractReferenceManufacturer
-	 */
-	@Override
-	public List<T> getOrderSortedObjects()
-	{
-		return active.insertOrderValues();
-	}
-
-	/**
 	 * Builds any objects whose construction was deferred. Identifiers for
 	 * objects for which construction was deferred were inserted into the
 	 * AbstractReferenceManufacturer using constructIfNecessary(String). Objects
@@ -1117,8 +1108,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	@Override
 	public void injectConstructed(ReferenceManufacturer<T> arm)
 	{
-		// Must maintain order
-		for (T value : active.insertOrderValues())
+		for (T value : active.keySortedValues())
 		{
 			arm.addObject(value, active.getKeyFor(value));
 		}
@@ -1271,12 +1261,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	}
 
 	@Override
-	public T getItemInOrder(int index)
-	{
-		return active.getItemInOrder(index);
-	}
-
-	@Override
 	public ManufacturableFactory<T> getFactory()
 	{
 		return factory;
@@ -1359,5 +1343,17 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	public boolean isDirect()
 	{
 		return false;
+	}
+
+	@Override
+	public ClassIdentity<T> getReferenceIdentity()
+	{
+		return factory.getReferenceIdentity();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return factory.getPersistentFormat();
 	}
 }

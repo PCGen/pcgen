@@ -59,7 +59,7 @@ public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObjec
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		ParseResult pr = ParseResult.SUCCESS;
 		if (Constants.LST_DOT_CLEAR.equals(value))

@@ -190,6 +190,6 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	@Override
 	public String getLocalScopeName()
 	{
-		return "SKILL";
+		return "PC.SKILL";
 	}
 }

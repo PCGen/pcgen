@@ -55,13 +55,13 @@ public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus value: " + value, context);
+					+ " was given invalid bonus value: " + value);
 		}
 		Prerequisite prereq = getPrerequisite("PRELEVELMAX:1");
 		if (prereq == null)
 		{
 			return new ParseResult.Fail("Internal Error: " + getTokenName()
-					+ " had invalid prerequisite", context);
+					+ " had invalid prerequisite");
 		}
 		bon.addPrerequisite(prereq);
 		bon.setTokenSource(getTokenName());

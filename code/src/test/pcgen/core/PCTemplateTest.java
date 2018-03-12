@@ -39,6 +39,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
@@ -164,11 +165,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCDOMCategory(AbilityCategory.FEAT);
+		ab1.setCDOMCategory(BuildUtilities.getFeatCat());
 		context.getReferenceContext().importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCDOMCategory(AbilityCategory.FEAT);
+		ab2.setCDOMCategory(BuildUtilities.getFeatCat());
 		context.getReferenceContext().importObject(ab2);
 
 		CampaignSourceEntry source;
@@ -210,10 +211,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
 		// Need to do this to populate the ability list
-		//pc.getAutomaticAbilityList(AbilityCategory.FEAT);
-		assertTrue("Character should have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		//pc.getAutomaticAbilityList(BuildUtilities.getFeatCat());
+		assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
+		assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab2));
 	}
 
@@ -314,11 +315,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCDOMCategory(AbilityCategory.FEAT);
+		ab1.setCDOMCategory(BuildUtilities.getFeatCat());
 		context.getReferenceContext().importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCDOMCategory(AbilityCategory.FEAT);
+		ab2.setCDOMCategory(BuildUtilities.getFeatCat());
 		context.getReferenceContext().importObject(ab2);
 
 		CampaignSourceEntry source;
@@ -368,20 +369,20 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
-		assertFalse("Character should not have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
+		assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab2));
 		
 		// Level the character up, testing for when the level tag kicks in
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertFalse("Character should not have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab1));
 
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertTrue("Character should have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab1));
 		
 	}

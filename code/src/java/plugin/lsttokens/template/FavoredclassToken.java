@@ -25,14 +25,12 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -119,8 +117,8 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.getReferenceContext().getCDOMReference(SUBCLASS_CLASS, scc,
-							subclass);
+					ref = context.getReferenceContext().getManufacturerId(scc)
+						.getReference(subclass);
 				}
 				context.getObjectContext().addToList(cdo,
 						ListKey.FAVORED_CLASS, ref);
@@ -130,7 +128,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
 				+ ": Contains " + Constants.HIGHEST_LEVEL_CLASS
-				+ " and a specific reference: " + value, context);
+				+ " and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -153,12 +151,11 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			for (CDOMReference<? extends PCClass> ref : changes.getAdded())
 			{
-				Class<? extends PCClass> refClass = ref.getReferenceClass();
-				if (SUBCLASS_CLASS.equals(refClass))
+				String prefix = ref.getPersistentFormat();
+				if (prefix.startsWith("SUBCLASS="))
 				{
-					Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
-							.getCDOMCategory();
-					set.add(parent.toString() + Constants.DOT + ref.getLSTformat(false));
+					set.add(
+						prefix.substring(9) + Constants.DOT + ref.getLSTformat(false));
 				}
 				else
 				{

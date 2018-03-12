@@ -72,6 +72,8 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AgeSet;
@@ -101,6 +103,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.RaceUtilities;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.character.CharacterSpell;
@@ -119,7 +122,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
@@ -174,6 +176,7 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.system.CharacterManager;
@@ -199,7 +202,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private List<ClassFacade> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
 	private DefaultListFacade<TempBonusFacade> availTempBonuses;
-	private DefaultReferenceFacade<AlignmentFacade> alignment;
+	private WriteableReferenceFacade<PCAlignment> alignment;
 	private DefaultListFacade<EquipmentSetFacade> equipmentSets;
 	private DefaultReferenceFacade<GenderFacade> gender;
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
@@ -382,7 +385,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		playersName = new DefaultReferenceFacade<>(charDisplay.getPlayersName());
 		race = new DefaultReferenceFacade<>(charDisplay.getRace());
 		raceList = new DefaultListFacade<>();
-		if (charDisplay.getRace() != null && charDisplay.getRace() != Globals.s_EMPTYRACE)
+		if (charDisplay.getRace() != null && !charDisplay.getRace().isUnselected())
 		{
 			raceList.addElement(charDisplay.getRace());
 		}
@@ -420,7 +423,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 		}
 
-		alignment = new DefaultReferenceFacade<>(charDisplay.getPCAlignment());
+		GameMode game = (GameMode) dataSet.getGameMode();
+		if (!game.getAlignmentText().isEmpty())
+		{
+			String channelName = ControlUtilities.getControlToken(Globals.getContext(),
+				CControl.ALIGNMENTINPUT);
+			alignment = (WriteableReferenceFacade<PCAlignment>) ChannelUtilities
+					.getGlobalChannel(theCharacter.getCharID(), channelName);
+		}
 		age = new DefaultReferenceFacade<>(charDisplay.getAge());
 		ageCategory = new DefaultReferenceFacade<>();
 		updateAgeCategoryForAge();
@@ -448,7 +458,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		equipmentSets = new DefaultListFacade<>();
 		initEquipSet();
 
-		GameMode game = (GameMode) dataSet.getGameMode();
 		rollMethodRef = new DefaultReferenceFacade<>(game.getRollMethod());
 
 		charLevelsFacade =
@@ -629,7 +638,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Name", "in_sumTodoName", 1));
 		}
-		if (charDisplay.getRace() == null || Constants.NONESELECTED.equals(charDisplay.getRace().getKeyName()))
+		if (charDisplay.getRace() == null || charDisplay.getRace().isUnselected())
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Race", "in_irTodoRace", 100));
 		}
@@ -1127,8 +1136,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (cat.getParentCategory() == cat)
 			{
-				for (Ability aFeat : Globals.getContext().getReferenceContext().getManufacturer(
-					Ability.class, cat).getAllObjects())
+				for (Ability aFeat : Globals.getContext().getReferenceContext()
+					.getManufacturerId(cat).getAllObjects())
 				{
 					scanForAnyPcTempBonuses(tempBonuses, aFeat);
 				}
@@ -1342,7 +1351,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#getAlignmentRef()
 	 */
 	@Override
-	public ReferenceFacade<AlignmentFacade> getAlignmentRef()
+	public ReferenceFacade<PCAlignment> getAlignmentRef()
 	{
 		return alignment;
 	}
@@ -1351,7 +1360,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#setAlignment(pcgen.core.facade.AlignmentFacade)
 	 */
 	@Override
-	public void setAlignment(AlignmentFacade alignment)
+	public void setAlignment(PCAlignment alignment)
 	{
 		if (!validateAlignmentChange(alignment))
 		{
@@ -1359,10 +1368,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		this.alignment.set(alignment);
-		if (alignment instanceof PCAlignment)
-		{
-			theCharacter.setAlignment((PCAlignment) alignment);
-		}
 		refreshLanguageList();
 
 	}
@@ -1374,17 +1379,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * 
 	 * @param newAlign The alignment to be set
 	 */
-	private boolean validateAlignmentChange(AlignmentFacade newAlign)
+	private boolean validateAlignmentChange(PCAlignment newAlign)
 	{
-		AlignmentFacade oldAlign = this.alignment.get();
+		PCAlignment oldAlign = this.alignment.get();
 
 		if (oldAlign == null || newAlign.equals(oldAlign))
-		{
-			return true;
-		}
-
-		// We can't do any validation if the new alignment isn't a known class
-		if (!(newAlign instanceof PCAlignment))
 		{
 			return true;
 		}
@@ -1398,7 +1397,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		PCAlignment savedAlignmnet = charDisplay.getPCAlignment();
 		for (PCClass aClass : classList)
 		{
-			theCharacter.setAlignment((PCAlignment) newAlign);
+			ChannelCompatibility.setCurrentAlignment(theCharacter.getCharID(), newAlign);
 			{
 				if (!theCharacter.isQualified(aClass))
 				{
@@ -1424,7 +1423,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			if (!delegate.showWarningConfirm(Constants.APPLICATION_NAME,
 					LanguageBundle.getString("in_sumExClassesWarning") + Constants.LINE_SEPARATOR + unqualified))
 			{
-				theCharacter.setAlignment(savedAlignmnet);
+				ChannelCompatibility.setCurrentAlignment(theCharacter.getCharID(), savedAlignmnet);
 				return false;
 			}
 
@@ -1890,7 +1889,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		if (race == null)
 		{
-			race = Globals.s_EMPTYRACE;
+			race = RaceUtilities.getUnselectedRace();
 		}
 		this.race.set(race);
 		if (race instanceof Race && race != charDisplay.getRace())
@@ -1899,7 +1898,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				+ ": Setting race to " + race); //$NON-NLS-1$
 			theCharacter.setRace((Race) race);
 			raceList.clearContents();
-			if (race != Globals.s_EMPTYRACE)
+			if (!race.isUnselected())
 			{
 				raceList.addElement(race);
 			}
@@ -1960,7 +1959,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		updateScorePurchasePool(false);
 		refreshEquipment();
 
-		if (charDisplay.getRace() == null || Constants.NONESELECTED.equals(charDisplay.getRace().getKeyName()))
+		if (charDisplay.getRace() == null || charDisplay.getRace().isUnselected())
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Race", "in_irTodoRace", 100));
 		}
@@ -3052,7 +3051,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		final Race pcRace = charDisplay.getRace();
 		final String selAgeCat = ageCat.toString();
 
-		if ((pcRace != null) && !pcRace.equals(Globals.s_EMPTYRACE))
+		if ((pcRace != null) && !pcRace.isUnselected())
 		{
 			if (selAgeCat != null)
 			{
@@ -3679,7 +3678,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public boolean isQualifiedFor(EquipmentFacade equipment)
 	{
 		final Equipment equip = (Equipment) equipment;
-		final boolean accept = PrereqHandler.passesAll(equip.getPrerequisiteList(), theCharacter, equip);
+		final boolean accept = PrereqHandler.passesAll(equip, theCharacter, equip);
 
 		if (accept && (equip.isShield() || equip.isWeapon() || equip.isArmor()))
 		{
@@ -3973,7 +3972,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return false;
 		}
 		Deity aDeity = (Deity) deityFacade;
-		return PrereqHandler.passesAll(aDeity.getPrerequisiteList(), theCharacter, aDeity)
+		return PrereqHandler.passesAll(aDeity, theCharacter, aDeity)
 				&& theCharacter.isQualified(aDeity);
 	}
 	
@@ -3990,7 +3989,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
 		Domain domain = domainFI.getRawObject();
-		if (!PrereqHandler.passesAll(domainFI.getPrerequisiteList(), theCharacter, domain)
+		if (!PrereqHandler.passesAll(domainFI, theCharacter, domain)
 				|| !theCharacter.isQualified(domain))
 		{
 			return false;
@@ -4069,7 +4068,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		PCTemplate template = (PCTemplate) templateFacade;
 
-		if (!PrereqHandler.passesAll(template.getPrerequisiteList(), theCharacter, template))
+		if (!PrereqHandler.passesAll(template, theCharacter, template))
 		{
 			return;
 		}

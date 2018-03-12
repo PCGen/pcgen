@@ -99,4 +99,10 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	{
 		return choice.getKeyName();
 	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "DOMAIN";
+	}
 }

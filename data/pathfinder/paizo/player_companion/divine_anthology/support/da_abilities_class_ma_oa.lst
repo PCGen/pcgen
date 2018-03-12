@@ -1,0 +1,16 @@
+SOURCELONG:Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+# ==============================
+# Apocryphal Subdomains
+# ==============================
+
+Legend Subdomain					KEY:Core Domain ~ Legend Subdomain					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Touch of Glory|!PREABILITY:1,CATEGORY=Internal,DisableDomainLVL1 (Glory)|PREVARGTEQ:DomainGloryAbilityTriggerLVL,1				ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Witness the Legend|PREVARGTEQ:DomainGloryAbilityTriggerLVL,8		ABILITY:Internal|AUTOMATIC|Domain Base ~ Glory
+
+#Druid
+Legend Subdomain					KEY:Druid Domain ~ Legend Subdomain					SORTKEY:Domain ~ Subdomain	CATEGORY:Special Ability	TYPE:DruidDomainSelection.SpecialQuality	PREVAREQ:DruidLegendSubdomainAllowed,1				SPELLLEVEL:CLASS|Druid=1|Shield of Faith|Druid=2|Aid|Druid=3|Contagious Zeal|Druid=4|Righteous Vigor|Druid=5|Righteous Might|Druid=6|Unshakable Zeal|Druid=7|Holy Sword|Druid=8|Holy Aura|Druid=9|Gate|PREALIGN:LG,NG,CG,LN,TN,CN	SPELLLEVEL:CLASS|Druid=1|Shield of Faith|Druid=2|Aid|Druid=3|Contagious Zeal|Druid=4|Righteous Vigor|Druid=5|Righteous Might|Druid=6|Unshakable Zeal|Druid=7|Unholy Sword|Druid=8|Unholy Aura|Druid=9|Gate|PREALIGN:LE,NE,CE
+
+#Inquisitor
+Legend Subdomain					KEY:Inquisitor Domain ~ Legend Subdomain				CATEGORY:Special Ability	TYPE:InquisitorDomain	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Inquisitor Domain ~ Legend Subdomain],[PREVARLT:GloryDomain,1]																				PREMULT:1,[PREVARGTEQ:BypassInquisititorDomain,1],[PREVARGTEQ:InquisitorSubdomainLegend,1]				DEFINE:DomainGloryLVL|0		DEFINE:DomainGloryDC|0		DEFINE:DomainGloryTimes|0		DEFINE:GloryDomain|0		ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Touch of Glory			ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Witness the Legend|PREVARGTEQ:DomainGloryLVL,8			BONUS:VAR|DomainGloryLVL|DomainLVL|TYPE=Domain		BONUS:VAR|DomainGloryDC|10+(DomainGloryLVL/2)+CHA|TYPE=Domain		BONUS:VAR|DomainGloryTimes|DomainPowerTimes|TYPE=Domain		BONUS:VAR|GloryDomain|1	ABILITY:FEAT|VIRTUAL|Hero's Fortune|PREVAREQ:Heroic,1	ABILITY:FEAT|VIRTUAL|Marked for Glory|PREVARLT:Heroic,1
+
+#Powers
+Witness the Legend				KEY:Domain Power ~ Witness the Legend				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.DomainPower							SOURCEPAGE:p.24	DESC:As a move action, you can extol the virtues of yourself or an ally within 60 feet that you can see. This causes the target to shed light like a torch for 1 minute, and while the effect lasts, you can expend a daily use of your touch of glory domain ability as an immediate action to add 1d6 to an attack, saving throw, skill check, or ability check attempted by the target; for a roll to confirm a critical hit or save against a fear effect, you instead add 1d12. You can use this ability %1 times day|(DomainGloryLVL-4)/4

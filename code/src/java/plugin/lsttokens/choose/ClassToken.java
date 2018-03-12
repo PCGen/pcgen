@@ -21,7 +21,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.PCClass;
-import pcgen.core.SubClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -33,7 +32,6 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
 	@Override
 	public String getTokenName()
@@ -67,8 +65,8 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 		String parent = s.substring(0, dotLoc);
 		String subclass = s.substring(dotLoc + 1);
 		SubClassCategory scc = SubClassCategory.getConstant(parent);
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(SUBCLASS_CLASS, scc,
-				subclass);
+		return context.getReferenceContext().getManufacturerId(scc)
+			.getActiveObject(subclass);
 	}
 
 	@Override
@@ -89,5 +87,14 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 	{
 		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(PCCLASS_CLASS), obj, value);
+	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		/*
+		 * TODO This is not entirely true, as this is not correct for SubClasses... :/
+		 */
+		return "PCCLASS";
 	}
 }

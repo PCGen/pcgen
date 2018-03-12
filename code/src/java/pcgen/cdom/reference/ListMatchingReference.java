@@ -77,11 +77,10 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public ListMatchingReference(String unparse, Class<T> objClass,
-			CDOMGroupRef<T> startingGroup, ListKey<V> targetKey,
-			V expectedValue)
+	public ListMatchingReference(String unparse, CDOMGroupRef<T> startingGroup,
+		ListKey<V> targetKey, V expectedValue)
 	{
-		super(objClass, unparse);
+		super(unparse);
 		if (startingGroup == null)
 		{
 			throw new IllegalArgumentException(
@@ -296,5 +295,23 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	public String getChoice()
 	{
 		return null;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return all.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return all.getReferenceDescription() + " (List " + key + " = " + value + ")";
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return all.getPersistentFormat();
 	}
 }

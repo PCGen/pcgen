@@ -379,8 +379,7 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new PatternMatchingReference<>(sc.getReferenceClass(),
-                    sc.getAllReference(), key);
+			return new PatternMatchingReference<>(sc.getAllReference(), key);
 		}
 	}
 	

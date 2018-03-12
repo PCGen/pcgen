@@ -27,7 +27,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 
-import pcgen.base.formula.inst.ScopeInstanceFactory;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.solver.AggressiveSolverManager;

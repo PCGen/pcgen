@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2012-18 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,11 +17,71 @@
  */
 package pcgen.cdom.base;
 
+/**
+ * ClassIdentity is a system used within PCGen to uniquely identify items. This is because
+ * equality and other items cannot sufficiently be described by Class. (Abilities are
+ * unique by Category, for example).
+ * 
+ * This consolidates equality by Class and Equality by Category into one object, so that
+ * it can quickly be checked or leveraged in such a way as to avoid unique situations in
+ * wide ranging sections of code for support of Categorized objects.
+ */
 public interface ClassIdentity<T>
 {
 
+	/**
+	 * Returns the name of this ClassIdentity.
+	 * 
+	 * @return The name of this ClassIdentity
+	 */
 	public String getName();
 
-	Class<T> getChoiceClass();
+	/**
+	 * Returns the underlying Class used as a component of determining uniqueness for this
+	 * ClassIdentity.
+	 * 
+	 * @return The underlying Class used as a component of determining uniqueness for this
+	 *         ClassIdentity
+	 */
+	public Class<T> getReferenceClass();
+
+	/**
+	 * Returns a new instance of the object represented by this ClassIdentity. Note that
+	 * any initialization necessary to indicate other state that defines ClassIdentity
+	 * (such as Category) should be completed before the object is returned from this
+	 * method.
+	 * 
+	 * @return A new instance of the object represented by this ClassIdentity
+	 */
+	public T newInstance();
+
+	/**
+	 * Returns a description of the contents of this ClassIdentity.
+	 * 
+	 * It is strongly advised that no dependency on this method be created, as it is
+	 * designed for human readability and the return value may be changed without warning.
+	 * 
+	 * @return A description of the contents of this ClassIdentity
+	 */
+	public String getReferenceDescription();
+
+	/**
+	 * Returns true if the given object is a member of the type of object represented by
+	 * this ClassIdentity.
+	 * 
+	 * @param item
+	 *            The item to be checked to see if it is a member of the type of object
+	 *            represented by this ClassIdentity
+	 * @return true if the given object is a member of the type of object represented by
+	 *         this ClassIdentity; false otherwise
+	 */
+	public boolean isMember(T item);
+
+	/**
+	 * Returns the persistent format for this ClassIdentity.
+	 * 
+	 * @return The persistent format for this ClassIdentity
+	 */
+	public String getPersistentFormat();
 
 }

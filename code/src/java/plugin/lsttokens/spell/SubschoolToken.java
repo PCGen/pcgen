@@ -63,7 +63,7 @@ public class SubschoolToken extends AbstractTokenWithSeparator<Spell> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value, context);
+							+ ": .CLEAR was not the first list item: " + value);
 				}
 				context.getObjectContext().removeList(spell,
 						ListKey.SPELL_SUBSCHOOL);

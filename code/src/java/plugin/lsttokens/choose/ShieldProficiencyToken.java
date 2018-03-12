@@ -71,4 +71,10 @@ public class ShieldProficiencyToken extends
 		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(SHIELDPROF_CLASS), obj, value);
 	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "SHIELDPROF";
+	}
 }

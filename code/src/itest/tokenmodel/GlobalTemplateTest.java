@@ -34,6 +34,7 @@ import plugin.lsttokens.choose.TemplateToken;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import util.TestURI;
 
 public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 {
@@ -58,7 +59,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 		ParseResult result = token.parseToken(context, source, "CHOOSE:Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -78,13 +79,13 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 		ParseResult result = token.parseToken(context, source, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_TEMPLATE_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		source.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
@@ -103,7 +104,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 		ParseResult result = token.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

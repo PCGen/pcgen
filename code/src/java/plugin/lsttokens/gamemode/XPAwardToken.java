@@ -18,9 +18,11 @@
 package plugin.lsttokens.gamemode;
 
 import java.net.URI;
+import java.util.StringTokenizer;
 
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with SKILLCOST_CLASS Token
@@ -37,7 +39,22 @@ public class XPAwardToken implements GameModeLstToken
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setXPAwards(value);
+		StringTokenizer aTok = new StringTokenizer(value, "|");
+		while (aTok.hasMoreTokens())
+		{
+			String xpAward = aTok.nextToken();
+			try
+			{
+				String[] info = xpAward.split("=");
+				gameMode.addXPaward(gameMode.getCRInteger(info[0]),
+					Integer.valueOf(info[1]));
+			}
+			catch (ArrayIndexOutOfBoundsException | NumberFormatException e)
+			{
+				Logging.errorPrint("Illegal value for miscinfo.XPAWARD: " + xpAward);
+			}
+		}
 		return true;
 	}
+
 }

@@ -27,12 +27,14 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class MaxNumberModifierTest extends TestCase
 {
-	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final LegalScope varScope =
+			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test

@@ -965,11 +965,18 @@ CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent20|1|TYPE=Boolean|
 ###Block:
 
 # Ability Name			Define						Modify VAR
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_WeaponProficiencies|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_ClassSkills|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_WeaponProficiencies|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Spells|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Bloodline|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Cantrips|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
 
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineClassSkill|0
+
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineArcana|0
+
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePowers|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower1|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower3|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower9|0
@@ -989,6 +996,8 @@ CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell8|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell9|0
 
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_ClassSkills=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineArcana|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineArcana=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlinePowers|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePowers=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlinePower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower1=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlinePower3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower3=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlinePower9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower9=True
@@ -1010,6 +1019,9 @@ CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineSpell7|1|TYPE=
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineSpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell8=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineSpell9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell9=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_Bloodline|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Bloodline=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineClassSkill|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineClassSkill=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Spells=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Cantrips=True
 
 # Old Style
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererWeaponProficiencies

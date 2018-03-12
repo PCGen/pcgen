@@ -38,12 +38,11 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.RollMethod;
-import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.GameMode;
 import pcgen.core.PointBuyMethod;
 import pcgen.core.SettingsHandler;
-import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.JComboBoxEx;
 import pcgen.system.LanguageBundle;
 
 
@@ -157,9 +156,8 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(abilityScoreCombo, c);
 		this.add(abilityScoreCombo);
 
-		ReferenceManufacturer<RollMethod> mfg = gameMode.getModeContext().getReferenceContext()
-				.getManufacturer(RollMethod.class);
-		List<RollMethod> rollMethods = mfg.getOrderSortedObjects();
+		List<RollMethod> rollMethods = gameMode.getModeContext().getReferenceContext()
+			.getSortkeySortedCDOMObjects(RollMethod.class);
 		if (!rollMethods.isEmpty())
 		{
 			Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);

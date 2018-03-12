@@ -26,6 +26,8 @@ COPYRIGHT:PCGen dataset conversion for Sovereign Stone Campaign Sourcebook Copyr
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 PCC:@/homebrew/conversion_support/conversion_support.pcc
+DATACONTROL:@/3e/wizards_of_the_coast/srd/basics/srd__datacontrols.lst
+RACE:*/_universal/races.lst
 
 ABILITY:ssc_abilities.lst
 ABILITYCATEGORY:ssc_abilitycategories.lst

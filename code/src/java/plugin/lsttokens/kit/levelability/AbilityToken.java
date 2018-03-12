@@ -60,7 +60,7 @@ public class AbilityToken extends AbstractToken implements
 		if (!value.startsWith("PROMPT:"))
 		{
 			return new ParseResult.Fail("Expected " + getTokenName()
-				+ " to start with PROMPT: " + value, context);
+				+ " to start with PROMPT: " + value);
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String first = st.nextToken();
@@ -72,11 +72,11 @@ public class AbilityToken extends AbstractToken implements
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getMessage(), context);
+			return new ParseResult.Fail(e.getMessage());
 		}
 		if (ptc == null)
 		{
-			return new ParseResult.Fail("Error was in " + getTokenName() + ' ' + value, context);
+			return new ParseResult.Fail("Error was in " + getTokenName() + ' ' + value);
 		}
 		kitAbility.setAdd(ptc);
 
@@ -86,7 +86,7 @@ public class AbilityToken extends AbstractToken implements
 			if (!choiceString.startsWith("CHOICE:"))
 			{
 				return new ParseResult.Fail("Expected " + getTokenName()
-					+ " choice string to start with CHOICE: " + value, context);
+					+ " choice string to start with CHOICE: " + value);
 			}
 			String choice = choiceString.substring(7);
 			if (first.equals("FEAT") && !choice.startsWith("CATEGORY="))
@@ -104,7 +104,7 @@ public class AbilityToken extends AbstractToken implements
 			if (ptc.decodeChoice(context, choice) == null)
 			{
 				return new ParseResult.Fail(choiceString
-					+ " is not a valid selection for ADD:" + first, context);
+					+ " is not a valid selection for ADD:" + first);
 			}
 			kitAbility.addChoice(choice);
 		}

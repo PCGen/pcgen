@@ -36,6 +36,7 @@ ABILITY:fap_abilities_class.lst
 ABILITY:fap_abilities_race.lst
 ABILITY:fap_feats.lst
 ABILITYCATEGORY:fap_abilitycategories.lst
+CLASS:fap_classes.lst
 COMPANIONMOD:fap_companionmods.lst
 DEITY:fap_deities.lst
 DOMAIN:fap_domains.lst

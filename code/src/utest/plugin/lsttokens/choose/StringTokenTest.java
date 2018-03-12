@@ -222,7 +222,8 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		SimpleChoiceSet<String> scs = new SimpleChoiceSet<>(Arrays
 				.asList(value.split("\\|")), Constants.PIPE);
 		assertTrue(scs.getGroupingState().isValid());
-		BasicChooseInformation<String> cs = new BasicChooseInformation<>(getSubTokenName(), scs);
+		BasicChooseInformation<String> cs =
+				new BasicChooseInformation<>(getSubTokenName(), scs, "STRING");
 		cs.setTitle("Choose an Item");
 		primaryProf.put(ObjectKey.CHOOSE_INFO, cs);
 	}

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,6 +18,7 @@
 package pcgen.cdom.reference;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
@@ -42,24 +43,41 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 {
 
 	/**
+	 * The Class that indicates the types of objects objects contained in this
+	 * CDOMTransparentSingleRef.
+	 */
+	private final Class<T> refClass;
+
+	/**
 	 * Holds the reference to which this CDOMTransparentSingleRef will delegate
 	 * behavior.
 	 */
 	private CDOMSingleRef<T> subReference = null;
 
 	/**
+	 * The String representation of the Format of objects in this CDOMTransparentSingleRef (e.g.
+	 * "ABILITY=FEAT").
+	 */
+	private final String formatRepresentation;
+
+	/**
 	 * Constructs a new CDOMTransparentSingleRef for the given Class and name.
 	 * 
+	 * @param formatRepresentation
+	 *            the persistent representation of the ClassIdentity of the objects to be
+	 *            stored in this CDOMTransparentSingleRef
 	 * @param objClass
 	 *            The Class of the underlying object contained by this
 	 *            CDOMTransparentSingleRef.
 	 * @param key
-	 *            An identifier of the object this CDOMTransparentSingleRef
-	 *            contains.
+	 *            An identifier of the object this CDOMTransparentSingleRef contains.
 	 */
-	public CDOMTransparentSingleRef(Class<T> objClass, String key)
+	public CDOMTransparentSingleRef(String formatRepresentation, Class<T> objClass,
+		String key)
 	{
-		super(objClass, key);
+		super(key);
+		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
+		refClass = Objects.requireNonNull(objClass);
 	}
 
 	/**
@@ -266,9 +284,29 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	}
 
 	@Override
-	public void setChoice(String c)
+	public void setChoice(String choice)
 	{
 		throw new IllegalStateException(
 				"Cannot set Choice on a Transparent Reference");
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return refClass;
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return (subReference == null) ? (refClass.getSimpleName() + " " + getName())
+			: subReference.getReferenceDescription();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		// TODO Auto-generated method stub
+		return formatRepresentation;
 	}
 }

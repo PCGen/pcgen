@@ -50,7 +50,7 @@ public class KeystatToken extends AbstractNonEmptyToken<Skill> implements
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "
-					+ getTokenName() + ": " + value, context);
+					+ getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(skill, ObjectKey.KEY_STAT, pcs);
 		return ParseResult.SUCCESS;

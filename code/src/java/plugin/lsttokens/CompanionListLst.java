@@ -124,7 +124,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, LstUtils.PIPE);
 
@@ -133,7 +133,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " requires more than just a Type: " + value, context);
+					+ " requires more than just a Type: " + value);
 		}
 
 		String list = tok.nextToken();
@@ -162,10 +162,9 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				if (raceType.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " Error: RaceType was not specified.", context);
+							+ " Error: RaceType was not specified.");
 				}
 				races.add(new ObjectMatchingReference<>(tokString,
-						Race.class,
 						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ObjectKey.RACETYPE, RaceType.getConstant(raceType)));
 			}
@@ -175,17 +174,16 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				if (raceSubType.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " Error: RaceSubType was not specified.", context);
+							+ " Error: RaceSubType was not specified.");
 				}
 				races.add(new ListMatchingReference<>(tokString,
-						Race.class,
 						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ListKey.RACESUBTYPE, RaceSubType.getConstant(raceSubType)));
 			}
 			else if (looksLikeAPrerequisite(tokString))
 			{
 				return new ParseResult.Fail(getTokenName()
-					+ " Error: " + tokString + " found where companion race expected.", context);
+					+ " Error: " + tokString + " found where companion race expected.");
 			}
 			else
 			{
@@ -195,7 +193,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (foundAny && races.size() > 1)
 		{
 			return new ParseResult.Fail("Non-sensical Race List includes Any and specific races: "
-							+ value, context);
+							+ value);
 		}
 
 		if (!tok.hasMoreTokens())
@@ -215,14 +213,14 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				if (followerAdjustment != null)
 				{
 					return new ParseResult.Fail(getTokenName() + " Error: Multiple "
-							+ FOLLOWERADJUSTMENT + " tags specified.", context);
+							+ FOLLOWERADJUSTMENT + " tags specified.");
 				}
 
 				int faStringLength = FOLLOWERADJUSTMENT.length();
 				if (optArg.length() <= faStringLength + 1)
 				{
 					return new ParseResult.Fail("Empty FOLLOWERADJUSTMENT value in "
-							+ getTokenName() + " is prohibited", context);
+							+ getTokenName() + " is prohibited");
 				}
 				String adj = optArg.substring(faStringLength + 1);
 
@@ -248,7 +246,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				return new ParseResult.Fail(
 					getTokenName()
 						+ ": Unknown argument (was expecting FOLLOWERADJUSTMENT: or PRExxx): "
-						+ optArg, context);
+						+ optArg);
 			}
 			if (!tok.hasMoreTokens())
 			{
@@ -268,7 +266,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put items after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)", context);
+						+ "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			prereqs.add(prereq);
 			if (!tok.hasMoreTokens())

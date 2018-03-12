@@ -42,7 +42,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSpellListToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 /**
  * The Class {@code SpellknownLst} is responsible for parsing and
@@ -71,7 +70,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		String workingValue = value;
 		List<Prerequisite> prereqs = new ArrayList<>();
@@ -81,7 +80,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 			if (lastPipeLoc == -1)
 			{
 				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ " not enough tokens: " + value, context);
+						+ " not enough tokens: " + value);
 			}
 			String lastToken = workingValue.substring(lastPipeLoc + 1);
 			if (looksLikeAPrerequisite(lastToken))
@@ -92,7 +91,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				{
 					return new ParseResult.Fail("Invalid prerequisite "
 						+ lastToken + " in " + getTokenName() + " tag: "
-						+ value, context);
+						+ value);
 				}
 				prereqs.add(prerequisite);
 			}
@@ -107,7 +106,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		if (tok.countTokens() < 3)
 		{
 			return new ParseResult.Fail("Insufficient values in SPELLKNOWN tag: "
-					+ value, context);
+					+ value);
 		}
 
 		String tagType = tok.nextToken(); // CLASS only
@@ -119,18 +118,18 @@ public class SpellknownLst extends AbstractSpellListToken implements
 
 			if (tagType.equalsIgnoreCase("CLASS"))
 			{
-				if (!subParse(context, obj, ClassSpellList.class, tokString,
-						spellString, prereqs))
+				ParseResult pr = subParse(context, obj, ClassSpellList.class, tokString,
+					spellString, prereqs);
+				if (!pr.passed())
 				{
-					return ParseResult.INTERNAL_ERROR;
-					//return new ParseResult.Fail("  " + getTokenName()
-					//		+ " error - entire token was " + value, context);
+					return new ParseResult.Fail(getTokenName() + " failed due to " + pr
+						+ ".  Entire token was: " + value);
 				}
 			}
 			else
 			{
 				return new ParseResult.Fail("First token of " + getTokenName()
-						+ " must be CLASS: " + value, context);
+						+ " must be CLASS: " + value);
 			}
 		}
 
@@ -149,16 +148,15 @@ public class SpellknownLst extends AbstractSpellListToken implements
 	 *
 	 * @return true, if successful
 	 */
-	private <CL extends Loadable & CDOMList<Spell>> boolean subParse(
+	private <CL extends Loadable & CDOMList<Spell>> ParseResult subParse(
 			LoadContext context, CDOMObject obj, Class<CL> tagType,
 			String tokString, String spellString, List<Prerequisite> prereqs)
 	{
 		int equalLoc = tokString.indexOf(Constants.EQUALS);
 		if (equalLoc == -1)
 		{
-			Logging.errorPrint("Expected an = in SPELLKNOWN " + "definition: "
-					+ tokString);
-			return false;
+			return new ParseResult.Fail(
+				"Expected an = in SPELLKNOWN " + "definition: " + tokString);
 		}
 
 		String casterString = tokString.substring(0, equalLoc);
@@ -170,14 +168,14 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Expected a number for SPELLKNOWN, found: "
-					+ spellLevel);
-			return false;
+			return new ParseResult.Fail(
+				"Expected a number for SPELLKNOWN, found: " + spellLevel);
 		}
 
-		if (isEmpty(casterString) || hasIllegalSeparator(',', casterString))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', casterString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer clTok = new StringTokenizer(casterString,
@@ -203,9 +201,10 @@ public class SpellknownLst extends AbstractSpellListToken implements
 			slList.add(ref);
 		}
 
-		if (hasIllegalSeparator(',', spellString))
+		pr = checkForIllegalSeparator(',', spellString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer spTok = new StringTokenizer(spellString, ",");
@@ -224,7 +223,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				tpr.addAllPrerequisites(prereqs);
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	@Override

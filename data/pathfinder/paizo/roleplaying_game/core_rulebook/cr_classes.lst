@@ -343,20 +343,20 @@ CLASS:Rogue		STARTSKILLPTS:8
 
 
 # Class Name	Hit Dice	Type								Max Level	Source Page		Ability																	Define									Combat bonus																	Save bonus																																		Modify VAR																																																																																																																					Monster Role	FACT
-CLASS:Sorcerer	HD:6		TYPE:Base.PC.SpontaneousArcane.Spontaneous	MAXLEVEL:20	SOURCEPAGE:p.70	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,SorcererClassSkills	DEFINE:SorcererLVL|0	DEFINE:CasterLevelBLSorcerer|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SorcererLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Sorcerer|Caster_Level_Sorcerer-CasterLevelBLSorcerer	BONUS:VAR|Caster_Level_Sorcerer|CL+Caster_Level_Bonus+CasterLevelBLSorcerer	BONUS:VAR|CasterLevelBL_x_Sorcerer|charbonusto("PCLEVEL","Sorcerer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sorcerer|TYPE=Base	ROLE:Sorcerer	FACT:ClassType|PC	FACT:Abb|Sor	FACT:SpellType|Arcane
+CLASS:Sorcerer	HD:6		TYPE:Base.PC.SpontaneousArcane.Spontaneous	MAXLEVEL:20	SOURCEPAGE:p.70	DEFINE:SorcererLVL|0	DEFINE:CasterLevelBLSorcerer|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SorcererLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Sorcerer|Caster_Level_Sorcerer-CasterLevelBLSorcerer	BONUS:VAR|Caster_Level_Sorcerer|CL+Caster_Level_Bonus+CasterLevelBLSorcerer	BONUS:VAR|CasterLevelBL_x_Sorcerer|charbonusto("PCLEVEL","Sorcerer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sorcerer|TYPE=Base	ROLE:Sorcerer	FACT:ClassType|PC	FACT:Abb|Sor	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Memorize	Caster level
-CLASS:Sorcerer	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Caster_Level_BL_Stripped_Sorcerer	
+CLASS:Sorcerer	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Caster_Level_BL_Stripped_Sorcerer
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Sorcerer
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Sorcerer|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
-###Block:
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcerer Bloodline|PREVAREQ:Sorcerer_CF_Bloodline,0
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Weapon and Armor Proficiency|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
+###Block: Class Features
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Spells|PREVAREQ:Sorcerer_CF_Spells,0
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Standard Bloodline|PREVAREQ:Sorcerer_CF_Bloodline,0
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips|PREVAREQ:Sorcerer_CF_Cantrips,0
 1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Eschew Materials|PREVAREQ:Sorcerer_CF_EschewMaterials,0
-###Block: Level progression
+###Block: Spell Level Progression
 1	CAST:0,3				KNOWN:4,2
 2	CAST:0,4				KNOWN:5,2
 3	CAST:0,5				KNOWN:5,3

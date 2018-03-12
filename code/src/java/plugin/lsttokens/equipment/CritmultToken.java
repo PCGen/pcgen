@@ -46,8 +46,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 		if (ControlUtilities.hasControlToken(context, CControl.CRITMULT))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when CRITMULT control is used: " + value,
-				context);
+				+ " is disabled when CRITMULT control is used: " + value);
 		}
 		Integer cm = null;
 		if ((!value.isEmpty()) && (value.charAt(0) == 'x'))
@@ -57,13 +56,13 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 				cm = Integer.valueOf(value.substring(1));
 				if (cm.intValue() <= 0)
 				{
-					return new ParseResult.Fail(getTokenName() + " cannot be <= 0", context);
+					return new ParseResult.Fail(getTokenName() + " cannot be <= 0");
 				}
 			}
 			catch (NumberFormatException nfe)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " was expecting an Integer: " + value, context);
+						+ " was expecting an Integer: " + value);
 			}
 		}
 		else if ("-".equals(value))
@@ -74,7 +73,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " was expecting x followed by an integer "
-					+ "or the special value '-' (representing no value)", context);
+					+ "or the special value '-' (representing no value)");
 		}
 		EquipmentHead primHead = eq.getEquipmentHead(1);
 		context.getObjectContext().put(primHead, IntegerKey.CRIT_MULT, cm);

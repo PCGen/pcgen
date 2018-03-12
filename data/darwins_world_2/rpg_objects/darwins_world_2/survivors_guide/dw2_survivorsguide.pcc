@@ -37,6 +37,9 @@ COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Ha
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:to do.txt
 PCC:@/homebrew/conversion_support/conversion_support.pcc
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
 
 SAVE:dw2sg__saves.lst
 STAT:dw2sg__stats.lst

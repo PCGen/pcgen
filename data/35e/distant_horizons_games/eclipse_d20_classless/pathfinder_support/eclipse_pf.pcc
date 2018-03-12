@@ -32,6 +32,8 @@ COVER:51254.jpg
 
 #Block: Universal Functions -------------------------------------------
 BONUS:ABILITYPOOL|Disadvantages|3|PREVARGTEQ:EclipseClass,1
+RACE:*/_universal/races.lst
+
 
 
 ABILITY:eclipse_pf_abilities.lst
@@ -43,6 +45,7 @@ SKILL:eclipse_pf_skills.lst
 #Block: Core Files ---------------------------------------------------------
 #PCC:../eclipse.pcc
 #COMMENT: Direct Reference is best
+DATACONTROL:../eclipse__datacontrols.lst
 
 ABILITY:../eclipse_abilities.lst
 ABILITY:../eclipse_abilities_disadvantages.lst

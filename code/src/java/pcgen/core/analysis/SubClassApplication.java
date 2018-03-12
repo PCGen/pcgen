@@ -62,7 +62,7 @@ public final class SubClassApplication
 	
 		for (SubClass sc : subClassList)
 		{
-			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, cl))
+			if (!PrereqHandler.passesAll(sc, aPC, cl))
 			{
 				continue;
 			}
@@ -149,7 +149,7 @@ public final class SubClassApplication
 					//Skip the selected specialist school
 					continue;
 				}
-				if (!PrereqHandler.passesAll(sub.getPrerequisiteList(), aPC, cl))
+				if (!PrereqHandler.passesAll(sub, aPC, cl))
 				{
 					continue;
 				}

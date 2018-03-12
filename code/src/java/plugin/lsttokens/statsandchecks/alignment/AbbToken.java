@@ -51,12 +51,12 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 		{
 			if (!context.processToken(al, "KEY", value))
 			{
-				return new ParseResult.Fail("Internal Error", context);
+				return new ParseResult.Fail("Internal Error");
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getLocalizedMessage(), context);
+			return new ParseResult.Fail(e.getLocalizedMessage());
 		}
 		context.getObjectContext().put(al, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;

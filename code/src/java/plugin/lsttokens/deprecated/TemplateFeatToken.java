@@ -62,8 +62,6 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<CNAbilitySelection>,
 		DeferredToken<PCTemplate>, DeprecatedToken
 {
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
-
 	@Override
 	public String getTokenName()
 	{
@@ -85,8 +83,8 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 
 		boolean first = true;
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability> rm =
+				context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
@@ -95,7 +93,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value, context);
+							+ ": .CLEAR was not the first list item: " + value);
 				}
 			}
 			else

@@ -44,4 +44,10 @@ public class SimpleReferenceManufacturer<T extends Loadable> extends
 	{
 		super(factory);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getClass().getSimpleName() + ": " + this.getReferenceDescription();
+	}
 }

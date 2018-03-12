@@ -1,0 +1,8 @@
+#SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926	SOURCEDATE:2014-11
+
+ABILITYCATEGORY:Ghoul Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT					TYPE:GhoulBloodline					ABILITYLIST:Skill Focus (Knowledge (religion))|Spell Focus (necromancy)			PLURAL:Ghoul Bloodline Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Apocalypse Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ApocalypseRevelation.GeneralRevelation															PLURAL:Apocalypse Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Apocalypse Mystery Energy Type		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ApocalypseMysteryEnergyType																	PLURAL:Apocalypse Mystery Energy Types	DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Ancient Guardian Domain Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:DruidDomainSelection																									DISPLAYLOCATION:Class Features

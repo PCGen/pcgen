@@ -17,9 +17,8 @@
  */
 package plugin.lsttokens.variable;
 
-import java.util.Set;
-
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
@@ -96,41 +95,25 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
-		LegalScope lvs;
-		if ("GLOBAL".equals(fullscope))
-		{
-			lvs = context.getActiveScope();
-		}
-		else
-		{
-			lvs = varContext.getScope(fullscope);
-		}
-
+		LegalScope lvs = varContext.getScope(fullscope);
 		if (!DatasetVariable.isLegalName(varName))
 		{
 			return new ParseResult.Fail(varName
 				+ " is not a valid channel name");
 		}
 		String channelName = ChannelUtilities.createVarName(varName);
-		boolean legal =
-				varContext.assertLegalVariableID(lvs, formatManager, channelName);
-		if (!legal)
+		try
 		{
-			Set<LegalScope> known = varContext.getKnownLegalScopes(varName);
-			StringBuilder sb = new StringBuilder();
-			for (LegalScope v : known)
-			{
-				sb.append(v.getName());
-				sb.append(", ");
-			}
+			varContext.assertLegalVariableID(lvs, formatManager, channelName);
+		}
+		catch (LegalVariableException e)
+		{
 			return new ParseResult.Fail(getTokenName()
-				+ " found a var defined in incompatible variable scopes: "
-				+ varName + " was requested in " + fullscope
-				+ " but was previously in " + sb.toString(), context);
+				+ " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(channelName);
-		dv.setFormat(format);
-		dv.setScopeName(fullscope);
+		dv.setFormat(formatManager);
+		dv.setScope(lvs);
 		return ParseResult.SUCCESS;
 	}
 
@@ -143,24 +126,19 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 			//Variable
 			return null;
 		}
-		String scope = dv.getScopeName();
-		if (scope == null || scope.equals("Global Variables"))
-		{
-			//Global channel
-			scope = "GLOBAL";
-		}
-		String format = dv.getFormat();
+		FormatManager<?> format = dv.getFormat();
 		if (format == null)
 		{
 			//Not a valid object
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(scope);
+		sb.append(dv.getScope().getName().toUpperCase());
 		sb.append(Constants.PIPE);
-		if (!format.equals("NUMBER"))
+		String identifier = format.getIdentifierType();
+		if (!"NUMBER".equals(identifier))
 		{
-			sb.append(format);
+			sb.append(format.getIdentifierType());
 			sb.append('=');
 		}
 		//Take off CHANNEL*

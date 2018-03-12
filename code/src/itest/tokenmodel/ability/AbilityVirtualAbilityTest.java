@@ -23,9 +23,6 @@ import tokenmodel.testsupport.AbstractAbilityGrantCheckTest;
 
 public class AbilityVirtualAbilityTest extends AbstractAbilityGrantCheckTest
 {
-	private static final plugin.lsttokens.AbilityLst ABILITY_TOKEN =
-			new plugin.lsttokens.AbilityLst();
-
 	@Override
 	protected CDOMToken<? super Ability> getGrantToken()
 	{

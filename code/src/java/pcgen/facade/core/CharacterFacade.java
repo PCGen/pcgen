@@ -18,8 +18,6 @@
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
-
 import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -33,11 +31,13 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
+import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
-import pcgen.facade.util.event.ChangeListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ChangeListener;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 
@@ -67,9 +67,9 @@ public interface CharacterFacade extends CompanionFacade
 
 	public ReferenceFacade<GenderFacade> getGenderRef();
 
-	public void setAlignment(AlignmentFacade alignment);
+	public void setAlignment(PCAlignment alignment);
 
-	public ReferenceFacade<AlignmentFacade> getAlignmentRef();
+	public ReferenceFacade<PCAlignment> getAlignmentRef();
 
 	public void setGender(GenderFacade gender);
 

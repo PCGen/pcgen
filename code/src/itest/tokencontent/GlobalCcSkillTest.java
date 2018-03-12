@@ -34,6 +34,7 @@ import plugin.lsttokens.skill.ExclusiveToken;
 
 import org.junit.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalCcSkillTest extends AbstractContentTokenTest
 {
@@ -61,7 +62,7 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -74,13 +75,13 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		PCClass wizard = create(PCClass.class, "Wizard");

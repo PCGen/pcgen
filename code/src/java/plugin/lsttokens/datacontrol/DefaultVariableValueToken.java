@@ -68,7 +68,7 @@ public class DefaultVariableValueToken extends
 		if (value.lastIndexOf(separator) != pipeLoc)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " requires only a type and a value, found: " + value, context);
+				+ " requires only a type and a value, found: " + value);
 		}
 		String formatName = value.substring(0, pipeLoc);
 		String formatValue;
@@ -89,7 +89,7 @@ public class DefaultVariableValueToken extends
 		catch (NullPointerException | IllegalArgumentException e)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " found an unsupported format: " + formatName, context);
+				+ " found an unsupported format: " + formatName);
 		}
 		dvv.setFormatManager(fmtManager);
 		return subProcess(context, dvv, formatValue, fmtManager);
@@ -103,19 +103,19 @@ public class DefaultVariableValueToken extends
 		if (m == null)
 		{
 			return new ParseResult.Fail("ModifierType "
-				+ fmtManager.getIdentifierType() + " requires a SET modifier",
-				context);
+				+ fmtManager.getIdentifierType() + " requires a SET modifier");
 		}
 		FormulaModifier<T> defaultModifier;
 		try
 		{
-			defaultModifier = m.getFixedModifier(fmtManager, defaultValue);
+			defaultModifier = context.getVariableContext().getModifier("SET",
+				defaultValue, context.getActiveScope(), fmtManager);
 		}
 		catch (IllegalArgumentException e)
 		{
 			return new ParseResult.Fail("ModifierType " + fmtManager.getIdentifierType()
 				+ " could not be initialized to a default value of: " + defaultValue
-				+ " due to " + e.getLocalizedMessage(), context);
+				+ " due to " + e.getLocalizedMessage());
 		}
 		defaultModifier.addAssociation("PRIORITY=0");
 		dvv.setModifier(defaultModifier);
@@ -132,5 +132,4 @@ public class DefaultVariableValueToken extends
 		sb.append(dvv.getModifier().getInstructions());
 		return new String[]{sb.toString()};
 	}
-
 }
