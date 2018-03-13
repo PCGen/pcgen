@@ -63,6 +63,10 @@ RACE:mc_races_companion.lst
 SKILL:mc_skills.lst
 SPELL:mc_spells.lst
 
+# support
+ABILITY:support/mc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/mc_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+
 HIDETYPE:FEAT|GhoulBloodline
 
 # ENTRY DATE: 14 January 2018
