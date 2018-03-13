@@ -1688,7 +1688,7 @@ Wind Stance		KEY:Sorcerer Bloodline Feat ~ Wind Stance		CATEGORY:Internal		TYPE:
 # than what we currently have, which requires a lot more work to maintain.
 
 # Bonus Spells and Feats system for the Crossblooded is in progress as well.
-# 	DEFINE:Sorcerer_xxx_BloodlineLVL|0			= Total Power Level
+#	DEFINE:Sorcerer_xxx_BloodlineLVL|0			= Total Power Level
 #	DEFINE:Sorcerer_xxx_BloodlineProgressionLVL|0	= Progression Tracker for level gained abilities
 #	DEFINE:Sorcerer_xxx_BloodlineArcana1|0		= Whether to grant the bloodline arcana
 #	DEFINE:Sorcerer_xxx_BloodlineSpells1|0		= Whether to grant the bloodline bonus spells
@@ -2083,7 +2083,7 @@ CATEGORY=Internal|Archetype Display.MOD																																									
 CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Bard Archetype|AUTOMATIC|Archetype Bard|PRECLASS:1,Bard=1
 CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Druid Archetype|AUTOMATIC|Archetype Druid|PRECLASS:1,Druid=1
 CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Fighter Archetype|AUTOMATIC|Archetype Fighter|PRECLASS:1,Fighter=1
-#monk archetype display moved to Standard Monk ability grant to prevent Unchained Monk archetype selection   
+#monk archetype display moved to Standard Monk ability grant to prevent Unchained Monk archetype selection
 #CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Monk Archetype|AUTOMATIC|Archetype Monk|PRECLASS:1,Monk=1
 CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Paladin Archetype|AUTOMATIC|Archetype Paladin|PRECLASS:1,Paladin=1
 CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Ranger Archetype|AUTOMATIC|Archetype Ranger|PRECLASS:1,Ranger=1
