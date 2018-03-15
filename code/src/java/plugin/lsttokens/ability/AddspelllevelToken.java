@@ -52,7 +52,7 @@ public class AddspelllevelToken extends AbstractNonEmptyToken<Ability>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+					+ getTokenName() + ":<int>");
 		}
 	}
 

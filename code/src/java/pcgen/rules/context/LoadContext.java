@@ -22,6 +22,8 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.inst.NEPFormula;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.GroupDefinition;
@@ -177,4 +179,17 @@ public interface LoadContext
 	 * @return The currently active LegalScope
 	 */
 	public LegalScope getActiveScope();
+
+	/**
+	 * Directly returns a valid formula with the Format of the given FormatManager.
+	 * 
+	 * @param formatManager
+	 *            The FormatManager to indicate the format of the NEPFormula to be
+	 *            returned
+	 * @param instructions
+	 *            The instructions for the NEPFormula to process when it is solved
+	 * @return A NEPFormula that implements the given Format and instructions
+	 */
+	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
+		String instructions);
 }

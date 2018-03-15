@@ -20,8 +20,8 @@ package plugin.function;
 import org.junit.Test;
 
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.solver.AggressiveSolverManager;
@@ -36,6 +36,7 @@ import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.formula.VariableChannel;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.output.channel.ChannelUtilities;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
@@ -113,7 +114,8 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		VariableLibrary varLib = variableLibraryFacet.get(id.getDatasetID());
 		ScopeInstanceFactory instFactory = scopeFacet.get(id);
-		ScopeInstance globalInstance = instFactory.getGlobalInstance("Global");
+		ScopeInstance globalInstance =
+				instFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 		varLib.assertLegalVariableID(ChannelUtilities.createVarName("STR"),
 			globalInstance.getLegalScope(), numberManager);
 		VariableChannel<Number> strChannel =

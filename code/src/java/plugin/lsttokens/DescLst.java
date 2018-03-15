@@ -41,9 +41,6 @@ import pcgen.rules.persistence.token.ParseResult;
 public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -79,13 +76,13 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (looksLikeAPrerequisite(descString))
 		{
 			return new ParseResult.Fail(getTokenName() + " encountered only a PRExxx: "
-				+ aDesc, context);
+				+ aDesc);
 		}
 		String ds = EntityEncoder.decode(descString);
 		if (!StringUtil.hasBalancedParens(ds))
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " encountered imbalanced Parenthesis: " + aDesc, context);
+					+ " encountered imbalanced Parenthesis: " + aDesc);
 		}
 		ParseResult pr = checkForInvalidXMLChars(ds);
 		if (!pr.passed())
@@ -103,7 +100,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				{
 					return new ParseResult.Fail(getTokenName()
 						+ " tag confused by '.CLEAR' as a " + "middle token: "
-						+ aDesc, context);
+						+ aDesc);
 				}
 				else if (looksLikeAPrerequisite(token))
 				{
@@ -130,7 +127,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				{
 					return new ParseResult.Fail(
 						"   (Did you put Abilities after the "
-							+ "PRExxx tags in " + getTokenName() + ":?)", context);
+							+ "PRExxx tags in " + getTokenName() + ":?)");
 				}
 				desc.addPrerequisite(prereq);
 				if (!tok.hasMoreTokens())

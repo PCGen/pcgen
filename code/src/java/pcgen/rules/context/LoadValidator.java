@@ -20,25 +20,17 @@ package pcgen.rules.context;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
-import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CDOMTransparentCategorizedSingleRef;
 import pcgen.cdom.reference.Qualifier;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Campaign;
 
 public class LoadValidator implements UnconstructedValidator
 {
-	@SuppressWarnings("rawtypes")
-	private static final Class<Categorized> CATEGORIZED_CLASS = Categorized.class;
 	private final List<Campaign> campaignList;
-	private HashMapToList<Class<?>, String> simpleMap;
-	private DoubleKeyMapToList<Class<?>, String, String> categoryMap;
+	private HashMapToList<String, String> simpleMap;
 
 	public LoadValidator(List<Campaign> campaigns)
 	{
@@ -46,13 +38,13 @@ public class LoadValidator implements UnconstructedValidator
 	}
 
 	@Override
-	public <T> boolean allow(Class<T> cl, String s)
+	public <T> boolean allowUnconstructed(ClassIdentity<T> cl, String s)
 	{
 		if (simpleMap == null)
 		{
 			buildSimpleMap();
 		}
-		List<String> list = simpleMap.getListFor(cl);
+		List<String> list = simpleMap.getListFor(cl.getPersistentFormat());
 		if (list != null)
 		{
 			for (String key : list)
@@ -73,55 +65,10 @@ public class LoadValidator implements UnconstructedValidator
 		{
 			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
 			{
-				Class<? extends Loadable> qcl = q.getQualifiedClass();
-				if (!CATEGORIZED_CLASS.isAssignableFrom(qcl))
-				{
-					simpleMap.addToListFor(qcl, q.getQualifiedReference()
-							.getLSTformat(false));
-				}
+				simpleMap.addToListFor(q.getQualifiedReference().getPersistentFormat(),
+					q.getQualifiedReference().getLSTformat(false));
 			}
 		}
-	}
-
-	private void buildCategoryMap()
-	{
-		categoryMap = new DoubleKeyMapToList<>();
-		for (Campaign c : campaignList)
-		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
-			{
-				Class<? extends Loadable> qcl = q.getQualifiedClass();
-				if (CATEGORIZED_CLASS.isAssignableFrom(qcl))
-				{
-					CDOMSingleRef<?> ref = q.getQualifiedReference();
-					String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
-							.getLSTCategory();
-					categoryMap.addToListFor(qcl, cat, ref.getLSTformat(false));
-				}
-			}
-		}
-	}
-
-	@Override
-	public <T extends Categorized<T>> boolean allow(
-			Class<T> cl, Category<T> cat, String s)
-	{
-		if (categoryMap == null)
-		{
-			buildCategoryMap();
-		}
-		List<String> list = categoryMap.getListFor(cl, cat.getKeyName());
-		if (list != null)
-		{
-			for (String key : list)
-			{
-				if (key.equalsIgnoreCase(s))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
 	}
 
 	@Override

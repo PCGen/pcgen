@@ -1,0 +1,7 @@
+SOURCELONG:Andoran Birthplace of Freedom	SOURCESHORT:ABOF	SOURCEWEB:http://paizo.com/products/btpy9dz4?Pathfinder-Campaign-Setting-Andoran-Birthplace-of-Freedom	SOURCEDATE:2015-05
+# ORIGINAL ENTRY: James Parker, with Gwen T. (evilpixie87)
+
+Lycanthrope (Animal Form).MOD				ABILITY:Special Ability|AUTOMATIC|Silverblooded Damage Reduction|PREABILITY:1,CATEGORY=Special Ability,Silverblooded Lycanthrope
+Lycanthrope (Hybrid Form).MOD				ABILITY:Special Ability|AUTOMATIC|Silverblooded Damage Reduction|PREABILITY:1,CATEGORY=Special Ability,Silverblooded Lycanthrope
+
+Silverblood Lycanthrope		CR:1			PRETEMPLATE:1,Lycanthrope			ABILITY:Special Ability|AUTOMATIC|Silverblooded Lycanthrope ~ Lunar Sympathy

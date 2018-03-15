@@ -19,6 +19,8 @@ INFOTEXT:For loading in SS and only the parts of the PHB SS uses.<p>In other wor
 
 #The above items are officially illegal in the SS world.
 PCC:@/homebrew/conversion_support/conversion_support.pcc
+DATACONTROL:@/3e/wizards_of_the_coast/srd/basics/srd__datacontrols.lst
+RACE:*/_universal/races.lst
 
 ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Brew Potion,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Empower Spell,Enlarge Spell,Extend Spell,Extra Turning,Forge Ring,Heighten Spell,Maximize Spell,Quicken Spell,Scribe Scroll,Silent Spell,Spell Mastery,Still Spell,Flyby Attack,Hover,Improved Control Shape,Multidexterity,Multiweapon Fighting,Multiattack,Quicken Spell-Like Ability,Snatch,Spell-Like Ability Focus,Unearthly Beauty,Wingover)
 SKILL:@/3e/wizards_of_the_coast/srd/basics/srd_skills.lst|(EXCLUDE:Control Shape|Craft (Metalworking)|Knowledge (Geology)|Knowledge (Minerals)|Knowledge (Plane of Air)|Knowledge (Plane of Water)|Profession (Hunt))

@@ -32,9 +32,6 @@ import pcgen.system.LanguageBundle;
 public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
@@ -62,9 +59,6 @@ public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implement
 		return "POINTBUYMETHOD"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{

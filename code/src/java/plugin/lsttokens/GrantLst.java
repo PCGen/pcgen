@@ -23,6 +23,8 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -31,7 +33,6 @@ import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.Dynamic;
 import pcgen.cdom.inst.DynamicCategory;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -39,15 +40,9 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
-
-	private static final Class<Dynamic> DYNAMIC_CLASS = Dynamic.class;
-	private static final Class<DynamicCategory> DYNAMIC_CATEGORY_CLASS =
-			DynamicCategory.class;
 
 	@Override
 	public String getTokenName()
@@ -69,7 +64,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String scope = tok.nextToken();
@@ -77,27 +72,24 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " must have identifier(s), "
-				+ "Format is: DYNAMICSCOPE|DynamicName: " + value, context);
+				+ "Format is: DYNAMICSCOPE|DynamicName: " + value);
 		}
 
+		DynamicCategory cat = context.getReferenceContext()
+				.silentlyGetConstructedCDOMObject(DynamicCategory.class, scope);
 		ReferenceManufacturer<Dynamic> rm =
-				context.getReferenceContext().getManufacturer(DYNAMIC_CLASS,
-					DYNAMIC_CATEGORY_CLASS, scope);
+				context.getReferenceContext().getManufacturerId(cat);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(
 				"Could not get Reference Manufacturer for Dynamic Scope: "
-					+ scope, context);
+					+ scope);
 		}
 
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
 			CDOMReference<Dynamic> dynamic = rm.getReference(token);
-			if (dynamic == null)
-			{
-				return ParseResult.INTERNAL_ERROR;
-			}
 			context.getObjectContext().addToList(obj, ListKey.GRANTED, dynamic);
 		}
 
@@ -115,10 +107,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			for (CDOMReference<Dynamic> ref : added)
 			{
-				CategorizedCDOMReference<Dynamic> catRef =
-						(CategorizedCDOMReference<Dynamic>) ref;
-				map.addToListFor(catRef.getLSTCategory(),
-					ref.getLSTformat(false));
+				map.addToListFor(ref.getPersistentFormat(), ref.getLSTformat(false));
 			}
 		}
 		if (map.isEmpty())

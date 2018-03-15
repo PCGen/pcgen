@@ -63,9 +63,6 @@ public class PatternMatchingReference<T extends Loadable> extends
 	/**
 	 * Constructs a new PatternMatchingReference
 	 * 
-	 * @param objClass
-	 *            The Class of the underlying objects contained by this
-	 *            reference.
 	 * @param startingGroup
 	 *            The underlying list of objects from which this
 	 *            PatternMatchingReference will draw.
@@ -78,10 +75,9 @@ public class PatternMatchingReference<T extends Loadable> extends
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public PatternMatchingReference(Class<T> objClass,
-			CDOMGroupRef<T> startingGroup, String patternText)
+	public PatternMatchingReference(CDOMGroupRef<T> startingGroup, String patternText)
 	{
-		super(objClass, patternText);
+		super(patternText);
 		if (startingGroup == null)
 		{
 			throw new IllegalArgumentException(
@@ -259,5 +255,23 @@ public class PatternMatchingReference<T extends Loadable> extends
 	public String getChoice()
 	{
 		return null;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return all.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return all.getReferenceDescription() + " (Pattern " + pattern + ")";
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return all.getPersistentFormat();
 	}
 }

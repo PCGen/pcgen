@@ -64,7 +64,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 *            the given VariableID
 	 */
 	public <T> void removeVariableListener(VariableID<T> varID,
-		VariableListener<T> listener)
+		VariableListener<? super T> listener)
 	{
 		listenerList.removeFromListFor(varID, listener);
 	}

@@ -354,9 +354,9 @@ class ClassDataHandler extends DefaultHandler
 						else if (key.startsWith("TYPE")) //$NON-NLS-1$
 						{
 							Type type = Type.getConstant(key.substring(5));
-							for (final Ability ability : Globals.getContext().getReferenceContext()
-									.getManufacturer(Ability.class,
-											theCurrentCategory).getAllObjects())
+							for (final Ability ability : Globals.getContext()
+								.getReferenceContext()
+								.getManufacturerId(theCurrentCategory).getAllObjects())
 							{
 								if (!ability.containsInList(ListKey.TYPE, type))
 								{
@@ -382,8 +382,10 @@ class ClassDataHandler extends DefaultHandler
 						}
 						else
 						{
-							final Ability ability = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-									Ability.class, theCurrentCategory, key);
+							final Ability ability =
+									Globals.getContext().getReferenceContext()
+										.getManufacturerId(theCurrentCategory)
+										.getActiveObject(key);
 							if (ability == null)
 							{
 								Logging.debugPrint("Ability (" + key + ") not found"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -508,8 +510,7 @@ class ClassDataHandler extends DefaultHandler
 			{
 				// Add all abilities at this weight.
 				for (Ability ability : Globals.getContext().getReferenceContext()
-						.getManufacturer(Ability.class, theCurrentCategory)
-						.getAllObjects())
+					.getManufacturerId(theCurrentCategory).getAllObjects())
 				{
 					if ( ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					{
@@ -521,8 +522,7 @@ class ClassDataHandler extends DefaultHandler
 			for ( final String remove : removeList )
 			{
 				Ability ability = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(Ability.class,
-								theCurrentCategory, remove);
+					.getManufacturerId(theCurrentCategory).getActiveObject(remove);
 				theCurrentData.removeAbility(theCurrentCategory, ability);
 			}
 			removeList = new ArrayList<>();
@@ -630,8 +630,7 @@ class ClassDataHandler extends DefaultHandler
 				{
 					// TODO This null for source is incorrect!
 					// TODO Not sure if effect of null for PC
-					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), (PlayerCharacter) null,
-							null))
+					if (PrereqHandler.passesAll(apo, (PlayerCharacter) null, null))
 					{
 						int lvl = apo
 								.getAssociation(AssociationKey.SPELL_LEVEL);

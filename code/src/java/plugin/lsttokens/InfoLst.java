@@ -63,7 +63,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expecting '|', format is: InfoName|Info value was: "
-				+ value, context);
+				+ value);
 		}
 		String key = value.substring(0, pipeLoc);
 		//key length 0 caught by charAt(0) test above
@@ -72,13 +72,13 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expecting non-empty value, "
-				+ "format is: InfoName|Info value was: " + value, context);
+				+ "format is: InfoName|Info value was: " + value);
 		}
 		if (val.startsWith(Constants.PIPE))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expecting non-empty value, "
-				+ "format is: InfoName|Info value was: " + value, context);
+				+ "format is: InfoName|Info value was: " + value);
 		}
 		try
 		{
@@ -90,7 +90,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expected a valid MessageFormat, but received error: "
-				+ e.getMessage() + " when parsing: " + value, context);
+				+ e.getMessage() + " when parsing: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}

@@ -63,32 +63,32 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		if (value == null || value.isEmpty())
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " must have arguments", context);
+				+ " must have arguments");
 		}
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value, context);
+				+ " arguments may not contain , : " + value);
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value, context);
+				+ " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value, context);
+				+ " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value, context);
+				+ " arguments may not end with | : " + value);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value, context);
+				+ " arguments uses double separator || : " + value);
 		}
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -101,7 +101,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		SimpleChoiceSet<String> scs =
 				new SimpleChoiceSet<>(set, Constants.PIPE);
 		BasicChooseInformation<String> tc =
-				new BasicChooseInformation<>(getTokenName(), scs);
+				new BasicChooseInformation<>(getTokenName(), scs, "STRING");
 		tc.setTitle("Choose an Item");
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

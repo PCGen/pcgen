@@ -76,7 +76,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 				{
 					return new ParseResult.Fail("Non-sensical situation was "
 						+ "encountered while parsing " + getTokenName()
-						+ ": When used, .CLEARALL must be the first argument", context);
+						+ ": When used, .CLEARALL must be the first argument");
 				}
 				context.getObjectContext()
 						.removeList(pcc, ListKey.KNOWN_SPELLS);
@@ -114,7 +114,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 					{
 						return new ParseResult.Fail(
 							"Cannot have more than one Level limit in " + getTokenName()
-								+ ": " + value, context);
+								+ ": " + value);
 					}
 					// if the argument starts with LEVEL=, compare the level to
 					// the desired spellLevel
@@ -146,14 +146,14 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 					{
 						return new ParseResult.Fail(
 							"Cannot have more than one Type/Spell limit in "
-								+ getTokenName() + ": " + value, context);
+								+ getTokenName() + ": " + value);
 					}
 					sp = TokenUtilities.getTypeOrPrimitive(context,
 							SPELL_CLASS, filterString);
 					if (sp == null)
 					{
 						return new ParseResult.Fail("  encountered Invalid limit in "
-								+ getTokenName() + ": " + value, context);
+								+ getTokenName() + ": " + value);
 					}
 				}
 				firstToken = false;

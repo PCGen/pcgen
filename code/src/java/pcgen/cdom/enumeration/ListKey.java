@@ -23,6 +23,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMReference;
@@ -283,6 +284,9 @@ public final class ListKey<T>
 	public static final ListKey<CampaignSourceEntry> FILE_DYNAMIC = new ListKey<>();
 	public static final ListKey<CDOMReference<Dynamic>> GRANTED = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_DATATABLE = new ListKey<>();
+	public static final ListKey<NEPFormula<Boolean>> ENABLE = new ListKey<>();
+	public static final ListKey<NEPFormula<Boolean>> ALLOW = new ListKey<>();
+	public static final ListKey<String> GRANTEDVARS = new ListKey<>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 

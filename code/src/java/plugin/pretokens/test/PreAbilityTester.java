@@ -34,9 +34,6 @@ import pcgen.system.LanguageBundle;
 public class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(
 		final Prerequisite prereq,

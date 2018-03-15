@@ -19,9 +19,11 @@ package plugin.lsttokens.ability;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractYesNoTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class StackTokenTest extends AbstractYesNoTokenTestCase<Ability>
@@ -54,4 +56,12 @@ public class StackTokenTest extends AbstractYesNoTokenTestCase<Ability>
 		return ObjectKey.STACKS;
 	}
 
+	@Override
+	protected Ability get(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
 }

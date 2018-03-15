@@ -32,9 +32,6 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 		return "spellcast.memorize"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
@@ -57,9 +54,6 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{

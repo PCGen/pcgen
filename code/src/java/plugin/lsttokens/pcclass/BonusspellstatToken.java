@@ -64,7 +64,7 @@ public class BonusspellstatToken extends AbstractNonEmptyToken<PCClass>
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()
-					+ ": " + value, context);
+					+ ": " + value);
 		}
 		context.getObjectContext().put(pcc, ObjectKey.BONUS_SPELL_STAT, pcs);
 		return ParseResult.SUCCESS;

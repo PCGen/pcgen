@@ -27,6 +27,8 @@ ext {
             include 'outputsheets/**'
             include 'system/**'
             include 'preview/**'
+		include 'vendordata/**'
+		include 'homebrewdata/**'
 		exclude 'data/zen_test'
         }
     }
@@ -60,6 +62,7 @@ ext {
         }
         from('code') {
             include 'LICENSE'
+            include 'pcgen.sh'
         }
         from("$buildDir/launch4j") {
             include 'pcgen.exe'

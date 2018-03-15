@@ -96,6 +96,39 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		return dt;
 	}
 
+	public DataTable doNumberTableSetup()
+	{
+		DataTable dt = new DataTable();
+		dt.setName("B");
+
+		TableColumn c1 = new TableColumn();
+		c1.setName("Strength");
+		c1.setFormatManager(numberManager);
+		TableColumn c2 = new TableColumn();
+		c2.setName("Square");
+		c2.setFormatManager(numberManager);
+		dt.addColumn(c1);
+		dt.addColumn(c2);
+
+		List<Object> row = new ArrayList<>();
+		row.add(1);
+		row.add(1);
+		dt.addRow(row);
+		row.clear();
+
+		row.add(2);
+		row.add(4);
+		dt.addRow(row);
+		row.clear();
+
+		row.add(3);
+		row.add(9);
+		dt.addRow(row);
+		row.clear();
+
+		return dt;
+	}
+
 	@Test
 	public void testInvalidWrongArg()
 	{
@@ -708,6 +741,59 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		return em.getWith(ManagerKey.CONTEXT, context);
 	}
 	
-	
+	public void testLessThan()
+	{
+		Finder finder = new Finder();
+		DataTable dt = doNumberTableSetup();
+		context.getReferenceContext().importObject(dt);
+		finder.map.put("Strength", buildColumn("Strength", numberManager));
+		finder.map.put("Square", buildColumn("Square", numberManager));
+
+		VariableLibrary vl = getVariableLibrary();
+		WriteableVariableStore vs = getVariableStore();
+
+		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
+		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
+
+		VariableID columnID =
+				vl.getVariableID(getGlobalScopeInst(), "ResultColumn");
+		vs.put(columnID, columnMgr.convert("Square"));
+
+		String formula = "lookup(get(\"TABLE[NUMBER]\",\"B\"),2,ResultColumn)";
+		SimpleNode node = TestUtilities.doParse(formula);
+		isStatic(formula, node, false);
+		Object rv =
+				new ReconstructionVisitor().visit(node, new StringBuilder());
+		assertEquals(formula, rv.toString());
+
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
+		FormulaSemantics semantics = getManagerFactory()
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
+		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
+		semanticsVisitor.visit(node, semantics);
+		if (!semantics.isValid())
+		{
+			TestCase.fail("Expected Valid Formula: " + formula
+				+ " but was told: " + semantics.getReport());
+		}
+		evaluatesTo(formula, node, 4);
+
+		formula = "lookup(get(\"TABLE[NUMBER]\",\"B\"),3,ResultColumn)";
+		node = TestUtilities.doParse(formula);
+		evaluatesTo(formula, node, 9);
+		formula = "lookup(get(\"TABLE[NUMBER]\",\"B\"),1,ResultColumn,\"EXACT\")";
+		node = TestUtilities.doParse(formula);
+		evaluatesTo(formula, node, 1);
+		formula = "lookup(get(\"TABLE[NUMBER]\",\"B\"),3,ResultColumn,\"LASTLTEQ\")";
+		node = TestUtilities.doParse(formula);
+		evaluatesTo(formula, node, 9);
+		formula = "lookup(get(\"TABLE[NUMBER]\",\"B\"),3.5,ResultColumn,\"LASTLTEQ\")";
+		node = TestUtilities.doParse(formula);
+		evaluatesTo(formula, node, 9);
+		formula = "lookup(get(\"TABLE[NUMBER]\",\"B\"),3.5,ResultColumn,\"EXACT\")";
+		node = TestUtilities.doParse(formula);
+		evaluatesTo(formula, node, 0);
+	}
 
 }

@@ -28,11 +28,13 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.SpelllevelLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
@@ -130,4 +132,12 @@ public class SpellLevelIntegrationTest extends
 		completeRoundRobin(tc);
 	}
 
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
 }

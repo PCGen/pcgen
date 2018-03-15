@@ -101,7 +101,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail("Found no arguments in "
-				+ getFullName() + ": " + value, context);
+				+ getFullName() + ": " + value);
 		}
 		List<SpellLevelInfo> sliList = new ArrayList<>();
 		while (sep.hasNext())
@@ -114,7 +114,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return new ParseResult.Fail(
 					"Expected minimum level argument after " + token + " in "
-						+ getFullName() + ": " + value, context);
+						+ getFullName() + ": " + value);
 			}
 			String minLevelString = sep.next();
 			Formula minLevel = FormulaFactory.getFormulaFor(minLevelString);
@@ -122,14 +122,14 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return new ParseResult.Fail(
 					"Expected maximum level argument after " + minLevelString
-						+ " in " + getFullName() + ": " + value, context);
+						+ " in " + getFullName() + ": " + value);
 			}
 			String maxLevelString = sep.next();
 			Formula maxLevel = FormulaFactory.getFormulaFor(maxLevelString);
 			if (!maxLevel.isValid())
 			{
 				return new ParseResult.Fail("Max Level Formula in "
-					+ getTokenName() + " was not valid: " + maxLevel.toString(), context);
+					+ getTokenName() + " was not valid: " + maxLevel.toString());
 			}
 			SpellLevelInfo sli = new SpellLevelInfo(pcf, minLevel, maxLevel);
 			sliList.add(sli);

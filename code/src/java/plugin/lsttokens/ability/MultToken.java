@@ -71,10 +71,8 @@ public class MultToken extends AbstractYesNoToken<Ability> implements
 			if (a.getKeyName().contains("("))
 			{
 				String base = AbilityUtilities.removeChoicesFromName(a.getKeyName());
-				Ability conflict =
-						context.getReferenceContext()
-							.silentlyGetConstructedCDOMObject(Ability.class,
-								a.getCDOMCategory(), base);
+				Ability conflict = context.getReferenceContext()
+					.getManufacturerId(a.getCDOMCategory()).getActiveObject(base);
 				if ((conflict != null) && conflict.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					Logging.errorPrint(

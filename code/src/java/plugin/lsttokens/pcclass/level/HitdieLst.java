@@ -56,7 +56,7 @@ public class HitdieLst extends AbstractToken implements
 			if (pipeLoc != -1)
 			{
 				return new ParseResult.Fail(getTokenName() + " is invalid has a pipe: "
-						+ value, context);
+						+ value);
 			}
 			Processor<HitDie> hdm;
 			if (lock.startsWith("%/"))
@@ -67,7 +67,7 @@ public class HitdieLst extends AbstractToken implements
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive Integer "
-							+ "for dividing Lock, was : " + lock.substring(2), context);
+							+ "for dividing Lock, was : " + lock.substring(2));
 				}
 				hdm = new HitDieFormula(new DividingFormula(denom));
 			}
@@ -80,7 +80,7 @@ public class HitdieLst extends AbstractToken implements
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive "
 							+ "Integer for multiplying Lock, was : "
-							+ lock.substring(2), context);
+							+ lock.substring(2));
 				}
 				hdm = new HitDieFormula(new MultiplyingFormula(mult));
 			}
@@ -94,7 +94,7 @@ public class HitdieLst extends AbstractToken implements
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive "
 							+ "Integer for adding Lock, was : "
-							+ lock.substring(2), context);
+							+ lock.substring(2));
 				}
 				hdm = new HitDieFormula(new AddingFormula(add));
 			}
@@ -109,7 +109,7 @@ public class HitdieLst extends AbstractToken implements
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive "
 							+ "Integer for subtracting Lock, was : "
-							+ lock.substring(2), context);
+							+ lock.substring(2));
 				}
 				hdm = new HitDieFormula(new SubtractingFormula(sub));
 			}
@@ -122,12 +122,12 @@ public class HitdieLst extends AbstractToken implements
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " up (must be positive)", context);
+							+ getTokenName() + " up (must be positive)");
 				}
 				if (steps >= 5)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " up (too large)", context);
+							+ getTokenName() + " up (too large)");
 				}
 
 				hdm = new HitDieStep(steps, new HitDie(12));
@@ -141,7 +141,7 @@ public class HitdieLst extends AbstractToken implements
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName(), context);
+							+ getTokenName());
 				}
 				hdm = new HitDieStep(steps, null);
 			}
@@ -155,12 +155,12 @@ public class HitdieLst extends AbstractToken implements
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " down (must be positive)", context);
+							+ getTokenName() + " down (must be positive)");
 				}
 				if (steps >= 5)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " down (too large)", context);
+							+ getTokenName() + " down (too large)");
 				}
 
 				hdm = new HitDieStep(-steps, new HitDie(4));
@@ -174,7 +174,7 @@ public class HitdieLst extends AbstractToken implements
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName(), context);
+							+ getTokenName());
 				}
 				hdm = new HitDieStep(-steps, null);
 			}
@@ -184,7 +184,7 @@ public class HitdieLst extends AbstractToken implements
 				if (i <= 0)
 				{
 					return new ParseResult.Fail("Invalid HitDie: " + i + " in "
-							+ getTokenName(), context);
+							+ getTokenName());
 				}
 				// HITDIE:num --- sets the hit die to num regardless of class.
 				hdm = new HitDieLock(new HitDie(i));

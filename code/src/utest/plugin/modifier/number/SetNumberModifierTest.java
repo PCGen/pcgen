@@ -32,12 +32,14 @@ import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.GlobalScope;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class SetNumberModifierTest
 {
 
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private LegalScope varScope =
+			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
 	FormatManager<Number> numManager = new NumberManager();
 
 	@Test
@@ -212,8 +214,8 @@ public class SetNumberModifierTest
 	{
 		SplitFormulaSetup setup = new SplitFormulaSetup();
 		setup.loadBuiltIns();
-		setup.getLegalScopeLibrary().registerScope(varScope);
-		IndividualSetup iSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
+		setup.getLegalScopeManager().registerScope(varScope);
+		IndividualSetup iSetup = new IndividualSetup(setup, new SimpleVariableStore());
 		SetModifierFactory factory = new SetModifierFactory();
 		FormulaModifier<Number> modifier =
 				factory.getModifier("6+5", new ManagerFactory(){}, iSetup.getFormulaManager(), varScope, numManager);

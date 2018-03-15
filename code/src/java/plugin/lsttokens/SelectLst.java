@@ -46,13 +46,13 @@ public class SelectLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ cdo.getClass().getSimpleName(), context);
+				+ cdo.getClass().getSimpleName());
 		}
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(cdo, FormulaKey.SELECT, formula);
 		return ParseResult.SUCCESS;

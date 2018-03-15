@@ -30,20 +30,21 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.DisplayLocation;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMAllRef;
-import pcgen.cdom.reference.CDOMCategorizedSingleRef;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSimpleSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CDOMTypeRef;
-import pcgen.cdom.reference.CategorizedCreator;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
@@ -67,8 +68,11 @@ import pcgen.util.enumeration.Visibility;
  * 
  */
 public class AbilityCategory implements Category<Ability>, Loadable,
-		ManufacturableFactory<Ability>, CategorizedCreator<Ability>, AbilityCategoryFacade
+		ManufacturableFactory<Ability>, AbilityCategoryFacade
 {
+	private static final ClassIdentity<AbilityCategory> IDENTITY =
+			BasicClassIdentity.getIdentity(AbilityCategory.class);
+
 	private URI sourceURI;
 
 	private String keyName;
@@ -466,9 +470,6 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	// -------------------------------------------
 	// KeyedObject Support
 	// -------------------------------------------
-	/**
-	 * @see pcgen.cdom.base.Category#getDisplayName()
-	 */
     @Override
 	public String getDisplayName()
 	{
@@ -487,18 +488,12 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return displayName;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Category#getKeyName()
-	 */
     @Override
 	public String getKeyName()
 	{
 		return keyName;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Loadable#setName(java.lang.String)
-	 */
     @Override
 	public void setName(final String aName)
 	{
@@ -509,22 +504,12 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		displayName = aName;
 	}
 
-	/**
-	 * Returns the display name for this category.
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
 		return getDisplayName();
 	}
 
-	/**
-	 * Generates a hash code using the key, category and types.
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -534,9 +519,6 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return result;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -630,20 +612,19 @@ public class AbilityCategory implements Category<Ability>, Loadable,
     @Override
 	public CDOMGroupRef<Ability> getAllReference()
 	{
-		return new CDOMAllRef<>(Ability.class);
+		return new CDOMAllRef<>(this);
 	}
 
     @Override
 	public CDOMGroupRef<Ability> getTypeReference(String... types)
 	{
-		return new CDOMTypeRef<>(Ability.class, types);
+		return new CDOMTypeRef<>(this, types);
 	}
 
     @Override
 	public CDOMSingleRef<Ability> getReference(String ident)
 	{
-		return new CDOMCategorizedSingleRef<>(Ability.class, this,
-                ident);
+		return new CDOMSimpleSingleRef<>(this, ident);
 	}
 
     @Override
@@ -767,7 +748,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	private boolean report(UnconstructedValidator validator, String key)
 	{
 		return (validator != null)
-				&& validator.allow(getReferenceClass(), this, key);
+			&& validator.allowUnconstructed(getReferenceIdentity(), key);
 	}
 
     @Override
@@ -838,26 +819,32 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	}
 
     @Override
-	public Category<Ability> getCategory()
-	{
-		return this;
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.AbilityCategoryFacade#getName()
-	 */
-    @Override
 	public String getName()
 	{
 		return getDisplayName();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.AbilityCategoryFacade#getType()
-	 */
     @Override
 	public String getType()
 	{
 		return String.valueOf(getDisplayLocation());
+	}
+
+	@Override
+	public ClassIdentity<Ability> getReferenceIdentity()
+	{
+		return this;
+	}
+
+	@Override
+	public ClassIdentity<? extends Loadable> getClassIdentity()
+	{
+		return IDENTITY;
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "ABILITY=" + getKeyName();
 	}
 }

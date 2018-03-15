@@ -33,6 +33,7 @@ import plugin.lsttokens.skill.ClassesToken;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class SkillClassesTest extends AbstractTokenModelTest
 {
@@ -59,7 +60,7 @@ public class SkillClassesTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, sk, "Dragon");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

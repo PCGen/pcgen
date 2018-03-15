@@ -23,12 +23,10 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.core.character.CompanionMod;
@@ -67,11 +65,11 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		int equalLoc = value.indexOf('=');
 		if (equalLoc == -1)
 		{
-			return new ParseResult.Fail("No = in token.", context);
+			return new ParseResult.Fail("No = in token.");
 		}
 		if (equalLoc != value.lastIndexOf('='))
 		{
-			return new ParseResult.Fail("Too many = in token.", context);
+			return new ParseResult.Fail("Too many = in token.");
 		}
 		String classString = value.substring(0, equalLoc);
 		String levelString = value.substring(equalLoc + 1);
@@ -121,14 +119,11 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 			.entrySet())
 		{
 			CDOMSingleRef<? extends PCClass> ref = me.getKey();
-			Class<? extends PCClass> refClass = ref.getReferenceClass();
-			if (SUBCLASS_CLASS.equals(refClass))
+			String prefix = ref.getPersistentFormat();
+			if (prefix.startsWith("SUBCLASS="))
 			{
-				Category<SubClass> parent =
-						((CategorizedCDOMReference<SubClass>) ref)
-							.getCDOMCategory();
-				set.add(parent.toString() + Constants.DOT + ref.getLSTformat(false) + '='
-					+ me.getValue());
+				set.add(prefix.substring(9) + Constants.DOT + ref.getLSTformat(false)
+					+ '=' + me.getValue());
 			}
 			else
 			{

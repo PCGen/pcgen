@@ -21,6 +21,7 @@ import javax.swing.DefaultListModel;
 
 import pcgen.core.Globals;
 import pcgen.core.Race;
+import pcgen.core.analysis.RaceUtilities;
 
 
 public class RaceModel extends DefaultListModel
@@ -44,7 +45,7 @@ public class RaceModel extends DefaultListModel
 			if (!contains(race.toString()))
 			{
 				this.addElement(race.toString());
-				this.removeElement(Globals.s_EMPTYRACE.toString());
+				this.removeElement(RaceUtilities.getUnselectedRace().toString());
 			}
 		}
 	}

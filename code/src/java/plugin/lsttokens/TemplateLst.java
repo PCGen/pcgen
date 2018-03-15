@@ -22,10 +22,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
@@ -49,6 +51,8 @@ public class TemplateLst extends AbstractToken implements
 
 	private static final String ADDCHOICE_COLON = "ADDCHOICE:";
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
+	private static final ClassIdentity<PCTemplate> PCTEMPLATE_IDENTITY =
+			BasicClassIdentity.getIdentity(PCTEMPLATE_CLASS);
 
 	@Override
 	public String getTokenName()
@@ -64,7 +68,7 @@ public class TemplateLst extends AbstractToken implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ cdo.getClass().getSimpleName(), context);
+				+ cdo.getClass().getSimpleName());
 		}
 		ListKey<CDOMReference<PCTemplate>> lk;
 		String remaining;
@@ -87,9 +91,10 @@ public class TemplateLst extends AbstractToken implements
 			remaining = value;
 			specialLegal = true;
 		}
-		if (isEmpty(remaining) || hasIllegalSeparator('|', remaining))
+		ParseResult pr = checkSeparatorsAndNonEmpty('|', remaining);
+		if (!pr.passed())
 		{
-			return ParseResult.INTERNAL_ERROR;
+			return pr;
 		}
 
 		StringTokenizer tok = new StringTokenizer(remaining, Constants.PIPE);
@@ -127,7 +132,7 @@ public class TemplateLst extends AbstractToken implements
 		if (consolidate)
 		{
 			CDOMCompoundOrReference<PCTemplate> ref = new CDOMCompoundOrReference<>(
-					PCTEMPLATE_CLASS, Constants.LST_CHOOSE_COLON);
+					PCTEMPLATE_IDENTITY, Constants.LST_CHOOSE_COLON);
 			for (CDOMReference<PCTemplate> r : list)
 			{
 				ref.addReference(r);

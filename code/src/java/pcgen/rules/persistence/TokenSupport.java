@@ -82,7 +82,7 @@ public class TokenSupport
 					parse = new ParseResult.Fail("Token processing failed");
 				}
 				// Need to add messages as there may be warnings.
-				parse.addMessagesToLog();
+				parse.addMessagesToLog(context.getSourceURI());
 				if (parse.passed())
 				{
 					return true;

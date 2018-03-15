@@ -234,6 +234,6 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	public Class<T> getChoiceClass()
 	{
 		return (Class<T>) ability.get().get(ObjectKey.CHOOSE_INFO)
-			.getClassIdentity().getChoiceClass();
+			.getReferenceClass();
 	}
 }

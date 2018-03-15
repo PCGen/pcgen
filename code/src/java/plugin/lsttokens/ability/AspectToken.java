@@ -57,9 +57,6 @@ import pcgen.util.Logging;
 public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		CDOMPrimaryToken<Ability>
 {
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -75,7 +72,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting '|', format is: "
-					+ "AspectName|Aspect value|Variable|... was: " + value, context);
+					+ "AspectName|Aspect value|Variable|... was: " + value);
 		}
 		String key = value.substring(0, pipeLoc);
 		if (key.isEmpty())
@@ -83,7 +80,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty type, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value, context);
+					+ value);
 		}
 		String val = value.substring(pipeLoc + 1);
 		if (val.isEmpty())
@@ -91,14 +88,14 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value, context);
+					+ value);
 		}
 		if (val.startsWith(Constants.PIPE))
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value, context);
+					+ value);
 		}
 		Aspect a = parseAspect(key, val);
 		MapChanges<AspectName, List<Aspect>> mc =
@@ -168,12 +165,6 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		return aspect;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryParserToken#unparse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
@@ -198,11 +189,6 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		return set.toArray(new String[set.size()]);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
-	 */
 	@Override
 	public Class<Ability> getTokenClass()
 	{

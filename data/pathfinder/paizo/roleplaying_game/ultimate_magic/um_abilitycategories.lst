@@ -70,16 +70,6 @@ ABILITYCATEGORY:Hex Arcana	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALP
 ABILITYCATEGORY:Vow		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MonkVow	PLURAL:Vows				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Ki Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KiPower	PLURAL:Ki Powers			DISPLAYLOCATION:Class Features
 
-###Block: Sorcerer Bloodline Bonus Feat Categories
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list																																																																Plural description for UI		Display Location
-ABILITYCATEGORY:Accursed Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:AccursedBloodline																																																																				PLURAL:Accursed Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Djinni Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DjinniBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Djinni Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Efreeti Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:EfreetiBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Efreeti Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Maestro Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:MaestroBloodline	ABILITYLIST:Spell Focus (Enchantment)|Greater Spell Focus (Enchantment)|Skill Focus (Perform (Act))|Skill Focus (Perform (Comedy))|Skill Focus (Perform (Dance))|Skill Focus (Perform (Keyboard Instruments))|Skill Focus (Perform (Oratory))|Skill Focus (Perform (Percussion Instruments))|Skill Focus (Perform (Sing))|Skill Focus (Perform (String Instruments))|Skill Focus (Perform (Wind Instruments))	PLURAL:Maestro Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Marid Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:MaridBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Marid Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Rakshasa Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:RakshasaBloodline																																																																				PLURAL:Rakshasa Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Shaitan Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ShaitanBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Shaitan Bloodline Feats	DISPLAYLOCATION:Feats
-
 ###Block: Oracle Revelations ability categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI			Display Location
 ABILITYCATEGORY:Ancestor Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AncestorRevelation.GeneralRevelation		PLURAL:Ancestor Mystery Revelations		DISPLAYLOCATION:Class Features
@@ -120,15 +110,15 @@ ABILITYCATEGORY:Eldritch Heritage Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPO
 #
 ABILITYCATEGORY:Black Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice											DISPLAYLOCATION:Class Features
 
-###Block: Crossblooded Sorcerer ability categories
+###Block: Crossblooded Sorcerer Ability Categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object						Specific choices list					Plural description for UI			Display Location
-#ABILITYCATEGORY:Crossblooded Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal				TYPE:SorcererCrossbloodedBloodline												PLURAL:Crossblooded Bloodlines		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Sorcerer			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer																								DISPLAYLOCATION:Class Features
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object						Specific choices list					Plural description for UI			Display Location
-ABILITYCATEGORY:Crossblooded Bloodline Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility												PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Bonus Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice												PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat													PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Bloodline Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Sorcerer Bloodline Bonus Spell													PLURAL:Sorcerer Bloodline Bonus Spells	DISPLAYLOCATION:Class Features
 
+###Block: Wildblooded Sorcerer Bloodline Selection
+ABILITYCATEGORY:Wildblooded Bloodline Mutation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:Wildblooded Bloodline												PLURAL:Wildblooded Bloodline Mutations	DISPLAYLOCATION:Class Features
+
+###Block: Wildblooded Sorcerer Ability Categories
+ABILITYCATEGORY:Sacred Cistern				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Sorcerer_EmpyrealSacredCistern_ChannelingSelectionPool			CATEGORY:Special Ability	TYPE:Sorcerer Channel Energy Selection				PLURAL:Sacred Cistern				DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures.Magus Class Feature									PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Forbidden Rites Domain			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain												PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Features
@@ -145,3 +135,12 @@ ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 4	VISIBLE:QUALIFY	EDITABLE:YES	ED
 #
 # End
 #
+
+## REMOVE - When Bloodline Conversion Complete
+ABILITYCATEGORY:Accursed Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:AccursedBloodline																																																																				PLURAL:Accursed Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Djinni Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DjinniBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Djinni Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Efreeti Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:EfreetiBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Efreeti Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Maestro Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:MaestroBloodline	ABILITYLIST:Spell Focus (Enchantment)|Greater Spell Focus (Enchantment)|Skill Focus (Perform (Act))|Skill Focus (Perform (Comedy))|Skill Focus (Perform (Dance))|Skill Focus (Perform (Keyboard Instruments))|Skill Focus (Perform (Oratory))|Skill Focus (Perform (Percussion Instruments))|Skill Focus (Perform (Sing))|Skill Focus (Perform (String Instruments))|Skill Focus (Perform (Wind Instruments))	PLURAL:Maestro Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Marid Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:MaridBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Marid Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rakshasa Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:RakshasaBloodline																																																																				PLURAL:Rakshasa Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaitan Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ShaitanBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Shaitan Bloodline Feats	DISPLAYLOCATION:Feats

@@ -39,6 +39,7 @@ import org.jetbrains.annotations.TestOnly;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SolverFactory;
@@ -203,7 +204,6 @@ import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.facet.input.TemplateInputFacet;
 import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
-import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.ArmorProfProviderFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
@@ -245,6 +245,7 @@ import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.RaceUtilities;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
@@ -271,6 +272,8 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
+import pcgen.output.channel.ChannelCompatibility;
+import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.PCGenSettings;
@@ -357,7 +360,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
 
 	//The following are model facets that are only set or getCDOMObjectList or getBonusContainer (nearly isolated)
-	private final AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private final CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 	private final CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 	private final CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
@@ -492,7 +494,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// Should temp mods/bonuses be used/saved?
 	private boolean useTempMods = true;
 
-	// null is <none selected>
 	private int costPool = 0;
 	private int currentEquipSetNumber = 0;
 
@@ -521,8 +522,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// /////////////////////////////////////
 	// operations
 
-	private final CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-	Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS"));
+	private final CNAbility bonusLanguageAbility =
+			CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL,
+				Globals.getContext().getReferenceContext()
+					.getManufacturerId(AbilityCategory.LANGBONUS)
+					.getActiveObject("*LANGBONUS"));
 	private final CodeControl controller;
 
 	/**
@@ -582,7 +586,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		GlobalModifiers gm =
 				refContext.constructNowIfNecessary(GlobalModifiers.class,
-					"Global Modifiers");
+					GlobalModifierLoader.GLOBAL_MODIFIERS);
 		GlobalModifierFacet globalModifierFacet =
 				FacetLibrary.getFacet(GlobalModifierFacet.class);
 		globalModifierFacet.set(id, gm);
@@ -593,10 +597,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		//Do BioSet first, since required by Race
 		bioSetFacet.set(id, SettingsHandler.getGame().getBioSet());
 		//Set Race before Stat/Check due to Default object in Pathfinder/RSRD
-		setRace(Globals.s_EMPTYRACE);
+		setRace(RaceUtilities.getUnselectedRace());
 
-		statFacet.addAll(id, refContext.getOrderSortedCDOMObjects(PCStat.class));
-		checkFacet.addAll(id, refContext.getOrderSortedCDOMObjects(PCCheck.class));
+		statFacet.addAll(id, refContext.getSortkeySortedCDOMObjects(PCStat.class));
+		checkFacet.addAll(id, refContext.getSortkeySortedCDOMObjects(PCCheck.class));
 		campaignFacet.addAll(id, loadedCampaigns);
 
 		setGold(BigDecimal.ZERO);
@@ -634,7 +638,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		SplitFormulaSetup formulaSetup =
 				formulaSetupFacet.get(id.getDatasetID());
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
-		IndividualSetup mySetup = new IndividualSetup(formulaSetup, "Global", varStore);
+		IndividualSetup mySetup = new IndividualSetup(formulaSetup, varStore);
 		scopeFacet.set(id, mySetup.getInstanceFactory());
 		variableStoreFacet.set(id, varStore);
 		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
@@ -895,8 +899,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			final String rType = cList.getKeyName();
 			final Race fRace = aF.getRace();
 
-			for (CompanionMod cm : Globals.getContext().getReferenceContext().getManufacturer(
-				CompanionMod.class, cList).getAllObjects())
+			for (CompanionMod cm : Globals.getContext().getReferenceContext()
+				.getManufacturerId(cList).getAllObjects())
 			{
 				final String aType = cm.getType();
 				if (aType.equalsIgnoreCase(rType) && cm.appliesToRace(fRace))
@@ -1474,8 +1478,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int getEffectiveCompanionLevel(final CompanionList compList)
 	{
-		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
-			CompanionMod.class, compList).getAllObjects())
+		for (CompanionMod cMod : Globals.getContext().getReferenceContext()
+			.getManufacturerId(compList).getAllObjects())
 		{
 			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
 
@@ -1544,8 +1548,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			boolean found = false;
 
-			for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
-				CompanionMod.class, aM.getType()).getAllObjects())
+			for (CompanionMod cMod : Globals.getContext().getReferenceContext()
+				.getManufacturerId(aM.getType()).getAllObjects())
 			{
 				if ((cMod.getLevelApplied(mClass) > 0) && !found)
 				{
@@ -1560,8 +1564,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Clear the companionModList so we can add everything to it
 		Collection<CompanionMod> oldCompanionMods = companionModFacet.removeAll(id);
 
-		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
-			CompanionMod.class, aM.getType()).getAllObjects())
+		for (CompanionMod cMod : Globals.getContext().getReferenceContext()
+			.getManufacturerId(aM.getType()).getAllObjects())
 		{
 			// Check all the masters classes
 			for (PCClass mClass : mPC.getClassSet())
@@ -1759,8 +1763,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Old way of handling this
 		// If the character qualifies for any companion mod of this type
 		// they can take unlimited number of them.
-		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
-			CompanionMod.class, cList).getAllObjects())
+		for (CompanionMod cMod : Globals.getContext().getReferenceContext()
+			.getManufacturerId(cList).getAllObjects())
 		{
 			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
 			for (String varName : varmap.keySet())
@@ -2600,14 +2604,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		equipmentFacet.remove(id, eq, this);
 		setDirty(true);
-	}
-
-	public void setAlignment(PCAlignment align)
-	{
-		if (alignmentFacet.set(id, align))
-		{
-			setDirty(true);
-		}
 	}
 
 	/**
@@ -3490,7 +3486,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		boolean success;
 		if (newRace == null)
 		{
-			success = raceInputFacet.set(id, Globals.s_EMPTYRACE);
+			success = raceInputFacet.set(id, RaceUtilities.getUnselectedRace());
 		}
 		else
 		{
@@ -6283,10 +6279,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Loaded campaigns
 
 		// Alignment
-		PCAlignment align = alignmentFacet.get(id);
-		if (align != null)
+
+		if (!SettingsHandler.getGame().getAlignmentText().isEmpty())
 		{
-			list.add(align);
+			PCAlignment align = ChannelCompatibility.getCurrentAlignment(id);
+			if (align != null)
+			{
+				list.add(align);
+			}
 		}
 
 		// BioSet
@@ -10237,5 +10237,18 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public boolean hasControl(String string)
 	{
 		return controller.get(ObjectKey.getKeyFor(String.class, '*' + string)) != null;
+	}
+
+	/**
+	 * Directly solves the given NEPFormula in context to this PlayerCharacter.
+	 * 
+	 * @param formula
+	 *            The NEPFormula to be solved
+	 * @return The result of solving the given NEPFormula in context to this
+	 *         PlayerCharacter
+	 */
+	public <T> T solve(NEPFormula<T> formula)
+	{
+		return solverManagerFacet.get(id).solve(formula);
 	}
 }

@@ -21,8 +21,6 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
 import pcgen.core.kit.KitSpells;
 import pcgen.core.spell.Spell;
@@ -30,6 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 {
@@ -136,10 +135,8 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "EnhancedFeat");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "EnhancedFeat");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		constructCategorized(primaryContext, BuildUtilities.getFeatCat(), "EnhancedFeat");
+		constructCategorized(secondaryContext, BuildUtilities.getFeatCat(), "EnhancedFeat");
 		runRoundRobin("SPELLBOOK=Personal|CLASS=Wizard|Fireball[EnhancedFeat]=2");
 	}
 

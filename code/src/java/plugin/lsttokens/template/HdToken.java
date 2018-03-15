@@ -44,11 +44,6 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		CDOMPrimaryToken<PCTemplate>
 {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -90,7 +85,7 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 				if (plusLoc == 0)
 				{
 					return new ParseResult.Fail("Malformed " + getTokenName()
-						+ " Cannot start with +: " + hdString, context);
+						+ " Cannot start with +: " + hdString);
 				}
 				else if (plusLoc == hdString.length() - 1)
 				{
@@ -112,27 +107,27 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 			if (maxhd < minhd)
 			{
 				return new ParseResult.Fail("Malformed " + getTokenName()
-						+ " Token (Max < Min): " + hdString, context);
+						+ " Token (Max < Min): " + hdString);
 			}
 		}
 		catch (NumberFormatException ex)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (HD syntax invalid): " + hdString, context);
+					+ " Token (HD syntax invalid): " + hdString);
 		}
 
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has one): "
-					+ value, context);
+					+ value);
 		}
 		String typeStr = tok.nextToken();
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has two): "
-					+ value, context);
+					+ value);
 		}
 		String argument = tok.nextToken();
 		PCTemplate derivative = new PCTemplate();
@@ -151,7 +146,7 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getMessage(), context);
+			return new ParseResult.Fail(e.getMessage());
 		}
 		return ParseResult.INTERNAL_ERROR;
 	}

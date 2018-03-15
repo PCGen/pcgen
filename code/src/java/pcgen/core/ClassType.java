@@ -17,15 +17,26 @@
  */
 package pcgen.core;
 
+import java.net.URI;
+
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.Loadable;
 
 
 /**
  * {@code Campaign}.
  * A simple structure.
  */
-public final class ClassType implements Cloneable
+public final class ClassType implements Cloneable, Loadable
 {
+	/**
+	 * The source URI of this RollMethod.
+	 */
+	private URI sourceURI;
+
+	/**
+	 * The name of this ClassType.
+	 */
 	private String theName = "";
 	private String crFormula = "";
 	private String crMod = "";
@@ -46,6 +57,7 @@ public final class ClassType implements Cloneable
      * Set the name of the class type.
      * @param aName
      */
+	@Override
 	public void setName( final String aName )
 	{
 		theName = aName;
@@ -55,7 +67,7 @@ public final class ClassType implements Cloneable
 	 * Set the CR Formula.
 	 * @param crFormula
 	 */
-	void setCRFormula(final String crFormula)
+	public void setCRFormula(final String crFormula)
 	{
 		this.crFormula = crFormula;
 	}
@@ -73,7 +85,7 @@ public final class ClassType implements Cloneable
 	 * Set the CR Mod.
 	 * @param crMod
 	 */
-	void setCRMod(final String crMod)
+	public void setCRMod(final String crMod)
 	{
 		this.crMod = crMod;
 	}
@@ -152,5 +164,42 @@ public final class ClassType implements Cloneable
 		{
 			throw new UnreachableError(e);
 		}
+	}
+
+
+	@Override
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	@Override
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	@Override
+	public String getDisplayName()
+	{
+		return theName;
+	}
+
+	@Override
+	public String getKeyName()
+	{
+		return getDisplayName();
+	}
+
+	@Override
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isType(String type)
+	{
+		return false;
 	}
 }

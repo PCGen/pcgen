@@ -22,9 +22,11 @@
 package pcgen.io.exporttoken;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.util.SortKeyComparator;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -90,6 +92,7 @@ public class StatToken extends Token
 			return "";
 		}
 		List<PCStat> statList = new ArrayList<>(pc.getDisplay().getStatSet());
+		Collections.sort(statList, SortKeyComparator.getInstance());
 		PCStat stat = statList.get(indexOfStat);
 
 		String findType = "STAT";

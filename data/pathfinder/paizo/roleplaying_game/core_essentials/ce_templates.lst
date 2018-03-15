@@ -851,16 +851,6 @@ REACH_10		REACH:10	VISIBLE:NO
 REACH_15		REACH:15	VISIBLE:NO
 REACH_20		REACH:20	VISIBLE:NO
 REACH_30		REACH:30	VISIBLE:NO
-###Block:
-# Template Name		Size				Face/Space	Visible
-FACE_0							FACE:0	VISIBLE:NO
-FACE_1							FACE:1	VISIBLE:NO
-FACE_2							FACE:2.5	VISIBLE:NO
-FACE_5							FACE:5	VISIBLE:NO
-FACE_10							FACE:10	VISIBLE:NO
-FACE_15							FACE:15	VISIBLE:NO
-FACE_20							FACE:20	VISIBLE:NO
-FACE_30							FACE:30	VISIBLE:NO
 # This is having Issues in PF.
 Dragon Size Tracker	SIZE:DragonSizeTracker			VISIBLE:NO
 #ABILITY:Internal|AUTOMATIC|Dragon (Tiny)|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Dragon (Small)|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Dragon (Medium)|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Dragon (Large)|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Dragon (Huge)|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Dragon (Gargantuan)|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Dragon (Colossal)|PRESIZEEQ:C
@@ -929,19 +919,19 @@ Dragon Attacks HD (8)	HD:8-9:TEMPLATE:Dragon Attacks (Small)	HD:10-11:TEMPLATE:D
 
 ###Block: Dragon Size templates
 # Template Name			Face/Space	Reach		Visible	Natural Attacks
-Dragon (Tiny)			FACE:2.5	REACH:0
+Dragon (Tiny)					REACH:0
 #BONUS:WEAPONPROF=Bite|REACH|5		VISIBLE:YES	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3			BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,100	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
-Dragon (Small)			FACE:5	REACH:5
+Dragon (Small)					REACH:5
 #VISIBLE:YES	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3			BONUS:VAR|BreathWeaponCone|20	BONUS:VAR|BreathWeaponLine|40															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,150	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
-Dragon (Medium)			FACE:5	REACH:5
+Dragon (Medium)					REACH:5
 #VISIBLE:YES	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3			BONUS:VAR|BreathWeaponCone|30	BONUS:VAR|BreathWeaponLine|60															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,150	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d4
-Dragon (Large)			FACE:10	REACH:5
+Dragon (Large)					REACH:5
 #BONUS:WEAPONPROF=Bite|REACH|5		VISIBLE:YES	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|2			BONUS:VAR|BreathWeaponCone|40	BONUS:VAR|BreathWeaponLine|80															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,200	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d6|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
-Dragon (Huge)			FACE:15	REACH:10
+Dragon (Huge)					REACH:10
 #BONUS:WEAPONPROF=Bite|REACH|5		VISIBLE:YES	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|2			BONUS:VAR|BreathWeaponCone|50	BONUS:VAR|BreathWeaponLine|100	BONUS:VAR|CrushDie|8						BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|Flight Maneuverability					MOVE:Fly,200	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d8|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
-Dragon (Gargantuan)		FACE:20	REACH:15
+Dragon (Gargantuan)				REACH:15
 #BONUS:WEAPONPROF=Bite|REACH|5		VISIBLE:YES	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|1			BONUS:VAR|BreathWeaponCone|60	BONUS:VAR|BreathWeaponLine|120	BONUS:VAR|CrushDie|6		BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|Flight Maneuverability|Tail Sweep ~ Dragon	MOVE:Fly,250	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,2d6|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8
-Dragon (Colossal)			FACE:30	REACH:20
+Dragon (Colossal)					REACH:20
 #BONUS:WEAPONPROF=Bite|REACH|10	VISIBLE:YES	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|1			BONUS:VAR|BreathWeaponCone|70	BONUS:VAR|BreathWeaponLine|140	BONUS:VAR|CrushDie|8		BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|Flight Maneuverability|Tail Sweep ~ Dragon	MOVE:Fly,250	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,2d8|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
 
 
@@ -1026,11 +1016,11 @@ Plant				VISIBLE:NO																																																													
 # Template Name	Visible	Race Subtype		Type
 Air			VISIBLE:NO
 Angel			VISIBLE:NO
-Aquatic		VISIBLE:NO
+Aquatic		VISIBLE:NO	RACESUBTYPE:Aquatic	ABILITY:Class Skill|AUTOMATIC|Swim
 Archon		VISIBLE:NO
 Azata			VISIBLE:NO
 Chaotic		VISIBLE:NO
-Cold			VISIBLE:NO
+Cold			VISIBLE:NO	RACESUBTYPE:Cold
 Demon			VISIBLE:NO
 Devil			VISIBLE:NO
 Dwarf			VISIBLE:NO	RACESUBTYPE:Dwarf		TYPE:Racial Heritage
@@ -1048,12 +1038,12 @@ Good			VISIBLE:NO
 Halfling		VISIBLE:NO	RACESUBTYPE:Halfling	TYPE:Racial Heritage
 Human			VISIBLE:NO	RACESUBTYPE:Human
 Lawful		VISIBLE:NO
-Native		VISIBLE:NO
+Native		VISIBLE:NO	RACESUBTYPE:Native
 Oni			VISIBLE:NO
 Orc			VISIBLE:NO	RACESUBTYPE:Orc		TYPE:Racial Heritage
 Reptilian		VISIBLE:NO
-Shapechanger	VISIBLE:NO
-Swarm			VISIBLE:NO
+Shapechanger	VISIBLE:NO	RACESUBTYPE:Shapechanger
+Swarm			VISIBLE:NO	MODIFY:FACE|SET|10,10|PRIORITY=200
 Water			VISIBLE:NO
 
 ###Block: Variable Type Traits

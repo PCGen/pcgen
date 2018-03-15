@@ -16,12 +16,13 @@
 package plugin.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -40,7 +41,7 @@ import pcgen.rules.context.AbstractReferenceContext;
  * This function requires 2 arguments: (1) The Format name (2) String representation of
  * the object
  */
-public class GetFunction implements Function
+public class GetFunction implements FormulaFunction
 {
 
 	@Override
@@ -92,9 +93,9 @@ public class GetFunction implements Function
 	{
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		String format = (String) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, null));
-		String stringRepresentation = (String) args[1].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, FormatUtilities.STRING_MANAGER));
+			manager.getWith(EvaluationManager.ASSERTED, Optional.empty()));
+		String stringRepresentation = (String) args[1].jjtAccept(visitor, manager.getWith(
+			EvaluationManager.ASSERTED, Optional.of(FormatUtilities.STRING_MANAGER)));
 		return manager.get(ManagerKey.CONTEXT).getReferenceContext()
 			.getFormatManager(format).convert(stringRepresentation);
 	}

@@ -21,12 +21,12 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>PreArmorTypeTest</code> tests that the PREARMORTYPE tag is
@@ -133,11 +133,11 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final Ability mediumProf =
-				TestHelper.makeAbility("Armor Proficiency (Medium)", AbilityCategory.FEAT,
+				TestHelper.makeAbility("Armor Proficiency (Medium)", BuildUtilities.getFeatCat(),
 					"General");
 		Globals.getContext().unconditionallyProcess(mediumProf, "AUTO",
 				"ARMORPROF|ARMORTYPE.Medium");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, mediumProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), mediumProf, null);
 
 		final Equipment chainmail = new Equipment();
 		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));

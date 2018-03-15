@@ -32,18 +32,12 @@ public class PreLevelWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
-	 */
     @Override
 	public String kindHandled()
 	{
 		return "level";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
-	 */
     @Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
@@ -51,9 +45,6 @@ public class PreLevelWriter extends AbstractPrerequisiteWriter implements
 				PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,PrerequisiteOperator.GT};
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
-	 */
     @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException
@@ -91,9 +82,7 @@ public class PreLevelWriter extends AbstractPrerequisiteWriter implements
 			throw new PersistenceLayerException(e.getMessage());
 		}
 	}
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
-	 */
+
 	@Override
 	public boolean specialCase(Writer writer, Prerequisite prereq)
 		throws IOException

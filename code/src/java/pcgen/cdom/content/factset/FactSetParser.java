@@ -95,8 +95,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 					return new ParseResult.Fail("Non-sensical situation was "
 						+ "encountered while parsing " + getParentToken()
 						+ Constants.PIPE + getTokenName()
-						+ ": When used, .CLEARALL must be the first argument",
-						context);
+						+ ": When used, .CLEARALL must be the first argument");
 				}
 				objContext.removeSet(obj, fsk);
 			}

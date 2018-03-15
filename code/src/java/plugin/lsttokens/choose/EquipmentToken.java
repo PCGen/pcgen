@@ -69,4 +69,10 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(EQUIPMENT_CLASS), obj, value);
 	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "EQUIPMENT";
+	}
 }

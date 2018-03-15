@@ -55,13 +55,13 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (obj instanceof NonInteractive)
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Non-Interactive object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
@@ -122,7 +122,7 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 			else
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " requires a SubToken and argument, found: " + value, context);
+						+ " requires a SubToken and argument, found: " + value);
 			}
 			context.getObjectContext().removeList(obj, ListKey.ADD);
 			return ParseResult.SUCCESS;

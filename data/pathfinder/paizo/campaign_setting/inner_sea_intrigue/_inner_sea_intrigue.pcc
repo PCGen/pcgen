@@ -33,6 +33,7 @@ ABILITY:isi_abilities_companion.lst
 ABILITY:isi_abilities_race_companion.lst
 ABILITYCATEGORY:isi_abilitycategories.lst
 CLASS:isi_classes.lst
+COMPANIONMOD:isi_companionmods.lst
 EQUIPMENT:isi_equip_general.lst
 EQUIPMENT:isi_equip_magic_items.lst
 EQUIPMOD:isi_equipmods.lst

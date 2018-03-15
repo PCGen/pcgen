@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,6 +19,7 @@ package pcgen.cdom.reference;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
@@ -57,8 +58,8 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 */
 	public CDOMDirectSingleRef(T item)
 	{
-		super((Class<T>) item.getClass(), item.getKeyName());
-		referencedObject = item;
+		super(item.getKeyName());
+		referencedObject = Objects.requireNonNull(item);
 	}
 
 	/**
@@ -221,5 +222,24 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	public String getChoice()
 	{
 		return choice;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return (Class<T>) referencedObject.getClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return getReferenceClass().getSimpleName() + " " + getName();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return referencedObject.getClassIdentity().getPersistentFormat();
 	}
 }

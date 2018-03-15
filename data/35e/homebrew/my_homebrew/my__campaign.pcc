@@ -19,6 +19,9 @@ ISOGL:NO
 COPYRIGHT:My Campaign, Copyright 2005 by me
 
 #INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
 
 ABILITY:my_abilities.lst
 ABILITYCATEGORY:my_ability_categories.lst

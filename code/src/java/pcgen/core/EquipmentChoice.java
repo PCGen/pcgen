@@ -338,8 +338,7 @@ public final class EquipmentChoice
 	{
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		AbilityCategory cat = ref.silentlyGetConstructedCDOMObject(AbilityCategory.class, aCategory);
-		for (Ability anAbility : ref.getManufacturer(
-				Ability.class, cat).getAllObjects())
+		for (Ability anAbility : ref.getManufacturerId(cat).getAllObjects())
 		{
 			boolean matchesType = (
 					typeString.equalsIgnoreCase("ALL") ||

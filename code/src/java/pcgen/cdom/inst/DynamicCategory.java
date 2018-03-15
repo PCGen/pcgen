@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2016-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,13 +17,33 @@
  */
 package pcgen.cdom.inst;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.LegalScope;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.helper.SpringHelper;
 
+/**
+ * A DynamicCategory is a method for keeping different Formats of Dynamic objects
+ * separated.
+ * 
+ * For example, when Movement and Vision are defined as DYNAMIC objects, we need a method
+ * of keeping those separated when someone tries to look up a certain object (e.g. "Fly").
+ * Since those objects share a class upon construction (Dynamic.class), it can't be done
+ * like a Skill or Language, we need to have a more complicated method like what we use
+ * with Abilities. We thus use a higher level of separation - which is a Category.
+ * Therefore, all Dynamic objects are categorized, that category name is defined by the
+ * DYNAMICSCOPE (which in effect triggers the construction of the DynamicCategory for a
+ * certain type of Dynamic).
+ * 
+ * This is a simple, non-hierarchical Category.
+ */
 public final class DynamicCategory extends AbstractCategory<Dynamic> implements
 		LegalScope
 {
+	private final Optional<LegalScope> parentScope =
+			Optional.of(SpringHelper.getBean(GlobalScope.class));
+
 	@Override
 	public Class<Dynamic> getReferenceClass()
 	{
@@ -33,24 +53,26 @@ public final class DynamicCategory extends AbstractCategory<Dynamic> implements
 	@Override
 	public String getReferenceDescription()
 	{
-		return "Dynamic Category " + getKeyName();
+		return getKeyName() + " (Dynamic)";
 	}
 
 	@Override
-	public String getName()
+	public Optional<LegalScope> getParentScope()
 	{
-		return getDisplayName();
-	}
-
-	@Override
-	public LegalScope getParentScope()
-	{
-		return SpringHelper.getBean(GlobalScope.class);
+		return parentScope;
 	}
 
 	@Override
 	public Dynamic newInstance()
 	{
-		return new Dynamic();
+		Dynamic instance = new Dynamic();
+		instance.setCDOMCategory(this);
+		return instance;
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return getKeyName().toUpperCase();
 	}
 }

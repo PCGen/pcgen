@@ -143,7 +143,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 			  <td colspan="1" class="h">${pcstring('RACE')}</td>
 		</#if>
 
-  <td class="h">${pcstring('SIZELONG')} / ${pcstring('FACE')}</td>
+  <td class="h">${pcstring('SIZELONG')} / ${pcstring('FACE.SHORT')}</td>
   <td class="h">${pcstring('HEIGHT')}</td>
   <td class="h">${pcstring('WEIGHT')}</td>
 <#if (pcvar("COUNT[VISION]") > 0) >

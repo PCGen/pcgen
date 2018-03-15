@@ -33,7 +33,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Vision;
 import pcgen.core.prereq.Prerequisite;
@@ -54,9 +53,6 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -77,7 +73,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		String visionString = aTok.nextToken();
@@ -85,7 +81,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot have only PRExxx subtoken in " + getTokenName()
-							+ ": " + value, context);
+							+ ": " + value);
 		}
 
 		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<>();
@@ -107,7 +103,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					Vision vis = Vision.getVision(visionString.substring(7));
 					context.getListContext().removeFromList(getTokenName(),
 							obj, Vision.VISIONLIST,
-							new CDOMDirectSingleRef<>(vis));
+							context.getReferenceContext().getCDOMDirectReference(vis));
 				}
 				catch (IllegalArgumentException e)
 				{
@@ -129,9 +125,9 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				try
 				{
 					Vision vision = Vision.getVision(visionString);
-					AssociatedPrereqObject edge = context.getListContext()
-							.addToList(getTokenName(), obj, Vision.VISIONLIST,
-									new CDOMDirectSingleRef<>(vision));
+					AssociatedPrereqObject edge = context.getListContext().addToList(
+						getTokenName(), obj, Vision.VISIONLIST,
+						context.getReferenceContext().getCDOMDirectReference(vision));
 					edgeList.add(edge);
 				}
 				catch (IllegalArgumentException e)
@@ -154,7 +150,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
-							+ getTokenName(), context);
+							+ getTokenName());
 		}
 
 		while (true)
@@ -164,7 +160,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				return new ParseResult.Fail(
 						"   (Did you put vision after the " + "PRExxx tags in "
-								+ getTokenName() + ":?)", context);
+								+ getTokenName() + ":?)");
 			}
 			for (AssociatedPrereqObject edge : edgeList)
 			{

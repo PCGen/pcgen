@@ -42,7 +42,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
@@ -73,7 +72,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<DeityFacade> deities;
 	private final DefaultListFacade<SkillFacade> skills;
 	private final DefaultListFacade<TemplateFacade> templates;
-	private final DefaultListFacade<AlignmentFacade> alignments;
+	private final DefaultListFacade<PCAlignment> alignments;
 	private final DefaultListFacade<KitFacade> kits;
 	private final DefaultListFacade<StatFacade> stats;
 	private final AbilityMap abilityMap;
@@ -158,11 +157,13 @@ public class DataSet implements DataSetFacade
 		{
 			kits.addElement(kit);
 		}
-		for (PCAlignment alignment : context.getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class))
+		for (PCAlignment alignment : context.getReferenceContext()
+			.getSortkeySortedCDOMObjects(PCAlignment.class))
 		{
 			alignments.addElement(alignment);
 		}
-		for (PCStat stat : context.getReferenceContext().getOrderSortedCDOMObjects(PCStat.class))
+		for (PCStat stat : context.getReferenceContext()
+			.getSortkeySortedCDOMObjects(PCStat.class))
 		{
 			stats.addElement(stat);
 		}
@@ -176,10 +177,8 @@ public class DataSet implements DataSetFacade
 			if (category.isVisibleTo(View.VISIBLE_DISPLAY))
 			{
 //				categories.addElement(category);
-				List<Ability> abList =
-                        new ArrayList<>(Globals.getContext().getReferenceContext()
-                                .getManufacturer(Ability.class, category)
-                                .getAllObjects());
+				List<Ability> abList = new ArrayList<>(Globals.getContext()
+					.getReferenceContext().getManufacturerId(category).getAllObjects());
 				Globals.sortPObjectListByName(abList);
 				DefaultListFacade<AbilityFacade> abilityList =
                         new DefaultListFacade<>(abList);
@@ -329,10 +328,8 @@ public class DataSet implements DataSetFacade
 			|| "ABILITY" == prereq.getKind()
 			|| "ABILITY".equalsIgnoreCase(prereq.getKind()))
 		{
-			Ability ability =
-					Globals.getContext().getReferenceContext()
-						.getManufacturer(Ability.class, cat).getObject(
-							prereq.getKey());
+			Ability ability = Globals.getContext().getReferenceContext()
+				.getManufacturerId(cat).getObject(prereq.getKey());
 			if (ability != null)
 			{
 				prereqList.add(ability);
@@ -390,7 +387,7 @@ public class DataSet implements DataSetFacade
 	}
 
     @Override
-	public ListFacade<AlignmentFacade> getAlignments()
+	public ListFacade<PCAlignment> getAlignments()
 	{
 		return alignments;
 	}
@@ -482,9 +479,6 @@ public class DataSet implements DataSetFacade
 	class RaceComparator implements Comparator<Race>
 	{
 
-		/* (non-Javadoc)
-		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
-		 */
         @Override
 		public int compare(Race r1, Race r2)
 		{
@@ -497,14 +491,13 @@ public class DataSet implements DataSetFacade
 			    return EQUAL;
 		    }
 
-		    final String NONE_SELECTED = "<none selected>";
-			if (r1.getKeyName().equals(NONE_SELECTED)
-				&& !r2.getKeyName().equals(NONE_SELECTED))
+		    boolean unselected1 = r1.isUnselected();
+		    boolean unselected2 = r2.isUnselected();
+			if (unselected1 && !unselected2)
 			{
 				return BEFORE;
 			}
-			if (!r1.getKeyName().equals(NONE_SELECTED)
-				&& r2.getKeyName().equals(NONE_SELECTED))
+			if (!unselected1 && unselected2)
 			{
 				return AFTER;
 			}

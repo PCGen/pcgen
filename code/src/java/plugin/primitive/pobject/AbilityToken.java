@@ -76,8 +76,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 		Category<Ability> cat = context.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, value);
 		category = cat;
-		ref = context.getReferenceContext().getCDOMReference(Ability.class, cat,
-				args);
+		ref = context.getReferenceContext().getManufacturerId(cat).getReference(args);
 		refClass = cl;
 		return true;
 	}

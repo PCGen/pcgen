@@ -17,10 +17,12 @@
  */
 package pcgen.output.channel;
 
+import java.util.Objects;
+
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ScopeFacet;
@@ -99,6 +101,48 @@ public final class ChannelUtilities
 	}
 
 	/**
+	 * Reads a Global Channel with the given Channel name.
+	 * 
+	 * @param id
+	 *            The CharID representing the PC on which the channel should be read
+	 * @param channelName
+	 *            The name of the channel to be read
+	 * @return The value of the channel with the given name on the PC represented by the
+	 *         given CharID
+	 */
+	public static Object readGlobalChannel(CharID id, String channelName)
+	{
+		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
+		VariableID<?> varID = VARLIB_FACET.getVariableID(id.getDatasetID(),
+			globalInstance, createVarName(channelName));
+		return RESULT_FACET.getValue(id, varID);
+	}
+
+	/**
+	 * Sets the value of a Global Channel with the given Channel name.
+	 * 
+	 * @param id
+	 *            The CharID representing the PC on which the channel should be set
+	 * @param channelName
+	 *            The name of the channel to be set
+	 * @param value
+	 *            The value to which the channel should be set, for the channel with the
+	 *            given name on the PC represented by the given CharID
+	 */
+	public static void setGlobalChannel(CharID id, String channelName, Object value)
+	{
+		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
+		VariableID<?> varID = VARLIB_FACET.getVariableID(id.getDatasetID(),
+			globalInstance, createVarName(channelName));
+		processSet(id, varID, value);
+	}
+
+	private static <T> void processSet(CharID id, VariableID<T> varID, Object value)
+	{
+		RESULT_FACET.get(id).put(varID, (T) value);
+	}
+
+	/**
 	 * Creates a channel variable Name from the given channel name.
 	 * 
 	 * @param channelName
@@ -107,7 +151,7 @@ public final class ChannelUtilities
 	 */
 	public static String createVarName(String channelName)
 	{
-		return "CHANNEL*" + channelName;
+		return "CHANNEL*" + Objects.requireNonNull(channelName);
 	}
 
 }

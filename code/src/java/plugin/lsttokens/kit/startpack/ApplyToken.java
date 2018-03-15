@@ -62,7 +62,7 @@ public class ApplyToken extends AbstractNonEmptyToken<Kit> implements
 		catch (IllegalArgumentException e)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " encountered unexpected application type: " + value, context);
+					+ " encountered unexpected application type: " + value);
 		}
 	}
 

@@ -44,9 +44,6 @@ import pcgen.util.Logging;
  */
 public class PortraitToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -54,9 +51,6 @@ public class PortraitToken extends AbstractExportToken
 	}
 
 	//TODO: Move this to a token that has all of the descriptive stuff about a character
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)

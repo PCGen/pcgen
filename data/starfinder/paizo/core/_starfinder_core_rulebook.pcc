@@ -1,6 +1,6 @@
 CAMPAIGN:Starfinder Core Rulebook
 KEY:Starfinder Core Rulebook
-RANK:1
+RANK:0
 BOOKTYPE:Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Starfinder Core Rulebook]
 GAMEMODE:Starfinder
@@ -13,7 +13,7 @@ PUBNAMELONG:Paizo
 PUBNAMESHORT:PZO
 PUBNAMEWEB:http://www.paizo.com
 COPYRIGHT:Copyright 2017, Paizo, Inc.
-
+#COMMENT: CORE BOOK
 
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -30,6 +30,9 @@ COVER:*/_images/starfinder/PZO7101E_cover.png
 LOGO:*/_images/logo/Paizo_Publishing.png
 
 INFOTEXT:Starfinder Core Rulebook
+
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
 
 
 ALIGNMENT:scr__align.lst

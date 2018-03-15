@@ -38,7 +38,6 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
@@ -58,6 +57,7 @@ import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>WeaponTokenTest</code> contains tests to verify that the
@@ -386,7 +386,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(wpnBonusPct, "BONUS",
 				"WEAPONPROF=DoubleWpn|TOHIT|4");
 		
-		wpnBonusAbility = TestHelper.makeAbility("FEAT_BONUS", AbilityCategory.FEAT, "General");
+		wpnBonusAbility = TestHelper.makeAbility("FEAT_BONUS", BuildUtilities.getFeatCat(), "General");
 		context.unconditionallyProcess(wpnBonusAbility, "BONUS",
 				"WEAPONPROF=DoubleWpn|DAMAGE|1");
 		context.unconditionallyProcess(wpnBonusAbility, "BONUS",
@@ -713,13 +713,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		// Now apply weapon finess and check dex is used rather than str
 		Ability wpnFinesse = new Ability();
 		wpnFinesse.setName("Weapon Finesse");
-		wpnFinesse.setCDOMCategory(AbilityCategory.FEAT);
+		wpnFinesse.setCDOMCategory(BuildUtilities.getFeatCat());
 		wpnFinesse.put(StringKey.KEY_NAME, "Weapon Finesse");
 		final BonusObj wfBonus =
 				Bonus
 					.newBonus(context, "COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
 		wpnFinesse.addToListFor(ListKey.BONUS, wfBonus);
-		addAbility(AbilityCategory.FEAT, wpnFinesse);
+		addAbility(BuildUtilities.getFeatCat(), wpnFinesse);
 		assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
 
@@ -899,7 +899,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertEquals("feat damage bonus, before adding", "+0",
 			token.getToken("WEAPON.0.FEATDAMAGE", character, null));
 		
-		addAbility(AbilityCategory.FEAT, wpnBonusAbility);
+		addAbility(BuildUtilities.getFeatCat(), wpnBonusAbility);
 		character.calcActiveBonuses();
 		assertEquals("feat tohit bonus, after adding", "+2",
 			token.getToken("WEAPON.0.FEATHIT", character, null));

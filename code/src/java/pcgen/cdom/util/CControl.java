@@ -1,12 +1,27 @@
+/*
+ * Copyright 2016-18 (C) Tom Parker <thpr@sourceforge.net>
+ * 
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
+ */
 package pcgen.cdom.util;
 
+import java.util.Objects;
+
+/**
+ * Code Controls
+ */
 public final class CControl
 {
-	
-	private CControl()
-	{
-		//Do not instantiate Utility class
-	}
 
 	public static final String CRITMULT = "CRITMULT";
 
@@ -60,4 +75,37 @@ public final class CControl
 	public static final String STATMODSAVE = "STATMODSAVE";
 	public static final String RACESAVE = "RACESAVE";
 
+	public static final CControl ALIGNMENTINPUT =
+			new CControl("ALIGNMENTINPUT", "Alignment");
+
+	/**
+	 * The name of a code control that contains a default value. This is used when a Code
+	 * Control is already used internally and is overridden by data (rather than just
+	 * being an on/off switch for data)
+	 */
+	private final String name;
+	
+	/**
+	 * The default value (the internal variable name used)
+	 */
+	private final String defaultValue;
+
+	/**
+	 * Constructs a new CControl with the given name and default variable name
+	 */
+	private CControl(String name, String defaultValue)
+	{
+		this.name = Objects.requireNonNull(name);
+		this.defaultValue = Objects.requireNonNull(defaultValue);
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public String getDefaultValue()
+	{
+		return defaultValue;
+	}
 }

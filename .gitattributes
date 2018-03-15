@@ -26,9 +26,10 @@
 *.gradle        text=auto
 
 # This is a Linux specific file type, and since the release is on a Windows Machine, the EOL must remain unchanged.
-pcgen.sh        eol=lf
-*.sh            eol=lf
-pcgen.bat	eol=crlf
+pcgen.sh        text eol=lf
+*.sh            text eol=lf
+pcgen.bat	text eol=crlf
+gradlew.bat     text eol=crlf
 
 # These files are binary and should be left untouched
 # (binary is a macro for -text -diff)

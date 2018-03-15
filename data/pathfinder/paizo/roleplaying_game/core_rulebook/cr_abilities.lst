@@ -289,7 +289,7 @@ CATEGORY=Internal|Default.MOD																																																			
 
 ###Block: Abilities
 # Ability Name	Category of Ability		Type								Visible
-Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
+Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:NO
 
 ###Block: Specials
 # Ability Name	Category of Ability		Type				Visible	Define			Description																																																	Combat bonus				Bonus to HP					Save bonus							Bonus to skill															Source Page
@@ -404,9 +404,9 @@ Add Language		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQual
 
 
 ###Block: House Rules / Homebrew Support
-# Ability Name					Category of Ability	Type				Define					Description																Modify VAR							Cost
-Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0	DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule	COST:0
-
+# Ability Name					Category of Ability	Type				Define						Description																Modify VAR								Cost
+Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0		DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule		COST:0
+Rule - Using Weapons with Natural Attacks	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:UseWeaponsWithNaturalAttacks|0	DESC:This changes the Natural Primary attacks to Secondary while using weapons.				BONUS:VAR|UseWeaponsWithNaturalAttacks|1|TYPE=Rule	COST:0
 
 
 ###Block: Ioun Stone Support
@@ -468,16 +468,16 @@ Handle Animal				CATEGORY:Class Skill	CSKILL:Handle Animal
 Heal						CATEGORY:Class Skill	CSKILL:Heal						
 Intimidate					CATEGORY:Class Skill	CSKILL:Intimidate					
 Knowledge					CATEGORY:Class Skill	CSKILL:TYPE=Knowledge				
-Knowledge (Arcana)			CATEGORY:Class Skill	CSKILL:Knowledge (Arcana)			
-Knowledge (Dungeoneering)		CATEGORY:Class Skill	CSKILL:Knowledge (Dungeoneering)		
-Knowledge (Engineering)			CATEGORY:Class Skill	CSKILL:Knowledge (Engineering)			
-Knowledge (Geography)			CATEGORY:Class Skill	CSKILL:Knowledge (Geography)			
-Knowledge (History)			CATEGORY:Class Skill	CSKILL:Knowledge (History)			
-Knowledge (Local)				CATEGORY:Class Skill	CSKILL:Knowledge (Local)				
-Knowledge (Nature)			CATEGORY:Class Skill	CSKILL:Knowledge (Nature)			
-Knowledge (Nobility)			CATEGORY:Class Skill	CSKILL:Knowledge (Nobility)			
-Knowledge (Planes)			CATEGORY:Class Skill	CSKILL:Knowledge (Planes)			
-Knowledge (Religion)			CATEGORY:Class Skill	CSKILL:Knowledge (Religion)			
+Knowledge (Arcana)			CATEGORY:Class Skill	CSKILL:Knowledge (Arcana)		TYPE:Knowledge	
+Knowledge (Dungeoneering)		CATEGORY:Class Skill	CSKILL:Knowledge (Dungeoneering)	TYPE:Knowledge	
+Knowledge (Engineering)			CATEGORY:Class Skill	CSKILL:Knowledge (Engineering)	TYPE:Knowledge		
+Knowledge (Geography)			CATEGORY:Class Skill	CSKILL:Knowledge (Geography)		TYPE:Knowledge	
+Knowledge (History)			CATEGORY:Class Skill	CSKILL:Knowledge (History)		TYPE:Knowledge	
+Knowledge (Local)				CATEGORY:Class Skill	CSKILL:Knowledge (Local)		TYPE:Knowledge		
+Knowledge (Nature)			CATEGORY:Class Skill	CSKILL:Knowledge (Nature)		TYPE:Knowledge	
+Knowledge (Nobility)			CATEGORY:Class Skill	CSKILL:Knowledge (Nobility)		TYPE:Knowledge	
+Knowledge (Planes)			CATEGORY:Class Skill	CSKILL:Knowledge (Planes)		TYPE:Knowledge	
+Knowledge (Religion)			CATEGORY:Class Skill	CSKILL:Knowledge (Religion)		TYPE:Knowledge	
 Knowledge (Untrained)			CATEGORY:Class Skill	CSKILL:Knowledge (Untrained)			
 Linguistics					CATEGORY:Class Skill	CSKILL:Linguistics					
 Perception					CATEGORY:Class Skill	CSKILL:Perception					

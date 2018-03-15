@@ -20,7 +20,6 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -34,8 +33,6 @@ import pcgen.util.Logging;
 public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 		CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
 {
-	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
-
 	@Override
 	public String getTokenName()
 	{
@@ -45,14 +42,9 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
-		final Category<Ability> cat = context.getReferenceContext()
-				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, value);
-		if (cat == null)
-		{
-			return new ParseResult.Fail("Cannot find Ability Category: " + value, context);
-		}
-		context.getReferenceContext().reassociateCategory(cat, ability);
-		return ParseResult.SUCCESS;
+		return new ParseResult.Fail(
+			"Should not encounter CATEGORY: under normal operation, found on "
+				+ ability.getKeyName());
 	}
 
 	@Override

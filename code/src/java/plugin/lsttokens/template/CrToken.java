@@ -51,7 +51,7 @@ public class CrToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Misunderstood Double in Tag: " + value, context);
+			return new ParseResult.Fail("Misunderstood Double in Tag: " + value);
 		}
 	}
 

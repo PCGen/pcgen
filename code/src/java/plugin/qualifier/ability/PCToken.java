@@ -22,9 +22,8 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.reference.CategorizedCreator;
-import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
@@ -33,17 +32,14 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 public class PCToken extends AbstractPCQualifierToken<Ability>
 {
-	private Category<Ability> category;
+	private ClassIdentity<Ability> identity;
 
 	@Override
 	public boolean initialize(LoadContext context,
 			SelectionCreator<Ability> sc, String condition, String value,
 			boolean negate)
 	{
-		ReferenceManufacturer<Ability> rm = (ReferenceManufacturer<Ability>) sc;
-		@SuppressWarnings("unchecked")
-		CategorizedCreator<Ability> fac = (CategorizedCreator<Ability>) rm.getFactory();
-		category = fac.getCategory();
+		identity = sc.getReferenceIdentity();
 		return super.initialize(context, sc, condition, value, negate);
 	}
 
@@ -51,7 +47,7 @@ public class PCToken extends AbstractPCQualifierToken<Ability>
 	protected Collection<Ability> getPossessed(PlayerCharacter pc)
 	{
 		HashSet<Ability> hs = new HashSet<>();
-		for (CNAbility cna : pc.getCNAbilities(category))
+		for (CNAbility cna : pc.getCNAbilities((Category<Ability>) identity))
 		{
 			hs.add(cna.getAbility());
 		}

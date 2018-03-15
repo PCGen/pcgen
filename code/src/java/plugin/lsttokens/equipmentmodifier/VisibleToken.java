@@ -35,9 +35,6 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -63,7 +60,7 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		}
 		else
 		{
-			return new ParseResult.Fail("Can't understand Visibility: " + value, context);
+			return new ParseResult.Fail("Can't understand Visibility: " + value);
 		}
 		context.getObjectContext().put(eqm, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;
