@@ -868,6 +868,8 @@ CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalents|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_MasterStrike|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_ClassSkills|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_WeaponProficiencies|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_ArmorProficiencies|0
 
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense1|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense2|0
@@ -937,6 +939,8 @@ CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalents|1|TYPE=Boolean|P
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense=True
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_MasterStrike=True
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_ClassSkills=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_WeaponProficiencies=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_ArmorProficiencies=True
 # Old Style
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_UncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueImprovedUncannyDodge
