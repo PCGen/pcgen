@@ -13,16 +13,6 @@ DYNAMICSCOPE:VISION
 
 
 
-
-
-
-
-
-
-
-
-
-
 FACTDEF:RACE|BaseSize	DATAFORMAT:SIZEADJUSTMENT	VISIBLE:YES	REQUIRED:NO	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
 
 

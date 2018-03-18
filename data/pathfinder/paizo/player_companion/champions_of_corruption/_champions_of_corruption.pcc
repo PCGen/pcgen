@@ -44,6 +44,7 @@ EQUIPMENT:coc_equip_general.lst
 SPELL:coc_spells.lst
 
 DEITY:support/_deities_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+DEITY:support/_deities_deg.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
 
 # ENTRY DATE: 2016-04-08
 # LST MONKEY: Gwen T.
