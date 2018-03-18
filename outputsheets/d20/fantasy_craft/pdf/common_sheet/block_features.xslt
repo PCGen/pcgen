@@ -21,7 +21,7 @@
 		<xsl:if test="count(ability) &gt; 0">
 			<xsl:call-template name="stripped.list">
 				<xsl:with-param name="attribute" select="'special_abilities'" />
-				<xsl:with-param name="title" select="'SPECIAL ABILITIES'" />
+				<xsl:with-param name="title" select="'Special Abilities'" />
 				<xsl:with-param name="list" select="ability" />
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="''"/>
@@ -57,6 +57,40 @@
 				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Special Qualities'" />
 				<xsl:with-param name="list" select="special_quality"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Racial Traits
+====================================
+====================================-->
+	<xsl:template match="racial_traits">
+		<xsl:if test="count(racial_trait) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'racial_traits'" />
+				<xsl:with-param name="title" select="'Racial Trait'" />
+				<xsl:with-param name="list" select="racial_trait"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - CLASS FEATURES
+====================================
+====================================-->
+	<xsl:template match="class_features">
+		<xsl:if test="count(class_feature) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'class_features'" />
+				<xsl:with-param name="title" select="'Class Features'" />
+				<xsl:with-param name="list" select="class_feature"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
@@ -161,7 +195,7 @@
 		<xsl:if test="count(disadvantage) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'disadvantages'"/>
-				<xsl:with-param name="title" select="'DISADVANTAGES'"/>
+				<xsl:with-param name="title" select="'Disadvantages'"/>
 				<xsl:with-param name="list" select="disadvantage"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -177,7 +211,7 @@
 	<xsl:template match="martial_arts">
 		<xsl:if test="count(martial_art) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'martial_arts'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Martial Arts'"/>
 				<xsl:with-param name="list" select="martial_art"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -194,7 +228,7 @@
 	<xsl:template match="mystic_artists">
 		<xsl:if test="count(mystic_artist) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'mystic_artists'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Mystic Artist Abilities'"/>
 				<xsl:with-param name="list" select="mystic_artist"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -211,7 +245,7 @@
 	<xsl:template match="witchcrafts">
 		<xsl:if test="count(witchcraft) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'witchcrafts'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Witchcraft Abilities'"/>
 				<xsl:with-param name="list" select="witchcraft"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -314,7 +348,7 @@
 	<xsl:template match="eclipse_abilities">
 		<xsl:if test="count(eclipse_ability) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'eclipse_abilities'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Eclipse Abilities'" />
 				<xsl:with-param name="list" select="eclipse_ability"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -461,6 +495,24 @@
 		</xsl:if>
 	</xsl:template>
 
+	<!--
+====================================
+====================================
+	TEMPLATE - PRESTIGE AWARDS
+====================================
+====================================-->
+	<xsl:template match="prestige_awards">
+		<xsl:if test="count(prestige_award) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'prestige_awards'" />
+				<xsl:with-param name="title" select="'Prestige Awards'" />
+				<xsl:with-param name="list" select="prestige_award"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
 <!-- 4e Section -->
 
 <!--
@@ -473,7 +525,7 @@
 		<xsl:if test="count(power_classfeature) &gt; 0">
 			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_classfeatures'" />
-				<xsl:with-param name="title" select="'CLASSFEATURE POWERS'" />
+				<xsl:with-param name="title" select="'Class Feature Powers'" />
 				<xsl:with-param name="list" select="power_classfeature"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -501,7 +553,7 @@
 		<xsl:if test="count(power_featpower) &gt; 0">
 			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_featpowers'" />
-				<xsl:with-param name="title" select="'FEAT POWERS'" />
+				<xsl:with-param name="title" select="'Feat Powers'" />
 				<xsl:with-param name="list" select="power_featpower"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -606,7 +658,23 @@
 		</xsl:if>
 	</xsl:template>
 
-
+	<!--
+====================================
+====================================
+	TEMPLATE - Drawbacks
+====================================
+====================================-->
+	<xsl:template match="drawbacks">
+		<xsl:if test="count(drawback) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'drawbacks'" />
+				<xsl:with-param name="title" select="'Drawbacks'" />
+				<xsl:with-param name="list" select="drawback"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 
 	<!--
 ====================================
@@ -644,7 +712,40 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-
+	<!--
+====================================
+====================================
+	TEMPLATE - PFS CHRONICLES
+====================================
+====================================-->
+	<xsl:template match="pfs_chronicles">
+		<xsl:if test="count(pfs_chronicle) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'pfs_chronicles'" />
+				<xsl:with-param name="title" select="'PFS Chronicles'" />
+				<xsl:with-param name="list" select="pfs_chronicle"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - PFS BOONS
+====================================
+====================================-->
+	<xsl:template match="pfs_boons">
+		<xsl:if test="count(pfs_boon) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'pfs_boons'" />
+				<xsl:with-param name="title" select="'PFS Boons'" />
+				<xsl:with-param name="list" select="pfs_boon"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 <!--
 ====================================
 ====================================
@@ -654,12 +755,13 @@
 	<xsl:template match="racial_traits">
 	<xsl:for-each select="racial_traits">
 		<!-- BEGIN Use Per Day Ability table -->
-		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse" >
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" keep-together="always" border-collapse="collapse" >
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'checklist.border'"/></xsl:call-template>
 			<fo:table-column column-width="23mm"/>
 			<fo:table-column column-width="63mm"/>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'checklist'"/>
@@ -670,6 +772,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="1pt" text-align="end">
 							<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'checklist'"/>
@@ -688,6 +791,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test END</xsl:message>
 					<fo:table-cell padding="3pt" number-columns-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'checklist'"/>

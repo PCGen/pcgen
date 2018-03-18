@@ -30,7 +30,7 @@ task copySite(type: Copy) {
     outputs.upToDateWhen { false }
     from "${projectDir}/code/gradle/site"
     into "${destAutobuildDir}"
-    expand(copyright: '2017', version: version, timestamp: buildTimestamp,
+    expand(copyright: '2018', version: version, timestamp: buildTimestamp,
         simpleVersion: version.replaceAll('-SNAPSHOT', '').replaceAll(/\./, ''))
 }
 

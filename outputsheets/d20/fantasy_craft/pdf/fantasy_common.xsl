@@ -10,6 +10,7 @@
 	<xsl:import href="../../../xsltsl-1.1/stdlib.xsl"/>
   	<xsl:import href="inc_pagedimensions.xslt"/>
 
+	<xsl:variable name="PCGenFont">Noto Sans</xsl:variable>
 	<xsl:template match="spell" mode="spell.card">
 		<xsl:param name="break" select="'page'" />
 		<fo:block>
@@ -32,113 +33,6 @@
 
 		</fo:block>
 	</xsl:template>
-
-	<!--
-====================================
-====================================
-	TEMPLATE - Proficiency Check Box Style
-====================================
-====================================-->
-	<xsl:template match="proficiency_specials">
-	<!--	
-		&#x25A0;	< Checked Box >
-		&#x274F;	< Unchecked Box >
-		-->
-	
-		<!-- BEGIN proficiency Special -->
-		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse" >
-			<fo:table-column column-width="5mm"/> <!-- Symbol -->
-			<fo:table-column column-width="5mm"/> <!-- Space -->
-			<fo:table-column column-width="5mm"/> <!-- Symbol -->
-			<fo:table-column column-width="5mm"/> <!-- Space -->
-			<fo:table-column column-width="25mm"/> <!-- Name -->
-			<fo:table-body>
-			<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.border'"/>
-						</xsl:call-template>
-				<fo:table-row keep-with-next.within-column="always">
-					<xsl:call-template name="attrib">
-						<xsl:with-param name="attribute" select="'rage.title'"/>
-					</xsl:call-template>
-					<fo:table-cell padding="3pt" number-columns-spanned="2">
-						<fo:block font-size="5pt" font-weight="bold">
-							<xsl:text> Proficient </xsl:text>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell padding="3pt" number-columns-spanned="2">
-						<fo:block font-size="5pt" font-weight="bold">
-							<xsl:text> Forte </xsl:text>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell padding="3pt" number-columns-spanned="1">
-						<fo:block font-size="5pt" font-weight="bold">
-							<xsl:text> Proficiency </xsl:text>
-						</fo:block>
-					</fo:table-cell>
-				</fo:table-row>
-			<xsl:for-each select="proficiency">
-			
-				<fo:table-row keep-with-next.within-column="always">
-					<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-					<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.title'"/>
-						</xsl:call-template>
-						<fo:block font-size="10pt" font-family="ZapfDingbats">
-						<!--	<xsl:value-of select="proficient"/>-->
-							<xsl:choose>
-								<xsl:when test="proficient &gt; 0">
-									&#x25A0;
-								</xsl:when>
-								<xsl:otherwise>
-									&#x274F;
-								</xsl:otherwise>
-							</xsl:choose>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.title'"/>
-						</xsl:call-template>
-					</fo:table-cell>
-					<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.title'"/>
-						</xsl:call-template>
-				<!-->		<fo:block font-size="10pt" font-weight="bold" font-family="ZapfDingbats">-->
-						<!--	<xsl:value-of select="forte"/>-->
-							<xsl:choose>
-								<xsl:when test="proficient &gt; 1">
-									<fo:block font-size="10pt" font-family="ZapfDingbats">
-										<fo:inline font-family="ZapfDingbats" font-size="10pt" border="1pt black solid">&#x25A0;</fo:inline>
-									</fo:block>
-								</xsl:when>
-								<xsl:otherwise>
-									<fo:block font-size="10pt" font-family="ZapfDingbats">
-									<fo:inline font-family="ZapfDingbats" font-size="10pt" border="1pt black solid">&#x274F;</fo:inline>
-									</fo:block>
-								</xsl:otherwise>
-							</xsl:choose>
-						<!--</fo:block>-->
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.title'"/>
-						</xsl:call-template>
-					</fo:table-cell>
-					<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.title'"/>
-						</xsl:call-template>
-						<fo:block font-size="10pt" font-weight="bold">
-							<xsl:value-of select="name"/>
-						</fo:block>
-					</fo:table-cell>
-				</fo:table-row>
-			</xsl:for-each>
-			</fo:table-body>
-		</fo:table>
-		<!-- END Special Proficiency table -->
-</xsl:template>
 
 	<!--
 ====================================
@@ -271,7 +165,7 @@
 		<xsl:param name="title" />
 		<xsl:param name="value" />
 
-		<fo:table table-layout="fixed" space-before.optimum="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before.optimum="2mm">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
 			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 2" />mm</xsl:attribute>
@@ -312,7 +206,7 @@
 		<xsl:param name="col1width" select="0.36 * ($pagePrintableWidth - 2) div 2"/>
 		<xsl:param name="col2width" select="0.64 * ($pagePrintableWidth - 2) div 2"/>
 
-		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" border-collapse="collapse">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
 			    <xsl:attribute name="column-width"><xsl:value-of select="$col1width" />mm</xsl:attribute>
@@ -372,7 +266,7 @@
 		<xsl:param name="desc.tag" select="''" />
 		<xsl:param name="benefit.tag" select="''" />
 
-		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" border-collapse="collapse">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
 			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
@@ -398,7 +292,7 @@
 						</xsl:choose>
 					</xsl:variable>
 					<xsl:if test="string-length(./*[name()=$name.tag]) &gt; 1">
-						<fo:table-row keep-with-next.within-column="always">
+						<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
 							<xsl:choose>
 								<xsl:when test="source!=''">
@@ -420,7 +314,7 @@
 						</fo:table-row>
 
 						<xsl:if test="$desc.tag!=''">
-							<fo:table-row keep-with-next.within-column="always">
+							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
 								<fo:table-cell padding="1pt" number-columns-spanned="3">
 									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
@@ -433,7 +327,7 @@
 						</xsl:if>
 
 						<xsl:if test="$benefit.tag!=''">
-							<fo:table-row keep-with-next.within-column="always">
+							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
 								<fo:table-cell padding="1pt" number-columns-spanned="3">
 									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
@@ -474,7 +368,7 @@
 		<xsl:param name="effect.tag"  />
 		<xsl:param name="sustain.tag"  />
 
-		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" border-collapse="collapse">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
 			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 2" />mm</xsl:attribute>
@@ -622,7 +516,7 @@
 		<xsl:param name="appearance.tag"  />
 		<xsl:param name="worshippers.tag"  />
 
-		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" border-collapse="collapse">
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="concat($attribute, '.border')"/>
 			</xsl:call-template>
@@ -809,7 +703,7 @@
 			</xsl:call-template>
 			</subitems>
 		</xsl:variable>
-		<fo:table table-layout="fixed" space-before="2mm" >
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" >
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'equipment.border'"/></xsl:call-template>
 			<xsl:attribute name="text-align">left</xsl:attribute>
 			<fo:table-column><xsl:attribute name="column-width"><xsl:value-of select="$total_width - (12+16+20)"/>mm</xsl:attribute></fo:table-column>
@@ -892,7 +786,7 @@
 		<xsl:param name="depth" select="0"/>
 
 		<xsl:variable name="subitem">
-			<fo:table table-layout="fixed">
+			<fo:table table-layout="fixed" width="100%">
 				<fo:table-column><xsl:attribute name="column-width"><xsl:value-of select="( $total_width - (12+16+20)) - $depth*5"/>mm</xsl:attribute></fo:table-column>
 				<fo:table-column column-width="12mm"/>
 				<fo:table-column column-width="16mm"/>
@@ -911,7 +805,7 @@
 				<xsl:copy-of select="$subitem"/>
 			</xsl:when>
 			<xsl:otherwise>
-				<fo:table table-layout="fixed">
+				<fo:table table-layout="fixed" width="100%">
 					<fo:table-column column-width="5mm"/>
 					<fo:table-column><xsl:attribute name="column-width"><xsl:value-of select="$total_width - $depth*5"/>mm</xsl:attribute></fo:table-column>
 					<fo:table-body>
@@ -1119,7 +1013,7 @@
 ====================================-->
 	<xsl:template name="paragraghlist.table">
 		<xsl:for-each select="./table">
-			<fo:table table-layout="fixed" inline-progression-dimension="auto">
+			<fo:table table-layout="fixed" width="100%" inline-progression-dimension="auto">
 				<xsl:for-each select="./table-column">
 					<fo:table-column>
 						<xsl:attribute name="column-width">

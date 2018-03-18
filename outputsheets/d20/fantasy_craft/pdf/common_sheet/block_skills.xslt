@@ -41,27 +41,36 @@
 			</xsl:choose>
 		</xsl:variable>
 		<fo:table-row height="9pt">
+											<xsl:message>Test</xsl:message>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('skills.', $shade)"/></xsl:call-template>
-			<fo:table-cell/>
-			<fo:table-cell/>
-			<fo:table-cell number-columns-spanned="2"/>
-			<fo:table-cell/>
-			<fo:table-cell number-columns-spanned="2"/>
+			<fo:table-cell><fo:block/></fo:table-cell>
+
+			<fo:table-cell><fo:block/></fo:table-cell>
+
+			<fo:table-cell number-columns-spanned="2"><fo:block/></fo:table-cell>
+			<fo:table-cell><fo:block/></fo:table-cell>
+
+			<fo:table-cell number-columns-spanned="2"><fo:block/></fo:table-cell>
 			<fo:table-cell>
-				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('skills.', $shade, '.total')"/></xsl:call-template>
+				<fo:block>
+					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('skills.', $shade, '.total')"/></xsl:call-template>
+				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell number-columns-spanned="2">
 				<fo:block text-align="center" space-before.optimum="3pt" line-height="6pt" font-size="6pt">=</fo:block>
 			</fo:table-cell>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
+
 			<fo:table-cell number-columns-spanned="2">
 				<fo:block text-align="center" space-before.optimum="3pt" line-height="6pt" font-size="6pt">+</fo:block>
 			</fo:table-cell>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
+
 			<fo:table-cell number-columns-spanned="2">
 				<fo:block text-align="center" space-before.optimum="3pt" line-height="6pt" font-size="6pt">+</fo:block>
 			</fo:table-cell>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
+
 		</fo:table-row>
 	</xsl:template>
 
@@ -100,16 +109,19 @@
 				<fo:table-column column-width="6mm"/>
 			</xsl:variable>
 
-			<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt">
+			<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
 				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.border'"/></xsl:call-template>
 				<xsl:copy-of select="$columns"/>
 				<fo:table-body>
 					<fo:table-row height="2pt">
-						<fo:table-cell/>
+											<xsl:message>Test</xsl:message>
+						<fo:table-cell><fo:block/></fo:table-cell>
+
 					</fo:table-row>
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.header'"/></xsl:call-template>
-						<fo:table-cell></fo:table-cell>
+						<fo:table-cell><fo:block/></fo:table-cell>
 						<fo:table-cell number-columns-spanned="2" border-top-width="1pt" border-left-width="0pt" border-right-width="0pt" border-bottom-width="0pt">
 							<fo:block text-align="left" space-before.optimum="4pt" line-height="4pt" font-size="5pt">
 								<xsl:text>TOTAL SKILLPOINTS: </xsl:text>
@@ -139,8 +151,9 @@
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.header'"/></xsl:call-template>
-						<fo:table-cell></fo:table-cell>
+						<fo:table-cell><fo:block/></fo:table-cell>
 						<fo:table-cell number-columns-spanned="2">
 							<fo:block font-weight="bold" font-size="8pt">
 								SKILL NAME
@@ -178,7 +191,7 @@
 
 
 
-			<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt">
+			<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
 				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.border'"/></xsl:call-template>
 				<xsl:copy-of select="$columns"/>
 				<fo:table-body>
@@ -191,6 +204,7 @@
 								</xsl:choose>
 							</xsl:variable>
 							<fo:table-row>
+											<xsl:message>Test</xsl:message>
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('skills.', $shade)"/></xsl:call-template>
 								<fo:table-cell>
 									<fo:block font-size="6pt" font-family="ZapfDingbats">
@@ -237,13 +251,13 @@
 										</xsl:otherwise>
 									</xsl:choose>
 								</fo:table-cell>
-								<fo:table-cell number-columns-spanned="2"/>
+								<fo:table-cell number-columns-spanned="2"><fo:block/></fo:table-cell>
 								<fo:table-cell>
 									<fo:block space-before.optimum="1pt" font-size="8pt">
 										<xsl:value-of select="ability"/>
 									</fo:block>
 								</fo:table-cell>
-								<fo:table-cell number-columns-spanned="2"/>
+								<fo:table-cell number-columns-spanned="2"><fo:block/></fo:table-cell>
 								<fo:table-cell>
 									<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('skills.', $shade, '.total')"/></xsl:call-template>
 									<fo:block text-align="center" space-before.optimum="1pt" font-size="8pt">
@@ -308,6 +322,7 @@
 					<xsl:call-template name="skills.empty"><xsl:with-param name="pos" select="count(skill)+1"/></xsl:call-template>
 					<xsl:call-template name="skills.empty"><xsl:with-param name="pos" select="count(skill)+2"/></xsl:call-template>
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell number-columns-spanned="17" padding-top="1pt">
 							<fo:block text-align="center" font-size="6pt">
 								<fo:inline font-family="ZapfDingbats">&#x2713;</fo:inline>: can be used untrained.
@@ -355,12 +370,13 @@
 		</xsl:variable>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('skills.', $shade)"/></xsl:call-template>
 -->
-		<fo:table table-layout="fixed" space-before="2mm" padding="0.5pt">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" padding="0.5pt">
 			<fo:table-column column-width="86mm"/>
 			<fo:table-column column-width="10mm"/>
 			<fo:table-column column-width="30mm"/>
 				<fo:table-body>
 					<fo:table-row>
+											<xsl:message>Test END</xsl:message>
 						<fo:table-cell padding-top="1pt" border-width="0.5pt" border-style="solid">
 							<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Skill Modifiers:</fo:block>
 								<xsl:for-each select="conditional_modifiers/skillbonus">

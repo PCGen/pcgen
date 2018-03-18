@@ -20,6 +20,7 @@
 		<xsl:param name="title"/>
 		<xsl:param name="value"/>
 		<fo:table-row>
+											<xsl:message>Test</xsl:message>
 			<fo:table-cell padding-top="1pt" height="9pt">
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'bio'"/>
@@ -49,6 +50,7 @@
 <!-->		<xsl:if test="string-length(translate(normalize-space(concat(description,bio)), ' ', '')) &gt; 0">	-->
 			<fo:page-sequence>
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<fo:block font-size="14pt" break-before="page" span="all">
@@ -60,7 +62,7 @@
 						</xsl:if>
 					</fo:block>
 					<fo:block>
-						<fo:table table-layout="fixed">
+						<fo:table table-layout="fixed" width="100%">
 							<xsl:choose>
 								<xsl:when test="string-length(portrait) &gt; 0">
 									<fo:table-column>
@@ -79,6 +81,7 @@
 							</xsl:choose>
 							<fo:table-body>
 								<fo:table-row>
+											<xsl:message>Test</xsl:message>
 									<fo:table-cell>
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio'"/>
@@ -87,7 +90,7 @@
 											<xsl:value-of select="race"/>
 										</fo:block>
 									</fo:table-cell>
-									<fo:table-cell number-rows-spanned="36"/>
+									<fo:table-cell number-rows-spanned="36"><fo:block/></fo:table-cell>
 									<xsl:if test="string-length(portrait/portrait) &gt; 0">
 										<fo:table-cell display-align="center" number-rows-spanned="36">
 											<xsl:call-template name="attrib">
@@ -101,6 +104,7 @@
 									</xsl:if>
 								</fo:table-row>
 								<fo:table-row>
+											<xsl:message>Test</xsl:message>
 									<fo:table-cell padding-top="1pt">
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio.title'"/>
@@ -113,18 +117,7 @@
 									<xsl:with-param name="value" select="age"/>
 								</xsl:call-template>
 								<fo:table-row>
-									<fo:table-cell padding-top="1pt" height="9pt">
-										<xsl:call-template name="attrib">
-											<xsl:with-param name="attribute" select="'bio'"/>
-										</xsl:call-template>
-										<fo:block font-size="9pt">
-											Vision Test:
-											<xsl:value-of select="vision/all"/>
-											<xsl:if test="vision/all = ''">Normal</xsl:if>
-										</fo:block>
-									</fo:table-cell>
-								</fo:table-row>
-								<fo:table-row>
+											<xsl:message>Test</xsl:message>
 									<fo:table-cell padding-top="0.5pt">
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio.title'"/>
@@ -213,18 +206,6 @@
 									<xsl:with-param name="title" select="'Race Sub Type'"/>
 									<xsl:with-param name="value" select="race/racesubtype"/>
 								</xsl:call-template>
-								<!-- Attempt to change Style -->
-								<fo:table-row>
-									<fo:table-cell>
-										<xsl:call-template name="attrib">
-											<xsl:with-param name="attribute" select="'bio'"/>
-										</xsl:call-template>
-										<fo:block font-size="8pt" padding-top="3pt">
-											<xsl:value-of select="vision/all"/>
-											<xsl:if test="vision/all = ''">Normal</xsl:if>
-										</fo:block>
-									</fo:table-cell>
-								</fo:table-row>
 							</fo:table-body>
 						</fo:table>
 					</fo:block>
@@ -259,6 +240,7 @@
 		<!-- BEGIN CHARACTER NOTES Pages -->
 		<xsl:if test="count(.//note) &gt; 0">
 			<fo:page-sequence master-reference="Portrait 2 Column">
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<fo:block font-size="14pt" font-weight="bold" space-after.optimum="2mm" break-before="page" span="all">
@@ -279,6 +261,131 @@
 		</xsl:if>
 		<!-- END CHARACTER NOTES Pages -->
 	</xsl:template>
+	<!--
+	====================================
+	====================================
+		TEMPLATE - Campaign History
+	====================================
+	====================================-->
+	<xsl:template match="campaign_histories">
+		<!-- BEGIN Armor table -->
+			<xsl:if test="count(campaign_history) &gt; 0">
+				<fo:page-sequence master-reference="Portrait">
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
+				<xsl:call-template name="attrib">
+						<xsl:with-param name="attribute" select="'ac'"/>
+				</xsl:call-template>
+				<fo:flow flow-name="body" font-size="8pt">
+				<fo:table table-layout="fixed" width="100%" space-before="2mm">
+			<xsl:call-template name="attrib">
+				<xsl:with-param name="attribute" select="'protection.border'"/>
+			</xsl:call-template>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 49" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-header>
+				<fo:table-row>
+											<xsl:message>Test</xsl:message>
+					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'protection.title'"/></xsl:call-template>
+					<fo:table-cell padding-top="1pt">
+						<fo:block font-size="7pt">
+							Campaign
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Adventure
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Party
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Date
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Xp
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Gm
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-header>
+			<fo:table-body>
+				<xsl:for-each select="campaign_history">
+					<xsl:variable name="shade">
+						<xsl:choose>
+							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+							<xsl:otherwise>lightline</xsl:otherwise>
+						</xsl:choose>
+					</xsl:variable>
+					<fo:table-row>
+											<xsl:message>Test</xsl:message>
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
+						<fo:table-cell>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="campaign"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="adventure"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="party"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="date"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="xp"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="gm"/>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+					<fo:table-row>
+											<xsl:message>Test END</xsl:message>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="concat('protection.', $shade)"/>
+						</xsl:call-template>
+						<fo:table-cell number-columns-spanned="6" text-align="left">
+							<fo:block font-size="6pt">
+								<xsl:value-of select="text"/>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+					
+				</xsl:for-each>
+			</fo:table-body>
+		</fo:table>
+						</fo:flow>
+			</fo:page-sequence>
+		</xsl:if>
+	</xsl:template>
+
 
 
 </xsl:stylesheet>
