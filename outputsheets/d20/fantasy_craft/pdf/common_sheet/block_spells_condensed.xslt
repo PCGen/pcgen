@@ -21,6 +21,7 @@
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:page-sequence>	
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<xsl:apply-templates select="spells_innate/racial_innate"/>	
@@ -41,7 +42,7 @@
 	<xsl:template match="racial_innate">
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:block>
-				<fo:table table-layout="fixed">
+				<fo:table table-layout="fixed" width="100%">
 					<xsl:call-template name="spells.known.header.row">
 						<xsl:with-param name="columnOne" select="''"/>
 						<xsl:with-param name="title" select="'Innate Racial Spells'"/>
@@ -64,7 +65,7 @@
 	<xsl:template match="class_innate">
 		<xsl:if test="count(.//spell) &gt; 0">
 			<xsl:for-each select="spellbook">
-				<fo:table table-layout="fixed" space-before="5mm">
+				<fo:table table-layout="fixed" width="100%" space-before="5mm">
 					<xsl:call-template name="spells.known.header.row">
 						<xsl:with-param name="columnOne" select="''"/>
 						<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
@@ -98,7 +99,7 @@
 	<xsl:template match="class" mode="spells.known">
 		<xsl:if test="count(.//spell) &gt; 0">
 	<!--> This is causing the new page creation		<fo:block break-before="page"/>	-->
-			<fo:table table-layout="fixed">
+			<fo:table table-layout="fixed" width="100%">
 				<xsl:variable name="titletext">
 					<xsl:choose>
 						<xsl:when test="@spellcastertype = 'Psionic'">
@@ -131,15 +132,18 @@
 				</xsl:call-template>
 				<fo:table-body>
 					<fo:table-row height="2mm">
-						<fo:table-cell />
+											<xsl:message>Test</xsl:message>
+						<fo:table-cell><fo:block/></fo:table-cell>
 					</fo:table-row>
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell number-columns-spanned="7">
 							<xsl:apply-templates select="." mode="spell.level.table"/>
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row height="2mm">
-						<fo:table-cell />
+											<xsl:message>Test</xsl:message>
+						<fo:table-cell><fo:block/></fo:table-cell>
 					</fo:table-row>
 					<xsl:apply-templates select="level" mode="known.spells">
 						<xsl:with-param name="columnOne" select="$columnOne"/>
@@ -156,7 +160,7 @@
 ====================================
 ====================================-->
 	<xsl:template match="class" mode="spell.level.table">
-		<fo:table table-layout="fixed" border-collapse="collapse">
+		<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
 			<fo:table-column column-width="proportional-column-width(2)"/>
 			<fo:table-column column-width="proportional-column-width(2)"/>
 			<xsl:for-each select="level">
@@ -184,7 +188,8 @@
 ====================================-->
 	<xsl:template match="class" mode="spell.level.count">
 		<fo:table-row keep-with-next.within-column="always">
-			<fo:table-cell/>
+											<xsl:message>Test</xsl:message>
+			<fo:table-cell><fo:block/></fo:table-cell>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
@@ -201,7 +206,7 @@
 					</fo:block>
 				</fo:table-cell>
 			</xsl:for-each>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 		</fo:table-row>
 	</xsl:template>
 	<!--
@@ -212,7 +217,8 @@
 ====================================-->
 	<xsl:template match="class" mode="spell.level.known">
 		<fo:table-row keep-with-next.within-column="always">
-			<fo:table-cell/>
+											<xsl:message>Test</xsl:message>
+			<fo:table-cell><fo:block/></fo:table-cell>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
@@ -236,7 +242,7 @@
 					</fo:block>
 				</fo:table-cell>
 			</xsl:for-each>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 		</fo:table-row>
 	</xsl:template>
 	<!--
@@ -246,8 +252,9 @@
 ====================================
 ====================================-->
 	<xsl:template match="class" mode="spell.level.cast">
-		<fo:table-row padding-bottom="2mm">
-			<fo:table-cell/>
+		<fo:table-row>
+											<xsl:message>Test</xsl:message>
+			<fo:table-cell><fo:block/></fo:table-cell>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
@@ -266,7 +273,7 @@
 							</xsl:when>
 							<xsl:otherwise>
 								<xsl:choose>
-									<xsl:when test="@known != 0">
+									<xsl:when test="@number = 0 and @known != 0">
 										at will
 									</xsl:when>
 									<xsl:otherwise>
@@ -278,7 +285,7 @@
 					</fo:block>
 				</fo:table-cell>
 			</xsl:for-each>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 		</fo:table-row>
 	</xsl:template>
 
@@ -291,7 +298,8 @@
 ====================================-->
 	<xsl:template match="class" mode="spell.concentration">
 		<fo:table-row keep-with-next.within-column="always">	
-			<fo:table-cell/>
+											<xsl:message>Test</xsl:message>
+			<fo:table-cell><fo:block/></fo:table-cell>
 			<fo:table-cell>	
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
@@ -321,6 +329,7 @@
 		<xsl:param name="columnOneTitle" select="''"/>
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 				<fo:table-cell number-columns-spanned="7" padding-top="1pt">
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spelllist.header'"/>
@@ -329,7 +338,7 @@
 										<xsl:with-param name="count" select="@cast"/>
 									</xsl:call-template>
 					<fo:block font-size="12pt">
-						LEVEL <xsl:value-of select="@number"/> / Per Day:<xsl:value-of select="@cast"/> / Caster Level:<xsl:value-of select="spell/casterlevel"/>
+						LEVEL <xsl:value-of select="@number"/> / Per Day:<xsl:value-of select="@cast"/> / Caster Level:<xsl:value-of select="spell/basecasterlevel"/>
 					<xsl:if test="concentration != ''">
 							<fo:inline> / </fo:inline>
 						<fo:inline font-style="italic" font-weight="bold">Concentration:</fo:inline>
@@ -346,7 +355,8 @@
 				<xsl:sort select="name"/>
 			</xsl:apply-templates>
 			<fo:table-row height="1mm">
-				<fo:table-cell />
+											<xsl:message>Test</xsl:message>
+				<fo:table-cell><fo:block/></fo:table-cell>
 			</fo:table-row>
 		</xsl:if>
 	</xsl:template>
@@ -391,6 +401,7 @@
 		<!-- Titles Columns Goes Here -->
 		<fo:table-header>
 			<fo:table-row>
+											<xsl:message>Test</xsl:message>
 				<fo:table-cell number-columns-spanned="7" padding-top="1pt">	
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spelllist.header'"/>
@@ -408,6 +419,7 @@
 		</fo:table-header>
 		<fo:table-footer>
 			<fo:table-row>
+											<xsl:message>Test</xsl:message>
 				<fo:table-cell number-columns-spanned="7" padding-top="1pt">
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spelllist.footer'"/>
@@ -430,6 +442,7 @@
 		<xsl:param name="columnOne" select="''"/>
 		
 		<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="'spelllist.levelheader'"/>
 			</xsl:call-template>
@@ -477,6 +490,7 @@
 		<xsl:variable name="baseconcentration" select="../../@concentration">
 		</xsl:variable>
 		<fo:table-row keep-with-next.within-column="always" keep-together="always">
+											<xsl:message>Test</xsl:message>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
 			<xsl:choose>
 				<xsl:when test="$columnOne = 'Times'">
@@ -575,6 +589,7 @@
 
 <!-- Second Row = For Spell Descriptions -->
 		<fo:table-row>
+											<xsl:message>Test</xsl:message>
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/>
 			</xsl:call-template>
@@ -588,13 +603,8 @@
 					<fo:inline font-weight="bold"> TARGET: </fo:inline><xsl:value-of select="target"/>
 					<fo:inline>; </fo:inline>
 					<fo:inline font-style="italic" font-weight="bold" font-size="5pt">EFFECT: </fo:inline>
-						<xsl:if test="string-length(effect) &gt; 150">
-							<fo:inline font-size="7pt"><xsl:value-of select="effect"/></fo:inline>
-						</xsl:if>
-						<xsl:if test="string-length(effect) &lt; 151">
-							<fo:inline font-size="5pt"><xsl:value-of select="effect"/></fo:inline>
-						</xsl:if>
-						<xsl:if test="string-length(spell_resistance) &gt; 0 or dc &gt; 0"><fo:inline> [</fo:inline>
+					<fo:inline font-size="5pt"><xsl:value-of select="effect"/></fo:inline>
+					<xsl:if test="string-length(spell_resistance) &gt; 0 or dc &gt; 0"><fo:inline> [</fo:inline>
 							<xsl:if test="string-length(spell_resistance) &gt; 0">
 								<fo:inline font-weight="bold">SR:</fo:inline>
 								<xsl:value-of select="spell_resistance"/>
@@ -642,6 +652,7 @@
 		<xsl:variable name="baseconcentration" select="../../@concentration">
 		</xsl:variable>
 		<fo:table-row keep-with-next.within-column="always" keep-together="always">
+											<xsl:message>Test</xsl:message>
 			<xsl:call-template name="attrib"
 				><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/>
 			</xsl:call-template>
@@ -705,7 +716,12 @@
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
+				<xsl:if test="string-length(castingtime) &lt; 15">
 					<xsl:value-of select="castingtime"/>
+				</xsl:if>
+				<xsl:if test="string-length(castingtime) &gt; 14">
+					See below
+				</xsl:if>
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
@@ -728,12 +744,17 @@
 		</fo:table-row>
 <!-- Third Row = For Spell Descriptions -->
 		<fo:table-row>
+											<xsl:message>Test</xsl:message>
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/>
 			</xsl:call-template>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
 				<!-- Set Up Alternate FONT SIZE		<xsl:if test="string-length(effect) &gt; 100">-->
 					<fo:block text-align="start" font-size="5pt">
+					<xsl:if test="string-length(castingtime) &gt; 14">
+						<fo:inline font-weight="bold"> TIME: </fo:inline><xsl:value-of select="castingtime"/>
+						<fo:inline>; </fo:inline>
+					</xsl:if>
 					<xsl:if test="string-length(components) &gt; 0">
 						<fo:inline font-weight="bold">[<xsl:value-of select="components"/>]</fo:inline>
 						<fo:inline> </fo:inline>
@@ -788,7 +809,10 @@
 		<xsl:if test="count(.//spell) &gt; 0">
 	<!-->		<fo:block break-before="page">	-->
 			<fo:block>
-				<xsl:apply-templates mode="spells.memorized"/>
+				<xsl:apply-templates mode="spells.memorized">
+					<xsl:sort select="@type"/>
+					<xsl:sort select="@name"/>
+				</xsl:apply-templates>
 			</fo:block>
 		</xsl:if>
 	</xsl:template>
@@ -800,12 +824,12 @@
 ====================================-->
 	<xsl:template name="spells.memorized.header">
 		<xsl:param name="title" select="'Unknown'"/>
-		<fo:table table-layout="fixed">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row>
+				<fo:table-row>											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="1pt">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'spells.memorized.header'"/>
@@ -829,7 +853,7 @@
 			<xsl:call-template name="spells.memorized.header">
 				<xsl:with-param name="title" select="'Innate'"/>
 			</xsl:call-template>
-			<fo:table table-layout="fixed" space-after="5mm">
+			<fo:table table-layout="fixed" width="100%" space-after="5mm">
 				<fo:table-column>
 					<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $pagePrintableWidth div 5" />mm</xsl:attribute>
 				</fo:table-column>
@@ -864,7 +888,7 @@
 			<xsl:call-template name="spells.memorized.header">
 				<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
 			</xsl:call-template>
-			<fo:table table-layout="fixed">
+			<fo:table table-layout="fixed" width="100%">
 				<fo:table-column>
 					<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $pagePrintableWidth div 5" />mm</xsl:attribute>
 				</fo:table-column>
@@ -885,7 +909,7 @@
 ====================================-->
 	<xsl:template match="spellbook" mode="spells.memorized">
 		<xsl:if test="count(.//spell) &gt; 0">
-			<fo:table table-layout="fixed" space-before="4mm">
+			<fo:table table-layout="fixed" width="100%" space-before="4mm">
 				<fo:table-column>
 					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 5" />mm</xsl:attribute>
 				</fo:table-column>
@@ -902,13 +926,13 @@
 					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 5" />mm</xsl:attribute>
 				</fo:table-column>
 				<fo:table-body>
-					<fo:table-row>
+					<fo:table-row>											<xsl:message>Test Spells Memorized Header</xsl:message>
 						<fo:table-cell padding-top="1pt" number-columns-spanned="5">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'spells.memorized.header'"/>
 							</xsl:call-template>
 							<fo:block font-size="10pt">
-								Spellbook: <xsl:value-of select="@name"/>
+								<xsl:value-of select="@type"/>: <xsl:value-of select="@name"/>
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
@@ -925,7 +949,7 @@
 ====================================-->
 	<xsl:template match="class" mode="spells.memorized">
 		<xsl:if test="count(.//spell) &gt; 0">
-			<fo:table-row>
+			<fo:table-row>											<xsl:message>Test "Spells Memorized Section"</xsl:message>
 				<fo:table-cell padding-top="1pt" number-columns-spanned="5">
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spells.memorized.header'"/>
@@ -935,12 +959,14 @@
 					</fo:block>
 				</fo:table-cell>
 			</fo:table-row>
-			<fo:table-row>
+			<fo:table-row>													<xsl:message>Test Levels 4-</xsl:message>
 				<xsl:apply-templates select="level[@number &lt; 5]" mode="spells.memorized"/>
 			</fo:table-row>
-			<fo:table-row>
-				<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
-			</fo:table-row>
+			<xsl:if test="count(.//level) &gt; 5">
+				<fo:table-row>													<xsl:message>Test Levels 5+</xsl:message>
+					<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
+				</fo:table-row>
+			</xsl:if>
 		</xsl:if>
 	</xsl:template>
 	<!--
@@ -953,7 +979,7 @@
 		<fo:table-cell padding-top="1pt">
 			<fo:block font-size="5pt">
 				<xsl:if test="count(.//spell) &gt; 0">
-					<fo:table table-layout="fixed">
+					<fo:table table-layout="fixed" width="100%">
 						<fo:table-column>
 							<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $pagePrintableWidth div 5" />mm</xsl:attribute>
 						</fo:table-column>
@@ -961,7 +987,7 @@
 							<xsl:attribute name="column-width"><xsl:value-of select="0.80 * $pagePrintableWidth div 5" />mm</xsl:attribute>
 						</fo:table-column>
 						<fo:table-body>
-							<fo:table-row>
+							<fo:table-row>				<xsl:message>Test Spells Memorized Level Grant</xsl:message>
 								<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 									<xsl:call-template name="attrib">
 										<xsl:with-param name="attribute" select="'spells.memorized.level'"/>
@@ -985,7 +1011,7 @@
 ====================================
 ====================================-->
 	<xsl:template match="spell" mode="spells.memorized">
-		<fo:table-row>
+		<fo:table-row>					<xsl:message>Test END - Spells Memorized</xsl:message>
 			<xsl:choose>
 				<xsl:when test="times_memorized &gt;= 0">
 					<fo:table-cell padding-top="0pt" text-align="end">
@@ -1014,7 +1040,12 @@
 						<xsl:with-param name="attribute" select="'spells.memorized'"/>
 					</xsl:call-template>
 					<xsl:value-of select="bonusspell"/>
-					<xsl:value-of select="name"/> (DC:<xsl:value-of select="dc"/>)
+					<xsl:value-of select="name"/>
+					<xsl:choose>
+						<xsl:when test="dc &gt;= 0">
+							 (DC:<xsl:value-of select="dc"/>)
+						</xsl:when>
+					</xsl:choose>
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>

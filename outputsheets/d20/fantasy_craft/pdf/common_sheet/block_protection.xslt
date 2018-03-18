@@ -12,14 +12,15 @@
 
 
 	<!--
-====================================
-====================================
-	TEMPLATE - Protection
-====================================
-====================================-->
+	====================================
+	====================================
+		TEMPLATE - Protection
+	====================================
+	====================================-->
 	<xsl:template match="protection">
+		<xsl:if test="count(armor|shield|item) &gt; 0" >
 		<!-- BEGIN Armor table -->
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" border-collapse="collapse" space-before="2mm">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'protection.border'"/></xsl:call-template>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 49" />mm</xsl:attribute>
@@ -31,6 +32,7 @@
 			<fo:table-column column-width="15mm"/>
 			<fo:table-header>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'protection.title'"/></xsl:call-template>
 					<fo:table-cell padding-top="1pt">
 						<fo:block font-size="7pt">
@@ -66,15 +68,15 @@
 			</fo:table-header>
 			<fo:table-body>
 				<xsl:for-each select="armor|shield|item">
-					<xsl:if test="(not(contains(fulltype,'BARDING')))or(contains(location,'Equipped'))">
+					<xsl:if test="(not(contains(fulltype,'BARDING'))) or (contains(location,'Equipped'))">
 					<xsl:variable name="shade">
 						<xsl:choose>
 							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
 							<xsl:otherwise>lightline</xsl:otherwise>
 						</xsl:choose>
 					</xsl:variable>
-
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
 						<fo:table-cell>
 							<fo:block font-size="8pt">
@@ -108,6 +110,7 @@
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row>
+											<xsl:message>Test END</xsl:message>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="concat('protection.', $shade)"/>
 						</xsl:call-template>
@@ -117,10 +120,11 @@
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
-</xsl:if>
+					</xsl:if>
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
+		</xsl:if>
 	</xsl:template>
 
 
