@@ -336,9 +336,7 @@ CLASS:Rogue		HD:8		TYPE:Base.PC.Rogue	MAXLEVEL:20	SOURCEPAGE:p.67	DEFINE:RogueLV
 # Class Name	Skill Pts/Lvl
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Rogue
 1	ABILITY:Class|AUTOMATIC|Rogue
 
 

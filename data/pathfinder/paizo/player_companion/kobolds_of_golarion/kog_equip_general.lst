@@ -10,13 +10,13 @@ SOURCELONG:Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/produc
 Blightburn Paste								TYPE:Goods.Alchemical.Consumable									COST:5000		WT:45		SOURCEPAGE:p.29
 Caphorite Dust				NAMEISPI:Yes		TYPE:Goods.Alchemical.Consumable.LightSource							COST:25		WT:0.5	SOURCEPAGE:p.29
 Cytillesh Stun Vial			NAMEISPI:Yes		TYPE:Goods.Alchemical.Vial.Consumable								COST:75		WT:0.5	SOURCEPAGE:p.29
-Decoy Pressure Switch 							TYPE:Goods.Tools												COST:60		WT:0		SOURCEPAGE:p.28
-Decoy Trap Door 								TYPE:Goods.Tools												COST:120		WT:0		SOURCEPAGE:p.28
-Decoy Tripwire 								TYPE:Goods.Tools												COST:25		WT:0		SOURCEPAGE:p.28
+Decoy Pressure Switch							TYPE:Goods.Tools												COST:60		WT:0		SOURCEPAGE:p.28
+Decoy Trap Door								TYPE:Goods.Tools												COST:120		WT:0		SOURCEPAGE:p.28
+Decoy Tripwire								TYPE:Goods.Tools												COST:25		WT:0		SOURCEPAGE:p.28
 Fake Area Map								TYPE:Goods.Tools												COST:20		WT:0		SOURCEPAGE:p.28
-Fake Coins 									TYPE:Goods.Tools												COST:5		WT:0.5	SOURCEPAGE:p.28
-Paper Wall Paste 								TYPE:Goods.Alchemical.Consumable									COST:10		WT:2		SOURCEPAGE:p.29
-Trapped Disguise Kit 							TYPE:Goods.Tools												COST:50		WT:8		SOURCEPAGE:p.28
+Fake Coins									TYPE:Goods.Tools												COST:5		WT:0.5	SOURCEPAGE:p.28
+Paper Wall Paste								TYPE:Goods.Alchemical.Consumable									COST:10		WT:2		SOURCEPAGE:p.29
+Trapped Disguise Kit							TYPE:Goods.Tools												COST:50		WT:8		SOURCEPAGE:p.28
 Trapped Scroll Case							TYPE:Goods.Tools												COST:40		WT:1		SOURCEPAGE:p.29
 
 # ==============================

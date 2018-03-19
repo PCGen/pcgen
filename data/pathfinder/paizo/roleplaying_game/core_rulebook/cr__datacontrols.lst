@@ -689,6 +689,8 @@ FACTDEF:ABILITY|Ranger_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	S
 
 # Rogue Archetype Section
 FACTDEF:ABILITY|Rogue_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - Rogue ClassSkills
+FACTDEF:ABILITY|Rogue_Archetype_WeaponProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Weapon Proficiencies	EXPLANATION:Determines whether the archetype affects - Rogue Weapon Proficiencies
+FACTDEF:ABILITY|Rogue_Archetype_ArmorProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Armor Proficiencies	EXPLANATION:Determines whether the archetype affects - Rogue Armor Proficiencies
 FACTDEF:ABILITY|Rogue_Archetype_UncannyDodge			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UncannyDodge		EXPLANATION:Determines whether the archetype affects - UncannyDodge
 FACTDEF:ABILITY|Rogue_Archetype_ImprovedUncannyDodge		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ImprovedUncannyDodge	EXPLANATION:Determines whether the archetype affects - ImprovedUncannyDodge
 FACTDEF:ABILITY|Rogue_Archetype_SneakAttack			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SneakAttack			EXPLANATION:Determines whether the archetype affects - SneakAttack
@@ -728,6 +730,8 @@ FACTDEF:ABILITY|Rogue_Archetype_SneakAttack19						DATAFORMAT:BOOLEAN	REQUIRED:N
 
 # Rogue Class Feature
 FACTDEF:ABILITY|Rogue_CF_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Remove Rogue ClassSkills
+FACTDEF:ABILITY|Rogue_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Weapon Proficiencies	EXPLANATION:Remove Rogue Weapon Proficiencies
+FACTDEF:ABILITY|Rogue_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Armor Proficiencies	EXPLANATION:Remove Rogue Armor Proficiencies
 FACTDEF:ABILITY|Rogue_CF_UncannyDodge				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:UncannyDodge		EXPLANATION:Remove Rogue UncannyDodge
 FACTDEF:ABILITY|Rogue_CF_ImprovedUncannyDodge			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ImprovedUncannyDodge	EXPLANATION:Remove Rogue ImprovedUncannyDodge
 FACTDEF:ABILITY|Rogue_CF_SneakAttack				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SneakAttack			EXPLANATION:Remove Rogue SneakAttack
