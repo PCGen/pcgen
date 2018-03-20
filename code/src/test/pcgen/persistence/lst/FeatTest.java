@@ -14,6 +14,7 @@ import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * JUnit testcases for <code>pcgen.core.Feat</code>.
@@ -57,6 +58,7 @@ public class FeatTest extends TestCase
 	public void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
+		Globals.getContext().getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
 	/**
