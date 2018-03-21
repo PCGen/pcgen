@@ -17,17 +17,19 @@
  */
  package plugin.experience;
 
+import java.io.File;
+import java.util.Observable;
+
+import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
+import plugin.experience.gui.PreferencesExperiencePanel;
+
 import gmgen.io.ReadXML;
 import gmgen.plugin.Combatant;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.State;
 import gmgen.util.LogUtilities;
-import java.io.File;
-import java.util.Observable;
-import pcgen.core.SettingsHandler;
-import pcgen.util.Logging;
-import plugin.experience.gui.PreferencesExperiencePanel;
 
 /**
  * This {@code class} holds all the necessary data in order to have

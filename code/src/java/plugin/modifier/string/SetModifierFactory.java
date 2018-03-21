@@ -17,21 +17,22 @@
  */
 package plugin.modifier.string;
 
-import pcgen.rules.persistence.token.AbstractSetModifierFactory;
+import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
  * A {@code SetModifierFactory} is a {@code ModifierFactory<String>} that returns a specific
  * value (independent of the input) when a Modifier produced by this
  * {@code SetModifierFactory} is processed.
  */
-public class SetModifierFactory extends AbstractSetModifierFactory<String>
+public class SetModifierFactory extends AbstractFixedSetModifierFactory<String>
 {
 
 	/**
 	 * Identifies that the Modifier objects built by this SetModifierFactory act
 	 * upon java.lang.String objects.
 	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
+	 * @return The Format (String.class) of object upon which Modifiers built by this
+	 *         SetModifierFactory can operate
 	 */
 	@Override
 	public Class<String> getVariableFormat()

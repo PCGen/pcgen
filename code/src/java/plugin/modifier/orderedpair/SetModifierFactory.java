@@ -18,20 +18,21 @@
 package plugin.modifier.orderedpair;
 
 import pcgen.base.math.OrderedPair;
-import pcgen.rules.persistence.token.AbstractSetModifierFactory;
+import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
  * An SetModifier is a {@code Modifier<OrderedPair>} that returns a specific value
  * (independent of the input) when the Modifier is processed.
  */
-public class SetModifierFactory extends AbstractSetModifierFactory<OrderedPair>
+public class SetModifierFactory extends AbstractFixedSetModifierFactory<OrderedPair>
 {
 
 	/**
 	 * Identifies that this SetModifier acts upon pcgen.base.math.OrderedPair
 	 * objects.
 	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
+	 * @return The Format (OrderedPair.class) of object upon which Modifiers built by this
+	 *         SetModifierFactory can operate
 	 */
 	@Override
 	public Class<OrderedPair> getVariableFormat()

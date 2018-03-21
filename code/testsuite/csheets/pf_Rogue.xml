@@ -68,9 +68,9 @@ BIO
 		</skin>
 		<cr>11</cr>
 		<face>
-		<face>5 ft.</face>
+		<face>5 ft. by 5 ft.</face>
 			<short>5 ft.</short>
-			<squares>1</squares>
+			<squares>1 x 1</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -1260,7 +1260,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
-				<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
+				<special_properties>nonlethal</special_properties>
 				<template></template>
 				<type>B</type>
 				<weight>1</weight>
@@ -1567,7 +1567,10 @@ BIO
 	<!-- Bard -->
 
 
-	<!-- Character Rage -->
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
 
 	<!-- 3.0 stunning fist -->
@@ -2418,7 +2421,7 @@ BIO
 				<long>Small</long>
 				<short>S</short>
 			</size>
-			<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
+			<special_properties>nonlethal</special_properties>
 			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.MARTIAL.STANDARD.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
@@ -3384,7 +3387,7 @@ BIO
 					<long>Small</long>
 					<short>S</short>
 				</size>
-				<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
+				<special_properties>nonlethal</special_properties>
 				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.MARTIAL.STANDARD.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
@@ -4296,17 +4299,6 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>FACE_5</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
 			<name>REACH_5</name>
 			<description></description>
 			<type></type>
@@ -4325,7 +4317,7 @@ BIO
 	  ====================================
 	  ====================================-->
 
-	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Crossbow (Hand), Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Mere Club, Morningstar, Quarterstaff, Rapier, Rock, Sap, Shortbow, Shortspear, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Splash Weapon, Stake, Sword (Short), Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Hand Crossbow, Heavy Crossbow, Light Crossbow, Dagger, Punching Dagger, Dart, Gauntlet, Spiked Gauntlet, Grapple, Javelin, Longspear, Heavy Mace, Light Mace, Mere Club, Morningstar, Quarterstaff, Rapier, Rock, Sap, Shortbow, Shortspear, Sickle, Sling, Spear, Boar Spear, Ray Spells, Touch Spells, Splash Weapon, Stake, Short Sword, Unarmed Strike</weapon_proficiencies>
 	<languages>Aklo, Common, Elven, Giant, Halfling, Hallit, Skald, Sylvan, Varisian</languages>
 
 

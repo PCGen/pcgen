@@ -17,10 +17,10 @@
  */
 package pcgen.util;
 
-import org.nfunk.jep.ParseException;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.nfunk.jep.ParseException;
 
 public class ParameterTree
 {

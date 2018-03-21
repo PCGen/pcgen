@@ -3,6 +3,9 @@ CAMPAIGN:Universal Rules
 KEY:5e - Universal Rules
 TYPE:Core_Rule_Universal
 #GAMEMODE:5e	Leave commented out, this is loaded by the Core Rules of the System
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
 
 ABILITY:ur_abilities.lst
 CLASS:ur_classes.lst

@@ -34,11 +34,11 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.EquipModFacade;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.EquipModFacade;
 import pcgen.util.Delta;
 
 /**
@@ -67,8 +67,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		for (BonusObj bonus : getBonusList(caller))
 		{
-			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), caller,
-					aPC))
+			if (PrereqHandler.passesAll(bonus, caller, aPC))
 			{
 				aPC.setApplied(bonus, true);
 				aList.add(bonus);
@@ -309,7 +308,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	@Override
 	public String getLocalScopeName()
 	{
-		return "EQUIPMENT.PART";
+		return "PC.EQUIPMENT.PART";
 	}
 
 	private VarScoped variableParent;

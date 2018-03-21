@@ -48,6 +48,9 @@ OPTION:gameMode.FantasyCraft.rollMethod=2
 #-----------------------------#
 #	Auto granted Items	#
 #-----------------------------#
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
 
 #BONUS:ABILITYPOOL|Specialty|1
 BONUS:ABILITYPOOL|Interests|2|!PRECLASS:1,TYPE=Monster
@@ -62,6 +65,7 @@ BONUS:ABILITYPOOL|NPC Type Selector|1|PRECLASS:1,TYPE=Monster
 
 STAT:fc__stats.lst
 SAVE:fc__saves.lst
+SIZE:fc__sizes.lst
 
 
 

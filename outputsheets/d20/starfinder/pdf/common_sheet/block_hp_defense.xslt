@@ -649,9 +649,13 @@
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="6pt">MISC</fo:block>
 					</fo:table-cell>	<!--	23	-->
-						<fo:table-cell><fo:block/>Blank</fo:table-cell>
+						<fo:table-cell><fo:block/></fo:table-cell>
 		<!--	24	-->
-						<fo:table-cell><fo:block/>Total</fo:table-cell>
+						<fo:table-cell><fo:block/></fo:table-cell>
+						<fo:table-cell><fo:block/></fo:table-cell>
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="6pt">TOTAL</fo:block>
+					</fo:table-cell>	<!--	21	-->
 		<!--	25	-->
 					<!-->	<fo:table-cell><fo:block/></fo:table-cell>
 	-->	<!--	26	-->
@@ -752,6 +756,12 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>		<!--	23	-->
 			<!-- Fire Resistance -->
+			<fo:table-column column-width="2mm"/>		<!--	22	-->
+			<!-- space -->
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+			</fo:table-column>		<!--	23	-->
+			<!-- Sonic Resistance -->
 
 
 
@@ -884,6 +894,17 @@
 							</xsl:if>
 						</fo:block>
 					</fo:table-cell>		<!--	15	-->
+					<fo:table-cell><fo:block/></fo:table-cell>		<!--	14	-->
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'spell_resistance'"/>
+						</xsl:call-template>
+						<fo:block font-size="10pt">
+							<xsl:if test="resistances/sonic > 0">
+							<xsl:value-of select="resistances/sonic"/>
+							</xsl:if>
+						</fo:block>
+					</fo:table-cell>		<!--	15	-->
 
 				
 				
@@ -938,6 +959,10 @@
 					<fo:table-cell><fo:block/></fo:table-cell>		<!--	14	-->
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">FIRE RESIST</fo:block>
+					</fo:table-cell>		<!--	15	-->
+					<fo:table-cell><fo:block/></fo:table-cell>		<!--	14	-->
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">SONIC RESIST</fo:block>
 					</fo:table-cell>		<!--	15	-->
 
 					

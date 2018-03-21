@@ -32,27 +32,18 @@ import java.io.Writer;
 public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 {
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
-	 */
     @Override
 	public String kindHandled()
 	{
 		return "basesize";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
-	 */
     @Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
 		return null;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
-	 */
     @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException

@@ -29,7 +29,7 @@ EQUIPMENT:pfscs_S6_equip.lst
 EQUIPMOD:pfscs_S6_equipmods.lst
 
 # needed for Gamin the Misforged
-EQUIPMOD:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_equipmods.lst|(INCLUDE:ALLYING)|!PRECAMPAIGN:1,INCLUDES=Pathfinder Society Chronicle Sheets - Scenarios Season 4
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_equipmods.lst|(INCLUDE:Special Ability ~ Allying ~ Weapon)|!PRECAMPAIGN:1,INCLUDES=Pathfinder Society Chronicle Sheets - Scenarios Season 4
 EQUIPMENT:../season_4/pfscs_S4_equip.lst|(INCLUDE:Gamin the Misforged)|!PRECAMPAIGN:1,INCLUDES=Pathfinder Society Chronicle Sheets - Scenarios Season 4
 
 #

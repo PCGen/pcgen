@@ -17,10 +17,12 @@
  */
 package pcgen.persistence.lst;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -33,10 +35,8 @@ import pcgen.util.Logging;
 
 public class AbilityLoader extends LstObjectFileLoader<Ability>
 {
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
-	 */
 	@Override
 	public Ability parseLine(LoadContext context, Ability ability,
 		String lstLine, SourceEntry source) throws PersistenceLayerException
@@ -58,25 +58,68 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			anAbility.setName(colToken.nextToken().intern());
 			anAbility.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			anAbility.setSourceURI(source.getURI());
+			List<String> additionalTokens = new ArrayList<>();
+			boolean foundCategory = false;
+			while (colToken.hasMoreTokens()) 
+			{
+				String token = colToken.nextToken();
+				if (token.startsWith("CATEGORY:"))
+				{
+					if (foundCategory)
+					{
+						Logging.errorPrint(
+							"Ignoring CATEGORY which appeared twice on original line of an Ability ("
+								+ anAbility.getDisplayName() + ")",
+							context);
+						continue;
+					}
+					foundCategory = true;
+					if (isnew)
+					{
+						final Category<Ability> cat = context.getReferenceContext()
+							.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS,
+								token.substring(9));
+						if (cat == null)
+						{
+							Logging
+								.errorPrint("Ignoring Ability " + anAbility.getKeyName()
+									+ ", due to: Cannot find Ability Category: "
+									+ token.substring(9), context);
+							break;
+						}
+						else
+						{
+							anAbility.setCDOMCategory(cat);
+						}
+					}
+					else
+					{
+						Logging.errorPrint(
+							"Ignoring CATEGORY which is not on original line of an Ability ("
+								+ anAbility.getDisplayName() + ")",
+							context);
+					}
+				}
+				else
+				{
+					additionalTokens.add(token);
+				}
+			}
 			if (isnew)
 			{
 				context.addStatefulInformation(anAbility);
 				context.getReferenceContext().importObject(anAbility);
 			}
-		}
-
-		while (colToken.hasMoreTokens()) 
-		{
-			LstUtils.processToken(context, anAbility, source, colToken.nextToken());
+			for (String token : additionalTokens)
+			{
+				LstUtils.processToken(context, anAbility, source, token);
+			}
 		}
 
 		completeObject(context, source, anAbility);
 		return null;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
-	 */
 	@Override
 	protected Ability getObjectKeyed(LoadContext context, String aKey)
 	{
@@ -104,15 +147,16 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		}
 		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(
 				abilityCatName);
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class, ac,
-				abilityKey);
+		return context.getReferenceContext().getManufacturerId(ac)
+			.getActiveObject(abilityKey);
 	}
 
 	@Override
 	protected Ability getMatchingObject(LoadContext context, CDOMObject key)
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class,
-				((Ability) key).getCDOMCategory(), key.getKeyName());
+		return context.getReferenceContext()
+			.getManufacturerId(((Ability) key).getCDOMCategory())
+			.getActiveObject(key.getKeyName());
 	}
 
 	/**

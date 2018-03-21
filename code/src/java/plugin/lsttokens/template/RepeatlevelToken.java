@@ -69,19 +69,19 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		if (endRepeat < 0)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (No Colon): " + value, context);
+					+ " Token (No Colon): " + value);
 		}
 		int endLevel = value.indexOf(Constants.COLON, endRepeat + 1);
 		if (endLevel < 0)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Only One Colon): " + value, context);
+					+ " Token (Only One Colon): " + value);
 		}
 		int endAssignType = value.indexOf(Constants.COLON, endLevel + 1);
 		if (endAssignType == -1)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Only Two Colons): " + value, context);
+					+ " Token (Only Two Colons): " + value);
 		}
 
 		String repeatedInfo = value.substring(0, endRepeat);
@@ -91,7 +91,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (incorrect PIPE count in repeat): "
-					+ repeatedInfo, context);
+					+ repeatedInfo);
 		}
 
 		String levelIncrement = repeatToken.nextToken();
@@ -104,12 +104,12 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Level Increment was not an Integer): "
-					+ levelIncrement, context);
+					+ levelIncrement);
 		}
 		if (lvlIncrement <= 0)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Level Increment was <= 0): " + lvlIncrement, context);
+					+ " Token (Level Increment was <= 0): " + lvlIncrement);
 		}
 
 		String consecutiveString = repeatToken.nextToken();
@@ -122,12 +122,12 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Consecutive Value was not an Integer): "
-					+ consecutiveString, context);
+					+ consecutiveString);
 		}
 		if (consecutive < 0)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Consecutive String was <= 0): " + consecutive, context);
+					+ " Token (Consecutive String was <= 0): " + consecutive);
 		}
 
 		String maxLevelString = repeatToken.nextToken();
@@ -140,12 +140,12 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
 					+ " Token (Max Level was not an Integer): "
-					+ maxLevelString, context);
+					+ maxLevelString);
 		}
 		if (maxLevel <= 0)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Max Level was <= 0): " + maxLevel, context);
+					+ " Token (Max Level was <= 0): " + maxLevel);
 		}
 
 		String levelString = value.substring(endRepeat + 1, endLevel);
@@ -157,24 +157,23 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Level was not a number): " + levelString, context);
+					+ " Token (Level was not a number): " + levelString);
 		}
 		if (iLevel <= 0)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Level was <= 0): " + iLevel, context);
+					+ " Token (Level was <= 0): " + iLevel);
 		}
 
 		if (iLevel > maxLevel)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Starting Level was > Maximum Level)", context);
+					+ " Token (Starting Level was > Maximum Level)");
 		}
 		if (iLevel + lvlIncrement > maxLevel)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-				+ " Token (Does not repeat, Staring Level + Increment > Maximum Level)",
-				context);
+				+ " Token (Does not repeat, Staring Level + Increment > Maximum Level)");
 		}
 		if (consecutive != 0
 				&& ((maxLevel - iLevel) / lvlIncrement) < consecutive)
@@ -222,7 +221,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 				}
 				catch (PersistenceLayerException e)
 				{
-					return new ParseResult.Fail(e.getMessage(), context);
+					return new ParseResult.Fail(e.getMessage());
 				}
 			}
 			if (consecutive != 0)

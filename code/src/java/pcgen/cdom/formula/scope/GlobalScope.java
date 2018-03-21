@@ -17,31 +17,36 @@
  */
 package pcgen.cdom.formula.scope;
 
-import pcgen.base.formula.base.LegalScope;
+import java.util.Optional;
+
+import pcgen.base.util.FormatManager;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This is the global variable scope
  */
-public class GlobalScope implements LegalScope
+public class GlobalScope implements PCGenScope
 {
-
 	/**
-	 * The String representation of the objects covered by this Scope
-	 * 
-	 * @see pcgen.base.formula.base.LegalScope#getName()
+	 * The name of the Global Scope for PCGen characters, publicly available for reuse...
 	 */
+	public static final String GLOBAL_SCOPE_NAME = "PC";
+
 	@Override
 	public String getName()
 	{
-		return "Global";
+		return GLOBAL_SCOPE_NAME;
 	}
 
-	/**
-	 * @see pcgen.base.formula.base.LegalScope#getParentScope()
-	 */
 	@Override
-	public LegalScope getParentScope()
+	public Optional<PCGenScope> getParentScope()
 	{
-		return null;
+		return Optional.empty();
+	}
+
+	@Override
+	public FormatManager<?> getFormatManager(LoadContext context)
+	{
+		throw new UnsupportedOperationException("Global Scope does not have a format");
 	}
 }

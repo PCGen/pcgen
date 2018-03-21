@@ -69,4 +69,10 @@ public class SkillToken extends AbstractQualifiedChooseToken<Skill>
 		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(SKILL_CLASS), obj, value);
 	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "SKILL";
+	}
 }

@@ -24,7 +24,9 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.FollowersLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalFollowersTest extends AbstractContentTokenTest
 {
@@ -48,7 +50,7 @@ public class GlobalFollowersTest extends AbstractContentTokenTest
 				token.parseToken(context, source, "Animal Companion|3");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

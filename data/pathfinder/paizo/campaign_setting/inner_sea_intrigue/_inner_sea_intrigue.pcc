@@ -1,0 +1,68 @@
+CAMPAIGN:Inner Sea Intrigue
+GAMEMODE:Pathfinder|Pathfinder_PFS
+RANK:3
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:BETA
+PRECAMPAIGN:8,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide,INCLUDES=Advanced Race Guide,INCLUDES=Ultimate Intrigue
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+#PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue
+SOURCESHORT:ISI
+SOURCEWEB:http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue
+SOURCEDATE:2016-06
+ISOGL:YES
+
+COVER:inner_sea_intrigue.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue|Buy this publication from Paizo Publishing!
+DESC:From the infamous thieves guilds of Absalom to the rebel networks of Galt, the poisoners of Daggermark to the secret courts of Taldor, cloak-and-dagger plots manipulate fates across the Inner Sea region. With Pathfinder Campaign Setting: Inner Sea Intrigue, you’ll learn the truth hidden beneath the surface and discover ways to make it work for your benefit. New insights on social combat, misleading magic, and secret academies allow the techniques introduced in Pathfinder RPG Ultimate Intrigue to shine. Sneaky new equipment, magic items, and spells also present a spectrum of options for deceptive heroes and unlock the powers of the new vigilante class for heroes and villains alike. Learn the hidden arts of the Inner Sea region and unleash the powers of stealth and subtlety in your Pathfinder RPG game!
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Campaign Setting: Inner Sea Intrigue Copyright 2016, Paizo Inc.; Authors: David N. Ross, with Ross Byers.
+COPYRIGHT:PCGen dataset conversion for "Inner Sea Intrigue" Copyright 2017, PCGen Data team (including but not limited to Gwen T. (evilpixie87), Paul Grosse, and Andrew Maitland)
+
+ABILITY:isi_abilities_class.lst
+ABILITY:isi_abilities_companion.lst
+ABILITY:isi_abilities_race_companion.lst
+ABILITYCATEGORY:isi_abilitycategories.lst
+CLASS:isi_classes.lst
+COMPANIONMOD:isi_companionmods.lst
+EQUIPMENT:isi_equip_general.lst
+EQUIPMENT:isi_equip_magic_items.lst
+EQUIPMOD:isi_equipmods.lst
+ABILITY:isi_feats.lst
+KIT:isi_kits_companion.lst
+RACE:isi_races_companion.lst
+SKILL:isi_skills.lst
+SPELL:isi_spells.lst
+TEMPLATE:isi_templates.lst
+
+ABILITY:support/isi_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+
+
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
+FORWARDREF:ABILITY=FEAT|Divine Defiance
+
+INFOTEXT:Supports 6.07.01
+# ENTRY DATE: 2016-06
+# LST MONKEY: Gwen T. (evilpixie87)
+# RELEASE REVIEW #
+# LICENSE:Paul Grosse 2018-01
+# ALPHA: Andrew Maitland 2018-01
+# RELEASE:
+# Built for PCGen Version: 6.07.05
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.1
+# COMMENTS:
+
+
+
+#end

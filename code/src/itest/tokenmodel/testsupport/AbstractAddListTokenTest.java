@@ -27,13 +27,13 @@ import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		extends AbstractTokenModelTest
@@ -41,13 +41,12 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	@Test
 	public void testFromAbility() throws PersistenceLayerException
 	{
-		Ability source = create(Ability.class, "Source");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected(granted));
 		assertEquals((directAbilityFacet == getTargetFacet()) ? 2 : 1,

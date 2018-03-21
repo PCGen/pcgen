@@ -20,18 +20,12 @@ import pcgen.io.exporttoken.AbilityToken;
 public class FeatAutoToken extends AbilityToken
 {
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "FEATAUTO";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 						   ExportHandler eh)
@@ -43,9 +37,6 @@ public class FeatAutoToken extends AbilityToken
 								   AbilityCategory.FEAT);
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.AbilityToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
-	 */
 	@Override
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 										   final AbilityCategory aCategory)

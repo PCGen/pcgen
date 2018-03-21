@@ -28,7 +28,9 @@ import pcgen.core.Race;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.CompanionListLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalCompanionListTest extends AbstractContentTokenTest
 {
@@ -52,7 +54,7 @@ public class GlobalCompanionListTest extends AbstractContentTokenTest
 					"Animal Companion|Ape|FOLLOWERADJUSTMENT:-3");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

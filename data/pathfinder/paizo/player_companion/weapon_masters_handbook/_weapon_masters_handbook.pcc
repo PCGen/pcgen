@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Weapon Master's Handbook
-KEY:PF - Weapon Master's Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
@@ -10,21 +9,22 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder Player Companion
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
 SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook
 SOURCESHORT:WMH
-#SOURCEWEB:http://paizo.com/products/
-#SOURCEDATE:2014-02
+SOURCEWEB:http://paizo.com/products/btpy9hdy
+SOURCEDATE:2015-12
 ISOGL:YES
 
 COVER:PZO9463_180.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy93na?Pathfinder-Player-Companion-Bastards-of-Golarion|Buy this publication from Paizo Publishing!
-
+URL:Paizo Publishing|http://paizo.com/products/btpy9hdy|Buy this publication from Paizo Publishing!
+DESC:Don't just hack and slash like a fresh recruit! Rise above the rank and file to become a true artist of combat with the secrets found within Pathfinder Player Companion: Weapon Master's Handbook! Emulate the fighting style of your patron deity, learn to use your weapons in tricky new ways, or simply enchant your boring old sword with new and exciting magical abilities. Whether you want to perfect the use of a single weapon, become an expert on a whole group of them, or dedicate yourself to specific fighting style, this player-friendly volume contains everything you need!
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
@@ -37,6 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Weapon Mast
 #EXTRAFILE:OGL.txt
 
 # Data files
+ABILITYCATEGORY:wmh_abilitycategories.lst
 ABILITY:wmh_abilities.lst
 EQUIPMENT:wmh_equip.lst
 EQUIPMOD:wmh_equipmods.lst

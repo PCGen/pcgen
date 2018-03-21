@@ -20,8 +20,6 @@ package tokenmodel;
 import java.util.Arrays;
 import java.util.Collection;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -29,17 +27,21 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.deprecated.VFeatLst;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
+import util.TestURI;
 
 public class AbilityDepthTest extends AbstractTokenModelTest
 {
@@ -81,8 +83,9 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 	private Ability createAbility(String key)
 	{
-		Ability a = context.getReferenceContext().constructCDOMObject(Ability.class, key);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(key);
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
@@ -119,7 +122,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 					firstPrefix + mid.getKeyName());
 		if (!result.passed())
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail();
 		}
 		result =
@@ -127,7 +130,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 					secondPrefix + target.getKeyName());
 		if (!result.passed())
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail();
 		}
 
@@ -136,7 +139,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 		CNAbilitySelection cas =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-					AbilityCategory.FEAT, Nature.AUTOMATIC, top));
+					BuildUtilities.getFeatCat(), Nature.AUTOMATIC, top));
 
 		assertEquals(0, getCount());
 		pc.addAbility(cas, "This", "That");
@@ -152,7 +155,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 	protected boolean containsExpected(Ability granted)
 	{
 		Collection<CNAbility> abilities =
-				grantedAbilityFacet.getPoolAbilities(id, AbilityCategory.FEAT);
+				grantedAbilityFacet.getPoolAbilities(id, BuildUtilities.getFeatCat());
 		if (abilities.isEmpty())
 		{
 			System.err.println("No Abilities");
@@ -177,7 +180,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 	protected int getCount()
 	{
-		return grantedAbilityFacet.getPoolAbilities(id, AbilityCategory.FEAT)
+		return grantedAbilityFacet.getPoolAbilities(id, BuildUtilities.getFeatCat())
 			.size();
 	}
 

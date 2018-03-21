@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.equipment;
 
-import java.net.URISyntaxException;
-
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -26,6 +24,7 @@ import pcgen.core.Equipment;
 import pcgen.core.character.WieldCategory;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
@@ -41,13 +40,18 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	protected void resetContext()
 	{
-		super.setUp();
-		TokenRegistration.register(new PreVariableParser());
-		TokenRegistration.register(new PreVariableWriter());
-		GameModeFileLoader.addDefaultWieldCategories(primaryContext);
-		GameModeFileLoader.addDefaultWieldCategories(secondaryContext);
+		try
+		{
+			TokenRegistration.register(new PreVariableParser());
+			TokenRegistration.register(new PreVariableWriter());
+		}
+		catch (PersistenceLayerException e)
+		{
+			fail(e.getLocalizedMessage());
+		}
+		super.resetContext();
 	}
 
 	@Override
@@ -161,6 +165,20 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		catch (ClassCastException e)
 		{
 			// Yep!
+		}
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		try
+		{
+			GameModeFileLoader.addDefaultWieldCategories(context);
+		}
+		catch (PersistenceLayerException e)
+		{
+			fail(e.getLocalizedMessage());
 		}
 	}
 }

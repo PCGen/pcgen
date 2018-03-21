@@ -11,6 +11,7 @@ Edged			TYPE:Edged
 Hurled		TYPE:Hurled
 Siege			TYPE:Siege
 Unarmed		TYPE:Unarmed.UnarmedAttack.UnarmedForte
+Unarmed Strike	TYPE:Unarmed Strike.Unarmed
 Black Powder	TYPE:Black Powder
 
 

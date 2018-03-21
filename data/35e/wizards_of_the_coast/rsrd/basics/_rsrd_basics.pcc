@@ -22,6 +22,8 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
 
 PCC:@/homebrew/conversion_support/conversion_support.pcc
+RACE:*/_universal/races.lst
+
 
 SIZE:rsrd__size.lst
 ALIGNMENT:rsrd__align.lst

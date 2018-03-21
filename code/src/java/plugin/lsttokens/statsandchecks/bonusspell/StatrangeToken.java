@@ -50,7 +50,7 @@ public class StatrangeToken implements CDOMPrimaryToken<BonusSpellInfo>
 			if (intValue < 1)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " must be an integer >= " + 1, context);
+						+ " must be an integer >= " + 1);
 			}
 			bsi.setStatRange(intValue);
 			return ParseResult.SUCCESS;
@@ -59,7 +59,7 @@ public class StatrangeToken implements CDOMPrimaryToken<BonusSpellInfo>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+					+ getTokenName() + ":<int>");
 		}
 	}
 

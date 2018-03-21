@@ -4,7 +4,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 ###Block: Exotic Proficiencies
 # Ability Name			Category of Ability	Define																																					Ability																													Stat bonus						Modify VAR
-CATEGORY=Internal|Default.MOD					DEFINE:BastardSwordExoticUse|0	DEFINE:BypassSizeMods|0	DEFINE:DwarvenWaraxeExoticUse|0	DEFINE:ActivateEnlargePerson|0	DEFINE:ActivateReducePerson|0	DEFINE:Pool_Traits|0	DEFINE:IsPC|0	DEFINE:Pool_Temp_Feat|0	ABILITY:Internal|AUTOMATIC|Temp Bonus ~ Enlarge Person|PREVAREQ:ActivateEnlargePerson,1	ABILITY:Internal|AUTOMATIC|Temp Bonus ~ Reduce Person|PREVAREQ:ActivateReducePerson,1								BONUS:VAR|BastardSwordExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Bastard))	BONUS:VAR|DwarvenWaraxeExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Waraxe (Dwarven))	DEFINE:DisableArmorBonus|0	DEFINE:DisableShieldBonus|0	DEFINE:Pool_CombatFeat|0
+CATEGORY=Internal|Default.MOD					DEFINE:BastardSwordExoticUse|0	DEFINE:BypassSizeMods|0	DEFINE:DwarvenWaraxeExoticUse|0	DEFINE:ActivateEnlargePerson|0	DEFINE:ActivateReducePerson|0	DEFINE:Pool_Traits|0	DEFINE:IsPC|0	DEFINE:Pool_Temp_Feat|0	ABILITY:Internal|AUTOMATIC|Temp Bonus ~ Enlarge Person|PREVAREQ:ActivateEnlargePerson,1	ABILITY:Internal|AUTOMATIC|Temp Bonus ~ Reduce Person|PREVAREQ:ActivateReducePerson,1								BONUS:VAR|BastardSwordExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Bastard))	BONUS:VAR|DwarvenWaraxeExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Waraxe (Dwarven))	DEFINE:DisableArmorBonus|0	DEFINE:DisableShieldBonus|0	DEFINE:Pool_CombatFeat|0	DEFINE:SPELLFAILURE_Total|0	BONUS:VAR|SPELLFAILURE_Total|SPELLFAILURE
 # Place this here for now, once the new formula system is enabled, move this to new file.
 # COMMENT: Mythic Support required - BONUS:WEAPONPROF only applies the best, so Mythic is ignoring the additional +1 and making it just +1. Using a variable to circumvent this limitation.
 CATEGORY=Internal|Default.MOD					DEFINE:WeaponFocusToHit|0	DEFINE:GreaterWeaponFocusToHit|0																												ABILITY:Internal|AUTOMATIC|Aspect Combat Bonus ~ Encumbrance|PREVARGTEQ:Encumbrance,1																							BONUS:VAR|WeaponFocusToHit|1|TYPE=Base	BONUS:VAR|GreaterWeaponFocusToHit|1|TYPE=Base
@@ -15,7 +15,7 @@ Negate Aging Penalties		CATEGORY:Internal		DEFINE:NegatedAgePenalty|0											
 
 ###Block: Aspect Displays
 # Ability Name				Category of Ability	Aspects
-Aspect Combat Bonus ~ Mobility	CATEGORY:Internal		ASPECT:CombatBonus|+4 dodge bonus to Armor Class against attacks of opportunity caused when you move out of or within a threatened area. A condition that makes you lose your Dexterity bonus to Armor Class (if any) also makes you lose dodge bonuses. Dodge bonuses stack with each other, unlike most types of bonuses.
+Aspect Combat Bonus ~ Mobility	CATEGORY:Internal		ASPECT:CombatBonus|+%1 dodge bonus to Armor Class against attacks of opportunity caused when you move out of or within a threatened area. A condition that makes you lose your Dexterity bonus to Armor Class (if any) also makes you lose dodge bonuses. Dodge bonuses stack with each other, unlike most types of bonuses.	DEFINE:Feat_Mobility_DodgeBonus|0	BONUS:VAR|Feat_Mobility_DodgeBonus|4|TYPE=Base
 Aspect Combat Bonus ~ Encumbrance	CATEGORY:Internal		ASPECT:CombatBonus|Encumbrance rule effect, reduced speed and penalties applied, see - http://paizo.com/pathfinderRPG/prd/coreRulebook/additionalRules.html#carrying-capacity
 
 ###Block: Curses
@@ -289,7 +289,7 @@ CATEGORY=Internal|Default.MOD																																																			
 
 ###Block: Abilities
 # Ability Name	Category of Ability		Type								Visible
-Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
+Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:NO
 
 ###Block: Specials
 # Ability Name	Category of Ability		Type				Visible	Define			Description																																																	Combat bonus				Bonus to HP					Save bonus							Bonus to skill															Source Page
@@ -404,9 +404,9 @@ Add Language		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQual
 
 
 ###Block: House Rules / Homebrew Support
-# Ability Name					Category of Ability	Type				Define					Description																Modify VAR							Cost
-Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0	DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule	COST:0
-
+# Ability Name					Category of Ability	Type				Define						Description																Modify VAR								Cost
+Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0		DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule		COST:0
+Rule - Using Weapons with Natural Attacks	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:UseWeaponsWithNaturalAttacks|0	DESC:This changes the Natural Primary attacks to Secondary while using weapons.				BONUS:VAR|UseWeaponsWithNaturalAttacks|1|TYPE=Rule	COST:0
 
 
 ###Block: Ioun Stone Support
@@ -427,3 +427,108 @@ Pink and green Sphere		KEY:Ioun Stone / Pink and green Sphere		CATEGORY:Special 
 Pink Rhomboid			KEY:Ioun Stone / Pink Rhomboid			CATEGORY:Special Ability	TYPE:Ioun Stone.Equipment.Pink Rhomboid.Ioun														STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:STAT|CON|2|TYPE=Enhancement							SOURCEPAGE:p.520
 Scarlet and blue Sphere		KEY:Ioun Stone / Scarlet and blue Sphere		CATEGORY:Special Ability	TYPE:Ioun Stone.Equipment.Scarlet and blue Sphere.Ioun												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:STAT|INT|2|TYPE=Enhancement							SOURCEPAGE:p.520
 Vibrant purple Prism		KEY:Ioun Stone / Vibrant purple Prism		CATEGORY:Special Ability	TYPE:Ioun Stone.Equipment.Vibrant purple.Ioun			DESC:Stores three levels of spells, as a ring of spell storing	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																							SOURCEPAGE:p.520
+
+
+# CLASS SKILL GRANTS:
+Acrobatics					CATEGORY:Class Skill	CSKILL:Acrobatics					
+Appraise					CATEGORY:Class Skill	CSKILL:Appraise					
+Bluff						CATEGORY:Class Skill	CSKILL:Bluff						
+Climb						CATEGORY:Class Skill	CSKILL:Climb						
+Craft						CATEGORY:Class Skill	CSKILL:TYPE=Craft				
+Craft (Alchemy)				CATEGORY:Class Skill	CSKILL:Craft (Alchemy)				
+Craft (Armor)				CATEGORY:Class Skill	CSKILL:Craft (Armor)				
+Craft (Baskets)				CATEGORY:Class Skill	CSKILL:Craft (Baskets)				
+Craft (Blacksmithing)			CATEGORY:Class Skill	CSKILL:Craft (Blacksmithing)			
+Craft (Books)				CATEGORY:Class Skill	CSKILL:Craft (Books)				
+Craft (Bows)				CATEGORY:Class Skill	CSKILL:Craft (Bows)				
+Craft (Calligraphy)			CATEGORY:Class Skill	CSKILL:Craft (Calligraphy)			
+Craft (Carpentry)				CATEGORY:Class Skill	CSKILL:Craft (Carpentry)				
+Craft (Cloth)				CATEGORY:Class Skill	CSKILL:Craft (Cloth)				
+Craft (Clothing)				CATEGORY:Class Skill	CSKILL:Craft (Clothing)				
+Craft (Gemcutting)			CATEGORY:Class Skill	CSKILL:Craft (Gemcutting)			
+Craft (Glass)				CATEGORY:Class Skill	CSKILL:Craft (Glass)				
+Craft (Jewelry)				CATEGORY:Class Skill	CSKILL:Craft (Jewelry)				
+Craft (Leather)				CATEGORY:Class Skill	CSKILL:Craft (Leather)				
+Craft (Locks)				CATEGORY:Class Skill	CSKILL:Craft (Locks)				
+Craft (Paintings)				CATEGORY:Class Skill	CSKILL:Craft (Paintings)				
+Craft (Pottery)				CATEGORY:Class Skill	CSKILL:Craft (Pottery)				
+Craft (Sculptures)			CATEGORY:Class Skill	CSKILL:Craft (Sculptures)			
+Craft (Ships)				CATEGORY:Class Skill	CSKILL:Craft (Ships)				
+Craft (Shoes)				CATEGORY:Class Skill	CSKILL:Craft (Shoes)				
+Craft (Stonemasonry)			CATEGORY:Class Skill	CSKILL:Craft (Stonemasonry)			
+Craft (Traps)				CATEGORY:Class Skill	CSKILL:Craft (Traps)				
+Craft (Weapons)				CATEGORY:Class Skill	CSKILL:Craft (Weapons)				
+Craft (Untrained)				CATEGORY:Class Skill	CSKILL:Craft (Untrained)				
+Diplomacy					CATEGORY:Class Skill	CSKILL:Diplomacy					
+Disable Device				CATEGORY:Class Skill	CSKILL:Disable Device				
+Disguise					CATEGORY:Class Skill	CSKILL:Disguise					
+Escape Artist				CATEGORY:Class Skill	CSKILL:Escape Artist				
+Fly						CATEGORY:Class Skill	CSKILL:Fly						
+Handle Animal				CATEGORY:Class Skill	CSKILL:Handle Animal				
+Heal						CATEGORY:Class Skill	CSKILL:Heal						
+Intimidate					CATEGORY:Class Skill	CSKILL:Intimidate					
+Knowledge					CATEGORY:Class Skill	CSKILL:TYPE=Knowledge				
+Knowledge (Arcana)			CATEGORY:Class Skill	CSKILL:Knowledge (Arcana)		TYPE:Knowledge	
+Knowledge (Dungeoneering)		CATEGORY:Class Skill	CSKILL:Knowledge (Dungeoneering)	TYPE:Knowledge	
+Knowledge (Engineering)			CATEGORY:Class Skill	CSKILL:Knowledge (Engineering)	TYPE:Knowledge		
+Knowledge (Geography)			CATEGORY:Class Skill	CSKILL:Knowledge (Geography)		TYPE:Knowledge	
+Knowledge (History)			CATEGORY:Class Skill	CSKILL:Knowledge (History)		TYPE:Knowledge	
+Knowledge (Local)				CATEGORY:Class Skill	CSKILL:Knowledge (Local)		TYPE:Knowledge		
+Knowledge (Nature)			CATEGORY:Class Skill	CSKILL:Knowledge (Nature)		TYPE:Knowledge	
+Knowledge (Nobility)			CATEGORY:Class Skill	CSKILL:Knowledge (Nobility)		TYPE:Knowledge	
+Knowledge (Planes)			CATEGORY:Class Skill	CSKILL:Knowledge (Planes)		TYPE:Knowledge	
+Knowledge (Religion)			CATEGORY:Class Skill	CSKILL:Knowledge (Religion)		TYPE:Knowledge	
+Knowledge (Untrained)			CATEGORY:Class Skill	CSKILL:Knowledge (Untrained)			
+Linguistics					CATEGORY:Class Skill	CSKILL:Linguistics					
+Perception					CATEGORY:Class Skill	CSKILL:Perception					
+Perform					CATEGORY:Class Skill	CSKILL:TYPE=Perform				
+Perform (Act)				CATEGORY:Class Skill	CSKILL:Perform (Act)				
+Perform (Comedy)				CATEGORY:Class Skill	CSKILL:Perform (Comedy)				
+Perform (Dance)				CATEGORY:Class Skill	CSKILL:Perform (Dance)				
+Perform (Keyboard Instruments)	CATEGORY:Class Skill	CSKILL:Perform (Keyboard Instruments)	
+Perform (Oratory)				CATEGORY:Class Skill	CSKILL:Perform (Oratory)				
+Perform (Percussion Instruments)	CATEGORY:Class Skill	CSKILL:Perform (Percussion Instruments)	
+Perform (Sing)				CATEGORY:Class Skill	CSKILL:Perform (Sing)				
+Perform (String Instruments)		CATEGORY:Class Skill	CSKILL:Perform (String Instruments)		
+Perform (Wind Instruments)		CATEGORY:Class Skill	CSKILL:Perform (Wind Instruments)		
+Perform (Untrained)			CATEGORY:Class Skill	CSKILL:Perform (Untrained)			
+Profession					CATEGORY:Class Skill	CSKILL:TYPE=Profession				
+Profession (Architect)			CATEGORY:Class Skill	CSKILL:Profession (Architect)			
+Profession (Baker)			CATEGORY:Class Skill	CSKILL:Profession (Baker)			
+Profession (Barrister)			CATEGORY:Class Skill	CSKILL:Profession (Barrister)			
+Profession (Brewer)			CATEGORY:Class Skill	CSKILL:Profession (Brewer)			
+Profession (Butcher)			CATEGORY:Class Skill	CSKILL:Profession (Butcher)			
+Profession (Clerk)			CATEGORY:Class Skill	CSKILL:Profession (Clerk)			
+Profession (Cook)				CATEGORY:Class Skill	CSKILL:Profession (Cook)				
+Profession (Courtesan)			CATEGORY:Class Skill	CSKILL:Profession (Courtesan)			
+Profession (Driver)			CATEGORY:Class Skill	CSKILL:Profession (Driver)			
+Profession (Engineer)			CATEGORY:Class Skill	CSKILL:Profession (Engineer)			
+Profession (Farmer)			CATEGORY:Class Skill	CSKILL:Profession (Farmer)			
+Profession (Fisherman)			CATEGORY:Class Skill	CSKILL:Profession (Fisherman)			
+Profession (Gambler)			CATEGORY:Class Skill	CSKILL:Profession (Gambler)			
+Profession (Gardener)			CATEGORY:Class Skill	CSKILL:Profession (Gardener)			
+Profession (Herbalist)			CATEGORY:Class Skill	CSKILL:Profession (Herbalist)			
+Profession (Innkeeper)			CATEGORY:Class Skill	CSKILL:Profession (Innkeeper)			
+Profession (Librarian)			CATEGORY:Class Skill	CSKILL:Profession (Librarian)			
+Profession (Merchant)			CATEGORY:Class Skill	CSKILL:Profession (Merchant)			
+Profession (Midwife)			CATEGORY:Class Skill	CSKILL:Profession (Midwife)			
+Profession (Miller)			CATEGORY:Class Skill	CSKILL:Profession (Miller)			
+Profession (Miner)			CATEGORY:Class Skill	CSKILL:Profession (Miner)			
+Profession (Porter)			CATEGORY:Class Skill	CSKILL:Profession (Porter)			
+Profession (Sailor)			CATEGORY:Class Skill	CSKILL:Profession (Sailor)			
+Profession (Scribe)			CATEGORY:Class Skill	CSKILL:Profession (Scribe)			
+Profession (Shepherd)			CATEGORY:Class Skill	CSKILL:Profession (Shepherd)			
+Profession (Soldier)			CATEGORY:Class Skill	CSKILL:Profession (Soldier)			
+Profession (Soothsayer)			CATEGORY:Class Skill	CSKILL:Profession (Soothsayer)			
+Profession (Stable Master)		CATEGORY:Class Skill	CSKILL:Profession (Stable Master)		
+Profession (Tanner)			CATEGORY:Class Skill	CSKILL:Profession (Tanner)			
+Profession (Trapper)			CATEGORY:Class Skill	CSKILL:Profession (Trapper)			
+Profession (Woodcutter)			CATEGORY:Class Skill	CSKILL:Profession (Woodcutter)			
+Ride						CATEGORY:Class Skill	CSKILL:Ride						
+Sense Motive				CATEGORY:Class Skill	CSKILL:Sense Motive				
+Sleight of Hand				CATEGORY:Class Skill	CSKILL:Sleight of Hand				
+Spellcraft					CATEGORY:Class Skill	CSKILL:Spellcraft					
+Stealth					CATEGORY:Class Skill	CSKILL:Stealth					
+Survival					CATEGORY:Class Skill	CSKILL:Survival					
+Swim						CATEGORY:Class Skill	CSKILL:Swim						
+Use Magic Device				CATEGORY:Class Skill	CSKILL:Use Magic Device				

@@ -19,9 +19,8 @@ package plugin.lsttokens.race;
 
 import java.util.Collection;
 
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
@@ -59,8 +58,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		if (ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
 			return new ParseResult.Fail(
-				"FACE: LST Token is disabled when FACE: control is used",
-				context);
+				"FACE: LST Token is disabled when FACE: control is used");
 		}
 		if (value.indexOf(',') == -1)
 		{
@@ -69,32 +67,30 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		FormatManager<OrderedPair> formatManager =
 				(FormatManager<OrderedPair>) context.getReferenceContext()
 					.getFormatManager("ORDEREDPAIR");
-		ScopeInstance scopeInst = context.getActiveScope();
-		LegalScope scope = scopeInst.getLegalScope();
-		PCGenModifier<OrderedPair> modifier;
+		LegalScope scope = context.getActiveScope();
+		FormulaModifier<OrderedPair> modifier;
 		try
 		{
-			modifier =
-					context.getVariableContext().getModifier(
-						MOD_IDENTIFICATION, value, MOD_PRIORITY, scope,
-						formatManager);
+			modifier = context.getVariableContext()
+				.getModifier(MOD_IDENTIFICATION, value, scope, formatManager);
 		}
 		catch (IllegalArgumentException iae)
 		{
 			return new ParseResult.Fail(getTokenName() + " Modifier "
 				+ MOD_IDENTIFICATION + " had value " + value
-				+ " but it was not valid: " + iae.getMessage(), context);
+				+ " but it was not valid: " + iae.getMessage());
 		}
+		modifier.addAssociation("PRIORITY=" + MOD_PRIORITY);
 		OrderedPair pair = modifier.process(null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
 			return new ParseResult.Fail(getTokenName() + " had value " + value
-				+ " but first item cannot be negative", context);
+				+ " but first item cannot be negative");
 		}
 		if (pair.getPreciseY().doubleValue() < 0.0)
 		{
 			return new ParseResult.Fail(getTokenName() + " had value " + value
-				+ " but second item cannot be negative", context);
+				+ " but second item cannot be negative");
 		}
 
 		if (!context.getVariableContext().isLegalVariableID(scope, VAR_NAME))
@@ -102,7 +98,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 			return new ParseResult.Fail(getTokenName()
 				+ " internal error: found invalid var name: " + VAR_NAME
 				+ ", Modified on " + race.getClass().getSimpleName() + ' '
-				+ race.getKeyName(), context);
+				+ race.getKeyName());
 		}
 		VarModifier<OrderedPair> vm =
 				new VarModifier<>(VAR_NAME, scope, modifier);
@@ -121,14 +117,13 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		{
 			for (VarModifier<?> vm : added)
 			{
-				PCGenModifier<?> modifier = vm.getModifier();
+				FormulaModifier<?> modifier = vm.getModifier();
 				if (VAR_NAME.equals(vm.getVarName())
-					&& (vm.getLegalScope().getParentScope() == null)
-					&& (modifier.getUserPriority() == MOD_PRIORITY)
-					&& (vm.getModifier().getIdentification()
+					&& (!vm.getLegalScope().getParentScope().isPresent())
+					&& (modifier.getIdentification()
 						.equals(MOD_IDENTIFICATION)))
 				{
-					face = vm.getModifier().getInstructions();
+					face = modifier.getInstructions();
 					if (face.endsWith(",0"))
 					{
 						face = face.substring(0, face.length() - 2);

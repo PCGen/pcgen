@@ -20,19 +20,18 @@
  */
 package plugin.initiative;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.util.Logging;
+
 import gmgen.plugin.Combatant;
 import gmgen.plugin.State;
 import gmgen.plugin.SystemAttribute;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.lang3.math.Fraction;
 import org.jdom2.Element;
-
-import pcgen.util.Logging;
 
 
 public class XMLCombatant extends Combatant

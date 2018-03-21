@@ -73,7 +73,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 		if (looksLikeAPrerequisite(tok))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-				+ getTokenName() + ": " + value, context);
+				+ getTokenName() + ": " + value);
 		}
 
 		List<QualifiedObject<CDOMSingleRef<Domain>>> toAdd =
@@ -86,7 +86,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item", context);
+							+ ": .CLEAR was not the first list item");
 				}
 				context.getObjectContext().removeList(pcc, ListKey.DOMAIN);
 				foundClear = true;
@@ -116,7 +116,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR in "
-							+ getTokenName(), context);
+							+ getTokenName());
 		}
 
 		while (true)
@@ -125,7 +125,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put feats after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)", context);
+						+ "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			for (PrereqObject pro : toAdd)
 			{

@@ -23,10 +23,10 @@ import java.util.List;
 import java.util.Vector;
 
 import pcgen.core.SettingsHandler;
+import plugin.initiative.InitiativePlugin;
 
 import gmgen.plugin.dice.Dice;
 import gmgen.plugin.dice.Die;
-import plugin.initiative.InitiativePlugin;
 
 /**
  */

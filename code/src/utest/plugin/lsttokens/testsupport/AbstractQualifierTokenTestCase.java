@@ -1956,22 +1956,22 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
 				
-		Globals.createEmptyRace();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		resetContext();
+		BuildUtilities.buildUnselectedRace(Globals.getContext());
 		GameMode gamemode = SettingsHandler.getGame();
 		
-		str = BuildUtilities.createStat("Strength", "STR");
+		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"), FormulaFactory
 			.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
 			.getFormulaFor(2));
-		dex = BuildUtilities.createStat("Dexterity", "DEX");
-		PCStat con = BuildUtilities.createStat("Constitution", "CON");
-		intel = BuildUtilities.createStat("Intelligence", "INT");
-		wis = BuildUtilities.createStat("Wisdom", "WIS");
-		cha = BuildUtilities.createStat("Charisma", "CHA");
+		dex = BuildUtilities.createStat("Dexterity", "DEX", "B");
+		PCStat con = BuildUtilities.createStat("Constitution", "CON", "C");
+		intel = BuildUtilities.createStat("Intelligence", "INT", "D");
+		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
+		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");

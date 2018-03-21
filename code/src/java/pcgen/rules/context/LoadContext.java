@@ -21,7 +21,9 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.inst.NEPFormula;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.GroupDefinition;
@@ -150,11 +152,44 @@ public interface LoadContext
 	 */
 	public void loadLocalToken(Object token);
 	
-	public <T> GroupDefinition<T> getGroup(Class<T> cl, String s);
+	/**
+	 * Returns a GroupDefinition<T> based on the given Class and Group instructions
+	 * 
+	 * Note: This is used to convert dynamic groups (produced by FACT/FACTSET) into primitives that 
+	 * can be used in tokens like CHOOSE.
+	 * 
+	 * @param cl The class of object used for the GroupDefinition
+	 * @param instructions The instructions used to determine the contents of the GroupDefinition
+	 * @return A GroupDefinition<T> based on the given Class and Group instructions
+	 */
+	public <T> GroupDefinition<T> getGroup(Class<T> cl, String instructions);
 
 	LoadContext dropIntoContext(String scope);
 
+	/**
+	 * Returns the VariableContext for this LoadContext.
+	 * 
+	 * @return The VariableContext for this LoadContext
+	 */
 	VariableContext getVariableContext();
 
-	public ScopeInstance getActiveScope();
+	/**
+	 * Returns the currently active LegalScope.
+	 * 
+	 * @return The currently active LegalScope
+	 */
+	public LegalScope getActiveScope();
+
+	/**
+	 * Directly returns a valid formula with the Format of the given FormatManager.
+	 * 
+	 * @param formatManager
+	 *            The FormatManager to indicate the format of the NEPFormula to be
+	 *            returned
+	 * @param instructions
+	 *            The instructions for the NEPFormula to process when it is solved
+	 * @return A NEPFormula that implements the given Format and instructions
+	 */
+	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
+		String instructions);
 }

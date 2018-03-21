@@ -17,9 +17,9 @@
  */
  package plugin.experience;
 
-import gmgen.plugin.Combatant;
-
 import javax.swing.DefaultListModel;
+
+import gmgen.plugin.Combatant;
 
 /**
  * ExperienceList. This class holds all the characters that are to be displayed in a JList.

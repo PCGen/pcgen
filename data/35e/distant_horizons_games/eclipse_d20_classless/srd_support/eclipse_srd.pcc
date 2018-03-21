@@ -30,6 +30,8 @@ LOGO:@/publisher_logos/DHG_OGL_Logo.jpg
 
 
 COVER:51254.jpg
+RACE:*/_universal/races.lst
+
 
 ABILITY:eclipse_srd_abilities.lst
 ABILITY:eclipse_srd_abilities_skills.lst
@@ -49,6 +51,7 @@ BONUS:ABILITYPOOL|Disadvantages|3|PREVARGTEQ:EclipseClass,1
 #PCC:../eclipse.pcc
 #COMMENT: Direct Reference is best
 
+DATACONTROL:../eclipse__datacontrols.lst
 ABILITY:../eclipse_abilities.lst
 ABILITY:../eclipse_abilities_disadvantages.lst
 ABILITY:../eclipse_abilities_martial_arts.lst

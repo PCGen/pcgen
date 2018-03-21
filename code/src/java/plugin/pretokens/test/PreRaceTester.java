@@ -25,7 +25,6 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -39,9 +38,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreRaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
@@ -138,21 +134,18 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		}
 		else
 		{
-			final String characterRace = pcRace == null ? Constants.NONESELECTED : pcRace.getKeyName();
+			boolean isUnselected = (pcRace == null) || pcRace.isUnselected();
 			final int wild = requiredRace.indexOf('%');
 			if (wild == 0)
 			{
-				//
-				// Matches as long as race is not <none selected>
-				//
-				if (!characterRace.equalsIgnoreCase(Constants.NONESELECTED))
+				if (!isUnselected)
 				{
 					++runningTotal;
 				}
 			}
 			else if (wild > 0)
 			{
-				if (characterRace.regionMatches(true, 0, requiredRace, 0, wild))
+				if (!isUnselected && pcRace.getKeyName().regionMatches(true, 0, requiredRace, 0, wild))
 				{
 					++runningTotal;
 				}
@@ -163,7 +156,7 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 			}
 			else
 			{
-				if (characterRace.equalsIgnoreCase(requiredRace))
+				if (!isUnselected && pcRace.getKeyName().equalsIgnoreCase(requiredRace))
 				{
 					++runningTotal;
 				}
@@ -171,8 +164,7 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 				{
 					for (Race mock : racesImitated)
 					{
-						if (mock.getDisplayName()
-							.equalsIgnoreCase(requiredRace))
+						if (mock.getDisplayName().equalsIgnoreCase(requiredRace))
 						{
 							++runningTotal;
 							break;
@@ -196,8 +188,7 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 	{
 		for (Race mock : imitatedRaces)
 		{
-			if (mock.getDisplayName().regionMatches(true, 0, requiredRace, 0,
-				wild))
+			if (mock.getDisplayName().regionMatches(true, 0, requiredRace, 0, wild))
 			{
 				return 1;
 			}

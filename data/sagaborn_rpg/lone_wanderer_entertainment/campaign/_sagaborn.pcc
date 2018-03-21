@@ -36,10 +36,13 @@ COPYRIGHT:PCGen dataset conversion for "SagaBorn Roleplaying Game, Beta" Copyrig
 
 
 # Core
+RACE:*/_universal/races.lst
+
 ALIGNMENT:srs__align.lst
 DATACONTROL:srs__datacontrols.lst
 SAVE:srs__saves.lst
 STAT:srs__stats.lst
+SIZE:srs__sizes.lst
 
 # Sagaborn Files
 ABILITY:srs_abilities.lst

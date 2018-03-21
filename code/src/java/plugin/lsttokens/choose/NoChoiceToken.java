@@ -21,13 +21,13 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import pcgen.cdom.base.BasicClassIdentity;
+import org.jetbrains.annotations.NotNull;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Chooser;
-import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -47,9 +47,6 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		ChooseInformation<String>, Chooser<String>,
 		DeferredToken<CDOMObject>
 {
-
-	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
-		.getIdentity(String.class);
 
 	@Override
 	public String getTokenName()
@@ -74,7 +71,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 			return ParseResult.SUCCESS;
 		}
 		return new ParseResult.Fail("CHOOSE:" + getTokenName()
-			+ " will ignore arguments: " + value, context);
+			+ " will ignore arguments: " + value);
 	}
 
 	@Override
@@ -97,9 +94,9 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public ClassIdentity<String> getClassIdentity()
+	public Class<String> getReferenceClass()
 	{
-		return STRING_INFO;
+		return String.class;
 	}
 
 	@Override
@@ -222,10 +219,10 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends String> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends String> collection)
 	{
 		StringBuilder sb = new StringBuilder(5);
-		int count = (collection == null) ? 0 : collection.size();
+		int count = collection.size();
 		if (count > 1)
 		{
 			sb.append(count);
@@ -252,6 +249,12 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "STRING";
 	}
 
 }

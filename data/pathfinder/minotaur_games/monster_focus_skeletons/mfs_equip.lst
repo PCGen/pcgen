@@ -14,8 +14,8 @@ Sun Crystal		TYPE:Goods.Alchemical.Consumable		COST:60			SOURCEPAGE:p.2
 
 ###Block: Magic Weapons
 # Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Size		Source Page		Special Property
-Bone Sword		PROFICIENCY:WEAPON|Longsword		TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword		COST:15	WT:4		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:BONE.MAGIC_COST|8000.PLUS2W	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:1/day when delivering a killing blow, animate the killed creature as a swift action as if using Lesser Animate Dead
-Spine Mace		PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Weapon.Resizable.Melee.Simple.Specific.Bludgeoning.Mace	COST:12	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:BONE.MAGIC_COST|8000.PLUS1W	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:Deals 1d6 extra to skeletons. 1/day can emit a silent scream, all undead within 30 ft. flee as if panicked (DC 13 Will negates).
+Bone Sword		PROFICIENCY:WEAPON|Longsword		TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword		COST:15	WT:4		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Material ~ Bone.Special Ability ~ Enhancement Cost|8000.Special Ability ~ +2 ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:1/day when delivering a killing blow, animate the killed creature as a swift action as if using Lesser Animate Dead
+Spine Mace		PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Weapon.Resizable.Melee.Simple.Specific.Bludgeoning.Mace	COST:12	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Bone.Special Ability ~ Enhancement Cost|8000.Special Ability ~ +1 ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:Deals 1d6 extra to skeletons. 1/day can emit a silent scream, all undead within 30 ft. flee as if panicked (DC 13 Will negates).
 
 ###Block: Rings
 # Equipment Name	Type			Cost		Source Page		Special Property

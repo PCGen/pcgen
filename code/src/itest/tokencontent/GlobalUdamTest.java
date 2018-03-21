@@ -19,8 +19,6 @@ package tokencontent;
 
 import java.util.Collections;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
@@ -28,7 +26,10 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.UdamLst;
+
+import org.junit.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalUdamTest extends AbstractContentTokenTest
 {
@@ -49,7 +50,7 @@ public class GlobalUdamTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "7");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

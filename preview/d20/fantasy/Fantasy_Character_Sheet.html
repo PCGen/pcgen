@@ -1052,9 +1052,6 @@ img {
       <td width="58" class="attackTables"><div align="center">|ARMOR.EQUIPPED.0.SPELLFAIL|</div></td>
       <td></td>
     </tr>
-    <tr> 
-      <td height="5" colspan="7" class="sprop">|ARMOR.EQUIPPED.0.SPROP|</td>
-    </tr>
   </table>
 <!-- Stop Armor Table -->
 
@@ -1082,10 +1079,6 @@ img {
       <td width="59" class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.ACCHECK|</div></td>
       <td width="58" class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.SPELLFAIL|</div></td>
       <td></td>
-    </tr>
-    <tr> 
-      <td height="5" colspan="7" class="sprop">|ARMOR.SHIELD.EQUIPPED.0.SPROP|</td>
-    </tr>
   </table>
 <!-- Stop Shield Table -->
 
@@ -1133,25 +1126,22 @@ img {
       <td class="attackTables"><div align="center">|ARMOR.SHIELD.EQUIPPED.0.SPELLFAIL|</div></td>
       <td></td>
     </tr>
-    <tr> 
-      <td height="3" colspan="7" ></td>
-    </tr>
-|IIF(ARMOR.EQUIPPED.0.SPROP: )|
-    <tr> 
-      <td height="6" colspan="7" class="sprop" background="preview/d20/fantasy/images/gold/attacks_tile.png"><b>Armor Properties: </b>|ARMOR.EQUIPPED.0.SPROP|</td>
-    </tr>
-|ENDIF|
-|IIF(ARMOR.SHIELD.EQUIPPED.0.SPROP: )|
-    <tr> 
-      <td height="6" colspan="7" class="sprop" background="preview/d20/fantasy/images/gold/attacks_tile.png"><b>Shield Properties: </b>|ARMOR.SHIELD.EQUIPPED.0.SPROP|</td>
-    </tr>
-|ENDIF|
   </table>
 <!-- Stop Armor and Shield Table -->
 
 |ENDIF|
 |ENDIF|
 <table width="400" border="0" cellspacing="0" cellpadding="0">
+|IIF(ARMOR.EQUIPPED.0.SPROP: )|
+    <tr> 
+      <td class="sprop" background="preview/d20/fantasy/images/gold/attacks_tile.png"><b>Armor Properties: </b>|ARMOR.EQUIPPED.0.SPROP|</td>
+    </tr>
+|ENDIF|
+|IIF(ARMOR.SHIELD.EQUIPPED.0.SPROP: )|
+    <tr> 
+      <td class="sprop" background="preview/d20/fantasy/images/gold/attacks_tile.png"><b>Shield Properties: </b>|ARMOR.SHIELD.EQUIPPED.0.SPROP|</td>
+    </tr>
+|ENDIF|
   <tr>
     <td><img src="preview/d20/fantasy/images/gold/attacks_foot.png"></td>
   </tr>

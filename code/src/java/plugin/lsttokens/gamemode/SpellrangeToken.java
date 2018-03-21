@@ -1,9 +1,11 @@
 package plugin.lsttokens.gamemode;
 
 import java.net.URI;
+import java.util.StringTokenizer;
 
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with SPELLRANGE Token
@@ -11,16 +13,26 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class SpellrangeToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLRANGE";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setSpellRangeFormula(value);
+		StringTokenizer aTok = new StringTokenizer(value, "|");
+
+		if (aTok.countTokens() != 2)
+		{
+			Logging.errorPrint("Invalid SPELLRANGE: " + value);
+			return false;
+		}
+
+		String aRange = aTok.nextToken().toUpperCase();
+		String aFormula = aTok.nextToken();
+		gameMode.addSpellRange(aRange, aFormula);
 		return true;
 	}
 }

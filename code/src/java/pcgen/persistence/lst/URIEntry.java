@@ -21,7 +21,6 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.Objects;
 
-import pcgen.base.lang.ObjectUtil;
 import pcgen.util.Logging;
 
 /**
@@ -114,7 +113,7 @@ public class URIEntry
 		if (arg0 instanceof URIEntry)
 		{
 			URIEntry other = (URIEntry) arg0;
-			return ObjectUtil.compareWithNull(uriFac, other.uriFac)
+			return Objects.equals(uriFac, other.uriFac)
 				&& getURI().equals(other.getURI());
 		}
 		return false;

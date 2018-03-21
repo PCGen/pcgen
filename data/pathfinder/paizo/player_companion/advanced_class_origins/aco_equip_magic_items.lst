@@ -38,5 +38,5 @@ Beast Wrestler's Gauntlets (Vermin)					TYPE:Magic.Wondrous.Glove		COST:7500	WT:
 Fangwood Clasp				NAMEISPI:YES		TYPE:Magic.Wondrous.Amulet		COST:14000	WT:1		SOURCEPAGE:p.28
 Flame of Bakrakhan			NAMEISPI:YES		TYPE:Magic.Wondrous.Headgear		COST:10000	WT:1		SOURCEPAGE:p.29
 Lepidstadt Investigator's Hat		NAMEISPI:YES		TYPE:Magic.Wondrous.Headgear		COST:7000			SOURCEPAGE:p.29
-Shory Acolyte's Staff			NAMEISPI:YES		TYPE:Magic.Staff				COST:21600	WT:1		SOURCEPAGE:p.29		EQMOD:CHARGED_STAFF|CHARGES[10]
-Zenj Totem Staff				NAMEISPI:YES		TYPE:Magic.Staff				COST:24800	WT:2		SOURCEPAGE:p.29		EQMOD:CHARGED_STAFF|CHARGES[10]
+Shory Acolyte's Staff			NAMEISPI:YES		TYPE:Magic.Staff				COST:21600	WT:1		SOURCEPAGE:p.29		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]
+Zenj Totem Staff				NAMEISPI:YES		TYPE:Magic.Staff				COST:24800	WT:2		SOURCEPAGE:p.29		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]

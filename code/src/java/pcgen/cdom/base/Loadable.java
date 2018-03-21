@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2010-18 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,19 +19,65 @@ package pcgen.cdom.base;
 
 import java.net.URI;
 
+/**
+ * A Loadable is an object that PCGen can load from its persistent file storage (generally "LST" files). 
+ */
 public interface Loadable extends Identified
 {
 
-	public String getLSTformat();
-
+	/**
+	 * Sets the name of the Loadable to the given name.
+	 * 
+	 * @param name
+	 *            The name to be given to the Loadable
+	 */
 	public void setName(String name);
 
+	/**
+	 * Returns the source URI for this Loadable.
+	 * 
+	 * @return The source URI for this Loadable
+	 */
 	public URI getSourceURI();
 
+	/**
+	 * Sets the source URI for this Loadable.
+	 * 
+	 * @param source
+	 *            The source URI for this Loadable
+	 */
 	public void setSourceURI(URI source);
 
+	/**
+	 * Returns true if this object is "internal" (meaning PCGen creates it and it doesn't
+	 * need to be persisted to a set of saved LST data).
+	 * 
+	 * @return true if this object is "internal"; false otherwise
+	 */
 	public boolean isInternal();
 
+	/**
+	 * Returns true if the object is of the given type.
+	 * 
+	 * Note that the given String may contain a TYPE= or TYPE. prefix (which will be
+	 * discarded) and can contain more than one type (separated by periods '.'). If more
+	 * than one type is provided, this Loadable must be of ALL of the given types for this
+	 * method to return true.
+	 * 
+	 * @param type
+	 *            The type to be checked to see if this Loadable is of the given Type
+	 * @return true if the object is of the given type; false otherwise.
+	 */
 	public boolean isType(String type);
+
+	/**
+	 * Returns the ClassIdentity of this Loadable.
+	 * 
+	 * @return The ClassIdentity representing this Loadable
+	 */
+	public default ClassIdentity<? extends Loadable> getClassIdentity()
+	{
+		return BasicClassIdentity.getIdentity(getClass());
+	}
 
 }

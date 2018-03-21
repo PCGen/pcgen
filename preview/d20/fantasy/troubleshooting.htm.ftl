@@ -59,7 +59,7 @@ ${pcstring('RACESUBTYPE.${racesubtype}')}
 <b>Multiclassing experience penalty</b> ${pcstring('EXP.PENALTY')}<br>
 <b>Favored Classes</b> ${pcstring('FAVOREDLIST')}<br>
 <b>Total Classes</b> ${pcvar('COUNT[CLASSES]')}<br>
-<b>Face</b> ${pcstring('FACE')}<br>
+<b>Face</b> ${pcstring('FACE')}  -- Shortened ${pcstring('FACE.SHORT')}<br>
 <b>Reach</b> ${pcstring('REACH')}<br>
 <b>Encumbrance Category:</b> ${pcstring('TOTAL.LOAD')}<br>
 
@@ -475,6 +475,32 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 <b>${pcstring('ABILITYALL.Domain.${ability}.KEY')}</b> [<i>${pcstring('ABILITYALL.Domain.${ability}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
+
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability")') != 0)>
+<b>Special Abilities (Everything)</b>
+</#if>
+<blockquote>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITYALL.Internal.ALL.${ability}.KEY')}</b> ${pcstring('ABILITYALL.Special Ability.ALL.${ability}.ASSOCIATED')}</b> [<i>${pcstring('ABILITYALL.Special Ability.ALL.${ability}.SOURCE')}</i>]<br>
+</@loop>
+</blockquote>
+
+
+
+
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal")') != 0)>
+<b>Internal Abilities (Everything)</b>
+</#if>
+<blockquote>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Internal")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITYALL.Internal.ALL.${ability}.KEY')}</b> ${pcstring('ABILITYALL.Internal.ALL.${ability}.ASSOCIATED')}</b> [<i>${pcstring('ABILITYALL.Internal.ALL.${ability}.SOURCE')}</i>]<br>
+</@loop>
+</blockquote>
+
+
+
+
+
 
 <!-- START Template Table -->
 <#if (pcvar("COUNT[TEMPLATES]") > 0) >

@@ -105,6 +105,7 @@ public class BonusManager
 		}
 
 		final List<String> aList = new ArrayList<>();
+		boolean found = false;
 
 		for (String fullyQualifedCurrentBonus : activeBonusMap.keySet())
 		{
@@ -165,6 +166,7 @@ public class BonusManager
 
 			if (currentTypedBonusNameInfo.startsWith(fullyQualifiedBonusType))
 			{
+				found = true;
 				aList.add(currentTypedBonusNameInfo);
 				aList.add(currentTypedBonusNameInfo + ".STACK");
 				aList.add(currentTypedBonusNameInfo + ".REPLACE");
@@ -204,7 +206,10 @@ public class BonusManager
 			}
 		}
 		
-		cachedActiveBonusSumsMap.put(fullyQualifiedBonusType, bonus);
+		// cache value only if it has been positively found
+		if (found) {
+			cachedActiveBonusSumsMap.put(fullyQualifiedBonusType, bonus);
+		}
 		return bonus;
 	}
 

@@ -4,7 +4,7 @@
 #
 # Lists the DEFAULT number of slots for each type
 #
-NUMSLOTS:DEFAULT	HEAD:1	HANDS:2	TORSO:1	LEGS:2	SHIELD:1	WornMagic:2
+NUMSLOTS:DEFAULT	HEAD:1	HANDS:2	TORSO:1	LEGS:2	SHIELD:1	WornMagic:2	CrystalSlot:1
 #
 # Name of Slot	Type of items can contain	Where to get # from
 #								and number in each slot
@@ -13,6 +13,7 @@ NUMSLOTS:DEFAULT	HEAD:1	HANDS:2	TORSO:1	LEGS:2	SHIELD:1	WornMagic:2
 EQSLOT:WornMagic		CONTAINS:WornMagic=2							NUMBER:WornMagic
 EQSLOT:Armor		CONTAINS:Armor=1								NUMBER:TORSO
 EQSLOT:PoweredArmor	CONTAINS:PoweredArmor=1							NUMBER:TORSO
+EQSLOT:Solarian Weapon Crystal	CONTAINS:Solarian Weapon Crystal=1							NUMBER:CrystalSlot
 
 
 

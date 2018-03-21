@@ -72,6 +72,7 @@ public final class PrerequisiteUtilities
 	 * @param includeHeader Whether to wrap the generated string in html tags.
 	 * @return An HTML representation of whether a set of PreRequisites passed for a given PC and Source.
 	 */
+	//TODO All uses of this miss PRE REQ
 	public static String preReqHTMLStringsForList(
 		final PlayerCharacter aPC,
 		final CDOMObject aObj,
@@ -369,7 +370,7 @@ public final class PrerequisiteUtilities
 		int numMatches = 0;
 		for (String s : assocs)
 		{
-			if (subKey.equalsIgnoreCase(s))
+			if (subKey.equalsIgnoreCase(s) || s.endsWith("|"+subKey))
 			{
 				numMatches++;
 			}
@@ -381,7 +382,7 @@ public final class PrerequisiteUtilities
 	{
 		for (String s : assocs)
 		{
-			if (subKey.equalsIgnoreCase(s))
+			if (subKey.equalsIgnoreCase(s) || s.endsWith("|"+subKey))
 			{
 				return true;
 			}

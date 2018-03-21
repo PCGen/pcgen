@@ -63,8 +63,7 @@ public class ReachToken extends AbstractIntToken<Equipment> implements
 		if (ControlUtilities.hasControlToken(context, CControl.EQREACH))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when EQREACH control is used: " + value,
-				context);
+				+ " is disabled when EQREACH control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}

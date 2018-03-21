@@ -37,14 +37,14 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		UserFunction ftn, String value)
 	{
-		String existing = ftn.getLSTformat();
+		String existing = ftn.getOriginalExpression();
 		if (existing != null)
 		{
 			if (!existing.equalsIgnoreCase(value))
 			{
 				return new ParseResult.Fail("Parse of Function: "
 					+ ftn.getKeyName() + " with value: " + value
-					+ " attempted to reassign from: " + existing, context);
+					+ " attempted to reassign from: " + existing);
 			}
 			return ParseResult.SUCCESS;
 		}
@@ -56,7 +56,7 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 		{
 			return new ParseResult.Fail("Parse of Function: "
 				+ ftn.getKeyName() + " with value: " + value
-				+ " failed due to: " + e.getMessage(), context);
+				+ " failed due to: " + e.getMessage());
 		}
 		context.getVariableContext().addFunction(ftn.getFunction());
 		return ParseResult.SUCCESS;
@@ -65,7 +65,7 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 	@Override
 	public String[] unparse(LoadContext context, UserFunction ftn)
 	{
-		return new String[]{ftn.getLSTformat()};
+		return new String[]{ftn.getOriginalExpression()};
 	}
 
 	@Override

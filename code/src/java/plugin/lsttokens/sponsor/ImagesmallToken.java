@@ -54,7 +54,7 @@ public class ImagesmallToken implements CDOMPrimaryToken<Sponsor>
 		catch (MalformedURLException e)
 		{
 			return new ParseResult.Fail("Error in " + getTokenName() + ": "
-					+ e.getMessage(), context);
+					+ e.getMessage());
 		}
 	}
 

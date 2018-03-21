@@ -23,3 +23,5 @@ ABILITYCATEGORY:Disable First Level Domain Power	VISIBLE:QUALIFY	EDITABLE:YES	ED
 ###Block: An underlying Ability for base class stuff that has the EXACT name of the class.
 # Ability Category	Visible	Editable?		Change Pool?	Fractional values?	Category of Object
 ABILITYCATEGORY:Class	VISIBLE:NO	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:CLASS
+
+ABILITYCATEGORY:Size						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	TYPE:Size							PLURAL:Sizes			DISPLAYLOCATION:Racial Abilities

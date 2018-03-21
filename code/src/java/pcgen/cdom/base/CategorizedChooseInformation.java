@@ -17,15 +17,16 @@
  */
 package pcgen.cdom.base;
 
-import java.util.Collection;
-import java.util.Collections;
-
+import org.jetbrains.annotations.NotNull;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
+
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -66,23 +67,23 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	 */
 	private Chooser<T> choiceActor;
 
-	private final Class<T> underlyingClass;
-
 	/**
-	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible
-	 * choices) and Formula (indicating the number of choices that may be taken)
+	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible choices)
+	 * and Formula (indicating the number of choices that may be taken)
 	 * 
 	 * @param name
 	 *            The name of this ChoiceSet
+	 * @param cat
+	 *            A CDOMSingleRef of the Category that this CategorizedChooseInformation
+	 *            will select
 	 * @param choice
-	 *            The PrimitiveChoiceSet indicating the Collection of objects
-	 *            for this ChoiceSet
+	 *            The PrimitiveChoiceSet indicating the Collection of objects for this
+	 *            ChoiceSet
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
 	public CategorizedChooseInformation(String name,
-		CDOMSingleRef<? extends Category<T>> cat, PrimitiveChoiceSet<T> choice,
-		Class<T> objClass)
+		CDOMSingleRef<? extends Category<T>> cat, PrimitiveChoiceSet<T> choice)
 	{
 		if (name == null)
 		{
@@ -100,7 +101,6 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 		setName = name;
 		category = cat;
 		pcs = choice;
-		underlyingClass = objClass;
 	}
 
 	/**
@@ -230,10 +230,9 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	 * @return the Class contained within this ChoiceSet
 	 */
 	@Override
-	public ClassIdentity<T> getClassIdentity()
+	public Class<T> getReferenceClass()
 	{
-		return CategorizedClassIdentity.getIdentity(underlyingClass,
-			category.get());
+		return category.get().getReferenceClass();
 	}
 
 	/**
@@ -317,14 +316,20 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends T> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends T> collection)
 	{
-		return ChooseInformationUtilities.buildEncodedString(this, collection);
+		return ChooseInformationUtilities.buildEncodedString(collection);
 	}
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return category.get().getPersistentFormat();
 	}
 }

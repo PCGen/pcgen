@@ -18,10 +18,12 @@
 package plugin.lsttokens.editcontext.ability;
 
 import pcgen.core.Ability;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.ability.BenefitToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class BenefitIntegrationTest extends
@@ -77,5 +79,14 @@ public class BenefitIntegrationTest extends
 	protected boolean requiresPreconstruction()
 	{
 		return false;
+	}
+
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

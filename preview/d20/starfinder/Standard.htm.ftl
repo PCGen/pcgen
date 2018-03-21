@@ -16,6 +16,11 @@ Email: tir.gwaith@gmail.com
 $Revision: 24109 $
 $Author: amaitland $
 $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
+
+Revision: $
+$Author: bgrinstead $
+$Date: 2017-09-21
+
 -->
 <head>
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
@@ -130,7 +135,8 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
  <!-- <td colspan="1" class="h">${pcstring('CLASS.${class}')}>-->
  <!-- 	</#if>>-->
  <!-- 	</@loop>-->
- <td colspan="1" class="h">${pcstring('CLASSLIST')}
+ <td colspan="1" class="h">
+${pcstring('ABILITYALL.Theme.VISIBLE.0.TYPE=Theme')?capitalize} ${pcstring('CLASSLIST')}
 	<#if (pcvar('count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 	(${pcstring('ABILITYLIST.Archetype.TYPE=Archetype')})
 	</#if>
@@ -548,8 +554,16 @@ Wisdom
    <table width="100%" summary="Saving Throws">
      <tr>
 	   <td align="left" valign="top" class="border8"><div class="font6">CONDITIONAL MODIFIERS:</div>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
-	 ${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')} <br />
+<#assign condCount = 0>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Racial Trait","TYPE=Racial Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; RacialTrait , RacialTrait_has_next>
+<#if (pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE.ASPECT.BonusSave")!= "")>
+<#if (condCount > 0)>
+, 
+</#if>
+${pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE.ASPECT.BonusSave")?lower_case}
+<#assign condCount++>
+<#else>
+</#if>
 </@loop>
     </td>
     </tr>
@@ -605,101 +619,7 @@ Wisdom
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="tempborder"><br /></td>
     </tr>
-<#if (pcvar("UseCombatManueverBonus") = 1)>
-    <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB.INTVAL.SIGN')}</b></td>
-     <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE.BASE')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_STAT.INTVAL.SIGN')}</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CM_SizeMod.INTVAL.SIGN')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10 epic"><b>+0<br /></b></td>
-     <td align="center" class="font7 epic"><b>+</b></td>
-     <td align="center" class="border10"><b>+0<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
-    </tr>
    </table>
-   <table width="100%" summary="CMB block">
-<#if (pcvar("CMD") > 0)>
-   <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB</b></font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Grapple.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Trip.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Disarm.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Sunder.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_BullRush.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')}</b></td>
-   </tr>
-   <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMD</b></font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Grapple.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>
-<#if (pcvar("CantBeTripped") != 0)>
-Immune
-<#else>
-${pcstring('VAR.CMD_Trip.INTVAL')}
-</#if>
-	</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Disarm.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Sunder.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_BullRush.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Overrun.INTVAL')}</b></td>
-    </tr>
-<#else>
-   <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>OFFENSE</b></font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Grapple.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Trip.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Disarm.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Sunder.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Bull.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')}</b></td>
-    </tr>
-    <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>DEFENSE</b></font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Grapple_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Trip_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Disarm_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Sunder_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Bull_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Overrun_DEF.INTVAL')}</b></td>
-    </tr>
-</#if>
-    <tr>
-     <td align="center" width="28%"></td>
-     <td align="center" width="12%" valign="bottom" class="font6">GRAPPLE</td>
-     <td align="center" width="12%" valign="bottom" class="font6">TRIP</td>
-     <td align="center" width="12%" valign="bottom" class="font6">DISARM</td>
-     <td align="center" width="12%" valign="bottom" class="font6">SUNDER</td>
-     <td align="center" width="12%" valign="bottom" class="font6">BULL RUSH</td>
-     <td align="center" width="12%" valign="bottom" class="font6">OVERRUN</td>
-    </tr>
-   </table>
-   <br />
-<#else>
-    <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>GRAPPLE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE.TOTAL')}</b></td>
-     <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE.STAT')}</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE.SIZE')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10 epic"><b>${pcstring('ATTACK.GRAPPLE.EPIC')}<br /></b></td>
-     <td align="center" class="font7 epic"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE.MISC')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
-    </tr>
-    <tr><td></td></tr>
-   </table>
-</#if>
    <table width="100%" summary="Saving Throws">
      <tr>
 	   <td align="left" valign="top" class="border8"><div class="font6">CONDITIONAL MODIFIERS:</div>
@@ -757,7 +677,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     <tr>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.TOTALHIT')}<br /></b></font></td>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.DAMAGE')}<br /></b></font></td>
-     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}<br /></b></font></td>
+     <#if (pcstring("WEAPON.QUALITY.Critical") = "")>
+	 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+	 <#else>)
+     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.QUALITY.Critical')}</b></td>
+	 </#if>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('REACH')}<br /></b></font></td>
     </tr>
 	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ability , ability_has_next>
@@ -876,7 +800,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     <tr>
      <td align="left" height="15" bgcolor="black" width="8%"><font style="font-size:8pt" color="white"><b>&nbsp;&nbsp;Range</b></font></td>
 <@loop from=0 to=4 ; range , range_has_next>
-     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}'<br /></b></font></td>
+     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}<br /></b></font></td>
 </@loop>
     </tr>
     <tr>
@@ -914,7 +838,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.HAND')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.TYPE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.SIZE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.CRIT')}/x${pcstring('WEAPON.${weap}.MULT')}<br /></b></td>
+		 <#if (pcstring("WEAPON.${weap}.QUALITY.Critical") = "")>
+			<td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		 <#else>)
+			<td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
+		 </#if>
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.REACH')}${pcstring('WEAPON.${weap}.REACHUNIT')}<br /></b></td>
     </tr>
    </table>
@@ -933,7 +861,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.HAND')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.TYPE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.SIZE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.CRIT')}/x${pcstring('WEAPON.${weap}.MULT')}<br /></b></td>
+	 <#if (pcstring("WEAPON.${weap}.QUALITY.Critical") = "")>
+	 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+	 <#else>)
+     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
+	 </#if>
     </tr>
    </table>
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
@@ -941,7 +873,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     <tr>
      <td align="left" height="15" bgcolor="black" width="8%"><font style="font-size:8pt" color="white"><b>&nbsp;&nbsp;Range</b></font></td>
 <@loop from=0 to=4 ; range , range_has_next>
-     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}'<br /></b></font></td>
+     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}<br /></b></font></td>
 </@loop>
     </tr>
     <tr>
@@ -1016,7 +948,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     <tr>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.TOTALHIT')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.DAMAGE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.CRIT')}/x${pcstring('WEAPON.${weap}.MULT')}<br /></b></td>
+		 <#if (pcstring("WEAPON.${weap}.QUALITY.Critical") = "")>
+		 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		 <#else>)
+		 <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
+		 </#if>
     </tr>
    </table>
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
@@ -1049,7 +985,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.HAND')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.TYPE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.SIZE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.CRIT')}/x${pcstring('WEAPON.${weap}.MULT')}<br /></b></td>
+		 <#if (pcstring("WEAPON.${weap}.QUALITY.Critical") = "")>
+			<td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		 <#else>)
+			<td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
+		 </#if>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.RANGE')}<br /></b></td>
     </tr>
    </table>
@@ -1216,11 +1156,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td width="50%" valign="top">
       <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Equipment Table Left Column"> <!-- Equipment Table left pane -->
        <tr>
-        <td valign="top" width="70%" class="border8"><b>ITEM</b></td>
-        <td valign="top" width="12%" class="border8" align="center"><b>LOCATION</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>QTY</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>WT.</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>COST</b></td>
+        <td valign="top" width="60%" class="border8"><b>ITEM</b></td>
+        <td valign="top" width="15%" class="border8" align="center"><b>LOCATION</b></td>
+        <td valign="top" width="8%" class="border8" align="center"><b>QTY</b></td>
+        <td valign="top" width="8%" class="border8" align="center"><b>BULK</b></td>
+        <td valign="top" width="9%" class="border8" align="center"><b>COST</b></td>
        </tr>
 <@loop from=0 to=(pcvar("COUNT[EQUIPMENT.Not.Coin.NOT.Gem]")-1)/2 ; equip1, equip1_has_next >
 	<@equipmentRow equip1=equip1 />
@@ -1230,18 +1170,18 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td width="50%" valign="top">
       <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Equipment Table Right Column"> <!-- Equipment Table right pane -->
        <tr>
-        <td valign="top" width="70%" class="border8"><b>ITEM</b></td>
-        <td valign="top" width="12%" class="border8" align="center"><b>LOCATION</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>QTY</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>WT.</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>COST</b></td>
+        <td valign="top" width="60%" class="border8"><b>ITEM</b></td>
+        <td valign="top" width="15%" class="border8" align="center"><b>LOCATION</b></td>
+        <td valign="top" width="8%" class="border8" align="center"><b>QTY</b></td>
+        <td valign="top" width="8%" class="border8" align="center"><b>BULK</b></td>
+        <td valign="top" width="9%" class="border8" align="center"><b>COST</b></td>
        </tr>
 <@loop from=((pcvar("COUNT[EQUIPMENT.Not.Coin.NOT.Gem]")-1)/2)+1 to=pcvar("COUNT[EQUIPMENT.Not.Coin.NOT.Gem]")-1 ; equip2, equip2_has_next >
 	<@equipmentRow equip1=equip2 />
 </@loop>
        <tr>
-        <td valign="top" width="41%" class="border" align="right" colspan="1"><font style="font-size: x-small">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: x-small">${pcstring('TOTAL.WEIGHT')}</font></td>
+        <td valign="top" width="41%" class="border" align="right" colspan="1"><font style="font-size: x-small">TOTAL BULK CARRIED/VALUE&nbsp;&nbsp;</font></td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: x-small">${pcstring('TOTAL.WEIGHT.INTVAL')}</font></td>
         <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: x-small">${pcstring('TOTAL.VALUE')}</font></td>
        </tr>
       </table>
@@ -1254,17 +1194,18 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
   <tr>
    <td width="50%" valign="top">
 <!-- START Weight Table -->
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Weight Allowance Table">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Bulk Allowance Table">
      <tr>
-      <td bgcolor="black" align="center" colspan="6"><font color="white" style="font-size: small"><b>WEIGHT ALLOWANCE</b></font></td>
+      <td bgcolor="black" align="center" colspan="6"><font color="white" style="font-size: small"><b>BULK ALLOWANCE</b></font></td>
      </tr>
      <tr>
+	 <#assign overburdened = pcstring('WEIGHT.Overburdened')?number>
       <td valign="top" class="border8" align="right"><b>Light</b></td>
       <td valign="top" class="border8">${pcstring('WEIGHT.LIGHT')}</td>
-      <td valign="top" class="border8" align="right"><b>Medium</b></td>
-      <td valign="top" class="border8">${pcstring('WEIGHT.MEDIUM')}</td>
-      <td valign="top" class="border8" align="right"><b>Heavy</b></td>
-      <td valign="top" class="border8">${pcstring('WEIGHT.HEAVY')}</td>
+      <td valign="top" class="border8" align="right"><b>Encumbered</b></td>
+      <td valign="top" class="border8">${pcstring('WEIGHT.Encumbered')}</td>
+      <td valign="top" class="border8" align="right"><b>Overburdened</b></td>
+      <td valign="top" class="border8">${overburdened+1}</td>
      </tr>
     </table>
 <!-- STOP Weight Table -->
@@ -1338,7 +1279,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>DAMAGE:</b></font></td>
       <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.DAMAGE')}</td>
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>CRITICAL:</b></font></td>
-      <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.CRIT')}/x${pcstring('FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.MULT')}</td>
+	  <#if (pcstring("FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.QUALITY.Critical") = "")>
+	 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+	 <#else>)
+     <td align="center" bgcolor="white" class="border8"><b>${pcstring('FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.QUALITY.Critical')}</b></td>
+	 </#if>
       </tr>
 </@loop>
      <tr>
@@ -1376,7 +1321,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>DAMAGE:</b></font></td>
       <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.DAMAGE')}</td>
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>CRITICAL:</b></font></td>
-      <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.CRIT')}/x${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.MULT')}</td>
+	  <#if (pcstring("FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.QUALITY.Critical") = "")>
+		  <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		  <#else>)
+		  <td align="center" bgcolor="white" class="border8"><b>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.QUALITY.Critical')}</b></td>
+		  </#if>
       </tr>
 </@loop>
      <tr>
@@ -1415,7 +1364,12 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>DAMAGE:</b></font></td>
       <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.DAMAGE')}</td>
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>CRITICAL:</b></font></td>
-      <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.CRIT')}/x${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.MULT')}</td>
+		  <#if (pcstring("FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.QUALITY.Critical") = "")>
+		  <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		  <#else>)
+		  <td align="center" bgcolor="white" class="border8"><b>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.QUALITY.Critical')}</b></td>
+		  </#if>
+	  
       </tr>
 </@loop>
      <tr>
@@ -1695,17 +1649,21 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
    </table>
 <!-- STOP Language Table -->
 <!-- Start Proficiency Table -->
-<#if (pcstring("WEAPONPROFS") != "") >
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Proficiency Table">
+<!-- START Afflictions Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Proficiency","TYPE=Proficiency","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Proficiency">
     <tr>
-     <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: small"><b>PROFICIENCIES</b></font></td>
+     <th bgcolor="black" align="center" class="ab" colspan="2"><b>Proficiencies</b></th>
     </tr>
-    <tr>
-     <td valign="top" width="100%" class="border8">${pcstring('WEAPONPROFS')}<br /></td>
-    </tr>
-   </table>
-<!-- STOP Proficiency Table -->
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Proficiency","TYPE=Proficiency","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; proficiency , proficiency_has_next>
+<#if (proficiency % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" class="font8" width="70%"><b>${pcstring('ABILITYALL.Proficiency.VISIBLE.${proficiency}.TYPE=Proficiency')}</b></td>
+	<td valign="top" class="font8" width="30%" align="right">[${pcstring('ABILITYALL.Proficiency.VISIBLE.${proficiency}.TYPE=Proficiency.SOURCE')}]</td>
+</@loop>
+	</table>
 </#if>
+<!-- STOP Proficiency Table -->
+
 <!-- START Archetypes Table -->
 <#if (pcvar('count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Archetype Table">

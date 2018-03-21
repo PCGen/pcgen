@@ -1518,3 +1518,20 @@ Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Abi
 MyVarTest												CATEGORY:Special Ability	TYPE:SpecialQuality							DEFINE:MyVarTest|0	DEFINE:MyVarTestTwo|0	DESC:My Var Test =%1, My Var Test Twp =%2|MyVarTest|MyVarTestTwo										STACK:YES	MULT:YES	CHOOSE:NOCHOICE							BONUS:VAR|MyVarTest,MyVarTestTwo|1
 
 CODE-2835												CATEGORY:FEAT			TYPE:General.Code																DESC: causes "failed to add Ability due to Null."												STACK:NO	MULT:YES	CHOOSE:EQUIPMENT|!TYPE=Mount,TYPE=Transportation
+
+
+# Starfinder 3rd Tier Abilities lost issue - CODE-3199
+
+Starfinder Test ~ Weapon Test					CATEGORY:Class		ABILITY:Proficiency|AUTOMATIC|Weapon Prof ~ Basic Weapons
+Weapon Prof ~ Basic Weapons	CATEGORY:Proficiency	TYPE:Proficiency	ABILITY:Weapon|AUTOMATIC|TYPE=Basic Melee
+Weapon 1				CATEGORY:Weapon	TYPE:Basic Melee
+Weapon 2				CATEGORY:Weapon	TYPE:Basic Melee
+
+
+# Error when adding:
+Weapon Specialization SF	CATEGORY:FEAT	CHOOSE:ABILITYSELECTION|Proficiency|TYPE=Weapon Specialization	MULT:YES	STACK:NO	ABILITY:Ability Pool Child|AUTOMATIC|%LIST
+
+Weapon Specialization SF ~ Basic Choice	CATEGORY:Proficiency	TYPE:Weapon Specialization	ABILITY:FEAT|AUTOMATIC|Weapon Specialization SF(Weapon Specialization ~ Basic Choice)
+
+
+

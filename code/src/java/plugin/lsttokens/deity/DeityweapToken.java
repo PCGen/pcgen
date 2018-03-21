@@ -74,7 +74,7 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 				{
 					return new ParseResult.Fail("  Non-sensical "
 							+ getTokenName()
-							+ ": .CLEAR was not the first list item", context);
+							+ ": .CLEAR was not the first list item");
 				}
 				context.getObjectContext().removeList(deity, ListKey.DEITYWEAPON);
 			}
@@ -99,7 +99,7 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}

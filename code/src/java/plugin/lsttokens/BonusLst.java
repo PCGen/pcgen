@@ -67,7 +67,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (value.indexOf("PREAPPLY:") != -1)
 		{
@@ -81,7 +81,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus: " + value, context);
+					+ " was given invalid bonus: " + value);
 		}
 		bon.setTokenSource(getTokenName());
 		context.getObjectContext().addToList(obj, ListKey.BONUS, bon);

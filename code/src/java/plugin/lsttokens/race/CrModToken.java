@@ -54,24 +54,24 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting '|', format is: "
-					+ "ClassTypes|CRMod was: " + value, context);
+					+ "ClassTypes|CRMod was: " + value);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting only one '|', "
-					+ "format is: ClassTypes|CRMod was: " + value, context);
+					+ "format is: ClassTypes|CRMod was: " + value);
 		}
 		String keys = value.substring(0, pipeLoc);
 		if (keys.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty class type, "
-					+ "format is: ClassTypes|CRMod was: " + value, context);
+					+ "format is: ClassTypes|CRMod was: " + value);
 		}
 		String val = value.substring(pipeLoc + 1);
 		if (val.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty CR mod, "
-					+ "format is: ClassTypes|CRMod was: " + value, context);
+					+ "format is: ClassTypes|CRMod was: " + value);
 		}
 		try 
 		{
@@ -84,7 +84,7 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 		catch (NumberFormatException e)
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting number CR mod, "
-					+ "format is: ClassTypes|CRMod was: " + value, context);
+					+ "format is: ClassTypes|CRMod was: " + value);
 		}
 		
 		return ParseResult.SUCCESS;

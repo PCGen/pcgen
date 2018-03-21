@@ -24,7 +24,9 @@ import pcgen.core.SpecialAbility;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.SabLst;
+
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalSABTest extends AbstractContentTokenTest
 {
@@ -45,7 +47,7 @@ public class GlobalSABTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "Special Ability Text");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

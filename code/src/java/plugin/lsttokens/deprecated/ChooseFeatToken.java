@@ -85,7 +85,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + Constants.COLON
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+						+ getTokenName() + " had TITLE= but no title: " + value);
 				}
 			}
 			else
@@ -113,7 +113,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		//Tricky for compatibility...
 		CategorizedChooseInformation<Ability> tc =
 				new CategorizedChooseInformation<>("ABILITY",
-						CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), pcs, Ability.class);
+						CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -192,8 +192,9 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 	public ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		return parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, AbilityCategory.FEAT), obj, value);
+		return parseTokenWithSeparator(context,
+			context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT), obj,
+			value);
 	}
 
 	@Override
@@ -215,8 +216,8 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 	@Override
 	public Ability decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.FEAT, s);
+		return context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT)
+			.getActiveObject(s);
 	}
 
 	@Override

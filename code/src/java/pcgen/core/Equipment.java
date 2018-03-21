@@ -2157,8 +2157,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (Visibility.QUALIFY.equals(vis))
 		{
 			bonusPrimary = true;
-			if (PrereqHandler
-				.passesAll(eqMod.getPrerequisiteList(), this, null))
+			if (PrereqHandler.passesAll(eqMod, this, null))
 			{
 				return true;
 			}
@@ -2169,8 +2168,7 @@ public final class Equipment extends PObject implements Serializable,
 			if (isDouble())
 			{
 				bonusPrimary = false;
-				return PrereqHandler.passesAll(eqMod.getPrerequisiteList(),
-					this, null);
+				return PrereqHandler.passesAll(eqMod, this, null);
 			}
 			return false;
 		}
@@ -2195,8 +2193,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (Visibility.QUALIFY.equals(vis))
 		{
 			bonusPrimary = primaryHead;
-			return PrereqHandler.passesAll(eqMod.getPrerequisiteList(),
-				this, pc);
+			return PrereqHandler.passesAll(eqMod, this, pc);
 		}
 
 		return vis.isVisibleTo(v);
@@ -2783,7 +2780,7 @@ public final class Equipment extends PObject implements Serializable,
 		bonusPrimary = bPrimary;
 
 		return getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed()
-			&& PrereqHandler.passesAll(eqMod.getPrerequisiteList(), this, pc);
+			&& PrereqHandler.passesAll(eqMod, this, pc);
 	}
 
 	/**
@@ -3247,7 +3244,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public boolean meetsPreReqs(PlayerCharacter pc)
 	{
-		return PrereqHandler.passesAll(getPrerequisiteList(), this, pc);
+		return PrereqHandler.passesAll(this, this, pc);
 	}
 
 	/**
@@ -5068,8 +5065,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		for (final BonusObj bonus : getRawBonusList(aPC))
 		{
-			aPC.setApplied(bonus, PrereqHandler.passesAll(bonus
-				.getPrerequisiteList(), this, aPC));
+			aPC.setApplied(bonus, PrereqHandler.passesAll(bonus, this, aPC));
 		}
 	}
 
@@ -6659,7 +6655,7 @@ public final class Equipment extends PObject implements Serializable,
 	@Override
 	public String getLocalScopeName()
 	{
-		return "EQUIPMENT";
+		return "PC.EQUIPMENT";
 	}
 
 	public Object getLocalVariable(CharID id, String varName)

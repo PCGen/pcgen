@@ -21,8 +21,8 @@ import java.util.Arrays;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.parse.ASTQuotString;
@@ -40,7 +40,7 @@ import pcgen.output.channel.ChannelUtilities;
  * InputFunction is a function designed to allow pulling information from a channel (as
  * defined by the argument to the input function).
  */
-public class InputFunction implements Function
+public class InputFunction implements FormulaFunction
 {
 
 	/**
@@ -96,7 +96,7 @@ public class InputFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		String s = (String) args[0].jjtAccept(visitor, null);
+		String s = (String) args[0].jjtAccept(visitor, manager);
 		return visitor
 			.visitVariable(ChannelUtilities.createVarName(s), manager);
 	}
@@ -109,11 +109,11 @@ public class InputFunction implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
+	public FormatManager<?> getDependencies(DependencyVisitor visitor,
 		DependencyManager fdm, Node[] args)
 	{
 		ASTQuotString inputName = (ASTQuotString) args[0];
 		String varName = inputName.getText();
-		visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm);
+		return visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm);
 	}
 }

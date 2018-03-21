@@ -1,6 +1,6 @@
 CAMPAIGN:Occult Adventures
 KEY:Occult Adventures
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
 STATUS:ALPHA
 RANK:1
@@ -48,6 +48,7 @@ COMPANIONMOD:oa_companionmods.lst
 EQUIPMENT:oa_equip.lst
 ABILITY:oa_feats.lst
 KIT:oa_kits.lst
+WEAPONPROF:oa_profs_weapon.lst
 RACE:oa_races.lst
 SPELL:oa_spells.lst
 TEMPLATE:oa_templates.lst
@@ -55,7 +56,9 @@ TEMPLATE:oa_templates.lst
 #SPELL:occult_rituals.lst
 
 # Support
+ABILITY:support/oa_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 SPELL:support/oa_spells_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/oa_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 SPELL:support/oa_spells_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 ABILITY:support/oa_feats_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 SPELL:support/oa_spells_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
@@ -63,7 +66,8 @@ SPELL:support/oa_spells_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 ABILITY:support/oa_feats_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 SPELL:support/oa_spells_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 SPELL:support/oa_spells_ma.lst|PRECAMPAIGN:1,INCLUDES=Mythic Adventures
-SPELL:support/oa_spells_mc.lst|PRECAMPAIGN:1,INCLUDES=Monster Codex
+# TODO: If Monster Codex is created, enable this.
+#SPELL:support/oa_spells_mc.lst|PRECAMPAIGN:1,INCLUDES=Monster Codex
 
 # Needed for a Medium archetype
 ABILITY:support/oa_abilities_race_b3.lst|!PRECAMPAIGN:1,INCLUDES=Bestiary 3

@@ -32,12 +32,12 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.facade.core.KitFacade;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.core.kit.KitTable;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.facade.core.KitFacade;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
@@ -305,8 +305,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 		for (BaseKit bk : getSafeListFor(ListKey.KIT_TASKS))
 		{
-			if (!PrereqHandler
-				.passesAll(bk.getPrerequisiteList(), tempPC, this))
+			if (!PrereqHandler.passesAll(bk, tempPC, this))
 			{
 				continue;
 			}

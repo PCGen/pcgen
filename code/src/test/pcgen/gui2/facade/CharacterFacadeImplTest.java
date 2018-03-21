@@ -21,10 +21,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.EquipSet;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * The Class <code>CharacterFacadeImplTest</code> verifies the behaviour of 
@@ -66,7 +66,7 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		dataset = new MockDataSetFacade(SettingsHandler.getGame());
-		dataset.addAbilityCategory(AbilityCategory.FEAT);
+		dataset.addAbilityCategory(BuildUtilities.getFeatCat());
 		uiDelegate = new MockUIDelegate();
 	}
 

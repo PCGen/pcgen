@@ -9,8 +9,3 @@ SOURCELONG:People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/produ
 
 CLASS:Bard.MOD
 1	TEMPLATE:Masterpiece Activation River
-
-# Class Name
-CLASS:Skald.MOD
-1	TEMPLATE:Masterpiece Activation River
-

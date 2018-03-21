@@ -95,7 +95,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 			if (value.lastIndexOf(']') != value.length() - 1)
 			{
 				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ " must end with ']' if it contains a PREREQ tag", context);
+						+ " must end with ']' if it contains a PREREQ tag");
 			}
 			domainKey = value.substring(0, openBracketLoc);
 			String prereqString = value.substring(openBracketLoc + 1, value
@@ -103,13 +103,13 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 			if (prereqString.isEmpty())
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " cannot have empty prerequisite : " + value, context);
+						+ " cannot have empty prerequisite : " + value);
 			}
 			prereq = getPrerequisite(prereqString);
 			if (prereq == null)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " had invalid prerequisite : " + prereqString, context);
+						+ " had invalid prerequisite : " + prereqString);
 			}
 		}
 
@@ -127,12 +127,12 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 			if (equalLoc == -1)
 			{
 				return new ParseResult.Fail("Malformed " + getTokenName()
-						+ " Token (expecting an =): " + tokString, context);
+						+ " Token (expecting an =): " + tokString);
 			}
 			if (equalLoc != tokString.lastIndexOf(Constants.EQUALS))
 			{
 				return new ParseResult.Fail("Malformed " + getTokenName()
-						+ " Token (more than one =): " + tokString, context);
+						+ " Token (more than one =): " + tokString);
 			}
 
 			String nameList = tokString.substring(0, equalLoc);
@@ -144,14 +144,14 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 				if (level.intValue() < -1)
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " may not use a negative level: " + value, context);
+							+ " may not use a negative level: " + value);
 				}
 				else if (level.intValue() == -1)
 				{
 					if (prereq != null)
 					{
 						return new ParseResult.Fail(getTokenName()
-								+ " may not use -1 with a PREREQ: " + value, context);
+								+ " may not use -1 with a PREREQ: " + value);
 					}
 					// Logging.deprecationPrint(getTokenName()
 					// + " should not use a negative level: " + value);
@@ -160,7 +160,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 			catch (NumberFormatException nfe)
 			{
 				return new ParseResult.Fail("Malformed Level in " + getTokenName()
-						+ " (expected an Integer): " + levelString, context);
+						+ " (expected an Integer): " + levelString);
 			}
 
 			ParseResult pr = checkForIllegalSeparator(',', nameList);
@@ -189,7 +189,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 				}
 				if (ref == null)
 				{
-					return new ParseResult.Fail("  Error was in " + getTokenName(), context);
+					return new ParseResult.Fail("  Error was in " + getTokenName());
 				}
 				if (level == -1)
 				{
@@ -214,7 +214,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -243,7 +243,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 				{
 					for (Spell added : map.getKeySet())
 					{
-						if (!spell.getLSTformat().equals(added.getLSTformat()))
+						if (!spell.getKeyName().equals(added.getKeyName()))
 						{
 							context.addWriteMessage("Spell " + getTokenName()
 									+ " token cannot remove another Spell "
@@ -287,7 +287,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 			{
 				for (Spell added : map.getKeySet())
 				{
-					if (!spell.getLSTformat().equals(added.getLSTformat()))
+					if (!spell.getKeyName().equals(added.getKeyName()))
 					{
 						context.addWriteMessage("Spell " + getTokenName()
 								+ " token cannot allow another Spell "

@@ -32,7 +32,6 @@ import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -67,7 +66,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 	
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<Ability> rm, CDOMSingleRef<AbilityCategory> acRef,
+		ReferenceManufacturer<Ability> rm, AbilityCategory cat,
 		CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
@@ -91,7 +90,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 				if ((title == null) || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + Constants.COLON
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+						+ getTokenName() + " had TITLE= but no title: " + value);
 				}
 				activeValue = value.substring(0, pipeLoc);
 			}
@@ -110,10 +109,10 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		if (!prim.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-				+ ": Contains ANY and a specific reference: " + value, context);
+				+ ": Contains ANY and a specific reference: " + value);
 		}
 		CollectionToAbilitySelection pcs =
-				new CollectionToAbilitySelection(acRef, prim);
+				new CollectionToAbilitySelection(cat, prim);
 		CategorizedAbilitySelectionChooseInformation tc =
 				new CategorizedAbilitySelectionChooseInformation(
 					getTokenName(), pcs);
@@ -159,7 +158,8 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		StringBuilder sb = new StringBuilder();
 		if (tc instanceof CategorizedAbilitySelectionChooseInformation)
 		{
-			sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory().getLSTformat(false));
+			sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory()
+				.getKeyName());
 		}
 		else
 		{
@@ -247,21 +247,18 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		if (barLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " requires a CATEGORY and arguments : " + value, context);
+				+ " requires a CATEGORY and arguments : " + value);
 		}
 		String cat = value.substring(0, barLoc);
-		CDOMSingleRef<AbilityCategory> acRef =
-				context.getReferenceContext().getCDOMReference(
-					ABILITY_CATEGORY_CLASS, cat);
+		AbilityCategory acRef =
+				context.getReferenceContext().get(ABILITY_CATEGORY_CLASS, cat);
 		String abilities = value.substring(barLoc + 1);
-		ReferenceManufacturer<Ability> rm =
-				context.getReferenceContext().getManufacturer(ABILITY_CLASS,
-					ABILITY_CATEGORY_CLASS, cat);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
+			.getManufacturerByFormatName("ABILITY=" + cat, ABILITY_CLASS);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(
-				"Could not get Reference Manufacturer for Category: " + cat,
-				context);
+				"Could not get Reference Manufacturer for Category: " + cat);
 		}
 		return parseTokenWithSeparator(context, rm, acRef, obj, abilities);
 	}

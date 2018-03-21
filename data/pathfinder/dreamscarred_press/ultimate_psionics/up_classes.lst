@@ -626,7 +626,7 @@ CLASS:Gifted Blade Marksman Power List	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEV
 CLASS:Wizard.MOD
 SUBCLASS:Psychic Mage	SPELLLIST:2|Psion|Wizard
 #	CHOICE:SCHOOL|Psychic Mage
-SUBCLASSLEVEL:1	BONUS:VAR|PsychicMageLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Psychic Mage|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	BONUS:VAR|PsychicMageLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Psychic Mage|PREVAREQ:Wizard_CF_ArcaneSchool,0
 
 
 ### --- Prestige classes (begin) --- ###

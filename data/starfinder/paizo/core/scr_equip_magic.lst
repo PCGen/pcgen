@@ -1,0 +1,332 @@
+SOURCELONG:Starfinder Core Rulebook	SOURCESHORT:SCR	SOURCEWEB:http://paizo.com/products/btpy9qy1	SOURCEDATE:2017-08
+# Original Entry by: Gwen T
+
+###Magic Items###
+Aeon Stone (Clear Spindle)				TYPE:Magic.Aeon.WornMagic				QUALITY:Level|1	COST:245		QUALITY:Bulk|-	SOURCEPAGE:p.222
+Aeon Stone (Dark Blue Rhomboid)			TYPE:Magic.Aeon.WornMagic				QUALITY:Level|10	COST:18000		QUALITY:Bulk|-	SOURCEPAGE:p.222		BONUS:SKILL|Perception,Sense Motive|2|TYPE=Insight
+Aeon Stone (Iridescent Spindle)			TYPE:Magic.Aeon.WornMagic				QUALITY:Level|2	COST:740		QUALITY:Bulk|-	SOURCEPAGE:p.222
+Aeon Stone (Pearly White Spindle)			TYPE:Magic.Aeon.WornMagic				QUALITY:Level|11	COST:25000		QUALITY:Bulk|-	SOURCEPAGE:p.222		BONUS:CASTERLEVEL|TYPE.Spell|1
+Amulet of Camouflage					TYPE:Magic.Amulet.WornMagic				QUALITY:Level|3	COST:300		QUALITY:Bulk|-	SOURCEPAGE:p.223
+Charge Cloak						TYPE:Magic.Cloak.WornMagic				QUALITY:Level|1	COST:200		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.223
+Glove of Storing						TYPE:Magic.Glove.WornMagic				QUALITY:Level|6	COST:4600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.223
+Ring of Cosmic Alignment				TYPE:Magic.Ring.WornMagic				QUALITY:Level|11	COST:25000		QUALITY:Bulk|-	SOURCEPAGE:p.224
+Ring of Resistance Mk 1					TYPE:Magic.Ring.WornMagic				QUALITY:Level|2	COST:735		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+1 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +1|1
+Ring of Resistance Mk 2					TYPE:Magic.Ring.WornMagic				QUALITY:Level|6	COST:4200		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+2 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +2|1
+Ring of Resistance Mk 3					TYPE:Magic.Ring.WornMagic				QUALITY:Level|10	COST:18100		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+3 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +3|1
+Ring of Resistance Mk 4					TYPE:Magic.Ring.WornMagic				QUALITY:Level|14	COST:70000		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+4 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +4|1
+Ring of Resistance Mk 5					TYPE:Magic.Ring.WornMagic				QUALITY:Level|18	COST:361500		QUALITY:Bulk|-	SOURCEPAGE:p.223		SPROP:+5 on weakest (or choice of weakest) base save	BONUS:ABILITYPOOL|Ring of Resistance +5|1
+Ring of Sustenance					TYPE:Magic.Ring.WornMagic				QUALITY:Level|5	COST:2925		QUALITY:Bulk|-	SOURCEPAGE:p.223
+Ring of Whispers						TYPE:Magic.Ring.WornMagic				QUALITY:Level|1	COST:300		QUALITY:Bulk|-	SOURCEPAGE:p.223
+Rod of Cancellation					TYPE:Magic.Rod						QUALITY:Level|9	COST:2100		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Serum of Appearance Change				TYPE:Magic.Serum.Consumable				QUALITY:Level|1	COST:75		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225
+Serum of Enhancement (Commando)			TYPE:Magic.Serum.Consumable				QUALITY:Level|5	COST:475		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225		SPROP:+2 insight bonus to Acrobatics and Athletics checks, and gain temporary Hit Points equal to half your level.
+Serum of Enhancement (Diplomat)			TYPE:Magic.Serum.Consumable				QUALITY:Level|5	COST:475		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225		SPROP:+2 insight bonus to Bluff and Diplomacy checks. If Intelligence of 3 or greater, gain the ability to comprehend, speak, and understand one language heard in the last 10 minutes.
+Serum of Enhancement (Scientist)			TYPE:Magic.Serum.Consumable				QUALITY:Level|5	COST:475		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225		SPROP:+2 insight bonus to Computers, Engineering, and Physical Science checks and can attempt checks with all three skills untrained.
+Serum of Enhancement (Sensate)			TYPE:Magic.Serum.Consumable				QUALITY:Level|5	COST:475		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225		SPROP:+1 insight bonus to Life Science and Mysticism checks and can attempt checks with both skills untrained.
+Serum of Enhancement (Sneak)				TYPE:Magic.Serum.Consumable				QUALITY:Level|5	COST:475		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225		SPROP:+2 insight bonus to Sleight of Hand and Stealth checks and can attempt checks with both skills untrained.
+Serum of Enhancement (Warrior)			TYPE:Magic.Serum.Consumable				QUALITY:Level|5	COST:475		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225		SPROP:+2 insight bonus to Intimidate and Sense Motive checks; when you successfully demoralizes an opponent, the opponent is shaken for an extra round.
+Serum of Healing Mk 1					TYPE:Magic.Serum.Consumable				QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225
+Serum of Healing Mk 2					TYPE:Magic.Serum.Consumable				QUALITY:Level|5	COST:425		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225
+Serum of Healing Mk 3					TYPE:Magic.Serum.Consumable				QUALITY:Level|9	COST:1950		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225
+Serum of Sex Shift					TYPE:Magic.Serum.Consumable				QUALITY:Level|3	COST:350		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.225
+Shadow Orb							TYPE:Magic.LightSource					QUALITY:Level|10	COST:2850		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224		QUALITY:Decreases light level by one step|20-ft. radius	SPROP:Laser attacks against user are at +1, fire resistance 5 against lasers.
+Staff of Mystic Healing					TYPE:Magic.Staff						QUALITY:Level|5	COST:3700		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1	SOURCEPAGE:p.224
+Tiara of Translocation Mk 1				TYPE:Magic.Headgear.WornMagic				QUALITY:Level|14	COST:11750		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Tiara of Translocation Mk 2				TYPE:Magic.Headgear.WornMagic				QUALITY:Level|16	COST:185000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Tiara of Translocation Mk 3				TYPE:Magic.Headgear.WornMagic				QUALITY:Level|18	COST:410000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Tiara of Translocation Mk 4				TYPE:Magic.Headgear.WornMagic				QUALITY:Level|20	COST:875000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+
+###Hybrid Itmes###
+Digital Harrow Deck					TYPE:Magic.Hybrid						QUALITY:Level|5	COST:3500		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.226
+Efficient Bandolier					TYPE:Magic.Hybrid.Container.Shirt.WornMagic	QUALITY:Level|4	COST:2000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.226		CONTAINS:*5|Ammunition|Battery
+Mindlink Circlet Mk 1					TYPE:Magic.Hybrid.Headgear.WornMagic		QUALITY:Level|2	COST:1600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.227
+Mindlink Circlet Mk 2					TYPE:Magic.Hybrid.Headgear.WornMagic		QUALITY:Level|8	COST:11000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.227
+Mindlink Circlet Mk 3					TYPE:Magic.Hybrid.Headgear.WornMagic		QUALITY:Level|14	COST:78000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.227
+Mnemonic Editor Mk 1					TYPE:Magic.Hybrid						QUALITY:Level|5	COST:500		QUALITY:Bulk|10	BONUS:VAR|Bulk|10	WT:10	SOURCEPAGE:p.226
+Mnemonic Editor Mk 2					TYPE:Magic.Hybrid						QUALITY:Level|10	COST:3000		QUALITY:Bulk|10	BONUS:VAR|Bulk|10	WT:10	SOURCEPAGE:p.226
+Mnemonic Editor Mk 3					TYPE:Magic.Hybrid						QUALITY:Level|15	COST:20000		QUALITY:Bulk|10	BONUS:VAR|Bulk|10	WT:10	SOURCEPAGE:p.226
+Mnemonic Editor Mk 4					TYPE:Magic.Hybrid						QUALITY:Level|20	COST:125000		QUALITY:Bulk|10	BONUS:VAR|Bulk|10	WT:10	SOURCEPAGE:p.226
+Null-Space Chamber Mk 1					TYPE:Magic.Hybrid.Container				QUALITY:Level|5	COST:3050		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.227		CONTAINS:*25
+Null-Space Chamber Mk 2					TYPE:Magic.Hybrid.Container				QUALITY:Level|9	COST:12250		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.227		CONTAINS:*50
+Null-Space Chamber Mk 3					TYPE:Magic.Hybrid.Container				QUALITY:Level|13	COST:50000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.227		CONTAINS:*100
+Null-Space Chamber Mk 4					TYPE:Magic.Hybrid.Container				QUALITY:Level|17	COST:250000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.227		CONTAINS:*200
+Psychic Booster						TYPE:Magic.Hybrid.Headgear.WornMagic		QUALITY:Level|4	COST:2000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.227
+Starstone Compass						TYPE:Magic.Hybrid						QUALITY:Level|1	COST:3		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.227
+
+###Spell Ampoules###
+Spell Ampoule (Stabilize)				TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|2	COST:200		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Flight (Level 1))			TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|3	COST:300		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Keen Senses)				TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|3	COST:300		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Life Bubble)				TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|3	COST:300		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Mystic Cure (Level 1))		TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|3	COST:300		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Remove Condition (Lesser))		TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|3	COST:300		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Darkvision)				TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|6	COST:700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Flight (Level 2))			TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|6	COST:700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Invisibility)				TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|6	COST:700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Mystic Cure (Level 2))		TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|6	COST:700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Remove Condition)			TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|6	COST:700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Restoration (Lesser))		TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|6	COST:700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Spider Climb)				TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|6	COST:700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Displacement)				TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|10	COST:3000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Flight (Level 3))			TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|10	COST:3000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Haste)					TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|10	COST:3000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Mystic Cure (Level 3))		TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|10	COST:3000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Nondetection)				TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|10	COST:3000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Ampoule (Remove Affliction)			TYPE:Magic.SpellAmpoule.Consumable			QUALITY:Level|10	COST:3000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+
+###Spell Gems###
+Spell Gem (Dancing Lights)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Daze)						TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Detect Affliction)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Detect Magic)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Energy Ray)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Fatigue)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Ghost Sound)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Grave Words)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mending)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Psychokinetic Hand)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Stabilize)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Telekinetic Projectile)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Telepathic Message)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Token Spell)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Transfer Charge)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|1	COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Charm Person)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Command)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Comprehend Languages)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Confusion (Lesser))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Detect Radiation)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Detect Tech)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Detect Thoughts)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Disguise Self)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Erase)						TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Fear (Level 1))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Flight (Level 1))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Grease)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Hold Portal)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Holographic Image (Level 1))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Identify)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Jolting Surge)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Keen Senses)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Life Bubble)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Magic Missile)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mind Link)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mind Thrust (Level 1))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mystic Cure (Level 1))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Overheat)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Reflecting Armor)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Remove Condition (Lesser))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Share Language)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Supercharge Weapon)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Unseen Servant)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Wisp Ally)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|2	COST:140		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Augury)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Caustic Conversion)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Command Undead)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Darkvision)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Daze Monster)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Fear (Level 2))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Flight (Level 2))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Fog Cloud)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Force Blast)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Hold Person)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Holographic Image (Level 2))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Hurl Forcedisk)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Implant Data)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Inflict Pain)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Inject Nanobots)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Invisibility)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Knock)						TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Logic Bomb)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Make Whole)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Microbot Assault)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mind Thrust (Level 2))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mirror Image)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mystic Cure (Level 2))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Recharge)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Remove Condition)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Restoration (Lesser))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Security Seal)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (See Invisibility)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Shield Other)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Spider Climb)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Status)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Zone of Truth)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|5	COST:450		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Arcane Sight)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Arcing Surge)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Bestow Curse)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Charm Monster)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Clairaudience/Clairvoyance)		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Deep Slumber)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Discharge)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Dispel Magic)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Displacement)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Entropic Grasp)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Explosive Blast)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Fear (Level 3))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Flight (Level 3))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Handy Junkbot)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Haste)						TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Healing Junkbot)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Hologram Memory)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Holographic Image (Level 3))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Instant Virus)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Irradiate)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mind Thrust (Level 3))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mystic Cure (Level 3))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Nondetection)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Probability Prediction)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Psychokinetic Strangulation)		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Ray of Exhaustion)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Remove Affliction)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Resistant Armor (Lesser))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Slow)						TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Speak with Dead)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Suggestion)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Synaptic Pulse)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Tongues)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|8	COST:1400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Animate Dead)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Arcane Eye)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Confusion)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Corrosive Haze)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Cosmic Eddy)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Creation (Level 4))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Death Ward)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Destruction Protocol)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Dimension Door)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Discern Lies)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Dismissal (Level 4))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Divination)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Enervation)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Fear (Level 4))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Flight (Level 4))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Hold Monster)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Holographic Image (Level 4))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Invisibility (Greater))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mind Probe)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mind Thrust (Level 4))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mystic Cure (Level 4))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Overload Systems)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Planar Binding (Level 4))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Reincarnate)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Remove Radioactivity)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Resilient Sphere)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Resistant Armor)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Restoration)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Rewire Flesh)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Soothing Protocol)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Telepathic Bond)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Wall of Fire)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|11	COST:3700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Break Enchantment)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Call Cosmos)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Command (Greater))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Commune with Nature)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Contact Other Plane)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Control Machines)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Creation (Level 5))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Crush Skull)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Dismissal (Level 5))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Dispel Magic (Greater))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Dominate Person)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Feeblemind)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Flight (Level 5))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Heat Leech)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Holographic Image (Level 5))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Holographic Terrain)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mind Thrust (Level 5))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Modify Memory)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mislead)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mystic Cure (Level 5))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mystic Cure (Mass)(Level 5))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Passwall)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Planar Binding (Level 5))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Private Sanctum)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Prying Eyes)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Raise Dead)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Rapid Repair)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Remove Condition (Greater))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Resistant Aegis)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Retrocognition)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Synapse Overload)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Synaptic Pulse (Greater))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Telekinesis)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Telepathy)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Teleport)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Unwilling Guardian)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Wall of Force)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Waves of Fatigue)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|14	COST:10600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Battle Junkbot)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Chain Surge)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Control Gravity)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Control Undead)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Discharge (Greater))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Disintegrate)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Enshrining Refuge)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Ethereal Jaunt)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Flesh to Stone)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Flight (Level 6))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Gravitational Singularity)		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Holographic Image (Level 6))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Inflict Pain (Mass))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Interplanetary Teleport)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Invisibility (Mass))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mind Thrust (Level 6))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mystic Cure (Level 6))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Mystic Cure (Mass)(Level 6))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Planar Barrier)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Planar Binding (Level 6))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Plane Shift)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Psychic Surgery)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Regenerate)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Resistant Armor (Greater))		TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Rewire Flesh (Mass))			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Shadow Walk)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Shadowy Fleet)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Snuff Life)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Subjective Reality)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Suggestion (Mass))				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Sympathetic Vibration)			TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Telepathic Jaunt)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Terraform)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (True Seeing)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Veil)						TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Vision)					TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+Spell Gem (Wall of Steel)				TYPE:Magic.SpellGem.Consumable			QUALITY:Level|17	COST:36650		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1	SOURCEPAGE:p.224
+
+# Weapon Fusion
+Weapon Infusuion Seal (ANARCHIC)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (ANCHORING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (AXIOMATIC)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (BANE)			TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (BLASTING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (BLEEDING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (BURST)			TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (CALLED)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (CORROSIVE)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (DEAFENING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (DEFIANT)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (DEVASTATING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (DISPELLING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (DISRUPTIVE)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (DURABLE)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (ENTANGLING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (FLAMING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (FROST)			TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (GHOST KILLER)	TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (GLAMERED)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (HOLY)			TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (HYBRIDIZED)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (ILLUMINATING)	TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (KNOCKDOWN)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (MERCIFUL)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (OMINOUS)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (RETURNING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (SEEKING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (SHOCK)			TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (SPELLTHROWER)	TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (THUNDERING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (TRAILBLAZER)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (UNHOLY)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (VENOMOUS)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (VORPAL)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusuion Seal (WOUNDING)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+

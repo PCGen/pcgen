@@ -1,0 +1,6 @@
+SOURCELONG:Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/products/btpy93nc?Pathfinder-Player-Companion-Champions-of-Balance	SOURCEDATE:2014-03
+
+
+###Block: Arcanist Bloodline Development Exploit -- Goes in ACG or ACG support _abilities_class.lst
+
+Impossible Bloodline		CATEGORY:Arcanist Bloodline Development		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Impossible_BloodlineLVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Impossible Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Impossible Bloodline		BONUS:VAR|Sorcerer_Impossible_BloodlineLVL|ArcanistLVL|PREMULT:1,[PREABILITY:1,CATEGORY=Sorcerer Bloodline,Impossible Bloodline],[PREABILITY:1,CATEGORY=Crossblooded Bloodline,Impossible Bloodline]		BONUS:VAR|Sorcerer_Impossible_BloodlinePower1LVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Impossible Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Impossible Bloodline		ABILITY:Special Ability|AUTOMATIC|TYPE=Impossible Bloodline ~ Power LVL 01		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Impossible

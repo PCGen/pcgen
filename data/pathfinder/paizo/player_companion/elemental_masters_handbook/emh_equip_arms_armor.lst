@@ -1,0 +1,7 @@
+SOURCELONG:Elemental Master's Handbook	SOURCESHORT:EMH	SOURCEWEB:http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook	SOURCEDATE:2017-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+
+Battered Pistol (Dragon)		OUTPUTNAME:Battered Dragon Pistol		PROFICIENCY:WEAPON|Pistol (Dragon)							TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Battered.Pistol.Scatter				CONTAINS:1|FirearmBullet=1|FirearmPellet=1	COST:40	WT:3		CRITMULT:x4	CRITRANGE:1							DAMAGE:1d6					EQMOD:Special Quality ~ Scatter ~ Firearm.Material ~ Steel									WIELD:OneHandOnly		RANGE:20	SIZE:M	SOURCEPAGE:p.139	SPROP:Misfire 1-2 (5 ft.); Scatter 15' cone
+
+Density Hammer											PROFICIENCY:WEAPON|Earth Breaker							TYPE:Weapon.Resizable.Melee.TwoHanded.Martial.Bludgeoning.Hammer.Magic.Specific																		COST:40	WT:14		CRITMULT:x3	CRITRANGE:1							DAMAGE:2d6					EQMOD:Material ~ Steel.Special Ability ~ Enhancement Cost|8000.Special Ability ~ +3 ~ Weapon			WIELD:TwoHanded				SIZE:M	SOURCEPAGE:p.9	SPROP:Wielder has limited immunity to petrification effects
+

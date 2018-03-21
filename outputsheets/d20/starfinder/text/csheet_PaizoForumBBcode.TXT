@@ -1,0 +1,684 @@
+﻿|MANUALWHITESPACE|
+[b]|NAME|[/b]|BR|
+|GENDER.LONG|
+|SPACE|
+|TEXT.LOWER.RACE|
+|SPACE|
+|TEXT.LOWER.ABILITYALL.Theme.VISIBLE.0.TYPE=Theme|
+|SPACE|
+|FOR,%class,0,COUNT[CLASSES]-1,1,1|
+|IIF(%class:0)|
+|ELSE|
+|SPACE|/|SPACE|
+|ENDIF|
+|TEXT.LOWER.CLASS.%class||SPACE|
+|CLASS.%class.LEVEL|
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Archetype";"TYPE=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|SPACE|[b]Archetypes[/b]|SPACE|
+|FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|,|SPACE|
+|ENDFOR|
+|ENDIF|
+|BR|
+|ALIGNMENT.SHORT|
+|SPACE|
+|SIZELONG|
+|IIF(RACETYPE:None)|
+|TEXT.LOWER.TYPE|
+|ELSE|
+|SPACE|
+|TEXT.LOWER.RACETYPE|
+|ENDIF|
+|IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
+|ELSE|
+|SPACE|(
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-2,1,1|
+|TEXT.LOWER.RACESUBTYPE.%subtype|,|SPACE|
+|ENDFOR|
+|FOR,%subtype,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,1|
+|TEXT.LOWER.RACESUBTYPE.%subtype|
+|ENDFOR|
+)
+|ENDIF|
+|BR|
+[b]Init[/b]|SPACE|
+|INITIATIVEMOD|;|SPACE|[b]Senses[/b]|SPACE|
+|FOR,%VisionTest,STRLEN[VISION],STRLEN[VISION],1,0|
+|IIF(%VisionTest:0)|
+|ELSE|
+|TEXT.LOWER.VISION|;|SPACE|
+|ENDIF|
+|ENDFOR|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Sense","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Benefit:Y)|
+|SPACE||TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+
+Perception|SPACE|
+|SKILLSIT.Perception.TOTAL.SIGN|
+|IIF(count("ABILITIES";"TYPE=Aura";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|BR|[b]Aura[/b]|SPACE|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Bonus:Y)|
+|TEXT.LOWER.ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|TEXT.LOWER.ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Benefit:Y)|
+|SPACE||TEXT.LOWER.ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Bonus:Y)|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Benefit:Y)|
+|SPACE||TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|ENDIF|
+|BR|
+|ENDMANUALWHITESPACE|
+_________________________________________________
+DEFENSE
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+|MANUALWHITESPACE|
+[b]EAC[/b]|SPACE||AC.EAC|; |SPACE|[b]KAC[/b]|SPACE||AC.KAC||BR|
+[b]SP[/b]|SPACE||ALTHP||SPACE|[b]HP[/b]|SPACE||HP||SPACE|[b]RP[/b]|SPACE||VAR.Resolve.INTVAL||BR|
+[b]Fort[/b]|SPACE||CHECK.FORTITUDE.TOTAL|,|SPACE|[b]Ref[/b]|SPACE||CHECK.REFLEX.TOTAL|,|SPACE|[b]Will[/b]|SPACE||CHECK.WILL.TOTAL||BR|
+
+|FOR,%savebonus,0,count("ABILITIES","ASPECT=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+	,|SPACE||ABILITYALL.ANY.VISIBLE.%savebonus.ASPECT=SaveBonus.ASPECT.SaveBonus|
+|ENDFOR|
+|FOR,%savebonus,0,count("ABILITIES","ASPECT=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+	,|SPACE||ABILITYALL.ANY.VISIBLE.%savebonus.ASPECT=SaveBonus.ASPECT.SaveBonus|
+|ENDFOR|
+
+|IIF(count("ABILITIES";"TYPE=Defensive";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]Defensive|SPACE|Abilities[/b]|SPACE|
+|FOR,%defensiveAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive.HASASPECT.Ability Bonus:Y)|
+|TEXT.LOWER.ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|TEXT.LOWER.ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive|
+|IIF(ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive.HASASPECT.Ability Benefit:Y)|
+|SPACE||TEXT.LOWER.ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|FOR,%defensiveAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.HASASPECT.Ability Bonus:Y)|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.HASASPECT.Ability Benefit:Y)|
+|SPACE||TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|ENDIF|
+|FOR,%DRTest,STRLEN[DR],STRLEN[DR],1,0|
+|IIF(%DRTest:0)|
+|ELSE|
+[b]DR[/b]|TEXT.LOWER.DR|;|SPACE|
+|ENDIF|
+|ENDFOR|
+|IIF(count("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]Immunities[/b]|SPACE|
+|FOR,%immunities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0||SPACE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.HASASPECT.Ability Bonus:Y)|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.HASASPECT.Immunity:Y)|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.ASPECT.Immunity|
+|ELSE|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.HASASPECT.Ability Benefit:Y)|
+|SPACE||TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|ENDIF|
+|IIF(count("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]Resistances[/b]|SPACE| 
+|FOR,%resistances,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.HASASPECT.Ability Bonus:Y)|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.HASASPECT.Resistance:Y)|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Resistance|
+|ELSE|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.HASASPECT.Ability Benefit:Y)|
+|SPACE| |TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|ENDIF|
+|IIF(count("ABILITIES";"TYPE=Weakness";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]Vulnerabilities[/b]|SPACE|
+|FOR,%weaknesses,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Weakness","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.HASASPECT.Ability Bonus:Y)|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.HASASPECT.Ability Benefit:Y)|
+|SPACE||TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|ENDIF|
+|IIF(SR:0)|
+|ELSE|
+[b]SR[/b]|SPACE||SR|;|SPACE|
+|ENDIF|
+|IIF(VAR.IF(VAR("COUNT[EQTYPE.DefensiveGear]")>0;1;0):1)|
+[b]Defensive Gear[/b]|SPACE|
+|FOR,%defensiveGear,0,COUNT[EQTYPE.DefensiveGear]-1,1,1|
+[i]|TEXT.LOWER.EQ.IS.DefensiveGear.%defensiveGear.NAME|[/i];|SPACE|
+|ENDFOR|
+|ENDIF|
+
+
+|ENDMANUALWHITESPACE|
+_________________________________________________
+OFFENSE
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+|MANUALWHITESPACE|
+[b]Speed[/b]|SPACE||MOVEMENT||BR|
+	
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
+|IIF(WEAPON.%weap.NAME:Swarm)|
+[b]Melee[/b]|SPACE||TEXT.LOWER.WEAPON.%weap.NAME.NOSTAR||SPACE|(|WEAPON.%weap.DAMAGE|)|BR|
+|ENDIF|
+|ENDFOR|
+
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
+|IIF(WEAPON.%weap.ISTYPE.Melee)|
+[b]Melee[/b]|SPACE|
+|TEXT.LOWER.WEAPON.%weap.NAME.NOSTAR||SPACE||WEAPON.%weap.BASEHIT||SPACE|(|WEAPON.%weap.DAMAGE||SPACE||
+,|SPACE|critical|SPACE||WEAPON.%weap.QUALITY.Critical|;|SPACE||WEAPON.%weap.SPROP|)|BR|
+|ENDIF|
+|ENDFOR|
+
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
+|IIF(WEAPON.%weap.ISTYPE.Ranged)|
+[b]Ranged[/b]|SPACE|
+|TEXT.LOWER.WEAPON.%weap.NAME.NOSTAR||SPACE||WEAPON.%weap.RANGELIST.0.TOTALHIT||SPACE|(|WEAPON.%weap.RANGELIST.0.DAMAGE|
+,|SPACE|critical|SPACE||WEAPON.%weap.QUALITY.Critical|;|SPACE||WEAPON.%weap.SPROP|)|BR|
+|ENDIF|
+|ENDFOR|
+
+
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|BR|[b]Special|SPACE|Attacks[/b]|SPACE|
+|FOR,%specialActions,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.HASASPECT.Ability Benefit:Y)|
+|SPACE||ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|ENDIF|
+
+|IIF(VAR.IF(VAR("COUNT[EQTYPE.OffensiveGear]")>0;1;0):1)|
+|BR|[b]Offensive Gear [/b]
+|FOR,%offensiveGear,0,COUNT[EQTYPE.OffensiveGear]-1,1,1|
+[i]|TEXT.LOWER.EQ.IS.OffensiveGear.%offensiveGear.NAME|; [/i]
+|ENDFOR|
+|BR|
+|ENDIF|
+
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
+|BR|[b]Innate|SPACE|Spell-Like|SPACE|Abilities[/b]|SPACE|
+|FOR,%spellbook,1,1,1,0|
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+[i]|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|[/i]|SPACE|(
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC|SPACE||SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES>0)|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ELSE|
+at|SPACE|will) 
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDMANUALWHITESPACE|
+
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
+|MANUALWHITESPACE|
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
+[b]|SPELLBOOK.%spellbook.NAME||SPACE|Spell-Like|SPACE|Abilities[/b]|SPACE|
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+[i]|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|[/i]|SPACE|(
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC|SPACE||SPELLMEM.%class.%spellbook.%level.%spell.DC|,
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES>0)|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ELSE|
+at|SPACE|will) 
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDMANUALWHITESPACE|
+
+|ENDIF|
+|ENDFOR|
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
+|IIF(SPELLLISTMEMORIZE.%class:false)|
+|MANUALWHITESPACE|
+|BR|[b]|SPELLLISTCLASS.%class||SPACE|Spells|SPACE|Known[/b]|SPACE| (CL|SPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL|;|SPACE|concentration|SPACE||SPELLLISTCLASS.%class.CONCENTRATION|)
+|FOR,%level,9,0,-1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.0.%level],COUNT[SPELLSINBOOK.%class.0.%level],1,0|
+|IIF(%spelllevelcount:0)|
+|ELSE|
+|BR||%level||TEXT.NUMSUFFIX.%level|
+|IIF(%level:0.AND.GAMEMODE:Pathfinder)|
+(at|SPACE|will) -
+|ELSE|
+(|SPELLLISTCAST.%class.%level|/day) -
+|ENDIF|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,0|
+[i]|TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME|[/i]
+|IIF(SPELLMEM.%class.0.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.0.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.0.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC|SPACE||SPELLMEM.%class.0.%level.%spell.DC|)
+|ENDIF|
+,|SPACE| 
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,0|
+|SPELLMEM.%class.0.%level.%spell.BONUSSPELL|[i]|TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME|[/i]
+|IIF(SPELLMEM.%class.0.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.0.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.0.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC|SPACE||SPELLMEM.%class.0.%level.%spell.DC|)
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+|ENDIF|
+|ENDFOR|
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Prepared Spell List)|
+|MANUALWHITESPACE|
+|BR|[b]|SPELLBOOKNAME.%spellbook|[/b]
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
+|IIF(SPELLLISTMEMORIZE.%class:true)|
+|BR|[b]|SPELLLISTCLASS.%class|[/b]|SPACE| (CL|SPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL|;|SPACE|concentration|SPACE||SPELLLISTCLASS.%class.CONCENTRATION|)
+|FOR,%level,9,0,-1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+|ELSE|
+|BR||%level||TEXT.NUMSUFFIX.%level|-
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
+[i]|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|[/i]
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC|SPACE||SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|[i]|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|[/i]
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC|SPACE||SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ELSE|
+|ENDMANUALWHITESPACE|
+|ENDIF|
+|ENDFOR|
+|MANUALWHITESPACE|
+|%DOMAIN.1|
+|BR|*:Domain|SPACE|spell. 
+|BR|[b]Deity[/b]|SPACE||DEITY|;|SPACE|
+[b]Domains[/b]|SPACE| 
+|FOR,%domain,1,COUNT[DOMAINS],1,0|
+|DOMAIN.%domain|,|SPACE| 
+|ENDFOR|
+|%|
+|ENDMANUALWHITESPACE|
+|IIF(CHARACTERTYPE:PC)|
+|ELSE|
+_________________________________________________
+TACTICS
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+|MANUALWHITESPACE|
+|%COUNT[TEMPBONUSNAMES]|
+[b]Temporary|SPACE|Effects[/b]|SPACE|
+|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0|
+|TEXT.LOWER.TEMPBONUS.%temp|,|SPACE|
+|ENDFOR|
+|%|
+|ENDMANUALWHITESPACE|
+|ENDIF|
+_________________________________________________
+STATISTICS
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+|MANUALWHITESPACE|
+[b]|TEXT.TITLECASE.STAT.0.NAME|[/b]|SPACE||STAT.0|,
+|FOR,%stat,1,COUNT[STATS]-1,1,1|
+|SPACE|[b]|TEXT.TITLECASE.STAT.%stat.NAME|[/b]|SPACE||STAT.%stat|,
+|ENDFOR|
+|BR|
+
+[b]Base|SPACE|Atk[/b]|SPACE||ATTACK.MELEE.BASE|;|SPACE|
+|IIF(VAR.UseCombatManueverBonus:1)|
+[b]CMB[/b]|SPACE||VAR.CMB.INTVAL.SIGN|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_BullRush");1;0):1)|
+|SPACE|(|VAR.CMB_BullRush.INTVAL.SIGN||SPACE|bullrush)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Disarm");1;0):1)|
+|SPACE|(|VAR.CMB_Disarm.INTVAL.SIGN||SPACE|disarm)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Grapple");1;0):1)|
+|SPACE|(|VAR.CMB_Grapple.INTVAL.SIGN||SPACE|grapple)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Overrun");1;0):1)|
+|SPACE|(|VAR.CMB_Overrun.INTVAL.SIGN||SPACE|overrun)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Sunder");1;0):1)|
+|SPACE|(|VAR.CMB_Sunder.INTVAL.SIGN||SPACE|sunder)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMB")!=VAR("CMB_Trip");1;0):1)|
+|SPACE|(|VAR.CMB_Trip.INTVAL.SIGN||SPACE|trip)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMD")>0;1;0):1)|
+;|SPACE|[b]CMD[/b]|SPACE||VAR.CMD.INTVAL|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_BullRush");1;0):1)|
+|SPACE|(|VAR.CMD_BullRush.INTVAL||SPACE|vs|SPACE|bullrush)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Disarm");1;0):1)|
+|SPACE|(|VAR.CMD_Disarm.INTVAL||SPACE|vs|SPACE|disarm)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Grapple");1;0):1)|
+|SPACE|(|VAR.CMD_Grapple.INTVAL||SPACE|vs|SPACE|grapple)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Overrun");1;0):1)|
+|SPACE|(|VAR.CMD_Overrun.INTVAL||SPACE|vs|SPACE|overrun)
+|ENDIF|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Sunder");1;0):1)|
+|SPACE|(|VAR.CMD_Sunder.INTVAL||SPACE|vs|SPACE|sunder)
+|ENDIF|
+|IIF(VAR.IF(var("CantBeTripped")!=0;1;0):1)|
+|SPACE|(can't|SPACE|be|SPACE|tripped)
+|ELSE|
+|IIF(VAR.IF(VAR("CMD")!=VAR("CMD_Trip");1;0):1)|
+|SPACE|(|VAR.CMD_Trip.INTVAL||SPACE|vs|SPACE|trip)
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ELSE|
+[b]Grp[/b] 
+|IIF(VAR.IF(var("CanNotGrapple")==0;1;0):1)|
+|VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|
+|ELSE|
+|ENDIF|
+|ENDIF|
+
+|BR|
+
+[b]Feats[/b]|SPACE||FEATALLLIST||BR|
+
+[b]Skills[/b]|SPACE|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
+|IIF(VAR.IF(var("SKILLSIT.%skill.RANK")==0;1;0):1)|
+|ELSE|
+|SKILLSIT.%skill||SPACE||SKILLSIT.%skill.TOTAL.INTVAL.SIGN|,|SPACE| 
+|ENDIF|
+|ENDFOR|
+|BR|
+
+|IIF(count("ABILITIES";"TYPE=CampaignTrait[or]TYPE=CombatTrait[or]TYPE=FaithTrait[or]TYPE=MagicTrait[or]TYPE=RaceTrait[or]TYPE=ReligionTrait[or]TYPE=SampleCampaignTrait[or]TYPE=SocialTrait";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]Traits[/b]|SPACE|
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:CampaignTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:CombatTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:FaithTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:MagicTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:RaceTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:ReligionTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:SampleCampaignTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:SocialTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|ENDFOR|
+|BR|
+|ENDIF|
+
+|FOR,%LanguageTest,STRLEN[LANGUAGES],STRLEN[LANGUAGES],1,0|
+|IIF(%LanguageTest:0)|
+|IIF(count("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]Communication[/b]|SPACE|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus||SPACE| 
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
+|SPACE| |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus||SPACE| 
+|ENDIF|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
+|SPACE| |ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|BR|
+|ENDIF|
+|ELSE|
+[b]Languages[/b]|SPACE||LANGUAGES|
+|IIF(count("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+,|SPACE|
+|ENDIF|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus||SPACE| 
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
+|SPACE| |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus||SPACE| 
+|ENDIF|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
+|SPACE| |ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|BR|
+|ENDIF|
+|ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]SQ[/b]|SPACE|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0||SPACE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Immunity.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Resistance.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Defensive)|
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.HASASPECT.Ability Bonus:Y)|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.ASPECT.Ability Bonus||SPACE|
+|ENDIF|
+|TEXT.LOWER.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.HASASPECT.Ability Benefit:Y)|
+|SPACE||ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDIF|
+|ENDFOR|
+|BR|
+|ENDIF|
+
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]Animal|SPACE|Tricks[/b]|SPACE||ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick||BR|
+|ENDIF|
+
+|%COUNT[SA]|
+[b]Special Abilities[/b]|SPACE||SPECIALLIST||BR|
+|%|
+
+|IIF(count("ABILITIES";"CATEGORY=Afflictions";"TYPE=Affliction";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]Afflictions [/b]
+|FOR,%affliction,0,count("ABILITIES","CATEGORY=Afflictions","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|ABILITYALL.Afflictions.VISIBLE.%affliction.TYPE=Affliction|
+(|ABILITYALL.Afflictions.VISIBLE.%affliction.TYPE=Affliction.DESC|),
+|ENDFOR|
+|BR|
+|ENDIF|
+
+[B]Combat|SPACE|Gear[/B]|SPACE|
+|FOR,%equip1,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.%equip1.CHARGES>0)|
+|EQ.%equip1.NAME.MAGIC~[i]~[/i]||SPACE|
+(|EQ.%equip1.CHARGES||SPACE|charges)
+|IIF(EQ.%equip1.QTY>1)|
+|SPACE|(|EQ.%equip1.QTY|)
+|ENDIF|
+,|SPACE|
+|ENDIF|
+|ENDFOR|
+|FOR,%equip1,0,(COUNT[EQUIPMENT]-1),1,0]
+|IIF(EQ.IS.CONSUMABLE.%equip1.QTY>0)|
+|TEXT.LOWER.EQ.IS.CONSUMABLE.%equip1.NAME.MAGIC~[i]~[/i]|
+|IIF(EQ.IS.CONSUMABLE.%equip1.QTY>1)|
+|SPACE|(|EQ.IS.CONSUMABLE.%equip1.QTY|)
+|ENDIF|
+,|SPACE|
+|ENDIF|
+|ENDFOR|
+|BR|   
+[B]Other|SPACE|Gear[/B]|SPACE|
+|FOR,%equip1,0,(COUNT[EQUIPMENT]-1),1,0]
+|IIF(EQ.NOT.CONSUMABLE.NOT.WAND.%equip1.QTY>0)|
+|TEXT.LOWER.EQ.NOT.CONSUMABLE.NOT.WAND.%equip1.NAME.MAGIC~[i]~[/i]|
+|IIF(EQ.NOT.CONSUMABLE.NOT.WAND.%equip1.QTY>1)|
+|SPACE|(|EQ.NOT.CONSUMABLE.NOT.WAND.%equip1.QTY|)
+|ENDIF|
+,|SPACE|
+|ENDIF|
+|ENDFOR|
+|GOLD/1||SPACE|gp
+|BR|
+|ENDMANUALWHITESPACE|
+
+_________________________________________________
+SPECIAL ABILITIES
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+|MANUALWHITESPACE|
+|IIF(COUNT("ABILITIES";"CATEGORY=Racial Trait";"TYPE=Racial Trait";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]RACIAL TRAITS[/b]|BR|
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Racial Trait","TYPE=Racial Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+[b]|TEXT.TITLE.ABILITYALL.Racial Trait.VISIBLE.%allAbilities.TYPE=Racial Trait|[/b]|SPACE|
+|TEXT.SENTENCE.ABILITYALL.Racial Trait.VISIBLE.%allAbilities.TYPE=Racial Trait.DESC||BR|
+|ENDFOR|
+|ENDIF|
+
+|BR|
+|IIF(COUNT("ABILITIES";"CATEGORY=Theme";"TYPE=Theme";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]THEME|SPACE|BENEFITS[/b]|BR|
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Theme","TYPE=Theme","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+[b]|TEXT.TITLE.ABILITYALL.Theme.VISIBLE.%allAbilities.TYPE=Theme|[/b]|SPACE|
+|TEXT.SENTENCE.ABILITYALL.Theme.VISIBLE.%allAbilities.TYPE=Theme.DESC||BR|
+|ENDFOR|
+|ENDIF|
+
+|BR|
+|IIF(COUNT("ABILITIES";"CATEGORY=Class Feature";"TYPE=Class Feature";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]CLASS|SPACE|FEATURES:[/b]|BR|
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+[b]|TEXT.TITLE.ABILITYALL.Class Feature.VISIBLE.%allAbilities.TYPE=Class Feature|[/b]|SPACE|
+|TEXT.SENTENCE.ABILITYALL.Class Feature.VISIBLE.%allAbilities.TYPE=Class Feature.DESC||BR|
+|ENDFOR|
+|ENDIF|
+
+|BR|
+|IIF(count("ABILITIES";"CATEGORY=FEAT")>0)|
+[b]FEATS:[/b]|BR|
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=FEAT")-1,1,0|
+[b]|TEXT.TITLE.ABILITYALL.FEAT.%allAbilities|[/b]|SPACE|
+|TEXT.SENTENCE.ABILITYALL.FEAT.%allAbilities.DESC||SPACE|
+|TEXT.SENTENCE.ABILITYALL.FEAT.%allAbilities.BENEFIT||BR|
+|ENDFOR|
+|ENDIF|
+
+|ENDMANUALWHITESPACE|
+

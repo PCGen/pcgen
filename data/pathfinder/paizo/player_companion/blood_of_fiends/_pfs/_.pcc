@@ -14,9 +14,9 @@ PRECAMPAIGN:2,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
-SOURCELONG:Blood of Fiends
+SOURCELONG:Pathfinder Player Companion: Blood of Fiends
 SOURCESHORT:BOF
-SOURCEWEB:http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-of-Fiends
+SOURCEWEB:http://paizo.com/products/btpy8qzz
 SOURCEDATE:2012-04
 ISOGL:YES
 
@@ -24,7 +24,7 @@ ISOGL:YES
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-of-Fiends|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy8qzz|Buy this publication from Paizo Publishing!
 DESC:Born of mortal and fiendish blood intertwined, tieflings are tainted individuals thrust into a world that has learned to both fear and despise them. Whether they openly display their freakish ancestry in settlements known for their tiefling populations or hide such shameful attributes through either mundane or magical methods, all tieflings know that they are different. Blood of Fiends presents a player-friendly overview of the tieflings of the Player Companion, as well as new rules and information to help players customize their own fiendish characters.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

@@ -71,7 +71,6 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	private static final Class<CNAbilitySelection> CAT_ABILITY_SELECTION_CLASS = CNAbilitySelection.class;
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	@Override
 	public String getParentToken()
@@ -113,28 +112,29 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+						+ " was not valid: " + count.toString());
 			}
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+						+ " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0", context);
+								+ " must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value, context);
+					+ " had too many pipe separated items: " + value);
 		}
-		if (isEmpty(activeValue) || hasIllegalSeparator(',', activeValue))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
+		if (!pr.passed())
 		{
-			return ParseResult.INTERNAL_ERROR;
+			return pr;
 		}
 
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
@@ -147,8 +147,8 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		boolean foundAny = false;
 		boolean foundOther = false;
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability> rm =
+				context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
 
 		while (tok.hasNext())
 		{
@@ -167,7 +167,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 				if (className.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " must have Class name after " + token, context);
+							+ " must have Class name after " + token);
 				}
 				CDOMSingleRef<PCClass> pcc = context.getReferenceContext().getCDOMReference(
 						PCCLASS_CLASS, className);
@@ -183,7 +183,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 				{
 					return new ParseResult.Fail("  Error was encountered while parsing "
 							+ getTokenName() + ": " + value
-							+ " had an invalid reference: " + token, context);
+							+ " had an invalid reference: " + token);
 				}
 			}
 			if (ab != null)
@@ -195,7 +195,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 
 		if (!refs.isEmpty())
@@ -207,7 +207,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		if (pcs.isEmpty())
 		{
 			return new ParseResult.Fail("Internal Error: " + getFullName()
-					+ " did not have any references: " + value, context);
+					+ " did not have any references: " + value);
 		}
 		PrimitiveChoiceSet<CNAbilitySelection> ascs;
 		if (pcs.size() == 1)
@@ -358,7 +358,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 	@Override
 	public CNAbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(context, s);
 	}
 
 	@Override

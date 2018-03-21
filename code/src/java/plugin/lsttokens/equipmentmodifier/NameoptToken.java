@@ -49,7 +49,7 @@ public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
 			if (optString.length() < 6 || optString.charAt(4) != '=')
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " has invalid TEXT argument: " + value, context);
+						+ " has invalid TEXT argument: " + value);
 			}
 			optString = "TEXT";
 			context.getObjectContext().put(mod, StringKey.NAME_TEXT,
@@ -64,7 +64,7 @@ public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
 		catch (IllegalArgumentException iae)
 		{
 			return new ParseResult.Fail("Invalid Naming Option provided in "
-					+ getTokenName() + ": " + value, context);
+					+ getTokenName() + ": " + value);
 		}
 	}
 

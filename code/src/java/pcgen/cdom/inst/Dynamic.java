@@ -61,12 +61,6 @@ public class Dynamic implements VarScoped, Categorized<Dynamic>
 	}
 
 	@Override
-	public String getLSTformat()
-	{
-		return getKeyName();
-	}
-
-	@Override
 	public boolean isInternal()
 	{
 		return false;
@@ -93,7 +87,7 @@ public class Dynamic implements VarScoped, Categorized<Dynamic>
 	@Override
 	public String getLocalScopeName()
 	{
-		return category.getKeyName();
+		return "PC." + category.getKeyName();
 	}
 
 	@Override

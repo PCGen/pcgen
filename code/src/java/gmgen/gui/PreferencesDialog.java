@@ -20,9 +20,9 @@
  */
 package gmgen.gui;
 
-import gmgen.GMGenSystem;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,8 +32,11 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.dialog.AbstractPreferencesDialog;
+
+import gmgen.GMGenSystem;
 
 public class PreferencesDialog extends AbstractPreferencesDialog
 {

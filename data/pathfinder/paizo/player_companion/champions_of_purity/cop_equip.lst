@@ -12,11 +12,11 @@ Shield (Tower).COPY=Equalizer Shield
 # Equipment Name			Product Identity?	Type								Cost		Weight	Modifier				Source Page		Special Property
 Bondbreaker's Boots					TYPE:Slot_Feet.Boot.Footwear				COST:1600	WT:1							SOURCEPAGE:p.30	SPROP:3/day [swift action], instantly slice through any nonmagical bond currently restraining the wearer, except manacles or chains.
 
-Devil's Key.MOD						TYPE:Slot_Weapon.Magic					COST:66750	WT:5		EQMOD:PLUS2W.Redeemed		SOURCEPAGE:p.30	SPROP:1/day, after a successful attack against an evil outsider, plane shift (DC 20 Will save) you and the outsider, to the home plane it resides on. Once slain, you plane shift back.
-Equalizer Shield.MOD					TYPE:Slot_Shield.Magic.Wondrous.Shield.Tower	COST:120830	WT:23		EQMOD:MITHRAL_SHLD.PLUS1S	SOURCEPAGE:p.30
-Field Medic's Breastplate.MOD				TYPE:Slot_Armor.Magic					COST:52900	WT:30		EQMOD:PLUS1A			SOURCEPAGE:p.31
+Devil's Key.MOD						TYPE:Slot_Weapon.Magic					COST:66750	WT:5		EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Redeemed ~ Weapon		SOURCEPAGE:p.30	SPROP:1/day, after a successful attack against an evil outsider, plane shift (DC 20 Will save) you and the outsider, to the home plane it resides on. Once slain, you plane shift back.
+Equalizer Shield.MOD					TYPE:Slot_Shield.Magic.Wondrous.Shield.Tower	COST:120830	WT:23		EQMOD:Material ~ Mithril ~ Shield.Special Ability ~ +1 ~ Shield	SOURCEPAGE:p.30
+Field Medic's Breastplate.MOD				TYPE:Slot_Armor.Magic					COST:52900	WT:30		EQMOD:Special Ability ~ +1 ~ Armor			SOURCEPAGE:p.31
 Mantle of the Protector					TYPE:Slot_Shoulders.Magic.Cape			COST:12200	WT:10							SOURCEPAGE:p.31
-Phoenix Armor						TYPE:Slot_Armor.Magic					COST:36730	WT:50		EQMOD:PLUS2A			SOURCEPAGE:p.31	SPROP:Fire Resistance full plate
-Rythius (The Kyton Scourge)	NAMEISPI:YES	TYPE:Slot_Weapon.Magic					COST:53000	WT:2		EQMOD:Bane|Kyton.PLUS1W.Shock	SOURCEPAGE:p.31	SPROP:+1 kyton bane shock.
-Seraphic Pistol						TYPE:Slot_Weapon.Magic					COST:37550	WT:5		EQMOD:PLUS2W			SOURCEPAGE:p.31
+Phoenix Armor						TYPE:Slot_Armor.Magic					COST:36730	WT:50		EQMOD:Special Ability ~ +2 ~ Armor			SOURCEPAGE:p.31	SPROP:Fire Resistance full plate
+Rythius (The Kyton Scourge)	NAMEISPI:YES	TYPE:Slot_Weapon.Magic					COST:53000	WT:2		EQMOD:Special Ability ~ Bane ~ Weapon|Kyton.Special Ability ~ +1 ~ Weapon.Special Ability ~ Shock ~ Weapon	SOURCEPAGE:p.31	SPROP:+1 kyton bane shock.
+Seraphic Pistol						TYPE:Slot_Weapon.Magic					COST:37550	WT:5		EQMOD:Special Ability ~ +2 ~ Weapon			SOURCEPAGE:p.31
 Staff of the Freed Man					TYPE:Slot_None.Magic.Staff				COST:51688	WT:5							SOURCEPAGE:p.31	SPROP:Detect secret doors (2 charges); Knock (2 charges); Passwall (3 charges); Freedom (5 charges)

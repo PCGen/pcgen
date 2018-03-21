@@ -62,7 +62,7 @@ public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
 			{
 				return new ParseResult.Fail(
 					"IType must not be double. Ignoring occurrence in "
-						+ getTokenName() + Constants.COLON + value, context);
+						+ getTokenName() + Constants.COLON + value);
 			}
 			else
 			{

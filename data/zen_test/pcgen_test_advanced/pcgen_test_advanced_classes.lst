@@ -408,3 +408,10 @@ CLASS:Paladin
 
 # Class Name
 CLASS:Ranger
+
+
+
+# Starfinder 3rd Tier Abilities lost issue - CODE-3199
+
+CLASS:Starfinder Test
+1	ABILITY:Starfinder Test Class Feature|AUTOMATIC|Starfinder Test ~ Weapon Test

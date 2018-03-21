@@ -79,3 +79,24 @@ CATEGORY=FEAT|Greater Feint.MOD							PRE:.CLEAR																										PREMUL
 Fronto-Occipital Elongation	KEY:Elongated Cranium ~ Fronto-Occipital Elongation		TYPE:Elongated Cranium	CATEGORY:Internal		DESC: Fronto-Occipital Elongation: Your head slopes severely in a high conical shape, tapering from your brow to the crown of your head. You take a -1 penalty on Intelligence and Wisdom checks and on Intelligence- and Wisdom based skill checks, but gain a +2 bonus on Charisma checks and Charisma-based skill checks. In addition, once per day, you can extend the duration of a psychic spell you cast by 50%% (minimum 0 additional rounds). The increased duration doesn't stack with the increase granted by the Extend Spell feat.
 Ovoid Compression			KEY:Elongated Cranium ~ Ovoid Compression				TYPE:Elongated Cranium	CATEGORY:Internal		DESC: Ovoid Compression: Your head takes on a larger, more bulbous appearance than normal. You take a -1 penalty on Charisma and Wisdom checks and on Wisdom- and Charisma-based skill checks, but gain a +2 bonus on Intelligence checks and Intelligence-based skill checks. In addition, once per day you can cast one psychic magic spell you know with a +1 bonus to its caster level.
 Sagittal Elongation		KEY:Elongated Cranium ~ Sagittal Elongation			TYPE:Elongated Cranium	CATEGORY:Internal		DESC: Sagittal Elongation: Your head slopes back in a gentle, elongated curve. You take a -1 penalty on Intelligence and Charisma checks and on Intelligence- and Charisma-based skill checks, but gain a +2 bonus on Wisdom checks and Wisdom-based skill checks. In addition, once per day, you can increase the DC of a psychic spell you cast by 1.
+
+
+
+
+CATEGORY=FEAT|Blind-Fight.MOD		TYPE:EctoplasmBloodline
+CATEGORY=FEAT|Dodge.MOD			TYPE:EctoplasmBloodline
+CATEGORY=FEAT|Ectoplasmic Spell.MOD	TYPE:EctoplasmBloodline
+CATEGORY=FEAT|Lingering Spell.MOD	TYPE:EctoplasmBloodline
+CATEGORY=FEAT|Silent Spell.MOD	TYPE:EctoplasmBloodline
+CATEGORY=FEAT|Spell Focus.MOD		TYPE:EctoplasmBloodline
+
+
+CATEGORY=FEAT|Focused Spell.MOD	TYPE:PsychicBloodline
+CATEGORY=FEAT|Heighten Spell.MOD	TYPE:PsychicBloodline
+CATEGORY=FEAT|Intuitive Spell.MOD	TYPE:PsychicBloodline
+CATEGORY=FEAT|Iron Will.MOD		TYPE:PsychicBloodline
+CATEGORY=FEAT|Logical Spell.MOD	TYPE:PsychicBloodline
+CATEGORY=FEAT|Persuasive.MOD		TYPE:PsychicBloodline
+CATEGORY=FEAT|Quicken Spell.MOD	TYPE:PsychicBloodline
+CATEGORY=FEAT|Spell Focus.MOD		TYPE:PsychicBloodline
+

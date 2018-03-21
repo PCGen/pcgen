@@ -4,7 +4,7 @@ KEY:BPI ~ Gaslight
 GAMEMODE:Gaslight
 TYPE:Battlefield Press Inc.Gaslight
 STATUS:BETA
-RANK:1
+RANK:0
 GENRE:Modern
 BOOKTYPE:Core Rulebook
 SETTING:Modern
@@ -30,9 +30,13 @@ URL:RPG Now|http://rpg.drivethrustuff.com/product_info.php?products_id=69024?aff
 #EXTRAFILE:gaslight_notes.txt
 
 ### Gamemode:
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
 SAVE:gaslight__saves.lst
 STAT:gaslight__stats.lst
 DATACONTROL:gaslight__datacontrols.lst
+SIZE:gaslight__sizes.lst
 
 ### Files
 ABILITY:gaslight_abilities_class.lst

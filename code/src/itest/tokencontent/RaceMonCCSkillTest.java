@@ -17,8 +17,6 @@
  */
 package tokencontent;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -39,7 +37,10 @@ import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.race.MonccskillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class RaceMonCCSkillTest extends AbstractTokenModelTest
 {
@@ -73,7 +74,7 @@ public class RaceMonCCSkillTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, source, "MySkill");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		new ExclusiveToken().parseToken(context, sk, "Yes");

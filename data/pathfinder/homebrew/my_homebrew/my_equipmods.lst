@@ -31,7 +31,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 
 
 # Old Style
-#Masterwork		KEY:MWORKW	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment	PRETYPE:1,Weapon,Ammunition	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood		BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
+#Masterwork		KEY:Special Quality ~ Masterwork ~ Weapon	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment	PRETYPE:1,Weapon,Ammunition	!PRETYPE:1,Masterwork,Mithral,Adamantine,Darkwood		BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
 
 #####
 #The first field in the equipmods.lst files must be the name of the modifier, after that, the tags do not need to be in any

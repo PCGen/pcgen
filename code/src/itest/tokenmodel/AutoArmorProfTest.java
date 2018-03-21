@@ -27,7 +27,9 @@ import pcgen.core.ArmorProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.auto.ArmorProfToken;
+
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import util.TestURI;
 
 public class AutoArmorProfTest extends AbstractGrantedListTokenTest<ArmorProf>
 {
@@ -44,7 +46,7 @@ public class AutoArmorProfTest extends AbstractGrantedListTokenTest<ArmorProf>
 				AUTO_ARMORPROF_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

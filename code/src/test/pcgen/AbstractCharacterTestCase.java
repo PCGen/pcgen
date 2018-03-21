@@ -6,6 +6,8 @@ package pcgen;
 
 import java.util.Collection;
 
+import pcgen.base.solver.Modifier;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -31,8 +33,9 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.TestHelper;
-
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -82,8 +85,10 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		Globals.emptyLists();
 		final GameMode gamemode = SettingsHandler.getGame();
 		LoadContext context = Globals.getContext();
+		BuildUtilities.buildUnselectedRace(context);
 		
-		str = BuildUtilities.createStat("Strength", "STR");
+		SourceFileLoader.defineBuiltinVariables(gamemode, context);
+		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 				FormulaFactory.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"),
@@ -92,27 +97,27 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		str.put(VariableKey.getConstant("MAXLEVELSTAT=" + str.getKeyName()),
 				FormulaFactory.getFormulaFor(str.getKeyName() + "SCORE-10"));
 
-		dex = BuildUtilities.createStat("Dexterity", "DEX");
+		dex = BuildUtilities.createStat("Dexterity", "DEX", "B");
 		dex.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		dex.put(VariableKey.getConstant("MAXLEVELSTAT=" + dex.getKeyName()),
 				FormulaFactory.getFormulaFor(dex.getKeyName() + "SCORE-10"));
 
-		PCStat con = BuildUtilities.createStat("Constitution", "CON");
+		PCStat con = BuildUtilities.createStat("Constitution", "CON", "C");
 		con.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		con.put(VariableKey.getConstant("MAXLEVELSTAT=" + con.getKeyName()),
 				FormulaFactory.getFormulaFor(con.getKeyName() + "SCORE-10"));
 
-		intel = BuildUtilities.createStat("Intelligence", "INT");
+		intel = BuildUtilities.createStat("Intelligence", "INT", "D");
 		intel.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		intel.put(VariableKey.getConstant("MAXLEVELSTAT=" + intel.getKeyName()),
 				FormulaFactory.getFormulaFor(intel.getKeyName() + "SCORE-10"));
 
-		wis = BuildUtilities.createStat("Wisdom", "WIS");
+		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		wis.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		wis.put(VariableKey.getConstant("MAXLEVELSTAT=" + wis.getKeyName()),
 				FormulaFactory.getFormulaFor(wis.getKeyName() + "SCORE-10"));
 
-		cha = BuildUtilities.createStat("Charisma", "CHA");
+		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 		cha.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		cha.put(VariableKey.getConstant("MAXLEVELSTAT=" + cha.getKeyName()),
 				FormulaFactory.getFormulaFor(cha.getKeyName() + "SCORE-10"));
@@ -171,9 +176,11 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		SourceFileLoader.createLangBonusObject(context);
+		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
+		proc(context, fmtManager);
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
-		ref.importObject(AbilityCategory.FEAT);
+		ref.importObject(BuildUtilities.getFeatCat());
 		additionalSetUp();
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
@@ -181,6 +188,15 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		context.loadCampaignFacets();
 
 		character = new PlayerCharacter();
+	}
+
+	private <T> void proc(LoadContext context, FormatManager<T> fmtManager)
+	{
+		Class<T> cl = fmtManager.getManagedClass();
+		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
+		Modifier<T> 
+			defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl, defaultModifier);
 	}
 
 	protected void additionalSetUp() throws Exception

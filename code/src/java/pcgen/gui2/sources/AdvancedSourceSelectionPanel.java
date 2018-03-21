@@ -658,20 +658,20 @@ class AdvancedSourceSelectionPanel extends JPanel
 					if (format != null && setting != null)
 					{
 						return Collections
-							.singletonList(new TreeViewPath<>(
+							.singletonList(new TreeViewPath<CampaignFacade>(
                                     pobj, publisher, format, setting));
 					}
 					if (format != null)
 					{
 						return Collections
-							.singletonList(new TreeViewPath<>(
+							.singletonList(new TreeViewPath<CampaignFacade>(
                                     pobj, publisher, format));
 					}
 				case PUBLISHER_SETTING_NAME:
 					if (setting != null)
 					{
 						return Collections
-							.singletonList(new TreeViewPath<>(
+							.singletonList(new TreeViewPath<CampaignFacade>(
                                     pobj, publisher, setting));
 					}
 				case PUBLISHER_NAME:

@@ -177,8 +177,8 @@
 			<trait>${pcstring('PERSONALITY2')}</trait>
 		</personality>
 		<portrait>
-			<portrait>${pcstring('PORTRAIT')}</portrait>
-			<portrait_thumb>file://localhost/${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
+			<portrait>${pcstring('PORTRAIT')?url_path('utf-8')}</portrait>
+			<portrait_thumb>${pcstring('PORTRAIT.THUMB')?url_path('utf-8')}</portrait_thumb>
 		</portrait>
 		<phobias>${pcstring('PHOBIAS')}</phobias>
 		<#if (pcstring("ABILITYALL.ANY.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
@@ -383,7 +383,7 @@
 			<electricity>${pcstring('VAR.ElectricityResistanceBonus.INTVAL')}</electricity>
 			<fire>${pcstring('VAR.FireResistanceBonus.INTVAL')}</fire>
 			<force/>
-			<sonic/>
+			<sonic>${pcstring('VAR.SonicResistanceBonus.INTVAL')}</sonic>
 		</resistances>
 	</initiative>
 	<!--
@@ -416,6 +416,7 @@
 			<eclipse_total>${pcstring('VAR.CharacterSkillPts.INTVAL')}</eclipse_total>
 		</skillpoints>
 		<list_mods>${pcstring('SKILLLISTMODS')}</list_mods>
+		<max_rank>${pcvar('VAR.TL')}</max_rank>
 		<#if (pcvar("VAR.Max_Rank_Display") > 0)>
 			<max_class_skill_level>${pcstring('VAR.Max_Rank_Display')}</max_class_skill_level>
 		<#else>
@@ -1434,6 +1435,9 @@
 		<light>${pcstring('WEIGHT.LIGHT')}</light>
 		<medium>${pcstring('WEIGHT.MEDIUM')}</medium>
 		<heavy>${pcstring('WEIGHT.HEAVY')}</heavy>
+		<unencumbered>${pcstring('WEIGHT.UNENCUMBERED')}</unencumbered>
+		<encumbered>${pcstring('WEIGHT.ENCUMBERED')}</encumbered>
+		<overburdened>${pcstring('WEIGHT.OVERBURDENED')}</overburdened>
 		<lift_over_head>${pcstring('WEIGHT.OVERHEAD')}</lift_over_head>
 		<lift_off_ground>${pcstring('WEIGHT.OFFGROUND')}</lift_off_ground>
 		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
@@ -1917,6 +1921,18 @@
 	</domains>
 	</#if>	<!-- Domains -->
 	<weapon_proficiencies>${pcstring('WEAPONPROFS')}</weapon_proficiencies>
+	<!--
+	  ====================================
+	  ====================================
+			Weapon Proficiencies
+	  ====================================
+	  ====================================-->
+	<scr_proficiencies>
+	<@abilityBlock category="Proficiency" nature="ALL" hidden=false typeName="Proficiency" nodeName="scr_proficiency" />
+	</scr_proficiencies>
+
+
+
 	<languages>${pcstring('LANGUAGES')}</languages>
 	<#if (pcvar("COUNT[TEMPLATES]") > 0) >
 	<templates>

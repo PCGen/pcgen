@@ -48,9 +48,6 @@ public class AbilityListToken extends
 		AbstractTokenWithSeparator<AbilityCategory> implements
 		CDOMPrimaryToken<AbilityCategory>
 {
-
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
-
 	@Override
 	public String getTokenName()
 	{
@@ -64,8 +61,8 @@ public class AbilityListToken extends
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
-			ac.addAbilityKey(context.getReferenceContext().getManufacturer(ABILITY_CLASS, ac)
-					.getReference(st.nextToken()));
+			ac.addAbilityKey(context.getReferenceContext().getManufacturerId(ac)
+				.getReference(st.nextToken()));
 		}
 		return ParseResult.SUCCESS;
 	}

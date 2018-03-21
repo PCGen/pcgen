@@ -576,7 +576,7 @@ public final class EquipmentList {
 				{
 					if (eqMod.isType(t)) {
 						// Type matches, passes prereqs?
-						if (PrereqHandler.passesAll(eqMod.getPrerequisiteList(), eq, null)) { return eqMod; }
+						if (PrereqHandler.passesAll(eqMod, eq, null)) { return eqMod; }
 					}
 				}
 			}

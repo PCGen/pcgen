@@ -22,14 +22,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.VarScoped;
-import pcgen.base.formula.inst.SimpleScopeInstance;
+import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.text.ParsingSeparator;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -37,6 +38,8 @@ import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.DataSetInitializationFacet;
 import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
@@ -84,7 +87,7 @@ abstract class LoadContextInst implements LoadContext
 	//Per file
 	private CDOMObject stateful;
 	
-	private ScopeInstance scopeInst = null;
+	private LegalScope legalScope = null;
 
 	static
 	{
@@ -529,82 +532,62 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public ScopeInstance getActiveScope()
+	public LegalScope getActiveScope()
 	{
-		if (scopeInst == null)
+		if (legalScope == null)
 		{
-			LegalScope legalScope = var.getScope("Global");
-			scopeInst = new SimpleScopeInstance(null, legalScope,
-				new DummyVarScoped(legalScope));
+			legalScope = var.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		}
-		return scopeInst;
+		return legalScope;
 	}
 
 	@Override
 	public LoadContext dropIntoContext(String scope)
 	{
-		LegalScope legalScope = var.getScope(scope);
-		if (legalScope == null)
+		PCGenScope subScope = var.getScope(scope);
+		if (subScope == null)
 		{
 			throw new IllegalArgumentException("LegalVariableScope " + scope
 				+ " does not exist");
 		}
-		return dropIntoContext(legalScope);
+		return dropIntoContext(subScope);
 	}
 
-	private LoadContext dropIntoContext(LegalScope lvs)
+	private LoadContext dropIntoContext(PCGenScope lvs)
 	{
-		LegalScope parent = lvs.getParentScope();
-		if (parent == null)
+		Optional<PCGenScope> parent = lvs.getParentScope();
+		if (!parent.isPresent())
 		{
 			//is Global
 			return this;
 		}
-		LoadContext parentLC = dropIntoContext(parent);
-		SimpleScopeInstance localInst = new SimpleScopeInstance(parentLC.getActiveScope(),
-			lvs, new DummyVarScoped(lvs));
-		return new DerivedLoadContext(parentLC, localInst);
+		LoadContext parentLC = dropIntoContext(parent.get());
+		return new DerivedLoadContext(parentLC, lvs);
 	}
 
-	private static class DummyVarScoped implements VarScoped
+	@Override
+	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager, String instructions)
 	{
-
-		private LegalScope lvs;
-
-		private DummyVarScoped(LegalScope lvs)
-		{
-			this.lvs = lvs;
-		}
-
-		@Override
-		public String getKeyName()
-		{
-			return "Context (during Load)";
-		}
-
-		@Override
-		public String getLocalScopeName()
-		{
-			return lvs.getName();
-		}
-
-		@Override
-		public VarScoped getVariableParent()
-		{
-			return null;
-		}
-		
+		return FormulaFactory.getValidFormula(instructions, var.getManagerFactory(),
+			var.getDummySetup().getFormulaManager(), getActiveScope(), formatManager);
 	}
 
 	private class DerivedLoadContext implements LoadContext
 	{
 
+		/**
+		 * The parent LoadContext for this DerivedLoadContext
+		 */
 		private final LoadContext parent;
-		private final ScopeInstance scopeInst;
 
-		public DerivedLoadContext(LoadContext parent, ScopeInstance lvs)
+		/**
+		 * The derived Scope for this DerivedLoadContext
+		 */
+		private final LegalScope derivedScope;
+
+		public DerivedLoadContext(LoadContext parent, LegalScope scope)
 		{
-			this.scopeInst = lvs;
+			this.derivedScope = scope;
 			this.parent = parent;
 		}
 
@@ -822,36 +805,33 @@ abstract class LoadContextInst implements LoadContext
 		}
 
 		@Override
-		public ScopeInstance getActiveScope()
+		public LegalScope getActiveScope()
 		{
-			return scopeInst;
+			return derivedScope;
 		}
 
 		@Override
 		public LoadContext dropIntoContext(String scope)
 		{
-			LegalScope toScope = var.getScope(scope);
+			PCGenScope toScope = var.getScope(scope);
 			if (toScope == null)
 			{
 				throw new IllegalArgumentException("LegalVariableScope "
 					+ scope + " does not exist");
 			}
-			LegalScope currentScope = scopeInst.getLegalScope();
-			if (currentScope.equals(toScope))
+			if (derivedScope.equals(toScope))
 			{
 				return this;
 			}
-			else if (currentScope.getParentScope().equals(toScope))
+			else if (!toScope.getParentScope().isPresent())
 			{
-				//Jump up from here
+				//No parent is global
 				return parent;
 			}
-			else if (toScope.getParentScope().equals(currentScope))
+			else if (toScope.getParentScope().get().equals(derivedScope))
 			{
 				//Direct drop from this
-				SimpleScopeInstance localInst = new SimpleScopeInstance(scopeInst,
-					toScope, new DummyVarScoped(toScope));
-				return new DerivedLoadContext(this, localInst);
+				return new DerivedLoadContext(this, derivedScope);
 			}
 			//Random jump to somewhere else...
 			return LoadContextInst.this.dropIntoContext(toScope);
@@ -874,5 +854,12 @@ abstract class LoadContextInst implements LoadContext
 		{
 			parent.resolvePostValidationTokens();
 		}
-	}
+
+		@Override
+		public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
+			String instructions)
+		{
+			return parent.getValidFormula(formatManager, instructions);
+		}
+}
 }

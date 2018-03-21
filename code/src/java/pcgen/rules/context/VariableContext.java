@@ -19,12 +19,12 @@ package pcgen.rules.context;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
-import pcgen.base.calculation.PCGenModifier;
-import pcgen.base.formula.base.Function;
+import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.Modifier;
@@ -33,6 +33,7 @@ import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.MasterModifierFactory;
 import pcgen.util.Logging;
 
@@ -50,25 +51,24 @@ public class VariableContext
 		formulaSetup.loadBuiltIns();
 		managerFactory = Objects.requireNonNull(fac);
 		PluginFunctionLibrary pfl = PluginFunctionLibrary.getInstance();
-		List<Function> functions = pfl.getFunctions();
-		for (Function f : functions)
+		List<FormulaFunction> functions = pfl.getFunctions();
+		for (FormulaFunction f : functions)
 		{
 			formulaSetup.getFunctionLibrary().addFunction(f);
 		}
 		LegalScopeUtilities.loadLegalScopeLibrary(formulaSetup
-			.getLegalScopeLibrary());
+			.getLegalScopeManager());
 	}
 
 	/*
 	 * Lazy instantiation to avoid trying to pull the "Global" scope before it
 	 * is loaded from plugins
 	 */
-	private IndividualSetup getDummySetup()
+	IndividualSetup getDummySetup()
 	{
 		if (dummySetup == null)
 		{
-			dummySetup = new IndividualSetup(formulaSetup, "Global",
-				new SimpleVariableStore());
+			dummySetup = new IndividualSetup(formulaSetup, new SimpleVariableStore());
 		}
 		return dummySetup;
 	}
@@ -89,23 +89,36 @@ public class VariableContext
 	/*
 	 * For Tokens
 	 */
-	public <T> PCGenModifier<T> getModifier(String modType, String modValue,
-		int priorityNumber, LegalScope varScope, FormatManager<T> formatManager)
+	public <T> FormulaModifier<T> getModifier(String modType, String modValue,
+		LegalScope varScope, FormatManager<T> formatManager)
 	{
 		return getModFactory().getModifier(modType, modValue, managerFactory,
-			priorityNumber, varScope, formatManager);
+			varScope, formatManager);
 	}
 
-	public Set<LegalScope> getKnownLegalScopes(String varName)
-	{
-		return formulaSetup.getVariableLibrary().getKnownLegalScopes(varName);
-	}
-
-	public boolean assertLegalVariableID(LegalScope varScope,
+	/**
+	 * Asserts the given variable name is valid within the given LegalScope. It will be
+	 * managed by the given FormatManager.
+	 * 
+	 * @param varScope
+	 *            The asserted LegalScope for the given variable name
+	 * @param formatManager
+	 *            The FormatManager for the given variable
+	 * @param varName
+	 *            The variable name for which the given FormatManager and LegalScope is
+	 *            being asserted as valid
+	 * @throws IllegalArgumentException
+	 *             if any argument is null of if the variable name is otherwise illegal
+	 *             (is empty or starts/ends with whitespace)
+	 * @throws LegalVariableException
+	 *             if a variable of that name exists in a conflicting scope or in the same
+	 *             scope with a different format
+	 */
+	public void assertLegalVariableID(LegalScope varScope,
 		FormatManager<?> formatManager, String varName)
 	{
-		return formulaSetup.getVariableLibrary().assertLegalVariableID(varName,
-			varScope, formatManager);
+		formulaSetup.getVariableLibrary().assertLegalVariableID(varName, varScope,
+			formatManager);
 	}
 
 	public boolean isLegalVariableID(LegalScope varScope, String varName)
@@ -126,14 +139,21 @@ public class VariableContext
 			varName);
 	}
 
-	public void addFunction(Function function)
+	public void addFunction(FormulaFunction function)
 	{
 		formulaSetup.getFunctionLibrary().addFunction(function);
 	}
 
-	public LegalScope getScope(String name)
+	/**
+	 * Returns the PCGenScope for the given name.
+	 * 
+	 * @param name
+	 *            The name of the PCGenScope to be returned
+	 * @return The PCGenScope for the given name
+	 */
+	public PCGenScope getScope(String name)
 	{
-		return formulaSetup.getLegalScopeLibrary().getScope(name);
+		return (PCGenScope) formulaSetup.getLegalScopeManager().getScope(name);
 	}
 
 	/**

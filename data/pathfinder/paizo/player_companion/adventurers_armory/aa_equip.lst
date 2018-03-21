@@ -19,34 +19,34 @@ Chest (Huge)							OUTPUTNAME:Chest, huge										TYPE:Goods.General								COS
 Collapsible Plank																				TYPE:Goods.General								COST:0.4	WT:10																		SOURCEPAGE:p.6
 Coffin (Common)																				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any	COST:10	WT:30																		SOURCEPAGE:p.6
 Coffin (Ornate)																				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any	COST:100	WT:50																		SOURCEPAGE:p.6
-Key (Copy)																					TYPE:Goods.General								COST:1	WT:0																		SOURCEPAGE:p.6
+Copy of a Key																					TYPE:Goods.General								COST:1	WT:0																		SOURCEPAGE:p.6
 Earplugs																					TYPE:Goods.General								COST:0.03	WT:0																		SOURCEPAGE:p.6								SPROP:+2 circumstance bonus to saves for effect requiring hearing but −5 on hearing-based Perception checks.
 False-Bottomed Chest																			TYPE:Goods.Container.General							COST:52	WT:25																		SOURCEPAGE:p.6
 False-Bottomed Cup																			TYPE:Goods.Container.General							COST:1	WT:0																		SOURCEPAGE:p.6
 False-Bottomed Scabbard																			TYPE:Goods.Container.General			CONTAINS:UNLIM|Potion=1	COST:45	WT:1																		SOURCEPAGE:p.6
 Manacles (False)																				TYPE:Goods.General								COST:65	WT:2																		SOURCEPAGE:p.6
-Chair (Folding)																				TYPE:Goods.General								COST:2	WT:10																		SOURCEPAGE:p.6
-Ladder (Folding)																				TYPE:Goods.General								COST:2	WT:16																		SOURCEPAGE:p.6
-Arrow (Grappling)																				TYPE:Goods.General								COST:1	WT:0.5																	SOURCEPAGE:p.7
-Bolt (Grappling)																				TYPE:Goods.General								COST:1	WT:0.5																	SOURCEPAGE:p.7
+Folding Chair																				TYPE:Goods.General								COST:2	WT:10																		SOURCEPAGE:p.6
+Folding Ladder																				TYPE:Goods.General								COST:2	WT:16																		SOURCEPAGE:p.6
+Grappling Arrow																				TYPE:Goods.General								COST:1	WT:0.5																	SOURCEPAGE:p.7
+Grappling Bolt																				TYPE:Goods.General								COST:1	WT:0.5																	SOURCEPAGE:p.7
 Hammock																					TYPE:Goods.General								COST:0.1	WT:3																		SOURCEPAGE:p.7
 Harrow Deck					NAMEISPI:YES														TYPE:Goods.General								COST:100	WT:0																		SOURCEPAGE:p.7
 Helmet Candle																				TYPE:Goods.General.Container			CONTAINS:UNLIM|Candle=1	COST:2	WT:4																		SOURCEPAGE:p.7
 #Hollowed Pommel is an EQMOD
 # the one hour hourglass is in Core. The line below doesn't work
-Hourglass.COPY=Hourglass (One Hour)
+Hourglass.COPY=Hourglass (1 Hour)
 Hourglass.FORGET
-Hourglass (One Hour).MOD																		TYPE:Goods.General								COST:25	WT:1																		SOURCEPAGE:p.7
-Hourglass (One minute)																			TYPE:Goods.General								COST:20	WT:0.5																	SOURCEPAGE:p.7
-Hourglass (Six seconds)																			TYPE:Goods.General								COST:10	WT:0																		SOURCEPAGE:p.7
+Hourglass (1 Hour).MOD																		TYPE:Goods.General								COST:25	WT:1																		SOURCEPAGE:p.7
+Hourglass (1 minute)																			TYPE:Goods.General								COST:20	WT:0.5																	SOURCEPAGE:p.7
+Hourglass (6 seconds)																			TYPE:Goods.General								COST:10	WT:0																		SOURCEPAGE:p.7
 Iron Spike																					TYPE:Goods.General								COST:0.05	WT:1																		SOURCEPAGE:p.7
-Vial (Iron)																					TYPE:Goods.General								COST:0.1	WT:1																		SOURCEPAGE:p.7								SPROP:hardness 5, 3 hit points, and break DC 14
+Iron Vial																					TYPE:Goods.General								COST:0.1	WT:1																		SOURCEPAGE:p.7								SPROP:hardness 5, 3 hit points, and break DC 14
 # Waterproof lantern is an EQMOD for Lantern (might be good to switch it to LightSource to apply to non core lantern?)
 Lantern (Bullseye).MOD																			TYPE:Lantern
 Lantern (Hooded).MOD																			TYPE:Lantern
 Magnet																					TYPE:Goods.General								COST:0.5	WT:0.5																	SOURCEPAGE:p.7
 Marbles																					TYPE:Goods.General.Consumable							COST:0.1	WT:2																		SOURCEPAGE:p.7								SPROP:DC 10 Reflex to avoid falling unless move at half-speed
-Manacles (Mithral)						OUTPUTNAME:[NAME] Manacles									TYPE:Goods.General								COST:1000	WT:2								EQMOD:MITHRAL_ITEM							SOURCEPAGE:p.7								SPROP:hardness 15, 30 hit points, and a break DC of 30
+Manacles (Mithral)						OUTPUTNAME:[NAME] Manacles									TYPE:Goods.General								COST:1000	WT:2								EQMOD:Material ~ Mithril ~ Weapon / Item							SOURCEPAGE:p.7								SPROP:hardness 15, 30 hit points, and a break DC of 30
 Paper (Sheet).MOD																																																													SPROP:hardness 0, 1 hit point, and break DC 5
 Perfume/Cologne																				TYPE:Goods.General								COST:5	WT:0																		SOURCEPAGE:p.7
 Pickle Extractor																				TYPE:Goods.General								COST:0.2	WT:2																		SOURCEPAGE:p.7
@@ -61,26 +61,26 @@ Pump Water Canister																			TYPE:Goods.General								COST:75	WT:5				
 Rice Paper (Sheet)																			TYPE:Goods.General.Writing.Documents					COST:0.05	WT:0																		SOURCEPAGE:p.8								SPROP:hardness 0, 1 hit point, and break DC 2
 #Already in core, just adds description in the book. Scroll Case	TYPE:Goods.General.Container	COST:1	WT:0.5	SOURCEPAGE:p.8	CONTAINS:UNLIM|Scroll
 Sextant																					TYPE:Goods.General								COST:500	WT:2																		SOURCEPAGE:p.8								SPROP:+4 circumstance to Survival to avoid getting lost
-Shaving Kit																					TYPE:Goods.General.Rezisable							COST:1.5	WT:0.5							EQMOD:CHARGED_ITEM_50|CHARGES[50]					SOURCEPAGE:p.8
+Shaving Kit																					TYPE:Goods.General.Rezisable							COST:1.5	WT:0.5							EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]					SOURCEPAGE:p.8
 # Shield Sconce is an EQMOD for shields
 Shovel																					TYPE:Goods.General								COST:0.02	WT:3																		SOURCEPAGE:p.8
 Signal Horn																					TYPE:Goods.General								COST:1	WT:2																		SOURCEPAGE:p.8
 Skeleton Key																				TYPE:Goods.General								COST:85	WT:0																		SOURCEPAGE:p.8
 # For some reason this is far cheaper than the soap from Core
-Soap																						TYPE:Goods.General								COST:0.01	WT:0.5							EQMOD:CHARGED_ITEM_50|CHARGES[50]					SOURCEPAGE:p.8
+Soap																						TYPE:Goods.General								COST:0.01	WT:0.5							EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]					SOURCEPAGE:p.8
 Spear-thrower																				TYPE:Goods.General								COST:1	WT:1																		SOURCEPAGE:p.8								SPROP:Double range of dart, javelin, or shortspear. Move action to load.
-Spellbook (Traveling/blank)																		TYPE:Goods.Tools.Spellbook							COST:10	WT:1																		SOURCEPAGE:p.8
+Traveling Spellbook																		TYPE:Goods.Tools.Book.Spellbook							COST:10	WT:1																		SOURCEPAGE:p.8	NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)
 Stationary																					TYPE:Goods.General.Writing.Documents					COST:1	WT:0																		SOURCEPAGE:p.8
-Stove Can																					TYPE:Goods.General								COST:10	WT:1								EQMOD:CHARGED_ITEM_10|CHARGES[10]					SOURCEPAGE:p.8
+Stove Can																					TYPE:Goods.General								COST:10	WT:1								EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]					SOURCEPAGE:p.8
 # 2 differents items?
-String (50 feet)																				TYPE:Goods.General								COST:0	WT:0.5																	SOURCEPAGE:p.8
-Twine (50 feet)																				TYPE:Goods.General								COST:0	WT:0.5																	SOURCEPAGE:p.8
+String (50 ft.)																				TYPE:Goods.General								COST:0.01	WT:0.5																	SOURCEPAGE:p.8
+Twine (50 ft.)																				TYPE:Goods.General								COST:0.01	WT:0.5																	SOURCEPAGE:p.8
 #TODO this is supposed to vary by ink/size between 1cp to 10gp per color
 Tattoo																					TYPE:Goods.Service								COST:1	WT:0																		SOURCEPAGE:p.8
-Tent (Small) (1 person)						OUTPUTNAME:Tent, Small (1 person)								TYPE:Goods.General								COST:10	WT:5																		SOURCEPAGE:p.8								SPROP:Setup time of 20 min.
-Tent (Medium) (2 people)					OUTPUTNAME:Tent, Medium (2 people)								TYPE:Goods.General								COST:15	WT:10																		SOURCEPAGE:p.8								SPROP:Setup time of 30 min.
-Tent (Large) (4 people)						OUTPUTNAME:Tent, Large (4 people)								TYPE:Goods.General								COST:30	WT:20																		SOURCEPAGE:p.8								SPROP:Setup time of 45 min.
-Tent (Pavilion) (10 people)					OUTPUTNAME:Tent, Pavilion (10 people)							TYPE:Goods.General								COST:100	WT:50																		SOURCEPAGE:p.8								SPROP:Setup time of 90 min.
+Tent (Small)						OUTPUTNAME:Tent, Small (1 person)								TYPE:Goods.General								COST:10	WT:5																		SOURCEPAGE:p.8								SPROP:Setup time of 20 min.
+Tent (Medium)					OUTPUTNAME:Tent, Medium (2 people)								TYPE:Goods.General								COST:15	WT:10																		SOURCEPAGE:p.8								SPROP:Setup time of 30 min.
+Tent (Large)						OUTPUTNAME:Tent, Large (4 people)								TYPE:Goods.General								COST:30	WT:20																		SOURCEPAGE:p.8								SPROP:Setup time of 45 min.
+Tent (Pavilion)					OUTPUTNAME:Tent, Pavilion (10 people)							TYPE:Goods.General								COST:100	WT:50																		SOURCEPAGE:p.8								SPROP:Setup time of 90 min.
 #TODO: Done up to there VL
 Thurible (Censer)																				TYPE:Goods.General								COST:50	WT:3																		SOURCEPAGE:p.8								SPROP:When filled: 30ft smoke for 1 hr, +2 fortitude save
 Thurible Herbs																				TYPE:Goods.General.Consumable							COST:0.2	WT:0																		SOURCEPAGE:p.8								SPROP:Used to fill Thurible
@@ -97,6 +97,8 @@ Whistle (Silent)							OUTPUTNAME:Whistle, Silent									TYPE:Goods.General				
 Wrist Sheath																				TYPE:Goods.General.Container			CONTAINS:UNLIM|Any=5	COST:1	WT:1																		SOURCEPAGE:p.9								SPROP:Holds 1 forearm-length item or five arrows or bolts. Move action to release 1 or more items (provokes as normal). +2 on Sleight of Hand to hide items in sheath. Can wear one wrist sheath per arm.
 Wrist Sheath (Spring Loaded)					OUTPUTNAME:Wrist Sheath, Spring Loaded							TYPE:Goods.General.Container			CONTAINS:UNLIM|Any=5	COST:5	WT:1																		SOURCEPAGE:p.9								SPROP:Holds 1 forearm-length item or five arrows or bolts. Swift action to release 1 or more items (provokes as normal). +2 on Sleight of Hand to hide items in sheath. Can wear one wrist sheath per arm. Full-round action to insert item.
 
+Tattoo.MOD					TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+
 #Special Substances and Items
 Alchemical Grease																				TYPE:Goods.Alchemical.Consumable						COST:5	WT:1																		SOURCEPAGE:p.9
 Alchemical Solvent (Vial)																		TYPE:Goods.Alchemical.Consumable.Vial					COST:20	WT:0.5																	SOURCEPAGE:p.9								SPROP:Eats through adhesives
@@ -106,10 +108,10 @@ Bladeguard																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:
 Bloodblock																					TYPE:Goods.Alchemical.Consumable						COST:25	WT:0
 Bodybalm																					TYPE:Goods.Alchemical.Consumable						COST:25	WT:0																		SOURCEPAGE:p.9								SPROP:Provides +5 alchemical bonus to Heal checks for long-term care, poison, disease.
 Distilled Terrap Sap																			TYPE:Goods.Alchemical.Consumable						COST:30	WT:0.5																	SOURCEPAGE:p.10								SPROP:Provides +5 alchemical bonus to saves against scent attacks within 20' for 1d6 rounds
-Firework (Desnan Candle)		NAMEISPI:YES	OUTPUTNAME:Firework, Desnan Candle								TYPE:Goods.Alchemical.Consumable						COST:5	WT:0																		SOURCEPAGE:p.10
-Firework (Paper Candle)						OUTPUTNAME:Firework, Paper Candle								TYPE:Goods.Alchemical.Consumable						COST:1	WT:0																		SOURCEPAGE:p.10
-Firework (Skyrocket)						OUTPUTNAME:Firework, Skyrocket								TYPE:Goods.Alchemical.Consumable						COST:50	WT:1																		SOURCEPAGE:p.10
-Firework (Starfountain)						OUTPUTNAME:Firework, Starfountain								TYPE:Goods.Alchemical.Consumable						COST:500	WT:100																	SOURCEPAGE:p.10
+Desnan Candle (Firework)		NAMEISPI:YES	OUTPUTNAME:Firework, Desnan Candle								TYPE:Goods.Alchemical.Consumable						COST:5	WT:0																		SOURCEPAGE:p.10
+Paper Candle (Firework)						OUTPUTNAME:Firework, Paper Candle								TYPE:Goods.Alchemical.Consumable						COST:1	WT:0																		SOURCEPAGE:p.10
+Skyrocket (Firework)						OUTPUTNAME:Firework, Skyrocket								TYPE:Goods.Alchemical.Consumable						COST:50	WT:1																		SOURCEPAGE:p.10
+Starfountain (Firework)						OUTPUTNAME:Firework, Starfountain								TYPE:Goods.Alchemical.Consumable						COST:500	WT:100																	SOURCEPAGE:p.10
 Flash Powder																				TYPE:Goods.Alchemical.Consumable						COST:50	WT:0																												SPROP:10-foot burst, Fortitude DC 13 to not be blinded for 1 round.
 Fuse Grenade																				TYPE:Goods.Alchemical.Consumable						COST:100	WT:1																		SOURCEPAGE:p.10								SPROP:Light 1d3 round then explodes for 2d6 bludgeon + 1d6 fire for 10' burst (DC15 reflex for 1/2)
 Glowing Ink (Vial)																			TYPE:Goods.General.Writing.Liquid.Vial					COST:5	WT:0																		SOURCEPAGE:p.10								SPROP:+2 perception check to locate item written with this ink
@@ -119,7 +121,7 @@ Invisible Ink (Good)																			TYPE:Goods.General.Writing.Liquid.Vial			
 Invisible Ink (Superior)																		TYPE:Goods.General.Writing.Liquid.Vial					COST:75	WT:0																		SOURCEPAGE:p.10								SPROP:DC 35 Craft (Alchemy) to reveal without trigger
 Itching Powder																				TYPE:Goods.Alchemical.Consumable						COST:60	WT:2																		SOURCEPAGE:p.10								SPROP: Fort DC12 to resist or -2 penalty to attack, save, skill, and ability checks.
 Kaava Musk																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:0.5																	SOURCEPAGE:p.10								SPROP:+5 bonus to tracking target with musk on by scent
-Keros Oil (Flask)														PROFICIENCY:WEAPON|Spells (Touch)	TYPE:Goods.Alchemical.Weapon.Ranged.Fire					COST:5			CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:CHARGED_ITEM_10|CHARGES[10]	RANGE:5	SIZE:M	SOURCEPAGE:p.11								SPROP:Taking a mouthful from the bottle is a standard action.
+Keros Oil (Flask)														PROFICIENCY:WEAPON|Spells (Touch)	TYPE:Goods.Alchemical.Weapon.Ranged.Fire					COST:5			CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	RANGE:5	SIZE:M	SOURCEPAGE:p.11								SPROP:Taking a mouthful from the bottle is a standard action.
 Liquid Ice																					TYPE:Goods.Alchemical.Consumable						COST:40	WT:2																		SOURCEPAGE:p.11
 Marker Dye (Flask)																			TYPE:Goods.Alchemical.Flask.Consumable					COST:15	WT:1																		SOURCEPAGE:p.11								SPROP:Creates obvious stain.
 Scent Cloak																					TYPE:Goods.Alchemical.Consumable						COST:20	WT:2																		SOURCEPAGE:p.11								SPROP:Add +10 to the DC for target being tracked by sent. Lasts 1 hour.
@@ -142,7 +144,7 @@ Bellows																					TYPE:Goods.Tools									COST:1	WT:3																
 Compass																					TYPE:Goods.Tools									COST:10	WT:0.5																	SOURCEPAGE:p.12
 Cooking Kit																					TYPE:Goods.Tools									COST:1	WT:2																		SOURCEPAGE:p.12
 Doctor's Mask																				TYPE:Goods.Tools									COST:50	WT:2																		SOURCEPAGE:p.12
-Outfit (Doctor)							OUTPUTNAME:[NAME] Outfit									TYPE:Goods.Clothing.Resizable							COST:150	WT:6																		SOURCEPAGE:p.12
+Outfit (Doctor's)							OUTPUTNAME:[NAME] Outfit									TYPE:Goods.Clothing.Resizable							COST:150	WT:6																		SOURCEPAGE:p.12
 Drill																						TYPE:Goods.Tools									COST:0.5	WT:1																		SOURCEPAGE:p.???
 Eyeglasses																					TYPE:Goods.Tools									COST:5	WT:0																		SOURCEPAGE:p.12
 Flotation Device																				TYPE:Goods.Tools									COST:1	WT:2																		SOURCEPAGE:p.12
@@ -259,7 +261,7 @@ Kite (Exceptional)																			TYPE:Goods.Entertainment							COST:2000	WT
 Loaded Dice (Average)																			TYPE:Goods.Entertainment							COST:10	WT:0																		SOURCEPAGE:p.17
 Loaded Dice (Superior)																			TYPE:Goods.Entertainment							COST:50	WT:0																		SOURCEPAGE:p.17
 Marked Cards																				TYPE:Goods.General								COST:1	WT:1																		SOURCEPAGE:p.17
-Puzzle Box																					TYPE:Goods.Entertainment							COST:1	WT:1																		SOURCEPAGE:17
+Puzzle Box (Common)																					TYPE:Goods.Entertainment							COST:1	WT:1																		SOURCEPAGE:17
 Puzzle Box (Exceptional)																		TYPE:Goods.Entertainment							COST:1000	WT:5																		SOURCEPAGE:17
 
 #Blackmarket Items

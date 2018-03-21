@@ -1,0 +1,6 @@
+SOURCELONG:People of the Sands	SOURCESHORT:PSand	SOURCEWEB:http://paizo.com/products/btpy92lx?Pathfinder-Player-Companion-People-of-the-Sands	SOURCEDATE:2014-02
+
+
+###Block: Arcanist Bloodline Development Exploit -- Goes in ACG or ACG support _abilities_class.lst
+
+Div Bloodline		CATEGORY:Arcanist Bloodline Development		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Div_BloodlineLVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Div Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Div Bloodline		BONUS:VAR|Sorcerer_Div_BloodlineLVL|ArcanistLVL|PREMULT:1,[PREABILITY:1,CATEGORY=Sorcerer Bloodline,Div Bloodline],[PREABILITY:1,CATEGORY=Crossblooded Bloodline,Div Bloodline]		BONUS:VAR|Sorcerer_Div_BloodlinePower1LVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Div Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Div Bloodline		ABILITY:Special Ability|AUTOMATIC|TYPE=Div Bloodline ~ Power LVL 01		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Div

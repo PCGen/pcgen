@@ -17,22 +17,24 @@
  */
 package plugin.modifier.number;
 
+import org.junit.Test;
+
+import junit.framework.TestCase;
 import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.rules.persistence.token.ModifierFactory;
-
-import junit.framework.TestCase;
-import org.junit.Test;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class MaxNumberModifierTest extends TestCase
 {
-	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final LegalScope varScope =
+			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
@@ -41,7 +43,7 @@ public class MaxNumberModifierTest extends TestCase
 		try
 		{
 			ModifierFactory m = new MaxModifierFactory();
-			m.getModifier(100, null, null, null, null, null);
+			m.getModifier(null, null, null, null, null);
 			fail("Expected MaxModifier with null compare value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -194,10 +196,11 @@ public class MaxNumberModifierTest extends TestCase
 	public void testGetModifier()
 	{
 		MaxModifierFactory factory = new MaxModifierFactory();
-		Modifier<Number> modifier =
-				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
+		FormulaModifier<Number> modifier =
+				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertSame(Number.class, modifier.getVariableFormat());
+		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 		assertEquals(9.3, modifier.process(EvalManagerUtilities.getInputEM(9.3)));
 	}

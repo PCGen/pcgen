@@ -17,8 +17,6 @@
  */
 package tokenmodel;
 
-import org.junit.Test;
-
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
@@ -27,7 +25,10 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.pcclass.level.DomainToken;
+
+import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class PCClassLevelDomainTest extends AbstractTokenModelTest
 {
@@ -43,7 +44,7 @@ public class PCClassLevelDomainTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, pcl, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

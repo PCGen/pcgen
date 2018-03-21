@@ -4,5 +4,5 @@
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
 # Modifier Name	Type			!PRECHARACTERTYPE
-Bleed			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Paper Cut		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Special Ability ~ Bleed ~ Monster.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Special Ability ~ Paper Cut ~ Monster.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

@@ -1,9 +1,20 @@
-Sample Legacy Item	TYPE:Legacy
+
+
+
+# Sample Legacy Item	TYPE:Legacy
+
+
+
+
+
+
+
 
 
 
 
 Unarmed	PROFICIENCY:WEAPON|Unarmed	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d3	TYPE:Weapon.Melee.Unarmed.Subdual
+Unarmed Strike												PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning													COST:0	WT:0		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3														SIZE:M		MODS:NO	
 
 
 # Light Weapons

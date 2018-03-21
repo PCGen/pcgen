@@ -72,8 +72,6 @@ public class AbilityCategoryToken implements GameModeLstToken
 
 	/**
 	 * Returns the name of the token this class handles.
-	 * 
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
 	public String getTokenName()

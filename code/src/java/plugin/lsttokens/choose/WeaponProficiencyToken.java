@@ -72,4 +72,10 @@ public class WeaponProficiencyToken extends
 				.getManufacturer(WEAPONPROF_CLASS), obj, value);
 	}
 
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "WEAPONPROF";
+	}
+
 }

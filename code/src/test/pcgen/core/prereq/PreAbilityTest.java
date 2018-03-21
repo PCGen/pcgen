@@ -25,10 +25,10 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 
 /**
@@ -188,7 +188,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	 */
 	public void testKeyMatchWithServesAs() throws PersistenceLayerException
 	{
-		Ability fd = TestHelper.makeAbility("Dancer", AbilityCategory.FEAT, "General");
+		Ability fd = TestHelper.makeAbility("Dancer", BuildUtilities.getFeatCat(), "General");
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC",
 						"General.Bardic");
@@ -234,7 +234,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	 */
 	public void testTypeMatchWithServesAs() throws PersistenceLayerException
 	{
-		Ability pa = TestHelper.makeAbility("Power Attack", AbilityCategory.FEAT, "Fighter");
+		Ability pa = TestHelper.makeAbility("Power Attack", BuildUtilities.getFeatCat(), "Fighter");
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
@@ -275,7 +275,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	{
 		Ability fas = TestHelper.makeAbility("Fascinate", "BARDIC", "Normal");
 		Ability ab2 =
-				TestHelper.makeAbility("Dancer", AbilityCategory.FEAT,
+				TestHelper.makeAbility("Dancer", BuildUtilities.getFeatCat(),
 						"General.Bardic");
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fas));
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);

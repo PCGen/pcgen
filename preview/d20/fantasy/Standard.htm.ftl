@@ -143,7 +143,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 			  <td colspan="1" class="h">${pcstring('RACE')}</td>
 		</#if>
 
-  <td class="h">${pcstring('SIZELONG')} / ${pcstring('FACE')}</td>
+  <td class="h">${pcstring('SIZELONG')} / ${pcstring('FACE.SHORT')}</td>
   <td class="h">${pcstring('HEIGHT')}</td>
   <td class="h">${pcstring('WEIGHT')}</td>
 <#if (pcvar("COUNT[VISION]") > 0) >
@@ -448,7 +448,11 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
         <tr>
           <td align="center" class="border9"><br /></td>
           <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('SPELLFAILURE')}</b></td>
+		  <#if (gamemodename = "Pathfinder" || gamemodename = "Pathfinder_RPG") >
+			  <td align="center" class="border9"><b>${pcstring('VAR.SPELLFAILURE_Total.INTVAL')}</b></td>
+		  <#else>
+			  <td align="center" class="border9"><b>${pcstring('SPELLFAILURE')}</b></td>
+          </#if>
           <td align="center"></td>
           <td align="center" class="border9"><b>${pcstring('ACCHECK')}</b></td>
           <td align="center"></td>

@@ -32,6 +32,8 @@ import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
  * provided as convenience to hold a set of choices and the number of choices
@@ -44,9 +46,6 @@ import pcgen.rules.context.LoadContext;
 public class SpellLevelChooseInformation implements
 		ChooseInformation<SpellLevel>
 {
-
-	private static final ClassIdentity<SpellLevel> SPELLLEVEL_INFO =
-			BasicClassIdentity.getIdentity(SpellLevel.class);
 
 	private final List<SpellLevelInfo> info;
 
@@ -220,9 +219,9 @@ public class SpellLevelChooseInformation implements
 	 * @return the Class contained within this ChoiceSet
 	 */
 	@Override
-	public ClassIdentity<SpellLevel> getClassIdentity()
+	public Class<SpellLevel> getReferenceClass()
 	{
-		return SPELLLEVEL_INFO;
+		return SpellLevel.class;
 	}
 
 	/**
@@ -307,9 +306,9 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends SpellLevel> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends SpellLevel> collection)
 	{
-		return ChooseInformationUtilities.buildEncodedString(this, collection);
+		return ChooseInformationUtilities.buildEncodedString(collection);
 	}
 
 	@Override
@@ -317,5 +316,11 @@ public class SpellLevelChooseInformation implements
 		SpellLevel item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "INVALID*NOT*PERSISTENT*";
 	}
 }

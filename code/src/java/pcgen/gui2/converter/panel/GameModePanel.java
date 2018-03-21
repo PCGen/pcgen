@@ -95,8 +95,6 @@ public class GameModePanel extends ConvertSubPanel
 //		Globals.emptyLists();
 		Globals.sortPObjectListByName(Globals.getCampaignList());
 
-		Globals.createEmptyRace();
-
 		return saveGameMode(pc);
 	}
 

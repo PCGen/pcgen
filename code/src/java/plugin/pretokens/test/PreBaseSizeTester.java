@@ -33,17 +33,13 @@ import pcgen.rules.context.AbstractReferenceContext;
 public class PreBaseSizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal = 0;
 
-		if ((display.getRace() != null)
-			&& !display.getRace().equals(Globals.s_EMPTYRACE))
+		if ((display.getRace() != null) && !display.getRace().isUnselected())
 		{
 			AbstractReferenceContext ref =
 					Globals.getContext().getReferenceContext();

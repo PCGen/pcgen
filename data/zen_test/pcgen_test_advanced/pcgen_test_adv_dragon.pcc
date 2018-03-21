@@ -15,6 +15,8 @@ SOURCESHORT:PTS
 SOURCEWEB:http://pcgen.sourceforge.net
 ISOGL:YES
 
+RACE:*/_universal/races.lst
+
 SAVE:__saves.lst
 STAT:__stats.lst
 ALIGNMENT:__align.lst

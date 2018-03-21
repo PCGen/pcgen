@@ -1,5 +1,5 @@
 /*
- * Copyright 2007 (c) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2007-18 (c) Thomas Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -33,17 +33,15 @@ public abstract class CDOMGroupRef<T> extends CDOMReference<T> implements
 {
 
 	/**
-	 * Constructs a new CDOMGroupRef for the given Class and name.
+	 * Constructs a new CDOMGroupRef for the given name.
 	 * 
-	 * @param objClass
-	 *            The Class of the underlying object contained by this
-	 *            CDOMGroupRef.
 	 * @param groupName
 	 *            An identifier of the objects this CDOMGroupRef contains.
 	 */
-	public CDOMGroupRef(Class<T> objClass, String groupName)
+	public CDOMGroupRef(String groupName)
 	{
-		super(objClass, groupName);
+		super(groupName);
+		
 	}
 
 	/**

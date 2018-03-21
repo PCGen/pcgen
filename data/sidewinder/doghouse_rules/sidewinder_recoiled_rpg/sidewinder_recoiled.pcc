@@ -25,9 +25,13 @@ COPYRIGHT:PCGen dataset conversion for Sidewinder: Recoiled Copyright 2004, PCGe
 
 # Stuff Imported from the MSRD
 PCC:@/homebrew/conversion_support/conversion_support.pcc
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
 
 SAVE:sr__saves.lst
 STAT:sr__stats.lst
+SIZE:sr__sizes.lst
 
 ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_abilities_class.lst
 ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_abilities_occupations.lst

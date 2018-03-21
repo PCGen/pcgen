@@ -199,11 +199,11 @@ public class GameModeFileLoader extends PCGenTask
 
 				// Load sizeAdjustment.lst
 				GameModeFileLoader.loadGameModeLstFile(context, sizeLoader, gmName, gameFile,
-									"sizeAdjustment.lst");
+									"sizeAdjustment.lst", false);
 
 				// Load statsandchecks.lst
 				GameModeFileLoader.loadGameModeLstFile(context, statCheckLoader, gmName, gameFile,
-									"statsandchecks.lst");
+									"statsandchecks.lst", false);
 
 				// Load equipIcons.lst
 				GameModeFileLoader.loadGameModeLstFile(context, equipIconLoader, gmName, gameFile,
@@ -338,11 +338,7 @@ public class GameModeFileLoader extends PCGenTask
 				continue;
 			}
 
-			if (aType.equals("load"))
-			{
-				gameMode.addLoadString(aLine.intern());
-			}
-			else if (aType.equals("level"))
+			if (aType.equals("level"))
 			{
 				xpTable = LevelLoader.parseLine(gameMode, aLine, i + 1, uri, xpTable);
 			}
@@ -364,7 +360,6 @@ public class GameModeFileLoader extends PCGenTask
 
 	private static GameMode loadGameModeMiscInfo(String aName, URI uri)
 	{
-		GameMode gameMode = null;
 		String data;
 		try
 		{
@@ -375,10 +370,14 @@ public class GameModeFileLoader extends PCGenTask
 			Logging.errorPrint(LanguageBundle.getFormattedString(
 					"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
 					uri, ple.getMessage()));
-			return gameMode;
+			return null;
 		}
 
 		String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
+
+		GameMode gameMode = new GameMode(aName);
+		SystemCollections.addToGameModeList(gameMode);
+		gameMode.getModeContext().getReferenceContext().importObject(AbilityCategory.FEAT);
 
 		for (int i = 0; i < fileLines.length; i++)
 		{
@@ -388,13 +387,6 @@ public class GameModeFileLoader extends PCGenTask
 			if (((!aLine.isEmpty()) && (aLine.charAt(0) == '#')) || aLine.isEmpty())
 			{
 				continue;
-			}
-
-			if (gameMode == null)
-			{
-				gameMode = new GameMode(aName);
-				SystemCollections.addToGameModeList(gameMode);
-				gameMode.getModeContext().getReferenceContext().importObject(AbilityCategory.FEAT);
 			}
 
 			GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri, i + 1);

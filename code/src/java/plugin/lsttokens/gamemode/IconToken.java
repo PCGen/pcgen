@@ -35,18 +35,12 @@ import pcgen.util.Logging;
 public class IconToken implements EquipIconLstToken
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
     @Override
 	public String getTokenName()
 	{
 		return "ICON";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
-	 */
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{

@@ -36,6 +36,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import util.TestURI;
 
 public class DisplayNameTokenTest extends TestCase
 {
@@ -52,8 +53,7 @@ public class DisplayNameTokenTest extends TestCase
 	public static void classSetUp() throws URISyntaxException
 	{
 		testCampaign =
-				new CampaignSourceEntry(new Campaign(), new URI(
-					"file:/Test%20Case"));
+				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
 	}
 
@@ -74,7 +74,7 @@ public class DisplayNameTokenTest extends TestCase
 	{
 		URI testURI = testCampaign.getURI();
 		context =
-				new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 					new ConsolidatedListCommitStrategy());
 		context.setSourceURI(testURI);
 		context.setExtractURI(testURI);

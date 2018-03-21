@@ -20,18 +20,30 @@ package pcgen.core;
 
 import java.net.URI;
 
-import pcgen.cdom.base.Loadable;
-import pcgen.system.LanguageBundle;
-
 import org.apache.commons.lang3.StringUtils;
+
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.SortKeyRequired;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Paper information for output sheets
  */
-public final class PaperInfo implements Loadable
+public final class PaperInfo implements Loadable, SortKeyRequired
 {
+	/**
+	 * The source URI of this PaperInfo.
+	 */
 	private URI sourceURI;
+
+	/**
+	 * The name of this PaperInfo
+	 */
 	private String infoName;
+	
+	/**
+	 * The sort key of this PaperInfo, to indicate which items should appear first.
+	 */
 	private String sortKey;
 
 	/** Array of 6 paper information variables to keep hold of */
@@ -135,12 +147,6 @@ public final class PaperInfo implements Loadable
 	}
 
     @Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
-    @Override
 	public boolean isInternal()
 	{
 		return false;
@@ -161,6 +167,7 @@ public final class PaperInfo implements Loadable
 		sortKey = value;
 	}
 
+	@Override
 	public String getSortKey()
 	{
 		return sortKey;

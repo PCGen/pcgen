@@ -13,7 +13,7 @@ Boarding Pike	TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.TwoHanded
 
 # MARTIAL
 # -- light
-Axe (Boarding)	TYPE:Martial.Light.Melee.Slashing.MeleeSlashing
+Boarding Axe	KEY:Axe (Boarding)	TYPE:Martial.Light.Melee.Slashing.MeleeSlashing
 Cat-O'-Nine-Tails	TYPE:Martial.Light.Melee.Slashing.MeleeSlashing
 # 1-handers
 Cutlass		TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword

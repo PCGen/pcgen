@@ -64,7 +64,7 @@ import javax.swing.event.HyperlinkListener;
 
 import org.apache.commons.lang3.StringUtils;
 
-import pcgen.facade.core.AlignmentFacade;
+import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
@@ -75,9 +75,9 @@ import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.core.TodoFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -869,10 +869,10 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 	private class ComboBoxModelHandler
 	{
-
+		private final CharacterFacade character;
 		private final CharacterComboBoxModel<GenderFacade> genderModel;
 		private final CharacterComboBoxModel<HandedFacade> handsModel;
-		private final CharacterComboBoxModel<AlignmentFacade> alignmentModel;
+		private CharacterComboBoxModel<PCAlignment> alignmentModel;
 		private final CharacterComboBoxModel<DeityFacade> deityModel;
 		private final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
 		private final CharacterComboBoxModel<SimpleFacade> ageCatModel;
@@ -882,6 +882,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		ComboBoxModelHandler(final CharacterFacade character)
 		{
+			this.character = character;
 			DataSetFacade dataset = character.getDataSet();
 
 			//initialize character type model
@@ -920,17 +921,20 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			};
 
-			//initialize alignment model
-			alignmentModel = new CharacterComboBoxModel<AlignmentFacade>(dataset.getAlignments(), character.getAlignmentRef())
+			if (!dataset.getAlignments().isEmpty())
 			{
-
-				@Override
-				public void setSelectedItem(Object anItem)
+				//initialize alignment model
+				alignmentModel = new CharacterComboBoxModel<PCAlignment>(dataset.getAlignments(), character.getAlignmentRef())
 				{
-					character.setAlignment((AlignmentFacade) anItem);
-				}
 
-			};
+					@Override
+					public void setSelectedItem(Object anItem)
+					{
+						character.setAlignment((PCAlignment) anItem);
+					}
+
+				};
+			}
 
 			//initialize deity model
 			deityModel = new CharacterComboBoxModel<DeityFacade>(dataset.getDeities(), character.getDeityRef())
@@ -982,13 +986,21 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			classModel = new FacadeComboBoxModel<>(dataset.getClasses(), null);
 		}
-
+		
 		public void install()
 		{
 			characterTypeComboBox.setModel(characterTypeModel);
 			genderComboBox.setModel(genderModel);
 			handsComboBox.setModel(handsModel);
-			alignmentComboBox.setModel(alignmentModel);
+			if (character.getDataSet().getAlignments().isEmpty())
+			{
+				alignmentComboBox.setVisible(false);
+			}
+			else
+			{
+				alignmentComboBox.setModel(alignmentModel);
+				alignmentComboBox.setVisible(true);
+			}
 			deityComboBox.setModel(deityModel);
 			raceComboBox.setModel(raceModel);
 			raceComboBox.addFocusListener(raceModel);

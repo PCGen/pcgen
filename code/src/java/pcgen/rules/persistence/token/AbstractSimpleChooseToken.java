@@ -84,7 +84,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + ':'
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+						+ getTokenName() + " had TITLE= but no title: " + value);
 				}
 			}
 			else
@@ -102,9 +102,10 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		}
 		else
 		{
-			if (hasIllegalSeparator('|', activeValue))
+			ParseResult pr = checkForIllegalSeparator('|', activeValue);
+			if (!pr.passed())
 			{
-				return ParseResult.INTERNAL_ERROR;
+				return pr;
 			}
 			Set<PrimitiveCollection<T>> set =
                     new HashSet<>();
@@ -119,17 +120,17 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 				{
 					return new ParseResult.Fail(
 						"Error: Count not get Reference for " + tok + " in "
-							+ getTokenName(), context);
+							+ getTokenName());
 				}
 				if (!set.add(ref))
 				{
 					return new ParseResult.Fail("Error, Found item: " + ref
-						+ " twice while parsing " + getTokenName(), context);
+						+ " twice while parsing " + getTokenName());
 				}
 			}
 			if (set.isEmpty())
 			{
-				return new ParseResult.Fail("No items in set.", context);
+				return new ParseResult.Fail("No items in set.");
 			}
 			prim = new CompoundOrPrimitive<>(set);
 		}
@@ -143,7 +144,8 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 			return cpr;
 		}
 		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(prim);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
+		BasicChooseInformation<T> tc =
+				new BasicChooseInformation<>(getTokenName(), pcs, getPersistentFormat());
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -270,6 +272,11 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	protected abstract Class<T> getChooseClass();
+
+	public final String getPersistentFormat()
+	{
+		return getChooseClass().getSimpleName().toUpperCase();
+	}
 
 	protected abstract String getDefaultTitle();
 

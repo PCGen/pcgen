@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.variable;
 
-import java.util.Set;
-
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -96,44 +96,41 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " due to " + e.getMessage());
 		}
 		LegalScope lvs = varContext.getScope(fullscope);
+		if (lvs == null)
+		{
+			return new ParseResult.Fail("Could not find scope: " + fullscope);
+		}
 
 		if (!DatasetVariable.isLegalName(varName))
 		{
 			return new ParseResult.Fail(varName
 				+ " is not a valid variable name");
 		}
-		boolean legal =
-				varContext.assertLegalVariableID(lvs, formatManager, varName);
-		if (!legal)
+		try
 		{
-			Set<LegalScope> known = varContext.getKnownLegalScopes(varName);
-			StringBuilder sb = new StringBuilder();
-			for (LegalScope v : known)
-			{
-				sb.append(v.getName());
-				sb.append(", ");
-			}
+			varContext.assertLegalVariableID(lvs, formatManager, varName);
+		}
+		catch (LegalVariableException e)
+		{
 			return new ParseResult.Fail(getTokenName()
-				+ " found a var defined in incompatible variable scopes: "
-				+ varName + " was requested in " + fullscope
-				+ " but was previously in " + sb.toString(), context);
+				+ " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(varName);
-		dv.setFormat(format);
-		dv.setScopeName(fullscope);
+		dv.setFormat(formatManager);
+		dv.setScope(lvs);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, DatasetVariable dv)
 	{
-		String scope = dv.getScopeName();
-		if (scope == null || scope.equals("Global Variables"))
+		LegalScope scope = dv.getScope();
+		if (scope == null || scope.getName().equals(GlobalScope.GLOBAL_SCOPE_NAME))
 		{
 			//Global variable
 			return null;
 		}
-		String format = dv.getFormat();
+		FormatManager<?> format = dv.getFormat();
 		if (format == null)
 		{
 			//Not a valid object
@@ -146,11 +143,12 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(scope);
+		sb.append(LegalScope.getFullName(scope));
 		sb.append(Constants.PIPE);
-		if (!format.equals("NUMBER"))
+		String identifier = format.getIdentifierType();
+		if (!"NUMBER".equals(identifier))
 		{
-			sb.append(format);
+			sb.append(format.getIdentifierType());
 			sb.append('=');
 		}
 		sb.append(varName);

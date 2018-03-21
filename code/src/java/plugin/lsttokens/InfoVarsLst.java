@@ -57,7 +57,7 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expecting '|', format is: InfoName|Info value was: "
-				+ value, context);
+				+ value);
 		}
 		String key = value.substring(0, pipeLoc);
 		//key length 0 caught by charAt(0) test above
@@ -65,14 +65,14 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 		VariableContext varContext = context.getVariableContext();
 		for (String name : val)
 		{
-			LegalScope scope = context.getActiveScope().getLegalScope();
+			LegalScope scope = context.getActiveScope();
 			if (!varContext.isLegalVariableID(scope, name))
 			{
 				return new ParseResult.Fail(getTokenName()
 					+ " found an error. " + name
 					+ " is not a legal variable name in scope "
 					+ scope.getName() + " in " + cdo.getClass().getSimpleName()
-					+ ' ' + cdo.getKeyName(), context);
+					+ ' ' + cdo.getKeyName());
 			}
 		}
 		CaseInsensitiveString cis = new CaseInsensitiveString(key);

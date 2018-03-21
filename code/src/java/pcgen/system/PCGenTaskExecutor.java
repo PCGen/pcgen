@@ -19,6 +19,7 @@
 package pcgen.system;
 
 import java.util.LinkedList;
+
 import org.apache.commons.lang3.math.Fraction;
 
 

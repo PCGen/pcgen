@@ -24,7 +24,7 @@ package pcgen.inttest;
  * 
  * 
  */
-public abstract class PcgenFtlTestCase extends pcGenGUITestCase
+public abstract class PcgenFtlTestCase extends PcGenGUITestCase
 {
 
 	public PcgenFtlTestCase(String name)

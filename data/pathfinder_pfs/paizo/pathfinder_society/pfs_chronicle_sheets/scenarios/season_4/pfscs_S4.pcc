@@ -28,7 +28,7 @@ ABILITYCATEGORY:pfscs_S4_abilitycategories.lst
 EQUIPMENT:pfscs_S4_equip.lst
 
 # needed for Gamin the Misforged
-EQUIPMOD:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_equipmods.lst|(INCLUDE:ALLYING)|!PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_equipmods.lst|(INCLUDE:Special Ability ~ Allying ~ Weapon)|!PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 
 #
 # DONE

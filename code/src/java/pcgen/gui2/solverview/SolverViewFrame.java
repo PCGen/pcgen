@@ -26,6 +26,7 @@ import java.awt.event.ActionListener;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -34,7 +35,8 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
-import pcgen.base.calculation.PCGenModifier;
+
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -47,6 +49,7 @@ import pcgen.cdom.facet.FormulaSetupFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableLibraryFacet;
+import pcgen.cdom.facet.model.VarScopedFacet;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JComboBoxEx;
@@ -56,14 +59,15 @@ import pcgen.system.LanguageBundle;
 public class SolverViewFrame extends JFrame
 {
 
-	private static final ScopeFacet scopeFacet = FacetLibrary
-		.getFacet(ScopeFacet.class);
-	private static final VariableLibraryFacet variableLibraryFacet =
+	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
+	private final VariableLibraryFacet variableLibraryFacet =
 			FacetLibrary.getFacet(VariableLibraryFacet.class);
-	private static final SolverManagerFacet solverManagerFacet = FacetLibrary
-		.getFacet(SolverManagerFacet.class);
-	private static final FormulaSetupFacet formulaSetupFacet = FacetLibrary
-		.getFacet(FormulaSetupFacet.class);
+	private final SolverManagerFacet solverManagerFacet =
+			FacetLibrary.getFacet(SolverManagerFacet.class);
+	private final FormulaSetupFacet formulaSetupFacet =
+			FacetLibrary.getFacet(FormulaSetupFacet.class);
+	private final VarScopedFacet varScopedFacet =
+			FacetLibrary.getFacet(VarScopedFacet.class);
 
 	private final JComboBoxEx scopeChooser;
 	private LegalScope selectedScope;
@@ -112,6 +116,12 @@ public class SolverViewFrame extends JFrame
 	private void update()
 	{
 		updateObjects();
+		if ((activeObject == null) && (selectedScope.getParentScope().isPresent()))
+		{
+			//scopeFacet will error if we continue...
+			tableModel.setSteps(Collections.emptyList());
+			return;
+		}
 		ScopeInstance scope =
 				scopeFacet.get(activeIdentifier, selectedScope.getName(), activeObject);
 		if (variableLibraryFacet
@@ -215,7 +225,7 @@ public class SolverViewFrame extends JFrame
 			activeIdentifier = ((PCRef) item).id;
 			SplitFormulaSetup formulaSetup =
 					formulaSetupFacet.get(activeIdentifier.getDatasetID());
-			for (LegalScope lvs : formulaSetup.getLegalScopeLibrary().getLegalScopes())
+			for (LegalScope lvs : formulaSetup.getLegalScopeManager().getLegalScopes())
 			{
 				scopeChooser.addItem(new LegalScopeWrapper(lvs));
 			}
@@ -228,8 +238,7 @@ public class SolverViewFrame extends JFrame
 	{
 		if (activeIdentifier != null)
 		{
-			Collection<VarScoped> objects =
-					scopeFacet.getObjectsWithVariables(activeIdentifier);
+			Collection<VarScoped> objects = varScopedFacet.getSet(activeIdentifier);
 			objectChooser.removeAllItems();
 			String scopeName = selectedScope.getName();
 			for (VarScoped cdo : objects)
@@ -350,7 +359,7 @@ public class SolverViewFrame extends JFrame
 				case 2:
 					return ps.getResult();
 				case 3:
-					return ((PCGenModifier<?>) ps.getModifier()).getUserPriority();
+					return ((FormulaModifier<?>) ps.getModifier()).getPriority();
 				case 4:
 					return ps.getSourceInfo();
 				default:

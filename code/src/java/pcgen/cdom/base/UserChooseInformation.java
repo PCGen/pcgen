@@ -17,10 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
+import org.jetbrains.annotations.NotNull;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
@@ -28,13 +25,14 @@ import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.UserInputManager;
 import pcgen.rules.context.LoadContext;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 public class UserChooseInformation implements ChooseInformation<String>,
 		Chooser<String>
 {
 	
-	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
-			.getIdentity(String.class);
-
 	public static final String UCI_NAME = "User Input";
 	
 	/**
@@ -43,9 +41,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	private String title = null;
 
 	@Override
-	public ClassIdentity<String> getClassIdentity()
+	public Class<String> getReferenceClass()
 	{
-		return STRING_INFO;
+		return String.class;
 	}
 
 	@Override
@@ -85,9 +83,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends String> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends String> collection)
 	{
-		return ChooseInformationUtilities.buildEncodedString(this, collection);
+		return ChooseInformationUtilities.buildEncodedString(collection);
 	}
 
 	@Override
@@ -177,6 +175,12 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	private static AssociationListKey<String> getListKey()
 	{
 		return AssociationListKey.getKeyFor(String.class, "CHOOSE*USERCHOICE");
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "STRING";
 	}
 
 }

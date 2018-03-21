@@ -17,6 +17,8 @@
  */
 package pcgen.rules.context;
 
+import java.lang.ref.WeakReference;
+
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -34,7 +36,7 @@ import pcgen.cdom.helper.ReferenceDependency;
  */
 public class PCGenManagerFactory implements ManagerFactory
 {
-	private final LoadContext context;
+	private final WeakReference<LoadContext> context;
 
 	/**
 	 * Constructs a new PCGenManagerFactory with the provided LoadContext to be included
@@ -46,34 +48,33 @@ public class PCGenManagerFactory implements ManagerFactory
 	 */
 	public PCGenManagerFactory(LoadContext context)
 	{
-		this.context = context;
+		this.context = new WeakReference<>(context);
 	}
 
 	@Override
 	public FormulaSemantics generateFormulaSemantics(FormulaManager manager,
-		LegalScope legalScope, Class<?> assertedFormat)
+		LegalScope legalScope)
 	{
 		FormulaSemantics semantics = ManagerFactory.super.generateFormulaSemantics(
-			manager, legalScope, assertedFormat);
-		return semantics.getWith(ManagerKey.CONTEXT, context);
+			manager, legalScope);
+		return semantics.getWith(ManagerKey.CONTEXT, context.get());
 	}
 
 	@Override
-	public EvaluationManager generateEvaluationManager(FormulaManager formulaManager,
-		Class<?> assertedFormat)
+	public EvaluationManager generateEvaluationManager(FormulaManager formulaManager)
 	{
 		EvaluationManager evalManager = ManagerFactory.super.generateEvaluationManager(
-			formulaManager, assertedFormat);
-		return evalManager.getWith(ManagerKey.CONTEXT, context);
+			formulaManager);
+		return evalManager.getWith(ManagerKey.CONTEXT, context.get());
 	}
 
 	@Override
 	public DependencyManager generateDependencyManager(FormulaManager formulaManager,
-		ScopeInstance scopeInst, Class<?> assertedFormat)
+		ScopeInstance scopeInst)
 	{
 		DependencyManager depManager = ManagerFactory.super.generateDependencyManager(
-			formulaManager, scopeInst, assertedFormat);
-		return depManager.getWith(ManagerKey.CONTEXT, context)
+			formulaManager, scopeInst);
+		return depManager.getWith(ManagerKey.CONTEXT, context.get())
 			.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
 	}
 	

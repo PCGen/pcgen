@@ -3,7 +3,7 @@ SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/produ
 
 ###Block: Arcanist Starting Spellbook
 STARTPACK:Arcanist Spellbook	VISIBLE:NO	TOTALCOST:0
-GEAR:Spellbook (Arcanist's/Blank)	LOCATION:Carried
+GEAR:Spellbook	LOCATION:Carried
 
 ###Block: Brawler Brawler's Flurry Issue
 STARTPACK:Brawler Brawler's Flurry	VISIBLE:NO	APPLY:INSTANT	TOTALCOST:0

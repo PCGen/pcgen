@@ -1,0 +1,98 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 March 2017
+
+Craft (Clockwork)					KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Craft.Base																							PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.91							BONUS:SKILL|Craft (Clockwork)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Clockwork)|PRESKILL:1,Craft (Clockwork)=1									TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used							TEMPBONUS:PC|SKILL|Craft (Clockwork)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CraftToolsClockwork
+
+
+
+Bluff.MOD						SITUATION:Deceive or conceal motives
+Intimidate.MOD					SITUATION:Improve a creature's attitude
+Intimidate.MOD					SITUATION:In Area of Renoun
+Knowledge (Dungeoneering).MOD			SITUATION:Urban
+Knowledge (Local).MOD				SITUATION:Local religious practices and superstitions
+Knowledge (Religion).MOD			SITUATION:Local religious practices and superstitions
+Knowledge (Religion).MOD			SITUATION:ID worshipers of any deity with the Demon subdomain
+Perform (Act).MOD					SITUATION:Countersong and Distraction bardic performances
+Perform (Comedy).MOD				SITUATION:Countersong and Distraction bardic performances
+Perform (Dance).MOD				SITUATION:Countersong and Distraction bardic performances
+Perform (Keyboard Instruments).MOD		SITUATION:Countersong and Distraction bardic performances
+Perform (Oratory).MOD				SITUATION:Countersong and Distraction bardic performances
+Perform (Percussion Instruments).MOD	SITUATION:Countersong and Distraction bardic performances
+Perform (Sing).MOD				SITUATION:Countersong and Distraction bardic performances
+Perform (String Instruments).MOD		SITUATION:Countersong and Distraction bardic performances
+Perform (Wind Instruments).MOD		SITUATION:Countersong and Distraction bardic performances
+
+
+
+
+###Support for Expanded Versatility
+Diplomacy (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Escape Artist (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Handle Animal (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Intimidate (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Sense Motive (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Use Magic Device (Perform (Act))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+#
+Diplomacy (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Disguise (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Escape Artist (Perform (Comedy))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Handle Animal (Perform (Comedy))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Sense Motive (Perform (Comedy))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Use Magic Device (Perform (Comedy))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+#
+Bluff (Perform (Dance))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Diplomacy (Perform (Dance))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Disguise (Perform (Dance))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Escape Artist (Perform (Dance))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Handle Animal (Perform (Dance))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Intimidate (Perform (Dance))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Sense Motive (Perform (Dance))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Use Magic Device (Perform (Dance))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+#
+Bluff (Perform (Keyboard Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Disguise (Perform (Keyboard Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Escape Artist (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Handle Animal (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Sense Motive (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Use Magic Device (Perform (Keyboard Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+#
+Bluff (Perform (Oratory))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Disguise (Perform (Oratory))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Escape Artist (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Handle Animal (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Intimidate (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Use Magic Device (Perform (Oratory))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+#
+Bluff (Perform (Percussion Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Percussion Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Diplomacy (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Percussion Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Disguise (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Percussion Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Escape Artist (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Percussion Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Sense Motive (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Percussion Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Use Magic Device (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Percussion Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+#
+Diplomacy (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Sing					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Disguise (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Sing					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Escape Artist (Perform (Sing))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Sing					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Handle Animal (Perform (Sing))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Sing					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Intimidate (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Sing					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Use Magic Device (Perform (Sing))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Sing					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+#
+Disguise (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Escape Artist (Perform (String Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Handle Animal (Perform (String Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Intimidate (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Sense Motive (Perform (String Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Use Magic Device (Perform (String Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+#
+Bluff (Perform (Wind Instruments))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Disguise (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Escape Artist (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Intimidate (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Sense Motive (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+Use Magic Device (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Expanded Versatility ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.12
+
+
+
+

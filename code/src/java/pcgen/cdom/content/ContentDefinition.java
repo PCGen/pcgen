@@ -21,11 +21,9 @@ import java.util.Objects;
 
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.StringPClassUtil;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
@@ -262,21 +260,6 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	public Boolean getRequired()
 	{
 		return required;
-	}
-
-	@Override
-	public String getLSTformat()
-	{
-		String loc;
-		if (CDOMObject.class.equals(usableLocation))
-		{
-			loc = "GLOBAL";
-		}
-		else
-		{
-			loc = StringPClassUtil.getStringFor(usableLocation);
-		}
-		return loc + Constants.PIPE + getKeyName();
 	}
 
 	/**

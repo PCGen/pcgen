@@ -85,13 +85,13 @@ Petitioner Bite ~ C	VISIBLE:NO																																		PRESIZEEQ:C		NAT
 # COMMENT:      PCGen gives Knowledge (Religion) as a class skill;
 # COMMENT:        are dragons limited to 2 knowledges for class skills?
 # Template Name	Hit Dice Size			Challenge Rating	Template		Source Page		Required AL		Required Race				Var. Must Be Grater		Combat bonus						Bonus to skill								Stat bonus							Modify VAR				Ability																																		Main Race Type	Vision
-Ravener		HITDIE:8|CLASS.TYPE=Monster	CR:2			TEMPLATE:Undead	SOURCEPAGE:p.230	PREALIGN:LE,NE,CE	PRERACE:1,Dragon%,RACETYPE=Dragon	PREVARGT:DragonAgeCatagory,9	BONUS:COMBAT|AC|max(1,CHA/2)|TYPE=Deflection	BONUS:SKILL|Intimidate,Perception,Stealth|8|TYPE=Racial	BONUS:STAT|STR,INT,WIS|4	BONUS:STAT|CHA|6	BONUS:VAR|ChannelResistance|4	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Ravener ~ Breath Weapon|Ravener ~ Cowering Fear|Ravener ~ Critical Hits|Ravener ~ Soul Consumption|Ravener ~ Soul Magic|Ravener ~ Soul Ward|Undead Traits	RACETYPE:Undead	VISION:Blindsense (120')|Darkvision (240')
+Ravener		HITDIE:8|CLASS.TYPE=Monster	CR:2			TEMPLATE:Undead	SOURCEPAGE:p.230	PREALIGN:LE,NE,CE	PRERACE:1,Dragon%,RACETYPE=Dragon	PREVARGT:DragonAgeCategory,9	BONUS:COMBAT|AC|max(1,CHA/2)|TYPE=Deflection	BONUS:SKILL|Intimidate,Perception,Stealth|8|TYPE=Racial	BONUS:STAT|STR,INT,WIS|4	BONUS:STAT|CHA|6	BONUS:VAR|ChannelResistance|4	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Ravener ~ Breath Weapon|Ravener ~ Cowering Fear|Ravener ~ Critical Hits|Ravener ~ Soul Consumption|Ravener ~ Soul Magic|Ravener ~ Soul Ward|Undead Traits	RACETYPE:Undead	VISION:Blindsense (120')|Darkvision (240')
 
 ###Block: Spriggan Size Alteration template
 # NEEDS DATA WORK: BONUS:COMBAT|TOHIT|4 should be BONUS:WEAPON|TOHIT|4,
 # NEEDS DATA WORK:   but I couldn't get that to work.
 # Template Name			Size		Face/Space	Reach		Define				Combat bonus							Add to base move			Stat bonus								Modify VAR					Wield Category bonus
-Spriggan Size Alteration	SIZE:L	FACE:10	REACH:10	DEFINE:SizeAlterationActive|0	BONUS:COMBAT|TOHIT|4	BONUS:COMBAT|DAMAGESIZE|2	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|12	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:VAR|SizeAlterationActive|1	BONUS:WIELDCATEGORY|ALL|2
+Spriggan Size Alteration	SIZE:L			REACH:10	DEFINE:SizeAlterationActive|0	BONUS:COMBAT|TOHIT|4	BONUS:COMBAT|DAMAGESIZE|2	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|12	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:VAR|SizeAlterationActive|1	BONUS:WIELDCATEGORY|ALL|2
 
 
 ###Block: Worm that Walks template
@@ -129,3 +129,12 @@ Juju Zombie Flight										VISIBLE:NO					TEMPLATE:CHOOSE:Juju Zombie No Flight
 Juju Zombie No Flight										VISIBLE:NO																																!PREMOVE:1,Fly=1
 Juju Zombie Winged Flight									VISIBLE:NO																												PREMOVE:1,Fly=1																																				BONUS:VAR|Maneuverability|-Maneuverability
 Juju Zombie Magical Flight									VISIBLE:NO																												PREMOVE:1,Fly=1
+
+
+Dhampir		KEY:RaceSubtype ~ Dhampir				VISIBLE:NO					RACESUBTYPE:Dhampir			TYPE:Racial Heritage	
+Fetchling		KEY:RaceSubtype ~ Fetchling				VISIBLE:NO					RACESUBTYPE:Fetchling			TYPE:Racial Heritage
+Grippli		KEY:RaceSubtype ~ Grippli				VISIBLE:NO					RACESUBTYPE:Grippli			TYPE:Racial Heritage
+Ifrit			KEY:RaceSubtype ~ Ifrit					VISIBLE:NO					RACESUBTYPE:Ifrit				TYPE:Racial Heritage
+Oread			KEY:RaceSubtype ~ Oread					VISIBLE:NO					RACESUBTYPE:Oread				TYPE:Racial Heritage
+Sylph			KEY:RaceSubtype ~ Sylph					VISIBLE:NO					RACESUBTYPE:Sylph				TYPE:Racial Heritage
+Undine		KEY:RaceSubtype ~ Undine				VISIBLE:NO					RACESUBTYPE:Undine			TYPE:Racial Heritage

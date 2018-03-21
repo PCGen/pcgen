@@ -23,7 +23,9 @@ import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.auto.WeaponProfToken;
+
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import util.TestURI;
 
 public class AutoWeaponProfTest extends
 		AbstractGrantedListTokenTest<WeaponProf>
@@ -39,7 +41,7 @@ public class AutoWeaponProfTest extends
 				AUTO_WEAPONPROF_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

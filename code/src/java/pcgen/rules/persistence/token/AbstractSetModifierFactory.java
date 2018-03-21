@@ -20,17 +20,17 @@ package pcgen.rules.persistence.token;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.PCGenModifier;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
 
 /**
- * An AbstractSetModifierFactory is a ModifierToken/BasicCalculation that
- * returns a specific value (independent of the input) when the
- * AbstractSetModifierFactory is processed.
+ * An AbstractSetModifierFactory is a ModifierToken/BasicCalculation that returns a
+ * specific value (independent of the input) when the AbstractSetModifierFactory is
+ * processed.
+ * 
+ * @param <T>
+ *            The format of the object handled by this AbstractSetModifierFactory
  */
 public abstract class AbstractSetModifierFactory<T> implements
 		ModifierFactory<T>, BasicCalculation<T>
@@ -74,31 +74,23 @@ public abstract class AbstractSetModifierFactory<T> implements
 	}
 
 	@Override
-	public PCGenModifier<T> getModifier(int userPriority, String instructions,
-		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
-		FormatManager<T> formatManager)
+	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager,
+		String instructions)
 	{
-		if (!formatManager.getManagedClass().equals(getVariableFormat()))
+		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))
+		{
+			throw new IllegalArgumentException("FormatManager must manage "
+				+ getVariableFormat().getName() + " or a child of that class");
+		}
+		T n = formatManager.convert(instructions);
+		if (n == null)
 		{
 			throw new IllegalArgumentException(
-				"FormatManager must manage " + getVariableFormat().getName());
+				"FixedModifier was unable to understand instructions: " + instructions
+					+ " for format: " + formatManager.getIdentifierType());
 		}
-		//TODO if this is Skill, fixed doesn't work :/
-		return getFixedModifier(userPriority, formatManager, instructions);
-	}
-
-	@Override
-	public PCGenModifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> fmtManager, String instructions)
-	{
-		if (!fmtManager.getManagedClass().equals(getVariableFormat()))
-		{
-			throw new IllegalArgumentException(
-				"FormatManager must manage " + getVariableFormat().getName());
-		}
-		T n = fmtManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
-		return new CalculationModifier<>(calc, userPriority);
+		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);
+		return new CalculationModifier<>(calc, formatManager);
 	}
 
 }

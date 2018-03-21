@@ -20,9 +20,11 @@ package plugin.lsttokens.subclass;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.ProhibitedSpellType;
@@ -221,5 +223,15 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Override
+	protected SubClass get(LoadContext context, String name)
+	{
+		SubClassCategory scc = SubClassCategory.getConstant("SCC");
+		SubClass sc = scc.newInstance();
+		sc.setName(name);
+		context.getReferenceContext().importObject(sc);
+		return sc;
 	}
 }
