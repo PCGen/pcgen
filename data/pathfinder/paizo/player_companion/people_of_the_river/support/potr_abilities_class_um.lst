@@ -3,7 +3,7 @@ SOURCELONG:People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/produ
 
 ###Block: Crossblooded Bloodlines -- Goes in UM or UM support _abilities_class.lst
 
-Nanite Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Nanite_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Nanite_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Nanite_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Nanite_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Nanite Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Nanite
+Nanite Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Nanite_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Nanite_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Nanite_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Nanite_BloodlineClassSkill1|if(Sorcerer_CF_BloodlineClassSkill==0,1,0)		BONUS:VAR|Sorcerer_Nanite_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Nanite Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Nanite
 
 ###Block: Eldritch Heritage Bloodlines -- Goes in UM or UM support _abilities.lst
 
