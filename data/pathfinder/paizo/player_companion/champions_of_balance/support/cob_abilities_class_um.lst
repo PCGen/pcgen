@@ -3,7 +3,7 @@ SOURCELONG:Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/produ
 
 ###Block: Crossblooded Bloodlines -- Goes in UM or UM support _abilities_class.lst
 
-Impossible Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Impossible_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Impossible_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Impossible_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Impossible_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Impossible Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Impossible
+Impossible Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Impossible_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Impossible_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Impossible_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Impossible_BloodlineClassSkill1|if(Sorcerer_CF_BloodlineClassSkill==0,1,0)		BONUS:VAR|Sorcerer_Impossible_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Impossible Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Impossible
 
 ###Block: Eldritch Heritage Bloodlines -- Goes in UM or UM support _abilities.lst
 
