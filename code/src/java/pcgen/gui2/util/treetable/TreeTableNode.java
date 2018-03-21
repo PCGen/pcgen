@@ -22,14 +22,25 @@ import java.util.Enumeration;
 import javax.swing.tree.TreeNode;
 import pcgen.gui2.util.table.Row;
 
-
+/**
+ * This interface unifies the concepts of a TreeNode (a default Java Swing interface) and Row
+ */
 public interface TreeTableNode extends TreeNode, Row
 {
+	/**
+	 * TODO We're forced to extend TreeNode here as opposed to using the TreeTableChild as TreeViewTableModel.TreeViewNode also extends
+	 * from TreeNode (directly via an inheritance tree), causing a generics resolution issue in the Java 9 runtime
+	 *
+	 * At some stage we need to refactor the entire Java Swing PCGen and core Swing modelling.
+	 */
 	@Override
-	public Enumeration<TreeTableNode> children();
+	public Enumeration<? extends TreeNode> children();
+
 	@Override
 	public TreeTableNode getChildAt(int childIndex);
-    public void setValueAt(Object value, int column);
+
+	public void setValueAt(Object value, int column);
+
 	@Override
 	public TreeTableNode getParent();
 }

@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.Vector;
 
 import javax.swing.JTree;
+import javax.swing.tree.TreeNode;
 
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -283,6 +284,9 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			implements SortableTreeTableNode
 	{
 
+		// A Wrapper for the children declaration in DefaultMutableTreeNode, so we can also extend Row
+		protected Vector<TreeTableNode> children;
+
 		private final int level;
 
 		public TreeViewNode(Vector<TreeViewPath<? super E>> paths)
@@ -327,7 +331,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 				{
 					vector = vectorMap.get(key);
 					TreeViewNode child;
-//					if (vector.size() == 1 && vector.firstElement().getPathCount() <= level + 1)
 					if (vector.size() == 1 && vector.firstElement().getPathCount() == level + 1)
 					{
 						child = new TreeViewNode(level + 1, key, null);
@@ -477,6 +480,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 		}
 
+		//private Comparator<Row> mostRecentComparator = null;
 		private Comparator<Row> mostRecentComparator = null;
 
 		public void setComparator(Comparator<Row> comparator)

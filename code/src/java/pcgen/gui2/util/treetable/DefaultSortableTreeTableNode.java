@@ -21,7 +21,11 @@ package pcgen.gui2.util.treetable;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Vector;
+
 import pcgen.gui2.util.table.Row;
+
+import javax.swing.tree.TreeNode;
 
 /**
  *
@@ -29,6 +33,9 @@ import pcgen.gui2.util.table.Row;
 public class DefaultSortableTreeTableNode extends DefaultTreeTableNode
         implements SortableTreeTableNode
 {
+
+    // A Wrapper for the children declaration in DefaultMutableTreeNode, so we can also extend Row
+    protected Vector<TreeTableNode> children;
 
     public DefaultSortableTreeTableNode()
     {
@@ -40,30 +47,14 @@ public class DefaultSortableTreeTableNode extends DefaultTreeTableNode
         setValues(data);
     }
 
-//    public DefaultSortableTreeTableNode(TreeNode node)
-//    {
-//        this();
-//        if (node instanceof TreeTableNode)
-//        {
-//            TreeTableNode treeTableNode = (TreeTableNode) node;
-//            setValues(treeTableNode.getValues());
-//        }
-//        for (int x = 0; x < node.getChildCount(); x++)
-//        {
-//            add(new DefaultSortableTreeTableNode(node.getChildAt(x)));
-//        }
-//    }
-
-	@Override
-    @SuppressWarnings("unchecked")
+    @Override
     public void sortChildren(Comparator<Row> comparator)
     {
         if (children != null)
         {
             children.sort(comparator);
-            for (int x = 0; x < children.size(); x++)
-            {
-                SortableTreeTableNode child = (SortableTreeTableNode) children.get(x);
+            for (TreeTableNode aChild : children) {
+                SortableTreeTableNode child = (SortableTreeTableNode) aChild;
                 child.sortChildren(comparator);
             }
         }

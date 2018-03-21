@@ -19,7 +19,7 @@
 package pcgen.gui2.util.table;
 
 /**
- *
+ * Represents a Row in a table or tree in the PCGen Java Swing GUI
  */
 public interface Row
 {
