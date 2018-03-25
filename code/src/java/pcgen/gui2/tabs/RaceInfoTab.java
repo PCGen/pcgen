@@ -166,6 +166,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public void restoreModels(ModelMap models)
 	{
+		raceTable.clearSelection();
 		models.get(QualifiedFilterHandler.class).install();
 		models.get(NoRacialHdFilterHandler.class).install();
 		models.get(Handler.class).install();
@@ -240,6 +241,11 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				if (obj instanceof RaceFacade)
 				{
 					text = character.getInfoFactory().getHTMLInfo((RaceFacade) obj);
+					infoPane.setText(text);
+				}
+				else
+				{
+					text = "";
 					infoPane.setText(text);
 				}
 			}
