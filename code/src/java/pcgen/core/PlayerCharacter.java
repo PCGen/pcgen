@@ -5372,37 +5372,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		int total = 0;
 
-		String aString = SettingsHandler.getGame().getHPFormula();
-		if (!aString.isEmpty())
+		double iConMod = getStatBonusTo("HP", "BONUS");
+
+		for (PCClass pcClass : getClassSet())
 		{
-			for (;;)
-			{
-				int startIdx = aString.indexOf("$$");
-				if (startIdx < 0)
-				{
-					break;
-				}
-				int endIdx = aString.indexOf("$$", startIdx + 2);
-				if (endIdx < 0)
-				{
-					break;
-				}
-
-				String lookupString = aString.substring(startIdx + 2, endIdx);
-				lookupString = pcgen.io.ExportHandler.getTokenString(this, lookupString);
-				aString = aString.substring(0, startIdx) + lookupString + aString.substring(endIdx + 2);
-			}
-			total = getVariableValue(aString, "").intValue();
-		} else
-		{
-			final double iConMod = getStatBonusTo("HP", "BONUS");
-
-			for (PCClass pcClass : getClassSet())
-			{
-				total += getClassHitPoints(pcClass, (int) iConMod);
-			}
-
+			total += getClassHitPoints(pcClass, (int) iConMod);
 		}
+
 		total += (int) getTotalBonusTo("HP", "CURRENTMAX");
 
 		//

@@ -131,7 +131,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int skillCost_Exclusive  = 0;
 
 	private String pointPoolName = "";
-	private String hpFormula = "";
 
 	private int nonProfPenalty = -4;
 
@@ -1451,24 +1450,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public int getNonProfPenalty()
 	{
 		return nonProfPenalty;
-	}
-
-	/**
-	 * Set the HP Formula.
-	 * @param argFormula
-	 */
-	public void setHPFormula(final String argFormula)
-	{
-		hpFormula = argFormula;
-	}
-
-	/**
-	 * Get the HP Formula.
-	 * @return HP Formula
-	 */
-	public String getHPFormula()
-	{
-		return hpFormula;
 	}
 
 	/**
