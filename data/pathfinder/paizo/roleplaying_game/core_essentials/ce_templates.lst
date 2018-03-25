@@ -1004,8 +1004,8 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 Aberration			VISIBLE:NO																																																																																																				RACETYPE:Aberration
 Dragon			VISIBLE:NO																																																																																																				RACETYPE:Dragon
 Fey				VISIBLE:NO																																																																																																				RACETYPE:Fey
-Half-Construct		VISIBLE:NO																																																																																																				RACETYPE:Half-Construct
-Half-Undead			VISIBLE:NO																																																																																																				RACETYPE:Half-Undead
+Half-Construct		VISIBLE:NO																																																																																																				RACESUBTYPE:Half-Construct
+Half-Undead			VISIBLE:NO																																																																																																				RACESUBTYPE:Half-Undead
 Humanoid			VISIBLE:NO																																																																																																				RACETYPE:Humanoid
 Monstrous Humanoid	VISIBLE:NO																																																																																																				RACETYPE:Monstrous Humanoid
 Outsider			VISIBLE:NO																																																																																																				RACETYPE:Outsider
