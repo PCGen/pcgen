@@ -5739,13 +5739,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HPFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/HpformulaToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HPNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

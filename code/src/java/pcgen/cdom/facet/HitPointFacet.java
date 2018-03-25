@@ -314,25 +314,18 @@ public class HitPointFacet extends
 						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MAX;CLASS."
 							+ pcc.getKeyName());
 
-			if (SettingsHandler.getGame().getHPFormula().isEmpty())
+			if (first && (level == 1) && SettingsHandler.isHPMaxAtFirstLevel()
+				&& (!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly()
+					|| pcc.isType("PC")))
 			{
-				if (first
-					&& level == 1
-					&& SettingsHandler.isHPMaxAtFirstLevel()
-					&& (!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcc
-						.isType("PC")))
+				roll = max;
+			}
+			else
+			{
+				PlayerCharacter pc = trackingFacet.getPC(id);
+				if (!pc.isImporting())
 				{
-					roll = max;
-				}
-				else
-				{
-					PlayerCharacter pc = trackingFacet.getPC(id);
-					if (!pc.isImporting())
-					{
-						roll =
-								rollHP(min, max,
-										levelFacet.getTotalLevels(id));
-					}
+					roll = rollHP(min, max, levelFacet.getTotalLevels(id));
 				}
 			}
 
