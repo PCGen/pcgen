@@ -14,7 +14,7 @@
 !define APPDIR "${LONGVER}"
 !define TargetVer "1.7"
 !define OverVer "1.9"
-!define OutName "pcgen${SIMPVER}_win_install"
+!define OutName "pcgen_${LONGVER}_win_install"
 
 ;Change the icons
 !include "MUI2.nsh"
@@ -149,8 +149,8 @@ Section "-Local" Section4
                                 "$INSTDIR\${APPDIR}\Local\knight.ico"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\News.lnk" "http://pcgen.sourceforge.net/02_news.php" "" \ 
                                 "$INSTDIR\${APPDIR}\Local\queen.ico"
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\uninstall-${APPDIR}.lnk" \ 
-                                "$INSTDIR\uninstall-${APPDIR}.exe"
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\uninstall-${LONGVER}.lnk" \ 
+                                "$INSTDIR\uninstall-${LONGVER}.exe"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Manual.lnk" "$INSTDIR\${APPDIR}\docs\index.html" "" \ 
                                 "$INSTDIR\${APPDIR}\Local\castle.ico"
         ;Add file extension registration

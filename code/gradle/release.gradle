@@ -110,7 +110,8 @@ ext {
     }
 }
 
-task layoutNsisBase(type: Copy, dependsOn: [copyToLibs, cleanCreateExe, createExe]) {
+task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs, 
+        jar, converterJar]) {
     description="Assemble the required files for all PCGen installations"
     //doFirst {
         // Release notes are required! Causes Autobuild Problem
@@ -144,6 +145,9 @@ task layoutNsisBase(type: Copy, dependsOn: [copyToLibs, cleanCreateExe, createEx
     }
     from ("${buildDir}/launch4j") {
         include 'pcgen.exe'
+    }
+    from ("${projectDir}/code") {
+        include 'pcgen.sh'
     }
 
     with baseLibs
@@ -289,7 +293,7 @@ task genProjectNsis doLast {
 
 // Call NSIS to generate windows installer - Removed "genDataList"
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
-        genProjectNsis, downloadJRE, cleanCreateExe, createExe]) doLast {
+        genProjectNsis, downloadJRE]) doLast {
     exec {
 	workingDir = "${projectDir}/installers/win-installer"
 	executable =  'perl'

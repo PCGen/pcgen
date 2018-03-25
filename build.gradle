@@ -15,8 +15,7 @@ import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id 'com.gradle.build-scan' version '1.11'
-
-	id 'eclipse'
+    id 'eclipse'
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
@@ -24,7 +23,7 @@ plugins {
     id 'java'
     id 'maven'
     id 'pmd'
-    id "de.undercouch.download" version '3.3.0'
+    id "de.undercouch.download" version '3.4.2'
     id 'edu.sc.seis.launch4j' version '2.4.3'
     id 'com.github.ben-manes.versions' version '0.17.0'
     id 'nebula.lint' version '8.3.1'
@@ -243,8 +242,8 @@ task copyToLibs(type: Copy) {
 }
 
 import org.apache.tools.ant.filters.FixCrLfFilter;
-task copyToRoot(type: Copy, dependsOn: [cleanCreateExe, createExe, copyToLibs, 
-        jar, converterJar]) {
+task copyToRoot(type: Copy, dependsOn: [createExe, copyToLibs, jar, 
+        converterJar]) {
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/launch4j/pcgen.exe"

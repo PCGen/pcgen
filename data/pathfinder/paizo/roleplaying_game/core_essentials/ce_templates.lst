@@ -1004,8 +1004,8 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 Aberration			VISIBLE:NO																																																																																																				RACETYPE:Aberration
 Dragon			VISIBLE:NO																																																																																																				RACETYPE:Dragon
 Fey				VISIBLE:NO																																																																																																				RACETYPE:Fey
-Half-Construct		VISIBLE:NO																																																																																																				RACETYPE:Half-Construct
-Half-Undead			VISIBLE:NO																																																																																																				RACETYPE:Half-Undead
+Half-Construct		VISIBLE:NO																																																																																																				RACESUBTYPE:Half-Construct
+Half-Undead			VISIBLE:NO																																																																																																				RACESUBTYPE:Half-Undead
 Humanoid			VISIBLE:NO																																																																																																				RACETYPE:Humanoid
 Monstrous Humanoid	VISIBLE:NO																																																																																																				RACETYPE:Monstrous Humanoid
 Outsider			VISIBLE:NO																																																																																																				RACETYPE:Outsider
@@ -1014,37 +1014,37 @@ Plant				VISIBLE:NO																																																													
 
 ###Block: Creature Subtypes
 # Template Name	Visible	Race Subtype		Type
-Air			VISIBLE:NO
-Angel			VISIBLE:NO
+Air			VISIBLE:NO	RACESUBTYPE:Air
+Angel			VISIBLE:NO	RACESUBTYPE:Angel
 Aquatic		VISIBLE:NO	RACESUBTYPE:Aquatic	ABILITY:Class Skill|AUTOMATIC|Swim
-Archon		VISIBLE:NO
-Azata			VISIBLE:NO
-Chaotic		VISIBLE:NO
+Archon		VISIBLE:NO	RACESUBTYPE:Archon
+Azata			VISIBLE:NO	RACESUBTYPE:Azata
+Chaotic		VISIBLE:NO	RACESUBTYPE:Chaotic
 Cold			VISIBLE:NO	RACESUBTYPE:Cold
-Demon			VISIBLE:NO
-Devil			VISIBLE:NO
+Demon			VISIBLE:NO	RACESUBTYPE:Demon
+Devil			VISIBLE:NO	RACESUBTYPE:Devil
 Dwarf			VISIBLE:NO	RACESUBTYPE:Dwarf		TYPE:Racial Heritage
-Earth			VISIBLE:NO
-Elemental		VISIBLE:NO
+Earth			VISIBLE:NO	RACESUBTYPE:Earth
+Elemental		VISIBLE:NO	RACESUBTYPE:Elemental
 Elf			VISIBLE:NO	RACESUBTYPE:Elf		TYPE:Racial Heritage
-Evil			VISIBLE:NO
-Extraplanar		VISIBLE:NO
+Evil			VISIBLE:NO	RACESUBTYPE:Evil
+Extraplanar		VISIBLE:NO	RACESUBTYPE:Extraplanar
 Fire			VISIBLE:NO	RACESUBTYPE:Fire
-Giant			VISIBLE:NO
+Giant			VISIBLE:NO	RACESUBTYPE:Giant
 Gnome			VISIBLE:NO	RACESUBTYPE:Gnome		TYPE:Racial Heritage
-Gnoll			VISIBLE:NO
-Goblinoid		VISIBLE:NO
-Good			VISIBLE:NO
+Gnoll			VISIBLE:NO	RACESUBTYPE:Gnoll
+Goblinoid		VISIBLE:NO	RACESUBTYPE:Goblinoid
+Good			VISIBLE:NO	RACESUBTYPE:Good
 Halfling		VISIBLE:NO	RACESUBTYPE:Halfling	TYPE:Racial Heritage
 Human			VISIBLE:NO	RACESUBTYPE:Human
-Lawful		VISIBLE:NO
+Lawful		VISIBLE:NO	RACESUBTYPE:Lawful
 Native		VISIBLE:NO	RACESUBTYPE:Native
-Oni			VISIBLE:NO
+Oni			VISIBLE:NO	RACESUBTYPE:Oni
 Orc			VISIBLE:NO	RACESUBTYPE:Orc		TYPE:Racial Heritage
-Reptilian		VISIBLE:NO
+Reptilian		VISIBLE:NO	RACESUBTYPE:Reptilian
 Shapechanger	VISIBLE:NO	RACESUBTYPE:Shapechanger
-Swarm			VISIBLE:NO	MODIFY:FACE|SET|10,10|PRIORITY=200
-Water			VISIBLE:NO
+Swarm			VISIBLE:NO	RACESUBTYPE:Swarm	MODIFY:FACE|SET|10,10|PRIORITY=200
+Water			VISIBLE:NO	RACESUBTYPE:Water
 
 ###Block: Variable Type Traits
 # Template Name		Visible	Define Stat

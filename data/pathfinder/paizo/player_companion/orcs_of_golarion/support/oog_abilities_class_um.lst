@@ -3,7 +3,7 @@ SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinde
 
 ###Block: Crossblooded Bloodlines -- Goes in UM or UM support _abilities_class.lst
 
-Orc Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Orc_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Orc_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Orc_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Orc_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Orc Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Orc
+Orc Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Orc_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Orc_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Orc_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Orc_BloodlineClassSkill1|if(Sorcerer_CF_BloodlineClassSkill==0,1,0)		BONUS:VAR|Sorcerer_Orc_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Orc Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Orc
 
 ###Block: Eldritch Heritage Bloodlines -- Goes in UM or UM support _abilities.lst
 
