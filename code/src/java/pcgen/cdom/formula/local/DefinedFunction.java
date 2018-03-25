@@ -20,8 +20,8 @@ import java.util.Objects;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -31,12 +31,12 @@ import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 
 /**
- * A DefinedFunction is a zero-argument, pre-defined return value Function for the new
- * formula system.
+ * A DefinedFunction is a zero-argument, pre-defined return value FormulaFunction for the
+ * new formula system.
  * 
  * This is usually dynamically generated, and is used to support functions like this().
  */
-public class DefinedFunction implements Function
+public class DefinedFunction implements FormulaFunction
 {
 	/**
 	 * The name of this DefinedFunction.

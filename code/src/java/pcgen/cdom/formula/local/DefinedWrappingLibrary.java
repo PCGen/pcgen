@@ -17,7 +17,7 @@ package pcgen.cdom.formula.local;
 
 import java.util.Objects;
 
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.util.FormatManager;
@@ -73,17 +73,8 @@ public class DefinedWrappingLibrary implements FunctionLibrary
 		this.formatManager = Objects.requireNonNull(formatManager);
 	}
 
-	/**
-	 * Unsupported, since this is designed to be a dynamic FunctionLibrary.
-	 */
 	@Override
-	public void addFunction(Function function)
-	{
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public Function getFunction(String functionName)
+	public FormulaFunction getFunction(String functionName)
 	{
 		if (functionName.equalsIgnoreCase(definedName))
 		{
