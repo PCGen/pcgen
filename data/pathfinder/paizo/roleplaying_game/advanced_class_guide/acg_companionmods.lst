@@ -88,26 +88,11 @@ FOLLOWER:HalfOrcHunterFavClassBonus=20	TYPE:Animal Companion											BONUS:HP|
 
 ###Block: Modifications for Evolved Companion feat -- 20 arbitrarily chosen as the limit
 # Class of the Master				Type				Spell Res.			Ability																																																																																								Bonus Ability Pool										Modify VAR																																																																							Template
-FOLLOWER:EvolvedCompanionFeatCount=1	TYPE:Animal Companion																																																																																														BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount")
-#FOLLOWER:EvolvedCompanionFeatCount=2	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=3	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=4	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=5	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=6	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=7	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=8	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=9	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=10	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=11	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=12	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=13	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=14	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=15	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=16	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=17	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=18	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=19	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=20	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_NBC")
+FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount	BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_Mount")
+FOLLOWER:SamuraiMountLVL=1	TYPE:Samurai Mount	BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_Mount")
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_DBC")
+
 #
 FOLLOWER:DivineHunterCelestialCompanion=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Celestial Creature
 FOLLOWER:DivineHunterFiendishCompanion=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Fiendish Creature
