@@ -143,6 +143,10 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 		Set<Object> propertyNames = Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		Set<Object> writeMethodNames =
 				Collections.newSetFromMap(new CaseInsensitiveMap<>());
+		Set<Object> unusedMethodNames =
+				Collections.newSetFromMap(new CaseInsensitiveMap<>());
+		Set<Object> consumedMethodNames =
+				Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		List<Method> readMethodList = new ArrayList<>(Arrays.asList(readMethods));
 		METHODS: for (Method method : writeMethods)
 		{
@@ -165,12 +169,18 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 					setMethods.add(name);
 					Method claimed = processor.claimMethod(method, readMethods);
 					readMethodList.remove(claimed);
+					consumedMethodNames.add(claimed.getName());
 					getProcessors.put(claimed.getName(), processor);
 					continue METHODS;
 				}
 			}
+			unusedMethodNames.add(name);
+		}
+		unusedMethodNames.removeAll(consumedMethodNames);
+		if (!unusedMethodNames.isEmpty())
+		{
 			throw new IllegalArgumentException(
-				"Unsure how to process Method Name: " + name);
+				"Unable to process method names: " + unusedMethodNames);
 		}
 		if (!readMethodList.isEmpty())
 		{

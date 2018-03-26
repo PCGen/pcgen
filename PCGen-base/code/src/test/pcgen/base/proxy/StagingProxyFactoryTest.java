@@ -186,6 +186,9 @@ public class StagingProxyFactoryTest
 		factory.produceStaging(GetItemOnly.class, SetItemOnly.class);
 		factory.produceStaging(GetListOnly.class, AddListOnly.class);
 		factory.produceStaging(GetMapOnly.class, PutMapOnly.class);
+		factory.produceStaging(GetItemOnly.class, SetItem.class);
+		factory.produceStaging(GetListOnly.class, AddList.class);
+		factory.produceStaging(GetMapOnly.class, PutMap.class);
 	}
 
 	public interface NoMethodInterface
@@ -277,4 +280,18 @@ public class StagingProxyFactoryTest
 		public void addBasic(Number n);
 	}
 
+	public interface SetItem extends GetItemOnly
+	{
+		public void setBasic(String s);
+	}
+
+	public interface AddList extends GetListOnly
+	{
+		public void addBasic(String s);
+	}
+
+	public interface PutMap extends GetMapOnly
+	{
+		public void put(String s, Object value);
+	}
 }
