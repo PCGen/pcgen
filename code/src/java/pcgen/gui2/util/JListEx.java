@@ -30,9 +30,8 @@ import javax.swing.JList;
 /**
  * The Class {@code JListEx} extends JList to provide double click events.
  *
- * 
+ * @param <E> The type of the elements in this JListEx
  */
-
 public class JListEx<E> extends JList<E>
 {
 	/** Constant for a double click action event. */

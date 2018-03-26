@@ -28,6 +28,7 @@ import javax.swing.JComboBox;
 /**
  * Sorted {@code JComboBox}.
  *
+ * @param <E> The type of the elements in this JComboBoxEx
  */
 public class JComboBoxEx<E> extends JComboBox<E>
 {
