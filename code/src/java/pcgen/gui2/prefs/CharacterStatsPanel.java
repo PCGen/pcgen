@@ -66,9 +66,9 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	private JRadioButton abilitiesPurchasedButton;
 	private JRadioButton abilitiesRolledButton;
 	private JRadioButton abilitiesUserRolledButton;
-	private JComboBoxEx abilityPurchaseModeCombo;
-	private JComboBoxEx abilityRolledModeCombo = null;
-	private JComboBoxEx abilityScoreCombo;
+	private JComboBoxEx<String> abilityPurchaseModeCombo;
+	private JComboBoxEx<String> abilityRolledModeCombo = null;
+	private JComboBoxEx<String> abilityScoreCombo;
 	private PurchaseModeFrame pmsFrame = null;
 
 	private ActionListener rolledModeListener;
@@ -147,7 +147,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 2, row++, 2, 1, 0, 0);
 
-		abilityScoreCombo = new JComboBoxEx();
+		abilityScoreCombo = new JComboBoxEx<>();
 		for (int i = gameMode.getStatMin(); i <= gameMode.getStatMax(); ++i)
 		{
 			abilityScoreCombo.addItem(String.valueOf(i));
@@ -167,7 +167,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			exclusiveGroup.add(abilitiesRolledButton);
 			Utility.buildConstraints(c, 2, row++, 2, 1, 0, 0);
 
-			abilityRolledModeCombo = new JComboBoxEx();
+			abilityRolledModeCombo = new JComboBoxEx<>();
 
 			for (RollMethod rm : rollMethods)
 			{
@@ -203,7 +203,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			i++;
 		}
 
-		abilityPurchaseModeCombo = new JComboBoxEx(pMode);
+		abilityPurchaseModeCombo = new JComboBoxEx<>(pMode);
 
 		gridbag.setConstraints(abilityPurchaseModeCombo, c);
 		this.add(abilityPurchaseModeCombo);

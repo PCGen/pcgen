@@ -29,7 +29,7 @@ import javax.swing.JComboBox;
  * Sorted {@code JComboBox}.
  *
  */
-public class JComboBoxEx extends JComboBox
+public class JComboBoxEx<E> extends JComboBox<E>
 {
 	/**
 	 * The {@code Comparator}.  The default is
@@ -64,7 +64,7 @@ public class JComboBoxEx extends JComboBox
 	 * @param aModel the {@code ComboBoxModel} that provides
 	 * the displayed list of items
 	 */
-	public JComboBoxEx(ComboBoxModel aModel)
+	public JComboBoxEx(ComboBoxModel<E> aModel)
 	{
 		super(aModel);
 	}
@@ -78,7 +78,7 @@ public class JComboBoxEx extends JComboBox
 	 * @param items an array of objects to insert into the combo
 	 * box
 	 */
-	public JComboBoxEx(Object[] items)
+	public JComboBoxEx(E[] items)
 	{
 		super(items);
 	}
@@ -92,7 +92,7 @@ public class JComboBoxEx extends JComboBox
 	 * @param items an array of vectors to insert into the combo
 	 * box
 	 */
-	public JComboBoxEx(Vector<?> items)
+	public JComboBoxEx(Vector<E> items)
 	{
 		super(items);
 	}
@@ -103,7 +103,7 @@ public class JComboBoxEx extends JComboBox
 	 * @param items an array of objects to insert into the combo
 	 * box
 	 */
-	public void setAllItems(Object[] items)
+	public void setAllItems(E[] items)
 	{
 		// setModel(getModel().getClass().getDeclaredConstructor(new Class[] {Object[].class}).newInstance(new Object[] {items}));
 		removeAllItems();
@@ -119,10 +119,11 @@ public class JComboBoxEx extends JComboBox
 	 *
 	 * @return an array of objects in the combo box
 	 */
-	public Object[] getAllItems()
+	public E[] getAllItems()
 	{
 		int count = getItemCount();
-		Object[] items = new Object[count];
+		@SuppressWarnings("unchecked")
+		E[] items = (E[]) new Object[count];
 
 		for (int i = 0; i < count; ++i)
 		{
@@ -196,7 +197,7 @@ public class JComboBoxEx extends JComboBox
 	}
 
 	@Override
-	public void addItem(Object item)
+	public void addItem(E item)
 	{
 		super.addItem(item);
 
@@ -227,7 +228,7 @@ public class JComboBoxEx extends JComboBox
 	{
 		// Keep the same item selected after sorting
 		Object selected = getSelectedItem();
-		Object[] items = getAllItems();
+		E[] items = getAllItems();
 
 		Arrays.sort(items, aComparator);
 		setAllItems(items);

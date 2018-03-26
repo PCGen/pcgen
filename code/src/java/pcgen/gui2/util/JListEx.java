@@ -33,7 +33,7 @@ import javax.swing.JList;
  * 
  */
 
-public class JListEx extends JList
+public class JListEx<E> extends JList<E>
 {
 	/** Constant for a double click action event. */
 	public static final int ACTION_DOUBLECLICK = 2051;

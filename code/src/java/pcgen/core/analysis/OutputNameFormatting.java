@@ -106,11 +106,10 @@ public final class OutputNameFormatting
 	}
 
 	/**
-	 * Returns the Product Identity string (with or without the header)
-	 * @param useHeader Should html start and end tags be added? 
-	 * @return the Product Identity string (with or without the header)
+	 * Returns the Product Identity string
+	 * @return the Product Identity string
 	 */
-	public static String piString(CDOMObject po, final boolean useHeader)
+	public static String piString(CDOMObject po)
 	{
 		String aString = po.toString();
 	
@@ -122,19 +121,7 @@ public final class OutputNameFormatting
 		if (po.getSafe(ObjectKey.NAME_PI))
 		{
 			final StringBuilder sb = new StringBuilder(aString.length() + 30);
-	
-			if (useHeader)
-			{
-				sb.append("<html>");
-			}
-	
 			sb.append("<b><i>").append(aString).append("</i></b>");
-	
-			if (useHeader)
-			{
-				sb.append("</html>");
-			}
-	
 			return sb.toString();
 		}
 	

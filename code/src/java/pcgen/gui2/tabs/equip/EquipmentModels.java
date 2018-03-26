@@ -39,6 +39,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -225,7 +226,7 @@ public class EquipmentModels
 		{
 			size.width = screenBounds.width - decorationWidth;
 		}
-		pane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		pane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		pane.setPreferredSize(size);
 		return pane;
 	}
@@ -515,7 +516,6 @@ public class EquipmentModels
 			// First see if the user has selected a suitable node in the equipped tree
 			List<EquipNode> possibleNodeList = equipMap.getListFor(equipmentFacade);
 			int[] rows = equipmentSetTable.getSelectedRows();
-			List<EquipNode> paths = new ArrayList<>();
 			for (int row : rows)
 			{
 				EquipNode path = (EquipNode) equipmentSetTable.getValueAt(row, 0);
@@ -631,7 +631,7 @@ public class EquipmentModels
 			{
 				comboBox.removeActionListener(this);
 			}
-			comboBox = new JComboBox(equipMap.getListFor(equipment).toArray());
+			comboBox = new JComboBox<>(equipMap.getListFor(equipment).toArray());
 			comboBox.setSelectedItem(value);
 			comboBox.addActionListener(this);
 			return comboBox;

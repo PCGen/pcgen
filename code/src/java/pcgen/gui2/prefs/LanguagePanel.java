@@ -75,7 +75,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 	private final JRadioButton langEs;
 	private final JRadioButton langPt;
 	private final JRadioButton langSystem;
-	private JComboBoxEx unitSetType = new JComboBoxEx();
+	private JComboBoxEx<String> unitSetType = new JComboBoxEx<>();
 	private String origLanguage;
 	private String origUnitSet;
 
@@ -151,7 +151,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 			}
 		}
 
-		unitSetType = new JComboBoxEx(unitSetNames);
+		unitSetType = new JComboBoxEx<>(unitSetNames);
 		gridbag.setConstraints(unitSetType, c);
 		this.add(unitSetType);
 

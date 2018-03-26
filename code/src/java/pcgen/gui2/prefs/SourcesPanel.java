@@ -60,7 +60,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 	private final JCheckBox showOGL = new JCheckBox();
 	private final JCheckBox showMature = new JCheckBox();
 	private final JCheckBox showSponsors = new JCheckBox();
-	private JComboBoxEx sourceOptions = new JComboBoxEx();
+	private JComboBoxEx sourceOptions = new JComboBoxEx<>();
 	private final JCheckBox loadURL = new JCheckBox();
 	private final JCheckBox allowOverride = new JCheckBox();
 	private final JCheckBox skipSourceSelect = new JCheckBox();
@@ -128,7 +128,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 3, 8, 1, 1, 0, 0);
 		sourceOptions =
-				new JComboBoxEx(new String[]{LanguageBundle.getString("in_Prefs_sdLong"), LanguageBundle.getString("in_Prefs_sdMedium"),
+				new JComboBoxEx<>(new String[]{LanguageBundle.getString("in_Prefs_sdLong"), LanguageBundle.getString("in_Prefs_sdMedium"),
 					LanguageBundle.getString("in_Prefs_sdShort"), LanguageBundle.getString("in_Prefs_sdPage"), LanguageBundle.getString("in_Prefs_sdWeb")});
 		gridbag.setConstraints(sourceOptions, c);
 		this.add(sourceOptions);

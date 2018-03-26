@@ -48,7 +48,6 @@ public final class LookAndFeelManager
 	private static final String CROSS_LAF_CLASS = UIManager.getCrossPlatformLookAndFeelClassName();
 	private static final LookAndFeelHandler[] lafHandlers;
 	private static final Map<String, LookAndFeelHandler> lafMap = new HashMap<>();
-	private static final LookAndFeelManager instance = new LookAndFeelManager();
 
 	static
 	{
@@ -131,16 +130,6 @@ public final class LookAndFeelManager
 	{
 	}
 
-//
-//	public static LookAndFeelManager getInstance()
-//	{
-//		if (instance == null)
-//		{
-//			instance = new LookAndFeelManager();
-//		}
-//		return instance;
-//	}
-	
 	/**
 	 * Initialise the look and feel to be used for this session. The look and 
 	 * feel used will be the one saved in the preferences, or if none is 
