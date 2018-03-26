@@ -173,9 +173,9 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 				Object value, int index, boolean isSelected, boolean cellHasFocus)
 			{
 				NumberFormat format = NumberFormat.getPercentInstance();
-				value = format.format(value);
-				return super.getListCellRendererComponent(list, value, index, isSelected,
-					cellHasFocus);
+				String formattedValue = format.format(value);
+				return super.getListCellRendererComponent(list, formattedValue, index,
+					isSelected, cellHasFocus);
 			}
 
 		});
@@ -316,6 +316,9 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 	}
 
+	/**
+	 * A JFormattedTextField that edits percentages.
+	 */
 	private static class PercentEditor extends JFormattedTextField
 			implements ComboBoxEditor, PropertyChangeListener
 	{
