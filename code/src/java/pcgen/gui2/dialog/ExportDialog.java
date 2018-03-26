@@ -150,10 +150,12 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList<? extends Object> list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList<? extends Object> list,
+				Object value, int index, boolean isSelected, boolean cellHasFocus)
 			{
 				CharacterFacade character = (CharacterFacade) value;
-				return super.getListCellRendererComponent(list, character.getNameRef().get(), index, isSelected, cellHasFocus);
+				return super.getListCellRendererComponent(list,
+					character.getNameRef().get(), index, isSelected, cellHasFocus);
 			}
 
 		});
@@ -628,7 +630,8 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			catch (ExecutionException ex)
 			{
 				Logging.errorPrint("Could not export " + name, ex.getCause());
-				pcgenFrame.showErrorMessage("Could not export " + name, "Error occurred while exporting. See log for details.");
+				pcgenFrame.showErrorMessage("Could not export " + name,
+					"Error occurred while exporting. See log for details.");
 			}
 			finally
 			{

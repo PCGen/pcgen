@@ -220,7 +220,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		private final DelegatingListFacade<AbilityFacade> delegate;
 
 		public AvailableAbilityTreeViewModel(CharacterFacade character,
-				ListFacade<AbilityCategoryFacade> categories,
 				ListSelectionModel selectionModel, String tableTitle)
 		{
 			this.character = character;
@@ -465,8 +464,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		state.put(ListSelectionModel.class, listModel);
 		state.put(AbilityTreeTableModel.class, new AbilityTreeTableModel(character, categories));
 		state.put(AvailableAbilityTreeViewModel.class,
-				new AvailableAbilityTreeViewModel(character, fullCategoryList,
-						listModel, title));
+			new AvailableAbilityTreeViewModel(character, listModel, title));
 		//state.put(AbilityTransferHandler.class, new AbilityTransferHandler(character));
 		state.put(InfoHandler.class, new InfoHandler(character));
 		state.put(TreeRendererHandler.class, new TreeRendererHandler(character));

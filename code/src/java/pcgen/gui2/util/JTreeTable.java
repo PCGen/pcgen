@@ -535,12 +535,9 @@ public class JTreeTable extends JTableEx
 		public void setRowHeight(int aRowHeight)
 		{
 			super.setRowHeight(aRowHeight);
-			if (aRowHeight > 0)
+			if ((aRowHeight > 0) && (JTreeTable.this.getRowHeight() != aRowHeight))
 			{
-				if (JTreeTable.this.getRowHeight() != aRowHeight)
-				{
-					JTreeTable.this.setRowHeight(aRowHeight);
-				}
+				JTreeTable.this.setRowHeight(aRowHeight);
 			}
 		}
 

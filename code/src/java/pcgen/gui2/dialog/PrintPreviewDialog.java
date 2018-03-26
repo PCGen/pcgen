@@ -142,7 +142,8 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList<? extends Object> list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList<? extends Object> list,
+				Object value, int index, boolean isSelected, boolean cellHasFocus)
 			{
 				super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 				if (value != null)
@@ -168,11 +169,13 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList<? extends Object> list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList<? extends Object> list,
+				Object value, int index, boolean isSelected, boolean cellHasFocus)
 			{
 				NumberFormat format = NumberFormat.getPercentInstance();
 				value = format.format(value);
-				return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+				return super.getListCellRendererComponent(list, value, index, isSelected,
+					cellHasFocus);
 			}
 
 		});
@@ -313,7 +316,8 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 	}
 
-	private static class PercentEditor extends JFormattedTextField implements ComboBoxEditor, PropertyChangeListener
+	private static class PercentEditor extends JFormattedTextField
+			implements ComboBoxEditor, PropertyChangeListener
 	{
 
 		public PercentEditor(JComboBox<Double> comboBox)
