@@ -287,7 +287,7 @@ CLASS:Ranger	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.64	ABILITY:Internal|AU
 # Class Name	Skill Pts/Lvl
 CLASS:Ranger	STARTSKILLPTS:6
 # Class Name	Spell Stat		Automatically Known Spell Levels			Craft Level Mult.	Caster level
-CLASS:Ranger	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Caster_Level_BL_Stripped_Ranger|PRECLASS:1,Ranger=4
+CLASS:Ranger	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Caster_Level_Ranger|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Ranger
 ###Block: Progression Abilities
@@ -336,9 +336,7 @@ CLASS:Rogue		HD:8		TYPE:Base.PC.Rogue	MAXLEVEL:20	SOURCEPAGE:p.67	DEFINE:RogueLV
 # Class Name	Skill Pts/Lvl
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Rogue
 1	ABILITY:Class|AUTOMATIC|Rogue
 
 

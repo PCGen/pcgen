@@ -5,7 +5,7 @@
 Racial Traits ~ Aballonian			CATEGORY:Internal		AUTO:LANG|Common			ABILITY:Special Ability|AUTOMATIC|TYPE=Aballonian Racial Trait													BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowLightVision|1								DR:5/Adamantine
 Racial Traits ~ Brethedan			CATEGORY:Internal		AUTO:LANG|Brethedan		ABILITY:Special Ability|AUTOMATIC|Amorphous|Brethedan ~ Constrict|Brethedan ~ Engulf|Regeneration|Telepathy|TYPE=Brethedan Racial Trait	BONUS:VAR|RegenerationRate|2	BONUS:VAR|BlindsenseRange|120|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Racial Traits ~ Dragonkin			CATEGORY:Internal		AUTO:LANG|Draconic|Common	ABILITY:Special Ability|AUTOMATIC|Immunity to Fire|Immunity to Paralysis|Immunity to Sleep|TYPE=Dragonkin Racial Trait
-Racial Traits ~ Oma				CATEGORY:Internal							ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Electricity|Immunity to Fire|No Breath|Swallow Whole|TYPE=Oma Racial Trait	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowLightVision|1
+Race Traits ~ Oma					CATEGORY:Internal							ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Electricity|Immunity to Fire|No Breath|Swallow Whole|TYPE=Oma Racial Trait	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowLightVision|1
 # Swallow Whole 6d6 acid damage, AC 25, 29 HP)
 Racial Traits ~ Shobad				CATEGORY:Internal							ABILITY:Special Ability|AUTOMATIC|Ferocity|Resistance to Cold	ABILITY:FEAT|AUTOMATIC|Multiweapon Fighting					BONUS:VAR|ColdResistanceBonus|5|TYPE=Resistance
 Racial Traits ~ Contemplative of Ashok	CATEGORY:Internal							ABILITY:Special Ability|AUTOMATIC|Immunity to Mind-Affecting Effects|Telepathy|TYPE=Contemplative of Ashok Racial Trait				BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|BlindsightRange|60|TYPE=Base

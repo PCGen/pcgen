@@ -5,6 +5,9 @@
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	xmlns:str="http://xsltsl.sourceforge.net/string.html"
 	xmlns:xalan="http://xml.apache.org/xalan"
+	xmlns:Psionics="my:Psionics"
+	xmlns:myAttribs="my:Attribs"
+	exclude-result-prefixes="myAttribs Psionics"
 	>
 
 	<xsl:import href="../../../../xsltsl-1.1/stdlib.xsl"/>
@@ -12,17 +15,17 @@
 
 
 	<!--
-====================================
-====================================
-	TEMPLATE - PSIONICS ATTACK / DEFENCE TABLE
-====================================
-====================================-->
+	====================================
+	====================================
+		TEMPLATE - PSIONICS ATTACK / DEFENCE TABLE
+	====================================
+	====================================-->
 	<Psionics:attacks>
-		<attack name="ego.whip" title="EGO WHIP" damage="1d4 DEX" pp="3"/>
-		<attack name="id.insinuation" title="ID INSINUATION" damage="1d2 STR" pp="3"/>
-		<attack name="mind.blast" title="MIND BLAST" damage="1d4 CHA" pp="9"/>
-		<attack name="mind.thrust" title="MIND THRUST" damage="1d2 INT" pp="1"/>
-		<attack name="psychic.crush" title="PSYCHIC CRUSH" damage="2d4 WIS" pp="5"/>
+		<attack name="ego.whip" title="Ego Whip" damage="1d4 DEX" pp="3"/>
+		<attack name="id.insinuation" title="Id Insinuation" damage="1d2 STR" pp="3"/>
+		<attack name="mind.blast" title="Mind Blast" damage="1d4 CHA" pp="9"/>
+		<attack name="mind.thrust" title="Mind Thrust" damage="1d2 INT" pp="1"/>
+		<attack name="psychic.crush" title="Psychic Crush" damage="2d4 WIS" pp="5"/>
 		<defences>
 			<defence name="Empty Mind" pp="1" mentalhardness="">
 				<attack name="ego.whip" value="+1" />
@@ -105,8 +108,8 @@
 ====================================-->
 	<xsl:template match="psionics">
 		<!-- BEGIN psionicsTable -->
-<xsl:variable name="endpoints" select="7"/>
-		<fo:table table-layout="fixed" space-before="2mm">
+		<xsl:variable name="endpoints" select="7"/>
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.border'"/></xsl:call-template>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * ($pagePrintableWidth - $endpoints) div 6" />mm</xsl:attribute>
@@ -114,36 +117,38 @@
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * ($pagePrintableWidth - $endpoints) div 12" />mm</xsl:attribute>
 			</fo:table-column>
-<fo:table-column column-width="0.5mm"/>
+			<fo:table-column column-width="0.5mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * ($pagePrintableWidth - $endpoints) div 6" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * ($pagePrintableWidth - $endpoints) div 12" />mm</xsl:attribute>
 			</fo:table-column>
-<fo:table-column column-width="0.5mm"/>
+			<fo:table-column column-width="0.5mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * ($pagePrintableWidth - $endpoints) div 6" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * ($pagePrintableWidth - $endpoints) div 12" />mm</xsl:attribute>
 			</fo:table-column>
-<fo:table-column column-width="0.5mm"/>
+			<fo:table-column column-width="0.5mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * ($pagePrintableWidth - $endpoints) div 6" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * ($pagePrintableWidth - $endpoints) div 12" />mm</xsl:attribute>
 			</fo:table-column>
-<fo:table-column column-width="0.5mm"/>
+			<fo:table-column column-width="0.5mm"/>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="1pt" number-columns-spanned="12">
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.title'"/></xsl:call-template>
 						<fo:block font-size="10pt" font-weight="bold">Psionics</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<xsl:call-template name="psionic.entry">
 						<xsl:with-param name="title" select="'Base PP'"/>
 						<xsl:with-param name="value" select="base_pp"/>
@@ -169,7 +174,7 @@
 		</fo:table>
 	<xsl:if test = "type = '3.0'">
 		<!-- Attack / Defence table -->
-		<fo:table table-layout="fixed" padding="0.5pt">
+		<fo:table table-layout="fixed" width="100%" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.border'"/></xsl:call-template>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 70" />mm</xsl:attribute>
@@ -183,6 +188,7 @@
 			<fo:table-column column-width="12mm"/>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="1pt">
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.title'"/></xsl:call-template>
 						<fo:block font-size="5pt"/>
@@ -204,6 +210,7 @@
 				<xsl:variable name="defences" select="document('')/*/Psionics:attacks/defences/defence"/>
 				<xsl:for-each select="$defences">
 					<fo:table-row keep-with-previous.within-column="always">
+											<xsl:message>Test END</xsl:message>
 						<fo:table-cell padding-top="1pt" padding-left="3pt">
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.title'"/></xsl:call-template>
 							<fo:block font-size="7pt"><xsl:value-of select="@name"/>

@@ -48,7 +48,7 @@ Crutch											TYPE:Goods.General.Resizable				COST:0.5		WT:2			SOURCEPAGE:p.1
 Dissipating Fan										TYPE:Goods.Training					COST:150		WT:6			SOURCEPAGE:p.16
 Drowner's Helm										TYPE:Goods.Training					COST:35		WT:10			SOURCEPAGE:p.14
 Dusk Lantern										TYPE:Goods.General					COST:35		WT:4			SOURCEPAGE:p.12
-False Teeth (Clockwork)		OUTPUTNAME:False Teeth, Clockwork		TYPE:Goods.General 					COST:100		WT:0.5		SOURCEPAGE:p.13
+False Teeth (Clockwork)		OUTPUTNAME:False Teeth, Clockwork		TYPE:Goods.General					COST:100		WT:0.5		SOURCEPAGE:p.13
 False Teeth (Common)		OUTPUTNAME:False Teeth, Common		TYPE:Goods.General.Resizable				COST:5					SOURCEPAGE:p.13
 False Teeth (Masterwork)	OUTPUTNAME:False Teeth, Masterwork		TYPE:Goods.General.Resizable				COST:50					SOURCEPAGE:p.13
 Gauntlet Magnet										TYPE:Goods.General.Resizable				COST:75		WT:0.5		SOURCEPAGE:p.13												SPROP:Provides +2 bonus to CMD against disarm attempts while holding a magnetic metal weapon, shield, or item (such as one made from steel or iron); +1 bonus on disarm attempts made with the gauntlet against magnetic objects.
@@ -57,7 +57,7 @@ Hanging Board										TYPE:Goods.Training					COST:75		WT:7			SOURCEPAGE:p.14
 Imperial Conquest										TYPE:Goods.Training					COST:250		WT:4			SOURCEPAGE:p.29
 Linguist's Codex (Standard)	OUTPUTNAME:Linguist's Codex, Standard	TYPE:Goods.Tools.Book					COST:50		WT:3			SOURCEPAGE:p.16
 Linguist's Codex (Expanded)	OUTPUTNAME:Linguist's Codex, Expanded	TYPE:Goods.Tools.Book					COST:200		WT:5			SOURCEPAGE:p.16
-Mirror Ball											TYPE:Goods.General 					COST:100		WT:1			SOURCEPAGE:p.13
+Mirror Ball											TYPE:Goods.General					COST:100		WT:1			SOURCEPAGE:p.13
 Nautical Chart										TYPE:Goods.Tools						COST:25					SOURCEPAGE:p.13												SPROP:Grants a +4 circumstance bonus on Profession (sailor) checks to navigate in the area detailed by the chart.
 Pantograph											TYPE:Goods.General					COST:50		WT:2			SOURCEPAGE:p.13
 Portable Terrarium									TYPE:Goods.Pets						COST:100		WT:4			SOURCEPAGE:p.16
@@ -108,10 +108,10 @@ Dancer's Garb (Silver)									TYPE:Goods.Clothing.Resizable				COST:200		WT:5		
 Dancer's Garb (Sunsilver)								TYPE:Goods.Clothing.Resizable				COST:3200		WT:5			SOURCEPAGE:p.29												SPROP:+2 on Perform (Dance) checks. Considered a silver instrument for silver balladeer bards. Grants the same benefits as armor made of sunsilver.
 Gambeson											TYPE:Goods.Clothing.Resizable				COST:1		WT:4			SOURCEPAGE:p.20
 Headscarf (Common)									TYPE:Goods.Clothing.Resizable				COST:0.1					SOURCEPAGE:p.20
-Outfit (Burglar's) 									TYPE:Goods.Clothing.Resizable.Starting		COST:5		WT:5			SOURCEPAGE:p.20
-Outfit (Courtesan's) 									TYPE:Goods.Clothing.Resizable.Starting		COST:8		WT:4			SOURCEPAGE:p.20
-Outfit (Executioner's) 									TYPE:Goods.Clothing.Resizable.Starting		COST:5		WT:8			SOURCEPAGE:p.20
-Outfit (Squire's) 									TYPE:Goods.Clothing.Resizable.Starting		COST:5		WT:8			SOURCEPAGE:p.20
+Outfit (Burglar's)									TYPE:Goods.Clothing.Resizable.Starting		COST:5		WT:5			SOURCEPAGE:p.20
+Outfit (Courtesan's)									TYPE:Goods.Clothing.Resizable.Starting		COST:8		WT:4			SOURCEPAGE:p.20
+Outfit (Executioner's)									TYPE:Goods.Clothing.Resizable.Starting		COST:5		WT:8			SOURCEPAGE:p.20
+Outfit (Squire's)									TYPE:Goods.Clothing.Resizable.Starting		COST:5		WT:8			SOURCEPAGE:p.20
 Shinobi Shozoku										TYPE:Goods.Clothing.Resizable				COST:50		WT:2			SOURCEPAGE:p.28												SPROP:+2 on Stealth checks unless also wearing armor with a base armor bonus higher than +1, heavy clothing or carrying heavy equipment.
 Silk Kimono											TYPE:Goods.Clothing.Resizable				COST:200		WT:5			SOURCEPAGE:p.28
 Sparring Gear										TYPE:Goods.Clothing.Resizable				COST:3.5		WT:15			SOURCEPAGE:p.20												SPROP:Grants DR 2/— against nonlethal damage.

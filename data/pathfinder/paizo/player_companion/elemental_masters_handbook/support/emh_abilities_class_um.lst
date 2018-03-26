@@ -3,7 +3,7 @@ SOURCELONG:Elemental Master's Handbook	SOURCESHORT:EMH	SOURCEWEB:http://paizo.co
 
 ###Block: Crossblooded Bloodlines -- Goes in UM or UM support _abilities_class.lst
 
-Salamander Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Salamander_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Salamander_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Salamander_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Salamander_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Salamander Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Salamander
+Salamander Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Salamander_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Salamander_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Salamander_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Salamander_BloodlineClassSkill1|if(Sorcerer_CF_BloodlineClassSkill==0,1,0)		BONUS:VAR|Sorcerer_Salamander_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Salamander Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Salamander
 
 ###Block: Eldritch Heritage Bloodlines -- Goes in UM or UM support _abilities.lst
 
