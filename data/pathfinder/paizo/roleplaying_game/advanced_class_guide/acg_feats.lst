@@ -264,6 +264,16 @@ CATEGORY=FEAT|Extra Performance.MOD	PRE:.CLEAR
 CATEGORY=FEAT|Extra Performance.MOD	BONUS:VAR|SkaldRagingSongRoundsPerDay|6
 CATEGORY=FEAT|Extra Performance.MOD	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,TYPE.SkaldRagingSong],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Bardic Performance]
 
+
+###Block:
+CATEGORY=FEAT|Evolved Companion.MOD	DEFINE:EvolvedCompanionFeatCount_AC|0	DEFINE:EvolvedCompanionFeatCount_CM|0	DEFINE:EvolvedCompanionFeatCount_SM|0	DEFINE:EvolvedCompanionFeatCount_BM|0
+###Block:
+Animal Companion of Druid or Ranger		KEY:AC_Druid		CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|EvolvedCompanionFeatCount_AC|1
+Animal Companion of Paladin			KEY:AC_Bonded Mount	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|EvolvedCompanionFeatCount_BM|1
+Animal Companion of Cavalier			KEY:AC_Mount_C		CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|EvolvedCompanionFeatCount_CM|1
+Animal Companion of Samurai			KEY:AC_Mount_S		CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|EvolvedCompanionFeatCount_SM|1
+
+
 #
 # End
 #
