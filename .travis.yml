@@ -41,14 +41,14 @@ before_deploy:
     - ./gradlew pcgenRelease
 
 deploy:
-  provider: releases
-  #Replace this with a real token
-  api_key: "GITHUB OAUTH TOKEN"
-  file_glob: true
-  file: "build/release/*"
-  skip_cleanup: true
-  on:
-    #This make the deploy only happen when a tag is created.  
-    tags: true
-    #Only on master
-    branch: master
+    provider: releases
+    #Replace this with a real token
+    api_key: "GITHUB OAUTH TOKEN"
+    file_glob: true
+    file: "build/release/*"
+    skip_cleanup: true
+    on:
+        #This make the deploy only happen when a tag is created.  
+        tags: true
+        #Only on master
+        branch: master
