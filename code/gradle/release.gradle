@@ -341,6 +341,9 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
     from ("${buildDir}/distributions") {
         include 'pcgen*-full.zip'
     }
+    from (outputDir) {
+        include '*.exe'
+    }
 }
 
 // Produce SHA-256 checksums for each release artifact
@@ -360,11 +363,12 @@ task prepareRelease (dependsOn: ['clean', 'build']) {
     description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
 }
 
-task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum']) {
+task pcgenRelease (dependsOn: ['prepareRelease', 'assembleArtifacts', 'checksum']) {
     description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, then update and commit the version ready for new dev work."
+    //Installer is placed in outputDir
 }
 
-task pcgenReleaseOfficial (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'updateVersionRelease']) {
+task pcgenReleaseOfficial (dependsOn: ['pcgenRelease', 'updateVersionRelease']) {
     description="Release a new offical version of PCGen."
 }
 
