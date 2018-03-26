@@ -1,4 +1,4 @@
-/*
+﻿/*
  * PCGen release tasks. This file specifies the way in which PCGen alpha, beta
  * and production releases are made.
  *
@@ -355,7 +355,7 @@ task prepareRelease (dependsOn: ['clean', 'build']) {
 }
 
 task pcgenRelease (dependsOn: ['prepareRelease', 'assembleArtifacts', 'checksum']) {
-    description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, then update and commit the version ready for new dev work."
+    description="Release a new version of PCGen. This will build PCGen and produce the release artifacts."
     //Installer is placed in outputDir
 }
 
