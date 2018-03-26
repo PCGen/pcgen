@@ -2,14 +2,14 @@
 
 language: java
 dist: trusty
-jdk:
-    - oraclejdk8
 
 compiler:
     - gcc
 os:
     - linux
+    jdk: oraclejdk8
     - osx
+    osx_image: xcode8
  
 script: ./gradlew clean build test compileSlowtest datatest pfinttest allReports buildDist buildNsis
 # Do not use itest, requires release notes
