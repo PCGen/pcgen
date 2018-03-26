@@ -3,8 +3,6 @@
 language: java
 dist: trusty
 
-compiler:
-    - gcc
 os:
     - linux
     jdk: oraclejdk8
