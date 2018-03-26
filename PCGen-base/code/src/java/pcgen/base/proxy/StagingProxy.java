@@ -140,6 +140,12 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 			throw new IllegalArgumentException(
 				readInterface.getSimpleName() + " had no methods");
 		}
+		processMethods(readMethods, writeMethods);
+	}
+
+	private void processMethods(Method[] readMethods, Method[] writeMethods)
+	{
+		List<Method> readMethodList = new ArrayList<>(Arrays.asList(readMethods));
 		Set<Object> propertyNames = Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		Set<Object> writeMethodNames =
 				Collections.newSetFromMap(new CaseInsensitiveMap<>());
@@ -147,7 +153,6 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 				Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		Set<Object> consumedMethodNames =
 				Collections.newSetFromMap(new CaseInsensitiveMap<>());
-		List<Method> readMethodList = new ArrayList<>(Arrays.asList(readMethods));
 		METHODS: for (Method method : writeMethods)
 		{
 			String name = method.getName();
