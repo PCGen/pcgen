@@ -1,4 +1,4 @@
-﻿/*
+/*
  * PCGen release tasks. This file specifies the way in which PCGen alpha, beta
  * and production releases are made.
  *
@@ -235,7 +235,7 @@ task downloadJRE doLast {
     }
 }
 
-task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
+task layoutNsisOptional(type: Copy, dependsOn: copyToOutput) {
     description="Assemble the optional files for PCGen installations"
     into nsisOptionFolder
 
