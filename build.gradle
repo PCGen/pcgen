@@ -247,7 +247,7 @@ task copyToLibs(type: Copy) {
 }
 
 import org.apache.tools.ant.filters.FixCrLfFilter;
-task copyToRoot(type: Copy, dependsOn: [createExe, copyToLibs, jar, 
+task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, 
         converterJar]) {
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
@@ -259,47 +259,30 @@ task copyToRoot(type: Copy, dependsOn: [createExe, copyToLibs, jar,
     into outputDir
 
     rename "(.+)-$version(.+)", '$1$2'
-    
-    //Make the script executable
-    doLast {
-        project.exec {
-            if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
-                commandLine('csc', "$outputDir/pcgen.sh")
-            }else{
-                commandLine('chmod',  '+x', "$outputDir/pcgen.sh")
-            }
-        }
-    }
 }
 
-task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.dir("$projectDir/libs")
+task syncLibsToOutput(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
+    outputs.dir("$outputDir/libs")
     inputs.files(fileTree("$buildDir/libs"))
 
     from "$buildDir/libs"
-    into "$projectDir/libs"
+    into "$outputDir/libs"
     exclude "pcgen-*.jar"
 }
 
-task cleanRoot(type: Delete) {
-    description="Clean up things copied to the root folder by the build"
-    delete "$projectDir/pcgen.jar"
-    delete "$projectDir/pcgen-batch-convert.jar"
-    delete "$projectDir/batch-convert.jar"
-    delete "$projectDir/pcgen.sh"
+task cleanOutput(type: Delete) {
+    description="Clean up things copied to the output folder by the build"
     delete outputDir
-    delete "$projectDir/libs"
-    delete "$projectDir/autobuild.properties"
 }
 
 build {
-    it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    it.dependsOn 'copyToOutput', 'syncLibsToOutput'
     mustRunAfter clean
 }
 
 clean {
     it.dependsOn 'clean-plugins'
-    it.dependsOn 'cleanRoot'
+    it.dependsOn 'cleanOutput'
 }
 
 test {

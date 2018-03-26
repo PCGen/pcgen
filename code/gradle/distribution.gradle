@@ -73,7 +73,7 @@ ext {
     }
 }
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
