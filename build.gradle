@@ -50,8 +50,10 @@ targetCompatibility = 1.8
 
 ext {
     binDir = "code/bin"
-    //Folder where the build stuff is placed. This ends up being a place where you can start PCGen after a build.
+    //Folder where the build stuff is placed.
     outputDir = "$projectDir/output"
+    //Installer is placed here
+    releaseDir = "${buildDir}/release"
 }
 
 //The gradle plugin for netbeans sets the 'mainClass' property instead of 'mainClassName'
@@ -260,14 +262,14 @@ task copyToRoot(type: Copy, dependsOn: [createExe, copyToLibs, jar,
     
     //Make the script executable
     doLast {
-    project.exec {
-        if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
-            commandLine('csc', "$outputDir/pcgen.sh")
-        }else{
-            commandLine('chmod',  '+x', "$outputDir/pcgen.sh")
+        project.exec {
+            if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
+                commandLine('csc', "$outputDir/pcgen.sh")
+            }else{
+                commandLine('chmod',  '+x', "$outputDir/pcgen.sh")
+            }
         }
     }
-  }
 }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
@@ -377,21 +379,21 @@ allprojects {
 }
 
 dependencyUpdates.resolutionStrategy = {
-  componentSelection { rules ->
-    rules.all { ComponentSelection selection ->
-      if (['atlassian'].any { qualifier ->
-        selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
-      }) {
-        selection.reject('unofficial release')
-      }
-      if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
-          selection.reject('older than current')
-      }
-      if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
-          selection.reject('older than current')
-      }
+    componentSelection { rules ->
+        rules.all { ComponentSelection selection ->
+            if (['atlassian'].any { qualifier ->
+                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+                }) {
+                selection.reject('unofficial release')
+            }
+            if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
+                selection.reject('older than current')
+            }
+            if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
+                selection.reject('older than current')
+            }
+        }
     }
-  }
 }
 
 apply from: 'code/gradle/autobuild.gradle'
