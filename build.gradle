@@ -49,12 +49,13 @@ targetCompatibility = 1.8
 
 ext {
     binDir = "code/bin"
+    //Folder where the build stuff is placed. This ends up being a place where you can start PCGen after a build.
+    outputDir = "$projectDir/output"
+    //The gradle plugin for netbeans sets the 'mainClass' property instead of 'mainClassName'
+    //if other IDEs set different properties when trying to execute a given class
+    //feel free to add them here.
+    mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main';
 }
-
-//The gradle plugin for netbeans sets the 'mainClass' property instead of 'mainClassName'
-//if other IDEs set different properties when trying to execute a given class
-//feel free to add them here.
-mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main';
 
 applicationDistribution.from('plugins') {
     into "plugins"
@@ -251,9 +252,16 @@ task copyToRoot(type: Copy, dependsOn: [createExe, copyToLibs, jar,
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
     }
-    into "$projectDir/output"
+    into outputDir
 
     rename "(.+)-$version(.+)", '$1$2'
+    
+    //Make the script executable
+    doLast {
+    project.exec {
+      commandLine('chmod',  '+x', "$outputDir/pcgen.sh")
+    }
+  }
 }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
@@ -271,7 +279,7 @@ task cleanRoot(type: Delete) {
     delete "$projectDir/pcgen-batch-convert.jar"
     delete "$projectDir/batch-convert.jar"
     delete "$projectDir/pcgen.sh"
-    delete "$projectDir/output"
+    delete outputDir
     delete "$projectDir/libs"
     delete "$projectDir/autobuild.properties"
 }
