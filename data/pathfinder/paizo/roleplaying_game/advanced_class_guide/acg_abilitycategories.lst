@@ -196,7 +196,8 @@ ABILITYCATEGORY:Forgepriest Bonus Item Creation Feat		VISIBLE:QUALIFY	EDITABLE:Y
 ABILITYCATEGORY:Crossbow Training Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Internal			ABILITYLIST:Crossbow Training Selection													PLURAL:Crossbow Training Selections		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Savant Flexible Enhancement Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability			TYPE:Savant Flexible Enhancement Bonus															DISPLAYLOCATION:Class Features
 
-
+###Block:
+ABILITYCATEGORY:Evolved Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	CATEGORY:Internal	TYPE:Evolved Companion	DISPLAYLOCATION:Feats
 
 #
 # End
