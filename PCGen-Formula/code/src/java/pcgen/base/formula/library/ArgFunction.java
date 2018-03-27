@@ -43,7 +43,7 @@ import pcgen.base.util.FormatManager;
  * This is indirectly used within a GenericFunction in order to reference values
  * passed into that function.
  */
-public class ArgFunction implements FormulaFunction
+public final class ArgFunction implements FormulaFunction
 {
 	/**
 	 * The name for this Function.
@@ -182,6 +182,15 @@ public class ArgFunction implements FormulaFunction
 		return (FormatManager<?>) visitor.visit((SimpleNode) masterArgs[argNum], manager);
 	}
 
+	/**
+	 * Returns a FunctionLibrary which contains the arg(x) function.
+	 * 
+	 * @param functionLibrary
+	 *            The underlying FunctionLibrary handling all other functions
+	 * @param args
+	 *            the "arguments" provided to the GenericFunction that is being processed
+	 * @return A FunctionLibrary which contains the arg(x) function.
+	 */
 	public static FunctionLibrary getWithArgs(FunctionLibrary functionLibrary, Node[] args)
 	{
 		return lookupName -> FUNCTION_NAME.equalsIgnoreCase(lookupName)
