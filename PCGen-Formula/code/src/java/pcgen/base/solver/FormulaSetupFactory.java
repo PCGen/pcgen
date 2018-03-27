@@ -124,7 +124,7 @@ public class FormulaSetupFactory
 	 * Sets the Supplier that will generate a LegalScopeManager for this
 	 * FormulaSetupFactory.
 	 * 
-	 * @param solverFactorySupplier
+	 * @param legalScopeManagerSupplier
 	 *            The Supplier that will generate a LegalScopeManager for this
 	 *            FormulaSetupFactory
 	 */
@@ -138,7 +138,7 @@ public class FormulaSetupFactory
 	 * Sets the Supplier that will generate a FunctionLibrary for this
 	 * FormulaSetupFactory.
 	 * 
-	 * @param solverFactorySupplier
+	 * @param functionLibrarySupplier
 	 *            The Supplier that will generate a FunctionLibrary for this
 	 *            FormulaSetupFactory
 	 */
@@ -152,7 +152,7 @@ public class FormulaSetupFactory
 	 * Sets the Supplier that will generate a OperatorLibrary for this
 	 * FormulaSetupFactory.
 	 * 
-	 * @param solverFactorySupplier
+	 * @param operatorLibrarySupplier
 	 *            The Supplier that will generate a OperatorLibrary for this
 	 *            FormulaSetupFactory
 	 */
@@ -166,7 +166,7 @@ public class FormulaSetupFactory
 	 * Sets the Function that will generate a VariableLibrary for this
 	 * FormulaSetupFactory.
 	 * 
-	 * @param solverFactorySupplier
+	 * @param variableLibraryFunction
 	 *            The Function that will generate a VariableLibrary for this
 	 *            FormulaSetupFactory
 	 */
@@ -180,7 +180,7 @@ public class FormulaSetupFactory
 	 * Sets the Function that will generate a ScopeInstanceFactory for this
 	 * FormulaSetupFactory.
 	 * 
-	 * @param solverFactorySupplier
+	 * @param scopeInstanceFactoryFunction
 	 *            The Function that will generate a ScopeInstanceFactory for this
 	 *            FormulaSetupFactory
 	 */
@@ -193,7 +193,7 @@ public class FormulaSetupFactory
 	/**
 	 * Sets the Supplier that will generate a VariableStore for this FormulaSetupFactory.
 	 * 
-	 * @param solverFactorySupplier
+	 * @param variableStoreSupplier
 	 *            The Supplier that will generate a VariableStore for this
 	 *            FormulaSetupFactory
 	 */
