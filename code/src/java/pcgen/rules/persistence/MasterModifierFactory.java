@@ -17,17 +17,16 @@
  */
 package pcgen.rules.persistence;
 
-import pcgen.base.calculation.IgnoreVariables;
-
 import java.util.Optional;
 
 import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.calculation.IgnoreVariables;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.ManagerKey;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.helper.ReferenceDependency;
 import pcgen.rules.persistence.token.ModifierFactory;
 
@@ -72,14 +71,14 @@ public class MasterModifierFactory
 	 *            The ManagerFactory to be used to support analyzing the
 	 *            instructions
 	 * @param varScope
-	 *            The VariableScope for the FormulaModifier to be returned
+	 *            The PCGenScope for the FormulaModifier to be returned
 	 * @param formatManager
 	 *            The FormatManager for the FormulaModifier to be returned
 	 * @return a FormulaModifier representing the information given in the
 	 *         parameters
 	 */
 	public <T> FormulaModifier<T> getModifier(String modIdentifier,
-		String modInstructions, ManagerFactory managerFactory, LegalScope varScope,
+		String modInstructions, ManagerFactory managerFactory, PCGenScope varScope,
 		FormatManager<T> formatManager)
 	{
 		Class<T> varClass = formatManager.getManagedClass();

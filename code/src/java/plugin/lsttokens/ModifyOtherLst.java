@@ -37,6 +37,7 @@ import pcgen.cdom.base.ObjectGrouping;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -82,7 +83,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		 * is "" and thus would have failed the tests imposed by
 		 * AbstractTokenWithSeparator
 		 */
-		final LegalScope lvs = context.getVariableContext().getScope(scopeName);
+		PCGenScope lvs = context.getVariableContext().getScope(scopeName);
 		if (lvs == null)
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -102,7 +103,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 	private <GT extends VarScoped> ParseResult continueParsing(
 		LoadContext context, CDOMObject obj, String value, ParsingSeparator sep)
 	{
-		final LegalScope scope = context.getActiveScope();
+		PCGenScope scope = context.getActiveScope();
 		final String groupingName = sep.next();
 		ObjectGrouping group;
 		if (groupingName.startsWith("GROUP="))
@@ -120,7 +121,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 
 				@Override
-				public LegalScope getScope()
+				public PCGenScope getScope()
 				{
 					return scope;
 				}
@@ -144,7 +145,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 
 				@Override
-				public LegalScope getScope()
+				public PCGenScope getScope()
 				{
 					return scope;
 				}
@@ -169,7 +170,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 
 				@Override
-				public LegalScope getScope()
+				public PCGenScope getScope()
 				{
 					return scope;
 				}

@@ -86,13 +86,24 @@ public class VariableContext
 		return modFactory;
 	}
 
-	/*
-	 * For Tokens
+	/**
+	 * Returns a FormulaModifier based on the given information.
+	 * 
+	 * @param modType
+	 *            The type of the modifier to be generated (e.g. "ADD")
+	 * @param instructions
+	 *            The instructions for the modifier
+	 * @param varScope
+	 *            The PCGenScope in which the FormulaModifier is operating
+	 * @param formatManager
+	 *            The FormatManager indicating the format of the object being operated on
+	 *            by the FormulaModifier
+	 * @return a FormulaModifier based on the given information
 	 */
-	public <T> FormulaModifier<T> getModifier(String modType, String modValue,
-		LegalScope varScope, FormatManager<T> formatManager)
+	public <T> FormulaModifier<T> getModifier(String modType, String instructions,
+		PCGenScope varScope, FormatManager<T> formatManager)
 	{
-		return getModFactory().getModifier(modType, modValue, managerFactory,
+		return getModFactory().getModifier(modType, instructions, managerFactory,
 			varScope, formatManager);
 	}
 

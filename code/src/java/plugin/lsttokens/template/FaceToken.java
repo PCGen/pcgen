@@ -20,11 +20,11 @@ package plugin.lsttokens.template;
 import java.util.Collection;
 
 import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.PCTemplate;
@@ -74,7 +74,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		FormatManager<OrderedPair> formatManager =
 				(FormatManager<OrderedPair>) context.getReferenceContext()
 					.getFormatManager("ORDEREDPAIR");
-		LegalScope scope = context.getActiveScope();
+		PCGenScope scope = context.getActiveScope();
 		FormulaModifier<OrderedPair> modifier;
 		try
 		{

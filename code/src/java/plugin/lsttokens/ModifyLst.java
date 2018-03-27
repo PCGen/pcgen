@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -33,6 +32,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -80,7 +80,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail(getTokenName() + " may not be empty");
 		}
 
-		LegalScope scope = context.getActiveScope();
+		PCGenScope scope = context.getActiveScope();
 		String varName = sep.next();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{

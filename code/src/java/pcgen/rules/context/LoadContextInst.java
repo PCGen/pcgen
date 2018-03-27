@@ -24,7 +24,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.FormatManager;
@@ -87,7 +86,10 @@ abstract class LoadContextInst implements LoadContext
 	//Per file
 	private CDOMObject stateful;
 	
-	private LegalScope legalScope = null;
+	/**
+	 * The current PCGenScope for this LoadContext.
+	 */
+	private PCGenScope legalScope = null;
 
 	static
 	{
@@ -533,7 +535,7 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public LegalScope getActiveScope()
+	public PCGenScope getActiveScope()
 	{
 		if (legalScope == null)
 		{
@@ -584,9 +586,12 @@ abstract class LoadContextInst implements LoadContext
 		/**
 		 * The derived Scope for this DerivedLoadContext
 		 */
-		private final LegalScope derivedScope;
+		private final PCGenScope derivedScope;
 
-		public DerivedLoadContext(LoadContext parent, LegalScope scope)
+		/**
+		 * Constructs a new LoadContext derived from the given LoadContext
+		 */
+		public DerivedLoadContext(LoadContext parent, PCGenScope scope)
 		{
 			this.derivedScope = scope;
 			this.parent = parent;
@@ -806,7 +811,7 @@ abstract class LoadContextInst implements LoadContext
 		}
 
 		@Override
-		public LegalScope getActiveScope()
+		public PCGenScope getActiveScope()
 		{
 			return derivedScope;
 		}
