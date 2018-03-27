@@ -140,10 +140,19 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 			throw new IllegalArgumentException(
 				readInterface.getSimpleName() + " had no methods");
 		}
+		processMethods(readMethods, writeMethods);
+	}
+
+	private void processMethods(Method[] readMethods, Method[] writeMethods)
+	{
+		List<Method> readMethodList = new ArrayList<>(Arrays.asList(readMethods));
 		Set<Object> propertyNames = Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		Set<Object> writeMethodNames =
 				Collections.newSetFromMap(new CaseInsensitiveMap<>());
-		List<Method> readMethodList = new ArrayList<>(Arrays.asList(readMethods));
+		Set<Object> unusedMethodNames =
+				Collections.newSetFromMap(new CaseInsensitiveMap<>());
+		Set<Object> consumedMethodNames =
+				Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		METHODS: for (Method method : writeMethods)
 		{
 			String name = method.getName();
@@ -165,12 +174,18 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 					setMethods.add(name);
 					Method claimed = processor.claimMethod(method, readMethods);
 					readMethodList.remove(claimed);
+					consumedMethodNames.add(claimed.getName());
 					getProcessors.put(claimed.getName(), processor);
 					continue METHODS;
 				}
 			}
+			unusedMethodNames.add(name);
+		}
+		unusedMethodNames.removeAll(consumedMethodNames);
+		if (!unusedMethodNames.isEmpty())
+		{
 			throw new IllegalArgumentException(
-				"Unsure how to process Method Name: " + name);
+				"Unable to process method names: " + unusedMethodNames);
 		}
 		if (!readMethodList.isEmpty())
 		{
