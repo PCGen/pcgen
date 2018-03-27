@@ -89,7 +89,7 @@ public final class ArgFunction implements FormulaFunction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
+	public FormatManager<?> allowArgs(SemanticsVisitor visitor,
 		Node[] args, FormulaSemantics semantics)
 	{
 		if (args.length != 1)
