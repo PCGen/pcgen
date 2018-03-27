@@ -90,7 +90,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 			{
 				Logging.log(Level.WARNING, "Found duplicate item in " + pcsCollection);
 			}
-			pcsSet.add(PrimitiveChoiceSet.INVALID);
+			pcsSet.add(PrimitiveChoiceSet.getInvalid());
 		}
 		separator = sep;
 	}

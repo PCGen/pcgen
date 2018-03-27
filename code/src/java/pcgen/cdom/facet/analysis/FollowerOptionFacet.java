@@ -148,6 +148,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 	 *         null if no information has been set in this FollowerOptionFacet
 	 *         for the Player Character
 	 */
+	@SuppressWarnings("unchecked")
 	private CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> getCachedMap(
 			CharID id)
 	{

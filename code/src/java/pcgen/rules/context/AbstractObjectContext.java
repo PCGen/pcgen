@@ -786,6 +786,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		public <T extends CDOMObject> T cloneConstructedCDOMObject(T obj,
 				String newName)
 		{
+			@SuppressWarnings("unchecked")
 			Class<T> cl = (Class<T>) obj.getClass();
 			try
 			{
