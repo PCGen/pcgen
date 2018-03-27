@@ -65,6 +65,11 @@ public interface PrimitiveChoiceSet<T>
 		}
 	};
 
+	/**
+	 * Returns an "Invalid" PrimitiveChoiceSet.
+	 * 
+	 * @return An "Invalid" PrimitiveChoiceSet
+	 */
 	@SuppressWarnings("unchecked")
 	public static <T> PrimitiveChoiceSet<T> getInvalid()
 	{

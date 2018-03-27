@@ -94,6 +94,11 @@ public interface PrimitiveCollection<T>
 	 */
 	public static PrimLibrary FIXED = new PrimLibrary()
 	{
+		/**
+		 * Returns an "Invalid" PrimitiveCollection.
+		 * 
+		 * @return An "Invalid" PrimitiveCollection
+		 */
 		@SuppressWarnings("unchecked")
 		@Override
 		public <PCT> PrimitiveCollection<PCT> invalid()
