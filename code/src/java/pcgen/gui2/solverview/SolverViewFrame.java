@@ -69,16 +69,16 @@ public class SolverViewFrame extends JFrame
 	private final VarScopedFacet varScopedFacet =
 			FacetLibrary.getFacet(VarScopedFacet.class);
 
-	private final JComboBoxEx scopeChooser;
+	private final JComboBoxEx<LegalScopeWrapper> scopeChooser;
 	private LegalScope selectedScope;
 
 	private final JTextField varName;
 	private String varNameText = "                               ";
 
-	private final JComboBoxEx objectChooser;
+	private final JComboBoxEx<ObjectNameDisplayer> objectChooser;
 	private VarScoped activeObject;
 
-	private final JComboBoxEx identifierChooser;
+	private final JComboBoxEx<PCRef> identifierChooser;
 	private CharID activeIdentifier;
 
 	private JTable viewTable;
@@ -87,7 +87,7 @@ public class SolverViewFrame extends JFrame
 
 	public SolverViewFrame()
 	{
-		identifierChooser = new JComboBoxEx();
+		identifierChooser = new JComboBoxEx<>();
 		for (CharacterFacade pcf : CharacterManager.getCharacters())
 		{
 			String pcname = pcf.getNameRef().get();
@@ -96,10 +96,10 @@ public class SolverViewFrame extends JFrame
 		}
 		identifierChooser.addActionListener(new IdentifierActionListener());
 
-		objectChooser = new JComboBoxEx();
+		objectChooser = new JComboBoxEx<>();
 		objectChooser.addActionListener(new ObjectActionListener());
 
-		scopeChooser = new JComboBoxEx();
+		scopeChooser = new JComboBoxEx<>();
 		scopeChooser.addActionListener(new ScopeActionListener());
 
 		identifierChooser.setSelectedItem(identifierChooser.getItemAt(0));
@@ -300,7 +300,7 @@ public class SolverViewFrame extends JFrame
 		gridbag.setConstraints(varName, c);
 		getContentPane().add(varName);
 
-		tableModel = new SolverTableModel();
+		tableModel = new SolverTableModel<>();
 		viewTable = new JTable(tableModel);
 
 		viewTable.getColumnModel().getColumn(0).setPreferredWidth(25);

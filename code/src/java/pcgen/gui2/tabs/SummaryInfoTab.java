@@ -170,26 +170,26 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.racePanel = new JPanel();
 		this.classPanel = new JPanel();
 		this.characterNameField = new JTextField();
-		this.characterTypeComboBox = new JComboBox();
+		this.characterTypeComboBox = new JComboBox<>();
 		this.random = new JButton();
 		FontManipulation.xsmall(random);
 		this.playerNameField = new JTextField();
 		this.expField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.nextlevelField = new JFormattedTextField(NumberFormat.getIntegerInstance());
-		this.xpTableComboBox = new JComboBox();
+		this.xpTableComboBox = new JComboBox<>();
 		this.expmodField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.addLevelsField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.removeLevelsField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.statsTable = new JTable();
 		this.classLevelTable = new JTable();
 		this.languageTable = new JTable();
-		this.genderComboBox = new JComboBox();
-		this.handsComboBox = new JComboBox();
-		this.alignmentComboBox = new JComboBox();
-		this.deityComboBox = new JComboBox();
-		this.raceComboBox = new JComboBox();
-		this.ageComboBox = new JComboBox();
-		this.classComboBox = new JComboBox();
+		this.genderComboBox = new JComboBox<>();
+		this.handsComboBox = new JComboBox<>();
+		this.alignmentComboBox = new JComboBox<>();
+		this.deityComboBox = new JComboBox<>();
+		this.raceComboBox = new JComboBox<>();
+		this.ageComboBox = new JComboBox<>();
+		this.classComboBox = new JComboBox<>();
 		this.tabLabelField = new JTextField();
 		this.ageField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.generateRollsButton = new JButton();
@@ -1479,16 +1479,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		private ReferenceFacade<String> reference = null;
 		private final JLabel label;
-
-		/**
-		 * Create a new label handler.
-		 *
-		 * @param label The label to be managed
-		 */
-		public LabelHandler(JLabel label)
-		{
-			this(label, null);
-		}
 
 		/**
 		 * Create a new label handler.

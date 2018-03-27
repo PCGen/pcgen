@@ -46,7 +46,7 @@ import pcgen.gui2.util.FacadeListModel;
  */
 @SuppressWarnings("serial")
 public abstract class DeferredCharacterComboBoxModel<E> extends
-		FacadeListModel<E> implements ComboBoxModel, ReferenceListener<E>,
+		FacadeListModel<E> implements ComboBoxModel<E>, ReferenceListener<E>,
 		FocusListener
 {
 

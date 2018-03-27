@@ -189,9 +189,9 @@ public class Gui2InfoFactory implements InfoFactory
 		
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
-		if (!race.getKeyName().startsWith("<none"))
+		if (!race.isUnselected())
 		{
-			infoText.appendTitleElement(OutputNameFormatting.piString(race, false));
+			infoText.appendTitleElement(OutputNameFormatting.piString(race));
 
 			infoText.appendLineBreak();
 			RaceType rt = race.get(ObjectKey.RACETYPE);
@@ -261,7 +261,7 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendLineBreak();
 				infoText.appendI18nFormattedElement("in_irInfoMonsterClass", //$NON-NLS-1$
 					String.valueOf(levelCommandFactory.getLevelCount()),
-					OutputNameFormatting.piString(levelCommandFactory.getPCClass(), false));
+					OutputNameFormatting.piString(levelCommandFactory.getPCClass()));
 				
 			}
 			String favoredClass = getFavoredClass(raceFacade);
@@ -303,8 +303,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		final HtmlInfoBuilder b =
-				new HtmlInfoBuilder(OutputNameFormatting
-					.piString(aClass, false));
+				new HtmlInfoBuilder(OutputNameFormatting.piString(aClass));
 		b.appendLineBreak();
 
 		// Subclass cost - at the top to make choices easier
@@ -430,7 +429,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
-		infoText.appendTitleElement(OutputNameFormatting.piString(skill, false));
+		infoText.appendTitleElement(OutputNameFormatting.piString(skill));
 
 		infoText.appendLineBreak();
 		String typeString = StringUtil.join(skill.getTrueTypeList(true), ". ");
@@ -523,7 +522,7 @@ public class Gui2InfoFactory implements InfoFactory
 		Ability ability = (Ability) abilityFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
-		infoText.appendTitleElement(OutputNameFormatting.piString(ability, false));
+		infoText.appendTitleElement(OutputNameFormatting.piString(ability));
 		infoText.appendLineBreak();
 
 		infoText.appendI18nFormattedElement("Ability.Info.Type", //$NON-NLS-1$
@@ -611,57 +610,50 @@ public class Gui2InfoFactory implements InfoFactory
 		Deity aDeity = (Deity) deityFacade;
 		
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
-		if (aDeity != null)
+
+		infoText.appendTitleElement(OutputNameFormatting.piString(aDeity));
+		infoText.appendLineBreak();
+
+		infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+			DescriptionFormatting.piWrapDesc(aDeity, pc.getDescription(aDeity), false));
+
+		appendFacts(infoText, aDeity);
+
+		String aString = getPantheons(aDeity);
+		if (aString != null)
 		{
-			infoText.appendTitleElement(OutputNameFormatting.piString(aDeity, false));
-			infoText.appendLineBreak();
-
-			infoText
-				.appendI18nFormattedElement(
-					"in_InfoDescription", DescriptionFormatting.piWrapDesc(aDeity, pc.getDescription(aDeity), false)); //$NON-NLS-1$
-			
-			appendFacts(infoText, aDeity);
-
-			String aString = getPantheons(aDeity);
-			if (aString != null)
-			{
-				infoText.appendSpacer();
-				infoText.appendI18nElement(
-						"in_pantheon", aString); //$NON-NLS-1$
-			}
-
 			infoText.appendSpacer();
-			infoText.appendI18nElement(
-				"in_domains", getDomains(aDeity)); //$NON-NLS-1$
-
-			List<CDOMReference<WeaponProf>> dwp = aDeity.getListFor(
-					ListKey.DEITYWEAPON);
-			if (dwp != null)
-			{
-				infoText.appendSpacer();
-				infoText.appendI18nFormattedElement(
-					"in_deityFavWeap", //$NON-NLS-1$
-					ReferenceUtilities.joinLstFormat(dwp, "|"));
-			}
-
-			aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
-			aDeity.getPrerequisiteList(), false);
-			if (!aString.isEmpty())
-			{
-				infoText.appendSpacer();
-				infoText.appendI18nFormattedElement("in_InfoRequirements", //$NON-NLS-1$
-					aString);
-			}
-
-			aString = aDeity.getSource();
-			if (!aString.isEmpty())
-			{
-				infoText.appendSpacer();
-				infoText.appendI18nFormattedElement("in_InfoSource", //$NON-NLS-1$
-					aString);
-			}
-
+			infoText.appendI18nElement("in_pantheon", aString); //$NON-NLS-1$
 		}
+
+		infoText.appendSpacer();
+		infoText.appendI18nElement("in_domains", getDomains(aDeity)); //$NON-NLS-1$
+
+		List<CDOMReference<WeaponProf>> dwp = aDeity.getListFor(ListKey.DEITYWEAPON);
+		if (dwp != null)
+		{
+			infoText.appendSpacer();
+			infoText.appendI18nFormattedElement("in_deityFavWeap", //$NON-NLS-1$
+				ReferenceUtilities.joinLstFormat(dwp, "|"));
+		}
+
+		aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			aDeity.getPrerequisiteList(), false);
+		if (!aString.isEmpty())
+		{
+			infoText.appendSpacer();
+			infoText.appendI18nFormattedElement("in_InfoRequirements", //$NON-NLS-1$
+				aString);
+		}
+
+		aString = aDeity.getSource();
+		if (!aString.isEmpty())
+		{
+			infoText.appendSpacer();
+			infoText.appendI18nFormattedElement("in_InfoSource", //$NON-NLS-1$
+				aString);
+		}
+
 		return infoText.toString();
 	}
 
@@ -682,7 +674,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (aDomain != null)
 		{
-			infoText.appendTitleElement(OutputNameFormatting.piString(aDomain, false));
+			infoText.appendTitleElement(OutputNameFormatting.piString(aDomain));
 
 			appendFacts(infoText, aDomain);
 
@@ -758,7 +750,7 @@ public class Gui2InfoFactory implements InfoFactory
 	private HtmlInfoBuilder getEquipmentHtmlInfo(Equipment equip)
 	{
 		final StringBuilder title = new StringBuilder(50);
-		title.append(OutputNameFormatting.piString(equip, false));
+		title.append(OutputNameFormatting.piString(equip));
 
 		if (!equip.longName().equals(equip.getName()))
 		{
@@ -1077,7 +1069,7 @@ public class Gui2InfoFactory implements InfoFactory
 		Equipment equip = (Equipment) equipFacade;
 
 		final StringBuilder title = new StringBuilder(50);
-		title.append(OutputNameFormatting.piString(equipMod, false));
+		title.append(OutputNameFormatting.piString(equipMod));
 
 		final HtmlInfoBuilder b = new HtmlInfoBuilder(null, false);
 		b.appendTitleElement(title.toString());
@@ -1211,8 +1203,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
-		infoText.appendTitleElement(OutputNameFormatting.piString(template,
-			false));
+		infoText.appendTitleElement(OutputNameFormatting.piString(template));
 
 		appendFacts(infoText, template);
 
@@ -1276,7 +1267,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
-		infoText.appendTitleElement(OutputNameFormatting.piString(kit, false));
+		infoText.appendTitleElement(OutputNameFormatting.piString(kit));
 
 		appendFacts(infoText, kit);
 
@@ -1370,7 +1361,7 @@ public class Gui2InfoFactory implements InfoFactory
 		else
 		{
 			infoText = new HtmlInfoBuilder();
-			infoText.appendTitleElement(OutputNameFormatting.piString(originObj, false));
+			infoText.appendTitleElement(OutputNameFormatting.piString(originObj));
 			infoText.append(" (").append(tempBonus.getOriginType()).append(")"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
@@ -1744,7 +1735,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		final HtmlInfoBuilder b =
-				new HtmlInfoBuilder(OutputNameFormatting.piString(aSpell, false));
+				new HtmlInfoBuilder(OutputNameFormatting.piString(aSpell));
 
 		if (si != null)
 		{
@@ -1914,7 +1905,7 @@ public class Gui2InfoFactory implements InfoFactory
 			if (!spellCountMap.isEmpty())
 			{
 				b.append("<table border=1><tr><td><font size=-1><b>"); //$NON-NLS-1$
-				b.append(OutputNameFormatting.piString(pcClass, false));
+				b.append(OutputNameFormatting.piString(pcClass));
 				b.append("</b></font></td>"); //$NON-NLS-1$
 
 				for (int i = 0; i <= highestSpellLevel; ++i)
@@ -2255,7 +2246,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			for (Domain d : ref.getContainedObjects())
 			{
-				set.add(OutputNameFormatting.piString(d, false));
+				set.add(OutputNameFormatting.piString(d));
 			}
 		}
 		final StringBuilder piString = new StringBuilder(100);
@@ -2275,13 +2266,10 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		Deity deity = (Deity) deityFacade;
 		Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-		if (deity != null)
+		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
+		for (Indirect<String> indirect : deity.getSafeSetFor(fk))
 		{
-			FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-			for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-			{
-				set.add(indirect.get());
-			}
+			set.add(indirect.get());
 		}
 		final StringBuilder piString = new StringBuilder(100);
 		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$

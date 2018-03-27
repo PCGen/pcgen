@@ -767,7 +767,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			{
 				throw new IllegalStateException("The CharacterComboBoxModel has already been set"); //$NON-NLS-1$
 			}
-			this.combobox = new JComboBox(model);
+			this.combobox = new JComboBox<>(model);
 			combobox.setPreferredSize(new Dimension(10, templateTextField.getPreferredSize().height));
 		}
 

@@ -66,7 +66,6 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	private final CharacterLevelsFacade levels;
 	private final ListSelectionModel selectionModel;
 	private FilteredTreeViewTable<CharacterFacade, SkillFacade> table;
-	private boolean displayCostTrees = false;
 
 	public SkillTreeViewModel(CharacterFacade character, ListSelectionModel selectionModel)
 	{

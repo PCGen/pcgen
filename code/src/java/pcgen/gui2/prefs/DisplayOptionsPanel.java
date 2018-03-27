@@ -52,24 +52,16 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	private static final String in_displayOpts =
 			LanguageBundle.getString("in_Prefs_displayOpts"); //$NON-NLS-1$
 
-//	private static String in_useAutoWaitCursor =
-//			LanguageBundle.getString("in_Prefs_useAutoWaitCursor");
 	private static final String in_useOutputNamesEquipment =
 			LanguageBundle.getString("in_Prefs_useOutputNamesEquipment"); //$NON-NLS-1$
 	private static final String in_useOutputNamesSpells =
 			LanguageBundle.getString("in_Prefs_useOutputNamesSpells"); //$NON-NLS-1$
 	private static final String in_useOutputNamesOther =
 			LanguageBundle.getString("in_Prefs_useOutputNamesOther"); //$NON-NLS-1$
-//	private static String in_showMemory =
-//			LanguageBundle.getString("in_Prefs_showMemory");
-//	private static String in_showImagePreview =
-//			LanguageBundle.getString("in_Prefs_showImagePreview");
 	private static final String in_showSkillModifierBreakdown =
 			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown"); //$NON-NLS-1$
 	private static final String in_showSkillRanksBreakdown =
 			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown"); //$NON-NLS-1$
-//	private static String in_showToolBar =
-//			LanguageBundle.getString("in_Prefs_showToolBar");
 	private static final String in_singleChoiceOption =
 			LanguageBundle.getString("in_Prefs_singleChoiceOption"); //$NON-NLS-1$
 	private static final String in_cmNone =
@@ -81,17 +73,13 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	private static final String[] singleChoiceMethods =
 			{in_cmNone, in_cmSelect, in_cmSelectExit};
 
-//	private JCheckBox showToolbar = new JCheckBox();
 	private final JCheckBox showSkillModifier = new JCheckBox();
 	private final JCheckBox showSkillRanks = new JCheckBox();
-//	private JCheckBox showMemory = new JCheckBox();
-//	private JCheckBox showImagePreview = new JCheckBox();
 
 	private final JCheckBox useOutputNamesEquipment = new JCheckBox();
 	private final JCheckBox useOutputNamesSpells = new JCheckBox();
 	private final JCheckBox useOutputNamesOther = new JCheckBox();
-//	private JCheckBox waitCursor = new JCheckBox();
-	private final JComboBoxEx cmbChoiceMethods = new JComboBoxEx(singleChoiceMethods);
+	private final JComboBoxEx<String> cmbChoiceMethods = new JComboBoxEx<>(singleChoiceMethods);
 
 	/**
 	 * Instantiates a new display options panel.
@@ -111,7 +99,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		gridbag = new GridBagLayout();
 		this.setLayout(gridbag);
 		c = new GridBagConstraints();
-		//c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 
@@ -119,13 +106,9 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		final SortedMap<String, JComponent> options =
                 new TreeMap<>();
 
-//		options.put(in_showMemory, showMemory);
-//		options.put(in_showImagePreview, showImagePreview);
 		options.put(in_showSkillModifierBreakdown, showSkillModifier);
 		options.put(in_showSkillRanksBreakdown, showSkillRanks);
-//		options.put(in_showToolBar, showToolbar);
 		options.put(in_singleChoiceOption, cmbChoiceMethods);
-//		options.put(in_useAutoWaitCursor, waitCursor);
 		options.put(in_useOutputNamesEquipment, useOutputNamesEquipment);
 		options.put(in_useOutputNamesSpells, useOutputNamesSpells);
 		options.put(in_useOutputNamesOther, useOutputNamesOther);
@@ -182,10 +165,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-//		SettingsHandler.setShowMemoryArea(showMemory.isSelected());
-//		SettingsHandler.setShowImagePreview(showImagePreview.isSelected());
-//		SettingsHandler.setToolBarShown(showToolbar.isSelected());
-//		SettingsHandler.setUseWaitCursor(waitCursor.isSelected());
 		SettingsHandler.setGUIUsesOutputNameEquipment(useOutputNamesEquipment
 			.isSelected());
 		SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells
@@ -211,13 +190,10 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	{
 		cmbChoiceMethods.setSelectedIndex(UIPropertyContext
 			.getSingleChoiceAction());
-//		showMemory.setSelected(SettingsHandler.isShowMemoryArea());
-//		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());
 		showSkillModifier.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false));
 		showSkillRanks.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false));
-//		showToolbar.setSelected(SettingsHandler.isToolBarShown());
 		useOutputNamesEquipment.setSelected(SettingsHandler
 			.guiUsesOutputNameEquipment());
 		useOutputNamesSpells.setSelected(SettingsHandler
@@ -225,7 +201,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		useOutputNamesOther.setSelected(PCGenSettings.OPTIONS_CONTEXT
 			.getBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS,
 				false));
-		//		waitCursor.setSelected(SettingsHandler.getUseWaitCursor());
 	}
 
 }

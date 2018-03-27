@@ -125,9 +125,8 @@ public final class TipOfTheDayHandler
 	{
 		final File tipsFile = new File(tipsFilePath);
 
-		//final BufferedReader tipsReader = new BufferedReader(new FileReader(tipsFile));
-		final BufferedReader tipsReader = new BufferedReader(new InputStreamReader(new FileInputStream(tipsFile),
-				"UTF-8"));
+		final BufferedReader tipsReader = new BufferedReader(
+			new InputStreamReader(new FileInputStream(tipsFile), "UTF-8"));
 		final int length = (int) tipsFile.length();
 		final char[] inputLine = new char[length];
 		tipsReader.read(inputLine, 0, length);

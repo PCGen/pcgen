@@ -110,9 +110,9 @@ public class OutputPanel extends PCGenPrefsPanel
 	private final JTextField outputSheetPDFDefault;
 	private final JTextField outputSheetSpellsDefault;
 
-	private JComboBoxEx paperType = new JComboBoxEx();
-	private final JComboBoxEx skillFilter = new JComboBoxEx();
-	private final JComboBox exportChoice = new JComboBox(ExportChoices.values());
+	private JComboBoxEx<String> paperType = new JComboBoxEx<>();
+	private final JComboBoxEx<SkillFilter> skillFilter = new JComboBoxEx<>();
+	private final JComboBox<ExportChoices> exportChoice = new JComboBox<>(ExportChoices.values());
 
 	private final JTextField postExportCommandStandard;
 	private final JTextField postExportCommandPDF;
@@ -251,7 +251,7 @@ public class OutputPanel extends PCGenPrefsPanel
 			paperNames[i] = Globals.getPaperInfo(i, PaperInfo.NAME);
 		}
 
-		paperType = new JComboBoxEx(paperNames);
+		paperType = new JComboBoxEx<>(paperNames);
 		gridbag.setConstraints(paperType, c);
 		this.add(paperType);
 
@@ -293,7 +293,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 11, GridBagConstraints.REMAINDER, 1, 0, 0);
-		skillFilter.setModel(new DefaultComboBoxModel(new SkillFilter[]{
+		skillFilter.setModel(new DefaultComboBoxModel<>(new SkillFilter[]{
 			SkillFilter.Ranks, SkillFilter.NonDefault, SkillFilter.Usable, 
 			SkillFilter.All}));
 		skillFilter.setSelectedItem(SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(

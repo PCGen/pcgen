@@ -88,10 +88,10 @@ public class NameGenPanel extends JPanel
 	private JButton generateButton;
 	private JButton jButton1;
 	private JCheckBox chkStructure;
-	private JComboBox cbCatalog;
-	private JComboBox cbCategory;
-	private JComboBox cbSex;
-	private JComboBox cbStructure;
+	private JComboBox<RuleSet> cbCatalog;
+	private JComboBox<String> cbCategory;
+	private JComboBox<String> cbSex;
+	private JComboBox<DataElement> cbStructure;
 	private JLabel jLabel1;
 	private JLabel jLabel2;
 	private JLabel jLabel3;
@@ -406,21 +406,21 @@ public class NameGenPanel extends JPanel
 		jPanel13 = new JPanel();
 		jPanel10 = new JPanel();
 		jLabel4 = new JLabel();
-		cbCatalog = new JComboBox();
+		cbCatalog = new JComboBox<>();
 		jPanel8 = new JPanel();
 		jLabel1 = new JLabel();
-		cbCategory = new JComboBox();
+		cbCategory = new JComboBox<>();
 		jPanel14 = new JPanel();
 		jPanel11 = new JPanel();
 		generateButton = new JButton();
 		jPanel9 = new JPanel();
 		jLabel5 = new JLabel();
-		cbSex = new JComboBox();
+		cbSex = new JComboBox<>();
 		jPanel7 = new JPanel();
 		jSeparator4 = new JSeparator();
 		jPanel12 = new JPanel();
 		jLabel6 = new JLabel();
-		cbStructure = new JComboBox();
+		cbStructure = new JComboBox<>();
 		chkStructure = new JCheckBox();
 		buttonPanel = new JPanel();
 		nameDisplayPanel = new JPanel();
@@ -642,8 +642,8 @@ public class NameGenPanel extends JPanel
 				}
 			}
 
-			ComboBoxModel catalogModel =
-					new DefaultComboBoxModel(catalogs);
+			ComboBoxModel<RuleSet> catalogModel =
+					new DefaultComboBoxModel<>(catalogs);
 			cbCatalog.setModel(catalogModel);
 			if(oldSelected>=0)
 			{
@@ -715,7 +715,7 @@ public class NameGenPanel extends JPanel
 		Collections.sort(selectable);
 
 		//	Create a new model for the combobox and set it
-		cbSex.setModel(new DefaultComboBoxModel(selectable));
+		cbSex.setModel(new DefaultComboBoxModel<>(selectable));
 		if (gender != null && selectable.contains(gender))
 		{
 			cbSex.setSelectedItem(gender);
@@ -806,7 +806,7 @@ public class NameGenPanel extends JPanel
 		//	This method now just loads the category dropdown from the list of 
 		//	category names
 		Vector<String> cats = this.getCategoryNames();
-		cbCategory.setModel(new DefaultComboBoxModel(cats));
+		cbCategory.setModel(new DefaultComboBoxModel<>(cats));
 
 		this.loadGenderDD();
 		this.loadCatalogDD();
@@ -951,7 +951,7 @@ public class NameGenPanel extends JPanel
 	{
 		if (chkStructure.isSelected())
 		{
-			cbStructure.setModel(new DefaultComboBoxModel());
+			cbStructure.setModel(new DefaultComboBoxModel<>());
 			cbStructure.setEnabled(false);
 		}
 		else
@@ -970,7 +970,8 @@ public class NameGenPanel extends JPanel
 				}
 			}
 
-			DefaultComboBoxModel structModel = new DefaultComboBoxModel(struct);
+			DefaultComboBoxModel<DataElement> structModel =
+					new DefaultComboBoxModel<>(struct);
 			cbStructure.setModel(structModel);
 			cbStructure.setEnabled(true);
 		}

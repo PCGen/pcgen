@@ -76,7 +76,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		this.portraitPane = new PortraitInfoPane();
 		this.bioPane = new BiographyInfoPane();
 		this.histPane = new CampaignHistoryInfoPane();
-		this.pageList = new JList();
+		this.pageList = new JList<>();
 		this.addButton = new JButton();
 		this.pagePanel = new JPanel();
 		initComponents();
@@ -126,7 +126,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	public ModelMap createModels(CharacterFacade character)
 	{
 		ModelMap models = new ModelMap();
-		DefaultListModel listModel = new DefaultListModel();
+		DefaultListModel<PageItem> listModel = new DefaultListModel<>();
 		List<NoteInfoPane> notePaneList = new ArrayList<>();
 
 		PageItem firstPage = new PageItem(character, LanguageBundle.getString("in_descBiography"), bioPane); //$NON-NLS-1$
@@ -177,11 +177,12 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 
 		private static final int NUM_NON_NOTE_NODES = 3;
 		private final ListFacade<NoteFacade> notes;
-		private final DefaultListModel listModel;
+		private final DefaultListModel<PageItem> listModel;
 		private final List<NoteInfoPane> notePaneList;
 		private final CharacterFacade character;
 
-		public NoteListHandler(CharacterFacade character, DefaultListModel listModel, List<NoteInfoPane> notePaneList)
+		public NoteListHandler(CharacterFacade character,
+			DefaultListModel<PageItem> listModel, List<NoteInfoPane> notePaneList)
 		{
 			this.character = character;
 			this.listModel = listModel;
@@ -196,7 +197,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		}
 
 		private NoteInfoPane createNotePane(NoteFacade note, CharacterFacade character,
-				DefaultListModel listModel, List<NoteInfoPane> notePaneList, int pos)
+				DefaultListModel<PageItem> listModel, List<NoteInfoPane> notePaneList, int pos)
 		{
 			NoteInfoPane notePane = new NoteInfoPane(note);
 			PageItem pageItem = new PageItem(character, note, notePane);

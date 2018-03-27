@@ -111,7 +111,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		this.selectedCampaigns = new DefaultListFacade<>();
 		this.availTreeViewModel = new SourceTreeViewModel();
 		this.selTreeViewModel = new SourceTreeViewModel(selectedCampaigns);
-		this.gameModeList = new JComboBox();
+		this.gameModeList = new JComboBox<>();
 		this.unloadAllButton = new JButton();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();

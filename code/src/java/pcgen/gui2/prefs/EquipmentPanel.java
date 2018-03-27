@@ -54,10 +54,6 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	private static final int SPELLLVLMIN = 0;
 	private static final int SPELLLVLMAX = 9;
 
-	private static final String[] potionSpellLevel =
-		new String[SPELLLVLMAX - SPELLLVLMIN + 1];
-	private static final String[] wandSpellLevel =
-		new String[SPELLLVLMAX - SPELLLVLMIN + 1];
 	private static final String in_allowMetamagic =
 		LanguageBundle.getString("in_Prefs_allowMetamagic"); //$NON-NLS-1$
 	private static final String in_anyAutoEquip =

@@ -146,7 +146,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		this.wealthLabel = new JFormattedTextField(NumberFormat.getNumberInstance());
 		this.goldField = new JFormattedTextField(NumberFormat.getNumberInstance());
 		this.goldModField = new JFormattedTextField(NumberFormat.getNumberInstance());
-		this.buySellRateBox = new JComboBox();
+		this.buySellRateBox = new JComboBox<>();
 		this.fundsAddButton = new JButton();
 		this.fundsSubtractButton = new JButton();
 		this.allowDebt = new JCheckBox();
@@ -1164,61 +1164,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private class PurchaseTransferHandler extends TransferHandler
-	{
-
-		private final CharacterFacade character;
-
-		public PurchaseTransferHandler(CharacterFacade character)
-		{
-			this.character = character;
-		}
-
-		@Override
-		public int getSourceActions(JComponent c)
-		{
-			return MOVE;
-		}
-
-		@Override
-		protected Transferable createTransferable(JComponent c)
-		{
-			List<?> data = purchasedTable.getSelectedData();
-
-			if (data == null)
-			{
-				return null;
-			}
-			Iterator<?> it = data.iterator();
-			while (it.hasNext())
-			{
-				if (!(it.next() instanceof EquipmentFacade))
-				{
-					it.remove();
-				}
-			}
-			if (data.isEmpty())
-			{
-				return null;
-			}
-
-			EquipmentFacade[] equipArray = data.toArray(new EquipmentFacade[data.size()]);
-			return new EquipmentSelection(equipArray);
-		}
-
-		@Override
-		public boolean canImport(TransferSupport support)
-		{
-			if (!support.isDataFlavorSupported(equipmentArrayFlavor))
-			{
-				return false;
-			}
-			support.setShowDropLocation(false);
-			return true;
-		}
-
-	}
-
 	private class EquipmentTransferHandler extends TransferHandler
 	{
 
@@ -1505,7 +1450,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				if (dest != character)
 				{
-					copyMenu.add(new CopyItemMenuItem(character, dest, targets));
+					copyMenu.add(new CopyItemMenuItem(dest, targets));
 					copyMenu.setEnabled(true);
 				}
 			}
@@ -1694,14 +1639,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class CopyItemMenuItem extends JMenuItem implements ActionListener
 	{
 
-		private final CharacterFacade character;
 		private final CharacterFacade destination;
 		private final List<EquipmentFacade> targets;
 
-		CopyItemMenuItem(CharacterFacade character, CharacterFacade destination, List<EquipmentFacade> targets)
+		CopyItemMenuItem(CharacterFacade destination, List<EquipmentFacade> targets)
 		{
 			super(destination.getNameRef().get());
-			this.character = character;
 			this.destination = destination;
 			this.targets = targets;
 
