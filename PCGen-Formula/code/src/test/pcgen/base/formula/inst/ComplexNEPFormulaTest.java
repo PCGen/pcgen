@@ -98,8 +98,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		new ComplexNEPFormula<Number>("(3+5)*7", numberMgr).isValid(fs);
 		assertEquals(true, fs.isValid());
 
-		getVariableLibrary().assertLegalVariableID("a", getGlobalScope(), numberMgr);
-		getVariableLibrary().assertLegalVariableID("b", getGlobalScope(), numberMgr);
+		getVariableLibrary().assertLegalVariableID("a", getInstanceFactory().getScope("Global"), numberMgr);
+		getVariableLibrary().assertLegalVariableID("b", getInstanceFactory().getScope("Global"), numberMgr);
 		new ComplexNEPFormula<Number>("a-b", numberMgr).isValid(fs);
 		assertEquals(true, fs.isValid());
 		new ComplexNEPFormula<Number>("if(a>=b,5,9)", numberMgr).isValid(fs);
@@ -107,8 +107,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		new ComplexNEPFormula<Number>("if(a==b,5,-9)", numberMgr).isValid(fs);
 		assertEquals(true, fs.isValid());
 
-		getVariableLibrary().assertLegalVariableID("c", getGlobalScope(), booleanMgr);
-		getVariableLibrary().assertLegalVariableID("d", getGlobalScope(), booleanMgr);
+		getVariableLibrary().assertLegalVariableID("c", getInstanceFactory().getScope("Global"), booleanMgr);
+		getVariableLibrary().assertLegalVariableID("d", getInstanceFactory().getScope("Global"), booleanMgr);
 		new ComplexNEPFormula<String>("if(c||d,\"A\",\"B\")", stringMgr).isValid(fs);
 		assertEquals(true, fs.isValid());
 
@@ -157,8 +157,10 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	public void testGetDependenciesVars()
 	{
-		getVariableLibrary().assertLegalVariableID("a", getGlobalScope(), numberMgr);
-		getVariableLibrary().assertLegalVariableID("b", getGlobalScope(), numberMgr);
+		getVariableLibrary().assertLegalVariableID("a",
+			getInstanceFactory().getScope("Global"), numberMgr);
+		getVariableLibrary().assertLegalVariableID("b",
+			getInstanceFactory().getScope("Global"), numberMgr);
 
 		DependencyManager depManager = setupDM();
 		Optional<VariableList> potentialVariables =
@@ -177,8 +179,10 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	public void testGetDependenciesVarsIfOne()
 	{
-		getVariableLibrary().assertLegalVariableID("a", getGlobalScope(), numberMgr);
-		getVariableLibrary().assertLegalVariableID("b", getGlobalScope(), numberMgr);
+		getVariableLibrary().assertLegalVariableID("a",
+			getInstanceFactory().getScope("Global"), numberMgr);
+		getVariableLibrary().assertLegalVariableID("b",
+			getInstanceFactory().getScope("Global"), numberMgr);
 		DependencyManager depManager = setupDM();
 		Optional<VariableList> potentialVariables =
 				depManager.get(DependencyManager.VARIABLES);
@@ -196,8 +200,10 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	public void testGetDependenciesVarsIfTwo()
 	{
-		getVariableLibrary().assertLegalVariableID("a", getGlobalScope(), numberMgr);
-		getVariableLibrary().assertLegalVariableID("b", getGlobalScope(), numberMgr);
+		getVariableLibrary().assertLegalVariableID("a",
+			getInstanceFactory().getScope("Global"), numberMgr);
+		getVariableLibrary().assertLegalVariableID("b",
+			getInstanceFactory().getScope("Global"), numberMgr);
 		DependencyManager depManager = setupDM();
 		Optional<VariableList> potentialVariables =
 				depManager.get(DependencyManager.VARIABLES);
@@ -215,8 +221,10 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 
 	public void testGetDependenciesVarsIfThree()
 	{
-		getVariableLibrary().assertLegalVariableID("c", getGlobalScope(), booleanMgr);
-		getVariableLibrary().assertLegalVariableID("d", getGlobalScope(), booleanMgr);
+		getVariableLibrary().assertLegalVariableID("c",
+			getInstanceFactory().getScope("Global"), booleanMgr);
+		getVariableLibrary().assertLegalVariableID("d",
+			getInstanceFactory().getScope("Global"), booleanMgr);
 
 		DependencyManager depManager = setupDM();
 		Optional<VariableList> potentialVariables =
@@ -274,8 +282,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		assertEquals(56,
 			new ComplexNEPFormula<>("(3+5)*7", numberMgr).resolve(evalManager));
 
-		getVariableLibrary().assertLegalVariableID("a", getGlobalScope(), numberMgr);
-		getVariableLibrary().assertLegalVariableID("b", getGlobalScope(), numberMgr);
+		getVariableLibrary().assertLegalVariableID("a", getInstanceFactory().getScope("Global"), numberMgr);
+		getVariableLibrary().assertLegalVariableID("b", getInstanceFactory().getScope("Global"), numberMgr);
 
 		getVariableStore().put(new VariableID<>(getGlobalScopeInst(), numberMgr, "a"), 4);
 		getVariableStore().put(new VariableID<>(getGlobalScopeInst(), numberMgr, "b"), 1);
@@ -287,8 +295,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		assertEquals(-9,
 			new ComplexNEPFormula<>("if(a==b,5,-9)", numberMgr).resolve(evalManager));
 
-		getVariableLibrary().assertLegalVariableID("c", getGlobalScope(), booleanMgr);
-		getVariableLibrary().assertLegalVariableID("d", getGlobalScope(), booleanMgr);
+		getVariableLibrary().assertLegalVariableID("c", getInstanceFactory().getScope("Global"), booleanMgr);
+		getVariableLibrary().assertLegalVariableID("d", getInstanceFactory().getScope("Global"), booleanMgr);
 		getVariableStore().put(new VariableID<>(getGlobalScopeInst(), booleanMgr, "c"),
 			false);
 		getVariableStore().put(new VariableID<>(getGlobalScopeInst(), booleanMgr, "d"),
@@ -338,6 +346,6 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	private FormulaSemantics getSemantics()
 	{
 		return managerFactory.generateFormulaSemantics(getFormulaManager(),
-			getGlobalScope());
+			getInstanceFactory().getScope("Global"));
 	}
 }

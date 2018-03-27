@@ -163,7 +163,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	public void testDynamic()
 	{
 		ScopeInstance source = getGlobalScopeInst();
-		LegalScope globalScope = getGlobalScope();
+		getFunctionLibrary().addFunction(new Dynamic());
+		LegalScope globalScope = getInstanceFactory().getScope("Global");
 
 		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
 		getScopeLibrary().registerScope(limbScope);
@@ -220,7 +221,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testTrivial()
 	{
-		getVariableLibrary().assertLegalVariableID("Limbs", getGlobalScope(),
+		getVariableLibrary().assertLegalVariableID("Limbs", getInstanceFactory().getScope("Global"),
 			FormatUtilities.NUMBER_MANAGER);
 		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Limbs");
@@ -390,7 +391,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	public void testAnother()
 	{
 		ScopeInstance source = getGlobalScopeInst();
-		LegalScope globalScope = getGlobalScope();
+		LegalScope globalScope = getInstanceFactory().getScope("Global");
 
 		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
 		getScopeLibrary().registerScope(limbScope);

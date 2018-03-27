@@ -49,7 +49,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		super.setUp();
 		varLibrary = getVariableLibrary();
 		store = getVariableStore();
-		globalScope = getGlobalScope();
+		globalScope = getInstanceFactory().getScope("Global");
 		globalScopeInst = getGlobalScopeInst();
 		solverFactory.addSolverFormat(Number.class,
 			AbstractModifier.setNumber(0, 0));
