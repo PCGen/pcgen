@@ -8,7 +8,7 @@ SOURCELONG:Blood of the Night	SOURCESHORT:BOTN	SOURCEWEB:http://paizo.com/produc
 # ==============================
 
 # Equipment Name		Required Weapon Proficiency	Type															Cost		Weight	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Range		Size		Source Page
-Bloodletting Thimble						TYPE:Magic.Wondrous												COST:4000																							SOURCEPAGE:p.31
+Bloodletting Thimble						TYPE:Magic.Ring												COST:4000																							SOURCEPAGE:p.31
 Deadly Draught							TYPE:Magic.Wondrous.Consumable										COST:900																							SOURCEPAGE:p.31
 Dread Heart of Life						TYPE:Magic.Wondrous												COST:2000																							SOURCEPAGE:p.31
 Necklace of Fangs							TYPE:Magic.Wondrous.Amulet											COST:1800	WT:1																						SOURCEPAGE:p.31
