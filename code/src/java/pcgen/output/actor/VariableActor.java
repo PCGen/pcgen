@@ -17,18 +17,18 @@
  */
 package pcgen.output.actor;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.facet.ScopeFacet;
-import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.output.base.OutputActor;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A VariableActor is designed to process an interpolation and convert that into
@@ -45,10 +45,10 @@ import freemarker.template.TemplateModelException;
 public class VariableActor<T> implements OutputActor<CDOMObject>
 {
 	/**
-	 * The global VariableLibraryFacet used to get VariableIDs
+	 * The global LoadContextFacet used to get VariableIDs
 	 */
-	private final VariableLibraryFacet variableLibraryFacet = FacetLibrary
-		.getFacet(VariableLibraryFacet.class);
+	private final LoadContextFacet loadContextFacet =
+			FacetLibrary.getFacet(LoadContextFacet.class);
 
 	/**
 	 * The global VariableStore Facet used to get VariableID values
@@ -95,9 +95,8 @@ public class VariableActor<T> implements OutputActor<CDOMObject>
 		throws TemplateModelException
 	{
 		ScopeInstance varScope = scopeFacet.getGlobalScope(id);
-		VariableID<?> varID =
-				variableLibraryFacet.getVariableID(id.getDatasetID(), varScope,
-					varName);
+		VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
+			.getVariableContext().getVariableID(varScope, varName);
 		Object value = variableStoreFacet.getValue(id, varID);
 		return wrapperFacet.wrap(id, value);
 	}

@@ -29,7 +29,6 @@ import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -569,10 +568,10 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager, String instructions)
+	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
+		String instructions)
 	{
-		return FormulaFactory.getValidFormula(instructions, var.getManagerFactory(),
-			var.getDummySetup().getFormulaManager(), getActiveScope(), formatManager);
+		return var.getValidFormula(getActiveScope(), formatManager, instructions);
 	}
 
 	private class DerivedLoadContext implements LoadContext

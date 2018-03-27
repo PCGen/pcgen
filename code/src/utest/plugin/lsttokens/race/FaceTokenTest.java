@@ -180,7 +180,7 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<Race>
 	{
 		super.additionalSetup(context);
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope(), opManager, "Face");
+			"Face", context.getActiveScope(), opManager);
 	}
 	
 	

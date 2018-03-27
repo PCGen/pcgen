@@ -201,9 +201,6 @@ public final class FacetInitialization
 		FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		FacetLibrary.getFacet(HiddenTypeFacet.class);
 		FacetLibrary.getFacet(LoadContextFacet.class);
-		FacetLibrary.getFacet(VariableLibraryFacet.class);
-		FacetLibrary.getFacet(SolverFactoryFacet.class);
-		FacetLibrary.getFacet(FormulaSetupFacet.class);
 		/*
 		 * TODO These are required because they are "bridges" - meaning they
 		 * refer to others, but no one refers to them. Need to consider if these

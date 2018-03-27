@@ -201,8 +201,8 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
 		String channelName = ChannelUtilities.createVarName("AlignmentInput");
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope(), fmtManager,
-			channelName);
+			channelName, context.getActiveScope(),
+			fmtManager);
 		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
 		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
 	}

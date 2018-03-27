@@ -740,7 +740,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		FormatManager<?> formatManager, String varName)
 	{
 		LegalScope varScope = varContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
-		varContext.assertLegalVariableID(varScope, formatManager, varName);
+		varContext.assertLegalVariableID(varName, varScope, formatManager);
 	}
 
 	/**
@@ -807,12 +807,20 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		//Alignment
 		if (!gameMode.getAlignmentText().isEmpty())
 		{
-			context.getVariableContext().getFormulaSetup().getSolverFactory()
-				.getSolver(refContext.getManufacturer(PCAlignment.class));
+			if (!context.getVariableContext()
+				.hasSolver(refContext.getManufacturer(PCAlignment.class)))
+			{
+				Logging.errorPrint(
+					"GameMode " + gameMode.getName() + " has Alignment text - "
+						+ "Thus it  requires a default value for ALIGNMENT format");
+			}
 		}
 		//Face
-		context.getVariableContext().getFormulaSetup().getSolverFactory()
-			.getSolver(FormatUtilities.ORDEREDPAIR_MANAGER);
+		if (!context.getVariableContext().hasSolver(FormatUtilities.ORDEREDPAIR_MANAGER))
+		{
+			Logging.errorPrint(gameMode.getName()
+				+ " did not have required default value for ORDEREDPAIR format");
+		}
 
 		ReferenceContextUtilities.validateAssociations(refContext, validator);
 		for (Equipment eq : refContext

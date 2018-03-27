@@ -179,6 +179,6 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	{
 		super.additionalSetup(context);
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope(), opManager, "Face");
+			"Face", context.getActiveScope(), opManager);
 	}
 }

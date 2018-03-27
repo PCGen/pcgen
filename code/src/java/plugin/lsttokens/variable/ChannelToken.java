@@ -104,7 +104,7 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 		String channelName = ChannelUtilities.createVarName(varName);
 		try
 		{
-			varContext.assertLegalVariableID(lvs, formatManager, channelName);
+			varContext.assertLegalVariableID(channelName, lvs, formatManager);
 		}
 		catch (LegalVariableException e)
 		{

@@ -234,8 +234,8 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 		super.additionalSetup(context);
 		FormatManager<?> formatManager = context.getReferenceContext().getFormatManager("NUMBER");
 		LegalScope scope = context.getActiveScope();
-		context.getVariableContext().assertLegalVariableID(scope, formatManager, "MyVar");
-		context.getVariableContext().assertLegalVariableID(scope, formatManager, "OtherVar");
+		context.getVariableContext().assertLegalVariableID("MyVar", scope, formatManager);
+		context.getVariableContext().assertLegalVariableID("OtherVar", scope, formatManager);
 	}
 
 }
