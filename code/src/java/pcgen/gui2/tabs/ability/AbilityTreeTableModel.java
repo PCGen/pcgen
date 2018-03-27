@@ -59,12 +59,10 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 {
 
 	private final CharacterFacade character;
-	//private final ListFacade<AbilityCategoryFacade> categories;
 
 	public AbilityTreeTableModel(CharacterFacade character, ListFacade<AbilityCategoryFacade> categories)
 	{
 		this.character = character;
-		//this.categories = categories;
 		this.setRoot(new RootTreeTableNode(categories));
 	}
 

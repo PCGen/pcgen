@@ -307,7 +307,6 @@ public class EquipmentModels
 		{
 			setEquipmentList(e.getNewReference().getEquippedItems());
 			setEquipmentSet(e.getNewReference());
-			//fireTableDataChanged();
 		}
 
 	}

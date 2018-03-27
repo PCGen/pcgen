@@ -457,12 +457,6 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 		if ((levelInfo == null) || (levelInfo.isEmpty()))
 		{
-			//			Logging.errorPrint("Spell: "
-			//				+ aSpell.getKeyName()
-			//				+ "("
-			//				+ SourceFormat.getFormattedString(aSpell,
-			//					Globals.getSourceDisplay(), true) + ") has no home");
-
 			return;
 		}
 

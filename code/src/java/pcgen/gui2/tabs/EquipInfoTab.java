@@ -244,8 +244,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		box.add(new JLabel(LanguageBundle.getString("in_equipLoadLabel"))); //$NON-NLS-1$
 		box.add(Box.createHorizontalStrut(5));
 		box.add(loadLabel);
-//		box.add(Box.createHorizontalGlue());
-//		box.add(new JLabel("Limit:"));
 		box.add(Box.createHorizontalStrut(5));
 		box.add(limitLabel);
 		box.add(Box.createHorizontalGlue());

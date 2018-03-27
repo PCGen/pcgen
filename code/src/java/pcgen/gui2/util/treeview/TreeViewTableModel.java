@@ -72,7 +72,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		@Override
 		public void elementModified(ListEvent<E> e)
 		{
-//			refreshElement(e.getElement());
 		}
 
 	};
@@ -129,8 +128,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 
 	public void refreshData()
 	{
-//		dataElements.clear();
-//		dataElements.addAll(ListFacades.wrap(model));
 	}
 
 	public final void setDataModel(ListFacade<E> model)
@@ -196,19 +193,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 		}
 	}
-
-//	private void refreshElement(E elem)
-//	{
-//		if (dataElements.contains(elem) && selectedView != null)
-//		{
-//			TreeViewNode rootNode = (TreeViewNode) getRoot();
-//			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
-//			{
-//				rootNode.removeTreeViewPath(path);
-//				rootNode.insertTreeViewPath(path);
-//			}
-//		}
-//	}
 
 	public final TreeView<? super E> getSelectedTreeView()
 	{
@@ -327,7 +311,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 				{
 					vector = vectorMap.get(key);
 					TreeViewNode child;
-//					if (vector.size() == 1 && vector.firstElement().getPathCount() <= level + 1)
 					if (vector.size() == 1 && vector.firstElement().getPathCount() == level + 1)
 					{
 						child = new TreeViewNode(level + 1, key, null);

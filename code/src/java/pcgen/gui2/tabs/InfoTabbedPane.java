@@ -253,7 +253,6 @@ public final class InfoTabbedPane extends JTabbedPane
 				if (dest[2].equals(tabPane.getTitleAt(i)))
 				{
 					tabPane.setSelectedIndex(i);
-					//selTab = tab.getComponent(i);
 					break;
 				}
 			}
