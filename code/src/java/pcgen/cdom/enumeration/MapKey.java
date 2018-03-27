@@ -74,6 +74,7 @@ public final class MapKey<K, V>
 	 * 
 	 * @return the object as the MapKey's value type
 	 */
+	@SuppressWarnings("unchecked")
 	public V cast(Object obj)
 	{
 		return (V) obj;

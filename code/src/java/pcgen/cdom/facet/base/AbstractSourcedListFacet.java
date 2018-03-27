@@ -361,6 +361,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	 *         PCGenIdentifier; null if no information has been set in this
 	 *         AbstractSourcedListFacet for the resource.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Map<T, Set<Object>> getCachedMap(IDT id)
 	{
 		return (Map<T, Set<Object>>) getCache(id);

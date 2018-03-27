@@ -17,7 +17,12 @@
  */
 package pcgen.cdom.base;
 
+/**
+ * This interface represents an identifier (like a CharID) so that certain classes can use
+ * Generics to have a minimal compile requirement of using an expected identifier rather
+ * than an arbitrary object.
+ */
 public interface PCGenIdentifier
 {
-
+	//Intentionally Empty Interface
 }

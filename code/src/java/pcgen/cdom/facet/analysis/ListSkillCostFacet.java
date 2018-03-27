@@ -77,7 +77,8 @@ public class ListSkillCostFacet extends
 				Collection<CDOMReference<Skill>> mods = cdo.getListMods(ref);
 				for (CDOMReference<Skill> skRef : mods)
 				{
-					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo.getListAssociations(ref, skRef))
+					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo
+						.getListAssociations(ref, skRef))
 					{
 						SkillCost sc =
 								apo.getAssociation(AssociationKey.SKILL_COST);

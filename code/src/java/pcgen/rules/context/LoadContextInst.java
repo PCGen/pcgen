@@ -273,9 +273,10 @@ abstract class LoadContextInst implements LoadContext
 	@Override
 	public void resolvePostValidationTokens()
 	{
-		Collection<? extends ReferenceManufacturer> mfgs = getReferenceContext()
+		Collection<? extends ReferenceManufacturer<?>> mfgs = getReferenceContext()
 				.getAllManufacturers();
-		for (PostValidationToken<? extends Loadable> token : TokenLibrary.getPostValidationTokens())
+		for (PostValidationToken<? extends Loadable> token : TokenLibrary
+			.getPostValidationTokens())
 		{
 			processPostVal(token, mfgs);
 		}

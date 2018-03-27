@@ -72,6 +72,7 @@ public final class AssociationListKey<T>
 		// Only allow instantiation here
 	}
 
+	@SuppressWarnings("unchecked")
 	public T cast(Object obj)
 	{
 		return (T) obj;
