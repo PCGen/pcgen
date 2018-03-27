@@ -83,8 +83,8 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 
 		try
 		{
-			context.getVariableContext().assertLegalVariableID(scope, formatManager,
-				varName);
+			context.getVariableContext().assertLegalVariableID(varName, scope,
+				formatManager);
 		}
 		catch (LegalVariableException e)
 		{

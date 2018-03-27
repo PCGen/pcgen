@@ -34,7 +34,11 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  */
 public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 {
-	private VariableLibraryFacet variableLibraryFacet;
+	/**
+	 * The global LoadContextFacet used to get VariableIDs
+	 */
+	private final LoadContextFacet loadContextFacet =
+			FacetLibrary.getFacet(LoadContextFacet.class);
 
 	private ScopeFacet scopeFacet;
 
@@ -47,8 +51,8 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 		Modifier<T> modifier, ScopeInstance source)
 	{
 		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
-		VariableID<T> varID = (VariableID<T>) variableLibraryFacet
-			.getVariableID(id.getDatasetID(), scope, vm.getVarName());
+		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID())
+			.get().getVariableContext().getVariableID(scope, vm.getVarName());
 		return get(id).addModifierAndSolve(varID, modifier, source);
 	}
 
@@ -59,15 +63,9 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 		Modifier<T> modifier, ScopeInstance source)
 	{
 		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
-		VariableID<T> varID = (VariableID<T>) variableLibraryFacet
-			.getVariableID(id.getDatasetID(), scope, vm.getVarName());
+		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID())
+				.get().getVariableContext().getVariableID(scope, vm.getVarName());
 		get(id).removeModifier(varID, modifier, source);
-	}
-
-	public void setVariableLibraryFacet(
-		VariableLibraryFacet variableLibraryFacet)
-	{
-		this.variableLibraryFacet = variableLibraryFacet;
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)

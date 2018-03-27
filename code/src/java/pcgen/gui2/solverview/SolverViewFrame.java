@@ -42,17 +42,16 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.ProcessStep;
-import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.FormulaSetupFacet;
+import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
-import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.model.VarScopedFacet;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JComboBoxEx;
+import pcgen.rules.context.LoadContext;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 
@@ -60,14 +59,12 @@ public class SolverViewFrame extends JFrame
 {
 
 	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
-	private final VariableLibraryFacet variableLibraryFacet =
-			FacetLibrary.getFacet(VariableLibraryFacet.class);
 	private final SolverManagerFacet solverManagerFacet =
 			FacetLibrary.getFacet(SolverManagerFacet.class);
-	private final FormulaSetupFacet formulaSetupFacet =
-			FacetLibrary.getFacet(FormulaSetupFacet.class);
 	private final VarScopedFacet varScopedFacet =
 			FacetLibrary.getFacet(VarScopedFacet.class);
+	private final LoadContextFacet loadContextFacet =
+			FacetLibrary.getFacet(LoadContextFacet.class);
 
 	private final JComboBoxEx<LegalScopeWrapper> scopeChooser;
 	private LegalScope selectedScope;
@@ -124,9 +121,8 @@ public class SolverViewFrame extends JFrame
 		}
 		ScopeInstance scope =
 				scopeFacet.get(activeIdentifier, selectedScope.getName(), activeObject);
-		if (variableLibraryFacet
-			.isLegalVariableName(activeIdentifier.getDatasetID(),
-				scope.getLegalScope(), varNameText))
+		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get()
+			.getVariableContext().isLegalVariableID(scope.getLegalScope(), varNameText))
 		{
 			displayInfo(scope);
 		}
@@ -140,9 +136,8 @@ public class SolverViewFrame extends JFrame
 
 	private void displayInfo(ScopeInstance scope)
 	{
-		VariableID<?> varID =
-				variableLibraryFacet.getVariableID(
-					activeIdentifier.getDatasetID(), scope, varNameText);
+		VariableID<?> varID = loadContextFacet.get(activeIdentifier.getDatasetID()).get()
+			.getVariableContext().getVariableID(scope, varNameText);
 		setSteps(varID);
 	}
 
@@ -223,9 +218,9 @@ public class SolverViewFrame extends JFrame
 		{
 			Object item = identifierChooser.getSelectedItem();
 			activeIdentifier = ((PCRef) item).id;
-			SplitFormulaSetup formulaSetup =
-					formulaSetupFacet.get(activeIdentifier.getDatasetID());
-			for (LegalScope lvs : formulaSetup.getLegalScopeManager().getLegalScopes())
+			LoadContext loadContext =
+					loadContextFacet.get(activeIdentifier.getDatasetID()).get();
+			for (LegalScope lvs : loadContext.getVariableContext().getScopes())
 			{
 				scopeChooser.addItem(new LegalScopeWrapper(lvs));
 			}

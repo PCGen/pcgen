@@ -37,12 +37,9 @@ import java.util.TreeSet;
 import org.jetbrains.annotations.TestOnly;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.inst.NEPFormula;
-import pcgen.base.solver.DynamicSolverManager;
-import pcgen.base.solver.IndividualSetup;
-import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SolverManager;
-import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.IdentityList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -109,7 +106,6 @@ import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.EquippedEquipmentFacet;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.FormulaSetupFacet;
 import pcgen.cdom.facet.GlobalModifierFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HitPointFacet;
@@ -128,7 +124,6 @@ import pcgen.cdom.facet.SkillCostFacet;
 import pcgen.cdom.facet.SkillOutputOrderFacet;
 import pcgen.cdom.facet.SkillPoolFacet;
 import pcgen.cdom.facet.SkillRankFacet;
-import pcgen.cdom.facet.SolverFactoryFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.SpellBookFacet;
@@ -273,6 +268,7 @@ import pcgen.output.channel.ChannelCompatibility;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.VariableContext;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -446,8 +442,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	private final LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
 	private final SolverManagerFacet solverManagerFacet = FacetLibrary.getFacet(SolverManagerFacet.class);
-	private final SolverFactoryFacet solverFactoryFacet = FacetLibrary.getFacet(SolverFactoryFacet.class);
-	private final FormulaSetupFacet formulaSetupFacet = FacetLibrary.getFacet(FormulaSetupFacet.class);
 
 	private final ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 
@@ -632,17 +626,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	private void doFormulaSetup(LoadContext context)
 	{
-		SplitFormulaSetup formulaSetup =
-				formulaSetupFacet.get(id.getDatasetID());
+		VariableContext variableContext = context.getVariableContext();
+		FormulaManager formulaManager = variableContext.getFormulaManager();
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
-		IndividualSetup mySetup = new IndividualSetup(formulaSetup, varStore);
-		scopeFacet.set(id, mySetup.getInstanceFactory());
+		scopeFacet.set(id, formulaManager.getScopeInstanceFactory());
 		variableStoreFacet.set(id, varStore);
-		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
-		solverManagerFacet.set(id,
-			new DynamicSolverManager(mySetup.getFormulaManager(),
-				context.getVariableContext().getManagerFactory(), solverFactory,
-				varStore));
+		solverManagerFacet.set(id, variableContext.generateSolverManager(varStore));
 	}
 
 	@Override

@@ -109,7 +109,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		}
 		try
 		{
-			varContext.assertLegalVariableID(lvs, formatManager, varName);
+			varContext.assertLegalVariableID(varName, lvs, formatManager);
 		}
 		catch (LegalVariableException e)
 		{

@@ -20,6 +20,8 @@ import java.lang.ref.WeakReference;
 import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.output.factory.GlobalVarModelFactory;
+import pcgen.output.publish.OutputDB;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -44,6 +46,7 @@ public class LoadContextFacet
 	public void init()
 	{
 		datasetInitializationFacet.addDataSetInitializedFacet(this);
+		OutputDB.registerModelFactory("val", new GlobalVarModelFactory());
 	}
 
 	public void setDataSetInitializationFacet(

@@ -25,11 +25,12 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
-import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.formula.VariableChannel;
+import pcgen.rules.context.LoadContext;
 
 /**
  * ChannelUtilities are a class for setting up communication channels from the
@@ -37,8 +38,8 @@ import pcgen.cdom.formula.VariableChannel;
  */
 public final class ChannelUtilities
 {
-	private static final VariableLibraryFacet VARLIB_FACET =
-			FacetLibrary.getFacet(VariableLibraryFacet.class);
+	private static final LoadContextFacet LOAD_CONTEXT_FACET =
+			FacetLibrary.getFacet(LoadContextFacet.class);
 	private static final ScopeFacet SCOPE_FACET =
 			FacetLibrary.getFacet(ScopeFacet.class);
 	private static final VariableStoreFacet RESULT_FACET =
@@ -94,8 +95,9 @@ public final class ChannelUtilities
 		ScopeInstance scopeInst, String name)
 	{
 		String varName = createVarName(name);
-		VariableID<?> varID = VARLIB_FACET.getVariableID(id.getDatasetID(),
-			scopeInst, varName);
+		LoadContext loadContext = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get();
+		VariableID<?> varID =
+				loadContext.getVariableContext().getVariableID(scopeInst, varName);
 		return VariableChannel.construct(MGR_FACET.get(id),
 			RESULT_FACET.get(id), varID);
 	}
@@ -113,8 +115,9 @@ public final class ChannelUtilities
 	public static Object readGlobalChannel(CharID id, String channelName)
 	{
 		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
-		VariableID<?> varID = VARLIB_FACET.getVariableID(id.getDatasetID(),
-			globalInstance, createVarName(channelName));
+		VariableID<?> varID =
+				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext()
+					.getVariableID(globalInstance, createVarName(channelName));
 		return RESULT_FACET.getValue(id, varID);
 	}
 
@@ -132,8 +135,9 @@ public final class ChannelUtilities
 	public static void setGlobalChannel(CharID id, String channelName, Object value)
 	{
 		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
-		VariableID<?> varID = VARLIB_FACET.getVariableID(id.getDatasetID(),
-			globalInstance, createVarName(channelName));
+		VariableID<?> varID =
+				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext()
+					.getVariableID(globalInstance, createVarName(channelName));
 		processSet(id, varID, value);
 	}
 

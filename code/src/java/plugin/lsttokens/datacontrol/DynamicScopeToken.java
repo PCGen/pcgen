@@ -54,8 +54,7 @@ public class DynamicScopeToken extends AbstractNonEmptyToken<DynamicCategory>
 		ReferenceManufacturer<Dynamic> mfg =
 				context.getReferenceContext().getManufacturerId(obj);
 		PCGenScope scope = new DynamicScope(obj, mfg);
-		context.getVariableContext().getFormulaSetup().getLegalScopeManager()
-			.registerScope(scope);
+		context.getVariableContext().registerScope(scope);
 		return ParseResult.SUCCESS;
 	}
 

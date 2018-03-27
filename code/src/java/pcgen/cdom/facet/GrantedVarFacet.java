@@ -45,10 +45,11 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 	private ScopeFacet scopeFacet;
 	
 	/**
-	 * The VariableLibrary Facet
+	 * The global LoadContextFacet used to get VariableIDs
 	 */
-	private VariableLibraryFacet variableLibraryFacet;
-	
+	private final LoadContextFacet loadContextFacet =
+			FacetLibrary.getFacet(LoadContextFacet.class);
+
 	/**
 	 * The VariableStore Facet
 	 */
@@ -66,8 +67,8 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 			ScopeInstance inst = scopeFacet.get(id, cdo);
 			for (String s : list)
 			{
-				VariableID<?> varID =
-						variableLibraryFacet.getVariableID(id.getDatasetID(), inst, s);
+				VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
+						.getVariableContext().getVariableID(inst, s);
 				processAdd(id, varID, source);
 			}
 		}
@@ -109,8 +110,8 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 			ScopeInstance inst = scopeFacet.get(id, cdo);
 			for (String s : list)
 			{
-				VariableID<?> varID =
-						variableLibraryFacet.getVariableID(id.getDatasetID(), inst, s);
+				VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
+						.getVariableContext().getVariableID(inst, s);
 				processRemove(id, varID, source);
 			}
 		}
@@ -142,11 +143,6 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 	public void setScopeFacet(ScopeFacet scopeFacet)
 	{
 		this.scopeFacet = scopeFacet;
-	}
-
-	public void setVariableLibraryFacet(VariableLibraryFacet variableLibraryFacet)
-	{
-		this.variableLibraryFacet = variableLibraryFacet;
 	}
 
 	public void setVariableStoreFacet(VariableStoreFacet variableStoreFacet)
