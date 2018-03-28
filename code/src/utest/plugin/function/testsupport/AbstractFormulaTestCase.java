@@ -75,16 +75,35 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		varContext.addDefault(String.class, getDMod("", stringManager));
 	}
 
+	/**
+	 * Force a given formula to be valid.
+	 * 
+	 * @param formula
+	 *            The formula instructions to be checked
+	 * @param node
+	 *            The root node for processing the formula
+	 * @param formatManager
+	 *            The FormatManager indicating the format of the result of the formula
+	 * @param assertedFormat
+	 *            The asserted format
+	 */
 	public void isValid(String formula, SimpleNode node, FormatManager<?> formatManager,
 		FormatManager<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(assertedFormat);
-		semanticsVisitor.visit(node, semantics);
+		FormatManager<?> resultFormat =
+				(FormatManager<?>) semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
 		{
 			TestCase.fail("Expected Valid Formula: " + formula + " but was told: "
 				+ semantics.getReport());
+		}
+		if (!formatManager.equals(resultFormat))
+		{
+			TestCase
+				.fail("Expected Formula to return: " + formatManager.getIdentifierType()
+					+ " but it returned: " + resultFormat.getIdentifierType());
 		}
 	}
 
