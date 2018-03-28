@@ -133,11 +133,6 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 3, 2, 1, 1, 0, 0);
 
-//		for (int i = SPELLLVLMIN; i <= SPELLLVLMAX; ++i)
-//		{
-//			wandSpellLevel[i - SPELLLVLMIN] = String.valueOf(i) + "	 ";
-//		}
-
 		wandModel = new SpinnerNumberModel(SPELLLVLMIN, SPELLLVLMIN, SPELLLVLMAX, 1);
 		wandMaxLevel.setModel(wandModel);
 		gridbag.setConstraints(wandMaxLevel, c);

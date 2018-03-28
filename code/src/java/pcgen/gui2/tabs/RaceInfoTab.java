@@ -178,7 +178,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public void storeModels(ModelMap models)
 	{
-		models.get(TreeViewModelHandler.class).uninstall();
 		models.get(InfoHandler.class).uninstall();
 		models.get(SelectRaceAction.class).uninstall();
 		models.get(RemoveRaceAction.class).uninstall();
@@ -389,10 +388,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			raceTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);
 		}
-
-		public void uninstall()
-		{
-		}
 	}
 
 	private class RaceDataView extends CachedDataView<RaceFacade>
@@ -475,19 +470,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public void setData(Object value, RaceFacade element, int column)
 		{
 		}
-
-//		@Override
-//		protected void refreshTableData()
-//		{
-//			if (isAvailModel)
-//			{
-//				raceTable.refreshModelData();
-//			}
-//			else
-//			{
-//				selectedTable.refreshModelData();
-//			}
-//		}
 
 	}
 

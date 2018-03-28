@@ -113,22 +113,6 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 
 	private void handleSaveMessage(FileMenuSaveMessage message)
 	{
-//		final int currTab = baseTabbedPane.getSelectedIndex();
-//		if (this.isFocused() && currTab >= FIRST_CHAR_TAB)
-//		{
-//			// seize the focus to cause focus listeners to fire
-//			pcgenMenuBar.saveItem.requestFocus();
-//
-//			final PlayerCharacter aPC = getCurrentPC();
-//
-//			if (aPC == null)
-//			{
-//				return;
-//			}
-//
-//			savePC(aPC, false);
-//			message.veto();
-//		}
 	}
 
 	private void handleInitHolderListSendMessage(
@@ -187,38 +171,5 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 
 	private void handleStateChangedMessage()
 	{
-		// Need to fully refresh the currently displayed character
-		
-//		if (this.isFocused() && characterPane != null)
-//		{
-//			PlayerCharacter aPC =
-//					getPCForTabAt(baseTabbedPane.getSelectedIndex());
-//			Globals.setCurrentPC(aPC);
-//			// What could possibly have changed on focus that would
-//			// require a forceUpdate of all the panels?
-//			// JSC -- 03/27/2004
-//			//
-//			// The answer to this question is this: GMGen can update characters, for
-//			// example updating the experience.  This message is only ever really
-//			// called when the user switches from gmgen to pcgen - and it needs to be
-//			// called to ensure that all pcgen screens are updated based on any
-//			// changes to the PlayerCharacter object.  Without this, what the user
-//			// sees on the screen is stale.
-//			// DJ -- 05/23/2004
-//			characterPane
-//				.setPaneForUpdate(characterPane.infoSpecialAbilities());
-//			characterPane.setPaneForUpdate(characterPane.infoSummary());
-//			characterPane.setPaneForUpdate(characterPane.infoRace());
-//			characterPane.setPaneForUpdate(characterPane.infoClasses());
-//			characterPane.setPaneForUpdate(characterPane.infoDomain());
-//			//			characterPane.setPaneForUpdate(characterPane.infoFeats());
-//			characterPane.setPaneForUpdate(characterPane.infoAbilities());
-//			characterPane.setPaneForUpdate(characterPane.infoSkills());
-//			characterPane.setPaneForUpdate(characterPane.infoSpells());
-//			characterPane.setPaneForUpdate(characterPane.infoInventory());
-//			characterPane.setPaneForUpdate(characterPane.infoDesc());
-//			characterPane.refresh();
-//			forceUpdate_PlayerTabs();
-//		}
 	}
 }

@@ -1079,13 +1079,10 @@ public final class PurchaseModeFrame extends JDialog
 				nrRows = Math.abs(nrRows);
 				System.arraycopy(currentValues, 0, newValues, nrRows, currentValues.length);
 
-				//final int tblStart = ((Integer) currentValues[0][1]).intValue();
 				for (int i = 0; i < nrRows; ++i)
 				{
 					final int score = i + currentPurchaseScoreMin;
 					newValues[i][0] = score;
-
-//					newValues[i][1] = Integer.valueOf(tblStart - nrRows + i);
 				}
 			}
 

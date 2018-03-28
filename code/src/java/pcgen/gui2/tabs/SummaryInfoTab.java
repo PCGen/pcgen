@@ -272,12 +272,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		panel.setLayout(new BorderLayout());
 		todoPane.setOpaque(false);
 		todoPane.setContentType("text/html"); //$NON-NLS-1$
-		// An HTMLDocument font size and family already defaults to the UI font default, no need to add that on top.
-//		String bodyRule =
-//				"body { font-family: " + textFont.getFamily() + "; " + "font-size: " + //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-//				textFont.getSize() + "pt; }"; //$NON-NLS-1$
-//		((HTMLDocument) todoPane.getDocument()).getStyleSheet().addRule(
-//				bodyRule);
 		todoPane.setEditable(false);
 
 		JScrollPane scroll = new JScrollPane(todoPane);
@@ -431,7 +425,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			rightPanel.add(hpPanel, gbc);
 		}
 		gbc.insets.bottom = 0;
-		//gbc.ipady = 20;
 		GridBagConstraints leftgbc = new GridBagConstraints();
 		leftgbc.insets = new Insets(0, classPanelInsets.left, 0, 0);
 		leftgbc.gridwidth = 2;
@@ -1691,13 +1684,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		@Override
 		public Component getComponentBefore(Container aContainer, Component aComponent)
 		{
-//			if (aComponent == generateRollsButton)
-//			{
-//				int column = statsTable.getColumn("EDITABLE").getModelIndex();
-//				statsTable.editCellAt(statsTable.getRowCount()-1, column);
-//				JSpinner spinner = (JSpinner) statsTable.getEditorComponent();
-//				return ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();
-//			}
 			return super.getComponentBefore(aContainer, aComponent);
 		}
 

@@ -465,7 +465,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		state.put(AbilityTreeTableModel.class, new AbilityTreeTableModel(character, categories));
 		state.put(AvailableAbilityTreeViewModel.class,
 			new AvailableAbilityTreeViewModel(character, listModel, title));
-		//state.put(AbilityTransferHandler.class, new AbilityTransferHandler(character));
 		state.put(InfoHandler.class, new InfoHandler(character));
 		state.put(TreeRendererHandler.class, new TreeRendererHandler(character));
 		state.put(AddAction.class, new AddAction(character));
@@ -490,16 +489,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	@Override
 	public void restoreState(Hashtable<?, ?> state)
 	{
-		//AbilityTransferHandler handler = (AbilityTransferHandler) state.get(AbilityTransferHandler.class);
 		((CategoryFilterHandler) state.get(CategoryFilterHandler.class)).install();
 		((AbilityFilterHandler) state.get(AbilityFilterHandler.class)).install();
 		categoryTable.setModel((CategoryTableModel) state.get(CategoryTableModel.class));
 		categoryTable.setSelectionModel((ListSelectionModel) state.get(ListSelectionModel.class));
-		//selectedTreeViewPanel.setTransferHandler(handler);
-		//availableTreeViewPanel.setTransferHandler(handler);
 		((TreeRendererHandler) state.get(TreeRendererHandler.class)).install();
 		selectedTreeViewPanel.setTreeTableModel((AbilityTreeTableModel) state.get(AbilityTreeTableModel.class));
-//		selectedTreeViewPanel.sortModel();
 		((AvailableAbilityTreeViewModel) state.get(AvailableAbilityTreeViewModel.class)).install();
 		addButton.setAction((AddAction) state.get(AddAction.class));
 		removeButton.setAction((RemoveAction) state.get(RemoveAction.class));

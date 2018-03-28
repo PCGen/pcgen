@@ -327,8 +327,6 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 					updateTotalQuantity(es.getItem(), es.getItem().getQty()
 						.intValue());
-//					updateTotalWeight(es.getItem(), es.getItem().getQty(),
-//						parentNode.getBodyStructure());
 
 					// add to list for recursive calls
 					children.add(node);

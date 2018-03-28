@@ -188,7 +188,6 @@ public final class LookAndFeelManager
 	{
 		try
 		{
-			//path += File.separator + selectedTheme;
 			LookAndFeel laf = createSkinLAF(selectedTheme);
 			UIManager.setLookAndFeel(laf);
 
@@ -204,7 +203,6 @@ public final class LookAndFeelManager
 				try
 				{
 					//fall back to old theme
-					//path += File.separator + currentTheme;
 					LookAndFeel laf = createSkinLAF(currentTheme);
 					UIManager.setLookAndFeel(laf);
 				}
@@ -236,16 +234,6 @@ public final class LookAndFeelManager
 			try
 			{
 				UIManager.setLookAndFeel(className);
-				// Fix colors; themes which inherit from
-				// MetalTheme change the colors because it's a
-				// static member of MetalTheme (!), so when you
-				// change back & forth, colors get wonked.
-//				final LookAndFeel laf = UIManager.getLookAndFeel();
-//				if (laf instanceof MetalLookAndFeel)
-//				{
-//					MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());
-//				}
-
 				ConfigurationSettings.setSystemProperty("lookAndFeel", name);
 				currentLAF = name;
 			}

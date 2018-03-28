@@ -2250,9 +2250,7 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 		}
 		final StringBuilder piString = new StringBuilder(100);
-		//piString.append("<html>"); //$NON-NLS-1$
 		piString.append(StringUtil.joinToStringBuilder(set, ", ")); //$NON-NLS-1$
-		//piString.append("</html>"); //$NON-NLS-1$
 		return piString.toString();
 		
 	}

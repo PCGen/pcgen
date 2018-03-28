@@ -277,7 +277,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 			for (int i = 0; i < listModel.getSize(); i++)
 			{
-				PageItem item = (PageItem) listModel.elementAt(i);
+				PageItem item = listModel.elementAt(i);
 				if (note == item.note)
 				{
 					listModel.removeElement(item);

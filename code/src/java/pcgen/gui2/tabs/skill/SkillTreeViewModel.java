@@ -312,11 +312,6 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 			}
 			path.add(pobj.getDisplayType());
 			return Arrays.asList(createTreeViewPath(pobj, path.toArray()));
-//
-//			return Arrays.asList(
-//					new TreeViewPath<SkillFacade>(pobj,
-//												  null,
-//												  pobj.getType()));
 		}
 
 	};

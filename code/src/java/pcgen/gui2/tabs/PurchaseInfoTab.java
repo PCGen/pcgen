@@ -262,7 +262,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		middleGbc.gridwidth = 1;
 		middleGbc.fill = GridBagConstraints.HORIZONTAL;
 		middleGbc.anchor = GridBagConstraints.LINE_END;
-		//middleGbc.weightx = 1.0f;
 
 		GridBagConstraints rightGbc = new GridBagConstraints();
 		rightGbc.insets = new Insets(2, 10, 2, panelInsets.right);
@@ -403,7 +402,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	@Override
 	public void storeModels(ModelMap models)
 	{
-//		models.get(AvailableTreeViewModel.class).uninstall();
 		models.get(EquipInfoHandler.class).uninstall();
 		models.get(AddAction.class).uninstall();
 		models.get(RemoveAction.class).uninstall();
@@ -942,16 +940,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 		}
 		
-//		@Override
-//		protected void refreshTableData()
-//		{
-//			availableTable.refreshModelData();
-//		}
-
-//		@Override
 		public void install()
 		{
-//			super.install();
 			availableTable.setTreeViewModel(this);
 		}
 	}
@@ -1051,7 +1041,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
 		TYPE_SUBTYPE_NAME(LanguageBundle.getString("in_typeSubtypeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
-		//SOURCE_NAME("Source/Name");
 		private final String name;
 
 		private EquipmentTreeView(String name)
@@ -1355,7 +1344,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				setToolTipText(LanguageBundle.getString("in_igBuyNMenuDesc")); //$NON-NLS-1$
 			}
-			//			setMnemonic(LanguageBundle.getMnemonic("in_mn_center"));
 			setIcon(Icons.Add16.getImageIcon());
 
 			addActionListener(this);
@@ -1505,7 +1493,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				setToolTipText(LanguageBundle.getString("in_igSellNMenuDesc")); //$NON-NLS-1$
 			}
-			//			setMnemonic(LanguageBundle.getMnemonic("in_mn_center"));
 			setIcon(Icons.Remove16.getImageIcon());
 
 			addActionListener(this);
