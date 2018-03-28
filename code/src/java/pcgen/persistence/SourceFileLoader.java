@@ -805,15 +805,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		context.getVariableContext().validateDefaults();
 		//Test for items we know we use (temporary)
 		//Alignment
-		if (!gameMode.getAlignmentText().isEmpty())
+		if (!gameMode.getAlignmentText().isEmpty() && !context.getVariableContext()
+			.hasSolver(refContext.getManufacturer(PCAlignment.class)))
 		{
-			if (!context.getVariableContext()
-				.hasSolver(refContext.getManufacturer(PCAlignment.class)))
-			{
-				Logging.errorPrint(
-					"GameMode " + gameMode.getName() + " has Alignment text - "
-						+ "Thus it  requires a default value for ALIGNMENT format");
-			}
+			Logging.errorPrint("GameMode " + gameMode.getName() + " has Alignment text - "
+				+ "Thus it  requires a default value for ALIGNMENT format");
 		}
 		//Face
 		if (!context.getVariableContext().hasSolver(FormatUtilities.ORDEREDPAIR_MANAGER))
