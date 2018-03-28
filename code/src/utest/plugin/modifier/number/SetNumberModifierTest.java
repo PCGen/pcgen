@@ -25,21 +25,19 @@ import org.junit.Test;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class SetNumberModifierTest
 {
 
-	private LegalScope varScope =
-			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
+	private final PCGenScope varScope = new GlobalScope();
 	FormatManager<Number> numManager = new NumberManager();
 
 	@Test

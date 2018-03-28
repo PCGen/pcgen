@@ -18,7 +18,11 @@
 package plugin.lsttokens.datacontrol;
 
 import pcgen.cdom.content.DatasetVariable;
+import pcgen.cdom.formula.scope.DynamicScope;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.cdom.inst.Dynamic;
 import pcgen.cdom.inst.DynamicCategory;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -47,8 +51,11 @@ public class DynamicScopeToken extends AbstractNonEmptyToken<DynamicCategory>
 				+ " is not a valid scope name in " + getTokenName());
 		}
 		obj.setName(value);
+		ReferenceManufacturer<Dynamic> mfg =
+				context.getReferenceContext().getManufacturerId(obj);
+		PCGenScope scope = new DynamicScope(obj, mfg);
 		context.getVariableContext().getFormulaSetup().getLegalScopeManager()
-			.registerScope(obj);
+			.registerScope(scope);
 		return ParseResult.SUCCESS;
 	}
 

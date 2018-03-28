@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.cdom.formula.scope.PCGenScope;
 
 
 /**
@@ -45,7 +45,7 @@ public interface ObjectGrouping
 	 * 
 	 * @return the Scope of objects contained by this ObjectGrouping
 	 */
-	public LegalScope getScope();
+	public PCGenScope getScope();
 
 	/**
 	 * Returns the Identifier of objects contained by this ObjectGrouping.

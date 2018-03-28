@@ -25,19 +25,17 @@ import org.junit.Test;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class MultiplyNumberModifierTest
 {
 
-	private final LegalScope varScope =
-			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
+	private final PCGenScope varScope = new GlobalScope();
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test

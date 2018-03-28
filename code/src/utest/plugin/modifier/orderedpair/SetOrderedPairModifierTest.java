@@ -24,20 +24,18 @@ import org.junit.Test;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.OrderedPairManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class SetOrderedPairModifierTest
 {
 
-	private final LegalScope varScope =
-			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
+	private final PCGenScope varScope = new GlobalScope();
 	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Test

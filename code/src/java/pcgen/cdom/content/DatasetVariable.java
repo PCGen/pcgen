@@ -21,8 +21,8 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.PCGenScope;
 
 /**
  * A DatasetVariable is a variable within the new formula system, as defined by
@@ -43,9 +43,9 @@ public class DatasetVariable extends UserContent
 	private FormatManager<?> format;
 
 	/**
-	 * The scope in which the variable is legal.
+	 * The PCGenScope in which the variable is legal.
 	 */
-	private LegalScope scope;
+	private PCGenScope scope;
 
 	@Override
 	public String getDisplayName()
@@ -54,22 +54,22 @@ public class DatasetVariable extends UserContent
 	}
 
 	/**
-	 * Sets the scope in which the variable is legal.
+	 * Sets the PCGenScope in which the variable is legal.
 	 * 
 	 * @param scope
-	 *            The scope in which the variable is legal
+	 *            The PCGenScope in which the variable is legal
 	 */
-	public void setScope(LegalScope scope)
+	public void setScope(PCGenScope scope)
 	{
 		this.scope = Objects.requireNonNull(scope);
 	}
 
 	/**
-	 * Returns the scope in which the variable is legal.
+	 * Returns the PCGenScope in which the variable is legal.
 	 * 
-	 * @return The scope in which the variable is legal
+	 * @return The PCGenScope in which the variable is legal
 	 */
-	public LegalScope getScope()
+	public PCGenScope getScope()
 	{
 		return scope;
 	}

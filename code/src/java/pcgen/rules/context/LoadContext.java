@@ -21,7 +21,6 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
@@ -30,6 +29,7 @@ import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.DataSetID;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Campaign;
@@ -174,11 +174,11 @@ public interface LoadContext
 	VariableContext getVariableContext();
 
 	/**
-	 * Returns the currently active LegalScope.
+	 * Returns the currently active PCGenScope.
 	 * 
-	 * @return The currently active LegalScope
+	 * @return The currently active PCGenScope
 	 */
-	public LegalScope getActiveScope();
+	public PCGenScope getActiveScope();
 
 	/**
 	 * Directly returns a valid formula with the Format of the given FormatManager.
