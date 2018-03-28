@@ -93,7 +93,6 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		}
 		catch (SemanticsException e)
 		{
-			e.printStackTrace();
 			fail("Failed for unknown reason: " + e.getMessage());
 		}
 
@@ -118,7 +117,6 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		}
 		catch (SemanticsException e)
 		{
-			e.printStackTrace();
 			fail(e.getMessage());
 		}
 	}
