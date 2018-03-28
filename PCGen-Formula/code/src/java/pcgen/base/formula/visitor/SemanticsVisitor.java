@@ -70,7 +70,7 @@ import pcgen.base.util.FormatManager;
  * allowArgs() - called by SemanticsVisitor - and getDependencies() - not called
  * by SemanticsVisitor).
  * 
- * Note that ALL methods from SemanticsVisitor should return a FormatManager<?>.  
+ * Note that ALL methods from SemanticsVisitor should return a FormatManager.  
  * null should not be a legal return value.
  * 
  * The objects to be passed in as data to each of the methods on the
