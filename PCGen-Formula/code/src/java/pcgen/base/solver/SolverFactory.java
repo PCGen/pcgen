@@ -174,4 +174,18 @@ public class SolverFactory implements DefaultStore
 				(Modifier<T>) defaultModifierMap.get(varFormat);
 		return defaultModifier.process(null);
 	}
+
+	/**
+	 * Returns true if there is a default value set for the given Format (provided as a
+	 * Class).
+	 * 
+	 * @param varFormat
+	 *            The Class (data format) to be checked if there is a default value
+	 * @return true if there is a default value set for the given Format (provided as a
+	 *         Class); false otherwise
+	 */
+	public boolean hasDefault(Class<?> varFormat)
+	{
+		return defaultModifierMap.get(varFormat) != null;
+	}
 }
