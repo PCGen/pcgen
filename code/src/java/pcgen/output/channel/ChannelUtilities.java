@@ -20,17 +20,12 @@ package pcgen.output.channel;
 import java.util.Objects;
 
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.ScopeInstanceFactory;
-import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
-import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
-import pcgen.cdom.formula.VariableChannel;
-import pcgen.rules.context.LoadContext;
 
 /**
  * ChannelUtilities are a class for setting up communication channels from the
@@ -44,62 +39,10 @@ public final class ChannelUtilities
 			FacetLibrary.getFacet(ScopeFacet.class);
 	private static final VariableStoreFacet RESULT_FACET =
 			FacetLibrary.getFacet(VariableStoreFacet.class);
-	private static final SolverManagerFacet MGR_FACET =
-			FacetLibrary.getFacet(SolverManagerFacet.class);
 
 	private ChannelUtilities()
 	{
 		//Do not instantiate Utility Class
-	}
-
-	/**
-	 * Retrieves a Channel for the given CharID, owning object, and name of the
-	 * channel.
-	 * 
-	 * @param id
-	 *            The CharID identifying the PlayerCharacter on which the
-	 *            Channel resides
-	 * @param owner
-	 *            The owning object of the Channel
-	 * @param name
-	 *            The name of the channel
-	 * @return A Channel for the given CharID, owning object, and name of the
-	 *         channel
-	 */
-	public static VariableChannel<?> getChannel(CharID id, VarScoped owner,
-		String name)
-	{
-		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		ScopeInstance scopeInst = instFactory.get(owner.getLocalScopeName(), owner);
-		return getChannel(id, scopeInst, name);
-	}
-
-	/**
-	 * Retrieves a (Global) Channel for the given CharID and name of the
-	 * channel.
-	 * 
-	 * @param id
-	 *            The CharID identifying the PlayerCharacter on which the
-	 *            Channel resides
-	 * @param name
-	 *            The name of the channel
-	 * @return A Channel for the given CharID and name of the channel
-	 */
-	public static VariableChannel<?> getGlobalChannel(CharID id, String name)
-	{
-		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
-		return getChannel(id, globalInstance, name);
-	}
-
-	private static VariableChannel<?> getChannel(CharID id,
-		ScopeInstance scopeInst, String name)
-	{
-		String varName = createVarName(name);
-		LoadContext loadContext = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get();
-		VariableID<?> varID =
-				loadContext.getVariableContext().getVariableID(scopeInst, varName);
-		return VariableChannel.construct(MGR_FACET.get(id),
-			RESULT_FACET.get(id), varID);
 	}
 
 	/**

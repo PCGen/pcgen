@@ -177,9 +177,9 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
-import pcgen.output.channel.ChannelUtilities;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
+import pcgen.rules.context.LoadContext;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -427,10 +427,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		GameMode game = (GameMode) dataSet.getGameMode();
 		if (!game.getAlignmentText().isEmpty())
 		{
-			String channelName = ControlUtilities.getControlToken(Globals.getContext(),
-				CControl.ALIGNMENTINPUT);
-			alignment = (WriteableReferenceFacade<PCAlignment>) ChannelUtilities
-					.getGlobalChannel(theCharacter.getCharID(), channelName);
+			LoadContext context = Globals.getContext();
+			String channelName =
+					ControlUtilities.getControlToken(context, CControl.ALIGNMENTINPUT);
+			alignment =
+					(WriteableReferenceFacade<PCAlignment>) context.getVariableContext()
+						.getGlobalChannel(theCharacter.getCharID(), channelName);
 		}
 		age = new DefaultReferenceFacade<>(charDisplay.getAge());
 		ageCategory = new DefaultReferenceFacade<>();
