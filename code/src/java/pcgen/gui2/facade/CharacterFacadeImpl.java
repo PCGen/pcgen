@@ -253,7 +253,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Integer> maxDomains;
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<TemplateFacade> templates;
-	private DefaultListFacade<RaceFacade> raceList;
+	private ListFacade<RaceFacade> raceList;
 	private DefaultListFacade<KitFacade> kitList;
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
@@ -379,11 +379,7 @@ public class CharacterFacadeImpl
 		tabName = new DefaultReferenceFacade<>(charDisplay.getTabName());
 		playersName = new DefaultReferenceFacade<>(charDisplay.getPlayersName());
 		race = new DefaultReferenceFacade<>(charDisplay.getRace());
-		raceList = new DefaultListFacade<>();
-		if (charDisplay.getRace() != null && !charDisplay.getRace().isUnselected())
-		{
-			raceList.addElement(charDisplay.getRace());
-		}
+		raceList = Facades.singletonList(race);
 		handedness = new DefaultReferenceFacade<>();
 		gender = new DefaultReferenceFacade<>();
 
@@ -1878,11 +1874,6 @@ public class CharacterFacadeImpl
 		{
 			Logging.log(Logging.INFO, charDisplay.getName() + ": Setting race to " + race); //$NON-NLS-1$
 			theCharacter.setRace((Race) race);
-			raceList.clearContents();
-			if (!race.isUnselected())
-			{
-				raceList.addElement(race);
-			}
 		}
 		refreshLanguageList();
 		if (selectedGender != null)
